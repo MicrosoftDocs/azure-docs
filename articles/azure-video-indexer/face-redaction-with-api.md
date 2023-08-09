@@ -7,17 +7,15 @@ ms.date: 07/03/2023
 
 # Redact faces by using the Azure AI Video Indexer API
 
-You can use Azure AI Video Indexer to detect and identify faces. Use the Face Redaction API to modify your video to blur (redact) faces of individuals that you specify.
+You can use Azure AI Video Indexer to detect and identify faces in video. To modify your video to blur (redact) faces of specific individuals, you can use the Face Redaction API.
 
-A few minutes of footage that contains multiple faces can take hours to redact manually, but by using this preset, the face redaction process requires just a few simple steps.
+A few minutes of footage that contain multiple faces can take hours to redact manually, but by using presets in the Face Redaction API, the face redaction process requires just a few simple steps.
 
-This article shows how to redact faces by using an API. The Face Redaction API includes a **Face Redaction** preset that offers scalable face detection and redaction (blurring) in the cloud.
+This article shows you how to redact faces by using an API. The Face Redaction API includes a **Face Redaction** preset that offers scalable face detection and redaction (blurring) in the cloud. The article demonstrates each step of how to redact faces by using the API in detail.
 
-The following video shows how to redact a video with Azure AI Video Indexer API.
+The following video shows how to redact a video by using Azure AI Video Indexer API.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RW16UBo]
-
-The article demonstrates each step of how to redact faces by using the API in detail.
 
 ## Compliance, privacy, and security
 
@@ -25,15 +23,15 @@ As an important [reminder](limited-access-features.md), you must comply with all
 
 Face service access is limited based on eligibility and usage criteria to support the Microsoft Responsible AI principles. Face service is available only to Microsoft managed customers and partners. Use the [Face Recognition intake form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu) to apply for access. For more information, see the [Face limited access page](https://learn.microsoft.com/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext).
 
-## Redactor terminology and hierarchy
+## Face redaction terminology and hierarchy
 
-Face redactor in Video Indexer relies on the output of existing Video Indexer face detection results that we provide in our Video Standard and Advanced Analysis presets.
+Face redaction in Video Indexer relies on the output of existing Video Indexer face detection results that we provide in our Video Standard and Advanced Analysis presets.
 
-To redact a video, you must first upload a video to Video Indexer and complete an analysis by using the **Standard** or **Advanced** video presets. You can do this by using the [Azure Video Indexer website](https://www.videoindexer.ai/media/library) or [API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video). You can then use the Redactor API to reference this video by using the `videoId` value. We create a new video in which the indicated faces are redacted. Both the Video Analysis and Face Redaction are separate billable jobs. For more information, see our [pricing page](https://azure.microsoft.com/pricing/details/video-indexer/).
+To redact a video, you must first upload a video to Video Indexer and complete an analysis by using the **Standard** or **Advanced** video presets. You can do this by using the [Azure Video Indexer website](https://www.videoindexer.ai/media/library) or [API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video). You can then use the face redaction API to reference this video by using the `videoId` value. We create a new video in which the indicated faces are redacted. Both the video analysis and face redaction are separate billable jobs. For more information, see our [pricing page](https://azure.microsoft.com/pricing/details/video-indexer/).
 
 ## Types of blurring
 
-You can choose from different types of blurring in face redaction. To select a type, use a name or representative number for the `blurringKind` parameter in the request body: 
+You can choose from different types of blurring in face redaction. To select a type, use a name or representative number for the `blurringKind` parameter in the request body:
 
 |blurringKind number | blurringKind name | Example |
 |---|---|---|
@@ -67,11 +65,11 @@ Or, use a number that represents the type of blurring that's described in the pr
 
 ## Filters
 
-You can apply filters to instruct which face IDs should be blurred. You can specify the IDs of the faces in a comma-separated array in the body of the JSON file. You can use scope to exclude or include these faces for redaction. By specifying IDs, you can either “redact all faces *except* these IDs” or “redact *only* these IDs”. See examples in the next sections.
+You can apply filters to set which face IDs to blur. You can specify the IDs of the faces in a comma-separated array in the body of the JSON file. Use the `scope` parameter to exclude or include these faces for redaction. By specifying IDs, you can either redact all faces *except* the IDs you indicate or redact *only* those IDs. See examples in the next sections.
 
 ### Exclude scope
 
-To redact all faces except 1001 and 1016, use the `Exclude` scope:
+In the following example, to redact all faces except face IDs 1001 and 1016, use the `Exclude` scope:
 
 ```json
 { 
@@ -87,7 +85,7 @@ To redact all faces except 1001 and 1016, use the `Exclude` scope:
 
 ### Include scope
 
-To redact only face IDs 1001 and 1016, use the `Include` scope:
+In the following example, to redact only face IDs 1001 and 1016, use the `Include` scope:
 
 ```json
 { 
@@ -113,11 +111,11 @@ To redact all faces, remove the scope filter:
 } 
 ```
 
-To retrieve the face ID, you can go to the indexed video and retrieve the [artifact file](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url). This artifact contains a *faces.json* file and a thumbnail .zip file that has all the faces. You can match the face to the ID and decide which face IDs need to be redacted.
+To retrieve a face ID, you can go to the indexed video and retrieve the [artifact file](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url). The artifact contains a *faces.json* file and a thumbnail .zip file that has all the faces that were detected in the video. You can match the face to the ID and decide which face IDs to redact.
 
-## Create a redactor job
+## Create a redaction job
 
-To create a redactor job, you can invoke the following API call:
+To create a redaction job, you can invoke the following API call:
 
 ```http
 POST https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/redact[?name][&priority][&privacy][&externalId][&streamingPreset][&callbackUrl][&accessToken]
@@ -141,7 +139,7 @@ https://api.videoindexer.ai/westeurope/Accounts/{id}/Videos/{id}/redact?priority
 
 You can specify the token as an authorization header that has a key value type of `bearertoken:{token}`, or you can provide it as query parameter by using `?token={token}`.
 
-You also need to add a request body in JSON format with the redaction job options. Here's an example:
+You also need to add a request body in JSON format with the redaction job options to apply. Here's an example:
 
 ```json
 { 
@@ -175,7 +173,7 @@ Here's an example response:
 } 
 ```
 
-If you call the same URL when the redaction job is completed, in the `Location` header, you get a storage shared access signature (SAS) URL to the redacted video. For instance:
+If you call the same URL when the redaction job is completed, in the `Location` header, you get a storage shared access signature (SAS) URL to the redacted video. For example:
 
 ```http
 https://api.videoindexer.ai/westeurope/Accounts/<id>/Videos/<id>/SourceFile/DownloadUrl 
@@ -187,11 +185,11 @@ This URL redirects to the .mp4 file that's stored in the Azure Storage account.
 
 | Question | Answer |
 |---|---|
-| Can I upload a video and redact in one operation? | No. You need to first upload and analyze a video by using the Video Indexer API, and reference the indexed video in your redaction job. |
+| Can I upload a video and redact in one operation? | No. You need to first upload and analyze a video by using the Video Indexer API. Then, reference the indexed video in your redaction job. |
 | Can I use the [Azure AI Video Indexer website](https://www.videoindexer.ai/) to redact a video? | No. Currently you can use only the API to create a redaction job.|
 | Can I play back the redacted video by using the Video Indexer [website](https://www.videoindexer.ai/)?| Yes. The redacted video is visible on the Video Indexer website like any other indexed video, but it doesn't contain any insights. |
 | How do I delete a redacted video? | You can use the [Delete Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) API and provide the `Videoid` value for the redacted video. |
-| Do I need to pass facial identification gating to use Face Redactor? | Unless you represent a police department in the United States, no. Even if you’re gated, we continue to offer face detection. We don't offer face identification if you're gated. However, you can redact all faces in a video by using only face detection. |
+| Do I need to pass facial identification gating to use face redaction? | Unless you represent a police department in the United States, no. Even if you’re gated, we continue to offer face detection. We don't offer face identification if you're gated. However, you can redact all faces in a video by using only face detection. |
 | Will face redaction overwrite my original video? | No. The face redaction job creates a new video output file. |
 | Not all faces are properly redacted. What can I do? | Redaction relies on the initial face detection and tracking output of the analysis pipeline. Although we detect all faces most of the time, there are circumstances in which we can't detect a face. Factors like face angle, the number of frames the face is present, and the quality of the source video affect the quality of face redaction. For more information, see [Face insights](face-detection.md). |
 | Can I redact objects other than faces? | No. Currently, we offer only face redaction. If you have a need to redact other objects, you can provide feedback about our product in the [Azure User Voice](https://feedback.azure.com/d365community/forum/8952b9e3-e03b-ec11-8c62-00224825aadf) channel. |
