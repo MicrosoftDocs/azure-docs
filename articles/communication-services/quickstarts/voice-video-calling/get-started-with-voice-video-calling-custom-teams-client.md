@@ -27,7 +27,7 @@ ms.custom: mode-other, devx-track-js
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Video Calling with Android](./includes/custom-teams-endpoint/voice-video-calling-cte-ios.md)]
+[!INCLUDE [Video Calling with iOS](./includes/custom-teams-endpoint/voice-video-calling-cte-ios.md)]
 ::: zone-end
 
 ## Clean up resources
