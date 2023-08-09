@@ -42,7 +42,7 @@ The DICOM service API v2 is now Generally Available (GA) and introduces [several
 
 #### FHIR Service 
 
-**Feature Enhancement: Incremental Import**
+**Introducing Incremental Import**
 
 $Import operation now supports new capability of "Incremental Load" mode, which is optimized for periodically loading data into the FHIR service. 
 
@@ -58,16 +58,16 @@ With Incremental Load mode, customers can:
 
 For details on Incremental Import, visit [Import Documentation](./../healthcare-apis/fhir/configure-import-data.md).
 
-**Feature Enhancement: Reindex operation provides job status at resource level**
+**Reindex operation provides job status at resource level**
 
 Reindex operation supports determining the status of the reindex operation with help of API call `GET {{FHIR_URL}}/_operations/reindex/{{reindexJobId}}`.
 Details per resource, on the number of completed reindexed resources can be obtained with help of the new field, added in the response- "resourceReindexProgressByResource". For details, visit [3286](https://github.com/microsoft/fhir-server/pull/3286).
 
-**Bug Fix: FHIR Search Query optimization of complex queries**
+**FHIR Search Query optimization of complex queries**
 
 We have seen issues where complex FHIR queries with Reference Search Parameters would time out. Issue is fixed by updating the SQL query generator to use an INNER JOIN for Reference Search Parameters. For details, visit [#3295](https://github.com/microsoft/fhir-server/pull/3295).
 
-**Bug Fix: Metadata endpoint URL in capability statement is relative URL**
+**Metadata endpoint URL in capability statement is relative URL**
 
 Per FHIR specification, metadata endpoint URL in capability statement needs to be an absolute URL. For details on the FHIR specification, visit [Capability Statement](https://www.hl7.org/fhir/capabilitystatement-definitions.html#CapabilityStatement.url). This fix addresses the issue, for details visit [3265](https://github.com/microsoft/fhir-server/pull/3265).
 
