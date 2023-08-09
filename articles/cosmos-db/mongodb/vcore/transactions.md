@@ -3,7 +3,7 @@ title: ACID Transactions in Azure Cosmos DB for MongoDB vCore
 description: Delve deep into the importance and functionality of ACID transactions in Azure Cosmos DB's MongoDB vCore.
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 08/08/2023
 author: gahl-levy
 ms.author: gahllevy
