@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 08/09/2023
 ms.custom: references_regions
 ---
 
@@ -20,7 +20,7 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 
 + **Basic** provides dedicated computing resources for production workloads at a smaller scale, but shares some networking infrastructure with other tenants.
 
-+ **Standard** runs on dedicated machines with more storage and processing capacity at every level. Standard comes in four levels: S1, S2, S3, and S3 HD. S3 High Density (S3 HD) is engineered for [multi-tenancy](search-modeling-multitenant-saas-applications.md) and large quantities of small indexes (three thousand indexes per service). S3 HD doesn't provide the [indexer feature](search-indexer-overview.md) and data ingestion must leverage APIs that push data from source to index. 
++ **Standard** runs on dedicated machines with more storage and processing capacity at every level. Standard comes in four levels: S1, S2, S3, and S3 HD. S3 High Density (S3 HD) is engineered for [multi-tenancy](search-modeling-multitenant-saas-applications.md) and large quantities of small indexes (three thousand indexes per service). S3 HD doesn't provide the [indexer feature](search-indexer-overview.md) and data ingestion must use APIs that push data from source to index. 
 
 + **Storage Optimized** runs on dedicated machines with more total storage, storage bandwidth, and memory than **Standard**. This tier targets large, slow-changing indexes. Storage Optimized comes in two levels: L1 and L2.
 
@@ -51,7 +51,7 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 
 <sup>3</sup> An upper limit exists for elements because having a large number of them significantly increases the storage required for your index. An element of a complex collection is defined as a member of that collection. For example, assume a [Hotel document with a Rooms complex collection](search-howto-complex-data-types.md#indexing-complex-types), each room in the Rooms collection is considered an element. During indexing, the indexing engine can safely process a maximum of 3000 elements across the document as a whole. [This limit](search-api-migration.md#upgrade-to-2019-05-06) was introduced in `api-version=2019-05-06` and applies to complex collections only, and not to string collections or to complex fields.
 
-You might find some variation in maximum limits if your service happens to be provisioned on a more powerful cluster. The limits here represent the common denominator. Indexes built to the above specifications will be portable across equivalent service tiers in any region.
+You might find some variation in maximum limits if your service happens to be provisioned on a more powerful cluster. The limits here represent the common denominator. Indexes built to the above specifications are portable across equivalent service tiers in any region.
 
 <a name="document-limits"></a>
 
@@ -69,15 +69,15 @@ When estimating document size, remember to consider only those fields that can b
 
 ## Vector index size limits
 
-When you index documents with vector fields, we construct internal vector indexes and use the algorithm parameters you provide. The size of these vector indexes is restricted by the memory reserved for vector search for your service's tier (or SKU).
+When you index documents with vector fields, we construct internal vector indexes using the algorithm parameters you provide. The size of these vector indexes is restricted by the memory reserved for vector search for your service's tier (or SKU).
 
 The service enforces a vector index size quota **for every partition** in your search service. Each extra partition increases the available vector index size quota. This quota is a hard limit to ensure your service remains healthy, which means that further indexing attempts once the limit is exceeded results in failure. You may resume indexing once you free up available quota by either deleting some vector documents or by scaling up in partitions.
 
-The table describes the vector index size quota per partition across the service tiers (or SKU). Use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota.
+The table describes the vector index size quota per partition across the service tiers (or SKU). For context, it includes the [storage limits](#storage-limits) for each tier. Use the [Get Service Statistics API (GET /servicestats)](/rest/api/searchservice/get-service-statistics) to retrieve your vector index size quota.
 
 See our [documentation on vector index size](./vector-search-index-size.md) for more details.
 
-### Services created prior to July 1st, 2023
+### Services created prior to July 1, 2023
 
 | Tier   | Storage quota (GB) | Vector index size quota per partition (GB) | Approx. floats per partition (assuming 15% overhead) |
 | ----- | ------------------ | ------------------------------------------ | ---------------------------- |
@@ -88,9 +88,9 @@ See our [documentation on vector index size](./vector-search-index-size.md) for 
 | L1    | 1,000              | 12                                         | 2,800 million                |
 | L2    | 2,000              | 36                                         | 8,400 million                |
 
-### Services created after July 1st, 2023 in supported regions
+### Services created after July 1, 2023 in supported regions
 
-Azure Cognitive Search is rolling out increased vector index size limits worldwide for **new search services**, but the team is building out infrastructure capacity in certain regions. Unfortunately, existing services cannot be migrated to the new limits.
+Azure Cognitive Search is rolling out increased vector index size limits worldwide for **new search services**, but the team is building out infrastructure capacity in certain regions. Unfortunately, existing services can't be migrated to the new limits.
 
 The following regions **do not** support increased limits:
 
@@ -134,7 +134,7 @@ Maximum running times exist to provide balance and stability to the service as a
 
 <sup>5</sup> AI enrichment and image analysis are computationally intensive and consume disproportionate amounts of available processing power. Running time for these workloads has been shortened to give other jobs in the queue more opportunity to run.
 
-<sup>6</sup> Indexer execution and indexer-skillset combined execution is subject to a 2-hour maximum duration.  Currently, some indexers have a longer 24-hour maximum execution window, but that behavior isn't the norm. The longer window only applies if a service or its indexers can't be internally migrated to the newer runtime behavior. If more than 2 hours are needed to complete an indexer or indexer-skillset process, [schedule the indexer](search-howto-schedule-indexers.md) to run at 2-hour intervals.
+<sup>6</sup> Indexer execution and combined indexer-skillset execution is subject to a 2-hour maximum duration.  Currently, some indexers have a longer 24-hour maximum execution window, but that behavior isn't the norm. The longer window only applies if a service or its indexers can't be internally migrated to the newer runtime behavior. If more than 2 hours are needed to complete an indexer or indexer-skillset process, [schedule the indexer](search-howto-schedule-indexers.md) to run at 2-hour intervals.
 
 > [!NOTE]
 > As stated in the [Index limits](#index-limits), indexers will also enforce the upper limit of 3000 elements across all complex collections per document starting with the latest GA API version that supports complex types (`2019-05-06`) onwards. This means that if you've created your indexer with a prior API version, you will not be subject to this limit. To preserve maximum compatibility, an indexer that was created with a prior API version and then updated with an API version `2019-05-06` or later, will still be **excluded** from the limits. Customers should be aware of the adverse impact of having very large complex collections (as stated previously) and we highly recommend creating any new indexers with the latest GA API version.
