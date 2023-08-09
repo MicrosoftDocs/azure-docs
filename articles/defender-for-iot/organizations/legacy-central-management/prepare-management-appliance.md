@@ -10,7 +10,7 @@ ms.date: 08/07/2023
 
 [!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
-This article is one in a series of articles describing the [deployment path](air-gapped-deploy.md) for a Microsoft Defender for IoT on-premises management console for air-gapped OT sensors.
+This article is one in a series of articles describing the [deployment path](legacy-air-gapped-deploy.md) for a Microsoft Defender for IoT on-premises management console for air-gapped OT sensors.
 
 :::image type="content" source="../media/deployment-paths/management-prepare.png" alt-text="Diagram of a progress bar with Prepare your appliance highlighted." border="false" lightbox="../media/deployment-paths/management-prepare.png":::
 
@@ -51,12 +51,12 @@ If you want to deploy a CA-signed certificate during initial deployment, make su
 For more information, see:
 
 - [Create SSL/TLS certificates for OT appliances](../ot-deploy/create-ssl-certificates.md)
-- [Manage SSL/TLS certificates](../legacy-central-management/how-to-manage-the-on-premises-management-console.md#manage-ssltls-certificates)
+- [Manage SSL/TLS certificates](how-to-manage-the-on-premises-management-console.md#manage-ssltls-certificates)
 
 ## Next steps
 
 > [!div class="step-by-step"]
-> [« Defender for IoT OT deployment path](ot-deploy-path.md)
+> [« Defender for IoT OT deployment path](../ot-deploy/ot-deploy-path.md)
 
 > [!div class="step-by-step"]
 > [Install Microsoft Defender for IoT on-premises management console software »](install-software-on-premises-management-console.md)

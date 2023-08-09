@@ -40,16 +40,16 @@ To view detected devices in the **Device Inventory** page in an on-premises mana
 
 For example:
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/device-inventory-data-table.png" alt-text="Screenshot of the on-premises management console Device Inventory page." lightbox="media/how-to-work-with-asset-inventory-information/device-inventory-data-table.png":::
+:::image type="content" source="../media/how-to-work-with-asset-inventory-information/device-inventory-data-table.png" alt-text="Screenshot of the on-premises management console Device Inventory page." lightbox="../media/how-to-work-with-asset-inventory-information/device-inventory-data-table.png":::
 
 Use any of the following options to modify or filter the devices shown:
 
 |Option  |Steps  |
 |---------|---------|
-| **Sort devices** | To sort the grid by a specific column, select the **Sort** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-order-icon.png" border="false"::: button in the column you want to sort by. Use the arrow buttons that appear to sort ascending or descending. |
-|**Filter devices shown**    |  1. In the column that you want to filter, select the **Filter** button :::image type="icon" source="media/how-to-work-with-asset-inventory-information/filter-a-column-icon.png" border="false":::.<br>2. In the **Filter** box, define your filter value.  <br><br>Filters aren't saved when you refresh the **Device Inventory** page. |
+| **Sort devices** | To sort the grid by a specific column, select the **Sort** :::image type="icon" source="../media/how-to-work-with-asset-inventory-information/alphabetical-order-icon.png" border="false"::: button in the column you want to sort by. Use the arrow buttons that appear to sort ascending or descending. |
+|**Filter devices shown**    |  1. In the column that you want to filter, select the **Filter** button :::image type="icon" source="../media/how-to-work-with-asset-inventory-information/filter-a-column-icon.png" border="false":::.<br>2. In the **Filter** box, define your filter value.  <br><br>Filters aren't saved when you refresh the **Device Inventory** page. |
 | **Save a filter** | To save the current set of filters, select the **Save As** button that appears in the filter row.|
-| **Load a saved filter** | Saved filters are listed on the left, in the **Groups** pane. <br><br>1. Select the **Options** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/options-menu.png"border="false"::: button in the toolbar to display the **Groups** pane. <br>2. In the **Device Inventory Filters** list, select the saved filter you want to load.  |
+| **Load a saved filter** | Saved filters are listed on the left, in the **Groups** pane. <br><br>1. Select the **Options** :::image type="icon" source="../media/how-to-work-with-asset-inventory-information/options-menu.png"border="false"::: button in the toolbar to display the **Groups** pane. <br>2. In the **Device Inventory Filters** list, select the saved filter you want to load.  |
 
 For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
 
@@ -72,7 +72,7 @@ To view alerts from connected OT sensors for a specific zone, use the **Site Man
 
 Export your device inventory to a CSV file to manage or share data outside of the OT sensor.
 
-To export device inventory data, select the **Import/Export file** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: button, and then select one of the following:
+To export device inventory data, select the **Import/Export file** :::image type="icon" source="../media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: button, and then select one of the following:
 
 - **Export Device Inventory View**: Exports only the devices currently displayed, with the current filter applied
 - **Export All Device Inventory**: Exports the entire device inventory, with no filtering
@@ -101,7 +101,7 @@ Enhance data by adding it manually or by running a customized version of our [au
 
 For example, the following image shows an example of how you might use enhanced data in the device inventory:
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/enterprise-data-integrator-graph.png" alt-text="Diagram of the data integrator.":::
+:::image type="content" source="../media/how-to-work-with-asset-inventory-information/enterprise-data-integrator-graph.png" alt-text="Diagram of the data integrator.":::
 
 # [Add data manually](#tab/manually)
 
@@ -109,7 +109,7 @@ To enhance your data manually:
 
 1. Sign in to your on-premises management console, and select **Device inventory**.
 
-1. On the top-right, select the **Settings** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon.png" border="false"::: button to open the **Device Inventory Settings** dialog.
+1. On the top-right, select the **Settings** :::image type="icon" source="../media/how-to-work-with-asset-inventory-information/menu-icon.png" border="false"::: button to open the **Device Inventory Settings** dialog.
 
 1. In the **Device Inventory Settings** dialog box, select **ADD CUSTOM COLUMN**.
 
@@ -117,13 +117,13 @@ To enhance your data manually:
 
 1. Select **Manual** > **SAVE**. The new item appears in the **Device Inventory Settings** dialog box.
 
-1. In the upper-right corner of the **Device Inventory** window, select the **Import/Export file** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: button > **Export All Device Inventory**.
+1. In the upper-right corner of the **Device Inventory** window, select the **Import/Export file** :::image type="icon" source="../media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: button > **Export All Device Inventory**.
 
     A CSV file is generated with the data displayed.
 
 1. Download and open the CSV file for editing, and manually add your information to the new column.
 
-1. Back in the **Device inventory** page, at the top-right, select the **Import/Export file** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: button again > **Import Manual Input Columns**. Browse to and select your edited CSV file.
+1. Back in the **Device inventory** page, at the top-right, select the **Import/Export file** :::image type="icon" source="../media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: button again > **Import Manual Input Columns**. Browse to and select your edited CSV file.
 
 The new data appears in the **Device Inventory** grid.
 
@@ -135,7 +135,7 @@ To enhance your data using automation scripts:
 
 1. Sign in to your on-premises management console, and select **Device inventory**.
 
-1. On the side, select the **Settings** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon.png" border="false"::: button to open the **Device Inventory Settings** dialog.
+1. On the side, select the **Settings** :::image type="icon" source="../media/how-to-work-with-asset-inventory-information/menu-icon.png" border="false"::: button to open the **Device Inventory Settings** dialog.
 
 1. In the **Device Inventory Settings** dialog box, select **ADD CUSTOM COLUMN**.
 

@@ -11,6 +11,7 @@ ms.collection:
 
 [!INCLUDE [zero-trust-principles](../../../includes/security/zero-trust-principles.md)]
 
+<!--need to update this to remove the cm?-->
 Defender for IoT uses site and zone definitions across your OT network to ensure that you're maintaining network hygiene and keeping each subsystem separate and secure.
 
 This tutorial describes how to monitor your OT network with Defender for IoT and Zero Trust principles.

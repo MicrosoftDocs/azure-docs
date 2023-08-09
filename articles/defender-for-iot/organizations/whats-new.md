@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [New architecture hybrid and air-gapped support](#new-architecture-hybrid-and-air-gapped-support) |
+| **OT networks** | [New architecture hybrid and air-gapped support](#new-architecture-for-hybrid-and-air-gapped-support) |
 
 ### New architecture for hybrid and air-gapped support
 

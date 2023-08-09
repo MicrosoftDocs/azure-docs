@@ -35,7 +35,7 @@ Before performing the procedures in this article, make sure that you have:
 
 1. Select an alert row to expand its full details. For example:
 
-    :::image type="content" source="media/alerts/alerts-cm-expand.png" alt-text="Screenshot of the Alerts page on the on-premises management console with one alert expanded for details.":::
+    :::image type="content" source="../media/alerts/alerts-cm-expand.png" alt-text="Screenshot of the Alerts page on the on-premises management console with one alert expanded for details.":::
 
 1. In an expanded alert row, do any of the following to view more context about the alert:
 
@@ -71,9 +71,9 @@ To view alerts from connected OT sensors across your entire global network, use 
 
     In any view but the **Default View**, your sites appear in red, yellow, or green. Red sites have alerts that require immediate action, yellow sites have alerts that justify investigation, and green sites require no action.
 
-1. Select any site that's red or yellow, and then select the :::image type="icon" source="media/legacy-central-management/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false"::: alerts button for a specific OT sensor to jump to that sensor's current alerts. For example:
+1. Select any site that's red or yellow, and then select the :::image type="icon" source="../media/legacy-central-management/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false"::: alerts button for a specific OT sensor to jump to that sensor's current alerts. For example:
 
-    :::image type="content" source="media/legacy-central-management/how-to-work-with-alerts-on-premises-management-console/select-alerts-button.png" alt-text="Screenshot showing the Alerts button.":::
+    :::image type="content" source="../media/legacy-central-management/how-to-work-with-alerts-on-premises-management-console/select-alerts-button.png" alt-text="Screenshot showing the Alerts button.":::
 
     The **Alerts** page opens, automatically filtered to the selected alerts.
 
@@ -90,7 +90,7 @@ To view alerts from connected OT sensors for a specific zone, use the **Site Man
     - **Business Unit**: Select to view all OT sensors, or only those from a [specific business unit](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
     - **Region**: Select to view all OT sensors, or only those from a [specific region](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
 
-1. Select the :::image type="icon" source="media/legacy-central-management/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false":::  alerts button for a specific OT sensor to jump to that sensor's current alerts.
+1. Select the :::image type="icon" source="../media/legacy-central-management/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false":::  alerts button for a specific OT sensor to jump to that sensor's current alerts.
 
 ## Manage alert status and triage alerts
 
@@ -98,7 +98,7 @@ Use the following options to manage alert status on your on-premises management 
 
 - **To acknowledge or unacknowledge an alert**: In an expanded alert row, select **ACKNOWLEDGE** or **UNACKNOWLEDGE** as needed.
 
-- **To mute or unmute an alert**: In an expanded alert row, hover over the top of the row and select the :::image type="icon" source="media/alerts/mute-on-prem.png" border="false"::: **Mute** button or :::image type="icon" source="media/alerts/unmute-on-prem.png" border="false"::: **Unmute** button as needed.
+- **To mute or unmute an alert**: In an expanded alert row, hover over the top of the row and select the :::image type="icon" source="../media/alerts/mute-on-prem.png" border="false"::: **Mute** button or :::image type="icon" source="../media/alerts/unmute-on-prem.png" border="false"::: **Unmute** button as needed.
 
 For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).
 

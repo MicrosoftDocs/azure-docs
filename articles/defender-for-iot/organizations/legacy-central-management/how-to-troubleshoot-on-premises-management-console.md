@@ -28,11 +28,11 @@ Check your system health from the on-premises management console.
 
 1. Select **System Settings** > **System Statistics**.
 
-    :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false":::
+    :::image type="icon" source="../media/tutorial-install-components/system-statistics-icon.png" border="false":::
 
 1. System health data appears. Select an item to view more details in the box. For example:
 
-    :::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
+    :::image type="content" source="../media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
 
 System health checks include the following:
 
@@ -123,9 +123,9 @@ For further troubleshooting, you may want to export logs to send to the support 
 
     For example:
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-on-premises-management-console.png" alt-text="Screenshot of the Export Troubleshooting Information dialog in the on-premises management console." lightbox="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-on-premises-management-console.png":::
+    :::image type="content" source="../media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-on-premises-management-console.png" alt-text="Screenshot of the Export Troubleshooting Information dialog in the on-premises management console." lightbox="../media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-on-premises-management-console.png":::
 
-1. Select the file link to download the exported log, and also select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view its one-time password.
+1. Select the file link to download the exported log, and also select the :::image type="icon" source="../media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view its one-time password.
 
 1. To open the exported logs, forward the downloaded file and the one-time password to the support team. Exported logs can be opened only together with the Microsoft support team.
 

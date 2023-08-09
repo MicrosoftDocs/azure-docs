@@ -9,7 +9,7 @@ ms.collection:
 
 # Create OT sites and zones on an on-premises management console
 
-This article is one in a series of articles describing the [deployment path](air-gapped-deploy.md) for a Microsoft Defender for IoT on-premises management console for air-gapped OT sensors.
+This article is one in a series of articles describing the [deployment path](legacy-air-gapped-deploy.md) for a Microsoft Defender for IoT on-premises management console for air-gapped OT sensors.
 
 :::image type="content" source="../media/deployment-paths/management-sites-zones.png" alt-text="Diagram of a progress bar with Configure sites and zones highlighted." border="false" lightbox="../media/deployment-paths/management-sites-zones.png":::
 
@@ -174,5 +174,5 @@ For each site or zone, select the options menu to make changes, or to delete a s
 You've now finished deploying your on-premises management console. For more information, see:
 
 - [Tutorial: Monitor your OT networks with Zero Trust principles](../monitor-zero-trust.md)
-- [Maintain the on-premises management console](../legacy-central-management/how-to-manage-the-on-premises-management-console.md)
-- [Manage sensors from the on-premises management console](../legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md)
+- [Maintain the on-premises management console](how-to-manage-the-on-premises-management-console.md)
+- [Manage sensors from the on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
