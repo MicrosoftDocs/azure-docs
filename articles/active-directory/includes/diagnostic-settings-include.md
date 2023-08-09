@@ -20,4 +20,3 @@ ms.custom: include file
 1. Enter a **Diagnostic setting name**. If you're editing an existing integration, you can't change the name.
 
 1. Select the log categories that you want to stream.
-    - For detailed information about each of the logs you can stream, see [Diagnostic settings log options](concept-diagnostic-settings-log-options.md).
