@@ -30,6 +30,7 @@ To use Application Proxy, you need a Windows server running Windows Server 2012 
 - For high availability in your environment, we recommend having more than one Windows server. 
 - The minimum .NET version required for the connector is v4.7.1+.
 - For more information, see [App Proxy connectors](../active-directory/app-proxy/application-proxy-connectors.md#requirements-and-deployment)
+- To determine what version of .NET framework...
 
 ### Prepare your on-premises environment
 
@@ -73,6 +74,8 @@ To use Private Access, install a connector on each Windows server you're using f
 > Setting up App Proxy connectors and connector groups require planning and testing to ensure you have the right configuration for your organization. If you don't already have connector groups set up, pause this process and return when you have a connector group ready.
 >
 >The minimum version of connector required for Private Access is **1.5.3417.0**.
+>Starting from the version 1.5.3437.0, having the .NET version 4.7.1 or greater is required for successful installation (upgrade). 
+
 
 **To install the connector**:
 
