@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 07/28/2023
+ms.date: 08/09/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 zone_pivot_groups: spring-apps-plan-selection
 ---
@@ -17,8 +17,6 @@ zone_pivot_groups: spring-apps-plan-selection
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
-
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
 This article explains how to deploy a small application to run on Azure Spring Apps.
 
