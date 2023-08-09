@@ -28,7 +28,7 @@ Use the below tables to find all the relevant information on number availability
 
 ## Subscription eligibility
 
-To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired by Azure free credits. Also, phone number availability is dependant on 
+To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired by Azure free credits. Also, due to regulatory reasons phone number availability is dependent on your Azure subscription billing location.
 
 More details on eligible subscription types are as follows:
 
