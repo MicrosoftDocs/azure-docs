@@ -28,7 +28,7 @@
 - name: Tutorials
   expanded: false
   items:
-  - name: Receive device messages through Azure IoT Hub
+  - name: Receive device messages via Azure IoT Hub
     href: device-messages-through-iot-hub.md 
 - name: How-to guides
   expanded: false
