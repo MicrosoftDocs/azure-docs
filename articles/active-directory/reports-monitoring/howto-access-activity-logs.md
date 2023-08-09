@@ -15,7 +15,7 @@ ms.reviewer: besiler
 
 # How To: Access activity logs in Azure AD
 
-The data in your Azure Active Directory (Azure AD) logs enables you to assess many aspects of your Azure AD tenant. To cover a broad range of scenarios, Azure AD provides you with various options to access your activity log data. As an IT administrator, you need to understand the intended uses cases for these options, so that you can select the right access method for your scenario.  
+The data collected in your Azure Active Directory (Azure AD) logs enables you to assess many aspects of your Azure AD tenant. To cover a broad range of scenarios, Azure AD provides you with several options to access your activity log data. As an IT administrator, you need to understand the intended uses cases for these options, so that you can select the right access method for your scenario.  
 
 You can access Azure AD activity logs and reports using the following methods:
 
@@ -32,7 +32,7 @@ Each of these methods provides you with capabilities that may align with certain
 
 ## Prerequisites
 
-The required roles and licenses may vary based on the report. Global Administrator can access all reports, but we recommend using a role with least privilege access to align with the [Zero Trust guidance](/security/zero-trust/zero-trust-overview).
+The required roles and licenses may vary based on the report. Global Administrators can access all reports, but we recommend using a role with least privilege access to align with the [Zero Trust guidance](/security/zero-trust/zero-trust-overview).
 
 | Log / Report | Roles | Licenses |
 |--|--|--|
@@ -42,7 +42,7 @@ The required roles and licenses may vary based on the report. Global Administrat
 | Usage and insights | Security Reader<br>Reports Reader<br> Security Administrator | Premium P1/P2 |
 | Identity Protection* | Security Administrator<br>Security Operator<br>Security Reader<br>Global Reader | Azure AD Free/Microsoft 365 Apps<br>Azure AD Premium P1/P2 |
 
-*The level of access and capabilities for Identity Protection varies with the role and license. For more information, see the [license requirements for Identity Protection](../identity-protection/overview-identity-protection.md#license-requirements).
+*The level of access and capabilities for Identity Protection vary with the role and license. For more information, see the [license requirements for Identity Protection](../identity-protection/overview-identity-protection.md#license-requirements).
 
 Audit logs are available for features that you've licensed. To access the sign-ins logs using the Microsoft Graph API, your tenant must have an Azure AD Premium license associated with it.
 
@@ -70,7 +70,7 @@ The SIEM tools you can integrate with your event hub can provide analysis and mo
 
 ## Access logs with Microsoft Graph API
 
-The Microsoft Graph API provides a unified programmability model that you can use to access data for your Azure AD Premium tenants. It doesn't require an administrator or developer to set up extra infrastructure to support your script or app. The Microsoft Graph API is **not** designed for pulling large amounts of activity data. Pulling large amounts of activity data using the API may lead to issues with pagination and performance. 
+The Microsoft Graph API provides a unified programmability model that you can use to access data for your Azure AD Premium tenants. It doesn't require an administrator or developer to set up extra infrastructure to support your script or app.  
 
 ### Recommended uses
 

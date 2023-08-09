@@ -28,7 +28,7 @@ items:
     - name: Provisioning logs
       href: concept-provisioning-logs.md
   - name: How-to guides 
-    expanded: false
+    expanded: true
     items:
     - name: How to access activity logs
       href: howto-access-activity-logs.md
@@ -60,7 +60,7 @@ items:
     - name: Plan a reporting and monitoring deployment
       href: plan-monitoring-and-reporting.md
   - name: How-to guides 
-    expanded: false
+    expanded: true
     items:
     - name: Stream logs to an event hub
       href: howto-stream-logs-to-event-hub.md
@@ -77,12 +77,12 @@ items:
         href: howto-analyze-activity-logs-log-analytics.md
 
 - name: Identity Recommendations
-  expanded: true
+  expanded: false
   items:
     - name: How to use Identity recommendations
       href: howto-use-recommendations.md
     - name: Recommendation details
-      expanded: true
+      expanded: false
       items:
         - name: Migrate ADAL to MSAL
           href: recommendation-migrate-from-adal-to-msal.md
@@ -104,12 +104,12 @@ items:
           href: recommendation-renew-expiring-service-principal-credential.md
 
 - name: Identity Workbooks
-  expanded: true
+  expanded: false
   items:
     - name: How to use Azure AD workbooks
       href: howto-use-azure-monitor-workbooks.md
     - name: Workbook descriptions
-      expanded: true
+      expanded: false
       items:
       - name: Authentication prompts analysis
         href: workbook-authentication-prompts-analysis.md
@@ -127,7 +127,7 @@ items:
         href: workbook-mfa-gaps.md
 
 - name: Common troubleshooting scenarios
-  expanded: true
+  expanded: false
   items:
   - name: Manage inactive user accounts in Azure AD
     href: howto-manage-inactive-user-accounts.md
