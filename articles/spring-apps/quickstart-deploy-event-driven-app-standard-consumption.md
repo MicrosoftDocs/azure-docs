@@ -30,7 +30,7 @@ The sample project is an event-driven application that subscribes to a [Service 
 
 ::: zone pivot="sc-enterprise"
 
-- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise tier in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 ::: zone-end
 
