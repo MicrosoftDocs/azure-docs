@@ -21,18 +21,6 @@ This article describes high availability in Azure Database for PostgreSQL - Flex
 Azure Database for PostgreSQL: Flexible Server offers high availability support by provisioning physically separate primary and standby replica either within the same availability zone (zonal) or across availability zones (zone-redundant).  This high availability model is designed to ensure that committed data is never lost in the case of failures, and the database doesn't become a single point of failure in your software architecture. For more information on high availability and availability zone support, see [Availability zone support in the section below](#availability-zone-support).
 
 
-## Configurations without high availability
-
-Although it's not recommended, you can configure you flexible server without high availability enabled. For flexible servers configured without high availability, the service provides local redundant storage with three copies of data, zone-redundant backup (in regions where it is supported), and built-in server resiliency to automatically restart a crashed server and relocate the server to another physical node.  Uptime [SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/postgresql) is offered in this configuration. During planned or unplanned failover events, if the server goes down, the service maintains the availability of the servers using the following automated procedure:
-
-1. A new compute Linux VM is provisioned.
-2. The storage with data files is mapped to the new virtual machine
-3. PostgreSQL database engine is brought online on the new virtual machine.
-
-The picture below shows the transition between VM and storage failure.
-
-:::image type="content" source="../postgresql/flexible-server/media/business-continuity/concepts-availability-without-zone-redundant-ha-architecture.png" alt-text="Diagram that shows availability without zone redundant ha - steady state." border="false" lightbox="../postgresql/flexible-server/media/business-continuity/concepts-availability-without-zone-redundant-ha-architecture.png"::: 
-
 ## Availability zone support
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
@@ -55,7 +43,7 @@ There are two high availability architectural models:
 >[!NOTE]
 >Both zonal and zone-redundant deployment models architecturally behave the same. Various discussions in the following sections apply to both unless called out otherwise.
 
-## Prerequisites
+### Prerequisites
 
 **Zone redundancy:**
 
@@ -72,7 +60,7 @@ There are two high availability architectural models:
 - The **zonal** deployment option is available in all [Azure regions](../postgresql/flexible-server/overview.md#azure-regions) where you can deploy Flexible Server. 
 
 
-## Availability zones - features
+### Features
 
 * A standby replica is deployed in the same VM configuration - including vCores, storage, network settings - as the primary server.
 
@@ -94,7 +82,7 @@ There are two high availability architectural models:
   
 * Periodic maintenance activities such as minor version upgrades happen at the standby first and the service failed to reduce downtime.  
 
-## Availability zones - limitations
+### Limitations
 
 * Due to synchronous replication to the standby server, especially with a zone-redundant configuration, applications can experience elevated write and commit latency.
 
@@ -120,7 +108,7 @@ There are two high availability architectural models:
 
 *  Availability zones are configured only within a single region. Availability zones cannot be configured across regions. 
 
-## SLA
+### SLA
 
 -  **Zone-Redundancy** model offers uptime [SLA of 99.95%](https://azure.microsoft.com/support/legal/sla/postgresql).
 
@@ -128,31 +116,31 @@ There are two high availability architectural models:
 
  To see the SLAs offered with Flexible Server, go to [Azure Database for PostgreSQL SLAs](https://azure.microsoft.com/support/legal/sla/postgresql).
 
-## Create an Azure Database for PostgreSQL - Flexible Server with availability zone enabled
+### Create an Azure Database for PostgreSQL - Flexible Server with availability zone enabled
 
 To learn how to create an Azure Database for PostgreSQL - Flexible Server for high availability with availability zones, see [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server in the Azure portal](/azure/postgresql/flexible-server/quickstart-create-server-portal).
 
-## Availability zone redeployment and migration
+### Availability zone redeployment and migration
 
 To learn how to enable or disable high availability configuration in your flexible server in both zone-redundant and zonal deployment models see [Manage high availability in Flexible Server](../postgresql/flexible-server/how-to-manage-high-availability-portal.md).
 
 
-## High availability components and workflow
+### High availability components and workflow
 
-### Transaction completion
+#### Transaction completion
 
 Application transaction-triggered writes and commits are first logged to the WAL on the primary server. It is then streamed to the standby server using the Postgres streaming protocol. Once the logs are persisted on the standby server storage, the primary server is acknowledged for write completion. Only then and the application confirmed the writes. This additional round-trip adds more latency to your application. The percentage of impact depends on the application. This acknowledgment process does not wait for the logs to be applied to the standby server. The standby server is permanently in recovery mode until it is promoted.
 
-### Health check 
+#### Health check 
 
 Flexible server health monitoring periodically checks for both the primary and standby health. If, after multiple pings, health monitoring detects that a primary server isn't reachable, the service then initiates an automatic failover to the standby server. The health monitoring algorithm is based on multiple data points to avoid false positive situations. 
 
-### Failover modes
+#### Failover modes
 
 Flexible server supports two failover modes, [**Planned failover**](#planned-failover) and [**Unplanned failover**](#unplanned-failover). In both modes, once the replication is severed, the standby server runs the recovery before being promoted as a primary and opens for read/write. With automatic DNS entries updated with the new primary server endpoint, applications can connect to the server using the same endpoint. A new standby server is established in the background, so that your application can maintain connectivity.
 
 
-### High availability status
+#### High availability status
 
 The health of primary and standby servers are continuously monitored, and appropriate actions are taken to remediate issues, including triggering a failover to the standby server. The high availability statuses are listed below:
 
@@ -169,7 +157,7 @@ The health of primary and standby servers are continuously monitored, and approp
 >[!NOTE]
 > You can enable high availability during server creation or at a later time as well. If you are enabling or disabling high availability during the post-create stage, operating when the primary server activity is low is recommended.
 
-### Steady-state operations
+#### Steady-state operations
 
 PostgreSQL client applications are connected to the primary server using the DB server name. Application reads are served directly from the primary server. At the same time, commits and writes are confirmed to the application only after the log data is persisted on both the primary server and the standby replica. Due to this additional round-trip, applications can expect elevated latency for writes and commits. You can monitor the health of the high availability on the portal.
 
@@ -180,7 +168,7 @@ PostgreSQL client applications are connected to the primary server using the DB 
 3. Primary receives an acknowledgment.
 4. Writes/commits are acknowledged.
 
-### Point-in-time restore of high availability servers
+#### Point-in-time restore of high availability servers
 
 For flexible servers configured with high availability, log data is replicated in real-time to the standby server. Any user errors on the primary server - such as an accidental drop of a table or incorrect data updates, are replicated to the standby replica. So, you cannot use standby to recover from such logical errors. To recover from such errors, you have to perform a point-in-time restore from the backup. Using a flexible server's point-in-time restore capability, you can restore to the time before the error occurred. A new database server will be restored as a single-zone flexible server with a new user-provided server name for databases configured with high availability. You can use the restored server for a few use cases:
 
@@ -188,9 +176,9 @@ For flexible servers configured with high availability, log data is replicated i
 2. If you want to restore an object, export it from the restored database server and import it to your production database server.
 3. If you want to clone your database server for testing and development purposes or to restore for any other purposes, you can perform the point-in-time restore.
 
-## Failover Support
+### Failover Support
 
-### Planned failover
+#### Planned failover
 
 Planned downtime events include Azure scheduled periodic software updates and minor version upgrades.You can also use a planned failover to return the primary server to a preferred availability zone.  When configured in high availability, these operations are first applied to the standby replica while the applications continue to access the primary server. Once the standby replica is updated, primary server connections are drained, and a failover is triggered, which activates the standby replica to be the primary with the same database server name. Client applications will have to reconnect with the same database server name to the new primary server and can resume their operations. A new standby server will be established in the same zone as the old primary. 
 
@@ -224,14 +212,14 @@ Application downtime starts at step #3 and can resume operation post step #5. Th
 
 For a list of possible planned downtime events, see [Planned downtime events](/azure/postgresql/flexible-server/concepts-business-continuity#planned-downtime-events)
 
-### Unplanned failover
+#### Unplanned failover
 
 Unplanned downtimes can occur as a result of unforeseen disruptions such as underlying hardware fault, networking issues, and software bugs. If the database server configured with high availability goes down unexpectedly, then the standby replica is activated and the clients can resume their operations. If not configured with high availability (HA), then if the restart attempt fails, a new database server is automatically provisioned. While an unplanned downtime can't be avoided, flexible server helps mitigating the downtime by automatically performing recovery operations without requiring human intervention.
 
 For information on unplanned failovers and downtime, including possible scenarios, see [Unplanned downtime mitigation](/azure/postgresql/flexible-server/concepts-business-continuity#unplanned-downtime-mitigation).
 
 
-### Failover testings (forced failover)
+#### Failover testings (forced failover)
 
 With a forced failover, you can simulate an unplanned outage scenario while running your production workload and observe your application downtime. You can also use a forced failover when your primary server becomes unresponsive.
 
@@ -273,12 +261,24 @@ Application downtime is expected to start after step #1 and persists until step 
 
 ### Zone-down experience
 
-### Zone outage recovery
+#### Zone outage recovery
 
 **Zonal**. To recover from a zone-level failure, you can perform point-in-time restore using the backup. You can choose a custom restore point with the latest time to restore the latest data. A new flexible server will be deployed in another non-impacted zone. The time taken to restore depends on the previous backup and the volume of transaction logs to recover.
 
 **Zone-redundant**. Flexible server is automatically failed over to the standby server within 60-120s with zero data loss.
 
+
+## Configurations without high availability
+
+Although it's not recommended, you can configure you flexible server without high availability enabled. For flexible servers configured without high availability, the service provides local redundant storage with three copies of data, zone-redundant backup (in regions where it is supported), and built-in server resiliency to automatically restart a crashed server and relocate the server to another physical node.  Uptime [SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/postgresql) is offered in this configuration. During planned or unplanned failover events, if the server goes down, the service maintains the availability of the servers using the following automated procedure:
+
+1. A new compute Linux VM is provisioned.
+2. The storage with data files is mapped to the new virtual machine
+3. PostgreSQL database engine is brought online on the new virtual machine.
+
+The picture below shows the transition between VM and storage failure.
+
+:::image type="content" source="../postgresql/flexible-server/media/business-continuity/concepts-availability-without-zone-redundant-ha-architecture.png" alt-text="Diagram that shows availability without zone redundant ha - steady state." border="false" lightbox="../postgresql/flexible-server/media/business-continuity/concepts-availability-without-zone-redundant-ha-architecture.png"::: 
 
 ## Disaster recovery: cross-region failover
 
