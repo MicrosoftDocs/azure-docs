@@ -632,7 +632,13 @@
 - name: Related
   items:
   - name: Azure Automation
+    href: ../backup/index.yml
+  - name: Azure Backup
     href: ../automation/index.yml
+  - name: Azure Resource Mover
+    href: ../resource-mover/index.yml
+  - name: Azure Migrate
+    href: ../migrate/index.yml
 - name: Resources
   items:
   - name: Azure Roadmap
