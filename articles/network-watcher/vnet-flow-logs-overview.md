@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 08/14/2023
+ms.date: 08/16/2023
 ---
 
 # VNet flow logs (preview)
@@ -133,22 +133,22 @@ In the following example of VNet flow logs, multiple records that follow the pro
         {
             "time": "2022-09-14T09:00:52.5625085Z",
             "flowLogVersion": 4,
-            "flowLogGUID": "daf543bb-8d76-4221-8e66-2f874f3625eb",
+            "flowLogGUID": "abcdef01-2345-6789-0abc-def012345678",
             "macAddress": "00224871C205",
             "category": "FlowLogFlowEvent",
-            "flowLogResourceID": "/SUBSCRIPTIONS/AF15E575-F948-49AC-BCE0-252D028E9379/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS2EUAP/FLOWLOGS/VNETFLOWLOG",
-            "targetResourceID": "/subscriptions/af15e575-f948-49ac-bce0-252d028e9379/resourceGroups/trdey-rg/providers/Microsoft.Network/virtualNetworks/vnetfl",
+            "flowLogResourceID": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS2EUAP/FLOWLOGS/VNETFLOWLOG",
+            "targetResourceID": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
             "operationName": "FlowLogFlowEvent",
             "flowRecords": {
                 "flows": [
                     {
-                        "aclID": "1aa8c000-fd32-4a0d-b3c6-c7c80fcfa6fa",
+                        "aclID": "00000000-1234-abcd-ef00-c1c2c3c4c5c6",
                         "flowGroups": [
                             {
                                 "rule": "DefaultRule_AllowInternetOutBound",
                                 "flowTuples": [
                                     "1663146003599,10.0.0.6,52.239.184.180,23956,443,6,O,B,NX,0,0,0,0",
-                                   "1663146003606,10.0.0.6,52.239.184.180,23956,443,6,O,E,NX,3,767,2,1580",
+                                    "1663146003606,10.0.0.6,52.239.184.180,23956,443,6,O,E,NX,3,767,2,1580",
                                     "1663146003637,10.0.0.6,40.74.146.17,22730,443,6,O,B,NX,0,0,0,0",
                                     "1663146003640,10.0.0.6,40.74.146.17,22730,443,6,O,E,NX,3,705,4,4569",
                                     "1663146004251,10.0.0.6,40.74.146.17,22732,443,6,O,B,NX,0,0,0,0",
@@ -162,7 +162,7 @@ In the following example of VNet flow logs, multiple records that follow the pro
                         ]
                     },
                     {
-                        "aclID": "082de8d8-b438-49ef-b093-30606cdffc8a",
+                        "aclID": "01020304-abcd-ef00-1234-102030405060",
                         "flowGroups": [
                             {
                                 "rule": "BlockHighRiskTCPPortsFromInternet",
@@ -241,7 +241,7 @@ To sign up to obtain access to the public preview, see [VNet flow logs - public 
 ## Next steps
 
 - To learn how to create, change, enable, disable, or delete VNet flow logs, see [PowerShell](vnet-flow-logs-powershell.md) or [Azure CLI](vnet-flow-logs-cli.md) VNet flow logs articles.
-- To learn about traffic analytics, see [Traffic analytics](traffic-analytics.md).
+- To learn about traffic analytics, see [Traffic analytics](traffic-analytics.md) and [Traffic analytics schema](traffic-analytics-schema.md).
 - To learn how to use Azure built-in policies to audit or enable traffic analytics, see [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).
 
 
