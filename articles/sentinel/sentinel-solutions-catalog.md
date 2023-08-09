@@ -3,7 +3,7 @@ title: Microsoft Sentinel content hub catalog | Microsoft Docs
 description: This article lists the solutions currently available in the content hub for Microsoft Sentinel and where to find the full list of solutions.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 06/22/2023
+ms.date: 08/08/2023
 ms.author: cwatson
 ---
 
@@ -11,11 +11,17 @@ ms.author: cwatson
 
 Solutions in Microsoft Sentinel provide a consolidated way to acquire Microsoft Sentinel content, like data connectors, workbooks, analytics, and automation, in your workspace with a single deployment step.
 
-This article lists the domain-specific out-of-the-box (built-in) and on-demand solutions available for you to deploy in your workspace. For the full list of solutions in Microsoft Sentinel, see [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel).
+This article helps you find the full list of the solutions available in Microsoft Sentinel. This article also lists the domain-specific out-of-the-box (built-in) and on-demand solutions available for you to deploy in your workspace.
 
 When you deploy a solution, the security content included with the solution, such as data connectors, playbooks, or workbooks, are available in the relevant views for the content. For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md).
 
+## All solutions for Microsoft Sentinel
+
+To get the full list of all solutions available in Microsoft Sentinel, see the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel). Search for a specific product solution or provider. Filter by **Product Type** = **Solution Templates** to see solutions for Microsoft Sentinel.
+
 ## Domain solutions
+
+The following table lists the the domain-specific out-of-the-box (built-in) and on-demand solutions available for you to deploy in your workspace.
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
@@ -47,9 +53,6 @@ When you deploy a solution, the security content included with the solution, suc
 |**[Zero Trust (TIC 3.0)](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-zerotrust?tab=Overview)**  |[Analytics rules, playbook,  workbooks](/security/zero-trust/integrate/sentinel-solution) |Compliance, Identity, Security - Others |Microsoft  |
 |**[ZINC Open Source Threat Protection](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-zincopensource?tab=Overview)**|[Analytic rules](https://www.microsoft.com/security/blog/2022/09/29/zinc-weaponizing-open-source-software/)|Security - Threat Intelligence|Microsoft|
 
-## All Microsoft Sentinel solutions
-
-For the full list of solutions in Microsoft Sentinel, see [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel).
 
 ## Next steps
 

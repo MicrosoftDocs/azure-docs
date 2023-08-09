@@ -334,7 +334,40 @@ sections:
       - question: |
           Can I switch from server-side encryption with customer-managed keys to Azure Disk Encryption?
         answer: |
-          Yes. First, switch your disk to use platform-managed keys, and then encrypt your current disk with Azure Disk Encryption.
+          Yes. First, switch your disk to use platform-managed keys with one of the following steps:
+
+          # [Portal](#tab/azure-portal)
+
+          1. Sign in to the Azure portal.
+          1. Select the disk you'd like to change the encryption type of.
+          1. Select **Encryption**.
+          1. For **Key management** select **Platform-managed key** and select save.
+
+          Your managed disk has successfully switched from being secured with your own customer-managed key to a platform-managed key.
+
+          # [Azure CLI](#tab/azure-cli)
+
+          Your existing disks must not be attached to a running VM in order for you to encrypt them using the following script:
+
+          ```azurecli
+          rgName=yourResourceGroupName
+          diskName=yourDiskName
+          
+          az disk update -n $diskName -g $rgName --encryption-type EncryptionAtRestWithPlatformKey
+          ```
+
+          # [Azure PowerShell](#tab/azure-powershell)
+
+          Your existing disks must not be attached to a running VM in order for you to encrypt them using the following script:
+
+          ```PowerShell
+          $rgName = "yourResourceGroupName"
+          $diskName = "yourDiskName"
+          
+          New-AzDiskUpdateConfig -EncryptionType "EncryptionAtRestWithPlatformKey" | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
+          ```
+          ---
+          Then, encrypt your current disk with Azure Disk Encryption.
 
   - name: "Premium disks: Managed and unmanaged"
     questions:

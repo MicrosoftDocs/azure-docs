@@ -99,7 +99,7 @@
       href: ./security-controls-policy.md
 - name: How-to guides
   items:
-  - name: Scale
+  - name: Scale and geo-replicate
     items:
     - name: Single instance
       href: signalr-howto-scale-signalr.md
@@ -107,6 +107,8 @@
       href: signalr-howto-scale-multi-instances.md
     - name: Autoscale
       href: signalr-howto-scale-autoscale.md
+    - name: Geo-replication
+      href: howto-enable-geo-replication.md
   - name: Secure
     items:
     - name: Access key rotation

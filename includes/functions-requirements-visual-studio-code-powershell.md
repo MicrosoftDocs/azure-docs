@@ -1,7 +1,7 @@
 ---
 author: ggailey777
 ms.service: azure-functions
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ms.topic: include
 ms.date: 07/26/2022
 ms.author: glenga

@@ -94,8 +94,8 @@ Monitor your service accounts to ensure usage patterns are correct, and that the
 
 Use one of the following monitoring methods:
 
-* Azure AD Sign-In Logs in the Azure portal
-* Export the Azure AD Sign-In Logs to 
+* Azure AD sign-in logs in the Azure portal
+* Export the Azure AD sign-in logs to 
   * [Azure Storage documentation](../../storage/index.yml)
   * [Azure Event Hubs documentation](../../event-hubs/index.yml), or 
   * [Azure Monitor Logs overview](../../azure-monitor/logs/data-platform-logs.md)
