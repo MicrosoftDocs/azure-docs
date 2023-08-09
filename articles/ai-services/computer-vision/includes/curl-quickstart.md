@@ -22,7 +22,7 @@ Use the optical character recognition (OCR) REST API to read printed and handwri
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 - [cURL](https://curl.haxx.se/) installed.
-- [An Azure AI Vision resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision). You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+- <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision" title="create a Vision resource" target="_blank">An Azure AI Vision resource</a>. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 - The key and endpoint from the resource you create to connect your application to the Azure AI Vision service.
 
   1. After your Azure Vision resource deploys, select **Go to resource**.

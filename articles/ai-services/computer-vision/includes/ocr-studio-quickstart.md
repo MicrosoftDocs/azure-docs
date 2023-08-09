@@ -26,7 +26,7 @@ ms.author: pafarley
 
 ## Read printed and handwritten text
 
-1. Under **Optical character recognition** > **Extract text from images**.
+1. Under **Optical character recognition**, select **Extract text from images**.
 1. Under **Try it out**, acknowledge that this demo incurs usage to your Azure account. For more information, see [Azure AI Vision pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/).
 1. Select an image from the available set, or upload your own.
 1. If necessary, select **Please select a resource** to select your resource.
