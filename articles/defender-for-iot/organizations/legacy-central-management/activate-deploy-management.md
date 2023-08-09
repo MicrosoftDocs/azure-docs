@@ -25,7 +25,7 @@ Before performing the procedures in this article, you need to have:
 
 - Access to the on premises management console as one of the [privileged users supplied during installation](install-software-on-premises-management-console.md#users)
 
-- An SSL/TLS certificate. We recommend using a CA-signed certificate, and not a self-signed certificate. For more information, see [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md).
+- An SSL/TLS certificate. We recommend using a CA-signed certificate, and not a self-signed certificate. For more information, see [Create SSL/TLS certificates for OT appliances](../create-ssl-certificates.md).
 
 - Access to the Azure portal as a [Security Admin](../../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../../role-based-access-control/built-in-roles.md#owner) user
 
@@ -90,7 +90,7 @@ The following procedures describe how to deploy an SSL/TLS certificate on your O
 The requirements for SSL/TLS certificates are the same for OT sensors and on-premises management consoles. For more information, see:
 
 - [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md)
-- [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md)
+- [Create SSL/TLS certificates for OT appliances](../create-ssl-certificates.md)
 
 **To upload a CA-signed certificate**:
 

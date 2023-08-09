@@ -29,7 +29,7 @@ Before performing the procedures in this article, make sure that you have:
 
 You may need to download software for your on-premises management console if you're [installing Defender for IoT software](install-software-on-premises-management-console.md) on your own appliances, or [updating software versions](../update-ot-software.md).
 
-In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, use one of the following options:
+In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, use one of the following options:
 
 - For a new installation or standalone update, select **Getting started** > **On-premises management console**.
 
@@ -54,7 +54,7 @@ This procedure describes how to add a secondary NIC after [installing your on-pr
 
 1. Enter the following responses to the following questions:
 
-    :::image type="content" source="media/tutorial-install-components/network-reconfig-command.png" alt-text="Screenshot of the required answers to configure your appliance. ":::
+    :::image type="content" source="../media/tutorial-install-components/network-reconfig-command.png" alt-text="Screenshot of the required answers to configure your appliance. ":::
 
     | Parameters | Response to enter |
     |--|--|
@@ -73,7 +73,7 @@ This procedure describes how to add a secondary NIC after [installing your on-pr
 
 You'd activated your on-premises management console as part of your deployment.
 
-You may need to reactivate your on-premises management console as part of maintenance procedures, such as if the total number of monitored devices exceeds the number of [devices that you're licensed for](billing.md).
+You may need to reactivate your on-premises management console as part of maintenance procedures, such as if the total number of monitored devices exceeds the number of [devices that you're licensed for](../billing.md).
 
 **To upload a new activation file to your on-premises management console**:
 
@@ -108,20 +108,20 @@ The following procedures describe how to deploy updated SSL/TLS certificates, su
    | Parameter  | Description  |
    |---------|---------|
    | **Certificate Name**     |   Enter your certificate name.      |
-   | **Passphrase** - *Optional*    |  Enter a [passphrase](best-practices/certificate-requirements.md#supported-characters-for-keys-and-passphrases).       |
+   | **Passphrase** - *Optional*    |  Enter a [passphrase](../best-practices/certificate-requirements.md#supported-characters-for-keys-and-passphrases).       |
    | **Private Key (KEY file)**     |  Upload a Private Key (KEY file).       |
    | **Certificate (CRT file)**     | Upload a Certificate (CRT file).        |
    | **Certificate Chain (PEM file)** - *Optional*    |  Upload a Certificate Chain (PEM file).       |
 
    For example:
 
-   :::image type="content" source="media/how-to-deploy-certificates/management-ssl-certificate.png" alt-text="Screenshot of importing a trusted CA certificate." lightbox="media/how-to-deploy-certificates/management-ssl-certificate.png":::
+   :::image type="content" source="../media/how-to-deploy-certificates/management-ssl-certificate.png" alt-text="Screenshot of importing a trusted CA certificate." lightbox="media/how-to-deploy-certificates/management-ssl-certificate.png":::
 
-   If the upload fails, contact your security or IT administrator. For more information, see [SSL/TLS certificate requirements for on-premises resources](best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](ot-deploy/create-ssl-certificates.md).
+   If the upload fails, contact your security or IT administrator. For more information, see [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](../ot-deploy/create-ssl-certificates.md).
 
-1. Select the **Enable Certificate Validation** option to turn on system-wide validation for SSL/TLS certificates with the issuing [Certificate Authority](ot-deploy/create-ssl-certificates.md#create-a-ca-signed-ssltls-certificate) and [Certificate Revocation Lists](ot-deploy/create-ssl-certificates.md#verify-crl-server-access).
+1. Select the **Enable Certificate Validation** option to turn on system-wide validation for SSL/TLS certificates with the issuing [Certificate Authority](../ot-deploy/create-ssl-certificates.md#create-a-ca-signed-ssltls-certificate) and [Certificate Revocation Lists](../ot-deploy/create-ssl-certificates.md#verify-crl-server-access).
 
-    If this option is turned on and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](best-practices/certificate-requirements.md#crt-file-requirements).
+    If this option is turned on and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](../best-practices/certificate-requirements.md#crt-file-requirements).
 
 1. Select **Save** to save your changes.
 
@@ -141,9 +141,9 @@ Go to the on-premises management console's IP address in a browser and then:
 
 When you're done, use the following procedures to validate your certificate files:
 
-- [Verify CRL server access](ot-deploy/create-ssl-certificates.md#verify-crl-server-access)
-- [Import the SSL/TLS certificate to a trusted store](ot-deploy/create-ssl-certificates.md#import-the-ssltls-certificate-to-a-trusted-store)
-- [Test your SSL/TLS certificates](ot-deploy/create-ssl-certificates.md#test-your-ssltls-certificates)
+- [Verify CRL server access](../ot-deploy/create-ssl-certificates.md#verify-crl-server-access)
+- [Import the SSL/TLS certificate to a trusted store](../ot-deploy/create-ssl-certificates.md#import-the-ssltls-certificate-to-a-trusted-store)
+- [Test your SSL/TLS certificates](../ot-deploy/create-ssl-certificates.md#test-your-ssltls-certificates)
 
 **To deploy a self-signed certificate**:
 
@@ -153,9 +153,9 @@ When you're done, use the following procedures to validate your certificate file
 
 1. Select **I CONFIRM** to acknowledge the warning.
 
-1. Select the **Enable certificate validation** option to validate the certificate against a [CRL server](ot-deploy/create-ssl-certificates.md#verify-crl-server-access). The certificate is checked once during the import process.
+1. Select the **Enable certificate validation** option to validate the certificate against a [CRL server](../ot-deploy/create-ssl-certificates.md#verify-crl-server-access). The certificate is checked once during the import process.
 
-   If this option is turned on and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](best-practices/certificate-requirements.md#crt-file-requirements).
+   If this option is turned on and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](../best-practices/certificate-requirements.md#crt-file-requirements).
 
 1. Select **Save** to save your certificate settings.
 
@@ -175,13 +175,13 @@ To change the name of your on-premises management console:
 
 1. In the **Edit management console configuration** dialog, enter your new name. The name must have a maximum of 25 characters. For example:
 
-    :::image type="content" source="media/how-to-manage-the-on-premises-management-console/change-name.png" alt-text="Screenshot of how to change the name of your on-premises management console.":::
+    :::image type="content" source="../media/how-to-manage-the-on-premises-management-console/change-name.png" alt-text="Screenshot of how to change the name of your on-premises management console.":::
 
 1. Select **Save** to save your changes.
 
 ## Recover a privileged user password
 
-If you no longer have access to your on-premises management console as a [privileged user](roles-on-premises.md#default-privileged-on-premises-users), recover access from the Azure portal.
+If you no longer have access to your on-premises management console as a [privileged user](../roles-on-premises.md#default-privileged-on-premises-users), recover access from the Azure portal.
 
 **To recover privileged user access**:
 
@@ -219,7 +219,7 @@ The on-premises management console's hostname must match the hostname configured
 
 ## Define VLAN names
 
-VLAN names aren't synchronized between an OT sensor and the on-premises management console. If you've [defined VLAN names on your OT sensor](how-to-control-what-traffic-is-monitored.md#customize-a-vlan-name), we recommend that you define identical VLAN names on the on-premises management console.
+VLAN names aren't synchronized between an OT sensor and the on-premises management console. If you've [defined VLAN names on your OT sensor](../how-to-control-what-traffic-is-monitored.md#customize-a-vlan-name), we recommend that you define identical VLAN names on the on-premises management console.
 
 **To define VLAN names**:
 
@@ -235,7 +235,7 @@ VLAN names aren't synchronized between an OT sensor and the on-premises manageme
 
 Define SMTP mail server settings on your on-premises management console so that you configure the on-premises management console to send data to other servers and partner services.
 
-For example, you'll need an SMTP mail server configured to set up mail forwarding and configure [forwarding alert rules](how-to-forward-alert-information-to-partners.md).
+For example, you'll need an SMTP mail server configured to set up mail forwarding and configure [forwarding alert rules](../how-to-forward-alert-information-to-partners.md).
 
 **Prerequisites**:
 
@@ -243,7 +243,7 @@ Make sure you can reach the SMTP server from the on-premises management console.
 
 **To configure an SMTP server on your on-premises management console**:
 
-1. Sign into your on-premises management console as a [privileged user](roles-on-premises.md#default-privileged-on-premises-users) via SSH/Telnet.
+1. Sign into your on-premises management console as a [privileged user](../roles-on-premises.md#default-privileged-on-premises-users) via SSH/Telnet.
 
 1. Run:
 
@@ -261,6 +261,6 @@ Make sure you can reach the SMTP server from the on-premises management console.
 
 For more information, see:
 
-- [Update OT system software](update-ot-software.md)
+- [Update OT system software](../update-ot-software.md)
 - [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
 - [Troubleshoot the on-premises management console](how-to-troubleshoot-on-premises-management-console.md)
