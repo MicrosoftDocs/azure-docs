@@ -183,7 +183,7 @@
     displayName: samples, policies, definitions
     href: policy-reference.md
   - name: License terms
-    href: /legal//legal/azure-arc/license-terms.md?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
+    href: /legal/defender-for-iot/hardware-support-policy?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
 - name: Resources
   items:
   - name: Azure Arc jumpstart
