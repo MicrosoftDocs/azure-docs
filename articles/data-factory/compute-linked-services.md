@@ -180,7 +180,7 @@ You can also specify the following properties for the granular configuration of 
 | stormConfiguration     | Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster. | No       |
 | yarnConfiguration      | Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster. | No       |
 
-* Example – On-demand HDInsight cluster configuration with advanced properties
+* Example - On-demand HDInsight cluster configuration with advanced properties
 
 ```json
 {
