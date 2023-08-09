@@ -316,12 +316,12 @@ Each inventory rule generates a set of files in the specified inventory destinat
 
 Each inventory run for a rule generates the following files:
 
-- **Inventory file:** An inventory run for a rule generates one or more CSV or Apache Parquet formatted files. If the matched object count is large, then multiple files are generated instead of a single file. Each such file contains matched objects and their metadata. 
+- **Inventory file:** An inventory run for a rule generates multiple CSV or Apache Parquet formatted files. Each such file contains matched objects and their metadata. 
 
-  > [!NOTE]
-  > Reports in the Apache Parquet format present dates in the following format: `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`].
-
-  For a CSV formatted file, the first row is always the schema row. The following image shows an inventory CSV file opened in Microsoft Excel.
+  > [!IMPORTANT]
+  > Until September 8, 2023, runs can produce a singe inventory file in cases where the matched object count is small. After September 8, 2023, all runs will produce multiple files regardless of the matched object count. To learn more, see [Multiple inventory file output FAQ](storage-blob-faq.yml).   
+  
+  Reports in the Apache Parquet format present dates in the following format: `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`]. For a CSV formatted file, the first row is always the schema row. The following image shows an inventory CSV file opened in Microsoft Excel.
 
   :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Screenshot of an inventory CSV file opened in Microsoft Excel":::
 
@@ -416,48 +416,6 @@ An inventory job can take a longer amount of time in these cases:
 ### Inventory jobs can't write reports to containers that have an object replication policy
 
 An object replication policy can prevent an inventory job from writing inventory reports to the destination container. Some other scenarios can archive the reports or make the reports immutable when they're partially completed which can cause inventory jobs to fail.
-
-## Blob Inventory – Multiple results files FAQ
-
-### What is the feature that has changed?  What specific change was made?
-
-Blob Inventory report produces three types of files. See [Inventory files](#inventory-files). Existing customers using blob inventory might see a change in the number of inventory files, from one file to multiple files. Today, we already have manifest file which provides the list of files. This behavior remains unchanged so these files will be listed in the manifest file.
-
-### Why was the change made?
-
-The change was implemented to enhance blob inventory performance, particularly for large storage accounts containing over five million objects. Now, results are written in parallel to multiple files, eliminating the bottleneck of using a single inventory file. This change was prompted by customer feedback, as they reported difficulties in opening and working with the excessively large single inventory file.
-
-### How will this change affect me as a user?
-
-As a user, this change will have a positive impact on your experience with blob inventory runs. It is expected to enhance performance and reduce the overall running time. However, to fully benefit from this improvement, you must ensure that your code is updated to process multiple results files instead of just one. This adjustment will align your code with the new approach and optimize the handling of inventory data.
-
-### Will my existing data be affected?
-
-No, existing data is not affected. Only new blob inventory results will have multiple inventory files.
-
-### Will there be any downtime or service interruptions?
-
-No, the change will happen seamlessly.
-
-### Is there anything I need to do differently now?
-
-Your required actions depend on how you currently process blob inventory results:
-
-1. If your current processing assumes a single inventory results file, then you will need to modify your code to accommodate multiple inventory results files.
-
-2. However, if your current processing involves reading the list of results files from the manifest file, there is no need to make any changes to how you process the results. The existing approach will continue to work seamlessly with the updated feature.
-
-### Can I revert to the previous behavior if I don't like the change?
-
-This is not recommended, but it is possible. Please work through your support channels to ask to turn this feature off.
-
-### How can I provide feedback or report issues related to the changes?
-
-Please work through your current account team and support channels.
-
-### When will this change take effect?
-
-This change will start gradual rollout starting September 1st 2023.
 
 ## Next steps
 
