@@ -25,7 +25,7 @@ The file includes all the parameters defined in the automation rule. Rules of an
 
 1. From the Microsoft Sentinel navigation menu, select **Automation**.
 
-1. Select the rule you want to export, and select **Export** from the bar at the top of the screen.
+1. Select the rule (or rules&mdash;see Note below) you want to export, and select **Export** from the bar at the top of the screen.
 
     :::image type="content" source="./media/import-export-automation-rules/export-rule.png" alt-text="Screenshot showing how to export an automation rule." lightbox="./media/import-export-automation-rules/export-rule.png":::
 
@@ -66,7 +66,7 @@ The file includes all the parameters defined in the automation rule. Rules of an
 - **Custom details key doesn't exist:** If you export an automation rule with conditions that reference [custom details keys](create-manage-use-automation-rules.md#conditions-based-on-custom-details), and then import it to another workspace where no analytics rules [surface those custom details](surface-custom-details-in-alerts.md), the following things will happen:
     - The automation rule will successfully deploy in the second workspace.
     - The automation rule will be automatically disabled.
-    - In the automation rule conditions, the custom details key drop-down will display as "Zero selected".
+    - In the automation rule conditions, the custom details key drop-down will display as "Unknown".
 
     To allow this automation rule to run in the second workspace:
     1. Import or create an analytics rule that will [surface the relevant custom details](surface-custom-details-in-alerts.md) in the second workspace.
