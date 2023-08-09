@@ -16,7 +16,7 @@ sections:
   - name: Ignored
     questions:
       - question: What is the DICOM service?
-        answer: The DICOM service is a managed service within [Azure Health Data Services](../healthcare-apis-overview.md) that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb&trade; enabled systems or applications via DICOMweb Standard APIs like [Store (STOW-RS)](dicom-services-conformance-statement.md#store-stow-rs), [Search (QIDO-RS)](dicom-services-conformance-statement.md#search-qido-rs), [Retrieve (WADO-RS)](dicom-services-conformance-statement.md#retrieve-wado-rs). It's backed by a managed Platform-as-a Service (PaaS) offering in the cloud with complete [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) compliance that you can upload PHI data to the DICOM service and exchange it through secure networks.
+        answer: The DICOM service is a managed service within [Azure Health Data Services](../healthcare-apis-overview.md) that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb&trade; enabled systems or applications via DICOMweb Standard APIs like [Store (STOW-RS)](dicom-services-conformance-statement-v2.md#store-stow-rs), [Search (QIDO-RS)](dicom-services-conformance-statement-v2.md#search-qido-rs), [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs). It's backed by a managed Platform-as-a Service (PaaS) offering in the cloud with complete [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) compliance that you can upload PHI data to the DICOM service and exchange it through secure networks.
 
       - question: What are the key requirements to use the DICOM service?
         answer: The DICOM service needs an Azure subscription to configure and run the required components. These components are, by default, created inside of an existing or new Azure Resource Group to simplify management. Additionally, an Azure Active Directory account is required.
@@ -39,7 +39,7 @@ sections:
         answer: |
           The DICOM standard has been fixed at version 3.0 since 1993. However, the standard continues to add both breaking and non-breaking changes through various workgroups.
           
-          No single product, including the DICOM service, fully supports the DICOM standard. Instead, each product includes a DICOM Conformance document that specifies exactly what is supported. (Unsupported features are traditionally not called out explicitly.) For more information, see [DICOM Conformance Statement](dicom-services-conformance-statement.md).
+          No single product, including the DICOM service, fully supports the DICOM standard. Instead, each product includes a DICOM Conformance document that specifies exactly what is supported. (Unsupported features are traditionally not called out explicitly.) For more information, see [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md).
           
       - question: Does the DICOM service store any PHI?
         answer: Absolutely. One of the core objectives for the DICOM service is to support standard and innovating radiologist workflows. These workflows demand the use of PHI data.

@@ -8,6 +8,7 @@ ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-ansible
 ---
 
 # Get started Ansible configuration
@@ -275,6 +276,3 @@ The following tasks are executed on the Central services instance virtual machin
 - Download the software
 
 ---
-
-
-

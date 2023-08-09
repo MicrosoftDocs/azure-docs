@@ -4,9 +4,9 @@ titleSuffix: Azure Machine Learning
 description: Learn how to create compute clusters in your Azure Machine Learning workspace. Use the compute cluster as a compute target for training or inference.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv2, sdkv1, event-tier1-build-2022
+ms.custom: devx-track-azurecli, cliv2, sdkv2, event-tier1-build-2022, build-2023
 ms.author: vijetaj
 author: vijetajo
 ms.reviewer: sgilley
@@ -15,11 +15,7 @@ ms.date: 10/19/2022
 
 # Create an Azure Machine Learning compute cluster
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
-
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning CLI or SDK version you are using:"]
-> * [v1](v1/how-to-create-attach-compute-cluster.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-create-attach-compute-cluster.md)
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Learn how to create and manage a [compute cluster](concept-compute-target.md#azure-machine-learning-compute-managed) in your Azure Machine Learning workspace.
 
@@ -31,15 +27,17 @@ In this article, learn how to:
 * Lower your compute cluster cost with low priority VMs
 * Set up a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the cluster
 
+[!INCLUDE [serverless compute](./includes/serverless-compute.md)]
+
 ## Prerequisites
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service (v2)](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+* The [Azure CLI extension for Machine Learning service (v2)](how-to-configure-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 * If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
 
-    [!INCLUDE [connect ws v2](../../includes/machine-learning-connect-ws-v2.md)]
+    [!INCLUDE [connect ws v2](includes/machine-learning-connect-ws-v2.md)]
 
 
 ## What is a compute cluster?
@@ -50,14 +48,10 @@ Compute clusters can run jobs securely in a [virtual network environment](how-to
 
 ## Limitations
 
-* Some of the scenarios listed in this document are marked as __preview__. Preview functionality is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-* Compute clusters can be created in a different region than your workspace. This functionality is in __preview__, and is only available for __compute clusters__, not compute instances. This preview isn't available if you're using a private endpoint-enabled workspace. 
+* Compute clusters can be created in a different region than your workspace. This functionality is only available for __compute clusters__, not compute instances.
 
     > [!WARNING]
     > When using a compute cluster in a different region than your workspace or datastores, you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
-
-* We currently support only creation (and not updating) of clusters through [ARM templates](/azure/templates/microsoft.machinelearningservices/workspaces/computes). For updating compute, we recommend using the SDK, Azure CLI or UX for now.
 
 * Azure Machine Learning Compute has default limits, such as the number of cores that can be allocated. For more information, see [Manage and request quotas for Azure resources](how-to-manage-quotas.md).
 
@@ -65,13 +59,16 @@ Compute clusters can run jobs securely in a [virtual network environment](how-to
 
 ## Create
 
+> [!NOTE]
+> If you use serverless compute, you don't need to create a compute cluster.
+
 **Time estimate**: Approximately 5 minutes.
 
 Azure Machine Learning Compute can be reused across runs. The compute can be shared with other users in the workspace and is retained between runs, automatically scaling nodes up or down based on the number of runs submitted, and the max_nodes set on your cluster. The min_nodes setting controls the minimum nodes available.
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute cluster creation, is unified and shared with Azure Machine Learning training compute instance quota. 
 
-[!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
+[!INCLUDE [min-nodes-note](includes/machine-learning-min-nodes.md)]
 
 The compute autoscales down to zero nodes when it isn't used.   Dedicated VMs are created to run your jobs as needed.
 
@@ -85,7 +82,7 @@ To create a persistent Azure Machine Learning Compute resource in Python, specif
 * *size**: The VM family of the nodes created by Azure Machine Learning Compute.
 * **max_instances*: The max number of nodes to autoscale up to when you run a job on Azure Machine Learning Compute.
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=cluster_basic)]
 
@@ -96,7 +93,7 @@ You can also configure several advanced properties when you create Azure Machine
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```azurecli
 az ml compute create -f create-cluster.yml
@@ -132,7 +129,7 @@ Create a single- or multi- node compute cluster for your training, batch inferen
 
     |Field  |Description  |
     |---------|---------|
-    | Location | The Azure region where the compute cluster will be created. By default, this is the same location as the workspace. Setting the location to a different region than the workspace is in __preview__, and is only available for __compute clusters__, not compute instances.</br>When using a different region than your workspace or datastores, you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it. |
+    | Location | The Azure region where the compute cluster will be created. By default, this is the same location as the workspace. If you don't have sufficient quota in the default region, switch to a different region for more options.</br>When using a different region than your workspace or datastores, you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it. |
     |Virtual machine type |  Choose CPU or GPU. This type can't be changed after creation     |
     |Virtual machine priority | Choose **Dedicated** or **Low priority**.  Low priority virtual machines are cheaper but don't guarantee the compute nodes. Your job may be preempted.
     |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
@@ -155,11 +152,11 @@ Create a single- or multi- node compute cluster for your training, batch inferen
 
 SSH access is disabled by default.  SSH access can't be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
 
-[!INCLUDE [enable-ssh](../../includes/machine-learning-enable-ssh.md)]
+[!INCLUDE [enable-ssh](includes/machine-learning-enable-ssh.md)]
 
 ### Connect with SSH access
 
-[!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
+[!INCLUDE [ssh-access](includes/machine-learning-ssh-access.md)]
 
 ---
 
@@ -173,13 +170,14 @@ Use any of these ways to specify a low-priority VM:
     
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=cluster_low_pri)]
+
     
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 Set the `vm-priority`:
     
@@ -190,6 +188,9 @@ az ml compute create -f create-cluster.yml
 Where the file *create-cluster.yml* is:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-low-priority.yml":::
+
+> [!NOTE]
+> When you use [serverless compute](./how-to-use-serverless-compute.md), you don't need to create a compute cluster. To specify a low-priority serverless compute, set the `job_tier` to `Spot` in the [queue settings](./how-to-use-serverless-compute.md#configure-properties-for-command-jobs).
 
 # [Studio](#tab/azure-studio)
 
@@ -205,11 +206,13 @@ For information on how to configure a managed identity with your compute cluster
 
 There's a chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create AmlCompute in that workspace. You can either raise a support request against the service or create a new workspace through the portal or the SDK to unblock yourself immediately.
 
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
+
 ### Stuck at resizing
 
 If your Azure Machine Learning compute cluster appears stuck at resizing (0 -> 0) for the node state, this may be caused by Azure resource locks.
 
-[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
+[!INCLUDE [resource locks](includes/machine-learning-resource-lock.md)]
 
 ## Next steps
 

@@ -43,3 +43,10 @@ For successful creation of a Qumulo service, custom role-based access control (R
 ## Next steps
 
 - [Manage Azure Native Qumulo Scalable File Service](qumulo-how-to-manage.md)
+- Get started with Azure Native Qumulo Scalable File Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Qumulo.Storage%2FfileSystems)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp?tab=Overview)

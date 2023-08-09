@@ -202,7 +202,7 @@ Is-db-alive is an database server availability metric for Azure Postgres Flexibl
 
 |Display Name                                     |Metric ID                      |Unit   |Description                                                                                             |Dimension   |Default enabled|
 |-------------------------------------------------|-------------------------------|-------|--------------------------------------------------------------------------------------------------------|------------|---------------|
-|**Database Is Alive** (Preview)                  |`is-db-alive`                  |Count  |Indicates if the database is up or not				                                                   |N/a		    |Yes            |
+|**Database Is Alive** (Preview)                  |`is_db_alive`                  |Count  |Indicates if the database is up or not				                                                   |N/a		    |Yes            |
 
 #### Considerations when using the Database availability metrics
 

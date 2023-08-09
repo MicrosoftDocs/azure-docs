@@ -7,8 +7,7 @@ ms.author: shaas
 ms.reviewer: dineshm 
 ms.date: 05/15/2019
 ms.topic: how-to
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.custom: devx-track-azurepowershell
 ---
 

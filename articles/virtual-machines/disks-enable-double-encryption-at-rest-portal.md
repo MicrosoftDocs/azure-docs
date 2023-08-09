@@ -3,11 +3,10 @@ title: Enable double encryption at rest - Azure portal - managed disks
 description: Enable double encryption at rest for your managed disk data using the Azure portal.
 author: roygara
 
-ms.date: 02/06/2023
+ms.date: 08/02/2023
 ms.topic: how-to
 ms.author: rogarana
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.custom: references_regions
 ---
 
@@ -56,7 +55,7 @@ Double encryption at rest isn't currently supported with either Ultra Disks or P
     :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/disk-encryption-notification-success.png" alt-text="Screenshot of successful permission and role assignment for your key vault." lightbox="media/virtual-machines-disks-double-encryption-at-rest-portal/disk-encryption-notification-success.png":::
 
 1. Navigate to your disk.
-1. Select **Encryption**.
+1. Select **Encryption** under **Settings**.
 1. For **Key management**, select one of the keys under **Platform-managed and customer-managed keys**.
 1. select **Save**.
 

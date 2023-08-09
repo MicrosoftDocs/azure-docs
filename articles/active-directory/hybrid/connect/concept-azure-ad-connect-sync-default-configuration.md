@@ -88,10 +88,10 @@ The following contact objects are **not** synchronized to Azure AD:
 ### Group out-of-box rules
 A group object must satisfy the following to be synchronized:
 
-* Must have less than 50,000 members. This count is the number of members in the on-premises group.
+* Must have less than 250,000 members. This count is the number of members in the on-premises group.
   * If it has more members before synchronization starts the first time, the group is not synchronized.
-  * If the number of members grow from when it was initially created, then when it reaches 50,000 members it stops synchronizing until the membership count is lower than 50,000 again.
-  * Note: The 50,000 membership count is also enforced by Azure AD. You are not able to synchronize groups with more members even if you modify or remove this rule.
+  * If the number of members grow from when it was initially created, then when it reaches 250,000 members it stops synchronizing until the membership count is lower than 250,000 again.
+  * Note: The 250,000 membership count is also enforced by Azure AD. You are not able to synchronize groups with more members even if you modify or remove this rule.
 * If the group is a **Distribution Group**, then it must also be mail enabled. See [Contact out-of-box rules](#contact-out-of-box-rules) for this rule is enforced.
 
 The following group objects are **not** synchronized to Azure AD:

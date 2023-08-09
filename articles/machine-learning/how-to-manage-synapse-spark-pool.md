@@ -1,22 +1,22 @@
 ---
-title: Attach and manage a Synapse Spark pool in Azure Machine Learning (preview)
+title: Attach and manage a Synapse Spark pool in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to attach and manage Spark pools with Azure Synapse 
-author: fbsolo-ms1
-ms.author: franksolomon
+author: ynpandey
+ms.author: yogipandey
 ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to 
-ms.date: 12/01/2022
+ms.date: 05/22/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Attach and manage a Synapse Spark pool in Azure Machine Learning (preview)
+# Attach and manage a Synapse Spark pool in Azure Machine Learning
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you will learn how to attach a [Synapse Spark Pool](../synapse-analytics/spark/apache-spark-concepts.md#spark-pools) in Azure Machine Learning. You can attach a Synapse Spark Pool in Azure Machine Learning in one of these ways:
+In this article, you'll learn how to attach a [Synapse Spark Pool](../synapse-analytics/spark/apache-spark-concepts.md#spark-pools) in Azure Machine Learning. You can attach a Synapse Spark Pool in Azure Machine Learning in one of these ways:
 
 - Using Azure Machine Learning studio UI
 - Using Azure Machine Learning CLI
@@ -28,14 +28,9 @@ In this article, you will learn how to attach a [Synapse Spark Pool](../synapse-
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - [Create an Azure Synapse Analytics workspace in Azure portal](../synapse-analytics/quickstart-create-workspace.md).
 - [Create an Apache Spark pool using the Azure portal](../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
-- To enable this feature:
-  1. Navigate to Azure Machine Learning studio UI.
-  2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
-  3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
-  :::image type="content" source="media/how-to-manage-synapse-spark-pool/how_to_enable_managed_spark_preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
 
 # [CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - [Create an Azure Synapse Analytics workspace in Azure portal](../synapse-analytics/quickstart-create-workspace.md).
@@ -44,7 +39,7 @@ In this article, you will learn how to attach a [Synapse Spark Pool](../synapse-
 - [Install Azure Machine Learning CLI](./how-to-configure-cli.md?tabs=public).
 
 # [Python SDK](#tab/sdk)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 - An Azure subscription; if you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free) before you begin.
 - An Azure Machine Learning workspace. See [Create workspace resources](./quickstart-create-resources.md).
 - [Create an Azure Synapse Analytics workspace in Azure portal](../synapse-analytics/quickstart-create-workspace.md).
@@ -59,34 +54,34 @@ Azure Machine Learning provides multiple options for attaching and managing a Sy
 
 # [Studio UI](#tab/studio-ui)
 
-To attach a Synapse Spark Pool using the Studio Compute tab: 
+To attach a Synapse Spark Pool using the Studio Compute tab:
 
 :::image type="content" source="media/how-to-manage-synapse-spark-pool/synapse_compute_synapse_spark_pool.png" alt-text="Screenshot showing creation of a new Synapse Spark Pool.":::
 
 1. In the **Manage** section of the left pane, select **Compute**.
 1. Select **Attached computes**.
 1. On the **Attached computes** screen, select **New**, to see the options for attaching different types of computes.
-1. Select **Synapse Spark pool (preview)**.
+2. Select **Synapse Spark pool**.
 
-The **Attach Synapse Spark pool (preview)** panel will open on the right side of the screen. In this panel:
+The **Attach Synapse Spark pool** panel will open on the right side of the screen. In this panel:
 
-1. Enter a **Name**, which will refer to the attached Synapse Spark Pool inside the Azure Machine Learning.
+1. Enter a **Name**, which refers to the attached Synapse Spark Pool inside the Azure Machine Learning.
 
-1. Select an Azure **Subscription** from the dropdown menu.
+2. Select an Azure **Subscription** from the dropdown menu.
 
-1. Select a **Synapse workspace** from the dropdown menu.
+3. Select a **Synapse workspace** from the dropdown menu.
 
-1. Select a **Spark Pool** from the dropdown menu.
+4. Select a **Spark Pool** from the dropdown menu.
 
-1. Toggle the **Assign a managed identity** option, to enable it.
+5. Toggle the **Assign a managed identity** option, to enable it.
 
-1. Select a managed **Identity type** to use with this attached Synapse Spark Pool.
+6. Select a managed **Identity type** to use with this attached Synapse Spark Pool.
 
-1. Select **Update**, to complete the Synapse Spark Pool attach process.
+7. Select **Update**, to complete the Synapse Spark Pool attach process.
 
 # [CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 With the Azure Machine Learning CLI, we can attach and manage a Synapse Spark pool from the command line interface, using intuitive YAML syntax and commands.
 
@@ -181,7 +176,7 @@ Class SynapseSparkCompute: This is an experimental class, and may change at any 
 }
 ```
 
-If the attached Synapse Spark pool, with the name specified in the YAML specification file, already exists in the workspace, then `az ml compute attach` command execution will update the existing pool with the information provided in the YAML specification file. You can update the
+If the attached Synapse Spark pool, with the name specified in the YAML specification file, already exists in the workspace, then `az ml compute attach` command execution updates the existing pool with the information provided in the YAML specification file. You can update the
 
 - identity type
 - user assigned identities
@@ -268,9 +263,9 @@ This sample shows the expected output of the above command:
 
 # [Python SDK](#tab/sdk)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-Azure Machine Learning Python SDK (preview) provides convenient functions for attaching and managing Synapse Spark pool, using Python code in Azure Machine Learning Notebooks.
+Azure Machine Learning Python SDK provides convenient functions for attaching and managing Synapse Spark pool, using Python code in Azure Machine Learning Notebooks.
 
 To attach a Synapse Compute using Python SDK, first create an instance of [azure.ai.ml.MLClient class](/python/api/azure-ai-ml/azure.ai.ml.mlclient). This provides convenient functions for interaction with Azure Machine Learning services. The following code sample uses `azure.identity.DefaultAzureCredential` for connecting to a workspace in resource group of a specified Azure subscription. In the following code sample, define the `SynapseSparkCompute` with the parameters:
 - `name` - user-defined name of the new attached Synapse Spark pool. 
@@ -393,7 +388,7 @@ To ensure that the attached Synapse Spark Pool works properly, assign the [Admin
 
     1. In **Role** dropdown menu, select **Synapse Administrator**.
 
-    1. In the **Select user** search box, start typing the name of your Azure Machine Learning Workspace. It will show you a list of attached Synapse Spark pools. Select your desired Synapse Spark pool from the list.
+    1. In the **Select user** search box, start typing the name of your Azure Machine Learning Workspace. It shows you a list of attached Synapse Spark pools. Select your desired Synapse Spark pool from the list.
 
     1. Select **Apply**.
 
@@ -422,11 +417,11 @@ To update managed identity for the attached Synapse Spark pool:
 1. To assign a user-assigned managed identity:
    1. Select **User-assigned** as the **Identity type**.
    1. Select an Azure **Subscription** from the dropdown menu.
-   1. Type the first few letters of the name of user-assigned managed identity in the box showing text **Search by name**. A list with matching user-assigned managed identity names will appear. Select the user-assigned managed identity you want from the list. You can select multiple user-assigned managed identities, and assign them to the attached Synapse Spark pool.
+   1. Type the first few letters of the name of user-assigned managed identity in the box showing text **Search by name**. A list with matching user-assigned managed identity names appears. Select the user-assigned managed identity you want from the list. You can select multiple user-assigned managed identities, and assign them to the attached Synapse Spark pool.
    1. Select **Update**.
 
 # [CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 Execute the `az ml compute update` command, with appropriate parameters, to update the identity associated with an attached Synapse Spark pool. To assign a system-assigned identity, set the `--identity` parameter in the command to `SystemAssigned`, as shown:
 
 ```azurecli
@@ -516,7 +511,7 @@ Class SynapseSparkCompute: This is an experimental class, and may change at any 
 > The parameter `--user-assigned-identities` can take a list of resource IDs and assign multiple user-defined identities to an attached Synapse Spark pool. The first user-assigned identity in the list will be used for submitting a job by default.
 
 # [Python SDK](#tab/sdk)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 To use system-assigned identity, pass `IdentityConfiguration`, with type set to `SystemAssigned`, as the `identity` parameter of the `SynapseSparkCompute` class. This code snippet updates a Synapse Spark pool to use a system-assigned identity:
 
 ```python
@@ -598,7 +593,7 @@ The Azure Machine Learning studio UI also provides a way to detach an attached S
 
 # [CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 An attached Synapse Spark pool can be detached by executing the `az ml compute detach` command with name of the pool passed using `--name` parameter as shown here:
 
@@ -614,9 +609,9 @@ Are you sure you want to perform this operation? (y/n): y
 
 # [Python SDK](#tab/sdk)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
- We will use an `MLClient.compute.begin_delete()` function call. Pass the `name` of the attached Synapse Spark pool, along with the action `Detach`, to the function. This code snippet detaches a Synapse Spark pool from an Azure Machine Learning workspace:
+ We'll use an `MLClient.compute.begin_delete()` function call. Pass the `name` of the attached Synapse Spark pool, along with the action `Detach`, to the function. This code snippet detaches a Synapse Spark pool from an Azure Machine Learning workspace:
 
 ```python
 # import required libraries
@@ -637,12 +632,12 @@ ml_client.compute.begin_delete(name=synapse_name, action="Detach")
 ```
 ---
 
-## Managed Synapse Spark Pool in Azure Machine Learning
+## Serverless Spark compute in Azure Machine Learning
 
-Some user scenarios may require access to a Synapse Spark Pool, during an Azure Machine Learning job submission, without a need to attach a Spark pool. The Azure Synapse Analytics integration with Azure Machine Learning (preview) also provides a serverless Spark compute (preview) experience that allows access to a Spark pool in a job, without a need to attach the compute to a workspace first. [Learn more about the serverless Spark compute (preview) experience](interactive-data-wrangling-with-apache-spark-azure-ml.md).
+Some user scenarios may require access to a serverless Spark compute, during an Azure Machine Learning job submission, without a need to attach a Spark pool. The Azure Synapse Analytics integration with Azure Machine Learning also provides a serverless Spark compute experience. This allows access to a Spark compute in a job, without a need to attach the compute to a workspace first. [Learn more about the serverless Spark compute experience](interactive-data-wrangling-with-apache-spark-azure-ml.md).
 
 ## Next steps
 
-- [Interactive Data Wrangling with Apache Spark in Azure Machine Learning (preview)](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
+- [Interactive Data Wrangling with Apache Spark in Azure Machine Learning](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
 
-- [Submit Spark jobs in Azure Machine Learning (preview)](./how-to-submit-spark-jobs.md)
+- [Submit Spark jobs in Azure Machine Learning](./how-to-submit-spark-jobs.md)

@@ -15,11 +15,8 @@ ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, c
 
 # Deploy MLflow models to online endpoints
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](./v1/how-to-deploy-mlflow-models.md?view=azureml-api-1&preserve-view=true)
-> * [v2 (current version)](how-to-deploy-mlflow-models-online-endpoints.md)
 
 In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to an [online endpoint](concept-endpoints.md) for real-time inference. When you deploy your MLflow model to an online endpoint, you don't need to indicate a scoring script or an environment. This characteristic is referred as __no-code deployment__. 
 
@@ -534,6 +531,7 @@ MLflow models can be deployed to online endpoints without indicating a scoring s
 You will typically select this workflow when:
 
 > [!div class="checklist"]
+> - The model doesn't have a `PyFunc` flavor on it.
 > - You need to customize the way the model is run, for instance, use an specific flavor to load it with `mlflow.<flavor>.load_model()`.
 > - You need to do pre/pos processing in your scoring routine when it is not done by the model itself.
 > - The output of the model can't be nicely represented in tabular data. For instance, it is a tensor representing an image.
@@ -541,9 +539,6 @@ You will typically select this workflow when:
 
 > [!IMPORTANT]
 > If you choose to indicate an scoring script for an MLflow model deployment, you will also have to specify the environment where the deployment will run.
-
-> [!WARNING]
-> Customizing the scoring script for MLflow deployments is only available from the Azure CLI or SDK for Python. If you are creating a deployment using [Azure Machine Learning studio](https://ml.azure.com), please switch to the CLI or the SDK.
 
 ### Steps
 
@@ -668,8 +663,17 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     # [Studio](#tab/studio)
     
-    > [!IMPORTANT]
-    > You can't create custom MLflow deployments in Online Endpoints using the Azure Machine Learning portal. Switch to [Azure Machine Learning CLI](?tabs=azure-cli) or the [Azure Machine Learning SDK for Python](?tabs=python).
+    On [Azure Machine Learning studio portal](https://ml.azure.com), follow these steps:
+   
+    1. From the __Endpoints__ page, Select **+Create**.
+    1. Provide a name and authentication type for the endpoint, and then select __Next__.
+    1. When selecting a model, select the MLflow model registered previously. Select __Next__ to continue.
+    1. When you select a model registered in MLflow format, in the Environment step of the wizard, you don't need a scoring script or an environment. However, you can indicate one by selecting the checkbox __Customize environment and scoring script__.
+
+        :::image type="content" source="media/how-to-batch-scoring-script/configure-scoring-script-mlflow.png" lightbox="media/how-to-batch-scoring-script/configure-scoring-script-mlflow.png" alt-text="Screenshot showing how to indicate an environment and scoring script for MLflow models":::
+    
+    1. Select the environment and scoring script you created before, then select __Next__.
+    1. Complete the wizard to deploy the model to the endpoint.
 
     ---
 

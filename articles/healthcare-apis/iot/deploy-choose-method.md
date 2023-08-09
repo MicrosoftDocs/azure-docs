@@ -4,9 +4,9 @@ description: Learn about the different methods for deploying the MedTech service
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-bicep
 ms.topic: quickstart
-ms.date: 04/28/2023
+ms.date: 07/05/2023
 ms.author: jasteppe
 ---
 
@@ -20,10 +20,10 @@ The MedTech service provides multiple methods for deployment into Azure. Each de
 In this quickstart, learn about these deployment methods:
 
 * Azure Resource Manager template (ARM template) including an Azure Iot Hub using the **Deploy to Azure** button. 
-* ARM template using the **Deploy to Azure** button
-* ARM template using Azure PowerShell or the Azure CLI
-* Bicep file using Azure PowerShell or the Azure CLI
-* Azure portal 
+* ARM template using the **Deploy to Azure** button.
+* ARM template using Azure PowerShell or the Azure CLI.
+* Bicep file using Azure PowerShell or the Azure CLI.
+* Azure portal.
 
 ## Deployment overview
 
@@ -80,9 +80,19 @@ To learn more about deploying the MedTech service using the Azure portal, see [D
 
 In this quickstart, you learned about the different types of deployment methods for the MedTech service. 
 
-To learn about the MedTech service, see
+To learn about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [What is the MedTech service?](overview.md)
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+
+For an overview of the MedTech service device data processing stages, see
+
+> [!div class="nextstepaction"]
+> [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
+
+For frequently asked questions (FAQs) about the MedTech service, see
+
+> [!div class="nextstepaction"]
+> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

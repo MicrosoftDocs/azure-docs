@@ -3,7 +3,7 @@ title: Configure a managed identity
 titleSuffix: Azure Deployment Environments
 description: Learn how to configure a managed identity to deploy environments in your Azure Deployment Environments dev center.
 ms.service: deployment-environments
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 04/25/2023
@@ -12,10 +12,10 @@ ms.topic: how-to
 
 # Configure a managed identity for a dev center
 
-A [managed identity](../active-directory/managed-identities-azure-resources/overview.md) adds elevated-privileges capabilities and secure authentication to any service that supports Azure Active Directory (Azure AD) authentication. Azure Deployment Environments Preview uses identities to give development teams self-serve deployment capabilities without giving them access to the subscriptions in which Azure resources are created.
+A [managed identity](../active-directory/managed-identities-azure-resources/overview.md) adds elevated-privileges capabilities and secure authentication to any service that supports Azure Active Directory (Azure AD) authentication. Azure Deployment Environments uses identities to give development teams self-serve deployment capabilities without giving them access to the subscriptions in which Azure resources are created.
 
 The managed identity that's attached to a dev center should be [assigned the Owner role in the deployment subscriptions](how-to-configure-managed-identity.md#assign-a-subscription-role-assignment-to-the-managed-identity) for each environment type. When an environment deployment is requested, the service grants appropriate permissions to the deployment identities that are set up for the environment type to deploy on behalf of the user.
-The managed identity that's attached to a dev center also is used to add to a [catalog](how-to-configure-catalog.md) and access [catalog items](configure-catalog-item.md) in the catalog.
+The managed identity that's attached to a dev center also is used to add to a [catalog](how-to-configure-catalog.md) and access [environment definitions](configure-environment-definition.md) in the catalog.
 
 In this article, you learn how to:
 
@@ -25,20 +25,17 @@ In this article, you learn how to:
 > - Assign a subscription role assignment to a managed identity
 > - Grant access to a key vault secret for a managed identity
 
-> [!IMPORTANT]
-> Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise are not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Add a managed identity
 
 In Azure Deployment Environments, you can choose between two types of managed identities:
 
 - **System-assigned identity**: A system-assigned identity is tied either to your dev center or to the project environment type. A system-assigned identity is deleted when the attached resource is deleted. A dev center or a project environment type can have only one system-assigned identity.
-- **User-assigned identity**: A user-assigned identity is a standalone Azure resource that you can assign to your dev center or to a project environment type. For Azure Deployment Environments Preview, a dev center or a project environment type can have only one user-assigned identity.
+- **User-assigned identity**: A user-assigned identity is a standalone Azure resource that you can assign to your dev center or to a project environment type. For Azure Deployment Environments, a dev center or a project environment type can have only one user-assigned identity.
 
 As a security best practice, if you choose to use user-assigned identities, use different identities for your project and your dev center. Project identities should have more limited access to resources compared to a dev center.
 
 > [!NOTE]
-> In Azure Deployment Environments Preview, if you add both a system-assigned identity and a user-assigned identity, only the user-assigned identity is used.
+> In Azure Deployment Environments, if you add both a system-assigned identity and a user-assigned identity, only the user-assigned identity is used.
 
 ### Add a system-assigned managed identity to a dev center
 

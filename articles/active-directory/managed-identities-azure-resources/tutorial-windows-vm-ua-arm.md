@@ -36,7 +36,7 @@ You learn how to:
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-- [Sign in to Azure portal](https://portal.azure.com)
+- Sign in to the [Azure portal](https://portal.azure.com)
 
 - [Create a Windows virtual machine](../../virtual-machines/windows/quick-create-portal.md)
 
@@ -118,7 +118,7 @@ Update-AzVM -ResourceGroupName TestRG -VM $vm -IdentityType "UserAssigned" -Iden
 
 This section shows how to grant your user-assigned identity access to a Resource Group in Azure Resource Manager. Managed identities for Azure resources provide identities that your code can use to request access tokens to authenticate to resource APIs that support Azure AD authentication. In this tutorial, your code will access the Azure Resource Manager API.
 
-Before your code can access the API, you need to grant the identity access to a resource in Azure Resource Manager. In this case, the Resource Group in which the VM is contained. Update the value for `<SUBSCRIPTION ID>` as appropriate for your environment.
+Before your code can access the API, you need to grant the identity access to a resource in Azure Resource Manager. In this case, the Resource Group in which the VM is contained. Update the value for `<SUBSCRIPTIONID>` as appropriate for your environment.
 
 ```azurepowershell-interactive
 $spID = (Get-AzUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1).principalid
@@ -128,8 +128,8 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subsc
 The response contains details for the role assignment created, similar to the following example:
 
 ```azurepowershell
-RoleAssignmentId: /subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourcegroups/myResourceGroupVM/providers/Microsoft.Authorization/roleAssignments/f9cc753d-265e-4434-ae19-0c3e2ead62ac
-Scope: /subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourcegroups/myResourceGroupVM
+RoleAssignmentId: /subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/providers/Microsoft.Authorization/roleAssignments/f9cc753d-265e-4434-ae19-0c3e2ead62ac
+Scope: /subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM
 DisplayName: ID1
 SignInName:
 RoleDefinitionName: Reader
@@ -143,9 +143,11 @@ CanDelegate: False
 
 ### Get an access token
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 For the remainder of the tutorial, you will work from the VM we created earlier.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the portal, navigate to **Virtual Machines** and go to the Windows virtual machine and in the **Overview**, click **Connect**.
 

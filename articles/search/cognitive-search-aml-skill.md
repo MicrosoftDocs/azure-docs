@@ -7,7 +7,7 @@ manager: liamca
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
-ms.custom: event-tier1-build-2022
+ms.custom: 
 ms.topic: conceptual
 ms.date: 12/01/2022
 ---

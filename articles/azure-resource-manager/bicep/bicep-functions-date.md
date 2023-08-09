@@ -1,11 +1,9 @@
 ---
 title: Bicep functions - date
 description: Describes the functions to use in a Bicep file to work with dates.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 05/03/2022
+ms.date: 06/23/2023
 ---
 
 # Date functions for Bicep
@@ -67,7 +65,7 @@ var startTime = dateTimeAdd(baseTime, 'PT1H')
 
 ...
 
-resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31' = {
+resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2022-08-08' = {
   name: concat(omsAutomationAccountName, '/', scheduleName)
   properties: {
     description: 'Demo Scheduler'
@@ -220,7 +218,7 @@ The next example shows how to use a value from the function when setting a tag v
 param utcShort string = utcNow('d')
 param rgName string
 
-resource myRg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
+resource myRg 'Microsoft.Resources/resourceGroups@2022-09-01' = {
   name: rgName
   location: 'westeurope'
   tags: {
