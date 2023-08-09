@@ -31,7 +31,7 @@ Use the following steps to clone and run the app locally.
    ./mvnw clean package
    ```
 
-3. Use the following command to run the sample application by executing the JAR file:
+3. Use the following command to run the sample application:
 
    ```bash
    java -jar web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
