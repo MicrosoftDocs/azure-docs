@@ -9,10 +9,14 @@ ms.date: 07/13/2023
 ms.custom: template-how-to
 ---
 
+# Instance readiness testing
+
+Instance Readiness Testing (IRT) is a framework built to orchestrate real-world workloads for testing of the Azure Operator Nexus Platform.
 
 ## Table of Contents
 
 - [Instance readiness testing](#instance-readiness-testing)
+  - [Table of Contents](#table-of-contents)
   - [Environment requirements](#environment-requirements)
   - [Input configuration](#input-configuration)
   - [One Time Setup](#one-time-setup)
@@ -27,11 +31,6 @@ ms.custom: template-how-to
   - [Execution](#execution)
   - [Results](#results)
 
-
-# Instance readiness testing
-
-Instance Readiness Testing (IRT) is a framework built to orchestrate real-world workloads for testing of the Azure Operator Nexus Platform.
-
 ## Environment requirements
 
 - A Linux environment (Ubuntu suggested) capable of calling Azure APIs
@@ -43,7 +42,7 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real-world 
 
 ## Input configuration
 
-Build your input file. The IRT tarball provides `irt-input.example.yml` as an example, follow the [instructions](#download-irt) to download the tarball. These values **will not work for your instances**, they need to be manually changed and the file should also be renamed to `irt-input.yml`. The example input file is provided as a stub to aid in configuring new input files. Overridable values and their usage are outlined in the example. The **[One Time Setup](#one-Time-setup) assists in setting input values by writing key/value pairs to the config file as they execute.**
+Build your input file. The IRT tarball provides `irt-input.example.yml` as an example, follow the [instructions](#download-irt) to download the tarball. These values **will not work for your instances**, they need to be manually changed and the file should also be renamed to `irt-input.yml`. The example input file is provided as a stub to aid in configuring new input files. Overridable values and their usage are outlined in the example. The **[One Time Setup](#one-time-setup) assists in setting input values by writing key/value pairs to the config file as they execute.**
 
 The network information is provided in either a `networks-blueprint.yml` file, similar to the `networks-blueprint.example.yml` that is provided, or appended to the `irt-input.yml` file. The  schema for IRT is defined in the `networks-blueprint.example.yml`. The networks are created as part of the test, provide network details that aren't in use. Currently IRT has the following network requirements:
 
