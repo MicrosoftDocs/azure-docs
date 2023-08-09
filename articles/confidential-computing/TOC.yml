@@ -48,6 +48,8 @@
        href: https://azure.microsoft.com/en-us/blog/key-foundations-for-protecting-your-data-with-azure-confidential-computing/ # New, house-view.. why is it the future - x-links to a lot of MarkRus material tying it back to strategic direction/vision
      - name: Privacy by-default
        href: TODO.md # we need to say something about our approach to how we're baking it into our products, and how we're working with partners to do the same, but this is a journey - call to action - what services do YOU want/priority order  - work with your field/account team?
+     - name: Confidential AI
+       href: confidential-ai.md  
 # -----------------new content that got lost in merge
 - name: How do I get it? # HOW?
   expanded: true
@@ -87,7 +89,7 @@
           href: https://learn.microsoft.com/en-us/azure/confidential-computing/quick-create-confidential-vm-portal-amd # x-link to AVD docs
         - name: Azure Confidential Ledger #done
           href: ../confidential-ledger/overview.md
-        - name: Confidential Consortium Framework (CCF) #done
+        - name: Confidential Consortium Framework (CCF) #done < seems to be missing from livesite now?
           href: ../confidential-consortium-framework/overview.md
      - name: Machine Learning (ML-AI) Quickstarts
        expanded: true
