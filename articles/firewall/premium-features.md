@@ -118,6 +118,7 @@ IDPS signature rules have the following properties:
 
 :::image type="content" source="media/idps-signature-categories/firewall-idps-signature.png" alt-text="Screenshot showing the IDPS signature rule columns." lightbox="media/idps-signature-categories/firewall-idps-signature.png":::
 
+For more informaton about IDPS, see [Taking Azure Firewall IDPS on a Test Drive](https://techcommunity.microsoft.com/t5/azure-network-security-blog/taking-azure-firewall-idps-on-a-test-drive/ba-p/3872706).
 
 ## URL filtering
 
