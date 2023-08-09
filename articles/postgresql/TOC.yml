@@ -97,8 +97,6 @@
         href: flexible-server/azure-pipelines-deploy-database-task.md
   - name: Concepts
     items:
-    - name: High Availability
-      href: ../reliability/reliability-postgre-flexible.md?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
     - name: Servers
       href: flexible-server/concepts-servers.md
     - name: Supported versions
@@ -501,13 +499,13 @@
         displayName: security, private link, private endpoint
     - name: Planned maintenance
       href: single-server/concepts-planned-maintenance-notification.md
-    - name: Business continuity
+    - name: Reliability
       items:
+      - name: High Availability
+        href: ../reliability/reliability-postgre-flexible.md?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
       - name: Business continuity intro
         displayName: backup, restore, backups, restores, georestore, geo-restore, outage
         href: single-server/concepts-business-continuity.md
-      - name: High availability
-        href: single-server/concepts-high-availability.md
       - name: Backup and restore
         href: single-server/concepts-backup.md
         displayName: backup ,restore, georestore, geo-restore, outage
