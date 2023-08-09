@@ -40,7 +40,7 @@ The following table repurposes information from [Search service limits](search-l
 
 + Storage quota is the physical storage available to the search service for all search data. Basic has one partition sized at 2 GB that must accommodate all of the data on the service. S1 can have 12 partitions sized at 25 GB each, for a maximum limit of 300 GB for all search data. 
 
-+ Vector index size is the size of the vector index created for each vector field. On Basic, the sum total of all vector fields can't be more than 1 GB because Basic only has one partition. On S1, which can have up to 12 partitions, the quota for vector data is 3 GB if you've only allocated one partition, or 36 GB if you've allocated 12 partitions. For more information about partitions and replicas, see [Estimate and manage capacity](search-capacity-planning.md).
++ Vector index size is the size of the vector index created for each vector field. On Basic, the sum total of all vector fields can't be more than 1 GB because Basic only has one partition. On S1, which can have up to 12 partitions, the quota for vector data is 3 GB if you've only allocated one partition, or up to 36 GB if you've allocated 12 partitions. For more information about partitions and replicas, see [Estimate and manage capacity](search-capacity-planning.md).
 
 ## How to get vector index size
 
@@ -65,7 +65,7 @@ Return service statistics to compare usage against available quota at the servic
 
 ```json
 {
-    "@odata.context": "https://heidist-srch-eastus.search.windows.net/$metadata#Microsoft.Azure.Search.V2023_07_01_Preview.ServiceStatistics",
+    "@odata.context": "https://my-demo.search.windows.net/$metadata#Microsoft.Azure.Search.V2023_07_01_Preview.ServiceStatistics",
     "counters": {
         "documentCount": {
             "usage": 15377,
