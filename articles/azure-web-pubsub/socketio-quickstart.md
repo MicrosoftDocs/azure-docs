@@ -7,7 +7,10 @@ ms.date: 08/01/2023
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
-# Quickstart of Web PubSub for Socket.IO
+# Quickstart for Socket.IO users
+
+This quickstart is aimed for existing Socket.IO users. It demontrates how quickly Socket.IO users can incorporate Web PubSub for Socket.IO in their app to simplify development, speed up deployment and achieve scalability without complexity. 
+
 ## Prerequisites
 > [!div class="checklist"]
 > * An Azure account with an active subscription. If you don't have one, you can [create a free accout](https://azure.microsoft.com/free/). 
@@ -15,7 +18,7 @@ ms.topic: how-to
 
 ## Create a Web PubSub for Socket.IO resource
 Head over to Azure portal and search for `socket.io`.
-:::image type="content" source="./media/socketio-migrate-from-self-hosted/create-resource.png" alt-text="Screenshot of Web PubSub for Socket.IO service":::
+:::image type="content" source="./media/socketio-migrate-from-self-hosted/create-resource.png" alt-text="Screenshot of Web PubSub for Socket.IO service.":::
 
 ## Initialize a Node project and install required packages
 ```bash

@@ -14,7 +14,7 @@ ms.topic: conceptual
 > This article peels back the curtain from an engieerning perspective of how self-hosted Socket.IO apps can migrate to Azure with minimal code change to simplify app architecture and deployment, while achieving 100 K+ concurrent connections out-of-the-box. It's not necessary to understand everything in this article to use Web PubSub for Socket.IO effectively. 
 
 ## A typical architecture of a self-hosted Socket.IO app
-:::image type="content" source="./media/socketio-service-internal/typical-architecture-self-hosted-socketio-app.jpg" alt-text="Screenshot of a typical architecture of a self-hosted Socket.IO app":::
+:::image type="content" source="./media/socketio-service-internal/typical-architecture-self-hosted-socketio-app.jpg" alt-text="Screenshot of a typical architecture of a self-hosted Socket.IO app.":::
 
 The diagram shows a typical architecture of a self-hosted Socket.IO app. To ensure that an app is scalable and reliable, Socket.IO users often have an architecture involving multiple Socket.IO servers. Client connections are distributed among Socket.IO servers to balance load on the system. A setup of multiple Socket.IO servers introduces the challenge when developers need to send the same message to clients connected to different server. This use case is often referred to as "broadcasting messages" by developers. 
 
@@ -34,7 +34,7 @@ In practice, developers can continue using the APIs offered by Socket.IO library
 ## How does it work under the hood?
 Web PubSub for Socket.IO builds upon Socket.IO protocols by implementing the Adapter and Engine.IO. The diagram describes the typical architecture when you use the Web PubSub for Socket.IO with your Socket.IO server.
 
-:::image type="content" source="./media/socketio-service-internal/typical-architecture-managed-socketio.jpg" alt-text="Screenshot of a typical architecture of a fully managed Socket.IO app":::
+:::image type="content" source="./media/socketio-service-internal/typical-architecture-managed-socketio.jpg" alt-text="Screenshot of a typical architecture of a fully managed Socket.IO app.":::
 
 Like a self-hosted Socket.IO app, you still need to host your Socket.IO application logic on your own server. However, with Web PubSub for Socket.IO**(the service)**, your server no longer manages client connections directly. 
 - **Your clients** establish persistent connections with the service, which we call "client connections". 

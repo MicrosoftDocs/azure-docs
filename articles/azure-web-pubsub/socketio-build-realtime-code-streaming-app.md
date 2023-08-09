@@ -25,7 +25,7 @@ This tutorial shows how to build an app that allows a coder to stream his/her co
 ### The finished app
 The finished app allows a code editor user to share a web link through which people can watch him/her typing. 
 
-:::image type="content" source="./media/socketio-build-realtime-code-streaming-app/code-stream-app.jpg" alt-text="Screenshot of the finished code stream app":::
+:::image type="content" source="./media/socketio-build-realtime-code-streaming-app/code-stream-app.jpg" alt-text="Screenshot of the finished code stream app.":::
 
 To keep this tutorial focused and digestible in around 15 minutes, we define two user roles and what they can do in the editor
 - a writer, who can type in the online editor and the content is streamed
@@ -37,7 +37,7 @@ To keep this tutorial focused and digestible in around 15 minutes, we define two
 |[Socket.IO library](https://socket.io/) | Provides low-latency, bi-directional data exchange mechanism between the backend application and clients | Easy-to-use APIs that cover most real-time communication scenarios
 |Web PubSub for Socket.IO | Host WebSocket or poll-based persistent connections with Socket.IO clients | 100 K concurrent connections built-in; Simplify application architecture;
 
-:::image type="content" source="./media/socketio-build-realtime-code-streaming-app/webpubsub-for-socketio-architecture.jpg" alt-text="Screenshot of Web PubSub for Socket.IO service":::
+:::image type="content" source="./media/socketio-build-realtime-code-streaming-app/webpubsub-for-socketio-architecture.jpg" alt-text="Screenshot of Web PubSub for Socket.IO service.":::
 
 ## Prerequisites 
 In order to follow the step-by-step guide, you need

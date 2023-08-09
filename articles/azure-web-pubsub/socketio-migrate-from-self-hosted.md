@@ -19,7 +19,7 @@ ms.topic: how-to
 
 ## Create a Web PubSub for Socket.IO resource
 Head over to Azure portal and search for `socket.io`.
-:::image type="content" source="./media/socketio-migrate-from-self-hosted/create-resource.png" alt-text="Screenshot of Web PubSub for Socket.IO service":::
+:::image type="content" source="./media/socketio-migrate-from-self-hosted/create-resource.png" alt-text="Screenshot of Web PubSub for Socket.IO service.":::
 
 ## Migrate an official Socket.IO sample app 
 To focus this guide to the migration process, we're going to use a sample chat app provided on [Socket.IO's website](https://github.com/socketio/socket.io/tree/4.6.2/examples/chat). We need to make some minor changes to both the **server-side** and **client-side** code to complete the migration.
@@ -73,7 +73,7 @@ Locate `index.js` in the server-side code.
 ### Client Side
 In client-side code found in `./public/main.js`
 
-:::image type="content" source="./media/socketio-migrate-from-self-hosted/get-resource-endpoint.png" alt-text="Screenshot of getting the endpoint to Web PubSub for Socket.IO resource":::
+:::image type="content" source="./media/socketio-migrate-from-self-hosted/get-resource-endpoint.png" alt-text="Screenshot of getting the endpoint to Web PubSub for Socket.IO resource.":::
 
 Find where Socket.IO client is created, then replace its endpoint with Azure Socket.IO endpoint and add an `path` option. You can find the endpoint to your resource on Azure portal. 
 ```javascript

@@ -34,7 +34,7 @@ When you host Socket.IO app yourself, clients establish WebSocket or long-pollin
 
 A common approach to meeting the concurrent and latency challenge is to [scale out to multiple Socket.IO servers](https://socket.io/docs/v4/adapter/). Scaling out requires a server-side component called "adapter" like the Redis adapter provided by Socket.IO library. However, such adapter introduces an extra component you need to deploy and manage on top of writing extra code logic to get things to work properly.
 
-:::image type="content" source="./media/socketio-overview/typical-architecture-self-hosted-socketio-app.jpg" alt-text="Screenshot of a typical architecture of a self-hosted Socket.IO app":::
+:::image type="content" source="./media/socketio-overview/typical-architecture-self-hosted-socketio-app.jpg" alt-text="Screenshot of a typical architecture of a self-hosted Socket.IO app.":::
 
 With Web PubSub for Socket.IO, you're freed from handling scaling issues and implementing code logic related to using an adapter.
 

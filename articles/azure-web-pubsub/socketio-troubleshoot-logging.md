@@ -9,6 +9,8 @@ ms.topic: how-to
 ---
 # How to collect logs using Web PubSub for Socket.IO
 
+Like when you self-host Socket.IO library, you can collect logs on both the server and client side when you use Web PubSub for Socket.IO.
+
 ## Server-side
 On the server-side, two utilities are included that provide debugging 
 capabilities.
