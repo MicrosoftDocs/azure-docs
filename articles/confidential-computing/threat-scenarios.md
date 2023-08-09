@@ -58,7 +58,9 @@ Many new scenarios are evolving where multiple parties collaborate together on c
 
 |Who    |What    |Where    |When    |Why
 |:---   |:---    |:---     |:---    |:---
-|Multiple parties |protect company data from other parties being collaborated with   |Resources in Azure    |24x7x365    |Regulatory, Reputational damage
+|Multiple parties |Protect my data from other parties I am collaborating with   |Resources in Azure    |24x7x365    |Regulatory, Reputational damage
+
+For more details on multi-party solutions see [Multi-Party Data Solutions](./multi-party-data.md)
 
 ### Compliance with regulatory requirements
 
