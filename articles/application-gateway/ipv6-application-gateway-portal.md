@@ -108,7 +108,9 @@ Create the application gateway using the tabs on the **Create application gatewa
 
      ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal-ipv6/ipv6-app-gw.png) 
      
-2. **Configue virtual network**: For Azure to communicate between the resources that you create, a dual stack virtual network is needed. You can either create a new dual stack virtual network or choose an existing dual stack network. In this example, you'll create a new dual stack virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. One dual-stack subnet and one IPv4-only are created in this example: The IPv4 and IPv6 subnets (provisioned as one dual-stack subnet) are assigned to the application gateway. The IPv4 subnet is for the backend servers.
+2. **Configure virtual network**: For Azure to communicate between the resources that you create, a dual stack virtual network is needed. You can either create a new dual stack virtual network or choose an existing dual stack network. In this example, you'll create a new dual stack virtual network at the same time that you create the application gateway. 
+
+Application Gateway instances are created in separate subnets. One dual-stack subnet and one IPv4-only are created in this example: The IPv4 and IPv6 subnets (provisioned as one dual-stack subnet) are assigned to the application gateway. The IPv4 subnet is for the backend servers.
 
     > [!NOTE]
     > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
@@ -264,8 +266,6 @@ In this example, you install IIS on the virtual machines to verify Azure created
 
    Select **Cloud Shell** from the top navigation bar of the Azure portal and then select **PowerShell** from the drop-down list. 
 
-    ![Install custom extension](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
-
 2. Run the following command to install IIS on the virtual machine. Change the *Location* parameter if necessary: 
 
     ```azurepowershell
@@ -280,24 +280,19 @@ In this example, you install IIS on the virtual machines to verify Azure created
       -Location EastUS
     ```
 
+    ![Install custom extension](./media/application-gateway-create-gateway-portal-ipv6/install-extension.png)
+
 ### Add backend servers to backend pool
 
-1. On the Azure portal menu, select **All resources** or search for and select *All resources*. Then select **myAppGateway**.
-
-2. Select **Backend pools** from the left menu.
-
-3. Select **myBackendPool**.
-
+1. On the Azure portal menu, select **Application gateways** or search for and select **Appication gateways*. Then select **myAppGateway**.
+2. Under **Settings**, select **Backend pools** and then select **myBackendPool**.
 4. Under **Backend targets**, **Target type**, select **Virtual machine** from the drop-down list.
+5. Under **Target**, select the **myVM** network interface from the drop-down.
 
-5. Under **Target**, select the **myVM** and **myVM2** virtual machines and their associated network interfaces from the drop-down lists.
-
-   > [!div class="mx-imgBorder"]
-   > ![Add backend servers](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
+    ![Add a backend server](./media/application-gateway-create-gateway-portal-ipv6/ipv6-backend-pool.png)
 
 6. Select **Save**.
-
-7. Wait for the deployment to complete before proceeding to the next step.
+7. Wait for the deployment to complete before proceeding to the next step. Deployment will take a few minutes.
 
 ## Test the application gateway
 
@@ -305,13 +300,15 @@ Although IIS isn't required to create the application gateway, you installed it 
 
 Use IIS to test the application gateway:
 
-1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
-2. Copy the public IP address, and then paste it into the address bar of your browser to browse that IP address.
-3. Check the response. A valid response verifies that the application gateway was successfully created and can successfully connect with the backend.
+Previously, we assigned the DNS name **myipv6appgw.westcentralus.cloudapp.azure.com** to the public IPv6 address of the application gateway. 
+
+1. Paste the DNS name into the address bar of your browser or click the following link to connect to it: [http://myipv6appgw.westcentralus.cloudapp.azure.com](http://myipv6appgw.westcentralus.cloudapp.azure.com).
+2. Check the response. A valid response verifies that the application gateway was successfully created and can successfully connect with the backend.
 
    ![Test application gateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
-   Refresh the browser multiple times and you should see connections to both myVM and myVM2.
+> [!IMPORTANT]
+> If the connection to the DNS name or IPv6 address fails, you might not be able to browse IPv6 addresses from your device. Also test the IPv4 address of the application gateway. If this connects successfully, then it's likely you don't have IPv6-only browsing enabled on your device. To test the IPv6 connection, you can use an Azure virtual machine that is assigned a public IPv6 address.
 
 ## Clean up resources
 
@@ -345,11 +342,9 @@ To opt out of the public preview for the enhanced Application Gateway network co
 
     :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Azure portal list of preview features.":::
 
-6. From **Preview features** type into the filter box **EnableApplicationGatewayNetworkIsolation**, check the feature, and click **Unregister**.
+6. From **Preview features** type into the filter box **AllowApplicationGatewayIPv6**, check the feature, and click **Unregister**.
 
     :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Azure portal filter preview features.":::
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Tutorial: Configure an application gateway with TLS termination using the Azure portal](create-ssl-portal.md)
