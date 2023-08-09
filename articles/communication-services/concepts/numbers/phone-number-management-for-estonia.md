@@ -13,6 +13,6 @@ ms.service: azure-communication-services
 ms.custom: references_regions
 ---
 
-# Phone number management for Australia
+# Phone number management for Estonia
 Use the below tables to find all the relevant information on number availability, eligibility and restrictions for phone numbers in Estonia.
 ## Coming Soon
