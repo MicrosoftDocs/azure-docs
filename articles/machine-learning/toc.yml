@@ -516,6 +516,8 @@
     href: how-to-train-model.md
   - name: Training with UI
     href: how-to-train-with-ui.md
+  - name: CLI and Python SDK v2 expressions
+    href: concept-expressions.md
   - name: Using secrets in training 
     href: how-to-use-secrets-in-runs.md
   - name: Custom Training
