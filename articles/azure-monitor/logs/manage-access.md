@@ -298,24 +298,52 @@ In addition to using the built-in roles for a Log Analytics workspace, you can c
 
 ## Set table-level read access
 
-Table-level access settings let you grant specific users read-only permission to data from certain tables. Users can read data from the specified tables in both the workspace and the resource context.
+Table-level access settings let you grant specific users read-only permission to data from certain tables. Users with table-level read access can read data from the specified tables in both the workspace and the resource context.
 
 > [!NOTE]
 > The recommended table-level access method described here does not apply during preview to Microsoft Sentinel Detection Rules. These rules might have access to more tables than intended.
 
 To grant a user table-level read access, you need to make two assignments:
 
-- Assign the user the ability to read the workspace details and to run a query without granting the ability to run a query on tables. This is done by assigning a special custom role on the workspace that has only the following actions:
+- Assign the user a custom role on the workspace that only lets the user read the workspace details and run a query in the workspace, without granting the ability to read data from tables.        
+- Assign the user read permissions to the specific table sub-resource. Any role that has the `*/read` action - for example, the **Reader** role or the **Log Analytics Reader** role - is sufficient. The table is a sub-resource of workspace. Therefore, workspace admins can also perform actions on a specific table.
+
+> [!IMPORTANT]
+> - A user who has other assignments on the workspace, directly or via inheritence (for example, if the user has the **Reader** on the subscription that contains the workspace), might also be able to access all tables in the workspace.
+> - Azure applies table-level RBAC during query execution. It does not apply to metadata retrieval calls. Therefore, the list of tables in the workspace includes tables to which the user might not have access.
+
+To grant a user table-level read access to a specific table:
+
+1. Create a [custom role](../../role-based-access-control/custom-roles.md) that lets users read workspace details and run a query in the workspace, providing read access to data in any tables:
+    1. From the **Log Analytics workspaces** menu, select **Tables**.  
+    1. Select the ellipsis ( **...** ) to the right of the table you want to edit and select **Access control (IAM)**.
+    1. Select the **Roles** tab on the **Access control (IAM)** screen.
+    1. Right-click the **Reader** role and select **Clone**.
+
+       :::image type="content" source="media/manage-access/access-control-clone-role.png" alt-text="Screenshot that shows the Roles tab of the Access control screen with the clone button highlighted for the Reader role." lightbox="media/manage-access/access-control-clone-role.png":::        
+
+       This opens the **Create a custom role** screen.
+
+    1. On the **Basics** tab of the screen, enter a **Custom role name** value and, optionally, provide a description.
+
+        :::image type="content" source="media/manage-access/manage-access-create-custom-role.png" alt-text="Screenshot that shows the Basics tab of the Create a custom role screen with the Custom role name and Description fields highlighted." lightbox="media/manage-access/manage-access-create-custom-role.png":::
+
+    1. Select the **JSON** tab > **Edit**:
+
+        1. In the `"actions"` section, add:
+
             - `Microsoft.OperationalInsights/workspaces/read`
             - `Microsoft.OperationalInsights/workspaces/query/read`
             - `Microsoft.OperationalInsights/workspaces/analytics/query/action`
             - `Microsoft.OperationalInsights/workspaces/search/action`
-        
-- Assign the user a read permissions on the specific table sub-resource. Any role that has */read will be sufficient such as **Reader** role or **Log Analytics Reader** role. As table is a sub-resource of workspace, the workspace admins can also perform action on a specific table.
 
-> [!IMPORTANT]
-> - If the user has other assignments on the workspace, directly or via inheritence (e.g. user has Reader on the subscription that contains the workspace), the user will be able to access all tables in the workspace.
-> - Azure applies table-level RBAC during query execution. It does not apply to metadata retrieval calls. Therefore, the list of tables in the workspace includes tables to which the user might not have access.
+        1. In the `"not actions"` section, add `Microsoft.OperationalInsights/workspaces/sharedKeys/read`.
+
+        :::image type="content" source="media/manage-access/manage-access-create-custom-role-json.png" alt-text="Screenshot that shows the JSON tab of the Create a custom role screen with the actions section of the JSON file highlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::  
+
+
+
+    
 
 To create a [custom role](../../role-based-access-control/custom-roles.md) that lets specific users or groups read data from specific tables in a workspace:
 
@@ -333,16 +361,22 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
 
         :::image type="content" source="media/manage-access/manage-access-create-custom-role.png" alt-text="Screenshot that shows the Basics tab of the Create a custom role screen with the Custom role name and Description fields highlighted." lightbox="media/manage-access/manage-access-create-custom-role.png":::
 
-    1. Select the **JSON** tab > **Edit**::
+    1. Select the **JSON** tab > **Edit**:
 
-        1. In the `"actions"` section, add:
+        1. In the `"actions"` section, add these actions:
 
-            - `Microsoft.OperationalInsights/workspaces/read`
-            - `Microsoft.OperationalInsights/workspaces/query/read`
-            - `Microsoft.OperationalInsights/workspaces/analytics/query/action`
-            - `Microsoft.OperationalInsights/workspaces/search/action`
+            ```json
+            "Microsoft.OperationalInsights/workspaces/read",
+            "Microsoft.OperationalInsights/workspaces/query/read",
+            "Microsoft.OperationalInsights/workspaces/analytics/query/action",
+            "Microsoft.OperationalInsights/workspaces/search/action"    
+            ```
 
-        1. In the `"not actions"` section, add `Microsoft.OperationalInsights/workspaces/sharedKeys/read`.
+        1. In the `"not actions"` section, add: 
+        
+            ```json
+            "Microsoft.OperationalInsights/workspaces/sharedKeys/read"
+            ```
 
         :::image type="content" source="media/manage-access/manage-access-create-custom-role-json.png" alt-text="Screenshot that shows the JSON tab of the Create a custom role screen with the actions section of the JSON file highlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::    
 
