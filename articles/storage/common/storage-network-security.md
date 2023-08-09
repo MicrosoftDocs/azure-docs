@@ -5,7 +5,7 @@ services: storage
 author: jimmart-dev
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 08/08/2023
+ms.date: 08/09/2023
 ms.author: jammart
 ms.reviewer: santoshc
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement
@@ -17,26 +17,26 @@ Azure Storage provides a layered security model. This model enables you to contr
 
 Applications access storage account data over network endpoints. There are two types of endpoints:
 
-- [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
+- [Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [Private endpoints](storage-private-endpoints.md)
 
-Storage service endpoints are accessible via the internet. The Azure Storage firewall provides the ability to control access for the public endpoints using network rules. When you configure network rules, only applications that request data over the specified set of networks or through the specified set of Azure resources can access storage account data. You can also use the firewall to block all access through the public endpoint when you're using private endpoints. Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service that operates within an Azure virtual network or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services.
+Virtual Network service endpoints for Azure Storage are public and accessible via the internet. The Azure Storage firewall provides the ability to control access via the public endpoints using network rules. When you configure network rules for your storage account, all incoming requests for data are blocked by default. Only applications that request data from the networks, services, and resources you configure in the Azure Storage firewall can access storage account data. You can also use the firewall to block all access through the public endpoint when you're using private endpoints. Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services, unless you explicitly allow access in your configuration.
 
 A private endpoint uses a private IP address from your virtual network to access a storage account over the Microsoft backbone network. With a private endpoint, traffic between your virtual network and the storage account are secured over a private link. Azure Storage firewall access rules do not apply to private endpoints, but you can use [Network Policies](../../private-link/private-endpoint-overview.md#network-security-of-private-endpoints) to control traffic over them.
 
 ## Options for configuring network access to Azure Storage
 
-With the Azure Storage firewall, you can configure network access to the data in your storage account using any combination of the following methods:
+With the Azure Storage firewall, you can configure network access to the data in your storage account using any combination of the following:
 
-- Configure access from selected virtual network subnets using service endpoints.
-- Configure access from specific public IP addresses or ranges.
-- Configure access from selected Azure resource instances
-- Configure access from trusted Azure services (using [Manage exceptions](#manage-exceptions))
-- Configure exceptions for logging and metrics services
+- [Allow access from selected virtual network subnets using service endpoints](#grant-access-from-a-virtual-network).
+- [Allow access from specific public IP addresses or ranges](#grant-access-from-an-internet-ip-range).
+- [Allow access from selected Azure resource instances](#grant-access-from-azure-resource-instances).
+- [Allow access from trusted Azure services](#grant-access-to-trusted-azure-services) (using [Manage exceptions](#manage-exceptions)).
+- [Configure exceptions for logging and metrics services](#manage-exceptions).
 
 ## Restrictions and considerations
 
-Before implementing network security for your storage accounts, review the following list of restrictions and considerations.
+Before implementing network security for your storage accounts, review the important restrictions and considerations discussed in this section.
 
 > [!div class="checklist"]
 >
