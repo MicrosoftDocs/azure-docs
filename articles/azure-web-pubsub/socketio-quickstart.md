@@ -1,7 +1,7 @@
 ---
 title: Quick start of Web PubBub for Socket.IO
 description: A quickstart demonstrating how to use Web PubSub for Socket.IO 
-author: siyuanxing
+author: xingsy97
 ms.author: siyuanxing
 ms.date: 08/01/2023
 ms.service: azure-web-pubsub

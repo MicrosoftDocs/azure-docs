@@ -1,7 +1,7 @@
 ---
 title: Build a real-time code streaming app using Socket.IO and host it on Azure
 description: An end-to-end tutorial demonstrating how to build an app that allows coders to share coding activities with their audience in real time using Web PubSub for Socket.IO 
-author: siyuanxing
+author: xingsy97
 ms.author: siyuanxing
 ms.date: 08/01/2023
 ms.service: azure-web-pubsub
