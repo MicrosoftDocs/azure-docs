@@ -288,7 +288,7 @@ def main(req: func.HttpRequest, connectionInfo: str) -> func.HttpResponse:
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-You can set the `userId` property of the binding to the value from either header using a [binding expression](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
+You can set the `userId` property of the binding to the value from either header using a [binding expression](#binding-expressions-for-http-trigger): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
 
 ```java
 @FunctionName("negotiate")
@@ -318,9 +318,10 @@ The following table explains the properties of the `SignalRConnectionInfo` attri
 
 | Attribute property |Description|
 |---------|----------------------|
-**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated. |
-|**UserId**| Optional: The value of the user identifier claim to be set in the access key token. |
+|**hubName**| Required. The hub name.  |
 |**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+|**UserId**| Optional. The user identifier of a SignalR connection. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to a HTTP request header or query.  |
+|**IdToken**| Optional. A JWT token whose claims will be added to the user claims. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to a HTTP request header or query. For example, `{query.token}` binds the value of the parameter of `token` in the query string `https://functionhost.com/negotiate?token=xxxx` . |
 
 # [Isolated process](#tab/isolated-process)
 
@@ -329,8 +330,8 @@ The following table explains the properties of the `SignalRConnectionInfoInput` 
 | Attribute property |Description|
 |---------|----------------------|
 **HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated. |
-|**UserId**| Optional: The value of the user identifier claim to be set in the access key token. |
 |**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+|**UserId**| Optional. The user identifier of a SignalR connection. You can use a [binding expression](./functions-bindings-expressions-patterns.md) to bind the value to a HTTP request header or query. |
 
 # [C# Script](#tab/csharp-script)
 
@@ -350,6 +351,15 @@ The following table explains the binding configuration properties that you set i
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
+### Binding expressions for HTTP trigger
+<a name="binding-expressions-for-http-trigger"></a>
+As SignalR input binding is usually used together with HTTP trigger, and the values of some attributes of SignalR input binding usually come from HTTP requests, we'll show how to bind values from HTTP requests to SignalR input binding attributes via [binding expression](./functions-bindings-expressions-patterns.md#trigger-metadata).
+
+| HTTP metadata type | Binding expression format | Description | Example |
+|---------|--------|---------|--------|
+| HTTP request query | `{query.QUERY_PARAMETER_NAME}` | Binds the value of corresponding query parameter to an attribute | `{query.userName}` |
+| HTTP request header | `{headers.HEADER_NAME}` | Binds the value of a header to an attribute | `{headers.token}` |
+
 ## Annotations
 
 The following table explains the supported settings for the `SignalRConnectionInfoInput` annotation.
@@ -357,7 +367,7 @@ The following table explains the supported settings for the `SignalRConnectionIn
 |Setting | Description|
 |---------|--------|
 |**name**|  Variable name used in function code for connection info object. |
-|**hubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
+|**hubName**| The hub name. Required. |
 |**userId**| Optional: The value of the user identifier claim to be set in the access key token. |
 |**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
