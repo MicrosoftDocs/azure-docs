@@ -390,8 +390,6 @@ To define access to a particular table, create a [custom role](../../role-based-
 * Use `Microsoft.OperationalInsights/workspaces/query/*` to grant access to all tables.
 * To exclude access to specific tables when you use a wildcard in **Actions**, list the tables excluded tables in the **NotActions** section of the role definition.
 
-#### Examples
-
 Here are examples of custom role actions to grant and deny access to specific tables.
 
 Grant access to the _Heartbeat_ and _AzureActivity_ tables:
@@ -429,7 +427,7 @@ Grant access to all tables except the _SecurityAlert_ table:
 ],
 ```
 
-#### Custom tables
+#### Limitations of the legacy method related to custom tables
 
 Custom tables store data you collect from data sources such as [text logs](../agents/data-sources-custom-logs.md) and the [HTTP Data Collector API](data-collector-api.md). To identify the table type, [view table information in Log Analytics](./log-analytics-tutorial.md#view-table-information).
 
