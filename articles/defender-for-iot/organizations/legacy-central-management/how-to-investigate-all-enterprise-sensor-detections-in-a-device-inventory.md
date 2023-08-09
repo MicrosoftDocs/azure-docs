@@ -12,27 +12,27 @@ ms.date: 08/07/2023
 
 Use the **Device inventory** page from an on-premises management console to manage all OT and IT devices detected by sensors connected to that console. Identify new devices detected, devices that might need troubleshooting, and more.
 
-For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
+For more information, see [Devices monitored by Defender for IoT](../architecture.md#devices-monitored-by-defender-for-iot).
 
 > [!TIP]
-> Alternately, view your device inventory from [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [OT sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).
+> Alternately, view your device inventory from [the Azure portal](../how-to-manage-device-inventory-for-organizations.md), or from an [OT sensor console](../how-to-investigate-sensor-detections-in-a-device-inventory.md).
 >
 
 ## Prerequisites
 
 Before performing the procedures in this article, make sure that you have:
 
-- An on-premises management console [installed](legacy-central-management/install-software-on-premises-management-console.md), [activated, and configured](legacy-central-management/activate-deploy-management.md). To view devices by zone, make sure that you've [configured sites and zones](legacy-on-premises-management/sites-and-zones-on-premises.md) on the on-premises management console.
+- An on-premises management console [installed](install-software-on-premises-management-console.md), [activated, and configured](legacy-central-management/activate-deploy-management.md). To view devices by zone, make sure that you've [configured sites and zones](sites-and-zones-on-premises.md) on the on-premises management console.
 
-- One or OT network sensors [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](legacy-central-management/connect-sensors-to-management.md). To view devices per zone, make sure that each sensor is assigned to a specific zone.
+- One or OT network sensors [installed](../ot-deploy/install-software-ot-sensor.md), [configured, and activated](../ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](connect-sensors-to-management.md). To view devices per zone, make sure that each sensor is assigned to a specific zone.
 
-- Access to the on-premises management console with one of the following [user roles](roles-on-premises.md):
+- Access to the on-premises management console with one of the following [user roles](../roles-on-premises.md):
 
     - **To view devices the on-premises management console**, sign in as an *Admin*, *Security Analyst*, or *Viewer* user.
 
     - **To export or import data**, sign in as an *Admin* or *Security Analyst* user.
 
-    - **To use the CLI**, access the CLI via SSH/Telnet as a [privileged user](references-work-with-defender-for-iot-cli-commands.md).
+    - **To use the CLI**, access the CLI via SSH/Telnet as a [privileged user](../references-work-with-defender-for-iot-cli-commands.md).
 
 ## View the device inventory
 
@@ -51,7 +51,7 @@ Use any of the following options to modify or filter the devices shown:
 | **Save a filter** | To save the current set of filters, select the **Save As** button that appears in the filter row.|
 | **Load a saved filter** | Saved filters are listed on the left, in the **Groups** pane. <br><br>1. Select the **Options** :::image type="icon" source="../media/how-to-work-with-asset-inventory-information/options-menu.png"border="false"::: button in the toolbar to display the **Groups** pane. <br>2. In the **Device Inventory Filters** list, select the saved filter you want to load.  |
 
-For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
+For more information, see [Device inventory column data](../device-inventory.md#device-inventory-column-data).
 
 ### View device inventory by zone
 
@@ -62,9 +62,9 @@ To view alerts from connected OT sensors for a specific zone, use the **Site Man
 1. Locate the site and zone you want to view, using the filtering options at the top as needed:
 
     - **Connectivity**: Select to view only all OT sensors, or only connected / disconnected sensors only.
-    - **Upgrade Status**: Select to view all OT sensors, or only those with a specific [software update status](update-ot-software.md#update-an-on-premises-management-console).
-    - **Business Unit**: Select to view all OT sensors, or only those from a [specific business unit](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
-    - **Region**: Select to view all OT sensors, or only those from a [specific region](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
+    - **Upgrade Status**: Select to view all OT sensors, or only those with a specific [software update status](../update-ot-software.md#update-an-on-premises-management-console).
+    - **Business Unit**: Select to view all OT sensors, or only those from a [specific business unit](../best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
+    - **Region**: Select to view all OT sensors, or only those from a [specific region](../best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
 
 1. Select **View device inventory** for a specific OT sensor to jump to the device inventory for that OT sensor.
 
@@ -80,7 +80,7 @@ To export device inventory data, select the **Import/Export file** :::image type
 Save the exported file locally.
 
 > [!NOTE]
-> In the exported file, date values are based on the region settings for the machine you're using to access the OT sensor. We recommend exporting data only from a machine with the same region settings as the sensor that detected your data. For more information, see [Synchronize time zones on an OT sensor](how-to-manage-individual-sensors.md#synchronize-time-zones-on-an-ot-sensor).
+> In the exported file, date values are based on the region settings for the machine you're using to access the OT sensor. We recommend exporting data only from a machine with the same region settings as the sensor that detected your data. For more information, see [Synchronize time zones on an OT sensor](../how-to-manage-individual-sensors.md#synchronize-time-zones-on-an-ot-sensor).
 >
 
 ## Add to and enhance device inventory data
@@ -97,7 +97,7 @@ Use information from other sources, such as CMDBs, DNS, firewalls, and Web APIs,
 
 Added and enhancement data is shown as extra columns, in addition to the existing columns available in the on-premises management console **Device inventory** page.
 
-Enhance data by adding it manually or by running a customized version of our [automation script sample](custom-columns-sample-script.md). You can also open a support ticket to set up your system to receive Web API queries.
+Enhance data by adding it manually or by running a customized version of our [automation script sample](../custom-columns-sample-script.md). You can also open a support ticket to set up your system to receive Web API queries.
 
 For example, the following image shows an example of how you might use enhanced data in the device inventory:
 
@@ -131,7 +131,7 @@ The new data appears in the **Device Inventory** grid.
 
 To enhance your data using automation scripts:
 
-1. Copy the [sample automation script](custom-columns-sample-script.md) to a local file and modify it as needed.
+1. Copy the [sample automation script](../custom-columns-sample-script.md) to a local file and modify it as needed.
 
 1. Sign in to your on-premises management console, and select **Device inventory**.
 
@@ -165,14 +165,14 @@ For example:
 
     - Devices associated with specific sensors.
 
-For more information, see [Defender for IoT sensor and management console APIs](references-work-with-defender-for-iot-apis.md).
+For more information, see [Defender for IoT sensor and management console APIs](../references-work-with-defender-for-iot-apis.md).
 
 
 ## Next steps
 
 For more information, see:
 
-- [Defender for IoT device inventory](device-inventory.md)
-- [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
-- [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
-- [Device data retention periods](references-data-retention.md#device-data-retention-periods).
+- [Defender for IoT device inventory](../device-inventory.md)
+- [Control what traffic is monitored](../how-to-control-what-traffic-is-monitored.md)
+- [Detect Windows workstations and servers with a local script](../detect-windows-endpoints-script.md)
+- [Device data retention periods](../references-data-retention.md#device-data-retention-periods).
