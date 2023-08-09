@@ -112,22 +112,21 @@ Create the application gateway using the tabs on the **Create application gatewa
 
 Application Gateway instances are created in separate subnets. One dual-stack subnet and one IPv4-only are created in this example: The IPv4 and IPv6 subnets (provisioned as one dual-stack subnet) are assigned to the application gateway. The IPv4 subnet is for the backend servers.
 
-    > [!NOTE]
-    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
+ > [!NOTE]
+ > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
 
-    Under **Configure virtual network**, create a new virtual network by selecting **Create new**. In the **Create virtual network** pane, enter the following values to create the virtual network and two subnets:
+ Under **Configure virtual network**, create a new virtual network by selecting **Create new**. In the **Create virtual network** pane, enter the following values to create the virtual network and two subnets:
 
-    - **Name**: Enter a name for the virtual network. For example, **myVNet**.
+ - **Name**: Enter a name for the virtual network. For example, **myVNet**.
+ - **Subnet name** (Application Gateway subnet): The **Subnets** grid shows a subnet named **default**. Change the name of this subnet to **myAGSubnet**.
+ - **Address range** - If there are no overlapping VNets, the default IPv4 address ranges for the VNet and the subnet are 10.0.0.0/16 and 10.0.0.0/24, respectively. The default IPv6 address ranges for the VNet and the subnet are ace:cab:deca::/48 and ace:cab:deca::/64, respectively.
 
-    - **Subnet name** (Application Gateway subnet): The **Subnets** grid shows a subnet named **default**. Change the name of this subnet to **myAGSubnet**.
-    - **Address range** - If there are no overlapping VNets, the default IPv4 address ranges for the VNet and the subnet are 10.0.0.0/16 and 10.0.0.0/24, respectively. The default IPv6 address ranges for the VNet and the subnet are ace:cab:deca::/48 and ace:cab:deca::/64, respectively.
-
-         ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal-ipv6/ipv6-create-vnet-subnet.png)
+ ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal-ipv6/ipv6-create-vnet-subnet.png)
     
-     > [!NOTE] 
-     > The application gateway subnet can contain only application gateways. No other resources are allowed. 
+ > [!NOTE] 
+ > The application gateway subnet can contain only application gateways. No other resources are allowed. 
 
-     Select **OK** to close the **Create virtual network** window and save the new virtual network and subnet settings.
+ Select **OK** to close the **Create virtual network** window and save the new virtual network and subnet settings.
 
 3. Select **Next: Frontends**.
 
@@ -300,13 +299,13 @@ Use IIS to test the application gateway:
 
 Previously, we assigned the DNS name **myipv6appgw.westcentralus.cloudapp.azure.com** to the public IPv6 address of the application gateway. 
 
-1. Paste the DNS name into the address bar of your browser or click the following link to connect to it: [http://myipv6appgw.westcentralus.cloudapp.azure.com](http://myipv6appgw.westcentralus.cloudapp.azure.com).
+1. Paste the DNS name into the address bar of your browser to connect to it.
 2. Check the response. A valid response verifies that the application gateway was successfully created and can successfully connect with the backend.
 
    ![Test the IPv6 connection](./media/application-gateway-create-gateway-portal-ipv6/ipv6-test-connection.png)
 
 > [!IMPORTANT]
-> If the connection to the DNS name or IPv6 address fails, it might be because you can't browse IPv6 addresses from your device. To check if this is your problem, also test the IPv4 address of the application gateway. If the IPv4 address connects successfully, then it's likely you don't have a public IPv6 address assigned to your device. Another way of testing the connection is to add a virtual machine to your dual-stack VNet, assign a public IPv6 address, and use this dual-stack VM for browsing IPv6 sites.
+> If the connection to the DNS name or IPv6 address fails, it might be because you can't browse IPv6 addresses from your device. To check if this is your problem, also test the IPv4 address of the application gateway. If the IPv4 address connects successfully, then it's likely you don't have a public IPv6 address assigned to your device. Another way of testing the connection is to use a [dual-stack VM](../virtual-network/ip-services/create-vm-dual-stack-ipv6-portal.md).
 
 ## Clean up resources
 
