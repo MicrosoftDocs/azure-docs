@@ -1,8 +1,13 @@
-<!---
-This file provides instructions on how to run Instance Readiness Testing (IRT) for the Azure Operator Nexus Platform. It includes information on environment requirements, one-time setup, dependencies, and creating credentialed resources. 
-
-Author: DannyMassa
--->
+---
+title: "Azure Operator Nexus: How to run Instance Readiness Testing"
+description: Learn how to run instance readiness testing.
+author: DannyMassa
+ms.author: danielmassa
+ms.service: azure-operator-nexus
+ms.topic: how-to
+ms.date: 07/13/2023
+ms.custom: template-how-to
+---
 
 
 ## Table of Contents
@@ -15,7 +20,6 @@ Author: DannyMassa
     - [Install dependencies](#install-dependencies)
     - [All in one setup](#all-in-one-setup)
     - [Step-by-Step setup](#step-by-step-setup)
-      - [Create credentialed resources](#create-credentialed-resources)
       - [Create managed identity](#create-managed-identity)
       - [Create service principal \& security group](#create-service-principal--security-group)
       - [Create isolation domains](#create-isolation-domains)
@@ -39,7 +43,7 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real-world 
 
 ## Input configuration
 
-Build your input file. The IRT tarball provides `irt-input.example.yml` as an example. These values **will not work for your instances**, they need to be manually changed and the file should also be renamed to `irt-input.yml`. The example input file is provided as a stub to aid in configuring new input files. Overridable values and their usage are outlined in the example. The [One Time Setup](#one-Time-setup) will aid in setting input values by writing key/value pairs to the config file as they execute. 
+Build your input file. The IRT tarball provides `irt-input.example.yml` as an example, please follow the [instructions](#download-irt) to download the tarball. These values **will not work for your instances**, they need to be manually changed and the file should also be renamed to `irt-input.yml`. The example input file is provided as a stub to aid in configuring new input files. Overridable values and their usage are outlined in the example. The **[One Time Setup](#one-Time-setup) assists in setting input values by writing key/value pairs to the config file as they execute.**
 
 The network information is provided in either a `networks-blueprint.yml` file, similar to the `networks-blueprint.example.yml` that is provided, or appended to the `irt-input.yml` file. The  schema for IRT is defined in the `networks-blueprint.example.yml`. The networks are created as part of the test, provide network details that aren't in use. Currently IRT has the following network requirements:
 
@@ -75,14 +79,13 @@ The `setup.sh` script is provided to aid with installing the listed dependencies
 
 ### All in one setup
 
-`all-in-one-setup.sh` is provided to create all of the Azure resources required to run IRT. This includes creating a managed identity, a service principal, a security group, isolation domains, and a storage account to archive the test results. These resources can be created during the all in one script, or they can be created step by step per the instructions below. Each of the script, individually and via the all in one script, will write updates to your `irt-input.yml` file with the key value pairs needed to utilize the resources you created. Please review the `irt-input.example.yml` file for the required inputs needed for the script(s), regardless of the methodology you pursue. All of the scripts are idempotent, and also allow you to use existing resources if desired. 
+`all-in-one-setup.sh` is provided to create all of the Azure resources required to run IRT. This process includes creating a managed identity, a service principal, a security group, isolation domains, and a storage account to archive the test results. These resources can be created during the all in one script, or they can be created step by step per the instructions in this document. Each of the script, individually and via the all in one script, writes updates to your `irt-input.yml` file with the key value pairs needed to utilize the resources you created. Review the `irt-input.example.yml` file for the required inputs needed for the script(s), regardless of the methodology you pursue. All of the scripts are idempotent, and also allow you to use existing resources if desired. 
 
 ### Step-by-Step setup
 
-If your workflow is incompatible with `all-in-one.sh`, each resource needed for IRT can be created manually with each supllemental script. Like `all-in-one.sh`, running these scripts will write key/value pairs to your `irt-input.yml` for you to use during your run. These five scripts make up the `all-in-one.sh`. **Only utilize this section if you are NOT using `all-in-one.sh`**
+If your workflow is incompatible with `all-in-one.sh`, each resource needed for IRT can be created manually with each supplemental script. Like `all-in-one.sh`, running these scripts  writes key/value pairs to your `irt-input.yml` for you to use during your run. These five scripts make up the `all-in-one.sh`. **Only utilize this section if you are NOT using `all-in-one.sh`**
 
-#### Create credentialed resources 
-IRT makes commands against your resources, and needs permission to do so. IRT requires a Managed Identity and a Service Principal to execute. It also requires that the service principal be member to an AAD Security Group that is also provided as input.
+IRT makes commands against your resources, and needs permission to do so. IRT requires a Managed Identity and a Service Principal to execute. It also requires that the service principal is a  member of the AAD Security Group that is also provided as input.
 
 #### Create managed identity
 A managed identity with the following role assignments is needed to execute tests. The supplemental script, `create-managed-identity.sh` creates a managed identity with these role assignments.
@@ -110,7 +113,7 @@ A service principal with the following role assignments. The supplemental script
    1. `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
    1. `Azure ARC Kubernetes Admin` - For ARC enrolling the NAKS cluster
 
-Additionally, it creates the necessary security group, and add the service principal to the security group. If the security group exists, it adds the service principal to the existing security group.
+Additionally, the script creates the necessary security group, and add the service principal to the security group. If the security group exists, it adds the service principal to the existing security group.
 
 Executing `create-service-principal` requires the following environment variables to be set;
     1. SERVICE_PRINCIPAL_NAME - The name of the service principal, created with the `az ad sp create-for-rbac` command.
@@ -125,7 +128,7 @@ SERVICE_PRINCIPAL_NAME="<your service principal name>" AAD_GROUP_NAME="<your sec
 
 
 #### Create isolation domains
-Isolation domains aren't created, destroyed, or manipulated by the testing framework. Therefore, existing Isolation Domains can be used. Each Isolation Domain requires at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks are created, manipulated, and destroy through the course of testing. They'll be created using the data provided in the networks blueprint.
+The testing framework doesn't create, destroye, or manipulate isolation domains. Therefore, existing Isolation Domains can be used. Each Isolation Domain requires at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks are created, manipulated, and destroy through the course of testing. They are created using the data provided in the networks blueprint.
 
 Executing `create-l3-isolation-domains.sh` requires one **parameter**, a path to your networks blueprint file;
   
