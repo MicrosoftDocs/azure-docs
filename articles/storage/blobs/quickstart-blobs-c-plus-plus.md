@@ -96,13 +96,13 @@ From the project directory:
 
 ### Authenticate to Azure and authorize access to blob data
 
-Application requests to Azure Blob Storage must be authorized. Using the `ChainedTokenCredential` class provided by the Azure Identity client library allows you to set up a custom authentication flow.
+Application requests to Azure Blob Storage must be authorized. Using the `DefaultAzureCredential` class provided by the Azure Identity client library  is the recommended approach for implementing passwordless connections to Azure services in your code, including Blob Storage.
 
-You can also authorize requests to Azure Blob Storage by using the account access key. However, this approach should be used with caution. Developers must be diligent to never expose the access key in an unsecure location. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `ChainedTokenCredential` offers improved management and security benefits over the account key to allow passwordless authentication. Both options are demonstrated in the following example.
+You can also authorize requests to Azure Blob Storage by using the account access key. However, this approach should be used with caution. Developers must be diligent to never expose the access key in an unsecure location. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow passwordless authentication. Both options are demonstrated in the following example.
 
 ### [Passwordless (Recommended)](#tab/managed-identity)
 
-The Azure Identity library provides Azure Active Directory (Azure AD) token authentication support across the Azure SDK. It provides a set of `TokenCredential` implementations which can be used to construct Azure SDK clients which support Azure AD token authentication. The `ChainedTokenCredential` class allows you to link together multiple credential instances to be tried sequentially when authenticating.
+The Azure Identity library provides Azure Active Directory (Azure AD) token authentication support across the Azure SDK. It provides a set of `TokenCredential` implementations which can be used to construct Azure SDK clients which support Azure AD token authentication. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime.
 
 The following code example attempts to authenticate using a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), and falls back to Azure CLI sign-in credentials if a managed identity isn't available in the current environment.
 
@@ -110,43 +110,30 @@ The following code example attempts to authenticate using a [managed identity](.
 
 [!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
 
-#### Sign in and connect your app code to Azure using ChainedTokenCredential
+#### Sign in and connect your app code to Azure using DefaultAzureCredential
 
 You can authorize access to data in your storage account using the following steps:
 
-1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your storage account. You can authenticate via Azure CLI.
-
-    #### [Azure CLI](#tab/sign-in-azure-cli)
-
-    Sign-in to Azure through the Azure CLI using the following command:
+1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your storage account. You can authenticate via Azure CLI. Sign in to Azure through the Azure CLI using the following command:
 
     ```azurecli
     az login
     ```
 
-2. To use `ChainedTokenCredential`, make sure that the **azure-identity-cpp** package is [installed](#install-the-packages) and the following `#include` is added:
+2. To use `DefaultAzureCredential`, make sure that the **azure-identity-cpp** package is [installed](#install-the-packages) and the following `#include` is added:
 
     ```cpp
-    #include <azure/identity/chained_token_credential.hpp>
-    #include <azure/identity/azure_cli_credential.hpp>
-    #include <azure/identity/managed_identity_credential.hpp>
+    #include <azure/identity/default_azure_credential.hpp>
     ```
 
-3. Add this code to the end of `main()`. When the code runs on your local workstation, `ChainedTokenCredential` uses the developer credentials for Azure CLI to authenticate to Azure.
+3. Add this code to the end of `main()`. When the code runs on your local workstation, `DefaultAzureCredential` uses the developer credentials for Azure CLI to authenticate to Azure.
 
     ```cpp
-    // Initialize an instance of ChainedTokenCredential - 
-	// This configuration attempts to authenticate with
-	// ManagedIdentityCredential, and falls back to 
-	// AzureCliCredential if a managed identity is not available
-	// in the current environment
-	auto chainedTokenCredential = std::make_shared<ChainedTokenCredential>(
-		ChainedTokenCredential::Sources{
-			std::make_shared<ManagedIdentityCredential>(),
-			std::make_shared<AzureCliCredential>()});
+    // Initialize an instance of DefaultAzureCredential
+	auto defaultAzureCredential = std::make_shared<DefaultAzureCredential>();
 
 	auto accountURL = "https://<storage-account-name>.blob.core.windows.net";
-	BlobServiceClient blobServiceClient(accountURL, chainedTokenCredential);
+	BlobServiceClient blobServiceClient(accountURL, defaultAzureCredential);
     ```
 
 4. Make sure to update the storage account name in the URI of your `BlobServiceClient` object. The storage account name can be found on the overview page of the Azure portal.
@@ -154,7 +141,7 @@ You can authorize access to data in your storage account using the following ste
     :::image type="content" source="./media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how to find the storage account name.":::
 
     > [!NOTE]
-    > When deployed to Azure, this same code can be used to authorize requests to Azure Storage from an application running in Azure. However, you'll need to enable managed identity on your app in Azure. Then configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/azure/developer/python/sdk/authentication-azure-hosted-apps) tutorial.
+    > When using the C++ SDK in a production environment, it's recommended that you only enable credentials that you know your application will use. Instead of using `DefaultAzureCredential`, you should authorize using a specific credential type, or by using `ChainedTokenCredential` with the supported credentials.
 
 ### [Connection String](#tab/connection-string)
 
@@ -190,7 +177,7 @@ Add this code to the end of `main()`:
 :::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" ID="Snippet_ConnectionString":::
 
 > [!IMPORTANT]
-> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `ChainedTokenCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
 
 ---
 
