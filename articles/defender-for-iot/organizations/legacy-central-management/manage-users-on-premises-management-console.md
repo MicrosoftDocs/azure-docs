@@ -100,7 +100,7 @@ This procedure describes how to recover either the *support* or *cyberx* user pa
 
 1. In the **Recover** dialog that opens, enter the unique identifier that you've copied to the clipboard from your on-premises management console and select **Recover**. A **password_recovery.zip** file is automatically downloaded.
 
-    [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+    [!INCLUDE [root-of-trust](../includes/root-of-trust.md)]
 
 1. Back on the on-premises management console tab, on the **Password recovery** dialog, select **Upload**. Browse to an upload the **password_recovery.zip** file you downloaded from the Azure portal.
 
