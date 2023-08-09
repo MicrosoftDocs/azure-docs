@@ -261,14 +261,15 @@ Application downtime is expected to start after step #1 and persists until step 
 
 ### Zone-down experience
 
-#### Zone outage recovery
+**Zonal**. To recover from a zone-level failure, you can [perform point-in-time restore](/azure/postgresql/flexible-server/how-to-restore-server-portal) using the backup. You can choose a custom restore point with the latest time to restore the latest data. A new flexible server is deployed in another non-impacted zone. The time taken to restore depends on the previous backup and the volume of transaction logs to recover.
 
-**Zonal**. To recover from a zone-level failure, you can perform point-in-time restore using the backup. You can choose a custom restore point with the latest time to restore the latest data. A new flexible server is deployed in another non-impacted zone. The time taken to restore depends on the previous backup and the volume of transaction logs to recover.
+For more information on point-in-time restore see [Backup and restore in Azure Database for PostgreSQL-Flexible Server]
+(/azure/postgresql/flexible-server/concepts-backup-restore).
 
 **Zone-redundant**. Flexible server is automatically failed over to the standby server within 60-120s with zero data loss.
 
 
-## Configurations without high availability
+## Configurations without availability zones
 
 Although it's not recommended, you can configure you flexible server without high availability enabled. For flexible servers configured without high availability, the service provides local redundant storage with three copies of data, zone-redundant backup (in regions where it is supported), and built-in server resiliency to automatically restart a crashed server and relocate the server to another physical node.  Uptime [SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/postgresql) is offered in this configuration. During planned or unplanned failover events, if the server goes down, the service maintains the availability of the servers using the following automated procedure:
 
