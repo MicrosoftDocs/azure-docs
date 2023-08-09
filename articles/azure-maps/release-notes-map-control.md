@@ -22,6 +22,8 @@ This document contains information about new features and other changes to the M
 
 - Fixed zoom control to take into account the `maxBounds` [CameraOptions].
 
+- Fixed an issue that mouse positions are shifted after a css scale transform on the map container.
+
 #### Other changes (3.0.0)
 
 - Phased out the style definition version `2022-08-05` and switched the default `styleDefinitionsVersion` to `2023-01-01`.
