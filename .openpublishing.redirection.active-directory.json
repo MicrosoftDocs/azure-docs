@@ -5252,7 +5252,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md",
-      "redirect_url": "/azure/active-directory/reports-monitoring/concept-activity-log-integration-options-considerations",
+      "redirect_url": "/azure/active-directory/reports-monitoring/concept-log-monitoring-integration-options-considerations",
       "redirect_document_id": true
     },
     {

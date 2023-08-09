@@ -53,10 +53,10 @@ items:
   - name: Concepts
     expanded: false
     items:
-    - name: Identity log integration options
-      href: concept-activity-log-integration-options-considerations.md
-    - name: Diagnostic settings for log integrations
-      href: concept-diagnostic-settings-log-options.md
+    - name: Monitoring options and considerations
+      href: concept-log-monitoring-integration-options-considerations.md
+    - name: Log options for streaming to endpoints
+      href: concept-diagnostic-settings-logs-options.md
     - name: Plan a reporting and monitoring deployment
       href: plan-monitoring-and-reporting.md
   - name: How-to guides 

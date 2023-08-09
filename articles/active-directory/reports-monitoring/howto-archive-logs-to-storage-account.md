@@ -17,7 +17,7 @@ ms.reviewer: besiler
 ---
 # How to archive Azure AD logs to an Azure storage account
 
-If you need to store Azure Active Directory (Azure AD) activity logs for longer than the [default retention period](reference-reports-data-retention), you can archive your logs to a storage account. 
+If you need to store Azure Active Directory (Azure AD) activity logs for longer than the [default retention period](reference-reports-data-retention.md), you can archive your logs to a storage account. 
 
 ## Prerequisites 
 

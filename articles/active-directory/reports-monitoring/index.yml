@@ -38,6 +38,7 @@ landingContent:
            url: concept-all-sign-ins.md
          - text: Provisioning logs
            url: concept-provisioning-logs.md
+
   # Card
   - title: Identity logs
     linkLists:
