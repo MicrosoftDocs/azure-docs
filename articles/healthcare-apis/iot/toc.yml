@@ -30,7 +30,7 @@
   items:
   - name: Receive device messages via Azure IoT Hub
     href: device-messages-through-iot-hub.md 
-- name: How-to guides
+- name: How-tos
   expanded: false
   items: 
   - name: Map
