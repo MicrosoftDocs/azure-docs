@@ -73,6 +73,55 @@ az vm start --resource-group $resourceGroup --name $vm
    > 
    > If you are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region. 
 
+**Use Azure CLI to resize a VM in an availability set.**
+
+The below script sets the variables `resourceGroup`, `vm`, and `size`. It then checks if the desired VM size is available by using `az vm list-vm-resize-options` and checking if the output contains the desired size. If the desired size is not available, the script exits with an error message. If the desired size is available, the script deallocates the VM, resizes it, and starts it again.
+
+```azurecli-interactive
+
+```azurecli-interactive
+# Set variables
+resourceGroup="myResourceGroup"
+vmName="myVM"
+newVmSize="<newVmSize>"
+availabilitySetName="<availabilitySetName>"
+
+# Check if the desired VM size is available
+availableSizes=$(az vm list-vm-resize-options \
+  --resource-group $resourceGroup \
+  --name $vmName \
+  --query "[].name" \
+  --output tsv)
+if [[ ! $availableSizes =~ $newVmSize ]]; then
+  # Deallocate all VMs in the availability set
+  vmIds=$(az vmss list-instances \
+    --resource-group $resourceGroup \
+    --name $availabilitySetName \
+    --query "[].instanceId" \
+    --output tsv)
+  az vm deallocate \
+    --ids $vmIds \
+    --no-wait
+
+  # Resize and restart the VMs in the availability set
+  az vmss update \
+    --resource-group $resourceGroup \
+    --name $availabilitySetName \
+    --set virtualMachineProfile.hardwareProfile.vmSize=$newVmSize
+  az vmss start \
+    --resource-group $resourceGroup \
+    --name $availabilitySetName \
+    --instance-ids $vmIds
+  exit
+fi
+
+# Resize the VM
+az vm resize \
+  --resource-group $resourceGroup \
+  --name $vmName \
+  --size $newVmSize
+```
+
 ### [PowerShell](#tab/powershell)
 
 **Use PowerShell to resize a VM not in an availability set.**
@@ -150,11 +199,6 @@ Update-AzVM `
 ```
 
 This script sets the variables `$resourceGroup`, `$vmName`, `$newVmSize`, and `$availabilitySetName`. It then checks if the desired VM size is available by using `Get-AzVMSize` and checking if the output contains the desired size. If the desired size is not available, the script deallocates all VMs in the availability set, resizes them, and starts them again. If the desired size is available, the script resizes the VM.
-
-   > [!WARNING]
-   > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
-   > 
-   > If you are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region.
 
 ---
 ## Limitations
