@@ -17,7 +17,7 @@ This article describes extra on-premises management console activities that you 
 
 Before performing the procedures in this article, make sure that you have:
 
-- An on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md) and [activated](ot-deploy/activate-deploy-management.md).
+- An on-premises management console [installed](legacy-central-management/install-software-on-premises-management-console.md) and [activated](legacy-central-management/activate-deploy-management.md).
 
 - Access to the on-premises management console as an **Admin** user. Selected procedures and CLI access also requires a privileged user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -27,7 +27,7 @@ Before performing the procedures in this article, make sure that you have:
 
 ## Download software for the on-premises management console
 
-You may need to download software for your on-premises management console if you're [installing Defender for IoT software](ot-deploy/install-software-on-premises-management-console.md) on your own appliances, or [updating software versions](update-ot-software.md).
+You may need to download software for your on-premises management console if you're [installing Defender for IoT software](legacy-central-management/install-software-on-premises-management-console.md) on your own appliances, or [updating software versions](update-ot-software.md).
 
 In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, use one of the following options:
 
@@ -42,7 +42,7 @@ In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defe
 
 Enhance security to your on-premises management console by adding a secondary NIC dedicated for attached sensors within an IP address range. When you use a secondary NIC, the first is dedicated for end-users, and the secondary supports the configuration of a gateway for routed networks.
 
-This procedure describes how to add a secondary NIC after [installing your on-premises management console](ot-deploy/install-software-on-premises-management-console.md).
+This procedure describes how to add a secondary NIC after [installing your on-premises management console](legacy-central-management/install-software-on-premises-management-console.md).
 
 **To add a secondary NIC**:
 
@@ -93,7 +93,7 @@ You may need to reactivate your on-premises management console as part of mainte
 
 ## Manage SSL/TLS certificates
 
-If you're working with a production environment, you'd deployed a [CA-signed SSL/TLS certificate](ot-deploy/activate-deploy-management.md#deploy-an-ssltls-certificate) as part of your on-premises management console deployment. We recommend using self-signed certificates only for testing purposes.
+If you're working with a production environment, you'd deployed a [CA-signed SSL/TLS certificate](legacy-central-management/activate-deploy-management.md#deploy-an-ssltls-certificate) as part of your on-premises management console deployment. We recommend using self-signed certificates only for testing purposes.
 
 The following procedures describe how to deploy updated SSL/TLS certificates, such as if the certificate has expired.
 
@@ -175,7 +175,7 @@ To change the name of your on-premises management console:
 
 1. In the **Edit management console configuration** dialog, enter your new name. The name must have a maximum of 25 characters. For example:
 
-    :::image type="content" source="media/how-to-manage-the-on-premises-management-console/change-name.png" alt-text="Screenshot of how to change the name of your on-premises management console.":::
+    :::image type="content" source="media/legacy-central-management/how-to-manage-the-on-premises-management-console/change-name.png" alt-text="Screenshot of how to change the name of your on-premises management console.":::
 
 1. Select **Save** to save your changes.
 
@@ -262,5 +262,5 @@ Make sure you can reach the SMTP server from the on-premises management console.
 For more information, see:
 
 - [Update OT system software](update-ot-software.md)
-- [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
-- [Troubleshoot the on-premises management console](how-to-troubleshoot-on-premises-management-console.md)
+- [Manage sensors from the management console](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md)
+- [Troubleshoot the on-premises management console](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md)

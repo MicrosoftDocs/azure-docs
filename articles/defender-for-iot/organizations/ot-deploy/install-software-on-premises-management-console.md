@@ -137,7 +137,7 @@ This command causes the light on the port to flash for the specified time period
 
 ## Next steps
 
-For more information, see [Troubleshoot the on-premises management console](../how-to-troubleshoot-on-premises-management-console.md).
+For more information, see [Troubleshoot the on-premises management console](../legacy-central-management/how-to-troubleshoot-on-premises-management-console.md).
 
 > [!div class="step-by-step"]
 > [« Prepare an on-premises management console appliance](prepare-management-appliance.md)

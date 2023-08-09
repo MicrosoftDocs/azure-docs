@@ -107,7 +107,7 @@ For more information, see [Check system health](../how-to-troubleshoot-sensor.md
 
 ## Next steps
 
-For more information, see [Troubleshoot the sensor](../how-to-troubleshoot-sensor.md) and [Troubleshoot the on-premises management console](../how-to-troubleshoot-on-premises-management-console.md).
+For more information, see [Troubleshoot the sensor](../how-to-troubleshoot-sensor.md) and [Troubleshoot the on-premises management console](../legacy-central-management/how-to-troubleshoot-on-premises-management-console.md).
 
 > [!div class="step-by-step"]
 > [« Install OT monitoring software on OT sensors](install-software-ot-sensor.md)

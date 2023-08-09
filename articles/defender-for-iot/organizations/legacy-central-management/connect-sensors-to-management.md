@@ -35,7 +35,7 @@ To connect OT sensors to the on-premises management console, copy a connection s
 
 1. Sign into your on-premises management console and select **System Settings** and scroll down to see the **Sensor Setup - Connection String** area. For example:
 
-   :::image type="content" source="../media/how-to-manage-sensors-from-the-on-premises-management-console/connection-string.png" alt-text="Screenshot that shows copying the connection string for the sensor.":::
+   :::image type="content" source="../media/legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console/connection-string.png" alt-text="Screenshot that shows copying the connection string for the sensor.":::
 
 1. Copy the string in the **Copy Connection String** box to the clipboard.
 

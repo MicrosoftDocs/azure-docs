@@ -15,9 +15,9 @@ This article describes how you can manage OT sensors from an on-premises managem
 
 To perform the procedures in this article, make sure you have:
 
-- An on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md) and [activated](ot-deploy/activate-deploy-management.md)
+- An on-premises management console [installed](legacy-central-management/install-software-on-premises-management-console.md) and [activated](legacy-central-management/activate-deploy-management.md)
 
-- One or more OT network sensors [installed](ot-deploy/install-software-ot-sensor.md), [activated](ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](ot-deploy/connect-sensors-to-management.md)
+- One or more OT network sensors [installed](ot-deploy/install-software-ot-sensor.md), [activated](ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](legacy-central-management/connect-sensors-to-management.md)
 
 - Access to the on-premises management console as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -105,7 +105,7 @@ For more information, see:
 - [Connect your OT sensors to the cloud](connect-sensors.md)
 - [Track sensor activity](how-to-track-sensor-activity.md)
 - [Update OT system software](update-ot-software.md)
-- [Troubleshoot on-premises management console](how-to-troubleshoot-on-premises-management-console.md)
+- [Troubleshoot on-premises management console](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md)
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
 - [Manage threat intelligence packages on OT sensors](how-to-work-with-threat-intelligence-packages.md)
 - [Control the OT traffic monitored by Microsoft Defender for IoT](how-to-control-what-traffic-is-monitored.md)

@@ -204,7 +204,7 @@ The software version on your on-premises management console must be equal to tha
 
     Save your changes when you're finished selecting sensors to update. For example:
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png" alt-text="Screenshot of on-premises management console with Automatic Version Updates selected." lightbox="media/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png":::
+   :::image type="content" source="media/legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png" alt-text="Screenshot of on-premises management console with Automatic Version Updates selected." lightbox="media/legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png":::
 
     > [!IMPORTANT]
     > If your **Automatic Version Updates** option is red, you have an update conflict. An update conflict might occur if you have multiple sensors marked for automatic updates but the sensors currently have different software versions installed. Select the **Automatic Version Updates** option to resolve the conflict.
@@ -345,6 +345,6 @@ For more information, see:
 
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
 - [Manage individual OT sensors](how-to-manage-individual-sensors.md)
-- [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md)
+- [Manage the on-premises management console](legacy-central-management/how-to-manage-the-on-premises-management-console.md)
 - [Troubleshoot the sensor](how-to-troubleshoot-sensor.md)
-- [Troubleshoot the on-premises management console](how-to-troubleshoot-on-premises-management-console.md)
+- [Troubleshoot the on-premises management console](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md)

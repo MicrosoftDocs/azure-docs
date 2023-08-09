@@ -174,5 +174,5 @@ For each site or zone, select the options menu to make changes, or to delete a s
 You've now finished deploying your on-premises management console. For more information, see:
 
 - [Tutorial: Monitor your OT networks with Zero Trust principles](../monitor-zero-trust.md)
-- [Maintain the on-premises management console](../how-to-manage-the-on-premises-management-console.md)
-- [Manage sensors from the on-premises management console](../how-to-manage-sensors-from-the-on-premises-management-console.md)
+- [Maintain the on-premises management console](../legacy-central-management/how-to-manage-the-on-premises-management-console.md)
+- [Manage sensors from the on-premises management console](../legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md)

@@ -42,7 +42,7 @@ For more information, see [Default privileged on-premises users](../roles-on-pre
 In a browser, go to the on-premises management console's IP address, and enter the username and password.
 
 > [!NOTE]
-> If you forgot your password, select **Password recovery** to reset the password. For more information, see [Recover a privileged user password](../how-to-manage-the-on-premises-management-console.md#recover-a-privileged-user-password).
+> If you forgot your password, select **Password recovery** to reset the password. For more information, see [Recover a privileged user password](../legacy-central-management/how-to-manage-the-on-premises-management-console.md#recover-a-privileged-user-password).
 >
 
 ## Activate the on-premises management console
@@ -75,7 +75,7 @@ Activate your on-premises management console using a downloaded file from the Az
 > [!NOTE]
 > You'll need to upload a new activation file in specific cases, such as if you purchase a new license for a different site size after having uploaded your initial activation file.
 >
-> For more information, see [Upload a new activation file](../how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
+> For more information, see [Upload a new activation file](../legacy-central-management/how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
 
 ### Activation files for legacy OT plans
 
@@ -104,7 +104,7 @@ The requirements for SSL/TLS certificates are the same for OT sensors and on-pre
 
 1. Select **SAVE** to save your certificate settings.
 
-For more information, see [Troubleshoot certificate upload errors](../how-to-manage-the-on-premises-management-console.md#troubleshoot-certificate-upload-errors).
+For more information, see [Troubleshoot certificate upload errors](../legacy-central-management/how-to-manage-the-on-premises-management-console.md#troubleshoot-certificate-upload-errors).
 
 ## Next steps
 

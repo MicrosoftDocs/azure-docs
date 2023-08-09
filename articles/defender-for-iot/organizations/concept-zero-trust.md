@@ -75,7 +75,7 @@ For example, if your growing company has factories and offices in Paris, Lagos, 
 
 ### Zero Trust and air-gapped environments
 
-If you're working with a large, air-gapped environment, we recommend that you [deploy an on-premises management console](ot-deploy/install-software-on-premises-management-console.md) for central maintenance and security monitoring. Use the on-premises management console to create sites and zones across all connected OT sensors.
+If you're working with a large, air-gapped environment, we recommend that you [deploy an on-premises management console](legacy-central-management/install-software-on-premises-management-console.md) for central maintenance and security monitoring. Use the on-premises management console to create sites and zones across all connected OT sensors.
 
 > [!NOTE]
 > Sites and zones configured on the Azure portal are not synchronized with sites and zones configured on an on-premises management console. 

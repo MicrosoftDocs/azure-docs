@@ -311,22 +311,22 @@
     - name: Air-gapped management deployment path
       href: ot-deploy/air-gapped-deploy.md
     - name: Prepare an appliance
-      href: ot-deploy/prepare-management-appliance.md
+      href: legacy-central-management/install-software-on-premises-management-console.md
     - name: Install an on-premises management console
-      href: ot-deploy/install-software-on-premises-management-console.md
+      href: legacy-central-management/install-software-on-premises-management-console.md
     - name: Activate and set up an on-premises management console
-      href: ot-deploy/activate-deploy-management.md
+      href: legacy-central-management/activate-deploy-management.md
     - name: Connect OT sensors to an on-premises management console
-      href: ot-deploy/connect-sensors-to-management.md
+      href: legacy-central-management/connect-sensors-to-management.md
     - name: Configure on-premises sites and zones
       href: ot-deploy/sites-and-zones-on-premises.md
       displayName: site, zone, Zero Trust
   - name: Manage devices from the on-premises management console
-    href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+    href: legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
     displayName: devices, assets, inventory, device
   - name: Manage alerts from the on-premises management console
     displayName: alert, alerts
-    href: how-to-work-with-alerts-on-premises-management-console.md
+    href: legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md
   - name: Integrate with Aruba ClearPass
     href: tutorial-clearpass.md
   - name: Integrate with Splunk
@@ -336,23 +336,23 @@
   - name: System maintenance with an on-premises management console
     items:
     - name: Manage users on the on-premises management console
-      href: manage-users-on-premises-management-console.md
+      href: legacy-central-management/install-software-on-premises-management-console.md
       displayName: users, user
     - name: Back up sensors from an on-premises management console
-      href: back-up-sensors-from-management.md
+      href: legacy-central-management/back-up-sensors-from-management.md
       displayName: backup, back up
     - name: Back up an on-premises management console
-      href: back-up-restore-management.md
+      href: legacy-central-management/back-up-restore-management.md
       displayName: backup, restore, back up
     - name: Set up high availability
       href: how-to-set-up-high-availability.md
     - name: Manage sensors from the on-premises management console
-      href: how-to-manage-sensors-from-the-on-premises-management-console.md
+      href: legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md
     - name: Maintain an on-premises management console
       displayName: activation, SMTP, VLAN, hostname
-      href: how-to-manage-the-on-premises-management-console.md
+      href: legacy-central-management/how-to-manage-the-on-premises-management-console.md
     - name: Troubleshoot on-premises management consoles
-      href: how-to-troubleshoot-on-premises-management-console.md
+      href: legacy-central-management/how-to-troubleshoot-on-premises-management-console.md
 - name: Reference
   items:
   - name: Supported protocols

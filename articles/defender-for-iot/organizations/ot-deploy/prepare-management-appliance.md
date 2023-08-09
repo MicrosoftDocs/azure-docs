@@ -49,7 +49,7 @@ If you want to deploy a CA-signed certificate during initial deployment, make su
 For more information, see:
 
 - [Create SSL/TLS certificates for OT appliances](../ot-deploy/create-ssl-certificates.md)
-- [Manage SSL/TLS certificates](../how-to-manage-the-on-premises-management-console.md#manage-ssltls-certificates)
+- [Manage SSL/TLS certificates](../legacy-central-management/how-to-manage-the-on-premises-management-console.md#manage-ssltls-certificates)
 
 ## Next steps
 

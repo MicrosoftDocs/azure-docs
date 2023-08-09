@@ -764,7 +764,7 @@ For more information, see:
 
 - [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
 - [View and manage alerts on your sensor](how-to-view-alerts.md)
-- [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+- [Work with alerts on the on-premises management console](legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md)
 
 ### Sensor connections restored after certificate rotation
 

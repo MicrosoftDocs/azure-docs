@@ -196,7 +196,7 @@ Use the following procedure to view more data for each site and zone on an on-pr
 
 Each site and zone lists operational details about the sensor, such as details about its last software update, as well as the number of devices, alerts, and sensors aggregated for each zone.
 
-Select **View device inventory**, **View zone map**, the :::image type="icon" source="media/sites-and-zones/sensor-icon.png" border="false"::: sensor icon, or the :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false"::: alerts button to jump to more specific data.
+Select **View device inventory**, **View zone map**, the :::image type="icon" source="media/sites-and-zones/sensor-icon.png" border="false"::: sensor icon, or the :::image type="icon" source="media/legacy-central-management/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false"::: alerts button to jump to more specific data.
 
 
 ## Sample alerts to watch for

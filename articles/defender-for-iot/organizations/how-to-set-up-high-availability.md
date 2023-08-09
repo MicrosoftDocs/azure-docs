@@ -17,12 +17,12 @@ This deployment is implemented with an on-premises management console pair that 
 
 Before you perform the procedures in this article, verify that you've met the following prerequisites:
 
-- Make sure that you have an [on-premises management console installed](./ot-deploy/install-software-on-premises-management-console.md) on both a primary appliance and a secondary appliance.
+- Make sure that you have an [on-premises management console installed](./legacy-central-management/install-software-on-premises-management-console.md) on both a primary appliance and a secondary appliance.
 
     - Both your primary and secondary on-premises management console appliances must be running identical hardware models and software versions.
     - You must be able to access both the primary and secondary on-premises management consoles as a [privileged user](references-work-with-defender-for-iot-cli-commands.md), for running CLI commands. For more information, see [On-premises users and roles for OT monitoring](roles-on-premises.md).
 
-- Make sure that the primary on-premises management console is fully [configured](how-to-manage-the-on-premises-management-console.md), including at least two [OT network sensors connected](ot-deploy/connect-sensors-to-management.md) and visible in the console UI, as well as the scheduled backups or VLAN settings. All settings are applied to the secondary appliance automatically after pairing.
+- Make sure that the primary on-premises management console is fully [configured](legacy-central-management/how-to-manage-the-on-premises-management-console.md), including at least two [OT network sensors connected](legacy-central-management/connect-sensors-to-management.md) and visible in the console UI, as well as the scheduled backups or VLAN settings. All settings are applied to the secondary appliance automatically after pairing.
 
 - Make sure that your SSL/TLS certificates meet required criteria. For more information, see [SSL/TLS certificate requirements for on-premises resources](best-practices/certificate-requirements.md).
 
@@ -104,7 +104,7 @@ The core application logs can be exported to the Defender for IoT support team t
 
 **To access the core logs**:
 
-1. Sign into the on-premises management console and select **System Settings** > **Export**. For more information on exporting logs to send to the support team, see [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting).
+1. Sign into the on-premises management console and select **System Settings** > **Export**. For more information on exporting logs to send to the support team, see [Export logs from the on-premises management console for troubleshooting](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting).
 
 ## Update the on-premises management console with high availability
 
@@ -189,8 +189,8 @@ Activation files can only be updated on the primary on-premises management conso
 
 Before the activation file expires on the secondary machine, define it as the primary machine so that you can update the license.
 
-For more information, see [Upload a new activation file](how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
+For more information, see [Upload a new activation file](legacy-central-management/how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
 
 ## Next steps
 
-For more information, see [Activate and set up an on-premises management console](ot-deploy/activate-deploy-management.md).
+For more information, see [Activate and set up an on-premises management console](legacy-central-management/activate-deploy-management.md).

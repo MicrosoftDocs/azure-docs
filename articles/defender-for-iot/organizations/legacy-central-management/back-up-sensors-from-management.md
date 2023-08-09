@@ -79,7 +79,7 @@ To check for backup notifications on the on-premises management console:
 
 1. In the **Sensor Backup Schedule** dialog, check for details about recent backup activities for each sensor listed. For example:
 
-    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-location.png" alt-text="View your sensors and where they're located and all relevant information.":::
+    :::image type="content" source="media/legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console/sensor-location.png" alt-text="View your sensors and where they're located and all relevant information.":::
 
 Backup failures might occur for any of the following scenarios:
 
@@ -140,6 +140,6 @@ We recommend saving your OT sensor backup files on your internal network. To do 
 
 For more information, see:
 
-[Manage sensors from the on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+[Manage sensors from the on-premises management console](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md)
 
 [Back up and restore OT network sensors from the sensor console](back-up-restore-sensor.md)
