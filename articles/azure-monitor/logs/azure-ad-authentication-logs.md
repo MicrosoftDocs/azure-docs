@@ -26,7 +26,7 @@ To enable Azure AD integration for Azure Monitor Logs and remove reliance on the
 
 To disable local authentication for a Log Analytics workspace, you need `microsoft.operationalinsights/workspaces/write` permissions on the workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
 
-## Disable local authentication for Log Analytics
+## Disable local authentication for Log Analytics workspaces
 
 After you've removed your reliance on the Log Analytics agent, you can disable local authentication for Log Analytics workspaces. Then you can ingest and query telemetry authenticated exclusively by Azure AD.
 
