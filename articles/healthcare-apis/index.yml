@@ -95,7 +95,7 @@ conceptualContent:
               text: Monitor service health in Azure portal 
             - url: ./iot/how-to-use-mapping-debugger.md
               itemType: how-to-guide
-              text: Troubleshoot with the mapping debugger 
+              text: Troubleshoot with the Mapping debugger 
             - url: ./iot/
               itemType: how-to-guide
               text: Troubleshoot service log errors   
