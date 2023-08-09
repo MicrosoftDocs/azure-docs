@@ -1,5 +1,5 @@
 ---
-title: Create folders to organize your Authorization Systems in Permissions Management
+title: Create folders to organize your Authorization Systems
 description: How to create folders to organize Authorization Systems - accounts, subscriptions, and projects - in Microsoft Entra Permissions Management.
 services: active-directory
 author: jenniferf-skc
