@@ -13,13 +13,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: devx-track-linux
 ms.topic: overview
-ms.date: 08/03/2023
+ms.date: 08/09/2023
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+* [Configure customer-managed keys with Hardware Security Module](configure-customer-managed-keys-hardware.md) (Preview)
+
+    <!-- pending PM input -->
 
 ## August 2023
 
