@@ -104,7 +104,7 @@ The following table lists the fields in the schema and what they signify.
 | **TimeProcessed_t** | Date and time in UTC	| Time at which the traffic analytics processed the raw flow logs from the storage account. |
 | **FlowIntervalStartTime_t** | Date and time in UTC | Starting time of the flow log processing interval (time from which flow interval is measured). |
 | **FlowIntervalEndTime_t** | Date and time in UTC | Ending time of the flow log processing interval. |
-| **FlowStartTime_t** |	Date and time in UTC |	First occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`. This flow gets aggregated based on aggregation logic. |
+| **FlowStartTime_t** | Date and time in UTC | First occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`. This flow gets aggregated based on aggregation logic. |
 | **FlowEndTime_t** | Date and time in UTC | Last occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`. In terms of flow log v2, this field contains the time when the last flow with the same four-tuple started (marked as **B** in the raw flow record). |
 | **FlowType_s** |  - IntraVNet <br> - InterVNet <br> - S2S <br> - P2S <br> - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow <br> - Unknown Private <br> - Unknown | See [Notes](#notes) for definitions. |
 | **SrcIP_s** | Source IP address |	Blank in AzurePublic and ExternalPublic flows. |
@@ -204,30 +204,7 @@ The following table lists the fields in the schema and what they signify.
 | **DestVM** |<resourcegroup_Name>/\<VirtualMachineName> | Virtual machine associated with the destination IP in the flow. |
 | **SrcSubnet**  | <ResourceGroup_Name>/<VirtualNetwork_Name>/\<SubnetName> | Subnet associated with the source IP in the flow. |
 | **DestSubnet** | <ResourceGroup_Name>/<VirtualNetwork_Name>/\<SubnetName> | Subnet associated with the destination IP in the flow.  |
-| **SrcApplicationGateway** | \<SubscriptionID>/\|\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the source IP in the flow.  |
-| **DestApplicationGateway** |\<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the destination IP in the flow.  |
-| **SrcLoadBalancer**  |\<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Load balancer associated with the source IP in the flow.  |
-| **DestLoadBalancer** |\<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Load balancer associated with the destination IP in the flow.  |
-| **SrcLocalNetworkGateway**  |\<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the source IP in the flow. |
-| **DestLocalNetworkGateway** |\<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName>  | Local network gateway associated with the destination IP in the flow. |
-| **ConnectionType** | Possible values are VNetPeering, VpnGateway, and ExpressRoute  | The connection type. |
-| **ConnectionName** | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName>| The connection name. For flow type P2S, it's formatted as \<GatewayName>_\<VPNClientIP> |
-| **ConnectingVNets** | Space separated list of virtual network names. | In hub and spoke topology, hub virtual networks are populated here. |
-| **Country** | Two-letter country code (ISO 3166-1 alpha-2) | Populated for flow type ExternalPublic. All IP addresses in PublicIPs field share the same country code. |
-| **AzureRegion** | Azure region locations | Populated for flow type AzurePublic. All IP addresses in PublicIPs field share the Azure region. |
-| **AllowedInFlows**| - | Count of inbound flows that were allowed, which represents the number of flows that shared the same four-tuple inbound to the network interface at which the flow was captured. |
-| **DeniedInFlows** | - | Count of inbound flows that were denied. (Inbound to the network interface at which the flow was captured). |
-| **AllowedOutFlows** | - | Count of outbound flows that were allowed (Outbound to the network interface at which the flow was captured). |
-| **DeniedOutFlows** | - | Count of outbound flows that were denied (Outbound to the network interface at which the flow was captured). |
-| **FlowCount** | Deprecated. Total flows that matched the same four-tuple. In flow types ExternalPublic and AzurePublic, count includes the flows from various PublicIP addresses as well. | - |
-| **PacketsDestToSrc** | Represents packets sent from the destination to the source of the flow | Populated only for the Version 2 of NSG flow log schema. |
-| **PacketsSrcToDest** | Represents packets sent from the source to the destination of the flow  | Populated only for the Version 2 of NSG flow log schema. |
-| **BytesDestToSrc** | Represents bytes sent from the destination to the source of the flow | Populated only for the Version 2 of NSG flow log schema. |
-| **BytesSrcToDest** | Represents bytes sent from the source to the destination of the flow | Populated only for the Version 2 of NSG flow log schema. |
-| **CompletedFlows** | - | Populated with nonzero value only for the Version 2 of NSG flow log schema. |
-| **SrcPublicIPs** | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT> \|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
-| **DestPublicIPs** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
-| **FlowEncryption** | - Encrypted <br>- Unencrypted <br>- Unsupported hardware <br>- Software not ready <br>- Drop due to no encryption <br>- Discovery not supported <br>- Destination on same host <br>- Fall back to no encryption. | Encryption level of flows.  |
+
 
 > [!NOTE]
 > *NTANetAnalytics* in VNet flow logs replaces *AzureNetworkAnalytics_CL* used in NSG flow logs.
