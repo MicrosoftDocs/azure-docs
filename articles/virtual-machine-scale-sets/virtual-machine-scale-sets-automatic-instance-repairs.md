@@ -333,7 +333,7 @@ az vmss update \
 
 ### [Azure PowerShell](#tab/powershell-3)
 
-This example demonstrates how to update the repair action on a scale set with an existing automatic repairs policy, using [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
+This example demonstrates how to update the repair action on a scale set with an existing automatic repairs policy, using [Update-AzVmss](/powershell/module/az.compute/update-azvmss). Use PowerShell Version 7.3.6 or higher. 
 
 **Disable the existing automatic repairs policy on your scale set**
 ```azurepowershell-interactive 
