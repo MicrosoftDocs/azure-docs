@@ -217,4 +217,4 @@ For a work-around, see [How do I migrate from a VM size with local temp disk to 
 
 - For more scalability, run multiple VM instances and scale out.
 - For more information, see [Automatically scale machines in a Virtual Machine Scale Set](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).
-- For more cost management planning, see [Plan and manage your Azure costs](https://learn.microsoft.com/en-us/training/modules/plan-manage-azure-costs/1-introduction).
+- For more cost management planning information, see the [Plan and manage your Azure costs](https://learn.microsoft.com/en-us/training/modules/plan-manage-azure-costs/1-introduction) module.
