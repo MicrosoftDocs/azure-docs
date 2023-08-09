@@ -81,7 +81,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 In a bash shell, run the following command. You will need to replace `gpt-35-turbo` with the deployment name you chose when you deployed the GPT-35-Turbo. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
 
 ```bash
-curl $AZURE_OPENAI_ENDPOINT/openai/deployments/gpt-35-turbo/completions?api-version=2023-05-15 \
+curl $AZURE_OPENAI_ENDPOINT/openai/deployments/text-davinci-003/completions?api-version=2023-05-15 \
   -H "Content-Type: application/json" \
   -H "api-key: $AZURE_OPENAI_KEY" \
   -d "{\"prompt\": \"Once upon a time\"}"
