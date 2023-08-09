@@ -33,10 +33,9 @@ Although Azure Cognitive Search has native [AI enrichment](cognitive-search-conc
 
 You'll need the `synapseml` library and several Azure resources. If possible, use the same subscription and region for your Azure resources and put everything into one resource group for simple cleanup later. The following links are for portal installs. The sample data is imported from a public site.
 
-+ [SynapseML package](https://microsoft.github.io/SynapseML/docs/getting_started/installation/#python) <sup>1</sup> 
-+ [Azure Cognitive Search](search-create-service-portal.md) (any tier) <sup>2</sup> 
-+ [Azure AI services](../ai-services/multi-service-resource.md?pivots=azportal) (any tier) <sup>3</sup> 
-+ [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>4</sup>
++ [Azure Cognitive Search](search-create-service-portal.md) (any tier) <sup>1</sup> 
++ [Azure AI services](../ai-services/multi-service-resource.md?pivots=azportal) (any tier) <sup>1</sup> 
++ [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>3</sup>
 
 <sup>1</sup> This link resolves to a tutorial for loading the package.
 
@@ -137,7 +136,7 @@ display(df2)
 
 Paste the following code into the third cell. No modifications are required, so run the code when you're ready.
 
-This code loads the [AnalyzeInvoices transformer](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#analyzeinvoices) and passes a reference to the data frame containing the invoices. It calls the pre-built [invoice model](../ai-services/document-intelligence/concept-invoice.md) of Azure AI Document Intelligence to extract information from the invoices.
+This code loads the AnalyzeInvoices transformer and passes a reference to the data frame containing the invoices. It calls the pre-built [invoice model](../ai-services/document-intelligence/concept-invoice.md) of Azure AI Document Intelligence to extract information from the invoices.
 
 ```python
 from synapse.ml.cognitive import AnalyzeInvoices
@@ -189,7 +188,7 @@ Notice how this transformation recasts the nested fields into a table, which ena
 
 Paste the following code into the fifth cell. No modifications are required, so run the code when you're ready.
 
-This code loads [Translate](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#translate), a transformer that calls the Azure AI Translator service in Azure AI services. The original text, which is in English in the "Description" column, is machine-translated into various languages. All of the output is consolidated into "output.translations" array.
+This code loads Translate, a transformer that calls the Azure AI Translator service in Azure AI services. The original text, which is in English in the "Description" column, is machine-translated into various languages. All of the output is consolidated into "output.translations" array.
 
 ```python
 from synapse.ml.cognitive import Translate
@@ -219,7 +218,7 @@ display(translated_df)
 
 Paste the following code in the sixth cell and then run it. No modifications are required.
 
-This code loads [AzureSearchWriter](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#azuresearch). It consumes a tabular dataset and infers a search index schema that defines one field for each column. The translations structure is an array, so it's articulated in the index as a complex collection with subfields for each language translation. The generated index will have a document key and use the default values for fields created using the [Create Index REST API](/rest/api/searchservice/create-index).
+This code loads AzureSearchWriter. It consumes a tabular dataset and infers a search index schema that defines one field for each column. The translations structure is an array, so it's articulated in the index as a complex collection with subfields for each language translation. The generated index will have a document key and use the default values for fields created using the [Create Index REST API](/rest/api/searchservice/create-index).
 
 ```python
 from synapse.ml.cognitive import *
