@@ -6,7 +6,7 @@ author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 06/07/2023
+ms.date: 08/07/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL limits and limitations
@@ -90,7 +90,14 @@ currently **not supported**:
 * High availability
 * The [azure_storage](howto-ingest-azure-blob-storage.md) extension
 
-## PostgreSQL
+## Authentication
+
+### Azure Active Directory authentication
+If [Azure Active Directory (Azure AD)](./concepts-authentication.md#azure-active-directory-authentication-preview) is enabled on a Azure Cosmos DB for PostgreSQL cluster, the following is currently **not supported**:
+
+* PostgreSQL 11, 12, and 13
+* PgBouncer
+* Azure AD groups
 
 ### Database creation
 
