@@ -9,11 +9,10 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 08/09/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
-ms.custom: "it-pro"
-ms.collection: M365-identity-device-management
+
 ---
 # Manage the 'Stay signed in?' prompt
 

@@ -9,11 +9,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 07/13/2023
+ms.date: 08/09/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
-ms.custom: "it-pro, seodec18, fasttrack-edit"
-ms.collection: M365-identity-device-management
 ---
 
 # Configure your company branding
@@ -183,7 +181,7 @@ Once your default sign-in experience is created, select the **Edit** button to m
 
 ## Customize the sign-in experience by browser language
 
-To create an inclusive experience for all of your users, you can customize the sign-in experience based on browser language.
+You can create a personalized sign-in experience for users who sign in using a specific browser language by customizing the branding elements for that browser language. This customization overrides any configurations made to the default branding. If you don't make any changes to the elements, the default elements are displayed.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account for the directory.
 
