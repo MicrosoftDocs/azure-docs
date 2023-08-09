@@ -13,7 +13,16 @@ ms.custom: ignite-2022
 
 Azure Elastic SAN volumes can be simultaneously attached to multiple compute clients, allowing you to deploy or migrate cluster applications to Azure. You need to use a cluster manager to share an Elastic SAN volume, like Windows Server Failover Cluster (WSFC), or Pacemaker. The cluster manager handles cluster node communications and write locking. Elastic SAN doesn't natively offer a fully managed filesystem that can be accessed over SMB or NFS.
 
+## Limitations
+
+
+
+
 ## How it works
+
+Elastic SAN shared volumes use SCSI-3 Persistent Reservations to allow initiators (clients) to control access to a shared elastic SAN volume. This protocol enables an initiator to reserve access to an elastic SAN volume, limit write (or read) access by other initiators, and persistent the reservation on a volume beyond the lifetime of a session by default.
+
+SCSI-3 PR has a pivotal role in maintaining data consistency and integrity within shared volumes in cluster scenarios. Compute nodes in a cluster can read or write to their attached elastic SAN volumes based on the reservation chosen by their cluster applications.
 
 ## Persistent reservation flow
 
