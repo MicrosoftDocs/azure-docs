@@ -31,15 +31,27 @@
       href: azure-to-azure-tutorial-failover-failback.md
     - name: Run failback
       href: azure-to-azure-tutorial-failback.md
-  - name: Disaster recovery for Azure Public Multi-Access Edge Compute (MEC) VMs  
+  - name: VMware VM disaster recovery to Azure
     items:
-    - name: Set up disaster recovery to another region using PowerShell
+    - name: Prepare Azure
+      href: tutorial-prepare-azure.md
+    - name: Prepare on-premises VMware
+      href: vmware-azure-tutorial-prepare-on-premises.md
+    - name: Set up replication
+      href: vmware-azure-set-up-replication-tutorial-modernized.md
+    - name: Run a disaster recovery drill
+      href: tutorial-dr-drill-azure.md
+    - name: Run VMware VMs failover to Azure
+      href: vmware-azure-tutorial-failover-failback-modernized.md
+  - name: Set up disaster recovery for Azure Public Multi-Access Edge Compute (MEC) VMs  
+    items:
+    - name: Disaster recovery to another region using PowerShell
       href: tutorial-replicate-vms-edge-zone-to-azure-region.md
-    - name: Set up disaster recovery to another Public MEC using PowerShell 
+    - name: Disaster recovery to another Public MEC using PowerShell 
       href: tutorial-replicate-vms-edge-zone-to-another-zone.md
-    - name: Set up disaster recovery using the Recovery Services vault
+    - name: Disaster recovery using the Recovery Services vault
       href: disaster-recovery-for-edge-zone-vm-tutorial.md
-    - name: Set up disaster recovery when creating a VM
+    - name: Disaster recovery when creating a VM
       href: disaster-recovery-for-edge-zone-via-vm-flow-tutorial.md
   - name: Move to modernized VMware VM disaster recovery
     items:
@@ -57,26 +69,14 @@
       href: region-move-cross-geos.md
     - name: Move a vault to a different region
       href: move-vaults-across-regions.md
-  - name: VMware VM disaster recovery to Azure
-    items:
-    - name: Prepare Azure
-      href: tutorial-prepare-azure.md
-    - name: Prepare on-premises VMware
-      href: vmware-azure-tutorial-prepare-on-premises.md
   - name: Set up replication
     items:
     - name: Classic
       href: vmware-azure-tutorial.md
-    - name: Modernized
-      href: vmware-azure-set-up-replication-tutorial-modernized.md
-    - name: Run a disaster recovery drill
-      href: tutorial-dr-drill-azure.md
   - name: Run VMware VMs failover to Azure
     items:
     - name: Classic
       href: vmware-azure-tutorial-failover-failback.md
-    - name: Preview
-      href: vmware-azure-tutorial-failover-failback-modernized.md
   - name: Azure VMware Solution disaster recovery to Azure
     items:
     - name: Prepare Azure
@@ -631,9 +631,9 @@
     href: /rest/api/site-recovery
 - name: Related
   items:
-  - name: Azure Automation
-    href: ../backup/index.yml
   - name: Azure Backup
+    href: ../backup/index.yml
+  - name: Azure Automation
     href: ../automation/index.yml
   - name: Azure Resource Mover
     href: ../resource-mover/index.yml
