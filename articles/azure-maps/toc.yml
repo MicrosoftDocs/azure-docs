@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Azure Maps?
     href: about-azure-maps.md
+  - name: What is Azure Maps Creator?
+    href: about-creator.md
 - name: Quickstarts
   expanded: true
   items:
