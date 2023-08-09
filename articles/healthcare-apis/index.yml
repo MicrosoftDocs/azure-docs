@@ -154,5 +154,5 @@ additionalContent:
           url: https://learn.microsoft.com/en-us/samples/azure/azure-quickstart-templates/fhir-import/ 
         # Card
         - title: Community blog
-          summary: cardsummary4
+          summary: Insights, best practices, and innovations in healthcare and life sciences
           url: https://techcommunity.microsoft.com/t5/healthcare-and-life-sciences/bg-p/HealthcareAndLifeSciencesBlog 
