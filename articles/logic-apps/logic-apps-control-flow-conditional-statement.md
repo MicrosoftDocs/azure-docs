@@ -164,5 +164,5 @@ The following shows the high-level code definition behind the **Condition** acti
 
 * [Run steps based on different values (switch actions)](logic-apps-control-flow-switch-statement.md)
 * [Run and repeat steps (loops)](logic-apps-control-flow-loops.md)
-* [Run or merge parallel steps (branches)](logic-apps/logic-apps-control-flow-branches.md)
+* [Run or merge parallel steps (branches)](logic-apps-control-flow-branches.md)
 * [Run steps based on grouped action status (scopes)](logic-apps-control-flow-run-steps-group-scopes.md)
