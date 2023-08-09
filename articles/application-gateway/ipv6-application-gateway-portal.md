@@ -106,9 +106,9 @@ Create the application gateway using the tabs on the **Create application gatewa
    - **Application gateway name**: Enter a name for the application gateway.  For example, **myappgw**.
    - **IP address type**: Select **Dual stack (IPv4 & IPv6)**.
 
-     ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal-ipv6/ipv6-app-gw.png) 
+     ![Create new application gateway: Basics](./media/ipv6-application-gateway-portal/ipv6-app-gw.png) 
      
-2. **Configure virtual network**: For Azure to communicate between the resources that you create, a dual stack virtual network is needed. You can either create a new dual stack virtual network or choose an existing dual stack network. In this example, you'll create a new dual stack virtual network at the same time that you create the application gateway. 
+2. **Configure virtual network**: For Azure to communicate between the resources that you create, a dual stack virtual network is needed. You can either create a new dual stack virtual network or choose an existing dual stack network. In this example, you create a new dual stack virtual network at the same time that you create the application gateway. 
 
 Application Gateway instances are created in separate subnets. One dual-stack subnet and one IPv4-only are created in this example: The IPv4 and IPv6 subnets (provisioned as one dual-stack subnet) are assigned to the application gateway. The IPv4 subnet is for the backend servers.
 
@@ -121,7 +121,7 @@ Application Gateway instances are created in separate subnets. One dual-stack su
  - **Subnet name** (Application Gateway subnet): The **Subnets** grid shows a subnet named **default**. Change the name of this subnet to **myAGSubnet**.
  - **Address range** - If there are no overlapping VNets, the default IPv4 address ranges for the VNet and the subnet are 10.0.0.0/16 and 10.0.0.0/24, respectively. The default IPv6 address ranges for the VNet and the subnet are ace:cab:deca::/48 and ace:cab:deca::/64, respectively.
 
- ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal-ipv6/ipv6-create-vnet-subnet.png)
+ ![Create new application gateway: virtual network](./media/ipv6-application-gateway-portal/ipv6-create-vnet-subnet.png)
     
  > [!NOTE] 
  > The application gateway subnet can contain only application gateways. No other resources are allowed. 
@@ -139,7 +139,7 @@ Application Gateway instances are created in separate subnets. One dual-stack su
 
 2. Select **Add new** for the **Public IP address**, enter a name for the public IP address, and select **OK**. For example, **myAGPublicIPAddress**. 
 
-     ![Create new application gateway: frontends](./media/application-gateway-create-gateway-portal-ipv6/ipv6-frontends.png)
+     ![Create new application gateway: frontends](./media/ipv6-application-gateway-portal/ipv6-frontends.png)
 
   > [!NOTE]
   > IPv6 Application Gateway (preview) supports up to 4 frontend IP addresses: two IPv4 addresses (Public and Private) and two IPv6 addresses (Public and Private)
@@ -149,7 +149,7 @@ Application Gateway instances are created in separate subnets. One dual-stack su
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, Virtual Machine Scale Sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, Virtual Machine Scale Sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service. In this example, you create an empty backend pool with your application gateway and then add backend targets to the backend pool.
 
 1. On the **Backends** tab, select **Add a backend pool**.
 
@@ -160,7 +160,7 @@ The backend pool is used to route requests to the backend servers that serve the
 
 3. Select **Add** to save the backend pool configuration and return to the **Backends** tab.
 
-     ![Create new application gateway: backends](./media/application-gateway-create-gateway-portal-ipv6/ipv6-backend.png)
+     ![Create new application gateway: backends](./media/ipv6-application-gateway-portal/ipv6-backend.png)
 
 4. On the **Backends** tab, select **Next: Configuration**.
 
@@ -182,7 +182,7 @@ On the **Configuration** tab, the frontend and backend pool are connected with a
   
       Accept the default values for the other settings on the **Listener** tab and then select the **Backend targets** tab.
 
-   ![Create new application gateway: listener](./media/application-gateway-create-gateway-portal-ipv6/ipv6-listener.png)
+   ![Create new application gateway: listener](./media/ipv6-application-gateway-portal/ipv6-listener.png)
 
 4. On the **Backend targets** tab, select your backend pool for the **Backend target**. For example, **myBackendPool**.
 
@@ -190,13 +190,13 @@ On the **Configuration** tab, the frontend and backend pool are connected with a
 
 6. Accept the default values for other settings and then select **Add**. 
 
-     ![Create new application gateway: backend setting](./media/application-gateway-create-gateway-portal-ipv6/ipv6-backendsetting.png)
+     ![Create new application gateway: backend setting](./media/ipv6-application-gateway-portal/ipv6-backendsetting.png)
 
 7. In the **Add a routing rule** pane, select **Add** to save the routing rule and return to the **Configuration** tab.
 
-     ![Create new application gateway: routing rule](./media/application-gateway-create-gateway-portal-ipv6/ipv6-routing-rule.png)
+     ![Create new application gateway: routing rule](./media/ipv6-application-gateway-portal/ipv6-routing-rule.png)
 
-8. Select **Next: Tags**, select **Next: Review + create**, and then select **Create**. Deployment of the application gateway will take a few minutes.
+8. Select **Next: Tags**, select **Next: Review + create**, and then select **Create**. Deployment of the application gateway takes a few minutes.
 
 ## Assign a DNS name to the frontend IPv6 address
 
@@ -209,7 +209,7 @@ A DNS name makes testing easier for the IPv6 application gateway. You can assign
 5. Select **Save**.
 6. Copy the FQDN to a text editor for access later. In the following example, the FQDN is **myipv6appgw.westcentralus.cloudapp.azure.com**.
 
-     ![Assign a DNS name](./media/application-gateway-create-gateway-portal-ipv6/assign-dns.png)
+     ![Assign a DNS name](./media/ipv6-application-gateway-portal/assign-dns.png)
 
 ## Add a backend subnet
 
@@ -222,7 +222,7 @@ A backend IPv4 subnet is required for the backend targets.
 5. Under **Name**, enter **MyBackendSubnet**.
 6. The default address space is **10.0.1.0/24**. Select **Save** to accept this and all other default settings.
 
-     ![Create new application gateway: routing rule](./media/application-gateway-create-gateway-portal-ipv6/backend-subnet.png)
+     ![Create new application gateway: routing rule](./media/ipv6-application-gateway-portal/backend-subnet.png)
 
 ## Add backend targets
 
@@ -250,7 +250,7 @@ Application Gateway can route traffic to any type of virtual machine used in the
 6. Next to **Virtual network**, verify that **myVNet** is selected. 
 7. Next to **Subnet**, verify that **myBackendSubnet** is selected.
 8. Next to **Public IP**, select **None**.
-8. Select **Next: Management**, **Next: Monitoring**, and then next to **Boot diagnosics** select **Disable**.
+8. Select **Next: Management**, **Next: Monitoring**, and then next to **Boot diagnostics** select **Disable**.
 7. Select **Review + create**.
 8. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
 9. Wait for the virtual machine creation to complete before continuing.
@@ -277,19 +277,19 @@ In this example, you install IIS on the virtual machines to verify Azure created
       -Location EastUS
     ```
 
-    ![Install custom extension](./media/application-gateway-create-gateway-portal-ipv6/install-extension.png)
+    ![Install custom extension](./media/ipv6-application-gateway-portal/install-extension.png)
 
 ### Add backend servers to backend pool
 
-1. On the Azure portal menu, select **Application gateways** or search for and select **Appication gateways*. Then select **myAppGateway**.
+1. On the Azure portal menu, select **Application gateways** or search for and select **Application gateways*. Then select **myAppGateway**.
 2. Under **Settings**, select **Backend pools** and then select **myBackendPool**.
 4. Under **Backend targets**, **Target type**, select **Virtual machine** from the drop-down list.
 5. Under **Target**, select the **myVM** network interface from the drop-down.
 
-    ![Add a backend server](./media/application-gateway-create-gateway-portal-ipv6/ipv6-backend-pool.png)
+    ![Add a backend server](./media/ipv6-application-gateway-portal/ipv6-backend-pool.png)
 
 6. Select **Save**.
-7. Wait for the deployment to complete before proceeding to the next step. Deployment will take a few minutes.
+7. Wait for the deployment to complete before proceeding to the next step. Deployment takes a few minutes.
 
 ## Test the application gateway
 
@@ -302,7 +302,7 @@ Previously, we assigned the DNS name **myipv6appgw.westcentralus.cloudapp.azure.
 1. Paste the DNS name into the address bar of your browser to connect to it.
 2. Check the response. A valid response verifies that the application gateway was successfully created and can successfully connect with the backend.
 
-   ![Test the IPv6 connection](./media/application-gateway-create-gateway-portal-ipv6/ipv6-test-connection.png)
+   ![Test the IPv6 connection](./media/ipv6-application-gateway-portal/ipv6-test-connection.png)
 
 > [!IMPORTANT]
 > If the connection to the DNS name or IPv6 address fails, it might be because you can't browse IPv6 addresses from your device. To check if this is your problem, also test the IPv4 address of the application gateway. If the IPv4 address connects successfully, then it's likely you don't have a public IPv6 address assigned to your device. Another way of testing the connection is to use a [dual-stack VM](../virtual-network/ip-services/create-vm-dual-stack-ipv6-portal.md).
