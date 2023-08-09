@@ -121,7 +121,7 @@ string secret =  Environment.GetEnvironmentVariable("MySecret");
 
 ## Use Managed KeyVaultReferences in your application
 
-First, you must enable secret monitoring by upgrading your cluster definition to add the `EnableSecretMonitoring` setting, in addition to the [other required CSS configurations]((service-fabric-application-secret-store.md)):
+First, you must enable secret monitoring by upgrading your cluster definition to add the `EnableSecretMonitoring` setting, in addition to the [other required CSS configurations](service-fabric-application-secret-store.md):
 
 ```json
 "fabricSettings": [
