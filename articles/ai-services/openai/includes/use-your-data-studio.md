@@ -61,18 +61,3 @@ You can experiment with the configuration settings such as temperature and pre-r
 
 [!INCLUDE [deploy-web-app](deploy-web-app.md)]
 
-
-### Important considerations
-
-- Publishing creates an Azure App Service in your subscription. It may incur costs depending on the 
-[pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
-- You can [customize](../concepts/use-your-data.md#using-the-web-app) the frontend and backend logic of the web app.
-- By default, the app will only be accessible to you. To add authentication (for example, restrict access to the app to members of your Azure tenant):
-
-    1. Go to the [Azure portal](https://portal.azure.com/#home) and search for the app name you specified during publishing. Select the web app, and go to the **Authentication** tab on the left navigation menu. Then select **Add an identity provider**. 
-    
-        :::image type="content" source="../media/quickstarts/web-app-authentication.png" alt-text="Screenshot of the authentication page in the Azure portal." lightbox="../media/quickstarts/web-app-authentication.png":::
-
-    1. Select Microsoft as the identity provider. The default settings on this page will restrict the app to your tenant only, so you don't need to change anything else here. Then select **Add**
-    
-    Now users will be asked to sign in with their Azure Active Directory account to be able to access your app. You can follow a similar process to add another identity provider if you prefer. The app doesn't use the user's login information in any other way other than verifying they are a member of your tenant.

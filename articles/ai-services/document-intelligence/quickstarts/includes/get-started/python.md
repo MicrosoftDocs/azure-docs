@@ -1,5 +1,5 @@
 ---
-title: "Get started: Document Intelligence client library for Python v2.1"
+title: "Get started: Document Intelligence (formerly Form Recognizer) client library for Python v2.1"
 titleSuffix: Azure AI services
 description: Form and document processing, data extraction, and analysis using Document Intelligence Python client library SDKs v2.1
 author: laujan
