@@ -102,9 +102,13 @@ The CI/CD pipeline run now starts and accesses the Azure load testing resource t
 
 ## View load test results in CI/CD
 
-You can view the load test summary results directly in the CI/CD output log. If you published the test results as a pipeline artifact, you can also download a CSV file for further reporting.
+You can view the load test summary results directly in the CI/CD output log.
 
-:::image type="content" source="./media/quickstart-add-load-test-cicd/github-actions-workflow-completed.png" alt-text="Screenshot that shows the workflow logging information." lightbox="./media/quickstart-add-load-test-cicd/github-actions-workflow-completed.png":::
+:::image type="content" source="./media/how-to-set-up-cicd-pipeline-from-portal/azure-pipelines-log-load-testing-summary.png" alt-text="Screenshot that shows the Azure Pipelines output log information, highlighting the load testing results." lightbox="./media/how-to-set-up-cicd-pipeline-from-portal/azure-pipelines-log-load-testing-summary.png":::
+
+The generated CI/CD pipeline publishes the load test results as a pipeline artifact. You can download these results as a CSV file for further reporting.
+
+:::image type="content" source="./media/how-to-set-up-cicd-pipeline-from-portal/azure-pipelines-artifacts-load-testing-results.png" alt-text="Screenshot that shows the artifacts page for pipeline run in Azure Pipelines, highlighting the load test results zip file." lightbox="./media/how-to-set-up-cicd-pipeline-from-portal/azure-pipelines-artifacts-load-testing-results.png":::
 
 ## Next steps
 
