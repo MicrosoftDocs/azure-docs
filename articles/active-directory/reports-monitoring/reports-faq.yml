@@ -232,3 +232,10 @@ sections:
         answer: |
           You may need to sign in to Microsoft Graph separately from the Azure portal. Select your profile icon on the upper-right corner and sign in to the right directory.
           You may be trying to run a query that you don't have permissions for. Select **Modify Permissions** and select the **Consent** button. Follow the sign-in prompts.
+
+  - name: Identity recommendations
+    questions:
+      - question: |
+          Why did a recommendation that was "completed" change back to "active"?
+        answer: |
+          If the service detects activity related to that recommendation for something marked as "completed" it changes automatically back to "active".
