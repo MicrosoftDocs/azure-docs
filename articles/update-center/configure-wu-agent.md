@@ -1,7 +1,7 @@
 ---
 title: Configure Windows Update settings in Update Manager (preview)
 description: This article tells how to configure Windows update settings to work with Update Manager (preview).
-ms.service: update manager
+ms.service: update-manager
 ms.date: 05/02/2023
 ms.topic: conceptual
 author: SnehaSudhirG
