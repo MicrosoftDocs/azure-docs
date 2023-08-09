@@ -77,36 +77,30 @@ az vm start --resource-group $resourceGroup --name $vm
 
 **Use PowerShell to resize a VM not in an availability set.**
 
-Set some variables. Replace the values with your own information.
+This script sets the variables `$resourceGroup`, `$vm`, and `$size`. It then checks if the desired VM size is available by using `az vm list-vm-resize-options` and checking if the output contains the desired size. If the desired size is not available, the script exits with an error message. If the desired size is available, the script deallocates the VM, resizes it, and starts it again.
 
 ```azurepowershell-interactive
+# Set variables
 $resourceGroup = "myResourceGroup"
-$vmName = "myVM"
+$vm = "myVM"
+$size = "Standard_DS3_v2"
+
+# Check if the desired VM size is available
+if ((az vm list-vm-resize-options --resource-group $resourceGroup --name $vm --query "[].name" | ConvertFrom-Json) -notcontains $size) {
+    Write-Host "The desired VM size is not available."
+    exit 1
+}
+
+# Deallocate the VM
+az vm deallocate --resource-group $resourceGroup --name $vm
+
+# Resize the VM
+az vm resize --resource-group $resourceGroup --name $vm --size $size
+
+# Start the VM
+az vm start --resource-group $resourceGroup --name $vm
 ```
 
-List the VM sizes that are available in the region where you hosted the VM. 
-   
-```azurepowershell-interactive
-Get-AzVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
-```
-
-If you see the size you want listed, run the following commands to resize the VM. If you don't see the desired size, go on to step 3.
-   
-```azurepowershell-interactive
-$vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName
-$vm.HardwareProfile.VmSize = "<newVMsize>"
-Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
-```
-
-If you don't see the size you want listed, run the following commands to deallocate the VM, resize it, and restart the VM. Replace **\<newVMsize>** with the size you want.
-   
-```azurepowershell-interactive
-Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force
-$vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName
-$vm.HardwareProfile.VmSize = "<newVMSize>"
-Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
-Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
-```
 
    > [!WARNING]
    > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
@@ -116,57 +110,51 @@ Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 
 **Use PowerShell to resize a VM in an availability set**
 
-If the new size for a VM in an availability set isn't available on the hardware cluster currently hosting the VM, then you will need to deallocate all VMs in the availability set to resize the VM. You also might need to update the size of other VMs in the availability set after one VM has been resized. To resize a VM in an availability set, perform the following steps.
+If the new size for a VM in an availability set isn't available on the hardware cluster currently hosting the VM, then you will need to deallocate all VMs in the availability set to resize the VM. You also might need to update the size of other VMs in the availability set after one VM has been resized. To resize a VM in an availability set, run the below script. You can replace the values of `$resourceGroup`, `$vmName`, `$newVmSize`, and `$availabilitySetName` with your own.
 
 ```azurepowershell-interactive
+# Set variables
 $resourceGroup = "myResourceGroup"
 $vmName = "myVM"
-```
+$newVmSize = "<newVmSize>"
+$availabilitySetName = "<availabilitySetName>"
 
-List the VM sizes that are available on the hardware cluster where you hosted the VM. 
-   
-```azurepowershell-interactive
-Get-AzVMSize `
--ResourceGroupName $resourceGroup `
--VMName $vmName 
-```
+# Check if the desired VM size is available
+$availableSizes = Get-AzVMSize `
+  -ResourceGroupName $resourceGroup `
+  -VMName $vmName |
+  Select-Object -ExpandProperty Name
+if ($availableSizes -notcontains $newVmSize) {
+  # Deallocate all VMs in the availability set
+  $as = Get-AzAvailabilitySet `
+    -ResourceGroupName $resourceGroup `
+    -Name $availabilitySetName
+  $virtualMachines = $as.VirtualMachinesReferences | Get-AzResource | Get-AzVM
+  $virtualMachines | Stop-AzVM -Force -NoWait
 
-If you see the size you want listed, run the following commands to resize the VM. If you don't see it listed, go to the next section.
-   
-```azurepowershell-interactive
+  # Resize and restart the VMs in the availability set
+  $virtualMachines | Foreach-Object { $_.HardwareProfile.VmSize = $newVmSize }
+  $virtualMachines | Update-AzVM
+  $virtualMachines | Start-AzVM
+  exit
+}
+
+# Resize the VM
 $vm = Get-AzVM `
--ResourceGroupName $resourceGroup `
--VMName $vmName 
-$vm.HardwareProfile.VmSize = "<newVmSize>"
+  -ResourceGroupName $resourceGroup `
+  -VMName $vmName
+$vm.HardwareProfile.VmSize = $newVmSize
 Update-AzVM `
--VM $vm `
--ResourceGroupName $resourceGroup
-```
-	
-If you don't see the size you want listed, continue with the following steps to deallocate all VMs in the availability set, resize VMs, and restart them.
-
-Stop all VMs in the availability set.
-   
-```azurepowershell-interactive
-$availabilitySetName = "<availabilitySetName>"
-$as = Get-AzAvailabilitySet `
--ResourceGroupName $resourceGroup `
--Name $availabilitySetName
-$virtualMachines = $as.VirtualMachinesReferences |  Get-AzResource | Get-AzVM
-$virtualMachines |  Stop-AzVM -Force -NoWait  
+  -VM $vm `
+  -ResourceGroupName $resourceGroup
 ```
 
-Resize and restart the VMs in the availability set.
-   
-```azurepowershell-interactive
-$availabilitySetName = "<availabilitySetName>"
-$newSize = "<newVmSize>"
-$as = Get-AzAvailabilitySet -ResourceGroupName $resourceGroup -Name $availabilitySetName
-$virtualMachines = $as.VirtualMachinesReferences |  Get-AzResource | Get-AzVM
-$virtualMachines | Foreach-Object { $_.HardwareProfile.VmSize = $newSize }
-$virtualMachines | Update-AzVM
-$virtualMachines | Start-AzVM
-```
+This script sets the variables `$resourceGroup`, `$vmName`, `$newVmSize`, and `$availabilitySetName`. It then checks if the desired VM size is available by using `Get-AzVMSize` and checking if the output contains the desired size. If the desired size is not available, the script deallocates all VMs in the availability set, resizes them, and starts them again. If the desired size is available, the script resizes the VM.
+
+   > [!WARNING]
+   > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
+   > 
+   > If you are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region.
 
 ---
 ## Limitations
