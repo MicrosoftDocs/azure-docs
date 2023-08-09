@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Document Intelligence frequently asked questions (FAQ)
+  title: Document Intelligence (formerly Form Recognizer) frequently asked questions (FAQ)
   description: Frequently asked questions about Document Intelligence service.
   author: laujan
   manager: nitinme
@@ -219,7 +219,7 @@ sections:
 
             | Language / API | Migration guide|
             | ----------- | ----------------  |
-            | REST API    | [v3](v3-migration-guide.md)|
+            | REST API    | [v3](v3-1-migration-guide.md)|
             | C#/.NET| [4.0.0](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/MigrationGuide.md)|
             | Java | [4.0.0](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)|
             | JavaScript| [4.0.0](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)|
