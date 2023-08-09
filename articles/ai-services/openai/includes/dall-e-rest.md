@@ -18,14 +18,14 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 
 ## Prerequisites
 
-- An Azure subscription. You can [create a free account](https://azure.microsoft.com/free/cognitive-services).
+- An Azure subscription. You can [create a free account](https://azure.microsoft.com/free/ai-services&preserve-view=true).
 - Access granted to DALL-E in the desired Azure subscription.
-- [Python 3.7.1 or later version](https://www.python.org/).
+- [Python 3.7.1 or later version](https://www.python.org/&preserve-view=true).
 - The following Python libraries: `os`, `requests`, `json`.
-- An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+- An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md&preserve-view=true).
 
 > [!NOTE]
-> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). Existing Azure OpenAI customers need to resubmit the form to receive access to DALL-E. If you need assistance, open an issue on this repo to contact Microsoft.
+> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access&preserve-view=true). Existing Azure OpenAI customers need to resubmit the form to receive access to DALL-E. If you need assistance, open an issue on this repo to contact Microsoft.
 
 ## Retrieve key and endpoint
 
@@ -81,7 +81,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     ```
 
     > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post your key publicly. For production, use a secure way of storing and accessing your credentials. For more information, see [Azure Key Vault](../../../key-vault/general/overview.md).
+    > Remember to remove the key from your code when you're done, and never post your key publicly. For production, use a secure way of storing and accessing your credentials. For more information, see [Azure Key Vault](../../../key-vault/general/overview.md&preserve-view=true).
 
 1. Run the application with the `python` command:
 
@@ -113,7 +113,7 @@ The output from a successful image generation API call looks like the following 
 }
 ```
 
-The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md).
+The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md&preserve-view=true).
 
 The system returns an operation status of `Failed` and the `error.code` value in the message is set to `contentFilter`. Here's an example:
 
@@ -156,10 +156,10 @@ It's also possible that the generated image itself is filtered. In this case, th
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
-- [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources&preserve-view=true)
+- [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources&preserve-view=true)
 
 ## Next steps
 
-* Learn more in this [Azure OpenAI overview](../overview.md).
-* Try examples in the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).
+* Learn more in this [Azure OpenAI overview](../overview.md&preserve-view=true).
+* Try examples in the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples&preserve-view=true).
