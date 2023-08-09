@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 01/25/2023
+ms.date: 08/04/2023
 ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -31,7 +31,9 @@ This article describes the settings you can specify to govern access for externa
 
 When using the [Azure AD B2B](../external-identities/what-is-b2b.md) invite experience, you must already know the email addresses of the external guest users you want to bring into your resource directory and work with. Directly inviting each user works great when you're working on a smaller or short-term project and you already know all the participants, but this process is harder to manage if you have lots of users you want to work with, or if the participants change over time.  For example, you might be working with another organization and have one point of contact with that organization, but over time additional users from that organization will also need access.
 
-With entitlement management, you can define a policy that allows users from organizations you specify to be able to self-request an access package. That policy includes whether approval is required, whether access reviews are required, and an expiration date for the access. If approval is required, you might consider inviting one or more users from the external organization to your directory, designating them as sponsors, and configuring that sponsors are approvers - since they're likely to know which external users from their organization need access. Once you've configured the access package, obtain the access package's request link so you can send that link to your contact person (sponsor) at the external organization. That contact can share with other users in their external organization, and they can use this link to request the access package. Users from that organization who have already been invited into your directory can also use that link.
+With entitlement management, you can define a policy that allows users from organizations you specify to be able to self-request an access package. That policy includes whether approval is required, whether access reviews are required, and an expiration date for the access. In most cases, you'll want to require approval, in order to have appropriate oversight over which users are brought into your directory. If approval is required, then for major external organization partners, you might consider inviting one or more users from the external organization to your directory, designating them as sponsors, and configuring that sponsors are approvers - since they're likely to know which external users from their organization need access. Once you've configured the access package, obtain the access package's request link so you can send that link to your contact person (sponsor) at the external organization. That contact can share with other users in their external organization, and they can use this link to request the access package. Users from that organization who have already been invited into your directory can also use that link.
+
+You can also use entitlement management for bringing in users from organizations that don't have their own Azure AD directory.  You can configure a federated identity provider for their domain, or use email-based authentication.  You can also bring in users from social identity providers, including those with Microsoft accounts.
 
 Typically, when a request is approved, entitlement management provisions the user with the necessary access. If the user isn't already in your directory, entitlement management will first invite the user. When the user is invited, Azure AD will automatically create a B2B guest account for them but won't send the user an email. An administrator may have previously limited which organizations are allowed for collaboration, by setting a [B2B allow or blocklist](../external-identities/allow-deny-list.md) to allow or block invites to other organization's domains.  If the user's domain isn't allowed by those lists, then they won't be invited and can't be assigned access until the lists are updated.
 
@@ -43,15 +45,19 @@ The following diagram and steps provide an overview of how external users are gr
 
 ![Diagram showing the lifecycle of external users](./media/entitlement-management-external-users/external-users-lifecycle.png)
 
-1. You [add a connected organization](entitlement-management-organization.md) for the Azure AD directory or domain you want to collaborate with.
+1. You [add a connected organization](entitlement-management-organization.md) for the Azure AD directory or domain you want to collaborate with.  You can also configure a connected organization for a social identity provider.
 
-1. You create an access package in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#for-users-not-in-your-directory).
+1. You check the catalog setting **Enabled for external users** in the catalog to contain the access package is **Yes**.
+
+1. You create an access package in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#allow-users-not-in-your-directory-to-request-the-access-package) and specifies the connected organizations that can request, the approver and lifecycle settings.  If you select in the policy the option of specific connected organizations or the option of all connected organizations, then only users from those organizations that have previously been configured can request.   If you select in the policy the option of all users, then any user can request, including those which aren't already part of your directory and not part of any connected organization.
+
+1. You check [the hidden setting on the access package](entitlement-management-access-package-edit.md#change-the-hidden-setting) to ensure the access package is hidden.  If it isn't hidden, then any user allowed by the policy settings in that access package can browse for the access package in the My Access portal for your tenant.
 
 1. You send a [My Access portal link](entitlement-management-access-package-settings.md) to your contact at the external organization that they can share with their users to request the access package.
 
-1. An external user (**Requestor A** in this example) uses the My Access portal link to [request access](entitlement-management-request-access.md) to the access package. How the user signs in depends on the authentication type of the directory or domain that's defined in the connected organization and in the external users settings.
+1. An external user (**Requestor A** in this example) uses the My Access portal link to [request access](entitlement-management-request-access.md) to the access package. The My access portal requires that the user sign in as part of their connected organization. How the user signs in depends on the authentication type of the directory or domain that's defined in the connected organization and in the external users settings.
 
-1. An approver [approves the request](entitlement-management-request-approve.md) (or the request is autoapproved).
+1. An approver [approves the request](entitlement-management-request-approve.md) (assuming the policy requires approval).
 
 1. The request goes into the [delivering state](entitlement-management-process.md).
 
@@ -77,24 +83,26 @@ To ensure people outside of your organization can request access packages and ge
 
     ![Edit catalog settings](./media/entitlement-management-shared/catalog-edit.png)
 
+  If you're an administrator or catalog owner, you can view the list of catalogs currently enabled for external users in the Azure portal list of catalogs, by changing the filter setting for **Enabled for external users** to **Yes**.  If any of those catalogs shown in that filtered view have a non-zero number of access packages, those access packages may have a policy [for users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory) that allow external users to request.
+
 ### Configure your Azure AD B2B external collaboration settings
 
 - Allowing guests to invite other guests to your directory means that guest invites can occur outside of entitlement management. We recommend setting **Guests can invite** to **No** to only allow for properly governed invitations.
 - If you have been previously using the B2B allowlist, you must either remove that list, or make sure all the domains of all the organizations you want to partner with using entitlement management are added to the list. Alternatively, if you're using the B2B blocklist, you must make sure no domain of any organization you want to partner with is present on that list.
-- If you create an entitlement management policy for **All users** (All connected organizations + any new external users), and a user doesn’t belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. However, any B2B [allow or blocklist](../external-identities/allow-deny-list.md) settings you have will take precedence. Therefore, you want to remove the allowlist, if you were using one, so that **All users** can request access, and exclude all authorized domains from your blocklist if you're using a blocklist.
+- If you create an entitlement management policy for **All users** (All connected organizations + any new external users), and a user doesn’t belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. However, any B2B [allow or blocklist](../external-identities/allow-deny-list.md) settings you have takes precedence. Therefore, you want to remove the allowlist, if you were using one, so that **All users** can request access, and exclude all authorized domains from your blocklist if you're using a blocklist.
 - If you want to create an entitlement management policy that includes **All users** (All connected organizations + any new external users), you must first enable email one-time passcode authentication for your directory. For more information, see [Email one-time passcode authentication](../external-identities/one-time-passcode.md).
 - For more information about Azure AD B2B external collaboration settings, see [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md).
 
-    ![Azure AD external collaboration settings](./media/entitlement-management-external-users/collaboration-settings.png)
+    [![Azure AD external collaboration settings](./media/entitlement-management-external-users/collaboration-settings.png)](./media/entitlement-management-external-users/collaboration-settings.png#lightbox)
     
     > [!NOTE]
     > If you create a connected organization for an Azure AD tenant from a different Microsoft cloud, you also need to configure cross-tenant access settings appropriately. For more information on how to configure these settings, see [Configure cross-tenant access settings](../external-identities/cross-cloud-settings.md).
 
 ### Review your Conditional Access policies
 
-- Make sure to exclude the Entitlement Management app from any Conditional Access policies that impact guest users. Otherwise, a conditional access policy could block them from accessing MyAccess or being able to sign in to your directory. For example, guests likely don't have a registered device, aren't in a known location, and don't want to re-register for multi-factor authentication (MFA), so adding these requirements in a Conditional Access policy will block guests from using entitlement management. For more information, see [What are conditions in Azure Active Directory Conditional Access?](../conditional-access/concept-conditional-access-conditions.md).
+- Make sure to exclude the Entitlement Management app from any Conditional Access policies that impact guest users. Otherwise, a Conditional Access policy could block them from accessing MyAccess or being able to sign in to your directory. For example, guests likely don't have a registered device, aren't in a known location, and don't want to re-register for multi-factor authentication (MFA), so adding these requirements in a Conditional Access policy will block guests from using entitlement management. For more information, see [What are conditions in Azure Active Directory Conditional Access?](../conditional-access/concept-conditional-access-conditions.md).
 
-- A common policy for Entitlement Management customers is to block all apps from guests except Entitlement Management for guests. This policy allows guests to enter My Access and request an access package. This package should contain a group (it is called Guests from My Access in the example below), which should be excluded from the block all apps policy. Once the package is approved, the guest will be in the directory. Given that the end user has the access package assignment and is part of the group, the end user will be able to access all other apps. Other common policies include excluding Entitlement Management app from MFA and compliant device.   
+- A common policy for Entitlement Management customers is to block all apps from guests except Entitlement Management for guests. This policy allows guests to enter My Access and request an access package. This package should contain a group (it's called Guests from My Access in the following example), which should be excluded from the block all apps policy. Once the package is approved, the guest is in the directory. Given that the end user has the access package assignment and is part of the group, the end user is able to access all other apps. Other common policies include excluding Entitlement Management app from MFA and compliant device.   
 
     :::image type="content" source="media/entitlement-management-external-users/exclude-app-guests.png" alt-text="Screenshot of exclude app options.":::
 
@@ -103,13 +111,13 @@ To ensure people outside of your organization can request access packages and ge
     :::image type="content" source="media/entitlement-management-external-users/exclude-app-guests-selection.png" alt-text="Screenshot of the exclude guests app selection.":::
 
 > [!NOTE]
-> The Entitlement Management app includes the entitlement management side of MyAccess, the Entitlement Management side of Azure Portal and the Entitlement Management part of MS graph. The latter two require additional permissions for access, hence won't be accessed by guests unless explicit permission is provided. 
+> The Entitlement Management app includes the entitlement management side of MyAccess, the Entitlement Management side of Azure portal and the Entitlement Management part of MS graph. The latter two require additional permissions for access, hence won't be accessed by guests unless explicit permission is provided. 
 
 ### Review your SharePoint Online external sharing settings
 
 - If you want to include SharePoint Online sites in your access packages for external users, make sure that your organization-level external sharing setting is set to **Anyone** (users don't require sign in), or **New and existing guests** (guests must sign in or provide a verification code). For more information, see [Turn external sharing on or off](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- If you want to restrict any external sharing outside of entitlement management, you can set the external sharing setting to **Existing guests**. Then, only new users that are invited through entitlement management will be able to gain access to these sites. For more information, see [Turn external sharing on or off](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- If you want to restrict any external sharing outside of entitlement management, you can set the external sharing setting to **Existing guests**. Then, only new users that are invited through entitlement management are able to gain access to these sites. For more information, see [Turn external sharing on or off](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
 - Make sure that the site-level settings enable guest access (same option selections as previously listed). For more information, see [Turn external sharing on or off for a site](/sharepoint/change-external-sharing-site).
 

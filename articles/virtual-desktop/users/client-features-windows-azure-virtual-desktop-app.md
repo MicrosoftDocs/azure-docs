@@ -208,9 +208,9 @@ You can view your remote desktops and apps as either a tile view (default) or li
 
 1. If you want to switch to Tile view, select **List**, then select **Tile view**.
 
-## Enable Windows Insider releases
+## Enable Insider releases
 
-If you want to help us test new builds before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available.
+If you want to help us test new builds of the Azure Virtual Desktop app before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available.
 
 > [!NOTE]
 > Insider releases shouldn't be used in production.
@@ -243,7 +243,7 @@ To deploy the Azure Virtual Desktop Store app in an enterprise, you can use Micr
 
 ### URI to subscribe to a workspace
 
-The Azure Virtual Desktop Store app supports Uniform Resource Identifier (URI) schemes to invoke the Remote Desktop client with specific commands, parameters, and values for use with Azure Virtual Desktop. For example, you can subscribe to a workspace or connect to a particular desktop or Remote App.
+The Azure Virtual Desktop Store app supports Uniform Resource Identifier (URI) schemes to invoke the Remote Desktop client with specific commands, parameters, and values for use with Azure Virtual Desktop. For example, you can subscribe to a workspace or connect to a particular desktop or RemoteApp.
 
 For more information, see [Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop](../uri-scheme.md).
 

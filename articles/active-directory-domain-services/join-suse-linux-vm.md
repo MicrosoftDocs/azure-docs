@@ -8,10 +8,10 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 01/29/2023
 ms.author: justinha
-
 ---
 # Join a SUSE Linux Enterprise virtual machine to an Azure Active Directory Domain Services managed domain
 

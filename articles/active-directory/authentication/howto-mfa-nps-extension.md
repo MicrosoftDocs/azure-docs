@@ -95,6 +95,8 @@ The Microsoft Azure Active Directory Module for Windows PowerShell is also insta
 
 ### Azure Active Directory
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Everyone using the NPS extension must be synced to Azure AD using Azure AD Connect, and must be registered for MFA.
 
 When you install the extension, you need the *Tenant ID* and admin credentials for your Azure AD tenant. To get the tenant ID, complete the following steps:
@@ -111,14 +113,14 @@ The NPS server must be able to communicate with the following URLs over TCP port
 
 * `https://login.microsoftonline.com`
 * `https://login.microsoftonline.us (Azure Government)`
-* `https://login.chinacloudapi.cn (Azure China 21Vianet)`
+* `https://login.chinacloudapi.cn (Microsoft Azure operated by 21Vianet)`
 * `https://credentials.azure.com`
 * `https://strongauthenticationservice.auth.microsoft.com`
 * `https://strongauthenticationservice.auth.microsoft.us (Azure Government)`
-* `https://strongauthenticationservice.auth.microsoft.cn (Azure China 21Vianet)`
+* `https://strongauthenticationservice.auth.microsoft.cn (Microsoft Azure operated by 21Vianet)`
 * `https://adnotifications.windowsazure.com`
 * `https://adnotifications.windowsazure.us (Azure Government)`
-* `https://adnotifications.windowsazure.cn (Azure China 21Vianet)`
+* `https://adnotifications.windowsazure.cn (Microsoft Azure operated by 21Vianet)`
 
 Additionally, connectivity to the following URLs is required to complete the [setup of the adapter using the provided PowerShell script](#run-the-powershell-script):
 
@@ -244,7 +246,7 @@ To provide load-balancing capabilities or for redundancy, repeat these steps on 
    `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`
 
    > [!IMPORTANT]
-   > For customers that use the Azure Government or Azure China 21Vianet clouds, first edit the `Connect-MsolService` cmdlets in the *AzureMfaNpsExtnConfigSetup.ps1* script to include the *AzureEnvironment* parameters for the required cloud. For example, specify *-AzureEnvironment USGovernment* or *-AzureEnvironment AzureChinaCloud*.
+   > For customers that use the Azure Government or Microsoft Azure operated by 21Vianet clouds, first edit the `Connect-MsolService` cmdlets in the *AzureMfaNpsExtnConfigSetup.ps1* script to include the *AzureEnvironment* parameters for the required cloud. For example, specify *-AzureEnvironment USGovernment* or *-AzureEnvironment AzureChinaCloud*.
    >
    > For more information, see [Connect-MsolService parameter reference](/powershell/module/msonline/connect-msolservice#parameters).
 
@@ -261,14 +263,14 @@ If your previous computer certificate has expired, and a new certificate has bee
 > [!NOTE]
 > If you use your own certificates instead of generating certificates with the PowerShell script, make sure that they align to the NPS naming convention. The subject name must be **CN=\<TenantID\>,OU=Microsoft NPS Extension**.
 
-### Microsoft Azure Government or Azure China 21Vianet additional steps
+### Microsoft Azure Government or Microsoft Azure operated by 21Vianet additional steps
 
-For customers that use the Azure Government or Azure China 21Vianet clouds, the following additional configuration steps are required on each NPS server.
+For customers that use the Azure Government or Azure operated by 21Vianet clouds, the following additional configuration steps are required on each NPS server.
 
 > [!IMPORTANT]
-> Only configure these registry settings if you're an Azure Government or Azure China 21Vianet customer.
+> Only configure these registry settings if you're an Azure Government or Azure operated by 21Vianet customer.
 
-1. If you're an Azure Government or Azure China 21Vianet customer, open **Registry Editor** on the NPS server.
+1. If you're an Azure Government or Azure operated by 21Vianet customer, open **Registry Editor** on the NPS server.
 1. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`.
 1. For Azure Government customers, set the following key values.:
 
@@ -278,7 +280,7 @@ For customers that use the Azure Government or Azure China 21Vianet clouds, the 
     | AZURE_MFA_RESOURCE_HOSTNAME | adnotifications.windowsazure.us |
     | STS_URL            | https://login.microsoftonline.us/ |
 
-1. For Azure China 21Vianet customers, set the following key values:
+1. For Microsoft Azure operated by 21Vianet customers, set the following key values:
 
     | Registry key       | Value |
     |--------------------|-----------------------------------|
@@ -348,7 +350,7 @@ import-module MSOnline
 Connect-MsolService
 New-MsolServicePrincipal -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -DisplayName "Azure Multi-Factor Auth Client"
 ```
-Once done , go to the [Azure portal](https://portal.azure.com) > **Azure Active Directory** > **Enterprise Applications** > Search for "Azure Multi-Factor Auth Client" > Check properties for this app > Confirm if the service principal is enabled or disabled > Click on the application entry > Go to Properties of the app > If the option "Enabled for users to sign-in? is set to No in Properties of this app , please set it to Yes.
+Once done, sign in to the [Azure portal](https://portal.azure.com) > **Azure Active Directory** > **Enterprise Applications** > Search for "Azure Multi-Factor Auth Client" > Check properties for this app > Confirm if the service principal is enabled or disabled > Click on the application entry > Go to Properties of the app > If the option "Enabled for users to sign-in?" is set to `No` in Properties of this app, please set it to `Yes`.
 
 Run the `AzureMfaNpsExtnConfigSetup.ps1` script again and it should not return the `Service principal was not found` error. 
 

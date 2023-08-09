@@ -26,7 +26,7 @@ Microsoft recommends that you use the [Microsoft.Identity.Web](https://www.nuget
 
 ## Client secrets or client certificates
 
-[!INCLUDE [web-app-client-credentials.md](includes/web-app-client-credentials.md)]
+[!INCLUDE [web-app-client-credentials.md](./includes/web-app-client-credentials.md)]
 
 ## Program.cs
 
@@ -131,7 +131,7 @@ The following image shows the possibilities of *Microsoft.Identity.Web* and the 
 
 ## Client secrets or client certificates
 
-[!INCLUDE [web-app-client-credentials.md](includes/web-app-client-credentials.md)]
+[!INCLUDE [web-app-client-credentials.md](./includes/web-app-client-credentials.md)]
 
 ## Modify *Startup.Auth.cs*
 

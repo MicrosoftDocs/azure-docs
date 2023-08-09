@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 06/17/2022
+ms.date: 07/13/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---

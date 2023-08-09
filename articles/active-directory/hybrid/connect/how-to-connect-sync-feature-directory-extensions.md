@@ -59,6 +59,9 @@ During installation of Azure AD Connect, an application is registered where thes
 
 ![Schema extension app](./media/how-to-connect-sync-feature-directory-extensions/extension3new.png)
 
+>[!NOTE]
+> The **Tenant Schema Extension App** is a system-only application that can't be deleted and attribute extension definitions can't be removed.
+
 Make sure you select **All applications** to see this app.
 
 The attributes are prefixed with **extension \_{ApplicationId}\_**. ApplicationId has the same value for all attributes in your Azure AD tenant. You will need this value for all other scenarios in this topic.

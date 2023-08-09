@@ -33,7 +33,7 @@ See the following [Enable monitoring](#enable-monitoring) section to begin setti
 # [Linux](#tab/Linux)
 
 > [!IMPORTANT]
-> Only ASP.NET Core 6.0 is supported for autoinstrumentation on Linux.
+> Only .NET Core [Long Term Support](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) is supported for autoinstrumentation on Linux.
 
 [Trim self-contained deployments](/dotnet/core/deploying/trimming/trim-self-contained) is *not supported*. Use [manual instrumentation](./asp-net-core.md) via code instead.
 
@@ -83,7 +83,7 @@ To enable telemetry collection with Application Insights, only the application s
 
 |App setting name |  Definition | Value |
 |-----------------|:------------|-------------:|
-|ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~2` for Windows or `~3` for Linux |
+|ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~3` |
 |XDT_MicrosoftApplicationInsights_Mode |  In default mode, only essential features are enabled to ensure optimal performance. | `disabled` or `recommended`. |
 |XDT_MicrosoftApplicationInsights_PreemptSdk | For ASP.NET Core apps only. Enables Interop (interoperation) with the Application Insights SDK. Loads the extension side by side with the SDK and uses it to send telemetry. (Disables the Application Insights SDK.) |`1`|
 
@@ -160,6 +160,8 @@ What follows is our step-by-step troubleshooting guide for extension/agent-based
 
    :::image type="content" source="media/azure-web-apps-net-core/auto-instrumentation-status.png" alt-text="Screenshot that shows the autoinstrumentation status webpage." lightbox="media/azure-web-apps-net-core/auto-instrumentation-status.png":::
 
+
+
 ---
 ### Default website deployed with web apps doesn't support automatic client-side monitoring
 
@@ -196,3 +198,4 @@ For the latest updates and bug fixes, see the [Release notes](web-app-extension-
 * [Receive alert notifications](../alerts/alerts-overview.md) whenever operational events happen or metrics cross a threshold.
 * Use [Application Insights for JavaScript apps and webpages](javascript.md) to get client telemetry from the browsers that visit a webpage.
 * [Availability](availability-overview.md)
+

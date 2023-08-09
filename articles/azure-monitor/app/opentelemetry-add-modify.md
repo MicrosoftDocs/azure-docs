@@ -1,6 +1,6 @@
 ---
-title: Add and modify Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
-description: This article provides guidance on how to add and modify OpenTelemetry for applications using Azure Monitor.
+title: Add, modify, and filter Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
+description: This article provides guidance on how to add, modify, and filter OpenTelemetry for applications using Azure Monitor.
 ms.topic: conceptual
 ms.date: 06/22/2023
 ms.devlang: csharp, javascript, typescript, python
@@ -8,9 +8,9 @@ ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
 ---
 
-# Add and modify OpenTelemetry
+# Add, modify, and filter OpenTelemetry
 
-This article provides guidance on how to add and modify OpenTelemetry for applications using [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview).
+This article provides guidance on how to add, modify, and filter OpenTelemetry for applications using [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview).
 
 To learn more about OpenTelemetry concepts, see the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
 
@@ -102,7 +102,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 * [Azure Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
 * [Azure Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
 * [Azure Event Hubs - Azure Blob Storage Checkpoint Store](/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
-* [Azure Form Recognizer](/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
+* [Azure AI Document Intelligence](/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
 * [Azure Identity](/java/api/overview/azure/identity-readme) 1.2.4+
 * [Azure Key Vault - Certificates](/java/api/overview/azure/security-keyvault-certificates-readme) 4.1.6+
 * [Azure Key Vault - Keys](/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6+
@@ -139,7 +139,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 #### [Node.js](#tab/nodejs)
 
-The following OpenTelemetry Instrumentation libraries are included as part of Azure Monitor Application Insights Distro.
+The following OpenTelemetry Instrumentation libraries are included as part of the Azure Monitor Application Insights Distro. See [this](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#officially-supported-instrumentations) for more details.
 
 Requests
 - [HTTP/HTTPS](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http) <sup>[2](#FOOTNOTETWO)</sup>
@@ -176,13 +176,15 @@ Logs
 
 Examples of using the Python logging library can be found on [GitHub](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry/samples/logging).
 
+Telemetry emitted by Azure SDKS is automatically [collected](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#azure-core-distributed-tracing) by default.
+
 ---
 
 **Footnotes**
 - <a name="FOOTNOTEONE">1</a>: Supports automatic reporting of *unhandled/uncaught* exceptions
 - <a name="FOOTNOTETWO">2</a>: Supports OpenTelemetry Metrics
 - <a name="FOOTNOTETHREE">3</a>: By default, logging is only collected at INFO level or higher. To change this setting, see the [configuration options](./java-standalone-config.md#autocollected-logging).
-- <a name="FOOTNOTEFOUR">4</a>: By default, logging is only collected at WARNING level or higher.
+- <a name="FOOTNOTEFOUR">4</a>: By default, logging is only collected when that logging is performed at the WARNING level or higher.
 
 > [!NOTE]
 > The Azure Monitor OpenTelemetry Distros include custom mapping and logic to automatically emit [Application Insights standard metrics](standard-metrics.md).
@@ -244,7 +246,33 @@ Other OpenTelemetry Instrumentations are available [here](https://github.com/ope
 ```
 
 ### [Python](#tab/python)
-Currently unavailable.
+
+To add a community instrumentation library (not officially supported/included in Azure Monitor distro), you can instrument directly with the instrumentations. The list of community instrumentation libraries can be found [here](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation).
+
+> [!NOTE]
+> Instrumenting a [supported instrumentation library](.\opentelemetry-add-modify.md?tabs=python#included-instrumentation-libraries) manually with `instrument()` in conjunction with the distro `configure_azure_monitor()` is not recommended. This is not a supported scenario and you may get undesired behavior for your telemetry.
+
+```python
+from azure.monitor.opentelemetry import configure_azure_monitor
+from opentelemetry.instrumentation.sqlalchemy import SQLAlchemyInstrumentor
+from sqlalchemy import create_engine, text
+
+configure_azure_monitor()
+
+engine = create_engine("sqlite:///:memory:")
+# SQLAlchemy instrumentation is not officially supported by this package
+# However, you can use the OpenTelemetry instrument() method manually in
+# conjunction with configure_azure_monitor
+SQLAlchemyInstrumentor().instrument(
+    engine=engine,
+)
+
+# Database calls using the SqlAlchemy library will be automatically captured
+with engine.connect() as conn:
+    result = conn.execute(text("select 'hello world'"))
+    print(result.all())
+
+```
 
 ---
 
@@ -264,7 +292,7 @@ The following table represents the currently supported custom telemetry types:
 |-------------------------------------------|---------------|----------------|--------------|------------|------------|----------|--------|
 | **ASP.NET Core**                          |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
-| &nbsp;&nbsp;&nbsp;iLogger API             |               |                |              |            |            |          | Yes    |
+| &nbsp;&nbsp;&nbsp;ILogger API             |               |                |              |            |            |          | Yes    |
 | &nbsp;&nbsp;&nbsp;AI Classic API          |               |                |              |            |            |          |        |
 |                                           |               |                |              |            |            |          |        |
 | **Java**                                  |               |                |              |            |            |          |        |
@@ -1560,7 +1588,7 @@ logHandler.trackEvent({
 
 #### [Python](#tab/python)
   
-The Python [logging](https://docs.python.org/3/howto/logging.html) library is [autoinstrumented](#logs). You can attach custom dimensions to your logs by passing a dictionary into the `extra` argument of your logs.
+The Python [logging](https://docs.python.org/3/howto/logging.html) library is [autoinstrumented](.\opentelemetry-add-modify.md?tabs=python#included-instrumentation-libraries). You can attach custom dimensions to your logs by passing a dictionary into the `extra` argument of your logs.
 
 ```python
 ...
@@ -1571,11 +1599,11 @@ logger.warning("WARNING: Warning log with properties", extra={"key1": "value1"})
 
 ---
 
-### Filter telemetry
+## Filter telemetry
 
 You might use the following ways to filter out telemetry before it leaves your application.
 
-#### [ASP.NET Core](#tab/aspnetcore)
+### [ASP.NET Core](#tab/aspnetcore)
 
 1. Many instrumentation libraries provide a filter option. For guidance, see the readme files of individual instrumentation libraries:
     - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#filter)
@@ -1616,7 +1644,7 @@ You might use the following ways to filter out telemetry before it leaves your a
 
 1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source are exported.
 
-#### [.NET](#tab/net)
+### [.NET](#tab/net)
 
 1. Many instrumentation libraries provide a filter option. For guidance, see the readme files of individual instrumentation libraries:
     - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.8/src/OpenTelemetry.Instrumentation.AspNet/README.md#filter)
@@ -1652,11 +1680,11 @@ You might use the following ways to filter out telemetry before it leaves your a
 1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source are exported.
 
 
-#### [Java](#tab/java)
+### [Java](#tab/java)
 
 See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) and [telemetry processors](java-standalone-telemetry-processors.md).
 
-#### [Node.js](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 1. Exclude the URL option provided by many HTTP instrumentation libraries.
 
@@ -1707,7 +1735,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     }
     ```
 
-#### [Python](#tab/python)
+### [Python](#tab/python)
 
 1. Exclude the URL with the `OTEL_PYTHON_EXCLUDED_URLS` environment variable:
     ```
@@ -1773,11 +1801,11 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     
 <!-- For more information, see [GitHub Repo](link). -->
 
-### Get the trace ID or span ID
+## Get the trace ID or span ID
     
 You might want to get the trace ID or span ID. If you have logs sent to a destination other than Application Insights, consider adding the trace ID or span ID. Doing so enables better correlation when debugging and diagnosing issues.
 
-#### [ASP.NET Core](#tab/aspnetcore)
+### [ASP.NET Core](#tab/aspnetcore)
 
 > [!NOTE]
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
@@ -1788,7 +1816,7 @@ string traceId = activity?.TraceId.ToHexString();
 string spanId = activity?.SpanId.ToHexString();
 ```
 
-#### [.NET](#tab/net)
+### [.NET](#tab/net)
 
 > [!NOTE]
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
@@ -1799,7 +1827,7 @@ string traceId = activity?.TraceId.ToHexString();
 string spanId = activity?.SpanId.ToHexString();
 ```
 
-#### [Java](#tab/java)
+### [Java](#tab/java)
 
 You can use `opentelemetry-api` to get the trace ID or span ID.
 
@@ -1823,7 +1851,7 @@ You can use `opentelemetry-api` to get the trace ID or span ID.
    String spanId = span.getSpanContext().getSpanId();
    ```
 
-#### [Node.js](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 Get the request trace ID and the span ID in your code:
 
@@ -1834,7 +1862,7 @@ Get the request trace ID and the span ID in your code:
    let traceId = trace.getActiveSpan().spanContext().traceId;
    ```
 
-#### [Python](#tab/python)
+### [Python](#tab/python)
 
 Get the request trace ID and the span ID in your code:
 

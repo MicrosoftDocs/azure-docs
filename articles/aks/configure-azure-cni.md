@@ -195,7 +195,6 @@ Learn more about networking in AKS in the following articles:
 
 <!-- LINKS - External -->
 [services]: https://kubernetes.io/docs/concepts/services-networking/service/
-[portal]: https://portal.azure.com
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: concepts-network.md#kubenet-basic-networking
 [github]: https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml
@@ -217,7 +216,7 @@ Learn more about networking in AKS in the following articles:
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [network-policy]: use-network-policies.md
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
 [system-node-pools]: use-system-pools.md
 [prerequisites]: configure-azure-cni.md#prerequisites

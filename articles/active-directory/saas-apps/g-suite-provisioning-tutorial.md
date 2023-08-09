@@ -271,19 +271,19 @@ With PIM for Groups, you can provide just-in-time access to groups in Google Clo
 **Configure your enterprise application for SSO and provisioning**
 1. Add Google Cloud / Google Workspace to your tenant, configure it for provisioning as described in the tutorial above, and start provisioning. 
 1. Configure [single sign-on](google-apps-tutorial.md) for Google Cloud / Google Workspace.
-1. Create a [group](https://learn.microsoft.com/azure/active-directory/fundamentals/how-to-manage-groups) that provides all users access to the application.
+1. Create a [group](/azure/active-directory/fundamentals/how-to-manage-groups) that provides all users access to the application.
 1. Assign the group to the Google Cloud / Google Workspace application.
 1. Assign your test user as a direct member of the group created in the previous step, or provide them access to the group through an access package. This group can be used for persistent, nonadmin access in Google Cloud / Google Workspace.
 
 **Enable PIM for groups**
 1. Create a second group in Azure AD. This group provides access to admin permissions in Google Cloud / Google Workspace. 
-1. Bring the group under [management in Azure AD PIM](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/groups-discover-groups).
-1. Assign your test user as [eligible for the group in PIM](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/groups-assign-member-owner) with the role set to member.
+1. Bring the group under [management in Azure AD PIM](/azure/active-directory/privileged-identity-management/groups-discover-groups).
+1. Assign your test user as [eligible for the group in PIM](/azure/active-directory/privileged-identity-management/groups-assign-member-owner) with the role set to member.
 1. Assign the second group to the Google Cloud / Google Workspace application.
 1. Use on-demand provisioning to create the group in Google Cloud / Google Workspace.
 1. Sign-in to Google Cloud / Google Workspace and assign the second group the necessary permissions to perform admin tasks.  
 
-Now any end user that was made eligible for the group in PIM can get JIT access to the group in Google Cloud / Google Workspace by [activating their group membership](https://learn.microsoft.com/azure/active-directory/privileged-identity-management/groups-activate-roles#activate-a-role). 
+Now any end user that was made eligible for the group in PIM can get JIT access to the group in Google Cloud / Google Workspace by [activating their group membership](/azure/active-directory/privileged-identity-management/groups-activate-roles#activate-a-role). 
 
 > [!IMPORTANT]
 > The group membership is provisioned roughly a minute after the activation is complete. Please wait before attempting to sign-in to Google Cloud / Google Workspace. If the user is unable to access the necessary group in Google Cloud / Google Workspace, please review the provisioning logs to ensure that the user was successfully provisioned. 
@@ -293,7 +293,6 @@ Now any end user that was made eligible for the group in PIM can get JIT access 
 * 10/17/2020 - Added support for more G Suite user and group attributes.
 * 10/17/2020 - Updated G Suite target attribute names to match what is defined [here](https://developers.google.com/admin-sdk/directory).
 * 10/17/2020 - Updated default attribute mappings.
-* 03/18/2021 - Manager email is now synchronized instead of ID for all new users. For any existing users that were provisioned with a manager as an ID, you can do a restart through [Microsoft Graph](/graph/api/synchronization-synchronizationjob-restart?preserve-view=true&tabs=http&view=graph-rest-beta) with scope "full" to ensure that the email is provisioned. This change only impacts the GSuite provisioning job and not the older provisioning job beginning with Goov2OutDelta. Note, the manager email is provisioned when the user is first created or when the manager changes. The manager email isn't provisioned if the manager changes their email address. 
 
 ## More resources
 

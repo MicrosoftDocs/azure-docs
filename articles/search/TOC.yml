@@ -240,7 +240,7 @@
         href: search-howto-managed-identities-data-sources.md
       - name: Connect through a firewall
         href: search-indexer-howto-access-ip-restricted.md
-      - name: Connect through private endpoints
+      - name: Connect through a shared private link
         href: search-indexer-howto-access-private.md
       - name: Connect to a SQL managed instance private endpoint
         href: search-indexer-how-to-access-private-sql.md
@@ -378,7 +378,7 @@
         href: search-howto-index-sharepoint-online.md
   - name: Skillsets (indexers)
     items:
-    - name: Attach a Cognitive Services resource
+    - name: Attach an Azure AI multi-service resource
       href: cognitive-search-attach-cognitive-services.md
     - name: Create a skillset
       href: cognitive-search-defining-skillset.md

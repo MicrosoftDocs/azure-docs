@@ -28,6 +28,10 @@ A quick video tutorial can be found here: [Prompt flow get started video tutoria
 > Prompt flow is **not supported** in the workspace which has data isolation enabled. The enableDataIsolation flag can only be set at the workspace creation phase and can't be updated.
 >
 >Prompt flow is **not supported** in the project workspace which was created with a workspace hub. The workspace hub is a private preview feature.
+>
+>Prompt flow is **not supported** in workspaces that enable managed VNet. Managed VNet is a private preview feature.
+>
+>Prompt flow is **not supported** if you secure your Azure AI services account(Azure openAI, Azure cognitive search, Azure content safety) with virtual networks. If you want to use these as connection in prompt flow please allow access from all networks.
 
 In your Azure Machine Learning workspace, you can enable Prompt flow by turning on **Build AI solutions with Prompt flow** in the **Manage preview features** panel.
 
@@ -97,7 +101,7 @@ At the right, it's the graph view for visualization only. You can zoom in, zoom 
 
 :::image type="content" source="./media/get-started-prompt-flow/graph-view.png" alt-text="Screenshot of web classification highlighting graph view area." lightbox = "./media/get-started-prompt-flow/graph-view.png":::
 
-In this guide, we use **Web Classification** sample to walk you through the main user journey. Web Classification is a flow demonstrating multi-class classification with LLM. Given a URL, it will classify the URL into a web category with just a few shots, simple summarization and classification prompts. For example, given \"https://www.imbd.com/\", it will classify this URL into \"Movie\".
+In this guide, we use **Web Classification** sample to walk you through the main user journey. Web Classification is a flow demonstrating multi-class classification with LLM. Given a URL, it will classify the URL into a web category with just a few shots, simple summarization and classification prompts. For example, given \"https://www.imdb.com/\", it will classify this URL into \"Movie\".
 
 In the graph view, you can see how the sample flow looks like. The input is a URL to classify, then it uses a Python script to fetch text content from the URL, use LLM to summarize the text content within 100 words, then classify based on the URL and summarized text content, last use Python script to convert LLM output into a dictionary. The prepare_examples node is to feed few-shot examples to classification node's prompt.
 
@@ -113,7 +117,7 @@ When unfolding **Inputs** section, you can create and view inputs. For Web Class
 
 :::image type="content" source="./media/get-started-prompt-flow/flow-input.png" alt-text="Screenshot of Web classification highlighting the inputs." lightbox = "./media/get-started-prompt-flow/flow-input.png":::
 
-The input schema (name: url; type: string) and value are already set when cloning samples. You can change to another value manually, for example \"https://www.imbd.com/\".
+The input schema (name: url; type: string) and value are already set when cloning samples. You can change to another value manually, for example \"https://www.imdb.com/\".
 
 ### Set up LLM nodes
 
@@ -123,7 +127,7 @@ For each LLM node, you need to select a connection to set your LLM API keys.
 
 For this example, the API type should be **completion**.
 
-Then depending on the connection type you selected, you need to select a deployment  or a model. If you use AzureOpenAI connection, you need to select a deployment in drop-down (If you don't have a deployment, create one in AzureOPenAI portal by following [Create a resource and deploy a model using Azure OpenAI](../../cognitive-services/openai/how-to/create-resource.md?pivots=web-portal#deploy-a-model)). If you use OpenAI connection, you need to select a model.
+Then depending on the connection type you selected, you need to select a deployment  or a model. If you use AzureOpenAI connection, you need to select a deployment in drop-down (If you don't have a deployment, create one in AzureOpenAI portal by following [Create a resource and deploy a model using Azure OpenAI](../../cognitive-services/openai/how-to/create-resource.md?pivots=web-portal#deploy-a-model)). If you use OpenAI connection, you need to select a model.
 
 We have two LLM nodes (summarize_text_content and classify_with_llm) in the flow, so you need to set up for each respectively.
 
@@ -243,7 +247,7 @@ Copy following sample input data, paste to the input box, and select **Test**, t
 
 ```json
 {
-  "url": "https://learn.microsoft.com/en-us/azure/cognitive-services/openai/"
+  "url": "https://learn.microsoft.com/en-us/azure/ai-services/openai/"
 }
 ```
 

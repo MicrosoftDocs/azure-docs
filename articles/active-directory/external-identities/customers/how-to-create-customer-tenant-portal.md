@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 07/12/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
@@ -80,7 +80,7 @@ In this article, you learn how to:
 
 If you're not sure which directory contains your customer tenant, you can find the tenant name and ID both in the Microsoft Entra admin center and in the Azure portal.
 
-1. To make sure you're using the directory that contains your customer tenant, select the **Directories + subscriptions** icon in the toolbar.
+1. To make sure you're using the directory that contains your customer tenant, select the **Directories + subscriptions** icon :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the toolbar.
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/directories-subscription.png" alt-text="Screenshot of the Directories + subscriptions icon.":::
 

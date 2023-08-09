@@ -27,11 +27,11 @@ Azure Virtual network service tags can be used to define network access controls
 | Azure Commercial | management.azure.com | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes | - |
 | Azure Commercial | `<virtual-machine-region-name>`.monitoring.azure.com  | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes | westus2.monitoring.azure.com |
 | Azure Government | Replace '.com' above with '.us' | Same as above | Same as above | Same as above| Same as above |
-| Azure China | Replace '.com' above with '.cn' | Same as above | Same as above | Same as above| Same as above |
+| Microsoft Azure operated by 21Vianet | Replace '.com' above with '.cn' | Same as above | Same as above | Same as above| Same as above |
 
 >[!NOTE]
 > If you use private links on the agent, you must **only** add the [private data collection endpoints (DCEs)](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint). The agent does not use the non-private endpoints listed above when using private links/data collection endpoints.
-> The Azure Monitor Metrics (custom metrics) preview isn't available in Azure Government and Azure China clouds.
+> The Azure Monitor Metrics (custom metrics) preview isn't available in Azure Government and Azure operated by 21Vianet clouds.
 
 ## Proxy configuration
 
@@ -54,7 +54,7 @@ The Azure Monitor Agent extensions for Windows and Linux can communicate either 
 # [Windows VM](#tab/PowerShellWindows)
 
 ```powershell
-$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": "true"}}';
 $protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
 Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <type-handler-version> -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
@@ -62,7 +62,7 @@ Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMo
 # [Linux VM](#tab/PowerShellLinux)
 
 ```powershell
-$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": true}}';
+$settingsString = '{"proxy":{"mode":"application","address":"http://[address]:[port]","auth": "true"}}';
 $protectedSettingsString = '{"proxy":{"username":"[username]","password": "[password]"}}';
 Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion <type-handler-version> -SettingString $settingsString -ProtectedSettingString $protectedSettingsString
 ```
@@ -70,7 +70,7 @@ Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMoni
 # [Windows Arc-enabled server](#tab/PowerShellWindowsArc)
 
 ```powershell
-$settings = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = true}}
+$settings = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
 $protectedSettings = @{"proxy" = @{username = "[username]"; password = "[password]"}}
 
 New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settings -ProtectedSetting $protectedSettings
@@ -79,7 +79,7 @@ New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType Az
 # [Linux Arc-enabled server](#tab/PowerShellLinuxArc)
 
 ```powershell
-$settings = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = true}}
+$settings = @{"proxy" = @{mode = "application"; address = "http://[address]:[port]"; auth = "true"}}
 $protectedSettings = @{"proxy" = @{username = "[username]"; password = "[password]"}}
 
 New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting $settings -ProtectedSetting $protectedSettings

@@ -7,7 +7,7 @@ ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.date: 06/20/2023
-ms.custom: template-how-to-pattern
+ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
 # Setup of Network Observability for Azure Kubernetes Service (AKS) - BYO Prometheus and Grafana
@@ -222,4 +222,3 @@ In this how-to article, you learned how to install and enable AKS Network Observ
 - For more information about AKS Network Observability, see [What is Azure Kubernetes Service (AKS) Network Observability?](network-observability-overview.md).
 
 - To create an AKS cluster with Network Observability and managed Prometheus and Grafana, see [Setup Network Observability for Azure Kubernetes Service (AKS) Azure managed Prometheus and Grafana](network-observability-managed-cli.md).
-

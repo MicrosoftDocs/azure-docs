@@ -13,7 +13,7 @@ ms.date: 07/07/2023
 # Quickstart: Use preview REST APIs for vector search queries
 
 > [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
+> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 Get started with vector search in Azure Cognitive Search using the **2023-07-01-Preview** REST APIs that create, load, and query a search index. Search indexes now support vector fields in the fields collection. When querying the search index, you can build vector-only queries, or create hybrid queries that target vector fields *and* textual fields configured for filters, sorts, facets, and semantic ranking.
 
@@ -39,7 +39,7 @@ Sample data consists of text and vector descriptions of 108 Azure services, gene
 
 + Vector data (text embeddings) is used for vector search. Currently, Cognitive Search doesn't generate vectors for you. For this quickstart, vector data was generated previously and copied into the "Upload Documents" request and into the query requests.
 
-  For documents, we generated vector data using demo code that calls Azure OpenAI for the embeddings. Demo code is currently using alpha builds of the Azure SDKs and is available in [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) and [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
+  For documents, we generated vector data using demo code that calls Azure OpenAI for the embeddings. Samples are currently using beta versions of the Azure SDKs and are available in [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet), and [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript).
 
   For queries, we used the "Create Query Embeddings" request that calls Azure OpenAI and outputs embeddings for a search string. If you want to formulate your own vector queries against the sample data of 108 Azure services, provide your Azure OpenAI connection information in the Postman collection variables. Your Azure OpenAI service must have a deployment of an embedding model that's identical to the one used to generate embeddings in your search corpus. For this quickstart, the following parameters were used: 
   
@@ -168,7 +168,7 @@ You should get a status HTTP 201 success.
 
 **Key points:**
 
-+ The "fields" collection includes a required key field, a category field, and pairs of fields (such as "title", "titleVector") for keyword and vector search. Colocating vector and nonvector fields in the same index enables hybrid queries. For instance, you can combine filters, keyword search with semantic ranking, and vectors into a single query operation.
++ The "fields" collection includes a required key field, a category field, and pairs of fields (such as "title", "titleVector") for keyword and vector search. Colocating vector and non-vector fields in the same index enables hybrid queries. For instance, you can combine filters, keyword search with semantic ranking, and vectors into a single query operation.
 
 + Vector fields must be `"type": "Collection(Edm.Single)"` with `"dimensions"` and `"vectorSearchConfiguration"` properties. See [this article](/rest/api/searchservice/preview-api/create-or-update-index) for property descriptions.
 
@@ -275,7 +275,7 @@ The response includes 5 results, and each result provides a search score, title,
 
 ### Single vector search with filter
 
-You can add filters, but the filters are applied to the nonvector content in your index. In this example, the filter applies to the "category" field.
+You can add filters, but the filters are applied to the non-vector content in your index. In this example, the filter applies to the "category" field.
 
 The response is 10 Azure services, with a search score, title, and category for each one. Notice the `select` property. It's used to select specific fields for the response.
 
@@ -294,17 +294,17 @@ api-key: {{admin-api-key}}
                 -0.00086512347
             ],
             "fields": "contentVector",
-            "select": "title, content, category"
             "k": 10
         },
     ],
+    "select": "title, content, category",
     "filter": "category eq 'Databases'"
 }
 ```
 
 ### Cross-field vector search
 
-A cross-field vector query sends a single query across multiple vector fields in your search index. This query example looks for similarity in both `titleVector` and `contentVector`:
+A cross-field vector query sends a single query across multiple vector fields in your search index. This query example looks for similarity in both "titleVector" and "contentVector" and displays scores using [Reciprocal Rank Fusion (RRF)](vector-search-ranking.md#reciprocal-rank-fusion-rrf-for-hybrid-queries):
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -329,7 +329,7 @@ api-key: {{admin-api-key}}
 
 ### Multi-query vector search
 
-Multi-query vector search sends multiple queries across multiple vector fields in your search index. This query example looks for similarity in both `titleVector` and `contentVector`, but sends in two different query embeddings respectively. This scenario is ideal for multi-modal use cases where you want to search over a `textVector` field and an `imageVector` field. You can also use this scenario if you have different embedding models with different dimensions in your search index. 
+Multi-query vector search sends multiple queries across multiple vector fields in your search index. This query example looks for similarity in both `titleVector` and `contentVector`, but sends in two different query embeddings respectively. This scenario is ideal for multi-modal use cases where you want to search over a `textVector` field and an `imageVector` field. You can also use this scenario if you have different embedding models with different dimensions in your search index. This also displays scores using [Reciprocal Rank Fusion (RRF)](vector-search-ranking.md#reciprocal-rank-fusion-rrf-for-hybrid-queries).
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -479,7 +479,7 @@ api-key: {{admin-api-key}}
 
 ### Semantic hybrid search with filter
 
-Here's the last query in the collection. It's the same hybrid query as the previous example, but with a filter.
+Here's the last query in the collection. It's the same semantic hybrid query as the previous example, but with a filter.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -523,4 +523,6 @@ Azure Cognitive Search is a billable resource. If it's no longer needed, delete 
 
 ## Next steps
 
-As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), or [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
+As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet), or [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript).
+
+
