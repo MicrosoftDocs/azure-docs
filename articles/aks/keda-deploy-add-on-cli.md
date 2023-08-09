@@ -87,21 +87,26 @@ kubectl get crd/scaledobjects.keda.sh -o yaml
 The following example output shows the configuration of KEDA in the `app.kubernetes.io/version` label:
 
 ```yaml
+apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
-    controller-gen.kubebuilder.io/version: v0.8.0
-  creationTimestamp: "2022-06-08T10:31:06Z"
+    controller-gen.kubebuilder.io/version: v0.9.0
+    meta.helm.sh/release-name: aks-managed-keda
+    meta.helm.sh/release-namespace: kube-system
+  creationTimestamp: "2023-08-09T15:58:56Z"
   generation: 1
   labels:
-    addonmanager.kubernetes.io/mode: Reconcile
     app.kubernetes.io/component: operator
+    app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: keda-operator
     app.kubernetes.io/part-of: keda-operator
-    app.kubernetes.io/version: 2.7.0
+    app.kubernetes.io/version: 2.10.1
+    helm.toolkit.fluxcd.io/name: keda-adapter-helmrelease
+    helm.toolkit.fluxcd.io/namespace: 64d3b6fd3365790001260647
   name: scaledobjects.keda.sh
-  resourceVersion: "2899"
-  uid: 85b8dec7-c3da-4059-8031-5954dc888a0b
+  resourceVersion: "1421"
+  uid: 29109c8c-638a-4bf5-ac1b-c28ad9aa11fa
 spec:
   conversion:
     strategy: None
@@ -114,8 +119,8 @@ spec:
     - so
     singular: scaledobject
   scope: Namespaced
-  # Redacted for simplicity
-  ```
+  # Redacted due to length
+```
 
 While KEDA provides various customization options, the KEDA add-on currently provides basic common configuration.
 
