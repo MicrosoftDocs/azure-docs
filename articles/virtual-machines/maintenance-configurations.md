@@ -64,7 +64,7 @@ This scope is integrated with [update management center](../update-center/overvi
 To learn more about this topic, checkout [update management center and scheduled patching](../update-center/scheduled-patching.md)
 
 > [!NOTE]
-> If platform host update window happens to coincide with the guest (VM) patching window and if the patching window don't get sufficient time to execute guest patching after host update then the system would show **Schedule timeout, waiting for an ongoing update to complete the resource** error since only a single update is allowed by the platform at a time.
+> In rare cases if platform catchup host update window happens to coincide with the guest (VM) patching window and if the guest patching window don't get sufficient time to execute after host update then the system would show **Schedule timeout, waiting for an ongoing update to complete the resource** error since only a single update is allowed by the platform at a time. 
 
 ## Shut Down Machines
 
