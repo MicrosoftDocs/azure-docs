@@ -298,7 +298,7 @@ grpcurl <service-instance-name>-customers-service.azuremicroservices.io:443 org.
 grpcurl -d "{\"ownerId\":7}" <service-instance-name>-customers-service.azuremicroservices.io:443 org.springframework.samples.petclinic.customers.grpc.CustomersService.findOwner
 ```
 
-## FAQ
+## Frequently asked questions
 
 - How do I use the test endpoint?
 
