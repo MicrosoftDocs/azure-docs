@@ -122,14 +122,12 @@ Application Gateway instances are created in separate subnets. One dual-stack su
     - **Subnet name** (Application Gateway subnet): The **Subnets** grid shows a subnet named **default**. Change the name of this subnet to **myAGSubnet**.
     - **Address range** - If there are no overlapping VNets, the default IPv4 address ranges for the VNet and the subnet are 10.0.0.0/16 and 10.0.0.0/24, respectively. The default IPv6 address ranges for the VNet and the subnet are ace:cab:deca::/48 and ace:cab:deca::/64, respectively.
 
-     ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal-ipv6/application-gw-create-ipv6-vnet.png)
+         ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal-ipv6/ipv6-create-vnet-subnet.png)
     
      > [!NOTE] 
      > The application gateway subnet can contain only application gateways. No other resources are allowed. 
 
      Select **OK** to close the **Create virtual network** window and save the new virtual network and subnet settings.
-
-     ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal-ipv6/ipv6-create-vnet-subnet.png)
 
 3. Select **Next: Frontends**.
 
