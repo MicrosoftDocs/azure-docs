@@ -26,10 +26,6 @@ landingContent:
         links:
           - text: What is Identity monitoring and health?
             url: overview-monitoring-health.md
-          - text: What are Identity recommendations?
-            url: overview-recommendations.md
-          - text: What are Identity workbooks?
-            url: overview-reports.md
       - linkListType: concept
         links:
          - text: Audit logs
@@ -52,14 +48,6 @@ landingContent:
             url: recommendation-turn-off-per-user-mfa.md
           - text: Migrate to Microsoft Authenticator
             url: recommendation-migrate-to-authenticator.md
- 
-  # Card
-  - title: Identity reports
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Usage and Insights report
-            url: concept-usage-insights-report.md
 
   # Card
   - title: Identity monitoring
@@ -74,6 +62,14 @@ landingContent:
             url: howto-stream-logs-to-event-hub.md
 
   # Card
+  - title: Identity reports
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Usage and Insights report
+            url: concept-usage-insights-report.md
+
+  # Card
   - title: Common scenarios for using reports and monitoring
     linkLists:
       - linkListType: concept
@@ -86,3 +82,23 @@ landingContent:
             url: how-to-view-applied-conditional-access-policies.md
           - text: Sign-in diagnostics scenarios
             url: concept-sign-in-diagnostics-scenarios.md
+
+  # Card
+  - title: Identity workbooks and recommendations
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What are Identity recommendations?
+            url: overview-recommendations.md
+          - text: What are Identity workbooks?
+            url: overview-reports.md
+      - linkListType: how-to-guide
+        links:
+          - text: Migrate from ADAL to MSAL recommendation
+            url: recommendation-migrate-from-adal-to-msal.md
+          - text: Switch to Conditional Access MFA recommendation
+            url: recommendation-turn-off-per-user-mfa.md
+          - text: Conditional Access gap analyzer workbook
+            url: workbook-conditional-access-gap-analyzer.md
+          - text: Risk analysis
+            url: workbook-risk-analysis.md            
