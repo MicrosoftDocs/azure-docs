@@ -55,7 +55,7 @@ Use the following steps to initialize the application from the Azure Developer C
 
 ## 3. Prepare the cloud environment
 
-The main resource you need to run this sample is an Azure Spring Apps instance. Use the following steps to create this resources.
+The main resource you need to run this sample is an Azure Spring Apps instance. Use the following steps to create this resource.
 
 ### [Azure portal](#tab/Azure-portal)
 
