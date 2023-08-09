@@ -225,7 +225,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 The output looks like:
 
-![Resource Manager template deployment script hello world output](./media/deployment-script-template/resource-manager-template-deployment-script-helloworld-output.png)
+:::image type="content" source="./media/deployment-script-template/resource-manager-template-deployment-script-helloworld-output.png" alt-text="Screenshot of Resource Manager template deployment script hello world output.":::
 
 ## Use external scripts
 
@@ -366,7 +366,7 @@ The max allowed size for environment variables is 64 KB.
 
 The script service creates a [storage account](../../storage/common/storage-account-overview.md) (unless you specify an existing storage account) and a [container instance](../../container-instances/container-instances-overview.md) for script execution. If these resources are automatically created by the script service, both resources have the `azscripts` suffix in the resource names.
 
-![Resource Manager template deployment script resource names](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
+:::image type="content" source="./media/deployment-script-template/resource-manager-template-deployment-script-resources.png" alt-text="Screenshot of Resource Manager template deployment script resource names.":::
 
 The user script, the execution results, and the stdout file are stored in the files shares of the storage account. There's a folder called `azscripts`. In the folder, there are two more folders for the input and the output files: `azscriptinput` and `azscriptoutput`.
 
@@ -376,7 +376,7 @@ The output folder contains a _executionresult.json_ and the script output file. 
 
 After you deploy a deployment script resource, the resource is listed under the resource group in the Azure portal. The following screenshot shows the **Overview** page of a deployment script resource:
 
-![Resource Manager template deployment script portal overview](./media/deployment-script-template/resource-manager-deployment-script-portal.png)
+:::image type="content" source="./media/deployment-script-template/resource-manager-deployment-script-portal.png" alt-text="Screenshot of Resource Manager template deployment script portal overview.":::
 
 The overview page displays some important information of the resource, such as **Provisioning state**, **Storage account**, **Container instance**, and **Logs**.
 
@@ -568,7 +568,7 @@ It only works before the deployment script resources are deleted.
 
 To see the deploymentScripts resource in the portal, select **Show hidden types**:
 
-![Resource Manager template deployment script, show hidden types, portal](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
+:::image type="content" source="./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png" alt-text="Screenshot of Resource Manager template deployment script with show hidden types option in portal.":::
 
 ## Clean up deployment script resources
 

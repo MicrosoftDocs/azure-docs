@@ -36,6 +36,8 @@ The following Azure AD Multi-Factor Authentication settings are available:
 
 ## Account lockout (MFA Server only)
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 >[!NOTE]
 >Account lockout only affects users who sign in by using MFA Server on-premises. 
 
@@ -168,14 +170,35 @@ Default number: *+1 (855) 330-8653*
 
 The following table lists more numbers for different countries.
 
-| Country    | Number          |
-|:-----------|:----------------|
-| Croatia    | +385 15507766   |
-| Ghana      | +233 308250245  |
-| Sri Lanka  | +94 117750440   |
-| Ukraine    | +380 443332393  |
-
-
+| Country              | Number(s)       |
+|:---------------------|:----------------|
+| Austria              | +43 6703062076  |
+| Bangladesh           | +880 9604606026 |
+| Croatia              | +385 15507766   |
+| Ecuador              | +593 964256042  |
+| Estonia              | +372 6712726    |
+| France               | +33 744081468   |
+| Ghana                | +233 308250245  |
+| Greece               | +30 2119902739  |
+| Guatemala            | +502 23055056   |
+| Hong Kong            | +852 25716964   |
+| India                | +91 3371568300, +91 1205089400, +91 4471566601, +91 2271897557, +91 1203524400, +91 3335105700, +91 2235544120, +91 4435279600|
+| Jordan               | +962 797639442  |
+| Kenya                | +254 709605276  |
+| Netherlands          | +31 202490048   |
+| Nigeria              | +234 7080627886 |
+| Pakistan             | +92 4232618686  |
+| Poland               | +48 699740036   |
+| Saudi Arabia         | +966 115122726  |
+| South Africa         | +27 872405062   |
+| Spain                | +34 913305144   |
+| Sri Lanka            | +94 117750440   |
+| Sweden               | +46 701924176   |
+| Taiwan               | +886 277515260  |
+| Turkey               | +90 8505404893  |
+| Ukraine              | +380 443332393  |
+| United Arab Emirates | +971 44015046   |
+| Vietnam              | +84 2039990161  |
 
 > [!NOTE]
 > When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What SMS short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users-).

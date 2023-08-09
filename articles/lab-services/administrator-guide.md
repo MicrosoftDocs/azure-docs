@@ -202,6 +202,9 @@ To obtain lab VMs with unique SID, create a lab without a template VM.  You must
 
 If you plan to use an endpoint management tool or similar software, we recommend that you don't use template VMs for your labs.
 
+## Azure AD register/join, Hybrid Azure AD join, or AD domain join
+To make labs easy to set up and manage, Azure Lab Services is designed with *no* requirement to register/join lab VMs to either Active Directory (AD) or Azure Active Directory (Azure AD).  As a result, Azure Lab Services *doesn’t* currently offer built-in support to register/join lab VMs.  Although it's possible to Azure AD register/join, Hybrid Azure AD join, or AD domain join lab VMs using other mechanisms, we do *not* recommend that you attempt to register/join lab VMs to either AD or Azure AD due to product limitations.
+
 ## Pricing
 
 ### Azure Lab Services

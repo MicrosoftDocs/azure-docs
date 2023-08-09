@@ -5,7 +5,7 @@ description: Use Azure Storage lifecycle management policies to create automated
 author: normesta
 
 ms.author: normesta
-ms.date: 06/23/2023
+ms.date: 08/03/2023
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: conceptual
@@ -38,7 +38,7 @@ Consider a scenario where data is frequently accessed during the early stages of
 Lifecycle management policies are supported for block blobs and append blobs in general-purpose v2, premium block blob, and Blob Storage accounts. Lifecycle management doesn't affect system containers such as the `$logs` or `$web` containers.
 
 > [!IMPORTANT]
-> If a data set needs to be readable, do not set a policy to move blobs to the archive tier. Blobs in the archive tier cannot be read unless they are first rehydrated, a process which may be time-consuming and expensive. For more information, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
+> If a data set needs to be readable, do not set a policy to move blobs to the archive tier. Blobs in the archive tier cannot be read unless they are first rehydrated, a process which may be time-consuming and expensive. For more information, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md). If a data set needs to be read often, do not set a policy to move blobs to the cool or cold tiers as this might result in higher transaction costs.
 
 ## Lifecycle management policy definition
 
@@ -187,7 +187,13 @@ The run conditions are based on age. Current versions use the last modified time
 
 <sup>1</sup> If [last access time tracking](#move-data-based-on-last-accessed-time) is not enabled, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the `LastAccessTime` property of the blob. This date is also used when the `LastAccessTime` property is a null value. For more information about using last access time tracking, see [Move data based on last accessed time](#move-data-based-on-last-accessed-time).
 
-## Lifecycle policy completed event
+## Lifecycle policy runs
+
+The platform runs the lifecycle policy once a day. Once you configure or edit a policy, it can take up to 24 hours for changes to go into effect. Once the policy is in effect, it could take up to 24 hours for some actions to run. Therefore, the policy actions may take up to 48 hours to complete. 
+
+If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes.
+
+### Lifecycle policy completed event
 
 The `LifecyclePolicyCompleted` event is generated when the actions defined by a lifecycle management policy are performed. The following json shows an example `LifecyclePolicyCompleted` event.
 
