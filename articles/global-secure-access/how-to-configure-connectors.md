@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 08/09/2023
 ms.service: network-access
 ms.custom: 
 ms.reviewer: katabish
@@ -27,7 +27,9 @@ User identities must be synchronized from an on-premises directory or created di
 
 To use Application Proxy, you need a Windows server running Windows Server 2012 R2 or later. You'll install the Application Proxy connector on the server. This connector server needs to connect to the Application Proxy services in Azure, and the on-premises applications that you plan to publish.
 
-For high availability in your environment, we recommend having more than one Windows server. 
+- For high availability in your environment, we recommend having more than one Windows server. 
+- The minimum .NET version required for the connector is v4.0.30319.
+- For more information, see [App Proxy connectors](../active-directory/app-proxy/application-proxy-connectors.md#requirements-and-deployment)
 
 ### Prepare your on-premises environment
 
