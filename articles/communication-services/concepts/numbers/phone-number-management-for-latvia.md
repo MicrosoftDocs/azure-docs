@@ -58,6 +58,7 @@ More details on eligible subscription types are as follows:
 |Sweden|
 |Switzerland|
 |United Kingdom|
+|United States|
 
 
 **Use the drop-down menu to check phone number availability for other countries**
