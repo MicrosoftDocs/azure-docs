@@ -98,6 +98,8 @@ az provider register --namespace Microsoft.SaaS
 
 ### 3.4. Create an Azure Spring Apps instance
 
+Use the following steps to create the service instance:
+
 1. Use the following command to accept the legal terms and privacy statements for the Enterprise plan:
 
    > [!NOTE]

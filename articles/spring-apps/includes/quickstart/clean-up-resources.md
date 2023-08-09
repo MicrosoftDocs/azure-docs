@@ -27,9 +27,11 @@ az group delete --name ${RESOURCE_GROUP}
 
 ::: zone pivot="sc-standard"
 
-You can delete the Azure resource group, which includes all the resources in the resource group. use the following steps to delete the entire resource group, including the newly created service:
+You can delete the Azure resource group, which includes all the resources in the resource group.
 
 ### [Azure portal](#tab/Azure-portal)
+
+Use the following steps to delete the entire resource group, including the newly created service:
 
 1. Locate your resource group in the Azure portal. On the navigation menu, select **Resource groups**. Then, select the name of your resource group - for example, **myresourcegroup**.
 

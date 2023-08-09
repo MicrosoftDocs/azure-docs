@@ -16,8 +16,6 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## 2. Prepare the Spring project
 
-Use the following steps to prepare the sample locally.
-
 ### [Azure portal](#tab/Azure-portal)
 
 [!INCLUDE [prepare-spring-project](../../includes/quickstart/prepare-spring-project.md)]

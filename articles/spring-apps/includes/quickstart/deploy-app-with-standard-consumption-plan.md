@@ -14,7 +14,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 -->
 
-## 2. Prepare Spring project
+## 2. Prepare the Spring project
 
 [!INCLUDE [prepare-spring-project-event-driven](../../includes/quickstart/prepare-spring-project.md)]
 
@@ -87,6 +87,8 @@ az provider register --namespace Microsoft.AppPlatform
 ```
 
 ### 3.4. Create an Azure Spring Apps instance
+
+Use the following steps to create the service instance:
 
 1. Use the following command to create a resource group:
 
