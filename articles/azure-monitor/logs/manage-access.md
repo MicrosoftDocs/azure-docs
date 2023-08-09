@@ -298,15 +298,15 @@ In addition to using the built-in roles for a Log Analytics workspace, you can c
 
 ## Set table-level read access
 
-Table-level access settings let you grant specific users read-only permission to data from certain tables. Users with table-level read access can read data from the specified tables in both the workspace and the resource context.
+Table-level access settings let you grant specific users read-only permission to data from certain tables. Users with table-level read access can read data from the specified tables in both the workspace and the resource context.  
 
 > [!NOTE]
-> The recommended table-level access method described here does not apply during preview to Microsoft Sentinel Detection Rules. These rules might have access to more tables than intended.
+> We recommend using the method described here, which is currently in **preview**, for defining table-level access. Alternatively, you can use the [legacy method of setting table-level read access](#legacy-method-of-setting-table-level-read-access), which has some limitations related to custom log tables. The recommended method described here does not apply during preview to Microsoft Sentinel Detection Rules, which might have access to more tables than intended.
 
-To grant a user table-level read access, you need to make two assignments:
+To grant a user table-level read access, you make two assignments:
 
-- Assign the user a custom role on the workspace that only lets the user read the workspace details and run a query in the workspace, without granting the ability to read data from tables.        
-- Assign the user read permissions to the specific table sub-resource. Any role that has the `*/read` action - for example, the **Reader** role or the **Log Analytics Reader** role - is sufficient. The table is a sub-resource of workspace. Therefore, workspace admins can also perform actions on a specific table.
+- Assign the user a workspace-level custom role that lets the user read workspace details and run a query in the workspace, but not read data from tables.        
+- Assign the user read permissions to a specific table sub-resource. The table is a sub-resource of workspace. Therefore, workspace admins can also perform actions on a specific table.
 
 > [!IMPORTANT]
 > - A user who has other assignments on the workspace, directly or via inheritence (for example, if the user has the **Reader** on the subscription that contains the workspace), might also be able to access all tables in the workspace.
@@ -314,40 +314,7 @@ To grant a user table-level read access, you need to make two assignments:
 
 To grant a user table-level read access to a specific table:
 
-1. Create a [custom role](../../role-based-access-control/custom-roles.md) that lets users read workspace details and run a query in the workspace, providing read access to data in any tables:
-    1. From the **Log Analytics workspaces** menu, select **Tables**.  
-    1. Select the ellipsis ( **...** ) to the right of the table you want to edit and select **Access control (IAM)**.
-    1. Select the **Roles** tab on the **Access control (IAM)** screen.
-    1. Right-click the **Reader** role and select **Clone**.
-
-       :::image type="content" source="media/manage-access/access-control-clone-role.png" alt-text="Screenshot that shows the Roles tab of the Access control screen with the clone button highlighted for the Reader role." lightbox="media/manage-access/access-control-clone-role.png":::        
-
-       This opens the **Create a custom role** screen.
-
-    1. On the **Basics** tab of the screen, enter a **Custom role name** value and, optionally, provide a description.
-
-        :::image type="content" source="media/manage-access/manage-access-create-custom-role.png" alt-text="Screenshot that shows the Basics tab of the Create a custom role screen with the Custom role name and Description fields highlighted." lightbox="media/manage-access/manage-access-create-custom-role.png":::
-
-    1. Select the **JSON** tab > **Edit**:
-
-        1. In the `"actions"` section, add:
-
-            - `Microsoft.OperationalInsights/workspaces/read`
-            - `Microsoft.OperationalInsights/workspaces/query/read`
-            - `Microsoft.OperationalInsights/workspaces/analytics/query/action`
-            - `Microsoft.OperationalInsights/workspaces/search/action`
-
-        1. In the `"not actions"` section, add `Microsoft.OperationalInsights/workspaces/sharedKeys/read`.
-
-        :::image type="content" source="media/manage-access/manage-access-create-custom-role-json.png" alt-text="Screenshot that shows the JSON tab of the Create a custom role screen with the actions section of the JSON file highlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::  
-
-
-
-    
-
-To create a [custom role](../../role-based-access-control/custom-roles.md) that lets specific users or groups read data from specific tables in a workspace:
-
-1. Create a custom role that grants users permission to execute queries in the Log Analytics workspace, based on the built-in Azure Monitor Logs **Reader** role:
+1. Create a [custom role](../../role-based-access-control/custom-roles.md) at the workspace level to let users read workspace details and run a query in the workspace, without providing read access to data in any tables:
 
     1. Navigate to your workspace and select **Access control (IAM)** > **Roles**.
 
@@ -400,43 +367,20 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
 
     1. Search for and select the relevant user or group and click **Select**.
     1. Select **Review and assign**.
+    
+    The user or group now has read access to the workspace and can run queries in the workspace, but cannot read data in any tables.
 
-1. Grant the users or groups read access to specific tables in a workspace by calling the `https://management.azure.com/batch?api-version=2020-06-01` POST API and sending the following details in the request body:
+1. Grant the users or groups read access to a specific table:
 
-    ```json
-    {
-        "requests": [
-            {
-                "content": {
-                    "Id": "<GUID_1>",
-                    "Properties": {
-                        "PrincipalId": "<user_object_ID>",
-                        "PrincipalType": "User",
-                        "RoleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
-                        "Scope": "/subscriptions/<subscription_ID>/resourceGroups/<resource_group_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>/Tables/<table_name>",
-                        "Condition": null,
-                        "ConditionVersion": null
-                    }
-                },
-                "httpMethod": "PUT",
-                "name": "<GUID_2>",
-                "requestHeaderDetails": {
-                    "commandName": "Microsoft_Azure_AD."
-                },
-                "url": "/subscriptions/<subscription_ID>/resourceGroups/<resource_group_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>/Tables/<table_name>/providers/Microsoft.Authorization/roleAssignments/<GUID_1>?api-version=2020-04-01-preview"
-            }
-        ]
-    }
-    ```
+    1. From the **Log Analytics workspaces** menu, select **Tables**.  
+    1. Select the ellipsis ( **...** ) to the right of your table and select **Access control (IAM)**.
+    1. Select **Add** > **Add role assignment** on the **Access control (IAM)** screen. 
+    1. Select the **Reader** role and select **Next**.    
+    1. Click **+ Select members** to open the **Select members** screen.
+    1. Search for and select the relevant user or group and click **Select**.
+    1. Select **Review and assign**.
 
-    Where:
-    - You can generate a GUID for `<GUID 1>` and `<GUID 2>` using any GUID generator.
-    - `<user_object_ID>` is the object ID of the user to which you want to grant table read access.
-    - `<subscription_ID>` is the ID of the subscription related to the workspace.
-    - `<resource_group_name>` is the resource group of the workspace.
-    - `<workspace_name>` is the name of the workspace.
-    - `<table_name>` is the name of the table to which you want to assign the user or group permission to read data from.
-
+    The user or group now can now read data from this specific table.
 ### Legacy method of setting table-level read access
 
 The legacy method of table-level also uses [Azure custom roles](../../role-based-access-control/custom-roles.md) to let you grant specific users or groups access to specific tables in the workspace. Azure custom roles apply to workspaces with either workspace-context or resource-context [access control modes](#access-control-mode) regardless of the user's [access mode](#access-mode).
