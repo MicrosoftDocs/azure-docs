@@ -1409,6 +1409,8 @@
               href: reference-automl-nlp-cli-multilabel-classification.md
             - name: Automated ML NLP NER
               href: reference-automl-nlp-cli-ner.md
+            - name: CLI (v2) Spark job YAML schema
+              href: reference-yaml-job-spark.md
         - name: Datastore
           items:
             - name: Azure Blob
@@ -1447,6 +1449,8 @@
               href: reference-yaml-deployment-batch.md
         - name: Component
           items:
+            - name: CLI (v2) Spark component YAML schema
+              href: reference-yaml-component-spark.md
             - name: Command
               href: reference-yaml-component-command.md
             - name: Pipeline 
@@ -1481,10 +1485,6 @@
     - name: Azure Container for PyTorch 
       href: resource-azure-container-for-pytorch.md
       displayName: acpt
-    - name: CLI (v2) Spark component YAML schema
-      href: reference-yaml-component-spark.md
-    - name: CLI (v2) Spark job YAML schema
-      href: reference-yaml-job-spark.md
     - name: Azure CLI
       href: /cli/azure/ml
     # v1
