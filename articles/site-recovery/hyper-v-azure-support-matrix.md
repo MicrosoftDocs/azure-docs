@@ -188,7 +188,6 @@ Move storage, network, Azure VMs across resource groups<br/><br/> Within and acr
 > [!NOTE]
 > When replicating Hyper-VMs  from on-premises to Azure, you can replicate to only one AD tenant from one specific environment - Hyper-V site or Hyper-V with VMM as applicable.
 
-
 ## Provider and agent
 
 To make sure your deployment is compatible with settings in this article, make sure you're running the latest provider and agent versions.
@@ -197,11 +196,6 @@ To make sure your deployment is compatible with settings in this article, make s
 --- | --- | ---
 Azure Site Recovery provider | Coordinates communications between on-premises servers and Azure <br/><br/> Hyper-V with Virtual Machine Manager: Installed on Virtual Machine Manager servers<br/><br/> Hyper-V without Virtual Machine Manager: Installed on Hyper-V hosts| [Latest features and fixes](./site-recovery-whats-new.md)
 Microsoft Azure Recovery Services agent | Coordinates replication between Hyper-V VMs and Azure<br/><br/> Installed on on-premises Hyper-V servers (with or without Virtual Machine Manager) | Latest agent available from the portal
-
-
-
-
-
 
 ## Next steps
 Learn how to [prepare Azure](tutorial-prepare-azure.md) for disaster recovery of on-premises Hyper-V VMs.
