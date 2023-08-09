@@ -12,11 +12,11 @@ ms.date: 08/09/2023
 ms.author: jfields
 ---
 
-# Create folders for accounts, subscriptions, or projects
+# Create folders to organize your authorization systems
 
 After onboarding your cloud environment to Permissions Management, you might have multiple authorization systems (AWS accounts, Azure subscriptions, or GCP projets) that you need to manage. You can create folders to organize and group together your list of accounts, subscriptions, or projects to manage your workflow more efficiently. 
 
-## Create a folder to group your accounts, subscriptions, or projects
+## Create a folder
 
 1. On the Permissions Management home page, select the **Data Collectors** tab and make sure that the **Status** for your cloud environment is **Onboarded**.
 1. Select the **Authorization Systems** subtab, then **Folders**.
