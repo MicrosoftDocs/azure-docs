@@ -74,7 +74,7 @@ After you've imported the dashboard as described in the previous section, you ca
 1. In the left navigation menu of the dashboard, select **Alerting**.
 1. Select **Alert rules**.
 1. Select **+ Create alert rule**. The new alert rule page opens, with the **Grafana managed alerts** option selected by default.
-1. In **Rule name**, add a descriptive name. This name is displayed in the alert rule list, and it will be the `alertname label for every alert instance that is created from this rule.
+1. In **Rule name**, add a descriptive name. This name is displayed in the alert rule list, and it will be the used as the `alertname` label for every alert instance created from this rule.
 1. Under **Set a query and alert condition**:
 
    1. Select a data source. The same data source used for the dashboard may be used here.
@@ -167,7 +167,7 @@ After you've imported the dashboard as described in the previous section, you ca
 
 To enable these alerts, you deploy a Bicep template similar to the one shown here. The alert rules in this template are samples that can be modified as needed.
 
-Once you've downloaded the Bicep template and made any changes needed, [follow these steps to deploy the template](/azure/azure-resource-manager/bicep/template-specs).
+Once you've downloaded the Bicep template and made your changes, [follow these steps to deploy the template](/azure/azure-resource-manager/bicep/template-specs).
 
 ```bicep
 param azureMonitorWorkspaceName string
