@@ -1,20 +1,19 @@
-items:
-- name: MedTech service
+- name: MedTech service documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is the MedTech service?
+  - name: MedTech service overview
     href: overview.md
-  - name: Overview of the device data processing stages
+  - name: Device data processing stages
     href: overview-of-device-data-processing-stages.md
 - name: Quickstarts
-  expanded: true
+  expanded: false
   items:
   - name: Get started with the MedTech service
     href: get-started.md
   - name: Deploy the MedTech service
-    expanded: true
+    expanded: false
     items:    
     - name: Choose a deployment method
       href: deploy-choose-method.md
@@ -27,12 +26,12 @@ items:
     - name: Azure portal
       href: deploy-manual-portal.md
 - name: Tutorials
-  expanded: true
+  expanded: false
   items:
   - name: Receive device messages through Azure IoT Hub
     href: device-messages-through-iot-hub.md 
 - name: How-to guides
-  expanded: true
+  expanded: false
   items: 
   - name: Map
     expanded: false
@@ -86,7 +85,7 @@ items:
 - name: Resources
   expanded: false
   items:
-  - name: FAQs - MedTech service
+  - name: FAQ - MedTech service
     href: frequently-asked-questions.md
   - name: Open-source projects
     href: git-projects.md     
