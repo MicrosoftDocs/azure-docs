@@ -6,7 +6,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/15/2022
+ms.date: 08/09/2023
 ms.author: cherylmc
 
 ---
@@ -64,6 +64,8 @@ The instructions you follow depend on the authentication method you want to use.
 ### Point to site page
 
 [!INCLUDE [Point to site page](../../includes/virtual-wan-p2s-gateway-include.md)]
+
+[!INCLUDE [Point to site page](../../includes/virtual-wan-hub-router-provisioning-warning.md)]
 
 ## <a name="download"></a>Generate client configuration files
 
