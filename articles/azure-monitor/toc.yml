@@ -900,12 +900,7 @@ items:
         displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-code.md    
     - name: Data collector API
-      items:
-      - name: Overview
-        displayName: data collector api
-        href: logs/data-collector-api.md
-      - name: Log Analytics Data Collector API Pipeline example
-        href: logs/create-pipeline-datacollector-api.md
+      href: logs/data-collector-api.md
   - name: Data collection endpoints
     href: essentials/data-collection-endpoint-overview.md
   - name: Private Link networking

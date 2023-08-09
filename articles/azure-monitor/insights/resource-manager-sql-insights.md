@@ -5,7 +5,7 @@ ms.topic: sample
 ms.custom: devx-track-arm-template
 author: bwren
 ms.author: bwren
-ms.date: 03/25/2021
+ms.date: 08/09/2023
 ---
 
 # Resource Manager template samples for SQL Insights (preview)

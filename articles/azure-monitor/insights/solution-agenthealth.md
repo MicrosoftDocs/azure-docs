@@ -2,9 +2,7 @@
 title: Agent Health solution in Azure Monitor | Microsoft Docs
 description: Learn how to use this solution to monitor the health of your agents reporting directly to Log Analytics or System Center Operations Manager.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 02/06/2020
+ms.date: 08/09/2023
 ms.reviewer: shijain
 
 ---
@@ -17,8 +15,11 @@ You can also use the Agent Health solution to:
 * Keep track of how many agents are deployed and where they're distributed geographically.
 * Perform other queries to maintain awareness of the distribution of agents deployed in Azure, in other cloud environments, or on-premises.
 
+> [!IMPORTANT]
+> The Agent Health solution only monitors the health of the [Log Analytics agent](log-analytics-agent.md) which is on a deprecation path. This solution doesn't monitor the health of the [Azure Monitor agent](../agents/azuremonitor-agent.md).
+
 ## Prerequisites
-Before you deploy this solution, confirm that you have supported [Windows agents](../agents/agent-windows.md) reporting to the Log Analytics workspace or reporting to an [Operations Manager management group](../agents/om-agents.md) integrated with your workspace.
+Before you deploy this solution, confirm that you have supported [Windows agents](../agents/agent-windows.md) reporting to the Log Analytics workspace or reporting to an [Operations Manager management group](../agents/agents-overview.md) integrated with your workspace.
 
 ## Management packs
 If your Operations Manager management group is connected to a Log Analytics workspace, the following management packs are installed in Operations Manager. These management packs are also installed on directly connected Windows computers after you add this solution:

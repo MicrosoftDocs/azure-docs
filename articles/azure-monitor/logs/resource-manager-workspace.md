@@ -199,7 +199,7 @@ resource table 'Microsoft.OperationalInsights/workspaces/tables@2021-12-01-previ
 ```
 
 ## Configure data collection for Log Analytics workspace
-The following samples show how to configure a Log Analytics workspace to collect data from the [Log Analytics agent](../agents/log-analytics-agent.md). This agent is on a deprecation path being replaced by [Azure Monitor agent](../agents/agents-overview.md). This agent uses [data collection rules](../essentials/data-collection-rule-overview.md) to define its data collection and will ignore any of the configuration performed by these samples. For sample templates for data collection rules, see [Resource Manager template samples for data collection rules in Azure Monitor](../agents/resource-manager-data-collection-rules.md)
+The following samples show how to configure a Log Analytics workspace to collect data from the [Log Analytics agent](../agents/log-analytics-agent.md), which is on a deprecation path being replaced by [Azure Monitor agent](../agents/agents-overview.md). The Azure Monitor agent uses [data collection rules](../essentials/data-collection-rule-overview.md) to define its data collection and will ignore any of the configuration performed by these samples. For sample templates for data collection rules, see [Resource Manager template samples for data collection rules in Azure Monitor](../agents/resource-manager-data-collection-rules.md).
 
 ### Collect Windows events
 
@@ -584,11 +584,11 @@ resource syslogCollectionDataSource 'Microsoft.OperationalInsights/workspaces/da
 }
 ```
 
-## Collect Windows performance counters
+### Collect Windows performance counters
 
 The following sample adds collection of [Windows performance counters](../agents/data-sources-performance-counters.md) to an existing workspace.
 
-### Notes
+#### Notes
 
 - Add a **datasources** element for each counter and instance to collect. You can specify different collection rate for each counter and instance combination.
 
