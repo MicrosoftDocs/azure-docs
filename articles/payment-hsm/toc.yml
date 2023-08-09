@@ -42,7 +42,7 @@
   - name: Getting started with Azure Payment HSM
     href: getting-started.md
 
-- name: Concepts
+- name: Compliance
   items:
   - name: Certification and compliance
     href: certification-compliance.md
