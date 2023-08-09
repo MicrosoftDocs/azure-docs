@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 08/14/2023
+ms.date: 08/16/2023
 ms.custom: devx-track-azurecli
 ---
 
