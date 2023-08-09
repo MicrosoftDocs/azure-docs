@@ -5,7 +5,7 @@ description: Learn about the data and rate limits when using custom text classif
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.date: 01/25/2022
+ms.date: 08/09/2023
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
@@ -114,7 +114,8 @@ The following limits are observed for the custom text classification.
 |Document length in characters | 1 | 128,000 characters; approximately 28,000 words or 56 pages. |
 |Count of classes | 1 | 200 |
 |Count of trained models per project| 0 | 10 |
-|Count of deployments per project| 0 | 10 |
+|Count of deployments per project (paid tier) | 0 | 10 |
+|Count of deployments per project (free tier) | 0 | 1 |
 
 ## Naming limits
 
