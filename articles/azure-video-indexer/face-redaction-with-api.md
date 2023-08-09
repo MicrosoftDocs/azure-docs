@@ -175,7 +175,7 @@ Here's an example response:
 } 
 ```
 
-If you call the same URL when the redaction job is completed, in the `Location` header, you get a storage SAS URL to the redacted video. For instance:
+If you call the same URL when the redaction job is completed, in the `Location` header, you get a storage shared access signature (SAS) URL to the redacted video. For instance:
 
 ```http
 https://api.videoindexer.ai/westeurope/Accounts/<id>/Videos/<id>/SourceFile/DownloadUrl 
@@ -195,7 +195,7 @@ This URL redirects to the .mp4 file that's stored in the Azure Storage account.
 | Will face redaction overwrite my original video? | No. The face redaction job creates a new video output file. |
 | Not all faces are properly redacted. What can I do? | Redaction relies on the initial face detection and tracking output of the analysis pipeline. Although we detect all faces most of the time, there are circumstances in which we can't detect a face. Factors like face angle, the number of frames the face is present, and the quality of the source video affect the quality of face redaction. For more information, see [Face insights](face-detection.md). |
 | Can I redact objects other than faces? | No. Currently, we offer only face redaction. If you have a need to redact other objects, you can provide feedback about our product in the [Azure User Voice](https://feedback.azure.com/d365community/forum/8952b9e3-e03b-ec11-8c62-00224825aadf) channel. |
-| How long is a shared access signature (SAS) URL valid to download the redacted video? |<!--The SAS URL is valid for xxxx. --> To download the redacted video after the SAS URL expired, you need to call the initial job status URL. It's best to keep these `Jobstatus` URLs in a database in your back end for future reference. |
+| How long is an SAS URL valid to download the redacted video? |<!--The SAS URL is valid for xxxx. --> To download the redacted video after the SAS URL expired, you need to call the initial job status URL. It's best to keep these `Jobstatus` URLs in a database in your back end for future reference. |
 
 ## Error codes
 
