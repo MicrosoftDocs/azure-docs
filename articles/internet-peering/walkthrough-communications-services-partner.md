@@ -102,11 +102,7 @@ For optimized routing for voice services infrastructure prefixes, you must regis
 
 Ensure that the registered prefixes are announced over the direct interconnects established with your peering. If the same prefix is announced in multiple peering locations, you do NOT have to register the prefix in every single location. A prefix can only be registered with a single peering. When you receive the unique prefix key after validation, this key will be used for the prefix even in locations other than the location of the peering it was registered under.
 
-1. To begin registration, go to your peering in the Azure portal and select **Registered prefixes**.
-
-    :::image type="content" source="./media/walkthrough-communications-services-partner/registered-asn.png" alt-text="Screenshot shows how to go to Registered ASNs from the Peering Overview page in the Azure portal.":::
-
-1. Select **Add registered prefix**.
+1. To begin registration, go to the Azure portal, navigate to your peering, select **Registered prefixes**, and click **Add registered prefix**.
 
     :::image type="content" source="./media/walkthrough-communications-services-partner/add-registered-prefix.png" alt-text="Screenshot of Registered prefix page in the Azure portal.":::
 
