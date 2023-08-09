@@ -23,11 +23,11 @@ Azure Health Data Services is a set of managed API services based on open standa
 #### Azure Health Data Services
 
 #### FHIR Service
-**Bug Fix: Continous retry on Import operation**
+**Continous retry on Import operation**
 
 We observed an issue where $import kept on retrying when NDJSON file size is greater than 2GB. The issue is fixed, for details visit [3342](https://github.com/microsoft/fhir-server/pull/3342).
 
-**Bug Fix: Patient and Group level export job restart on interruption**
+**Patient and Group level export job restart**
 
 Patient and Group level exports on interruption would restart from the beginning. Bug is fixed to restart the export jobs from the last sucessfully completed page of results. For more details visit [3205](https://github.com/microsoft/fhir-server/pull/3205).
 
@@ -42,7 +42,7 @@ The DICOM service API v2 is now Generally Available (GA) and introduces [several
 
 #### FHIR Service 
 
-**Feature Enhancement: Incremental Import**
+**Introducing Incremental Import**
 
 $Import operation now supports new capability of "Incremental Load" mode, which is optimized for periodically loading data into the FHIR service. 
 
@@ -58,16 +58,16 @@ With Incremental Load mode, customers can:
 
 For details on Incremental Import, visit [Import Documentation](./../healthcare-apis/fhir/configure-import-data.md).
 
-**Feature Enhancement: Reindex operation provides job status at resource level**
+**Reindex operation provides job status at resource level**
 
 Reindex operation supports determining the status of the reindex operation with help of API call `GET {{FHIR_URL}}/_operations/reindex/{{reindexJobId}}`.
 Details per resource, on the number of completed reindexed resources can be obtained with help of the new field, added in the response- "resourceReindexProgressByResource". For details, visit [3286](https://github.com/microsoft/fhir-server/pull/3286).
 
-**Bug Fix: FHIR Search Query optimization of complex queries**
+**FHIR Search Query optimization of complex queries**
 
 We have seen issues where complex FHIR queries with Reference Search Parameters would time out. Issue is fixed by updating the SQL query generator to use an INNER JOIN for Reference Search Parameters. For details, visit [#3295](https://github.com/microsoft/fhir-server/pull/3295).
 
-**Bug Fix: Metadata endpoint URL in capability statement is relative URL**
+**Metadata endpoint URL in capability statement is relative URL**
 
 Per FHIR specification, metadata endpoint URL in capability statement needs to be an absolute URL. For details on the FHIR specification, visit [Capability Statement](https://www.hl7.org/fhir/capabilitystatement-definitions.html#CapabilityStatement.url). This fix addresses the issue, for details visit [3265](https://github.com/microsoft/fhir-server/pull/3265).
 
