@@ -305,7 +305,7 @@ Table-level access settings let you grant specific users read-only permission to
 
 To grant a user table-level read access, you make two assignments:
 
-- Assign the user a workspace-level custom role that lets the user read workspace details and run a query in the workspace, but not read data from tables.        
+- Assign the user a workspace-level custom role that provides limited permissions to read workspace details and run a query in the workspace, but not to read data from any tables.        
 - Assign the user read permissions to a specific table sub-resource. The table is a sub-resource of workspace. Therefore, workspace admins can also perform actions on a specific table.
 
 > [!IMPORTANT]
@@ -324,13 +324,15 @@ To grant a user table-level read access to a specific table:
 
        This opens the **Create a custom role** screen.
 
-    1. On the **Basics** tab of the screen, enter a **Custom role name** value and, optionally, provide a description.
+    1. On the **Basics** tab of the screen: 
+        1. Enter a **Custom role name** value and, optionally, provide a description.
+        1. Set **Baseline permissions** to **Start from scratch**. 
 
         :::image type="content" source="media/manage-access/manage-access-create-custom-role.png" alt-text="Screenshot that shows the Basics tab of the Create a custom role screen with the Custom role name and Description fields highlighted." lightbox="media/manage-access/manage-access-create-custom-role.png":::
 
     1. Select the **JSON** tab > **Edit**:
 
-        1. Update the `"actions"` section to include these actions only:
+        1. In the `"actions"` section, add these actions:
 
             ```json
             "Microsoft.OperationalInsights/workspaces/read",
