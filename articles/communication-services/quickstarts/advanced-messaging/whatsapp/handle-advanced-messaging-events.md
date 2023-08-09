@@ -31,7 +31,7 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
 
 1.  Go to this Link [Azure Event Grid Viewer - Code Samples \| Microsoft Learn](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/). Deploy the Event Grid Viewer sample by clicking the "Deploy to Azure" button.
     
-    :::image type="content" source="./media/handle-advanced-messaging-events/eventgrid-viewer.png" alt-text="Screenshot that shows the Event Grid Viewer Sample Page with Deploy To Azure option.":::
+    :::image type="content" source="./media/handle-advanced-messaging-events/event-grid-viewer.png" alt-text="Screenshot that shows the Event Grid Viewer Sample Page with Deploy To Azure option.":::
 
 2.  After clicking the "Deploy to Azure" button, fill in the required fields (since the site name needs to be globally unique as it creates a DNS entry, it's recommended to include your alias in the name for this step). While this quickstart doesn't require any special setup for this step, here are suggestions for filling out the deployment details:
   - `Subscription` - Select the subscription that contains your Azure Communication Services resource. This specific subscription isn't required, but it will make it easier to clean up after you're done with the quickstart.
