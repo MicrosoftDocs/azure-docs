@@ -1,7 +1,7 @@
 ---
 title: 'How to generate text with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
-description: Learn how to generate or manipulate text, including code with Azure OpenAI Service.
+description: Learn how to generate or manipulate text, including code by using a completion endpoint in Azure OpenAI Service.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -17,27 +17,32 @@ keywords:
 
 # Learn how to generate or manipulate text
 
-The completions endpoint can be used for a wide variety of tasks. It provides a simple but powerful text-in, text-out interface to any of our [models](../concepts/models.md). You input some text as a prompt, and the model will generate a text completion that attempts to match whatever context or pattern you gave it. For example, if you give the API the prompt, "As Descartes said, I think, therefore", it will return the completion " I am" with high probability.
+Azure OpenAI Service generates a **completion endpoint** that can be used for a wide variety of tasks. The endpoint supplies a simple yet powerful text-in, text-out interface to any [Azure OpenAI model](../concepts/models.md). Here's how it works. You input some text as a prompt. In response, the model generates a text completion that attempts to match your context or pattern. Suppose you provide the prompt "As Descartes said, I think, therefore" to the API. For this prompt, Azure OpenAI returns the completion endpoint " I am" with high probability.
 
-The best way to start exploring completions is through our playground in [Azure OpenAI Studio](https://oai.azure.com). It's a simple text box where you can submit a prompt to generate a completion. You can start with a simple example like the following:
+The best way to start exploring completions is through the playground in [Azure OpenAI Studio](https://oai.azure.com). It's a simple text box where you enter a prompt to generate a completion. You can start with a simple prompt like the following:
 
-`write a tagline for an ice cream shop`
+```console
+write a tagline for an ice cream shop
+```
 
-once you submit, you'll see something like the following generated:
+After you enter the prompt text, Azure OpenAI displays the prompt with the completion:
 
-``` console
+```console
 write a tagline for an ice cream shop
 we serve up smiles with every scoop!
 ```
 
-The actual completion results you see may differ because the API is stochastic by default. In other words, you might get a slightly different completion every time you call it, even if your prompt stays the same. You can control this behavior with the temperature setting.
+The actual completion results you see can differ because the API is stochastic by default. You might get a slightly different completion every time you call the API, even if your prompt stays the same. You can control this behavior with the _temperature_ setting.
 
-This simple, "text in, text out" interface means you can "program" the model by providing instructions or just a few examples of what you'd like it to do. Its success generally depends on the complexity of the task and quality of your prompt. A general rule is to think about how you would write a word problem for a middle school student to solve. A well-written prompt provides enough information for the model to know what you want and how it should respond.
+The simple text in, text out interface means you can "program" the Azure OpenAI model by providing instructions or just a few examples of what you'd like it to do. The output success generally depends on the complexity of the task and quality of your prompt. A general rule is to think about how you would write a word problem for a pre-teenage school student to solve. A well-written prompt provides enough information for the model to know what you want and how it should respond.
 
 > [!NOTE]
-> Keep in mind that the models' training data cuts off in October 2019, so they may not have knowledge of current events. We plan to add more continuous training in the future.
+> The model training data currently extends through October 2019 only. Depending on your prompt, the model might not have knowledge of related current events. 
+
 
 ## Prompt design
+
+Let's examine some ideas for designing prompts to generate completion endpoints.
 
 ### Basics
 
