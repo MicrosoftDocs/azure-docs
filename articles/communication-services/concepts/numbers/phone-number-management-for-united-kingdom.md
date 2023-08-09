@@ -17,39 +17,46 @@ ms.custom: references_regions
 Use the below tables to find all the relevant information on number availability, eligibility and restrictions for phone numbers in United Kingdom.
 
 
-## Subscription eligibility
+## Number types and capabilities availability
 
-To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired on trial accounts or by Azure free credits.
-
-More details on eligible subscription types are as follows:
-
-| Number Type                      | Eligible Azure Agreement Type                                                                             |
-| :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
-| Toll-Free and Local (Geographic/National) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, Pay-As-You-Go |
-| Short-Codes                      | Modern Customer Agreement (Field Led), Enterprise Agreement**, Pay-As-You-Go                                      |
-
-\* In some countries/regions, number purchases are only allowed for own use. Reselling or suballcoating to another parties isn't allowed. Due to this restriction, purchases for CSP and LSP customers aren't allowed.
-
-\** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
-
-## Customers with United Kingdom Azure billing addresses
-
-| Number             | Type           | Send SMS             | Receive SMS          | Make Calls       | Receive Calls    |
-| :----------------- | :------------- | :------------------- | :------------------- | :--------------- | :--------------- |
-| UK                 | Toll-Free      | -        | -        | General Availability   | General Availability\* |
-| UK                 | Local          | -        | -        | General Availability   | General Availability\* |
-| USA & Puerto Rico  | Toll-Free      | General Availability | General Availability | General Availability   | General Availability\* |
-| USA & Puerto Rico  | Local          | -        | -        | General Availability   | General Availability\* |
-| Canada             | Toll-Free      | General Availability       | General Availability       | General Availability   | General Availability\* |
-| Canada             | Local          | -        | -        | General Availability   | General Availability\* |
-| United Kingdom, Germany, Netherlands, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia            | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
-
+| Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
+| :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
+| Toll-Free   |General Availability  | General Availability | General Availability | General Availability\* |
+| Local       | -                    | -                    | General Availability | General Availability\* |
+|Alphanumeric Sender ID\**|Public Preview|-|-|-|
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
 \** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
-**Use the drop-down menu to check the requirements for other countries**
+## Subscription eligibility
+
+To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired by Azure free credits. Also, phone number availability is dependant on 
+
+More details on eligible subscription types are as follows:
+
+| Number Type                      | Eligible Azure Agreement Type                                                                             |
+| :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
+| Toll-Free and Local (Geographic/National) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement, Pay-As-You-Go |
+| Short-Codes                      | Modern Customer Agreement (Field Led), Enterprise Agreement**, Pay-As-You-Go                                      |
+
+\** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
+
+
+## Azure subscription billing locations where United States phone numbers are available
+| Country |
+| :---------- |
+|Canada|
+|Denmark|
+|Ireland|
+|Italy|
+|Puerto Rico|
+|Sweden|
+|United Kingdom|
+|United States|
+
+
+**Use the drop-down menu to check phone number availability for other countries**
 > [!div class="op_single_selector"]
 >
 > - [Argentina](../numbers/phone-number-management-for-argentina.md)
@@ -93,6 +100,7 @@ More details on eligible subscription types are as follows:
 > - [United Arab Emirates](../numbers/phone-number-management-for-united-arab-emirates.md)
 > - [United Kingdom](../numbers/phone-number-management-for-united-kingdom.md)
 > - [United States](../numbers/phone-number-management-for-united-states.md)
+
 
 ## Next steps
 
