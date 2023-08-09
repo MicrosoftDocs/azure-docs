@@ -351,14 +351,6 @@ The following table explains the binding configuration properties that you set i
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-### Binding expressions for HTTP trigger
-<a name="binding-expressions-for-http-trigger"></a>
-As SignalR input binding is usually used together with HTTP trigger, and the values of some attributes of SignalR input binding usually come from HTTP requests, we'll show how to bind values from HTTP requests to SignalR input binding attributes via [binding expression](./functions-bindings-expressions-patterns.md#trigger-metadata).
-
-| HTTP metadata type | Binding expression format | Description | Example |
-|---------|--------|---------|--------|
-| HTTP request query | `{query.QUERY_PARAMETER_NAME}` | Binds the value of corresponding query parameter to an attribute | `{query.userName}` |
-| HTTP request header | `{headers.HEADER_NAME}` | Binds the value of a header to an attribute | `{headers.token}` |
 
 ## Annotations
 
@@ -387,6 +379,15 @@ The following table explains the binding configuration properties that you set i
 |**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
 ::: zone-end
+
+### Binding expressions for HTTP trigger
+<a name="binding-expressions-for-http-trigger"></a>
+As SignalR input binding is usually used together with HTTP trigger, and the values of some attributes of SignalR input binding usually come from HTTP requests, we'll show how to bind values from HTTP requests to SignalR input binding attributes via [binding expression](./functions-bindings-expressions-patterns.md#trigger-metadata).
+
+| HTTP metadata type | Binding expression format | Description | Example |
+|---------|--------|---------|--------|
+| HTTP request query | `{query.QUERY_PARAMETER_NAME}` | Binds the value of corresponding query parameter to an attribute | `{query.userName}` |
+| HTTP request header | `{headers.HEADER_NAME}` | Binds the value of a header to an attribute | `{headers.token}` |
 
 ## Next steps
 
