@@ -6,7 +6,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/07/2023
+ms.date: 08/09/2023
 ms.author: jammart
 ms.reviewer: nachakra
 ---
@@ -486,7 +486,7 @@ The following table summarizes the available attributes by source:
 > | **Attribute** | `isPrivateLink` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [Boolean](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
-> | **Applies to** | For copy operations using the following REST operations, this attribute only applies to the destination storage account, and not the source:<br><br>[Copy Blob](/rest/api/storageservices/copy-blob)<br>[Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url)<br>[Put Blob From URL](/rest/api/storageservices/put-blob-from-url)<br>[Put Block From URL](/rest/api/storageservices/put-block-from-url)<br>[Append Block From URL](/rest/api/storageservices/append-block-from-url)<br>[Put Page From URL](/rest/api/storageservices/put-page-from-url)<br><br>For all other read, write, create, delete, and rename operations, it applies to the storage account that is the target of the operation |
+> | **Applies to** | For copy operations using the following REST operations, this attribute only applies to the destination storage account, and not the source:<br><br>[Copy Blob](/rest/api/storageservices/copy-blob)<br>[Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url)<br>[Put Blob From URL](/rest/api/storageservices/put-blob-from-url)<br>[Put Block From URL](/rest/api/storageservices/put-block-from-url)<br>[Append Block From URL](/rest/api/storageservices/append-block-from-url)<br>[Put Page From URL](/rest/api/storageservices/put-page-from-url)<br>[Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)<br><br>For all other read, write, create, delete, and rename operations, it applies to the storage account that is the target of the operation |
 > | **Examples** | `@Environment[isPrivateLink] BoolEquals true`<br/>[Example: Require private link access to read blobs with high sensitivity](storage-auth-abac-examples.md#example-require-private-link-access-to-read-blobs-with-high-sensitivity) |
 > | **Learn more** | [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md) |
 
