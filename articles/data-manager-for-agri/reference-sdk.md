@@ -1,16 +1,16 @@
 ---
-title: SDKs Overview
-description: Get started with the Azure Data Manager for Agriculture SDKs.
+title: Azure Data Manager for Agriculture SDK overview
+description: Learn how to install Azure Data Manager for Agriculture SDKs 
 author: BlackRider97
 ms.author: ramithar
 ms.service: data-manager-for-agri
 ms.topic: how-to
-ms.date: 08/08/2023
+ms.date: 08/09/2023
 ms.custom: template-how-to
 ---
 
-
 # Azure Data Manager for Agriculture SDKs
+On this page, you can access the download links for the Azure Data Manager for Agriculture SDKs, which are offered in a range of popular programming languages.
 
 ## Data-plane SDKs
 
@@ -26,3 +26,6 @@ ms.custom: template-how-to
 - [Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/agrifood/azure-resourcemanager-agrifood)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/agrifood/arm-agrifood)
 - [CSharp](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agrifood/Azure.ResourceManager.AgFoodPlatform)
+
+## Next steps
+* Understand our REST APIs [here](/rest/api/data-manager-for-agri)
