@@ -16,10 +16,10 @@ You can also use the Agent Health solution to:
 * Perform other queries to maintain awareness of the distribution of agents deployed in Azure, in other cloud environments, or on-premises.
 
 > [!IMPORTANT]
-> The Agent Health solution only monitors the health of the [Log Analytics agent](log-analytics-agent.md) which is on a deprecation path. This solution doesn't monitor the health of the [Azure Monitor agent](../agents/azuremonitor-agent.md).
+> The Agent Health solution only monitors the health of the [Log Analytics agent](log-analytics-agent.md) which is on a deprecation path. This solution doesn't monitor the health of the [Azure Monitor agent](agents-overview.md).
 
 ## Prerequisites
-Before you deploy this solution, confirm that you have supported [Windows agents](../agents/agent-windows.md) reporting to the Log Analytics workspace or reporting to an [Operations Manager management group](../agents/agents-overview.md) integrated with your workspace.
+Before you deploy this solution, confirm that you have supported [Windows agents](../agents/agent-windows.md) reporting to the Log Analytics workspace or reporting to an [Operations Manager management group](agents-overview.md) integrated with your workspace.
 
 ## Management packs
 If your Operations Manager management group is connected to a Log Analytics workspace, the following management packs are installed in Operations Manager. These management packs are also installed on directly connected Windows computers after you add this solution:

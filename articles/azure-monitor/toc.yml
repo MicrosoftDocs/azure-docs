@@ -783,7 +783,7 @@ items:
         - name: LA Agent Management
           href: agents/agent-manage.md
         - name: LA Agent Health
-          href: insights/solution-agenthealth.md
+          href: agents/solution-agenthealth.md
         - name: LA Agent data sources
           items:
           - name: Overview
