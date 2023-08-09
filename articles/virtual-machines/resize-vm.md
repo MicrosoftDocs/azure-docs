@@ -7,7 +7,7 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 08/09/2023
 ms.author: cynthn 
-ms.custom: devx-track-azurepowershell
+ms.custom: compute-cost-fy24
 
 ---
 # Change the size of a virtual machine 
