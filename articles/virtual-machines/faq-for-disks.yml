@@ -333,7 +333,7 @@ sections:
           - [Disable encryption and remove the encryption extension on Windows](windows/disk-encryption-windows.md#disable-encryption-and-remove-the-encryption-extension) or [on Linux](linux/disk-encryption-linux.md#disable-encryption-and-remove-the-encryption-extension).
           - Then make a new managed disk using the current disk as a source. 
           - Attach the new disk to a new VM that has never enabled ADE.
-          4. Encrypt that new disk with customer-managed keys.
+          - Encrypt that new disk with customer-managed keys.
 
       - question: |
           Can I switch from server-side encryption with customer-managed keys to Azure Disk Encryption?
