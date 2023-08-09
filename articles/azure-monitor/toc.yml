@@ -242,7 +242,7 @@ items:
           href: app/availability-private-test.md
         - name: TrackAvailability()
           href: app/availability-azure-functions.md
-          displayName: availability,azure functions,TrackAvailability(), timer function, azure gov, Microsoft Azure operated by 21Vianet, custom test, customized tests, contentmatch
+          displayName: availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch
         - name: Availability alerts
           displayName: alerts, global, alerting
           href: app/availability-alerts.md
@@ -490,6 +490,60 @@ items:
     items:
     - name: Monitor Azure Kubernetes Service (AKS)
       href: containers/monitor-kubernetes.md
+    - name: Prometheus
+      items:
+      - name: Enable on AKS cluster
+        displayName: Prometheus
+        href: containers/prometheus-metrics-enable.md
+      - name: Disable on AKS cluster
+        displayName: Prometheus
+        href: containers/prometheus-metrics-disable.md
+      - name: Enable on Arc-enabled Kubernetes cluster
+        displayName: Prometheus
+        href: containers/prometheus-metrics-from-arc-enabled-cluster.md    
+      - name: Customize collection
+        items:
+        - name: Default configuration
+          displayName: Prometheus
+          href: containers/prometheus-metrics-scrape-default.md
+        - name: Custom configuration
+          displayName: Prometheus
+          href: containers/prometheus-metrics-scrape-configuration.md
+        - name: Create and validate custom scrape config
+          displayName: Prometheus
+          href: containers/prometheus-metrics-scrape-validate.md
+        - name: Minimal ingestion profile
+          displayName: Prometheus
+          href: containers/prometheus-metrics-scrape-configuration-minimal.md
+        - name: High scale
+          displayName: Prometheus
+          href: containers/prometheus-metrics-scrape-scale.md
+        - name: Send to multiple metric workspaces
+          displayName: Prometheus
+          href: containers/prometheus-metrics-multiple-workspaces.md
+      - name: Troubleshoot collection
+        displayName: Prometheus
+        href: containers/prometheus-metrics-troubleshoot.md
+      - name: Enable remote write
+        items:
+        - name: Overview
+          displayName: Prometheus,remote-write
+          href: containers/prometheus-remote-write.md
+        - name: Managed identity
+          displayName: Prometheus,remote-write
+          href: containers/prometheus-remote-write-managed-identity.md
+        - name: Azure Active Directory
+          displayName: Prometheus,remote-write
+          href: containers/prometheus-remote-write-active-directory.md
+        - name: Azure Active Directory pod identity
+          displayName: Prometheus,remote-write
+          href: containers/prometheus-remote-write-azure-ad-pod-identity.md  
+      - name: KEDA integration
+        displayName: Prometheus
+        href: containers/integrate-keda.md    
+      - name: Prometheus Azure Active Directory authorization proxy
+        displayName: Prometheus
+        href: containers/prometheus-authorization-proxy.md
     - name: Container insights
       items:
       - name: Overview
@@ -516,8 +570,6 @@ items:
           href: containers/container-insights-region-mapping.md
         - name: Transition from Container monitoring solution
           href: containers/container-insights-transition-solution.md
-      - name: Prometheus metrics
-        href: containers/container-insights-prometheus.md
       - name: Configure
         items:
         - name: Agent management
@@ -530,6 +582,8 @@ items:
           href: containers/container-insights-cost-config.md
         - name: Authentication
           href: containers/container-insights-authentication.md
+        - name: Send Prometheus metrics to Logs
+          href: containers/container-insights-prometheus-logs.md
       - name: Monitor
         items:
         - name: Monitor performance
@@ -897,40 +951,6 @@ items:
           href: essentials/azure-monitor-workspace-private-endpoint.md 
         - name: Private link for Prometheus data ingestion
           href: essentials/private-link-data-ingestion.md
-      - name: Managed agent
-        items:
-        - name: Enable on AKS cluster
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-enable.md
-        - name: Disable on AKS cluster
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-disable.md
-        - name: Enable on Arc-enabled Kubernetes cluster
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-from-arc-enabled-cluster.md    
-        - name: Customize collection
-          items:
-          - name: Default configuration
-            displayName: Prometheus
-            href: essentials/prometheus-metrics-scrape-default.md
-          - name: Custom configuration
-            displayName: Prometheus
-            href: essentials/prometheus-metrics-scrape-configuration.md
-          - name: Create and validate custom scrape config
-            displayName: Prometheus
-            href: essentials/prometheus-metrics-scrape-validate.md
-          - name: Minimal ingestion profile
-            displayName: Prometheus
-            href: essentials/prometheus-metrics-scrape-configuration-minimal.md
-          - name: High scale
-            displayName: Prometheus
-            href: essentials/prometheus-metrics-scrape-scale.md
-          - name: Send to multiple metric workspaces
-            displayName: Prometheus
-            href: essentials/prometheus-metrics-multiple-workspaces.md
-        - name: Troubleshoot collection
-          displayName: Prometheus
-          href: essentials/prometheus-metrics-troubleshoot.md
       - name: Alerting and rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
@@ -950,26 +970,6 @@ items:
         - name: Query using the API and PromQL
           displayName: Prometheus
           href: essentials/prometheus-api-promql.md
-      - name: Enable remote write
-        items:
-        - name: Overview
-          displayName: Prometheus,remote-write
-          href: essentials/prometheus-remote-write.md
-        - name: Managed identity
-          displayName: Prometheus,remote-write
-          href: essentials/prometheus-remote-write-managed-identity.md
-        - name: Azure Active Directory
-          displayName: Prometheus,remote-write
-          href: essentials/prometheus-remote-write-active-directory.md
-        - name: Azure Active Directory pod identity
-          displayName: Prometheus,remote-write
-          href: essentials/prometheus-remote-write-azure-ad-pod-identity.md  
-      - name: KEDA integration
-        displayName: Prometheus
-        href: essentials/integrate-keda.md    
-      - name: Prometheus Azure Active Directory authorization proxy
-        displayName: Prometheus
-        href: essentials/prometheus-authorization-proxy.md
   - name: Logs
     items:
     - name: Overview
