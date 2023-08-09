@@ -988,7 +988,7 @@ items:
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUIChat
     - name: UI Library for Chat (Android)
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-ui-chat/index.html
- - name: Country phone number management
+  - name: Country phone number management
     items:
     - name: Phone number management for Argentina
       href: concepts/numbers/phone-number-management-for-argentina.md
