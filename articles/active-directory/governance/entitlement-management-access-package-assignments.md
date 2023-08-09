@@ -61,7 +61,7 @@ You can also retrieve assignments in an access package using Microsoft Graph.  A
 
 ### View assignments with PowerShell
 
-You can perform this query in PowerShell with the `Get-MgEntitlementManagementAccessPackageAssignment` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or later. This cmdlet takes as a parameter the access package ID, which is included in the response from the `Get-MgEntitlementManagementAccessPackage` cmdlet.
+You can perform this query in PowerShell with the `Get-MgEntitlementManagementAccessPackageAssignment` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 1.x.x. This cmdlet takes as a parameter the access package ID, which is included in the response from the `Get-MgEntitlementManagementAccessPackage` cmdlet.
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.Read.All"
@@ -147,7 +147,7 @@ You can also directly assign a user to an access package using Microsoft Graph. 
 
 ### Assign a user to an access package with PowerShell
 
-You can assign a user to an access package in PowerShell with the `New-MgEntitlementManagementAccessPackageAssignmentRequest` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or later. This cmdlet takes as parameters
+You can assign a user to an access package in PowerShell with the `New-MgEntitlementManagementAccessPackageAssignmentRequest` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 1.x.x. This cmdlet takes as parameters
 * the access package ID, which is included in the response from the `Get-MgEntitlementManagementAccessPackage` cmdlet,
 * the access package assignment policy ID, which is included in the response from the `Get-MgEntitlementManagementAccessPackageAssignmentPolicy`cmdlet,
 * the object ID of the target user, if the user is already present in your directory.
@@ -155,8 +155,8 @@ You can assign a user to an access package in PowerShell with the `New-MgEntitle
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
 Select-MgProfile -Name "beta"
-$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "AssignmentPolicies"
-$policy = $accesspackage.AssignmentPolicies[0]
+$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "accessPackageAssignmentPolicies"
+$policy = $accesspackage.AccessPackageAssignmentPolicies[0]
 $req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -TargetId "a43ee6df-3cc5-491a-ad9d-ea964ef8e464"
 ```
 
@@ -171,12 +171,12 @@ For example, if you want to ensure all the users who are currently members of a 
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Directory.Read.All"
 Select-MgProfile -Name "beta"
 $members = Get-MgGroupMember -GroupId "a34abd69-6bf8-4abd-ab6b-78218b77dc15"
-$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "AssignmentPolicies"
-$policy = $accesspackage.AssignmentPolicies[0]
+$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "accessPackageAssignmentPolicies"
+$policy = $accesspackage.AccessPackageAssignmentPolicies[0]
 $req = New-MgEntitlementManagementAccessPackageAssignment -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -RequiredGroupMember $members
 ```
 
-If you wish to add an assignment for a user who is not yet in your directory, you can use the `New-MgEntitlementManagementAccessPackageAssignmentRequest` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.9.1 or later. This cmdlet takes as parameters
+If you wish to add an assignment for a user who is not yet in your directory, you can use the `New-MgEntitlementManagementAccessPackageAssignmentRequest` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 1.x.x. This cmdlet takes as parameters
 * the access package ID, which is included in the response from the `Get-MgEntitlementManagementAccessPackage` cmdlet,
 * the access package assignment policy ID, which is included in the response from the `Get-MgEntitlementManagementAccessPackageAssignmentPolicy`cmdlet,
 * the email address of the target user.
@@ -184,41 +184,10 @@ If you wish to add an assignment for a user who is not yet in your directory, yo
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
 Select-MgProfile -Name "beta"
-$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "AssignmentPolicies"
-$policy = $accesspackage.AssignmentPolicies[0]
+$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign" -ExpandProperty "accessPackageAssignmentPolicies"
+$policy = $accesspackage.AccessPackageAssignmentPolicies[0]
 $req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -TargetEmail "sample@example.com"
 ```
-
-## Manage user lifecycle (preview)  
-
-Entitlement management also allows you to get visibility into state of a guest user's lifecycle through the following viewpoints: 
-
-- **Governed** - The user is set to be governed.  
-- **Ungoverned** - The user is set to not be governed.
-- **Blank** - The lifecycle for the user is not determined. This happens when a user had an access package assigned before managing user lifecycle was possible.
-
-> [!NOTE]
-> When a guest user is set as **Governed**, based on ELM tenant settings their account will be deleted or disabled in specified days after their last access package assignment expires.  Learn more about ELM settings here: [Manage external access with Azure Active Directory entitlement management](../fundamentals/6-secure-access-entitlement-managment.md).
-
-You can directly convert ungoverned users to governed by using the **Mark Guests as Governed ( preview)** functionality in the top menu bar. 
-
-To manage user lifecycle, you'd follow these steps:
-
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
-
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
-
-1. In the left menu, select **Access packages** and then open the access package.
-
-1. In the left menu, select **Assignments**.
-
-1. On the assignments screen, select the user you want to manage the lifecycle for, and then select **Mark guest as governed (Preview)**.
-    :::image type="content" source="media/entitlement-management-access-package-assignments/govern-user-lifecycle.png" alt-text="Screenshot of the govern user lifecycle selection.":::
-1. Select save.
-
-## Manage user lifecycle programmatically 
-
-To manage user lifecycle programatically using Microsoft Graph, see: [accessPackageSubject resource type](/graph/api/resources/accesspackagesubject).
 
 ## Remove an assignment
 
@@ -246,7 +215,7 @@ You can also remove an assignment of a user to an access package using Microsoft
 
 ### Remove an assignment with PowerShell
 
-You can remove a user's assignment in PowerShell with the `New-MgEntitlementManagementAccessPackageAssignmentRequest` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or later.
+You can remove a user's assignment in PowerShell with the `New-MgEntitlementManagementAccessPackageAssignmentRequest` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 1.x.x.
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
