@@ -12,13 +12,13 @@ ms.custom: devx-track-azurepowershell
 
 # Manage access to Log Analytics workspaces
 
- The data in a Log Analytics workspace that you can access is determined by a combination of the following factors:
+The factors that determine which data you can access in a Log Analytics workspace are:
 
 - The settings on the workspace itself.
-- The access to resources sending data to the workspace.
+- Your access permissions to resources that send data to the workspace.
 - The method used to access the workspace.
 
-This article describes how access is managed and how to perform any required configuration.
+This article describes how to manage access to data in a Log Analytics workspace.
 
 ## Overview
 
@@ -234,7 +234,7 @@ The Log Analytics Contributor role includes the following Azure actions:
 
 ### Resource permissions
 
-When users query logs from a workspace by using [resource-context access](#access-mode), they'll have the following permissions on the resource:
+To read data from or send data to a workspace in the [resource context](#access-mode), you need these permissions on the resource:
 
 | Permission | Description |
 | ---------- | ----------- |
@@ -298,7 +298,7 @@ In addition to using the built-in roles for a Log Analytics workspace, you can c
 
 ## Set table-level read access
 
-Table-level access settings let you grant specific users read-only permission to data from certain tables. Users with table-level read access can read data from the specified tables in both the workspace and the resource context.  
+Table-level access settings let you grant specific users or groups read-only permission to data from certain tables. Users with table-level read access can read data from the specified tables in both the workspace and the resource context.  
 
 > [!NOTE]
 > We recommend using the method described here, which is currently in **preview**, for defining table-level access. Alternatively, you can use the [legacy method of setting table-level read access](#legacy-method-of-setting-table-level-read-access), which has some limitations related to custom log tables. The recommended method described here does not apply during preview to Microsoft Sentinel Detection Rules, which might have access to more tables than intended.
@@ -306,13 +306,13 @@ Table-level access settings let you grant specific users read-only permission to
 To grant a user table-level read access, you make two assignments:
 
 - Assign the user a workspace-level custom role that provides limited permissions to read workspace details and run a query in the workspace, but not to read data from any tables.        
-- Assign the user read permissions to a specific table sub-resource. The table is a sub-resource of workspace. Therefore, workspace admins can also perform actions on a specific table.
+- Assign the user read permissions to a specific table subresource. The table is a subresource of workspace. Therefore, workspace admins can also perform actions on a specific table.
 
 > [!IMPORTANT]
 > - A user who has other assignments on the workspace, directly or via inheritence (for example, if the user has the **Reader** on the subscription that contains the workspace), might also be able to access all tables in the workspace.
 > - Azure applies table-level RBAC during query execution. It does not apply to metadata retrieval calls. Therefore, the list of tables in the workspace includes tables to which the user might not have access.
 
-To grant a user table-level read access to a specific table:
+To grant a user or group table-level read access to a specific table:
 
 1. Create a [custom role](../../role-based-access-control/custom-roles.md) at the workspace level to let users read workspace details and run a query in the workspace, without providing read access to data in any tables:
 
@@ -351,7 +351,7 @@ To grant a user table-level read access to a specific table:
 
     1. Select **Save** > **Review + Create** at the bottom of the screen, and then **Create** on the next page.   
 
-1. Assign your custom role to the relevant users or groups:
+1. Assign your custom role to the relevant user:
     1. Select **Access control (AIM)** > **Add** > **Add role assignment**.
 
        :::image type="content" source="media/manage-access/manage-access-add-role-assignment-button.png" alt-text="Screenshot that shows the Access control screen with the Add role assignment button highlighted." lightbox="media/manage-access/manage-access-add-role-assignment-button.png":::
@@ -367,22 +367,20 @@ To grant a user table-level read access to a specific table:
 
         :::image type="content" source="media/manage-access/manage-access-add-role-assignment-select-members.png" alt-text="Screenshot that shows the Select members screen." lightbox="media/manage-access/manage-access-add-role-assignment-select-members.png":::
 
-    1. Search for and select the relevant user or group and click **Select**.
+    1. Search for and select a user and click **Select**.
     1. Select **Review and assign**.
     
-    The user or group now has read access to the workspace and can run queries in the workspace, but cannot read data in any tables.
-
-1. Grant the users or groups read access to a specific table:
+1. Grant the user read access to a specific table:
 
     1. From the **Log Analytics workspaces** menu, select **Tables**.  
     1. Select the ellipsis ( **...** ) to the right of your table and select **Access control (IAM)**.
     1. Select **Add** > **Add role assignment** on the **Access control (IAM)** screen. 
     1. Select the **Reader** role and select **Next**.    
     1. Click **+ Select members** to open the **Select members** screen.
-    1. Search for and select the relevant user or group and click **Select**.
+    1. Search for and select the user and click **Select**.
     1. Select **Review and assign**.
 
-    The user or group now can now read data from this specific table.
+    The user can now read data from this specific table.
 ### Legacy method of setting table-level read access
 
 The legacy method of table-level also uses [Azure custom roles](../../role-based-access-control/custom-roles.md) to let you grant specific users or groups access to specific tables in the workspace. Azure custom roles apply to workspaces with either workspace-context or resource-context [access control modes](#access-control-mode) regardless of the user's [access mode](#access-mode).
@@ -449,11 +447,12 @@ Using the legacy method of table-level access, you can't grant access to individ
 ],
 ```
 
-### Considerations regarding table-level access
+### Table-level access considerations
 
-- If a user is granted global read permission with the standard Reader or Contributor roles that include the _\*/read_ action, it will override the per-table access control and give them access to all log data.
-- If a user is granted per-table access but no other permissions, they can access log data from the API but not from the Azure portal. To provide access from the Azure portal, use Log Analytics Reader as its base role.
-- Administrators and owners of the subscription will have access to all data types regardless of any other permission settings.
+- Azure applies table-level RBAC during query execution. It does not apply to metadata retrieval calls. Therefore, in the Log Analytics UI, users with table-level can see the list of all tables in the workspace, but can only retrieve data from tables to which they have access.
+- The standard Reader or Contributor roles, which include the _\*/read_ action, override table-level access control and give users access to all log data.
+- A user with table-level access but no workspace-level permissions can access log data from the API but not from the Azure portal. 
+- Administrators and owners of the subscription have access to all data types regardless of any other permission settings.
 - Workspace owners are treated like any other user for per-table access control.
 - Assign roles to security groups instead of individual users to reduce the number of assignments. This practice will also help you use existing group management tools to configure and verify access.
 
