@@ -18,7 +18,7 @@ For old and new Service Fabric runtime release announcements, see [Service Fabri
 
 Service Fabric managed clusters are improved on an ongoing basis. To stay up to date with the most recent developments, this article provides information about:
 * The latest releases
-* Known issus
+* Known issues
 * Bug fixes
 * Retired functionality
 
