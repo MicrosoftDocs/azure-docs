@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 2/21/2023
+ms.date: 08/09/2023
 ms.author: cynthn 
 ms.custom: devx-track-azurepowershell
 
@@ -44,44 +44,29 @@ If your VM is still running and you don't see the size you want in the list, sto
 
 To resize a VM, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index).
 
-1. View the list of available VM sizes on the current hardware cluster using [az vm list-vm-resize-options](/cli/azure/vm). The following example lists VM sizes for the VM named `myVM` in the resource group `myResourceGroup` region:
+The below script checks if the desired VM size is available before resizing. If the desired size is not available, the script exits with an error message. If the desired size is available, the script deallocates the VM, resizes it, and starts it again. You can replace the values of `resourceGroup`, `vm`, and `size` with your own.
    
-    ```azurecli-interactive
-    az vm list-vm-resize-options \
-    --resource-group myResourceGroup \
-    --name myVM --output table
-    ```
+```azurecli-interactive
+ # Set variables
+resourceGroup=myResourceGroup
+vm=myVM
+size=Standard_DS3_v2
 
-2. If you find the desired VM size listed, resize the VM with [az vm resize](/cli/azure/vm). The following example resizes the VM named `myVM` to the `Standard_DS3_v2` size:
-   
-    ```azurecli-interactive
-    az vm resize \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --size Standard_DS3_v2
-    ```
-   
-    The VM restarts during this process. After the restart, your VM will keep existing OS and data disks. Anything on the temporary disk will be lost.
+# Check if the desired VM size is available
+if ! az vm list-vm-resize-options --resource-group $resourceGroup --name $vm --query "[].name" | grep -q $size; then
+    echo "The desired VM size is not available."
+    exit 1
+fi
 
-3. If you don't see the desired VM size, deallocate the VM with [az vm deallocate](/cli/azure/vm). This process allows you to resize the VM to any size available that the region supports. The following steps deallocate, resize, and then start the VM named `myVM` in the resource group named `myResourceGroup`:
-   
-    ```azurecli-interactive
-    # Variables will make this easier. Replace the values with your own.
-    resourceGroup=myResourceGroup
-    vm=myVM
-    size=Standard_DS3_v2
+# Deallocate the VM
+az vm deallocate --resource-group $resourceGroup --name $vm
 
-    az vm deallocate \
-    --resource-group $resourceGroup \
-    --name myVM
-    az vm resize \
-    --resource-group $resourceGroup \
-    --name $vm \
-    --size $size
-    az vm start \
-    --resource-group $resourceGroup \
-    --name $vm
-    ```
+# Resize the VM
+az vm resize --resource-group $resourceGroup --name $vm --size $size
+
+# Start the VM
+az vm start --resource-group $resourceGroup --name $vm
+```
    
    > [!WARNING]
    > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
@@ -198,4 +183,6 @@ For a work-around, see [How do I migrate from a VM size with local temp disk to 
 
 ## Next steps
 
-For more scalability, run multiple VM instances and scale out. For more information, see [Automatically scale machines in a Virtual Machine Scale Set](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).
+- For more scalability, run multiple VM instances and scale out.
+- For more information, see [Automatically scale machines in a Virtual Machine Scale Set](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).
+- For more cost management planning, see [Plan and manage your Azure costs](https://learn.microsoft.com/en-us/training/modules/plan-manage-azure-costs/1-introduction).
