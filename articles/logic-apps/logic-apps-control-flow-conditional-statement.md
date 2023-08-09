@@ -86,7 +86,7 @@ This how-to guide shows how to add a condition to your workflow and use the resu
 
 1. On the designer, select the **Condition** action to open the information pane and follow these steps build your condition:
 
-   1. In the left **Choose a value** box, specify the first value or field that you want to compare. When you select inside the left box, select the lighning button that appears to open the dynamic content list so that you can select outputs from previous steps in your workflow.
+   1. In the left **Choose a value** box, specify the first value or field that you want to compare. When you select inside the left box, select the lightning button that appears to open the dynamic content list so that you can select outputs from previous steps in your workflow.
 
       ![Screenshot shows Azure portal, Standard workflow designer, RSS trigger, and Condition action with information pane open, and dynamic content button selected.](./media/logic-apps-control-flow-conditional-statement/open-dynamic-content-standard.png)
 
