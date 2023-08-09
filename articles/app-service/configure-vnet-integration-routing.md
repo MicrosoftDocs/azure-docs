@@ -17,24 +17,24 @@ Your app is already integrated using the regional virtual network integration fe
 
 ## Configure application routing
 
-Application routing defines what traffic is routed from your app and into the virtual network. We recommend that you use the **Route All** site setting to enable routing of all traffic. Using the configuration setting allows you to audit the behavior with [a built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33228571-70a4-4fa1-8ca1-26d0aba8d6ef). The existing `WEBSITE_VNET_ROUTE_ALL` app setting can still be used, and you can enable all traffic routing with either setting.
+Application routing defines what traffic is routed from your app and into the virtual network. We recommend that you use the `vnetRouteAllEnabled` site setting to enable routing of all traffic. Using the configuration setting allows you to audit the behavior with [a built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33228571-70a4-4fa1-8ca1-26d0aba8d6ef). The existing `WEBSITE_VNET_ROUTE_ALL` app setting can still be used, and you can enable all traffic routing with either setting.
 
 ### Configure in the Azure portal
 
-Follow these steps to disable **Route All** in your app through the portal.
+Follow these steps to disable outbound internet traffic routing in your app through the portal.
 
-:::image type="content" source="./media/configure-vnet-integration-routing/vnetint-route-all-enabled.png" alt-text="Screenshot that shows enabling Route All.":::
+:::image type="content" source="./media/configure-vnet-integration-routing/vnetint-route-all-enabled.png" alt-text="Screenshot that shows enabling outbound internet traffic.":::
 
-1. Go to **Networking** > **VNet integration** in your app portal.
-1. Set **Route All** to **Disabled**.
+1. Go to **Networking** > **Virtual network integration** in your app portal.
+1. Uncheck the **Outbound internet traffic** setting.
     
-    :::image type="content" source="./media/configure-vnet-integration-routing/vnetint-route-all-disabling.png" alt-text="Screenshot that shows disabling Route All.":::
+    :::image type="content" source="./media/configure-vnet-integration-routing/vnetint-route-all-disabling.png" alt-text="Screenshot that shows disabling outbound internet traffic.":::
 
-1. Select **Yes** to confirm.
+1. Select **Apply** to confirm.
 
 ### Configure with the Azure CLI
 
-You can also configure **Route All** by using the Azure CLI.
+You can also configure **Outbound internet traffic** by using the Azure CLI.
 
 ```azurecli-interactive
 az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.vnetRouteAllEnabled [true|false]
@@ -63,6 +63,14 @@ az resource update --resource-group <group-name> --name <app-name> --resource-ty
 ```
 
 We recommend that you use the site property to enable content share traffic through the virtual network integration. Using the configuration setting allows you to audit the behavior with Azure Policy. The existing `WEBSITE_CONTENTOVERVNET` app setting with the value `1` can still be used, and you can enable routing through the virtual network with either setting.
+
+### Backup/restore
+
+Routing backup traffic over virtual network integration can be configured using the Azure CLI. Note that database backup is not supported over the virtual network integration.
+
+```azurecli-interactive
+az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.vnetBackupRestoreEnabled [true|false]
+```
 
 ## Next steps
 
