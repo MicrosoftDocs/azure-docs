@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Document Intelligence Java SDK (beta) | v3.0"
+title: "Quickstart: Document Intelligence (formerly Form Recognizer) Java SDK (beta) | v3.0"
 titleSuffix: Azure AI services
 description: Form and document processing, data extraction, and analysis using Document Intelligence Java client library SDKs v3.0 
 author: laujan
