@@ -34,7 +34,7 @@ Although Azure Cognitive Search has native [AI enrichment](cognitive-search-conc
 You'll need the `synapseml` library and several Azure resources. If possible, use the same subscription and region for your Azure resources and put everything into one resource group for simple cleanup later. The following links are for portal installs. The sample data is imported from a public site.
 
 + [Azure Cognitive Search](search-create-service-portal.md) (any tier) <sup>1</sup> 
-+ [Azure AI services](../ai-services/multi-service-resource.md?pivots=azportal) (any tier) <sup>1</sup> 
++ [Azure AI services](../ai-services/multi-service-resource.md?pivots=azportal) (any tier) <sup>2</sup> 
 + [Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) (any tier) <sup>3</sup>
 
 <sup>1</sup> This link resolves to a tutorial for loading the package.
