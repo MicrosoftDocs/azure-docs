@@ -11,7 +11,7 @@ metadata:
   ms.subservice: fhir
   ms.topic: landing-page 
   ms.collection: collection
-  author: expekesheth
+  author: shellyhaverkamp
   ms.author: kesheth
   ms.date: 09/30/2022
 
@@ -19,7 +19,7 @@ metadata:
 
 landingContent:
 
-  - title: Start with Azure API for FHIR
+  - title: Get started
     linkLists:
       - linkListType: overview
         links:
@@ -34,7 +34,7 @@ landingContent:
           - text: Deploy Azure API for FHIR
             url: fhir-paas-portal-quickstart.md
 
-  - title: Accessing Azure API for FHIR
+  - title: Access Azure API for FHIR
     linkLists:
       - linkListType: concept
         links:
@@ -58,7 +58,7 @@ landingContent:
           - text: Search examples for Azure API for FHIR
             url: search-samples.md 
 
-  - title: Interoperability and Patient Access
+  - title: Interoperability and patient access
     linkLists:
       - linkListType: tutorial
         links:
@@ -82,7 +82,7 @@ landingContent:
           - text: $member-match operation
             url: tutorial-member-match.md
 
-  - title: Export and Convert Data
+  - title: Export and convert data
     linkLists:
       - linkListType: how-to-guide
         links:

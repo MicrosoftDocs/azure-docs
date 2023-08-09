@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure Health Data Services documentation # < 60 chars
-summary: Collect, transform, and analyze health data that meets privacy and compliance requirements for the healthcare industry.   # < 160 chars
+summary: Collect, transform, and analyze health data that meets privacy and compliance requirements.   # < 160 chars
 brand: azure 
 
 metadata:
