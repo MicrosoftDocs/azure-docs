@@ -53,6 +53,7 @@ When you [deploy your polyglot applications to Enterprise Tier](how-to-enterpris
 |Python|[Status of Python versions](https://devguide.python.org/versions/)
 |Go|[Go Release History](https://go.dev/doc/devel/release)
 |NodeJS|[Nodejs releases](https://nodejs.dev/en/about/releases/)
+|PHP| [PHP Supported versions](https://www.php.net/supported-versions.php)
 
 ### Stack Image Support
 
