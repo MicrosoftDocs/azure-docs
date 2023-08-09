@@ -47,7 +47,7 @@ To manage user lifecycle, you'd follow these steps:
 1. In the left menu, select **Assignments**.
 
 1. On the assignments screen, select the user you want to manage the lifecycle for, and then select **Mark guest as governed (Preview)**.
-    :::image type="content" source="media/entitlement-management-access-package-assignments/govern-user-lifecycle.png" alt-text="Screenshot of the govern user lifecycle selection.":::
+    :::image type="content" source="media/entitlement-management-access-package-assignments/govern-user-lifecycle.png" alt-text="Screenshot of the govern user lifecycle selection." lightbox="media/entitlement-management-access-package-assignments/govern-user-lifecycle.png":::
 1. Select save.
 
 ## Manage guest user lifecycle programmatically 
