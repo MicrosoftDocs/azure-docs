@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 08/14/2023
+ms.date: 08/16/2023
 ---
 
 # Schema and data aggregation in Azure Network Watcher traffic analytics
@@ -21,12 +21,25 @@ Traffic analytics is a cloud-based solution that provides visibility into user a
 
 ## Data aggregation
 
+# [**NSG flow logs**](#tab/nsg)
+
 - All flow logs at a network security group between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t` are captured at one-minute intervals as blobs in a storage account.
 - Default processing interval of traffic analytics is 60 minutes, meaning that every hour, traffic analytics picks blobs from the storage account for aggregation. However, if a processing interval of 10 minutes is selected, traffic analytics will instead pick blobs from the storage account every 10 minutes.
 - Flows that have the same `Source IP`, `Destination IP`, `Destination port`, `NSG name`, `NSG rule`, `Flow Direction`, and `Transport layer protocol (TCP or UDP)` are clubbed into a single flow by traffic analytics (Note: source port is excluded for aggregation).
-- This single record is decorated (details in the section below) and ingested in Azure Monitor logs by traffic analytics. This process can take up to 1 hour max.
+- This single record is decorated (details in the section below) and ingested in Azure Monitor logs by traffic analytics. This process can take up to 1 hour.
 - `FlowStartTime_t` field indicates the first occurrence of such an aggregated flow (same four-tuple) in the flow log processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`.
 - For any resource in traffic analytics, the flows indicated in the Azure portal are total flows seen by the network security group, but in Azure Monitor logs, user sees only the single, reduced record. To see all the flows, use the `blob_id` field,  which can be referenced from storage. The total flow count for that record matches the individual flows seen in the blob.
+
+# [**VNet flow logs (preview)**](#tab/vnet)
+
+- All flow logs between `FlowIntervalStartTime` and `FlowIntervalEndTime` are captured at one-minute intervals as blobs in a storage account.
+- Default processing interval of traffic analytics is 60 minutes, meaning that every hour, traffic analytics picks blobs from the storage account for aggregation. However, if a processing interval of 10 minutes is selected, traffic analytics will instead pick blobs from the storage account every 10 minutes.
+- Flows that have the same `Source IP`, `Destination IP`, `Destination port`, `NSG name`, `NSG rule`, `Flow Direction`, and `Transport layer protocol (TCP or UDP)` are clubbed into a single flow by traffic analytics (Note: source port is excluded for aggregation).
+- This single record is decorated (details in the section below) and ingested in Azure Monitor logs by traffic analytics. This process can take up to 1 hour.
+- `FlowStartTime` field indicates the first occurrence of such an aggregated flow (same four-tuple) in the flow log processing interval between `FlowIntervalStartTime` and `FlowIntervalEndTime`.
+- For any resource in traffic analytics, the flows indicated in the Azure portal are total flows seen, but in Azure Monitor logs, user sees only the single, reduced record. To see all the flows, use the `blob_id` field,  which can be referenced from storage. The total flow count for that record matches the individual flows seen in the blob.
+
+---
 
 The following query helps you look at all subnets interacting with non-Azure public IPs in the last 30 days.
 
@@ -76,14 +89,6 @@ https://{storageAccountName}@insights-logs-networksecuritygroupflowevent/resoure
 ```
 
 ## Traffic analytics schema
-
-> [!IMPORTANT]
-> The traffic analytics schema was updated on August 22, 2019. The new schema provides source and destination IPs separately, removing the need to parse the `FlowDirection` field so that queries are simpler. The updated schema had the following changes:
-> 
-> - `FASchemaVersion_s` updated from 1 to 2.
-> - Deprecated fields: `VMIP_s`, `Subscription_s`, `Region_s`, `NSGRules_s`, `Subnet_s`, `VM_s`, `NIC_s`, `PublicIPs_s`, `FlowCount_d`
-> - New fields: `SrcPublicIPs_s`, `DestPublicIPs_s`, `NSGRule_s`
- 
 
 Traffic analytics is built on top of Azure Monitor logs, so you can run custom queries on data decorated by traffic analytics and set alerts.
 
@@ -154,6 +159,13 @@ The following table lists the fields in the schema and what they signify.
 | **PublicIPs_s** | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 | **SrcPublicIPs_s** | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 | **DestPublicIPs_s** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
+
+> [!IMPORTANT]
+> The traffic analytics schema was updated on August 22, 2019. The new schema provides source and destination IPs separately, removing the need to parse the `FlowDirection` field so that queries are simpler. The updated schema had the following changes:
+> 
+> - `FASchemaVersion_s` updated from 1 to 2.
+> - Deprecated fields: `VMIP_s`, `Subscription_s`, `Region_s`, `NSGRules_s`, `Subnet_s`, `VM_s`, `NIC_s`, `PublicIPs_s`, `FlowCount_d`
+> - New fields: `SrcPublicIPs_s`, `DestPublicIPs_s`, `NSGRule_s`
 
 # [**VNet flow logs (preview)**](#tab/vnet)
 
