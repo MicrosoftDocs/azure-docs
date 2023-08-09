@@ -4,7 +4,7 @@ description: Overview of data collection rules (DCRs) in Azure Monitor including
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/15/2022
+ms.date: 08/08/2023
 ms.reviewer: nikeist
 ms.custom: references_regions
 ---
