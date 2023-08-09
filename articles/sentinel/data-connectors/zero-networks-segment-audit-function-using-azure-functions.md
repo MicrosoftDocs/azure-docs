@@ -17,7 +17,6 @@ The [Zero Networks Segment](https://zeronetworks.com/product/) Audit data connec
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | APIToken<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional)<br/>uri<br/>tableName |
-| **Azure function app code** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/ZeroNetworks/SegmentFunctionConnector/AzureFunction_ZeroNetworks_Segment_Audit.zip |
 | **Log Analytics table(s)** | ZNSegmentAudit_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Zero Networks](https://zeronetworks.com) |
