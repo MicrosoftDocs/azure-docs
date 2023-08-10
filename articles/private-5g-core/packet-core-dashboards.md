@@ -60,6 +60,8 @@ You can access the following packet core dashboards:
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-overview-dashboard.png" alt-text="Screenshot of the packet core Overview dashboard." lightbox="media/packet-core-dashboards/packet-core-overview-dashboard.png":::
 
+    If you have configured 4G and 5G on a single packet core, the **Overview dashboard** displays 4G and 5G KPIs individually and combined.
+
     Each panel on the overview dashboard links to another dashboard with detailed statistics about the KPI shown. You can access the link by hovering your cursor over the upper-left corner of the panel. You can then select the link in the pop-up.
     
     :::image type="content" source="media/packet-core-dashboards/packet-core-dashboard-panel-link.png" alt-text="Screenshot of the packet core dashboard. The link to the device and session statistics dashboard is shown.":::
