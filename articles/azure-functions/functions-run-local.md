@@ -1,16 +1,16 @@
 ---
-title: Work with Azure Functions Core Tools 
-description: Learn how to code and test Azure Functions from the command prompt or terminal on your local computer before you run them on Azure Functions.
+title: Develop Azure Functions locally using Core Tools 
+description: Learn how to code and test Azure Functions from the command prompt or terminal on your local computer before you deploy them to run them on Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
-ms.date: 07/30/2023
+ms.date: 08/08/2023
 ms.custom: devx-track-csharp, 80e4ff38-5174-43, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Work with Azure Functions Core Tools
+# Develop Azure Functions locally using Core Tools
 
-Azure Functions Core Tools lets you develop and test your functions on your local computer. Core Tools includes a version of the same runtime that powers Azure Functions. This runtime means your local functions run as they would in Azure and can connect to live Azure services during local development and debugging. You can even deploy your code project to Azure using Core Tools.
+Azure Functions Core Tools lets you develop and test your functions on your local computer. Core Tools includes a version of the same runtime that powers Azure Functions. This runtime means your local functions run as they would in Azure and can connect to live Azure services during local development and debugging. When you are ready, you can even use Core Tools to deploy your code project or container to Azure.
 
 Core Tools can be used with all [supported languages](supported-languages.md). Select your language at the top of the article.
 
@@ -37,41 +37,9 @@ Core Tools enables the integrated local development and debugging experience for
 
 [!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
-When upgrading to the latest version of Core Tools, you should use the same package manager as the original installation to perform the upgrade.  
-
-## <a name="v2"></a>Core Tools versions
-
-Major versions of Azure Functions Core Tools are linked to specific major versions of the Azure Functions runtime. For example, version 4.x of Core Tools supports version 4.x of the Functions runtime. This is the recommended major version of both the Functions runtime and Core Tools. You can find the latest Core Tools release version on [this release page](https://github.com/Azure/azure-functions-core-tools/releases/latest). 
-
-Run the following command to determine the version of your current Core Tools installation:
-
-```command
-func --version
-``` 
-
-Unless otherwise noted, the examples in this article are for version 4.x. 
-
-The following considerations apply to Core Tools installations:
-
-+ You can only install one version of Core Tools on a given computer. 
-
-+ Version 2.x and 3.x of Core Tools were used with versions 2.x and 3.x of the Functions runtime, which have reached their end of life (EOL). For more information, see [Azure Functions runtime versions overview](functions-versions.md).  
-::: zone pivot="programming-language-csharp,programming-language-javascript"  
-+ Version 1.x of Core Tools is required when using version 1.x of the Functions Runtime, which is still supported. This version of Core Tools can only be run locally on Windows computers. If you're currently running on version 1.x, you should consider [migrating your app to version 4.x](migrate-version-1-version-4.md) today.
-::: zone-end  
+When upgrading to the latest version of Core Tools, you should use the same package manager as the original installation to perform the upgrade. For more information, see [Core Tools versions](#core-tools-versions). 
 
 ## Create a local Functions project
-
-A Functions project directory contains the following files and folders, regardless of language: 
-
-| File name | Description |
-| --- | --- |
-| host.json | To learn more, see the [host.json reference](functions-host-json.md). |
-| local.settings.json | Settings used by Core Tools when running locally, including app settings. To learn more, see [local settings](#local-settings). |
-| .gitignore | Prevents the local.settings.json file from being accidentally published to a Git repository. To learn more, see [local settings](#local-settings)|
-| .vscode\extensions.json | Settings file used when opening the project folder in Visual Studio Code.  |
-
-To learn more about the Functions project folder, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
 
 In the terminal window or from a command prompt, run the following command to create the project and local Git repository:
 
@@ -480,6 +448,27 @@ This type of streaming logs requires that Application Insights integration be en
 [!INCLUDE [functions-x86-emulation-on-arm64](../../includes/functions-x86-emulation-on-arm64.md)]
 
 If you're using Visual Studio Code, you can integrate Rosetta with the built-in Terminal. For more information, see [Enable emulation in Visual Studio Code](./functions-develop-vs-code.md#enable-emulation-in-visual-studio-code). 
+
+## Core Tools versions
+
+Major versions of Azure Functions Core Tools are linked to specific major versions of the Azure Functions runtime. For example, version 4.x of Core Tools supports version 4.x of the Functions runtime. This is the recommended major version of both the Functions runtime and Core Tools. You can find the latest Core Tools release version on [this release page](https://github.com/Azure/azure-functions-core-tools/releases/latest). 
+
+Run the following command to determine the version of your current Core Tools installation:
+
+```command
+func --version
+``` 
+
+Unless otherwise noted, the examples in this article are for version 4.x. 
+
+The following considerations apply to Core Tools installations:
+
++ You can only install one version of Core Tools on a given computer. 
+
++ Version 2.x and 3.x of Core Tools were used with versions 2.x and 3.x of the Functions runtime, which have reached their end of life (EOL). For more information, see [Azure Functions runtime versions overview](functions-versions.md).  
+::: zone pivot="programming-language-csharp,programming-language-javascript"  
++ Version 1.x of Core Tools is required when using version 1.x of the Functions Runtime, which is still supported. This version of Core Tools can only be run locally on Windows computers. If you're currently running on version 1.x, you should consider [migrating your app to version 4.x](migrate-version-1-version-4.md) today.
+::: zone-end  
 
 ## Next steps
 
