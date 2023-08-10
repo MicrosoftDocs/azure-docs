@@ -1,7 +1,7 @@
 ---
 title: Azure Arc-enabled servers VMware Frequently Asked Questions
 description: Learn how to use Azure Arc-enabled servers on virtual machines running in VMware vSphere environments.
-ms.date: 01/20/2023
+ms.date: 08/10/2023
 ms.topic: faq
 ---
 
@@ -36,6 +36,6 @@ Yes. Azure Arc-enabled servers work with VMs running in an on-premises VMware vS
 
 Azure Arc-enabled servers and/or Azure Arc-enabled VMware vSphere work with [all supported versions](./prerequisites.md) of Windows Server and major distributions of Linux. As mentioned, even though Arc-enabled servers work with VMware vSphere virtual machines, the [Connected Machine agent](agent-overview.md) has no notion of familiarity with the underlying infrastructure fabric and virtualization layer.
 
-## Should I use Arc-enabled servers or Arc-enabled VMware vSphere, and can I use both?
+## Should I use Arc-enabled servers or Arc-enabled VMware vSphere for my VMware VMs?
 
-While Azure Arc-enabled servers and Azure Arc-enabled VMware vSphere can be used in conjunction with one another, please note that this will produce dual representations in the Azure portal of the same underlying virtual machine. This scenario can potentially introduce a “duplicate” guest management experience and is not advisable.
+Each option has its own unique benefits and can be combined as needed. Arc-enabled servers allows you to manage the guest OS of your VMs with the Azure Connected Machine agent. Arc-enabled VMware vSphere enables you to onboard your VMware environment at-scale to Azure Arc with automatic discovery, in addition to performing full VM lifecycle and virtual hardware operations. You have the flexibility to start with either option and incorporate the other one later without any disruption. With both options, you'll enjoy the same consistent experience.
