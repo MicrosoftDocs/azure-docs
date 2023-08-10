@@ -114,4 +114,4 @@ Update-AzFrontDoorFireWallPolicy `
 
 ## Next steps
 
-Learn more about [Azure Web Application Firewall in Azure Front Door](../afds/afds-overview.md).
+Learn more about [Azure Web Application Firewall on Azure Front Door](../afds/afds-overview.md).

@@ -10,9 +10,9 @@ ms.author: victorh
 ms.custom: template-tutorial, engagement-fy23
 ---
 
-# Tutorial: Create a WAF policy in Azure Front Door by using the Azure portal
+# Tutorial: Create a WAF policy on Azure Front Door by using the Azure portal
 
-This tutorial shows you how to create a basic web application firewall (WAF) policy and apply it to a front-end host in Azure Front Door.
+This tutorial shows you how to create a basic web application firewall (WAF) policy and apply it to a front-end host at Azure Front Door.
 
 In this tutorial, you learn how to:
 
