@@ -43,6 +43,9 @@ winrm quickconfig
 ```
 WinRM may already be enabled on your machine, as you only need to do it once. Ensure your network connections are set to Private or Domain (not Public), and accept any changes.
 
+> [!TIP]
+> WinRM opens your PC to remote connections, which is required for the rest of the procedure.  If you don't want to leave remote connections allowed, run  `Stop-Service WinRM -PassThru` and then `Set-Service WinRM -StartupType Disabled -PassThru` from a PowerShell window in Administrator mode after you have completed the rest of the procedure to obtain core namespace access.
+
 #### Start the minishell session
 
 1. From a PowerShell window in Administrator mode, enter the ASE management IP address (including quotation marks, for example `"10.10.5.90"`):
