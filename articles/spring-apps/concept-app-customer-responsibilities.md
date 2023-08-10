@@ -33,7 +33,7 @@ For more information, see [Java long-term support for Azure and Azure Stack](/az
 
 You can choose any version of Spring Boot or Spring Cloud that's compatible with the Java version you installed.
 
-For new versions, Azure Spring Apps will support the latest Spring Boot or Spring Cloud major version 30 days after its release. The latest minor version is supported as soon as it's released.
+For new versions, Azure Spring Apps supports the latest Spring Boot or Spring Cloud major version starting 30 days after its release. The latest minor version is supported as soon as it's released.
 
 For old versions, Azure Spring Apps doesn't require you to upgrade Spring Boot or Spring Cloud to receive support. However, with the officially supported new versions, you can get the best experience with some of the managed components - for example, Config Server and Eureka Server for the Standard consumption and dedicated plan and the Standard plan, [Tanzu components](vmware-tanzu-components.md) for the Enterprise plan, and metric collection for all plans.
 
@@ -50,14 +50,14 @@ You can deploy polyglot applications to the Enterprise plan with source code. To
 When you deploy your polyglot applications to the Enterprise plan, assign specific LTS versions for the SDKs. Otherwise, the default SDK version might change during the regular upgrades for builder components. For more information about deploying polygot apps, see [How to deploy polyglot apps in the Azure Spring Apps Enterprise plan](how-to-enterprise-deploy-polyglot-apps.md).
 
 | Type                 | Support policy            |
-|---------------------|----------------------------|
-|Java|[Java support on Azure](/azure/developer/java/fundamentals/java-support-on-azure)
-|Tomcat |[Tomcat versions](https://tomcat.apache.org/whichversion.html)
-|.NET|[.NET and .NET core support policy](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core)
-|Python|[Status of Python versions](https://devguide.python.org/versions/)
-|Go|[Go release history](https://go.dev/doc/devel/release)
-|NodeJS|[Nodejs releases](https://nodejs.dev/en/about/releases/)
-|PHP| [PHP supported versions](https://www.php.net/supported-versions.php)
+|----------------------|---------------------------|
+|Java|[Java support on Azure](/azure/developer/java/fundamentals/java-support-on-azure)|
+|Tomcat |[Tomcat versions](https://tomcat.apache.org/whichversion.html)|
+|.NET|[.NET and .NET core support policy](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core)|
+|Python|[Status of Python versions](https://devguide.python.org/versions/)|
+|Go|[Go release history](https://go.dev/doc/devel/release)|
+|NodeJS|[Nodejs releases](https://nodejs.dev/en/about/releases/)|
+|PHP| [PHP supported versions](https://www.php.net/supported-versions.php)|
 
 ### Stack image support
 
