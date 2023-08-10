@@ -89,7 +89,7 @@ The following sections are alternate approaches to use PAL for Power Platform an
 
 ### Associate PAL with user accounts
 
-The Attribution step can also be completed with **user accounts**. Although it's an option, there are some downsides to the approach. For partners with a large number of users, it requires management of user accounts when users are new to the team and/or resign from the team. If you choose to associate PAL in this way, you'll need to manage the users via a spreadsheet.
+The Attribution step can also be completed with **user accounts**. Although it's an option, there are some downsides to the approach. For partners with a large number of users, it requires management of user accounts when users are new to the team and/or resign from the team. If you choose to associate PAL in this way, you need to manage the users via a spreadsheet.
 
 To Associate PAL with User Accounts, follow the same steps as with Service Accounts but do so for each user.
 
