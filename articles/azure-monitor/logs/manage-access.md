@@ -371,7 +371,7 @@ To grant a user or group table-level read access to a specific table:
     1. From the **Log Analytics workspaces** menu, select **Tables**.  
     1. Select the ellipsis ( **...** ) to the right of your table and select **Access control (IAM)**.
         
-       :::image type="content" source="media/manage-access/table-level-access-control.png" alt-text="Screenshot that shows the Log Analytics workspace table management screen with the table-level access control button higlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::      
+       :::image type="content" source="media/manage-access/table-level-access-control.png" alt-text="Screenshot that shows the Log Analytics workspace table management screen with the table-level access control button highlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::      
     
     1. On the **Access control (IAM)** screen, select **Add** > **Add role assignment**. 
     1. Select the **Reader** role and select **Next**.    
