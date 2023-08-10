@@ -69,8 +69,7 @@ When viewing the details of a pending support access request, you can approve or
     - A message appears, indicating this choice may result in slower resolution of your support request.
     - Your support engineer may ask you for data needed to diagnose the issue, and you must collect and provide that information to your support engineer. 
 
-![Screenshot of the Support Access requests details page with the Reject and Approve buttons highlighted](media/how-to-approve-support-access-requests/pending-request-details.png)
-
+![Screenshot of the Support Access requests details page with the Reject and Approve buttons highlighted.](media/how-to-approve-support-access-requests/pending-request-details.png)
 
 ## Next steps
 
