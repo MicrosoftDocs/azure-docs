@@ -90,7 +90,7 @@ landingContent:
             url: guest-attestation-example.md
           - text: Create a custom image for a confidential VM
             url: how-to-create-custom-image-confidential-vm.md
-          - text: Harden the Linux image to remove sudo users
+          - text: Harden a Linux image to remove sudo users
             url: harden-the-linux-image-to-remove-sudo-users.md
       - linkListType: reference
         links:

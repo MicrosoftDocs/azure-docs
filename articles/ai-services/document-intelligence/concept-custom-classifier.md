@@ -1,5 +1,5 @@
 ---
-title: Custom classification model - Document Intelligence
+title: Custom classification model - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Use the custom classification model to train a model to identify and split the documents you process within your application.
 author: vkurpad
@@ -59,7 +59,7 @@ Custom classification models require a minimum of five samples per class to trai
 
 ## Training a model
 
-Custom classification models are only available in the [v3.1 API](v3-migration-guide.md) starting with API version ```2023-02-28-preview```. [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier.
+Custom classification models are only available in the [v3.1 API](v3-1-migration-guide.md) starting with API version ```2023-02-28-preview```. [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier.
 
 When using the REST API, if you've organized your documents by folders, you can use the ```azureBlobSource``` property of the request to train a classification model.
 

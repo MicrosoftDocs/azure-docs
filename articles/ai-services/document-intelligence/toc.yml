@@ -60,9 +60,6 @@ items:
   - name: Migrate to Document Intelligence v3.1
     displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose, copy
     href: v3-1-migration-guide.md
-  - name: Migrate to Document Intelligence v3.0
-    displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose, copy
-    href: v3-migration-guide.md  
   - name: Check my usage and estimate the cost
     displayName: price, metrics, dashboard, check, estimate
     href: how-to-guides/estimate-cost.md

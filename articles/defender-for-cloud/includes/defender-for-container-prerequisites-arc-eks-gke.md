@@ -13,7 +13,7 @@ Validate the following endpoints are configured for outbound access so that the 
 
 For public cloud deployments:
 
-| Azure Domain  | Azure Government Domain  | Azure China 21Vianet Domain | Port |
+| Azure Domain  | Azure Government Domain  | Microsoft Azure operated by 21Vianet Domain | Port |
 | -------------------------- | -------------------------- | -------------------------- |---- |
 | *.ods.opinsights.azure.com | *.ods.opinsights.azure.us | *.ods.opinsights.azure.cn  | 443  |
 | *.oms.opinsights.azure.com | *.oms.opinsights.azure.us | *.oms.opinsights.azure.cn | 443 |

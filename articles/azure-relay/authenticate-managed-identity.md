@@ -11,7 +11,7 @@ ms.date: 07/22/2022
 With managed identities, the Azure platform manages this runtime identity. You don't need to store and protect access keys in your application code or configuration, either for the identity itself, or for the resources you need to access. A Relay client app running inside an Azure App Service application or in a virtual machine with enabled managed entities for Azure resources support doesn't need to handle SAS rules and keys, or any other access tokens. The client app only needs the endpoint address of the Relay namespace. When the app connects, Relay binds the managed entity's context to the client in an operation that is shown in an example later in this article. Once it's associated with a managed identity, your Relay client can do all authorized operations. Authorization is granted by associating a managed entity with Relay roles.
 
 > [!NOTE]
-> This feature is generally available in all regions except Microsoft Azure operated by 21Vianet (Azure China). 
+> This feature is generally available in all regions except Microsoft Azure operated by 21Vianet. 
 
 [!INCLUDE [relay-roles](./includes/relay-roles.md)]
 

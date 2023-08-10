@@ -98,7 +98,7 @@ Follow these steps to create a new console application and install the Speech SD
                         stopRecognition.TrySetResult(0);
                     };
     
-                    //await conversationTranscriber.StartTranscribingAsync();
+                    await conversationTranscriber.StartTranscribingAsync();
     
                     // Waits for completion. Use Task.WaitAny to keep the task rooted.
                     Task.WaitAny(new[] { stopRecognition.Task });

@@ -124,7 +124,7 @@ Before the Power BI mobile app can connect and access Report Services, you must 
 
    ![Power BI mobile app with External URL](media/application-proxy-integrate-with-power-bi/app-proxy-power-bi-mobile-app.png)
 
-2. Select **Connect**. You'll be directed to the Azure Active Directory sign in page.
+2. Select **Connect**. You'll be directed to the Azure Active Directory sign-in page.
 
 3. Enter valid credentials for your user and select **Sign in**. You'll see the elements from your Reporting Services server.
 
