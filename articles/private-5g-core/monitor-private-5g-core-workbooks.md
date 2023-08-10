@@ -13,7 +13,7 @@ ms.custom: template-concept
 
 Azure Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure and combine them into unified interactive experiences.
 
-Azure Workbooks allow you to view status information, metrics, and alerts for all of your Azure private multi-access compute (MEC) resources in one place. Workbooks are supported for the **Mobile Network Site** resource, providing a monitoring solution for all resources in a site.
+Azure Workbooks allow you to view status information, metrics, and alerts for all of your [Azure private multi-access compute (MEC)](/azure/private-multi-access-edge-compute-mec/overview) resources in one place. Workbooks are supported for the **Mobile Network Site** resource, providing a monitoring solution for all resources in a site.
 
 Within your **Mobile Network Site** resource in the Azure portal, you can view workbook templates that report essential information about the resources connected to your site. Templates are curated reports designed for flexible reuse by multiple users and teams. When you open a template, a transient workbook is created and populated with the content specified in the template. You can modify a template to create your own workbooks, but the original template will remain in the gallery for others to use.
 
@@ -21,7 +21,11 @@ Within your **Mobile Network Site** resource in the Azure portal, you can view w
 
 :::image type="content" source="media/monitor-private-5g-core-workbooks/workbooks-tab.png" alt-text="Screenshot of the Azure portal showing the Workbooks tab.":::
 
-The gallery lists your saved workbooks and templates. To access the gallery, sign in to the [Azure portal](https://portal.azure.com/), navigate to the **Mobile Network Site** resource for the site you want to monitor and select **Workbooks**. 
+The gallery lists your saved workbooks and templates. To access the gallery:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Navigate to the **Mobile Network Site** resource for the site you want to monitor
+1. Select **Workbooks** from the left-hand navigation.
 
 Your AP5GC deployment includes a **PMEC Site Overview** template along with the default **Activity Logs Insights** template. You can also select the **Empty** quick start template to create your own workbook.
 
@@ -39,7 +43,7 @@ The Overview tab provides a comprehensive view of the Mobile Network Site. With 
 
 ### Subscriber Provisioning Information tab
 
-The Subscriber Provisioning Information tab provides information on SIMs connected to the Mobile Network Site, filtered by SIM group. Select a SIM group to view the number of connected SIMs, their provisioning status, and associated SIM Policy details.
+The Subscriber Provisioning Information tab provides information on SIMs connected to the Mobile Network Site, filtered by SIM group. Select a SIM group to view the number of connected SIMs, their provisioning status, and associated SIM policy details.
 
 ### Packet Core Control Plane Procedures tab
 
