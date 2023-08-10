@@ -17,7 +17,7 @@
       - name: Tutorial
         href: move-vm-regional-to-zonal-tutorial.md 
       - name: Move resources using PowerShell
-        href: move-vm-regional-to-zonal-powershell.md
+        href: move-vm-regional-to-zonal-powershell-tutorial.md
   - name: Migrate to availability zone support
     items:
     - name: Overview

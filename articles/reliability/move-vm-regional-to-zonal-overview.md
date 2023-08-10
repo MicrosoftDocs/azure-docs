@@ -1,6 +1,6 @@
 ---
 title: Move Azure Virtual Machines from regional to zonal availability zones
-description: Learn how to move single instance Azure virtual machines from a regional configuration to a target Availability Zone within the same Azure region.
+description: Learn habout moving single instance Azure virtual machines from a regional configuration to a target Availability Zone within the same Azure region.
 author: ankitaduttaMSFT
 ms.service: reliability
 ms.subservice: availability-zones
@@ -47,7 +47,7 @@ The following table describes the support matrix for moving virtual machines fro
 | VMs within an Availability Set | Not supported | |
 | VMs inside VMSS with uniform orchestration | Not supported | |
 | VMs inside VMSS with flexible orchestration | Not supported | |
-| Supported regions | Supported | Only Availability Zone supported regions are supported. Learn [more](https://docs.microsoft.com/azure/availability-zones/az-overview#regions) to learn about the region details. |
+| Supported regions | Supported | Only Availability Zone supported regions are supported. Learn [more](../availability-zones/az-overview#regions) to learn about the region details. |
 | VMs already located in an Availability Zone | Not supported | Currently, only VMs that are within the same region can be moved to another availability zone. Cross Zone Move is currently unsupported. |
 | VM extensions | Not Supported | VM move is supported, but extensions are not copied to target zonal VM. |
 | VMs with trusted launch | Supported | Re-enable the Integrity Monitoring option in the portal and save the configuration after the move. |
