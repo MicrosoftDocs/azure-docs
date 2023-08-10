@@ -15,7 +15,7 @@ In this article, as an Internet peering partner (direct or exchange), you learn 
 
 ## View received routes
 
-AYou can view the you routes announced to Microsoft in the Azure portal:
+You can view the routes announced to Microsoft in the Azure portal:
 
 1. Go to the peering, and then under the **Settings**, select **Received Routes**.
 
@@ -41,7 +41,7 @@ As an Azure Peering Service partner or communication services partner, you can v
 
 ## View customer prefix latency
 
-As an Azure Peering Service Exchange Route Server partner, you can view the average latency for all of you customer prefixes in the **Overview** page of the registered ASN.
+As an Azure Peering Service Exchange Route Server partner, you can view the average latency for all of your customer prefixes in the **Overview** page of the registered ASN.
 
 :::image type="content" source="./media/walkthrough-monitoring-and-telemetry/registered-asn-latency-telemetry.png" alt-text="Screenshot shows how to view the average customer prefix latency under a specific registered asn in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/registered-asn-latency-telemetry.png":::
 

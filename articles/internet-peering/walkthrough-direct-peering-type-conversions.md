@@ -57,12 +57,12 @@ Once the request is received, the **Connection State** on each of the connection
 
 Your request is reviewed and approved by someone from the internal team.
 
-Connections remain in the **TypeChangeRequested** state until they are approved. After approval, the connections converted one at a time to ensure that the redundant connection(s) are always up and carrying traffic. The **Connection State** on the connection(s) changes to **TypeChangeInProgress**.
+Connections remain in the **TypeChangeRequested** state until they're approved. After approval, the connections converted one at a time to ensure that the redundant connection(s) are always up and carrying traffic. The **Connection State** on the connection(s) changes to **TypeChangeInProgress**.
 You can see this state in the Connection page.
 
 ## 3. Monitor the conversion
 
-When your connection enters the conversion process, its state is be labeled as **TypeChangeInProgress**.
+When your connection enters the conversion process, its state is labeled as **TypeChangeInProgress**.
 
 You're kept up to date through emails at the following steps:
 
@@ -74,11 +74,11 @@ You're kept up to date through emails at the following steps:
 -  Request rejected
 -  Action required from peering partner
 
-The email notifications will be sent to the peer email contact provided during the 'Peer Asn' resource creation. You can either reply back to the emails or contact [Azure Peering group](mailto:peeringservice@microsoft.com) in case of questions.
+The email notifications are sent to the peer email contact provided during the *Peer Asn* resource creation. You can either reply back to the emails or contact [Azure Peering group](mailto:peeringservice@microsoft.com) if you have questions.
 
-If a conversion to Voice is requested and the connections already have IP addresses provided by Microsoft, please set up BFD on your sessions as early as possible to avoid any downtime. The conversion process for Voice waits for both the BGP and BFD sessions to come up before allowing any traffic on the sessions.
+If a conversion to Voice is requested and the connections already have IP addresses provided by Microsoft, set up BFD on your sessions as early as possible to avoid any downtime. The conversion process for Voice waits for both the BGP and BFD sessions to come up before allowing any traffic on the sessions.
 
-If a conversion to Voice is requested and the connections have IP addresses provided by the peering partner, wait for the email notification with the new Microsoft provided IP addresses and configure them on your end along with BFD. Once the BGP and BFD sessions with the new IP addresses come up, traffic will be allowed on this session and the session with the old IP addresses will be shut down. There's no downtime in this case.
+If a conversion to Voice is requested and the connections have IP addresses provided by the peering partner, wait for the email notification with the new Microsoft provided IP addresses and configure them on your end along with BFD. Once the BGP and BFD sessions with the new IP addresses come up, traffic is allowed on this session and the session with the old IP addresses will be shut down. There's no downtime in this case.
 
 Once the conversion is completed its state returns to **Active**.
 
@@ -89,7 +89,7 @@ Once the conversion is completed its state returns to **Active**.
 **A.** We do our absolute best and take various steps to prevent any interruption to service. These steps include:
 -  Guaranteeing that a redundant connection with equivalent bandwidth is up at the time of conversion.
 -  Performing any conversions one connection at a time.
--  Only bringing down old connections if it's absolutely necessary (in the case of a type conversion while the IP address stays the same).
+-  Only bringing down old connections if it's necessary (in the case of a type conversion while the IP address stays the same).
 -  Only performing conversions at times where engineers are online and capable of helping remedy any unlikely issues.  
 
 **Q.** Why has my request to convert the type of direct peering been rejected?
@@ -118,7 +118,7 @@ Once the conversion is completed its state returns to **Active**.
 
 **Q.** I have two different peerings, Peering A with standard PNI(s) connections and peering B with Voice connections. I would like to convert the standard PNI peering connections to Voice. What happens to the peering resources in this case?
 
-**A.** Once Peering A is converted from PNIs to Voice, the connections from Peering A are moved to Peering B, and Peering A is deleted. For example: If Peering A with two PNI connections are converted to Voice, and Peering B already has two connections, the process will result in Peering B (the Voice peering) having four connections now and the Peering A resource will be removed. This is by design so that we maintain only one peering for a given peering provider and type of direct peering at a given location.
+**A.** Once Peering A is converted from PNIs to Voice, the connections from Peering A are moved to Peering B, and Peering A is deleted. For example: If Peering A with two PNI connections are converted to Voice, and Peering B already has two connections, the process results in Peering B (the Voice peering) having four connections now and the Peering A resource will be removed. This is by design so that we maintain only one peering for a given peering provider and type of direct peering at a given location.
 
 **Q.** I have more questions, what is the best way to contact you?
 
