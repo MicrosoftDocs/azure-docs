@@ -52,17 +52,19 @@ A short example of a documents payload that includes vector and non-vector field
 
 The schema must include a `vectorConfiguration` section, a field for the document key, vector fields, and any other fields that you need for hybrid search scenarios.
 
-Vector fields are of type `Collection(Edm.Single)` and single-precision floating-point values. A field of this type also has a `dimensions` property and a `vectorConfiguration property
++ `vectorConfiguration` specifies the algorithm and parameters used during indexing to create "nearest neighbor" information among the vector nodes. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
 
-A vector configuration specifies the algorithm and parameters used during indexing to create "nearest neighbor" information among the vector nodes. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
++ Vector fields are of type `Collection(Edm.Single)` and single-precision floating-point values. A field of this type also has a `dimensions` property and a `vectorConfiguration property
 
 During indexing, HNSW determines how closely the vectors match and stores the neighborhood information as a proximity graph in the index. You can have multiple configurations within an index if you want different HNSW parameter combinations. As long as the vector fields contain embeddings from the same model, having a different vector configuration per field has no effect on queries.
 
+You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs to index vectors.
+
 ### [**Azure portal**](#tab/portal-add-field)
 
-You can use the index designer in the Azure portal to add vector field definitions. If the index doesn't have a vector configuration, you're prompted to create one when you add your first vector field to the index.
+Use the index designer in the Azure portal to add vector field definitions. If the index doesn't have a vector configuration, you're prompted to create one when you add your first vector field to the index.
 
-Although you can add a field definition, there's no portal support for loading vectors into fields. Use the REST APIs or an SDK for data import.
+Although you can add a field to an index, there's no portal support for loading it with vector data. Instead, use the REST APIs or an SDK for data import.
 
 1. [Sign in to Azure portal](https://portal.azure.com) and open your search service page in a browser.
 
@@ -101,9 +103,9 @@ Although you can add a field definition, there's no portal support for loading v
 
 ### [**REST API**](#tab/rest-add-field)
 
-In the following example, "title" and "content" contain textual content used in full text search and semantic search, while "titleVector" and "contentVector" contain vector data.
+Use the **2023-07-01-Prevew** REST API for vector scenarios. If you're updating an existing index to include vector fields, make sure the `allowIndexDowntime` query parameter is set to `true`.
 
-If you're updating an existing index to include vector fields, make sure the `allowIndexDowntime` query parameter is set to `true`.
+In the following REST API example, "title" and "content" contain textual content used in full text search and semantic search, while "titleVector" and "contentVector" contain vector data.
 
 1. Use the [Create or Update Index Preview REST API](/rest/api/searchservice/preview-api/create-or-update-index) to create the index.
 

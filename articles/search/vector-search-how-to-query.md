@@ -86,6 +86,8 @@ The actual response for this POST call to the deployment model includes 1536 emb
 
 ## Query syntax for vector search
 
+You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs to query vectors.
+
 ### [**Azure portal**](#tab/portal-vector-query)
 
 Be sure to the **JSON view** and formulate the query in JSON. The search bar in **Query view** is for full text search and will treat any vector input as plain text.
