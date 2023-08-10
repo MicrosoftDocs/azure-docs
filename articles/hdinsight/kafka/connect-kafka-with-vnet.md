@@ -18,7 +18,7 @@ This article describes the steps to set up the connectivity between a virtual ma
 
 1. Ensure that the peering status shows as connected.
 
-   :::image type="content" source="./media/connect-kafka-with-vnet/vnet-peering.png" alt-text="Screenshot showing VNet peering." " border="true" lightbox="./media/connect-kafka-with-vnet/vnet-peering.png":::
+   :::image type="content" source="./media/connect-kafka-with-vnet/vnet-peering.png" alt-text="Screenshot showing VNet peering." border="true" lightbox="./media/connect-kafka-with-vnet/vnet-peering.png":::
 
 1. Create HDInsight Kafka cluster in first VNet `hdi-primary-vnet`. For more information, see [Create an HDInsight Kafka cluster](./apache-kafka-get-started.md#create-an-apache-kafka-cluster).
 
@@ -29,7 +29,7 @@ This article describes the steps to set up the connectivity between a virtual ma
 
 ## Methods to connect to HDInsight Kafka cluster from client VM
 
-1. Configure Kafka for IP advertising: Use `Kafka IP advertising` to populate Kafka worker node private IPs in different vnet. Once IP advertising is done, use [private DNS setup](#set-up-a-private-dns-server-for-fqdn-resolution) for DNS resolution of worker nodes FQDN.
+1. Configure Kafka for IP advertising: Use `Kafka IP advertising` to populate Kafka worker node private IPs in different vnet. Once IP advertising is done, use private DNS setup for DNS resolution of worker nodes FQDN.
 1. Update /etc/hosts file in client machine: Update `/etc/hosts` file in client machine with `/etc/hosts` file of Kafka Head/Worker node.
 
 > [!NOTE]
@@ -183,7 +183,6 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
       > [!NOTE]
       > 1. In Windows VM, static hostnames need to be added in the host file which present in the path `C:\Windows\System32\drivers\etc\`.
       > 1. This article assumes that the Ambari server is active on `Head Node 0`. If the Ambari server is active on `Head Node 1` use the FQDN of hn1 to access the Ambari UI.
-    
       
       :::image type="content" source="./media/connect-kafka-with-vnet/dashboard.png" alt-text="Screenshot showing Windows VM." border="trulightbox="./media/connect-kafka-with-vnet/dashboard.png"::
     
