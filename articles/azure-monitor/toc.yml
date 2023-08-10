@@ -562,8 +562,6 @@ items:
           href: containers/container-insights-enable-arc-enabled-clusters.md
         - name: AKS hybrid cluster
           href: containers/container-insights-enable-provisioned-clusters.md
-        - name: Hybrid cluster
-          href: containers/container-insights-hybrid-setup.md
         - name: Enable with Azure Policy
           href: containers/container-insights-enable-aks-policy.md
         - name: Supported region mappings
@@ -621,15 +619,7 @@ items:
       - name: Manage cost and usage
         href: containers/container-insights-cost.md
       - name: Disable monitoring
-        items:
-          - name: Disable monitoring AKS
-            href: containers/container-insights-optout.md
-          - name: Disable monitoring Red Hat OpenShift v3
-            href: containers/container-insights-optout-openshift-v3.md
-          - name: Disable monitoring Red Hat OpenShift v4
-            href: containers/container-insights-optout-openshift-v4.md
-          - name: Disable monitoring hybrid cluster
-            href: containers/container-insights-optout-hybrid.md
+        href: containers/container-insights-optout.md
       - name: Troubleshooting
         href: containers/container-insights-troubleshoot.md
   - name: Monitor networks
@@ -918,6 +908,8 @@ items:
       href: logs/private-link-configure.md
   - name: Collect logs from Event Hubs
     href: logs/ingest-logs-event-hub.md
+  - name: Use Azure AD authentication
+    href: logs/azure-ad-authentication-logs.md
   - name: Troubleshoot data collection
     href: logs/data-collection-troubleshoot.md
 - name: Data platform
@@ -1005,8 +997,6 @@ items:
             href: logs/change-pricing-tier.md
           - name: Set a daily cap
             href: logs/daily-cap.md
-          - name: Use Azure AD authentication
-            href: logs/azure-ad-authentication-logs.md
         - name: Manage tables
           displayName: Azure Monitor Logs tables
           items:            
@@ -1542,8 +1532,6 @@ items:
       href: .//security-controls-policy.md
   - name: Partner integrations
     href: partners.md
-  - name: Terminology changes
-    href: terminology.md
   - name: Logs Tables reference
     href: /azure/azure-monitor/reference/
   - name: Self-monitoring data reference
