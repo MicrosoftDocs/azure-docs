@@ -213,7 +213,7 @@ Some actions, such as changing the default access tier of your account, can lead
 
 ## Frequently asked questions (FAQ)
 
-See [Managing costs FAQ](storage-blob-faq.yml#managing-costs).
+See [Managing costs FAQ](../blobs/storage-blob-faq.yml#managing-costs).
 
 ## Next steps
 
