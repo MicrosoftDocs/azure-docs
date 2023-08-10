@@ -58,7 +58,7 @@ Select the **Agent Health** tile to open the **Agent Health** dashboard. The das
 | Geo-location of agents | A partition of the countries/regions where you have agents, and a total count of the number of agents that have been installed in each country/region|
 | Count of gateways installed | The number of servers that have the Log Analytics gateway installed, and a list of these servers|
 
-![Screenshot that shows an example of the Agent Health solution dashboard.](./media/solution-agenthealth/agenthealth-solution-dashboard.png)
+:::image type="content" source="media/solution-agenthealth/agenthealth-solution-dashboard.png" alt-text="Screenshot that shows an example of the Agent Health solution dashboard." lightbox="media/solution-agenthealth/agenthealth-solution-dashboard.png":::
 
 ## Azure Monitor log records
 The solution creates one type of record in the Log Analytics workspace: heartbeat. Heartbeat records have the properties listed in the following table.
