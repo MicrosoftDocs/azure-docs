@@ -450,7 +450,7 @@ To handle poison messages manually, check the [dequeueCount](#message-metadata) 
 
 
 ## Peek lock
-The peek-lock pattern happens automatically for queue triggers. As messages are dequeued, they are marked as invisible and associated with a timeout managed by the Storage service.
+The peek-lock pattern happens automatically for queue triggers. As messages are dequeued, they are marked as invisible and associated with a 10-minute timeout managed by the Storage service; this timeout cannot be set.  
 
 When the function starts, it starts processing a message under the following conditions.
 
