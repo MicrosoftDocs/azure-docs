@@ -66,7 +66,7 @@ Before you begin the procedures in this article, make sure that you have these r
    The pane lists only tables that have supported incremental column data types.
 
    > [!NOTE]
-   > To enable CDC with schema evolution in an Azure SQL Database source, choose watermark column-based tables rather than native SQL CDC-enabled tables.
+   > To enable CDC with schema evolution in an Azure SQL Database source, choose tables based on watermark columns rather than tables that are native SQL CDC enabled.
 
 1. After you select the source tables, select **Continue** to set your data target.
 
