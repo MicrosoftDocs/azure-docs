@@ -47,7 +47,7 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
 1. When prompted, use the HTTPS `username` and `password` for the cluster. The Ambari Web UI for the cluster is displayed.
 1. To view information on Kafka, select `Kafka` from the left panel and then select configs.
   
-   :::image type="content" source="./media/connect-kafka-with-vnet/kafka-config.png" alt-text="Screenshot showing KAfka VNet configurations." 
+   :::image type="content" source="./media/connect-kafka-with-vnet/kafka-config.png" alt-text="Screenshot showing Kafka VNet configurations." 
 
 1. To access kafka-env configuration on the Ambari dashboard, just type "kafka-env" in the top right filter field in Ambari UI. border="true" lightbox="./media/connect-kafka-with-vnet/":::
   
@@ -103,7 +103,7 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
    java -jar kafka-producer-consumer.jar consumer <topic_name> $KAFKABROKERS
    java -jar kafka-producer-consumer.jar consumer test broker1-ip:9092,broker2-ip:9092
    ```
-   :::image type="content" source="./media/connect-kafka-with-vnet/consumer.png" alt-text="Screenshot showing KAfka consumer section." border="true" lightbox="./media/connect-kafka-with-vnet/consumer.png":::
+   :::image type="content" source="./media/connect-kafka-with-vnet/consumer.png" alt-text="Screenshot showing Kafka consumer section." border="true" lightbox="./media/connect-kafka-with-vnet/consumer.png":::
    
    > [!NOTE]
    > It is recommended to add all the brokers IP in **$KAFKABROKERS** for fault tolerance.
@@ -184,7 +184,7 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
       > 1. In Windows VM, static hostnames need to be added in the host file which present in the path `C:\Windows\System32\drivers\etc\`.
       > 1. This article assumes that the Ambari server is active on `Head Node 0`. If the Ambari server is active on `Head Node 1` use the FQDN of hn1 to access the Ambari UI.
       
-      :::image type="content" source="./media/connect-kafka-with-vnet/dashboard.png" alt-text="Screenshot showing the dahsboard." border="trulightbox="./media/connect-kafka-with-vnet/dashboard.png":::
+      :::image type="content" source="./media/connect-kafka-with-vnet/dashboard.png" alt-text="Screenshot showing the dashboard." border="true" lightbox="./media/connect-kafka-with-vnet/dashboard.png":::
     
    1. You can also send messages to kafka topic and read the topics from the VM. For that you can try to use this sample java application.
      
