@@ -503,7 +503,7 @@ created_monitor = poller.result()
 
 ## Set up model monitoring by bringing your own production data to Azure Machine Learning
 
-You can also set up model monitoring for models deployed to Azure Machine Learning batch endpoints or deployed outside of Azure Machine Learning. Additionally, if you have production data but no deployment, you can use the data to perform continuous model monitoring. To monitor these models, you must meet the following requirements:
+You can also set up model monitoring for models deployed to Azure Machine Learning batch endpoints or deployed outside of Azure Machine Learning. If you have production data but no deployment, you can use the data to perform continuous model monitoring. To monitor these models, you must meet the following requirements:
 
 * You have a way to collect production inference data from models deployed in production.
 * You can register the collected production inference data as an Azure Machine Learning data asset, and ensure continuous updates of the data.
