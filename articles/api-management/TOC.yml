@@ -7,6 +7,8 @@
         href: api-management-key-concepts.md
       - name: API Management features availability
         href: api-management-features.md
+      - name: v2 service tiers
+        href: v2-service-tiers-overview.md
       - name: Service limits
         href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json#api-management-limits
 - name: Quickstarts
@@ -251,7 +253,7 @@
                   href: import-api-from-odata.md
                 - name: Import SAP OData metadata
                   href: sap-api.md
-                - name: Configure API for SSE
+                - name: Configure API for SSE 
                   href: how-to-server-sent-events.md
                 - name: API import restrictions
                   href: api-management-api-import-restrictions.md
