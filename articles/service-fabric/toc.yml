@@ -462,6 +462,10 @@
       href: how-to-managed-cluster-managed-identity-service-fabric-app-code.md
     - name: Deploy custom image
       href: how-to-deploy-custom-image.md
+    - name: Use NAT gateways
+      href: how-to-managed-cluster-nat-gateway.md
+    - name: Use public IP prefix in a managed cluster
+      href: how-to-managed-cluster-public-ip-prefix.md
   - name: Set up your development environment
     items:
     - name: Windows

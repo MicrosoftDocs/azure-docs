@@ -25,7 +25,7 @@ ms.custom: devx-track-azurepowershell
 > Make sure you understand the impact of this change and follow the guidance in this article carefully before deciding to move key vault to a new subscription.
 > If you are using Managed Service Identities (MSI) please read the post-move instructions at the end of the document. 
 
-[Azure Key Vault](overview.md) is automatically tied to the default [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) tenant ID for the subscription in which it is created. You can find tenant ID associated with your subscription by following this [guide](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md). All access policy entries and roles assignments are also tied to this tenant ID.  If you move your Azure subscription from tenant A to tenant B, your existing key vaults will be inaccessible by the service principals (users and applications) in tenant B. To fix this issue, you need to:
+[Azure Key Vault](overview.md) is automatically tied to the default [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) tenant ID for the subscription in which it is created. You can find tenant ID associated with your subscription by following this [guide](/azure/active-directory-b2c/tenant-management-read-tenant-name). All access policy entries and roles assignments are also tied to this tenant ID.  If you move your Azure subscription from tenant A to tenant B, your existing key vaults will be inaccessible by the service principals (users and applications) in tenant B. To fix this issue, you need to:
 
 > [!NOTE]
 > If Key Vault is created through [Azure Lighthouse](../../lighthouse/overview.md), it is tied to managing tenant id instead. Azure Lighthouse is only supported by vault access policy permission model.
@@ -38,7 +38,7 @@ ms.custom: devx-track-azurepowershell
 For more information about Azure Key Vault and Azure Active Directory, see
 - [About Azure Key Vault](overview.md)
 - [What is Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
-- [How to find tenant ID](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md)
+- [How to find tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name)
 
 ## Limitations
 

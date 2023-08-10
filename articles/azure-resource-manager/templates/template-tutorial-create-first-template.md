@@ -1,11 +1,9 @@
 ---
 title: Tutorial - Create and deploy template
 description: Create your first Azure Resource Manager template (ARM template). In the tutorial, you learn about the template file syntax and how to deploy a storage account.
-author: mumian
-ms.date: 06/15/2022
+ms.date: 07/28/2023
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
-ms.author: jgao
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Azure Resource Manager templates, so I can use them to deploy Azure resources.
 ---
 
@@ -65,7 +63,7 @@ Okay, you're ready to start learning about templates.
 
     Here's what your Visual Studio Code environment looks like:
 
-    :::image type="content" source="./media/template-tutorial-create-first-template/resource-manager-visual-studio-code-first-template.png" alt-text="ARM template Visual Studio Code first template.":::
+    :::image type="content" source="./media/template-tutorial-create-first-template/resource-manager-visual-studio-code-first-template.png" alt-text="Screenshot of Visual Studio Code displaying an empty ARM template with JSON structure in the editor.":::
 
     This template doesn't deploy any resources. We're starting with a blank template so you can get familiar with the steps to deploy a template while minimizing the chance of something going wrong.
 
@@ -117,7 +115,7 @@ az account set --subscription SubscriptionName
 
 ## Create resource group
 
-When you deploy a template, you can specify a resource group to contain the resources. Before running the deployment command, create the resource group with either the Bash Azure CLI or Azure PowerShell. 
+When you deploy a template, you can specify a resource group to contain the resources. Before running the deployment command, create the resource group with either the Bash Azure CLI or Azure PowerShell.
 
 > [!NOTE]
 > Samples for the Azure CLI are written for the bash shell. To run this sample in Windows PowerShell or the Command Prompt, you may need to remove the back slashes and write the command as one line such as:
@@ -137,7 +135,7 @@ New-AzResourceGroup `
 ```azurecli
 az group create \
   --name myResourceGroup \
-  --location "Central US"
+  --location 'Central US'
 ```
 
 ---
@@ -174,11 +172,11 @@ The deployment command returns results. Look for `ProvisioningState` to see whet
 
 # [PowerShell](#tab/azure-powershell)
 
-  :::image type="content" source="./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png" alt-text="PowerShell deployment provisioning state.":::
+  :::image type="content" source="./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png" alt-text="Screenshot of PowerShell output showing the successful deployment provisioning state.":::
 
 # [Azure CLI](#tab/azure-cli)
 
-  :::image type="content" source="./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png" alt-text="Azure CLI deployment provisioning state.":::
+  :::image type="content" source="./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png" alt-text="Screenshot of Azure CLI output displaying the successful deployment provisioning state.":::
 
 ---
 
@@ -199,15 +197,15 @@ You can verify the deployment by exploring the resource group from the Azure por
 
 1. Notice in the middle of the overview, in the **Essentials** section, the page displays the deployment status next to **Deployments**. Select **1 Succeeded**.
 
-    :::image type="content" source="./media/template-tutorial-create-first-template/deployment-status.png" alt-text="See deployment status.":::
+    :::image type="content" source="./media/template-tutorial-create-first-template/deployment-status.png" alt-text="Screenshot of Azure portal showing the deployment status in the Essentials section of the resource group.":::
 
 1. You see a history of deployment for the resource group. Check the box to the left of **blanktemplate** and select **blanktemplate**.
 
-    :::image type="content" source="./media/template-tutorial-create-first-template/select-from-deployment-history.png" alt-text="Select deployment.":::
+    :::image type="content" source="./media/template-tutorial-create-first-template/select-from-deployment-history.png" alt-text="Screenshot of Azure portal displaying the deployment history with the blanktemplate deployment selected.":::
 
 1. You see a summary of the deployment. In this case, there's not a lot to see because no resources are deployed. Later in this series you might find it helpful to review the summary in the deployment history. Notice on the left you can see inputs, outputs, and  the template that the deployment used.
 
-    :::image type="content" source="./media/template-tutorial-create-first-template/view-deployment-summary.png" alt-text="See deployment summary.":::
+    :::image type="content" source="./media/template-tutorial-create-first-template/view-deployment-summary.png" alt-text="Screenshot of Azure portal showing the deployment summary for the blanktemplate deployment.":::
 
 ## Clean up resources
 
@@ -220,7 +218,7 @@ If you're stopping now, you might want to delete the resource group.
 3. Check the box next to **myResourceGroup** and select **myResourceGroup** or your resource group name.
 4. Select **Delete resource group** from the top menu.
 
-    :::image type="content" source="./media/template-tutorial-create-first-template/resource-deletion.png" alt-text="See deletion.":::
+    :::image type="content" source="./media/template-tutorial-create-first-template/resource-deletion.png" alt-text="Screenshot of Azure portal with the Delete resource group option highlighted in the resource group view.":::
 
 ## Next steps
 

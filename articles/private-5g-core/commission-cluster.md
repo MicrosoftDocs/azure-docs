@@ -37,6 +37,9 @@ These steps modify the Kubernetes cluster on the Azure Stack Edge device to opti
 
 :::image type="content" source="media/commission-cluster/commission-cluster-enable-aks.png" alt-text="Screenshot of ASE Kubernetes configuration menu. The Azure Private MEC radio button is selected. The Workload confirmation popup is overlaid.":::
 
+Once you've applied these changes, you should see an updated option in the local UI – **Kubernetes** becomes **Kubernetes (Preview)** as shown in the following image.
+
+:::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview.png" alt-text="Screenshot of configuration menu, with Kubernetes (Preview) highlighted.":::
 If you now go to the Azure portal and navigate to your **Azure Stack Edge** resource, you should see an **Azure Kubernetes Service** option. You'll set up the Azure Kubernetes Service in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc).
 
 :::image type="content" source="media/commission-cluster/commission-cluster-ase-resource.png" alt-text="Screenshot of Azure Stack Edge resource in the Azure portal. Azure Kubernetes Service (PREVIEW) is shown under Edge services in the left menu.":::
@@ -220,17 +223,17 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 > [!TIP]
 > The commands in this section require the `k8s-extension` and `customlocation` extensions to the Azure CLI tool to be installed. If you do not already have them, a prompt will appear to install these when you run commands that require them. See [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview) for more information on automatic extension installation.
 
-1. Sign in to the Azure CLI using Azure Cloud Shell.
+1. Sign in to the Azure CLI using Azure Cloud Shell and select **Bash** from the dropdown menu.
 
 1. Set the following environment variables using the required values for your deployment:
 
     ```azurecli
-    $SUBSCRIPTION_ID=<subscription ID>
-    $RESOURCE_GROUP_NAME=<resource group name>
-    $LOCATION=<deployment region, for example eastus>
-    $CUSTOM_LOCATION=<custom location for the AKS cluster>
-    $ARC_CLUSTER_RESOURCE_NAME=<resource name>
-    $TEMP_FILE=./tmpfile
+    SUBSCRIPTION_ID=<subscription ID>
+    RESOURCE_GROUP_NAME=<resource group name>
+    LOCATION=<deployment region, for example eastus>
+    CUSTOM_LOCATION=<custom location for the AKS cluster>
+    ARC_CLUSTER_RESOURCE_NAME=<resource name>
+    TEMP_FILE=./tmpfile
     ```
 
 1. Prepare your shell environment:
@@ -257,41 +260,41 @@ The Azure Private 5G Core private mobile network requires a custom location and 
     ```
 
     ```azurecli
-    az k8s-extension create `
-    --name networkfunction-operator `
-    --cluster-name "$ARC_CLUSTER_RESOURCE_NAME" `
-    --resource-group "$RESOURCE_GROUP_NAME" `
-    --cluster-type connectedClusters `
-    --extension-type "Microsoft.Azure.HybridNetwork" `
-    --auto-upgrade-minor-version "true" `
-    --scope cluster `
-    --release-namespace azurehybridnetwork `
-    --release-train preview `
+    az k8s-extension create \
+    --name networkfunction-operator \
+    --cluster-name "$ARC_CLUSTER_RESOURCE_NAME" \
+    --resource-group "$RESOURCE_GROUP_NAME" \
+    --cluster-type connectedClusters \
+    --extension-type "Microsoft.Azure.HybridNetwork" \
+    --auto-upgrade-minor-version "true" \
+    --scope cluster \
+    --release-namespace azurehybridnetwork \
+    --release-train preview \
     --config-settings-file $TEMP_FILE 
     ```
 
 1. Create the Packet Core Monitor Kubernetes extension:
 
     ```azurecli
-    az k8s-extension create `
-    --name packet-core-monitor `
-    --cluster-name "$ARC_CLUSTER_RESOURCE_NAME" `
-    --resource-group "$RESOURCE_GROUP_NAME" `
-    --cluster-type connectedClusters `
-    --extension-type "Microsoft.Azure.MobileNetwork.PacketCoreMonitor" `
-    --release-train stable `
+    az k8s-extension create \
+    --name packet-core-monitor \
+    --cluster-name "$ARC_CLUSTER_RESOURCE_NAME" \
+    --resource-group "$RESOURCE_GROUP_NAME" \
+    --cluster-type connectedClusters \
+    --extension-type "Microsoft.Azure.MobileNetwork.PacketCoreMonitor" \
+    --release-train stable \
     --auto-upgrade true 
     ```
 
 1. Create the custom location:
 
     ```azurecli
-    az customlocation create `
-    -n "$CUSTOM_LOCATION" `
-    -g "$RESOURCE_GROUP_NAME" `
-    --location "$LOCATION" `
-    --namespace azurehybridnetwork `
-    --host-resource-id "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$ARC_CLUSTER_RESOURCE_NAME" `
+    az customlocation create \
+    -n "$CUSTOM_LOCATION" \
+    -g "$RESOURCE_GROUP_NAME" \
+    --location "$LOCATION" \
+    --namespace azurehybridnetwork \
+    --host-resource-id "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$ARC_CLUSTER_RESOURCE_NAME" \
     --cluster-extension-ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$ARC_CLUSTER_RESOURCE_NAME/providers/Microsoft.KubernetesConfiguration/extensions/networkfunction-operator"
     ```
 

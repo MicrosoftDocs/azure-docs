@@ -11,7 +11,7 @@ ms.service: azure-maps
 
 # Use the drawing tools module
 
-The Azure Maps Web SDK provides a [drawing tools module]. This module makes it easy to draw and edit shapes on the map using an input device such as a mouse or touch screen. The core class of this module is the [drawing manager]. The drawing manager provides all the capabilities needed to draw and edit shapes on the map. It can be used directly, and it's integrated with a custom toolbar UI. You can also use the built-in [drawing toolbar] class.
+The Azure Maps Web SDK provides a [drawing tools module]. This module makes it easy to draw and edit shapes on the map using an input device such as a mouse or touch screen. The core class of this module is the [drawing manager]. The drawing manager provides all the capabilities needed to draw and edit shapes on the map. It can be used directly, and it's integrated with a custom toolbar UI. You can also use the built-in [DrawingToolbar class].
 
 ## Loading the drawing tools module in a webpage
 
@@ -214,14 +214,14 @@ Learn more about the classes and methods used in this article:
 > [Drawing manager]
 
 > [!div class="nextstepaction"]
-> [drawing toolbar]
+> [DrawingToolbar class]
 
 [Add a drawing toolbar]: map-add-drawing-toolbar.md
 [azure-maps-drawing-tools]: https://www.npmjs.com/package/azure-maps-drawing-tools
 [Drawing manager options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Drawing%20manager%20options/Drawing%20manager%20options.html
 [Drawing manager options]: https://samples.azuremaps.com/drawing-tools-module/drawing-manager-options
 [drawing manager]: /javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager
-[drawing toolbar]: /javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar
+[DrawingToolbar class]: /javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar
 [drawing tools module]: https://www.npmjs.com/package/azure-maps-drawing-tools
 [Get shape data]: map-get-shape-data.md
 [How to use the Azure Maps map control npm package]: how-to-use-npm-package.md

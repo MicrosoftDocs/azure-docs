@@ -62,7 +62,7 @@ The following built-in roles grant permission to *view sign-in logs*:
 
 If you use a client app to pull sign-in logs from Microsoft Graph, your app needs permissions to receive the `appliedConditionalAccessPolicy` resource from Microsoft Graph. As a best practice, assign `Policy.Read.ConditionalAccess` because it's the least privileged permission. 
 
-Any of the following permissions is sufficient for a client app to access applied certificate authority (CA) policies in sign-in logs through Microsoft Graph: 
+Any of the following permissions is sufficient for a client app to access applied Conditional Access policies in sign-in logs through Microsoft Graph: 
 
 - `Policy.Read.ConditionalAccess` 
 - `Policy.ReadWrite.ConditionalAccess` 

@@ -33,7 +33,7 @@ This procedure requires several tools that must be installed and run locally. Do
 
 ## Running the sample
 
-This procedure loads and runs the Azure AI services Container sample for language detection. The sample has two containers, one for the client application and one for the Azure AI services container. We'll push both of these images to the Azure Container Registry. Once they are on your own registry, create an Azure Kubernetes Service to access these images and run the containers. When the containers are running, use the **kubectl** CLI to watch the containers performance. Access the client application with an HTTP request and see the results.
+This procedure loads and runs the Azure AI services container sample for language detection. The sample has two containers, one for the client application and one for the Azure AI services container. We'll push both of these images to the Azure Container Registry. Once they are on your own registry, create an Azure Kubernetes Service to access these images and run the containers. When the containers are running, use the **kubectl** CLI to watch the containers performance. Access the client application with an HTTP request and see the results.
 
 ![A diagram showing the conceptual idea of running a container on Kubernetes](media/container-instance-sample.png)
 
@@ -400,4 +400,4 @@ az group delete --name cogserv-container-rg
 
 ## Next steps
 
-[Azure AI services Containers](../cognitive-services-container-support.md)
+[Azure AI services containers](../cognitive-services-container-support.md)

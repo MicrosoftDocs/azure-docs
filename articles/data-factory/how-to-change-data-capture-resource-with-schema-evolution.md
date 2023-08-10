@@ -11,7 +11,7 @@ ms.custom:
 ms.date: 07/21/2023
 ---
 
-# How to capture changed data with Schema evolution from Azure SQL DB to Delta sink using a Change Data Capture (CDC) resource
+# How to capture changed data with schema evolution from Azure SQL DB to Delta sink using a Change Data Capture (CDC) resource
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 In this tutorial, you will use the Azure Data Factory user interface (UI) to create a new Change Data Capture (CDC) resource that picks up changed data from an Azure SQL Database source to Delta Lake stored in Azure Data Lake Storage (ADLS) Gen2 in real-time showcasing the support of schema evolution. The configuration pattern in this tutorial can be modified and expanded upon.
@@ -64,7 +64,7 @@ In this tutorial, you follow these steps:
 > [!NOTE]
 > To enable Change Data Capture (CDC) with schema evolution in SQL Azure Database source, we should choose watermark column-based tables rather than native SQL CDC enabled tables.
 
-8.	Once you’ve selected a folder path, select **Continue** to set your data target.
+8.	Once you’ve selected the source table(s), select **Continue** to set your data target.
    
      :::image type="content" source="media/adf-cdc/change-data-capture-resource-107.png" alt-text="Screenshot of the continue button in the guided process to proceed to select data targets.":::
 
@@ -145,17 +145,17 @@ In this tutorial, you follow these steps:
 
 ## Make dynamic schema changes at source
 
-1.	Now you can proceed to make schema level changes to the source tables. For this tutorial, we will use the Alter table T-SQL to add a new column to the source table.  
+1.	Now you can proceed to make schema level changes to the source tables. For this tutorial, we will use the Alter table T-SQL to add a new column "PersonalEmail" to the source table.  
 
   :::image type="content" source="media/adf-cdc/change-data-capture-resource-125.png" alt-text="Screenshot of Alter command in Azure Data Studio.":::
 
-2.	You can validate that the new column as been added to the existing table. 
+2.	You can validate that the new column "PersonalEmail" has been added to the existing table. 
 
   :::image type="content" source="media/adf-cdc/change-data-capture-resource-126.png" alt-text="Screenshot of the new table design.":::
   
 ## Validate schema changes at target Delta
 
-1.	Validate change data with schema changes have landed at the Delta sink. For this tutorial, you can see the new column has been added to the sink. 
+1.	Validate change data with schema changes have landed at the Delta sink. For this tutorial, you can see the new column "PersonalEmail" has been added to the sink. 
 
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-128.png" alt-text="Screenshot of actual Delta file with schema change." lightbox="media/adf-cdc/change-data-capture-resource-128.png":::
 

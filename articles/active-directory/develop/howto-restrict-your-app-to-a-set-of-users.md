@@ -70,18 +70,18 @@ Once you've configured your app to enable user assignment, you can go ahead and 
 
 Follow the steps in this section to secure app-to-app authentication access for your tenant.
 
-1.	Navigate to Service Principal sign-in logs in your tenant to find services authenticating to access resources in your tenant.
-1.	Check using app ID if a Service Principal exists for both resource and client apps in your tenant that you wish to manage access.
+1. Navigate to Service Principal sign-in logs in your tenant to find services authenticating to access resources in your tenant.
+1. Check using app ID if a Service Principal exists for both resource and client apps in your tenant that you wish to manage access.
       ```powershell
       Get-MgServicePrincipal `
       -Filter "AppId eq '$appId'"
       ```
-1.	Create a Service Principal using app ID, if it doesn't exist:
+1. Create a Service Principal using app ID, if it doesn't exist:
       ```powershell
       New-MgServicePrincipal `
       -AppId $appId
       ```
-1.	Explicitly assign client apps to resource apps (this functionality is available only in API and not in the Azure AD Portal):
+1. Explicitly assign client apps to resource apps (this functionality is available only in API and not in the Azure AD Portal):
       ```powershell
       $clientAppId = “[guid]”
                      $clientId = (Get-MgServicePrincipal -Filter "AppId eq '$clientAppId'").Id
@@ -91,7 +91,7 @@ Follow the steps in this section to secure app-to-app authentication access for 
       -ResourceId (Get-MgServicePrincipal -Filter "AppId eq '$appId'").Id `
       -AppRoleId "00000000-0000-0000-0000-000000000000"
       ```
-1.	Require assignment for the resource application to restrict access only to the explicitly assigned users or services.
+1. Require assignment for the resource application to restrict access only to the explicitly assigned users or services.
       ```powershell
       Update-MgServicePrincipal -ServicePrincipalId (Get-MgServicePrincipal -Filter "AppId eq '$appId'").Id -AppRoleAssignmentRequired:$true
       ```

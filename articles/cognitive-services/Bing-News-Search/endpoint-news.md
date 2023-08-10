@@ -1,6 +1,6 @@
 ---
 title: Bing News Search endpoints
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This article provides a summary of the News search API endpoints; news, top news, and trending news.
 services: cognitive-services
 author: aahill

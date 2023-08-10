@@ -420,7 +420,7 @@ response = client.get(url, headers=headers) #, verify=False)
 
 In the following examples, we search for items using their unique identifiers. You can also search for other attributes, such as PatientName.
 
-Refer to the [DICOM Conformance Statement](dicom-services-conformance-statement.md#supported-search-parameters) document for supported DICOM attributes.
+Refer to the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md#supported-search-parameters) document for supported DICOM attributes.
 
 ### Search for studies
 

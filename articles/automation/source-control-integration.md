@@ -3,7 +3,7 @@ title: Use source control integration in Azure Automation
 description: This article tells you how to synchronize Azure Automation source control with other repositories.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/12/2023
+ms.date: 07/31/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -58,7 +58,7 @@ This example uses Azure PowerShell to show how to assign the Contributor role in
 
     ```powershell
     New-AzRoleAssignment `
-        -ObjectId <automation-Identity-object-id> `
+        -ObjectId <automation-Identity-Object(Principal)-Id> `
         -Scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}" `
         -RoleDefinitionName "Contributor"
     ```

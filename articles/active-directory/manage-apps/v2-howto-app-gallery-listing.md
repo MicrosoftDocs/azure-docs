@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 6/2/2022
+ms.date: 07/18/2023
 ms.author: jomondi
 ms.reviewer: ergreenl
 ms.custom: kr2b-contr-experiment, contperf-fy22q4, enterprise-apps-article
@@ -65,9 +65,9 @@ When your application is added to the gallery, documentation is created that exp
 
 ## Submit your application
 
-After you've tested that your application works with Azure AD, submit your application request in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). The first time you try to sign in to the portal you are presented with one of two screens.
+After you've tested that your application works with Azure AD, submit your application request in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). The first time you try to sign in to the portal you're presented with one of two screens.
 
-- If you receive the message "That didn't work", then you need to contact the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). Provide the email account that you want to use for submitting the request. A business email address such as `name@yourbusiness.com` is preferred. The Azure AD team will add the account in the Microsoft Application Network portal.
+- If you receive the message "That didn't work", then you need to contact the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). Provide the email account that you want to use for submitting the request. A business email address such as `name@yourbusiness.com` is preferred. The Azure AD team then adds the account in the Microsoft Application Network portal.
 - If you see a "Request Access" page, then fill in the business justification and select **Request Access**.
 
 After your account is added, you can sign in to the Microsoft Application Network portal and submit the request by selecting the **Submit Request (ISV)** tile on the home page. If you see the "Your sign-in was blocked" error while logging in, see [Troubleshoot sign-in to the Microsoft Application Network portal](troubleshoot-app-publishing.md).
@@ -104,9 +104,9 @@ To escalate issues of any kind, send an email to the [Azure AD SSO Integration T
 
 ## Update or Remove the application from the Gallery
 
-You can submit your application update request in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). The first time you try to sign into the portal you are presented with one of two screens. 
+You can submit your application update request in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). The first time you try to sign into the portal you're presented with one of two screens. 
 
-- If you receive the message "That didn't work", then you need to contact the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). Provide the email account that you want to use for submitting the request. A business email address such as `name@yourbusiness.com` is preferred. The Azure AD team will add the account in the Microsoft Application Network portal.
+- If you receive the message "That didn't work", then you need to contact the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). Provide the email account that you want to use for submitting the request. A business email address such as `name@yourbusiness.com` is preferred. The Azure AD team then adds the account in the Microsoft Application Network portal.
 
 - If you see a "Request Access" page, then fill in the business justification and select **Request Access**.
 

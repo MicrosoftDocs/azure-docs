@@ -66,22 +66,22 @@ The installation file for the web server is **ZDT\_Install\_EE\_V12.0.0.1.tgz**.
 
 1. From the command line, enter the following command to make sure everything is up to date in the newly created image:
 
-	```
-	sudo apt-get update
-	```
+    ```
+    sudo apt-get update
+    ```
 
 2. Create the directory to install to:
 
-	```
+    ```
     mkdir ZDT
-	```
+    ```
 
 3. Copy the file from your local machine to the VM:
 
-	```
+    ```
     scp ZDT_Install_EE_V12.0.0.1.tgz  your_userid@<IP Address /ZDT>   =>
-	```
-	
+    ```
+    
 > [!NOTE]
 > This command copies the installation file to the ZDT directory in your Home directory, which varies depending on whether your client runs Windows or Linux.
 
@@ -89,17 +89,17 @@ The installation file for the web server is **ZDT\_Install\_EE\_V12.0.0.1.tgz**.
 
 1. Go to the ZDT directory and decompress the ZDT\_Install\_EE\_V12.0.0.1.tgz file using the following commands:
 
-	```
-	cd ZDT
-	tar zxvf ZDT\_Install\_EE\_V12.0.0.0.tgz
-	```
+    ```
+    cd ZDT
+    tar zxvf ZDT\_Install\_EE\_V12.0.0.0.tgz
+    ```
 
 2. Run the installer:
 
-	```
-	chmod 755 ZDT\_Install\_EE\_V12.0.0.0.x86_64
-	./ZDT_Install_EE_V12.0.0.0.x86_64
-	```
+    ```
+    chmod 755 ZDT\_Install\_EE\_V12.0.0.0.x86_64
+    ./ZDT_Install_EE_V12.0.0.0.x86_64
+    ```
 
 3. Select **1** to install Enterprise Server.
 
@@ -109,9 +109,9 @@ The installation file for the web server is **ZDT\_Install\_EE\_V12.0.0.1.tgz**.
 
 6. To verify if the installation was successful enter
 
-	```
-	dpkg -l | grep zdtapp
-	```
+    ```
+    dpkg -l | grep zdtapp
+    ```
 
 7. Verify that the output contains the string **zdtapp 12.0.0.0**, indicating that the package gas been installed successfully
 
@@ -121,15 +121,15 @@ Keep in mind that when the web server starts, it runs under the zD&T user ID tha
 
 1. To start the web server, use the root User ID to run the following command:
 
-	```
-	sudo /opt/ibm/zDT/bin/startServer
-	```
+    ```
+    sudo /opt/ibm/zDT/bin/startServer
+    ```
 
 2. Copy the URL output by the script, which looks like:
 
-	```
-	https://<your IP address or domain name>:9443/ZDTMC/login.htm
-	```
+    ```
+    https://<your IP address or domain name>:9443/ZDTMC/login.htm
+    ```
 
 3. Paste the URL into a web browser to open the management component for your zD&T installation.
 

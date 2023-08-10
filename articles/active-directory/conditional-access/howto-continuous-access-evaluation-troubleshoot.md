@@ -23,9 +23,9 @@ Administrators can monitor and troubleshoot sign in events where [continuous acc
 
 Administrators can monitor user sign-ins where continuous access evaluation (CAE) is applied. This information is found in the Azure AD sign-in logs:
 
-1.	Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1.	Browse to **Azure Active Directory** > **Sign-in logs**. 
-1.	Apply the **Is CAE Token** filter. 
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
+1. Browse to **Azure Active Directory** > **Sign-in logs**. 
+1. Apply the **Is CAE Token** filter. 
 
 [ ![Screenshot showing how to add a filter to the Sign-ins log to see where CAE is being applied or not.](./media/howto-continuous-access-evaluation-troubleshoot/sign-ins-log-apply-filter.png) ](./media/howto-continuous-access-evaluation-troubleshoot/sign-ins-log-apply-filter.png#lightbox)
 
@@ -45,9 +45,9 @@ The continuous access evaluation insights workbook allows administrators to view
 
 Log Analytics integration must be completed before workbooks are displayed. For more information about how to stream Azure AD sign-in logs to a Log Analytics workspace, see the article [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
  
-1.	Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator. 
-1.	Browse to **Azure Active Directory** > **Workbooks**.
-1.	Under **Public Templates**, search for **Continuous access evaluation insights**.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator. 
+1. Browse to **Azure Active Directory** > **Workbooks**.
+1. Under **Public Templates**, search for **Continuous access evaluation insights**.
 
 The **Continuous access evaluation insights** workbook contains the following table:
 
@@ -77,8 +77,8 @@ Admins can view records filtered by time range and application. Admins can compa
 
 To unblock users, administrators can add specific IP addresses to a trusted named location.
 
-1.	Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator. 
-1.	Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**. Here you can create or update trusted IP locations.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator. 
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**. Here you can create or update trusted IP locations.
 
 > [!NOTE]
 > Before adding an IP address as a trusted named location, confirm that the IP address does in fact belong to the intended organization.

@@ -308,6 +308,18 @@ The following example is taken from the [sample drawing package v2]. The facilit
 
 :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/facility-levels.png" alt-text="Screenshot showing the facility levels tab of the Azure Maps Creator onboarding tool.":::
 
+### Georeference
+
+Georeferencing is used to specify the exterior profile, location and rotation of the facility.
+
+The [facility level] defines the exterior profile as it appears on the map and is selected from the list of DWG layers in the **Exterior** drop-down list.
+
+The **Anchor Point Longitude** and **Anchor Point Latitude** specify the facility's location, the default value is zero (0).
+
+The **Anchor Point Angle** is specified in degrees between true north and the drawing's vertical (Y) axis, the default value is zero (0).
+
+:::image type="content" source="./media/creator-indoor-maps/onboarding-tool/georeference.png" alt-text="Screenshot showing the default settings in the georeference tab of the Azure Maps Creator onboarding tool. The default settings are zero for all anchor points including longitude, latitude and angle.":::
+
 ### DWG layers
 
 The `dwgLayers` object is used to specify the DWG layer names where feature classes can be found. To receive a properly converted facility, it's important to provide the correct layer names. For example, a DWG wall layer must be provided as a wall layer and not as a unit layer. The drawing can have other layers such as furniture or plumbing; but, the Azure Maps Conversion service ignores anything not specified in the manifest.
@@ -322,25 +334,9 @@ Defining text properties enables you to associate text entities that fall inside
 > 2. Stair
 > 3. Elevator
 
-### georeference
+### Download
 
-Georeferencing is used to specify the exterior profile, location and rotation of the facility.
-
-The [facility level] defines the exterior profile as it appears on the map and is selected from the list of DWG layers in the **Exterior** drop-down list.
-
-The **Anchor Point Longitude** and **Anchor Point Latitude** specify the facility's location, the default value is zero (0).
-
-The **Anchor Point Angle** is specified in degrees between true north and the drawing's vertical (Y) axis, the default value is zero (0).
-
-:::image type="content" source="./media/creator-indoor-maps/onboarding-tool/georeference.png" alt-text="Screenshot showing the default settings in the georeference tab of the Azure Maps Creator onboarding tool. The default settings are zero for all anchor points including longitude, latitude and angle.":::
-
-You position the facility's location by entering either an address or longitude and latitude values. You can also pan the map to make minor adjustments to the facility's location.
-
-:::image type="content" source="./media/creator-indoor-maps/onboarding-tool/georeference-location-defined.png" alt-text="Screenshot showing the georeference tab of the Azure Maps Creator onboarding tool with values entered for longitude and latitude.":::
-
-### Review and download
-
-When finished, select the **Review + Download** button to view the manifest. When you finished verifying that it's ready, select the **Download** button to save it locally so that you can include it in the drawing package to import into your Azure Maps Creator resource.
+When finished, select the **Download** button to view the manifest. When you finished verifying that it's ready, select the **Download** button to save it locally so that you can include it in the drawing package to import into your Azure Maps Creator resource.
 
 :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/review-download.png" alt-text="Screenshot showing the manifest JSON.":::
 
