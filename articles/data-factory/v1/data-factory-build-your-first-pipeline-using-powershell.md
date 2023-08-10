@@ -74,7 +74,7 @@ In this step, you use Azure PowerShell to create an Azure Data Factory named **F
 3. Run the **New-AzDataFactory** cmdlet that creates a data factory named **FirstDataFactoryPSH**.
 
     ```powershell
-    New-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
+    New-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH -Location "West US"
     ```
 
 Note the following:
@@ -328,7 +328,7 @@ In this step, you create your first pipeline with a **HDInsightHive** activity. 
 
     The **start** and **end** properties of the pipeline specifies the active period of the pipeline.
 
-    In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** – **HDInsightOnDemandLinkedService**.
+    In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** - **HDInsightOnDemandLinkedService**.
 
    > [!NOTE]
    > See "Pipeline JSON" in [Pipelines and activities in Azure Data Factory](data-factory-create-pipelines.md) for details about JSON properties that are used in the example.

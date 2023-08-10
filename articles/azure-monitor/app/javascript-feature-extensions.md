@@ -173,6 +173,8 @@ When you define the `data-parentid` or `data-*-parentid` attribute, the plug-in 
 
 If you declare `parentDataTag` and define the `data-parentid` or `data-*-parentid` attribute, precedence is given to `data-parentid` or `data-*-parentid`.
 
+If the "Click Event rows with no parentId value" telemetry warning appears, see [Fix the "Click Event rows with no parentId value" warning](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting#fix-the-click-event-rows-with-no-parentid-value-warning).
+
 For examples showing which value is fetched as the `parentId` for different configurations, see [Examples of `parentid` key](#examples-of-parentid-key).
 
 > [!CAUTION]
@@ -249,6 +251,8 @@ Three different `behaviorValidator` callback functions are exposed as part of th
 To reduce the bytes you pass, pass in the number value instead of the full text string. If cost isn’t an issue, you can pass in the full text string (e.g. NAVIGATIONBACK).
 
 #### Sample usage with behaviorValidator
+
+Here's a sample of what a behavior map validator might look like. Yours could look different, depending on your organization's taxonomy and the events you collect.
 
 ```js
 var clickPlugin = Microsoft.ApplicationInsights.ClickAnalyticsPlugin;
@@ -446,6 +450,8 @@ The following examples show which value is fetched as the `parentId` for differe
 
 ### Example 1
 
+In example 1, the `parentDataTag` isn't declared and `data-parentid` or `data-*-parentid` isn't defined in any element.
+
 ```javascript
 export const clickPluginConfigWithUseDefaultContentNameOrId = {
     dataTags : {
@@ -465,9 +471,11 @@ export const clickPluginConfigWithUseDefaultContentNameOrId = {
      </div>
 ```
 
-For example 1, for clicked element `<Button>`, the value of `parentId` is `“not_specified”`, because `parentDataTag` is not declared and the `data-parentid` or `data-*-parentid` is not defined in any element.
+For clicked element `<Button>`, the value of `parentId` is `“not_specified”`, because `parentDataTag` is not declared and the `data-parentid` or `data-*-parentid` is not defined in any element.
 
 ### Example 2
+
+In example 2, `parentDataTag` is declared and `data-parentid` is defined.
 
 ```javascript
 export const clickPluginConfigWithParentDataTag = {
@@ -488,9 +496,11 @@ export const clickPluginConfigWithParentDataTag = {
    </div>
 ```
 
-For example 2, for clicked element `<Button>`, the value of `parentId` is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` definition takes precedence. If the `data-parentid` attribute was defined within the div element with `className=”test2”`, the value for `parentId` would still be `parentid2`.
+For clicked element `<Button>`, the value of `parentId` is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` definition takes precedence. If the `data-parentid` attribute was defined within the div element with `className=”test2”`, the value for `parentId` would still be `parentid2`.
        
-### Example 3 
+### Example 3
+
+In example 3, `parentDataTag` is declared and the `data-parentid` or `data-*-parentid` attribute isn’t defined.
 
 ```javascript
 export const clickPluginConfigWithParentDataTag = {
@@ -512,7 +522,7 @@ export const clickPluginConfigWithParentDataTag = {
   </div>
 </div>
 ```
-For example 3, for clicked element `<Button>`, because `parentDataTag` is declared and the `data-parentid` or `data-*-parentid` attribute isn’t defined, the value of `parentId` is `test6parent`. It's `test6parent` because when `parentDataTag` is declared, the plug-in fetches the value of the `id` or `data-*-id` attribute from the parent HTML element that is closest to the clicked element. Because `data-group="buttongroup1"` is defined, the plug-in finds the `parentId` more efficiently.
+For clicked element `<Button>`, because `parentDataTag` is declared and the `data-parentid` or `data-*-parentid` attribute isn’t defined, the value of `parentId` is `test6parent`. It's `test6parent` because when `parentDataTag` is declared, the plug-in fetches the value of the `id` or `data-*-id` attribute from the parent HTML element that is closest to the clicked element. Because `data-group="buttongroup1"` is defined, the plug-in finds the `parentId` more efficiently.
 
 If you remove the `data-group="buttongroup1"` attribute, the value of `parentId` is still `test6parent`, because `parentDataTag` is still declared.
 

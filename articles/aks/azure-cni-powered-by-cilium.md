@@ -43,8 +43,6 @@ Cilium enforces [network policies to allow or deny traffic between pods](./opera
 
 Azure CNI powered by Cilium currently has the following limitations:
 
-* Available only for new clusters.
-
 * Available only for Linux and not for Windows.
 
 * Cilium L7 policy enforcement is disabled.
