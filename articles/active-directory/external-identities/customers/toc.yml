@@ -202,6 +202,8 @@ items:
                 href: tutorial-desktop-app-maui-sign-in-prepare-app.md
               - name: Sign in and sign out
                 href: tutorial-desktop-app-maui-sign-in-sign-out.md
+              - name: Use role-based access control
+                href: tutorial-desktop-maui-role-based-access-control.md
           - name: .NET WPF
             items:
               - name: Prepare tenant
@@ -219,6 +221,8 @@ items:
             href: tutorial-mobile-app-maui-sign-in-prepare-app.md
           - name: Sign in and sign out
             href: tutorial-mobile-app-maui-sign-in-sign-out.md
+          - name: Use role-based access control
+            href: tutorial-mobile-maui-role-based-access-control.md
       - name: Command-line interface (CLI) app
         items:
           - name: Node.js - sign in users
