@@ -23,17 +23,17 @@ Azure Spring Apps provides and maintains the SDKs and base OS images necessary t
 
 ### Java runtime version
 
-You may choose any LTS Java version as the major version, as long as it's officially supported and receives regular updates as a part of the auto patching process.
+You may choose any LTS Java version as the major version that is officially supported, and receives regular updates.
 
 For more information, see [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 
 ### Spring Boot and Spring Cloud versions
 
-You may choose any version of Spring Boot or Spring Cloud as long as it's compatible with your Java version.
+You may choose any version of Spring Boot or Spring Cloud that is compatible with the Java version you installed.
 
-For new versions, Azure Spring Apps will support the latest Spring Boot or Spring Cloud major version starting from 30 days after its release. The latest minor version will be supported as soon as it's released.
+For new versions, Azure Spring Apps will support the latest Spring Boot or Spring Cloud major version 30 days after its release. The latest minor version will be supported as soon as it's released.
 
-For old versions, Azure Spring Apps doesn't require you to upgrade Spring Boot or Spring Cloud to keep pace with the official support. However, with the officially supported versions, you're guaranteed to enjoy the best experience for some of our managed components, such as Config Server and Eureka Server for Standard consumption/dedicated tier and Standard tier, [Tanzu components](vmware-tanzu-components.md) for Enterprise tier, and metric collection for all tiers.
+For old versions, Azure Spring Apps doesn't require you to upgrade Spring Boot or Spring Cloud to receive support. However, with the officially-supported new versions, you're guaranteed to enjoy the best experience for some of our managed components, such as Config Server and Eureka Server for Standard consumption/dedicated tier and Standard tier, [Tanzu components](vmware-tanzu-components.md) for Enterprise tier, and metric collection for all tiers.
 
 For more information, see the official support timeline of [Spring Boot](https://spring.io/projects/spring-boot#support) and [Spring Cloud](https://spring.io/projects/spring-cloud#overview). The Enterprise tier provides commercial support for Spring Boot, while the other tiers provide OSS support.
 
@@ -61,6 +61,6 @@ You may choose your stack image during builder configuration, and we recommend u
 
 ## Keep track of version upgrade
 
-Prepare early for the deprecation of any major component LTS version that your applications rely on. You'll receive notification from Microsoft one month prior to its end of support on Azure Spring Apps.
+Prepare early for the deprecation of any major component LTS version that your applications rely on. You'll receive notification from Microsoft one month prior to the end of support on Azure Spring Apps.
 
 For regular upgrades, you can find specific information in your activity log once the upgrade is complete.
