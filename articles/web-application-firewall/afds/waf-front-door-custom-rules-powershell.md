@@ -115,4 +115,4 @@ The following example uses the resource group name `myResourceGroupFD1` with the
 ## Next steps
 
 - Learn more about [Azure Front Door](../../frontdoor/front-door-overview.md).
-- Learn more about [Azure Web Application Firewall in Azure Front Door](afds-overview.md).
+- Learn more about [Azure Web Application Firewall on Azure Front Door](afds-overview.md).

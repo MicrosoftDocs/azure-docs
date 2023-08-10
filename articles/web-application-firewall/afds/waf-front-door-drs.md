@@ -10,7 +10,7 @@ ms.date: 10/25/2022
 
 # Web Application Firewall DRS rule groups and rules
 
-Azure Web Application Firewall in Azure Front Door protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Because such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures.
+Azure Web Application Firewall on Azure Front Door protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Because such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures.
 
 The Default Rule Set (DRS) also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
@@ -32,7 +32,7 @@ The version number of the DRS increments when new attack signatures are added to
 
 DRS is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the DRS to meet your application requirements. You can also set specific actions per rule. The available actions are [Allow, Block, Log, and Redirect](afds-overview.md#waf-actions).
 
-Sometimes you might need to omit certain request attributes from a web application firewall (WAF) evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You might configure an exclusion list for a managed rule, a rule group, or the entire rule set. For more information, see [Azure Web Application Firewall in Azure Front Door exclusion lists](./waf-front-door-exclusion.md).
+Sometimes you might need to omit certain request attributes from a web application firewall (WAF) evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You might configure an exclusion list for a managed rule, a rule group, or the entire rule set. For more information, see [Azure Web Application Firewall on Azure Front Door exclusion lists](./waf-front-door-exclusion.md).
 
 By default, DRS versions 2.0 and above use anomaly scoring when a request matches a rule. DRS versions earlier than 2.0 block requests that trigger the rules. Also, custom rules can be configured in the same WAF policy if you want to bypass any of the preconfigured rules in the DRS.
 
@@ -180,7 +180,7 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |[GoodBots](#bot200)|Identify good bots|
 |[UnknownBots](#bot300)|Identify unknown bots|
 
-The following rule groups and rules are available when you use Azure Web Application Firewall in Azure Front Door.
+The following rule groups and rules are available when you use Azure Web Application Firewall on Azure Front Door.
 
 # [DRS 2.1](#tab/drs21)
 
@@ -1092,5 +1092,5 @@ Bot300600 scans both client IP addresses and IPs in the `X-Forwarded-For` header
 
 ## Next steps
 
-- [Custom rules for Azure Web Application Firewall in Azure Front Door](waf-front-door-custom-rules.md)
+- [Custom rules for Azure Web Application Firewall on Azure Front Door](waf-front-door-custom-rules.md)
 - [Learn more about Azure network security](../../networking/security/index.yml)
