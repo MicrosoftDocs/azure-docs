@@ -35,7 +35,7 @@ You add your organization's privacy information in the **Properties** area of Az
 
     The **Properties** area appears.
 
-    :::image type="content" source="media/active-directory-properties-area/properties-area.png" alt-text="Screenshot showing the properties area highlighting the privacy info area.":::
+    :::image type="content" source="media/properties-area/properties-area.png" alt-text="Screenshot showing the properties area highlighting the privacy info area.":::
  
 3. Add your privacy info for your employees:
 
@@ -48,7 +48,7 @@ You add your organization's privacy information in the **Properties** area of Az
         >[!Important]
         >If you don't include either your own privacy statement or your privacy contact, your external guests will see text in the **Review Permissions** box that says, **<_your org name_> has not provided links to their terms for you to review**. For example, a guest user will see this message when they receive an invitation to access an organization through B2B collaboration.
 
-        :::image type="content" source="media/active-directory-properties-area/no-privacy-statement-or-contact.png" alt-text="Screenshot showing the B2B Collaboration Review Permissions box with message.":::
+        :::image type="content" source="media/properties-area/no-privacy-statement-or-contact.png" alt-text="Screenshot showing the B2B Collaboration Review Permissions box with message.":::
 
 4. Select **Save**.
 
