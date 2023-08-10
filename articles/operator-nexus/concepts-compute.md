@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # Azure Operator Nexus compute
 
-Azure Operator Nexus is built on basic constructs like compute servers, storage appliances, and network fabric devices. These compute servers, also called bare metal machines (BMMs), represent the physical machines on the rack. They run the CBL-Mariner operating system and provide closed integration support for high-performance workloads.
+Azure Operator Nexus is built on basic constructs like compute servers, storage appliances, and network fabric devices. These compute servers, also called bare-metal machines (BMMs), represent the physical machines on the rack. They run the CBL-Mariner operating system and provide closed integration support for high-performance workloads.
 
 These BMMs are deployed as part of the Azure Operator Nexus automation suite. They exist as nodes in a Kubernetes cluster to serve various virtualized and containerized workloads in the ecosystem.
 
@@ -67,7 +67,7 @@ This direct hardware access improves network throughput, reduces latency, and en
 
 The following properties reflect the operational state of a BMM:
 
-- `Power State` indicates the state as derived from a bare metal controller (BMC). The state can be either `On` or `Off`.
+- `Power State` indicates the state as derived from a bare-metal controller (BMC). The state can be either `On` or `Off`.
 
 - `Ready State` provides an overall assessment of BMM readiness. It looks at a combination of `Detailed Status`, `Power State`, and the provisioning state of the resource to determine whether the BMM is ready or not. When `Ready State` is `True`, the BMM is turned on, `Detailed Status` is `Provisioned`, and the node that represents the BMM has successfully joined the undercloud Kubernetes cluster. If any of those conditions aren't met, `Ready State` is set to `False`.
 
