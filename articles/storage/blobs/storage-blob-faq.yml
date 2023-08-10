@@ -1,0 +1,65 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions - Azure Blob Storage | Microsoft Docs
+  description: This article provides a list of frequently asked questions (FAQ) for Azure Blob Storage. 
+  ms.topic: faq
+  ms.service: azure-storage
+  ms.date: 08/10/2023
+  ms.author: normesta
+  author: normesta
+title: Azure Blob Storage frequently asked questions
+summary: |
+  This article provides a list of frequently asked questions (FAQ) for Azure Blob Storage.</br></br>  
+
+sections:
+  - name: Multiple inventory file output
+    questions:
+      - question: |
+          What has changed with respect to the number of inventory files produced?
+        answer: |
+          Blob Inventory report produces three types of files. See [Inventory files](blob-inventory.md#inventory-files). Existing customers using blob inventory might see a change in the number of inventory files, from one file to multiple files. Today, we already have manifest file that provides the list of files. This behavior remains unchanged, so these files are listed in the manifest file.    
+      - question: |
+          Why was the change made?
+        answer: |
+          The change was implemented to enhance blob inventory performance, particularly for large storage accounts containing over five million objects. Now, results are written in parallel to multiple files, eliminating the bottleneck of using a single inventory file. This change was prompted by customer feedback, as they reported difficulties in opening and working with the excessively large single inventory file.
+      - question: |
+          How does this change affect me as a user?
+        answer: |
+          As a user, this change has a positive impact on your experience with blob inventory runs. It's expected to enhance performance and reduce the overall running time. However, to fully benefit from this improvement, you must ensure that your code is updated to process multiple results files instead of just one. This adjustment aligns your code with the new approach and optimizes the handling of inventory data.  
+      - question: |
+          Is my existing data affected?
+        answer: |
+          No, existing data isn't affected. Only new blob inventory results have multiple inventory files.  
+      - question: |
+          Will there be any downtime or service interruptions?
+        answer: |
+          No, the change happens seamlessly.  
+      - question: |
+          Is there anything I need to do differently now?
+        answer: |
+          Your required actions depend on how you currently process blob inventory results:
+
+          - If your current processing assumes a single inventory results file, then you need to modify your code to accommodate multiple inventory results files.
+
+          - However, if your current processing involves reading the list of results files from the manifest file, there's no need to make any changes to how you process the results. The existing approach continues to work seamlessly with the updated feature.  
+      - question: |
+          Can I revert to the previous behavior if I don't like the change?
+        answer: |
+          This isn't recommended, but it's possible. Please work through your support channels to ask to turn off this feature.  
+      - question: |
+          How can I provide feedback or report issues related to the changes?
+        answer: |
+          Please work through your current account team and support channels.  
+      - question: |
+          When will this change take effect?
+        answer: |
+          This change will start gradual rollout starting September 1, 2023.  
+
+additionalContent: |
+
+  ## Next steps
+  
+  You can learn more about Azure Blob Storage by visiting the following links:
+
+  - [Introduction to Azure Storage](../common/storage-introduction.md)
+  - [What is Azure Blob storage](storage-blobs-overview.md)
