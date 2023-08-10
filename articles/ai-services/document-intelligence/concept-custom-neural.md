@@ -105,7 +105,7 @@ Neural models now support added languages for the ```v3.1``` APIs.
 
 :::moniker-end
 
-moniker range="doc-intel-3.0.0"
+:::moniker range="doc-intel-3.0.0"
 
 Neural models now support added languages for the ```v3.0``` APIs.
 
