@@ -84,7 +84,7 @@ $roleDefinition = Get-MgRoleManagementDirectoryRoleDefinition -Filter "displayNa
 
 ### Create a role assignment
 
-Use the [New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/new-mgrolemanagementdirectoryroleassignment?view=graph-powershell-1.0?branch=main) command to assign the role.
+Use the [New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/new-mgrolemanagementdirectoryroleassignment?view=graph-powershell-1.0) command to assign the role.
 
 ```powershell
 $roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -DirectoryScopeId '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id
