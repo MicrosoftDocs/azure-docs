@@ -8,12 +8,8 @@ ms.author: henrymbugua
 ms.service: active-directory
 ms.topic: tutorial
 ms.subservice: ciam
-<<<<<<< HEAD
-ms.date: 07/11/2023
-=======
 ms.custom: devx-track-dotnet
 ms.date: 06/05/2023
->>>>>>> 7a0bdaef1cf0c99e16861ab08ab6372b51cac4c3
 ---
 
 # Tutorial: Sign in users in .NET MAUI shell app
@@ -218,10 +214,5 @@ Run the app by pressing _F5_ or select the _play button_ at the top of Visual St
 
 ## Next Steps
 
-<<<<<<< HEAD
-> [!div class="nextstepaction"]
-> [Tutorial: Add app roles to .NET MAUI and receive them in the ID token](tutorial-mobile-maui-role-based-access-control.md)
-=======
 - [Customize the default branding](how-to-customize-branding-customers.md).
 - [Configure sign-in with Google](how-to-google-federation-customers.md).
->>>>>>> 7a0bdaef1cf0c99e16861ab08ab6372b51cac4c3
