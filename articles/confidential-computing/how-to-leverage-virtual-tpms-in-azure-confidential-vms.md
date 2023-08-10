@@ -40,7 +40,7 @@ These steps list out which artifacts you need and how to get them:
 
     There are multiple ways to extend a measurement to a PCR using the [tpm2-tools library](https://github.com/tpm2-software/tpm2-tools).
 	This command shows how to hash a file using sha256 bank and then extend it to a PCR.
-    ```Linux
+    ```bash
     sha256sum <any file>
     tpm2_pcrextend <pcr_number>:sha256=<result from first command>
     ```
@@ -49,7 +49,7 @@ These steps list out which artifacts you need and how to get them:
     The AMD Versioned Chip Endorsement Key (VCEK) is used to sign the AMD SEV-SNP report. The VCEK certificate allows you to verify that the report was signed by a genuine AMD CPU key. There are two ways retrieve the certificate:
 
     a.	Obtain the VCEK certificate by running the following command – it obtains the cert from a well-known IMDS endpoint: 
-    ```Linux
+    ```bash
     curl -H Metadata:true http://169.254.169.254/metadata/THIM/amd/certification > vcek
     cat ./vcek | jq -r '.vcekCert , .certificateChain' > ./vcek.pem
     ```
@@ -61,10 +61,9 @@ These steps list out which artifacts you need and how to get them:
 
     These steps extract the SNP report from a set NVIndex and dump the report data JSON. The guest_report.bin file is used in the following step. 
 
-     ```Linux
+     ```bash
     tpm2_nvread -C o 0x01400001 > ./snp_report.bin
     dd skip=32 bs=1 count=1184 if=./snp_report.bin of=./guest_report.bin
-
     ```
     Here's an example of how the report data JSON looks like:
 
@@ -91,7 +90,7 @@ These steps list out which artifacts you need and how to get them:
 
     Once we have retrieved the VCEK certificate and guest attestation report, we can check that the VCEK has signed the guest attestation report. This step ensures the vTPM is properly measured by the AMD SEV-SNP hardware and that we can trust the vTPM.  There are multiple ways to do verification, the following example uses the [open-source AMD SEV Tool](https://github.com/AMDESE/sev-tool).
 
-    ```Linux
+    ```bash
     sudo ./sevtool –-ofolder <location of vcek.pem & guest_report.bin> --validate_guest_report
     ```
 5. Use vTPM tools to get PCR measurements.
@@ -99,15 +98,15 @@ These steps list out which artifacts you need and how to get them:
     After you have established trust in the vTPM, then you can go get a [quote](https://tpm2-tools.readthedocs.io/en/latest/man/tpm2_quote.1/) using the AKpub and reflect PCR measurements.
 
     a. Retrieve the public attestation key. 0x81000003 is the location of the AKpub.
-    ```Linux
-	tpm2_readpublic -c 0x81000003 -n <ak.name> -f pem -o <outputfile.pem>
+    ```bash
+	tpm2_readpublic -c 0x81000003 -f pem -o <outputfile.pem>
     ```
-    b. Generate a TPM quote using the options mentioned [here](https://tpm2-tools.readthedocs.io/en/latest/man/tpm2_quote.1/#options). This example shows how to get the quote and reflect PCRs 15, 16 and 22. Refer to the tpm2_quote link to learn more about the options used.
-    ```Linux
+    b. Generate a TPM quote using the options mentioned [here](https://tpm2-tools.readthedocs.io/en/latest/man/tpm2_quote.1/#options). This example shows how to get the quote and reflect PCRs 15, 16 and 22. The nonce is added to protect against replay attacks. The message output file records the quote message that makes up the data that is signed by the TPM. Finally the PCR values are stored in the PCR_output_file. Refer to the tpm2_quote link to learn more about the options used.
+    ```bash
     tpm2_quote -c 0x81000003 -l sha256:15,16,22 -q <nonce> -m <message_output_file.msg> -s <signature_output_file.sig> -o <PCR_output_file.pcrs> -g sha256  
     ```
-    c. The following command can be used on a remote machine to verify the confidential VM generated quote in the previous step.  
-    ```Linux
+    c. The following command can be used on a remote machine to verify the confidential VM generated quote in the previous step. Use the AKpub retrieved from step a as an input here. 
+    ```bash
     tpm2_checkquote -u <outputfile.pem> -m <message_output_file.msg> -s <signature_output_file.sig> -f <PCR_output_file.pcrs> -g sha256 -q <nonce>
     ```
 
