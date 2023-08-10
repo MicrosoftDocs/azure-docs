@@ -1,5 +1,5 @@
 ---
-title: Resource Prerequisites 
+title: Resource prerequisites 
 description: Prerequisite steps to complete for Azure resources before working with HDInsight on AKS.
 ms.topic: how-to
 ms.service: hdinsight-aks
