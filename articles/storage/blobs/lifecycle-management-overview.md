@@ -458,7 +458,9 @@ Each update to a blob's last access time is billed under the [other operations](
 
 For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## FAQ
+## Frequently asked questions (FAQ)
+
+See [Lifecycle management FAQ](storage-blob-faq.yml#lifecycle-management-policies).
 
 ### I created a new policy. Why do the actions not run immediately?
 
