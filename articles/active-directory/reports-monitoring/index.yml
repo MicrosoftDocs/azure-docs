@@ -20,7 +20,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Identity monitoring and health
+  - title: About Identity Monitoring and health
     linkLists:
       - linkListType: overview
         links:
@@ -44,10 +44,6 @@ landingContent:
             url: howto-access-activity-logs.md
           - text: Access logs with Microsoft Graph
             url: quickstart-access-log-with-graph-api.md
-          - text: Convert per-user MFA to Conditional Access
-            url: recommendation-turn-off-per-user-mfa.md
-          - text: Migrate to Microsoft Authenticator
-            url: recommendation-migrate-to-authenticator.md
 
   # Card
   - title: Identity monitoring
@@ -68,7 +64,10 @@ landingContent:
         links:
           - text: Usage and Insights report
             url: concept-usage-insights-report.md
-
+          - text: Convert per-user MFA to Conditional Access recommendation
+            url: recommendation-turn-off-per-user-mfa.md
+          - text: Migrate to Microsoft Authenticator recommendation
+            url: recommendation-migrate-to-authenticator.md
   # Card
   - title: Common scenarios for using reports and monitoring
     linkLists:
@@ -88,9 +87,9 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: What are Identity recommendations?
+          - text: What are Identity Recommendations?
             url: overview-recommendations.md
-          - text: What are Identity workbooks?
+          - text: What are Identity Workbooks?
             url: overview-reports.md
       - linkListType: how-to-guide
         links:

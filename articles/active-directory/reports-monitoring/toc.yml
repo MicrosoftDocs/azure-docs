@@ -4,12 +4,12 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: Identity monitoring and health
+  - name: Identity Monitoring and health
     href: overview-monitoring-health.md
-  - name: Identity workbooks
-    href: overview-workbooks.md
-  - name: Identity recommendations
+  - name: Identity Recommendations
     href: overview-recommendations.md
+  - name: Identity Workbooks
+    href: overview-workbooks.md
 
 - name: Identity logs
   expanded: true
@@ -46,7 +46,49 @@ items:
   items:
   - name: Usage and Insights report
     href: concept-usage-insights-report.md
-     
+  - name: How to use Identity recommendations
+    href: howto-use-recommendations.md
+  - name: How to use Azure AD workbooks
+    href: howto-use-azure-monitor-workbooks.md
+  - name: Recommendations
+    expanded: false
+    items:
+      - name: Migrate ADAL to MSAL
+        href: recommendation-migrate-from-adal-to-msal.md
+      - name: Migrate apps from AD FS to Azure AD
+        href: recommendation-migrate-apps-from-adfs-to-azure-ad.md
+      - name: Migrate to Microsoft authenticator
+        href: recommendation-migrate-to-authenticator.md
+      - name: Switch to Conditional Access MFA
+        href: recommendation-turn-off-per-user-mfa.md
+      - name: Minimize MFA prompts from known devices
+        href: recommendation-mfa-from-known-devices.md
+      - name: Remove unused apps (preview)
+        href: recommendation-remove-unused-apps.md
+      - name: Remove unused credentials from apps (preview)
+        href: recommendation-remove-unused-credential-from-apps.md
+      - name: Renew expiring application credentials (preview)
+        href: recommendation-renew-expiring-application-credential.md
+      - name: Renew expiring service principal credentials (preview)
+        href: recommendation-renew-expiring-service-principal-credential.md
+  - name: Workbooks
+    expanded: false
+    items:
+    - name: Authentication prompts analysis
+      href: workbook-authentication-prompts-analysis.md
+    - name: Conditional access gap analyzer
+      href: workbook-conditional-access-gap-analyzer.md
+    - name: Cross-tenant access activity 
+      href: workbook-cross-tenant-access-activity.md
+    - name: Sign-ins using legacy authentication  
+      href: workbook-legacy authentication.md
+    - name: Risk analysis
+      href: workbook-risk-analysis.md
+    - name: Sensitive Operations Report 
+      href: workbook-sensitive-operations-report.md
+    - name: Multifactor authentication gaps 
+      href: workbook-mfa-gaps.md   
+
 - name: Identity monitoring
   expanded: true
   items:
@@ -75,56 +117,6 @@ items:
         href: howto-integrate-activity-logs-with-azure-monitor-logs.md  
       - name: Analyze activity logs in Azure Monitor logs
         href: howto-analyze-activity-logs-log-analytics.md
-
-- name: Identity Recommendations
-  expanded: false
-  items:
-    - name: How to use Identity recommendations
-      href: howto-use-recommendations.md
-    - name: Recommendation details
-      expanded: false
-      items:
-        - name: Migrate ADAL to MSAL
-          href: recommendation-migrate-from-adal-to-msal.md
-        - name: Migrate apps from AD FS to Azure AD
-          href: recommendation-migrate-apps-from-adfs-to-azure-ad.md
-        - name: Migrate to Microsoft authenticator
-          href: recommendation-migrate-to-authenticator.md
-        - name: Switch to Conditional Access MFA
-          href: recommendation-turn-off-per-user-mfa.md
-        - name: Minimize MFA prompts from known devices
-          href: recommendation-mfa-from-known-devices.md
-        - name: Remove unused apps (preview)
-          href: recommendation-remove-unused-apps.md
-        - name: Remove unused credentials from apps (preview)
-          href: recommendation-remove-unused-credential-from-apps.md
-        - name: Renew expiring application credentials (preview)
-          href: recommendation-renew-expiring-application-credential.md
-        - name: Renew expiring service principal credentials (preview)
-          href: recommendation-renew-expiring-service-principal-credential.md
-
-- name: Identity Workbooks
-  expanded: false
-  items:
-    - name: How to use Azure AD workbooks
-      href: howto-use-azure-monitor-workbooks.md
-    - name: Workbook descriptions
-      expanded: false
-      items:
-      - name: Authentication prompts analysis
-        href: workbook-authentication-prompts-analysis.md
-      - name: Conditional access gap analyzer
-        href: workbook-conditional-access-gap-analyzer.md
-      - name: Cross-tenant access activity 
-        href: workbook-cross-tenant-access-activity.md
-      - name: Sign-ins using legacy authentication  
-        href: workbook-legacy authentication.md
-      - name: Risk analysis
-        href: workbook-risk-analysis.md
-      - name: Sensitive Operations Report 
-        href: workbook-sensitive-operations-report.md
-      - name: Multifactor authentication gaps 
-        href: workbook-mfa-gaps.md
 
 - name: Common troubleshooting scenarios
   expanded: false

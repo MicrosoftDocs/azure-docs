@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: overview
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/28/2023
+ms.date: 08/10/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 
@@ -69,6 +69,7 @@ Reviewing the data in the Azure AD activity logs can provide helpful information
 - [Identity Protection](../identity-protection/overview-identity-protection.md) uses sign-in data to create reports on risky users and sign-in activities.
 - Activity related to your applications, such as service principal and app credential activity, are used to create reports in [Usage and insights](concept-usage-insights-report.md).
 - [Azure AD workbooks](overview-workbooks.md) provide a customizable way to view and analyze the activity logs. 
+- [Monitor the status of Azure AD recommendations to improve your tenant's security.](overview-recommendations.md)
 
 ## Identity monitoring and tenant health
 
@@ -78,7 +79,8 @@ Monitoring Azure AD activity logs requires routing the log data to a monitoring 
 
 - [Stream logs to an event hub to integrate with third-party SIEM tools.](howto-stream-logs-to-event-hub.md)
 - [Integrate logs with Azure Monitor logs.](howto-integrate-activity-logs-with-log-analytics.md)
-- [Monitor the status of Azure AD recommendations to improve your tenant's security.](overview-recommendations.md)
+- [Analyze logs with Azure Monitor logs and Log Analytics.](howto-analyze-activity-logs-log-analytics.md)
+
 
 For an overview of how to access, store, and analyze activity logs, see [How to access activity logs](howto-access-activity-logs.md).
 
