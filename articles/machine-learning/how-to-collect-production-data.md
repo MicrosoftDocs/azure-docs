@@ -145,8 +145,6 @@ def predict(input_df):
   return output_df
 ```
 
-For more examples on how to use the Python SDK for inference data logging, please see []().
-
 ### Update your dependencies
 
 Before you create your deployment with the updated scoring script, you'll create your environment with the base image `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04` and the appropriate conda dependencies, then you'll build the environment using the specification in the following YAML.
