@@ -13,7 +13,7 @@ In this article you'll learn about the latest updates for the Remote Desktop cli
 
 ## Supported client versions
 
-The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Windows Insider releases](users/client-features-windows.md#enable-insider-releases).
+The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Insider releases](users/client-features-windows.md#enable-insider-releases).
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
