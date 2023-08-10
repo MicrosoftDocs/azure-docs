@@ -69,7 +69,7 @@ This article uses a GitHub template repository to make it easy for you to get st
 
 1. Select **Create repository**.
 
-    :::image type="content" source="./media/getting-started/create-template.png" alt-text="Create repository":::
+    :::image type="content" source="./media/getting-started/create-template.png" alt-text="screenshot of the Create repository button.":::
 
 ## Create the ARM Template
 
