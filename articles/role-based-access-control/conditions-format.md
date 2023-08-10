@@ -272,14 +272,14 @@ The following table lists the supported environment attributes for conditions.
 
 | Display name | Description | Attribute | Type |
 | --- | --- | --- | --- |
+| [Is private link](../storage/blobs/storage-auth-abac-attributes.md#is-private-link)<sup>1</sup> | Use this attribute in conditions to require access over any private link. | `isPrivateLink` | [Boolean](#boolean-comparison-operators) |
+| [Private endpoint](../storage/blobs/storage-auth-abac-attributes.md#private-endpoint)<sup>1,2</sup> | Use this attribute in conditions to restrict access over a specific private endpoint. | `Microsoft.Network/privateEndpoints` | [String](#string-comparison-operators) |
 | [Subnet](../storage/blobs/storage-auth-abac-attributes.md#subnet)<sup>1,3</sup> | Use this attribute in conditions to restrict access from a specific subnet. | `Microsoft.Network/virtualNetworks/subnets` | [String](#string-comparison-operators) |
-| [Private endpoint](../storage/blobs/storage-auth-abac-attributes.md#private-endpoint)<sup>2,3</sup> | Use this attribute in conditions to restrict access over a specific private endpoint. | `Microsoft.Network/privateEndpoints` | [String](#string-comparison-operators) |
-| [Is private link](../storage/blobs/storage-auth-abac-attributes.md#is-private-link)<sup>3</sup> | Use this attribute in conditions to require access over any private link. | `isPrivateLink` | [Boolean](#boolean-comparison-operators) |
 | UTC now | Use this attribute in conditions to restrict access to objects during specific time periods. | `UtcNow` | [DateTime](#datetime-comparison-operators) |
 
-<sup>1</sup> You can only use the `Subnet` attribute if you currently have at least one virtual network subnet configured in your subscription.<br />
+<sup>1</sup> For copy operations, the `Is private link`, `Private endpoint`, and `Subnet` attributes only apply to the destination, such a storage account, not the source. For more information about the copy operations this applies to, select each attribute in the table to see more details.<br />
 <sup>2</sup> You can only use the `Private endpoint` attribute if you currently have at least one private endpoint configured in your subscription.<br />
-<sup>3</sup> For copy operations, the `Is private link`, `Private endpoint`, and `Subnet` attributes only apply to the destination, such a storage account, not the source. For more information about the copy operations affected, see the details for each attribute.<br />
+<sup>3</sup> You can only use the `Subnet` attribute if you currently have at least one virtual network subnet configured in your subscription.<br />
 
 #### Principal attributes
 
