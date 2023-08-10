@@ -25,7 +25,7 @@ ms.custom: devx-track-js, ignite-2022
 | Samples | [Node.js code samples](samples-nodejs.md)
 | Getting started tutorial | [Get started with the JavaScript SDK](sql-api-nodejs-get-started.md)
 | Web app tutorial | [Build a Node.js web application using Azure Cosmos DB](tutorial-nodejs-web-app.md)
-| Current supported Node.js platforms | [LTS versions of Node.js](https://nodejs.org/about/releases/)
+| Current supported Node.js platforms | [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
 
 ## Release notes
 
