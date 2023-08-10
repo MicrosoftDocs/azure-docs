@@ -36,7 +36,7 @@ Using group writeback, you can now sync Microsoft 365 groups that are part of ac
 
 1. Set the group to be written back to on-premises Active Directory. For instructions, see [Group writeback in the Azure Active Directory admin center](../enterprise-users/groups-write-back-portal.md). 
 
-1. Add the group to an access package as a resource role. See [Create a new access package](entitlement-management-access-package-create.md#resource-roles) for guidance. 
+1. Add the group to an access package as a resource role. See [Create a new access package](entitlement-management-access-package-create.md#select-resource-roles) for guidance. 
 
 1. Assign the user to the access package. See [View, add, and remove assignments for an access package](entitlement-management-access-package-assignments.md#directly-assign-a-user) for instructions to directly assign a user. 
 

@@ -68,5 +68,5 @@ The following example bins the date **January 8, 2021** at **18:35 UTC** by vari
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`DateTimeAdd`](datetimeadd.md)

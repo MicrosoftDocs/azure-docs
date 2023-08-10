@@ -1,11 +1,11 @@
 ---
 title: What is Global Secure Access (preview)?
-description: Learn how Global Secure Access (preview) provides control and visibility to users and devices both inside and outside of a traditional office.
+description: Learn how Microsoft's Security Service Edge solution, Global Secure Access (preview), provides network access control and visibility to users and devices inside and outside a traditional office.
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: overview
-ms.date: 06/23/2023
+ms.date: 07/27/2023
 ms.service: network-access
 ms.custom: references_regions
 ---
@@ -17,6 +17,8 @@ The way people work has changed. Instead of working in traditional offices, peop
 Microsoft Entra Internet Access and Microsoft Entra Private Access comprise Microsoft's Security Service Edge solution. Global Secure Access (preview) is the unifying term used for both Microsoft Entra Internet Access and Microsoft Entra Private Access. Global Secure Access is the unified location in the Microsoft Entra admin center and is built upon the core principles of Zero Trust to use least privilege, verify explicitly, and assume breach.
 
 ![Diagram of the Global Secure Access solution, illustrating how identities and remote networks can connect to Microsoft 365, private, and public resources through the service.](media/overview-what-is-global-secure-access/global-secure-access-diagram.png)
+
+## Global Secure Access is Microsoft's Security Service Edge solution
 
 Microsoft Entra Internet Access and Microsoft Entra Private Access - coupled with Microsoft Defender for Cloud Apps, our SaaS-security focused Cloud Access Security Broker (CASB) - are uniquely built as a solution that converges network, identity, and endpoint access controls so you can secure access to any app or resource, from anywhere. With the addition of these Global Secure Access products, Microsoft Entra simplifies access policy management and enables access orchestration for employees, business partners, and digital workloads. You can continuously monitor and adjust user access in real time if permissions or risk level changes.
 

@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom:
 ms.topic: conceptual
-ms.date: 04/06/2023
+ms.date: 08/08/2023
 ---
 
 # Change data capture resource overview
@@ -39,6 +39,7 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 * Parquet
 * SQL Server
 * XML
+* Snowflake
 
 ## Supported targets
 

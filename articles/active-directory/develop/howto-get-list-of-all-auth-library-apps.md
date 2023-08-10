@@ -34,9 +34,11 @@ No sign-in event that occurred *before* you configure Azure AD to send the event
 
 ## Step 2: Access sign-ins workbook in Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Once you've integrated your Azure AD sign-in and audit logs with Azure Monitor as specified in the Azure Monitor integration, access the sign-ins workbook:
 
-   1. Sign into the Azure portal.
+   1. Sign in to the [Azure portal](https://portal.azure.com).
    1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks**.
    1. In the **Usage** section, open the **Sign-ins** workbook.
 

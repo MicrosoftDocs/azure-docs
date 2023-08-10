@@ -20,6 +20,8 @@ When a workflow is created, it's important to check its status, and run history 
 
 ## Run workflow history using the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You're able to retrieve run information of a workflow using Lifecycle Workflows. To check the runs of a workflow using the Azure portal, you would do the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

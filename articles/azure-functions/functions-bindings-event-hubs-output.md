@@ -86,48 +86,6 @@ The following example shows a [C# function](dotnet-isolated-process-guide.md) th
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="12-23":::
 
-# [C# Script](#tab/csharp-script)
-
-The following example shows an event hub trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes a message to an event hub.
-
-The following examples show Event Hubs binding data in the *function.json* file for Functions runtime version 2.x and later versions. 
-
-```json
-{
-    "type": "eventHub",
-    "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
-    "connection": "MyEventHubSendAppSetting",
-    "direction": "out"
-}
-```
-
-Here's C# script code that creates one message:
-
-```cs
-using System;
-using Microsoft.Extensions.Logging;
-
-public static void Run(TimerInfo myTimer, out string outputEventHubMessage, ILogger log)
-{
-    String msg = $"TimerTriggerCSharp1 executed at: {DateTime.Now}";
-    log.LogInformation(msg);   
-    outputEventHubMessage = msg;
-}
-```
-
-Here's C# script code that creates multiple messages:
-
-```cs
-public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, ILogger log)
-{
-    string message = $"Message created at: {DateTime.Now}";
-    log.LogInformation(message);
-    outputEventHubMessage.Add("1 " + message);
-    outputEventHubMessage.Add("2 " + message);
-}
-```
-
 ---
 
 ::: zone-end 
@@ -268,7 +226,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to configure the binding. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to configure the binding. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#event-hubs-output).
 
 # [In-process](#tab/in-process)
 
@@ -287,18 +245,6 @@ Use the [EventHubOutputAttribute] to define an output binding to an event hub, w
 |---------|----------------------|
 |**EventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
 |**Connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](#connections).|
-
-# [C# Script](#tab/csharp-script)
-
-The following table explains the binding configuration properties that you set in the *function.json* file.
-
-|function.json property | Description|
-|---------|------------------------|
-|**type** |  Must be set to `eventHub`. |
-|**direction** | Must be set to `out`. This parameter is set automatically when you create the binding in the Azure portal. |
-|**name** |  The variable name used in function code that represents the event. |
-|**eventHubName** | Functions 2.x and higher. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. In Functions 1.x, this property is named `path`.|
-|**connection**  | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](#connections).|
 
 ---
 
@@ -404,32 +350,7 @@ Send messages by using a method parameter such as `out string paramName`. To wri
 
 # [Extension v3.x+](#tab/extensionv3/isolated-process)
 
-Requires you to define a custom type, or use a string.
-
-# [Extension v5.x+](#tab/extensionv5/csharp-script)
-
-C# script functions support the following types:
-
-+ [Azure.Messaging.EventHubs.EventData](/dotnet/api/azure.messaging.eventhubs.eventdata)
-+ String
-+ Byte array
-+ Plain-old CLR object (POCO)
-
-This version of [EventData](/dotnet/api/azure.messaging.eventhubs.eventdata) drops support for the legacy `Body` type in favor of [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody).
-
-Send messages by using a method parameter such as `out string paramName`, where `paramName` is the value specified in the `name` property of *function.json*. To write multiple messages, you can use `ICollector<string>` or `IAsyncCollector<string>` in place of `out string`.
-
-# [Extension v3.x+](#tab/extensionv3/csharp-script)
-
-C# script functions support the following types:
-
-+ [Microsoft.Azure.EventHubs.EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata)
-+ String
-+ Byte array
-+ Plain-old CLR object (POCO)
-
-Send messages by using a method parameter such as `out string paramName`, where `paramName` is the value specified in the `name` property of *function.json*. To write multiple messages, you can use `ICollector<string>` or
-`IAsyncCollector<string>` in place of `out string`.
+Requires you to define a custom type, or use a string. Additional options are available in **Extension v5.x+**.
 
 ---
 

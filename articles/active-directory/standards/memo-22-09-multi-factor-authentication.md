@@ -60,8 +60,8 @@ Learn more: [Authentication methods in Azure AD - Microsoft Authenticator app](.
 
 Learn more:
 
-* [Plan your hybrid Azure AD join implementation](../devices/hybrid-azuread-join-plan.md), or 
-* [How to: Plan your Azure AD join implementation](../devices/azureadjoin-plan.md)
+* [Plan your hybrid Azure AD join implementation](../devices/hybrid-join-plan.md), or 
+* [How to: Plan your Azure AD join implementation](../devices/device-join-plan.md)
 * See also, [Common Conditional Access policy: Require a compliant device, hybrid Azure AD joined device, or multifactor authentication for all users](../conditional-access/howto-conditional-access-policy-compliant-device.md)
 
 >[!NOTE]

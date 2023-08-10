@@ -30,8 +30,6 @@ Before proceeding with this how-to guide, it's recommended that you:
    * You can delete system node pools, provided you have another system node pool to take its place in the Nexus Kubernetes cluster.
    * System pools must contain at least one node.
    * You can't change the VM size of a node pool after you create it.
-   * System node pools require a VM SKU of at least 2 vCPUs and 4-GB memory. 
-   * A minimum of two nodes 4 vCPUs is recommended (for example, NC_G4_v1), especially for large clusters.
    * Each Nexus Kubernetes cluster requires at least one system node pool.
 
 ## System pool

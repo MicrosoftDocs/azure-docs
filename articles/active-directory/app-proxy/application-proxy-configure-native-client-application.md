@@ -32,6 +32,8 @@ Publish your proxy application as you would any other application and assign use
 
 ## Step 2: Register your native application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You now need to register your application in Azure AD, as follows:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

@@ -36,7 +36,7 @@ For more clarification about Defender for Storage (classic), see the [commonly a
 |Release state:|General availability (GA)|
 |Pricing:|**Microsoft Defender for Storage (classic)** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
 |Protected storage types:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)  (Standard/Premium StorageV2, Block Blobs) <br>[Azure Files](../storage/files/storage-files-introduction.md) (over REST API and SMB)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (Standard/Premium accounts with hierarchical namespaces enabled)|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts|
 
 ## What are the benefits of Microsoft Defender for Storage (classic)?
 

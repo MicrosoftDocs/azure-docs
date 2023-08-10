@@ -199,34 +199,40 @@ The [Cluster aggregates] sample uses an aggregate expression. The code calculate
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [DataSource class](/javascript/api/azure-maps-control/atlas.source.datasource)
+> [DataSource class]
 
 > [!div class="nextstepaction"]
-> [DataSourceOptions object](/javascript/api/azure-maps-control/atlas.datasourceoptions)
+> [DataSourceOptions object]
 
 > [!div class="nextstepaction"]
-> [atlas.math namespace](/javascript/api/azure-maps-control/atlas.math)
+> [atlas.math namespace]
 
 See code examples to add functionality to your app:
 
 > [!div class="nextstepaction"]
-> [Add a bubble layer](map-add-bubble-layer.md)
+> [Add a bubble layer]
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer](map-add-pin.md)
+> [Add a symbol layer]
 
 > [!div class="nextstepaction"]
-> [Add a heat map layer](map-add-heat-map-layer.md)
+> [Add a heat map layer]
 
+[Add a bubble layer]: map-add-bubble-layer.md
+[Add a heat map layer]: map-add-heat-map-layer.md
+[Add a symbol layer]: map-add-pin.md
 [aggregate expression]: data-driven-style-expressions-web-sdk.md#aggregate-expression
+[atlas.math namespace]: /javascript/api/azure-maps-control/atlas.math
 [Azure Maps Samples]: https://samples.azuremaps.com
-[Point Clusters in Bubble Layer]: https://samples.azuremaps.com/bubble-layer/point-clusters-in-bubble-layer
-[Point Clusters in Bubble Layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Bubble%20Layer/Point%20Clusters%20in%20Bubble%20Layer/Point%20Clusters%20in%20Bubble%20Layer.html
-[Display clusters with a Symbol Layer]: https://samples.azuremaps.com/symbol-layer/display-clusters-with-a-symbol-layer
-[Display clusters with a Symbol Layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Symbol%20Layer/Display%20clusters%20with%20a%20Symbol%20layer/Display%20clusters%20with%20a%20Symbol%20layer.html
-[Cluster weighted Heat Map]: https://samples.azuremaps.com/heat-map-layer/cluster-weighted-heat-map
-[Cluster weighted Heat Map source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Heat%20Map%20Layer/Cluster%20weighted%20Heat%20Map/Cluster%20weighted%20Heat%20Map.html
-[Display cluster area with Convex Hull]: https://samples.azuremaps.com/spatial-math/display-cluster-area-with-convex-hull
-[Display cluster area with Convex Hull source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20Math/Display%20cluster%20area%20with%20Convex%20Hull/Display%20cluster%20area%20with%20Convex%20Hull.html
-[Cluster aggregates]: https://samples.azuremaps.com/bubble-layer/cluster-aggregates
 [Cluster aggregates source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Bubble%20Layer/Cluster%20aggregates/Cluster%20aggregates.html
+[Cluster aggregates]: https://samples.azuremaps.com/bubble-layer/cluster-aggregates
+[Cluster weighted Heat Map source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Heat%20Map%20Layer/Cluster%20weighted%20Heat%20Map/Cluster%20weighted%20Heat%20Map.html
+[Cluster weighted Heat Map]: https://samples.azuremaps.com/heat-map-layer/cluster-weighted-heat-map
+[DataSource class]: /javascript/api/azure-maps-control/atlas.source.datasource
+[DataSourceOptions object]: /javascript/api/azure-maps-control/atlas.datasourceoptions
+[Display cluster area with Convex Hull source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Spatial%20Math/Display%20cluster%20area%20with%20Convex%20Hull/Display%20cluster%20area%20with%20Convex%20Hull.html
+[Display cluster area with Convex Hull]: https://samples.azuremaps.com/spatial-math/display-cluster-area-with-convex-hull
+[Display clusters with a Symbol Layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Symbol%20Layer/Display%20clusters%20with%20a%20Symbol%20layer/Display%20clusters%20with%20a%20Symbol%20layer.html
+[Display clusters with a Symbol Layer]: https://samples.azuremaps.com/symbol-layer/display-clusters-with-a-symbol-layer
+[Point Clusters in Bubble Layer source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Bubble%20Layer/Point%20Clusters%20in%20Bubble%20Layer/Point%20Clusters%20in%20Bubble%20Layer.html
+[Point Clusters in Bubble Layer]: https://samples.azuremaps.com/bubble-layer/point-clusters-in-bubble-layer

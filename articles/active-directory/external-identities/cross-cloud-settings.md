@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 When Azure AD organizations in separate Microsoft Azure clouds need to collaborate, they can use Microsoft cloud settings to enable Azure AD B2B collaboration. B2B collaboration is available between the following global and sovereign Microsoft Azure clouds:
 
 - Microsoft Azure commercial cloud and Microsoft Azure Government
-- Microsoft Azure commercial cloud and Microsoft Azure China 21Vianet
+- Microsoft Azure commercial cloud and Microsoft Azure operated by 21Vianet
 
 To set up B2B collaboration between partner organizations in different Microsoft Azure clouds, each partner mutually agrees to configure B2B collaboration with each other. In each organization, an admin completes the following steps:
 
@@ -44,6 +44,8 @@ After each organization has completed these steps, Azure AD B2B collaboration be
 > Users from another Microsoft cloud must be invited using their user principal name (UPN). [Email as sign-in](../authentication/howto-authentication-use-email-signin.md#b2b-guest-user-sign-in-with-an-email-address) is not currently supported when collaborating with users from another Microsoft cloud.
 
 ## Enable the cloud in your Microsoft cloud settings
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 In your Microsoft cloud settings, enable the Microsoft Azure cloud you want to collaborate with.
 
@@ -81,7 +83,7 @@ Follow these steps to add the tenant you want to collaborate with to your Organi
 
 ## Sign-in endpoints
 
-After enabling collaboration with an organization from a different Microsoft cloud, cross-cloud Azure AD guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using their Azure AD credentials.
+After enabling collaboration with an organization from a different Microsoft cloud, cross-cloud Azure AD guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-process-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using their Azure AD credentials.
 
 Cross-cloud Azure AD guest users can also use application endpoints that include your tenant information, for example:
 

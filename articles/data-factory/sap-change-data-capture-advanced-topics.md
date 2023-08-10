@@ -42,7 +42,7 @@ When **Source type** is **Inline**, the following properties can be parametrized
     - **ODP_SELF** and **RANDOM** are ODP contexts used for technical validation and testing, and are typically not relevant.
 - **ODP name**: provide the ODP name you want to extract data from.
 - **Run mode**: valid parameter values are
-    - **fullAndIncrementalLoad** for **Full on the first run, then incremental**, which initiates a change data capture process and extracts a current full data snapshot
+    - **fullAndIncrementalLoad** for **Full on the first run, then incremental**, which initiates a change data capture process and extracts a current full data snapshot.
     - **fullLoad** for **Full on every run**, which extracts a current full data snapshot without initiating a change data capture process.
     - **incrementalLoad** for **Incremental changes only**, which initiates a change data capture process without extracting a current full snapshot.
 - **Key columns**: key columns are provided as an array of (double-quoted) strings. For example, when working with SAP table **VBAP** (sales order items), the key definition would have to be \["VBELN", "POSNR"\] (or \["MANDT","VBELN","POSNR"\] in case the client field is taken into account as well). 
@@ -50,10 +50,10 @@ When **Source type** is **Inline**, the following properties can be parametrized
 ### Parametrizing the filter conditions for source partitioning
 
 In the **Optimize** tab, a source partitioning scheme (see [optimizing performance for full or initial loads](connector-sap-change-data-capture.md#optimizing-performance-of-full-or-initial-loads-with-source-partitioning)) can be defined via parameters. Typically, two steps are required:
-1. Define a parameter for the source partitioning scheme on pipeline level.
+1. Define the source partitioning scheme.
 2. Ingest the partitioning parameter into the mapping data flow.
 
-#### JSON format of a partitioning scheme
+#### Define a source partitioning scheme
 
 The format in step 1 follows the JSON standard, consisting of an array of partition definitions, each of which itself is an array of individual filter conditions. These conditions themselves are JSON objects with a structure aligned with so-called **selection options** in SAP. In fact, the format required by the SAP ODP framework is basically the same as dynamic DTP filters in SAP BW:
 
@@ -93,7 +93,7 @@ where the first partition contains fiscal years (GJAHR) 2011 through 2015, and t
 >[!NOTE]
    > Azure Data Factory doesn't perform any checks on these conditions. For example, it is in the user's responsibility to ensure that partition conditions don't overlap.
 
-Partition conditions can be more complex, consisting of multiple elementary filter conditions themselves. There are no logical conjunctions that explicitly define how to combine multiple elementary conditions within one partition. The implicit definition in SAP is as follows (only for **including** selections, that is, "sign": "I" - for **excluding**):
+Partition conditions can be more complex, consisting of multiple elementary filter conditions themselves. There are no logical conjunctions that explicitly define how to combine multiple elementary conditions within one partition. The implicit definition in SAP is as follows:
 1. **including** conditions ("sign": "I") for the same field name are combined with **OR** (mentally, put brackets around the resulting condition)
 2. **excluding** conditions ("sign": "E") for the same field name are combined with **OR** (again, mentally, put brackets around the resulting condition)
 3. the resulting conditions of steps 1 and 2 are
@@ -105,11 +105,13 @@ As an example, the partition condition
 ```json
     [
         { "fieldName": "BUKRS", "sign": "I", "option": "EQ", "low": "1000" },
-        { "fieldName": "GJAHR", "sign": "I", "option": "BT", "low": "2020", "high": "2025" },
-        { "fieldName": "GJAHR", "sign": "E", "option": "EQ", "low": "2023" }
+        { "fieldName": "BUKRS", "sign": "I", "option": "EQ", "low": "1010" },
+        { "fieldName": "GJAHR", "sign": "I", "option": "BT", "low": "2010", "high": "2025" },
+        { "fieldName": "GJAHR", "sign": "E", "option": "EQ", "low": "2023" },
+        { "fieldName": "GJAHR", "sign": "E", "option": "EQ", "low": "2021" }
     ]
 ```
-corresponds to a SQL WHERE clause ... **WHERE ("BUKRS" = '1000') AND ("GJAHR" BETWEEN '2020' AND '2025') AND NOT ("GJAHR" = '2023')**
+corresponds to a SQL WHERE clause ... **WHERE ("BUKRS" = '1000' OR "BUKRS" = '1010') AND ("GJAHR" BETWEEN '2010' AND '2025') AND NOT ("GJAHR" = '2021' or "GJARH" = '2023')**
 
 >[!NOTE]
    > Make sure to use the SAP internal format for the low and high values, include leading zeroes, and express calendar dates as an eight character string with the format \"YYYYMMDD\".

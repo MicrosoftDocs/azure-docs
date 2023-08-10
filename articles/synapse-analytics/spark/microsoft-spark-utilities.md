@@ -948,16 +948,19 @@ putSecretWithLS(linkedService, secretName, secretValue): puts AKV secret for a g
 
 Returns Azure AD token for a given audience, name (optional). The table below list all the available audience types:
 
-|Audience Type|Audience key|
-|--|--|
-|Audience Resolve Type|'Audience'|
-|Storage Audience Resource|'Storage'|
-|Dedicated SQL pools (Data warehouse)|'DW'|
-|Data Lake Audience Resource|'AzureManagement'|
-|Vault Audience Resource|'DataLakeStore'|
-|Azure OSSDB Audience Resource|'AzureOSSDB'|
-|Azure Synapse Resource|'Synapse'|
-|Azure Data Factory Resource|'ADF'|
+| Audience Type                                         | String literal to be used in API call |
+|-------------------------------------------------------|---------------------------------------|
+| Azure Storage                                         | `Storage`                             |
+| Azure Key Vault                                       | `Vault`                               |
+| Azure Management                                      | `AzureManagement`                     |
+| Azure SQL Data Warehouse (Dedicated and Serverless)   | `DW`                                  |
+| Azure Synapse                                         | `Synapse`                             |
+| Azure Data Lake Store                                 | `DataLakeStore`                       |
+| Azure Data Factory                                    | `ADF`                                 |
+| Azure Data Explorer                                   | `AzureDataExplorer`                   |
+| Azure Database for MySQL                              | `AzureOSSDB`                          |
+| Azure Database for MariaDB                            | `AzureOSSDB`                          |
+| Azure Database for PostgreSQL                         | `AzureOSSDB`                          |
 
 :::zone pivot = "programming-language-python"
 

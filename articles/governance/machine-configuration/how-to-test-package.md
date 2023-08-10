@@ -20,7 +20,7 @@ Before you can begin testing, you need to [set up your authoring environment][01
 > Available (GA) support status. However, the following limitations apply:
 >
 > To use machine configuration packages that apply configurations, Azure VM guest configuration
-> extension version 1.29.24 or later, or Arc agent 1.10.0 or later, is required.
+> extension version 1.26.24 or later, or Arc agent 1.10.0 or later, is required.
 >
 > The **GuestConfiguration** module is only available on Ubuntu 18. However, the package and
 > policies produced by the module can be used on any Linux distro/version supported in Azure or

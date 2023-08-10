@@ -43,6 +43,8 @@ The following roles have the required permissions:
 
 ## How it works
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To access authentication method usage and insights:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

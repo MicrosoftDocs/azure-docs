@@ -64,6 +64,8 @@ To improve the tutorial experience, you can learn industry-standard terminology 
 
 ## Add F5 BIG-IP from the Azure AD gallery
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Set up a SAML federation trust between the BIG-IP to allow the Azure AD BIG-IP to hand off the pre-authentication and [Conditional Access](../conditional-access/overview.md) to Azure AD, before it grants access to the published VPN service.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with application admin rights.
@@ -321,7 +323,7 @@ Your SSL-VPN service is published and accessible via SHA, either with its URL or
     ![Screenshot of the Contoso Network Portal page with network access indicator.](media/f5-passwordless-vpn/vpn-launcher.png)
 
 >[!NOTE]
->Select the VPN tile to install the BIG-IP Edge client and establish a VPN connection configured for SHA. The F5 VPN application is visible as a target resource in Azure AD Conditional Access. See [conditional access policies](../conditional-access/concept-conditional-access-policies.md) to enable users for Azure AD [password-less authentication](https://www.microsoft.com/security/business/identity/passwordless).
+>Select the VPN tile to install the BIG-IP Edge client and establish a VPN connection configured for SHA. The F5 VPN application is visible as a target resource in Azure AD Conditional Access. See [Conditional Access policies](../conditional-access/concept-conditional-access-policies.md) to enable users for Azure AD [password-less authentication](https://www.microsoft.com/security/business/identity/passwordless).
 
 
 ## Resources

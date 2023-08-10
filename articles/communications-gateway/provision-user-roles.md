@@ -15,7 +15,7 @@ This article will guide you through how to configure the permissions required fo
 - Deploy Azure Communications Gateway through the portal
 - Raise customer support requests (support tickets)
 - Monitor Azure Communications Gateway
-- Use the API Bridge Number Management Portal for provisioning
+- Use the Number Management Portal for provisioning
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Your staff might need different user roles, depending on the tasks they need to 
 | Deploying Azure Communications Gateway |**Contributor** access to your subscription|
 | Raising support requests |**Owner**, **Contributor** or **Support Request Contributor** access to your subscription or a custom role with `Microsoft.Support/*` access at the subscription level|
 |Monitoring logs and metrics | **Reader** access to your subscription|
-|Using the API Bridge Number Management Portal|**NumberManagement.Read**, **NumberManagement.Write**, **PartnerSettings.Read**, and **PartnerSettings.Write** permissions for the Project Synergy enterprise application and **Reader** permissions to the Azure portal for your subscription|
+|Using the Number Management Portal| [!INCLUDE [project-synergy-nmp-permissions](includes/communications-gateway-nmp-project-synergy-permissions.md)] permissions for the Project Synergy enterprise application and **Reader** permissions to the Azure portal for your subscription|
 
 ## 2. Configure user roles
 
@@ -44,12 +44,12 @@ You need to use the Azure portal to configure user roles.
     - Know who needs access.
     - Know the appropriate user role or roles to assign them.
     - Are signed in with a user that is assigned a role that has role assignments write permission, such as **Owner** or **User Access Administrator** for the subscription.
-1. If you're managing access to the API Bridge Number Management Portal, ensure that you're signed in with a user that can change permissions for enterprise applications. For example, you could be a Global Administrator, Cloud Application Administrator or Application Administrator. For more information, see [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
+1. If you're managing access to the Number Management Portal, ensure that you're signed in with a user that can change permissions for enterprise applications. For example, you could be a Global Administrator, Cloud Application Administrator or Application Administrator. For more information, see [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
 
 ### 2.2 Assign a user role
 
 1. Follow the steps in [Assign a user role using the Azure portal](../role-based-access-control/role-assignments-portal.md) to assign the permissions you determined in [1. Understand the user roles required for Azure Communications Gateway](#1-understand-the-user-roles-required-for-azure-communications-gateway).
-1. If you're managing access to the API Bridge Number Management Portal, follow [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md) to assign **NumberManagement.Read**, **NumberManagement.Write**, **PartnerSettings.Read**, and **PartnerSettings.Write** permissions for each user in the Project Synergy application.
+1. If you're managing access to the Number Management Portal, follow [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md) to assign [!INCLUDE [project-synergy-nmp-permissions](includes/communications-gateway-nmp-project-synergy-permissions.md)] permissions for each user in the Project Synergy application.
 
 ## Next steps
 

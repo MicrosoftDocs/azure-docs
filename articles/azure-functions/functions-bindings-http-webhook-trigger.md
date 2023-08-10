@@ -96,86 +96,6 @@ public IActionResult Run(
 
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
 
-# [C# Script](#tab/csharp-script)
-
-The following example shows a trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
-
-Here's the *function.json* file:
-
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            "authLevel": "function",
-            "name": "req",
-            "type": "httpTrigger",
-            "direction": "in",
-            "methods": [
-                "get",
-                "post"
-            ]
-        },
-        {
-            "name": "$return",
-            "type": "http",
-            "direction": "out"
-        }
-    ]
-}
-```
-
-The [configuration](#configuration) section explains these properties.
-
-Here's C# script code that binds to `HttpRequest`:
-
-```cs
-#r "Newtonsoft.Json"
-
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
-using Newtonsoft.Json;
-
-public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
-{
-    log.LogInformation("C# HTTP trigger function processed a request.");
-
-    string name = req.Query["name"];
-    
-    string requestBody = String.Empty;
-    using (StreamReader streamReader =  new  StreamReader(req.Body))
-    {
-        requestBody = await streamReader.ReadToEndAsync();
-    }
-    dynamic data = JsonConvert.DeserializeObject(requestBody);
-    name = name ?? data?.name;
-    
-    return name != null
-        ? (ActionResult)new OkObjectResult($"Hello, {name}")
-        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
-}
-```
-
-You can bind to a custom object instead of `HttpRequest`. This object is created from the body of the request and parsed as JSON. Similarly, a type can be passed to the HTTP response output binding and returned as the response body, along with a `200` status code.
-
-```csharp
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-
-public static string Run(Person person, ILogger log)
-{   
-    return person.Name != null
-        ? (ActionResult)new OkObjectResult($"Hello, {person.Name}")
-        : new BadRequestObjectResult("Please pass an instance of Person.");
-}
-
-public class Person {
-     public string Name {get; set;}
-}
-```
-
 ---
 
 ::: zone-end
@@ -553,7 +473,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `HttpTriggerAttribute` to define the trigger binding. C# script instead uses a function.json configuration file.  
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `HttpTriggerAttribute` to define the trigger binding. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#http-trigger).
 
 # [In-process](#tab/in-process)
 
@@ -575,20 +495,6 @@ In [isolated worker process](dotnet-isolated-process-guide.md) function apps, th
 |  **AuthLevel** | Determines what keys, if any, need to be present on the request in order to invoke the function. For supported values, see [Authorization level](#http-auth).  |
 | **Methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](#customize-the-http-endpoint). |
 | **Route** | Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
-
-# [C# Script](#tab/csharp-script)
-
-The following table explains the trigger configuration properties that you set in the *function.json* file:
-
-|function.json property | Description|
-|---------|---------------------|
-| **type** | Required - must be set to `httpTrigger`. |
-| **direction** | Required - must be set to `in`. |
-| **name** | Required - the variable name used in function code for the request or request body. |
-| **authLevel** |  Determines what keys, if any, need to be present on the request in order to invoke the function. For supported values, see [Authorization level](#http-auth).  |
-| **methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](#customize-the-http-endpoint). |
-| **route** |  Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
-| **webHookType** | _Supported only for the version 1.x runtime._<br/><br/>Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. For supported values, see [WebHook type](#webhook-type).|
 
 ---
 
@@ -732,24 +638,6 @@ FunctionContext executionContext)
     response.WriteString(message);
 
     return response;
-}
-```
-
-# [C# Script](#tab/csharp-script)
-
- The following C# function code makes use of both parameters.
-
-```csharp
-#r "Newtonsoft.Json"
-
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
-
-public static IActionResult Run(HttpRequest req, string category, int? id, ILogger log)
-{
-    var message = String.Format($"Category: {category}, ID: {id}");
-    return (ActionResult)new OkObjectResult(message);
 }
 ```
 
@@ -1006,38 +894,6 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 # [Isolated process](#tab/isolated-process)
 
 The authenticated user is available via [HTTP Headers](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
-
-# [C# Script](#tab/csharp-script)
-
-```csharp
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-
-public static IActionResult Run(HttpRequest req, ILogger log)
-{
-    ClaimsPrincipal identities = req.HttpContext.User;
-    // ...
-    return new OkObjectResult();
-}
-```
-
-Alternatively, the ClaimsPrincipal can simply be included as an additional parameter in the function signature:
-
-```csharp
-#r "Newtonsoft.Json"
-
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-using Newtonsoft.Json.Linq;
-
-public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
-{
-    // ...
-    return;
-}
-```
 
 ---
 

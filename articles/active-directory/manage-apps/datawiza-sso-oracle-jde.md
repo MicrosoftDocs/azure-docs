@@ -149,6 +149,8 @@ The Oracle JDE application needs to recognize the user: using a name, the applic
 
 ## Enable Azure AD Multi-Factor Authentication 
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To provide more security for sign-ins, you can enforce MFA for user sign-in. 
 
 See,  [Tutorial: Secure user sign-in events with Azure AD MFA](../authentication/tutorial-enable-azure-mfa.md).

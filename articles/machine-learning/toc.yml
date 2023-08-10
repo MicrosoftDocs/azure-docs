@@ -5,6 +5,8 @@
     - name: What is Azure Machine Learning?
       displayName: AML, services, overview, introduction
       href: overview-what-is-azure-machine-learning.md
+    - name: Azure Machine Learning CLI and Python SDK
+      href: concept-v2.md
     # v1
     - name: Azure Machine Learning SDK & CLI v1
       href: ./v1/introduction.md
@@ -30,10 +32,12 @@
     - name: Install and setup the CLI(v2)
       href: how-to-configure-cli.md
     # v1
-    - name: Install and set up the CLI (v1)
+    - name: Install and set up the CLI(v1)
       displayName: azurecli, mlops
       href: ./v1/reference-azure-machine-learning-cli.md
     # end v1
+    - name: Install and setup the SDK(v2)
+      href: https://aka.ms/sdk-v2-install
     - name: Set up VS Code extension
       displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
       href: how-to-setup-vs-code.md
@@ -84,13 +88,13 @@
           href: tutorial-train-deploy-image-classification-model-vscode.md
     - name: Develop and operationalize features
       items:
-        - name: Develop and register a feature set with managed feature store (preview)
+        - name: Develop and register a feature set with managed feature store
           href: tutorial-get-started-with-feature-store.md
-        - name: Enable materialization and backfill feature data (preview)
+        - name: Enable materialization and backfill feature data
           href: tutorial-enable-materialization-backfill-data.md
-        - name: Experiment and train models using features (preview)
+        - name: Experiment and train models using features
           href: tutorial-experiment-train-models-using-features.md
-        - name: Enable recurrent materialization and run batch inference (preview)
+        - name: Enable recurrent materialization and run batch inference
           href: tutorial-enable-recurrent-materialization-run-batch-inference.md
     # v1
     - name: Python get started (Day 1)
@@ -114,32 +118,34 @@
 - name: Interact with Azure Machine Learning
   items:
   - name: Resources and assets
-    href: concept-azure-machine-learning-v2.md
-  - name: Workspaces
-    href: concept-workspace.md
-  - name: Environments
-    href: concept-environments.md
-  - name: Compute instances
-    displayName: resource, dsvm, Data Science Virtual Machine
-    href: concept-compute-instance.md
-  - name: Compute targets
-    displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
-    href: concept-compute-target.md
-  - name: Manage environments in studio
     items:
-      - name: Create and manage files
-        href: how-to-manage-files.md
-      - name: Run Jupyter notebooks
-        href: how-to-run-jupyter-notebooks.md
-      - name: Use a terminal
-        href: how-to-access-terminal.md
-      - name: Manage compute sessions
-        href: how-to-manage-compute-sessions.md
+      - name: Azure Machine Learning resources
+        href: concept-azure-machine-learning-v2.md
+      - name: Workspaces
+        href: concept-workspace.md
       - name: Searching for Assets and Resources
         href: how-to-search-assets.md
-      - name: Manage environments in studio
-        displayName: environments, studio, create, edit
-        href: how-to-manage-environments-in-studio.md
+      - name: Compute
+        items:
+          - name: Compute instances
+            displayName: resource, dsvm, Data Science Virtual Machine
+            href: concept-compute-instance.md
+          - name: Compute targets
+            displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
+            href: concept-compute-target.md
+      - name: Environments
+        items:
+          - name: Introduction to environments
+            href: concept-environments.md
+          - name: Manage environments in studio
+            displayName: environments, studio, create, edit
+            href: how-to-manage-environments-in-studio.md
+          - name: Manage environments with SDK and CLI (v2)
+            displayName: environment
+            href: how-to-manage-environments-v2.md
+          - name: Create Azure Container for PyTorch
+            displayName: acpt
+            href: how-to-azure-container-for-pytorch-environment.md
   # v1
   - name: Manage environments
     items:
@@ -152,91 +158,99 @@
         displayName: pip, Conda, anaconda
         href: ./v1/how-to-use-private-python-packages.md
   # end v1
-  - name: Azure Machine Learning CLI and Python SDK
-    href: concept-v2.md
-  - name: Manage environments with SDK and CLI (v2)
-    displayName: environment
-    href: how-to-manage-environments-v2.md
-  - name: Create Azure Container for PyTorch
-    displayName: acpt
-    href: how-to-azure-container-for-pytorch-environment.md
-  - name: Launch VS Code remote
-    displayName: Visual Studio Code, VSCode, debug, bugs
-    href: how-to-launch-vs-code-remote.md
-  - name: Work in VS Code remote
-    displayName: Visual Studio Code, VSCode, debug, bugs
-    href: how-to-work-in-vs-code-remote.md
-  - name: Manage resources VS Code
-    href: how-to-manage-resources-vscode.md
-  - name: Work with MLflow
+  - name: Development environment
     items:
-      - name: MLflow and Azure Machine Learning
-        href: concept-mlflow.md
-      # v1
-      - name: MLflow
-        href: ./v1/concept-mlflow.md
-      # end v1
-      - name: MLflow models
-        displayName: tracking models, mlflow, custom, flavors
-        href: concept-mlflow-models.md
-      - name: Configure MLflow for Azure Machine Learning
-        href: how-to-use-mlflow-configure-tracking.md
-      - name: Train & track
+      - name: Notebooks
         items:
-          - name: Track experiments with MLflow
-            displayName: log, monitor, metrics, model registry, register
-            href: how-to-use-mlflow-cli-runs.md
-          - name: Track Azure Databricks runs with MLflow
-            displayName: log, monitor, deploy, metrics, databricks
-            href: how-to-use-mlflow-azure-databricks.md
-          - name: Track Azure Synapse Analytics runs with MLflow
-            displayName: log, monitor, deploy, metrics, synapse, analytics
-            href: how-to-use-mlflow-azure-synapse.md
-          - name: Train with MLflow Projects
-            displayName: log, monitor, metrics, model registry, register
-            href: how-to-train-mlflow-projects.md
-          - name: Log metrics, parameters and files
-            displayName: troubleshoot, log, files, tracing, metrics
-            href: how-to-log-view-metrics.md
-          - name: Log MLflow models
-            href: how-to-log-mlflow-models.md
-          - name: Query & compare experiments and runs with MLflowMLflow
-            href: how-to-track-experiments-mlflow.md
-      - name: Manage
-        items:
-          - name: Manage models with MLflow
-            href: how-to-manage-models-mlflow.md
-          - name: Manage experiments and runs with MLflow
-            href: how-to-track-experiments-mlflow.md
-      - name: Deploy & consume models
-        items:
-          - name: Guidelines for deploying MLflow models
-            displayName: mlflow models deployment plugin
-            href: how-to-deploy-mlflow-models.md
-          - name: Online inference
-            items:
-              - name: Deploy MLflow models to online endpoints
-                href: how-to-deploy-mlflow-models-online-endpoints.md
-              - name: Progressive rollout of MLflow models to Online Endpoints
-                href: how-to-deploy-mlflow-models-online-progressive.md
-          - name: Batch inference
-            items:
-              - name: Deploy MLflow models to Batch Endpoints
-                href: how-to-mlflow-batch.md
-              - name: Deploy and run MLflow models in Spark jobs
-                href: how-to-deploy-mlflow-model-spark-jobs.md
-  - name: Use R with Azure Machine Learning
+          - name: Create and manage files
+            href: how-to-manage-files.md
+          - name: Run Jupyter notebooks
+            href: how-to-run-jupyter-notebooks.md
+          - name: Use a terminal
+            href: how-to-access-terminal.md
+          - name: Manage compute sessions
+            href: how-to-manage-compute-sessions.md
+      - name: VS Code
+        items: 
+          - name: Launch VS Code remote
+            displayName: Visual Studio Code, VSCode, debug, bugs
+            href: how-to-launch-vs-code-remote.md
+          - name: Work in VS Code remote
+            displayName: Visual Studio Code, VSCode, debug, bugs
+            href: how-to-work-in-vs-code-remote.md
+          - name: Manage resources VS Code
+            href: how-to-manage-resources-vscode.md
+  - name: Integration with other tools
     items:
-      - name: Bring R workloads
-        href: how-to-r-overview-r-capabilities.md
-      - name: Interactive R development
-        href: how-to-r-interactive-development.md
-      - name: Adapt R scripts for production
-        href: how-to-r-modify-script-for-production.md
-      - name: Train R model
-        href: how-to-r-train-model.md
-      - name: Deploy R model
-        href: how-to-r-deploy-r-model.md
+      - name: Work with MLflow
+        items:
+          - name: MLflow and Azure Machine Learning
+            href: concept-mlflow.md
+          # v1
+          - name: MLflow
+            href: ./v1/concept-mlflow.md
+          # end v1
+          - name: MLflow models
+            displayName: tracking models, mlflow, custom, flavors
+            href: concept-mlflow-models.md
+          - name: Configure MLflow for Azure Machine Learning
+            href: how-to-use-mlflow-configure-tracking.md
+          - name: Train & track
+            items:
+              - name: Track experiments with MLflow
+                displayName: log, monitor, metrics, model registry, register
+                href: how-to-use-mlflow-cli-runs.md
+              - name: Track Azure Databricks runs with MLflow
+                displayName: log, monitor, deploy, metrics, databricks
+                href: how-to-use-mlflow-azure-databricks.md
+              - name: Track Azure Synapse Analytics runs with MLflow
+                displayName: log, monitor, deploy, metrics, synapse, analytics
+                href: how-to-use-mlflow-azure-synapse.md
+              - name: Train with MLflow Projects
+                displayName: log, monitor, metrics, model registry, register
+                href: how-to-train-mlflow-projects.md
+              - name: Log metrics, parameters and files
+                displayName: troubleshoot, log, files, tracing, metrics
+                href: how-to-log-view-metrics.md
+              - name: Log MLflow models
+                href: how-to-log-mlflow-models.md
+              - name: Query & compare experiments and runs with MLflowMLflow
+                href: how-to-track-experiments-mlflow.md
+          - name: Manage
+            items:
+              - name: Manage models with MLflow
+                href: how-to-manage-models-mlflow.md
+              - name: Manage experiments and runs with MLflow
+                href: how-to-track-experiments-mlflow.md
+          - name: Deploy & consume models
+            items:
+              - name: Guidelines for deploying MLflow models
+                displayName: mlflow models deployment plugin
+                href: how-to-deploy-mlflow-models.md
+              - name: Online inference
+                items:
+                  - name: Deploy MLflow models to online endpoints
+                    href: how-to-deploy-mlflow-models-online-endpoints.md
+                  - name: Progressive rollout of MLflow models to Online Endpoints
+                    href: how-to-deploy-mlflow-models-online-progressive.md
+              - name: Batch inference
+                items:
+                  - name: Deploy MLflow models to Batch Endpoints
+                    href: how-to-mlflow-batch.md
+                  - name: Deploy and run MLflow models in Spark jobs
+                    href: how-to-deploy-mlflow-model-spark-jobs.md
+      - name: Use R with Azure Machine Learning
+        items:
+          - name: Bring R workloads
+            href: how-to-r-overview-r-capabilities.md
+          - name: Interactive R development
+            href: how-to-r-interactive-development.md
+          - name: Adapt R scripts for production
+            href: how-to-r-modify-script-for-production.md
+          - name: Train R model
+            href: how-to-r-train-model.md
+          - name: Deploy R model
+            href: how-to-r-deploy-r-model.md
 - name: Work with data
   items:
   - name: Data concepts in Azure Machine Learning
@@ -396,6 +410,9 @@
             - name: Deep learning models
               displayName: auto ML, time series, forecasting, deep learning, TCN
               href: concept-automl-forecasting-deep-learning.md
+            - name: Forecasting at scale
+              displayName: auto ML, time series, forecasting, scalability, large data, many models, distributed training
+              href: concept-automl-forecasting-at-scale.md
             - name: Model sweeping and selection
               displayName: auto ML, time series, forecasting, model selection, sweeping
               href: concept-automl-forecasting-sweeping.md
@@ -405,13 +422,16 @@
             - name: Lag features
               displayName: auto ML, time series, lags
               href: concept-automl-forecasting-lags.md
+            - name: Inference and evaluation
+              displayName: auto ML, time series, inference, model evaluation, rolling forecast
+              href: concept-automl-forecasting-evaluation.md
         - name: Overfitting & imbalanced data
           displayName: automl, auto ml, risks
           href: concept-manage-ml-pitfalls.md
     - name: How-to
       items:
-      - name: Use automated ML (Python)
-        displayName: SDK, automl
+      - name: Use automated ML for tabular data (Python, CLI)
+        displayName: SDK, CLI, Python, automl
         href: how-to-configure-auto-train.md
       - name: Use automated ML (interface)
         href: how-to-use-automated-ml-for-ml-models.md
@@ -454,8 +474,8 @@
       # end v1
       - name: Time series forecasting
         items:
-        - name: Auto-train a forecasting model (Python)
-          displayName: forecasting, time series, auto ML, automl, SDK
+        - name: Auto-train a forecasting model (Python, CLI)
+          displayName: forecasting, time series, auto ML, automl, Python, SDK, CLI
           href: how-to-auto-train-forecast.md
         # v1
         - name: Auto-train a forecast model
@@ -496,6 +516,8 @@
     href: how-to-train-model.md
   - name: Training with UI
     href: how-to-train-with-ui.md
+  - name: CLI and Python SDK v2 expressions
+    href: concept-expressions.md
   - name: Using secrets in training 
     href: how-to-use-secrets-in-runs.md
   - name: Custom Training
@@ -791,7 +813,7 @@
           href: concept-endpoints-online.md
         - name: Deploy an ML model with an online endpoint
           href: how-to-deploy-online-endpoints.md
-        - name: Roll out models with safe deployment strategies
+        - name: Deploy models with safe rollout strategy
           href: how-to-safely-rollout-online-endpoints.md
         - name: Autoscale online endpoints
           href: how-to-autoscale-endpoints.md
@@ -1389,6 +1411,8 @@
               href: reference-automl-nlp-cli-multilabel-classification.md
             - name: Automated ML NLP NER
               href: reference-automl-nlp-cli-ner.md
+            - name: Spark
+              href: reference-yaml-job-spark.md
         - name: Datastore
           items:
             - name: Azure Blob
@@ -1427,6 +1451,8 @@
               href: reference-yaml-deployment-batch.md
         - name: Component
           items:
+            - name: Spark
+              href: reference-yaml-component-spark.md
             - name: Command
               href: reference-yaml-component-command.md
             - name: Pipeline 
@@ -1461,10 +1487,6 @@
     - name: Azure Container for PyTorch 
       href: resource-azure-container-for-pytorch.md
       displayName: acpt
-    - name: CLI (v2) Spark component YAML schema
-      href: reference-yaml-component-spark.md
-    - name: CLI (v2) Spark job YAML schema
-      href: reference-yaml-job-spark.md
     - name: Azure CLI
       href: /cli/azure/ml
     # v1

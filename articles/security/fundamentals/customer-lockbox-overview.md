@@ -28,7 +28,7 @@ The following services are generally available for Customer Lockbox:
 - Azure API Management
 - Azure App Service
 - Azure Cognitive Search
-- Azure Cognitive Services
+- Azure AI services
 - Azure Container Registry
 - Azure Data Box
 - Azure Data Explorer

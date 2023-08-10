@@ -50,6 +50,8 @@ These triggers to Logic Apps are controlled in a tab within access package polic
 
 ## Create and add a Logic App workflow to a catalog for use in entitlement management 
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 **Prerequisite roles:** Global administrator, Identity Governance administrator, Catalog owner or Resource Group Owner 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
