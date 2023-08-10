@@ -1,6 +1,6 @@
 ---
-title: Add and modify Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
-description: This article provides guidance on how to add and modify OpenTelemetry for applications using Azure Monitor.
+title: Add, modify, and filter Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
+description: This article provides guidance on how to add, modify, and filter OpenTelemetry for applications using Azure Monitor.
 ms.topic: conceptual
 ms.date: 06/22/2023
 ms.devlang: csharp, javascript, typescript, python
@@ -8,9 +8,9 @@ ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
 ---
 
-# Add and modify OpenTelemetry
+# Add, modify, and filter OpenTelemetry
 
-This article provides guidance on how to add and modify OpenTelemetry for applications using [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview).
+This article provides guidance on how to add, modify, and filter OpenTelemetry for applications using [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview).
 
 To learn more about OpenTelemetry concepts, see the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
 
@@ -1599,11 +1599,11 @@ logger.warning("WARNING: Warning log with properties", extra={"key1": "value1"})
 
 ---
 
-### Filter telemetry
+## Filter telemetry
 
 You might use the following ways to filter out telemetry before it leaves your application.
 
-#### [ASP.NET Core](#tab/aspnetcore)
+### [ASP.NET Core](#tab/aspnetcore)
 
 1. Many instrumentation libraries provide a filter option. For guidance, see the readme files of individual instrumentation libraries:
     - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#filter)
@@ -1644,7 +1644,7 @@ You might use the following ways to filter out telemetry before it leaves your a
 
 1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source are exported.
 
-#### [.NET](#tab/net)
+### [.NET](#tab/net)
 
 1. Many instrumentation libraries provide a filter option. For guidance, see the readme files of individual instrumentation libraries:
     - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.8/src/OpenTelemetry.Instrumentation.AspNet/README.md#filter)
@@ -1680,11 +1680,11 @@ You might use the following ways to filter out telemetry before it leaves your a
 1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source are exported.
 
 
-#### [Java](#tab/java)
+### [Java](#tab/java)
 
 See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) and [telemetry processors](java-standalone-telemetry-processors.md).
 
-#### [Node.js](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 1. Exclude the URL option provided by many HTTP instrumentation libraries.
 
@@ -1735,7 +1735,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     }
     ```
 
-#### [Python](#tab/python)
+### [Python](#tab/python)
 
 1. Exclude the URL with the `OTEL_PYTHON_EXCLUDED_URLS` environment variable:
     ```
@@ -1801,11 +1801,11 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     
 <!-- For more information, see [GitHub Repo](link). -->
 
-### Get the trace ID or span ID
+## Get the trace ID or span ID
     
 You might want to get the trace ID or span ID. If you have logs sent to a destination other than Application Insights, consider adding the trace ID or span ID. Doing so enables better correlation when debugging and diagnosing issues.
 
-#### [ASP.NET Core](#tab/aspnetcore)
+### [ASP.NET Core](#tab/aspnetcore)
 
 > [!NOTE]
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
@@ -1816,7 +1816,7 @@ string traceId = activity?.TraceId.ToHexString();
 string spanId = activity?.SpanId.ToHexString();
 ```
 
-#### [.NET](#tab/net)
+### [.NET](#tab/net)
 
 > [!NOTE]
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
@@ -1827,7 +1827,7 @@ string traceId = activity?.TraceId.ToHexString();
 string spanId = activity?.SpanId.ToHexString();
 ```
 
-#### [Java](#tab/java)
+### [Java](#tab/java)
 
 You can use `opentelemetry-api` to get the trace ID or span ID.
 
@@ -1851,7 +1851,7 @@ You can use `opentelemetry-api` to get the trace ID or span ID.
    String spanId = span.getSpanContext().getSpanId();
    ```
 
-#### [Node.js](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 Get the request trace ID and the span ID in your code:
 
@@ -1862,7 +1862,7 @@ Get the request trace ID and the span ID in your code:
    let traceId = trace.getActiveSpan().spanContext().traceId;
    ```
 
-#### [Python](#tab/python)
+### [Python](#tab/python)
 
 Get the request trace ID and the span ID in your code:
 

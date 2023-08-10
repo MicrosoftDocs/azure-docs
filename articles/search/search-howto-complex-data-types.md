@@ -7,7 +7,7 @@ manager: nitinme
 author: bevloh
 ms.author: beloh
 tags: complex data types; compound data types; aggregate data types
-ms.custom: ignite-2022
+ms.custom: 
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 01/30/2023

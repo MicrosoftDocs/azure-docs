@@ -13,15 +13,15 @@ ms.date: 07/31/2023
 # Add vector fields to a search index
 
 > [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [alpha SDKs](https://github.com/Azure/cognitive-search-vector-pr#readme).
+> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 In Azure Cognitive Search, vector data is indexed as *vector fields* within a [search index](search-what-is-an-index.md), using a *vector configuration* to create the embedding space. 
 
 + A vector field is of type `Collection(Edm.Single)` so that it can hold  single-precision floating-point values. It also has a "dimensions" property and a "vectorConfiguration" property.
 
-+ A vector configuration specifies the algorithm and parameters used during indexing to create the proximity graph. The supported algorithm is Hierarchical Navigable Small World (HNSW).
++ A vector configuration specifies the algorithm and parameters used during indexing to create the proximity graph. Currently, only Hierarchical Navigable Small World (HNSW) is supported.
 
-During indexing, HNSW determines how closely the vectors match and stores the neighborhood information among vectors in the index. You can have multiple configurations within an index if you want different parameter combinations. As long as the vector fields contain embeddings from the same model, having a different vector configuration per field is insignificant at query time.
+During indexing, HNSW determines how closely the vectors match and stores the neighborhood information among vectors in the index. You can have multiple configurations within an index if you want different HNSW parameter combinations. As long as the vector fields contain embeddings from the same model, having a different vector configuration per field has no effect on queries.
 
 ## Prerequisites
 
@@ -38,11 +38,11 @@ During indexing, HNSW determines how closely the vectors match and stores the ne
 
 ## Prepare documents for indexing
 
-Prior to indexing, assemble a document payload that includes fields of vector data. The document structure must conform to the index schema. 
+Prior to indexing, assemble a document payload that includes fields of vector and non-vector data. The document structure must conform to the index schema. 
 
 Make sure your documents:
 
-1. Provide a field or a metadata property that uniquely identifies each document. All search indexes require a document key. To satisfy document key requirements, your documents must have one field or property that can be mapped to type `Edm.String` and `key=true` in the search index. 
+1. Provide a field or a metadata property that uniquely identifies each document. All search indexes require a document key. To satisfy document key requirements, your documents must have one field or property that is unique in the index. This field must be mapped to type `Edm.String` and `key=true` in the search index. 
 
 1. Provide vector data (an array of single-precision floating point numbers) in source fields.
 
@@ -56,7 +56,7 @@ A short example of a documents payload that includes vector and non-vector field
 
 ## Add a vector field to the fields collection
 
-The schema must include fields for the document key, vector fields, and any other fields that you require for hybrid search scenarios. 
+The schema must include fields for the document key, vector fields, and any other fields that you require for hybrid search scenarios.
 
 ### [**Azure portal**](#tab/portal-add-field)
 

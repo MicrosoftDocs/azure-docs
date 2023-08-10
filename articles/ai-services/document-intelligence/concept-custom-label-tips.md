@@ -1,5 +1,5 @@
 ---
-title: Labeling tips for custom models in the Document Intelligence Studio
+title: Labeling tips for custom models in the Document Intelligence (formerly Form Recognizer) Studio
 titleSuffix: Azure AI services
 description: Label tips and tricks for Document Intelligence Studio
 author: laujan
