@@ -30,7 +30,7 @@ If your Operations Manager management group is connected to a Log Analytics work
 There's nothing to configure or manage with these management packs. For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../agents/om-agents.md).
 
 ## Configuration
-Add the Agent Health solution to your Log Analytics workspace by using the process described in [Add solutions](solutions.md). No further configuration is required.
+Add the Agent Health solution to your Log Analytics workspace by using the process described in [Add solutions](../insights/solutions.md). No further configuration is required.
 
 ## Supported agents
 The following table describes the connected sources that this solution supports.
