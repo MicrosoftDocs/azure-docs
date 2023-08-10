@@ -135,7 +135,7 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
     :::image type="content" source="../media/azure-netapp-files/key-enter-uri.png" alt-text="Screenshot of the encryption menu showing key URI field." lightbox="../media/azure-netapp-files/key-enter-uri.png":::
 
 1. Select the identity type that you want to use for authentication to the Azure Key Vault. If your Azure Key Vault is configured to use Vault access policy as its permission model, both options are available. Otherwise, only the user-assigned option is available.
-    * If you choose **System-assigned**, select the **Save** button. The Azure portal configures the NetApp account automatically with the following process: A system-assigned identity is added to your NetApp account. An access policy is to be created on your Azure Key Vault with key permissions Get, Encrypt, Decrypt.
+    * If you choose **System-assigned**, select the **Save** button. The Azure portal configures the NetApp account automatically by adding a system-assigned identity to your NetApp account. An access policy is also created on your Azure Key Vault with key permissions Get, Encrypt, Decrypt.
 
     :::image type="content" source="../media/azure-netapp-files/encryption-system-assigned.png" alt-text="Screenshot of the encryption menu with system-assigned options." lightbox="../media/azure-netapp-files/encryption-system-assigned.png":::
 
@@ -312,3 +312,4 @@ This section lists error messages and possible resolutions when Azure NetApp Fil
 ## Next steps
 
 * [Azure NetApp Files API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-11-01)
+* [Configure customer-managed keys with managed Hardware Security Module](configure-customer-managed-keys-hardware.md)
