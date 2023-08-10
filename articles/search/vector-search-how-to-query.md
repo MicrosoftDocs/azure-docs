@@ -56,7 +56,10 @@ api-key: {{admin-api-key}}
 }
 ```
 
-The expected response is 202 for a successful call to the deployed model. The body of the response provides the vector representation of the "input". The vector for the query is in the "embedding" field. For testing purposes, you would copy the value of the "embedding" array into "vector.value" in a query request, using syntax shown in the next several sections. The actual response for this call to the deployment model includes 1536 embeddings, trimmed here for brevity.
+The expected response is 202 for a successful call to the deployed model. 
+The "embedding" field in the body of the response is the vector representation of the  query string "input". For testing purposes, you would copy the value of the "embedding" array into "vector.value" in a query request, using syntax shown in the next several sections. 
+
+The actual response for this POST call to the deployment model includes 1536 embeddings, trimmed here to just the first few vectors for readability.
 
 ```json
 {
@@ -91,7 +94,7 @@ Be sure to the **JSON view** and formulate the query in JSON. The search bar in 
 
 1. Under **Search management** and **Indexes**, select the index.
 
-   :::image type="content" source="media/vector-search-how-to-query/select-index.png" alt-text="Screenshot of the index list." border="true":::
+   :::image type="content" source="media/vector-search-how-to-query/select-index.png" alt-text="Screenshot of the indexes menu." border="true":::
 
 1. On Search Explorer, under **View**, select **JSON view**.
 

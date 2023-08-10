@@ -25,7 +25,7 @@ We recommend this article for background, but if you'd rather get started, follo
 > + [Load vector data](search-what-is-data-import.md) into an index using push or pull methodologies. 
 > + [Query vector data](vector-search-how-to-query.md) using Azure portal or the preview REST APIs.
 
-You could also start with the [REST quickstart](search-get-started-vectors.md) or [code samples on GitHub](https://github.com/Azure/cognitive-search-vector-pr).
+You could also start with the [REST quickstart](search-get-started-vector.md) or [code samples on GitHub](https://github.com/Azure/cognitive-search-vector-pr).
 
 ## What's vector search in Cognitive Search?
 
