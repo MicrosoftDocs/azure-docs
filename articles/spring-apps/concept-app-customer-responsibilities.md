@@ -31,9 +31,9 @@ For more information, see [Java long-term support for Azure and Azure Stack](/az
 
 You may choose any version of Spring Boot or Spring Cloud that is compatible with the Java version you installed.
 
-For new versions, Azure Spring Apps will support the latest Spring Boot or Spring Cloud major version 30 days after its release. The latest minor version will be supported as soon as it's released.
+For new versions, Azure Spring Apps will support the latest Spring Boot or Spring Cloud major version 30 days after its release. The latest minor version is supported as soon as it's released.
 
-For old versions, Azure Spring Apps doesn't require you to upgrade Spring Boot or Spring Cloud to receive support. However, with the officially-supported new versions, you're guaranteed to enjoy the best experience for some of our managed components, such as Config Server and Eureka Server for Standard consumption/dedicated tier and Standard tier, [Tanzu components](vmware-tanzu-components.md) for Enterprise tier, and metric collection for all tiers.
+For old versions, Azure Spring Apps doesn't require you to upgrade Spring Boot or Spring Cloud to receive support. However, with the officially supported new versions, you're guaranteed to enjoy the best experience for some of our managed components, such as Config Server and Eureka Server for Standard consumption and dedicated tier and Standard tier, [Tanzu components](vmware-tanzu-components.md) for Enterprise tier, and metric collection for all tiers.
 
 For more information, see the official support timeline of [Spring Boot](https://spring.io/projects/spring-boot#support) and [Spring Cloud](https://spring.io/projects/spring-cloud#overview). The Enterprise tier provides commercial support for Spring Boot, while the other tiers provide OSS support.
 
