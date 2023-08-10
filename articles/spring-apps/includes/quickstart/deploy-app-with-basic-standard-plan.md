@@ -4,7 +4,7 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 08/09/2023
+ms.date: 08/10/2023
 ---
 
 <!-- 
@@ -120,7 +120,7 @@ Use the following steps to deploy using the [Maven plugin for Azure Spring Apps]
 1. Navigate to the *complete* directory and then run the following command to configure the app in Azure Spring Apps:
 
    ```bash
-   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config
+   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.18.0:config
    ```
 
    The following list describes the command interactions:
@@ -135,7 +135,7 @@ Use the following steps to deploy using the [Maven plugin for Azure Spring Apps]
 1. Use the following command to deploy the app:
 
    ```bash
-   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:deploy
+   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.18.0:deploy
    ```
 
    The following list describes the command interactions:
