@@ -17,7 +17,7 @@ ms.author: mikaelw
 
 For the Azure Health Data Services to access Azure resources, such as storage accounts and event hubs, you must **enable the system managed identity**, and **grant proper permissions** to the managed identity. For more information, see [Azure managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
-Azure Health Data Services doesn't support other identity providers. However, customers can use their own identity provider to secure applications, and enable them to interact with the Health Data Services by managing client applications and user data access controls.
+Azure Health Data Services doesn't support other identity providers. However, you can use their own identity provider to secure applications, and enable them to interact with the Health Data Services by managing client applications and user data access controls.
 
 The client applications are registered in the Azure AD and can be used to access the Azure Health Data Services. User data access controls are done in the applications or services that implement business logic.
 
