@@ -2,7 +2,7 @@
 title: Move an Azure Relay namespace to another region
 description: This article shows you how to move an Azure Relay namespace from the current region to another region. 
 ms.topic: how-to
-ms.date: 06/21/2022
+ms.date: 08/10/2023
 ms.custom: subject-moving-resources
 ---
 
@@ -25,7 +25,7 @@ To get started, export a Resource Manager template. This template contains setti
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All resources** and then select your Azure Relay namespace.
-3. Select **Export template** under **Settings** in the left menu.
+3. Select **Export template** under **Automation** in the left menu.
 4. Choose **Download** on the **Export template** page.
 
     :::image type="content" source="./media/move-across-regions/download-template.png" alt-text="Download Resource Manager template":::
