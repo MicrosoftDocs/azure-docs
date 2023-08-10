@@ -6,7 +6,6 @@ ms.service: azure-elastic-san-storage
 ms.topic: conceptual
 ms.date: 08/03/2023
 ms.author: rogarana
-ms.custom: ignite-2022
 ---
 
 # Shared volumes
@@ -15,7 +14,7 @@ Azure Elastic SAN volumes can be simultaneously attached to multiple compute cli
 
 ## Limitations
 
-
+- Azure Backup isn't currently supported.
 
 
 ## How it works
@@ -25,6 +24,29 @@ Elastic SAN shared volumes use SCSI-3 Persistent Reservations to allow initiator
 SCSI-3 PR has a pivotal role in maintaining data consistency and integrity within shared volumes in cluster scenarios. Compute nodes in a cluster can read or write to their attached elastic SAN volumes based on the reservation chosen by their cluster applications.
 
 ## Persistent reservation flow
+
+The following diagram illustrates a sample 2-node clustered database application that usess SCSI-3 PR to enable failover from one node to the other.
+
+:::image type="content" source="media/elastic-san-shared-volumes/elastic-san-shared-volume-cluster.png" alt-text="Sample" lightbox="media/elastic-san-shared-volumes/elastic-san-shared-volume-cluster.png":::
+
+The flow is as follows:
+
+1. The clustered application runing on both Azure VM1 and VM2 registeres its intent to read or write to the elastic SAN volume.
+1. The application instance on VM1 then takes an exclusive reservation to write to the volume.
+1. This reservation is enforced on your volume and the database can now exclusively write to the volume. Any writes from the application instance on VM2 won't succeed.
+1. If the application instance on VM1 goes down, the instance on VM2 can initiate a database failover and take over control of the volume.
+1. This reservation is now enforced on the volume, and it won't accept writes from VM1. It only accepts writes from VM2.
+1. The clustered application can complete the database failover and serve requests from VM2.
+
+The following diagram illustrates another common clustered workload consisting of multiple nodes reading data from an elastic SAN volume for running parallel processes, such as training of machine learning models.
+
+:::image type="content" source="media/elastic-san-shared-volumes/elastic-san-shared-volume-machine-learning.png" alt-text="Sample" lightbox="media/elastic-san-shared-volumes/elastic-san-shared-volume-machine-learning.png":::
+
+The flow is as follows:
+1. The clustered application running on all VMs registers its intent to read or write to the elastic SAN volume.
+1. The application instance on VM1 takes an exclusive registration to write to the volume while opening up reads to the volume from other VMs.
+1. This reservation is enforced on the volume.
+1. All nodes in the cluster can now read from the volume. Only one node writes back results to the volume, on behalf of all nodes in the cluster.
 
 ## Supported SCSI PR commands
 
