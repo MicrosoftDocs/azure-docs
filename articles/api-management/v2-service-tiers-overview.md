@@ -10,6 +10,7 @@ ms.service: api-management
 ms.topic: overview
 ms.date: 08/08/2023
 ms.author: danlep
+ms.custom: references_regions
 ---
 
 # Welcome to the v2 tiers of API Management (preview)
@@ -34,7 +35,7 @@ Currently in preview, the following v2 tiers are available:
 
 * **More options for production workloads** - The v2 tiers are all supported with an SLA. You can easily scale out in each tier or scale up to a higher tier as your production workloads grow.
 
-* **Consumption-based pricing** - The v2 tiers use a consumption-based pricing model, based on the number of API calls made through your API Management instance.
+* **Consumption-based pricing** - The v2 tiers use a consumption-based pricing model, based on the number of API calls made through your API Management gateway.
 
     > [!NOTE]
     > Currently, pricing specifics for the v2 tiers haven't been announced.
