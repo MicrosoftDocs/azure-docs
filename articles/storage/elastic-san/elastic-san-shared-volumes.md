@@ -1,6 +1,6 @@
 ---
 title: Share Elastic SAN volumes between compute clients
-description: Understand planning for an Azure Elastic SAN deployment. Learn about storage capacity, performance, redundancy, and encryption.
+description: Learn more about sharing an elastic SAN volume and using it for clustered applications.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.author: rogarana
 
 Azure Elastic SAN volumes can be simultaneously attached to multiple compute clients, allowing you to deploy or migrate cluster applications to Azure. You need to use a cluster manager to share an Elastic SAN volume, like Windows Server Failover Cluster (WSFC), or Pacemaker. The cluster manager handles cluster node communications and write locking. Elastic SAN doesn't natively offer a fully managed filesystem that can be accessed over SMB or NFS.
 
-When used as a shared volume, elastic SAN volumes can be resized without any downtime, and can also be shared across availability zones or regions. If you're sharing a volume across availability zones, you don't need to use a SAN backed by zone-redundant storage (ZRS).
+When used as a shared volume, elastic SAN volumes can be expanded without downtime, and can also be shared across availability zones or regions. If you share a volume across availability zones, you don't need to use a SAN backed by zone-redundant storage (ZRS).
 
 ## Limitations
 
@@ -27,22 +27,22 @@ SCSI-3 PR has a pivotal role in maintaining data consistency and integrity withi
 
 ## Persistent reservation flow
 
-The following diagram illustrates a sample 2-node clustered database application that usess SCSI-3 PR to enable failover from one node to the other.
+The following diagram illustrates a sample 2-node clustered database application that uses SCSI-3 PR to enable failover from one node to the other.
 
-:::image type="content" source="media/elastic-san-shared-volumes/elastic-san-shared-volume-cluster.png" alt-text="Sample" lightbox="media/elastic-san-shared-volumes/elastic-san-shared-volume-cluster.png":::
+:::image type="content" source="media/elastic-san-shared-volumes/elastic-san-shared-volume-cluster.png" alt-text="Clustered application diagram." lightbox="media/elastic-san-shared-volumes/elastic-san-shared-volume-cluster.png":::
 
 The flow is as follows:
 
-1. The clustered application runing on both Azure VM1 and VM2 registeres its intent to read or write to the elastic SAN volume.
+1. The clustered application running on both Azure VM1 and VM2 registers its intent to read or write to the elastic SAN volume.
 1. The application instance on VM1 then takes an exclusive reservation to write to the volume.
-1. This reservation is enforced on your volume and the database can now exclusively write to the volume. Any writes from the application instance on VM2 won't succeed.
+1. This reservation is enforced on your volume and the database can now exclusively write to the volume. Any writes from the application instance on VM2 fail.
 1. If the application instance on VM1 goes down, the instance on VM2 can initiate a database failover and take over control of the volume.
 1. This reservation is now enforced on the volume, and it won't accept writes from VM1. It only accepts writes from VM2.
 1. The clustered application can complete the database failover and serve requests from VM2.
 
 The following diagram illustrates another common clustered workload consisting of multiple nodes reading data from an elastic SAN volume for running parallel processes, such as training of machine learning models.
 
-:::image type="content" source="media/elastic-san-shared-volumes/elastic-san-shared-volume-machine-learning.png" alt-text="Sample" lightbox="media/elastic-san-shared-volumes/elastic-san-shared-volume-machine-learning.png":::
+:::image type="content" source="media/elastic-san-shared-volumes/elastic-san-shared-volume-machine-learning.png" alt-text="Machine learning cluster diagram." lightbox="media/elastic-san-shared-volumes/elastic-san-shared-volume-machine-learning.png":::
 
 The flow is as follows:
 1. The clustered application running on all VMs registers its intent to read or write to the elastic SAN volume.
@@ -72,7 +72,7 @@ PR_EXCLUSIVE_ACCESS_REGISTRANTS_ONLY
 PR_WRITE_EXCLUSIVE_ALL_REGISTRANTS
 PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS
 
-Persistent reservation type will determine access to the volume from each node in the cluster.
+Persistent reservation type determines access to the volume from each node in the cluster.
 
 
 |Persistent Reservation Type  |Reservation Holder  |Registered  |Others  |
