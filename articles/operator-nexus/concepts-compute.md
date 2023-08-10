@@ -104,4 +104,4 @@ The following properties reflect the operational state of a BMM:
 
 ## Form-factor-specific information
 
-Azure Operator Nexus offers a group of on-premises cloud solutions that cater to both [near-edge](reference-near-edge-compute.md) and far-edge environments. For more information about the compute offerings and the respective configurations, see the following reference links.
+Azure Operator Nexus offers a group of on-premises cloud solutions that cater to both [near-edge](reference-near-edge-compute.md) and far-edge environments.
