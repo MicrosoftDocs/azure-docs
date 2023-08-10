@@ -31,7 +31,7 @@ Virtual Network service endpoints for Azure Storage are public and accessible vi
 
 A private endpoint uses a private IP address from your virtual network to access a storage account over the Microsoft backbone network. With a private endpoint, traffic between your virtual network and the storage account are secured over a private link. Storage firewall rules apply to the public endpoints of a storage account, not private endpoints. The process of approving the creation of a private endpoint grants implicit access to traffic from the subnet that hosts the private endpoint. You can use [Network Policies](../../private-link/private-endpoint-overview.md#network-security-of-private-endpoints) to control traffic over private endpoints.
 
-With the Azure Storage firewall, you can configure access to the data in your storage account using any combination of the following:
+With the Azure Storage firewall, you can control access to the data in your storage account using any combination of the following:
 
 - [Allow access from selected virtual network subnets using service endpoints](#grant-access-from-a-virtual-network).
 - [Allow access from specific public IP addresses or ranges](#grant-access-from-an-internet-ip-range).
