@@ -41,7 +41,7 @@
     - name: Device
       expanded: false
       items:
-      - name: Overview of the device mapping
+      - name: Overview of device mapping
         href: overview-of-device-mapping.md
       - name: Use CalculatedContent templates
         href: how-to-use-calculatedcontent-templates.md
