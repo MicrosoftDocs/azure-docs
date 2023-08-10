@@ -4,7 +4,7 @@ description: Conceptual information about using Recognize action to gather user 
 author: Kunaal
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 09/16/2022
+ms.date: 08/09/2023
 ms.author: kpunjabi
 ---
 
