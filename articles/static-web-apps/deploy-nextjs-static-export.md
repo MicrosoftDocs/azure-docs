@@ -148,7 +148,7 @@ By default, the application is treated as a hybrid rendered Next.js application,
               api_location: "" # Api source code path - optional
               output_location: "" # Built app content directory - optional
             env: # Add environment variables here
-              is_static_export: true
+              IS_STATIC_EXPORT: true
     ```
 
     ### [Azure Pipelines](#tab/azure-pipelines)
