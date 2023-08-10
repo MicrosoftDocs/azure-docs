@@ -8,6 +8,14 @@
     href: availability-zones-overview.md
   - name: Services and regions with availability zone support
     href: availability-zones-service-support.md
+  - name: Migrate from regional to zonal support
+    items:
+    - name: Virtual Machines
+      items:
+    - name: Overview
+      href: move-vm-regional-to-zonal-overview.md
+    - name: Tutorial
+      href: move-vm-regional-to-zonal-tutorial.md 
   - name: Migrate to availability zone support
     items:
     - name: Overview
