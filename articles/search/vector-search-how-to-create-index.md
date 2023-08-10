@@ -18,11 +18,13 @@ ms.date: 08/10/2023
 In Azure Cognitive Search, vector data is indexed as *vector fields* in a [search index](search-what-is-an-index.md), using a *vector configuration* to specify the embedding space. Follow these steps to index vector data:
 
 > [!div class="checklist"]
-> + Add one or more vector fields of type `Collection(Edm.Single)` to the index schema. This type holds single-precision floating-point values. A field of this type also has a `dimensions` property and a `vectorConfiguration property.
-> + Add one or more vector configurations to the index schema. A configuration specifies the algorithm and parameters used during indexing to create "nearest neighbor" information among the vector nodes. Currently, only Hierarchical Navigable Small World (HNSW) is supported.
-> + [Load the index with vector data](#load-vector-data-for-indexing) as a separate step, after the index schema is defined.
+> + Add one or more vector fields to the index schema.
+> + Add one or more vector configurations to the index schema. 
+> + Load the index with vector data [as a separate step](#load-vector-data-for-indexing), after the index schema is defined.
 
-During indexing, HNSW determines how closely the vectors match and stores the neighborhood information as a proximity graph in the index. You can have multiple configurations within an index if you want different HNSW parameter combinations. As long as the vector fields contain embeddings from the same model, having a different vector configuration per field has no effect on queries.
+Vector fields are of type `Collection(Edm.Single)` and single-precision floating-point values. A field of this type also has a `dimensions` property and a `vectorConfiguration property
+
+A vector configuration specifies the algorithm and parameters used during indexing to create "nearest neighbor" information among the vector nodes. Currently, only Hierarchical Navigable Small World (HNSW) is supported. During indexing, HNSW determines how closely the vectors match and stores the neighborhood information as a proximity graph in the index. You can have multiple configurations within an index if you want different HNSW parameter combinations. As long as the vector fields contain embeddings from the same model, having a different vector configuration per field has no effect on queries.
 
 ## Prerequisites
 
@@ -296,14 +298,14 @@ For validation purposes, you can query the index using Search Explorer in Azure 
 
 Fields must be attributed as "retrievable" to be included in the results.
 
-### [**Azure portal**](#tab/portal-add-field)
+### [**Azure portal**](#tab/portal-check-index)
 
 You can use [Search Explorer](search-explorer.md) to query an index. Search explorer has two views: Query view (default) and JSON view. For vector queries, use the JSON view and paste in a JSON definition of a vector query. For more information, see [Query vector data in a search index](vector-search-how-to-query.md).
 
 > [!TIP]
 > Although you can't use the default query view for vector queries, you can send an empty search (`search=*`) to quickly confirm that vector content is present. The content of all fields, including vector fields, is returned as plain text.
 
-### [**REST API**](#tab/rest-add-field)
+### [**REST API**](#tab/rest-check-index)
 
 The following REST API example is a vector query, but it returns only non-vector fields (title, content, category). Only fields marked as "retrievable" can be returned in search results.
 
