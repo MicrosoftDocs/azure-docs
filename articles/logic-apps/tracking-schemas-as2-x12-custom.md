@@ -77,6 +77,8 @@ The following table describes the attributes in a tracking schema for an AS2 mes
 | isMdnExpected | Yes | Boolean | Whether to use the default value if the value isn't known |
 | mdnType | Yes | Enum | Allowed values: `NotConfigured`, `Sync`, and `Async` |
 
+<a name="as2-mdn"></a>
+
 ### AS2 MDN tracking schema
 
 The following syntax describes the tracking schema for an AS2 MDN message:
