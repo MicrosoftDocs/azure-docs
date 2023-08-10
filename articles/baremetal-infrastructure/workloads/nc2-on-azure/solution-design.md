@@ -35,7 +35,7 @@ The following table describes the network topologies supported by each network f
 |On-premises connectivity via Secured HUB(Az Firewall NVA) | No|
 |Connectivity from UVMs on NC2 nodes to Azure resources|Yes|
 
-\* You can overcome this limitation by setting Site-to-Site VPN 
+\* You can overcome this limitation by setting Site-to-Site VPN.
 
 ## Constraints
 
