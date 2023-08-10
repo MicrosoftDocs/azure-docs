@@ -96,7 +96,7 @@ result = call_automation_client.get_call_connection(call_connection_id).send_dtm
 app.logger.info("Send dtmf, result=%s", result)
 ```
 -----
-When your application sends these DTMF tones, you'll receive event updates. You can use the `SendDtmfCompleted` and `SendDtmfFailed` events to create business logic in your application to determine the next steps. 
+When your application sends these DTMF tones, you receive event updates. You can use the `SendDtmfCompleted` and `SendDtmfFailed` events to create business logic in your application to determine the next steps. 
 
 Example of *SendDtmfCompleted* event
 ### [csharp](#tab/csharp)
@@ -157,7 +157,7 @@ if event.type == "Microsoft.Communication.SendDtmfTonesFailed":
 ```
 -----
 ## Continuous DTMF Recognition
-You can subscribe to receive continuous DTMF tones throughout the call, your application receives DTMF tones as soon as the targeted participant presses on a key on their keypad. These tones will be sent to you one by one as the participant is pressing them.
+You can subscribe to receive continuous DTMF tones throughout the call. Your application receives DTMF tones as the targeted participant presses on a key on their keypad. These tones are sent to your application one by one as the participant is pressing them.
 
 ### StartContinuousDtmfRecognitionAsync Method
 Start detecting DTMF tones sent by a participant.
@@ -198,7 +198,7 @@ app.logger.info("Started continuous DTMF recognition")
 ```
 -----
 
-When your application no longer wishes to receive DTMF tones from the participant anymore you can use the `StopContinuousDtmfRecognitionAsync` method to let ACS know to stop detecting DTMF tones.
+When your application no longer wishes to receive DTMF tones from the participant anymore, you can use the `StopContinuousDtmfRecognitionAsync` method to let ACS know to stop detecting DTMF tones.
 
 ### StopContinuousDtmfRecognitionAsync
 Stop detecting DTMF tones sent by participant.
