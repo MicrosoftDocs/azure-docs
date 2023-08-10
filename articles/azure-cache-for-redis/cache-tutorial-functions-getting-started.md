@@ -7,7 +7,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
 ms.date: 07/19/2023
-#CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
+#CustomerIntent: As a developer, I want a introcutory example of using Azure Cache for Redis triggers with Azure Functions so that I can understand how to use the functions with a Redis cache.
 
 ---
 
@@ -18,10 +18,10 @@ This tutorial shows how to implement basic triggers with Azure Cache for Redis a
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up the necessary tools.
-> * Configure and connect to a cache.
-> * Create an Azure function and deploy code to it.
-> * Confirm the logging of triggers.
+> - Set up the necessary tools.
+> - Configure and connect to a cache.
+> - Create an Azure function and deploy code to it.
+> - Confirm the logging of triggers.
 
 ## Prerequisites
 
@@ -264,6 +264,8 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 1. Wait for Log Analytics to connect, and then use the Redis console to activate any of the triggers. Confirm that triggers are being logged here.
 
     :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-log-stream.png" alt-text="Screenshot of a log stream for a function app resource on the resource menu." lightbox="media/cache-tutorial-functions-getting-started/cache-log-stream.png":::
+
+[!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
 ## Next step
 

@@ -7,7 +7,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
 ms.date: 04/20/2023
-#CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
+#CustomerIntent: As a developer, I want a practical example of using Azure Cache for Redis triggers with Azure Functions so that I can write applications that tie together a Redis cache and a database like Azure SQL.
 
 ---
 
@@ -22,9 +22,9 @@ Every new item or new price written to the cache is then reflected in a SQL tabl
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Configure a database, trigger, and connection strings.
-> * Validate that triggers are working.
-> * Deploy code to a function app.
+> - Configure a database, trigger, and connection strings.
+> - Validate that triggers are working.
+> - Deploy code to a function app.
 
 ## Prerequisites
 
@@ -61,6 +61,8 @@ This example uses the portal:
    ```
 
 1. After the command finishes running, expand the *Tables* folder and verify that the new table was created.
+
+[!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
 ## Configure the Redis trigger
 
