@@ -33,7 +33,7 @@ You may choose any version of Spring Boot or Spring Cloud that is compatible wit
 
 For new versions, Azure Spring Apps will support the latest Spring Boot or Spring Cloud major version 30 days after its release. The latest minor version is supported as soon as it's released.
 
-For old versions, Azure Spring Apps doesn't require you to upgrade Spring Boot or Spring Cloud to receive support. However, with the officially supported new versions, you're guaranteed to enjoy the best experience for some of our managed components, such as Config Server and Eureka Server for Standard consumption and dedicated tier and Standard tier, [Tanzu components](vmware-tanzu-components.md) for Enterprise tier, and metric collection for all tiers.
+For old versions, Azure Spring Apps doesn't require you to upgrade Spring Boot or Spring Cloud to receive support. However, with the officially supported new versions, you can get the best experience with some of the managed components. For example, Config Server and Eureka Server for Standard consumption and dedicated tier and Standard tier, [Tanzu components](vmware-tanzu-components.md) for Enterprise tier, and metric collection for all tiers.
 
 For more information, see the official support timeline of [Spring Boot](https://spring.io/projects/spring-boot#support) and [Spring Cloud](https://spring.io/projects/spring-cloud#overview). The Enterprise tier provides commercial support for Spring Boot, while the other tiers provide OSS support.
 
@@ -41,9 +41,9 @@ For more information, see the official support timeline of [Spring Boot](https:/
 
 ### Polyglot SDKs
 
-Polyglot applications can be deployed in Enterprise tier with a source code. To enjoy the best stability, we recommend using SDKs with LTS versions that are officially supported in your source code.
+Polyglot applications can be deployed in Enterprise tier with a source code. To enjoy the best stability, use SDKs with LTS versions that are officially supported in your source code.
 
-When you [deploy your polyglot applications to Enterprise tier](how-to-enterprise-deploy-polyglot-apps.md), we recommend assigning specific LTS versions for the SDKs. Otherwise the default SDK version may change during our regular upgrades for builder components.
+When you [deploy your polyglot applications to Enterprise tier](how-to-enterprise-deploy-polyglot-apps.md), assign specific LTS versions for the SDKs. Otherwise, the default SDK version may change during the regular upgrades for builder components.
 
 | Type                 | Support policy            |
 |---------------------|----------------------------|
@@ -57,10 +57,10 @@ When you [deploy your polyglot applications to Enterprise tier](how-to-enterpris
 
 ### Stack image support
 
-You may choose your stack image during builder configuration, and we recommend using an LTS image that is officially supported. For more information, see [The Ubuntu lifecycle and release cadence](https://ubuntu.com/about/release-cycle#ubuntu).
+You may choose y stack image during builder configuration, and we recommend using an LTS image that is officially supported. For more information, see [The Ubuntu lifecycle and release cadence](https://ubuntu.com/about/release-cycle#ubuntu).
 
 ## Keep track of version upgrade
 
-Prepare early for the deprecation of any major component LTS version that your applications rely on. You'll receive notification from Microsoft one month prior to the end of support on Azure Spring Apps.
+Prepare early for the deprecation of any major component LTS version that y applications rely on. You'll receive notification from Microsoft one month prior to the end of support on Azure Spring Apps.
 
 For regular upgrades, you can find specific information in your activity log once the upgrade is complete.
