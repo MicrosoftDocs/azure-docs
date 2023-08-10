@@ -91,8 +91,8 @@ The following table describes Custom Translator project accessibility per Transl
 
    :::image type="content" source="../media/how-to/allow-network-access.png" alt-text="Screenshot of allowed network access section in the Azure portal.":::
 
-> [!IMPORTANT]
- > If you configure **Selected Networks and Private Endpoints** via the **Networking** → **Firewalls and virtual networks** tab, you can't use the [Custom Translator non-interactive REST API](https://microsofttranslator.github.io/CustomTranslatorApiSamples/) and your Translator resource. However, you can still use the Translator resource outside of the Custom Translator portal.
+ > [!IMPORTANT]
+ > If you configure **Selected Networks and Private Endpoints** via the **Networking** → **Firewalls and virtual networks** tab, you can't use the Custom Translator portal to create workspaces to train and publish models. However, you can still use the translator resource with [Custom Translator non-interactive REST API](https://microsofttranslator.github.io/CustomTranslatorApiSamples/) to build and publish custom models.
 
 | Translator resource network security setting | Custom Translator portal accessibility |
 |--|--|
