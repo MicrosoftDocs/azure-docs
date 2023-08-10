@@ -11,7 +11,7 @@ ms.date: 08/11/2023
 
 # Direct peering type conversion request walkthrough
 
-In this article, you learn how to use the Azure portal to request a type conversion on a direct peering
+In this article, you learn how to use the Azure portal to request a type conversion on a direct peering.
 
 ## Prerequisites
 
