@@ -215,7 +215,7 @@ Manage your servers and model databases by using [SQL Server Management Studio (
 
 ### Open-source tools
 
-Analysis Services has a vibrant community of developers who create tools. Be sure to check out [Tabular Editor](https://tabulareditor.github.io/), an open-source tool for creating, maintaining, and managing tabular models using an intuitive, lightweight editor. [DAX Studio](https://daxstudio.org/), is a great open-source tool for DAX authoring, diagnosis, performance tuning, and analysis.
+Analysis Services has a vibrant community of developers who create tools. [DAX Studio](https://daxstudio.org/), is a great open-source tool for DAX authoring, diagnosis, performance tuning, and analysis.
 
 ### PowerShell
 
