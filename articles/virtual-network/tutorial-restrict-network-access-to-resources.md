@@ -151,7 +151,7 @@ By default, all virtual machine instances in a subnet can communicate with any r
 
 ## Restrict network access to a resource
 
-The steps required to restrict network access to resources created through Azure services, which are enabled for service endpoints will vary across services. See the documentation for individual services for specific steps for each service. The rest of this tutorial includes steps to restrict network access for an Azure Storage account, as an example.
+The steps required to restrict network access to resources created through Azure services, which are enabled for service endpoints vary across services. See the documentation for individual services for specific steps for each service. The rest of this tutorial includes steps to restrict network access for an Azure Storage account, as an example.
 
 [!INCLUDE [create-storage-account.md](../../includes/create-storage-account.md)]
 
@@ -174,7 +174,7 @@ The steps required to restrict network access to resources created through Azure
 
 1. Select **Next: Backup**.
 
-1. De-select **Enable backup**.
+1. Deselect **Enable backup**.
 
 1. Select **Review + create**, then select **Create**.
 
@@ -258,7 +258,7 @@ The virtual machine you created earlier that is assigned to the **subnet-1** sub
 
     * Replace `<storage-account-key>` with the key you copied in the previous step. 
 
-    * Replace `<storage-account-name>` with the name of your storage account. In this example it's **storage8675**.
+    * Replace `<storage-account-name>` with the name of your storage account. In this example, it's **storage8675**.
 
    ```powershell
     $key = @{
