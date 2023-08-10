@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Version 23.1.2**: <br>- [OT sensor installation and setup enhancements](#ot-sensor-installation-and-setup-enhancements) <br>- [Analyze and fine tune your deployment](#analyze-and-fine-tune-your-deployment) <br>- [Simplified privileged users](#simplified-privileged-users) <br><br>[Migrate to site-based licenses](#migrate-to-site-based-licenses) |
+| **OT networks** | **Version 23.1.2**: <br>- [OT sensor installation and setup enhancements](#ot-sensor-installation-and-setup-enhancements) <br>- [Analyze and fine tune your deployment](#analyze-and-fine-tune-your-deployment) <br>- [Configure monitored interfaces via the sensor GUI](#configure-monitored-interfaces-via-the-sensor-gui)<br>- [Simplified privileged users](#simplified-privileged-users) <br><br>[Migrate to site-based licenses](#migrate-to-site-based-licenses) |
 
 ### OT sensor installation and setup enhancements
 
