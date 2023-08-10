@@ -234,7 +234,7 @@ You manage the Azure Machine Learning compute quota on your subscription separat
 
 ## Request quota increases
 
-To raise the limit for Azure Machine Learning VM quota above the default limit, you can request for quota increase from the above **Usage + quotas** view or submit a quota increase request from Azure Machine Learning Studio.
+To raise the limit for Azure Machine Learning VM quota above the default limit, you can request for quota increase from the above **Usage + quotas** view or submit a quota increase request from Azure Machine Learning studio.
 
 ### Endpoint quota increases
 
