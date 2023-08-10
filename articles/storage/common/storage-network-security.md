@@ -18,7 +18,7 @@ Azure Storage provides a layered security model. This model enables you to contr
 > [!IMPORTANT]
 > Azure Storage firewall rules only apply to [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#data-plane) operations. [Control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#control-plane) operations are not subject to the restrictions specified in firewall rules.
 >
-> Some operations, such as blob container operations, can be performed through both the control plane and the data plane. So if you attempt to perform an operation like listing containers from the Azure portal, the operation will succeed unless it is blocked by another mechanism. Attempts to access blob data from an application such as Azure Storage Explorer are controlled by the firewall restrictions.
+> Some operations, such as blob container operations, can be performed through both the control plane and the data plane. So if you attempt to perform an operation such as listing containers from the Azure portal, the operation will succeed unless it is blocked by another mechanism. Attempts to access blob data from an application such as Azure Storage Explorer are controlled by the firewall restrictions.
 >
 > For a list of data plane operations, see [Azure Storage REST API Reference](/rest/api/storageservices/).
 > For a list of control plane operations, see [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
@@ -60,6 +60,7 @@ Before implementing network security for your storage accounts, review the impor
 > - Classic storage accounts don't support firewalls and virtual networks.
 > - If you delete a subnet that's included in a virtual network rule, it will be removed from the network rules for the storage account. If you create a new subnet by the same name, it won't have access to the storage account. To allow access, you must explicitly authorize the new subnet in the network rules for the storage account.
 > - When referencing a service endpoint in a client application, it's recommended that you avoid taking a dependency on a cached IP address. The storage account IP address is subject to change, and relying on a cached IP address may result in unexpected behavior. Additionally, it's recommended that you honor the time-to-live (TTL) of the DNS record and avoid overriding it. Overriding the DNS TTL may result in unexpected behavior.
+> - By design, access to a storage account from trusted services takes the highest precedence over other network access restrictions. If you set **Public network access** to **Disabled** after previously setting it to **Enabled from selected virtual networks and IP addresses**, any [resource instances](#grant-access-from-azure-resource-instances) and [exceptions](#manage-exceptions) that you previously configured, including [Allow Azure services on the trusted services list to access this storage account](#grant-access-to-trusted-azure-services), will remain in effect. As a result, those resources and services might still have access to the storage account.
 
 ### Authorization
 
