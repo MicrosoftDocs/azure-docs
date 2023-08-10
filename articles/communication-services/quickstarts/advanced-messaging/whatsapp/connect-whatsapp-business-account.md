@@ -75,14 +75,12 @@ Once Business account is created, please continue with [**Set up WhatsApp Profil
 In this quickstart, you have learned, how to register your WhatsApp Business Account with Azure Communication Services. Now, you're ready to send and receive WhatsApp messages.
 
 > [!div class="nextstepaction"]
-> [Get Started With Advanced Messaging](../../../quickstarts//advanced-messaging/whatsapp/get-started.md)
+> [Get Started With Advanced Messages SDK](../../../quickstarts//advanced-messaging/whatsapp/get-started.md)
 
 You might also want to see the following articles: 
 
+-    [WhatsApp Business Account FAQ](../../../quickstarts//advanced-messaging/whatsapp/whatsapp-business-account-faq.md)
 -    [WhatsApp Business Help Center](https://www.facebook.com/business/help/524220081677109?id=2129163877102343)
-
 -    [WhatsApp Business Display Name Policy](https://www.facebook.com/business/help/338047025165344)
-
 -    [Business Verification](https://www.facebook.com/business/help/1095661473946872?id=180505742745347) 
-
 -    [Add more Management Accounts](https://www.facebook.com/business/help/2169003770027706)

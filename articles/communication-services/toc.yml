@@ -193,6 +193,8 @@ items:
       items:
         - name: Register WhatsApp Business Account
           href: quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md
+        - name: WhatsApp Business Account FAQ
+          href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
         - name: Send WhatsApp Messages
           href: quickstarts/advanced-messaging/whatsapp/get-started.md
         - name: Handle Advanced Messaging Events
