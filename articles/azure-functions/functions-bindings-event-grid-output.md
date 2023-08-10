@@ -168,6 +168,8 @@ When using the Connection property, the `topicEndpointUri` must be specified as 
 ```
 When deployed, use the application settings to store this information.
 
+## Authenticating the Event Grid output binding
+
 [!INCLUDE [functions-event-grid-connections](../../includes/functions-event-grid-connections.md)]
 
 # [Isolated process](#tab/isolated-process)
