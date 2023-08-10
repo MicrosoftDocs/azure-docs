@@ -52,6 +52,10 @@ You need to assign enough permission to use runtime in Prompt flow. To assign a 
 > Prompt flow is **not supported** in the workspace which has data isolation enabled. The enableDataIsolation flag can only be set at the workspace creation phase and can't be updated.
 >
 >Prompt flow is **not supported** in the project workspace which was created with a workspace hub. The workspace hub is a private preview feature.
+>
+> Prompt flow is **not supported** in workspaces that enable managed VNet. Managed VNet is a private preview feature.
+>
+>Prompt flow is **not supported** if you secure your Azure AI services account (Azure openAI, Azure cognitive search, Azure content safety) with virtual networks. If you want to use these as connection in prompt flow please allow access from all networks.
 
 ### Create compute instance runtime in UI
 
@@ -298,6 +302,9 @@ If your compute instance is behind a VNet, you need to make the following change
 - See [required-public-internet-access](../how-to-secure-workspace-vnet.md#required-public-internet-access) to set your compute instance network configuration.
 - If your storage account also behind vnet, see [Secure Azure storage accounts](../how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) to create private endpoints for both table and blob.
 - Make sure the managed identity of workspace have `Storage Blob Data Contributor`, `Storage Table Data Contributor` roles on the workspace default storage account.
+
+> [!NOTE] 
+> This only works if your AOAI and other cognitive services allow access from all networks.
 
 ### Managed endpoint runtime related
 

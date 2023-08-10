@@ -1241,6 +1241,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-video-indexer/observed-people-tracing.md",
+            "redirect_url": "/azure/azure-video-indexer/observed-people-tracking",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cloudfoundry/index.yml",
             "redirect_url": "https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html",
             "redirect_document_id": false
@@ -23200,7 +23205,7 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart-portal-node-js-passport.md",
-            "redirect_url": "/azure/active-directory/develop/web-app-quickstart?pivots=devlang-nodejs-msal",
+            "redirect_url": "/azure/active-directory/develop/quickstart-web-app-nodejs-msal-sign-in",
             "redirect_document_id": false
         },
         {
@@ -23215,7 +23220,37 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-nodejs-webapp.md",
-            "redirect_url": "/azure/active-directory/develop/web-app-quickstart?pivots=devlang-nodejs-msal",
+            "redirect_url": "/azure/active-directory/develop/quickstart-web-app-nodejs-msal-sign-in",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/console-app-quickstart.md",
+            "redirect_url": "/azure/active-directory/develop/index-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/desktop-app-quickstart.md",
+            "redirect_url": "/azure/active-directory/develop/index-desktop",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/mobile-app-quickstart.md",
+            "redirect_url": "/azure/active-directory/develop/index-mobile",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/web-api-quickstart.md",
+            "redirect_url": "/azure/active-directory/develop/index-web-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart.md",
+            "redirect_url": "/azure/active-directory/develop/index-web-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/single-page-app-quickstart.md",
+            "redirect_url": "/azure/active-directory/develop/index-spa",
             "redirect_document_id": false
         },
         {
@@ -24082,6 +24117,26 @@
             "source_path_from_root": "/articles/private-link/tutorial-private-endpoint-webapp-portal.md",
             "redirect_url": "/azure/private-link/create-private-endpoint-portal",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/use-multiple-node-pools.md",
+            "redirect_url": "/azure/aks/create-node-pools",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/reliability/migrate-app-service.md",
+            "redirect_url": "/azure/reliability/reliability-app-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/reliability/migrate-app-service-environment.md",
+            "redirect_url": "/azure/reliability/reliability-app-service",
+            "redirect_document_id": false
         }
+
+
+
+
+       
     ]
 }

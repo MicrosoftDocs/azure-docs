@@ -310,12 +310,12 @@ In this command:
 - `--crt`: The path to the certificate file you want to upload, with a `.crt` extension
 - `--key`: The `\*.key` file you want to use for the certificate. Key length must be a minimum of 2,048 bits
 - `--chain`: The path to a certificate chain file. Optional.
-- `--pass`: A passphrase used to encrypt the certificate. Optional.
-- `--passphrase-set`: Unused and set to *False* by default. Set to *True* to use passphrase supplied with the previous certificate. Optional.
+- `--pass`: A passphrase used to encrypt the certificate. Optional. 
 
-> [!TIP]
-> The following characters can be used when importing a key or certificate with a passphrase:
-> ASCII characters (a-z, A-Z, 0-9) are supported, as well as the following symbols ! #  % ( ) + , - . /  :  =  ?  @  [  \  ]  ^  _  {  }  ~
+    The following characters are supported for creating a key or certificate with a passphrase:
+    - ASCII characters, including **a-z**, **A-Z**, **0-9**
+    - The following special characters: **! #  % ( ) + , - . /  :  =  ?  @  [  \  ]  ^  _  {  }  ~**
+- `--passphrase-set`: Unused and set to *False* by default. Set to *True* to use passphrase supplied with the previous certificate. Optional.
 
 For example, for the *cyberx* user:
 

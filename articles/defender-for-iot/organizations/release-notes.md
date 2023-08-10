@@ -100,7 +100,7 @@ To understand whether a feature is supported in your sensor version, check the r
 
 ## Versions 23.1.x
 
-### Version 23.1.1
+### Version 23.1.2
 
 **Release date**: 07/2023
 

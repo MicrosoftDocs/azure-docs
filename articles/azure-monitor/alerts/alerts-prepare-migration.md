@@ -8,7 +8,7 @@ ms.reviewer: yalavi
 # Prepare your logic apps and runbooks for migration of classic alert rules
 
 > [!NOTE]
-> As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired for public cloud users, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
+> As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired for public cloud users, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Microsoft Azure operated by 21Vianet will retire on **29 February 2024**.
 >
 
 If you choose to voluntarily migrate your classic alert rules to new alert rules, there are some differences between the two systems. This article explains those differences and how you can prepare for the change.

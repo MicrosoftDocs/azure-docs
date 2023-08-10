@@ -1,5 +1,5 @@
 ---
-title: Custom neural document model - Document Intelligence
+title: Custom neural document model - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Use the custom neural document model to train a model to extract data from structured, semistructured, and unstructured documents.
 author: laujan
@@ -132,7 +132,7 @@ Values in training cases should be diverse and representative. For example, if a
 
 ## Training a model
 
-Custom neural models are available in the [v3.0 and v3.1 APIs](v3-migration-guide.md).
+Custom neural models are available in the [v3.0 and v3.1 APIs](v3-1-migration-guide.md).
 
 | Document Type | REST API | SDK | Label and Test Models|
 |--|--|--|--|

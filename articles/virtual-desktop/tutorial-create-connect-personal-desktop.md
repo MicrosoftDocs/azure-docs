@@ -4,21 +4,24 @@ description: This tutorial shows you how to deploy Azure Virtual Desktop with a 
 ms.topic: tutorial
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 11/15/2022
+ms.date: 08/03/2023
 ---
 
 # Tutorial: Create and connect to a Windows 11 desktop with Azure Virtual Desktop
 
-Azure Virtual Desktop is a desktop and app virtualization service that runs on the cloud. This tutorial shows you a simple method to deploy a *Windows 11 Enterprise* desktop in Azure Virtual Desktop using the Azure portal and how to connect to it. To learn more about the terminology used for Azure Virtual Desktop, see [Azure Virtual Desktop terminology](environment-setup.md).
+Azure Virtual Desktop is a desktop and app virtualization service that runs on the cloud. This tutorial shows you how to deploy a *Windows 11 Enterprise* desktop in Azure Virtual Desktop using the Azure portal and how to connect to it. To learn more about the terminology used for Azure Virtual Desktop, see [Azure Virtual Desktop terminology](environment-setup.md).
 
-You will:
+You will deploy a sample infrastructure by:
 
 > [!div class="checklist"]
-> * Create a personal host pool.
-> * Create a session host virtual machine (VM) joined to your Azure Active Directory tenant with Windows 11 Enterprise and add it to the host pool.
-> * Create a workspace and an application group that publishes a desktop to the session host VM.
-> * Assign users to the application group.
-> * Connect to the desktop.
+> * Creating a personal host pool.
+> * Creating a session host virtual machine (VM) joined to your Azure Active Directory tenant with Windows 11 Enterprise and add it to the host pool.
+> * Creating a workspace and an application group that publishes a desktop to the session host VM.
+> * Assigning users to the application group.
+> * Connecting to the desktop.
+
+> [!TIP]
+> This tutorial shows a simple way you can get started with Azure Virtual Desktop. It doesn't provide an in-depth guide of the different options or using more [restrictive permissions](/security/zero-trust/azure-infrastructure-avd). For more advanced scenarios or some suggestions of what else you can configure, see some of the articles we list in [Next steps](#next-steps).
 
 ## Prerequisites
 
@@ -54,7 +57,7 @@ To create a personal host pool, workspace, application group, and session host V
    | Host pool name | Enter a name for the host pool, for example *aad-hp01*. |
    | Location | Select the Azure region from the list where the host pool, workspace, and application group will be deployed. |
    | Validation environment | Select **No**. This setting enables your host pool to receive service updates before all other production host pools, but isn't needed for this tutorial.|
-   | Preferred app group type | Select **Desktop**. This setting designates what type of resource users see in their feed if they're assigned both *Desktop* and *RemoteApp* application groups in the same host pool.|
+   | Preferred app group type | Select **Desktop**. With this personal host pool, you'll publish a desktop, but you won't also be able to add a RemoteApp application group to publish applications separately. See [Next steps](#next-steps) for more advanced scenarios. |
    | **Host pool type** |  |
    | Host pool type | Select **Personal**. This means that end users have a dedicated assigned session host that they'll always connect to. Selecting **Personal** shows a new option for **Assignment type**. |
    | Assignment type | Select **Automatic**. Automatic assignment means that a user will automatically get assigned the first available session host when they first sign in, which will then be dedicated to that user. |
@@ -194,13 +197,18 @@ Select the relevant tab below and follow the steps, depending on which Remote De
 
 ## Next steps
 
-Now that you've created and connected to a Windows 11 desktop with Azure Virtual Desktop there's much more you can do. For example you can:
+Now that you've created and connected to a Windows 11 desktop with Azure Virtual Desktop there's much more you can do. For suggestions of more advanced scenarios, see:
 
-- [Create a pooled host pool](create-host-pool.md), where multiple users can connect to the same session host at the same time.
+- Deploy Azure Virtual Desktop:
+   - [Create a host pool](create-host-pool.md), where if you select a pooled host pool, multiple users can connect to the same session host at the same time, and you can publish a desktop and publish applications with RemoteApp at the same time.
+   - [Create an application group, a workspace, and assign users](create-application-group-workspace.md).
+   - [Add session hosts to a host pool](add-session-hosts-host-pool.md).
+   - [Publish applications](manage-app-groups.md).
 - Manage user profiles using [FSLogix profile containers and Azure Files](create-profile-container-azure-ad.md).
+- [Understand network connectivity](network-connectivity.md).
+- Learn about [supported identities and authentication methods](authentication.md)
 - [Set up email discovery to subscribe to Azure Virtual Desktop](/windows-server/remote/remote-desktop-services/rds-email-discovery?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
 - [Configure single sign-on for Azure Virtual Desktop using Azure AD Authentication](configure-single-sign-on.md).
-- [Add session hosts to a host pool](add-session-hosts-host-pool.md).
 - Learn about [session host virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
 - [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md).
 - [Monitor your deployment with Azure Virtual Desktop Insights](azure-monitor.md).

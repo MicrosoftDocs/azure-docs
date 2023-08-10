@@ -15,7 +15,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Enable Closed captions for Teams interoperability
 
-Learn how to allow your users to enable closed captions during a Teams interoperability scenario where your users might be in a meeting between an ACS user and a Teams client user, or where your users are using ACS calling SDK with their Microsoft 365 identity. 
+Learn how to allow your users to enable closed captions during a Teams interoperability scenario where your users might be in a meeting between an Azure Communication Services user and a Teams client user, or where your users are using Azure Communication Services calling SDK with their Microsoft 365 identity. 
 
 [!INCLUDE [Public Preview](../../../communication-services/includes/public-preview-include.md)]
 

@@ -264,7 +264,7 @@ A kubelet identity enables access to the existing identity prior to cluster crea
 ### Pre-created kubelet identity limitations
 
 * Only works with a user-assigned managed cluster.
-* The China East and China North regions in Azure China 21Vianet aren't supported.
+* The China East and China North regions in Microsoft Azure operated by 21Vianet aren't supported.
 
 ### Create user-assigned managed identities
 

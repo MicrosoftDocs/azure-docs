@@ -21,7 +21,7 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
-> > [Quickstart:Protect an ASP.NET Core web API](web-api-quickstart.md?pivots=devlang-aspnet-core)
+> > [Quickstart: Call an ASP.NET web API that is protected by the Microsoft identity platform](quickstart-web-api-aspnet-protect-api.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 

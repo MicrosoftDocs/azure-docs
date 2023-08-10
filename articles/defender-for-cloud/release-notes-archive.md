@@ -812,7 +812,7 @@ Learn how to protect and connect your [AWS environment](quickstart-onboard-aws.m
 
 ### Registry scan for Windows images in ACR added support for national clouds
 
-Registry scan for Windows images is now supported in Azure Government and Azure China 21Vianet. This addition is currently in preview.
+Registry scan for Windows images is now supported in Azure Government and Microsoft Azure operated by 21Vianet. This addition is currently in preview.
 
 Learn more about our [feature's availability](supported-machines-endpoint-solutions-clouds-containers.md).
 

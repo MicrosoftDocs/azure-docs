@@ -119,10 +119,10 @@ The transcribed conversation should be output as text:
 SessionStarted event
 TRANSCRIBED:
         Text=Good morning, Steve.
-        Speaker ID=Unknown-0
+        Speaker ID=Unknown
 TRANSCRIBED:
         Text=Good morning, Katie.
-        Speaker ID=Unknown-0
+        Speaker ID=Unknown
 TRANSCRIBED:
         Text=Have you tried the latest real time diarization in Microsoft Speech Service which can tell you who said what in real time?
         Speaker ID=Guest-1
