@@ -444,18 +444,18 @@ After the cluster is formed and configured, you can now create new virtual switc
 
      a. Specify a **Name** for the virtual switch, select a **Network interface** from the dropdown menu, and specify an **MTU** (Maximum Transmission Unit) value (optional).
      
-       The MTU value determines the maximum packet size that can be transmitted over a network. Azure Stack Edge supports MTU values in the following table. If a device on the network path has an MTU setting lower than 1500, IP packets with the “do not fragment” flag (DF) with packet size 1500 will be dropped.
+    The MTU value determines the maximum packet size that can be transmitted over a network. Azure Stack Edge supports MTU values in the following table. If a device on the network path has an MTU setting lower than 1500, IP packets with the “do not fragment” flag (DF) with packet size 1500 will be dropped.
 
-       | Azure Stack Edge SKU | Network interface | Supported MYU values |
-       |-------|--------|------------|
-       | Pro-GPU | Ports 1, 2, 3, and 4 | 1400 - 1500 |
-       | Pro 2 | Ports 1 and 2 | 1400 - 1500 |
-       | Pro 2 | Ports 3 and 4 | Not configurable, set to default |
-       | All | Ports 5 and 6 | Not configurable, set to default |
+    | Azure Stack Edge SKU | Network interface | Supported MYU values |
+    |-------|--------|------------|
+    | Pro-GPU | Ports 1, 2, 3, and 4 | 1400 - 1500 |
+    | Pro 2 | Ports 1 and 2 | 1400 - 1500 |
+    | Pro 2 | Ports 3 and 4 | Not configurable, set to default |
+    | All | Ports 5 and 6 | Not configurable, set to default |
 
-       The host virtual switch will use the specified MTU setting.
+    The host virtual switch will use the specified MTU setting.
 
-       If the virtual switch is used as a compute virtual switch for a Microsoft Kubernetes cluster, the Microsoft Kubernetes node VM’s virtual networks and common network information services (CNIs) will use the specified MTU setting.
+    If the virtual switch is used as a compute virtual switch for a Microsoft Kubernetes cluster, the Microsoft Kubernetes node VM’s virtual networks and common network information services (CNIs) will use the specified MTU setting.
 
      b. If deploying 5G workloads, set **Supports accelerated networking** to **Yes**.
 
