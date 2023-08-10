@@ -1,29 +1,152 @@
 ---
-title: X12 tracking schemas for B2B messages
-description: Create tracking schemas to monitor X12 messages for Azure Logic Apps.
+title: B2B message monitoring using tracking schemas
+description: Create tracking schemas to monitor B2B messages such as AS2, X12, or custom in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
 ms.reviewer: estfan, azla
-ms.topic: how-to
-ms.date: 08/20/2022
+ms.topic: reference
+ms.date: 08/10/2023
 ---
 
-# Create schemas for tracking X12 messages in Azure Logic Apps
+# Tracking schemas for monitoring B2B messages in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-To help you monitor success, errors, and message properties for business-to-business (B2B) transactions, you can use these X12 tracking schemas in your integration account:
+Azure Logic Apps includes built-in tracking that you can enable for parts of your workflow. To help you monitor the successful delivery or receipt, errors, and properties for business-to-business (B2B) messages, you can create and use AS2, X12, and custom tracking schemas in your integration account. This reference guide describes the syntax and attributes for these tracking schemas.
 
-* X12 transaction set tracking schema
-* X12 transaction set acknowledgment tracking schema
-* X12 interchange tracking schema
-* X12 interchange acknowledgment tracking schema
-* X12 functional group tracking schema
-* X12 functional group acknowledgment tracking schema
+## AS2
 
-## X12 transaction set tracking schema
+- [AS2 message tracking schema](#as2-message)
+- [AS2 Message Disposition Notification (MDN) tracking schema](#as2-mdn)
+
+<a name="as2-message"></a>
+
+### AS2 message tracking schema
+
+The following syntax describes the tracking schema for an AS2 message:
+
+```json
+{
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "as2To": "",
+      "as2From": "",
+      "agreementName": ""
+   },
+   "messageProperties": {
+      "direction": "",
+      "messageId": "",
+      "dispositionType": "",
+      "fileName": "",
+      "isMessageFailed": "",
+      "isMessageSigned": "",
+      "isMessageEncrypted": "",
+      "isMessageCompressed": "",
+      "correlationMessageId": "",
+      "incomingHeaders": {},
+      "outgoingHeaders": {},
+      "isNrrEnabled": "",
+      "isMdnExpected": "",
+      "mdnType": ""
+    }
+}
+```
+
+The following table describes the attributes in a tracking schema for an AS2 message:
+
+| Property | Required | Type | Description |
+|----------|----------|------|-------------|
+| senderPartnerName | No | String | AS2 message sender's partner name |
+| receiverPartnerName | No | String | AS2 message receiver's partner name |
+| as2To | Yes | String | AS2 message receiver’s name from the headers of the AS2 message |
+| as2From | Yes | String | AS2 message sender’s name from the headers of the AS2 message |
+| agreementName | No | String | Name of the AS2 agreement to which the messages are resolved |
+| direction | Yes | String | Direction of the message flow, which is either `receive` or `send` |
+| messageId | No | String | AS2 message ID from the headers of the AS2 message |
+| dispositionType | No | String | Message Disposition Notification (MDN) disposition type value |
+| fileName | No | String | File name from the header of the AS2 message |
+| isMessageFailed | Yes | Boolean | Whether the AS2 message failed |
+| isMessageSigned | Yes | Boolean | Whether the AS2 message was signed |
+| isMessageEncrypted | Yes | Boolean | Whether the AS2 message was encrypted |
+| isMessageCompressed | Yes | Boolean | Whether the AS2 message was compressed |
+| correlationMessageId | No | String | AS2 message ID, to correlate messages with MDNs |
+| incomingHeaders | No | Dictionary of JToken | Incoming AS2 message header details |
+| outgoingHeaders | No | Dictionary of JToken | Outgoing AS2 message header details |
+| isNrrEnabled | Yes | Boolean | Whether to use default value if the value isn't known |
+| isMdnExpected | Yes | Boolean | Whether to use the default value if the value isn't known |
+| mdnType | Yes | Enum | Allowed values: `NotConfigured`, `Sync`, and `Async` |
+
+<a name="as2-mdn"></a>
+
+### AS2 MDN tracking schema
+
+The following syntax describes the tracking schema for an AS2 MDN message:
+
+```json
+{
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "as2To": "",
+      "as2From": "",
+      "agreementName": ""
+   },
+   "messageProperties": {
+      "direction": "",
+      "messageId": "",
+      "originalMessageId": "",
+      "dispositionType": "",
+      "isMessageFailed": "",
+      "isMessageSigned": "",
+      "isNrrEnabled": "",
+      "statusCode": "",
+      "micVerificationStatus": "",
+      "correlationMessageId": "",
+      "incomingHeaders": {
+      },
+      "outgoingHeaders": {
+      }
+   }
+}
+```
+
+The following table describes the attributes in a tracking schema for an AS2 MDN message:
+
+| Property | Required | Type | Description |
+|----------|----------|------|-------------|
+| senderPartnerName | No | String | AS2 message sender's partner name |
+| receiverPartnerName | No | String | AS2 message receiver's partner name |
+| as2To | Yes | String | Partner name who receives the AS2 message |
+| as2From | Yes | String | Partner name who sends the AS2 message |
+| agreementName | No | String | Name of the AS2 agreement to which the messages are resolved |
+| direction | Yes | String | Direction of the message flow, which is either `receive` or `send` |
+| messageId | No | String | AS2 message ID |
+| originalMessageId | No | String | AS2 original message ID |
+| dispositionType | No | String | MDN disposition type value |
+| isMessageFailed | Yes | Boolean | Whether the AS2 message failed |
+| isMessageSigned | Yes | Boolean | Whether the AS2 message was signed |
+| isNrrEnabled | Yes | Boolean | Whether to use the default value if the value isn't known |
+| statusCode | Yes | Enum | Allowed values: `Accepted`, `Rejected`, and `AcceptedWithErrors` |
+| micVerificationStatus | Yes | Enum | Allowed values:`NotApplicable`, `Succeeded`, and `Failed` |
+| correlationMessageId | No | String | Correlation ID, which is the ID for the original message that has the MDN configured |
+| incomingHeaders | No | Dictionary of JToken | Incoming message header details |
+| outgoingHeaders | No | Dictionary of JToken | Outgoing message header details |
+
+## X12
+
+- [X12 transaction set tracking schema](#x12-transaction-set)
+- [X12 transaction set acknowledgment tracking schema](#x12-transaction-set-acknowledgment)
+- [X12 interchange tracking schema](#x12-interchange)
+- [X12 interchange acknowledgment tracking schema](#x12-interchange-acknowledgment)
+- [X12 functional group tracking schema](#x12-functional-group)
+- [X12 functional group acknowledgment tracking schema](#x12-functional-group-acknowledgment)
+
+<a name="x12-transaction-set"></a>
+
+### X12 transaction set tracking schema
+
+The following syntax describes the tracking schema for an X12 transaction set:
 
 ```json
 {
@@ -52,6 +175,8 @@ To help you monitor success, errors, and message properties for business-to-busi
 }
 ```
 
+The following table describes the attributes in a tracking schema for an X12 transaction set:
+
 | Property | Required | Type | Description |
 |----------|----------|------|-------------|
 | senderPartnerName | No | String | X12 message sender's partner name |
@@ -72,9 +197,12 @@ To help you monitor success, errors, and message properties for business-to-busi
 | isFunctionalAcknowledgmentExpected | Yes | Boolean | Whether the functional acknowledgment is configured in the X12 agreement |
 | needAk2LoopForValidMessages | Yes | Boolean | Whether the AK2 loop is required for a valid message |
 | segmentsCount | No | Integer | Number of segments in the X12 transaction set |
-|||||
 
-## X12 transaction set acknowledgment tracking schema
+<a name="x12-transaction-set-acknowledgment"></a>
+
+### X12 transaction set acknowledgment tracking schema
+
+The following syntax describes the tracking schema for an X12 transaction set acknowledgment:
 
 ```json
 {
@@ -108,6 +236,8 @@ To help you monitor success, errors, and message properties for business-to-busi
 }
 ```
 
+The following table describes the attributes in a tracking schema for an X12 transaction set acknowledgment:
+
 | Property | Required | Type | Description |
 |----------|----------|------|-------------|
 | senderPartnerName | No | String | X12 message sender's partner name |
@@ -134,9 +264,12 @@ To help you monitor success, errors, and message properties for business-to-busi
 | ak2Segment | No | String | Acknowledgment for a transaction set within the received functional group |
 | ak3Segment | No | String | Reports errors in a data segment |
 | ak5Segment | No | String | Reports whether the transaction set identified in the AK2 segment is accepted or rejected, and why |
-|||||
 
-## X12 interchange tracking schema
+<a name="x12-interchange"></a>
+
+### X12 interchange tracking schema
+
+The following syntax describes the tracking schema for an X12 interchange:
 
 ```json
 {
@@ -166,6 +299,8 @@ To help you monitor success, errors, and message properties for business-to-busi
 }
 ```
 
+The following table describes the attributes in a tracking schema for an X12 interchange:
+
 | Property | Required | Type | Description |
 |----------|----------|------|-------------|
 | senderPartnerName | No | String | X12 message sender's partner name |
@@ -187,9 +322,12 @@ To help you monitor success, errors, and message properties for business-to-busi
 | isa14 | No | String | X12 acknowledgment is requested |
 | isa15 | No | String | Indicator for test or production |
 | isa16 | No | String | Element separator |
-|||||
 
-## X12 interchange acknowledgment tracking schema
+<a name="x12-interchange-acknowledgment"></a>
+
+### X12 interchange acknowledgment tracking schema
+
+The following syntax describes the tracking schema for an X12 interchange acknowledgment:
 
 ```json
 {
@@ -217,6 +355,8 @@ To help you monitor success, errors, and message properties for business-to-busi
 }
 ```
 
+The following table describes the attributes in a tracking schema for an X12 interchange acknowledgment:
+
 | Property | Required | Type | Description |
 |----------|----------|------|-------------|
 | senderPartnerName | No | String | X12 message sender's partner name |
@@ -236,9 +376,12 @@ To help you monitor success, errors, and message properties for business-to-busi
 | ta102 | No | String | Interchange date |
 | ta103 | No | String | Interchange time |
 | ta105 | No | String | Interchange note code |
-|||||
 
-## X12 functional group tracking schema
+<a name="x12-functional-group"></a>
+
+### X12 functional group tracking schema
+
+The following syntax describes the tracking schema for an X12 functional group:
 
 ```json
 {
@@ -270,6 +413,8 @@ To help you monitor success, errors, and message properties for business-to-busi
 }
 ```
 
+The following table describes the attributes in a tracking schema for an X12 functional group:
+
 | Property | Required | Type | Description |
 |----------|----------|------|-------------|
 | senderPartnerName | No | String | X12 message sender's partner name |
@@ -293,9 +438,12 @@ To help you monitor success, errors, and message properties for business-to-busi
 | gs05 | No | String | Functional group time |
 | gs07 | No | String | Responsible agency code |
 | gs08 | No | String | Identifier code for the version, release, or industry |
-|||||
 
-## X12 functional group acknowledgment tracking schema
+<a name="x12-functional-group-acknowledgment"></a>
+
+### X12 functional group acknowledgment tracking schema
+
+The following syntax describes the tracking schema for an X12 functional group acknowledgment:
 
 ```json
 {
@@ -326,6 +474,8 @@ To help you monitor success, errors, and message properties for business-to-busi
 }
 ```
 
+The following table describes the attributes in a tracking schema for an X12 functional group acknowledgment:
+
 | Property | Required | Type | Description |
 |----------|----------|------|-------------|
 | senderPartnerName | No | String | X12 message sender's partner name |
@@ -348,14 +498,61 @@ To help you monitor success, errors, and message properties for business-to-busi
 | ak903 | No | String | Number of transaction sets received |
 | ak904 | No | String | Number of transaction sets accepted in the identified functional group |
 | ak9Segment | No | String | Whether the functional group identified in the AK1 segment is accepted or rejected, and why |
-|||||
 
-## B2B protocol tracking schemas
+<a name="custom"></a>
 
-For information about B2B protocol tracking schemas, see:
+## Custom
 
-* [AS2 tracking schemas](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
-* [B2B custom tracking schemas](logic-apps-track-integration-account-custom-tracking-schema.md)
+You can set up custom tracking that logs events from the start to the end of your logic app workflow. For example, you can log events from layers that include your workflow, SQL Server, BizTalk Server, or any other layer. The following section provides custom tracking schema code that you can use in the layers outside your workflow.
+
+```json
+{
+   "sourceType": "",
+   "source": {
+      "workflow": {
+         "systemId": ""
+      },
+      "runInstance": {
+         "runId": ""
+      },
+      "operation": {
+         "operationName": "",
+         "repeatItemScopeName": "",
+         "repeatItemIndex": ,
+         "trackingId": "",
+         "correlationId": "",
+         "clientRequestId": ""
+      }
+   },
+   "events": [
+      {
+         "eventLevel": "",
+         "eventTime": "",
+         "recordType": "",
+         "record": {}
+      }
+   ]
+}
+```
+
+The following table describes the attributes in a custom tracking schema:
+
+| Property | Required | Type | Description |
+|----------|----------|------|-------------|
+| sourceType | Yes | String | Type of the run source with these permitted values: `Microsoft.Logic/workflows`, `custom` |
+| source | Yes | String or JToken | If the source type is `Microsoft.Logic/workflows`, the source information needs to follow this schema. If the source type is `custom`, the schema is a JToken. |
+| systemId | Yes | String | Logic app system ID |
+| runId | Yes | String | Logic app run ID |
+| operationName | Yes | String | Name of the operation, for example, action or trigger |
+| repeatItemScopeName | Yes | String | Repeat item name if the action is inside a `foreach`or `until` loop |
+| repeatItemIndex | Yes | Integer | Indicates that the action is inside a `foreach` or `until` loop and is the repeated item index number. |
+| trackingId | No | String | Tracking ID to correlate the messages |
+| correlationId | No | String | Correlation ID to correlate the messages |
+| clientRequestId | No | String | Client can populate this property to correlate messages |
+| eventLevel | Yes | String | Level of the event |
+| eventTime | Yes | DateTime | Time of the event in UTC format: *YYYY-MM-DDTHH:MM:SS.00000Z* |
+| recordType | Yes | String | Type of the track record with this permitted value only: `custom` |
+| record | Yes | JToken | Custom record type with JToken format only |
 
 ## Next steps
 
