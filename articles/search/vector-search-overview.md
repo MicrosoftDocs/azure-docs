@@ -33,7 +33,7 @@ Vector search is a new capability for indexing, storing, and retrieving vector e
 
 Support for vector search is in public preview and available through the [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview), Azure portal, and the more recent beta packages of the Azure SDKs for [.NET](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.4), [Python](https://pypi.org/project/azure-search-documents/11.4.0b8/), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2).
 
-The following diagram shows the indexing and query worfklows for vector search.
+The following diagram shows the indexing and query workflows for vector search.
 
 :::image type="content" source="media/vector-search-overview/vector-search-architecture-diagram.png" alt-text="Architecture of vector search workflow." border="true":::
 
