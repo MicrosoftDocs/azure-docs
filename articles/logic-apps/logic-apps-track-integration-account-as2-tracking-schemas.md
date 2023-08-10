@@ -3,8 +3,6 @@ title: AS2 tracking schemas for B2B messages
 description: Create tracking schemas to monitor AS2 messages in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/20/2022
