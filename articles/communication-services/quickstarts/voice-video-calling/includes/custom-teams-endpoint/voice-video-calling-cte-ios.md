@@ -86,7 +86,7 @@ The following classes and interfaces handle some of the major features of the Az
 | `CommunicationTokenCredential` | The `CommunicationTokenCredential` is used as the token credential to instantiate the `TeamsCallAgent`.                                                                                     |
 | `CommunicationIdentifier`      | The `CommunicationIdentifier` is used to represent the identity of the user, which can be one of the following options: `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `CallingApplication`. |
 
-## Create the Call Agent
+## Create the Teams Call Agent
 
 Replace the implementation of the ContentView `struct` with some simple UI controls that enable a user to initiate and end a call. We add business logic to these controls in this quickstart.
 
@@ -199,7 +199,7 @@ struct ContentView: View {
         }.onAppear{
             // Authenticate the client
             
-            // Initialize the CallAgent and access Device Manager
+            // Initialize the Teams CallAgent and access Device Manager
             
             // Ask for permissions
         }
@@ -247,7 +247,7 @@ do {
 }
 ```
 
-### Initialize the CallAgent and access Device Manager
+### Initialize the Teams CallAgent and access Device Manager
 
 To create a `TeamsCallAgent` instance from a `CallClient`, use the `callClient.createTeamsCallAgent` method that asynchronously returns a `TeamsCallAgent` object once it's initialized. `DeviceManager` lets you enumerate local devices that can be used in a call to transmit audio/video streams. It also allows you to request permission from a user to access microphone/camera.
 
