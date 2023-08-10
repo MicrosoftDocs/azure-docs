@@ -5,14 +5,14 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 08/03/2023
+ms.date: 08/10/2023
 ms.author: cshoe
 ms.custom: references_regions
 ---
 
 # Manage workload profiles in the Azure portal
 
-Learn to manage Container Apps environments with [workload profile](./workload-profiles-overview.md) support.
+Learn to manage a [workload profile](./workload-profiles-overview.md) environment in the Azure portal.
 
 ## Create a container app in a workload profile
 
@@ -115,7 +115,7 @@ From this window, you can:
 
 - Adjust the minimum and maximum number of instances available to a profile
 - Add new profiles
-- Delete existing profiles (except for the Consumption profile)
+- Delete existing profiles (except for the consumption profile)
 
 ## Delete a profile
 

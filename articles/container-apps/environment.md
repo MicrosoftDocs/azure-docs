@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  conceptual
-ms.date: 08/07/2023
+ms.date: 08/10/2023
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022, build-2023
 ---
@@ -18,8 +18,8 @@ Environments include the following features:
 
 | Feature | Description |
 |---|---|
-| Type | There are [two different types](#types) of Container Apps environments: Workload profile environments and Consumption only environments. |
-| Virtual network | A  virtual network supports each environment, which enforces the environment's secure boundaries. As you create an environment, a virtual network that has [limited network capabilities](networking.md) is create for you, or you can provide your own. Adding an [existing virtual network](vnet-custom.md) gives you fine-grained control over your network. |
+| Type | There are [two different types](#types) of Container Apps environments: Workload profile environments and Consumption only environments. Workload proriles are only available under the [Dedicated plan](plans.md). |
+| Virtual network | A virtual network supports each environment, which enforces the environment's secure boundaries. As you create an environment, a virtual network that has [limited network capabilities](networking.md) is created for you, or you can provide your own. Adding an [existing virtual network](vnet-custom.md) gives you fine-grained control over your network. |
 | Multiple container apps | When multiple container apps are in the same environment, they share the same virtual network and write logs to the same logging destination. |
 | Multi-service integration | You can add [Azure Functions](https://aka.ms/functionsonaca) and [Azure Spring Apps](https://aka.ms/asaonaca) to your Azure Container Apps environment. |
 
@@ -47,9 +47,9 @@ Depending on your needs, you may want to use one or more Container Apps environm
 
 ## Types
 
-| Type | Description | Plans | Billing considerations |
+| Type | Description | Plan | Billing considerations |
 |--|--|--|--|
-| Workload profile | Run serverless apps with support for scale-to-zero and pay only for resources your apps use with the consumption profile. You can also run apps with customized hardware and increased cost predictability using dedicated workload profiles. | Consumption or dedicated | Includes a fixed cost for the entire environment regardless of how many workload profiles you're using. |
+| Workload profile | Run serverless apps with support for scale-to-zero and pay only for resources your apps use with the consumption profile. You can also run apps with customized hardware and increased cost predictability using dedicated workload profiles. | Dedicated | Includes a fixed cost for the entire environment regardless of how many workload profiles you're using. |
 | Consumption only | Run serverless apps with support for scale-to-zero and pay only for resources your apps use. | Consumption only | Billed only for individual container apps and their resource usage. There's no cost associated with the Container Apps environment. |
 
 ## Logs
