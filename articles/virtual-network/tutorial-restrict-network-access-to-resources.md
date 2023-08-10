@@ -290,7 +290,7 @@ The virtual machine you created earlier that is assigned to the **subnet-1** sub
 
 1. Repeat the previous command to attempt to map the drive to the file share in the storage account. You may need to copy the storage account access key again for this procedure:
 
- ```powershell
+    ```powershell
     $key = @{
         String = "<storage-account-key>"
     }
@@ -310,7 +310,7 @@ The virtual machine you created earlier that is assigned to the **subnet-1** sub
     New-PSDrive @map
    ```
     
-    You should receive the following error message:
+1. You should receive the following error message:
 
     ```output
     New-PSDrive : Access is denied
