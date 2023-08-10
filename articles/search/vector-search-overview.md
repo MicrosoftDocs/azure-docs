@@ -25,7 +25,7 @@ We recommend this article for background, but if you'd rather get started, follo
 > + [Load vector data](search-what-is-data-import.md) into an index using push or pull methodologies. 
 > + [Query vector data](vector-search-how-to-query.md) using the Azure portal, preview REST APIs, or beta SDK packages.
 
-You could also start with the [REST quickstart](search-get-started-vector.md) or the [code samples on GitHub](https://github.com/Azure/cognitive-search-vector-pr).
+You could also begin with the [vector quickstart](search-get-started-vector.md) or the [code samples on GitHub](https://github.com/Azure/cognitive-search-vector-pr).
 
 ## What's vector search in Cognitive Search?
 
@@ -35,9 +35,9 @@ Support for vector search is in public preview and available through the [**2023
 
 The following diagram shows the indexing and query workflows for vector search.
 
-:::image type="content" source="media/vector-search-overview/vector-search-architecture-diagram.png" alt-text="Architecture of vector search workflow." border="true":::
+:::image type="content" source="media/vector-search-overview/vector-search-architecture-diagram-2.png" alt-text="Architecture of vector search workflow." border="true":::
 
-On the indexing side, prepare and load source documents that contain embeddings. Cognitive Search doesn't generate embeddings, so your solution should include calls to Azure OpenAI or other models that can create a vector representation of your image, audio, text, and other content. Add a *vector field* in your index definition on Cognitive Search. Load the index with a documents payload that includes the embeddings. Your index is now ready to query.
+On the indexing side, prepare and load source documents that contain embeddings. Cognitive Search doesn't generate embeddings, so your solution should include calls to Azure OpenAI or other models that can create a vector representation of your image, audio, text, and other content. Add a *vector field* to your index definition on Cognitive Search. Load the index with a documents payload that includes the embeddings. Your index is now ready to query.
 
 On the query side, in your client application, collect the query input. Add a step that converts the input into a vector, and then send the vector query to your index on Cognitive Search for a similarity search. Cognitive Search returns documents with the requested `k` nearest neighbors (kNN).
 

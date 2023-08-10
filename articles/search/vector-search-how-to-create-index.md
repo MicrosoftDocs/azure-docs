@@ -24,7 +24,9 @@ In Azure Cognitive Search, vector data is indexed as *vector fields* in a [searc
 
 Vector fields are of type `Collection(Edm.Single)` and single-precision floating-point values. A field of this type also has a `dimensions` property and a `vectorConfiguration property
 
-A vector configuration specifies the algorithm and parameters used during indexing to create "nearest neighbor" information among the vector nodes. Currently, only Hierarchical Navigable Small World (HNSW) is supported. During indexing, HNSW determines how closely the vectors match and stores the neighborhood information as a proximity graph in the index. You can have multiple configurations within an index if you want different HNSW parameter combinations. As long as the vector fields contain embeddings from the same model, having a different vector configuration per field has no effect on queries.
+A vector configuration specifies the algorithm and parameters used during indexing to create "nearest neighbor" information among the vector nodes. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
+
+During indexing, HNSW determines how closely the vectors match and stores the neighborhood information as a proximity graph in the index. You can have multiple configurations within an index if you want different HNSW parameter combinations. As long as the vector fields contain embeddings from the same model, having a different vector configuration per field has no effect on queries.
 
 ## Prerequisites
 
@@ -207,19 +209,25 @@ If you're updating an existing index to include vector fields, make sure the `al
 
 Under construction.
 
-Use the [Azure.Search.Documents 11.5.0-beta.4](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.4) package. For code samples, see the [cognitive-search-vector-pr] GitHub repository.
+Use the [**Azure.Search.Documents 11.5.0-beta.4**](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.4) package for vector scenarios. 
+
+See the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr) GitHub repository for .NET code samples.
 
 ### [**Python**](#tab/python-add-field)
 
 Under construction.
 
-Use the [Azure.Search.Documents 11.4.0b8](https://pypi.org/project/azure-search-documents/11.4.0b8/) package. For code samples, see the [cognitive-search-vector-pr] GitHub repository.
+Use the [**Azure.Search.Documents 11.4.0b8**](https://pypi.org/project/azure-search-documents/11.4.0b8/) package for vector scenarios. 
+
+See the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr) GitHub repository for Python code samples.
 
 ### [**JavaScript**](#tab/js-add-field)
 
 Under construction.
 
-Use the [@azure/search-documents 12.0.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2) package. For code samples, see the [cognitive-search-vector-pr] GitHub repository.
+Use the [**@azure/search-documents 12.0.0-beta.2**](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2) package for vector scenarios.
+
+See the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr) GitHub repository for JavaScript code samples.
 
 ---
 
@@ -300,10 +308,11 @@ Fields must be attributed as "retrievable" to be included in the results.
 
 ### [**Azure portal**](#tab/portal-check-index)
 
-You can use [Search Explorer](search-explorer.md) to query an index. Search explorer has two views: Query view (default) and JSON view. For vector queries, use the JSON view and paste in a JSON definition of a vector query. For more information, see [Query vector data in a search index](vector-search-how-to-query.md).
+You can use [Search Explorer](search-explorer.md) to query an index. Search explorer has two views: Query view (default) and JSON view. 
 
-> [!TIP]
-> Although you can't use the default query view for vector queries, you can send an empty search (`search=*`) to quickly confirm that vector content is present. The content of all fields, including vector fields, is returned as plain text.
++ [Use the JSON view for vector queries](vector-search-how-to-query.md), pasting in a JSON definition of the vector query you want to execute.
+
++ Use the default Query view for a quick confirmation that the index contains vectors. The query view is for full text search. Although you can't use it for vector queries, you can send an empty search (`search=*`) to check for content. The content of all fields, including vector fields, is returned as plain text.
 
 ### [**REST API**](#tab/rest-check-index)
 
