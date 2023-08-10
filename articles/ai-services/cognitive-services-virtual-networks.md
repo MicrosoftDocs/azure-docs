@@ -78,7 +78,7 @@ You can manage default network access rules for Azure AI services resources thro
 
 1. Select **Resource Management** to expand it, then select **Networking**.
 
-   :::image type="content" source="media/vnet/virtual-network-blade.png" alt-text="Screenshot shows the Networking page with Selected Networks and Private Endpoints selected." :::
+   :::image type="content" source="media/vnet/virtual-network-blade.png" alt-text="Screenshot shows the Networking page with Selected Networks and Private Endpoints selected." lightbox="media/vnet/virtual-network-blade.png":::
 
 1. To deny access by default, under **Firewalls and virtual networks**, select **Selected Networks and Private Endpoints**.
 
@@ -86,7 +86,7 @@ You can manage default network access rules for Azure AI services resources thro
 
 1. To allow traffic from all networks, select **All networks**.
 
-   :::image type="content" source="media/vnet/virtual-network-deny.png" alt-text="Screenshot shows the Networking page with All networks selected." :::
+   :::image type="content" source="media/vnet/virtual-network-deny.png" alt-text="Screenshot shows the Networking page with All networks selected." lightbox="media/vnet/virtual-network-deny.png":::
 
 1. Select **Save** to apply your changes.
 
@@ -193,7 +193,7 @@ To grant access to a virtual network with an existing network rule:
 
 1. Under **Allow access from**, select **Add existing virtual network**.
 
-   :::image type="content" source="media/vnet/virtual-network-add-existing.png" alt-text="Screenshot shows the Networking page with Selected Networks and Private Endpoints selected and Add existing virtual network highlighted." :::
+   :::image type="content" source="media/vnet/virtual-network-add-existing.png" alt-text="Screenshot shows the Networking page with Selected Networks and Private Endpoints selected and Add existing virtual network highlighted." lightbox="media/vnet/virtual-network-add-existing.png" :::
 
 1. Select the **Virtual networks** and **Subnets** options, and then select **Enable**.
 
@@ -210,7 +210,7 @@ To create a new virtual network and grant it access:
 
 1. On the same page as the previous procedure, select **Add new virtual network**.
 
-   :::image type="content" source="media/vnet/virtual-network-add-new.png" alt-text="Screenshot shows the Networking page with Selected Networks and Private Endpoints selected and Add new virtual network highlighted." :::
+   :::image type="content" source="media/vnet/virtual-network-add-new.png" alt-text="Screenshot shows the Networking page with Selected Networks and Private Endpoints selected and Add new virtual network highlighted." lightbox="media/vnet/virtual-network-add-new.png":::
 
 1. Provide the information necessary to create the new virtual network, and then select **Create**.
 
@@ -222,7 +222,7 @@ To remove a virtual network or subnet rule:
 
 1. On the same page as the previous procedures, select **...** to open the context menu for the virtual network or subnet, and select **Remove**.
 
-   :::image type="content" source="media/vnet/virtual-network-remove.png" alt-text="Screenshot shows the option to remove a virtual network." :::
+   :::image type="content" source="media/vnet/virtual-network-remove.png" alt-text="Screenshot shows the option to remove a virtual network." lightbox="media/vnet/virtual-network-remove.png":::
 
 1. Select **Save** to apply your changes.
 
@@ -378,7 +378,7 @@ You can manage IP network rules for Azure AI services resources through the Azur
 
 1. To grant access to an internet IP range, enter the IP address or address range (in [CIDR format](https://tools.ietf.org/html/rfc4632)) under **Firewall** > **Address Range**. Only valid public IP (nonreserved) addresses are accepted.
 
-   :::image type="content" source="media/vnet/virtual-network-add-ip-range.png" alt-text="Screenshot shows the Networking page with Selected Networks and Private Endpoints selected and the Address range highlighted." :::
+   :::image type="content" source="media/vnet/virtual-network-add-ip-range.png" alt-text="Screenshot shows the Networking page with Selected Networks and Private Endpoints selected and the Address range highlighted." lightbox="media/vnet/virtual-network-add-ip-range.png":::
 
    To remove an IP network rule, select the trash can <span class="docon docon-delete x-hidden-focus"></span> icon next to the address range.
 
