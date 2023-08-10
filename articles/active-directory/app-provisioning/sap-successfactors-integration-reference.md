@@ -15,7 +15,7 @@ ms.reviewer: chmutali
 
 # How Azure Active Directory provisioning integrates with SAP SuccessFactors 
 
-[Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with [SAP SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) to manage the identity life cycle of users. Azure Active Directory offers three prebuilt integrations: 
+[Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with [SAP SuccessFactors Employee Central](https://www.sap.com/products/hcm/employee-central-payroll.html) to manage the identity life cycle of users. Azure Active Directory offers three prebuilt integrations: 
 
 * [SuccessFactors to on-premises Active Directory user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 * [SuccessFactors to Azure Active Directory user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
