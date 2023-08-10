@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory Single sign-on (SSO) integration with Cornerstone | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory Single sign-on (SSO) integration with Cornerstone'
 description: Learn how to configure single sign-on between Azure Active Directory and Cornerstone Single Sign-On.
 services: active-directory
 author: jeevansd

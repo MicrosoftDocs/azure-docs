@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure monday.com for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure monday.com for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to monday.com.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 7dba523e-c75a-4895-bad4-82239a263afe
 ms.service: active-directory

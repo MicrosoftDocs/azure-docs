@@ -9,7 +9,7 @@ ms.author: ebnkruma
 
 # Use Stream Analytics to process exported data from Application Insights
 
-[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is the ideal tool for processing data [exported from Application Insights](../azure-monitor/app/export-telemetry.md). Stream Analytics can pull data from a variety of sources. It can transform and filter the data, and then route it to a variety of sinks.
+[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is the ideal tool for processing data [exported from Application Insights](/previous-versions/azure/azure-monitor/app/export-telemetry). Stream Analytics can pull data from a variety of sources. It can transform and filter the data, and then route it to a variety of sinks.
 
 In this example, we'll create an adaptor that takes data from Application Insights using continuous export, renames and processes some of the fields, and pipes it into Power BI.
 
@@ -39,7 +39,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 
 ## Start continuous export to Azure storage
 
-[Continuous export](../azure-monitor/app/export-telemetry.md) moves data from Application Insights into Azure storage. 
+[Continuous export](/previous-versions/azure/azure-monitor/app/export-telemetry) moves data from Application Insights into Azure storage. 
 
 1. In the Azure portal, browse to the Application Insights resource you created for your application.
    
@@ -101,7 +101,7 @@ In this example:
 
 * `webapplication27` is the name of the Application Insights resource **all lower case**.
 * `1234...` is the instrumentation key of the Application Insights resource, **omitting dashes**. 
-* `PageViews` is the type of data you want to analyze. The available types depend on the filter you set in Continuous Export. Examine the exported data to see the other available types, and see the [export data model](../azure-monitor/app/export-telemetry.md#application-insights-export-data-model).
+* `PageViews` is the type of data you want to analyze. The available types depend on the filter you set in Continuous Export. Examine the exported data to see the other available types, and see the [export data model](/previous-versions/azure/azure-monitor/app/export-telemetry#application-insights-export-data-model).
 * `/{date}/{time}` is a pattern written literally.
 
 > [!NOTE]
@@ -208,6 +208,6 @@ Now you can use this dataset in reports and dashboards in [Power BI](https://pow
 * Check that you [set the date format](#set-path-prefix-pattern) correctly to YYYY-MM-DD (with dashes).
 
 ## Next steps
-* [Continuous export](../azure-monitor/app/export-telemetry.md)
-* [Detailed data model reference for the property types and values.](../azure-monitor/app/export-telemetry.md#application-insights-export-data-model)
+* [Continuous export](/previous-versions/azure/azure-monitor/app/export-telemetry)
+* [Detailed data model reference for the property types and values.](/previous-versions/azure/azure-monitor/app/export-telemetry#application-insights-export-data-model)
 * [Application Insights](../azure-monitor/app/app-insights-overview.md)

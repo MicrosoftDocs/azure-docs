@@ -5,9 +5,9 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
+ms.custom: devx-track-azurepowershell
 ms.date: 12/16/2022
 ms.reviewer: mimckitt
-
 ---
 # Tutorial: Modify a Virtual Machine Scale Set using PowerShell
 Throughout the lifecycle of your applications, you may need to modify or update your Virtual Machine Scale Set. These updates may include how to update the configuration of the scale set, or change the application configuration. This article describes how to modify an existing scale set using PowerShell.

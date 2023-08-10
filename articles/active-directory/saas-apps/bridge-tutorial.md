@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Bridge | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Bridge'
 description: Learn how to configure single sign-on between Azure Active Directory and Bridge.
 services: active-directory
 author: jeevansd

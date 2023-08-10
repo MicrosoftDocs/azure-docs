@@ -9,7 +9,7 @@ ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/17/2022
-ms.custom: template-concept
+ms.custom: template-concept, enterprise-apps-article
 ms.author: jomondi
 ms.reviewer: tilarso
 
@@ -35,7 +35,7 @@ Administrators, users, or Microsoft security researchers may flag OAuth applicat
 When Azure AD disables an OAuth application, the following actions occur:
 
 - The malicious application and related service principals are placed into a fully disabled state. Any new token requests or requests for refresh tokens are denied, but existing access tokens are still valid until their expiration.
-- The disabled state is surfaced through an exposed property called *disabledByMicrosoftStatus* on the related [application](/graph/api/resources/application) and [service principal](/graph/api/resources/serviceprincipal) resource types in Microsoft Graph.
+- These applications will show `DisabledDueToViolationOfServicesAgreement` on the `disabledByMicrosoftStatus` property on the related [application](/graph/api/resources/application) and [service principal](/graph/api/resources/serviceprincipal) resource types in Microsoft Graph. To prevent them from being instantiated in your organization again in the future, you cannot delete these objects.
 - An email is sent to a global administrator when a user in an organization consented to an application before it was disabled. The email specifies the action taken and recommended steps they can do to investigate and improve their security posture.
 
 ## Recommended response and remediation
@@ -73,3 +73,4 @@ Administrators should be in control of application use by providing the right in
 - [Managing access to applications](./what-is-access-management.md)
 - [Restrict user consent operations in Azure AD](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations)
 - [Compromised and malicious applications investigation](/security/compass/incident-response-playbook-compromised-malicious-app)
+

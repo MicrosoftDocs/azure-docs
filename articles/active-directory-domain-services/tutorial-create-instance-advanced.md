@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/29/2023
+ms.date: 04/03/2023
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services managed domain and define advanced configuration options so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
@@ -96,11 +96,7 @@ Complete the fields in the *Basics* window of the Azure portal to create a manag
 1. The **SKU** determines the performance and backup frequency. You can change the SKU after the managed domain has been created if your business demands or requirements change. For more information, see [Azure AD DS SKU concepts][concepts-sku].
 
     For this tutorial, select the *Standard* SKU.
-1. A *forest* is a logical construct used by Active Directory Domain Services to group one or more domains. By default, a managed domain is created as a *User* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment.
-
-    A *Resource* forest only synchronizes users and groups created directly in Azure AD. Password hashes for on-premises users are never synchronized into a managed domain when you create a resource forest. For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Azure AD DS resource forests overview][resource-forests].
-
-    For this tutorial, choose to create a *User* forest.
+1. A *forest* is a logical construct used by Active Directory Domain Services to group one or more domains. 
 
     ![Configure basic settings for an Azure AD Domain Services managed domain](./media/tutorial-create-instance-advanced/basics-window.png)
 

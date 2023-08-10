@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Fortes Change Cloud | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Fortes Change Cloud'
 description: Learn how to configure single sign-on between Azure Active Directory and Fortes Change Cloud.
 services: active-directory
 author: jeevansd

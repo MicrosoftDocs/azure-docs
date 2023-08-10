@@ -6,6 +6,7 @@ ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
 ms.date: 02/09/2023
 ms.author: madsd
+ms.custom: msangapu
 ---
 
 # Using Private Endpoints for App Service apps
@@ -122,7 +123,7 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 * Remote Debugging functionality isn't available through the private endpoint. The recommendation is to deploy the code to a slot and remote debug it there.
 * FTP access is provided through the inbound public IP address. Private endpoint doesn't support FTP access to the app.
 * IP-Based SSL isn't supported with private endpoints.
-* Apps that you configure with private endpoints are only accessible through private endpoint from clients in subnets that are configured with the `Microsoft.Web` service endpoint.
+* Apps that you configure with private endpoints cannot use [service endpoint-based access restriction rules](../overview-access-restrictions.md#access-restriction-rules-based-on-service-endpoints).
 
 We're improving Azure Private Link feature and private endpoint regularly, check [this article](../../private-link/private-endpoint-overview.md#limitations) for up-to-date information about limitations.
 

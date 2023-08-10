@@ -1,8 +1,8 @@
 ---
 title: Manage existing SIMs - Azure portal
 description: In this how-to guide, learn how to manage existing SIMs in your private mobile network using the Azure portal.  
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 06/16/2022

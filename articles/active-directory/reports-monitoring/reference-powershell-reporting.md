@@ -1,5 +1,5 @@
 ---
-title: Azure AD PowerShell cmdlets for reporting | Microsoft Docs
+title: Azure AD PowerShell cmdlets for reporting
 description: Reference of the Azure AD PowerShell cmdlets for reporting.
 services: active-directory
 author: shlipsey3
@@ -13,7 +13,7 @@ ms.author: sarahlipsey
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 # Azure AD PowerShell cmdlets for reporting
 

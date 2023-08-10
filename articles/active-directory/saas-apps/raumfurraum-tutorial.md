@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with raum]für[raum | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with raum]für[raum'
 description: Learn how to configure single sign-on between Azure Active Directory and raum]für[raum.
 services: active-directory
 author: jeevansd

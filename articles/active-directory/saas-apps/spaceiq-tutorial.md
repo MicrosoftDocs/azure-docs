@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SpaceIQ | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SpaceIQ'
 description: Learn how to configure single sign-on between Azure Active Directory and SpaceIQ.
 services: active-directory
 author: jeevansd

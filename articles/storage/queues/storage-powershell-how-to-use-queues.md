@@ -7,8 +7,7 @@ ms.author: shaas
 ms.reviewer: dineshm 
 ms.date: 05/15/2019
 ms.topic: how-to
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -25,7 +24,7 @@ Azure Queue Storage is a service for storing large numbers of messages that can 
 > - Delete a message
 > - Delete a queue
 
-This how-to guide requires the Azure PowerShell (`Az`) module v0.7 or later. Run `Get-Module -ListAvailable Az` to find the currently installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+This how-to guide requires the Azure PowerShell (`Az`) module v0.7 or later. Run `Get-Module -ListAvailable Az` to find the currently installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 There are no PowerShell cmdlets for the data plane for queues. To perform data plane operations such as add a message, read a message, and delete a message, you have to use the .NET storage client library as it is exposed in PowerShell. You create a message object and then you can use commands such as `AddMessage` to perform operations on that message. This article shows you how to do that.
 

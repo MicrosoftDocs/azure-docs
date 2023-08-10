@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 02/28/2023
 ms.author: jomondi
 ms.reviewer: phsignor, yuhko
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q2, enterprise-apps
 zone_pivot_groups: enterprise-apps-minus-portal-aad
 
 #customer intent: As an admin, I want to manage app consent policies for enterprise applications in Azure AD
@@ -37,7 +37,7 @@ App consent policies where the ID begins with "microsoft-" are built-in policies
  
 :::zone pivot="ms-powershell"
  
-1. Connect to [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?view=graph-powershell-1.0&preserve-view=true).
+2. Connect to [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?view=graph-powershell-1.0&preserve-view=true).
 
    ```powershell
    Connect-MgGraph -Scopes "Policy.ReadWrite.PermissionGrant"
@@ -122,27 +122,28 @@ Once the app consent policy has been created, you can [allow user consent](confi
 
 To manage app consent policies, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
 
+You need to consent to the `Policy.ReadWrite.PermissionGrant` permission.
 ## List existing app consent policies
 
 It's a good idea to start by getting familiar with the existing app consent policies in your organization:
 
 1. List all app consent policies:
 
-```http
-GET /policies/permissionGrantPolicies?$select=id,displayName,description
-```
+   ```http
+   GET /policies/permissionGrantPolicies?$select=id,displayName,description
+   ```
 
 1. View the "include" condition sets of a policy:
 
-```http
-GET /policies/permissionGrantPolicies/{ microsoft-application-admin }/includes
-```
+   ```http
+   GET /policies/permissionGrantPolicies/{ microsoft-application-admin }/includes
+   ```
 
 1. View the "exclude" condition sets:
 
-```http
-GET /policies/permissionGrantPolicies/{ microsoft-application-admin }/excludes
-```
+   ```http
+   GET /policies/permissionGrantPolicies/{ microsoft-application-admin }/excludes
+   ```
 
 ## Create a custom app consent policy
 
@@ -150,45 +151,45 @@ Follow these steps to create a custom app consent policy:
 
 1. Create a new empty app consent policy.
 
-```http
-POST https://graph.microsoft.com/v1.0/policies/permissionGrantPolicies
-Content-Type: application/json
+   ```http
+   POST https://graph.microsoft.com/v1.0/policies/permissionGrantPolicies
+   Content-Type: application/json
 
-{
-  "id": "my-custom-policy",
-  "displayName": "My first custom consent policy",
-  "description": "This is a sample custom app consent policy"
-}
-```
+   {
+     "id": "my-custom-policy",
+     "displayName": "My first custom consent policy",
+     "description": "This is a sample custom app consent policy"
+   }
+   ```
 
 1. Add "include" condition sets.
 
     Include delegated permissions classified "low", for apps from verified publishers
 
-```http
-POST https://graph.microsoft.com/v1.0/policies/permissionGrantPolicies/{ my-custom-policy }/includes
-Content-Type: application/json
-
-{
-  "permissionType": "delegated",
-  “PermissionClassification: "low",
-  "clientApplicationsFromVerifiedPublisherOnly": true
-}
-```
+   ```http
+   POST https://graph.microsoft.com/v1.0/policies/permissionGrantPolicies/{ my-custom-policy }/includes
+   Content-Type: application/json
+   
+   {
+     "permissionType": "delegated",
+     “PermissionClassification: "low",
+     "clientApplicationsFromVerifiedPublisherOnly": true
+   }
+   ```
 
    Repeat this step to add more "include" condition sets.
 
 1. Optionally, add "exclude" condition sets.
      Exclude delegated permissions for the Azure Management API (appId 46e6adf4-a9cf-4b60-9390-0ba6fb00bf6b)
-```http
-POST https://graph.microsoft.com/v1.0/policies/permissionGrantPolicies/my-custom-policy /excludes
-Content-Type: application/json
-
-{
-  "permissionType": "delegated",
-  "resourceApplication": "46e6adf4-a9cf-4b60-9390-0ba6fb00bf6b "
-}
-```
+   ```http
+   POST https://graph.microsoft.com/v1.0/policies/permissionGrantPolicies/my-custom-policy /excludes
+   Content-Type: application/json
+   
+   {
+     "permissionType": "delegated",
+     "resourceApplication": "46e6adf4-a9cf-4b60-9390-0ba6fb00bf6b "
+   }
+   ```
 
    Repeat this step to add more "exclude" condition sets.
 

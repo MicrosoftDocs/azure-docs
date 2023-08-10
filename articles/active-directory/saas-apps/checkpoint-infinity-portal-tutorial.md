@@ -112,11 +112,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 There are two ways for authorizing users:
 
-* Configure Check Point Infinity Portal application user roles in Azure AD portal
+* Configure Check Point Infinity Portal application user roles in Azure portal
 
 * Configure Check Point Infinity Portal application user roles in Check Point Infinity Portal
 
-#### Configure Check Point Infinity Portal application user roles in Azure AD portal
+#### Configure Check Point Infinity Portal application user roles in Azure portal
 
 In this section, you'll create Admin and Read-Only roles in the Azure portal.
 

@@ -151,6 +151,8 @@
     href: ../availability-zones/migrate-recovery-services-vault.md
   - name: About VMware VM disaster recovery
     items:
+    - name: Deprecation of classic experience
+      href: vmware-physical-azure-classic-deprecation.md
     - name: VMware disaster recovery overview
       href: vmware-azure-about-disaster-recovery.md
     - name: Common questions
@@ -189,6 +191,8 @@
       href: exclude-disks-replication.md
   - name: About physical server disaster recovery
     items:
+    - name: Deprecation of classic experience
+      href: vmware-physical-azure-classic-deprecation.md
     - name: VMware/physical to Azure support matrix
       href: vmware-physical-azure-support-matrix.md
     - name: Physical server to Azure architecture
@@ -289,6 +293,8 @@
       items:
       - name: Update the Mobility Service for Azure VMs
         href: azure-to-azure-autoupdate.md
+      - name: Migrate from a Run As account to Managed Identities
+        href: how-to-migrate-run-as-accounts-managed-identity.md
       - name: Manage Site Recovery updates
         href: service-updates-how-to.md
       - name: Remove servers and disable protection
@@ -299,6 +305,8 @@
         href: unregister-vmm-server-script.md
   - name: VMware to Azure disaster recovery
     items:
+    - name: Deprecation of classic experience
+      href: vmware-physical-azure-classic-deprecation.md
     - name: Set up disaster recovery at scale
       href: vmware-physical-large-deployment.md
     - name: Set up networking

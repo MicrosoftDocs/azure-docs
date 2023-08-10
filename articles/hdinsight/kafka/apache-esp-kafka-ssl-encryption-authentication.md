@@ -4,7 +4,7 @@ description: Set up TLS encryption for communication between Kafka clients and K
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 02/17/2023
+ms.date: 04/03/2023
 ---
 
 # Set up TLS encryption and authentication for ESP Apache Kafka cluster in Azure HDInsight
@@ -317,25 +317,42 @@ Run these steps on the client machine.
 ### Kafka 2.1 or above
 
 > [!Note]
-> Below commands will work if you are either using Kafka user or a custom user which have access to do CRUD operation.
+> Below commands will work if you are either using `kafka` user or a custom user which have access to do CRUD operation.
 
 :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/access-to-crud-operation.png" alt-text="Screenshot showing how to provide access CRUD operations." border="true":::
 
 Using Command Line Tool
 
-1. Create a topic if it doesn't exist already.
+1. Make sure you check the local kerberos ticket for custom user you want to use to submit commands. 
 
+1. `klist` 
+
+   If ticket is present, then you are good to proceed. Otherwise generate a Kerberos principle and keytab using below command. 
+
+1. `ktutil`
+  
+   ```
+   ktutil: addent -password -p espkafkauser@TEST.COM -k 1 -e RC4-HMAC 
+   Password for espkafkauser@TEST.COM: 
+   ktutil: wkt user1.keytab 
+   ktutil: q 
+   kinit –kt espkafkauser.keytab espkafkauser@TEST.COM 
+   ```
+
+1. `klist` again to check kerberos cached ticket.
+
+1. Create a topic if it doesn't exist already.
    ```bash
    sudo su kafka –c "/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE>:2181 --create --topic topic1 --partitions 2 --replication-factor 2"
    ```
-   To use a keytab, create a JAAS file with the following content. Be sure to point the keyTab property to your keytab file and reference the principal used inside the keytab. Following is a sample JAAS file created and placed in the location in VM: **/home/hdiuser/kafka_client_jaas_keytab.conf**
+   To use a keytab, create a Keytab file with the following content. Be sure to point the Keytab property to your Keytab file and reference the principal used inside the Keytab. Following is a sample JAAS file created and placed in the location in VM: **/home/sshuser/kafka_client_jaas_keytab.conf**
    
    ```
    KafkaClient { 
       com.sun.security.auth.module.Krb5LoginModule required
       useKeyTab=true
       storeKey=true
-      keyTab="/home/hdiuser/espkafkauser.keytab"
+      keyTab="/home/sshuser/espkafkauser.keytab"
       principal="espkafkauser@TEST.COM";
    };
    ```
@@ -351,11 +368,11 @@ Using Command Line Tool
 1. Open another ssh connection to client machine and  start console consumer and provide the path to `client-ssl-auth.properties` as a configuration file for the consumer.
 
    ```bash
-   export KAFKA_OPTS="-Djava.security.auth.login.config=/home/hdiuser/kafka_client_jaas_keytab.conf"
+   export KAFKA_OPTS="-Djava.security.auth.login.config=/home/sshuser/kafka_client_jaas_keytab.conf"
     
    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning
    ```
-   
+ 
 If you want to use Java client to do CRUD operations, then use following GitHub repository.
 
 https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/main/DomainJoined-Producer-Consumer-With-TLS

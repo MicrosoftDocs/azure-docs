@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Veritas Enterprise Vault.cloud SSO | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Veritas Enterprise Vault.cloud SSO'
 description: Learn how to configure single sign-on between Azure Active Directory and Veritas Enterprise Vault.cloud SSO.
 services: active-directory
 author: jeevansd

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Harmony | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Harmony'
 description: Learn how to configure single sign-on between Azure Active Directory and Harmony.
 services: active-directory
 author: jeevansd

@@ -4,9 +4,10 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to configure Azure CNI (advanced) networking in Azure Kubernetes Service (AKS), including deploying an AKS cluster into an existing virtual network and subnet.
 author: asudbring
 ms.author: allensu
+ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: how-to
-ms.date: 05/16/2022
+ms.date: 04/20/2023
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -14,7 +15,7 @@ ms.custom: references_regions, devx-track-azurecli
 
 By default, AKS clusters use [kubenet][kubenet] and create a virtual network and subnet. With *kubenet*, nodes get an IP address from a virtual network subnet. Network address translation (NAT) is then configured on the nodes, and pods receive an IP address "hidden" behind the node IP. This approach reduces the number of IP addresses that you need to reserve in your network space for pods to use.
 
-With [Azure Container Networking Interface (CNI)][cni-networking], every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be unique across your network space and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.
+With [Azure Container Networking Interface (CNI)][cni-networking], every pod gets an IP address from the subnet and can be accessed directly. Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod. These IP addresses must be unique across your network space and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.
 
 This article shows you how to use Azure CNI networking to create and use a virtual network subnet for an AKS cluster. For more information on network options and considerations, see [Network concepts for Kubernetes and AKS][aks-network-concepts].
 
@@ -53,7 +54,6 @@ The IP address plan for an AKS cluster consists of a virtual network, at least o
 | Subnet | Must be large enough to accommodate the nodes, pods, and all Kubernetes and Azure resources that might be provisioned in your cluster. For example, if you deploy an internal Azure Load Balancer, its front-end IPs are allocated from the cluster subnet, not public IPs. The subnet size should also take into account upgrade operations or future scaling needs.<p />To calculate the *minimum* subnet size including an additional node for upgrade operations: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Example for a 50 node cluster: `(51) + (51  * 30 (default)) = 1,581` (/21 or larger)<p/>Example for a 50 node cluster that also includes provision to scale up an additional 10 nodes: `(61) + (61 * 30 (default)) = 1,891` (/21 or larger)<p>If you don't specify a maximum number of pods per node when you create your cluster, the maximum number of pods per node is set to *30*. The minimum number of IP addresses required is based on that value. If you calculate your minimum IP address requirements on a different maximum value, see [how to configure the maximum number of pods per node](#configure-maximum---new-clusters) to set this value when you deploy your cluster. |
 | Kubernetes service address range | This range shouldn't be used by any network element on or connected to this virtual network. Service address CIDR must be smaller than /12. You can reuse this range across different AKS clusters. |
 | Kubernetes DNS service IP address | IP address within the Kubernetes service address range that will be used by cluster service discovery. Don't use the first IP address in your address range. The first address in your subnet range is used for the *kubernetes.default.svc.cluster.local* address. |
-| Docker bridge address | The Docker bridge network address represents the default *docker0* bridge network address present in all Docker installations. While *docker0* bridge isn't used by AKS clusters or the pods themselves, you must set this address to continue to support scenarios such as *docker build* within the AKS cluster. it's required to select a CIDR for the Docker bridge network address because otherwise Docker will pick a subnet automatically, which could conflict with other CIDRs. You must pick an address space that doesn't collide with the rest of the CIDRs on your networks, including the cluster's service CIDR and pod CIDR. Default of 172.17.0.1/16. You can reuse this range across different AKS clusters. |
 
 ## Maximum pods per node
 
@@ -99,7 +99,7 @@ When you create an AKS cluster, the following parameters are configurable for Az
 
 **Azure Network Plugin**: When Azure network plugin is used, the internal LoadBalancer service with "externalTrafficPolicy=Local" can't be accessed from VMs with an IP in clusterCIDR that doesn't belong to AKS cluster.
 
-**Kubernetes service address range**: This parameter is the set of virtual IPs that Kubernetes assigns to internal [services][services] in your cluster. You can use any private address range that satisfies the following requirements:
+**Kubernetes service address range**: This parameter is the set of virtual IPs that Kubernetes assigns to internal [services][services] in your cluster. This range can't be updated after you create your cluster. You can use any private address range that satisfies the following requirements:
 
 * Must not be within the virtual network IP address range of your cluster
 * Must not overlap with any other virtual networks with which the cluster virtual network peers
@@ -109,8 +109,6 @@ When you create an AKS cluster, the following parameters are configurable for Az
 Although it's technically possible to specify a service address range within the same virtual network as your cluster, doing so isn't recommended. Unpredictable behavior can result if overlapping IP ranges are used. For more information, see the [FAQ](#frequently-asked-questions) section of this article. For more information on Kubernetes services, see [Services][services] in the Kubernetes documentation.
 
 **Kubernetes DNS service IP address**:  The IP address for the cluster's DNS service. This address must be within the *Kubernetes service address range*. Don't use the first IP address in your address range. The first address in your subnet range is used for the *kubernetes.default.svc.cluster.local* address.
-
-**Docker Bridge address**: The Docker bridge network address represents the default *docker0* bridge network address present in all Docker installations. While *docker0* bridge isn't used by AKS clusters or the pods themselves, you must set this address to continue to support scenarios such as *docker build* within the AKS cluster. it's required to select a CIDR for the Docker bridge network address because otherwise Docker will pick a subnet automatically which could conflict with other CIDRs. You must pick an address space that doesn't collide with the rest of the CIDRs on your networks, including the cluster's service CIDR and pod CIDR.
 
 ## Configure networking - CLI
 
@@ -135,7 +133,6 @@ az aks create \
     --name myAKSCluster \
     --network-plugin azure \
     --vnet-subnet-id <subnet-id> \
-    --docker-bridge-address 172.17.0.1/16 \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 \
     --generate-ssh-keys
@@ -143,46 +140,12 @@ az aks create \
 
 ## Configure networking - portal
 
+> [!NOTE]
+> The Docker Bridge address field is no longer in use.
+
 The following screenshot from the Azure portal shows an example of configuring these settings during AKS cluster creation:
 
 :::image type="content" source="../aks/media/networking-overview/portal-01-networking-advanced.png" alt-text="Screenshot from the Azure portal showing an example of configuring these settings during AKS cluster creation.":::
-
-## Monitor IP subnet usage
-
-Azure CNI provides the capability to monitor IP subnet usage. To enable IP subnet usage monitoring, follow the steps below:
-
-### Get the YAML file
-
-1. Download or grep the file named container-azm-ms-agentconfig.yaml from [GitHub][github].
-2. Find azure_subnet_ip_usage in integrations. Set `enabled` to `true`.
-3. Save the file.
-
-### Get the AKS credentials
-
-Set the variables for subscription, resource group and cluster. Consider the following as examples:
-
-```azurepowershell
-
-    $s="subscriptionId"
-
-    $rg="resourceGroup"
-
-    $c="ClusterName"
-
-    az account set -s $s
-
-    az aks get-credentials -n $c -g $rg
-
-```
-
-### Apply the config
-
-1.	Open terminal in the folder the downloaded container-azm-ms-agentconfig.yaml file is saved.
-2.	First, apply the config using the command: `kubectl apply -f container-azm-ms-agentconfig.yaml`
-3.	This will restart the pod and after 5-10 minutes, the metrics will be visible.
-4.	To view the metrics on the cluster, go to Workbooks on the cluster page in the Azure portal, and find the workbook named "Subnet IP Usage". Your view will look similar to the following:
-
-  :::image type="content" source="media/Azure-cni/ip-subnet-usage.png" alt-text="A diagram of the Azure portal's workbook blade is shown, and metrics for an AKS cluster's subnet IP usage are displayed.":::    
 
 ## Frequently asked questions
 
@@ -232,7 +195,6 @@ Learn more about networking in AKS in the following articles:
 
 <!-- LINKS - External -->
 [services]: https://kubernetes.io/docs/concepts/services-networking/service/
-[portal]: https://portal.azure.com
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: concepts-network.md#kubenet-basic-networking
 [github]: https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml
@@ -254,7 +216,7 @@ Learn more about networking in AKS in the following articles:
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [network-policy]: use-network-policies.md
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
 [system-node-pools]: use-system-pools.md
 [prerequisites]: configure-azure-cni.md#prerequisites

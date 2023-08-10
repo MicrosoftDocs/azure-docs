@@ -25,7 +25,7 @@ For cost model specific to cross-region replication, see [Cost model for cross-r
 
 Azure NetApp Files is billed on provisioned storage capacity, which is allocated by creating capacity pools. Capacity pools are billed monthly based on a set cost per allocated GiB per hour. Capacity pool allocation is measured hourly.  
 
-Capacity pools must be at least 4 TiB and can be increased or decreased in 1-TiB intervals. Capacity pools contain volumes that range in size from a minimum of 100 GiB to a maximum of 100 TiB. Volumes are assigned quotas that are subtracted from the capacity pool’s provisioned size. For an active volume, capacity consumption against the quota is based on logical (effective) capacity, being active filesystem data or snapshot data. See [How Azure NetApp Files snapshots work](snapshots-introduction.md) for details. 
+Capacity pools must be at least 2 TiB and can be increased or decreased in 1-TiB intervals. Capacity pools contain volumes that range in size from a minimum of 100 GiB to a maximum of 100 TiB. Volumes are assigned quotas that are subtracted from the capacity pool’s provisioned size. For an active volume, capacity consumption against the quota is based on logical (effective) capacity, being active filesystem data or snapshot data. See [How Azure NetApp Files snapshots work](snapshots-introduction.md) for details. 
 
 ### Pricing examples
 
@@ -90,13 +90,16 @@ The capacity consumption that is counted towards the volume quota for the active
 
 The following diagram illustrates the concepts. 
 
-* Assume a capacity pool with 40 TiB of provisioned capacity. The pool contains three volumes:    
-    * Volume 1 is assigned a quota of 20 TiB and has 13 TiB (12 TiB active, 1-TiB snapshots) of consumption.
-    * Volume 2 is assigned a quota of 1 TiB and has 450 GiB of consumption.
-    * Volume 3 is assigned a quota of 14 TiB but has 8.8 TiB (8 TiB active, 800-GiB snapshots) of consumption.   
-* The capacity pool is metered for 40 TiB of capacity (the provisioned amount). 22.25 TiB of capacity is consumed (13 TiB, 450 GiB, and 8.8 TiB of quota from Volumes 1, 2, and 3). The capacity pool has 17.75 TiB of capacity remaining.   
+* Assume a capacity pool with 10 TiB of provisioned capacity. The pool contains three volumes:    
+    * Volume 1 is assigned a quota of 5 TiB and has 3.5 TiB (3 TiB active, 500 GiB snapshots) of consumption.
+    * Volume 2 is assigned a quota of 900 GiB and has 400 GiB of consumption.
+    * Volume 3 is assigned a quota of 4 TiB but is full, with 4 TiB (3.5 TiB active, 500 GiB snapshots) of consumption.  
+* The capacity pool is metered (and billed) for 10 TiB of capacity (the _provisioned_ amount):
+    * 9.9 TiB of capacity is _allocated_ (5 TiB, 900 GiB, and 4 TiB of quota from Volumes 1, 2, and 3).
+    * 7.9 TiB of capacity is used (3.5 TiB, 400 GiB, 4 TiB in Volumes 1, 2, and 3).
+* The capacity pool has 100 GiB of unprovisioned capacity remaining.   
 
-[ ![Diagram showing capacity pool with three volumes.](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png) ](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png#lightbox)
+:::image type="content" source="../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png" alt-text="Diagram showing capacity pool with three volumes." lightbox="../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png":::
 
 ## Next steps
 

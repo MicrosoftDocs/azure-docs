@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/16/2023
+ms.date: 03/10/2023
 ms.author: jeedes
 
 ---
@@ -77,7 +77,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     `https://www.leandna.com/application/sso.html`
 
     > [!Note]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [LeanDNA Client support team](mailto:it@leandna.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [LeanDNA Client support team](mailto:support@leandna.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -89,11 +89,11 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure LeanDNA SSO
 
-To configure single sign-on on **LeanDNA** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [LeanDNA support team](mailto:it@leandna.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **LeanDNA** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [LeanDNA support team](mailto:support@leandna.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create LeanDNA test user
 
-In this section, you create a user called Britta Simon at LeanDNA. Work with [LeanDNA support team](mailto:it@leandna.com) to add the users in the LeanDNA platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon at LeanDNA. Work with [LeanDNA support team](mailto:support@leandna.com) to add the users in the LeanDNA platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 

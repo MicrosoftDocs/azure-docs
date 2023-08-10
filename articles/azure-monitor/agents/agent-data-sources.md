@@ -2,8 +2,8 @@
 title: Log Analytics agent data sources in Azure Monitor
 description: Data sources define the log data that Azure Monitor collects from agents and other connected sources. This article describes how Azure Monitor uses data sources, explains how to configure them, and summarizes the different data sources available.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.date: 05/10/2022
 ms.reviewer: shseth
 
@@ -58,6 +58,6 @@ All log data collected by Azure Monitor is stored in the workspace as records. R
 
 ## Next steps
 
-* Learn about [monitoring solutions](../insights/solutions.md) that add functionality to Azure Monitor and also collect data into the workspace.
+* Learn about [monitoring solutions](/previous-versions/azure/azure-monitor/insights/solutions) that add functionality to Azure Monitor and also collect data into the workspace.
 * Learn about [log queries](../logs/log-query-overview.md) to analyze the data collected from data sources and monitoring solutions.
 * Configure [alerts](../alerts/alerts-overview.md) to proactively notify you of critical data collected from data sources and monitoring solutions.

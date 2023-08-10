@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with OfficeSpace Software | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with OfficeSpace Software'
 description: Learn how to configure single sign-on between Azure Active Directory and OfficeSpace Software.
 services: active-directory
 author: jeevansd

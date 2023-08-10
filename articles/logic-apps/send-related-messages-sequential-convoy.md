@@ -36,7 +36,7 @@ For more information, see [Sequential convoy pattern - Azure Architecture Cloud 
 
   [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
-* Basic knowledge about how to create logic apps. If you're new to Azure Logic Apps, try the quickstart, [Create your first automated workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Basic knowledge about how to create logic apps. If you're new to Azure Logic Apps, try the [quickstart that creates an example Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 <a name="permissions-connection-string"></a>
 

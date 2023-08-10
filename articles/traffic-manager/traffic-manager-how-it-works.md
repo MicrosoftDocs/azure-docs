@@ -1,16 +1,15 @@
 ---
-title: How Azure Traffic Manager works | Microsoft Docs
-description: This article will help you understand how Traffic Manager routes traffic for high performance and availability of your web applications
+title: How Azure Traffic Manager works
+description: This article will help you understand how Traffic Manager routes traffic for high performance and availability of your web applications.
 services: traffic-manager
-documentationcenter: ''
 author: greg-lindsay
 manager: kumud
 ms.service: traffic-manager
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/09/2023
+ms.date: 02/27/2023
 ms.author: greglin
+ms.custom: template-concept
 ---
 
 # How Traffic Manager Works
@@ -37,7 +36,7 @@ To achieve this configuration, they complete the following steps:
 3. Configure their vanity domain name, 'partners.contoso.com', to point to 'contoso.trafficmanager.net', using a DNS CNAME record.
 
 > [!IMPORTANT]
-> Only one Azure [tenant ID + subscription ID] can own a given root traffic manager DNS name. Attempting to use a name that is already in use will display an error. In the following example, the root DNS name is **contoso**. Also, if a profile is created using a dot-separated name, such as **partners.contoso.trafficmanager.net**, then **contoso.trafficmanager.net** is automatically reserved.
+> Only one Azure [tenant ID] can own a given root traffic manager DNS name. Attempting to use a name that is already in use will display an error. In the following example, the root DNS name is **contoso**. Also, if a profile is created using a dot-separated name, such as **partners.contoso.trafficmanager.net**, then **contoso.trafficmanager.net** is automatically reserved.
 
 ![Traffic Manager DNS configuration][1]
 

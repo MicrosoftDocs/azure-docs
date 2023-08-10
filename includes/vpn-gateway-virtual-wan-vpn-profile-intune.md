@@ -2,7 +2,7 @@
  ms.topic: include
  author: cherylmc
  ms.service: vpn-gateway
- ms.date: 05/23/2022
+ ms.date: 02/28/2023
  ms.author: cherylmc
 
 # This include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
@@ -65,7 +65,7 @@ In this section, you create a Microsoft Intune profile with custom settings.
 
     * **Name:** Enter a name for the configuration.
     * **Description:** Optional description.
-    * **OMA-URI:** ```./User/Vendor/MSFT/VPNv2/<name of your connection>/ProfileXML``` (this information can be found in the azurevpnconfig.xml file in the \<name\> \</name\> tag).
+    * **OMA-URI:** ```./User/Vendor/MSFT/VPNv2/<name of your connection>/ProfileXML``` (this information can be found in the azurevpnconfig.xml file in the \<name\> \</name\> tag). You can also use a different value for the name of your connection if desired.
     * **Data type:** String (XML file).
 
    Select the folder icon and pick the file you saved in step 6 in the [XML](#xml) steps. Select **Add**.

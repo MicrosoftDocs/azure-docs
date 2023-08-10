@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
-ms.date: 03/23/2018
+ms.date: 03/23/2023
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 
@@ -25,7 +25,7 @@ Azure virtual machines provide a fully configurable and flexible computing envir
 > * Resize a VM
 > * View and understand VM state
 
-This tutorial uses the CLI within the [Azure Cloud Shell](../../cloud-shell/overview.md), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
+This tutorial uses the CLI within the [Azure Cloud Shell](../../cloud-shell/overview.md), which is constantly updated to the latest version. 
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -33,10 +33,11 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Create a resource group with the [az group create](/cli/azure/group) command. 
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *eastus* region. 
+An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *eastus2* region. 
+
 
 ```azurecli-interactive
-az group create --name myResourceGroupVM --location eastus
+az group create --name myResourceGroupVM --location eastus2
 ```
 
 The resource group is specified when creating or modifying a VM, which can be seen throughout this tutorial.
@@ -45,24 +46,25 @@ The resource group is specified when creating or modifying a VM, which can be se
 
 Create a virtual machine with the [az vm create](/cli/azure/vm) command. 
 
-When you create a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. The following example creates a VM named *myVM* that runs Ubuntu Server. A user account named *azureuser* is created on the VM, and SSH keys are generated if they do not exist in the default key location (*~/.ssh*):
+When you create a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. The following example creates a VM named *myVM* that runs SUSE Linux Enterprise Server (SLES). A user account named *azureuser* is created on the VM, and SSH keys are generated if they do not exist in the default key location (*~/.ssh*):
 
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroupVM \
     --name myVM \
-    --image UbuntuLTS \
+    --image SLES \
+    --public-ip-sku Standard \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
 
-It may take a few minutes to create the VM. Once the VM has been created, the Azure CLI outputs information about the VM. Take note of the `publicIpAddress`, this address can be used to access the virtual machine.. 
+It may take a few minutes to create the VM. Once the VM has been created, the Azure CLI outputs information about the VM. Take note of the `publicIpAddress`, this address can be used to access the virtual machine.
 
 ```output
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "eastus",
+  "location": "eastus2",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
@@ -116,33 +118,41 @@ x64             WindowsServer                 MicrosoftWindowsServer  2012-Datac
 x64             WindowsServer                 MicrosoftWindowsServer  2008-R2-SP1                         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest                         Win2008R2SP1             latest
 ```
 
-A full list can be seen by adding the `--all` parameter. The image list can also be filtered by `--publisher` or `–-offer`. In this example, the list is filtered for all images with an offer that matches *CentOS*. 
+A full list can be seen by adding the `--all` parameter. The image list can also be filtered by `--publisher` or `–-offer`. In this example, the list is filtered for all images, published by OpenLogic, with an offer that matches *CentOS*. 
 
 ```azurecli-interactive 
-az vm image list --offer CentOS --all --output table
+az vm image list --offer CentOS --publisher OpenLogic --all --output table
 ```
 
-Partial output:
+Example partial output:
 
 ```output
-Offer             Publisher         Sku   Urn                                     Version
-----------------  ----------------  ----  --------------------------------------  -----------
-CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201501         6.5.201501
-CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201503         6.5.201503
-CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201506         6.5.201506
-CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20150904       6.5.20150904
-CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309       6.5.20160309
-CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
+Architecture    Offer                      Publisher    Sku              Urn                                                       Version
+--------------  -------------------------  -----------  ---------------  --------------------------------------------------------  ---------------
+x64             CentOS                     OpenLogic    8_2              OpenLogic:CentOS:8_2:8.2.2020111800                       8.2.2020111800
+x64             CentOS                     OpenLogic    8_2-gen2         OpenLogic:CentOS:8_2-gen2:8.2.2020062401                  8.2.2020062401
+x64             CentOS                     OpenLogic    8_2-gen2         OpenLogic:CentOS:8_2-gen2:8.2.2020100601                  8.2.2020100601
+x64             CentOS                     OpenLogic    8_2-gen2         OpenLogic:CentOS:8_2-gen2:8.2.2020111801                  8.2.2020111801
+x64             CentOS                     OpenLogic    8_3              OpenLogic:CentOS:8_3:8.3.2020120900                       8.3.2020120900
+x64             CentOS                     OpenLogic    8_3              OpenLogic:CentOS:8_3:8.3.2021020400                       8.3.2021020400
+x64             CentOS                     OpenLogic    8_3-gen2         OpenLogic:CentOS:8_3-gen2:8.3.2020120901                  8.3.2020120901
+x64             CentOS                     OpenLogic    8_3-gen2         OpenLogic:CentOS:8_3-gen2:8.3.2021020401                  8.3.2021020401
+x64             CentOS                     OpenLogic    8_4              OpenLogic:CentOS:8_4:8.4.2021071900                       8.4.2021071900
+x64             CentOS                     OpenLogic    8_4-gen2         OpenLogic:CentOS:8_4-gen2:8.4.2021071901                  8.4.2021071901
+x64             CentOS                     OpenLogic    8_5              OpenLogic:CentOS:8_5:8.5.2022012100                       8.5.2022012100
+x64             CentOS                     OpenLogic    8_5              OpenLogic:CentOS:8_5:8.5.2022101800                       8.5.2022101800
+x64             CentOS                     OpenLogic    8_5-gen2         OpenLogic:CentOS:8_5-gen2:8.5.2022012101                  8.5.2022012101
 ```
+
 
 
 > [!NOTE]
 > Canonical has changed the **Offer** names they use for the most recent versions. Before Ubuntu 20.04, the **Offer** name is UbuntuServer. For Ubuntu 20.04 the **Offer** name is `0001-com-ubuntu-server-focal` and for Ubuntu 22.04 it's `0001-com-ubuntu-server-jammy`.
 
-To deploy a VM using a specific image, take note of the value in the *Urn* column, which consists of the publisher, offer, SKU, and optionally a version number to [identify](cli-ps-findimage.md#terminology) the image. When specifying the image, the image version number can be replaced with `latest`, which selects the latest version of the distribution. In this example, the `--image` parameter is used to specify the latest version of a CentOS 6.5 image.  
+To deploy a VM using a specific image, take note of the value in the *Urn* column, which consists of the publisher, offer, SKU, and optionally a version number to [identify](cli-ps-findimage.md#terminology) the image. When specifying the image, the image version number can be replaced with `latest`, which selects the latest version of the distribution. In this example, the `--image` parameter is used to specify the latest version of a CentOS 8.5.  
 
 ```azurecli-interactive
-az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
+az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:8_5:latest --generate-ssh-keys
 ```
 
 ## Understand VM sizes
@@ -153,14 +163,15 @@ A virtual machine size determines the amount of compute resources such as CPU, G
 
 The following table categorizes sizes into use cases.  
 
-| Type                     | Common sizes           |    Description       |
-|--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [General purpose](../sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
-| [Compute optimized](../sizes-compute.md)   | Fsv2          | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
-| [Memory optimized](../sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
-| [Storage optimized](../sizes-storage.md)      | Lsv2, Ls              | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
-| [GPU](../sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Specialized VMs targeted for heavy graphic rendering and video editing.       |
-| [High performance](../sizes-hpc.md) | H        | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA). |
+| Type                      |    Description       |
+|--------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| [General purpose](../sizes-general.md)         | Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
+| [Compute optimized](../sizes-compute.md)    | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
+| [Memory optimized](../sizes-memory.md)     | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
+| [Storage optimized](../sizes-storage.md)      | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases. |
+| [GPU](../sizes-gpu.md)          | Specialized VMs targeted for heavy graphic rendering and video editing.       |
+| [High performance](../sizes-hpc.md) | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA). |
+
 
 
 ### Find available VM sizes
@@ -168,30 +179,29 @@ The following table categorizes sizes into use cases.
 To see a list of VM sizes available in a particular region, use the [az vm list-sizes](/cli/azure/vm) command. 
 
 ```azurecli-interactive 
-az vm list-sizes --location eastus --output table
+az vm list-sizes --location eastus2 --output table
 ```
 
-Partial output:
+Example partial output:
 
 ```output
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
 ------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
-                 2          3584  Standard_DS1                          1           1047552                    7168
-                 4          7168  Standard_DS2                          2           1047552                   14336
-                 8         14336  Standard_DS3                          4           1047552                   28672
-                16         28672  Standard_DS4                          8           1047552                   57344
-                 4         14336  Standard_DS11                         2           1047552                   28672
-                 8         28672  Standard_DS12                         4           1047552                   57344
-                16         57344  Standard_DS13                         8           1047552                  114688
-                32        114688  Standard_DS14                        16           1047552                  229376
-                 1           768  Standard_A0                           1           1047552                   20480
-                 2          1792  Standard_A1                           1           1047552                   71680
-                 4          3584  Standard_A2                           2           1047552                  138240
-                 8          7168  Standard_A3                           4           1047552                  291840
-                 4         14336  Standard_A5                           2           1047552                  138240
-                16         14336  Standard_A4                           8           1047552                  619520
-                 8         28672  Standard_A6                           4           1047552                  291840
-                16         57344  Standard_A7                           8           1047552                  619520
+4                   8192          Standard_D2ds_v4           2                1047552           76800
+8                   16384         Standard_D4ds_v4           4                1047552           153600
+16                  32768         Standard_D8ds_v4           8                1047552           307200
+32                  65536         Standard_D16ds_v4          16               1047552           614400
+32                  131072        Standard_D32ds_v4          32               1047552           1228800
+32                  196608        Standard_D48ds_v4          48               1047552           1843200
+32                  262144        Standard_D64ds_v4          64               1047552           2457600
+4                   8192          Standard_D2ds_v5           2                1047552           76800
+8                   16384         Standard_D4ds_v5           4                1047552           153600
+16                  32768         Standard_D8ds_v5           8                1047552           307200
+32                  65536         Standard_D16ds_v5          16               1047552           614400
+32                  131072        Standard_D32ds_v5          32               1047552           1228800
+32                  196608        Standard_D48ds_v5          48               1047552           1843200
+32                  262144        Standard_D64ds_v5          64               1047552           2457600
+32                  393216        Standard_D96ds_v5          96               1047552           3686400
 ```
 
 ### Create VM with specific size
@@ -202,8 +212,8 @@ In the previous VM creation example, a size was not provided, which results in a
 az vm create \
     --resource-group myResourceGroupVM \
     --name myVM3 \
-    --image UbuntuLTS \
-    --size Standard_F4s \
+    --image SLES \
+    --size Standard_D2ds_v4  \
     --generate-ssh-keys
 ```
 
@@ -224,7 +234,7 @@ az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --qu
 If the desired size is available, the VM can be resized from a powered-on state, however it is rebooted during the operation. Use the [az vm resize]( /cli/azure/vm) command to perform the resize.
 
 ```azurecli-interactive 
-az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
+az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_D4s_v3
 ```
 
 If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Use the [az vm deallocate]( /cli/azure/vm) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk may be removed. The public IP address also changes unless a static IP address is being used. 
@@ -275,9 +285,9 @@ az vm get-instance-view \
 Output:
 
 ```output
-ode                DisplayStatus    Level
-------------------  ---------------  -------
-PowerState/running  VM running       Info
+Code                Level    DisplayStatus
+------------------  -------  ---------------
+PowerState/running  Info     VM running
 ```
 
 To retrieve the power state of all the VMs in your subscription, use the [Virtual Machines - List All API](/rest/api/compute/virtualmachines/listall) with parameter **statusOnly** set to *true*.
@@ -308,9 +318,9 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ### Deleting VM resources
 
-You can delete a VM, but by default this only deletes the VM resource, not the disks and networking resources the VM uses. You can change the default behavior to delete other resources when you delete the VM. For more information, see [Delete a VM and attached resources](../delete.md).
+Depending on how you delete a VM, it may only delete the VM resource, not the networking and disk resources. You can change the default behavior to delete other resources when you delete the VM. For more information, see [Delete a VM and attached resources](../delete.md).
 
-Deleting a resource group also deletes all resources contained within, such as the VM, virtual network, and disk. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+Deleting a resource group also deletes all resources in the resource group, like the VM, virtual network, and disk. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurecli-interactive
 az group delete --name myResourceGroupVM --no-wait --yes
@@ -331,3 +341,4 @@ Advance to the next tutorial to learn about VM disks.
 
 > [!div class="nextstepaction"]
 > [Create and Manage VM disks](./tutorial-manage-disks.md)
+

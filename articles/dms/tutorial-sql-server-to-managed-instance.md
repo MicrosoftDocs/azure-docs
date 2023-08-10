@@ -2,19 +2,21 @@
 title: "Tutorial: Migrate SQL Server to SQL Managed Instance"
 titleSuffix: Azure Database Migration Service
 description: Learn to migrate from SQL Server to an Azure SQL Managed Instance by using Azure Database Migration Service (classic).
-services: dms
-author: croblesm
-ms.author: roblescarlos
-manager: craigg
+author: abhims14
+ms.author: abhishekum
 ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: seo-lt-2019, fasttrack-edit, ignite-2022
-ms.topic: tutorial
 ms.date: 02/08/2023
+ms.service: dms
+ms.topic: tutorial
+ms.custom:
+  - seo-lt-2019
+  - fasttrack-edit
+  - ignite-2022
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance offline using DMS (classic)
+
+[!INCLUDE [Azure Database Migration Service (classic) - SQL scenarios retirement announcement](../../includes/deprecation-announcement-dms-classic-sql.md)]
 
 > [!NOTE]
 > This tutorial uses an older version of the Azure Database Migration Service. For improved functionality and supportability, consider migrating to Azure SQL Managed Instance by using the [Azure SQL migration extension for Azure Data Studio](tutorial-sql-server-managed-instance-offline-ads.md). 
@@ -81,8 +83,9 @@ To complete this tutorial, you need to:
 
     > [!NOTE]
     > - Azure Database Migration Service does not support using an account level SAS token when configuring the Storage Account settings during the [Configure Migration Settings](#configure-migration-settings) step.
-    > - You can't use an Azure Storage account that has a private endpoint with Azure Database Migration Service.
-    
+ 
+- Ensure both the Azure Database Migration Service IP address and the Azure SQL Managed Instance subnet can communicate with the blob container.
+
 [!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
 [!INCLUDE [instance-create](../../includes/database-migration-service-instance-create.md)]   

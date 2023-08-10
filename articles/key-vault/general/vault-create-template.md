@@ -4,15 +4,13 @@ description: This article shows how to create Azure key vaults and vault access 
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
+ms.custom: devx-track-arm-template
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 3/14/2021
 ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell
-
 #Customer intent: As a security admin who's new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
-
 ---
 
 # How to create an Azure key vault and vault access policy by using a Resource Manager template

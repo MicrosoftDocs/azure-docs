@@ -8,6 +8,7 @@ ms.date: 10/25/2022
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
+ms.custom: devx-track-terraform
 ---
 
 # Create a Front Door (classic) using Terraform

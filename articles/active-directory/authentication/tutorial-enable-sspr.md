@@ -48,6 +48,8 @@ To finish this tutorial, you need the following resources and privileges:
 
 ## Enable self-service password reset
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Azure AD lets you enable SSPR for *None*, *Selected*, or *All* users. This granular ability lets you choose a subset of users to test the SSPR registration process and workflow. When you're comfortable with the process and the time is right to communicate the requirements with a broader set of users, you can select a group of users to enable for SSPR. Or, you can enable SSPR for everyone in the Azure AD tenant.
 
 > [!NOTE]
@@ -93,6 +95,9 @@ An administrator can manually provide this contact information, or users can go 
     It's important to keep the contact information up to date. If outdated contact information exists when an SSPR event starts, the user may not be able to unlock their account or reset their password.
 
 1. To apply the registration settings, select **Save**.
+
+> [!NOTE]
+> The interruption to request to register contact information during signing in, will only occur, if the conditions configured on the settings are met, and will only apply to users and admin accounts that are enabled to reset passwords using Azure Active Directory self-service password reset. 
 
 ## Set up notifications and customizations
 

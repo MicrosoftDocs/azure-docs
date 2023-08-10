@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Cisco AnyConnect | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Cisco AnyConnect'
 description: Learn how to configure single sign-on between Azure Active Directory and Cisco AnyConnect.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 04/12/2023
 ms.author: jeedes
 ---
 
@@ -72,13 +72,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Set up single sign-on with SAML** page, enter the values for the following fields (note that the values are case-sensitive):
+1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
 
    1. In the **Identifier** text box, type a URL using the following pattern:  
       `https://<SUBDOMAIN>.YourCiscoServer.com/saml/sp/metadata/<Tunnel_Group_Name>`
 
    1. In the **Reply URL** text box, type a URL using the following pattern:  
       `https://<YOUR_CISCO_ANYCONNECT_FQDN>/+CSCOE+/saml/sp/acs?tgname=<Tunnel_Group_Name>`
+
+    > [!NOTE]
+    > `<Tunnel_Group_Name>` is a case-sensitive and the value must not contain dots "." and slashes "/".
 
     > [!NOTE]
     > For clarification about these values, contact Cisco TAC support. Update these values with the actual Identifier and Reply URL provided by Cisco TAC. Contact the [Cisco AnyConnect Client support team](https://www.cisco.com/c/en/us/support/index.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

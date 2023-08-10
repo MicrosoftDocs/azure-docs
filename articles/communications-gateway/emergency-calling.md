@@ -26,7 +26,7 @@ Microsoft Teams always sends location information on SIP INVITEs for emergency c
   - When Microsoft Teams clients make an emergency call, they obtain their physical location based on their network location.
 - Static locations that you assign to numbers.
   - The Operator Connect API allows you to associate numbers with locations that enterprise administrators have already configured in the Microsoft Teams Admin Center as part of uploading numbers.
-  - Azure Communications Gateway's API Bridge Number Management Portal also allows you to associate numbers with locations during upload. You can also manage the locations associated with numbers after the numbers have been uploaded.
+  - Azure Communications Gateway's Number Management Portal also allows you to associate numbers with locations during upload. You can also manage the locations associated with numbers after the numbers have been uploaded.
 - Static locations that your enterprise customers assign. When you upload numbers, you can choose whether enterprise administrators can modify the location information associated with each number.
 
 > [!NOTE]

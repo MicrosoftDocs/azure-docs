@@ -87,7 +87,7 @@ Check for updates in the following Microsoft security products, and implement an
 - [Microsoft 365 security solutions and services](/microsoft-365/security/)
 - [Windows 10 Enterprise Security](/windows/security/)
 - [Microsoft Defender for Cloud Apps ](/cloud-app-security/)
-- [Microsoft Defender for IoT](/defender-for-iot/organizations)
+- [Microsoft Defender for IoT](../../defender-for-iot/organizations/index.yml)
 
 Implementing new updates will help identify any prior campaigns and prevent future campaigns against your system. Keep in mind that lists of IOCs may not be exhaustive, and may expand as investigations continue.
 
@@ -298,7 +298,7 @@ If there was an attack, you don't want the attacker to retain access at all. Mak
 For more information, see:
 
 - [Revoke user access in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md)
-- [Revoke-AzureADUserAllRefreshToken PowerShell docs](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)
+- [Invoke-MgInvalidateUserRefreshToken Microsoft Graph PowerShell docs](/powershell/module/microsoft.graph.users.actions/invoke-mginvalidateuserrefreshtoken)
 
 
 ### Replace your ADFS servers
@@ -353,7 +353,7 @@ In addition to the recommended actions listed above, we recommend that you consi
     For more information, see:
 
     - [Revoke user access in an emergency in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md)
-    - [Revoke-AzureADUserAllRefreshToken PowerShell documentation](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)
+    - [Invoke-MgInvalidateUserRefreshToken Microsoft Graph PowerShell docs](/powershell/module/microsoft.graph.users.actions/invoke-mginvalidateuserrefreshtoken)
 
 ## Next steps
 

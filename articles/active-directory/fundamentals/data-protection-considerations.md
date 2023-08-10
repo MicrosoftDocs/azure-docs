@@ -83,12 +83,11 @@ For more information about Secret encryption at rest, see the following table.
 
 * [Microsoft Service Trust Documents](https://servicetrust.microsoft.com/Documents/TrustDocuments)
 * [Microsoft Azure Trust Center](https://azure.microsoft.com/overview/trusted-cloud/)
-* [Where is my data? - Office 365 documentation](http://o365datacentermap.azurewebsites.net/)
 * [Recover from deletions in Azure Active Directory](recover-from-deletions.md)
 
 ## Next steps
 
-* [Azure Active Directory and data residency](azure-ad-data-residency.md) 
+* [Azure Active Directory and data residency](data-residency.md) 
 
 * [Data operational considerations](data-operational-considerations.md)
 * [Data protection considerations](data-protection-considerations.md) (You're here)

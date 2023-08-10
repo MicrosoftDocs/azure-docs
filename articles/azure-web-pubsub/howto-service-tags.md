@@ -4,6 +4,7 @@ titleSuffix: Azure Web PubSub service
 description: Use service tags to allow outbound traffic to your Azure Web PubSub service.
 author: ArchangelSDY
 ms.service: azure-web-pubsub
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/08/2021
 ms.author: dayshen

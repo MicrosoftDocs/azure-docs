@@ -5,7 +5,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/02/2022
+ms.date: 04/11/2023
 ms.author: mametcal
 ms.custom: devx-track-java, mode-other
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -19,20 +19,17 @@ The Spring Boot Feature Management libraries extend the framework with comprehen
 
 ## Prerequisites
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* A supported [Java Development Kit SDK](/java/azure/jdk) with version 11.
-* [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- A supported [Java Development Kit SDK](/java/azure/jdk) with version 11.
+- [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
-## Create an App Configuration instance
+## Add a feature flag
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
 
-7. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
-
-    > [!div class="mx-imgBorder"]
-    > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
-
-    Leave `label` undefined for now.
+> [!div class="mx-imgBorder"]
+> ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
 ## Create a Spring Boot app
 
@@ -55,16 +52,18 @@ To create a new Spring Boot project:
 
 1. Open the *pom.xml* file in a text editor and add the following to the list of `<dependencies>`:
 
+    ### [Spring Boot 3](#tab/spring-boot-3)
+
     ```xml
     <dependency>
         <groupId>com.azure.spring</groupId>
-        <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-        <version>2.6.0</version>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+        <version>5.4.0</version>
     </dependency>
     <dependency>
         <groupId>com.azure.spring</groupId>
-        <artifactId>azure-spring-cloud-feature-management-web</artifactId>
-        <version>2.4.0</version>
+        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+        <version>5.4.0</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -72,9 +71,29 @@ To create a new Spring Boot project:
     </dependency>
     ```
 
+    ### [Spring Boot 2](#tab/spring-boot-2)
+
+    ```xml
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+        <version>4.10.0</version>
+    </dependency>
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+        <version>4.10.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    ```
+
+    ---
+
 > [!NOTE]
-> * If you need to support an older version of Spring Boot see our [old appconfiguration library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md) and our [old feature flag library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-azure-feature-management/README.md).
-> * There is a non-web Feature Management Library that doesn't have a dependency on spring-web. Refer to GitHub's [documentation](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/appconfiguration/azure-spring-cloud-feature-management) for differences.
+> * There is a non-web Feature Management Library that doesn't have a dependency on spring-web. Refer to GitHub's [documentation](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-feature-management) for differences.
 
 ## Connect to an App Configuration store
 
@@ -136,7 +155,7 @@ To create a new Spring Boot project:
     import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
 
-    import com.azure.spring.cloud.feature.manager.FeatureManager;
+    import com.azure.spring.cloud.feature.management.FeatureManager;
     import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -201,7 +220,7 @@ To create a new Spring Boot project:
         </header>
         <div class="container body-content">
             <h1 class="mt-5">Welcome</h1>
-            <p>Learn more about <a href="https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/appconfiguration/azure-spring-cloud-feature-management/README.md">Feature Management with Spring Cloud Azure</a></p>
+            <p>Learn more about <a href="https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-feature-management/README.md">Feature Management with Spring Cloud Azure</a></p>
 
         </div>
         <footer class="footer">

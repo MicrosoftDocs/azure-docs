@@ -1,8 +1,8 @@
 ---
 title: Azure Synapse lake database concepts
 description: Learn about the lake database concept and how it helps structure data.
-author: gsaurer
-ms.author: gesaur
+author: matt1883
+ms.author: mahi
 ms.service: synapse-analytics
 ms.subservice: database-editor
 ms.topic: conceptual
@@ -28,6 +28,8 @@ Lake databases use a data lake on the Azure Storage account to store the data of
 
 > [!NOTE] 
 > Publishing a lake database does not create any of the underlying structures or schemas needed to query the data in Spark or SQL. After publishing, load data into your lake database using [pipelines](../data-integration/data-integration-data-lake.md) to begin querying it.
+> 
+> Currently, Delta format support for lake databases is not supported in Synapse Studio.
 > 
 > The synchronization of lake database objects between storage and Synapse is one-directional. Be sure to perform any creation or schema modification of lake database objects using the database designer in Synapse Studio. If you instead make such changes from Spark or directly in storage, the definitions of your lake databases will become out of sync. If this happens, you may see old lake database definitions in the database designer. You will need to replicate and publish such changes in the database designer in order to bring your lake databases back in sync.
 

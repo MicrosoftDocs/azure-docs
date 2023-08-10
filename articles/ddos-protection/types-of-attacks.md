@@ -24,4 +24,4 @@ Azure DDoS Protection protects resources in a virtual network including public I
 
 ## Next steps
 
-- Learn how to [create a DDoS protection plan](manage-ddos-protection.md).
+* [Components of a DDoS response strategy](ddos-response-strategy.md).

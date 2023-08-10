@@ -8,7 +8,7 @@ tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
-ms.custom: mvc, devx-track-azurepowershell
+ms.custom: mvc
 ms.date: 11/14/2022
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
@@ -63,7 +63,7 @@ View [examples and parameter definitions](/cli/azure/keyvault/certificate#az-key
 Downloading as certificate means getting the public portion. If you want both the private key and public metadata then you can download it as secret.
 
 ```azurecli
-az keyvault secret download -–file {nameofcert.pfx}
+az keyvault secret download --file {nameofcert.pfx}
                             [--encoding {ascii, base64, hex, utf-16be, utf-16le, utf-8}]
                             [--id]
                             [--name]

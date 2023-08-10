@@ -7,8 +7,8 @@ author: beber-msft
 ms.author: beber
 ms.date: 04/21/2022
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Azure Storage archive, backup, and disaster recovery partners

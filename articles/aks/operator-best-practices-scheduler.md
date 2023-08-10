@@ -1,7 +1,6 @@
 ---
 title: Operator best practices - Basic scheduler features in Azure Kubernetes Services (AKS)
 description: Learn the cluster operator best practices for using basic scheduler features such as resource quotas and pod disruption budgets in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
 ms.date: 03/09/2021
 

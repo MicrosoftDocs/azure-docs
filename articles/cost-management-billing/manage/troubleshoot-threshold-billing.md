@@ -34,7 +34,7 @@ All Microsoft services count towards a customer's billing threshold.
 
 ## How do I check my current consumption level?
 
-Azure customers can view their current usage levels in Cost Management. For more information about viewing your current Azure costs, see [View costs](../costs/quick-acm-cost-analysis.md#view-costs).
+Azure customers can view their current usage levels in Cost Management. For more information about viewing your current Azure costs, see [Start using Cost analysis](../costs/quick-acm-cost-analysis.md).
 
 ## When there are multiple payment methods (with multiple billing profiles) linked to a single billing account, which one is authorized?
 

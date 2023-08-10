@@ -10,19 +10,13 @@ ms.date: 05/25/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: sms
-ms.custom:
-   - tracking-python
-   - devx-track-js
-   - mode-other
-   - kr2b-contr-experiment
-zone_pivot_groups: acs-azcli-js-csharp-java-python
+ms.custom: tracking-python, devx-track-js, mode-other, kr2b-contr-experiment, devx-track-extended-java, devx-track-python
+zone_pivot_groups: acs-azcli-js-csharp-java-python-logic-apps
 ---
 # Quickstart: Send an SMS message
 
 > [!IMPORTANT]
-> SMS capabilities depend on the phone number you use and the country that you're operating within as determined by your Azure billing address. For more information, visit the [Subscription eligibility](../../concepts/numbers/sub-eligibility-number-capability.md) documentation.
-> 
-> Currently, SMS messages can only be sent to and received from United States phone numbers. For more information, see [Phone number types](../../concepts/telephony/plan-solution.md).
+> SMS capabilities depend on the phone number you use and the country/region that you're operating within as determined by your Azure billing address. For more information, visit the [Subscription eligibility](../../concepts/numbers/sub-eligibility-number-capability.md) documentation.
 
 <br/>
 
@@ -48,6 +42,10 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python
 [!INCLUDE [Send SMS with Java SDK](./includes/send-sms-java.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-power-platform"
+[!INCLUDE [Send SMS with Power Platform](./includes/send-sms-logic-app.md)]
+::: zone-end
+
 ## Troubleshooting
 
 To troubleshoot issues related to SMS delivery, you can [enable delivery reporting with Event Grid](./handle-sms-events.md) to capture delivery details.
@@ -65,10 +63,10 @@ If you have a new toll-free number and want to send [high volume of SMS messages
 In this quickstart, you learned how to send SMS messages by using Communication Services.
 
 > [!div class="nextstepaction"]
-> [Receive SMS and Delivery Report Events](./handle-sms-events.md)
+> [Receive and reply to SMS](./receive-sms.md)
+
+> [!div class="nextstepaction"]
+> [Enable SMS analytics](../../concepts/analytics/insights/sms-insights.md)
 
 > [!div class="nextstepaction"]
 > [Phone number types](../../concepts/telephony/plan-solution.md)
-
-> [!div class="nextstepaction"]
-> [Learn more about SMS](../../concepts/sms/concepts.md)

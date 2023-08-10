@@ -66,7 +66,7 @@ To create and verify a custom domain:
 1. Go to your domain registrar and create a new TXT record for your domain, based on your copied DNS information.
 1. After you register the domain, on the domain's page in Azure Active Directory, select **Verify**. Once the domain status is **Verified**, you can use the domain across all your Azure AD configurations, including Application Proxy. 
 
-For more detailed instructions, see [Add your custom domain name using the Azure Active Directory portal](../fundamentals/add-custom-domain.md).
+For more detailed instructions, see [Add your custom domain name using the Azure portal](../fundamentals/add-custom-domain.md).
 
 ### Configure an app to use a custom domain
 

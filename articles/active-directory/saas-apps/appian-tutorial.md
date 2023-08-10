@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Appian | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Appian'
 description: Learn how to configure single sign-on between Azure Active Directory and Appian.
 services: active-directory
 author: jeevansd

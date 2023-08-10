@@ -1,17 +1,17 @@
 ---
-title: B2B direct connect overview - Azure AD
+title: B2B direct connect Azure AD overview
 description: Azure Active Directory B2B direct connect lets users from other Azure AD tenants seamlessly sign in to your shared resources via Teams shared channels. There's no need for a guest user object in your Azure AD directory.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 02/20/2023
 
 ms.author: cmulligan
 author: csmulligan
 manager: celestedg
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
 ---
 
 # B2B direct connect overview
@@ -42,11 +42,11 @@ Azure AD organizations can manage their trust relationships with other Azure AD 
 > B2B direct connect is possible only when both organizations allow access to and from the other organization. For example, Contoso can allow inbound B2B direct connect from Fabrikam, but sharing isn't possible until Fabrikam also enables outbound B2B direct connect with Contoso. Therefore, you’ll need to coordinate with the external organization’s admin to make sure their cross-tenant access settings allow sharing with you. This mutual agreement is important because B2B direct connect enables limited sharing of data for the users you enable for B2B direct connect.
 ### Default settings
 
-The default cross-tenant access settings apply to all external Azure AD organizations, except organizations for which you've configured individual settings. Initially, Azure AD blocks all inbound and outbound B2B direct connect capabilities by default for all external Azure AD tenants. You can change these default settings, but typically you'll leave them as-is and enable B2B direct connect access with individual organizations.
+The default cross-tenant access settings apply to all external Azure AD organizations, except organizations for which you've configured individual settings. Initially, Azure AD blocks all inbound and outbound B2B direct connect capabilities by default for all external Azure AD tenants. You can change these default settings, but typically you can leave them as-is and enable B2B direct connect access with individual organizations.
 
 ### Organization-specific settings
 
-You can configure organization-specific settings by adding the organization and modifying the cross-tenant access settings. These settings will then take precedence over the default settings for this organization.
+You can configure organization-specific settings by adding the organization and modifying the cross-tenant access settings. These settings then take precedence over the default settings for this organization.
 
 ### Example 1: Allow B2B direct connect with Fabrikam and block all others
 
@@ -70,7 +70,7 @@ For this scenario to work, Fabrikam also needs to allow B2B direct connect with 
 
 ### Example 2: Enable B2B direct connect with Fabrikam's Marketing group only
 
-Starting from the example above, Contoso could also choose to allow only the Fabrikam Marketing group to collaborate with Contoso's users through B2B direct connect. In this case, Contoso will need to obtain the Marketing group's object ID from Fabrikam. Then, instead of allowing inbound access to all Fabrikam's users, they'll configure their Fabrikam-specific access settings as follows:
+Starting from the example above, Contoso could also choose to allow only the Fabrikam Marketing group to collaborate with Contoso's users through B2B direct connect. In this case, Contoso needs to obtain the Marketing group's object ID from Fabrikam. Then, instead of allowing inbound access to all Fabrikam's users, they'll configure their Fabrikam-specific access settings as follows:
 
 - Allow inbound access to B2B direct connect for Fabrikam's Marketing group only. Contoso specifies Fabrikam's Marketing group object ID in the allowed users and groups list.
 - Allow inbound access to all internal Contoso applications by Fabrikam B2B direct connect users.
@@ -105,11 +105,11 @@ In your cross-tenant access settings, you can use **Trust settings** to trust cl
 
 Currently, B2B direct connect enables the Teams Connect shared channels feature. B2B direct connect users can access an external organization's Teams shared channel without having to switch tenants or sign in with a different account. The B2B direct connect user’s access is determined by the shared channel’s policies.
 
-In the resource organization, the Teams shared channel owner can search within Teams for users from an external organization and add them to the shared channel. After they're added, the B2B direct connect users can access the shared channel from within their home instance of Teams, where they collaborate using features such as chat, calls, file-sharing, and app-sharing.  For details, see [Overview of teams and channels in Microsoft Teams](/microsoftteams/teams-channels-overview). For details about the resources, files, and applications, that are available to the B2B direct connect user via the Teams shared channel, refer to [Chat, teams, channels, & apps in Microsoft Teams](/microsoftteams/deploy-chat-teams-channels-microsoft-teams-landing-page).
+In the resource organization, the Teams shared channel owner can search within Teams for users from an external organization and add them to the shared channel. After they're added, the B2B direct connect users can access the shared channel from within their home instance of Teams, where they collaborate using features such as chat, calls, file-sharing, and app-sharing.  For details, see [Overview of teams and channels in Microsoft Teams](/microsoftteams/teams-channels-overview). For details about the resources, files, and applications that are available to the B2B direct connect user via the Teams shared channel refer to [Chat, teams, channels, & apps in Microsoft Teams](/microsoftteams/deploy-chat-teams-channels-microsoft-teams-landing-page).
 
 ## B2B direct connect vs. B2B collaboration
 
-B2B collaboration and B2B direct connect are two different approaches to sharing with users outside of your organization. You'll find a [feature-to-feature comparison](external-identities-overview.md#comparing-external-identities-feature-sets) in the External Identities overview. Here, we'll discuss some key differences in how users are managed and how they access resources.
+B2B collaboration and B2B direct connect are two different approaches to sharing with users outside of your organization. You can find a [feature-to-feature comparison](external-identities-overview.md#comparing-external-identities-feature-sets) in the External Identities overview, where we discuss some key differences in how users are managed, and how they access resources.
 
 ### User access and management
 
@@ -123,7 +123,7 @@ B2B direct connect users collaborate via a mutual connection between two organiz
 
 Within the context of Teams, there are differences in how resources can be shared depending on whether you’re collaborating with someone using B2B direct connect or B2B collaboration.
 
-- With B2B direct connect, you add the external user to a shared channel within a team. This user can access the resources within the shared channel, but they don’t have access to the entire team or any other resources outside the shared channel. For example, they don’t have access to the Azure AD admin portal. They do, however, have access to My apps portal. B2B direct connect users don’t have a presence in your Azure AD organization, so these users are managed in the Teams client by the shared channel owner. For details, see the [Assign team owners and members in Microsoft Teams](/microsoftteams/assign-roles-permissions).
+- With B2B direct connect, you add the external user to a shared channel within a team. This user can access the resources within the shared channel, but they don’t have access to the entire team or any other resources outside the shared channel. For example, they don’t have access to the Azure portal. They do, however, have access to My apps portal. B2B direct connect users don’t have a presence in your Azure AD organization, so these users are managed in the Teams client by the shared channel owner. For details, see the [Assign team owners and members in Microsoft Teams](/microsoftteams/assign-roles-permissions).
 
 - With B2B collaboration, you can invite the guest user to a team. The B2B collaboration guest user signs into the resource tenant using the email address that was used to invite them. Their access is determined by the permissions assigned to guest users in the resource tenant. Guest users can’t see or participate in any shared channels in the team.
 

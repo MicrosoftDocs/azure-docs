@@ -28,9 +28,11 @@ This article explains how to migrate from running federated servers such as Acti
 
 ## Enable Staged Rollout for certificate-based authentication on your tenant
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To configure Staged Rollout, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) in the User Administrator role for the organization.
 1. Search for and select **Azure Active Directory**.
 1. From the left menu, select **Azure AD Connect**.
 1. On the Azure AD Connect page, under the Staged Rollout of cloud authentication, click **Enable Staged Rollout for managed user sign-in**.

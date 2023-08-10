@@ -4,10 +4,9 @@ description: This article describes how to clean up SSIS project deployment and 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 07/17/2023
 author: chugugrace
 ms.author: chugu
-ms.custom: devx-track-azurepowershell
 ---
 
 # How to clean up SSISDB logs automatically

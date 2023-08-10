@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Wrike | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Wrike'
 description: Learn how to configure single sign-on between Azure Active Directory and Wrike.
 services: active-directory
 author: jeevansd

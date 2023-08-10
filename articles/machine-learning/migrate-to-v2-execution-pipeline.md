@@ -11,6 +11,7 @@ ms.author: lochen
 ms.date: 09/16/2022
 ms.reviewer: sgilley
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade pipelines to SDK v2
@@ -21,7 +22,7 @@ A job has a type. Most jobs are command jobs that run a `command`, like `python 
 
 A `pipeline` is another type of job, which defines child jobs that may have input/output relationships, forming a directed acyclic graph (DAG).
 
-To upgrade, you'll need to change your code for defining and submitting the pipelines to SDK v2. What you run _within_ the child job doesn't need to be upgraded to SDK v2. However, it's recommended to remove any code specific to Azure ML from your model training scripts. This separation allows for an easier transition between local and cloud and is considered best practice for mature MLOps. In practice, this means removing `azureml.*` lines of code. Model logging and tracking code should be replaced with MLflow. For more information, see [how to use MLflow in v2](how-to-use-mlflow-cli-runs.md).
+To upgrade, you'll need to change your code for defining and submitting the pipelines to SDK v2. What you run _within_ the child job doesn't need to be upgraded to SDK v2. However, it's recommended to remove any code specific to Azure Machine Learning from your model training scripts. This separation allows for an easier transition between local and cloud and is considered best practice for mature MLOps. In practice, this means removing `azureml.*` lines of code. Model logging and tracking code should be replaced with MLflow. For more information, see [how to use MLflow in v2](how-to-use-mlflow-cli-runs.md).
 
 This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the following examples, we'll build three steps (train, score and evaluate) into a dummy pipeline job. This demonstrates how to build pipeline jobs using SDK v1 and SDK v2, and how to consume data and transfer data between steps.
 
@@ -45,7 +46,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
     from azureml.pipeline.core import Pipeline
     
     # check core SDK version number
-    print("Azure ML SDK Version: ", azureml.core.VERSION)
+    print("Azure Machine Learning SDK Version: ", azureml.core.VERSION)
     
     # load workspace
     workspace = Workspace.from_config()
@@ -238,6 +239,23 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
 |`python_script_step`| `command` job|command component|
 |`r_script_step`| `command` job|`command` component|
 |`synapse_spark_step`| coming soon|coming soon|
+
+## Published pipelines
+
+Once you have a pipeline up and running, you can publish a pipeline so that it runs with different inputs. This was known as __Published Pipelines__. [Batch Endpoint](concept-endpoints-batch.md) proposes a similar yet more powerful way to handle multiple assets running under a durable API which is why the Published pipelines functionality has been moved to [Pipeline component deployments in batch endpoints (preview)](concept-endpoints-batch.md#pipeline-component-deployment-preview).
+
+[Batch endpoints](concept-endpoints-batch.md) decouples the interface (endpoint) from the actual implementation (deployment) and allow the user to decide which deployment serves the default implementation of the endpoint. [Pipeline component deployments in batch endpoints (preview)](concept-endpoints-batch.md#pipeline-component-deployment-preview) allow users to deploy pipeline components instead of pipelines, which make a better use of reusable assets for those organizations looking to streamline their MLOps practice.
+
+The following table shows a comparison of each of the concepts:
+
+| Concept                                           | SDK v1              | SDK v2                         |
+|---------------------------------------------------|---------------------|--------------------------------|
+| Pipeline's REST endpoint for invocation           | Pipeline endpoint   | Batch endpoint                 |
+| Pipeline's specific version under the endpoint    | Published pipeline  | Pipeline component deployment  |
+| Pipeline's arguments on invocation                | Pipeline parameter  | Job inputs                     |
+| Job generated from a published pipeline           | Pipeline job        | Batch job                      |
+
+See [Upgrade pipeline endpoints to SDK v2](migrate-to-v2-deploy-pipelines.md) for specific guidance about how to migrate to batch endpoints.
 
 ## Related documents
 

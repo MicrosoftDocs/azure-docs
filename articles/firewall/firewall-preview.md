@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 11/07/2022
+ms.date: 07/05/2023
 ms.author: victorh
 ---
 
@@ -21,45 +21,23 @@ The following Azure Firewall preview features are available publicly for you to 
 
 As new features are released to preview, some of them will be behind a feature flag. To enable the functionality in your environment, you must enable the feature flag on your subscription. These features are applied at the subscription level for all firewalls (VNet firewalls and SecureHub firewalls).  
 
-This article will be updated to reflect the features that are currently in preview with instructions to enable them. When the features move to General Availability (GA), they'll be available to all customers without the need to enable a feature flag. 
+This article will be updated to reflect the features that are currently in preview with instructions to enable them. When the features move to General Availability (GA), they're available to all customers without the need to enable a feature flag. 
 
 ## Preview features
 
 The following features are available in preview.
 
-### Network rule name logging (preview)
+### Explicit proxy (preview)
 
-With this new feature, the event logs for network rules adds the following attributes:
-   - Policy name
-   - Rule collection group
-   - Rule collection
-   - Rule name 
+With the Azure Firewall Explicit proxy set on the outbound path, you can configure a proxy setting on the sending application (such as a web browser) with Azure Firewall configured as the proxy. As a result, traffic from a sending application goes to the firewall's private IP address, and therefore egresses directly from the firewall without using a user defined route (UDR).
 
-For more information, see [Azure Firewall network rule name logging (preview)](firewall-network-rule-logging.md).
+For more information, see [Azure Firewall Explicit proxy (preview)](explicit-proxy.md).
 
-### Structured Firewall Logs (preview)
+### Resource Health (preview)
 
-With Structured Firewall Logs, you'll be able to choose to use Resource Specific tables instead of an existing AzureDiagnostics table. Structured Firewall Logs is required for Policy Analytics. This new method helps you with better log querying and is recommended because:
-
-- It's easier to work with the data in the log queries
-- It's easier to discover schemas and their structure
-- It improves performance across both ingestion latency and query times
-- It allows you to grant Azure RBAC rights on a specific table
-
-For more information, see [Azure Structured Firewall Logs (preview)](firewall-structured-logs.md).
-
-### Policy Analytics (preview)
-
-Policy Analytics provides insights, centralized visibility, and control to Azure Firewall. IT teams today are challenged to keep Firewall rules up to date, manage existing rules, and remove unused rules. Any accidental rule updates can lead to a significant downtime for IT teams.
-
-For more information, see [Azure Firewall Policy Analytics (preview)](policy-analytics.md).
-
-### Easy upgrade/downgrade (preview)
-
-You can now easily upgrade your existing Firewall Standard SKU to Premium SKU and downgrade from Premium to Standard SKU. The process is fully automated and has no service impact (zero service downtime).
-
-For more information, see [Azure Firewall easy upgrade/downgrade (preview)](easy-upgrade.md).
-
+With the Azure Firewall Resource Health check, you can now diagnose and get support for service problems that affect your Azure Firewall resource. Resource Health allows IT teams to receive proactive notifications on potential health degradations, and recommended mitigation actions per each health event type.  The resource health is also available in a dedicated page in the Azure portal resource page.
+Starting in August 2023, this preview will be automatically enabled on all firewalls and no action will be required to enable this functionality.
+For more information, see [Resource Health overview](../service-health/resource-health-overview.md).
 
 ## Next steps
 

@@ -4,10 +4,11 @@ description: Configure your deployment control plane for the SAP on Azure Deploy
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 12/28/2022
+ms.date: 03/05/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-terraform
 ---
 
 # Configure the control plane
@@ -39,12 +40,12 @@ This table shows the Terraform parameters, these parameters need to be entered 
 This table shows the parameters that define the resource naming.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                | Description                                       | Type       | Notes                                                                                       |
-> | ----------------------- | ------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
-> | `environment`           | Identifier for the control plane (max 5 chars)    | Mandatory  | For example, `PROD` for a production environment and `NP` for a non-production environment. |
-> | `location`              | The Azure region in which to deploy.              | Required   | Use lower case                                                                              |
-> | 'name_override_file'    | Name override file                                | Optional   | see [Custom naming](naming-module.md)                                            |
-
+> | Variable                        | Description                                       | Type       | Notes                                                                                       |
+> | ------------------------------- | ------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
+> | `environment`                   | Identifier for the control plane (max 5 chars)    | Mandatory  | For example, `PROD` for a production environment and `NP` for a non-production environment. |
+> | `location`                      | The Azure region in which to deploy.              | Required   | Use lower case                                                                              |
+> | 'name_override_file'            | Name override file                                | Optional   | see [Custom naming](naming-module.md)                                            |
+> | 'place_delete_lock_on_resources | Place a delete lock on the key resources          | Optional   |
 ### Resource Group
 
 This table shows the parameters that define the resource group.
@@ -114,6 +115,7 @@ This table shows the parameters related to the deployer virtual machine.
 > | `deployer_private_ip_address`   | Defines the Private IP address to use                                                  | Optional   |
 > | `deployer_enable_public_ip`     | Defines if the deployer has a public IP                                                | Optional   |
 > | `auto_configure_deployer`       | Defines deployer will be configured with the required software (Terraform and Ansible) | Optional   |
+> | `add_system_assigned_identity`  | Defines deployer will be assigned a system identity                                    | Optional   |
 
 
 The Virtual Machine image is defined using the following structure:
@@ -163,7 +165,7 @@ The table below defines the parameters used for defining the Key Vault informati
 > | `deployer_username_secret_name`	                 | The Azure Key Vault secret name for the deployer username                         | Optional	  |
 > | `deployer_password_secret_name`	                 | The Azure Key Vault secret name for the deployer password                         | Optional	  |
 > | `additional_users_to_add_to_keyvault_policies`	 | A list of user object IDs to add to the deployment KeyVault access policies       | Optional	  |
-
+> | `set_secret_expiry`	                             | Set expiry of 12 months for key vault secrets                                     | Optional	  |
 
 ### DNS Support
 
@@ -171,10 +173,10 @@ The table below defines the parameters used for defining the Key Vault informati
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                            | Description                                                          | Type     |
 > | ----------------------------------- | -------------------------------------------------------------------- | -------- |
-> | `use_custom_dns_a_registration`	    | Use an existing Private DNS zone                                     | Optional |
+> | `dns_label`	                        | DNS name of the private DNS zone                                     | Optional |
+> | `use_custom_dns_a_registration`	    | Uses an external system for DNS, set to false for Azure native       | Optional |
 > | `management_dns_subscription_id`	  | Subscription ID for the subscription containing the Private DNS Zone | Optional |
 > | `management_dns_resourcegroup_name`	| Resource group containing the Private DNS Zone                       | Optional |
-> | `dns_label`	                        | DNS name of the private DNS zone                                     | Optional |
 
 
 ### Other parameters
@@ -184,6 +186,7 @@ The table below defines the parameters used for defining the Key Vault informati
 > | -------------------------------------------- | ---------------------------------------------------------------------- | ----------- | ----------------------------- |
 > | `firewall_deployment`	                       | Boolean flag controlling if an Azure firewall is to be deployed        | Optional    |                               |
 > | `bastion_deployment`	                       | Boolean flag controlling if Azure Bastion host is to be deployed       | Optional    |                               |
+> | `bastion_sku`	                               | SKU for Azure Bastion host to be deployed (Basic/Standard)             | Optional    |                               |
 > | `enable_purge_control_for_keyvaults`         | Boolean flag controlling if purge control is enabled on the Key Vault. | Optional    | Use only for test deployments |
 > | `use_private_endpoint`                       | Use private endpoints                                                  | Optional    |
 > | `use_service_endpoint`                       | Use service endpoints for subnets                                      | Optional    |
@@ -276,10 +279,10 @@ This table shows the parameters that define the resource group.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                            | Description                                                          | Type     |
 > | ----------------------------------- | -------------------------------------------------------------------- | -------- |
+> | `dns_label`	                        | DNS name of the private DNS zone                                     | Optional |
 > | `use_custom_dns_a_registration`	    | Use an existing Private DNS zone                                     | Optional |
 > | `management_dns_subscription_id`	  | Subscription ID for the subscription containing the Private DNS Zone | Optional |
 > | `management_dns_resourcegroup_name`	| Resource group containing the Private DNS Zone                       | Optional |
-> | `dns_label`	                        | DNS name of the private DNS zone                                     | Optional |
 
 
 ### Extra parameters

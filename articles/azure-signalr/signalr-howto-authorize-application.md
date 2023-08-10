@@ -24,14 +24,14 @@ The first step is to register an Azure application.
 2. Under **Manage** section, select **App registrations**.
 3. Select **New registration**.
 
-    ![Screenshot of registering an application](./media/authenticate/register-an-application.png)
+    ![Screenshot of registering an application.](./media/signalr-howto-authorize-application/register-an-application.png)
 
 4. Enter a display **Name** for your application.
 5. Select **Register** to confirm the register.
 
 Once you have your application registered, you can find the **Application (client) ID** and **Directory (tenant) ID** under its Overview page. These GUIDs can be useful in the following steps.
 
-![Screenshot of an application](./media/authenticate/application-overview.png)
+![Screenshot of an application.](./media/signalr-howto-authorize-application/application-overview.png)
 
 To learn more about registering an application, see
 - [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
@@ -47,7 +47,7 @@ The application requires a client secret to prove its identity when requesting a
 
 1. Under **Manage** section, select **Certificates & secrets**
 1. On the **Client secrets** tab, select **New client secret**.
-![Screenshot of creating a client secret](./media/authenticate/new-client-secret.png)
+![Screenshot of creating a client secret.](./media/signalr-howto-authorize-application/new-client-secret.png)
 1. Enter a **description** for the client secret, and choose a **expire time**.
 1. Copy the value of the **client secret** and then paste it to a secure location. 
     > [!NOTE]
@@ -57,7 +57,7 @@ The application requires a client secret to prove its identity when requesting a
 
 You can also upload a certification instead of creating a client secret.
 
-![Screenshot of uploading a certification](./media/authenticate/upload-certificate.png)
+![Screenshot of uploading a certification.](./media/signalr-howto-authorize-application/upload-certificate.png)
 
 To learn more about adding credentials, see
 
@@ -221,3 +221,4 @@ On Azure portal, add settings as follows:
 See the following related articles:
 - [Overview of Azure AD for SignalR](signalr-concept-authorize-azure-active-directory.md)
 - [Authorize request to SignalR resources with Azure AD from managed identities](signalr-howto-authorize-managed-identity.md)
+- [Disable local authentication](./howto-disable-local-auth.md)

@@ -1,19 +1,42 @@
 ---
-title: Detect Windows workstations and servers with a local script
-description: Learn about how to detect Windows workstations and servers on your network using a local script.
+title: Enrich Windows workstation and server data with a local script
+description: Learn about how to enrich Windows workstation and server data on your OT sensor using a local script.
 ms.date: 07/12/2022
 ms.topic: how-to
 ---
 
-# Detect Windows workstations and servers with a local script
+# Enrich Windows workstation and server data with a local script (Public preview)
 
-In addition to detecting OT devices on your network, use Defender for IoT to discover Microsoft Windows workstations and servers. Same as other detected devices, detected Windows workstations and servers are displayed in the Device inventory. The **Device inventory** pages on the sensor and on-premises management console show enriched data about Windows devices, including data about the Windows operating system and applications installed, patch-level data, open ports, and more.
+> [!NOTE]
+> This feature is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
-This article describes how to configure Defender for IoT to detect Windows workstations and servers with local surveying, performed by distributing and running a script on each device. While you can use active scanning and scheduled WMI scans to obtain this data, working with local scripts bypasses the risks of running WMI polling on an endpoint. Running a local script is also useful for regulated networks that have waterfalls and one-way elements.
+In addition to detecting OT devices on your network, use Defender for IoT to discover Microsoft Windows workstations and servers and enrich workstation and server data for devices already detected. Same as other detected devices, detected Windows workstations and servers are displayed in the Device inventory. The **Device inventory** pages on the sensor and on-premises management console show enriched data about Windows devices, including data about the Windows operating system and applications installed, patch-level data, open ports, and more.
 
-For more information, see [Configure Windows Endpoint Monitoring](configure-windows-endpoint-monitoring.md).
+This article describes how to use a Defender for IoT Windows-based WMI tool to get extended information from Windows devices, such as workstations, servers, and more. Run the WMI script on your Windows devices to get extended information, increasing your device inventory and security coverage. While you can also use [scheduled WMI scans](configure-windows-endpoint-monitoring.md) to obtain this data, scripts can be run locally for regulated networks with waterfalls and one-way elements if WMI connectivity isn't possible.
 
-## Supported operating systems
+The script described in this article returns the following details about each detected device:
+
+- IP address
+- MAC address
+- Operating system
+- Service pack
+- Installed programs
+- Last knowledge base update
+
+If an OT network sensor has already detected the device, running the script outlined in this article retrieves the device's information and enrichment data.
+
+## Prerequisites
+
+Before performing the procedures in this article, you must have:
+
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md).
+
+- Access to your OT network sensor as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+
+- Administrator permissions on any devices where you intend to run the script.
+
+### Supported operating systems
 
 The script described in this article is supported for the following Windows operating systems:
 
@@ -22,26 +45,19 @@ The script described in this article is supported for the following Windows oper
 - Windows NT
 - Windows 7
 - Windows 10
-- Windows Server 2003/2008/2012/2016
+- Windows Server 2003/2008/2012/2016/2019
 
-## Prerequisites
+## Download and run the script
 
-Before you start, make sure that you have:
+This procedure describes how to deploy and run a script on the Windows workstation and servers that you want to monitor in Defender for IoT.
 
-- Administrator permissions on any devices where you intend to run the script
-- A Defender for IoT OT sensor already monitoring the network where the device is connected
+The script detects enriched Windows data, and is run as a utility and not an installed program. Running the script doesn't affect the endpoint. You may want to deploy the script once, or using ongoing automation, using standard automated deployment methods and tools.
 
-If an OT network sensor has already learned the device, running the script will retrieve its information and enrichment data.
+1. Sign into your OT sensor console, and select **System Settings** > **Import Settings** > **Windows Information**.
 
-## Run the script
+1. Select **Download script**. For example:
 
-This procedure describes how to obtain, deploy, and run the script on the Windows workstation and servers that you want to monitor in Defender for IoT.
-
-The script you run to detect enriched Windows data is run as a utility and not as an installed program. Running the script doesn't affect the endpoint.
-
-1. To acquire the script, [contact customer support](mailto:support.microsoft.com).
-
-1. Deploy the script once, or using ongoing automation, using standard automated deployment methods and tools.
+    :::image type="content" source="media/detect-windows-endpoints-script/download-wmi-script.png" alt-text="Screenshot of where to download WMI script." lightbox="media/detect-windows-endpoints-script/download-wmi-script.png":::
 
 1. Copy the script to a local drive and unzip it. The following files appear:
 
@@ -52,32 +68,44 @@ The script you run to detect enriched Windows data is run as a utility and not a
 
 1. Run the `run.bat` file.
 
-    After the script runs to probe the registry, a CX-snapshot file appears with the registry information. The filename indicates the system name, date, and time of the snapshot with the following syntax: `CX-snaphot_SystemName_Month_Year_Time`
+    After the script runs to probe the registry, a CX-snapshot file appears with the registry information. The filename indicates the machine name and the current date and time of the snapshot with the following syntax: `cx_snapshot_[machinename]_[current date time]`.
 
-Files generated by the script:
+Files generated by the script include:
 
 - Remain on the local drive until you delete them.
-- Must remain in the same location. Do not separate the generated files.
+- Must remain in the same location. Don't separate the generated files.
 - Are overwritten if you run the script again.
 
 ## Import device details
 
-After having run the script as described [earlier](#run-the-script), import the generated data to your sensor to view the device details in the **Device inventory**.
+After having run the script as described [earlier](#download-and-run-the-script), import the generated data to your sensor to view the device details in the **Device inventory**.
 
 **To import device details to your sensor**:
 
-1. Use standard, automated methods and tools to move the generated files from each Windows endpoint to a location accessible from your OT sensors. 
+1. Use standard, automated methods and tools to move the generated files from each Windows endpoint to a location accessible from your OT sensors.
 
-    Do not update filenames or separate the files from each other.
+    Don't update filenames or separate the files from each other.
 
-1. On your OT sensor console, select **System Settings** > **Import Settings** > **Windows Information**.
+1. Sign into your OT sensor console, and select **System Settings** > **Import Settings** > **Windows Information**.
 
 1. Select **Import File**, and then select all the files (Ctrl+A).
 
-1. Select **Close**. The device registry information is imported and a successful confirmation message is shown
+    :::image type="content" source="media/detect-windows-endpoints-script/import-wmi-script.png" alt-text="Screenshot of where to import WMI script." lightbox="media/detect-windows-endpoints-script/import-wmi-script.png":::
 
-    If there's a problem uploading one of the files, you'll be informed which file upload failed.
+## View devices applications report
+
+After [downloading and running](#download-and-run-the-script) the script, then [importing](#import-device-details) the generated data to your sensor, you can view your devices applications with a custom data mining report.
+
+**To view the devices applications:**
+
+1. Sign into your OT sensor console, and select **Data mining**.
+
+1. Select **+ Create report** to [create a custom report](how-to-create-data-mining-queries.md#create-an-ot-sensor-custom-data-mining-report). In the **Choose Category** field, select **Devices Applications**. For example:
+
+    :::image type="content" source="media/detect-windows-endpoints-script/devices-applications-report.png" alt-text="Screenshot of creating devices applications custom report." lightbox="media/detect-windows-endpoints-script/devices-applications-report.png":::
+
+1. Your devices applications report is shown in the **My reports** area.
 
 ## Next steps
 
-For more information, see [View detected devices on-premises](how-to-investigate-sensor-detections-in-a-device-inventory.md).
+For more information, see [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md) and [Import extra data for detected OT devices](how-to-import-device-information.md).

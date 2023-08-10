@@ -297,4 +297,6 @@ This example uses the **Response Item Id** in the **Item Id** field to populate 
 
 ## Next steps
 
-[Connectors overview for Azure Logic Apps](apis-list.md)
+* [Managed connectors for Azure Logic Apps](managed.md)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)

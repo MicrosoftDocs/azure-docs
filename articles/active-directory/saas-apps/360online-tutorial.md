@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with 360 Online | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with 360 Online'
 description: Learn how to configure single sign-on between Azure Active Directory and 360 Online.
 services: active-directory
 author: jeevansd

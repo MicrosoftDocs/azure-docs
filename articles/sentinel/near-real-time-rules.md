@@ -31,7 +31,7 @@ For the time being, these templates have limited application as outlined below, 
 ## Considerations
 The following limitations currently govern the use of NRT rules:
 
-1. No more than 20 rules can be defined per customer at this time.
+1. No more than 50 rules can be defined per customer at this time.
 
 1. By design, NRT rules will only work properly on log sources with an **ingestion delay of less than 12 hours**.
 

@@ -2,6 +2,7 @@
 title: Azure Service Bus Resource Manager exceptions | Microsoft Docs
 description: List of Service Bus exceptions surfaced by Azure Resource Manager and suggested actions.
 ms.topic: article
+ms.custom: devx-track-arm-template
 ms.date: 10/25/2022
 ---
 
@@ -20,7 +21,7 @@ Here are the various exceptions/errors that are surfaced through the Azure Resou
 
 | Error code | Error sub code | Error message | Description | Recommendation |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| Bad Request | 40000 | Sub code=40000. The property *'property name'* can't be set when creating a Queue because the namespace *'namespace name'* is using the 'Basic' Tier. This operation is only supported in 'Standard' or 'Premium' tier. | On Azure Service Bus Basic Tier, the below properties can't be set or updated - <ul> <li> RequiresDuplicateDetection </li> <li> AutoDeleteOnIdle </li> <li>RequiresSession</li> <li>DefaultMessageTimeToLive </li> <li> DuplicateDetectionHistoryTimeWindow </li> <li> EnableExpress </li> <li> ForwardTo </li> <li> Topics </li> </ul> | Consider upgrading from Basic to Standard or Premium tier to use this functionality. |
+| Bad Request | 40000 | Sub code=40000. The property *'property name'* can't be set when creating a Queue because the namespace *'namespace name'* is using the 'Basic' Tier. This operation is only supported in 'Standard' or 'Premium' tier. | On Azure Service Bus Basic Tier, the below properties can't be set or updated - <ul> <li> RequiresDuplicateDetection </li> <li> AutoDeleteOnIdle </li> <li>RequiresSession</li> <li>DefaultMessageTimeToLive </li> <li> DuplicateDetectionHistoryTimeWindow </li> <li> EnableExpress (not supported in Premium too)</li> <li> ForwardTo </li> <li> Topics </li> </ul> | Consider upgrading from Basic to Standard or Premium tier to use this functionality. |
 | Bad Request | 40000 | Sub code=40000. The value for the 'requiresDuplicateDetection' property of an existing Queue(or Topic) can't be changed. | Duplicate detection must be enabled/disabled at the time of entity creation. The duplicate detection configuration parameter can't be changed after creation. | To enable duplicate detection on a previously created queue/topic, you can create a new queue/topic with duplicate detection and then forward from the original queue to the new queue/topic. |
 | Bad Request | 40000 | Sub code=40000. The specified value 16384 is invalid. The property 'MaxSizeInMegabytes', must be one of the following values: 1024;2048;3072;4096;5120. | The MaxSizeInMegabytes value is invalid. | Ensure that the MaxSizeInMegabytes is one of the following - 1024, 2048, 3072, 4096, 5120. |
 | Bad Request | 40000 | Sub code=40000. Partitioning can't be changed for Queue/Topic. | Partitioning can't be changed for entity. | Create a new entity (queue or topic) and enable partitions. | 
@@ -31,7 +32,7 @@ Here are the various exceptions/errors that are surfaced through the Azure Resou
 | Bad Request | 40000 | Sub code=40000. 'URI_PATH' contains character(s) that isn't allowed by Service Bus. Entity segments can contain only letters, numbers, periods(.), hyphens(-), and underscores(_). | Entity segments can contain only letters, numbers, periods(.), hyphens(-), and underscores(_). Any other characters cause the request to fail. | Ensure that there are no invalid characters in the URI Path. |
 | Bad Request | 40000 | Sub code=40000. Bad request. To know more visit `https://aka.ms/sbResourceMgrExceptions`. TrackingId:00000000-0000-0000-0000-00000000000000_000, SystemTracker:contososbusnamesapce.servicebus.windows.net:myqueue, Timestamp:yyyy-mm-ddThh:mm:ss | This error occurs when you try to create a queue in a non-premium tier namespace with a value set to the property `maxMessageSizeInKilobytes`. This property can only be set for queues in the premium namespace. |
 | Bad Request | 40300 | Sub code=40300. The maximum number of resources of type `EnablePartioning == true` has been reached or exceeded. | There's a limit on number of partitioned entities per namespace. See [Quotas and limits](service-bus-quotas.md). | |
-| Bad Request | 40400 | Sub code=40400. The auto forwarding destination entity doesn't exist. | The destination for the autoforwarding destination entity doesn't exist. | The destination entity (queue or topic), must exist before the source is created. Retry after creating the destination entity. |
+| Bad Request | 40400 | Sub code=40400. The auto forwarding destination entity doesn't exist. | The destination for the autoforwarding destination entity doesn't exist. | The destination entity (queue or topic), must exist before the source is created. [Retry](/azure/architecture/best-practices/retry-service-specific#service-bus) after creating the destination entity. |
 
 ## Error code: 429
 

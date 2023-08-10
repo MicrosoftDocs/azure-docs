@@ -14,6 +14,8 @@ ms.author: victorh
 
 Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. The categories are organized based on severity under Liability, High-Bandwidth, Business use, Productivity loss, General surfing, and Uncategorized.
 
+For more information, see [Azure Firewall Premium features](premium-features.md#web-categories).
+
 ## Liability
 
 

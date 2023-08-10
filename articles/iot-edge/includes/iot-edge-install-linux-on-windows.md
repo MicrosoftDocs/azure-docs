@@ -15,7 +15,7 @@ Deploy Azure IoT Edge for Linux on Windows on your target device.
 > The following PowerShell process outlines how to deploy IoT Edge for Linux on Windows onto the local device. To deploy to a remote target device using PowerShell, you can use [Remote PowerShell](/powershell/module/microsoft.powershell.core/about/about_remote) to establish a connection to a remote device and run these commands remotely on that device.
 
 
-1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
+1. In an elevated PowerShell session, run either of the following commands depending on your target device architecture to download IoT Edge for Linux on Windows.
 
    * **X64/AMD64**
       ```powershell

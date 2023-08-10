@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with My IBISWorld | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with My IBISWorld'
 description: Learn how to configure single sign-on between Azure Active Directory and My IBISWorld.
 services: active-directory
 author: jeevansd

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with BeyondTrust Remote Support | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with BeyondTrust Remote Support'
 description: Learn how to configure single sign-on between Azure Active Directory and BeyondTrust Remote Support.
 services: active-directory
 author: jeevansd

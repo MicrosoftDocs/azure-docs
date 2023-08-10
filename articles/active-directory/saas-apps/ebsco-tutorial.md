@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EBSCO | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EBSCO'
 description: Learn how to configure single sign-on between Azure Active Directory and EBSCO.
 services: active-directory
 author: jeevansd

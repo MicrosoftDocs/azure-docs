@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD on-premises application provisioning architecture | Microsoft Docs'
+title: 'Azure AD on-premises application provisioning architecture'
 description: Presents an overview of on-premises application provisioning architecture.
 services: active-directory
 author: billmath
@@ -79,7 +79,7 @@ Since ECMA Connector Host currently only supports the USER object type, the OBJE
 
 ### User creation workflow
 
-1.  The Azure AD provisioning service queries the ECMA Connector Host to see if the user exists.  It uses the **matching attribute** as the filter.  This attribute is defined in the Azure AD portal under Enterprise applications -> On-premises provisioning -> provisioning -> attribute matching.  It is denoted by the 1 for matching precedence.
+1.  The Azure AD provisioning service queries the ECMA Connector Host to see if the user exists.  It uses the **matching attribute** as the filter.  This attribute is defined in the Azure portal under Enterprise applications -> On-premises provisioning -> provisioning -> attribute matching.  It is denoted by the 1 for matching precedence.
 You can define one or more matching attribute(s) and prioritize them based on the precedence.  Should you want to change the matching attribute you can also do so.
  [![Matching attribute](.\media\on-premises-application-provisioning-architecture\match-1.png)](.\media\on-premises-application-provisioning-architecture\match-1.png#lightbox)
 
@@ -144,7 +144,7 @@ This article lists the versions and features of Azure Active Directory Connect P
 Microsoft provides direct support for the latest agent version and one version before.
 
 ### Download link
-You can download the latest version of the agent using [this link](https://aka.ms/onpremprovisioningagent).
+On-premises app provisioning has been rolled into the provisioning agent and is available from the portal.  See [installing the provisioning agent](../cloud-sync/how-to-install.md).
 
 ### 1.1.892.0 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Autodesk SSO | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Autodesk SSO'
 description: Learn how to configure single sign-on between Azure Active Directory and Autodesk SSO.
 services: active-directory
 author: jeevansd

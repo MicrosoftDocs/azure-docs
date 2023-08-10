@@ -90,8 +90,6 @@
               href: troubleshoot/managed-identity.md 
         - name: Run As account
           items:
-            - name: Create Run As account
-              href: create-run-as-account.md
             - name: Delete Run As account
               href: delete-run-as-account.md
             - name: Manage Run As account
@@ -385,7 +383,7 @@
         - name: Integrate with Event Grid and Microsoft Teams
           href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md
         - name: Automate start/stop of Azure-SSIS IR
-          href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
+          href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-an-azure-automation-runbook-that-starts-and-stops-an-azure-ssis-ir
 - name: Reference
   items:
   - name: Azure CLI

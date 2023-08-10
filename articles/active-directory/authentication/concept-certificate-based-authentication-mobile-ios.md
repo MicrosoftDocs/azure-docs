@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory certificate-based authentication on Apple devices - Azure Active Directory
+title: Azure Active Directory certificate-based authentication on Apple devices
 description: Learn about Azure Active Directory certificate-based authentication on Apple devices that run macOS or iOS
 
 services: active-directory
@@ -86,7 +86,7 @@ On iOS 9 or later, the native iOS mail client is supported.
 
 To determine if your email application supports Azure AD CBA, contact your application developer.
 
-## Support for certificates on hardware security key (preview)
+## Support for certificates on hardware security key
 
 Certificates can be provisioned in external devices like hardware security keys along with a PIN to protect private key access. 
 Microsoft's mobile certificate-based solution coupled with the hardware security keys is a simple, convenient, FIPS (Federal Information Processing Standards) certified phishing-resistant MFA method. 

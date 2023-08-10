@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 01/26/2022
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ---
 
 # Add lab owners, contributors, and users in Azure DevTest Labs 
@@ -58,7 +58,7 @@ The DevTest Labs User role can take the following actions in DevTest Labs:
 
 ## Add Owners, Contributors, or DevTest Labs Users
 
-A lab owner can add members to lab roles by using the Azure portal or an Azure PowerShell script. The user to add can be an external user with a valid [Microsoft account (MSA)](./devtest-lab-faq.yml).
+A lab owner can add members to lab roles by using the Azure portal or an Azure PowerShell script. The user to add can be an external user with a valid [Microsoft account (MSA)](/windows-server/identity/ad-ds/manage/understand-microsoft-accounts).
 
 Azure permissions propagate from parent scope to child scope. Owners of an Azure subscription that contains labs are automatically owners of the subscription's DevTest Labs service, labs, and lab VMs and resources. Subscription owners can add Owners, Contributors, and DevTest Labs Users to labs in the subscription.
 

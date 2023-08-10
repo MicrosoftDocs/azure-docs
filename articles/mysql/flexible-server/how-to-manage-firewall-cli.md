@@ -1,8 +1,8 @@
 ---
 title: Manage firewall rules - Azure CLI - Azure Database for MySQL - Flexible Server
 description: Create and manage firewall rules for Azure Database for MySQL - Flexible Server using Azure CLI command line.
-author: vivgk
-ms.author: vivgk
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 11/21/2022
 ms.service: mysql
@@ -16,7 +16,7 @@ ms.devlang: azurecli
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Azure Database for MySQL Flexible Server supports two mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
+Azure Database for MySQL - Flexible Server supports two mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
 - Public access (allowed IP addresses)
 - Private access (VNet Integration)
@@ -179,6 +179,6 @@ Upon success, there's no output. Upon failure, an error message text is displaye
 
 ## Next steps
 
-- Learn more about [Networking in Azure Database for MySQL Flexible Server](./concepts-networking.md)
-- Understand more about [Azure Database for MySQL Flexible Server firewall rules](./concepts-networking-public.md#public-access-allowed-ip-addresses)
-- [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md)
+- Learn more about [Networking in Azure Database for MySQL - Flexible Server](./concepts-networking.md)
+- Understand more about [Azure Database for MySQL - Flexible Server firewall rules](./concepts-networking-public.md#public-access-allowed-ip-addresses)
+- [Create and manage Azure Database for MySQL - Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md)

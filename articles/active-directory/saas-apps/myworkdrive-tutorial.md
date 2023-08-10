@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with MyWorkDrive | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with MyWorkDrive'
 description: Learn how to configure single sign-on between Azure Active Directory and MyWorkDrive.
 services: active-directory
 author: jeevansd
@@ -120,15 +120,10 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 ## Configure MyWorkDrive SSO
 
-1. To automate the configuration within MyWorkDrive, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Setup MyWorkDrive** will direct you to the MyWorkDrive application. From there, provide the admin credentials to sign into MyWorkDrive. The browser extension will automatically configure the application for you and automate steps 3-4.
 
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to setup MyWorkDrive manually,  In a different web browser window, sign in to MyWorkDrive as a Security Administrator.
+1. In a different web browser window, sign in to your MyWorkDrive company site as an administrator
 
 1. On the MyWorkDrive Server in the admin panel, click on **ENTERPRISE** and perform the following steps:
 

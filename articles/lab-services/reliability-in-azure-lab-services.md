@@ -22,7 +22,7 @@ Currently, the service is not zonal. That is, you can’t configure a lab or the
 
 ### SLA improvements
 
-There are no increased SLAs available for availability in Azure Lab Services. For the monthly uptime SLAs for Azure Lab Services, see [SLA for Azure Lab Services](https://azure.microsoft.com/support/legal/sla/lab-services/v1_0/).
+There are no increased SLAs available for availability in Azure Lab Services. For the monthly uptime SLAs for Azure Lab Services, see [SLA for Azure Lab Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 The Azure Lab Services infrastructure uses Azure Cosmos DB storage. The Azure Cosmos DB storage region is the same as the region where the lab plan is located. All the regional Azure Cosmos DB accounts are single region. In the zone-redundant regions listed in this article, the Azure Cosmos DB accounts are single region with Availability Zones. In the other regions, the accounts are single region without Availability Zones. For high availability capabilities for these account types, see [SLAs for Azure Cosmos DB](../cosmos-db/high-availability.md#slas).
 

@@ -11,17 +11,19 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Get debug information
 
-When troubleshooting happens for voice or video calls, user may be asked to provide a CallID; this ID is used to identify Communication Services calls.
+When troubleshooting happens for voice or video calls, user may be asked to provide a CallID; this ID is used to identify Communication Services calls. Every call may have multiple Call Ids.
 
-CallID can be retrieved from `CallComposite`:
+Call ID can be retrieved from `CallComposite`:
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
 val callComposite: CallComposite = CallCompositeBuilder().build()
 ...
-val debugInfo = callComposite.debugInfo
-val lastCallId = debugInfo.lastCallId
+val callHistoryRecords = callComposite.getDebugInfo(context).callHistoryRecords
+val callHistoryRecord = callHistoryRecords.lastOrNull()
+val callDate = callHistoryRecord.callStartedOn
+val callIds = callHistoryRecord.callIds
 ```
 
 #### [Java](#tab/java)
@@ -29,6 +31,9 @@ val lastCallId = debugInfo.lastCallId
 ```java
 CallComposite callComposite = new CallCompositeBuilder().build();
 ...
-CallCompositeDebugInfo debugInfo = callComposite.getDebugInfo();
-String lastCallId = debugInfo.getLastCallId();
+
+List<CallCompositeCallHistoryRecord> callHistoryRecords = callComposite.getDebugInfo(context).getCallHistoryRecords();
+CallCompositeCallHistoryRecord callHistoryRecord = callHistoryRecords.get(callHistoryRecords.size() - 1);
+LocalDateTime callDate = callHistoryRecord.getCallStartedOn();
+List<String> callIds = callHistoryRecord.getCallIds();
 ```

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Infor CloudSuite | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Infor CloudSuite'
 description: Learn how to configure single sign-on between Azure Active Directory and Infor CloudSuite.
 services: active-directory
 author: jeevansd

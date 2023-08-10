@@ -5,6 +5,7 @@ description: Overview of private endpoints for secure access to Azure SignalR Se
 services: signalr
 author: vicancy
 ms.service: signalr
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 12/09/2022
 ms.author: lianwei

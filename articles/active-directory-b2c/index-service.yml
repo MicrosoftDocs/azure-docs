@@ -5,13 +5,13 @@ summary: >
   Learn how to access protected web APIs by daemons/services apps using our how-to guide and samples.
 
 metadata:
-   author: kengaderdus
-   manager: CelesteDG
-   ms.author: kengaderdus
-   ms.date: 08/31/2022
-   ms.service: active-directory
-   ms.subservice: B2C
-   ms.topic: landing-page
+  author: kengaderdus
+  manager: CelesteDG
+  ms.author: kengaderdus
+  ms.date: 08/31/2022
+  ms.service: active-directory
+  ms.subservice: B2C
+  ms.topic: landing-page
 
 landingContent:
 

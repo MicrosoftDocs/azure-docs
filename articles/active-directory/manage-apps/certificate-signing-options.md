@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 07/21/2022
 ms.author: jomondi
 ms.reviewer: saumadan
-ms.custom: aaddev
+ms.custom: aaddev, enterprise-apps
 ms.collection: M365-identity-device-management
 ---
 
@@ -41,12 +41,14 @@ Azure AD supports two signing algorithms, or secure hash algorithms (SHAs), to s
 
 * **SHA-1**. This algorithm is older, and it's treated as less secure than SHA-256. If an application supports only this signing algorithm, you can select this option in the **Signing Algorithm** drop-down list. Azure AD then signs the SAML response with the SHA-1 algorithm.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Change certificate signing options and signing algorithm
 
 To change an application's SAML certificate signing options and the certificate signing algorithm, select the application in question:
 
-1. In the [Azure Active Directory portal](https://aad.portal.azure.com/), sign in to your account. The **Azure Active Directory admin center** page appears.
-1. In the left pane, select **Enterprise applications**. A list of the enterprise applications in your account appears.
+1. In the [Azure portal](https://portal.azure.com), sign in to your account.
+1. Browse to **Azure Active Directory** > **Enterprise applications**. A list of the enterprise applications in your account appears.
 1. Select an application. An overview page for the application appears. In this example, the Salesforce application is used.
 
    ![Example: Application overview page](./media/certificate-signing-options/application-overview-page.png)

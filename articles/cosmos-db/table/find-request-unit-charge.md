@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: sidandrews
 ms.devlang: csharp
-ms.custom: devx-track-js, ignite-2022
+ms.custom: ignite-2022, devx-track-dotnet, devx-track-extended-java, devx-track-python
 ---
 # Find the request unit charge for operations executed in Azure Cosmos DB for Table
 [!INCLUDE[Table](../includes/appliesto-table.md)]

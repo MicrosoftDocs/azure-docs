@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with HSB ThoughtSpot | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with HSB ThoughtSpot'
 description: Learn how to configure single sign-on between Azure Active Directory and HSB ThoughtSpot.
 services: active-directory
 author: jeevansd

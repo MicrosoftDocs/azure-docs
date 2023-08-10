@@ -6,7 +6,6 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 02/08/2023
 ms.author: normesta
-ms.subservice: blobs
 ---
 
 # Tutorial: Calculate container statistics by using Databricks

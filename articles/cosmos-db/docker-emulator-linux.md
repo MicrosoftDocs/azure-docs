@@ -20,6 +20,9 @@ The Azure Cosmos DB Linux Emulator provides a local environment that emulates th
 > 
 > We do not recommend use of the emulator (Preview) in production. For heavier workloads, use our [Windows emulator](local-emulator.md).
 
+> [!IMPORTANT]
+> The Linux emulator currently has limited support for developer machines running on M1 and M2 chips. A temporary workaround is to install a Windows virtual machine and run the emulator on that platform.
+
 ## How does the emulator work?
 
 The Azure Cosmos DB Linux Emulator provides a high-fidelity emulation of the Azure Cosmos DB service. The emulator supports equivalent functionality as the Azure Cosmos DB. Functionality includes creating data, querying data, provisioning and scaling containers, and executing stored procedures and triggers. You can develop and test applications using the Azure Cosmos DB Linux Emulator. You can also deploy applications to Azure at global scale by updating the Azure Cosmos DB connection endpoint from the emulator to a live account.
@@ -34,7 +37,7 @@ Since the Azure Cosmos DB Emulator provides an emulated environment that runs on
 
 - With the Linux emulator, you can create an Azure Cosmos DB account in [provisioned throughput](set-throughput.md) mode only; currently it doesn't support [serverless](serverless.md) mode.
 
-- The Linux emulator isn't a scalable service and it doesn't support a large number of containers. When using the Azure Cosmos DB Emulator, by default, you can create up to 10 fixed size containers at 400 RU/s (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers. For more information on how to change this value, see [Set the PartitionCount value](emulator-command-line-parameters.md#set-partitioncount) article.
+- The Linux emulator isn't a scalable service and it doesn't support a large number of containers. When using the Azure Cosmos DB Emulator, by default, you can create up to 10 fixed size containers at 400 RU/s (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers. For more information on how to change this value, see [Set the PartitionCount value](emulator-command-line-parameters.md#change-the-number-of-default-containers) article.
 
 - While [consistency levels](consistency-levels.md) can be adjusted using command-line arguments for testing scenarios only (default setting is Session), a user might not expect the same behavior as in the cloud service. For instance, Strong and Bounded staleness consistency has no effect on the emulator, other than signaling to the Azure Cosmos DB SDK the default consistency of the account.
 
@@ -136,7 +139,7 @@ Use the following steps to run the emulator on Linux:
     For Java-based applications, the certificate must be imported to the [Java trusted store.](local-emulator-export-ssl-certificates.md)
 
     ```bash
-    keytool -keystore ~/cacerts -importcert -alias  emulator_cert -file ~/emulatorcert.crt
+    keytool -import -alias emulator_cert -keystore -file ~/emulatorcert.crt -storepass changeit -noprompt
     java -ea -Djavax.net.ssl.trustStore=~/cacerts -Djavax.net.ssl.trustStorePassword="changeit" $APPLICATION_ARGUMENTS
     ```
 

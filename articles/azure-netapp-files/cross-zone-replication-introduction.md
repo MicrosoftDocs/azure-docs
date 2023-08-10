@@ -30,6 +30,7 @@ The preview of cross-zone replication is available in the following regions:
 * Australia East
 * Brazil South 
 * Canada Central 
+* Central India
 * Central US 
 * East Asia
 * East US 
@@ -40,6 +41,7 @@ The preview of cross-zone replication is available in the following regions:
 * Korea Central
 * North Europe
 * Norway East 
+* Qatar Central
 * South Africa North
 * Southeast Asia
 * South Central US 

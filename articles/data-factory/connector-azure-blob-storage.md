@@ -80,6 +80,7 @@ The following sections provide details about properties that are used to define 
 
 This Blob storage connector supports the following authentication types. See the corresponding sections for details.
 
+- [Anonymous authentication](#anonymous-authentication)
 - [Account key authentication](#account-key-authentication)
 - [Shared access signature authentication](#shared-access-signature-authentication)
 - [Service principal authentication](#service-principal-authentication)
@@ -92,6 +93,44 @@ This Blob storage connector supports the following authentication types. See the
 
 >[!NOTE]
 >Azure HDInsight and Azure Machine Learning activities only support authentication that uses Azure Blob Storage account keys.
+
+### Anonymous authentication
+
+The following properties are supported for storage account key authentication in Azure Data Factory or Synapse pipelines:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The `type` property must be set to `AzureBlobStorage` (suggested) or `AzureStorage` (see the following notes). | Yes |
+| containerUri | Specify the Azure Blob container URI which has enabled Anonymous read access by taking this format `https://<AccountName>.blob.core.windows.net/<ContainerName>` and [Configure anonymous public read access for containers and blobs](../storage/blobs/anonymous-read-access-configure.md#set-the-public-access-level-for-a-container) | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
+
+**Example:**
+
+```json
+
+{
+    "name": "AzureBlobStorageAnonymous",
+    "properties": {
+        "annotations": [],
+        "type": "AzureBlobStorage",
+        "typeProperties": {
+            "containerUri": "https:// <accountname>.blob.core.windows.net/ <containername>",
+            "authenticationType": "Anonymous"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Examples UI**:
+
+The UI experience will be like below. This sample will use the Azure open dataset as the source. If you want to get the open [dataset bing_covid-19_data.csv](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.csv), you just need to choose **Authentication type** as **Anonymous** and fill in Container URI with `https://pandemicdatalake.blob.core.windows.net/public`.
+
+:::image type="content" source="media/connector-azure-blob-storage/anonymous-ui.png" alt-text="Screenshot of configuration for Anonymous examples UI.":::
+
 
 ### Account key authentication
 
@@ -849,7 +888,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 
 ## Change data capture 
 
-Azure Data Factory can get new or changed files only from Azure Blob Storage by enabling **Enable change data capture ** in the mapping data flow source transformation. With this connector option, you can read new or updated files only and apply transformations before loading transformed data into destination datasets of your choice. Pleaser refer to [Change Data Capture](concepts-change-data-capture.md) for detials.
+Azure Data Factory can get new or changed files only from Azure Blob Storage by enabling **Enable change data capture ** in the mapping data flow source transformation. With this connector option, you can read new or updated files only and apply transformations before loading transformed data into destination datasets of your choice. Pleaser refer to [Change Data Capture](concepts-change-data-capture.md) for details.
  
 . 
 

@@ -58,7 +58,7 @@ sections:
       - question: |
           What is the maximum retention period for events?
         answer: |
-          Event Hubs Standard tier currently supports a maximum retention period of seven days. Event hubs aren't intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it's convenient to replay an event stream into the same systems. For example, to train or verify a new machine learning model on existing data. If you need message retention beyond seven days, enabling [Event Hubs Capture](event-hubs-capture-overview.md) on your event hub pulls the data from your event hub into the Storage account or Azure Data Lake Service account of your choosing. Enabling Capture incurs a charge based on your purchased throughput units.
+          Event Hubs Standard tier currently supports a maximum retention period of seven days while for Premium and dedicated tier this limit is 90 days. Event hubs aren't intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it's convenient to replay an event stream into the same systems. For example, to train or verify a new machine learning model on existing data. If you need message retention beyond seven days, enabling [Event Hubs Capture](event-hubs-capture-overview.md) on your event hub pulls the data from your event hub into the Storage account or Azure Data Lake Service account of your choosing. Enabling Capture incurs a charge based on your purchased throughput units.
           
           You can configure the retention period for the captured data on your storage account. The **lifecycle management** feature of Azure Storage offers a rich, rule-based policy for general purpose v2 and blob storage accounts. Use the policy to transition your data to the appropriate access tiers or expire at the end of the data's lifecycle. For more information, see [Manage the Azure Blob storage lifecycle](../storage/blobs/lifecycle-management-overview.md). 
           
@@ -150,6 +150,11 @@ sections:
           Is there a cost associated when I turn on the auto-inflate feature?
         answer: |
           There's **no cost** associated with this feature. 
+          
+      - question: |
+          Can Zone Redundancy be enabled for an existing Event Hub Namespace?
+        answer: |
+          Currently, this isn't possible because old Event Hub Namespaces are in different clusters, and there's no way to migrate them to the new clusters that automatically enable zone redundancy when new Event Hub namespaces are created.
 
       - question: |
           How are throughput limits enforced?
@@ -221,7 +226,7 @@ sections:
       - question: |
           How is Event Hubs Capture billed?
         answer: |
-          Capture is enabled when any event hub in the namespace has the Capture option enabled. Event Hubs Capture is billed hourly per purchased throughput unit. As the throughput unit count is increased or decreased, Event Hubs Capture billing reflects these changes in whole hour increments. For more information about Event Hubs Capture billing, see [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/).
+          Capture is enabled when any event hub in the namespace has the Capture option enabled. Event Hubs Capture is billed monthly per purchased throughput unit. As the throughput unit count is increased or decreased, Event Hubs Capture billing reflects these changes in whole hour increments. For more information about Event Hubs Capture billing, see [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/).
           
       - question: |
           Do I get billed for the storage account I select for Event Hubs Capture?

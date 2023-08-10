@@ -1,5 +1,5 @@
 ---
-title: Add custom attributes to self-service sign-up flows - Azure AD
+title: Add custom attributes to self-service sign-up flows
 description: Learn about customizing the attributes for your self-service sign-up user flows.
 services: active-directory
 author: msmimart
@@ -29,6 +29,8 @@ You can create custom attributes in the Azure portal and use them in your [self-
 The `<extensions-app-id>` is specific to your tenant. To find this identifier, navigate to **Azure Active Directory** > **App registrations** > **All applications**. Search for the app that starts with "aad-extensions-app" and select it. On the app's Overview page, note the Application (client) ID.
 
 ## Create a custom attribute
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.

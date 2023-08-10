@@ -52,11 +52,21 @@ The third step is to verify that the cryptographic signature produced over the r
 
 ### Verify signing node certificate endorsement
 
-In addition to the above, it's also required to verify that the signing node certificate is endorsed (that is, signed) by the current ledger certificate. This step doesn't depend on the other three previous steps and can be carried out independently from the others.
+In addition to the previous step, it's also required to verify that the signing node certificate is endorsed (that is, signed) by the current ledger certificate. This step doesn't depend on the other three previous steps and can be carried out independently from the others.
 
 It's possible that the current service identity that issued the receipt is different from the one that endorsed the signing node (for example, due to a certificate renewal). In this case, it's required to verify the chain of certificates trust from the signing node certificate (that is, the `cert` field in the receipt) up to the trusted root Certificate Authority (CA) (that is, the current service identity certificate) through other previous service identities (that is, the `serviceEndorsements` list field in the receipt). The `serviceEndorsements` list is provided as an ordered list from the oldest to the latest service identity.
 
 Certificate endorsement need to be verified for the entire chain and follows the exact same digital signature verification process outlined in the previous subsection. There are popular open-source cryptographic libraries (for example, [OpenSSL](https://www.openssl.org/)) that can be typically used to carry out a certificate endorsement step.
+
+### Verify application claims digest
+
+As an optional step, in case application claims are attached to a receipt, it's possible to compute the claims digest from the exposed claims (following a specific algorithm) and verify that the digest matches the `claimsDigest` contained in the receipt payload. To compute the digest from the exposed claim objects, it's required to iterate through each application claim object in the list and checks its `kind` field. 
+
+If the claim object is of kind `LedgerEntry`, the ledger collection ID (`collectionId`) and contents (`contents`) of the claim should be extracted and used to compute their HMAC digests using the secret key (`secretKey`) specified in the claim object. These two digests are then concatenated and the SHA-256 hash of the concatenation is computed. The protocol (`protocol`) and the resulting claim data digest are then concatenated and another SHA-256 hash of the concatenation is computed to get the final digest. 
+
+If the claim object is of kind `ClaimDigest`, the claim digest (`value`) should be extracted, concatenated with the protocol (`protocol`), and the SHA-256 hash of the concatenation is computed to get the final digest.
+
+After computing each single claim digest, it's necessary to concatenate all the computed digests from each application claim object (in the same order they're presented in the receipt). The concatenation should then be prepended with the number of claims processed. The SHA-256 hash of the previous concatenation produces the final claims digest, which should match the `claimsDigest` present in the receipt object.
 
 ### More resources
 
@@ -67,18 +77,24 @@ For more information about the content of an Azure Confidential Ledger write tra
 * [Merkle Tree](https://microsoft.github.io/CCF/main/architecture/merkle_tree.html)
 * [Cryptography](https://microsoft.github.io/CCF/main/architecture/cryptography.html)
 * [Certificates](https://microsoft.github.io/CCF/main/operations/certificates.html)
+* [Application Claims](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#application-claims)
+* [User-Defined Claims in Receipts](https://microsoft.github.io/CCF/main/build_apps/example_cpp.html#user-defined-claims-in-receipts)
 
 ## Verify write transaction receipts
 
-### Setup and pre-requisites
+### Receipt verification utilities
 
-For reference purposes, we provide sample code in Python to fully verify Azure Confidential Ledger write transaction receipts following the steps outlined above.
+The [Azure Confidential Ledger client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger/azure-confidentialledger) provides utility functions to verify write transaction receipts and compute the claims digest from a list of application claims. For more information on how to use the Data Plane SDK and the receipt-specific utilities, see [this section](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger/azure-confidentialledger#verify-write-transaction-receipts) and [this sample code](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/confidentialledger/azure-confidentialledger/samples/get_and_verify_receipt.py).
+
+### Setup and prerequisites
+
+For reference purposes, we provide sample code in Python to fully verify Azure Confidential Ledger write transaction receipts following the steps outlined in the previous section.
 
 To run the full verification algorithm, the current service network certificate and a write transaction receipt from a running Confidential Ledger resource are required. Refer to [this article](write-transaction-receipts.md#get-write-transaction-receipts) for details on how to fetch a write transaction receipt and the service certificate from a Confidential Ledger instance.
 
 ### Code walkthrough
 
-The following code can be used to initialize the required objects and run the receipt verification algorithm. A separate utility (`verify_receipt`) is used to run the full verification algorithm, and accepts input the content of the `receipt` field in a `GET_RECEIPT` response as a dictionary and the service certificate as a simple string. The function throws an exception if the receipt isn't valid or if any error was encountered during the processing.
+The following code can be used to initialize the required objects and run the receipt verification algorithm. A separate utility (`verify_receipt`) is used to run the full verification algorithm, and accepts the content of the `receipt` field in a `GET_RECEIPT` response as a dictionary and the service certificate as a simple string. The function throws an exception if the receipt isn't valid or if any error was encountered during the processing.
 
 It's assumed that both the receipt and the service certificate can be loaded from files. Make sure to update both the `service_certificate_file_name` and `receipt_file_name` constants with the respective files names of the service certificate and receipt you would like to verify.
 
@@ -173,7 +189,7 @@ leaf_node_hex = compute_leaf_node(
 
 The `compute_leaf_node` function accepts as parameters the leaf components of the receipt (the `claimsDigest`, the `commitEvidence`, and the `writeSetDigest`) and returns the leaf node hash in hexadecimal form.
 
-As detailed above, we compute the digest of `commitEvidence` (using the SHA256 `hashlib` function). Then, we convert both `writeSetDigest` and `claimsDigest` into arrays of bytes. Finally, we concatenate the three arrays, and we digest the result using the SHA256 function.
+As detailed previously, we compute the digest of `commitEvidence` (using the SHA-256 `hashlib` function). Then, we convert both `writeSetDigest` and `claimsDigest` into arrays of bytes. Finally, we concatenate the three arrays, and we digest the result using the SHA256 function.
 
 ```python
 def compute_leaf_node( 
@@ -262,7 +278,7 @@ The last step of receipt verification is validating the certificate that was use
 check_endorsements(node_cert, service_cert, service_endorsements_certs) 
 ```
 
-Likewise, we can use the CCF utility `check_endorsements` to validate that the certificate of the signing node is endorsed by the service identity. The certificate chain could be composed of previous service certificates, so we should validate that the endorsement is applied transitively if `serviceEndorsements` isn't an empty list.
+Likewise, we can use the CCF utility `check_endorsements` to validate that the service identity endorses the signing node. The certificate chain could be composed of previous service certificates, so we should validate that the endorsement is applied transitively if `serviceEndorsements` isn't an empty list.
 
 ```python
 def check_endorsement(endorsee: Certificate, endorser: Certificate): 
@@ -336,7 +352,7 @@ def verify_openssl_certificate(
 
 ### Sample code
 
-The full sample code used in the code walkthrough can be found below.
+The full sample code used in the code walkthrough is provided.
 
 #### Main program
 

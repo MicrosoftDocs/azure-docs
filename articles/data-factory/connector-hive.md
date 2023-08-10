@@ -236,6 +236,9 @@ source(
 
 * Complex types such as arrays, maps, structs, and unions are not supported for read. 
 * Hive connector only supports Hive tables in Azure HDInsight of version 4.0 or greater (Apache Hive 3.1.0)
+* By default, Hive driver provides "tableName.columnName" in sink. If you do not wish to see the table name in the column name, then there are two ways to fix this.
+  a. Check the setting "hive.resultset.use.unique.column.names" in Hive server side and set it to false.
+  b. Use column mapping to rename the column name.
 
 ## Lookup activity properties
 

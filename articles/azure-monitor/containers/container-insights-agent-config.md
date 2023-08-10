@@ -49,7 +49,7 @@ ConfigMap is a global list and there can be only one ConfigMap applied to the ag
 
 | Key | Data type | Value | Description |
 |--|--|--|--|
-| `[agent_settings.proxy_config] ignore_proxy_settings =` | Boolean | True or false | Set this value to true to ignore proxy settings. On both AKS & Arc K8s enviornments, if your cluster is configured with forward proxy, then proxy settings are automatically applied and used for the agent. For certain configurations, such as, with AMPLS + Proxy, you may with for the proxy config to be ignored. . By default, this setting is set to `false`. |
+| `[agent_settings.proxy_config] ignore_proxy_settings =` | Boolean | True or false | Set this value to true to ignore proxy settings. On both AKS & Arc K8s environments, if your cluster is configured with forward proxy, then proxy settings are automatically applied and used for the agent. For certain configurations, such as, with AMPLS + Proxy, you may with for the proxy config to be ignored. . By default, this setting is set to `false`. |
 
 ## Configure and deploy ConfigMaps
 

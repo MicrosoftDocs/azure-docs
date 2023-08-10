@@ -6,8 +6,8 @@ author: dukicn
 ms.author: nikoduki
 ms.date: 04/27/2021
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Migrate data to Azure with Datadobi DobiMigrate

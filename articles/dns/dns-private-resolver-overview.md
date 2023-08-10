@@ -6,7 +6,7 @@ ms.custom: references_regions, ignite-2022
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 12/16/2022
+ms.date: 07/19/2023
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -54,36 +54,26 @@ Azure DNS Private Resolver provides the following benefits:
 
 ## Regional availability
 
-Azure DNS Private Resolver is available in the following regions:
-
-| Americas         | Europe           | Asia & Africa     |
-|------------------|------------------|-------------------|
-| East US          | West Europe      | East Asia         |
-| East US 2        | North Europe     | Southeast Asia    |
-| Central US       | UK South         | Japan East        |
-| South Central US | France Central   | Korea Central     |
-| North Central US | Sweden Central   | South Africa North|
-| West Central US  | Switzerland North| Australia East    |
-| West US 2        |                  | Central India     |
-| West US 3        |                  |                   |
-| Canada Central   |                  |                   |
-| Brazil South     |                  |                   |
+See [Azure Products by Region - Azure DNS](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=dns&regions=all).
 
 ## Data residency
 
 Azure DNS Private Resolver doesn't move or store customer data out of the region where the resolver is deployed.
 
-## DNS resolver endpoints
+## DNS resolver endpoints and rulesets
 
-For more information about endpoints and rulesets, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md).
+A summary of resolver endpoints and rulesets is provided in this article. For detailed information about endpoints and rulesets, see [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md).
 
-### Inbound endpoints
+## Inbound endpoints
 
 An inbound endpoint enables name resolution from on-premises or other private locations via an IP address that is part of your private virtual network address space. To resolve your Azure private DNS zone from on-premises, enter the IP address of the inbound endpoint into your on-premises DNS conditional forwarder. The on-premises DNS conditional forwarder must have a network connection to the virtual network.
 
-The inbound endpoint requires a subnet in the VNet where it’s provisioned. The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and can't be used for other services. DNS queries received by the inbound endpoint will ingress to Azure. You can resolve names in scenarios where you have Private DNS zones, including VMs that are using auto registration, or Private Link enabled services.
+The inbound endpoint requires a subnet in the VNet where it’s provisioned. The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and can't be used for other services. DNS queries received by the inbound endpoint ingress to Azure. You can resolve names in scenarios where you have Private DNS zones, including VMs that are using auto registration, or Private Link enabled services.
 
-### Outbound endpoints
+> [!NOTE]
+> The IP address assigned to an inbound endpoint can be static if you use [PowerShell to provison the endpoint](dns-private-resolver-get-started-powershell.md#create-the-inbound-endpoint). The IP address that you choose can't be a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets). If you use another method to provision the inbound endpoint, then typically the fifth IP address in the subnet is dynamically assigned. If the inbound endpoint is reprovisioned, this IP address might change, but normally the 5th IP address in the subnet is used again. The IP address does not change unless the inbound endpoint is reprovisioned.
+
+## Outbound endpoints
 
 An outbound endpoint enables conditional forwarding name resolution from Azure to on-premises, other cloud providers, or external DNS servers. This endpoint requires a dedicated subnet in the VNet where it’s provisioned, with no other service running in the subnet, and can only be delegated to **Microsoft.Network/dnsResolvers**. DNS queries sent to the outbound endpoint will egress from Azure.
 
@@ -97,7 +87,7 @@ A DNS forwarding ruleset is a group of DNS forwarding rules (up to 1000) that ca
 
 ## DNS forwarding rules
 
-A DNS forwarding rule includes one or more target DNS servers that will be used for conditional forwarding, and is represented by:
+A DNS forwarding rule includes one or more target DNS servers that are used for conditional forwarding, and is represented by:
 - A domain name
 - A target IP address 
 - A target Port and Protocol (UDP or TCP)
@@ -116,8 +106,6 @@ The following restrictions hold with respect to virtual networks:
 ### Subnet restrictions 
 
 Subnets used for DNS resolver have the following limitations:
-- The following IP address space is reserved and can't be used for the DNS resolver service: 10.0.1.0 - 10.0.16.255. 
-    - Do not use these class C networks or subnets within these networks for DNS resolver subnets: 10.0.1.0/24, 10.0.2.0/24, 10.0.3.0/24, 10.0.4.0/24, 10.0.5.0/24, 10.0.6.0/24, 10.0.7.0/24, 10.0.8.0/24, 10.0.9.0/24, 10.0.10.0/24, 10.0.11.0/24, 10.0.12.0/24, 10.0.13.0/24, 10.0.14.0/24, 10.0.15.0/24, 10.0.16.0/24.
 - A subnet must be a minimum of /28 address space or a maximum of /24 address space.
 - A subnet can't be shared between multiple DNS resolver endpoints. A single subnet can only be used by a single DNS resolver endpoint.
 - All IP configurations for a DNS resolver inbound endpoint must reference the same subnet. Spanning multiple subnets in the IP configuration for a single DNS resolver inbound endpoint isn't allowed.
@@ -135,6 +123,8 @@ Outbound endpoints have the following limitations:
 ### Other restrictions
 
 - IPv6 enabled subnets aren't supported.
+- DNS private resolver does not support Azure ExpressRoute FastPath.
+
 
 ## Next steps
 

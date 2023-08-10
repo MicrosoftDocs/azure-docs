@@ -2,11 +2,11 @@
 title: Use a disk encryption set across Azure AD tenants
 description: Learn how to use customer-managed keys with your Azure disks in different Azure AD tenants.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 11/30/2022
 ms.author: rogarana
-ms.subservice: disks
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Encrypt managed disks with cross-tenant customer-managed keys
@@ -21,7 +21,7 @@ If you have questions about cross-tenant customer-managed keys with managed disk
 
 - Managed Disks and the customer's Key Vault must be in the same Azure region, but they can be in different subscriptions.
 - This feature doesn't support Ultra Disks or Azure Premium SSD v2 managed disks.
-- This feature isn't available in Azure China or Government clouds.
+- This feature isn't available in Microsoft Azure operated by 21Vianet or Government clouds.
 
 [!INCLUDE [active-directory-msi-cross-tenant-cmk-overview](../../includes/active-directory-msi-cross-tenant-cmk-overview.md)]
 
@@ -52,7 +52,7 @@ To use the Azure portal, sign in to the portal and follow these steps.
 
 # [PowerShell](#tab/azure-powershell)
 
-To use Azure PowerShell, install the latest Az module or the Az.Storage module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
+To use Azure PowerShell, install the latest Az module or the Az.Storage module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell).
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 

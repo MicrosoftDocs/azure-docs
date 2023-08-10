@@ -1,6 +1,6 @@
 ---
-title: What are Azure Arc-enabled data services
-description: Introduces Azure Arc-enabled data services
+title: Introducing Azure Arc-enabled data services
+description: Describes Azure Arc-enabled data services
 ms.custom: references_regions
 author: twright-msft
 ms.author: twright
@@ -8,7 +8,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/30/2021
+ms.date: 07/19/2023
 ms.topic: overview
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
 ---
@@ -65,6 +65,6 @@ To see the regions that currently support Azure Arc-enabled data services, go to
 
 [Plan your Azure Arc data services deployment](plan-azure-arc-data-services.md) (requires installing the client tools first)
 
-[Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md) (requires creation of an Azure Arc data controller first)
+[Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md) (requires creation of an Azure Arc data controller first)
 
 [Create an Azure Database for PostgreSQL server on Azure Arc](create-postgresql-server.md) (requires creation of an Azure Arc data controller first)

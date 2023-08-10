@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Stream logs to an Azure event hub | Microsoft Docs
+title: Tutorial - Stream logs to an Azure event hub
 description: Learn how to set up Azure Diagnostics to push Azure Active Directory logs to an event hub
 services: active-directory
 author: shlipsey3
@@ -29,6 +29,8 @@ To use this feature, you need:
 * An Event Hubs namespace and an event hub in your Azure subscription. Learn how to [create an event hub](../../event-hubs/event-hubs-create.md).
 
 ## Stream logs to an event hub
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 

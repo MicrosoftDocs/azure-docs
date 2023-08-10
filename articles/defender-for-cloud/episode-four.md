@@ -1,8 +1,8 @@
 ---
-title: Security posture management improvements in Microsoft Defender for Cloud
+title: Security posture management improvements
 description: Learn how to manage your security posture with Microsoft Defender for Cloud.
 ms.topic: reference
-ms.date: 01/24/2023
+ms.date: 04/27/2023
 ---
 
 # Security posture management improvements in Microsoft Defender for Cloud

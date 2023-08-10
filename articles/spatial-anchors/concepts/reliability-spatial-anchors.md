@@ -1,12 +1,12 @@
 ---
-title: Resiliency in Azure Spatial Anchors #Required; Must be "Resiliency in *your official service name*"
-description: Find out about reliability in Azure Spatial Anchors #Required; 
-author: RamonArguelles #Required; your GitHub user alias, with correct capitalization.
-ms.author: rgarcia #Required; Microsoft alias of author; optional team alias.
+title: Resiliency in Azure Spatial Anchors
+description: Find out about reliability in Azure Spatial Anchors
+author: RamonArguelles
+ms.author: rgarcia
 ms.topic: conceptual
 ms.custom: subject-reliability
 ms.service: azure-spatial-anchors
-ms.date: 11/18/2022 #Required; mm/dd/yyyy format.
+ms.date: 11/18/2022
 #Customer intent: As a customer, I want to understand reliability support for Azure Spatial Anchors so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
 

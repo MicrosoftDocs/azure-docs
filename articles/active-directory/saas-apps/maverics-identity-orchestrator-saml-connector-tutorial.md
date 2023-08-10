@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integrate Azure Active Directory single sign-on (SSO) with Maverics Identity Orchestrator SAML Connector | Microsoft Docs'
+title: 'Tutorial: Integrate Azure Active Directory single sign-on (SSO) with Maverics Identity Orchestrator SAML Connector'
 description: Learn how to configure single sign-on between Azure Active Directory and Maverics Identity Orchestrator SAML Connector.
 services: active-directory
 author: jeevansd
@@ -338,4 +338,4 @@ At this point, you've installed the Maverics Orchestrator, created and configure
 ## Next steps
 
 - [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

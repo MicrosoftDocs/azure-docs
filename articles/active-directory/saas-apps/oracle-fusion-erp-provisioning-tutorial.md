@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Oracle Fusion ERP for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Oracle Fusion ERP for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Oracle Fusion ERP.
 services: active-directory
 author: twimmers
@@ -87,7 +87,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 > You may also choose to enable SAML-based single sign-on for Oracle Fusion ERP by following the instructions provided in the [Oracle Fusion ERP Single sign-on tutorial](oracle-fusion-erp-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features complement each other.
 
 > [!NOTE]
-> To learn more about Oracle Fusion ERP's SCIM endpoint, refer to [REST API for Common Features in Oracle Applications Cloud](https://docs.oracle.com/en/cloud/saas/applications-common/18b/farca/index.html).
+> To learn more about Oracle Fusion ERP's SCIM endpoint, refer to [REST API for Common Features in Oracle Applications Cloud](https://docs.oracle.com/en/cloud/saas/applications-common/23b/farca/index.html).
 
 ### To configure automatic user provisioning for Fuze in Azure AD:
 

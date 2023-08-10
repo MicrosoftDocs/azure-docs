@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 12/2/2022
 author: gahl-levy
 ms.author: gahllevy
-ms.custom: devx-track-js, cosmos-db-video, ignite-2022
+ms.custom: cosmos-db-video, ignite-2022
 ---
 # Manage indexing in Azure Cosmos DB for MongoDB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
@@ -48,19 +48,45 @@ You could create the same single field index on `name` in the Azure portal:
 One query uses multiple single field indexes where available. You can create up to 500 single field indexes per collection.
 
 ### Compound indexes (MongoDB server version 3.6+)
-In the API for MongoDB, compound indexes are **required** if your query needs the ability to sort on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a compound index to save on indexing costs. 
 
-A compound index or single field indexes for each field in the compound index will result in the same performance for filtering in queries.
+In the API for MongoDB, compound indexes are **required** if your query needs the ability to sort on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a compound index to save on indexing costs.
 
-Compounded indexes on nested fields are not supported by default due to limiations with arrays. If your nested field does not contain an array, the index will work as intended. If your nested field contains an array (anywhere on the path), that value will be ignored in the index. 
+A compound index or single field indexes for each field in the compound index results in the same performance for filtering in queries.
 
-For example a compound index containing people.tom.age will work in this case since there's no array on the path:
-```javascript
-{ "people": { "tom": { "age": "25" }, "mark": { "age": "30" } } }
+Compounded indexes on nested fields aren't supported by default due to limitations with arrays. If your nested field doesn't contain an array, the index works as intended. If your nested field contains an array (anywhere on the path), that value is ignored in the index.
+
+As an example, a compound index containing `people.dylan.age` works in this case since there's no array on the path:
+
+```json
+{
+  "people": {
+    "dylan": {
+      "name": "Dylan",
+      "age": "25"
+    },
+    "reed": {
+      "name": "Reed",
+      "age": "30"
+    }
+  }
+}
 ```
-but won't won't work in this case since there's an array in the path:
-```javascript
-{ "people": { "tom": [ { "age": "25" } ], "mark": [ { "age": "30" } ] } }
+
+This same compound index doesn't work in this case since there's an array in the path:
+
+```json
+{
+  "people": [
+    {
+      "name": "Dylan",
+      "age": "25"
+    },
+    {
+      "name": "Reed",
+      "age": "30"
+    }
+  ]
+}
 ```
 
 This feature can be enabled for your database account by [enabling the 'EnableUniqueCompoundNestedDocs' capability](how-to-configure-capabilities.md).
@@ -84,9 +110,6 @@ You can also use the preceding compound index to efficiently sort on a query wit
 However, the sequence of the paths in the compound index must exactly match the query. Here's an example of a query that would require an additional compound index:
 
 `db.coll.find().sort({age:1,name:1})`
-
-> [!NOTE]
-> Compound indexes are only used in queries that sort results. For queries that have multiple filters that don't need to sort, create multipe single field indexes.
 
 ### Multikey indexes
 
@@ -167,6 +190,9 @@ You can also create wildcard indexes using the Data Explorer in the Azure portal
 > If you are just starting development, we **strongly** recommend starting off with a wildcard index on all fields. This can simplify development and make it easier to optimize queries.
 
 Documents with many fields may have a high Request Unit (RU) charge for writes and updates. Therefore, if you have a write-heavy workload, you should opt to individually index paths as opposed to using wildcard indexes.
+
+> [!NOTE]
+> Support for unique index on existing collections with data is available in preview. This feature can be enabled for your database account by enabling the ['EnableUniqueIndexReIndex' capability](./how-to-configure-capabilities.md#available-capabilities).
 
 ### Limitations
 

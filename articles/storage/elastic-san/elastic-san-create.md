@@ -2,12 +2,11 @@
 title: Create an Azure Elastic SAN (preview)
 description: Learn how to deploy an Azure Elastic SAN (preview) with the Azure portal, Azure PowerShell module, or Azure CLI.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 08/02/2023
 ms.author: rogarana
-ms.subservice: elastic-san
-ms.custom: references_regions, ignite-2022
+ms.custom: references_regions, ignite-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Deploy an Elastic SAN (preview)
@@ -16,8 +15,8 @@ This article explains how to deploy and configure an elastic storage area networ
 
 ## Prerequisites
 
-- If you're using Azure PowerShell, use `Install-Module -Name Az.ElasticSan -Scope CurrentUser -Repository PSGallery -Force -RequiredVersion 0.1.0` to install the preview module.
-- If you're using Azure CLI, install the latest version. For installation instructions, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+- If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell).
+- If you're using Azure CLI, install the [latest version](/cli/azure/install-azure-cli).
     - Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
 
 ## Limitations
@@ -69,8 +68,9 @@ az feature show --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
 
 1. Sign in to the Azure portal and search for **Elastic SAN**.
 1. Select **+ Create a new SAN**
-1. On the basics page, fill out the values.
-    1. Select the same region as your Azure virtual network and compute client.
+1. On the basics page, fill in the appropriate values.
+    - **Elastic SAN name** must be between 3 and 24 characters long. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.
+
 1. Specify the amount of base capacity you require, and any additional capacity, then select next.
 
     Increasing your SAN's base size will also increase its IOPS and bandwidth. Increasing additional capacity only increase its total size (base+additional) but won't increase IOPS or bandwidth, however, it's cheaper than increasing base.
@@ -81,7 +81,7 @@ az feature show --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
 
 # [PowerShell](#tab/azure-powershell)
 
-The following command creates an Elastic SAN that uses locally-redundant storage. To create one that uses zone-redundant storage, replace `Premium_LRS` with `Premium_ZRS`.
+The following command creates an Elastic SAN that uses locally redundant storage. To create one that uses zone-redundant storage, replace `Premium_LRS` with `Premium_ZRS`.
 
 ```azurepowershell
 ## Variables
@@ -99,7 +99,7 @@ New-AzElasticSAN -ResourceGroupName $rgName -Name $sanName -AvailabilityZone $zo
 ```
 # [Azure CLI](#tab/azure-cli)
 
-The following command creates an Elastic SAN that uses locally-redundant storage. To create one that uses zone-redundant storage, replace `Premium_LRS` with `Premium_ZRS`.
+The following command creates an Elastic SAN that uses locally redundant storage. To create one that uses zone-redundant storage, replace `Premium_LRS` with `Premium_ZRS`.
 
 ```azurecli
 ## Variables
@@ -108,7 +108,7 @@ resourceGroupName="yourResourceGroupNameHere"
 sanLocation="desiredRegion"
 volumeGroupName="desiredVolumeGroupName"
 
-az elastic-san create -n $sanName -g $resourceGroupName -l $sanLocation --base-size-tib 100 --extended-capacity-size-tib 20 --sku “{name:Premium_LRS,tier:Premium}”
+az elastic-san create -n $sanName -g $resourceGroupName -l $sanLocation --base-size-tib 100 --extended-capacity-size-tib 20 --sku "{name:Premium_LRS,tier:Premium}"
 ```
 ---
 
@@ -118,8 +118,9 @@ Now that you've configured the basic settings and provisioned your storage, you 
 
 # [Portal](#tab/azure-portal)
 
-1. Select **+ Create volume group** and name your volume.
-    The volume group name can't be changed once created.
+1. Select **+ Create volume group** and name your volume group.
+    - The name must be between 3 and 63 characters long. The name may only contain lowercase letters, numbers and hyphens, and must begin and end with a letter or a number. Each hyphen must be preceded and followed by an alphanumeric character. The volume group name can't be changed once created.
+
 1. Select **Next : Volumes**
 
 # [PowerShell](#tab/azure-powershell)

@@ -1,7 +1,7 @@
 ---
 title: Introduction to the Fitness Store sample app
-titleSuffix: Azure Spring Apps Enterprise tier
-description: Describes the sample app used in this series of quickstarts for deployment to Azure Spring Apps Enterprise tier.
+titleSuffix: Azure Spring Apps Enterprise plan
+description: Describes the sample app used in this series of quickstarts for deployment to the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-apps
@@ -18,9 +18,9 @@ ms.custom: devx-track-java
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This quickstart describes the [fitness store](https://github.com/Azure-Samples/acme-fitness-store) sample application, which will show you how to deploy polyglot apps to Azure Spring Apps Enterprise tier. You'll see how polyglot applications are built and deployed using Azure Spring Apps Enterprise tier capabilities. These capabilities include Tanzu Build Service, Service Discovery, externalized configuration with Application Configuration Service, application routing with Spring Cloud Gateway, logs, metrics, and distributed tracing.
+This quickstart describes the [fitness store](https://github.com/Azure-Samples/acme-fitness-store) sample application, which shows you how to deploy polyglot apps to an Azure Spring Apps Enterprise plan instance. You see how polyglot applications are built and deployed using Azure Spring Apps Enterprise plan capabilities. These capabilities include Tanzu Build Service, Service Discovery, externalized configuration with Application Configuration Service, application routing with Spring Cloud Gateway, logs, metrics, and distributed tracing.
 
 The following diagram shows a common application architecture:
 
@@ -47,4 +47,4 @@ This quickstart applies this architecture to a Fitness Store application. This a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Build and deploy apps to Azure Spring Apps Enterprise tier](quickstart-deploy-apps-enterprise.md)
+> [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md)

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.date: 02/13/2023
 ms.topic: troubleshooting
-ms.custom: devx-track-python, mldata, references_regions, sdkv2
+ms.custom: mldata, references_regions, sdkv2
 ---
 
 # Troubleshoot data access errors
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 In this guide, learn how to identify and resolve known issues with data access with the [Azure Machine Learning SDK](https://aka.ms/sdk-v2-install).
 
@@ -93,6 +93,6 @@ Errors also include:
 
 - See more information on [data concepts in Azure Machine Learning](concept-data.md)
 
-- [AzureML authentication to other services](how-to-identity-based-service-authentication.md).
+- [Azure Machine Learning authentication to other services](how-to-identity-based-service-authentication.md).
 - [Create datastores](how-to-datastore.md)
 - [Read and write data in a job](how-to-read-write-data-v2.md)

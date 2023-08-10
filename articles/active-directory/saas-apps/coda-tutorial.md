@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Coda | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Coda'
 description: Learn how to configure single sign-on between Azure Active Directory and Coda.
 services: active-directory
 author: jeevansd

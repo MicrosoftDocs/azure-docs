@@ -5,7 +5,7 @@ services: cdn
 author: duongau
 ms.service: azure-cdn
 ms.topic: overview
-ms.date: 02/21/2023
+ms.date: 06/05/2023
 ms.author: duau
 ms.custom: mvc
 
@@ -19,6 +19,9 @@ Azure Content Delivery Network (CDN) includes four products:
 * **Azure CDN Standard from Akamai**
 * **Azure CDN Standard from Verizon**
 * **Azure CDN Premium from Verizon**.
+
+> [!IMPORTANT]
+> Azure CDN from Akamai is scheduled to be retired on October 31, 2023. You can no longer create new Azure CDN from Akamai after June 1, 2023. For more information, see [**Migrate CDN provider**](cdn-change-provider.md) for guidance on migrating to another Azure CDN provider.
 
 The following table compares the features available with each product.
 
@@ -50,7 +53,7 @@ The following table compares the features available with each product.
 | [Custom domain name support](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Geo-filtering](cdn-restrict-access-by-country-region.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Token authentication](cdn-token-auth.md)  |  |  |  |**&#x2713;**|
-| [DDOS protection](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [DDOS protection](https://www.cisa.gov/news-events/news/understanding-denial-service-attacks)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Bring your own certificate](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) |**&#x2713;** |  | **&#x2713;** | **&#x2713;** |
 | Supported TLS Versions | TLS 1.2, TLS 1.0/1.1 - [Configurable](/rest/api/cdn/custom-domains/enable-custom-https#usermanagedhttpsparameters) | TLS 1.2 | TLS 1.2 | TLS 1.2 |
 ||||

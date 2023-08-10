@@ -20,7 +20,7 @@ To configure the API language runtime version, set the `apiRuntime` property in 
 | Node.js 18.x <br>(public preview) | Linux | 4.x | `node:18` | - |
 | Python 3.8 | Linux | 4.x | `python:3.8` | - |
 | Python 3.9 | Linux | 4.x | `python:3.9` | - |
-| Python 3.10 <br>(public preview) | Linux | 4.x | `python:3.10` | - |
+| Python 3.10 | Linux | 4.x | `python:3.10` | - |
 
 ### .NET
 
@@ -39,7 +39,7 @@ The following example demonstrates how to update the `TargetFramework` element f
 
 ### Node.js
 
-The following example configuration demonstrates how to use the `apiRuntime` property to select Node.js 16 as the API language runtime version in the _staticwebapp.config..json_ file.
+The following example configuration demonstrates how to use the `apiRuntime` property to select Node.js 16 as the API language runtime version in the _staticwebapp.config.json_ file.
 
 ```json
 {
@@ -53,7 +53,7 @@ The following example configuration demonstrates how to use the `apiRuntime` pro
 
 ### Python
 
-The following example configuration demonstrates how to use the `apiRuntime` property to select Python 3.8 as the API language runtime version in the _staticwebapp.config..json_ file.
+The following example configuration demonstrates how to use the `apiRuntime` property to select Python 3.8 as the API language runtime version in the _staticwebapp.config.json_ file.
 
 ```json
 {

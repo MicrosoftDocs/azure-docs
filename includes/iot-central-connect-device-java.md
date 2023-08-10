@@ -3,10 +3,10 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 03/31/2021
+ms.date: 06/06/2023
 ---
 
-[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/pnp-device-sample)
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples/pnp-device-sample)
 
 ## Prerequisites
 
@@ -22,7 +22,9 @@ To complete the steps in this article, you need the following resources:
 
 ## Review the code
 
-In the copy of the Microsoft Azure IoT SDK for Java you downloaded previously, open the *azure-iot-sdk-java/device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/device/TemperatureController.java* file in a text editor.
+In the copy of the Microsoft Azure IoT SDK for Java you downloaded previously, open the *azure-iot-sdk-java/iothub/device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/device/TemperatureController.java* file in a text editor.
+
+The sample implements the multiple-component [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) Digital Twin Definition Language model.
 
 When you run the sample to connect to IoT Central, it uses the Device Provisioning Service (DPS) to register the device and generate a connection string. The sample retrieves the DPS connection information it needs from the command-line environment.
 
@@ -35,7 +37,7 @@ The `main` method:
 * Starts a thread to send temperature telemetry from the two thermostats and update the `maxTempSinceLastReboot` property every five seconds.
 
 ```java
-public static void main(String[] args) throws IOException, URISyntaxException, ProvisioningDeviceClientException, InterruptedException {
+public static void main(String[] args) throws Exception {
 
   // ...
   
@@ -60,20 +62,39 @@ public static void main(String[] args) throws IOException, URISyntaxException, P
     }
   }
   
-  deviceClient.subscribeToDeviceMethod(new MethodCallback(), null, new MethodIotHubEventCallback(), null);
+  deviceClient.subscribeToMethods(new MethodCallback(), null);
   
-  deviceClient.startDeviceTwin(new TwinIotHubEventCallback(), null, new GenericPropertyUpdateCallback(), null);
-  Map<Property, Pair<TwinPropertyCallBack, Object>> desiredPropertyUpdateCallback = Stream.of(
-      new AbstractMap.SimpleEntry<Property, Pair<TwinPropertyCallBack, Object>>(
-          new Property(THERMOSTAT_1, null),
-          new Pair<>(new TargetTemperatureUpdateCallback(), THERMOSTAT_1)),
-      new AbstractMap.SimpleEntry<Property, Pair<TwinPropertyCallBack, Object>>(
-          new Property(THERMOSTAT_2, null),
-          new Pair<>(new TargetTemperatureUpdateCallback(), THERMOSTAT_2))
-  ).collect(Collectors.toMap(AbstractMap.SimpleEntry::getKey, AbstractMap.SimpleEntry::getValue));
-  
-  deviceClient.subscribeToTwinDesiredProperties(desiredPropertyUpdateCallback);
-  
+  deviceClient.subscribeToDesiredPropertiesAsync(
+  {
+  (twin, context) ->
+      TwinCollection desiredProperties = twin.getDesiredProperties();
+      for (String desiredPropertyKey : desiredProperties.keySet())
+      {
+          TargetTemperatureUpdateCallback.onPropertyChanged(new Property(desiredPropertyKey, desiredProperties.get(desiredPropertyKey)), null);
+      }
+  },
+  null,
+  (exception, context) ->
+  {
+      if (exception == null)
+      {
+          log.info("Successfully subscribed to desired properties. Getting initial state");
+          deviceClient.getTwinAsync(
+              (twin, getTwinException, getTwinContext) ->
+              {
+                  log.info("Initial twin state received");
+                  log.info(twin.toString());
+              },
+              null);
+      }
+      else
+      {
+          log.info("Failed to subscribe to desired properties. Error code {}", exception.getStatusCode());
+          System.exit(-1);
+      }
+  },
+  null);
+
   updateDeviceInformation();
   sendDeviceMemory();
   sendDeviceSerialNumber();
@@ -107,7 +128,7 @@ public static void main(String[] args) throws IOException, URISyntaxException, P
 The `initializeAndProvisionDevice` method shows how the device uses DPS to register and connect to IoT Central. The payload includes the model ID that IoT Central uses to [assign a device to a device template](../articles/iot-central/core/concepts-device-templates.md#assign-a-device-to-a-device-template):
 
 ```java
-private static void initializeAndProvisionDevice() throws ProvisioningDeviceClientException, IOException, URISyntaxException, InterruptedException {
+private static void initializeAndProvisionDevice() throws Exception {
   SecurityProviderSymmetricKey securityClientSymmetricKey = new SecurityProviderSymmetricKey(deviceSymmetricKey.getBytes(), registrationId);
   ProvisioningDeviceClient provisioningDeviceClient;
   ProvisioningStatus provisioningStatus = new ProvisioningStatus();
@@ -117,35 +138,18 @@ private static void initializeAndProvisionDevice() throws ProvisioningDeviceClie
   AdditionalData additionalData = new AdditionalData();
   additionalData.setProvisioningPayload(com.microsoft.azure.sdk.iot.provisioning.device.plugandplay.PnpHelper.createDpsPayload(MODEL_ID));
 
-  provisioningDeviceClient.registerDevice(new ProvisioningDeviceClientRegistrationCallbackImpl(), provisioningStatus, additionalData);
+  ProvisioningDeviceClientRegistrationResult registrationResult = provisioningDeviceClient.registerDeviceSync(additionalData);
 
-  while (provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getProvisioningDeviceClientStatus() != ProvisioningDeviceClientStatus.PROVISIONING_DEVICE_STATUS_ASSIGNED)
-  {
-    if (provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getProvisioningDeviceClientStatus() == ProvisioningDeviceClientStatus.PROVISIONING_DEVICE_STATUS_ERROR ||
-        provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getProvisioningDeviceClientStatus() == ProvisioningDeviceClientStatus.PROVISIONING_DEVICE_STATUS_DISABLED ||
-        provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getProvisioningDeviceClientStatus() == ProvisioningDeviceClientStatus.PROVISIONING_DEVICE_STATUS_FAILED)
-    {
-      provisioningStatus.exception.printStackTrace();
-      System.out.println("Registration error, bailing out");
-      break;
+    ClientOptions options = ClientOptions.builder().modelId(MODEL_ID).build();
+    if (registrationResult.getProvisioningDeviceClientStatus() == ProvisioningDeviceClientStatus.PROVISIONING_DEVICE_STATUS_ASSIGNED) {
+        System.out.println("IotHUb Uri : " + registrationResult.getIothubUri());
+        System.out.println("Device ID : " + registrationResult.getDeviceId());
+        String iotHubUri = registrationResult.getIothubUri();
+        String deviceId = registrationResult.getDeviceId();
+        log.debug("Opening the device client.");
+        deviceClient = new DeviceClient(iotHubUri, deviceId, securityClientSymmetricKey, IotHubClientProtocol.MQTT, options);
+        deviceClient.open(true);
     }
-    System.out.println("Waiting for Provisioning Service to register");
-    Thread.sleep(MAX_TIME_TO_WAIT_FOR_REGISTRATION);
-  }
-
-  ClientOptions options = new ClientOptions();
-  options.setModelId(MODEL_ID);
-
-  if (provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getProvisioningDeviceClientStatus() == ProvisioningDeviceClientStatus.PROVISIONING_DEVICE_STATUS_ASSIGNED) {
-    System.out.println("IotHUb Uri : " + provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getIothubUri());
-    System.out.println("Device ID : " + provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getDeviceId());
-
-    String iotHubUri = provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getIothubUri();
-    String deviceId = provisioningStatus.provisioningDeviceClientRegistrationInfoClient.getDeviceId();
-
-    deviceClient = DeviceClient.createFromSecurityProvider(iotHubUri, deviceId, securityClientSymmetricKey, IotHubClientProtocol.MQTT, options);
-    deviceClient.open();
-  }
 }
 ```
 
@@ -178,125 +182,122 @@ private static void updateMaxTemperatureSinceLastReboot(String componentName) th
   String propertyName = "maxTempSinceLastReboot";
   double maxTemp = maxTemperature.get(componentName);
 
-  Set<Property> reportedProperty = PnpConvention.createComponentPropertyPatch(propertyName, maxTemp, componentName);
-  deviceClient.sendReportedProperties(reportedProperty);
+  TwinCollection reportedProperty = PnpConvention.createComponentPropertyPatch(propertyName, maxTemp, componentName);
+  deviceClient.updateReportedPropertiesAsync(reportedProperty, sendReportedPropertiesResponseCallback, null);
+  log.debug("Property: Update - {\"{}\": {}°C} is {}.", propertyName, maxTemp, StatusCode.COMPLETED);
 }
 ```
 
-The `TargetTemperatureUpdateCallback` class contains the `TwinPropertyCallBack` method to handle writable property updates to a component from IoT Central. This method uses the `PnpConvention` class to create the response:
+The `TargetTemperatureUpdateCallback` class contains the `onPropertyChanged` method to handle writable property updates to a component from IoT Central. This method uses the `PnpConvention` class to create the response:
 
 ```java
-private static class TargetTemperatureUpdateCallback implements TwinPropertyCallBack {
-
-  final String propertyName = "targetTemperature";
-
-  @SneakyThrows({IOException.class, InterruptedException.class})
-  @Override
-  public void TwinPropertyCallBack(Property property, Object context) {
-    String componentName = (String) context;
-
-    if (property.getKey().equalsIgnoreCase(componentName)) {
-      double targetTemperature = (double) ((TwinCollection) property.getValue()).get(propertyName);
-
-      Set<Property> pendingPropertyPatch = PnpConvention.createComponentWritablePropertyResponse(
-          propertyName,
-          targetTemperature,
-          componentName,
-          StatusCode.IN_PROGRESS.value,
-          property.getVersion().longValue(),
-          null);
-      deviceClient.sendReportedProperties(pendingPropertyPatch);
-
-      // Update temperature in 2 steps
-      double step = (targetTemperature - temperature.get(componentName)) / 2;
-      for (int i = 1; i <=2; i++) {
-        temperature.put(componentName, BigDecimal.valueOf(temperature.get(componentName) + step).setScale(1, RoundingMode.HALF_UP).doubleValue());
-        Thread.sleep(5 * 1000);
-      }
-
-      Set<Property> completedPropertyPatch = PnpConvention.createComponentWritablePropertyResponse(
-          propertyName,
-          temperature.get(componentName),
-          componentName,
-          StatusCode.COMPLETED.value,
-          property.getVersion().longValue(),
-          "Successfully updated target temperature.");
-      deviceClient.sendReportedProperties(completedPropertyPatch);
-    } else {
-        // ...
-    }
-  }
-}
-```
-
-The `MethodCallback` class contains the `call` method to handle component commands called from IoT Central:
-
-```java
-private static class MethodCallback implements DeviceMethodCallback {
-  final String reboot = "reboot";
-  final String getMaxMinReport1 = "thermostat1*getMaxMinReport";
-  final String getMaxMinReport2 = "thermostat2*getMaxMinReport";
-
-  @SneakyThrows(InterruptedException.class)
-  @Override
-  public DeviceMethodData call(String methodName, Object methodData, Object context) {
-    String jsonRequest = new String((byte[]) methodData, StandardCharsets.UTF_8);
-
-    switch (methodName) {
-      case reboot:
-        int delay = getCommandRequestValue(jsonRequest, Integer.class);
-        Thread.sleep(delay * 1000L);
-
-        temperature.put(THERMOSTAT_1, 0.0d);
-        temperature.put(THERMOSTAT_2, 0.0d);
-
-        maxTemperature.put(THERMOSTAT_1, 0.0d);
-        maxTemperature.put(THERMOSTAT_2, 0.0d);
-
-        temperatureReadings.clear();
-        return new DeviceMethodData(StatusCode.COMPLETED.value, null);
-
-        case getMaxMinReport1:
-        case getMaxMinReport2:
-          String[] words = methodName.split("\\*");
-          String componentName = words[0];
-
-          if (temperatureReadings.containsKey(componentName)) {
-            Date since = getCommandRequestValue(jsonRequest, Date.class);
-
-            Map<Date, Double> allReadings = temperatureReadings.get(componentName);
-            Map<Date, Double> filteredReadings = allReadings.entrySet().stream()
-                .filter(map -> map.getKey().after(since))
-                .collect(Collectors.toMap(Entry::getKey, Entry::getValue));
-
-            if (!filteredReadings.isEmpty()) {
-              SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-              double maxTemp = Collections.max(filteredReadings.values());
-              double minTemp = Collections.min(filteredReadings.values());
-              double avgTemp = filteredReadings.values().stream().mapToDouble(Double::doubleValue).average().orElse(Double.NaN);
-              String startTime =  sdf.format(Collections.min(filteredReadings.keySet()));
-              String endTime =  sdf.format(Collections.max(filteredReadings.keySet()));
-
-              String responsePayload = String.format(
-                  "{\"maxTemp\": %.1f, \"minTemp\": %.1f, \"avgTemp\": %.1f, \"startTime\": \"%s\", \"endTime\": \"%s\"}",
-                  maxTemp,
-                  minTemp,
-                  avgTemp,
-                  startTime,
-                  endTime);
-
-              return new DeviceMethodData(StatusCode.COMPLETED.value, responsePayload);
+private static class TargetTemperatureUpdateCallback
+{
+    final static String propertyName = "targetTemperature";
+    @SneakyThrows(InterruptedException.class)
+    public static void onPropertyChanged(Property property, Object context) {
+        String componentName = (String) context;
+        if (property.getKey().equalsIgnoreCase(componentName)) {
+            double targetTemperature = (double) ((TwinCollection) property.getValue()).get(propertyName);
+            log.debug("Property: Received - component=\"{}\", {\"{}\": {}°C}.", componentName, propertyName, targetTemperature);
+            TwinCollection pendingPropertyPatch = PnpConvention.createComponentWritablePropertyResponse(
+                    propertyName,
+                    targetTemperature,
+                    componentName,
+                    StatusCode.IN_PROGRESS.value,
+                    property.getVersion().longValue(),
+                    null);
+            deviceClient.updateReportedPropertiesAsync(pendingPropertyPatch, sendReportedPropertiesResponseCallback, null);
+            log.debug("Property: Update - component=\"{}\", {\"{}\": {}°C} is {}", componentName, propertyName, targetTemperature, StatusCode.IN_PROGRESS);
+            // Update temperature in 2 steps
+            double step = (targetTemperature - temperature.get(componentName)) / 2;
+            for (int i = 1; i <=2; i++) {
+                temperature.put(componentName, BigDecimal.valueOf(temperature.get(componentName) + step).setScale(1, RoundingMode.HALF_UP).doubleValue());
+                Thread.sleep(5 * 1000);
             }
-
-            return new DeviceMethodData(StatusCode.NOT_FOUND.value, null);
-          }
-
-          return new DeviceMethodData(StatusCode.NOT_FOUND.value, null);
-
-        default:
-            return new DeviceMethodData(StatusCode.NOT_FOUND.value, null);
+            TwinCollection completedPropertyPatch = PnpConvention.createComponentWritablePropertyResponse(
+                    propertyName,
+                    temperature.get(componentName),
+                    componentName,
+                    StatusCode.COMPLETED.value,
+                    property.getVersion().longValue(),
+                    "Successfully updated target temperature.");
+            deviceClient.updateReportedPropertiesAsync(completedPropertyPatch, sendReportedPropertiesResponseCallback, null);
+            log.debug("Property: Update - {\"{}\": {}°C} is {}", propertyName, temperature.get(componentName), StatusCode.COMPLETED);
+        } else {
+            log.debug("Property: Received an unrecognized property update from service.");
+        }
     }
-  }
+}
+```
+
+The `MethodCallback` class contains the `onMethodInvoked` method to handle component commands called from IoT Central:
+
+```java
+private static class MethodCallback implements com.microsoft.azure.sdk.iot.device.twin.MethodCallback
+{
+    final String reboot = "reboot";
+    final String getMaxMinReport1 = "thermostat1*getMaxMinReport";
+    final String getMaxMinReport2 = "thermostat2*getMaxMinReport";
+    @SneakyThrows(InterruptedException.class)
+    @Override
+    public DirectMethodResponse onMethodInvoked(String methodName, DirectMethodPayload methodData, Object context) {
+        String jsonRequest = methodData.getPayload(String.class);
+        switch (methodName) {
+            case reboot:
+                int delay = getCommandRequestValue(jsonRequest, Integer.class);
+                log.debug("Command: Received - Rebooting thermostat (resetting temperature reading to 0°C after {} seconds).", delay);
+                Thread.sleep(delay * 1000L);
+                temperature.put(THERMOSTAT_1, 0.0d);
+                temperature.put(THERMOSTAT_2, 0.0d);
+                maxTemperature.put(THERMOSTAT_1, 0.0d);
+                maxTemperature.put(THERMOSTAT_2, 0.0d);
+                temperatureReadings.clear();
+                return new DirectMethodResponse(StatusCode.COMPLETED.value, null);
+            case getMaxMinReport1:
+            case getMaxMinReport2:
+                String[] words = methodName.split("\\*");
+                String componentName = words[0];
+                if (temperatureReadings.containsKey(componentName)) {
+                    Date since = getCommandRequestValue(jsonRequest, Date.class);
+                    log.debug("Command: Received - component=\"{}\", generating min, max, avg temperature report since {}", componentName, since);
+                    Map<Date, Double> allReadings = temperatureReadings.get(componentName);
+                    Map<Date, Double> filteredReadings = allReadings.entrySet().stream()
+                            .filter(map -> map.getKey().after(since))
+                            .collect(Collectors.toMap(Entry::getKey, Entry::getValue));
+                    if (!filteredReadings.isEmpty()) {
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+                        double maxTemp = Collections.max(filteredReadings.values());
+                        double minTemp = Collections.min(filteredReadings.values());
+                        double avgTemp = filteredReadings.values().stream().mapToDouble(Double::doubleValue).average().orElse(Double.NaN);
+                        String startTime =  sdf.format(Collections.min(filteredReadings.keySet()));
+                        String endTime =  sdf.format(Collections.max(filteredReadings.keySet()));
+                        String responsePayload = String.format(
+                                "{\"maxTemp\": %.1f, \"minTemp\": %.1f, \"avgTemp\": %.1f, \"startTime\": \"%s\", \"endTime\": \"%s\"}",
+                                maxTemp,
+                                minTemp,
+                                avgTemp,
+                                startTime,
+                                endTime);
+                        log.debug("Command: MaxMinReport since {}: \"maxTemp\": {}°C, \"minTemp\": {}°C, \"avgTemp\": {}°C, \"startTime\": {}, \"endTime\": {}",
+                                since,
+                                maxTemp,
+                                minTemp,
+                                avgTemp,
+                                startTime,
+                                endTime);
+                        return new DirectMethodResponse(StatusCode.COMPLETED.value, responsePayload);
+                    }
+                    log.debug("Command: component=\"{}\", no relevant readings found since {}, cannot generate any report.", componentName, since);
+                    return new DirectMethodResponse(StatusCode.NOT_FOUND.value, null);
+                }
+                log.debug("Command: component=\"{}\", no temperature readings sent yet, cannot generate any report.", componentName);
+                return new DirectMethodResponse(StatusCode.NOT_FOUND.value, null);
+            default:
+                log.debug("Command: command=\"{}\" is not implemented, no action taken.", methodName);
+                return new DirectMethodResponse(StatusCode.NOT_FOUND.value, null);
+        }
+    }
 }
 ```
 
@@ -314,7 +315,7 @@ mvn install -T 2C -DskipTests
 
 ## Run the code
 
-To run the sample application, open a command-line environment and navigate to the folder *azure-iot-sdk-java/device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample* folder that contains the *src* folder with the *TemperatureController.java* sample file.
+To run the sample application, open a command-line environment and navigate to the folder *azure-iot-sdk-java/iothub/device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample* folder that contains the *src* folder with the *TemperatureController.java* sample file.
 
 [!INCLUDE [iot-central-connection-environment](iot-central-connection-environment.md)]
 

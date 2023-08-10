@@ -1,5 +1,5 @@
 ---
-title: The Conditional Access What If tool - Azure Active Directory
+title: The Conditional Access What If tool
 description: Learn how you can understand the impact of your Conditional Access policies on your environment.
 
 services: active-directory

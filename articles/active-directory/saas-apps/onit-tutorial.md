@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Onit | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Onit'
 description: Learn how to configure single sign-on between Azure Active Directory and Onit.
 services: active-directory
 author: jeevansd

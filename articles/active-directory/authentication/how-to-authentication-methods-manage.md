@@ -1,12 +1,12 @@
 ---
-title: How to migrate to the Authentication methods policy - Azure Active Directory (preview)
+title: How to migrate to the Authentication methods policy 
 description: Learn about how to centrally manage multifactor authentication (MFA) and self-service password reset (SSPR) settings in the Authentication methods policy.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/07/2023
+ms.date: 03/22/2023
 
 ms.author: justinha
 author: justinha
@@ -18,7 +18,7 @@ ms.custom: contperf-fy20q4
 
 # Customer intent: As an identity administrator, I want to understand what authentication options are available in Azure AD and how I can manage them.
 ---
-# How to migrate MFA and SSPR policy settings to the Authentication methods policy for Azure AD (preview)
+# How to migrate MFA and SSPR policy settings to the Authentication methods policy for Azure AD 
 
 You can migrate Azure Active Directory (Azure AD) [legacy policy settings](concept-authentication-methods-manage.md#legacy-mfa-and-sspr-policies) that separately control multifactor authentication (MFA) and self-service password reset (SSPR) to unified management with the [Authentication methods policy](./concept-authentication-methods-manage.md). 
 
@@ -38,7 +38,7 @@ If you aren't using SSPR and aren't yet using the Authentication methods policy,
 
 ### Review the legacy MFA policy
 
-Start by documenting which methods are available in the legacy MFA policy. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator). Go to **Azure Active Directory** > **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings** to view the settings. These settings are tenant-wide, so there's no need for user or group information. 
+Start by documenting which methods are available in the legacy MFA policy. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator). Go to **Azure Active Directory** > **Users** > **All users** > **Per-user MFA** > **service settings** to view the settings. These settings are tenant-wide, so there's no need for user or group information. 
 
 :::image type="content" border="false" source="media/how-to-authentication-methods-manage/legacy-mfa-policy.png" alt-text="Screenshot the shows the legacy Azure AD MFA policy." lightbox="media/how-to-authentication-methods-manage/legacy-mfa-policy.png":::
 
@@ -53,7 +53,7 @@ For each method, note whether or not it's enabled for the tenant. The following 
 
 ### Review the legacy SSPR policy
 
-To get the authentication methods available in the legacy SSPR policy, go to **Azure Active Directory** > **Password reset** > **Authentication methods**. The following table lists the available methods in the legacy SSPR policy and corresponding methods in the Authentication method policy. 
+To get the authentication methods available in the legacy SSPR policy, go to **Azure Active Directory** > **Users** > **Password reset** > **Authentication methods**. The following table lists the available methods in the legacy SSPR policy and corresponding methods in the Authentication method policy. 
 
 :::image type="content" border="false" source="media/how-to-authentication-methods-manage/legacy-sspr-policy.png" alt-text="Screenshot that shows the legacy Azure AD SSPR policy." lightbox="media/how-to-authentication-methods-manage/legacy-sspr-policy.png":::
 
@@ -74,7 +74,7 @@ To check settings in the Authentication methods policy, sign in as an [Authentic
 
 :::image type="content"  source="media/concept-authentication-methods-manage/authentication-methods-policy.png" alt-text="Screenshot that shows the authentication methods." lightbox="media/concept-authentication-methods-manage/authentication-methods-policy.png":::
 
-The Authentication methods policy has other methods that aren't available in the legacy policies, such as FIDO2 security key, Temporary Access Pass, and Azure AD certificate-based authentication. These methods aren't in scope for migration and you won't need to make any changes to them if you've them configured already. 
+The Authentication methods policy has other methods that aren't available in the legacy policies, such as FIDO2 security key, Temporary Access Pass, and Azure AD certificate-based authentication. These methods aren't in scope for migration and you won't need to make any changes to them if you've  configured them already. 
 
 If you've enabled other methods in the Authentication methods policy, write down the users and groups who can or can't use those methods. Take a note of the configuration parameters that govern how the method can be used. For example, you can configure Microsoft Authenticator to provide location in push notifications. Make a record of which users and groups are enabled for similar configuration parameters associated with each method. 
 

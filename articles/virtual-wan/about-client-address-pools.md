@@ -18,7 +18,7 @@ When a user connects to Virtual WAN, the connection is automatically load-balanc
 ## Address pools and multi-pool/user groups
 
 > [!NOTE]
-> There isn't a minimum scale unit required for the multi-pool/user group feature as long as sufficient address pools are allocated.
+> There isn't a minimum scale unit required for the multi-pool/user group feature as long as sufficient address pools are allocated. The VPN profile needs to be re-downloaded in order to enable multipool. 
 
 When a gateway is configured with the [multi-pool/user group feature](user-groups-about.md), multiple connection configurations are installed on the same point-to-site VPN gateway. Users from any group can connect to any gateway instance, meaning each connection configuration needs to have at least one address pool for every backend gateway instance. For example, if a scale unit of 100 is chosen (5 gateway instances) on a gateway with three separate connection configurations, each configuration needs at least 5 address pools (total of 15 pools).
 

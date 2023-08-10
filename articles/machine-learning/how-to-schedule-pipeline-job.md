@@ -5,17 +5,17 @@ description: Learn how to schedule pipeline jobs that allow you to automate rout
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: lochen
-author: cloga
+ms.author: keli19
+author: likebupt
 ms.reviewer: lagayhar
-ms.date: 12/11/2022
+ms.date: 03/27/2023
 ms.topic: how-to
-ms.custom: devx-track-python, ignite-2022
+ms.custom: ignite-2022
 ---
 
 # Schedule machine learning pipeline jobs
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you'll learn how to programmatically schedule a pipeline to run on Azure and use the schedule UI to do the same. You can create a schedule based on elapsed time. Time-based schedules can be used to take care of routine tasks, such as retrain models or do batch predictions regularly to keep them up-to-date. After learning how to create schedules, you'll learn how to retrieve, update and deactivate them via CLI, SDK, and studio UI.
 
@@ -38,11 +38,6 @@ In this article, you'll learn how to programmatically schedule a pipeline to run
 
 - An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
 - Understanding of Azure Machine Learning pipelines. See [what are machine learning pipelines](concept-ml-pipelines.md), and how to create pipeline job in [CLI v2](how-to-create-component-pipelines-cli.md) or [SDK v2](how-to-create-component-pipeline-python.md).
-- To enable this feature:
-  1. Navigate to Azure Machine Learning studio UI.
-  2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
-  3. In **Managed preview feature** panel, toggle on **Create and manage your pipeline schedule** feature.
-    :::image type="content" source="./media/how-to-schedule-pipeline-job/manage-preview-features.png" alt-text="Screenshot of manage preview features toggled on." lightbox= "./media/how-to-schedule-pipeline-job/manage-preview-features.png":::
 
 ---
 
@@ -58,7 +53,7 @@ You can schedule a pipeline job yaml in local or an existing pipeline job in wor
 
 # [Azure CLI](#tab/cliv2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="yaml"source="~/azureml-examples-main/cli/schedules/recurrence-job-schedule.yml":::
 
@@ -70,7 +65,7 @@ List continues below.
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=create_schedule_recurrence)]
 
@@ -134,7 +129,7 @@ When you have a pipeline job with satisfying performance and outputs, you can se
 
 # [Azure CLI](#tab/cliv2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-job-schedule.yml":::
 
@@ -146,7 +141,7 @@ List continues below.
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=create_schedule_cron)]
 
@@ -216,13 +211,13 @@ When defining a schedule using an existing job, you can change the runtime setti
 
 # [Azure CLI](#tab/cliv2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-with-settings-job-schedule.yml":::
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=change_run_settings)]
 
@@ -279,7 +274,7 @@ When define schedule, we support following expression that will be resolved to r
 
 # [Azure CLI](#tab/cliv2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 After you create the schedule yaml, you can use the following command to create a schedule via CLI.
 
@@ -287,7 +282,7 @@ After you create the schedule yaml, you can use the following command to create 
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=create_schedule)]
 
@@ -301,13 +296,13 @@ See [Create a time-based schedule with recurrence pattern](#create-a-time-based-
 
 # [Azure CLI](#tab/cliv2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="list_schedule":::
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=list_schedule)]
 
@@ -324,13 +319,13 @@ In the schedule list, you can have an overview of all schedules in this workspac
 
 # [Azure CLI](#tab/cliv2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="show_schedule":::
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=show_schedule)]
 
@@ -356,7 +351,7 @@ You can select a schedule name to show the schedule detail page. The schedule de
 
 # [Azure CLI](#tab/cliv2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="update_schedule":::
 
@@ -365,7 +360,7 @@ You can select a schedule name to show the schedule detail page. The schedule de
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=create_schedule)]
 
@@ -407,7 +402,7 @@ In schedule detail page, you can select **Update settings** to update the basic 
 
 # [Azure CLI](#tab/cliv2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="disable_schedule":::
 
@@ -425,13 +420,13 @@ On the schedule detail page, you can disable the current schedule. You can also 
 
 # [Azure CLI](#tab/cliv2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="enable_schedule":::
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=enable_schedule)]
 
@@ -468,13 +463,13 @@ You can also apply [Azure CLI JMESPath query](/cli/azure/query-azure-cli) to que
 
 # [Azure CLI](#tab/cliv2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="delete_schedule":::  
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/schedules/job-schedule.ipynb?name=delete_schedule)]
 

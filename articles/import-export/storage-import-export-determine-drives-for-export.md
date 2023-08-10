@@ -55,7 +55,7 @@ To find out how many physical disks you need for your export order, do these ste
 The following example demonstrates the `PreviewExport` command:
 
 ```powershell
-    WAImportExport.exe PreviewExport /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB
+    WAImportExport.exe PreviewExport /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB /Cloud:Public
 ```
 
 The export blob list file may contain blob names and blob prefixes, as shown here:

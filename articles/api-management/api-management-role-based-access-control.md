@@ -4,26 +4,21 @@ description: Learn how to use the built-in roles and create custom roles in Azur
 services: api-management
 documentationcenter: ''
 author: dlepow
-manager: erikre
-editor: ''
 
-ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/18/2021
+ms.date: 02/15/2023
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 
 ---
-# How to use Role-Based Access Control in Azure API Management
+# How to use role-based access control in Azure API Management
 
 Azure API Management relies on Azure role-based access control (Azure RBAC) to enable fine-grained access management for API Management services and entities (for example, APIs and policies). This article gives you an overview of the built-in and custom roles in API Management. For more information on access management in the Azure portal, see [Get started with access management in the Azure portal](../role-based-access-control/overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Built-in roles
+## Built-in service roles
 
 API Management currently provides three built-in roles and will add two more roles in the near future. These roles can be assigned at different scopes, including subscription, resource group, and individual API Management instance. For instance, if you assign the "API Management Service Reader" role to a user at the resource-group level, then the user has read access to all API Management instances inside the resource group. 
 
@@ -39,6 +34,24 @@ The following table provides brief descriptions of the built-in roles. You can a
 
 <sup>[2] Write access to API Management services and entities except the following operations: instance creation, deletion, and scaling; VPN configuration; and custom domain setup.</sup>
 
+
+## Built-in workspace roles
+
+API Management provides the following built-in roles for collaborators in [workspaces](workspaces-overview.md) in an API Management instance. 
+
+A workspace collaborator must be assigned both a workspace-scoped role and a service-scoped role.
+
+
+|Role  |Scope  |Description  |
+|---------|---------|---------|
+|API Management Workspace Contributor     |  workspace       | Can manage the workspace and view, but not modify its members. This role should be assigned on the workspace scope.        |
+|API Management Workspace Reader     | workspace        | Has read-only access to entities in the workspace. This role should be assigned on the workspace scope.         |
+|API Management Workspace API Developer      |   workspace      |   Has read access to entities in the workspace and read and write access to entities for editing APIs. This role should be assigned on the workspace scope.  |
+|API Management Workspace API Product Manager     |  workspace       |   Has read access to entities in the workspace and read and write access to entities for publishing APIs. This role should be assigned on the workspace scope.  |
+| API Management Service Workspace API Developer    | service    |   Has read access to tags and products and write access to allow: <br/><br/> ▪️ Assigning  APIs to products<br/> ▪️ Assigning tags to products and APIs<br/><br/> This role should be assigned on the service scope. |
+|  API Management Service Workspace API Product Manager  | service    | Has the same access as API Management Service Workspace API Developer as well as read access to users and write access to allow assigning users to groups. This role should be assigned on the service scope.      |
+
+ 
 ## Custom roles
 
 If none of the built-in roles meet your specific needs, custom roles can be created to provide more granular access management for API Management entities. For example, you can create a custom role that has read-only access to an API Management service, but only has write access to one specific API. To learn more about custom roles, see [Custom roles in Azure RBAC](../role-based-access-control/custom-roles.md). 
@@ -65,7 +78,7 @@ The [Azure Resource Manager resource provider operations](../role-based-access-c
 
 ## Next steps
 
-To learn more about Role-Based Access Control in Azure, see the following articles:
+To learn more about role-based access control in Azure, see the following articles:
   * [Get started with access management in the Azure portal](../role-based-access-control/overview.md)
   * [Assign Azure roles to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md)
   * [Custom roles in Azure RBAC](../role-based-access-control/custom-roles.md)

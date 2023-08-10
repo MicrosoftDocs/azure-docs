@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure WEDO for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure WEDO for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to WEDO.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 3088D3EB-CED5-45A5-BD7E-E20B1D7C40F6
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

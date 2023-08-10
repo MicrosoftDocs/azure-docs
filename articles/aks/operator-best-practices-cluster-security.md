@@ -2,9 +2,8 @@
 title: Best practices for cluster security
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for how to manage cluster security and upgrades in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 03/02/2023
 
 ---
 
@@ -54,6 +53,10 @@ For more information about Azure AD integration, Kubernetes RBAC, and Azure RBAC
 >
 > Add a network policy in all user namespaces to block pod egress to the metadata endpoint.
 
+> [!NOTE]
+> To implement Network Policy, include the attribute `--network-policy azure` when creating the AKS cluster. Use the following command to create the cluster:
+> `az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity --network-plugin azure --network-policy azure`
+
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -71,10 +74,6 @@ spec:
         except:
         - 169.254.169.254/32
 ```
-
-> [!NOTE]
-> Alternatively you can use [Pod Identity](./use-azure-ad-pod-identity.md) though this is in Public Preview.  It has a pod (NMI) that runs as a DaemonSet on each node in the AKS cluster. NMI intercepts security token requests to the Azure Instance Metadata Service on each node, redirect them to itself and validates if the pod has access to the identity it's requesting a token for and fetch the token from the Azure AD tenant on behalf of the application.
->
 
 ## Secure container access to resources
 
@@ -328,7 +327,7 @@ You can then upgrade your AKS cluster using the [Set-AzAksCluster][set-azaksclus
 >[!IMPORTANT]
 > Test new minor versions in a dev test environment and validate that your workload remains healthy with the new Kubernetes version.
 >
-> Kubernetes may deprecate APIs (like in version 1.16) that your workloads rely on. When bringing new versions into production, consider using [multiple node pools on separate versions](use-multiple-node-pools.md) and upgrade individual pools one at a time to progressively roll the update across a cluster. If running multiple clusters, upgrade one cluster at a time to progressively monitor for impact or changes.
+> Kubernetes may deprecate APIs (like in version 1.16) that your workloads rely on. When bringing new versions into production, consider using [multiple node pools on separate versions](create-node-pools.md) and upgrade individual pools one at a time to progressively roll the update across a cluster. If running multiple clusters, upgrade one cluster at a time to progressively monitor for impact or changes.
 >
 > ### [Azure CLI](#tab/azure-cli)
 >

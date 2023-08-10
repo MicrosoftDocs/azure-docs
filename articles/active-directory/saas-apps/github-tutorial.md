@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with a GitHub Enterprise Cloud Organization | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with a GitHub Enterprise Cloud Organization'
 description: Learn how to configure single sign-on between Azure Active Directory and a GitHub Enterprise Cloud Organization.
 services: active-directory
 author: jeevansd

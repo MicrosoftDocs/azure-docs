@@ -10,15 +10,15 @@ ms.service: azure-communication-services
 
 Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling)
 
-### Participant View Customization
+### Local Participant View Customization
 
 The UI Library gives developers the ability to provide a more customized experience regarding Participant information. At launch, developers can optionally inject local participant data. This local data isn't shared with the server and can be used to customize the display name and avatar of the local user.
 
 #### Local Options
 
-`CallCompositeLocalOptions` is the data model that can have `CallCompositeParticipantViewData` and `CallCompositeSetupScreenViewData`. It will represent the local participant.  By default, for remote participants, the UI library will display the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `CallCompositeParticipantViewData` is injected, the participant `displayName` and `avatar` will be displayed in all avatar components locally and only in user's side. 
+`CallCompositeLocalOptions` is the data model that can have `CallCompositeParticipantViewData` and `CallCompositeSetupScreenViewData`. It represents the local participant.  By default, for remote participants, the UI library displays the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `CallCompositeParticipantViewData` is injected, the participant `displayName` and `avatar` are displayed in all avatar components locally. 
 
-Similarly, for `CallCompositeSetupScreenViewData`, the `title` and `subtitle` in `CallCompositeSetupScreenViewData` would overwrite the navigation bar's title and subtitle in pre-meeting screen respectively. By default, the UI library will display 'Setup' as the title and subtitle will be set to hidden.
+Similarly, for `CallCompositeSetupScreenViewData`, the `title` and `subtitle` in `CallCompositeSetupScreenViewData` overwrites the navigation bar's title and subtitle in premeeting screen respectively. By default, the UI library displays 'Setup' as the title and nothing as the subtitle.
 
 #### Local Participant View Data
 
@@ -30,7 +30,7 @@ This class is held in the `CallCompositeLocalOptions` object that represents opt
 
 #### Setup Screen View Data
 
-`CallCompositeSetupScreenViewData` is an object that sets the `title` and `subtitle` for the navigationBar on call setup screen. If `subtitle` is not defined, then subtitle would always be set to hidden. Here `title` is a required to set the `subtitle` but `subtitle` is optional when `title` is set. This class is locally stored and its information will not be sent up to the server.
+`CallCompositeSetupScreenViewData` is an object that sets the `title` and `subtitle` for the navigationBar on call setup screen. If `subtitle` isn't defined, then subtitle is hidden. Here `title` is a required to set the `subtitle` but `subtitle` is optional when `title` is set. This class is locally stored and its information aren't sent up to the server.
 
 #### Usage
 
@@ -39,20 +39,20 @@ To use the `CallCompositeLocalOptions`, pass the instance of `CallCompositeParti
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val CallCompositeParticipantViewData participantViewData = CallCompositeParticipantViewData()
+val participantViewData: CallCompositeParticipantViewData = CallCompositeParticipantViewData()
     .setAvatarBitmap((Bitmap) avatarBitmap)
     .setScaleType((ImageView.ScaleType) scaleType)
-    .setDisplayName((String) displayName);
+    .setDisplayName((String) displayName)
 
-val CallCompositeSetupScreenViewData setupScreenViewData = CallCompositeSetupScreenViewData()
+val setupScreenViewData: CallCompositeSetupScreenViewData = CallCompositeSetupScreenViewData()
     .setTitle((String) title)
-    .setSubtitle((String) subTitle);
+    .setSubtitle((String) subTitle)
 
-val CallCompositeLocalOptions localOptions = new CallCompositeLocalOptions()
+val localOptions: CallCompositeLocalOptions = CallCompositeLocalOptions()
     .setParticipantViewData(participantViewData)
-    .setNavigationBarViewData(navigationBarViewData);
+    .setSetupScreenViewData(setupScreenViewData)
 
-callComposite.launch(callLauncherActivity, remoteOptions, localOptions);
+callComposite.launch(callLauncherActivity, remoteOptions, localOptions)
 ```
 
 #### [Java](#tab/java)
@@ -69,7 +69,7 @@ final CallCompositeSetupScreenViewData setupScreenViewData = new CallCompositeSe
 
 final CallCompositeLocalOptions localOptions = new CallCompositeLocalOptions()
     .setParticipantViewData(participantViewData)
-    .setNavigationBarViewData(navigationBarViewData);
+    .setSetupScreenViewData(setupScreenViewData);
 
 callComposite.launch(callLauncherActivity, remoteOptions, localOptions);
 ```
@@ -121,4 +121,4 @@ callComposite.addOnRemoteParticipantJoinedEventHandler { remoteParticipantJoined
 
 |Participants list|
 | ---- |
-| :::image type="content" source="media/android-model-injection-remote.png" alt-text="Screenshot showing the Android data custom model remote injection."::: |
+| :::image type="content" source="media/android-model-injection-remote.png" alt-text="Screenshot of the Android remote participants view data injection."::: |

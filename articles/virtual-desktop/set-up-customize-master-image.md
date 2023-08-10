@@ -3,7 +3,7 @@ title: Prepare and customize a VHD image of Azure Virtual Desktop - Azure
 description: How to prepare, customize and upload a Azure Virtual Desktop image to Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 06/01/2022
+ms.date: 04/21/2023
 ms.author: helohr
 manager: femila
 ---
@@ -12,11 +12,11 @@ manager: femila
 This article tells you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install software on them. These instructions are for a Azure Virtual Desktop-specific configuration that can be used with your organization's existing processes.
 
 >[!IMPORTANT]
->We recommend you use an image from the Azure Image Gallery. However, if you do need to use a customized image, make sure you don't already have the Azure Virtual Desktop Agent installed on your VM. Using a customized image with the Azure Virtual Desktop Agent can cause problems with the image, such as blocking registration as the host pool registration token will have expired which will prevent user session connections.  
+>We recommend you use an image from the Azure Compute Gallery or the Azure portal. However, if you do need to use a customized image, make sure you don't already have the Azure Virtual Desktop Agent installed on your VM. If you do, either follow the instructions in [Step 1: Uninstall all agent, boot loader, and stack component programs](troubleshoot-agent.md#step-1-uninstall-all-agent-boot-loader-and-stack-component-programs) to uninstall the Agent and all related components from your VM or create a new image from a VM with the Agent uninstalled. Using a customized image with the Azure Virtual Desktop Agent can cause problems with the image, such as blocking registration as the host pool registration token will have expired which will prevent user session connections.  
 
 ## Create a VM
 
-Windows 10 Enterprise multi-session is available in the Azure Image Gallery. There are two options for customizing this image.
+Windows 10 Enterprise multi-session is available in the Azure Compute Gallery or the Azure portal. There are two options for customizing this image.
 
 The first option is to provision a virtual machine (VM) in Azure by following the instructions in [Create a VM from a managed image](../virtual-machines/windows/create-vm-generalized-managed.md), and then skip ahead to [Software preparation and installation](set-up-customize-master-image.md#software-preparation-and-installation).
 
@@ -77,7 +77,7 @@ If Windows Defender is configured in the VM, make sure it's configured to not sc
 
 This configuration only removes scanning of VHD and VHDX files during attachment, but won't affect real-time scanning.
 
-For more detailed instructions for how to configure Windows Defender on Windows Server, see [Configure Windows Defender Antivirus exclusions on Windows Server](/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus/).
+For more detailed instructions for how to configure Windows Defender, see [Configure Windows Defender Antivirus exclusions on Windows Server](/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus/).
 
 To learn more about how to configure Windows Defender to exclude certain files from scanning, see [Configure and validate exclusions based on file extension and folder location](/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus/).
 

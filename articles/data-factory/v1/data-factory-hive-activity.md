@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ---
 
 # Transform data using Hive Activity in Azure Data Factory 
@@ -78,7 +78,7 @@ The HDInsight Hive activity in a Data Factory [pipeline](data-factory-create-pip
 ## Example
 Let’s consider an example of game logs analytics where you want to identify the time spent by users playing games launched by your company. 
 
-The following log is a sample game log, which is comma (`,`) separated and contains the following fields – ProfileID, SessionStart, Duration, SrcIPAddress, and GameType.
+The following log is a sample game log, which is comma (`,`) separated and contains the following fields - ProfileID, SessionStart, Duration, SrcIPAddress, and GameType.
 
 ```
 1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag

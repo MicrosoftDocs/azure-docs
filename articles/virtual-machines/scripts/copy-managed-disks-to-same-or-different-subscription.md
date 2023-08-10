@@ -4,14 +4,13 @@ description: Azure CLI Script Sample - Copy (or move) managed disks to the same 
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.devlang: azurecli
 ms.topic: sample
 ms.workload: infrastructure
 ms.date: 02/22/2023
 ms.author: ramankum
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Copy managed disks to same or different subscription with CLI

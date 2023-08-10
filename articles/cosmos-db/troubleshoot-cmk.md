@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/25/2022
 ms.author: turao
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.custom: ignite-2022
 ms.devlang: azurecli
 ---
 
@@ -903,4 +903,3 @@ As customer has removed the current default identity’s “GET/WRAP/Unwrap” p
 Customer should follow “Key Vault Revoke State Troubleshooting guide” to regrant key vault access. 
 
 ___________________________________
-

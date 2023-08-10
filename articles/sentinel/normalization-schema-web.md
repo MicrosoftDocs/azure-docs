@@ -157,7 +157,7 @@ The following are additional fields that are specific to web sessions:
 
 | Field | Class | Type | Description |
 | --- | --- | --- | --- |
-| <a name="url"></a>**Url** | Mandatory | String | The HTTP request URL, including parameters. For `HTTPSession` events, the URL should include the schema and server parts. For `WebServerSession` and for `ApiRequest` the URL would typically not include the schema and server, which can be found in the `NetworkApplicationProtocol` and `DstFQDN` fields respectively. <br><br>Example: `https://contoso.com/fo/?k=v&amp;q=u#f` |
+| <a name="url"></a>**Url** | Mandatory | String | The HTTP request URL, including parameters. For `HTTPSession` events, the URL may include the schema and should include the server name. For `WebServerSession` and for `ApiRequest` the URL would typically not include the schema and server, which can be found in the `NetworkApplicationProtocol` and `DstFQDN` fields respectively. <br><br>Example: `https://contoso.com/fo/?k=v&amp;q=u#f` |
 | **UrlCategory** | Optional | String | The defined grouping of a URL or the domain part of the URL. The category is commonly provided by web security gateways and is based on the content of the site the URL points to.<br><br>Example: search engines, adult, news, advertising, and parked domains. |
 | **UrlOriginal** | Optional | String | The original value of the URL, when the URL was modified by the reporting device and both values are provided. |
 | **HttpVersion** | Optional | String | The HTTP Request Version.<br><br>Example: `2.0` |

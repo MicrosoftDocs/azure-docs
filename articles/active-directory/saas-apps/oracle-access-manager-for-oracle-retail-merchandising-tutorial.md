@@ -70,7 +70,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     ` https://<SUBDOMAIN>.oraclecloud.com/`
     
     >[!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Oracle Access Manager for Oracle Retail Merchandising support team](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Oracle Access Manager for Oracle Retail Merchandising support team](https://www.oracle.com/support/advanced-customer-services/cloud/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Your Oracle Access Manager for Oracle Retail Merchandising application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but Oracle Access Manager for Oracle Retail Merchandising expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
@@ -82,11 +82,11 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Oracle Access Manager for Oracle Retail Merchandising SSO
 
-To configure single sign-on on Oracle Access Manager for Oracle Retail Merchandising side, you need to send the downloaded Federation Metadata XML file from Azure portal to [Oracle Access Manager for Oracle Retail Merchandising support team](https://www.oracle.com/support/advanced-customer-support/products/cloud.html). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on Oracle Access Manager for Oracle Retail Merchandising side, you need to send the downloaded Federation Metadata XML file from Azure portal to [Oracle Access Manager for Oracle Retail Merchandising support team](https://www.oracle.com/support/advanced-customer-services/cloud/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Oracle Access Manager for Oracle Retail Merchandising test user
 
-In this section, you create a user called Britta Simon at Oracle Access Manager for Oracle Retail Merchandising. Work with [Oracle Access Manager for Oracle Retail Merchandising support team](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) to add the users in the Oracle Access Manager for Oracle Retail Merchandising platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon at Oracle Access Manager for Oracle Retail Merchandising. Work with [Oracle Access Manager for Oracle Retail Merchandising support team](https://www.oracle.com/support/advanced-customer-services/cloud/) to add the users in the Oracle Access Manager for Oracle Retail Merchandising platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 

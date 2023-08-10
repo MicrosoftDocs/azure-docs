@@ -29,9 +29,9 @@ This section lists PowerShell commands that are typically used while setting up 
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
 ```
 
-**Cause:** The username used has been already assigned to an app group of a different type. Users can't be assigned to both a remote desktop and remote app group under the same session host pool.
+**Cause:** The username used has been already assigned to an application group of a different type. Users can't be assigned to both a remote desktop and RemoteApp application group under the same session host pool.
 
-**Fix:** If user needs both remote apps and remote desktop, create different host pools or grant user access to the remote desktop, which will permit the use of any application on the session host VM.
+**Fix:** If user needs both a RemoteApp and desktop, create different host pools or only grant user access to the remote desktop, which will permit the use of any application on the session host VM.
 
 ### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName doesn't exist in the Azure Active Directory associated with the Remote Desktop tenant
 

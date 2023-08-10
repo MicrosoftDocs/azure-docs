@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ON24 Virtual Environment SAML Connection | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with ON24 Virtual Environment SAML Connection'
 description: Learn how to configure single sign-on between Azure Active Directory and ON24 Virtual Environment SAML Connection.
 services: active-directory
 author: jeevansd

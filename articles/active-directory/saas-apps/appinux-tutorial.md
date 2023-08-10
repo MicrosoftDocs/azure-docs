@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Appinux | Microsoft Docs"
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Appinux"
 description: Learn how to configure single sign-on between Azure Active Directory and Appinux.
 services: active-directory
 author: jeevansd

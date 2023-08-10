@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 05/25/2023
 ms.author: jeedes
 ---
 
@@ -108,7 +108,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| Reply URL|
 	|----------|
 	| `https://<instancename>.service-now.com/navpage.do` |
-	| `https://<instancename>.service-now.com/customer.do` |
+	| `https://<instancename>.service-now.com/consumer.do` |
 	|
 
 	d. In **Logout URL**, enter a URL that uses the following pattern:
@@ -172,23 +172,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. In the **Basic SAML Configuration** section, perform the following steps:
 
-	a. For **Sign on URL**, enter one of the following URL pattern:
+	a. For **Sign on URL**, enter one of the following URL patterns:
 
 	| Sign on URL |
 	|-----------|
 	|  `https://<instance-name>.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>` |
-	| `https://<instancename>.service-now.com/customer.do` |
+	| `https://<instancename>.service-now.com/consumer.do` |
 	|
 
     b. For **Identifier (Entity ID)**, enter a URL that uses the following pattern:
     `https://<instance-name>.service-now.com`
 
-	c. For **Reply URL**, enter one of the following URL pattern:
+	c. For **Reply URL**, enter one of the following URL patterns:
 
 	| Reply URL |
 	|-----------|
 	| `https://<instancename>.service-now.com/navpage.do` |
-	| `https://<instancename>.service-now.com/customer.do` |
+	| `https://<instancename>.service-now.com/consumer.do` |
 	|
 
 	d. In **Logout URL**, enter a URL that uses the following pattern:
@@ -372,7 +372,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 The objective of this section is to create a user called B.Simon in ServiceNow. ServiceNow supports automatic user provisioning, which is enabled by default.
 
 > [!NOTE]
-> If you need to create a user manually, contact the [ServiceNow Client support team](https://www.servicenow.com/support/contact-support.html).
+> If you need to create a user manually, contact the [ServiceNow Client support team](https://support.servicenow.com/now).
 
 ### Configure ServiceNow Express SSO
 

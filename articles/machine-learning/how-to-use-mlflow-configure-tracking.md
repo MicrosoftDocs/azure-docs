@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: devx-track-python, mlflow, devx-track-azurecli, cliv2, devplatv2, event-tier1-build-2022
+ms.custom: mlflow, cliv2, devplatv2, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
@@ -22,20 +22,20 @@ Azure Machine Learning workspaces are MLflow-compatible, which means they can ac
 However, if you are working outside of Azure Machine Learning (like your local machine, Azure Synapse Analytics, or Azure Databricks) you need to configure MLflow to point to the workspace. In this article, you'll learn how you can configure MLflow to connect to an Azure Machine Learning for tracking, registries, and deployment. 
 
 > [!IMPORTANT]
-> When running on Azure Compute (Azure ML Notebooks, Jupyter notebooks hosted on Azure ML Compute Instances, or jobs running on Azure ML compute clusters) you don't have to configure the tracking URI. **It's automatically configured for you**.
+> When running on Azure Compute (Azure Machine Learning Notebooks, Jupyter notebooks hosted on Azure Machine Learning Compute Instances, or jobs running on Azure Machine Learning compute clusters) you don't have to configure the tracking URI. **It's automatically configured for you**.
 
 ## Prerequisites
 
 You need the following prerequisites to follow this tutorial:
 
-[!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
+[!INCLUDE [mlflow-prereqs](includes/machine-learning-mlflow-prereqs.md)]
 
 
 ## Configure MLflow tracking URI
 
 To connect MLflow to an Azure Machine Learning workspace, you need the tracking URI for the workspace. Each workspace has its own tracking URI and it has the protocol `azureml://`.
 
-[!INCLUDE [mlflow-configure-tracking](../../includes/machine-learning-mlflow-configure-tracking.md)]
+[!INCLUDE [mlflow-configure-tracking](includes/machine-learning-mlflow-configure-tracking.md)]
 
 ## Configure authentication
 
@@ -49,10 +49,23 @@ The Azure Machine Learning plugin for MLflow supports several authentication mec
 1. __Azure PowerShell__: if a user has signed in via Azure PowerShell's `Connect-AzAccount` command, it authenticates as that user.
 1. __Interactive browser__: it interactively authenticates a user via the default browser.
 
-[!INCLUDE [mlflow-configure-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
+[!INCLUDE [mlflow-configure-auth](includes/machine-learning-mlflow-configure-auth.md)]
 
 If you'd rather use a certificate instead of a secret, you can configure the environment variables `AZURE_CLIENT_CERTIFICATE_PATH` to the path to a `PEM` or `PKCS12` certificate file (including private key) and 
 `AZURE_CLIENT_CERTIFICATE_PASSWORD` with the password of the certificate file, if any.
+
+### Configure authorization and permission levels
+
+Some default roles like [AzureML Data Scientist or contributor](how-to-assign-roles.md#default-roles) are already configured to perform MLflow operations in an Azure Machine Learning workspace. If using a custom roles, you need the following permissions:
+
+* **To use MLflow tracking:** 
+    * `Microsoft.MachineLearningServices/workspaces/experiments/*`.
+    * `Microsoft.MachineLearningServices/workspaces/jobs/*`.
+
+* **To use MLflow model registry:**
+    * `Microsoft.MachineLearningServices/workspaces/models/*/*`
+
+Grant access for the service principal you created or user account to your workspace as explained at [Grant access](../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access).
 
 ### Troubleshooting authentication
 
@@ -69,7 +82,7 @@ logging.getLogger("azure").setLevel(logging.DEBUG)
 All MLflow runs are logged to the active experiment. By default, runs are logged to an experiment named `Default` that is automatically created for you. You can configure the experiment where tracking is happening.
 
 > [!TIP]
-> When submitting jobs using Azure ML CLI v2, you can set the experiment name using the property `experiment_name` in the YAML definition of the job. You don't have to configure it on your training script. See [YAML: display name, experiment name, description, and tags](reference-yaml-job-command.md#yaml-display-name-experiment-name-description-and-tags) for details.
+> When submitting jobs using Azure Machine Learning CLI v2, you can set the experiment name using the property `experiment_name` in the YAML definition of the job. You don't have to configure it on your training script. See [YAML: display name, experiment name, description, and tags](reference-yaml-job-command.md#yaml-display-name-experiment-name-description-and-tags) for details.
 
 
 # [MLflow SDK](#tab/mlflow)

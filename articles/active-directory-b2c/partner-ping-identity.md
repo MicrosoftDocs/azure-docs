@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial: Configure Ping Identity with Azure Active Directory B2C for secure hybrid access
 
-In this tutorial, learn how to extend the capabilities of Azure Active Directory B2C (Azure AD B2C) with [PingAccess](https://www.pingidentity.com/en/software/pingaccess.html#:~:text=%20Modern%20Access%20Managementfor%20the%20Digital%20Enterprise%20,consistent%20enforcement%20of%20security%20policies%20by...%20More) and [PingFederate](https://www.pingidentity.com/en/software/pingfederate.html). PingAccess provides access to applications and APIs, and a policy engine for authorized user access. PingFederate is an enterprise federation server for user authentication and single sign-on, an authority that permits customers, employees, and partners to access applications from devices. Use them together to enable secure hybrid access (SHA).
+In this tutorial, learn how to extend the capabilities of Azure Active Directory B2C (Azure AD B2C) with [PingAccess](https://www.pingidentity.com/en/software/pingaccess.html) and [PingFederate](https://www.pingidentity.com/en/software/pingfederate.html). PingAccess provides access to applications and APIs, and a policy engine for authorized user access. PingFederate is an enterprise federation server for user authentication and single sign-on, an authority that permits customers, employees, and partners to access applications from devices. Use them together to enable secure hybrid access (SHA).
 
 Many e-commerce sites and web applications exposed to the internet are deployed behind proxy systems, or a reverse-proxy system. These proxy systems pre-authenticate, enforce policy, and route traffic. Typical scenarios include protecting web applications from inbound web traffic and providing a uniform session management across distributed server deployments.
 
@@ -33,7 +33,7 @@ If you want to modernize an identity platform in such configurations, there migh
   - Drive the end-user experience consistency
   - Provide a single sign-in experience across applications
 
-In answer to these concerns, the approach in this tutorial is an Azure AD B2C, [PingAccess](https://www.pingidentity.com/en/software/pingaccess.html#:~:text=%20Modern%20Access%20Managementfor%20the%20Digital%20Enterprise%20,consistent%20enforcement%20of%20security%20policies%20by...%20More), and [PingFederate](https://www.pingidentity.com/en/software/pingfederate.html) integration.
+In answer to these concerns, the approach in this tutorial is an Azure AD B2C, [PingAccess](https://www.pingidentity.com/en/software/pingaccess.html), and [PingFederate](https://www.pingidentity.com/en/software/pingfederate.html) integration.
 
 ## Shared environment
 
@@ -67,7 +67,7 @@ You can configure PingFederate as an authentication provider, or a proxy, for up
 
 Use this function to contextually, dynamically, or declaratively switch an inbound request to an Azure AD B2C policy. See the following diagram of protocol sequence flow.
 
-   ![Diagram of the protocol sequence flow for PingAccess, PingFederate, Azure AD B2C, and the applicaiton.](./media/partner-ping/pingaccess-pingfederate-workflow.png)
+   ![Diagram of the protocol sequence flow for PingAccess, PingFederate, Azure AD B2C, and the application.](./media/partner-ping/pingaccess-pingfederate-workflow.png)
 
 ## Prerequisites
 
@@ -107,7 +107,7 @@ Use the instructions in the following sections to configure PingAccess and PingF
 
 To configure PingFederate as the token provider for PingAccess, ensure connectivity from PingFederate to PingAccess. Confirm connectivity from PingAccess to PingFederate.  
 
-Go to pingidentity.com for, [Configure PingFederate as the token provider for PingAccess](https://docs.pingidentity.com/bundle/pingaccess-61/page/zgh1581446287067.html).
+For more information, see [Configure PingFederate as the token provider for PingAccess](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_configure_pf_as_the_token_provider_for_pa) in the Ping Identity documentation.
 
 ### Configure a PingAccess application for header-based authentication
 
@@ -116,7 +116,7 @@ Use the following instructions to create a PingAccess application for the target
 #### Create a virtual host
 
 >[!IMPORTANT]
->Create a virtual host for every application. For more information, see [What can I configure with PingAccess?]([https://docs.pingidentity.com/bundle/pingaccess-43/page/reference/pa_c_KeyConsiderations.html].
+>Create a virtual host for every application. For more information, see [What can I configure with PingAccess?](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_what_can_I_configure_with_pa) in the Ping Identity documentation.
 
 To create a virtual host:
 
@@ -211,7 +211,7 @@ To create an application in PingAccess for each application in Azure that you wa
 
 Configure the PingFederate authentication policy to federate to the multiple IdPs provided by the Azure AD B2C tenants
 
-1. Create a contract to bridge the attributes between the IdPs and the SP. For more information, see [Federation hub and authentication policy contracts](https://docs.pingidentity.com/bundle/pingfederate-101/page/ope1564002971971.html). You likely need only one contract unless the SP requires a different set of attributes from each IdP.
+1. Create a contract to bridge the attributes between the IdPs and the SP. You should need only one contract unless the SP requires a different set of attributes from each IdP. For more information, see [Federation hub and authentication policy contracts](https://docs.pingidentity.com/access/sources/dita/topic?category=pingfederate&Releasestatus_ce=Current&resourceid=pf_fed_hub_auth_polic_contract) in the Ping Identity documentation.
 
 2. For each IdP, create an IdP connection between the IdP and PingFederate, the federation hub as the SP.
 

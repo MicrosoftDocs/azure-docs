@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Coda for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Coda for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Coda.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 4d6f06dd-a798-4c22-b84f-8a11f1b8592a
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

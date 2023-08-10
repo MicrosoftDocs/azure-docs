@@ -1,9 +1,10 @@
 ---
-title: 'Quickstart: Create an Azure DB for PostgreSQL Flexible Server - Bicep'
+title: 'Quickstart: Create an Azure Database for PostgreSQL Flexible Server - Bicep'
 description: In this Quickstart, learn how to create an Azure Database for PostgreSQL Flexible server using Bicep.
 author: mumian
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom: devx-track-bicep
 ms.topic: quickstart
 ms.author: jgao
 ms.date: 09/21/2022
@@ -102,9 +103,9 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleRG  -TemplateFile "./mai
 
 You'll be prompted to enter these values:
 
-- **serverName**: enter a name for the PostgreSQL server.
-- **administratorLogin**: enter the Azure Database for PostgreSQL server's administrator account name.
-- **administratorLoginPassword**: enter the administrator password.
+- **serverName**: enter a unique name that identifies your Azure Database for PostgreSQL server. For example, `mydemoserver-pg`. The domain name `postgres.database.azure.com` is appended to the server name you provide. The server can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain at least 3 through 63 characters.
+- **administratorLogin**: enter your own login account to use when you connect to the server. For example, `myadmin`. The admin login name can't be `azure_superuser`, `azure_pg_admin`, `admin`, `administrator`, `root`, `guest`, or `public`. It can't start with `pg_`.
+- **administratorLoginPassword**: enter a new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
 
 ## Review deployed resources
 

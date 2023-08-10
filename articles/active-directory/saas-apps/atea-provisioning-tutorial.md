@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Atea for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Atea for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Atea.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: b788328b-10fd-4eaa-a4bc-909d738d8b8b
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

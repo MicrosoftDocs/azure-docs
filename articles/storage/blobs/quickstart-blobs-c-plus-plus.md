@@ -6,8 +6,7 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.date: 06/21/2021
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-storage
 ms.topic: quickstart
 ms.devlang: cpp
 ms.custom: mode-api
@@ -37,7 +36,7 @@ Resources:
 - [Azure storage account](../common/storage-account-create.md)
 - [C++ compiler](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms)
 - [CMake](https://cmake.org/)
-- [Vcpkg - C and C++ package manager](https://github.com/microsoft/vcpkg/blob/master/docs/README.md)
+- [Vcpkg - C and C++ package manager](https://github.com/microsoft/vcpkg/blob/master/README.md)
 
 ## Setting up
 

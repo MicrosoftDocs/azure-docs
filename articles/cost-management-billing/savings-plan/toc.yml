@@ -27,6 +27,10 @@
     href: buy-savings-plan.md
   - name: Trade a reservation for a savings plan
     href: reservation-trade-in.md
+  - name: Renew a savings plan
+    href: renew-savings-plan.md
+  - name: Download price sheet
+    href: download-savings-plan-price-sheet.md
   - name: Permissions, view, and manage
     items:
     - name: Permissions to view and manage
@@ -43,10 +47,12 @@
       href: utilization-cost-reports.md
     - name: View savings plan transactions
       href: view-transactions.md
+    - name: View amortized costs
+      href: ../reservations/view-amortized-costs.md?toc=/azure/cost-management-billing/savings-plan/toc.json
     - name: Charge back savings plan costs
       href: charge-back-costs.md
-    - name: Renew a savings plan
-      href: renew-savings-plan.md
+    - name: Calculate EA cost savings
+      href: calculate-ea-savings-plan-savings.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot utilization

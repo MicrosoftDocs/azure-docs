@@ -3,19 +3,17 @@ title: "Quickstart: Pause and resume compute in dedicated SQL pool in a Synapse 
 description: You can use Azure PowerShell to pause and resume dedicated SQL pool compute resources in an Azure Synapse Workspace.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: wiassaf
 ms.date: 02/21/2023
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: quickstart
-ms.custom:
-  - azure-synapse
+ms.custom: azure-synapse, devx-track-azurepowershell
 ---
 
 # Quickstart: Pause and resume compute in dedicated SQL pool in a Synapse Workspace with Azure PowerShell
 
 You can use Azure PowerShell to pause and resume dedicated SQL pool in a Synapse Workspace compute resources.
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 > [!NOTE]  
 > This article applies to dedicated SQL pools created in Azure Synapse Workspaces and not dedicated SQL pools (formerly SQL DW). There are different PowerShell cmdlets to use for each, for example, use `Suspend-AzSqlDatabase` for a dedicated SQL pool (formerly SQL DW), but `Suspend-AzSynapseSqlPool` for a dedicated SQL pool in an Azure Synapse Workspace. For instructions to pause and resume a dedicated SQL pool (formerly SQL DW), see [Quickstart: Pause and resume compute in dedicated SQL pool (formerly SQL DW) with Azure PowerShell](pause-and-resume-compute-powershell.md).

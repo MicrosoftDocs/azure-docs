@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Cerby | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Cerby'
 description: Learn how to configure single sign-on between Azure Active Directory and Cerby.
 services: active-directory
 author: jeevansd

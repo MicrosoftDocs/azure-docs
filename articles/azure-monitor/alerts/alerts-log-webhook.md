@@ -1,19 +1,21 @@
 ---
 title: Webhook actions for log alerts in Azure alerts
-description: Describes how to configure a log alert pushes with webhook action and available customizations
-author: yanivlavi
-ms.author: yalavi
+description: This article describes how to configure log alert pushes with webhook action and available customizations.
 services: monitoring
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 05/02/2023
+ms.reviewer: yalavi
 ---
 
 # Webhook actions for log alert rules
 
-[Log alert](alerts-log.md) supports [configuring webhook action groups](./action-groups.md#webhook). In this article, we'll describe what properties are available. Webhook actions allow you to invoke a single HTTP POST request. The service that's called should support webhooks and know how to use the payload it receives.
+[Log alerts](alerts-log.md) support [configuring action groups to use webhooks](./action-groups.md). In this article, we describe the properties that are available. You can use webhook actions to invoke a single HTTP POST request. The service that's called should support webhooks and know how to use the payload it receives.
 
-> [!NOTE]
-> It is recommended you use [common alert schema](../alerts/alerts-common-schema.md) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor. For log alerts rules that have a custom JSON payload defined, enabling the common alert schema reverts the payload schema to the one described [here](../alerts/alerts-common-schema-definitions.md#log-alerts). This means that if you want to have a custom JSON payload defined, the webhook can't use the common alert schema. Alerts with the common schema enabled have an upper size limit of 256 KB per alert, bigger alert will not include search results. When the search results aren't included, you should use the `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results via the Log Analytics API.
+We recommend that you use [common alert schema](../alerts/alerts-common-schema.md) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
+
+For log alert rules that have a custom JSON payload defined, enabling the common alert schema reverts the payload schema to the one described in [Common alert schema](../alerts/alerts-common-schema.md#alert-context-fields-for-log-alerts). If you want to have a custom JSON payload defined, the webhook can't use the common alert schema.
+
+Alerts with the common schema enabled have an upper size limit of 256 KB per alert. A bigger alert doesn't include search results. When the search results aren't included, use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results via the Log Analytics API.
 
 ## Sample payloads
 This section shows sample payloads for webhooks for log alerts. The sample payloads include examples when the payload is standard and when it's custom.
@@ -87,7 +89,7 @@ The following sample payload is for a standard webhook when it's used for log al
 The following sample payload is for a standard webhook action that's used for alerts based on Log Analytics:
 
 > [!NOTE]
-> The "Severity" field value changes if you've [switched to the current scheduledQueryRules API](../alerts/alerts-log-api-switch.md) from the [legacy Log Analytics Alert API](./api-alerts.md).
+> The `"Severity"` field value changes if you've [switched to the current scheduledQueryRules API](./alerts-log-api-switch.md) from the [legacy Log Analytics Alert API](./api-alerts.md).
 
 ```json
 {
@@ -223,34 +225,35 @@ The following sample payload is for a standard webhook when it's used for log al
 ### Log alert with a custom JSON payload (up to API version `2018-04-16`)
 
 > [!NOTE]
-> Custom JSON-based webhook is not supported from API version `2021-08-01`.
+> A custom JSON-based webhook isn't supported from API version `2021-08-01`.
 
-Default webhook action properties and their custom JSON parameter names:
+The following table lists default webhook action properties and their custom JSON parameter names.
 
 | Parameter | Variable | Description |
 |:--- |:--- |:--- |
-| *AlertRuleName* |#alertrulename |Name of the alert rule. |
-| *Severity* |#severity |Severity set for the fired log alert. |
-| *AlertThresholdOperator* |#thresholdoperator |Threshold operator for the alert rule. |
-| *AlertThresholdValue* |#thresholdvalue |Threshold value for the alert rule. |
-| *LinkToSearchResults* |#linktosearchresults |Link to the Analytics portal that returns the records from the query that created the alert. |
-| *LinkToSearchResultsAPI* |#linktosearchresultsapi |Link to the Analytics API that returns the records from the query that created the alert. |
-| *LinkToFilteredSearchResultsUI* |#linktofilteredsearchresultsui |Link to the Analytics portal that returns the records from the query filtered by dimensions value combinations that created the alert. |
-| *LinkToFilteredSearchResultsAPI* |#linktofilteredsearchresultsapi |Link to the Analytics API that returns the records from the query filtered by dimensions value combinations that created the alert. |
-| *ResultCount* |#searchresultcount |Number of records in the search results. |
-| *Search Interval End time* |#searchintervalendtimeutc |End time for the query in UTC, with the format mm/dd/yyyy HH:mm:ss AM/PM. |
-| *Search Interval* |#searchinterval |Time window for the alert rule, with the format HH:mm:ss. |
-| *Search Interval StartTime* |#searchintervalstarttimeutc |Start time for the query in UTC, with the format mm/dd/yyyy HH:mm:ss AM/PM. 
-| *SearchQuery* |#searchquery |Log search query used by the alert rule. |
-| *SearchResults* |"IncludeSearchResults": true|Records returned by the query as a JSON table, limited to the first 1,000 records. "IncludeSearchResults": true is added in a custom JSON webhook definition as a top-level property. |
-| *Dimensions* |"IncludeDimensions": true|Dimensions value combinations that triggered that alert as a JSON section. "IncludeDimensions": true is added in a custom JSON webhook definition as a top-level property. |
-| *Alert Type*| #alerttype | The type of log alert rule configured as [Metric measurement or Number of results](./alerts-unified-log.md#measure).|
-| *WorkspaceID* |#workspaceid |ID of your Log Analytics workspace. |
-| *Application ID* |#applicationid |ID of your Application Insights app. |
-| *Subscription ID* |#subscriptionid |ID of your Azure subscription used. | 
+| `AlertRuleName` |#alertrulename |Name of the alert rule. |
+| `Severity` |#severity |Severity set for the fired log alert. |
+| `AlertThresholdOperator` |#thresholdoperator |Threshold operator for the alert rule. |
+| `AlertThresholdValue` |#thresholdvalue |Threshold value for the alert rule. |
+| `LinkToSearchResults` |#linktosearchresults |Link to the Analytics portal that returns the records from the query that created the alert. |
+| `LinkToSearchResultsAPI` |#linktosearchresultsapi |Link to the Analytics API that returns the records from the query that created the alert. |
+| `LinkToFilteredSearchResultsUI` |#linktofilteredsearchresultsui |Link to the Analytics portal that returns the records from the query filtered by dimensions value combinations that created the alert. |
+| `LinkToFilteredSearchResultsAPI` |#linktofilteredsearchresultsapi |Link to the Analytics API that returns the records from the query filtered by dimensions value combinations that created the alert. |
+| `ResultCount` |#searchresultcount |Number of records in the search results. |
+| `Search Interval End time` |#searchintervalendtimeutc |End time for the query in UTC, with the format mm/dd/yyyy HH:mm:ss AM/PM. |
+| `Search Interval` |#searchinterval |Time window for the alert rule, with the format HH:mm:ss. |
+| `Search Interval StartTime` |#searchintervalstarttimeutc |Start time for the query in UTC, with the format mm/dd/yyyy HH:mm:ss AM/PM. 
+| `SearchQuery` |#searchquery |Log search query used by the alert rule. |
+| `SearchResults` |"IncludeSearchResults": true|Records returned by the query as a JSON table, limited to the first 1,000 records. "IncludeSearchResults": true is added in a custom JSON webhook definition as a top-level property. |
+| `Dimensions` |"IncludeDimensions": true|Dimensions value combinations that triggered that alert as a JSON section. "IncludeDimensions": true is added in a custom JSON webhook definition as a top-level property. |
+| `Alert Type`| #alerttype | The type of log alert rule configured as [Metric measurement or Number of results](./alerts-unified-log.md#measure).|
+| `WorkspaceID` |#workspaceid |ID of your Log Analytics workspace. |
+| `Application ID` |#applicationid |ID of your Application Insights app. |
+| `Subscription ID` |#subscriptionid |ID of your Azure subscription used. |
 
-You can use the **Include custom JSON payload for webhook** to get a custom JSON payload using the parameters. You can also generate additional properties.
-For example, you might specify the following custom payload that includes a single parameter called *text*. The service that this webhook calls expects this parameter:
+You can use **Include custom JSON payload for webhook** to get a custom JSON payload by using the parameters. You can also generate more properties.
+
+For example, you might specify the following custom payload that includes a single parameter called `text`. The service that this webhook calls expects this parameter:
 
 ```json
 
@@ -258,21 +261,23 @@ For example, you might specify the following custom payload that includes a sing
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
 ```
-This example payload resolves to something like the following when it's sent to the webhook:
+
+This example payload resolves to something like the following example when it's sent to the webhook:
 
 ```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
-Variables in a custom webhook must be specified within a JSON enclosure. For example, referencing "#searchresultcount" in the webhook example will output based on the alert results.
 
-To include search results, add **IncludeSearchResults** as a top-level property in the custom JSON. Search results are included as a JSON structure, so results can't be referenced in custom defined fields. 
+Variables in a custom webhook must be specified within a JSON enclosure. For example, referencing `#searchresultcount` in the webhook example generates output based on the alert results.
+
+To include search results, add **IncludeSearchResults** as a top-level property in the custom JSON. Search results are included as a JSON structure, so results can't be referenced in custom-defined fields.
 
 > [!NOTE]
-> The **View Webhook** button next to the **Include custom JSON payload for webhook** option displays preview of what was provided. It doesn't contain actual data, but is representative of the JSON schema that will be used.
+> The **View Webhook** button next to the **Include custom JSON payload for webhook** option displays a preview of what was provided. It doesn't contain actual data but is representative of the JSON schema that will be used.
 
-For example, to create a custom payload that includes just the alert name and the search results, use this configuration: 
+For example, to create a custom payload that includes only the alert name and the search results, use this configuration:
 
 ```json
     {

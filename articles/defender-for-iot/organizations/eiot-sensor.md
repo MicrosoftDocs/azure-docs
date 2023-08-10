@@ -2,7 +2,8 @@
 title: Enhance device discovery with a Microsoft Defender for IoT Enterprise IoT network sensor
 description: Learn how to register an Enterprise IoT network sensor in Defender for IoT for extra device visibility not covered by Defender for Endpoint.
 ms.topic: tutorial
-ms.date: 10/19/2022
+ms.date: 06/05/2023
+ms.custom: enterprise-iot
 ---
 
 # Discover Enterprise IoT devices with an Enterprise IoT network sensor (Public preview)
@@ -24,27 +25,38 @@ For more information, see [Securing IoT devices in the enterprise](concept-enter
 
 ## Prerequisites
 
-Before you start registering an Enterprise IoT sensor:
+This section describes the prerequisites required before deploying an Enterprise IoT network sensor.
 
-- To view Defender for IoT data in Microsoft 365 Defender, including devices, alerts, recommendations, and vulnerabilities, you must have an Enterprise IoT plan, [onboarded from Microsoft 365 Defender](eiot-defender-for-endpoint.md).
+### Azure requirements
+
+- To view Defender for IoT data in Microsoft 365 Defender, including devices, alerts, recommendations, and vulnerabilities, you must have an Enterprise IoT plan, [onboarded from Microsoft 365 Defender](eiot-defender-for-endpoint.md).  
 
     If you only want to view data in the Azure portal, an Enterprise IoT plan isn't required. You can also onboard your Enterprise IoT plan from Microsoft 365 Defender after registering your network sensor to bring [extra device visibility and security value](concept-enterprise.md#security-value-in-microsoft-365-defender) to your organization.
 
 - Make sure you can access the Azure portal as a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user. If you don't already have an Azure account, you can [create your free Azure account today](https://azure.microsoft.com/free/).
 
+### Network requirements
 
-- Allocate a physical appliance or a virtual machine (VM) to use as your network sensor. Make sure that your machine has the following specifications:
+- Identify the devices and subnets you want to monitor so that you understand where to place an Enterprise IoT sensor in your network. You may want to deploy multiple Enterprise IoT sensors.
 
-    | Tier | Requirements |
-    |--|--|
-    | **Minimum** | To support up to 1 Gbps of data: <br><br>- 4 CPUs, each with 2.4 GHz or more<br>- 16-GB RAM of DDR4 or better<br>- 250 GB HDD |
-    | **Recommended** | To support up to 15 Gbps of data: <br><br>-	8 CPUs, each with 2.4 GHz or more<br>-  32-GB RAM of DDR4 or better<br>- 500 GB HDD |
+- Configure traffic mirroring in your network so that the traffic you want to monitor is mirrored to your Enterprise IoT sensor. Supported traffic mirroring methods are the same as for OT monitoring. For more information, see [Choose a traffic mirroring method for traffic monitoring](best-practices/traffic-mirroring-methods.md).
 
-    Your machine must also have:
+### Physical or virtual machine requirements
 
-    - The [Ubuntu 18.04 Server](https://releases.ubuntu.com/18.04/) operating system. If you don't yet have Ubuntu installed, download the installation files to an external storage, such as a DVD or disk-on-key, and then install it on your appliance or VM. For more information, see the Ubuntu [Image Burning Guide](https://help.ubuntu.com/community/BurningIsoHowto).
+Allocate a physical appliance or a virtual machine (VM) to use as your network sensor. Make sure that your machine has the following specifications:
 
-    - Network adapters, at least one for your switch monitoring (SPAN) port, and one for your management port to access the sensor's user interface
+| Tier | Requirements |
+|--|--|
+| **Minimum** | To support up to 1 Gbps of data: <br><br>- 4 CPUs, each with 2.4 GHz or more<br>- 16-GB RAM of DDR4 or better<br>- 250 GB HDD |
+| **Recommended** | To support up to 15 Gbps of data: <br><br>-	8 CPUs, each with 2.4 GHz or more<br>-  32-GB RAM of DDR4 or better<br>- 500 GB HDD |
+
+Your machine must also have:
+
+- The [Ubuntu 18.04 Server](https://releases.ubuntu.com/18.04/) operating system. If you don't yet have Ubuntu installed, download the installation files to an external storage, such as a DVD or disk-on-key, and then install it on your appliance or VM. For more information, see the Ubuntu [Image Burning Guide](https://help.ubuntu.com/community/BurningIsoHowto).
+
+- Network adapters, at least one for your switch monitoring (SPAN) port, and one for your management port to access the sensor's user interface
+
+Your Enterprise IoT sensor must have access to the Azure cloud using a [direct connection](architecture-connections.md#direct-connections). Direct connections are configured for Enterprise IoT sensors using the same procedure as for OT sensors. For more information, see [Provision sensors for cloud management](ot-deploy/provision-cloud-management.md).
 
 ## Prepare a physical appliance or VM
 
@@ -83,7 +95,6 @@ This procedure describes how to prepare your physical appliance or VM to install
     | HTTPS | TCP | In/Out | 443 | Cloud connection |
     | DNS | TCP/UDP | In/Out | 53  | Address resolution |
 
-
 1. Make sure that your physical appliance or VM can access the cloud using HTTPS on port 443 to the following Microsoft endpoints:
 
     - **EventHub**: `*.servicebus.windows.net`
@@ -98,28 +109,11 @@ This procedure describes how to prepare your physical appliance or VM to install
 
 ## Register an Enterprise IoT sensor in Defender for IoT
 
-This section describes how to register an Enterprise IoT sensor in Defender for IoT. You can start directly in the Azure portal, or, if you're a Defender for Endpoint customer with an Enterprise IoT plan, you can start in Microsoft 365.
+This section describes how to register an Enterprise IoT sensor in Defender for IoT. When you're done registering your sensor, you'll continue on with installing the Enterprise IoT monitoring software on your sensor machine.
 
-When you're done registering your sensor, you'll continue on with installing the Enterprise IoT monitoring software on your sensor machine.
+**To register a sensor in the Azure portal**:
 
-### Access sensor setup from Microsoft 365 Defender
-
-In the navigation pane of the [https://security.microsoft.com](https://security.microsoft.com/) portal:
-
-1. Select **Settings** \> **Device discovery** \> **Enterprise IoT**.
-
-1. Under **Set up an Enterprise IoT Security sensor** select the **Microsoft Defender for IoT** link. For example:
-
-    :::image type="content" source="media/enterprise-iot/defender-for-endpoint-setup-sensor.png" alt-text="Screenshot of the Defender for IoT link in Microsoft 365 Defender.":::
-
-The **Microsoft Defender for IoT** link brings you to the sensor setup process in the Azure portal. For example:
-
-:::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor.png" alt-text="Screenshot of the Getting started page for Enterprise IoT security.":::
-
-> [!NOTE]
-> You can also access the sensor setup directly from Defender for IoT. In the Azure portal > Defender for IoT, select **Getting started** > **Set up Enterprise IoT Security**.
-
-### Register a sensor in the Azure portal
+1. Go to **Defender for IoT** > **Sites and sensors**, and then select **Onboard sensor** > **EIoT**.
 
 1. On the **Set up Enterprise IoT Security** page, enter the following details, and then select **Register**:
 
@@ -146,7 +140,7 @@ This procedure describes how to install Enterprise IoT monitoring software on [y
 
 1. On your sensor machine, sign in to the sensor's CLI using a terminal, such as PuTTY, or MobaXterm.
 
-1. Run the command that you'd copied from the [sensor registration](#register-a-sensor-in-the-azure-portal) step. For example:
+1. Run the command that you'd copied from the [sensor registration](#register-an-enterprise-iot-sensor-in-defender-for-iot) step. For example:
 
     :::image type="content" source="media/tutorial-get-started-eiot/enter-command.png" alt-text="Screenshot of running the command to install the Enterprise IoT sensor monitoring software.":::
 
@@ -189,11 +183,10 @@ If you're a Defender for Endpoint customer with an Enterprise IoT plan, you'll b
 
 For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md) and [Microsoft 365 Defender device discovery](/microsoft-365/security/defender-endpoint/machines-view-overview).
 
-If you're on a monthly commitment, you may want to edit the number of committed devices in your Enterprise IoT plan. For more information, see:
+If you're on a monthly commitment, you may want to edit the number of devices covered by your Enterprise IoT plan. For more information, see:
 
-- [Calculate committed devices for Enterprise IoT monitoring](manage-subscriptions-enterprise.md#calculate-committed-devices-for-enterprise-iot-monitoring)
+- [Calculate monitored devices for Enterprise IoT monitoring](manage-subscriptions-enterprise.md#calculate-monitored-devices-for-enterprise-iot-monitoring)
 - [Defender for IoT subscription billing](billing.md)
-- The [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/)
 
 ## Delete an Enterprise IoT network sensor
 
@@ -201,17 +194,14 @@ Delete a sensor if it's no longer in use with Defender for IoT.
 
 1. From the **Sites and sensors** page on the Azure portal, locate your sensor in the grid.
 
-1. In the row for your sensor, select the **...** options menu on the right > **Delete sensor**.
+1. In the row for your sensor, select the **...** options menu > **Delete sensor**.
 
 For more information, see [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md).
 
 > [!TIP]
 > You can also remove your sensor manually from the CLI. For more information, see [Extra steps and samples for Enterprise IoT deployment](extra-deploy-enterprise-iot.md#remove-an-enterprise-iot-network-sensor-optional).
 
-If you want to cancel your Enterprise IoT plan and stop the integration with Defender for Endpoint, use one of the following methods carefully:
-
-- **To cancel your plan for Enterprise IoT networks only**, do so from [Microsoft 365 Defender](manage-subscriptions-enterprise.md#cancel-your-enterprise-iot-plan).
-- **To cancel a plan for both OT and Enterprise IoT networks together**, use the [**Plans and pricing** page in Defender for IoT](how-to-manage-subscriptions.md#cancel-a-defender-for-iot-plan) in the Azure portal.
+If you want to cancel your Enterprise IoT plan and stop the integration with Defender for Endpoint, do so from [Microsoft 365 Defender](manage-subscriptions-enterprise.md#cancel-your-enterprise-iot-plan).
 
 ## Move existing sensors to a different subscription
 
@@ -233,7 +223,7 @@ Billing changes will take effect one hour after cancellation of the previous sub
 
 1. Delete the legacy sensor from the previous subscription.  In Defender for IoT, go to the **Sites and sensors** page and locate the legacy sensor on the previous subscription.
 
-1. In the row for your sensor, from the options (**...**) menu on the right, select **Delete** to delete the sensor from the previous subscription.
+1. In the row for your sensor, from the options (**...**) menu, select **Delete** to delete the sensor from the previous subscription.
 
 1. If relevant, cancel the Defender for IoT plan from the previous subscription. For more information, see [Cancel your Enterprise IoT plan](manage-subscriptions-enterprise.md#cancel-your-enterprise-iot-plan).
 

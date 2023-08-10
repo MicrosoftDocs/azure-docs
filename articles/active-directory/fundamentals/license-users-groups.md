@@ -1,5 +1,5 @@
 ---
-title: Assign or remove licenses - Azure Active Directory | Microsoft Docs
+title: Assign or remove licenses
 description: Instructions about how to assign or remove Azure Active Directory licenses from your users or groups.
 services: active-directory
 author: barclayn
@@ -16,7 +16,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Assign or remove licenses in the Azure Active Directory portal
+# Assign or remove licenses in the Azure portal
 
 Many Azure Active Directory (Azure AD) services require you to license each of your users or groups (and associated members) for that service. Only users with active licenses will be able to access and use the licensed Azure AD services for which that's true. Licenses are applied per tenant and don't transfer to other tenants. 
 
@@ -40,7 +40,9 @@ You can view your available service plans, including the individual licenses, ch
 
 ### To find your service plan and plan details
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a License administrator account in your Azure AD organization.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using a License administrator account in your Azure AD organization.
 
 1. Select **Azure Active Directory**, and then select **Licenses**.
 

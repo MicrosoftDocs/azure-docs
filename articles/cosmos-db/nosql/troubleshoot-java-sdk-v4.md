@@ -8,7 +8,7 @@ ms.author: thvankra
 ms.devlang: java
 ms.subservice: nosql
 ms.topic: troubleshooting
-ms.custom: devx-track-java, ignite-2022
+ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
 ---
 
 # Troubleshoot issues when you use Azure Cosmos DB Java SDK v4 with API for NoSQL accounts

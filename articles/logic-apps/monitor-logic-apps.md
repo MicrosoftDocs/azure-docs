@@ -14,10 +14,10 @@ ms.date: 08/01/2022
 
 > [!NOTE]
 > This article applies only to Consumption logic apps. For information about reviewing run status and monitoring for Standard logic apps, 
-> review the following sections in [Create an integration workflow with single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md): 
+> see the following sections in [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md): 
 > [Review run history](create-single-tenant-workflows-azure-portal.md#review-run-history), [Review trigger history](create-single-tenant-workflows-azure-portal.md#review-trigger-history), and [Enable or open Application Insights after deployment](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights).
 
-After you create and run a [Consumption logic app workflow](quickstart-create-first-logic-app-workflow.md), you can check that workflow's run status, [trigger history](#review-trigger-history), [runs history](#review-runs-history), and performance. To get notifications about failures or other possible problems, set up [alerts](#add-azure-alerts). For example, you can create an alert that detects "when more than five runs fail in an hour."
+After you create and run a [Consumption logic app workflow](quickstart-create-example-consumption-workflow.md), you can check that workflow's run status, [trigger history](#review-trigger-history), [runs history](#review-runs-history), and performance. To get notifications about failures or other possible problems, set up [alerts](#add-azure-alerts). For example, you can create an alert that detects "when more than five runs fail in an hour."
 
 For real-time event monitoring and richer debugging, set up diagnostics logging for your logic app by using [Azure Monitor logs](../azure-monitor/overview.md). This Azure service helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. You can then find and view events, such as trigger events, run events, and action events. By storing this information in [Azure Monitor logs](../azure-monitor/logs/data-platform-logs.md), you can create [log queries](../azure-monitor/logs/log-query-overview.md) that help you find and analyze this information. You can also use this diagnostic data with other Azure services, such as Azure Storage and Azure Event Hubs. For more information, see [Monitor logic apps by using Azure Monitor](monitor-workflows-collect-diagnostic-data.md).
 

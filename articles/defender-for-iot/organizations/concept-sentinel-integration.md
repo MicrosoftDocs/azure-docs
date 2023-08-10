@@ -2,7 +2,7 @@
 title: OT threat monitoring in enterprise security operation center (SOC) teams - Microsoft Defender for IoT
 description: Learn about how integration with Microsoft Sentinel can help security operation center teams bridge the gap between IT and OT security.
 ms.date: 03/24/2022
-ms.topic: conceptual
+ms.topic: integration
 ---
 
 # OT threat monitoring in enterprise SOCs
@@ -25,7 +25,7 @@ Microsoft Sentinel is a scalable cloud service for security information event ma
 
 In Microsoft Sentinel, the Defender for IoT data connector and solution brings out-of-the-box security content to SOC teams, helping them to view, analyze and respond to OT security alerts, and understand the generated incidents in the broader organizational threat contents.
 
-Install the Defender for IoT data connector alone to stream your OT network alerts to Microsoft Sentinel. Then, also install the **Microsoft Defender for IoT** solution the extra value of IoT/OT-specific analytics rules, workbooks, and SOAR playbooks, as well as incident mappings to [MITRE ATT&CK for ICS](https://collaborate.mitre.org/attackics/index.php/Overview).
+Install the Defender for IoT data connector alone to stream your OT network alerts to Microsoft Sentinel. Then, also install the **Microsoft Defender for IoT** solution the extra value of IoT/OT-specific analytics rules, workbooks, and SOAR playbooks, as well as incident mappings to [MITRE ATT&CK for ICS techniques](https://attack.mitre.org/techniques/ics/).
 
 ### Integrated detection and response
 
@@ -125,6 +125,7 @@ SecurityIncident
 
 For more information, see:
 
+- [Integrations with Microsoft and partner services](integrate-overview.md)
 - [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../../sentinel/iot-solution.md)
 - [Detect threats out-of-the-box with Defender for IoT data](../../sentinel/iot-advanced-threat-monitoring.md#detect-threats-out-of-the-box-with-defender-for-iot-data)
 - [Create custom analytics rules to detect threats](../../sentinel/detect-threats-custom.md)
