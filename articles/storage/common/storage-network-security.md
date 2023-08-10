@@ -19,6 +19,9 @@ Azure Storage provides a layered security model. This model enables you to contr
 > Azure Storage firewall rules only apply to [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#data-plane) operations. [Control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#control-plane) operations are not subject to the restrictions specified in firewall rules.
 >
 > Some operations, such as blob container operations, can be performed through both the control plane and the data plane. So if you attempt to perform an operation like listing containers from the Azure portal, the operation will succeed unless it is blocked by another mechanism. Attempts to access blob data from an application such as Azure Storage Explorer are controlled by the firewall restrictions.
+>
+> For a list of data plane operations, see [Azure Storage REST API Reference](/rest/api/storageservices/).
+> For a list of control plane operations, see [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
 
 ## Configure network access to Azure Storage
 
