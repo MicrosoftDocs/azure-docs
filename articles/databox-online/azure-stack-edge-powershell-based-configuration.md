@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/21/2023
+ms.date: 08/09/2023
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -562,7 +562,8 @@ Run the following cmdlets in PowerShell:
 			                                                         "enableEmbeddedTeaming":  true,
 			                                                         "ipAddressPools":  [
 			
-			                                                                            ]
+			                                                                            ],
+    "mtu": 1500
 			                                                     },
 			                                                     {
 			                                                         "name":  "vSwitch2",
@@ -574,7 +575,8 @@ Run the following cmdlets in PowerShell:
 			                                                         "enableEmbeddedTeaming":  true,
 			                                                         "ipAddressPools":  [
 			
-			                                                                            ]
+			                                                                            ],
+    "mtu": 1500
 			                                                     },
 			                                                     {
 			                                                         "name":  "vSwitch3",
@@ -586,7 +588,8 @@ Run the following cmdlets in PowerShell:
 			                                                         "enableEmbeddedTeaming":  true,
 			                                                         "ipAddressPools":  [
 			
-			                                                                            ]
+			                                                                            ],
+    "mtu": 1500
 			                                                     }
 			                                                 ],
 			                                   "virtualNetworks":  [

@@ -442,30 +442,30 @@ After the cluster is formed and configured, you can now create new virtual switc
 1. In the  local UI, go to **Advanced networking** page. 
 1. In the **Virtual switch** section, add or delete virtual switches. Select **Add virtual switch** to create a new switch.
 
-     1. Specify a Name for the virtual switch, select a Network interface from the dropdown menu, specify an MTU (Maximum Transmission Unit) value (optional).
+     a. Specify a **Name** for the virtual switch, select a **Network interface** from the dropdown menu, and specify an **MTU** (Maximum Transmission Unit) value (optional).
      
-     1. If deploying 5G workloads, set **Supports accelerated networking** to **Yes**.
+       The MTU value determines the maximum packet size that can be transmitted over a network. Azure Stack Edge supports MTU values in the following table. If a device on the network path has an MTU setting lower than 1500, IP packets with the “do not fragment” flag (DF) with packet size 1500 will be dropped.
 
-     1. Select **Modify** and **Apply** to save your changes.
+       | Azure Stack Edge SKU | Network interface | Supported MYU values |
+       |-------|--------|------------|
+       | Pro-GPU | Ports 1, 2, 3, and 4 | 1400 - 1500 |
+       | Pro 2 | Ports 1 and 2 | 1400 - 1500 |
+       | Pro 2 | Ports 3 and 4 | Not configurable, set to default |
+       | All | Ports 5 and 6 | Not configurable, set to default |
+
+       The host virtual switch will use the specified MTU setting.
+
+       If the virtual switch is used as a compute virtual switch for a Microsoft Kubernetes cluster, the Microsoft Kubernetes node VM’s virtual networks and common network information services (CNIs) will use the specified MTU setting.
+
+     b. If deploying 5G workloads, set **Supports accelerated networking** to **Yes**.
+
+     c. Select **Modify** and **Apply** to save your changes.
 
     ![MTU settings on Advanced networking page in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-mtu-configuration-1.png)
 
-    The MTU value determines the maximum packet size that can be transmitted over a network. Azure Stack Edge supports MTU values in the following table. If a device on the network path has an MTU setting lower than 1500, IP packets with the “do not fragment” flag (DF) with packet size 1500 will be dropped.
-
-   | Azure Stack Edge SKU | Network interface | Supported MYU values |
-   |-------|--------|------------|
-   | Pro-GPU | Ports 1, 2, 3, and 4 | 1400 - 1500 |
-   | Pro 2 | Ports 1 and 2 | 1400 - 1500 |
-   | Pro 2 | Ports 3 and 4 | Not configurable, set to default |
-   | All | Ports 5 and 6 | Not configurable, set to default |
-
-   The host virtual switch will use the specified MTU setting.
-
-   If the virtual switch is used as a compute virtual switch for a Microsoft Kubernetes cluster, the Microsoft Kubernetes node VM’s virtual networks and common network information services (CNIs) will use the specified MTU setting.
+   When you create a virtual switch, the MTU column is populated with its MTU value.
 
    ![MTU setting in Advanced networking in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-mtu-value.png)
-
-   When you create a virtual switch, the MTU column is populated with its MTU value.
 
 1. The configuration will take a few minutes to apply and once the virtual switch is created, the list of virtual switches updates to reflect the newly created switch. You can see that the specified virtual switch is created and enabled for compute.
 
@@ -503,7 +503,7 @@ After the virtual switches are created, you can enable these switches for Kubern
 1. In the local UI, go to the **Kubernetes** page.
 1. Specify a workload from the options provided. If prompted, confirm the option you selected and then select **Apply**.
 
-![Workload selection options on the Kubernetes page of the local UI for two node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-k8s-workload-selection.png)
+   ![Workload selection options on the Kubernetes page of the local UI for two node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-k8s-workload-selection.png)
 
 1. From the dropdown list, select the virtual switch you want to enable for Kubernetes compute traffic.
 1. Assign **Kubernetes node IPs**. These static IP addresses are for the Kubernetes VMs.  
