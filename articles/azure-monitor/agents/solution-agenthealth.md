@@ -43,7 +43,7 @@ The following table describes the connected sources that this solution supports.
 ## Use the solution
 When you add the solution to your Log Analytics workspace, the **Agent Health** tile is added to your dashboard. This tile shows the total number of agents and the number of unresponsive agents in the last 24 hours.
 
-![Screenshot that shows the Agent Health tile on the dashboard.](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
+:::image type="content" source="media/solution-agenthealth/agenthealth-solution-tile-homepage.png" alt-text="Screenshot that shows the Agent Health tile on the dashboard." lightbox="media/solution-agenthealth/agenthealth-solution-tile-homepage.png:::
 
 Select the **Agent Health** tile to open the **Agent Health** dashboard. The dashboard includes the columns in the following table. Each column lists the top 10 events by count that match that column's criteria for the specified time range. You can run a log search that provides the entire list. Select **See all** beneath each column or select the column heading.
 

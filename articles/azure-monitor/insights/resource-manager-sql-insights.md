@@ -48,7 +48,7 @@ The following sample creates an alert rule that will cover the SQL resources wit
 The parameter file has values from one of the alert templates we provide in SQL Insights, you can modify it to alert on other data we collect for SQL.  The template does not specify an action group for the alert rule.
 
 
-#### Template file
+### Template file
 
 View the [template file on git hub](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/Alerts/log-metric-noag.armtemplate).
 

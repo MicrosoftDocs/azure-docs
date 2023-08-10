@@ -6287,7 +6287,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/terminology.md",
-            "redirect_url": "/azure/azure-monitor/alerts/overview",
+            "redirect_url": "/azure/azure-monitor/overview",
             "redirect_document_id": false
         },
         {

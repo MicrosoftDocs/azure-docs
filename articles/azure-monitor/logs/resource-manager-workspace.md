@@ -747,11 +747,11 @@ resource windowsPerfProcessorPercentageDataSource 'Microsoft.OperationalInsights
 
 The following sample adds collection of [Linux performance counters](../agents/data-sources-performance-counters.md) to an existing workspace.
 
-### Notes
+#### Notes
 
 - Add a **datasources** element for each object and instance to collect. You can specify different set of counters for each object and instance combination, but you can only specify a single rate for all counters.
 
-### Template file
+#### Template file
 
 # [Bicep](#tab/bicep)
 
@@ -931,7 +931,7 @@ resource linuxPerformanceProcessorDataSource 'Microsoft.OperationalInsights/work
 
 The following sample adds collection of [text logs](../agents/data-sources-custom-logs.md) to an existing workspace.
 
-### Notes
+#### Notes
 
 - The configuration of delimiters and extractions can be complex. For help, you can define a text log using the Azure portal and the retrieve its configuration using [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) with **-Kind** set to **CustomLog**.
 
