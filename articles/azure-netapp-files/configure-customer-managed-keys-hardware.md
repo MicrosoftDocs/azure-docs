@@ -119,6 +119,9 @@ To use a system-assigned identity, the Azure Key Vault must be configured to use
     * For **Key URI**, select **Enter Key URI** then provide the URI for the managed HSM.
     * Select the NetApp **Subscription**.
     * For **Identity type**, select **System-assigned**.
+
+    :::image type="content" source="../media/azure-netapp-files/key-enter-uri.png" alt-text="Screenshot of the encryption menu showing key URI field." lightbox="../media/azure-netapp-files/key-enter-uri.png":::
+
 1. Select **Save**.
 
 ## Configure customer-managed keys with managed HSM for user-assigned identity
@@ -135,7 +138,11 @@ To use a system-assigned identity, the Azure Key Vault must be configured to use
         * "Microsoft.KeyVault/vaults/keys/read"
         * "Microsoft.KeyVault/vaults/keys/encrypt/action"
         * "Microsoft.KeyVault/vaults/keys/decrypt/action"
-    * The user-assigned identity you select is added to your NetApp account. Due RBAC being customizable, the Azure portal does not configure access to the key vault. For more information, see [Using Azure RBAC secret, key, and certificate permissions with Key Vault](../key-vault/general/rbac-guide.md#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault)
+    The user-assigned identity you select is added to your NetApp account. Due to RBAC being customizable, the Azure portal does not configure access to the key vault. For more information, see [Using Azure RBAC secret, key, and certificate permissions with Key Vault](../key-vault/general/rbac-guide.md#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault)
+
+    :::image type="content" source="../media/azure-netapp-files/encryption-user-assigned.png" alt-text="Screenshot of user-assigned submenu." lightbox="../media/azure-netapp-files/encryption-user-assigned.png":::
+
+
 1. Select **Save**.
 
 ## Next steps
