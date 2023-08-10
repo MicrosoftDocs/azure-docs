@@ -106,7 +106,7 @@ Follow these steps to find the next hop:
 
 1. The Next hop capability of Network Watcher checks if the destination IP address is reachable from the source VM. The result shows the Next hop type and route table used to route traffic from the VM. For more information, see [Next hop](network-watcher-next-hop-overview.md).
 
-   :::image type="content" source="./media/network-insights-topology/next-hop-inline.png" alt-text="Screenshot of the next hop option in the summary and insights tab." lightbox="./media/network-insights-topology/next-hop-expanded.png":::
+   :::image type="content" source="./media/network-insights-topology/next-hop-result.png" alt-text="Screenshot of the next hop option in the summary and insights tab." lightbox="./media/network-insights-topology/next-hop-result.png":::
 
 ## Next steps
 
