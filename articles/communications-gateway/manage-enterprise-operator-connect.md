@@ -20,10 +20,8 @@ The Operator Connect and Teams Phone Mobile programs don't allow you to use the 
 Confirm that you have **Reader** access to your subscription and appropriate permissions for the Project Synergy enterprise application:
 
 <!-- Must be kept in sync with provision-user-roles.md - steps for understanding and configuring -->
-* To view existing configuration:
-**PartnerSettings.Read**, **NumberManagement.Read**, and **TrunkManagement.Read**
-* To configure the status of an enterprise (a "consent"): **NumberManagement.Write** and **PartnerSettings.Write**
-* To configure numbers: **NumberManagement.Write**
+* To view existing configuration: **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Read**
+* To make changes to consents (which represent the status of enterprises) and numbers: **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Write**
 
 If you don't have these permissions, ask your administrator to set them up by following [Set up user roles for Azure Communications Gateway](provision-user-roles.md).
 
