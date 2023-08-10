@@ -35,7 +35,7 @@ The attribution step is critical and typically happens automatically, as the par
 > [!NOTE]
 > Solutions are not available for Power BI and Customer Insights. See the following detailed sections.
 
-:::image type="content" source="./media/link-partner-id-power-apps-accounts/partner-admin-link-steps.png" alt-text="Images showing the three steps listed previously."  border="false" lightbox="./media/link-partner-id-power-apps-accounts/partner-admin-link-steps.png" :::
+:::image type="content" source="./media/link-partner-id-power-apps-accounts/partner-admin-link-steps.png" alt-text="Diagrams showing the three steps listed previously."  border="false" lightbox="./media/link-partner-id-power-apps-accounts/partner-admin-link-steps.png" :::
 
 ## Initiation - get service account from your customer
 
