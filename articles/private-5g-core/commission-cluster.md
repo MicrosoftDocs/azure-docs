@@ -40,6 +40,7 @@ These steps modify the Kubernetes cluster on the Azure Stack Edge device to opti
 Once you've applied these changes, you should see an updated option in the local UI – **Kubernetes** becomes **Kubernetes (Preview)** as shown in the following image.
 
 :::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview.png" alt-text="Screenshot of configuration menu, with Kubernetes (Preview) highlighted.":::
+
 If you now go to the Azure portal and navigate to your **Azure Stack Edge** resource, you should see an **Azure Kubernetes Service** option. You'll set up the Azure Kubernetes Service in [Start the cluster and set up Arc](#start-the-cluster-and-set-up-arc).
 
 :::image type="content" source="media/commission-cluster/commission-cluster-ase-resource.png" alt-text="Screenshot of Azure Stack Edge resource in the Azure portal. Azure Kubernetes Service (PREVIEW) is shown under Edge services in the left menu.":::
