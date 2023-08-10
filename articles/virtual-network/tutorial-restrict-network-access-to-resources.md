@@ -242,7 +242,11 @@ The virtual machine you created earlier that is assigned to the **subnet-1** sub
 
 1. Enter the username and password you specified when creating the virtual machine. Select **Connect**.
 
-1. Open Windows PowerShell. se the following script below to map the Azure file share to drive Z using PowerShell. Replace `<storage-account-key>` with the key you copied in the previous step. Replace `<storage-account-name>` with the name of your storage account. In this example it's **storage8675**.
+1. Open Windows PowerShell. Use the following script to map the Azure file share to drive Z. 
+
+    * Replace `<storage-account-key>` with the key you copied in the previous step. 
+
+    * Replace `<storage-account-name>` with the name of your storage account. In this example it's **storage8675**.
 
    ```powershell
     $key = @{
