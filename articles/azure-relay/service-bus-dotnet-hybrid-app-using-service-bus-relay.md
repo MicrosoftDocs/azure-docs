@@ -3,7 +3,7 @@ title: Azure Windows Communication Foundation (WCF) Relay hybrid on-premises/clo
 description: Learn how to expose an on-premises WCF service to a web application in the cloud by using Azure Relay 
 ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-dotnet
-ms.date: 06/21/2022
+ms.date: 08/10/2023
 ---
 
 # Expose an on-premises WCF service to a web application in the cloud by using Azure Relay

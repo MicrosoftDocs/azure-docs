@@ -29,8 +29,8 @@ To use Application Proxy, you need a Windows server running Windows Server 2012 
 
 - For high availability in your environment, we recommend having more than one Windows server. 
 - The minimum .NET version required for the connector is v4.7.1+.
-- For more information, see [App Proxy connectors](../active-directory/app-proxy/application-proxy-connectors.md#requirements-and-deployment)
-- To determine what version of .NET framework...
+- For more information, see [App Proxy connectors](../active-directory/app-proxy/application-proxy-connectors.md#requirements-and-deployment).
+- For more information, see [Determine which .NET framework versions are installed](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 
 ### Prepare your on-premises environment
 
