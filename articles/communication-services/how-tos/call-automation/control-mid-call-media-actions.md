@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 08/09/2023
 ms.author: kpunjabi
-ms.custom: public_priview
+ms.custom: public_preview
 services: azure-communication-services
 ---
 
@@ -40,7 +40,7 @@ CallAutomationClient callAutomationClient = new CallAutomationClientBuilder()
     .buildClient();
 ```
 ### [JavaScript](#tab/javascript)
-```javas script
+```javascript
 callAutomationClient = new CallAutomationClient(("<Azure Communication Services connection string>"); 
 ```
 ### [Python](#tab/python)
@@ -96,9 +96,9 @@ result = call_automation_client.get_call_connection(call_connection_id).send_dtm
 app.logger.info("Send dtmf, result=%s", result)
 ```
 -----
-When your application sends these DTMF tones, you receive event updates. You can use the `SendDtmfCompleted` and `SendDtmfFailed` events to create business logic in your application to determine the next steps. 
+When your application sends these DTMF tones, you receive event updates. You can use the `SendDtmfTonesCompleted` and `SendDtmfTonesFailed` events to create business logic in your application to determine the next steps. 
 
-Example of *SendDtmfCompleted* event
+Example of *SendDtmfTonesCompleted* event
 ### [csharp](#tab/csharp)
 ``` csharp
 if (acsEvent is SendDtmfTonesCompleted sendDtmfCompleted) 
@@ -125,7 +125,7 @@ if event.type == "Microsoft.Communication.SendDtmfTonesCompleted":
 	app.logger.info("Send dtmf succeeded: context=%s", event.data['operationContext']);
 ```
 -----
-Example of *SendDtmfFailed*
+Example of *SendDtmfTonesFailed*
 ### [csharp](#tab/csharp)
 ```csharp
 if (acsEvent is SendDtmfTonesFailed sendDtmfFailed) 
