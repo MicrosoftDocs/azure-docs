@@ -11,7 +11,7 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 06/07/2023
+ms.date: 08/08/2023
 ms.author: rolyon
 ms.custom: it-pro;
 ---
@@ -38,7 +38,7 @@ The following diagram is a high-level view of how the Azure roles, Azure AD role
 | Azure role | Permissions | Notes |
 | --- | --- | --- |
 | [Owner](built-in-roles.md#owner) | <ul><li>Full access to all resources</li><li>Delegate access to others</li></ul> | The Service Administrator and Co-Administrators are assigned the Owner role at the subscription scope<br>Applies to all resource types. |
-| [Contributor](built-in-roles.md#contributor) | <ul><li>Create and manage all of types of Azure resources</li><li>Create a new tenant in Azure Active Directory</li><li>Can't grant access to others</li></ul> | Applies to all resource types. |
+| [Contributor](built-in-roles.md#contributor) | <ul><li>Create and manage all of types of Azure resources</li><li>Can't grant access to others</li></ul> | Applies to all resource types. |
 | [Reader](built-in-roles.md#reader) | <ul><li>View Azure resources</li></ul> | Applies to all resource types. |
 | [User Access Administrator](built-in-roles.md#user-access-administrator) | <ul><li>Manage user access to Azure resources</li></ul> |  |
 

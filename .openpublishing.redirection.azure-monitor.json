@@ -6194,6 +6194,91 @@
             "source_path_from_root": "/articles/azure-monitor/essentials/resource-logs-categories.md",
             "redirect_url": "/azure/azure-monitor/reference/supported-logs/logs-index",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-prometheus.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-enable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-enable.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-enable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-disable.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-disable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-from-arc-enabled-cluster.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-from-arc-enabled-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-scrape-default.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-scrape-default",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-scrape-configuration.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-scrape-configuration-minimal.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration-minimal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-scrape-scale.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-scrape-scale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-scrape-validate.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-scrape-validate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-multiple-workspaces.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-multiple-workspaces",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-troubleshoot.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-remote-write.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-remote-write",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-remote-write-azure-ad-pod-identity.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-remote-write-azure-ad-pod-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-remote-write-managed-identity.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-remote-write-managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-remote-write-active-directory.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-remote-write-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/integrate-keda.md",
+            "redirect_url": "/azure/azure-monitor/containers/integrate-keda",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-authorization-proxy.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-authorization-proxy",
+            "redirect_document_id": false
         }
     ]
 }

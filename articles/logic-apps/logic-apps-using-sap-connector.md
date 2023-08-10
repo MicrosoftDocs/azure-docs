@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 06/14/2023
+ms.date: 08/07/2023
 tags: connectors
 ---
 
@@ -275,22 +275,24 @@ To use the SAP connector, based on whether you have a Consumption or Standard wo
 
     1. On the **Configuration** pane, under **Platform settings**, check whether the **Platform** value is set to 64-bit or 32-bit.
 
-    1. Make sure to install the matching version of the [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.25.0 compiled with .NET Framework 4.0](https://support.sap.com/en/product/connectors/msnet.html).
-
-    1. To use the SAP connector, you need the following files from the SAP NCo client library and have them ready to upload to your logic app resource.
-
-       - **libicudecnumber.dll**
-       - **rscp4n.dll**
-       - **sapnco.dll**
-       - **sapnco_utils.dll**
+    1. Make sure to install the version of the [SAP Connector (NCo 3.1) for Microsoft .NET 3.1.2.0 compiled with .NET Framework 4.6.2](https://support.sap.com/en/product/connectors/msnet.html) that matches your platform configuration.
 
 * From the client library's default installation folder, copy the assembly (.dll) files to another location, based on your scenario as follows. Or, optionally, if you're using only the SAP managed connector, when you install the SAP NCo client library, select **Global Assembly Cache registration**. The ISE zip archive and SAP built-in connector currently doesn't support GAC registration.
 
-  * For a Consumption workflow that runs in multi-tenant Azure Logic Apps and uses your on-premises data gateway, copy the assembly (.dll) files to the on-premises data gateway installation folder, for example, **C:\Program Files\On-Premises Data Gateway**.
+  * For a Consumption workflow that runs in multi-tenant Azure Logic Apps and uses your on-premises data gateway, copy the following assembly (.dll) files to the on-premises data gateway installation folder, for example, **C:\Program Files\On-Premises Data Gateway**. The SAP NCo 3.0 client library contains the following assemblies:
+
+    - **libicudecnumber.dll**
+    - **rscp4n.dll**
+    - **sapnco.dll**
+    - **sapnco_utils.dll**
 
     Make sure that you copy the assembly files to the data gateway's *installation folder*. Otherwise, your SAP connection might fail with the error message, **Please check your account info and/or permissions and try again**. You can troubleshoot further issues using the [.NET assembly binding log viewer](/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer). This tool lets you check that your assembly files are in the correct location.
 
-  * For Standard workflows, copy the assembly (.dll) files to a location from where you can upload them to your logic app resource or project where you're building your workflow, either in the Azure portal or locally in Visual Studio Code, respectively.
+  * For Standard workflows, copy the following assembly (.dll) files to a location from where you can upload them to your logic app resource or project where you're building your workflow, either in the Azure portal or locally in Visual Studio Code, respectively. The SAP NCo 3.1 client library includes the following assemblies:
+
+    - **rscp4n.dll**
+    - **sapnco.dll**
+    - **sapnco_utils.dll**
 
   * For a Consumption workflow in an ISE, follow the [ISE prerequisites](#ise-prerequisites) instead.
 
@@ -312,13 +314,20 @@ The following relationships exist between the SAP NCo client library, the .NET F
 
 For Consumption workflows in multi-tenant Azure Logic Apps that use the on-premises data gateway, and optionally SNC, you must also configure the following settings.
 
-* Make sure that your SNC library version and its dependencies are compatible with your SAP environment. To troubleshoot any library compatibility issues, you can use your on-premises data gateway and data gateway logs.
+* Make sure that your SNC library version and its dependencies are compatible with your SAP environment. To troubleshoot any library compatibility issues, you can use your on-premises data gateway and data gateway logs. 
+
+* Make sure that you copied the following assembly (.dll) files in the SAP NCo 3.0 client library to the on-premises data gateway's *installation* folder, for example, **C:\Program Files\On-Premises Data Gateway**.
+
+  - **libicudecnumber.dll**
+  - **rscp4n.dll**
+  - **sapnco.dll**
+  - **sapnco_utils.dll**
 
 * For the SAPGENPSE utility, you must specifically use **sapgenpse.exe**.
 
 * If you provide a Personal Security Environment (PSE) with your connection, you don't need to copy and set up the PSE and SECUDIR for your on-premises data gateway.
 
-* If you enable SNC through an external security product, such as [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, or NTLM, make sure that the SNC library exists on the same computer as your data gateway installation. For this task, copy the SNC library's binary files to the same folder as the data gateway installation on your local computer. For example, **C:\Program Files\On-Premises Data Gateway**.
+* If you enable SNC through an external security product, such as [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, or NTLM, make sure that the SNC library exists on the same computer as your data gateway installation. For this task, copy the SNC library's binary files to the same folder as the data gateway installation on your local computer, for example, **C:\Program Files\On-Premises Data Gateway**.
 
   > [!NOTE]
   >
@@ -338,7 +347,13 @@ For more information about enabling SNC, review [Enable Secure Network Communica
 
 The SAP built-in connector supports only SNC X.509 authentication, not single sign-on (SSO) authentication. Make sure that you install the SNC and common crypto library assemblies as part of your [single-tenant prerequisites](#single-tenant-prerequisites) and [network connectivity prerequisites](#network-prerequisites). For more information about enabling SNC, review [Enable Secure Network Communications (SNC)](#enable-secure-network-communications).
 
-For SNC from SAP, you'll need to download the following files and have them ready to upload to your logic app resource. You can find these files in the **CommonCryptoLib.sar** package available from the [**SAP for Me, Software Download Center**](https://me.sap.com/softwarecenter)(SAP sign-in required). For more information, see [Download **CommonCryptoLib.sar**](#download-common-crypto).
+For SNC from SAP, you'll need to download the following files and have them ready to upload to your logic app resource. 
+
+- **rscp4n.dll**
+- **sapnco.dll**
+- **sapnco_utils.dll**
+
+You'll also need the following files from the **CommonCryptoLib.sar** package available from the [**SAP for Me, Software Download Center**](https://me.sap.com/softwarecenter)(SAP sign-in required). For more information, see [Download **CommonCryptoLib.sar**](#download-common-crypto).
 
 - **sapcrypto.dll**
 - **sapgenpse.exe**
@@ -525,7 +540,6 @@ For a Standard workflow in single-tenant Azure Logic Apps, use the preview SAP *
 
 1. To use the SAP connector, you need to download the following files and have them read to upload to your Standard logic app resource. For more information, see [SAP NCo client library prerequisites](#sap-client-library-prerequisites):
 
-   - **libicudecnumber.dll**
    - **rscp4n.dll**
    - **sapnco.dll**
    - **sapnco_utils.dll**
@@ -549,7 +563,6 @@ For a Standard workflow in single-tenant Azure Logic Apps, use the preview SAP *
 1. Under **Upload Files**, add the previously described required files that you downloaded:
 
    **SAP NCo**
-   - **libicudecnumber.dll**
    - **rscp4n.dll**
    - **sapnco.dll**
    - **sapnco_utils.dll**

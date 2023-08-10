@@ -589,12 +589,12 @@ async function main() {
  } = await poller.pollUntilDone();
 
   if (result) {
-    The identity document model has multiple document types, so we need to know which document type was actually
+// The identity document model has multiple document types, so we need to know which document type was actually
     extracted.
     if (result.docType === "idDocument.driverLicense") {
       const { FirstName, LastName, DocumentNumber, DateOfBirth, DateOfExpiration, Height, Weight, EyeColor, Endorsements, Restrictions, VehicleClassifications} = result.fields;
 
-      For the sake of the example, we'll only show a few of the fields that are produced.
+// For the sake of the example, we'll only show a few of the fields that are produced.
       console.log("Extracted a Driver License:");
       console.log("  Name:", FirstName && FirstName.content, LastName && LastName.content);
       console.log("  License No.:", DocumentNumber && DocumentNumber.content);
@@ -607,7 +607,7 @@ async function main() {
       console.log("  Endorsements:", Endorsements && Endorsements.content);
       console.log("  Class:", VehicleClassifications && VehicleClassifications.content);
     } else if (result.docType === "idDocument.passport") {
-      The passport document type extracts and parses the Passport's machine-readable zone
+// The passport document type extracts and parses the Passport's machine-readable zone
       if (!result.fields.machineReadableZone) {
         throw new Error("No Machine Readable Zone extracted from passport.");
       }
@@ -630,7 +630,7 @@ async function main() {
       console.log("  Issuer:", CountryRegion && CountryRegion.content);
       console.log("  Expiration Date:", DateOfExpiration && DateOfExpiration.content);
     } else {
-      The only reason this would happen is if the client library's schema for the prebuilt identity document model is
+// The only reason this would happen is if the client library's schema for the prebuilt identity document model is
       out of date, and a new document type has been introduced.
       console.error("Unknown document type in result:", result);
     }

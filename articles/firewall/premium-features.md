@@ -131,18 +131,6 @@ Web categories lets administrators allow or deny user access to web site categor
 
 Azure Firewall Premium web categories are only available in firewall policies. Ensure that your policy SKU matches the SKU of your firewall instance. For example, if you have a Firewall Premium instance, you must use a Firewall Premium policy.
 
-> [!IMPORTANT]
-> Microsoft is transitioning to an updated and new Web Content Filtering category feed in the next couple weeks. This will contain more granularity and additional subcategorizations.
->
->As a result, the following web categories are are no longer available:
-> - Child inappropriate, Greeting cards, and School Cheating.
-> 
-> In addition, the *Category check* and *Category change* features are temporarily disabled for the next few months. This article will be updated when these features return.
->
-> To mitigate, we recommend configuring critical websites (FQDNs and URLs) directly in application rules through the Azure portal/Azure PowerShell/CLI as a backup. For more information, see [Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md#configure-an-application-rule).
->
-> Web Category logging will continue to function as expected. We don’t predict any other major changes to the classification behavior, but we encourage you to report any categorization issues or request to perform a Category Check through Microsoft Azure support.
-
 For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/news`, the following categorization is expected: 
 
 - Firewall Standard – only the FQDN part is examined, so `www.google.com` is categorized as *Search Engine*. 
