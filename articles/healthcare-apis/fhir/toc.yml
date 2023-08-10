@@ -10,7 +10,7 @@ items:
 - name: Versioning policy and history management
   href: fhir-versioning-policy-and-history-management.md
 - name: Quickstarts
-  expanded: true
+  expanded: false
   items:
   - name: Get started with the FHIR service
     href: get-started-with-fhir.md
@@ -121,7 +121,7 @@ items:
   - name: Copy data to Synapse
     href: copy-to-synapse.md
 - name: Resources
-  expanded: true
+  expanded: false
   items:
   - name: FAQ - FHIR service
     href: fhir-faq.md
