@@ -16,38 +16,46 @@ ms.custom: references_regions
 # Phone number management for Canada
 Use the below tables to find all the relevant information on number availability, eligibility and restrictions for phone numbers in Canada.
 
+## Number types and capabilities availability
+
+| Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
+| :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
+| Toll-Free   |General Availability  | General Availability | General Availability | General Availability\* |
+| Local       | -                    | -                    | General Availability | General Availability\* |
+| Alphanumeric Sender ID\**       | Public Preview                    | -                    | - | - |
+
+\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
 ## Subscription eligibility
 
-To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired on trial accounts or by Azure free credits.
+To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired by Azure free credits. Also, due to regulatory reasons phone number availability is dependent on your Azure subscription billing location.
 
 More details on eligible subscription types are as follows:
 
 | Number Type                      | Eligible Azure Agreement Type                                                                             |
 | :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
-| Toll-Free and Local (Geographic/National) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, Pay-As-You-Go |
+| Number Type                      | Eligible Azure Agreement Type                                                                             |
+| :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
+| Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, Pay-As-You-Go |
 | Short-Codes                      | Modern Customer Agreement (Field Led), Enterprise Agreement**, Pay-As-You-Go                                      |
-
-\* In some countries/regions, number purchases are only allowed for own use. Reselling or suballcoating to another parties isn't allowed. Due to this restriction, purchases for CSP and LSP customers aren't allowed.
+| Alphanumeric Sender ID           | Modern Customer Agreement (Field Led and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement**, Pay-As-You-Go                                      |
 
 \** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
 
 
+## Azure subscription billing locations where Canada phone numbers are available
+| Country |
+| :---------- |
+|Canada|
+|Denmark|
+|Ireland|
+|Italy|
+|Puerto Rico|
+|Sweden|
+|United Kingdom|
+|United States|
 
-## Customers with Canada Azure billing addresses
-
-| Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
-| :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
-| Canada            | Toll-Free | General Availability | General Availability | General Availability  | General Availability\* |
-| Canada            | Local     | -        | -        | General Availability       | General Availability\* |
-| USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
-| USA & Puerto Rico | Local     | -        | -        | General Availability | General Availability\* |
-| UK                | Toll-Free | -        | -        | General Availability       | General Availability\* |
-| UK                | Local     | -        | -        | General Availability       | General Availability\* |
-
-
-\* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
-
-**Use the drop-down menu to check the requirements for other countries**
+**Use the drop-down menu to check phone number availability for other countries**
 > [!div class="op_single_selector"]
 >
 > - [Argentina](../numbers/phone-number-management-for-argentina.md)
