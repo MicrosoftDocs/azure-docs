@@ -5251,6 +5251,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-workbooks",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/concept-log-monitoring-integration-options-considerations",
       "redirect_document_id": true
