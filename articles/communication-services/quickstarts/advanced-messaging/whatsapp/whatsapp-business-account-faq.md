@@ -1,7 +1,7 @@
 ---
 title: WhatsApp business account faq
 titleSuffix: An Azure Communication Services concept document
-description: Learn about Communication Service WhatsApp Business Accounts concepts.
+description: Learn about Communication Service WhatsApp Business Accounts FAQ.
 author: darmour
 manager: sundraman
 services: azure-communication-services
@@ -40,11 +40,11 @@ You can troubleshoot why your business can’t be verified here: [Troubleshoot W
 
 To get the verified green check by your business, you can request to become an Official Business Account (OBA). You can find more about this process here: [Request a WhatsApp Official Business Account \| Meta Business Help Center (facebook.com)](https://www.facebook.com/business/help/604726921052590)
 
-## How Template approval works
+## How Template works
 
 WhatsApp requires businesses to initiate conversations by using templates. You must create these templates and submit them for approval before using them. You can learn more about this approval process along with common rejection reasons here: [Message Template Guidelines - WhatsApp Business Platform (facebook.com)](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines)
 
-### Why an account is revocation
+## Why an account is revocation
 
 WhatsApp will revoke WhatsApp Business Accounts that repeatedly violate its [Business](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR1lTizu2h_YMI2BlTtDPKsi3k0OrnD7uXwcmHLmbSXI21MPBU-Kgt070BQ) and [Commerce](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR2J_EdbAUuYN4XD737puCEOfM5DJOsrssuueEAszXbSLgUmmLtCuxJHy3w) policies. Learn more about account revocation here: [View policy violation details for your WhatsApp Business account \| Meta Business Help Center (facebook.com)](https://www.facebook.com/business/help/692706745267064)
 
