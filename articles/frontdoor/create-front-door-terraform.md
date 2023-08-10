@@ -72,37 +72,15 @@ This quickstart describes how to use Terraform to create a Front Door profile to
 
 ## Verify the results
 
-Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
+1. Get the Front Door endpoint:
 
-# [Portal](#tab/Portal)
+    ```console
+    terraform output -raw frontDoorEndpointHostName
+    ```
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Paste the endpoint into a browser:
 
-1. Select **Resource groups** from the left pane.
-
-1. Select the FrontDoor resource group.
-
-1. Select the Front Door you created and you'll be able to see the endpoint hostname. Copy the hostname and paste it on to the address bar of a browser. Press enter and your request will automatically get routed to the web app.
-
-    :::image type="content" source="./media/create-front-door-bicep/front-door-bicep-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content.":::
-
-# [Azure CLI](#tab/CLI)
-
-Run the following command:
-
-```azurecli-interactive
-az resource list --resource-group FrontDoor
-```
-
-# [PowerShell](#tab/PowerShell)
-
-Run the following command:
-
-```azurepowershell-interactive
-Get-AzResource -ResourceGroupName FrontDoor
-```
-
----
+    :::image type="content" source="./media/create-front-door-bicep/front-door-bicep-web-app-origin-success.png" alt-text="Screenshot of the sample app.":::
 
 ## Clean up resources
 
