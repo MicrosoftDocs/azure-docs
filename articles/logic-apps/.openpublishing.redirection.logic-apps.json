@@ -363,17 +363,17 @@
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md",
             "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md",
             "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md",
             "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-connector-file.md",
