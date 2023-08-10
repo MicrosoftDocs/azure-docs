@@ -22,7 +22,7 @@ These effects are currently supported in a policy definition:
 - [DenyAction (preview)](#denyaction-preview)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
-- [Manual (preview)](#manual-preview)
+- [Manual](#manual)
 - [Modify](#modify)
 
 ## Interchanging effects
@@ -181,7 +181,7 @@ definitions as `constraintTemplate` is deprecated.
     template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
     passed via **values** from Azure Policy. For more information, go to [Gatekeeper constraints](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraints).
 - **constraintInfo** (optional)
-  - Can't be used with `constraint`, `constraintTemplate`, `apiGroups`, or `kinds`.
+  - Can't be used with `constraint`, `constraintTemplate`, `apiGroups`, `kinds`, `scope`, `namespaces`, `excludedNamespaces`, or `labelSelector`.
   - If `constraintInfo` isn't provided, the constraint can be generated from `templateInfo` and policy.
   - **sourceType** (required)
     - Defines the type of source for the constraint. Allowed values: _PublicURL_ or _Base64Encoded_.
@@ -195,17 +195,19 @@ definitions as `constraintTemplate` is deprecated.
     to limit policy evaluation to.
   - An empty or missing value causes policy evaluation to include all namespaces not
     defined in _excludedNamespaces_.
-- **excludedNamespaces** (required)
+- **excludedNamespaces** (optional)
   - An _array_ of
     [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
     to exclude from policy evaluation.
-- **labelSelector** (required)
+- **labelSelector** (optional)
   - An _object_ that includes _matchLabels_ (object) and _matchExpression_ (array) properties to
     allow specifying which Kubernetes resources to include for policy evaluation that matched the
     provided
     [labels and selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/).
   - An empty or missing value causes policy evaluation to include all labels and selectors, except
     namespaces defined in _excludedNamespaces_.
+- **scope** (optional)
+  - A _string_ that includes the [scope](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#the-match-field) property to allow specifying if cluster-scoped or namespaced-scoped resources are matched. 
 - **apiGroups** (required when using _templateInfo_)
   - An _array_ that includes the
     [API groups](https://kubernetes.io/docs/reference/using-api/#api-groups) to match. An empty
@@ -217,8 +219,7 @@ definitions as `constraintTemplate` is deprecated.
     of Kubernetes object to limit evaluation to.
   - Defining `["*"]` for _kinds_ is disallowed.
 - **values** (optional)
-  - Defines any parameters and values to pass to the Constraint. Each value must exist in the
-    Constraint template CRD.
+  - Defines any parameters and values to pass to the Constraint. Each value must exist and match a property in the validation openAPIV3Schema section of the Constraint template CRD.
 
 ### Audit example
 
@@ -709,12 +710,12 @@ When **enforcementMode** is **Disabled**_**, resources are still evaluated. Logg
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
 
-## Manual (preview)
+## Manual
 
-The new `manual` (preview) effect enables you to self-attest the compliance of resources or scopes. Unlike other policy definitions that actively scan for evaluation, the Manual effect allows for manual changes to the compliance state. To change the compliance of a resource or scope targeted by a manual policy, you'll need to create an [attestation](attestation-structure.md). The [best practice](attestation-structure.md#best-practices) is to design manual policies that target the scope that defines the boundary of resources whose compliance need attesting.
+The new `manual` effect enables you to self-attest the compliance of resources or scopes. Unlike other policy definitions that actively scan for evaluation, the Manual effect allows for manual changes to the compliance state. To change the compliance of a resource or scope targeted by a manual policy, you'll need to create an [attestation](attestation-structure.md). The [best practice](attestation-structure.md#best-practices) is to design manual policies that target the scope that defines the boundary of resources whose compliance need attesting.
 
 > [!NOTE]
-> During Public Preview, support for manual policy is available through various Microsoft Defender
+> Support for manual policy is available through various Microsoft Defender
 > for Cloud regulatory compliance initiatives. If you are a Microsoft Defender for Cloud [Premium tier](https://azure.microsoft.com/pricing/details/defender-for-cloud/) customer, refer to their experience overview.
 
 Currently, the following regulatory policy initiatives include policy definitions containing the manual effect:

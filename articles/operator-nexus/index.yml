@@ -8,7 +8,7 @@ metadata:
   description: Azure Operator Nexus, the next-generation hybrid cloud platform for operators, 
    proven to run network-intensive workloads and mission-critical applications under the stringent  security, 
    resiliency, observability, manageability, and performance required by telecommunication' operators. 
-   Learn how to deploy, manage and use Operator Nexus with these concepts, quickstarts, and how-to guides.
+   Learn how to deploy, manage and use Operator Nexus with these concepts and quickstarts.
   ms.service: azure-operator-nexus
   ms.topic: landing-page
   author: jashobhit
@@ -30,6 +30,12 @@ landingContent:
         links:
            - text: Resource types
              url: concepts-resource-types.md
+           - text: Compute
+             url: concepts-compute.md
+           - text: Storage
+             url: concepts-storage.md
+           - text: Nexus Kubernetes overview
+             url: concepts-nexus-kubernetes-cluster.md
            - text: Observability
              url: concepts-observability.md
            - text: Frequently asked questions
@@ -72,10 +78,20 @@ landingContent:
              url: howto-monitor-virtualized-network-functions-virtual-machines.md
            - text: Cluster metrics configuration management
              url: howto-cluster-metrics-configuration-management.md
+#
+  # Card
+  - title: References
+    linkLists:
       - linkListType: reference
         links:
            - text: List of metrics collected
              url: List-of-metrics-collected.md
+           - text: Near-edge Compute
+             url: reference-near-edge-compute.md
+           - text: Near-edge storage
+             url: reference-near-edge-storage.md
+           - text: Limits & quotas
+             url: reference-limits-and-quotas.md
 #
   # Card
 # - title: How-to guides

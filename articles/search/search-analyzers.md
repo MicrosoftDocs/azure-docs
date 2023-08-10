@@ -2,13 +2,12 @@
 title: Analyzers for linguistic and text processing
 titleSuffix: Azure Cognitive Search
 description: Assign analyzers to searchable text fields in an index to replace default standard Lucene with custom, predefined or language-specific alternatives.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/24/2022
+ms.date: 07/19/2023
 ms.custom: devx-track-csharp
 ---
 
@@ -25,7 +24,7 @@ Analysis applies to `Edm.String` fields that are marked as "searchable", which i
 
 For fields of this configuration, analysis occurs during indexing when tokens are created, and then again during query execution when queries are parsed and the engine scans for matching tokens. A match is more likely to occur when the same analyzer is used for both indexing and queries, but you can set the analyzer for each workload independently, depending on your requirements.
 
-Query types that are *not* full text search, such as filters or fuzzy search, don't go through the analysis phase on the query side. Instead, the parser sends those strings directly to the search engine, using the pattern that you provide as the basis for the match. Typically, these query forms require whole-string tokens to make pattern matching work. To ensure  whole terms tokens during indexing, you might need [custom analyzers](index-add-custom-analyzers.md). For more information about when and why query terms are analyzed, see [Full text search in Azure Cognitive Search](search-lucene-query-architecture.md).
+Query types that are *not* full text search, such as filters or fuzzy search, don't go through the analysis phase on the query side. Instead, the parser sends those strings directly to the search engine, using the pattern that you provide as the basis for the match. Typically, these query forms require whole-string tokens to make pattern matching work. To ensure whole term tokens are preserved during indexing, you might need [custom analyzers](index-add-custom-analyzers.md). For more information about when and why query terms are analyzed, see [Full text search in Azure Cognitive Search](search-lucene-query-architecture.md).
 
 For more background on lexical analysis, listen to the following video clip for a brief explanation.
 

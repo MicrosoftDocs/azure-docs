@@ -1,12 +1,11 @@
 ---
-title: Agentless Container Posture Management | Defender for Cloud in the field 
-titleSuffix: Microsoft Defender for Cloud
-description: Learn about Agentless Container Posture Management
+title: Agentless container posture management | Defender for Cloud in the field 
+description: Learn about agentless container posture management
 ms.topic: reference
 ms.date: 06/13/2023
 ---
 
-# Agentless Container Posture Management
+# Agentless container posture management
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Shani Freund Menscher joins Yuri Diogenes to talk about a new capability in Defender CSPM called Agentless Container Posture Management. Shani explains how Agentless Container Posture Management works, how to onboard, and how to leverage this feature to obtain more insights into the container's security. Shani also demonstrates how to visualize this information using Attack Path and Cloud Security Explorer.
 
@@ -23,7 +22,7 @@ ms.date: 06/13/2023
 
 ## Recommended resources
 
-- Learn more about  [Agentless Container Posture](concept-agentless-containers.md)
+- Learn more about  [agentless container posture](concept-agentless-containers.md)
 - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
 - Learn more about [Microsoft Security](https://msft.it/6002T9HQY)
 

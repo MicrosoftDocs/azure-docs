@@ -176,7 +176,7 @@
           href: app-service-key-vault-references.md
         - name: End-to-end tutorials
           items:
-            - name: Connect to Cognitive Services with secrets in Key Vault
+            - name: Connect to Azure AI services with secrets in Key Vault
               items: 
               - name: Use .NET
                 href: tutorial-connect-msi-key-vault.md
@@ -338,6 +338,8 @@
           href: web-sites-traffic-manager.md
         - name: About hybrid connections
           href: app-service-hybrid-connections.md
+        - name: Real-time web apps
+          href: ../azure-web-pubsub/howto-integrate-app-service.md?toc=/azure/app-service/toc.json
     - name: Azure Policy built-ins reference
       displayName: samples, policies, definitions
       href: ./policy-reference.md

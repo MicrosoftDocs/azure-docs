@@ -19,7 +19,10 @@ ms.author: jacobjaygbay
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-In this article, you learn about running Oracle solutions using the Azure infrastructure. 
+In this article, you learn about running Oracle solutions using the Azure infrastructure.
+
+> [!Important]
+> Oracle RAC and Oracle RAC OneNode are not supported in Azure Bare Metal Infrastructure.
 
 ## Oracle databases on Azure infrastructure
 Oracle supports running its Database 12.1 and higher Standard and Enterprise editions in Azure on VM images based on Oracle Linux. You can run Oracle databases on Azure infrastructure using Oracle Database on Oracle Linux images available in the Azure Marketplace. 
@@ -90,7 +93,7 @@ Different [backup strategies](oracle-database-backup-strategies.md) are availabl
 - Using [Azure backup](oracle-database-backup-azure-backup.md) 
 - Using [Oracle RMAN Streaming data](oracle-rman-streaming-backup.md) backup
 ## Deploy Oracle applications on Azure
-Use Terraform templates to set up Azure infrastructure and install Oracle applications. For more information, see [Terraform on Azure](https://learn.microsoft.com/azure/developer/terraform/?branch=main&branchFallbackFrom=pr-en-us-234143).
+Use Terraform templates to set up Azure infrastructure and install Oracle applications. For more information, see [Terraform on Azure](/azure/developer/terraform).
 
 Oracle has certified the following applications to run in Azure when connecting to an Oracle database by using the Azure with Oracle Cloud interconnect solution:
 - E-Business Suite
@@ -105,7 +108,7 @@ According to Oracle Support, JD Edwards EnterpriseOne versions 9.2 and above are
 ## Licensing
 Deployment of Oracle solutions in Azure is based on a bring-your-own-license model. This model assumes that you have licenses to use Oracle software and that you have a current support agreement in place with Oracle. 
 Microsoft Azure is an authorized cloud environment for running Oracle Database. The Oracle Core Factor table isn't applicable when licensing Oracle databases in the cloud. Instead, when using VMs with Hyper-Threading Technology enabled for Enterprise Edition databases, count two vCPUs as equivalent to one Oracle Processor license if hyperthreading is enabled, as stated in the policy document. The policy details can be found at [Licensing Oracle Software in the Cloud Computing Environment](https://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).  
-Oracle databases generally require higher memory and I/O. For this reason, we recommend [Memory Optimized VMs](https://learn.microsoft.com/azure/virtual-machines/sizes-memory) for these workloads. To optimize your workloads further, we recommend [Constrained Core vCPUs](https://learn.microsoft.com/azure/virtual-machines/constrained-vcpu?branch=main) for Oracle Database workloads that require high memory, storage, and I/O bandwidth, but not a high core count.
+Oracle databases generally require higher memory and I/O. For this reason, we recommend [Memory Optimized VMs](/azure/virtual-machines/sizes-memory) for these workloads. To optimize your workloads further, we recommend [Constrained Core vCPUs](/azure/virtual-machines/constrained-vcpu) for Oracle Database workloads that require high memory, storage, and I/O bandwidth, but not a high core count.
 When you migrate Oracle software and workloads from on-premises to Microsoft Azure, Oracle provides license mobility as stated in [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/cloud/azure/interconnect/faq/). 
 ## Next steps
 You now have an overview of current Oracle databases and solutions based on VM images in Microsoft Azure. Your next step is to deploy your first Oracle database on Azure.

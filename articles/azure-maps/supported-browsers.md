@@ -12,7 +12,7 @@ ms.custom: devx-track-js
 
 # Web SDK supported browsers
 
-The Azure Maps Web SDK provides a helper function called [atlas.isSupported](/javascript/api/azure-maps-control/atlas#issupported-boolean-). This function detects whether a web browser has the minimum set of WebGL features required to support loading and rendering the map control. Here's an example of how to use the function:
+The Azure Maps Web SDK provides a helper function called [atlas.isSupported]. This function detects whether a web browser has the minimum set of WebGL features required to support loading and rendering the map control. Here's an example of how to use the function:
 
 ```JavaScript
 if (!atlas.isSupported()) {
@@ -33,7 +33,7 @@ The Azure Maps Web SDK supports the following desktop browsers:
 - Mozilla Firefox  (current and previous version)
 - Apple Safari (macOS X) (current and previous version)
 
-See also [Target legacy browsers](#Target-Legacy-Browsers) later in this article.
+See also [Target legacy browsers] later in this article.
 
 ## Mobile
 
@@ -48,17 +48,17 @@ The Azure Maps Web SDK supports the following mobile browsers:
   - Current version of Chrome for iOS
 
 > [!TIP]
-> If you're embedding a map inside a mobile application by using a WebView control, you might prefer to use the [npm package of the Azure Maps Web SDK](https://www.npmjs.com/package/azure-maps-control) instead of referencing the version of the SDK that's hosted on Azure Content Delivery Network. This approach reduces loading time because the SDK is already be on the user's device and doesn't need to be downloaded at run time.
+> If you're embedding a map inside a mobile application by using a WebView control, you might prefer to use the [npm package of the Azure Maps Web SDK] instead of referencing the version of the SDK that's hosted on Azure Content Delivery Network. This approach reduces loading time because the SDK is already be on the user's device and doesn't need to be downloaded at run time.
 
 ## Node.js
 
 The following Web SDK modules are also supported in Node.js:
 
-- Services module ([documentation](how-to-use-services-module.md) | [npm module](https://www.npmjs.com/package/azure-maps-rest))
+- Services module ([documentation] | [npm module])
 
 ## <a name="Target-Legacy-Browsers"></a>Target legacy browsers
 
-You might want to target older browsers that don't support WebGL or that have only limited support for it. In such cases, you can use Azure Maps services together with an open-source map control like [Leaflet](https://leafletjs.com/).
+You might want to target older browsers that don't support WebGL or that have only limited support for it. In such cases, you can use Azure Maps services together with an open-source map control like [Leaflet].
 
 The [Render Azure Maps in Leaflet] Azure Maps sample shows how to render Azure Maps Raster Tiles in the Leaflet JS map control. This sample uses the open source [Azure Maps Leaflet plugin]. For the source code for this sample, see [Render Azure Maps in Leaflet sample source code].
 
@@ -77,13 +77,21 @@ For a list of third-party map control plug-ins, see [Azure Maps community - Open
 Learn more about the Azure Maps Web SDK:
 
 > [!div class="nextstepaction"]
-> [Map control](how-to-use-map-control.md)
+> [Map control]
 
 > [!div class="nextstepaction"]
-> [Services module](how-to-use-services-module.md)
+> [Services module]
 
-[Render Azure Maps in Leaflet]: https://samples.azuremaps.com/third-party-map-controls/render-azure-maps-in-leaflet
-[Render Azure Maps in Leaflet sample source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Third%20Party%20Map%20Controls/Render%20Azure%20Maps%20in%20Leaflet/Render%20Azure%20Maps%20in%20Leaflet.html
+[atlas.isSupported]: /javascript/api/azure-maps-control/atlas#issupported-boolean-
+[Azure Maps community - Open-source projects]: open-source-projects.md#third-party-map-control-plugins
 [Azure Maps Leaflet plugin]: https://github.com/azure-samples/azure-maps-leaflet
 [Azure Maps Samples]: https://samples.azuremaps.com/?search=leaflet
-[Azure Maps community - Open-source projects]: open-source-projects.md#third-part-map-control-plugins
+[documentation]: how-to-use-services-module.md
+[Leaflet]: https://leafletjs.com
+[Map control]: how-to-use-map-control.md
+[npm module]: https://www.npmjs.com/package/azure-maps-rest
+[npm package of the Azure Maps Web SDK]: https://www.npmjs.com/package/azure-maps-control
+[Render Azure Maps in Leaflet sample source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Third%20Party%20Map%20Controls/Render%20Azure%20Maps%20in%20Leaflet/Render%20Azure%20Maps%20in%20Leaflet.html
+[Render Azure Maps in Leaflet]: https://samples.azuremaps.com/third-party-map-controls/render-azure-maps-in-leaflet
+[Services module]: how-to-use-services-module.md
+[Target legacy browsers]: #Target-Legacy-Browsers

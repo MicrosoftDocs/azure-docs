@@ -5,8 +5,8 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: ivankh
 ms.topic: tutorial
+ms.custom: devx-track-azurepowershell
 ms.date: 06/12/2023
-
 ---
 
 # Set up resources required to send data to Azure Monitor Logs using the Logs Ingestion API
@@ -533,4 +533,3 @@ $VerbosePreference                     = "SilentlyContinue"  # "Continue"
 
 - [Learn more about data collection rules](../essentials/data-collection-rule-overview.md)
 - [Learn more about writing transformation queries](../essentials//data-collection-transformations.md)
-

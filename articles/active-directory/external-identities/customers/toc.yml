@@ -33,11 +33,11 @@ items:
             - name: Angular
               items:
                 - name: Sign in users
-                  href: sample-single-page-application-angular.md
+                  href: sample-single-page-app-angular-sign-in.md
             - name: React
               items:
                 - name: Sign in users
-                  href: sample-single-page-application-react.md
+                  href: sample-single-page-app-react-sign-in.md
         - name: Web app
           items:
             - name: Node.js
@@ -69,10 +69,16 @@ items:
               href: how-to-desktop-app-electron-sample-sign-in.md
             - name: .NET MAUI - sign in users
               href: how-to-desktop-app-maui-sample-sign-in.md
+            - name: .NET WPF - sign in users
+              href: sample-desktop-wpf-dotnet-sign-in.md
         - name: Mobile app
           items:
             - name: Android (.NET MAUI) - sign in users
               href: how-to-mobile-app-maui-sample-sign-in.md
+        - name: Command-line interface (CLI) app
+          items:
+            - name: Node.js - sign in users
+              href: sample-cli-app-node-sign-in-users.md
 - name: Tutorials
   expanded: true
   items: 
@@ -97,25 +103,25 @@ items:
               - name: Sign in users
                 items:
                   - name: Prepare tenant
-                    href: how-to-single-page-application-react-prepare-tenant.md
+                    href: tutorial-single-page-app-react-sign-in-prepare-tenant.md
                   - name: Prepare app
-                    href: how-to-single-page-application-react-prepare-app.md
+                    href: tutorial-single-page-app-react-sign-in-prepare-app.md
+                  - name: Configure app for authentication
+                    href: tutorial-single-page-app-react-sign-in-configure-authentication.md 
                   - name: Sign in and sign out
-                    href: how-to-single-page-application-react-sign-in-out.md
+                    href: tutorial-single-page-app-react-sign-in-sign-out.md
       - name: Web app
         items: 
           - name: Node/Express.js
             items:
               - name: Sign in users
                 items:
-                  - name: Overview
-                    href: how-to-web-app-node-sign-in-overview.md
                   - name: Prepare tenant 
-                    href: how-to-web-app-node-sign-in-prepare-tenant.md
+                    href: tutorial-web-app-node-sign-in-prepare-tenant.md
                   - name: Prepare app 
-                    href: how-to-web-app-node-sign-in-prepare-app.md
+                    href: tutorial-web-app-node-sign-in-prepare-app.md
                   - name: Add sign-in and sign-out
-                    href: how-to-web-app-node-sign-in-sign-in-out.md
+                    href: tutorial-web-app-node-sign-in-sign-out.md
                   - name: Use client certificate
                     href: how-to-web-app-node-use-certificate.md 
                   - name: Use role-based access control
@@ -147,14 +153,10 @@ items:
         items: 
           - name: Protect ASP.NET API
             items:
-              - name: Overview
-                href: how-to-protect-web-api-dotnet-core-overview.md
-              - name: Prepare the API
-                href: how-to-protect-web-api-dotnet-core-prepare-api.md
-              - name: Protect API endpoints
-                href: how-to-protect-web-api-dotnet-core-protect-endpoints.md
-              - name: Test the API
-                href: how-to-protect-web-api-dotnet-core-test-api.md
+              - name: Build a protected API 
+                href: tutorial-protect-web-api-dotnet-core-build-app.md
+              - name: Test protected API 
+                href: tutorial-protect-web-api-dotnet-core-test-api.md
       - name: Browserless app
         items: 
           - name: Node.js
@@ -169,29 +171,21 @@ items:
                     href: how-to-browserless-app-node-sign-in-prepare-app.md
                   - name: Add sign-in and sign-out
                     href: how-to-browserless-app-node-sign-in-sign-out.md
-          - name: .NET​ - sign in users
+          - name: .NET​
             items:
-              - name: Overview
-                href: how-to-browserless-app-dotnet-sign-in-overview.md
               - name: Prepare tenant 
-                href: how-to-browserless-app-dotnet-sign-in-prepare-tenant.md
-              - name: Prepare app 
-                href: how-to-browserless-app-dotnet-sign-in-prepare-app.md
-              - name: Add sign-in
-                href: how-to-browserless-app-dotnet-sign-in-sign-in.md
+                href: tutorial-browserless-app-dotnet-sign-in-prepare-tenant.md
+              - name: Sign in user 
+                href: tutorial-browserless-app-dotnet-sign-in-build-app.md
       - name: Daemon, service
         items: 
           - name: Node.js
-            items:
-              - name: Overview
-                href: how-to-daemon-node-call-api-overview.md
-                displayName: client credentials flow
+            items:                
               - name: Prepare tenant
-                href: how-to-daemon-node-call-api-prepare-tenant.md
-              - name: Prepare app
-                href: how-to-daemon-node-call-api-prepare-app.md 
+                href: tutorial-daemon-node-call-api-prepare-tenant.md
+                displayName: client credentials flow 
               - name: Acquire access token and call API
-                href: how-to-daemon-node-call-api-call-api.md
+                href: tutorial-daemon-node-call-api-build-app.md
           - name: .NET
             items:
               - name: Prepare tenant
@@ -208,6 +202,13 @@ items:
                 href: tutorial-desktop-app-maui-sign-in-prepare-app.md
               - name: Sign in and sign out
                 href: tutorial-desktop-app-maui-sign-in-sign-out.md
+          - name: .NET WPF
+            items:
+              - name: Prepare tenant
+                href: tutorial-desktop-wpf-dotnet-sign-in-prepare-tenant.md
+              - name: Sign in and sign out
+                href: tutorial-desktop-wpf-dotnet-sign-in-build-app.md
+                displayName: Windows Presentation Form
       - name: Mobile
         items: 
         - name: .NET MAUI
@@ -218,6 +219,16 @@ items:
             href: tutorial-mobile-app-maui-sign-in-prepare-app.md
           - name: Sign in and sign out
             href: tutorial-mobile-app-maui-sign-in-sign-out.md
+      - name: Command-line interface (CLI) app
+        items:
+          - name: Node.js - sign in users
+            items:
+             - name: Prepare tenant
+               href: tutorial-cli-app-node-sign-in-prepare-tenant.md
+             - name: Prepare app
+               href: tutorial-cli-app-node-sign-in-prepare-app.md
+             - name: Sign in users
+               href: tutorial-cli-app-node-sign-in-sign-out.md
 - name: Concepts
   items: 
     - name: Planning for customer identity and access

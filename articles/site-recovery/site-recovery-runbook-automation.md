@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 05/26/2023
+ms.date: 08/01/2023
 ---
 
 # Add Azure Automation runbooks to recovery plans
@@ -57,18 +57,19 @@ When a script runs, it injects a recovery plan context to the runbook. The conte
 
 The following example shows a context variable:
 
-```
-{"RecoveryPlanName":"hrweb-recovery",
+```json
+{
+"RecoveryPlanName":"hrweb-recovery",
 "FailoverType":"Test",
 "FailoverDirection":"PrimaryToSecondary",
 "GroupId":"1",
 "VmMap":{"7a1069c6-c1d6-49c5-8c5d-33bfce8dd183":
-	{ "SubscriptionId":"7a1111111-c1d6-49c5-8c5d-111ce8dd183",
-	"ResourceGroupName":"ContosoRG",
-	"CloudServiceName":"pod02hrweb-Chicago-test",
-	"RoleName":"Fabrikam-Hrweb-frontend-test",
-	"RecoveryPointId":"TimeStamp"}
-	}
+    { "SubscriptionId":"7a1111111-c1d6-49c5-8c5d-111ce8dd183",
+    "ResourceGroupName":"ContosoRG",
+    "CloudServiceName":"pod02hrweb-Chicago-test",
+    "RoleName":"Fabrikam-Hrweb-frontend-test",
+    "RecoveryPointId":"TimeStamp"}
+    }
 }
 ```
 
@@ -134,7 +135,7 @@ In this example, a script takes the input of a Network Security Group (NSG) and 
 
 1. So that the script can detect which recovery plan is running, use this recovery plan context:
 
-    ```
+    ```powershell
     workflow AddPublicIPAndNSG {
         param (
               [parameter(Mandatory=$false)]
@@ -142,42 +143,44 @@ In this example, a script takes the input of a Network Security Group (NSG) and 
         )
 
         $RPName = $RecoveryPlanContext.RecoveryPlanName
+    }
     ```
 
-2. Note the NSG name and resource group. You use these variables as inputs for recovery plan scripts. 
+1. Note the NSG name and resource group. You use these variables as inputs for recovery plan scripts.
+
 1. In the Automation account assets. create a variable to store the NSG name. Add a prefix to the variable name with the name of the recovery plan.
 
-	![Create an NSG name variable](media/site-recovery-runbook-automation-new/var1.png)
+    ![Create an NSG name variable](media/site-recovery-runbook-automation-new/var1.png)
 
 2. Create a variable to store the resource group name for the NSG resource. Add a prefix to the variable name with the name of the recovery plan.
 
-	![Create an NSG resource group name](media/site-recovery-runbook-automation-new/var2.png)
+    ![Create an NSG resource group name](media/site-recovery-runbook-automation-new/var2.png)
 
 
-3.	In the script, use this reference code to get the variable values:
+3. In the script, use this reference code to get the variable values:
 
-	```
-	$NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
-	$NSGRGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSGRG"
+    ```powershell
+    $NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
+    $NSGRGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSGRG"
 
-	$NSGnameVar = Get-AutomationVariable -Name $NSGValue
-	$RGnameVar = Get-AutomationVariable -Name $NSGRGValue
-	```
+    $NSGnameVar = Get-AutomationVariable -Name $NSGValue
+    $RGnameVar = Get-AutomationVariable -Name $NSGRGValue
+    ```
 
-4.	Use the variables in the runbook to apply the NSG to the network interface of the failed-over VM:
+4. Use the variables in the runbook to apply the NSG to the network interface of the failed-over VM:
 
-	```
- 	InlineScript {
- 	if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
-			$NSG = Get-AzureRmNetworkSecurityGroup -Name $Using:NSGname -ResourceGroupName $Using:NSGRGname
-			Write-output $NSG.Id
-			#Apply the NSG to a network interface
-			#$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-			#Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
-			#  -AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $NSG
-		}
-	}
-	```
+    ```powershell
+    InlineScript {
+    if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
+            $NSG = Get-AzureRmNetworkSecurityGroup -Name $Using:NSGname -ResourceGroupName $Using:NSGRGname
+            Write-output $NSG.Id
+            #Apply the NSG to a network interface
+            #$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+            #Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+            #  -AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $NSG
+        }
+    }
+    ```
 
 
 For each recovery plan, create independent variables so that you can reuse the script. Add a prefix by using the recovery plan name. 
@@ -200,48 +203,48 @@ We do this by specifying multiple values, using Azure PowerShell.
 
 1. In PowerShell, sign in to your Azure subscription:
 
-	```
-	Connect-AzureRmAccount
-	$sub = Get-AzureRmSubscription -Name <SubscriptionName>
-	$sub | Select-AzureRmSubscription
-	```
+    ```powershell
+    Connect-AzureRmAccount
+    $sub = Get-AzureRmSubscription -Name <SubscriptionName>
+    $sub | Select-AzureRmSubscription
+    ```
 
 2. To store the parameters, create the complex variable using the name of the recovery plan:
 
-	```
-	$VMDetails = @{"VMGUID"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"};"VMGUID2"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"}}
-		New-AzureRmAutomationVariable -ResourceGroupName <RG of Automation Account> -AutomationAccountName <AA Name> -Name <RecoveryPlanName> -Value $VMDetails -Encrypted $false
-	```
+    ```powershell
+    $VMDetails = @{"VMGUID"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"};"VMGUID2"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"}}
+        New-AzureRmAutomationVariable -ResourceGroupName <RG of Automation Account> -AutomationAccountName <AA Name> -Name <RecoveryPlanName> -Value $VMDetails -Encrypted $false
+    ```
 
 3. In this complex variable, **VMDetails** is the VM ID for the protected VM. To get the VM ID, in the Azure portal, view the VM properties. The following screenshot shows a variable that stores the details of two VMs:
 
-	![Use the VM ID as the GUID](media/site-recovery-runbook-automation-new/vmguid.png)
+    ![Use the VM ID as the GUID](media/site-recovery-runbook-automation-new/vmguid.png)
 
 4. Use this variable in your runbook. If the indicated VM GUID is found in the recovery plan context, apply the NSG on the VM:
 
-	```
-	$VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
-	```
+    ```powershell
+    $VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
+    ```
 
 4. In your runbook, loop through the VMs of the recovery plan context. Check whether the VM exists in **$VMDetailsObj**. If it exists, access the properties of the variable to apply the NSG:
 
-	```
-		$VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
-		$vmMap = $RecoveryPlanContext.VmMap
+    ```powershell
+        $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
+        $vmMap = $RecoveryPlanContext.VmMap
 
-		foreach($VMID in $VMinfo) {
-			$VMDetails = $VMDetailsObj[$VMID].ToObject([hashtable]);
-			Write-output $VMDetails
-			if ($VMDetails -ne $Null) { #If the VM exists in the context, this will not be Null
-				$VM = $vmMap.$VMID
-				# Access the properties of the variable
-				$NSGname = $VMDetails.NSGName
-				$NSGRGname = $VMDetails.NSGResourceGroupName
+        foreach ($VMID in $VMinfo) {
+            $VMDetails = $VMDetailsObj[$VMID].ToObject([hashtable]);
+            Write-output $VMDetails
+            if ($VMDetails -ne $Null) { #If the VM exists in the context, this will not be Null
+                $VM = $vmMap.$VMID
+                # Access the properties of the variable
+                $NSGname = $VMDetails.NSGName
+                $NSGRGname = $VMDetails.NSGResourceGroupName
 
-				# Add code to apply the NSG properties to the VM
-			}
-		}
-	```
+                # Add code to apply the NSG properties to the VM
+            }
+        }
+    ```
 
 You can use the same script for different recovery plans. Enter different parameters by storing the value that corresponds to a recovery plan in different variables.
 

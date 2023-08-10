@@ -4,7 +4,7 @@ description: Quickly get an Oracle Golden Gate up and running in your Azure envi
 author: jjaygbay1
 ms.service: virtual-machines
 ms.subservice: oracle
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018

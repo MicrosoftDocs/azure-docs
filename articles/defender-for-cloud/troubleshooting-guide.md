@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for Cloud troubleshooting guide
+title: Troubleshooting guide
 description: This guide is for IT professionals, security analysts, and cloud admins who need to troubleshoot Microsoft Defender for Cloud related issues.
 author: dcurwin
 ms.author: dacurwin

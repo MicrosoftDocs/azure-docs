@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) enables SSO by setting a session cookie when a
 
 ## SSO between browser tabs for the same app
 
-When a user has an application open in several tabs and signs in on one of them, they can be signed into the same app open on other tabs without being prompted. To do so, you'll need to set the *cacheLocation* in MSAL.js configuration object to `localStorage` as shown in the following example:
+When a user has an application open in several tabs and signs in on one of them, they can be signed into the same app open on other tabs without being prompted. To do so, you need to set the *cacheLocation* in MSAL.js configuration object to `localStorage` as shown in the following example:
 
 ```javascript
 const config = {
@@ -49,9 +49,40 @@ When a user authenticates, a session cookie is set on the Azure AD domain in the
 
 To improve performance and ensure that the authorization server will look for the correct account session, you can pass one of the following options in the request object of the `ssoSilent` method to obtain the token silently.
 
-- Session ID `sid` (which can be retrieved from `idTokenClaims` of an `account` object)
-- `login_hint` (which can be retrieved from the `account` object username property or the `upn` claim in the ID token) (if your app is authenticating users with B2C, see: [Configure B2C user-flows to emit username in ID tokens](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/FAQ.md#why-is-getaccountbyusername-returning-null-even-though-im-signed-in) )
-- `account` (which can be retrieved from using one the [account methods](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/login-user.md#account-apis))
+- `login_hint`, which can be retrieved from the `account` object username property or the `upn` claim in the ID token. If your app is authenticating users with B2C, see: [Configure B2C user-flows to emit username in ID tokens](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/FAQ.md#why-is-getaccountbyusername-returning-null-even-though-im-signed-in)
+- Session ID, `sid`, which can be retrieved from `idTokenClaims` of an `account` object. 
+- `account`, which can be retrieved from using one the [account methods](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/login-user.md#account-apis)
+
+
+ We recommended to using the `login_hint` [optional ID token claim](optional-claims-reference.md#v10-and-v20-optional-claims-set) provided to `ssoSilent` as `loginHint` as it is the most reliable account hint of silent and interactive requests.
+
+
+#### Using a login hint
+
+The `login_hint` optional claim provides a hint to Azure AD about the user account attempting to sign in. To bypass the account selection prompt typically shown during interactive authentication requests, provide the `loginHint` as shown:
+
+```javascript
+const silentRequest = {
+    scopes: ["User.Read", "Mail.Read"],
+    loginHint: "user@contoso.com"
+};
+
+try {
+    const loginResponse = await msalInstance.ssoSilent(silentRequest);
+} catch (err) {
+    if (err instanceof InteractionRequiredAuthError) {
+        const loginResponse = await msalInstance.loginPopup(silentRequest).catch(error => {
+            // handle error
+        });
+    } else {
+        // handle error
+    }
+}
+```
+
+In this example, `loginHint` contains the user's email or UPN, which is used as a hint during interactive token requests. The hint can be passed between applications to facilitate silent SSO, where application A can sign in a user, read the `loginHint`, and then send the claim and the current tenant context to application B. Azure AD will attempt to pre-fill the sign-in form or bypass the account selection prompt and directly proceed with the authentication process for the specified user.
+
+If the information in the `login_hint` claim doesn't match any existing user, they're redirected to go through the standard sign-in experience, including account selection.  
 
 #### Using a session ID
 
@@ -75,38 +106,6 @@ const request = {
     }
 }
 ```
-
-#### Using a login hint
-
-To bypass the account selection prompt typically shown during interactive authentication requests (or for silent requests when you haven't configured the `sid` optional claim), provide a `loginHint`. In multi-tenant applications, also include a `domainHint`.
-
-```javascript
-const request = {
-  scopes: ["user.read"],
-  loginHint: "preferred_username",
-  domainHint: "preferred_tenant_id"
-};
-
-try {
-    const loginResponse = await msalInstance.ssoSilent(request);
-} catch (err) {
-    if (err instanceof InteractionRequiredAuthError) {
-        const loginResponse = await msalInstance.loginPopup(request).catch(error => {
-            // handle error
-        });
-    } else {
-        // handle error
-    }
-}
-```
-
-Get the values for `loginHint` and `domainHint` from the user's **ID token**:
-
-- `loginHint`: Use the ID token's `preferred_username` claim value.
-
-- `domainHint`: Use the ID token's `tid` claim value. Required in requests made by multi-tenant applications that use the */common* authority. Optional for other applications.
-
-For more information about login hint and domain hint, see [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
 
 #### Using an account object
 

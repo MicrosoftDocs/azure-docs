@@ -2,7 +2,6 @@
 title: Extract text from images
 titleSuffix: Azure Cognitive Search
 description: Use Optical Character Recognition (OCR) and image analysis to extract text, layout, captions, and tags from image files in Azure Cognitive Search pipelines.
-
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
@@ -154,11 +153,11 @@ This section supplements the [skill reference](cognitive-search-predefined-skill
 
 1. Add templates for OCR and Image Analysis from the portal, or copy the definitions from the [skill reference](cognitive-search-predefined-skills.md) documentation. Insert them into the skills array of your skillset definition.
 
-1. If necessary, [include multi-service key](cognitive-search-attach-cognitive-services.md) in the Cognitive Services property of the skillset. Cognitive Search makes calls to a billable Azure Cognitive Services resource for OCR and image analysis for transactions that exceed the free limit (20 per indexer per day). Cognitive Services must be in the same region as your search service.
+1. If necessary, [include multi-service key](cognitive-search-attach-cognitive-services.md) in the Azure AI services property of the skillset. Cognitive Search makes calls to a billable Azure AI services resource for OCR and image analysis for transactions that exceed the free limit (20 per indexer per day). Azure AI services must be in the same region as your search service.
 
 1. If original images are embedded in PDF or application files like PPTX or DOCX, you'll need to add a Text Merge skill if you want image output and text output together. Working with embedded images is discussed further on in this article.
 
-Once the basic framework of your skillset is created and Cognitive Services is configured, you can focus on each individual image skill, defining inputs and source context, and mapping outputs to fields in either an index or knowledge store.
+Once the basic framework of your skillset is created and Azure AI services is configured, you can focus on each individual image skill, defining inputs and source context, and mapping outputs to fields in either an index or knowledge store.
 
 > [!NOTE]
 > See [REST Tutorial: Use REST and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob.md) for an example skillset that combines image processing with downstream natural language processing. It shows how to feed skill imaging output into entity recognition and key phrase extraction.
@@ -340,14 +339,14 @@ Skill outputs include "text" (OCR), "layoutText" (OCR), "merged_content", "capti
         },
         {
             "@search.score": 1,
-            "metadata_storage_name": "Cognitive Services and Content Intelligence.pptx",
+            "metadata_storage_name": "Azure AI services and Content Intelligence.pptx",
             "text": [
                 "",
                 "Microsoft",
                 "",
                 "",
                 "",
-                "Cognitive Search and Augmentation Combining Microsoft Cognitive Services and Azure Search"
+                "Cognitive Search and Augmentation Combining Microsoft Azure AI services and Azure Search"
             ]
         }
     ]

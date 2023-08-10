@@ -3,6 +3,7 @@ description: This article provides step-by-step instructions to deploy Azure Clo
 ms.contributor: jahelmic
 ms.date: 06/29/2023
 ms.topic: article
+ms.custom: devx-track-arm-template
 title: Deploy Azure Cloud Shell in a VNET with quickstart templates
 ---
 
@@ -55,6 +56,14 @@ information, see the following articles:
 - [Use the Azure portal to create a virtual network][05]
 - [Use Azure PowerShell to create a virtual network][06]
 - [Use Azure CLI to create a virtual network][04]
+
+> [!NOTE]
+> When setting the Container subnet address prefix for the Cloud Shell subnet it's important to
+> consider the number of Cloud Shell sessions you need to run concurrently. If the number of Cloud
+> Shell sessions exceeds the available IP addresses in the container subnet, users of those sessions
+> can't connect to Cloud Shell. Increase the container subnet range to accommodate your specific
+> needs. For more information, see the _Change Network Settings_ section of
+> [Add, change, or delete a virtual network subnet][07]
 
 ### Register the resource provider
 
@@ -145,7 +154,7 @@ Fill out the form with the following information:
 | Relay Namespace Name            | Create a name that you want to assign to the Relay resource created by the template.<br>For this example, we're using `arn-cloudshell-eastus`. |
 | Azure Container Instance OID    | Fill in the value from the prerequisite information you gathered.<br>For this example, we're using `8fe7fd25-33fe-4f89-ade3-0e705fcf4370`.     |
 | Container Subnet Name           | Defaults to `cloudshellsubnet`. Enter the name of the subnet for your container.                                                               |
-| Container Subnet Address Prefix | For this example, we use `10.0.1.0/24`.                                                                                                        |
+| Container Subnet Address Prefix | For this example, we use `10.1.0.0/16`, which provides 65,543 IP addresses for Cloud Shell instances.                                          |
 | Relay Subnet Name               | Defaults to `relaysubnet`. Enter the name of the subnet containing your relay.                                                                 |
 | Relay Subnet Address Prefix     | For this example, we use `10.0.2.0/24`.                                                                                                        |
 | Storage Subnet Name             | Defaults to `storagesubnet`. Enter the name of the subnet containing your storage.                                                             |
@@ -238,5 +247,7 @@ private Cloud Shell instance.
 [04]: /azure/virtual-network/quick-create-cli
 [05]: /azure/virtual-network/quick-create-portal
 [06]: /azure/virtual-network/quick-create-powershell
-[07]: https://aka.ms/cloudshell/docs/vnet/template
-[08]: https://azure.microsoft.com/resources/templates/cloud-shell-vnet-storage/
+[07]: /azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal#change-subnet-settings
+[08]: https://aka.ms/cloudshell/docs/vnet/template
+[09]: https://azure.microsoft.com/resources/templates/cloud-shell-vnet-storage/
+[10]: media/quickstart-deploy-vnet/setup-cloud-shell-storage.png

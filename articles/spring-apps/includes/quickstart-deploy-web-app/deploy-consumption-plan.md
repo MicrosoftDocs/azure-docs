@@ -2,6 +2,7 @@
 author: KarlErickson
 ms.author: xiada
 ms.service: spring-apps
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 07/11/2023
 ---
@@ -27,14 +28,14 @@ Although you use the Azure portal in later steps, you must use the Bash command 
    git clone https://github.com/Azure-Samples/ASA-Samples-Web-Application.git
    ```
 
-1. Use the following command to build the sample project:
+2. Use the following command to build the sample project with Maven:
 
    ```bash
    cd ASA-Samples-Web-Application
    ./mvnw clean package
    ```
 
-1. Use the following command to run the sample application by using Maven:
+3. Use the following command to run the sample application:
 
    ```bash
    java -jar web/target/simple-todo-web-0.0.2-SNAPSHOT.jar

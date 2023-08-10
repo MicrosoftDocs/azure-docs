@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 07/05/2023
+ms.date: 07/26/2023
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
@@ -65,6 +65,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Fabric Administrator](#fabric-administrator) | Can manage all aspects of the Fabric and Power BI products. | a9ea8996-122f-4c74-9520-8edcd192826c |
 > | [Global Administrator](#global-administrator) | Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities. | 62e90394-69f5-4237-9190-012177145e10 |
 > | [Global Reader](#global-reader) | Can read everything that a Global Administrator can, but not update anything. | f2ef992c-3afb-46b9-b7cf-a126ee74c451 |
+> | [Global Secure Access Administrator](#global-secure-access-administrator) | Create and manage all aspects of Microsoft Entra Internet Access and Microsoft Entra Private Access, including managing access to public and private endpoints. | ac434307-12b9-4fa1-a708-88bf58caabc1 |
 > | [Groups Administrator](#groups-administrator) | Members of this role can create/manage groups, create/manage groups settings like naming and expiration policies, and view groups activity and audit reports. | fdd7a751-b60b-444a-984c-02652fe8fa1c |
 > | [Guest Inviter](#guest-inviter) | Can invite guest users independent of the 'members can invite guests' setting. | 95e79109-95c0-4d8e-aee3-d01accf2d47b |
 > | [Helpdesk Administrator](#helpdesk-administrator) | Can reset passwords for non-administrators and Helpdesk Administrators. | 729827e3-9c14-49f7-bb1b-9608f156bbb8 |
@@ -115,6 +116,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [User Administrator](#user-administrator) | Can manage all aspects of users and groups, including resetting passwords for limited admins. | fe930be7-5e62-47db-91af-98c3a49a38b1 |
 > | [Virtual Visits Administrator](#virtual-visits-administrator) | Manage and share Virtual Visits information and metrics from admin centers or the Virtual Visits app. | e300d9e7-4a2b-4295-9eff-f1c78b36cc98 |
 > | [Viva Goals Administrator](#viva-goals-administrator) | Manage and configure all aspects of Microsoft Viva Goals. | 92b086b3-e367-4ef2-b869-1de128fb986e |
+> | [Viva Pulse Administrator](#viva-pulse-administrator) | Can manage all settings for Microsoft Viva Pulse app. | 87761b17-1ed2-4af3-9acd-92a150038160 |
 > | [Windows 365 Administrator](#windows-365-administrator) | Can provision and manage all aspects of Cloud PCs. | 11451d60-acb2-45eb-a7d6-43d0f0125c13 |
 > | [Windows Update Deployment Administrator](#windows-update-deployment-administrator) | Can create and manage all aspects of Windows Update deployments through the Windows Update for Business deployment service. | 32696413-001a-46ae-978c-ce0f6b3620d2 |
 > | [Yammer Administrator](#yammer-administrator) | Manage all aspects of the Yammer service. | 810a2642-a034-447f-a5e8-41beaa378541 |
@@ -630,14 +632,14 @@ Users with this role have the ability to manage Azure Active Directory Condition
 > | microsoft.directory/namedLocations/delete | Delete custom rules that define network locations |
 > | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
 > | microsoft.directory/namedLocations/basic/update | Update basic properties of custom rules that define network locations |
-> | microsoft.directory/conditionalAccessPolicies/create | Create conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/delete | Delete conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/standard/read | Read conditional access for policies |
-> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/owners/update | Update owners for conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/tenantDefault/update | Update the default tenant for conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/create | Create Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/delete | Delete Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/standard/read | Read Conditional Access for policies |
+> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/owners/update | Update owners for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/tenantDefault/update | Update the default tenant for Conditional Access policies |
 > | microsoft.directory/resourceNamespaces/resourceActions/authenticationContext/update | Update Conditional Access authentication context of Microsoft 365 role-based access control (RBAC) resource actions |
 
 ## Customer LockBox Access Approver
@@ -1015,7 +1017,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/organization/allProperties/allTasks | Read and update all properties for an organization |
 > | microsoft.directory/passwordHashSync/allProperties/allTasks | Manage all aspects of Password Hash Synchronization (PHS) in Azure AD |
 > | microsoft.directory/policies/allProperties/allTasks | Create and delete policies, and read and update all properties |
-> | microsoft.directory/conditionalAccessPolicies/allProperties/allTasks | Manage all properties of conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/allProperties/allTasks | Manage all properties of Conditional Access policies |
 > | microsoft.directory/crossTenantAccessPolicy/standard/read | Read basic properties of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/allowedCloudEndpoints/update | Update allowed cloud endpoints of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/basic/update | Update basic settings of cross-tenant access policy |
@@ -1179,7 +1181,7 @@ Users with this role **cannot** do the following:
 > | microsoft.directory/pendingExternalUserProfiles/standard/read | Read standard properties of external user profiles in the extended directory for Teams |
 > | microsoft.directory/permissionGrantPolicies/standard/read | Read standard properties of permission grant policies |
 > | microsoft.directory/policies/allProperties/read | Read all properties of policies |
-> | microsoft.directory/conditionalAccessPolicies/allProperties/read | Read all properties of conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/allProperties/read | Read all properties of Conditional Access policies |
 > | microsoft.directory/crossTenantAccessPolicy/standard/read | Read basic properties of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/default/standard/read | Read basic properties of the default cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/partners/standard/read | Read basic properties of cross-tenant access policy for partners |
@@ -1222,6 +1224,43 @@ Users with this role **cannot** do the following:
 > | microsoft.teams/allEntities/allProperties/read | Read all properties of Microsoft Teams |
 > | microsoft.virtualVisits/allEntities/allProperties/read | Read all aspects of Virtual Visits |
 > | microsoft.windows.updatesDeployments/allEntities/allProperties/read | Read all aspects of Windows Update Service |
+
+## Global Secure Access Administrator
+
+Assign the Global Secure Access Administrator role to users who need to do the following:
+
+- Create and manage all aspects of Microsoft Entra Internet Access and Microsoft Entra Private Access
+- Manage access to public and private endpoints
+
+Users with this role **cannot** do the following:
+
+- Cannot manage enterprise applications, application registrations, Conditional Access, or application proxy settings
+
+[Learn more](../../global-secure-access/overview-what-is-global-secure-access.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
+> | microsoft.directory/applicationPolicies/standard/read | Read standard properties of application policies |
+> | microsoft.directory/applications/applicationProxy/read | Read all application proxy properties |
+> | microsoft.directory/applications/owners/read | Read owners of applications |
+> | microsoft.directory/applications/policies/read | Read policies of applications |
+> | microsoft.directory/applications/standard/read | Read standard properties of applications |
+> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, excluding custom security attributes audit logs |
+> | microsoft.directory/conditionalAccessPolicies/standard/read | Read Conditional Access for policies |
+> | microsoft.directory/connectorGroups/allProperties/read | Read all properties of application proxy connector groups |
+> | microsoft.directory/connectors/allProperties/read | Read all properties of application proxy connectors |
+> | microsoft.directory/crossTenantAccessPolicy/default/standard/read | Read basic properties of the default cross-tenant access policy |
+> | microsoft.directory/crossTenantAccessPolicy/partners/standard/read | Read basic properties of cross-tenant access policy for partners |
+> | microsoft.directory/crossTenantAccessPolicy/standard/read | Read basic properties of cross-tenant access policy |
+> | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
+> | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
+> | microsoft.networkAccess/allEntities/allProperties/allTasks | Manage all aspects of Entra Network Access |
+> | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
+> | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
+> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
 ## Groups Administrator
 
@@ -2052,14 +2091,14 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 > | microsoft.directory/policies/basic/update | Update basic properties on policies |
 > | microsoft.directory/policies/owners/update | Update owners of policies |
 > | microsoft.directory/policies/tenantDefault/update | Update default organization policies |
-> | microsoft.directory/conditionalAccessPolicies/create | Create conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/delete | Delete conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/standard/read | Read conditional access for policies |
-> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/owners/update | Update owners for conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/tenantDefault/update | Update the default tenant for conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/create | Create Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/delete | Delete Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/standard/read | Read Conditional Access for policies |
+> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/owners/update | Update owners for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/tenantDefault/update | Update the default tenant for Conditional Access policies |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in Privileged Identity Management |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
 > | microsoft.directory/resourceNamespaces/resourceActions/authenticationContext/update | Update Conditional Access authentication context of Microsoft 365 role-based access control (RBAC) resource actions |
@@ -2138,9 +2177,9 @@ In | Can do
 > | microsoft.directory/policies/standard/read | Read basic properties on policies |
 > | microsoft.directory/policies/owners/read | Read owners of policies |
 > | microsoft.directory/policies/policyAppliedTo/read | Read policies.policyAppliedTo property |
-> | microsoft.directory/conditionalAccessPolicies/standard/read | Read conditional access for policies |
-> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/standard/read | Read Conditional Access for policies |
+> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for Conditional Access policies |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in Privileged Identity Management |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
@@ -2461,6 +2500,29 @@ For more information, see [Roles and permissions in Viva Goals](/viva/goals/role
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
+## Viva Pulse Administrator
+
+Assign the Viva Pulse Administrator role to users who need to do the following tasks:
+
+- Read and configure all settings of Viva Pulse
+- Read basic properties on all resources in the Microsoft 365 admin center
+- Read and configure Azure Service Health
+- Create and manage Azure support tickets
+- Read messages in Message Center in the Microsoft 365 admin center, excluding security messages
+- Read usage reports in the Microsoft 365 admin center
+
+For more information, see [Assign a Viva Pulse admin in the Microsoft 365 admin center](/viva/pulse/setup-admin-access/assign-a-viva-pulse-admin-in-m365-admin-center).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
+> | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
+> | microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports |
+> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+> | microsoft.viva.pulse/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Viva Pulse |
+
 ## Windows 365 Administrator
 
 Users with this role have global permissions on Windows 365 resources, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups.
@@ -2528,7 +2590,7 @@ Assign the Yammer Administrator role to users who need to do the following tasks
 - View announcements in the Message center, but not security announcements
 - View service health
 
-[Learn more](/yammer/manage-yammer-users/manage-yammer-admins)
+[Learn more](/Viva/engage/eac-key-admin-roles-permissions)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

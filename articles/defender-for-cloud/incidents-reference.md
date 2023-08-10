@@ -1,5 +1,5 @@
 ---
-title: Reference table for all incidents in Microsoft Defender for Cloud
+title: Reference table for all incidents
 description: This article lists the incidents visible in Microsoft Defender for Cloud
 ms.topic: reference
 ms.date: 06/07/2023

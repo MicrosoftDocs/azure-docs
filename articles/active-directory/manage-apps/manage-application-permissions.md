@@ -25,8 +25,6 @@ In this article, you learn how to review permissions granted to applications in 
 
 The steps in this article apply to all applications that were added to your Azure AD tenant via user or admin consent. For more information on consenting to applications, see [User and admin consent](user-admin-consent-overview.md).
 
-[!INCLUDE [portal updates](../includes/portal-update.md)]
-
 ## Prerequisites
 
 To review permissions granted to applications, you need:
@@ -43,9 +41,11 @@ Please see [Restore permissions granted to applications](restore-permissions.md)
 
 ## Review and revoke permissions
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can access the Azure portal to view the permissions granted to an app. You can revoke permissions granted by admins for your entire organization, and you can get contextual PowerShell scripts to perform other actions.
 
-To revoke application permissions granted for the entire organization:
+To revoke an application's permissions that have been granted for the entire organization:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using one of the roles listed in the prerequisites section.
 1. Select **Azure Active Directory**, and then select **Enterprise applications**.
@@ -53,7 +53,7 @@ To revoke application permissions granted for the entire organization:
 1. Select **Permissions**. 
 1. The permissions listed in the **Admin consent** tab apply to your entire organization. Choose the permission you would like to remove, select the **...** control for that permission, and then choose **Revoke permission**.
 
-To review application permissions:
+To review an application's permissions:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using one of the roles listed in the prerequisites section.
 1. Select **Azure Active Directory**, and then select **Enterprise applications**.

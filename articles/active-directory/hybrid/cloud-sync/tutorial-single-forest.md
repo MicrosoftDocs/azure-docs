@@ -58,9 +58,11 @@ If you're using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md
 
 ## Configure Azure AD Connect cloud sync
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Use the following steps to configure and start the provisioning:
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Azure Active Directory**
 1. Select **Azure AD Connect**
 1. Select **Manage cloud sync**
@@ -84,7 +86,7 @@ Use the following steps to configure and start the provisioning:
 You'll now verify that the users that you had in your on-premises directory have been synchronized and now exist in your Azure AD tenant. The sync operation may take a few hours to complete. To verify users are synchronized, follow these steps:
 
 
-1. Browse to the [Azure portal](https://portal.azure.com) and sign in with an account that has an Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com) and sign in with an account that has an Azure subscription.
 2. On the left, select **Azure Active Directory**
 3. Under **Manage**, select **Users**.
 4. Verify that the new users appear in your tenant

@@ -179,7 +179,7 @@ When you use cost analysis, you can view Azure Storage costs in graphs and table
 
 To view Azure Storage costs in cost analysis:
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Open the **Cost Management + Billing** window, select **Cost management** from the menu and then select **Cost analysis**. You can then change the scope for a specific subscription from the **Scope** dropdown.
 

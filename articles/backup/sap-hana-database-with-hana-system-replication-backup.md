@@ -48,7 +48,9 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
 
 1. Pass the custom backup user key to the script as a parameter: 
 
-   `-bk CUSTOM_BACKUP_KEY_NAME` or `-backup-key CUSTOM_BACKUP_KEY_NAME`
+   ```HDBSQL
+   -bk CUSTOM_BACKUP_KEY_NAME` or `-backup-key CUSTOM_BACKUP_KEY_NAME
+   ```
    
    If the password of this custom backup key expires, the backup and restore operations will fail.
 
@@ -58,11 +60,17 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
    hdbuserstore set SYSTEMKEY localhost:30013@SYSTEMDB <custom-user> '<some-password>'
    hdbuserstore set SYSTEMKEY <load balancer host/ip>:30013@SYSTEMDB <custom-user> '<some-password>'
    ```
-
-   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png" alt-text="Disgram explains the flow to pass the custom backup user key to the script as a parameter." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png":::
-
+   
    >[!Note]
    >You can create a custom backup key using the load balancer host/IP instead of local host to use Virtual IP (VIP).
+   >
+   >**Diagram shows the creation of the custom backup key using local host/IP.**
+   >
+   >    :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png" alt-text="Disgram explains the flow to pass the custom backup user key to the script as a parameter." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/pass-custom-backup-user-key-to-script-as-parameter-architecture.png":::
+   >
+   >**Diagram shows the creation of the custom backup key using Virtual IP (Load Balancer Frontend IP/Host).**
+   >
+   >    :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/create-custom-backup-key-using-virtual-ip.png" alt-text="Disgram explains the flow to create the custom backup key using Virtual IP." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/create-custom-backup-key-using-virtual-ip.png":::
 
 1. Create the same *Custom backup user* (with the same password) and key (in *hdbuserstore*) on both VMs/nodes.
    

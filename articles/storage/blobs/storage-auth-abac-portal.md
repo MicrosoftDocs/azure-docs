@@ -177,7 +177,7 @@ Here is what the condition looks like in code:
 
 ## Step 6: Test the condition
 
-1. In a new window, open the [Azure portal](https://portal.azure.com).
+1. In a new window, sign in to the [Azure portal](https://portal.azure.com).
 
 1. Sign in as the user you created earlier.
 

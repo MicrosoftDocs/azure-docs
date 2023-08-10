@@ -1,6 +1,5 @@
 ---
-title: Protect your Azure containers with the Defender for Containers plan on your Azure subscription - Microsoft Defender for Cloud
-titleSuffix: Microsoft Defender for Cloud
+title: Protect your Azure containers with the Defender for Containers plan on your Azure subscription
 description: Learn how to enable the Defender for Containers plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/29/2023
@@ -46,6 +45,9 @@ If you would prefer to [assign a custom workspace](/azure/defender-for-cloud/def
     :::image type="content" source="media/tutorial-enable-containers-azure/containers-enabled-aks.png" alt-text="Screenshot of the Defender plans page that shows where to toggle the containers plan switch to on is located." lightbox="media/tutorial-enable-containers-azure/containers-enabled-aks.png":::
 
 1. Select **Save**.
+
+> [!NOTE]
+> To enable or disable individual Defender for Containers capabilities, either globally or for specific resources, see [How to enable Microsoft Defender for Containers components](defender-for-containers-enable.md).
 
 ## Deploy the Defender profile in Azure
 

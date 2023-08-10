@@ -1,5 +1,6 @@
 ---
-title: Add a polygon extrusion layer to a map | Microsoft Azure Maps
+title: Add a polygon extrusion layer to a map
+titleSuffix: Microsoft Azure Maps
 description: How to add a polygon extrusion layer to the Microsoft Azure Maps Web SDK.
 author: dubiety
 ms.author: yuchungchen
@@ -10,11 +11,11 @@ ms.service: azure-maps
 
 # Add a polygon extrusion layer to the map
 
-This article shows you how to use the polygon extrusion layer to render areas of `Polygon` and `MultiPolygon` feature geometries as extruded shapes. The Azure Maps Web SDK supports rendering of Circle geometries as defined in the [extended GeoJSON schema](extend-geojson.md#circle). These circles can be transformed into polygons when rendered on the map. All feature geometries may be updated easily when wrapped with the [atlas.Shape](/javascript/api/azure-maps-control/atlas.shape) class.
+This article shows you how to use the polygon extrusion layer to render areas of `Polygon` and `MultiPolygon` feature geometries as extruded shapes. The Azure Maps Web SDK supports rendering of Circle geometries as defined in the [extended GeoJSON schema]. These circles can be transformed into polygons when rendered on the map. All feature geometries may be updated easily when wrapped with the [atlas.Shape] class.
 
 ## Use a polygon extrusion layer
 
-Connect the [polygon extrusion layer](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) to a data source. Then, loaded it on the map. The polygon extrusion layer renders the areas of a `Polygon` and `MultiPolygon` features as extruded shapes. The `height` and `base` properties of the polygon extrusion layer define the base distance from the ground and height of the extruded shape in **meters**. The following code shows how to create a polygon, add it to a data source, and render it using the Polygon extrusion layer class.
+Connect the [polygon extrusion layer] to a data source. Then, loaded it on the map. The polygon extrusion layer renders the areas of a `Polygon` and `MultiPolygon` features as extruded shapes. The `height` and `base` properties of the polygon extrusion layer define the base distance from the ground and height of the extruded shape in **meters**. The following code shows how to create a polygon, add it to a data source, and render it using the Polygon extrusion layer class.
 
 > [!NOTE]
 > The `base` value defined in the polygon extrusion layer should be less than or equal to that of the `height`.
@@ -123,7 +124,7 @@ The [Create a Choropleth Map] sample shows an extruded choropleth map of the Uni
 
 ## Add a circle to the map
 
-Azure Maps uses an extended version of the GeoJSON schema that provides a [definition for circles](./extend-geojson.md#circle). An extruded circle can be rendered on the map by creating a `point` feature with a `subType` property of `Circle` and a numbered `Radius` property representing the radius in **meters**. For example:
+Azure Maps uses an extended version of the GeoJSON schema that provides a [definition for circles]. An extruded circle can be rendered on the map by creating a `point` feature with a `subType` property of `Circle` and a numbered `Radius` property representing the radius in **meters**. For example:
 
 ```javascript
 {
@@ -205,18 +206,23 @@ The Polygon Extrusion layer has several styling options. The [Polygon Extrusion 
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Polygon](/javascript/api/azure-maps-control/atlas.data.polygon)
+> [Polygon]
 
 > [!div class="nextstepaction"]
-> [polygon extrusion layer](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer)
+> [polygon extrusion layer]
 
-Additional resources:
+More resources:
 
 > [!div class="nextstepaction"]
-> [Azure Maps GeoJSON specification extension](extend-geojson.md#circle)
+> [Azure Maps GeoJSON specification extension]
 
-[Create a Choropleth Map]: https://samples.azuremaps.com/?sample=create-a-choropleth-map
-[Polygon Extrusion Layer Options]: https://samples.azuremaps.com/?sample=polygon-extrusion-layer-options
-
+[atlas.Shape]: /javascript/api/azure-maps-control/atlas.shape
+[Azure Maps GeoJSON specification extension]: extend-geojson.md#circle
 [Create a Choropleth Map source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Demos/Create%20a%20Choropleth%20Map/Create%20a%20Choropleth%20Map.html
+[Create a Choropleth Map]: https://samples.azuremaps.com/?sample=create-a-choropleth-map
+[definition for circles]: extend-geojson.md#circle
+[extended GeoJSON schema]: extend-geojson.md#circle
 [Polygon Extrusion Layer Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Polygons/Polygon%20Extrusion%20Layer%20Options/Polygon%20Extrusion%20Layer%20Options.html
+[Polygon Extrusion Layer Options]: https://samples.azuremaps.com/?sample=polygon-extrusion-layer-options
+[polygon extrusion layer]: /javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer
+[Polygon]: /javascript/api/azure-maps-control/atlas.data.polygon

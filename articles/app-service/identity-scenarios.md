@@ -5,11 +5,11 @@ author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.topic: conceptual
-ms.date: 06/20/2023
+ms.date: 07/25/2023
 ---
 # Authentication scenarios and recommendations
 
-You can add authentication to your web app or API running in Azure App Service to limit the users who can access it.  There are several different authentication solutions available.  This article describes which authentication solution to use for specific scenarios.
+If you have a web app or an API running in Azure App Service, you can restrict access to it based on the identity of the users or applications that request it. App Service offers several authentication solutions to help you achieve this goal. In this article, you will learn about the different authentication solutions, their benefits and drawbacks, and which authentication solution to use for specific scenarios.
 
 ## Authentication solutions
 

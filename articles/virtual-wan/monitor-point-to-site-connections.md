@@ -6,7 +6,7 @@ services: virtual-wan
 author: siddomala
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 01/18/2022
+ms.date: 07/28/2023
 ms.author: siddomala
 ---
 

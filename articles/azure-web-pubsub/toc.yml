@@ -7,6 +7,10 @@
       href: overview.md
     - name: About hubs, groups, and connections
       href: key-concepts.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/web-pubsub/
+    - name: Region availability
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
 - name: Quickstarts
   expanded: true
   items:
@@ -92,10 +96,12 @@
           href: howto-client-certificate.md
         - name: Custom domain
           href: howto-custom-domain.md
-    - name: Scale
+    - name: Scale and geo-replicate
       items:
         - name: Autoscale
           href: howto-scale-autoscale.md
+        - name: Geo-replication
+          href: howto-enable-geo-replication.md
     - name: Integrate
       items: 
         - name: App Service
@@ -158,6 +164,36 @@
       href: samples-platforms-and-frameworks.md
 - name: Reference
   items:
+    - name: Client-side API
+      items: 
+        - name: Client SDK - JavaScript
+          href: reference-client-sdk-javascript.md
+        - name: Client SDK - C#
+          href: reference-client-sdk-csharp.md
+        - name: Client SDK - Python
+          href: reference-client-sdk-python.md
+        - name: Client SDK - Java
+          href: reference-client-sdk-java.md
+        # - name: WebSocket API
+        #   href: reference-client-api-websocket.md
+    - name: Server-side API
+      items:
+        - name: REST API
+          href: reference-rest-api-data-plane.md
+        - name: Server SDK - C#
+          href: reference-server-sdk-csharp.md
+        - name: Server SDK - Java
+          href: reference-server-sdk-java.md
+        - name: Server SDK - JavaScript
+          href: reference-server-sdk-js.md
+        - name: Server SDK - Python
+          href: reference-server-sdk-python.md
+        - name: OData filter syntax reference
+          href: reference-odata-filter.md
+    - name: API for resource management 
+      href: /rest/api/webpubsub/
+    - name: Azure CLI webpubsub extension
+      href: /cli/azure/webpubsub
     - name: WebSocket subprotocols
       expanded: false
       items:
@@ -177,24 +213,6 @@
       href: reference-functions-bindings.md
     - name: Azure policy definitions
       href: policy-definitions.md
-    - name: Data plane REST API and SDKs
-      items:
-        - name: REST API
-          href: reference-rest-api-data-plane.md
-        - name: Server SDK - C#
-          href: reference-server-sdk-csharp.md
-        - name: Server SDK - Java
-          href: reference-server-sdk-java.md
-        - name: Server SDK - JavaScript
-          href: reference-server-sdk-js.md
-        - name: Server SDK - Python
-          href: reference-server-sdk-python.md
-        - name: OData filter syntax reference
-          href: reference-odata-filter.md
-    - name: Control plane
-      href: /rest/api/webpubsub/
-    - name: Azure CLI
-      href: /cli/azure/webpubsub
     - name: Web PubSub client specification
       href: reference-client-specification.md
 - name: Resources
@@ -203,10 +221,6 @@
       href: https://aka.ms/awps/samples
     - name: Solutions
       href: /azure/architecture/
-    - name: Region availability
-      href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/web-pubsub/
     - name: FAQs
       href: resource-faq.md
     - name: Microsoft Q&A

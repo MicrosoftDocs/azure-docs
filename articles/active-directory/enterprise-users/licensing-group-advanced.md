@@ -23,6 +23,8 @@ Use the following information and examples to gain a more advanced understanding
 
 ## Usage location
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Some Microsoft services aren't available in all locations. For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, make sure to reflect that correctly in your user resources before adding users to groups with licenses. Before a license can be assigned to a user, the administrator should specify the **Usage location** property on the user.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) in the **User Administrator** role.
@@ -100,13 +102,13 @@ Here's an example of what this process may look like:
 ## Use PowerShell to see who has inherited and direct licenses
 You can use a PowerShell script to check if users have a license assigned directly or inherited from a group.
 
-1. Run the `connect-msolservice` cmdlet to authenticate and connect to your organization.
+1. Run the `Connect-MgGraph -Scopes "Organization.Read.All"` cmdlet to authenticate and connect to your organization using Microsoft Graph.
 
-2. `Get-MsolAccountSku` can be used to discover all provisioned product licenses in the Azure AD organization.
+2. `Get-MgSubscribedSku -All | Select-Object skuid -ExpandProperty serviceplans | select serviceplanid, serviceplanname` can be used to discover all provisioned product licenses in the Azure AD organization.
 
-   ![Screenshot of the Get-Msolaccountsku cmdlet](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
+   ![Screenshot of the Get-Msolaccountsku cmdlet](./media/licensing-group-advanced/get-mgsubscribedsku-cmdlet.png)
 
-3. Use the *AccountSkuId* value for the license you're interested in with [this PowerShell script](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). A list populates the users who have this license and information about how the license is assigned.
+3. Use the *ServicePlanId* value for the license you're interested in with [this PowerShell script](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). A list populates the users who have this license and information about how the license is assigned.
 
 ## Use Audit logs to monitor group-based licensing activity
 

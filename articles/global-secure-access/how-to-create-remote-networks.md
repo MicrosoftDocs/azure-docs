@@ -1,11 +1,11 @@
 ---
 title: How to create remote networks for Global Secure Access (preview)
-description: Learn how to create remote networks for Global Secure Access (preview).
+description: Learn how to create remote networks, such as branch office locations, for Global Secure Access (preview).
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 07/27/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -25,6 +25,7 @@ To configure remote networks, you must have:
 - Completed the [onboarding process](#onboard-your-tenant-for-remote-networks) for remote networks
 - The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 - To use the Microsoft 365 traffic forwarding profile, a Microsoft 365 E3 license is recommended.
+- Review the valid configurations for setting up remote networks here - [Global Secure Access remote network configurations](reference-remote-network-configurations.md)
 
 ### Known limitations
 

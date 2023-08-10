@@ -66,7 +66,7 @@ Before following the steps in this article, make sure you have the following pre
 >
 > Model monitoring jobs are scheduled to run on serverless Spark compute pool with `Standard_E4s_v3` VM instance type support only. More VM instance type support will come in the future roadmap.
 
-## Set up out-of-box model monitoring
+## Set up out-of-the-box model monitoring
 
 If you deploy your model to production in an Azure Machine Learning online endpoint, Azure Machine Learning collects production inference data automatically and uses it for continuous monitoring.
 
@@ -79,6 +79,9 @@ You can use Azure CLI, the Python SDK, or Azure Machine Learning studio for out-
   * smart defaults for metrics and thresholds.
 * A monitoring job is scheduled to run daily at 3:15am (for this example) to acquire monitoring signals and evaluate each metric result against its corresponding threshold. By default, when any threshold is exceeded, an alert email is sent to the user who set up the monitoring.
 
+## Configure feature importance
+
+For feature importance to be enabled with any of your signals (such as data drift or data quality,) you need to provide both the 'baseline_dataset' (typically training) dataset and 'target_column_name' fields. 
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -88,7 +91,7 @@ Azure Machine Learning model monitoring uses `az ml schedule` for model monitori
 az ml schedule create -f ./out-of-box-monitoring.yaml
 ```
 
-The following YAML contains the definition for out-of-box model monitoring.
+The following YAML contains the definition for out-of-the-box model monitoring.
 
 ```yaml
 # out-of-box-monitoring.yaml
@@ -117,7 +120,7 @@ create_monitor:
 
 # [Python](#tab/python)
 
-You can use the following code to set up out-of-box model monitoring:
+You can use the following code to set up out-of-the-box model monitoring:
 
 ```python
 
@@ -269,18 +272,18 @@ create_monitor:
          dataset:
             input_dataset:
                path: azureml:my_model_production_data:1
-               type: mltable
-            dataset_context: model_inputs
+               type: uri_folder
+            dataset_context: model_inputs_outputs
       baseline_dataset:
         input_dataset:
           path: azureml:my_model_training_data:1
           type: mltable
-        dataset_context: model_inputs
+        dataset_context: training
         target_column_name: fraud_detected
       model_type: classification
       # if no metric_thresholds defined, use the default metric_thresholds
       metric_thresholds:
-         threshold: 0.05
+         threshold: 0.9
   
   alert_notification:
     emails:
@@ -384,10 +387,10 @@ advanced_data_quality = DataQualitySignal(
 monitor_target_data = TargetDataset(
     dataset=MonitorInputData(
         input_dataset=Input(
-            type="mltable",
-            path="azureml:my_model_production_data:1"
+            type="uri_folder",
+            path="azureml:endpoint_name-deployment_name-model_inputs_outputs:1"
         ),
-        dataset_context=MonitorDatasetContext.MODEL_INPUTS,
+        dataset_context=MonitorDatasetContext.MODEL_INPUTS_OUTPUTS,
     )
 )
 monitor_baseline_data = MonitorInputData(
@@ -398,7 +401,7 @@ monitor_baseline_data = MonitorInputData(
     target_column_name="fraud_detected",
     dataset_context=MonitorDatasetContext.TRAINING,
 )
-metric_thresholds = FeatureAttributionDriftMetricThreshold(threshold=0.05)
+metric_thresholds = FeatureAttributionDriftMetricThreshold(threshold=0.9)
 
 feature_attribution_drift = FeatureAttributionDriftSignal(
     target_dataset=monitor_target_data,
@@ -447,7 +450,7 @@ created_monitor = poller.result()
 
 # [Studio](#tab/azure-studio)
 
-1. Complete the entires on the basic settings page as described in the [Set up out-of-box model monitoring](#set-up-out-of-box-model-monitoring) section.
+1. Complete the entires on the basic settings page as described in the [Set up out-of-box model monitoring](#set-up-out-of-the-box-model-monitoring) section.
 1. Select **More options** to open the advanced setup wizard.
 
 1. In the "Configure dataset" section, add a dataset to be used as the comparison baseline. We recommend using the model training data as the comparison baseline for data drift and data quality, and using the model validation data as the comparison baseline for prediction drift.
@@ -471,10 +474,15 @@ created_monitor = poller.result()
 
 1. Select **Add** to add another signal.
 1. In the "Add Signal" screen, select the **Feature Attribution Drift** panel.
-1. Enter a name for Feature Attribution Drift signal.
+1. Enter a name for Feature Attribution Drift signal. Feature attribution drift currently requires a few additional steps:
+1. Configure your data assets for Feature Attribution Drift
+   1. In your model creation wizard, add your custom data asset from your [custom data collection](how-to-collect-production-data.md) called 'model inputs and outputs' which combines your joined model inputs and data assets as a separate data context. 
+   
+      :::image type="content" source="media/how-to-monitor-models/feature-attribution-drift-inputs-outputs.png" alt-text="Screenshot showing how to configure a custom data asset with inputs and outputs joined." lightbox="media/how-to-monitor-models/feature-attribution-drift-inputs-outputs.png":::
+      
+   1. Specify your training reference dataset that will be used in the feature attribution drift component, and select your 'target column name' field, which is required to enable feature importance. 
+   1. Confirm your parameters are correct
 1. Adjust the data window size according to your business case.
-1. Select the training data as the baseline dataset. 
-1. Select the target column name.
 1. Adjust the threshold according to your need.
 1. Select **Save** to return to the "Select monitoring signals" section.
 1. If you're done with editing or adding signals, select **Next**.
@@ -482,7 +490,6 @@ created_monitor = poller.result()
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-add-signal.png" alt-text="Screenshot showing settings for adding signals." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-add-signal.png":::
 
 1. In the "Notification" screen, enable alert notification for each signal.
-1. (Optional) Enable "Azure Monitor" for all metrics to be sent to Azure Monitor.
 1. Select **Next**.
 
    :::image type="content" source="media/how-to-monitor-models/model-monitoring-advanced-config-notification.png" alt-text="Screenshot of settings on the notification screen." lightbox="media/how-to-monitor-models/model-monitoring-advanced-config-notification.png":::

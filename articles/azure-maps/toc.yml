@@ -239,10 +239,10 @@ items:
         href: drawing-tools-events.md
       - name: Interaction types and keyboard shortcuts
         href: drawing-tools-interactions-keyboard-shortcuts.md
-    - name: Services module
+    - name: REST SDK integration
       items:
-      - name: Use the services module
-        href: how-to-use-services-module.md
+      - name: Use the REST SDK
+        href: how-to-use-ts-rest-sdk.md
       - name: Show search results
         href: map-search-location.md
       - name: Get information from a coordinate

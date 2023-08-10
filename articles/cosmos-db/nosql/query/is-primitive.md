@@ -1,60 +1,52 @@
 ---
-title: IS_PRIMITIVE in Azure Cosmos DB query language
-description: Learn about SQL system function IS_PRIMITIVE in Azure Cosmos DB.
-author: ginamr
+title: IS_PRIMITIVE
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns true if the type of the specified expression is a primitive (string, boolean, numeric, or null).
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 07/20/2023
+ms.custom: query-reference
 ---
-# IS_PRIMITIVE (Azure Cosmos DB)
+
+# IS_PRIMITIVE (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric, or null).  
-  
+Returns a boolean value indicating if the type of the specified expression is a primitive (string, boolean, numeric, or null).
+
 ## Syntax
-  
+
 ```sql
 IS_PRIMITIVE(<expr>)  
 ```  
   
 ## Arguments
-  
-*expr*  
-   Is any expression.  
+
+| | Description |
+| --- | --- |
+| **`expr`** | Any expression. |
   
 ## Return types
   
-  Returns a Boolean expression.  
+Returns a boolean expression.  
   
 ## Examples
-  
-  The following example checks objects of JSON Boolean, number, string, null, object, array and undefined types using the `IS_PRIMITIVE` function.  
-  
-```sql
-SELECT   
-           IS_PRIMITIVE(true) AS isPrim1,   
-           IS_PRIMITIVE(1) AS isPrim2,  
-           IS_PRIMITIVE("value") AS isPrim3,   
-           IS_PRIMITIVE(null) AS isPrim4,  
-           IS_PRIMITIVE({prop: "value"}) AS isPrim5,   
-           IS_PRIMITIVE([1, 2, 3]) AS isPrim6,  
-           IS_PRIMITIVE({prop: "value"}.prop2) AS isPrim7  
-```  
-  
- Here is the result set.  
-  
-```json
-[{"isPrim1": true, "isPrim2": true, "isPrim3": true, "isPrim4": true, "isPrim5": false, "isPrim6": false, "isPrim7": false}]  
-```  
+
+The following example various values to see if they're a primitive.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/is-primitive/query.sql" highlight="2-10":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/is-primitive/result.json":::
 
 ## Remarks
 
-This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy).
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`IS_OBJECT`](is-object.md)

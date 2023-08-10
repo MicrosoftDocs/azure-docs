@@ -33,9 +33,9 @@ There are many security benefits of using Azure AD-based authentication to log i
    - When employees leave your organization and their user accounts are disabled or removed from Azure AD, they no longer have access to your resources.
 - Configure Conditional Access policies to "phishing resistant MFA" using require authentication strength (preview) grant control or require multifactor authentication (MFA) and other signals, such as user sign-in risk, before you can RDP into Windows VMs. 
 - Use Azure Policy to deploy and audit policies to require Azure AD login for Windows VMs and to flag the use of unapproved local accounts on the VMs.
-- Use Intune to automate and scale Azure AD join with mobile device management (MDM) auto-enrollment of Azure Windows VMs that are part of your virtual desktop infrastructure (VDI) deployments. 
+- Use Intune to automate and scale Azure AD join with mobile device management (MDM) autoenrollment of Azure Windows VMs that are part of your virtual desktop infrastructure (VDI) deployments. 
   
-  MDM auto-enrollment requires Azure AD Premium P1 licenses. Windows Server VMs don't support MDM enrollment.
+  MDM autoenrollment requires Azure AD Premium P1 licenses. Windows Server VMs don't support MDM enrollment.
 
 > [!NOTE]
 > After you enable this capability, your Windows VMs in Azure will be Azure AD joined. You cannot join them to another domain, like on-premises Active Directory or Azure Active Directory Domain Services. If you need to do so, disconnect the VM from Azure AD by uninstalling the extension.
@@ -54,7 +54,7 @@ This feature is now available in the following Azure clouds:
 
 - Azure Global
 - Azure Government
-- Azure China 21Vianet
+- Microsoft Azure operated by 21Vianet
 
 ### Network requirements
 
@@ -72,7 +72,7 @@ Azure Government:
 - `https://login.microsoftonline.us`: For authentication flows.
 - `https://pasff.usgovcloudapi.net`: For Azure RBAC flows.
 
-Azure China 21Vianet:
+Microsoft Azure operated by 21Vianet:
 - `https://enterpriseregistration.partner.microsoftonline.cn`: For device registration.
 - `http://169.254.169.254`: Azure Instance Metadata Service endpoint.
 - `https://login.chinacloudapi.cn`: For authentication flows.
@@ -80,7 +80,7 @@ Azure China 21Vianet:
 
 ### Authentication requirements
 
-[Azure AD Guest accounts](https://learn.microsoft.com/azure/active-directory/external-identities/what-is-b2b) cannot connect to Azure Bastion via Azure AD authentication.
+[Azure AD Guest accounts](/azure/active-directory/external-identities/what-is-b2b) can't connect to Azure Bastion via Azure AD authentication.
 
 ## Enable Azure AD login for a Windows VM in Azure
 
@@ -94,7 +94,12 @@ There are two ways to enable Azure AD login for your Windows VM:
 - The Azure portal, when you're creating a Windows VM.
 - Azure Cloud Shell, when you're creating a Windows VM or using an existing Windows VM.
 
+> [!NOTE]
+> If a device object with the same displayMame as the hostname of a VM where an extension is installed exists, the VM fails to join Azure AD with a hostname duplication error. Avoid duplication by [modifying the hostname](../../virtual-network/virtual-networks-viewing-and-modifying-hostnames.md#modify-a-hostname).
+
 ### Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 You can enable Azure AD login for VM images in Windows Server 2019 Datacenter or Windows 10 1809 and later. 
 
@@ -108,7 +113,7 @@ To create a Windows Server 2019 Datacenter VM in Azure with Azure AD login:
 
    ![Screenshot that shows the Management tab on the Azure portal page for creating a virtual machine.](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-login-with-azure-ad.png)
 1. Make sure that **System assigned managed identity** in the **Identity** section is selected. This action should happen automatically after you enable login with Azure AD.
-1. Go through the rest of the experience of creating a virtual machine. You'll have to create an administrator username and password for the VM.
+1. Go through the rest of the experience of creating a virtual machine. You have to create an administrator username and password for the VM.
 
 > [!NOTE]
 > To log in to the VM by using your Azure AD credentials, you first need to [configure role assignments](#configure-role-assignments-for-the-vm) for the VM.
@@ -172,7 +177,7 @@ To allow a user to log in to the VM over RDP, you must assign the Virtual Machin
 > [!NOTE]
 > Manually elevating a user to become a local administrator on the VM by adding the user to a member of the local administrators group or by running `net localgroup administrators /add "AzureAD\UserUpn"` command is not supported. You need to use Azure roles above to authorize VM login.
 
-An Azure user who has the Owner or Contributor role assigned for a VM does not automatically have privileges to log in to the VM over RDP. The reason is to provide audited separation between the set of people who control virtual machines and the set of people who can access virtual machines.
+An Azure user who has the Owner or Contributor role assigned for a VM doesn't automatically have privileges to log in to the VM over RDP. The reason is to provide audited separation between the set of people who control virtual machines and the set of people who can access virtual machines.
 
 There are two ways to configure role assignments for a VM:
 
@@ -228,8 +233,9 @@ For more information about how to use Azure RBAC to manage access to your Azure 
 
 ## Log in by using Azure AD credentials to a Windows VM
 
-You can do this over RDP using one of two methods:
-1. Passwordless using any of the supported Azure AD credential (recommended)
+You can sign in over RDP using one of two methods:
+
+1. Passwordless using any of the supported Azure AD credentials (recommended)
 1. Password/limited passwordless using Windows Hello for Business deployed using certificate trust model
 
 ### Log in using passwordless authentication with Azure AD
@@ -257,10 +263,10 @@ To connect to the remote computer:
 - You're then prompted to allow the remote desktop connection when connecting to a new PC. Azure AD remembers up to 15 hosts for 30 days before prompting again. If you see this dialogue, select **Yes** to connect.
 
 > [!IMPORTANT]
-> If your organization has configured and is using [Azure AD Conditional Access](/azure/active-directory/conditional-access/overview), your device must satisfy the conditional access requirements to allow connection to the remote computer. Conditional Access policies may be applied to the application **Microsoft Remote Desktop (a4a365df-50f1-4397-bc59-1a1564b8bb9c)** for controlled access.
+> If your organization has configured and is using [Azure AD Conditional Access](/azure/active-directory/conditional-access/overview), your device must satisfy the Conditional Access requirements to allow connection to the remote computer. Conditional Access policies may be applied to the application **Microsoft Remote Desktop (a4a365df-50f1-4397-bc59-1a1564b8bb9c)** for controlled access.
 
 > [!NOTE]
-> The Windows lock screen in the remote session doesn't support Azure AD authentication tokens or passwordless authentication methods like FIDO keys. The lack of support for these authentication methods means that users can't unlock their screens in a remote session. When you try to lock a remote session, either through user action or system policy, the session is instead disconnected and the service sends a message to the user explaining they've been disconnected. Disconnecting the session also ensures that when the connection is relaunched after a period of inactivity, Azure AD reevaluates the applicable conditional access policies.
+> The Windows lock screen in the remote session doesn't support Azure AD authentication tokens or passwordless authentication methods like FIDO keys. The lack of support for these authentication methods means that users can't unlock their screens in a remote session. When you try to lock a remote session, either through user action or system policy, the session is instead disconnected and the service sends a message to the user explaining they've been disconnected. Disconnecting the session also ensures that when the connection is relaunched after a period of inactivity, Azure AD reevaluates the applicable Conditional Access policies.
 
 ### Log in using password/limited passwordless authentication with Azure AD
 
@@ -289,7 +295,7 @@ You're now logged in to the Windows Server 2019 Azure virtual machine with the r
 You can enforce Conditional Access policies, such as "phishing resistant MFA" using require authentication strength (preview) grant control or multifactor authentication or user sign-in risk check, before you authorize access to Windows VMs in Azure that are enabled with Azure AD login. To apply a Conditional Access policy, you must select the **Azure Windows VM Sign-In** app from the cloud apps or actions assignment option. Then use sign-in risk as a condition and/or "phishing resistant MFA" using require authentication strength (preview) grant control or require MFA as a control for granting access. 
 
 > [!NOTE]
-> If you require MFA as a control for granting access to the Azure Windows VM Sign-In app, then you must supply an MFA claim as part of the client that initiates the RDP session to the target Windows VM in Azure. This can be achieved using passwordless authentication method for RDP that satisfies the conditional access polices, however if you are using limited passwordless method for RDP then the only way to achieve this on a Windows 10 or later client is to use a Windows Hello for Business PIN or biometric authentication with the RDP client. Support for biometric authentication was added to the RDP client in Windows 10 version 1809. Remote desktop using Windows Hello for Business authentication is available only for deployments that use a certificate trust model. It's currently not available for a key trust model.
+> If you require MFA as a control for granting access to the Azure Windows VM Sign-In app, then you must supply an MFA claim as part of the client that initiates the RDP session to the target Windows VM in Azure. This can be achieved using passwordless authentication method for RDP that satisfies the Conditional Access polices, however if you are using limited passwordless method for RDP then the only way to achieve this on a Windows 10 or later client is to use a Windows Hello for Business PIN or biometric authentication with the RDP client. Support for biometric authentication was added to the RDP client in Windows 10 version 1809. Remote desktop using Windows Hello for Business authentication is available only for deployments that use a certificate trust model. It's currently not available for a key trust model.
 
 ## Use Azure Policy to meet standards and assess compliance
 
@@ -425,7 +431,7 @@ Try these solutions:
 
 - Verify that the user doesn't have a temporary password. Temporary passwords can't be used to log in to a remote desktop connection.
 
-  Sign in with the user account in a web browser. For instance, open the [Azure portal](https://portal.azure.com) in a private browsing window. If you're prompted to change the password, set a new password. Then try connecting again.
+  Sign in with the user account in a web browser. For instance, sign in to the [Azure portal](https://portal.azure.com) in a private browsing window. If you're prompted to change the password, set a new password. Then try connecting again.
 
 ### MFA sign-in method required
 
@@ -433,7 +439,7 @@ You might see the following error message when you initiate a remote desktop con
 
 ![Screenshot of the message that says the sign-in method you're trying to use isn't allowed.](./media/howto-vm-sign-in-azure-ad-windows/mfa-sign-in-method-required.png)
 
-If you've configured a Conditional Access policy that requires MFA or legacy per-user Enabled/Enforced Azure AD MFA before you can access the resource, you need to ensure that the Windows 10 or later PC that's initiating the remote desktop connection to your VM signs in by using a strong authentication method such as Windows Hello. If you don't use a strong authentication method for your remote desktop connection, you'll see the error.
+If you've configured a Conditional Access policy that requires MFA or legacy per-user Enabled/Enforced Azure AD MFA before you can access the resource, you need to ensure that the Windows 10 or later PC that's initiating the remote desktop connection to your VM signs in by using a strong authentication method such as Windows Hello. If you don't use a strong authentication method for your remote desktop connection, you see the error.
 
 Another MFA-related error message is the one described previously: "Your credentials did not work."
 
@@ -464,7 +470,7 @@ Share your feedback about this feature or report problems with using it on the [
 
 If the Azure Windows VM Sign-In application is missing from Conditional Access, make sure that the application is in the tenant:
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Enterprise applications**.
 1. Remove the filters to see all applications, and search for **VM**. If you don't see **Azure Windows VM Sign-In** as a result, the service principal is missing from the tenant.
 
@@ -478,7 +484,7 @@ Another way to verify it is via Graph PowerShell:
    - If this command results in no output and returns you to the PowerShell prompt, you can create the service principal with the following Graph PowerShell command:
    
       `New-MgServicePrincipal -AppId 372140e0-b3b7-4226-8ef9-d57986796201`
-   - Successful output will show that the Azure Windows VM Sign-In app and its ID were created.
+   - Successful output shows that the Azure Windows VM Sign-In app and its ID were created.
 1. Sign out of Graph PowerShell by using the `Disconnect-MgGraph` command.
 
 ## Next steps

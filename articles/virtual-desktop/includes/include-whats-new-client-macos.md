@@ -191,7 +191,7 @@ In this release, we've made the following changes:
 - Addressed issues brought up by users in crash reports and general feedback.
 - Invertible cursors, such as the text cursor, are now outlined to make them visible on dark backgrounds.
 - Made improvements to the code for the Connection Center for both PCs and workspaces.
-- Added support for moving the local window while using RemoteApps.
+- Added support for moving the local window while using a RemoteApp.
   - By default, local window movement in RemoteApp scenarios is disabled. To enable local window movement, set the **EnableRemoteAppLocalMove** policy to **True**.
 - Updated the Connection Information prompt that appears when you go to **Connections** > **Show Connection Information**.
 - Added [screen capture protection for Azure Virtual Desktop scenarios](/azure/virtual-desktop/screen-capture-protection).
@@ -315,7 +315,7 @@ In this release, we've made the following changes:
 In this release, we've made the following changes:
 
 - You can now edit the display, device, and folder redirection settings of published PC connections.
-- Remote app windows now shrink to the dock when minimized.
+- RemoteApp windows now shrink to the dock when minimized.
 - Added a Connection Information dialog that displays the current bandwidth and round-trip time.
 - Added support for Remote Desktop Gateway consent and admin messages.
 - Fixed an issue where an RDP file specifying a gatewayusagemethod value of 0 or 4 was incorrectly imported.
@@ -340,7 +340,7 @@ In this release, we've made the following changes:
 - Corrected the aspect ratio of PC thumbnails displayed in the Connection Center.
 - Improved smart card redirection heuristics to better handle nested transactions.
 - Fixed a bug that prevented bookmark export if the bookmark's display name contained the "/" character.
-- Resolved a bug that caused a 0xD06 protocol error when running Outlook as a remote app.
+- Resolved a bug that caused a 0xD06 protocol error when running Outlook as a RemoteApp.
 - Added support for a new integer RDP file property (ForceHiDpiOptimizations) to enable Retina display optimization.
 
 ## Updates for version 10.4.0
@@ -363,7 +363,7 @@ In this release, we've made substantial updates to the underlying code for the R
 - User account UI that interacts with the macOS keychain will now surface keychain access errors.
 - Hitting cancel during workspace subscription will now result in nothing being added to the Connection Center.
 - Added key mappings for Cmd+Z and Cmd+F to map to Ctrl+Z and Ctrl+F respectively.
-- Fixed a bug that caused remote apps to open behind the Connection Center when launched.
+- Fixed a bug that caused a RemoteApp to open behind the Connection Center when launched.
 - Worked around an issue in macOS 10.15 where AAC audio playback caused the client to stall.
 - Shift+left-click now works in Unicode mode.
 - Fixed a bug where using the Shift key triggered the Sticky Keys alert in Unicode mode.
@@ -482,7 +482,7 @@ In this release, we've made the following changes:
 - Addressed initial flicker that occurred when connecting to a session in windowed mode with dynamic display enabled.
 - Fixed graphics mis-paints that occurred when connected to Windows 7 after toggling fit-to-window with dynamic display enabled.
 - Fixed a bug that caused an incorrect device name to be sent to the remote session (breaking licensing in some third-party apps).
-- Resolved an issue where remote app windows would occupy an entire monitor when maximized.
+- Resolved an issue where RemoteApp windows would occupy an entire monitor when maximized.
 - Addressed an issue where the access permissions UI appeared underneath local windows.
 - Cleaned up some shutdown code to ensure the client closes more reliably.
 
@@ -515,7 +515,7 @@ In this release, we've made the following changes:
 - Clipboard redirection now includes the Rich Text Format (RTF).
 - When entering your password, you can now choose to reveal it by selecting the "Show password" checkbox.
 - Addressed scenarios where the session window was jumping between monitors.
-- The Connection Center displays high-resolution remote app icons (when available).
+- The Connection Center displays high-resolution RemoteApp icons when available.
 - Cmd+A maps to Ctrl+A when Mac clipboard shortcuts are being used.
 - Cmd+R now refreshes all of your subscribed feeds.
 - Added new secondary click options to expand or collapse all groups or feeds in the Connection Center.
@@ -568,7 +568,7 @@ In this release, we've made the following changes:
 
 - Resolved connectivity issues that surfaced when using a Remote Desktop Gateway.
 - Fixed incorrect certificate warnings that were displayed when connecting.
-- Addressed some cases where the menu bar and dock would needlessly hide when launching remote apps.
+- Addressed some cases where the menu bar and dock would needlessly hide when launching a RemoteApp.
 - Reworked the clipboard redirection code to address crashes and hangs that have been plaguing some users.
 - Fixed a bug that caused the Connection Center to needlessly scroll when launching a connection.
 
@@ -614,13 +614,13 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- Added support for the "remoteapplicationcmdline" RDP file setting for remote app scenarios.
+- Added support for the *remoteapplicationcmdline* RDP file setting for RemoteApp scenarios.
 - The title of the session window now includes the name of the RDP file (and server name) when launched from an RDP file.
 - Fixed reported Remote Desktop Gateway performance issues.
 - Fixed reported Remote Desktop Gateway crashes.
 - Fixed issues where the connection would hang when connecting through a Remote Desktop Gateway.
-- Better handling of full-screen remote apps by intelligently hiding the menu bar and dock.
-- Fixed scenarios where remote apps remained hidden after being launched.
+- Better handling of a RemoteApp in full-screen by intelligently hiding the menu bar and dock.
+- Fixed scenarios where a RemoteApp remained hidden after being launched.
 - Addressed slow rendering updates when using "Fit to Window" with hardware acceleration disabled.
 - Handled database creation errors caused by incorrect permissions when the client starts up.
 - Fixed an issue where the client was consistently crashing at launch and not starting for some users.

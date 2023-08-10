@@ -1,6 +1,6 @@
 ---
 title: Bing Custom Search endpoint
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Create tailored search experiences for topics that you care about. Users see search results tailored to the content they care about.
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Custom Search
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 Bing Custom Search enables you to create tailored search experiences for topics that you care about. Your users see search results tailored to the content they care about instead of having to page through search results that have irrelevant content.
 
 ## Custom Search Endpoint

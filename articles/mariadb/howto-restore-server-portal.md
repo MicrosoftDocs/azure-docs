@@ -34,7 +34,7 @@ While creating a server through the Azure portal, the **Pricing Tier** window is
 For more information about setting these values during create, see the [Azure Database for MariaDB server quickstart](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
 The backup retention period can be changed on a server through the following steps:
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select your Azure Database for MariaDB server. This action opens the **Overview** page.
 

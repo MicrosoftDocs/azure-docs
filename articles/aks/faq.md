@@ -2,9 +2,8 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 06/17/2022
-ms.custom: references_regions
-
+ms.date: 07/20/2022
+ms.custom: references_regions, devx-track-linux
 ---
 
 # Frequently asked questions about Azure Kubernetes Service (AKS)
@@ -93,7 +92,7 @@ As you work with the node resource group, keep in mind that you can't:
 
 ## Can I modify tags and other properties of the AKS resources in the node resource group?
 
-You might get unexpected scaling and upgrading errors if you modify or delete Azure-created tags and other resource properties in the node resource group. AKS allows you to create and modify custom tags created by end users, and you can add those tags when [creating a node pool](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). You might want to create or modify custom tags, for example, to assign a business unit or cost center. Another option is to create Azure Policies with a scope on the managed resource group.
+You might get unexpected scaling and upgrading errors if you modify or delete Azure-created tags and other resource properties in the node resource group. AKS allows you to create and modify custom tags created by end users, and you can add those tags when [creating a node pool](manage-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). You might want to create or modify custom tags, for example, to assign a business unit or cost center. Another option is to create Azure Policies with a scope on the managed resource group.
 
 However, modifying any **Azure-created tags** on resources under the node resource group in the AKS cluster is an unsupported action, which breaks the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](#does-aks-offer-a-service-level-agreement)
 
@@ -175,6 +174,9 @@ Moving or renaming your AKS cluster and its associated resources isn't supported
 ## Why is my cluster delete taking so long?
 
 Most clusters are deleted upon user request. In some cases, especially cases where you bring your own Resource Group or perform cross-RG tasks, deletion can take more time or even fail. If you have an issue with deletes, double-check that you don't have locks on the RG, that any resources outside of the RG are disassociated from the RG, and so on.
+
+## Why is my cluster create/update taking so long?
+If you have issues with create and update cluster operations, make sure you don't have any assigned policies or service constraints that may block your AKS cluster from managing resources like VMs, load balancers, tags, etc.
 
 ## Can I restore my cluster after deleting it?
 
@@ -324,7 +326,7 @@ The issue has been resolved with Kubernetes version 1.20. For more information, 
 
 ## Can I use FIPS cryptographic libraries with deployments on AKS?
 
-FIPS-enabled nodes are now supported on Linux-based node pools. For more information, see [Add a FIPS-enabled node pool](use-multiple-node-pools.md#add-a-fips-enabled-node-pool).
+FIPS-enabled nodes are now supported on Linux-based node pools. For more information, see [Add a FIPS-enabled node pool](create-node-pools.md#fips-enabled-node-pools).
 
 ## Can I configure NSGs with AKS?
 
@@ -363,11 +365,11 @@ The extension **doesn't require additional outbound access** to any URLs, IP add
 [aks-preview-cli]: /cli/azure/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [aks-rm-template]: /azure/templates/microsoft.containerservice/2022-09-01/managedclusters
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [aks-windows-limitations]: ./windows-faq.md
 [reservation-discounts]:../cost-management-billing/reservations/save-compute-costs-reservations.md
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
-[multi-node-pools]: ./use-multiple-node-pools.md
+[multi-node-pools]: ./create-node-pools.md
 [availability-zones]: ./availability-zones.md
 [private-clusters]: ./private-clusters.md
 [supported-kubernetes-versions]: ./supported-kubernetes-versions.md

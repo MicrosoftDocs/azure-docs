@@ -2,6 +2,7 @@
 title: Autoinstrumentation for Azure Monitor Application Insights
 description: Overview of autoinstrumentation for Azure Monitor Application Insights codeless application performance management.
 ms.topic: conceptual
+ms.custom: devx-track-js
 ms.date: 07/10/2023
 ms.reviewer: abinetabate
 ---
@@ -45,16 +46,14 @@ Links are provided to more information for each supported scenario.
 
 ## JavaScript (Web) SDK Loader Script injection by configuration
 
-If you’re using the following supported SDKs, you can configure the JavaScript (Web) SDK Loader Script to inject from the server-side SDK onto each page.
+When using supported SDKs, you can enable SDK injection in configuration to automatically inject JavaScript (Web) SDK Loader Script onto each page.
 
-> [!NOTE]
-> See the linked article for instructions on how to install the server-side SDK.
 
-   | SDK   | More information
-   |	:---	|	:---	|
-   | ASP.NET Core | [Enable client-side telemetry for web applications](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
-   | Node.js | [Automatic web Instrumentation](./nodejs.md#automatic-web-instrumentationpreview) |
-   | Java | [Browser SDK Loader](./java-standalone-config.md#browser-sdk-loader-preview) |
+   | Language   
+   |	:---	|
+   | [ASP.NET Core](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
+   | [Node.js](./nodejs.md#automatic-web-instrumentationpreview) |
+   | [Java](./java-standalone-config.md#browser-sdk-loader-preview) |
 
 For other methods to instrument your application with the Application Insights JavaScript SDK, see [Get started with the JavaScript SDK](./javascript-sdk.md).
 

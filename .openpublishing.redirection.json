@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path": "articles/route-server/tutorial-protect-route-server.md",
+            "redirect_URL": "/azure/route-server/tutorial-protect-route-server-ddos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/route-server/routing-preference.md",
+            "redirect_url": "/azure/route-server/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cloud-services-extended-support/deploy-visual-studio.md",
             "redirect_url": "/visualstudio/azure/cloud-services-extended-support?context=%2Fazure%2Fcloud-services-extended-support%2Fcontext%2Fcontext",
             "redirect_document_id": false
@@ -861,11 +871,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/route-server/routing-preference.md",
-            "redirect_url": "/azure/route-server/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/storage/queues/storage-ruby-how-to-use-queue-storage.md",
             "redirect_url": "/previous-versions/azure/storage/queues/storage-ruby-how-to-use-queue-storage",
             "redirect_document_id": false
@@ -1233,6 +1238,11 @@
         {
             "source_path": "articles/azure-video-analyzer/video-analyzer-docs/edge/use-visual-studio-code-extension.md",
             "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/edge/use-visual-studio-code-extension",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-video-indexer/observed-people-tracing.md",
+            "redirect_url": "/azure/azure-video-indexer/observed-people-tracking",
             "redirect_document_id": false
         },
         {
@@ -1791,6 +1801,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automanage/windows-server-azure-edition-vnext.md",
+            "redirect_URL": "/windows-server/get-started/azure-edition",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automanage/automanage-hotpatch.md",
+            "redirect_URL": "/windows-server/get-started/hotpatch",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automanage/automanage-windows-server-services-overview.md",
+            "redirect_URL": "/windows-server/get-started/azure-edition",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/aks/view-metrics.md",
             "redirect_url": "/azure/aks/monitor-aks",
             "redirect_document_id": false
@@ -1833,6 +1858,11 @@
         {
             "source_path_from_root": "/articles/aks/managed-aad.md",
             "redirect_url": "/azure/aks/managed-azure-ad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/monitor-apiserver.md",
+            "redirect_url": "/azure/aks/monitor-aks#resource-logs",
             "redirect_document_id": false
         },
         {
@@ -9074,6 +9104,11 @@
             "redirect_document_id": false
         },
         {
+         "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-forced-tunneling-rm.md",
+         "redirect_url": "/azure/vpn-gateway/about-site-to-site-tunneling",
+         "redirect_document_id": false
+     },
+        {
             "source_path_from_root": "/articles/azure-vmware/public-ip-usage.md",
             "redirect_url": "/azure/azure-vmware/enable-public-ip-nsx-edge",
             "redirect_document_id": false
@@ -13317,6 +13352,36 @@
             "source_path_from_root": "/articles/governance/policy/samples/use-managed-disk-vm.md",
             "redirect_url": "/azure/governance/policy/samples/index",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/governance/policy/samples/PCIv3_2_1_2018_audit.md pci-dss-3-2-1.md",
+            "redirect_url": "/azure/governance/policy/samples/index",
+            "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/samples/PCIv3_2_1_2018_audit.md",
+          "redirect_url": "/azure/governance/policy/samples/pci-dss-3-2-1",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/samples/pci_dss_v4.0.md",
+          "redirect_url": "/azure/governance/policy/samples/pci-dss-4-0",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/samples/NZ_ISM_Restricted_v3_5.md",
+          "redirect_url": "/azure/governance/policy/samples/nz-ism-restricted-3-5",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/samples/RBI_ITF_Banks_v2016.md",
+          "redirect_url": "/azure/governance/policy/samples/rbi-itf-banks-2016",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/governance/policy/samples/rbi_itf_nbfc_v2017.md",
+          "redirect_url": "/azure/governance/policy/samples/rbi-itf-nbfc-2017",
+          "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-policy/create-manage-policy.md",
@@ -22075,67 +22140,67 @@
         },
         {
             "source_path_from_root": "/articles/labs/anomaly-finder/apiref.md",
-            "redirect_url": "/azure/cognitive-services/anomaly-detector/",
+            "redirect_url": "/azure/ai-services/anomaly-detector/",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/labs/anomaly-finder/overview.md",
-            "redirect_url": "/azure/cognitive-services/anomaly-detector/overview",
+            "redirect_url": "/azure/ai-services/anomaly-detector/overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/labs/anomaly-finder/quickstart/csharp.md",
-            "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-csharp",
+            "redirect_url": "/azure/ai-services/anomaly-detector/quickstarts/detect-data-anomalies-csharp",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/labs/anomaly-finder/quickstart/csharp-tutorial.md",
-            "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-csharp",
+            "redirect_url": "/azure/ai-services/anomaly-detector/quickstarts/detect-data-anomalies-csharp",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/labs/anomaly-finder/quickstart/curl.md",
-            "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-csharp",
+            "redirect_url": "/azure/ai-services/anomaly-detector/quickstarts/detect-data-anomalies-csharp",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/labs/anomaly-finder/quickstart/java.md",
-            "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-java",
+            "redirect_url": "/azure/ai-services/anomaly-detector/quickstarts/detect-data-anomalies-java",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/labs/anomaly-finder/quickstart/java-tutorial.md",
-            "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-java",
+            "redirect_url": "/azure/ai-services/anomaly-detector/quickstarts/detect-data-anomalies-java",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/labs/anomaly-finder/quickstart/javascript.md",
-            "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
+            "redirect_url": "/azure/ai-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/labs/anomaly-finder/quickstart/javascript-tutorial.md",
-            "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
+            "redirect_url": "/azure/ai-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/labs/anomaly-finder/quickstart/php.md",
-            "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
+            "redirect_url": "/azure/ai-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/labs/anomaly-finder/quickstart/python.md",
-            "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
+            "redirect_url": "/azure/ai-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/labs/anomaly-finder/quickstart/python-tutorial.md",
-            "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
+            "redirect_url": "/azure/ai-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/labs/anomaly-finder/quickstart/ruby.md",
-            "redirect_url": "/azure/cognitive-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
+            "redirect_url": "/azure/ai-services/anomaly-detector/quickstarts/detect-data-anomalies-python",
             "redirect_document_id": false
         },
         {
@@ -23140,7 +23205,7 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart-portal-node-js-passport.md",
-            "redirect_url": "/azure/active-directory/develop/web-app-quickstart?pivots=devlang-nodejs-msal",
+            "redirect_url": "/azure/active-directory/develop/quickstart-web-app-nodejs-msal-sign-in",
             "redirect_document_id": false
         },
         {
@@ -23155,7 +23220,37 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-nodejs-webapp.md",
-            "redirect_url": "/azure/active-directory/develop/web-app-quickstart?pivots=devlang-nodejs-msal",
+            "redirect_url": "/azure/active-directory/develop/quickstart-web-app-nodejs-msal-sign-in",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/console-app-quickstart.md",
+            "redirect_url": "/azure/active-directory/develop/index-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/desktop-app-quickstart.md",
+            "redirect_url": "/azure/active-directory/develop/index-desktop",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/mobile-app-quickstart.md",
+            "redirect_url": "/azure/active-directory/develop/index-mobile",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/web-api-quickstart.md",
+            "redirect_url": "/azure/active-directory/develop/index-web-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/web-app-quickstart.md",
+            "redirect_url": "/azure/active-directory/develop/index-web-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/single-page-app-quickstart.md",
+            "redirect_url": "/azure/active-directory/develop/index-spa",
             "redirect_document_id": false
         },
         {
@@ -23529,11 +23624,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/route-server/tutorial-protect-route-server.md",
-            "redirect_URL": "/azure/route-server/tutorial-protect-route-server-ddos",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/external-attack-surface-management/data-connections-overview.md",
             "redirect_URL": "/azure/external-attack-surface-management/index",
             "redirect_document_id": true
@@ -23809,16 +23899,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-meraki.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-asa-ftd-via-ama.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md",
             "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks-powershell",
             "redirect_document_id": false
@@ -23979,6 +24059,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/image-builder-prefetch.md",
+            "redirect_url": "/azure/virtual-machines/vm-boot-optimization",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/networking/connectivty-interoperability-preface.md",
             "redirect_url": "/azure/networking/manage-apps/connectivity-interoperability-preface",
             "redirect_document_id": false
@@ -24017,6 +24102,41 @@
             "source_path_from_root": "/articles/container-registry/github-action-scan.md",
             "redirect_url": "/azure/developer/github/",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/virtual-machines-reliability.md",
+            "redirect_url": "/azure/reliability/reliability-virtual-machines",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/reliability-virtual-machines.md",
+            "redirect_url": "/azure/reliability/reliability-virtual-machines",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/private-link/tutorial-private-endpoint-webapp-portal.md",
+            "redirect_url": "/azure/private-link/create-private-endpoint-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/use-multiple-node-pools.md",
+            "redirect_url": "/azure/aks/create-node-pools",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/reliability/migrate-app-service.md",
+            "redirect_url": "/azure/reliability/reliability-app-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/reliability/migrate-app-service-environment.md",
+            "redirect_url": "/azure/reliability/reliability-app-service",
+            "redirect_document_id": false
         }
+
+
+
+
+       
     ]
 }

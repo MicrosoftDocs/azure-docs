@@ -96,7 +96,7 @@ If you have many resources, you can use a PowerShell script to [add each resourc
 
 Each organizational role definition can be represented with an [access package](entitlement-management-access-package-create.md) in that catalog.
 
-You can use a PowerShell script to [create an access package in a catalog](entitlement-management-access-package-create.md#create-an-access-package-with-microsoft-powershell).
+You can use a PowerShell script to [create an access package in a catalog](entitlement-management-access-package-create.md#create-an-access-package-by-using-microsoft-powershell).
 
 Once you've created an access package, then you link one or more of the roles of the resources in the catalog to the access package.  This represents the permissions of the organizational role.
 

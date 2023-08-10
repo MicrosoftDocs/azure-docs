@@ -2,9 +2,9 @@
 title: Set up the Azure Monitor agent on Windows client devices
 description: This article describes the instructions to install the agent on Windows 10, 11 client OS devices, configure data collection, manage and troubleshoot the agent.
 ms.topic: conceptual
-ms.date: 7/6/2023
+ms.date: 7/19/2023
 ms.custom: references_region, devx-track-azurepowershell
-ms.reviewer: shseth
+ms.reviewer: jeffwo
 ---
 
 # Azure Monitor agent on Windows client devices
@@ -26,7 +26,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 | Authentication | Using Managed Identity | Using AAD device token |
 | Central configuration | Via Data collection rules | Same |
 | Associating config rules to agents | DCRs associates directly to individual VM resources | DCRs associate to Monitored Object (MO), which maps to all devices within the AAD tenant |
-| Data upload to Log Analytics	| Via Log Analytics endpoints | Same |
+| Data upload to Log Analytics | Via Log Analytics endpoints | Same |
 | Feature support | All features documented [here](./azure-monitor-agent-overview.md) | Features dependent on AMA agent extension that don't require additional extensions. This includes support for Sentinel Windows Event filtering |
 | [Networking options](./azure-monitor-agent-overview.md#networking) | Proxy support, Private link support | Proxy support only |
 
@@ -53,39 +53,42 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 3. The machine must be domain joined to an Azure AD tenant (AADj or Hybrid AADj machines), which enables the agent to fetch Azure AD device tokens used to authenticate and fetch data collection rules from Azure.
 4. You may need tenant admin permissions on the Azure AD tenant.
 5. The device must have access to the following HTTPS endpoints:
-	-	global.handler.control.monitor.azure.com
-	-	`<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
-	-	`<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opinsights.azure.com)
+    - global.handler.control.monitor.azure.com
+    - `<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
+    - `<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opinsights.azure.com)
     (If using private links on the agent, you must also add the [data collection endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))
 6. A data collection rule you want to associate with the devices. If it doesn't exist already, [create a data collection rule](./data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule). **Do not associate the rule to any resources yet**.
 
 ## Install the agent
 1. Download the Windows MSI installer for the agent using [this link](https://go.microsoft.com/fwlink/?linkid=2192409). You can also download it from **Monitor** > **Data Collection Rules** > **Create** experience on Azure portal (shown below):
-	[![Diagram shows download agent link on Azure portal.](media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal.png)](media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal-focus.png#lightbox)
+    [![Diagram shows download agent link on Azure portal.](media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal.png)](media/azure-monitor-agent-windows-client/azure-monitor-agent-client-installer-portal-focus.png#lightbox)
 2. Open an elevated admin command prompt window and change directory to the location where you downloaded the installer.
 3. To install with **default settings**, run the following command:
-	```cli
-	msiexec /i AzureMonitorAgentClientSetup.msi /qn
-	```
-4. To install with custom file paths or [network proxy settings](./azure-monitor-agent-overview.md#proxy-configuration), use the command below with the values from the following table:
-	```cli
-	msiexec /i AzureMonitorAgentClientSetup.msi /qn DATASTOREDIR="C:\example\folder"
-	```
+    ```cli
+    msiexec /i AzureMonitorAgentClientSetup.msi /qn
+    ```
+4. To install with custom file paths, [network proxy settings](./azure-monitor-agent-overview.md#proxy-configuration), or on a Non-Public Cloud use the command below with the values from the following table:
 
-	| Parameter | Description |
-	|:---|:---|
-	| INSTALLDIR | Directory path where the agent binaries are installed |
-	| DATASTOREDIR | Directory path where the agent stores its operational logs and data |
-	| PROXYUSE | Must be set to "true" to use proxy |
-	| PROXYADDRESS | Set to Proxy Address. PROXYUSE must be set to "true" to be correctly applied |
-	| PROXYUSEAUTH | Set to "true" if proxy requires authentication |
-	| PROXYUSERNAME | Set to Proxy username. PROXYUSE and PROXYUSEAUTH must be set to "true" |
-	| PROXYPASSWORD | Set to Proxy password. PROXYUSE and PROXYUSEAUTH must be set to "true" |
+    ```cli
+    msiexec /i AzureMonitorAgentClientSetup.msi /qn DATASTOREDIR="C:\example\folder"
+    ```
 
-5. Verify successful installation:
-	- Open **Control Panel** -> **Programs and Features** OR **Settings** -> **Apps** -> **Apps & Features** and ensure you see ‘Azure Monitor Agent’ listed
-	- Open **Services** and confirm ‘Azure Monitor Agent’ is listed and shows as **Running**.
-6. Proceed to create the monitored object that you'll associate data collection rules to, for the agent to actually start operating.
+    | Parameter | Description |
+    |:---|:---|
+    | INSTALLDIR | Directory path where the agent binaries are installed |
+    | DATASTOREDIR | Directory path where the agent stores its operational logs and data |
+    | PROXYUSE | Must be set to "true" to use proxy |
+    | PROXYADDRESS | Set to Proxy Address. PROXYUSE must be set to "true" to be correctly applied |
+    | PROXYUSEAUTH | Set to "true" if proxy requires authentication |
+    | PROXYUSERNAME | Set to Proxy username. PROXYUSE and PROXYUSEAUTH must be set to "true" |
+    | PROXYPASSWORD | Set to Proxy password. PROXYUSE and PROXYUSEAUTH must be set to "true" |
+    | CLOUDENV | Set to Cloud. "Azure Commercial", "Azure China", "Azure US Gov", "Azure USNat", or "Azure USSec
+
+
+6. Verify successful installation:
+    - Open **Control Panel** -> **Programs and Features** OR **Settings** -> **Apps** -> **Apps & Features** and ensure you see ‘Azure Monitor Agent’ listed
+    - Open **Services** and confirm ‘Azure Monitor Agent’ is listed and shows as **Running**.
+7. Proceed to create the monitored object that you'll associate data collection rules to, for the agent to actually start operating.
 
 > [!NOTE]
 >  The agent installed with the client installer currently doesn't support updating local agent settings once it is installed. Uninstall and reinstall AMA to update above settings.
@@ -126,11 +129,11 @@ PUT https://management.azure.com/providers/microsoft.insights/providers/microsof
 **Request Body**
 ```JSON
 {
-	"properties":
-	{
-		"roleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/56be40e24db14ccf93c37e44c597135b",
-		"principalId":"aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
-	}
+    "properties":
+    {
+        "roleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/56be40e24db14ccf93c37e44c597135b",
+        "principalId":"aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+    }
 }
 ```
 
@@ -166,7 +169,7 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 ```JSON
 {
     "properties":
-	{
+    {
         "location":"eastus"
     }
 }
@@ -205,10 +208,10 @@ PUT https://management.azure.com/providers/Microsoft.Insights/monitoredObjects/{
 **Request Body**
 ```JSON
 {
-	"properties":
-	{
-		"dataCollectionRuleId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{DCRName}"
-	}
+    "properties":
+    {
+        "dataCollectionRuleId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{DCRName}"
+    }
 }
 ```
 **Body parameters**
@@ -434,9 +437,9 @@ In order to update the version, install the new version you wish to update to.
 ## Troubleshoot
 ### View agent diagnostic logs
 1. Rerun the installation with logging turned on and specify the log file name:
-	`Msiexec /I AzureMonitorAgentClientSetup.msi /L*V <log file name>`
+    `Msiexec /I AzureMonitorAgentClientSetup.msi /L*V <log file name>`
 2. Runtime logs are collected automatically either at the default location `C:\Resources\Azure Monitor Agent\` or at the file path mentioned during installation.
-	- If you can't locate the path, the exact location can be found on the registry as `AMADataRootDirPath` on `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMonitorAgent`.
+    - If you can't locate the path, the exact location can be found on the registry as `AMADataRootDirPath` on `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMonitorAgent`.
 3. The 'ServiceLogs' folder contains log from AMA Windows Service, which launches and manages AMA processes
 4. 'AzureMonitorAgent.MonitoringDataStore' contains data/logs from AMA processes.
 

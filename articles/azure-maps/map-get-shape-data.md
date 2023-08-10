@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: In this article learn, how to get shape data drawn on a map using the Microsoft Azure Maps Web SDK.
 author: dubiety
 ms.author: yuchungchen
-ms.date: 06/15/2023
+ms.date: 07/13/2023
 ms.topic: how-to
 ms.service: azure-maps
 ---

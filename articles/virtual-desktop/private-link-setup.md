@@ -3,7 +3,8 @@ title: Set up Private Link with Azure Virtual Desktop - Azure
 description: Learn how to set up Private Link with Azure Virtual Desktop to privately connect to your remote resources.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 07/13/2023
+ms.custom: devx-track-azurepowershell
+ms.date: 07/17/2023
 ms.author: daknappe
 ---
 
@@ -25,9 +26,11 @@ In order to use Private Link with Azure Virtual Desktop, you need the following 
 
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
+- Azure PowerShell cmdlets for Azure Virtual Desktop that support Private Link are in preview. You'll need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview) to use these cmdlets, which have been added in version 5.0.0.
+
 ## Enable the feature
 
-To use of Private Link with Azure Virtual Desktop, first you need to re-register the *Microsoft.DesktopVirtualization* resource provider and register the *Azure Virtual Desktop Private Link* feature on your Azure subscription.
+To use Private Link with Azure Virtual Desktop, first you need to re-register the *Microsoft.DesktopVirtualization* resource provider and register the *Azure Virtual Desktop Private Link* feature on your Azure subscription.
 
 > [!IMPORTANT]
 > You need to re-register the resource provider and register the feature for each subscription you want to use Private Link with Azure Virtual Desktop.
@@ -82,7 +85,7 @@ Here's how to create a private endpoint for the *connection* sub-resource for co
 
 1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry to go to the Azure Virtual Desktop overview.
 
-1. Select **Host pools**, then select the name of the host pool you want to create a *connection* sub-resource for.
+1. Select **Host pools**, then select the name of the host pool for which you want to create a *connection* sub-resource.
 
 1. From the host pool overview, select **Networking**, then **Private endpoint connections**, and finally **New private endpoint**.
 
@@ -116,7 +119,7 @@ Here's how to create a private endpoint for the *connection* sub-resource for co
 
    Once you've completed this tab, select **Next: Tags**.
 
-1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
+1. *Optional*: On the **Tags** tab, you can enter any [name/value pairs](../azure-resource-manager/management/tag-resources.md) you need, then select **Next: Review + create**.
 
 1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment.
 
@@ -321,7 +324,7 @@ Here's how to create a private endpoint for the *connection* sub-resource used f
 ---
 
 > [!IMPORTANT]
-> You need to create private endpoint for the connection sub-resource for each host pool you want to use with the Private Link.
+> You need to create a private endpoint for the connection sub-resource for each host pool you want to use with Private Link.
 
 ---
 
@@ -331,7 +334,7 @@ To create a private endpoint for the *feed* sub-resource for a workspace, select
 
 # [Portal](#tab/portal)
 
-1. From the Azure Virtual Desktop overview, select **Workspaces**, then select the name of the workspace you want to create a *feed* sub-resource for.
+1. From the Azure Virtual Desktop overview, select **Workspaces**, then select the name of the workspace for which you want to create a *feed* sub-resource.
 
 1. From the workspace overview, select **Networking**, then **Private endpoint connections**, and finally **New private endpoint**.
 
@@ -365,7 +368,7 @@ To create a private endpoint for the *feed* sub-resource for a workspace, select
 
    Once you've completed this tab, select **Next: Tags**.
 
-1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
+1. *Optional*: On the **Tags** tab, you can enter any [name/value pairs](../azure-resource-manager/management/tag-resources.md) you need, then select **Next: Review + create**.
 
 1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment.
 
@@ -373,7 +376,7 @@ To create a private endpoint for the *feed* sub-resource for a workspace, select
 
 # [Azure CLI](#tab/cli)
 
-1. In the same Bash session, create a Private Link service connection and the private endpoint for a workspace with the feed sub-resource by running the following commands.
+1. In the same CLI session, create a Private Link service connection and the private endpoint for a workspace with the feed sub-resource by running the following commands.
 
    1. To create a private endpoint with a dynamically allocated IP address:
    
@@ -531,7 +534,7 @@ To create a private endpoint for the *feed* sub-resource for a workspace, select
 ---
 
 > [!IMPORTANT]
-> You need to create private endpoint for the feed sub-resource for each workspace you want to use with the Private Link.
+> You need to a create private endpoint for the feed sub-resource for each workspace you want to use with Private Link.
 
 ### Initial feed discovery
 
@@ -580,7 +583,7 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 
    Once you've completed this tab, select **Next: Tags**.
 
-1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
+1. *Optional*: On the **Tags** tab, you can enter any [name/value pairs](../azure-resource-manager/management/tag-resources.md) you need, then select **Next: Review + create**.
 
 1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment.
 
@@ -590,7 +593,7 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 
 1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=cli#create-a-workspace).
 
-1. In the same Bash session, create a Private Link service connection and the private endpoint for the workspace with the global sub-resource by running the following commands:
+1. In the same CLI session, create a Private Link service connection and the private endpoint for the workspace with the global sub-resource by running the following commands:
 
    1. To create a private endpoint with a dynamically allocated IP address:
    
@@ -744,7 +747,9 @@ Once you've created private endpoints, you can also control if traffic is allowe
 
 ### Control routes with Azure Virtual Desktop
 
-With Azure Virtual Desktop, you can independently control public traffic for workspaces and host pools.
+With Azure Virtual Desktop, you can independently control public traffic for workspaces and host pools. Select the relevant tab for your scenario and follow the steps. You can't configure this in Azure CLI. You need to repeat these steps for each workspace and host pool you use with Private Link.
+
+# [Portal](#tab/portal-2)
 
 #### Workspaces
 
@@ -761,8 +766,6 @@ With Azure Virtual Desktop, you can independently control public traffic for wor
 
 1. Select **Save**.
 
-You need to repeat these steps for each workspace you use with Private Link.
-
 #### Host pools
 
 1. From the Azure Virtual Desktop overview, select **Host pools**, then select the name of the host pool to control public traffic.
@@ -773,27 +776,106 @@ You need to repeat these steps for each workspace you use with Private Link.
 
    | Setting | Description |
    |--|--|
-   | **Enable public access from all networks** | End users can access the feed and session hosts over the public internet or the private endpoints. |
-   | **Enable public access for end users, use private access for session hosts** | End users can access the feed over the public internet but must use private endpoints to access session hosts. |
+   | **Enable public access from all networks** | End users can access the feed and session hosts securely over the public internet or the private endpoints. |
+   | **Enable public access for end users, use private access for session hosts** | End users can access the feed securely over the public internet but must use private endpoints to access session hosts. |
    | **Disable public access and use private access** | End users can only access the feed and session hosts over the private endpoints. |
 
 1. Select **Save**.
 
-You need to repeat these steps for each host pool you use with Private Link.
+# [Azure PowerShell](#tab/powershell-2)
 
 > [!IMPORTANT]
-> Selecting **Enable public access for end users, use private access for session hosts** or **Disable public access and use private access** won't affect existing sessions. You must restart the session host virtual machines for the change to take effect.
+> Azure PowerShell cmdlets for Azure Virtual Desktop that support Private Link are in preview. You'll need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview) to use these cmdlets, which have been added in version 5.0.0.
+
+#### Workspaces
+
+1. In the same PowerShell session, you can disable public access and use private access by running the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<WorkspaceName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'Disabled'
+   }
+   
+   Update-AzWvdWorkspace @parameters
+   ```
+
+1. To enable public access from all networks, run the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<WorkspaceName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'Enabled'
+   }
+   
+   Update-AzWvdWorkspace @parameters
+   ```
+
+#### Host pools
+
+1. In the same PowerShell session, you can disable public access and use private access by running the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'Disabled'
+   }
+
+   Update-AzWvdHostPool @parameters 
+   ```
+
+1. To enable public access from all networks, run the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'Enabled'
+   }
+   
+   Update-AzWvdHostPool @parameters
+   ```
+
+1. To use public access for end users, but use private access for session hosts, run the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'EnabledForSessionHostsOnly'
+   }
+   
+   Update-AzWvdHostPool @parameters
+   ```
+
+1. To use private access for end users, but use public access for session hosts, run the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'EnabledForClientsOnly'
+   }
+   
+   Update-AzWvdHostPool @parameters
+   ```
 
 ---
 
+> [!IMPORTANT]
+> Changing access for session hosts won't affect existing sessions. After you've changed a private endpoint to a host pool, you must restart the *Remote Desktop Agent Loader* (*RDAgentBootLoader*) service on each session host in the host pool. You also need to restart this service whenever you change a host pool's network configuration. Instead of restarting the service, you can restart each session host.
+
 ### Block public routes with network security groups or Azure Firewall
 
-If you're using network security groups or Azure Firewall to control connections from user client devices or your session hosts to the private endpoints, you can use the **WindowsVirtualDesktop** service tag to block traffic from the public internet. If you block public internet traffic using this service tag, all service traffic uses private routes only.
+If you're using [network security groups](../virtual-network/network-security-groups-overview.md) or [Azure Firewall](../firewall/overview.md) to control connections from user client devices or your session hosts to the private endpoints, you can use the **WindowsVirtualDesktop** service tag to block traffic from the public internet. If you block public internet traffic using this service tag, all service traffic uses private routes only.
 
 > [!CAUTION]
 > - Make sure you don't block traffic between your private endpoints and the addresses in the [required URL list](safe-url-list.md).
 >
-> - Don't block certain ports from either the user client devices or your session hosts to the private endpoint for a host pool resource using the *connection* sub-resource. The entire TCP dynamic port range of *1 - *65535* to the private endpoint is needed because port mapping is used to all global gateways through the single private endpoint IP address corresponding to the *connection* sub-resource. If you restrict ports to the private endpoint, your users may not be able to connect successfully to Azure Virtual Desktop. 
+> - Don't block certain ports from either the user client devices or your session hosts to the private endpoint for a host pool resource using the *connection* sub-resource. The entire TCP dynamic port range of *1 - 65535* to the private endpoint is needed because port mapping is used to all global gateways through the single private endpoint IP address corresponding to the *connection* sub-resource. If you restrict ports to the private endpoint, your users may not be able to connect successfully to Azure Virtual Desktop. 
 
 ## Validate Private Link with Azure Virtual Desktop
 
@@ -823,7 +905,7 @@ To check the connection state of each private endpoint, select the relevant tab 
 
 # [Azure CLI](#tab/cli)
 
-1. In the same Bash session, run the following commands to check the connection state of a workspace or a host pool:
+1. In the same CLI session, run the following commands to check the connection state of a workspace or a host pool:
 
    ```azurecli
    az network private-endpoint show \
@@ -849,45 +931,41 @@ To check the connection state of each private endpoint, select the relevant tab 
 
 # [Azure PowerShell](#tab/powershell)
 
+> [!IMPORTANT]
+> You need to use the preview version of the Az.DesktopVirtualization module to run the following commands. For more information and to download and install the preview module, see [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview).
+
+#### Workspaces
+
 1. In the same PowerShell session, run the following commands to check the connection state of a workspace:
 
    ```azurepowershell
-   # Get the resource ID of the workspace
-   $workspaceId = (Get-AzWvdWorkspace -Name <WorkspaceName> -ResourceGroupName <ResourceGroupName>).Id
-   
-   Get-AzPrivateEndpointConnection -PrivateLinkResourceId $workspaceId  | FL Name, PrivateLinkServiceConnectionStateText
+   (Get-AzWvdWorkspace -Name <WorkspaceName> -ResourceGroupName <ResourceGroupName).PrivateEndpointConnection | FL Name, PrivateLinkServiceConnectionStateStatus, PrivateLinkServiceConnectionStateDescription, PrivateLinkServiceConnectionStateActionsRequired
    ```
 
-   Your output should be similar to the following. Check that the value for **Status** is **Approved**.
+   Your output should be similar to the following. Check that the value for **PrivateLinkServiceConnectionStateStatus** is **Approved**.
 
    ```output
-   Name                                  : endpoint-ws01
-   PrivateLinkServiceConnectionStateText : {
-                                             "Status": "Approved",
-                                             "Description": "Auto-approved",
-                                             "ActionRequired": "None"
-                                           }
+   Name                                             : endpoint-ws01
+   PrivateLinkServiceConnectionStateStatus          : Approved
+   PrivateLinkServiceConnectionStateDescription     : Auto-approved
+   PrivateLinkServiceConnectionStateActionsRequired : None
    ```
 
-1. Run the following commands to check the connection state of a host pool:
+#### Host pools
+
+1. In the same PowerShell session, run the following commands to check the connection state of a host pool:
 
    ```azurepowershell
-   # Get the resource ID of the workspace
-   $hostPoolId = (Get-AzWvdHostPool -Name <HostPoolName> -ResourceGroupName <ResourceGroupName>).Id
-   
-   Get-AzPrivateEndpointConnection -PrivateLinkResourceId $hostPoolId | FL Name, PrivateLinkServiceConnectionStateText
+   (Get-AzWvdHostPool -Name <HostPoolName> -ResourceGroupName <ResourceGroupName).PrivateEndpointConnection | FL Name, PrivateLinkServiceConnectionStateStatus, PrivateLinkServiceConnectionStateDescription, PrivateLinkServiceConnectionStateActionsRequired
    ```
 
-   Your output should be similar to the following. Check that the value for **Status** is **Approved**.
+   Your output should be similar to the following. Check that the value for **PrivateLinkServiceConnectionStateStatus** is **Approved**.
 
    ```output
-   Name                                  : endpoint-hp01
-   PrivateLinkServiceConnectionStateText : {
-                                             "Status": "Approved",
-                                             "Description": "Auto-approved",
-                                             "ActionRequired": "None"
-                                           }
-   ```
+   Name                                             : endpoint-hp01
+   PrivateLinkServiceConnectionStateStatus          : Approved
+   PrivateLinkServiceConnectionStateDescription     : Auto-approved
+   PrivateLinkServiceConnectionStateActionsRequired : None
 
 ---
 

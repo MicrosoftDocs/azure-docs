@@ -172,12 +172,13 @@ const callClient = new CallClient({ logger });
 ```
 
 You can use AzureLogger to redirect the logging output from Azure SDKs by overriding the `AzureLogger.log` method:
-This value may be useful if you want to redirect logs to a location other than console.
-
+You can log to the browser console, a file, buffer, send to our own service, etc... If you are going to send logs over
+the network to your own service, do not send a request per log line because this will affect browser performance. Instead, accumulate logs lines and send them in batches.
 ```javascript
-// redirect log output
+// Redirect log output
 AzureLogger.log = (...args) => {
-  console.log(...args); // to console, file, buffer, REST API, etc...
+    // To console, file, buffer, REST API, etc...
+    console.log(...args); 
 };
 ```
 

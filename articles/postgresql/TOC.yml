@@ -184,10 +184,15 @@
       href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Integrations
     items:
+    - name: Manage Azure resources with automation tasks
+      href: ./flexible-server/create-automation-tasks.md
+      displayName: Automation
     - name: Power BI
       href: flexible-server/connect-with-power-bi-desktop.md
   - name: Troubleshooting
     items:  
+    - name: Troubleshooting guides
+      href: flexible-server/how-to-troubleshooting-guides.md
     - name: Functional troubleshooting
       items:
       - name: Troubleshoot CLI errors
@@ -313,16 +318,6 @@
         href: flexible-server/how-to-manage-azure-ad-users.md
       - name: Connect with SCRAM authentication
         href: flexible-server/how-to-connect-scram.md
-    - name: Scale a server
-      items:
-      - name: Azure portal
-        href: flexible-server/how-to-scale-compute-storage-portal.md
-    - name: Restart a server
-      items:
-      - name: Azure portal
-        href: flexible-server/how-to-restart-server-portal.md
-      - name: Azure CLI
-        href: flexible-server/how-to-restart-server-cli.md
     - name: Major Version Upgrade
       items:
       - name: Azure portal
@@ -357,12 +352,6 @@
       - name: Azure REST API
         href: flexible-server/how-to-read-replicas-rest-api.md
         displayName: replica rest api
-    - name: Cost optimization
-      items:
-      - name: How to optimize costs
-        href: flexible-server/how-to-cost-optimization.md
-    - name: Troubleshooting guides
-      href: flexible-server/how-to-troubleshooting-guides.md
     - name: Use vectors and embeddings
       items:
         - name: Basics of pgvector
@@ -455,6 +444,8 @@
       displayName: monitor, alerts, configure
   - name: Concepts
     items:
+    - name: Cost optimization
+      href: flexible-server/how-to-cost-optimization.md
     - name: Servers
       href: single-server/concepts-servers.md
     - name: Supported versions
@@ -798,7 +789,7 @@
         href: https://aka.ms/postg-intro-vid
       - name: Migrate your PostgreSQL app to Azure
         href: https://aka.ms/postg-migrate-vid
-      - name: Build intelligent apps with Cognitive Services
+      - name: Build intelligent apps with Azure AI services
         href: https://aka.ms/postg-cogsvs-vid
       - name: Connect containers using OSBA
         href: https://aka.ms/postg-osba-vid
