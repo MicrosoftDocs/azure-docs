@@ -13,24 +13,6 @@ ms.custom: template-how-to
 
 Instance Readiness Testing (IRT) is a framework built to orchestrate real-world workloads for testing of the Azure Operator Nexus Platform.
 
-## Table of Contents
-
-- [Instance readiness testing](#instance-readiness-testing)
-  - [Table of Contents](#table-of-contents)
-  - [Environment requirements](#environment-requirements)
-  - [Input configuration](#input-configuration)
-  - [One Time Setup](#one-time-setup)
-    - [Download IRT](#download-irt)
-    - [Install dependencies](#install-dependencies)
-    - [All in one setup](#all-in-one-setup)
-    - [Step-by-Step setup](#step-by-step-setup)
-      - [Create managed identity](#create-managed-identity)
-      - [Create service principal and security group](#create-service-principal-and-security-group)
-      - [Create isolation domains](#create-isolation-domains)
-      - [Create archive storage](#create-archive-storage)
-  - [Execution](#execution)
-  - [Results](#results)
-
 ## Environment requirements
 
 - A Linux environment (Ubuntu suggested) capable of calling Azure APIs
@@ -83,10 +65,10 @@ The `setup.sh` script is provided to aid with installing the listed dependencies
 
 ### Step-by-Step setup
 
-If your workflow is incompatible with `all-in-one.sh`, each resource needed for IRT can be created manually with each supplemental script. Like `all-in-one.sh`, running these scripts  writes key/value pairs to your `irt-input.yml` for you to use during your run. These five scripts make up the `all-in-one.sh`. 
-
 > [!NOTE]
 > Only use this section if you're NOT using `all-in-one.sh`
+
+If your workflow is incompatible with `all-in-one.sh`, each resource needed for IRT can be created manually with each supplemental script. Like `all-in-one.sh`, running these scripts  writes key/value pairs to your `irt-input.yml` for you to use during your run. These five scripts make up the `all-in-one.sh`. 
 
 IRT makes commands against your resources, and needs permission to do so. IRT requires a Managed Identity and a Service Principal to execute. It also requires that the service principal is a  member of the Azure AD Security Group that is also provided as input.
 
