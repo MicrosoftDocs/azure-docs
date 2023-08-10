@@ -59,7 +59,7 @@ A layout gets applied to a page by matching its URL template to the page's URL. 
 
 In the following image, content belonging to the layout is outlined in blue, while the page-specific content is outlined in red. The menu sections are marked respectively.
 
-:::image type="content" source="media/developer-portal-overview/pages-layouts.png" alt-text="Screenshot of the visual editor in the developer portal." :::
+:::image type="content" source="media/developer-portal-overview/pages-layouts.png" alt-text="Screenshot of layout content in the developer portal." :::
 
 ### Styles
 
