@@ -21,7 +21,7 @@ zone_pivot_groups: acs-dev-environment-vs-vscode,client-operating-system
 [!INCLUDE [Setup project with VS Code](./messages-get-started-net-vscode-setup.md)]
 ::: zone-end
 
-3. Update your Project.cs
+Update your Project.cs
 
 Open the *Program.cs* file in a text editor.   
 
@@ -31,12 +31,21 @@ Add a `using` directive to include the `Azure.Communication.Messages` namespace.
 using Azure.Communication.Messages;
 ```
 
+For this quickstart, you need the following includes:
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Azure;
+```
+
 Update the `Main` method declaration to support async code.   
 ```csharp
 public static async Task Main(string[] args)
 ```
 
-4. Include the package in your C# project   
+Include the package in your C# project   
 Add the directive to include the Messages package.
 
 ```csharp
@@ -47,6 +56,8 @@ Or, you can replace your Program.cs with the following code:
 
 ```csharp
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Azure;
 using Azure.Communication.Messages;
 
@@ -134,11 +145,11 @@ string channelRegistrationId = "<your channel registration id GUID>";
 
 ## Set recipient list
 You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account receives the text and media messages sent in this quickstart.
-For the purpose of this quickstart, this phone number may be your personal phone number.   
+By this quickstart, this phone number may be your personal phone number.   
 
 The recipient phone number can't be the business phone number (Sender ID) associated with the WhatsApp channel registration. The Sender ID appears as the sender of the text and media messages sent to the recipient.
 
-The phone number must include the country code. For more information on phone number formatting, see WhatsApp documentation for [Phone Number Formats](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/phone-numbers#phone-number-formats).
+The phone number should include the country code. For more information on phone number formatting, see WhatsApp documentation for [Phone Number Formats](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/phone-numbers#phone-number-formats).
 
 > [!NOTE]
 > Only one phone number is currently supported in the recipient list.
