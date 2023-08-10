@@ -21,6 +21,7 @@ ms.custom: "include file"
 
 ### Alerts API
 Azure Monitor alerts have several throttling limits to protect against users making an excessive number of calls. Such behavior can potentially overload the system back-end resources and jeopardize service responsiveness. The following limits are designed to protect customers from interruptions and ensure a consistent service level. The user throttling and limits are designed to affect only extreme usage scenarios. They shouldn't be relevant for typical usage.
+Notice There is a limit of API calls per instance. The exact limit number depands on the number of instances.
 
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
