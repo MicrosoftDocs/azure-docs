@@ -29,8 +29,8 @@ This article describes the steps to set up the connectivity between a virtual ma
 
 ## Methods to connect to HDInsight Kafka cluster from client VM
 
-1. [Configure Kafka for IP advertising](#configure-kafka-for-ip-advertising): Use `Kafka IP advertising` to populate Kafka worker node private IPs in different vnet. Once IP advertising is done, use [private DNS setup](#set-up-a-private-dns-server-for-fqdn-resolution) for DNS resolution of worker nodes FQDN.
-1. [Update /etc/hosts file in client machine](#update-etchosts-file-in-client-machine): Update `/etc/hosts` file in client machine with `/etc/hosts` file of Kafka Head/Worker node.
+1. Configure Kafka for IP advertising: Use `Kafka IP advertising` to populate Kafka worker node private IPs in different vnet. Once IP advertising is done, use [private DNS setup](#set-up-a-private-dns-server-for-fqdn-resolution) for DNS resolution of worker nodes FQDN.
+1. Update /etc/hosts file in client machine: Update `/etc/hosts` file in client machine with `/etc/hosts` file of Kafka Head/Worker node.
 
 > [!NOTE]
 > 1. Private DNS setup is optional after IP advertising. This is required only when you want to use FQDN of Kafka worker nodes with private DNS domain name instead of private IPs.
@@ -51,7 +51,7 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
 
 1. To access kafka-env configuration on the Ambari dashboard, just type "kafka-env" in the top right filter field in Ambari UI. border="true" lightbox="./media/connect-kafka-with-vnet/":::
   
-   :::image type="content" source="./media/connect-kafka-with-vnet/kafka-env.png" alt-text="Screenshot showing Kafka environment." border="true" lightbox="./media/connect-kafka-with-vnet/kafka-env":::
+   :::image type="content" source="./media/connect-kafka-with-vnet/kafka-env.png" alt-text="Screenshot showing Kafka environment." border="true" lightbox="./media/connect-kafka-with-vnet/kafka-env.png":::
 
 1. To configure Kafka to advertise IP addresses, add the following text to the bottom of the `kafka-env-template` field:
    
@@ -185,7 +185,7 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
       > 1. This article assumes that the Ambari server is active on `Head Node 0`. If the Ambari server is active on `Head Node 1` use the FQDN of hn1 to access the Ambari UI.
     
       
-       :::image type="content" source="./media/connect-kafka-with-vnet/dashboard.png" alt-text="Screenshot showing Windows VM."lightbox="./media/connect-kafka-with-vnet/dashboard.png" border="true" lightbox="./media/connect-kafka-with-vnet/dashboard.png":::
+      :::image type="content" source="./media/connect-kafka-with-vnet/dashboard.png" alt-text="Screenshot showing Windows VM."lightbox="./media/connect-kafka-with-vnet/dashboard.png" border="true" lightbox="./media/connect-kafka-with-vnet/dashboard.png":::
     
    1. You can also send messages to kafka topic and read the topics from the VM. For that you can try to use this sample java application.
      
