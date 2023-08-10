@@ -54,7 +54,8 @@ The format of an API request URL when using query string-based versioning is: `h
 For example, `https://apis.contoso.com/products?api-version=v1` and `https://apis.contoso.com/products?api-version=v2` could refer to the same `products` API but to versions `v1` and `v2` respectively.
 
 > [!NOTE]
-> Query string parameters aren't allowed in the `servers` propery of an OpenAPI specification.
+> Query parameters aren't allowed in the `servers` propery of an OpenAPI specification. Because of this, a query string-based version doesn't appear in an OpenAPI specification that you export from an API version.
+
 ## Original versions
 
 If you add a version to a non-versioned API, an `Original` version will be automatically created and will respond on the default URL, without a version identifier specified. The `Original` version ensures that any existing callers are not broken by the process of adding a version. If you create a new API with versions enabled at the start, an `Original` version isn't created.
