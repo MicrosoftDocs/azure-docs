@@ -2,7 +2,7 @@
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: include
-ms.date: 08/13/2020
+ms.date: 08/10/2023
 ms.author: cshoe
 ---
 

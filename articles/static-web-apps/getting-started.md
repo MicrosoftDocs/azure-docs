@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
-ms.date: 06/28/2022
+ms.date: 08/10/2023
 ms.author: cshoe
 ms.custom: mode-other
 ---
