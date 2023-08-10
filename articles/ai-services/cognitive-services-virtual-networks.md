@@ -78,7 +78,7 @@ You can manage default network access rules for Azure AI services resources thro
 
 1. Select **Resource Management** to expand it, then select **Networking**.
 
-   :::image type="content" source="media/vnet/virtual-network-blade.png" alt-text="Virtual network option" :::
+   :::image type="content" source="media/vnet/virtual-network-blade.png" alt-text="Screenshot shows the Networking page with Selected Networks and Private Endpoints selected." :::
 
 1. To deny access by default, under **Firewalls and virtual networks**, select **Selected Networks and Private Endpoints**.
 
@@ -86,7 +86,7 @@ You can manage default network access rules for Azure AI services resources thro
 
 1. To allow traffic from all networks, select **All networks**.
 
-   :::image type="content" source="media/vnet/virtual-network-deny.png" alt-text="Virtual networks deny" :::
+   :::image type="content" source="media/vnet/virtual-network-deny.png" alt-text="Screenshot shows the Networking page with All networks selected." :::
 
 1. Select **Save** to apply your changes.
 
@@ -193,11 +193,11 @@ To grant access to a virtual network with an existing network rule:
 
 1. Under **Allow access from**, select **Add existing virtual network**.
 
-   :::image type="content" source="media/vnet/virtual-network-add-existing.png" alt-text="Add existing vNet" :::
+   :::image type="content" source="media/vnet/virtual-network-add-existing.png" alt-text="Screenshot shows the Networking page with Selected Networks and Private Endpoints selected and Add existing virtual network highlighted." :::
 
 1. Select the **Virtual networks** and **Subnets** options, and then select **Enable**.
 
-   :::image type="content" source="media/vnet/virtual-network-add-existing-details.png" alt-text="Add existing vNet details" :::
+   :::image type="content" source="media/vnet/virtual-network-add-existing-details.png" alt-text="Screenshot shows the Add networks dialog box where you can enter a virtual network and subnet." :::
 
    > [!NOTE]
    > If a service endpoint for Azure AI services wasn't previously configured for the selected virtual network and subnets, you can configure it as part of this operation.
@@ -210,11 +210,11 @@ To create a new virtual network and grant it access:
 
 1. On the same page as the previous procedure, select **Add new virtual network**.
 
-   :::image type="content" source="media/vnet/virtual-network-add-new.png" alt-text="Add new vNet" :::
+   :::image type="content" source="media/vnet/virtual-network-add-new.png" alt-text="Screenshot shows the Networking page with Selected Networks and Private Endpoints selected and Add new virtual network highlighted." :::
 
 1. Provide the information necessary to create the new virtual network, and then select **Create**.
 
-   :::image type="content" source="media/vnet/virtual-network-create.png" alt-text="Create vNet" :::
+   :::image type="content" source="media/vnet/virtual-network-create.png" alt-text="Screenshot shows the Create virtual network dialog box." :::
 
 1. Select **Save** to apply your changes.
 
@@ -222,7 +222,7 @@ To remove a virtual network or subnet rule:
 
 1. On the same page as the previous procedures, select **...** to open the context menu for the virtual network or subnet, and select **Remove**.
 
-   :::image type="content" source="media/vnet/virtual-network-remove.png" alt-text="Remove vNet" :::
+   :::image type="content" source="media/vnet/virtual-network-remove.png" alt-text="Screenshot shows the option to remove a virtual network." :::
 
 1. Select **Save** to apply your changes.
 
@@ -308,7 +308,7 @@ To remove a virtual network or subnet rule:
 1. Add a network rule for a virtual network and subnet.
 
     ```azurecli-interactive
-    $subnetid=(az network vnet subnet show \
+    subnetid=$(az network vnet subnet show \
         --resource-group "myresourcegroup" --name "mysubnet" --vnet-name "myvnet" \
         --query id --output tsv)
 
@@ -319,9 +319,9 @@ To remove a virtual network or subnet rule:
     ```
 
     > [!TIP]
-    > To add a rule for a subnet in a VNet belonging to another Azure AD tenant, use a fully-qualified subnet ID in the form "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
+    > To add a rule for a subnet in a VNet belonging to another Azure AD tenant, use a fully-qualified subnet ID in the form `/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name`.
     > 
-    > You can use the **subscription** parameter to retrieve the subnet ID for a virtual network belonging to another Azure AD tenant.
+    > You can use the `--subscription` parameter to retrieve the subnet ID for a virtual network belonging to another Azure AD tenant.
 
 1. Remove a network rule for a virtual network and subnet.
 
@@ -378,7 +378,7 @@ You can manage IP network rules for Azure AI services resources through the Azur
 
 1. To grant access to an internet IP range, enter the IP address or address range (in [CIDR format](https://tools.ietf.org/html/rfc4632)) under **Firewall** > **Address Range**. Only valid public IP (nonreserved) addresses are accepted.
 
-   :::image type="content" source="media/vnet/virtual-network-add-ip-range.png" alt-text="Add IP range" :::
+   :::image type="content" source="media/vnet/virtual-network-add-ip-range.png" alt-text="Screenshot shows the Networking page with Selected Networks and Private Endpoints selected and the Address range highlighted." :::
 
    To remove an IP network rule, select the trash can <span class="docon docon-delete x-hidden-focus"></span> icon next to the address range.
 
