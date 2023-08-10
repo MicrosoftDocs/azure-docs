@@ -40,7 +40,15 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * Determine what data to [map between Azure AD and Airbase](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Airbase to support provisioning with Azure AD
-Contact Airbase support to configure Airbase to support provisioning with Azure AD.
+
+1. Login to Airbase portal.
+1. Navigate to the Users section.
+1. Click Sync with HRIS.
+   ![Screenshot of choosing Azure from People - Users page.](media/airbase-provisioning-tutorial/connect-hris.png)
+1. Select Azure AD from the list of HRIS.
+1. Make a note of the Base URL and API Token.
+   ![Screenshot of tenant url and token.](media/airbase-provisioning-tutorial/generate-token.png)
+1. Use these values in Step 5.5.
 
 ## Step 3. Add Airbase from the Azure AD application gallery
 
