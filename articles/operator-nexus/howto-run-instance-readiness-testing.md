@@ -100,7 +100,7 @@ A service principal with the following role assignments. The supplemental script
 
 Additionally, the script creates the necessary security group, and adds the service principal to the security group. If the security group exists, it adds the service principal to the existing security group.
 
-Executing `create-service-principal.sh` requires the following environment variables to be set;
+Executing `create-service-principal.sh` requires the following environment variables to be set:
    * SERVICE_PRINCIPAL_NAME - The name of the service principal, created with the `az ad sp create-for-rbac` command.
    * AAD_GROUP_NAME - The name of the security group.
 
@@ -115,7 +115,7 @@ SERVICE_PRINCIPAL_NAME="<your service principal name>" AAD_GROUP_NAME="<your sec
 #### Create isolation domains
 The testing framework doesn't create, destroy, or manipulate isolation domains. Therefore, existing Isolation Domains can be used. Each Isolation Domain requires at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks are created, manipulated, and destroy through the course of testing. They're created using the data provided in the networks blueprint.
 
-Executing `create-l3-isolation-domains.sh` requires one **parameter**, a path to your networks blueprint file;
+Executing `create-l3-isolation-domains.sh` requires one **parameter**, a path to your networks blueprint file:
   
 ```bash
 # Example of the script being invoked:
@@ -126,7 +126,7 @@ Executing `create-l3-isolation-domains.sh` requires one **parameter**, a path to
 IRT creates an html test report after running a test scenario. These reports can optionally be uploaded to a blob storage container. the supplementary script `create-archive-storage.sh` to create a storage container, storage account, and resource group if they don't already exist.
 
 
-Executing `create-managed-identity.sh` requires the following environment variables to be set;
+Executing `create-managed-identity.sh` requires the following environment variables to be set:
    * **RESOURCE_GROUP** - The resource group the Managed Identity is created in. The resource group is created in `eastus` if the resource group provided doesn't yet exist.
    * **STORAGE_ACCOUNT_NAME** - The name of the Azure storage account to be created.
    * **STORAGE_CONTAINER_NAME** - The name of the blob storage container to be created.
