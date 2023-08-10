@@ -45,7 +45,7 @@ A read replica server can be created using the following steps:
 
     :::image type="content" source="./media/how-to-read-replica-portal/replica-name.png" alt-text="Screenshot of adding a replica name." lightbox="./media/how-to-read-replica-portal/replica-name.png":::
 
-1. Enter location based on your need to create an in-region or cross-region read-replica.
+1. Enter location based on your need to create an in-region or universal cross-region read-replica.
 
     :::image type="content" source="media/how-to-read-replica-portal/select-cross-region.png" alt-text="Screenshot of selecting a cross region.":::
 

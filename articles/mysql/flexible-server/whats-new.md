@@ -25,6 +25,13 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > [!NOTE]  
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+## Aug 2023
+
+- **Universal Cross Region Read Replica on Azure Database for MySQL- Flexible Server (General Availability)**
+
+  Azure Database for MySQL - Flexible server now supports Universal Read Replicas. The feature allows you to replicate your data from an instance of Azure Database for MySQL Flexible Server to a read-only server in Universal region which could be any region from the list of Azure supported region where flexible server is available. [Learn more](concepts-read-replicas.md)
+
+
 ## July 2023
 
 - **Autoscale IOPS in Azure Database for MySQL - Flexible Server (General Availability)**
