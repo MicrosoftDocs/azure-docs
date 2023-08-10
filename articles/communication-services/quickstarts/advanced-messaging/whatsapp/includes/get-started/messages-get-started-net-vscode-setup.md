@@ -11,9 +11,9 @@ ms.custom: include file
 ms.author: memontic
 ---
 
-1. [Create a .NET console application using Visual Studio Code](/dotnet/core/tutorials/with-visual-studio-code?pivots=dotnet-7-0)
+[Create a .NET console application using Visual Studio Code](/dotnet/core/tutorials/with-visual-studio-code?pivots=dotnet-7-0)
  
-2. In the VS Code terminal ( `View` > `Terminal` ), install the Azure.Communication.Messages NuGet package to your C# project
+In the VS Code terminal ( `View` > `Terminal` ), install the Azure.Communication.Messages NuGet package to your C# project
 
 ```console
 dotnet add package Azure.Communication.Messages

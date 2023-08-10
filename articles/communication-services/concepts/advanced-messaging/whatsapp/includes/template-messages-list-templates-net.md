@@ -11,7 +11,7 @@ ms.topic: include
 ms.custom: include file
 ms.author: memontic
 ---
-
 ```csharp
-AsyncPageable<MessageTemplateItem> templates = messageTemplateClient.GetTemplatesAsync(channelId);
+MessageTemplateClient messageTemplateClient = new MessageTemplateClient(connectionString);
+Pageable<MessageTemplateItem> templates = messageTemplateClient.GetTemplates(channelRegistrationId);
 ``````
