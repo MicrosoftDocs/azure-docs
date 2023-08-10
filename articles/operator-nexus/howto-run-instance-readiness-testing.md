@@ -25,7 +25,7 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real-world 
     - [All in one setup](#all-in-one-setup)
     - [Step-by-Step setup](#step-by-step-setup)
       - [Create managed identity](#create-managed-identity)
-      - [Create service principal \& security group](#create-service-principal--security-group)
+      - [Create service principal and security group](#create-service-principal-and-security-group)
       - [Create isolation domains](#create-isolation-domains)
       - [Create archive storage](#create-archive-storage)
   - [Execution](#execution)
@@ -46,11 +46,11 @@ Build your input file. The IRT tarball provides `irt-input.example.yml` as an ex
 
 The network information is provided in either a `networks-blueprint.yml` file, similar to the `networks-blueprint.example.yml` that is provided, or appended to the `irt-input.yml` file. The  schema for IRT is defined in the `networks-blueprint.example.yml`. The networks are created as part of the test, provide network details that aren't in use. Currently IRT has the following network requirements:
 
-1. Three (3) L3 Networks
+* Three (3) L3 Networks
    * Two of them with MTU 1500
    * One of them with MTU 9000 and shouldn't have a fabric_asn attribute
-1. One (1) Trunked Network
-1. All vlans should be greater than 500
+* One (1) Trunked Network
+* All vlans should be greater than 500
 
 ## One Time Setup
 
@@ -74,7 +74,8 @@ There are multiple dependencies expected to be available during execution. Revie
 
 The `setup.sh` script is provided to aid with installing the listed dependencies. It installs any dependencies that aren't available in PATH. It doesn't upgrade any dependencies that don't meet the minimum required versions.
 
-**NOTE:** `setup.sh` assumes a nonroot user and attempts to use `sudo`
+[!NOTE] 
+`setup.sh` assumes a nonroot user and attempts to use `sudo`
 
 ### All in one setup
 
@@ -82,21 +83,24 @@ The `setup.sh` script is provided to aid with installing the listed dependencies
 
 ### Step-by-Step setup
 
-If your workflow is incompatible with `all-in-one.sh`, each resource needed for IRT can be created manually with each supplemental script. Like `all-in-one.sh`, running these scripts  writes key/value pairs to your `irt-input.yml` for you to use during your run. These five scripts make up the `all-in-one.sh`. **Only utilize this section if you are NOT using `all-in-one.sh`**
+If your workflow is incompatible with `all-in-one.sh`, each resource needed for IRT can be created manually with each supplemental script. Like `all-in-one.sh`, running these scripts  writes key/value pairs to your `irt-input.yml` for you to use during your run. These five scripts make up the `all-in-one.sh`. 
+
+[!NOTE]
+Only use this section if you are NOT using `all-in-one.sh`
 
 IRT makes commands against your resources, and needs permission to do so. IRT requires a Managed Identity and a Service Principal to execute. It also requires that the service principal is a  member of the AAD Security Group that is also provided as input.
 
 #### Create managed identity
 A managed identity with the following role assignments is needed to execute tests. The supplemental script, `create-managed-identity.sh` creates a managed identity with these role assignments.
-   1. `Contributor` - For creating and manipulating resources
-   1. `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
-   1. `Log Analytics Reader` - For reading metadata about the LAW
+   * `Contributor` - For creating and manipulating resources
+   * `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
+   * `Log Analytics Reader` - For reading metadata about the LAW
 
 
 Executing `create-managed-identity.sh` requires the following environment variables to be set;
-   1. **MI_RESOURCE_GROUP** - The resource group the Managed Identity is created in. The resource group is created in `eastus` if the resource group provided doesn't yet exist.
-   1. **MI_NAME** - The name of the Managed Identity to be created.
-   1. **[Optional] SUBSCRIPTION** - to set the subscription. Alternatively, the script uses az CLI context to look up the subscription.
+   * **MI_RESOURCE_GROUP** - The resource group the Managed Identity is created in. The resource group is created in `eastus` if the resource group provided doesn't yet exist.
+   * **MI_NAME** - The name of the Managed Identity to be created.
+   * **[Optional] SUBSCRIPTION** - to set the subscription. Alternatively, the script uses az CLI context to look up the subscription.
 
 ```bash
 # Example execution of the script
@@ -106,17 +110,17 @@ MI_RESOURCE_GROUP="<your resource group>" MI_NAME="<your managed identity name>"
 **RESULT:** This script prints a value for `MANAGED_IDENTITY_ID`. This key/value pair should be recorded in the irt-input.yml for use. See [Input Configuration](#input-configuration).
 
 
-#### Create service principal & security group
+#### Create service principal and security group
 A service principal with the following role assignments. The supplemental script, `create-service-principal.sh`  creates a service principal with these role assignments, or add role assignments to an existing service principal. 
-   1. `Contributor` - For creating and manipulating resources
-   1. `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
-   1. `Azure ARC Kubernetes Admin` - For ARC enrolling the NAKS cluster
+   * `Contributor` - For creating and manipulating resources
+   * `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
+   * `Azure ARC Kubernetes Admin` - For ARC enrolling the NAKS cluster
 
 Additionally, the script creates the necessary security group, and adds the service principal to the security group. If the security group exists, it adds the service principal to the existing security group.
 
 Executing `create-service-principal` requires the following environment variables to be set;
-    1. SERVICE_PRINCIPAL_NAME - The name of the service principal, created with the `az ad sp create-for-rbac` command.
-    1. AAD_GROUP_NAME - The name of the security group.
+   * SERVICE_PRINCIPAL_NAME - The name of the service principal, created with the `az ad sp create-for-rbac` command.
+   * AAD_GROUP_NAME - The name of the security group.
 
 ```bash
 # Example execution of the script
@@ -141,10 +145,10 @@ IRT creates an html test report after running a test scenario. These reports can
 
 
 Executing `create-managed-identity.sh` requires the following environment variables to be set;
-   1. **RESOURCE_GROUP** - The resource group the Managed Identity is created in. The resource group is created in `eastus` if the resource group provided doesn't yet exist.
-   1. **STORAGE_ACCOUNT_NAME** - The name of the Azure storage account to be created.
-   1. **STORAGE_CONTAINER_NAME** - The name of the blob storage container to be created.
-   1. **[Optional] SUBSCRIPTION** - to set the subscription. Alternatively, the script uses the az CLI context to look up the subscription.
+   * **RESOURCE_GROUP** - The resource group the Managed Identity is created in. The resource group is created in `eastus` if the resource group provided doesn't yet exist.
+   * **STORAGE_ACCOUNT_NAME** - The name of the Azure storage account to be created.
+   * **STORAGE_CONTAINER_NAME** - The name of the blob storage container to be created.
+   * **[Optional] SUBSCRIPTION** - to set the subscription. Alternatively, the script uses the az CLI context to look up the subscription.
 
 
 ```bash
@@ -157,7 +161,7 @@ RESOURCE_GROUP="<your resource group>" STORAGE_ACCOUNT_NAME="<your storage accou
 
 ## Execution
 
-1. Execute. This example assumes irt-input.yml is in the same location as irt.sh. If your file is located in a different directory, provide the full file path.
+* Execute. This example assumes irt-input.yml is in the same location as irt.sh. If your file is located in a different directory, provide the full file path.
 
 ```bash
 ./irt.sh irt-input.yml
