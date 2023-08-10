@@ -130,7 +130,7 @@ sections:
           
           Check the body of the 429 response for the specific reason why the request failed.
           
-          †A configuration store may experience momentary throttling if it receives a large burst of requests or transfers an excessive volume of data. App Configuration clients, such as the Azure SDK, configuration provider libraries, and Azure Pipeline tasks, automatically retry on throttled requests. For any applications using one of these clients, or a custom client that retries on throttled requests, this momentary throttling should go unnoticed, should it occur.
+          †A configuration store may experience momentary throttling if it receives a large burst of requests or transfers an excessive volume of data. App Configuration clients, such as the Azure SDK, configuration provider libraries, and Azure Pipelines tasks, automatically retry on throttled requests. For any applications using one of these clients, or a custom client that retries on throttled requests, this momentary throttling should go unnoticed, should it occur.
 
       - question: How do I estimate the number of requests my application may send to App Configuration?
         answer: |
