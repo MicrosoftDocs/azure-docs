@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 There are some common issues you may see with the WhatsApp Business Account that you have connected to your Azure Communication Services resource. Your WhatsApp Business Account is managed from the WhatsApp business portal. This article provides links to the WhatsApp documentation to learn more and troubleshoot these issues.
 
-## Display name
+## What is a display name
 
 The WhatsApp Business display name is your business name that customers see on your WhatsApp Business profile. When you add a new phone number to your WhatsApp Business Account in the Meta Business Manager, you need to assign a display name to it.
 
@@ -27,7 +27,7 @@ If your display name is rejected, review the [Display Name Guidelines \| Meta Bu
 You can change your display name following these instructions: [How to change your WhatsApp Business display name \| Meta Business Help Center (facebook.com)](https://www.facebook.com/business/help/378834799515077)
 
 
-## Business verification
+## What is a Business account
 WhatsApp offers a number of options to verify and promote your business. You can learn about the types of WhatsApp Business accounts here: [Verify Your Business \| Meta Business Help Center (facebook.com)](https://www.facebook.com/business/help/2058515294227817?id=180505742745347)
 
 By default, any account using the WhatsApp Business Platform or WhatsApp Business App is a business account. Business verification is not required to send messages to your customers.
@@ -40,11 +40,11 @@ You can troubleshoot why your business can’t be verified here: [Troubleshoot W
 
 To get the verified green check by your business, you can request to become an Official Business Account (OBA). You can find more about this process here: [Request a WhatsApp Official Business Account \| Meta Business Help Center (facebook.com)](https://www.facebook.com/business/help/604726921052590)
 
-## Templates
+## How Template approval works
 
 WhatsApp requires businesses to initiate conversations by using templates. You must create these templates and submit them for approval before using them. You can learn more about this approval process along with common rejection reasons here: [Message Template Guidelines - WhatsApp Business Platform (facebook.com)](https://developers.facebook.com/docs/whatsapp/message-templates/guidelines)
 
-### Account revocation
+### Why an account is revocation
 
 WhatsApp will revoke WhatsApp Business Accounts that repeatedly violate its [Business](https://www.whatsapp.com/legal/business-policy/?fbclid=IwAR1lTizu2h_YMI2BlTtDPKsi3k0OrnD7uXwcmHLmbSXI21MPBU-Kgt070BQ) and [Commerce](https://www.whatsapp.com/legal/commerce-policy/?fbclid=IwAR2J_EdbAUuYN4XD737puCEOfM5DJOsrssuueEAszXbSLgUmmLtCuxJHy3w) policies. Learn more about account revocation here: [View policy violation details for your WhatsApp Business account \| Meta Business Help Center (facebook.com)](https://www.facebook.com/business/help/692706745267064)
 
