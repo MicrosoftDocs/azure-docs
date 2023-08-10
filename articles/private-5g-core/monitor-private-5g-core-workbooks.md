@@ -24,7 +24,7 @@ Within your **Mobile Network Site** resource in the Azure portal, you can view w
 The gallery lists your saved workbooks and templates. To access the gallery:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Navigate to the **Mobile Network Site** resource for the site you want to monitor
+1. Navigate to the **Mobile Network Site** resource for the site you want to monitor.
 1. Select **Workbooks** from the left-hand navigation.
 
 Your AP5GC deployment includes a **PMEC Site Overview** template along with the default **Activity Logs Insights** template. You can also select the **Empty** quick start template to create your own workbook.
