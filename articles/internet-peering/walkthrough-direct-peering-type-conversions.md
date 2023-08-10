@@ -123,4 +123,4 @@ Once the conversion is completed its state returns to **Active**.
 
 **Q.** I have more questions, what is the best way to contact you?
 
-**A.** Contact us at [Azure Peering group](mailto:peeringservice@microsoft.com).
+**A.** Contact the [Azure Peering group](mailto:peeringservice@microsoft.com).
