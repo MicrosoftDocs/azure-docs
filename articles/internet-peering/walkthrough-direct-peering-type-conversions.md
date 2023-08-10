@@ -25,7 +25,8 @@ A direct peering type conversion for a peering connection can only be requested 
 -  Type conversions run during the business hours of the Pacific Time zone.
 -  For Voice conversions, the connection session addresses are provided by Microsoft and enabled with BFD (Bidirectional Forwarding Detection). It's expected that the partners set up their configurations accordingly.
 
-## 1. Configure the new type on a Direct Peering
+## Configure the new type on a Direct Peering
+
 ### Convert from PNI to Voice
 A peering with standard PNI(s) or PNI(s) enabled for Azure Peering Service can be converted to Voice PNI(s). This conversion must be made at the peering level, which means all the connections within the peering are converted.
 
@@ -53,14 +54,14 @@ You need to be a Peering Service partner to enable Peering Service on a connecti
 
 Once the request is received, the **Connection State** on each of the connections changes to **TypeChangeRequested**.
 
-## 2. Conversion approval
+## Conversion approval
 
 Your request is reviewed and approved by someone from the internal team.
 
 Connections remain in the **TypeChangeRequested** state until they're approved. After approval, the connections converted one at a time to ensure that the redundant connection(s) are always up and carrying traffic. The **Connection State** on the connection(s) changes to **TypeChangeInProgress**.
 You can see this state in the Connection page.
 
-## 3. Monitor the conversion
+## Monitor the conversion
 
 When your connection enters the conversion process, its state is labeled as **TypeChangeInProgress**.
 
