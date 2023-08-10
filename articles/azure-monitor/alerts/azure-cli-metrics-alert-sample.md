@@ -2,8 +2,6 @@
 title: Create metric alert monitors in Azure CLI
 description: Learn how to create metric alerts in Azure Monitor with Azure CLI commands. These samples create alerts for a virtual machine and an App Service Plan.
 ms.topic: sample
-author: bwren
-ms.author: bwren
 ms.date: 04/05/2022
 ms.custom: devx-track-azurecli
 
@@ -19,7 +17,7 @@ These samples create metric alert monitors in Azure Monitor by using Azure CLI c
 
 This alert monitors an existing virtual machine named `VM07` in the resource group named `ContosoVMRG`.
 
-You can create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. For information about creating virtual machines, see [Create a Windows virtual machine with the Azure CLI](../virtual-machines/windows/quick-create-cli.md),  [Create a Linux virtual machine with the Azure CLI](../virtual-machines/linux/quick-create-cli.md), and the [az vm create](/cli/azure/vm#az-vm-create) command.
+You can create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. For information about creating virtual machines, see [Create a Windows virtual machine with the Azure CLI](../../virtual-machines/windows/quick-create-cli.md),  [Create a Linux virtual machine with the Azure CLI](../../virtual-machines/linux/quick-create-cli.md), and the [az vm create](/cli/azure/vm#az-vm-create) command.
 
 ```azurecli
 # resource group name: ContosoVMRG
@@ -116,5 +114,5 @@ This article uses the following Azure CLI commands:
 
 ## Next steps
 
-- [Azure Monitor CLI samples](cli-samples.md)
-- [Understand how metric alerts work in Azure Monitor](alerts/alerts-metric-overview.md)
+- [Azure Monitor CLI samples](../cli-samples.md)
+- [Understand how metric alerts work in Azure Monitor](alerts-metric-overview.md)
