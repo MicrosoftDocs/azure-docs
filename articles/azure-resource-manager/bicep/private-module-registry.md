@@ -51,7 +51,7 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
 > [!IMPORTANT]
 > The private container registry is only available to users with the required access. However, it's accessed through the public internet. For more security, you can require access through a private endpoint. See [Connect privately to an Azure container registry using Azure Private Link](../../container-registry/container-registry-private-link.md).
 > 
-> The private container registry must have the policy `azureADAuthenticationAsArmPolicy` set to `enabled`. If `azureADAuthenticationAsArmPolicy` this set to `disabled` you will get an 401 (Unautorized) error message when publishing modules. See [Azure Container Registry (ACR) introduces the Conditional Access policy](../../container-registry/container-registry-enable-conditional-access-policy.md).
+> The private container registry must have the policy `azureADAuthenticationAsArmPolicy` set to `enabled`. If `azureADAuthenticationAsArmPolicy` this set to `disabled` you will get an 401 (Unauthorized) error message when publishing modules. See [Azure Container Registry (ACR) introduces the Conditional Access policy](../../container-registry/container-registry-enable-conditional-access-policy.md).
 
 ## Publish files to registry
 
