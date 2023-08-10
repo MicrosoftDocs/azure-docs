@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Add app roles to .NET MAUI and access them in the ID token"
+title: "Tutorial: Use role-based access control in your .NET MAUI app"
 description: This tutorial demonstrates how to add app roles to .NET Multi-platform App UI (.NET MAUI) and receive them in the ID token.
 author: henrymbuguakiarie
 manager: mwongerapk
@@ -11,7 +11,7 @@ ms.subservice: ciam
 ms.date: 07/17/2023
 ---
 
-# Tutorial: Add app roles to .NET MAUI and receive them in the ID token
+# Tutorial: Use role-based access control in your .NET MAUI app
 
 This tutorial demonstrates how to add app roles to .NET Multi-platform App UI (.NET MAUI) and receive them in the ID token.
 
