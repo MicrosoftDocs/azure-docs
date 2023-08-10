@@ -96,7 +96,6 @@ Use built-in Defender for IoT workbooks and create custom workbooks of your own 
 For more information, see:
 
 - [Create sites and zones when onboarding an OT sensor](onboard-sensors.md)
-- [Create OT sites and zones on an on-premises management console](legacy-on-premises-management/sites-and-zones-on-premises.md)
 - [Manage site-based access control](manage-users-portal.md#manage-site-based-access-control-public-preview)
 - [Monitor your OT network with Zero Trust principles](monitor-zero-trust.md)
 

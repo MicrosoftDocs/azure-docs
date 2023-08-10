@@ -36,7 +36,7 @@ Deploying an on-premises management console is done by your deployment team. You
 
 When deploying an on-premises management console, you may also want to configure the following options:
 
-- [Active Directory integration](../legacy-central-management/install-software-on-premises-management-console.md#integrate-users-with-active-directory), to allow Active Directory users to sign into your on-premises management console, use Active Directory groups, and configure global access groups.
+- [Active Directory integration](install-software-on-premises-management-console.md#integrate-users-with-active-directory), to allow Active Directory users to sign into your on-premises management console, use Active Directory groups, and configure global access groups.
 
 - [Proxy tunneling access](#access-ot-network-sensors-via-proxy-tunneling) from OT network sensors, enhancing system security across your Defender for IoT system
 
@@ -60,7 +60,7 @@ When using a high availability architecture:
 
 |Feature  |Description  |
 |---------|---------|
-|**Secure connections**     | An on-premises management console SSL/TLS certificate is applied to create a secure connection between the primary and secondary appliances. Use a CA-signed certificate or the self-signed certificate generated during installation. For more information, see: <br>- [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md) <br>- [Create SSL/TLS certificates for OT appliances](../create-ssl-certificates.md) <br>- [Manage SSL/TLS certificates](../legacy-central-management/how-to-manage-the-on-premises-management-console.md#manage-ssltls-certificates) |
+|**Secure connections**     | An on-premises management console SSL/TLS certificate is applied to create a secure connection between the primary and secondary appliances. Use a CA-signed certificate or the self-signed certificate generated during installation. For more information, see: <br>- [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md) <br>- [Create SSL/TLS certificates for OT appliances](../ot-deploy/create-ssl-certificates.md) <br>- [Manage SSL/TLS certificates](../legacy-central-management/how-to-manage-the-on-premises-management-console.md#manage-ssltls-certificates) |
 |**Data backups**     |  The primary on-premises management console data is automatically backed up to the secondary on-premises management console every 10 minutes. <br><br>For more information, see [Backup and restore the on-premises management console](../legacy-central-management/back-up-restore-management.md).       |
 |**System settings**     |  The system settings defined on the primary on-premises management console are duplicated on the secondary. For example, if the system settings are updated on the primary, they're also updated on the secondary.       |
 

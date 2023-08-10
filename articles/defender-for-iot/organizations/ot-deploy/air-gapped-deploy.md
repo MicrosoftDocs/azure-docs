@@ -10,8 +10,6 @@ ms.date: 08/07/2023
 > [!IMPORTANT]
 > The [legacy on-premises management console](../legacy-central-management/legacy-air-gapped-deploy.md) is planned for deprecation on September 1, 2023. Instead, we recommend using either Microsoft cloud services or existing IT infrastructure for central monitoring and maintenance in hybrid and air-gapped environments.
 >
-> For more information, see [Recommended architecture for hybrid or air-gapped environments](air-gapped-architecture.md).
->
 
 Digital transformation across OT infrastructure has left many fully air-gapped organizations moving to some level of hybrid cloud connectivity. Rather than not using the cloud at all, many organizations focus on using cloud service securely. Attackers continue evolving in parallel, learning to travel laterally across silos and perimeters, creating an ever growing attack surface.
 

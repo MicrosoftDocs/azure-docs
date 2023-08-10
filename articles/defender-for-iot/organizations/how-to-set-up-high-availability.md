@@ -6,7 +6,7 @@ ms.topic: how-to
 ---
 # About high availability
 
-Increase the resiliency of your Defender for IoT deployment by configuring [high availability](ot-deploy/air-gapped-deploy.md#high-availability-for-on-premises-management-consoles) on your on-premises management console. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
+Increase the resiliency of your Defender for IoT deployment by configuring [high availability](legacy-central-management/legacy-air-gapped-deploy.md#high-availability-for-on-premises-management-consoles) on your on-premises management console. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
 
 This deployment is implemented with an on-premises management console pair that includes a primary and secondary appliance.
 

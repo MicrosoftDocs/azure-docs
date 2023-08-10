@@ -16,7 +16,7 @@ For any other issues, contact [Microsoft Support](https://support.microsoft.com/
 
 To perform the procedures in this article, make sure that you have:
 
-- Access to the on-premises management console as a **Support** user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+- Access to the on-premises management console as a **Support** user. For more information, see [Default privileged on-premises users](../roles-on-premises.md#default-privileged-on-premises-users).
 
 ## Check system health
 
@@ -61,7 +61,7 @@ If you don't see an expected alert on the on-premises **Alerts** page, do the fo
 
 - Verify whether the alert is already listed as a reaction to a different security instance. If it is, and that alert hasn't yet been handled, a new alert isn't shown elsewhere.
 
-- Verify that the alert isn't being excluded by **Alert Exclusion** rules. For more information, see [Create alert exclusion rules on an on-premises management console](how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console).
+- Verify that the alert isn't being excluded by **Alert Exclusion** rules. For more information, see [Create alert exclusion rules on an on-premises management console](../how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console).
 
 ## Tweak the Quality of Service (QoS)
 
@@ -73,7 +73,7 @@ To limit the number of alerts, use the `notifications.max_number_to_report` prop
 
 **To tweak the Quality of Service (QoS)**:
 
-1. Sign into your on-premises management console via SSH to access the [CLI](references-work-with-defender-for-iot-cli-commands.md).
+1. Sign into your on-premises management console via SSH to access the [CLI](../references-work-with-defender-for-iot-cli-commands.md).
 
 1. Verify the default values:
 
@@ -133,6 +133,6 @@ For further troubleshooting, you may want to export logs to send to the support 
 
 ## Next steps
 
-- [View alerts](how-to-view-alerts.md)
+- [View alerts](../how-to-view-alerts.md)
 
-- [Track on-premises user activity](track-user-activity.md)
+- [Track on-premises user activity](../track-user-activity.md)

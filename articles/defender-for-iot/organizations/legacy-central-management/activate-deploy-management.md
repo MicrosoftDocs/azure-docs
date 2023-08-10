@@ -25,7 +25,7 @@ Before performing the procedures in this article, you need to have:
 
 - Access to the on premises management console as one of the [privileged users supplied during installation](install-software-on-premises-management-console.md#users)
 
-- An SSL/TLS certificate. We recommend using a CA-signed certificate, and not a self-signed certificate. For more information, see [Create SSL/TLS certificates for OT appliances](../create-ssl-certificates.md).
+- An SSL/TLS certificate. We recommend using a CA-signed certificate, and not a self-signed certificate. For more information, see [Create SSL/TLS certificates for OT appliances](../ot-deploy/create-ssl-certificates.md).
 
 - Access to the Azure portal as a [Security Admin](../../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../../role-based-access-control/built-in-roles.md#owner) user
 

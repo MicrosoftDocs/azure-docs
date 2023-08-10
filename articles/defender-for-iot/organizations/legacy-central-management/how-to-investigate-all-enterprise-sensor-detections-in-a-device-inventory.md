@@ -22,7 +22,7 @@ For more information, see [Devices monitored by Defender for IoT](../architectur
 
 Before performing the procedures in this article, make sure that you have:
 
-- An on-premises management console [installed](install-software-on-premises-management-console.md), [activated, and configured](legacy-central-management/activate-deploy-management.md). To view devices by zone, make sure that you've [configured sites and zones](sites-and-zones-on-premises.md) on the on-premises management console.
+- An on-premises management console [installed](install-software-on-premises-management-console.md), [activated, and configured](activate-deploy-management.md). To view devices by zone, make sure that you've [configured sites and zones](sites-and-zones-on-premises.md) on the on-premises management console.
 
 - One or OT network sensors [installed](../ot-deploy/install-software-ot-sensor.md), [configured, and activated](../ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](connect-sensors-to-management.md). To view devices per zone, make sure that each sensor is assigned to a specific zone.
 

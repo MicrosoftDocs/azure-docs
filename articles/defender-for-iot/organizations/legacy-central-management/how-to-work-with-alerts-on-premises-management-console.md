@@ -11,7 +11,7 @@ ms.topic: how-to
 
 Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
-This article describes how to view Defender for IoT alerts on an on-premises management console, which aggregates alerts from all connected OT sensors. You can also view OT alerts on the [Azure portal](how-to-manage-cloud-alerts.md) or an [OT network sensor](how-to-view-alerts.md).
+This article describes how to view Defender for IoT alerts on an on-premises management console, which aggregates alerts from all connected OT sensors. You can also view OT alerts on the [Azure portal](../how-to-manage-cloud-alerts.md) or an [OT network sensor](../how-to-view-alerts.md).
 
 ## Prerequisites
 
@@ -71,9 +71,9 @@ To view alerts from connected OT sensors across your entire global network, use 
 
     In any view but the **Default View**, your sites appear in red, yellow, or green. Red sites have alerts that require immediate action, yellow sites have alerts that justify investigation, and green sites require no action.
 
-1. Select any site that's red or yellow, and then select the :::image type="icon" source="../media/legacy-central-management/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false"::: alerts button for a specific OT sensor to jump to that sensor's current alerts. For example:
+1. Select any site that's red or yellow, and then select the :::image type="icon" source="../media/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false"::: alerts button for a specific OT sensor to jump to that sensor's current alerts. For example:
 
-    :::image type="content" source="../media/legacy-central-management/how-to-work-with-alerts-on-premises-management-console/select-alerts-button.png" alt-text="Screenshot showing the Alerts button.":::
+    :::image type="content" source="../media/how-to-work-with-alerts-on-premises-management-console/select-alerts-button.png" alt-text="Screenshot showing the Alerts button.":::
 
     The **Alerts** page opens, automatically filtered to the selected alerts.
 
@@ -90,7 +90,7 @@ To view alerts from connected OT sensors for a specific zone, use the **Site Man
     - **Business Unit**: Select to view all OT sensors, or only those from a [specific business unit](../best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
     - **Region**: Select to view all OT sensors, or only those from a [specific region](../best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
 
-1. Select the :::image type="icon" source="../media/legacy-central-management/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false":::  alerts button for a specific OT sensor to jump to that sensor's current alerts.
+1. Select the :::image type="icon" source="../media/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false":::  alerts button for a specific OT sensor to jump to that sensor's current alerts.
 
 ## Manage alert status and triage alerts
 

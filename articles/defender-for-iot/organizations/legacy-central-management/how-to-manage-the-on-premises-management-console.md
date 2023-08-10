@@ -115,7 +115,7 @@ The following procedures describe how to deploy updated SSL/TLS certificates, su
 
    For example:
 
-   :::image type="content" source="../media/how-to-deploy-certificates/management-ssl-certificate.png" alt-text="Screenshot of importing a trusted CA certificate." lightbox="media/how-to-deploy-certificates/management-ssl-certificate.png":::
+   :::image type="content" source="../media/how-to-deploy-certificates/management-ssl-certificate.png" alt-text="Screenshot of importing a trusted CA certificate." lightbox="../media/how-to-deploy-certificates/management-ssl-certificate.png":::
 
    If the upload fails, contact your security or IT administrator. For more information, see [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](../ot-deploy/create-ssl-certificates.md).
 

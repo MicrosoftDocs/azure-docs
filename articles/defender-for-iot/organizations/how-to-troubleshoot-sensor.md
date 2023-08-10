@@ -326,4 +326,4 @@ For further troubleshooting, you may want to export logs to send to the support 
 
 - [Set up SNMP MIB health monitoring on an OT sensor](how-to-set-up-snmp-mib-monitoring.md)
 
-- [Monitor disconnected OT sensors](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md#monitor-disconnected-ot-sensors)
+- [Monitor disconnected OT sensors](/legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md#monitor-disconnected-ot-sensors)
