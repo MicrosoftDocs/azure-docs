@@ -299,6 +299,7 @@
           "initialAgentPoolConfigurations": [
             {
               "name": "[concat(parameters('kubernetesClusterName'), '-nodepool-1')]",
+              "administratorConfiguration": {},
               "count": "[parameters('systemPoolNodeCount')]",
               "vmSkuName": "[parameters('workerVmSkuName')]",
               "mode": "System",
@@ -317,6 +318,7 @@
             }
           ],
           "controlPlaneNodeConfiguration": {
+            "administratorConfiguration": {},
             "count": "[parameters('controlPlaneCount')]",
             "vmSkuName": "[parameters('controlPlaneVmSkuName')]",
             "availabilityZones": "[if(empty(parameters('controlPlaneZones')), json('null'), parameters('controlPlaneZones'))]"

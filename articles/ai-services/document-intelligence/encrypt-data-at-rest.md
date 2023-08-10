@@ -1,5 +1,5 @@
 ---
-title: Document Intelligence service encryption of data at rest
+title: Service encryption of data at rest - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Microsoft offers Microsoft-managed encryption keys, and also lets you manage your Azure AI services subscriptions with your own keys, called customer-managed keys (CMK). This article covers data encryption at rest for Document Intelligence, and how to enable and manage CMK. 
 author: erindormier

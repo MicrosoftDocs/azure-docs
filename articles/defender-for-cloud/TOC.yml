@@ -860,7 +860,9 @@
     - name: Agentless Container Posture Management
       href: episode-thirty-three.md
     - name: Understanding the DevOps Threat Matrix
-      href: episode-thirty-four.md              
+      href: episode-thirty-four.md
+    - name: Security alert correlation
+      href: episode-thirty-five.md                 
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
