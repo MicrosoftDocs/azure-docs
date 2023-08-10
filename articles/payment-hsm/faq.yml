@@ -39,8 +39,7 @@ sections:
       - question: |
           How do I get started with the service? 
         answer: |
-          As Azure Payment HSM is a specialized service, customers should ask their Microsoft account manager and CSA to send a request [via email](mailto:paymentHSMRequest@microsoft.com).
-        
+          As Azure Payment HSM is a specialized service, customers should ask their Microsoft account manager and CSA to send a request [via email](mailto:paymentHSMRequest@microsoft.com).       
       - question: |
           What HSM SKUs are supported for Azure Payment HSM?
         answer: |
@@ -62,14 +61,13 @@ sections:
           Device licenses are required when applying custom firmware or returning to base firmware version. For license, contact Thales support with device serial number.
           
       - question: |
-          What kind of smart cards/readers are needed? how to use the smart cards?How many smart cards are needed?
+          What kind of smart cards and readers are needed to access payShield manager?
         answer: |
-          Compatible USB Smartcard reader supplied by Thales. With at least 5 payShield Manager cards available.
-          
-      - question: |
-          How do I know whether the smartcards I have are for payShield manager?
-        answer: |
-          Compatible smart cards have a blue band and are labeled with "payShield Manager Card" These are the only cards compatible with the ciphers used to enable use over network.
+          Azure payment HSM comes with payShield Manager for customer to remotely manage the HSM. Compatible smart cards and smart card readers are required to access payShield Manager, and can be ordered directly from Thales:
+          - **Item**:  971-000135-001-000 
+          - **Description**: PS10-RMGT-KIT2 - payShield Manager Starter Kit - for software V1.4A (1.8.3) and above    
+          - **Items Included**: 2 Thales Card Readers, 30 PayShield Manager Smartcards
+          Compatible smart cards have a blue band and are labeled "payShield Manager Card". These are the only smart cards compatible with the ciphers used to enable over-network use.
           
       - question: |
           How are physical keys are handled?
@@ -87,7 +85,7 @@ sections:
           Payshield 10k can be monitored using standard SNMP V3 tools. payShield Monitor is an additional product available to provide continuous monitoring of HSMs. Contact Thales Sales rep for licensing information.
           
       - question: |
-          How do I setup payShield monitor with Azure Payment HSM?
+          How do I set up payShield monitor with Azure Payment HSM?
         answer: |
           Paysheild Monitor is distributed as a Virtual Machine and can be deployed on-premises or hosted in an Azure VM instance.
           
