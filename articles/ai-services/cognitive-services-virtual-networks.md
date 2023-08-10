@@ -98,8 +98,8 @@ You can manage default network access rules for Azure AI services resources thro
 
    ```azurepowershell-interactive
    $parameters = @{
-     "ResourceGroupName"= "myresourcegroup"
-     "Name"= "myaccount"
+     "ResourceGroupName" = "myresourcegroup"
+     "Name" = "myaccount"
    }
    (Get-AzCognitiveServicesAccountNetworkRuleSet @parameters).DefaultAction
    ```
@@ -234,8 +234,8 @@ To remove a virtual network or subnet rule:
 
     ```azurepowershell-interactive
     $parameters = @{
-       "ResourceGroupName"= "myresourcegroup"
-       "Name"= "myaccount"
+       "ResourceGroupName" = "myresourcegroup"
+       "Name" = "myaccount"
     }
     (Get-AzCognitiveServicesAccountNetworkRuleSet @parameters).VirtualNetworkRules
     ```
@@ -245,7 +245,7 @@ To remove a virtual network or subnet rule:
     ```azurepowershell-interactive
     Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" `
         -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" `
-        -AddressPrefix "10.0.0.0/24" `
+        -AddressPrefix "CIDR" `
         -ServiceEndpoint "Microsoft.CognitiveServices" | Set-AzVirtualNetwork
     ```
 
@@ -345,7 +345,7 @@ To remove a virtual network or subnet rule:
 
 You can configure Azure AI services resources to allow access from specific public internet IP address ranges. This configuration grants access to specific services and on-premises networks, effectively blocking general internet traffic.
 
-Provide allowed internet address ranges using [CIDR notation](https://tools.ietf.org/html/rfc4632) in the form `16.17.18.0/24` or as individual IP addresses like `16.17.18.19`.
+Provide allowed internet address ranges using [CIDR notation](https://tools.ietf.org/html/rfc4632) in the form `192.168.0.0/16` or as individual IP addresses like `192.168.0.1`.
 
    > [!Tip]
    > Small address ranges using `/31` or `/32` prefix sizes are not supported. Configure these ranges by using individual IP address rules.
@@ -404,7 +404,7 @@ You can manage IP network rules for Azure AI services resources through the Azur
     $parameters = @{
         "ResourceGroupName" = "myresourcegroup"
         "Name" = "myaccount"
-        "IPAddressOrRange" = "16.17.18.19"
+        "IPAddressOrRange" = "ipaddress"
     }
     Add-AzCognitiveServicesAccountNetworkRule @parameters
     ```
@@ -415,7 +415,7 @@ You can manage IP network rules for Azure AI services resources through the Azur
     $parameters = @{
         "ResourceGroupName" = "myresourcegroup"
         "Name" = "myaccount"
-        "IPAddressOrRange" = "16.17.18.0/24"
+        "IPAddressOrRange" = "CIDR"
     }
     Add-AzCognitiveServicesAccountNetworkRule @parameters
     ```
@@ -426,7 +426,7 @@ You can manage IP network rules for Azure AI services resources through the Azur
     $parameters = @{
         "ResourceGroupName" = "myresourcegroup"
         "Name" = "myaccount"
-        "IPAddressOrRange" = "16.17.18.19"
+        "IPAddressOrRange" = "ipaddress"
     }
     Remove-AzCognitiveServicesAccountNetworkRule @parameters
     ```
@@ -437,7 +437,7 @@ You can manage IP network rules for Azure AI services resources through the Azur
     $parameters = @{
         "ResourceGroupName" = "myresourcegroup"
         "Name" = "myaccount"
-        "IPAddressOrRange" = "16.17.18.0/24"
+        "IPAddressOrRange" = "CIDR"
     }
     Remove-AzCognitiveServicesAccountNetworkRule @parameters
     ```
@@ -458,7 +458,7 @@ You can manage IP network rules for Azure AI services resources through the Azur
     ```azurecli-interactive
     az cognitiveservices account network-rule add \
         --resource-group "myresourcegroup" --name "myaccount" \
-        --ip-address "16.17.18.19"
+        --ip-address "ipaddress"
     ```
 
 1. Add a network rule for an IP address range.
@@ -466,7 +466,7 @@ You can manage IP network rules for Azure AI services resources through the Azur
     ```azurecli-interactive
     az cognitiveservices account network-rule add \
         --resource-group "myresourcegroup" --name "myaccount" \
-        --ip-address "16.17.18.0/24"
+        --ip-address "CIDR"
     ```
 
 1. Remove a network rule for an individual IP address.
@@ -474,7 +474,7 @@ You can manage IP network rules for Azure AI services resources through the Azur
     ```azurecli-interactive
     az cognitiveservices account network-rule remove \
         --resource-group "myresourcegroup" --name "myaccount" \
-        --ip-address "16.17.18.19"
+        --ip-address "ipaddress"
     ```
 
 1. Remove a network rule for an IP address range.
@@ -482,7 +482,7 @@ You can manage IP network rules for Azure AI services resources through the Azur
     ```azurecli-interactive
     az cognitiveservices account network-rule remove \
         --resource-group "myresourcegroup" --name "myaccount" \
-        --ip-address "16.17.18.0/24"
+        --ip-address "CIDR"
     ```
 
 ***
@@ -540,7 +540,7 @@ When you create a private endpoint, the DNS `CNAME` resource record for the Azur
 
 When you resolve the endpoint URL from outside the virtual network with the private endpoint, it resolves to the public endpoint of the Azure AI services resource. When resolved from the virtual network hosting the private endpoint, the endpoint URL resolves to the private endpoint's IP address.
 
-This approach enables access to the Azure AI services resource using the same connection string for clients in the virtual network hosting the private endpoints and clients outside the virtual network.
+This approach enables access to the Azure AI services resource using the same connection string for clients in the virtual network that hosts the private endpoints and clients outside the virtual network.
 
 If you're using a custom DNS server on your network, clients must be able to resolve the fully qualified domain name (FQDN) for the Azure AI services resource endpoint to the private endpoint IP address. Configure your DNS server to delegate your private link subdomain to the private DNS zone for the virtual network.
 
