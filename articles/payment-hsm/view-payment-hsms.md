@@ -40,7 +40,7 @@ To get more information on your payment HSMs, you can use the [Get-AzResource](/
 Get-AzResource -ResourceGroupName "myResourceGroup" -ResourceType "Microsoft.HardwareSecurityModules/dedicatedHSMs"
 ```
 
-To see see a specific payment HSM and its properties, use the Azure PowerShell [Get-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/get-azdedicatedhsm) cmdlet.
+To view a specific payment HSM and its properties, use the Azure PowerShell [Get-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/get-azdedicatedhsm) cmdlet.
 
 ```azurepowershell-interactive
 Get-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroup "myResourceGroup"
@@ -55,9 +55,9 @@ To view your payment HSMs in the Azure portal:
 1. Select "Resource groups".
 1. Select your resource group (e.g., "myResourceGroup").
 1. You will see your network interfaces, but not your payment HSMs. Select the "Show hidden types" box.
-  :::image type="content" source="./media/portal-view-payment-hsms.png" lightbox="./media/portal-view-payment-hsms.png" alt-text="Viewing your payment HSMs through the Azure portal.":::
+  :::image type="content" source="./media/portal-view-payment-hsms.png" lightbox="./media/portal-view-payment-hsms.png" alt-text="Screenshot of the Azure portal displaying all payment HSMs.":::
 1. You can select one of your payment HSMs to see its properties.
-  :::image type="content" source="./media/portal-view-payment-hsm.png" lightbox="./media/portal-view-payment-hsm.png" alt-text="Viewing a specific payment HSM through the Azure portal.":::
+  :::image type="content" source="./media/portal-view-payment-hsm.png" lightbox="./media/portal-view-payment-hsm.png" alt-text="Screenshot of the Azure portal displaying a specific payment HSM and its properties.":::
 
 ---
 
