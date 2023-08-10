@@ -37,7 +37,7 @@ Follow these steps to disable outbound internet traffic routing in your app thro
 You can also configure **Outbound internet traffic** by using the Azure CLI.
 
 ```azurecli-interactive
-az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.vnetRouteAllEnabled [true|false]
+az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.vnetRouteAllEnabled=[true|false]
 ```
 
 ## Configure configuration routing
@@ -49,7 +49,7 @@ When you're using virtual network integration, you can configure how parts of th
 Routing container image pull over virtual network integration can be configured using the Azure CLI.
 
 ```azurecli-interactive
-az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.vnetImagePullEnabled [true|false]
+az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.vnetImagePullEnabled=[true|false]
 ```
 
 We recommend that you use the site property to enable routing image pull traffic through the virtual network integration. Using the configuration setting allows you to audit the behavior with Azure Policy. The existing `WEBSITE_PULL_IMAGE_OVER_VNET` app setting with the value `true` can still be used, and you can enable routing through the virtual network with either setting.
@@ -59,7 +59,7 @@ We recommend that you use the site property to enable routing image pull traffic
 Routing content share over virtual network integration can be configured using the Azure CLI. In addition to enabling the feature, you must also ensure that any firewall or Network Security Group configured on traffic from the subnet allow traffic to port 443 and 445.
 
 ```azurecli-interactive
-az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.vnetContentShareEnabled [true|false]
+az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.vnetContentShareEnabled=[true|false]
 ```
 
 We recommend that you use the site property to enable content share traffic through the virtual network integration. Using the configuration setting allows you to audit the behavior with Azure Policy. The existing `WEBSITE_CONTENTOVERVNET` app setting with the value `1` can still be used, and you can enable routing through the virtual network with either setting.
@@ -69,7 +69,7 @@ We recommend that you use the site property to enable content share traffic thro
 Routing backup traffic over virtual network integration can be configured using the Azure CLI. Note that database backup is not supported over the virtual network integration.
 
 ```azurecli-interactive
-az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.vnetBackupRestoreEnabled [true|false]
+az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.vnetBackupRestoreEnabled=[true|false]
 ```
 
 ## Next steps
