@@ -47,9 +47,9 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
 1. When prompted, use the HTTPS `username` and `password` for the cluster. The Ambari Web UI for the cluster is displayed.
 1. To view information on Kafka, select `Kafka` from the left panel and then select configs.
   
-   :::image type="content" source="./media/connect-kafka-with-vnet/kafka-config.png" alt-text="Screenshot showing Kafka VNet configurations." 
+   :::image type="content" source="./media/connect-kafka-with-vnet/kafka-config.png" alt-text="Screenshot showing Kafka VNet configurations." border="true" lightbox="./media/connect-kafka-with-vnet/kafka-config.png":::
 
-1. To access kafka-env configuration on the Ambari dashboard, just type "kafka-env" in the top right filter field in Ambari UI. border="true" lightbox="./media/connect-kafka-with-vnet/":::
+1. To access `kafka-env` configuration on the Ambari dashboard, just type `kafka-env` in the top right filter field in Ambari UI. 
   
    :::image type="content" source="./media/connect-kafka-with-vnet/kafka-env.png" alt-text="Screenshot showing Kafka environment." border="true" lightbox="./media/connect-kafka-with-vnet/kafka-env.png":::
 
