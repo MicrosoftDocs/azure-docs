@@ -1,11 +1,11 @@
 ---
 title:  Version support for Java, Spring Boot, and more
 description: This article describes customer responsibilities developing Azure Spring Apps.
-author: zhiyongli
+author: KarlErickson
 ms.author: zhiyongli
 ms.service: spring-apps
 ms.topic: conceptual
-ms.date: 06/14/2023
+ms.date: 08/10/2023
 ---
 
 # Version support for Java, Spring Boot, and more
@@ -15,35 +15,39 @@ ms.date: 06/14/2023
 
 **This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
-This article describes the support policy of Java, Spring Boot, and Spring Cloud versions for all tiers of Azure Spring Apps, and versions of other SDKs and OS images for the Enterprise tier.
+This article describes the support policy for Java, Spring Boot, and Spring Cloud versions for all Azure Spring Apps plans, and versions of other SDKs and OS images for the Enterprise plan.
 
 Azure Spring Apps provides and maintains the SDKs and base OS images necessary to run your apps. To make sure your applications are compatible with such managed components, follow the version support policy for the components described in this article.
 
-## Version support for all tiers
+## Version support for all plans
+
+The following sections describe the version support that applies to all plans.
 
 ### Java runtime version
 
-You may choose any LTS Java version as the major version that is officially supported, and receives regular updates.
+You can choose any LTS Java version as the major version that's officially supported and receives regular updates.
 
 For more information, see [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 
 ### Spring Boot and Spring Cloud versions
 
-You may choose any version of Spring Boot or Spring Cloud that is compatible with the Java version you installed.
+You can choose any version of Spring Boot or Spring Cloud that's compatible with the Java version you installed.
 
 For new versions, Azure Spring Apps will support the latest Spring Boot or Spring Cloud major version 30 days after its release. The latest minor version is supported as soon as it's released.
 
-For old versions, Azure Spring Apps doesn't require you to upgrade Spring Boot or Spring Cloud to receive support. However, with the officially supported new versions, you can get the best experience with some of the managed components. For example, Config Server and Eureka Server for Standard consumption and dedicated tier and Standard tier, [Tanzu components](vmware-tanzu-components.md) for Enterprise tier, and metric collection for all tiers.
+For old versions, Azure Spring Apps doesn't require you to upgrade Spring Boot or Spring Cloud to receive support. However, with the officially supported new versions, you can get the best experience with some of the managed components - for example, Config Server and Eureka Server for the Standard consumption and dedicated plan and the Standard plan, [Tanzu components](vmware-tanzu-components.md) for the Enterprise plan, and metric collection for all plans.
 
-For more information, see the official support timeline of [Spring Boot](https://spring.io/projects/spring-boot#support) and [Spring Cloud](https://spring.io/projects/spring-cloud#overview). The Enterprise tier provides commercial support for Spring Boot, while the other tiers provide OSS support.
+For more information, see the official support timeline of [Spring Boot](https://spring.io/projects/spring-boot#support) and [Spring Cloud](https://spring.io/projects/spring-cloud#overview). The Enterprise plan provides commercial support for Spring Boot, while the other plans provide OSS support.
 
-## Version support for Enterprise tier
+## Version support for the Enterprise plan
+
+The following sections describe the version support that applies to the Enterprise plan.
 
 ### Polyglot SDKs
 
-Polyglot applications can be deployed in Enterprise tier with a source code. To enjoy the best stability, use SDKs with LTS versions that are officially supported in your source code.
+You can deploy polyglot applications to the Enterprise plan with source code. To enjoy the best stability, use SDKs with LTS versions that are officially supported.
 
-When you [deploy your polyglot applications to Enterprise tier](how-to-enterprise-deploy-polyglot-apps.md), assign specific LTS versions for the SDKs. Otherwise, the default SDK version may change during the regular upgrades for builder components.
+When you deploy your polyglot applications to the Enterprise plan, assign specific LTS versions for the SDKs. Otherwise, the default SDK version might change during the regular upgrades for builder components. For more information about deploying polygot apps, see [How to deploy polyglot apps in the Azure Spring Apps Enterprise plan](how-to-enterprise-deploy-polyglot-apps.md).
 
 | Type                 | Support policy            |
 |---------------------|----------------------------|
@@ -57,10 +61,10 @@ When you [deploy your polyglot applications to Enterprise tier](how-to-enterpris
 
 ### Stack image support
 
-You may choose y stack image during builder configuration, and we recommend using an LTS image that is officially supported. For more information, see [The Ubuntu lifecycle and release cadence](https://ubuntu.com/about/release-cycle#ubuntu).
+You can choose any stack image during builder configuration. We recommend using an LTS image that's officially supported. For more information, see [The Ubuntu lifecycle and release cadence](https://ubuntu.com/about/release-cycle#ubuntu).
 
 ## Keep track of version upgrade
 
-Prepare early for the deprecation of any major component LTS version that y applications rely on. You'll receive notification from Microsoft one month prior to the end of support on Azure Spring Apps.
+Prepare early for the deprecation of any major component LTS version that your applications rely on. You'll receive notification from Microsoft one month prior to the end of support on Azure Spring Apps.
 
-For regular upgrades, you can find specific information in your activity log once the upgrade is complete.
+For regular upgrades, you can find specific information in your activity log after the upgrade is complete.
