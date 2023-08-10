@@ -1,6 +1,6 @@
 ### YamlMime:Hub
 
-title: Azure Health Data Services documentation # < 60 chars
+title: "Azure Health Data Services documentation" # < 60 chars
 summary: Collect, transform, and analyze health data that meets privacy and compliance requirements.   # < 160 chars
 brand: azure 
 
@@ -9,7 +9,7 @@ metadata:
   description: Learn how to use Azure Health Data Services to collect, transform, and analyze health data that meets privacy and compliance requirements for the healthcare industry. # Required; article description that is displayed in search results. < 159/160 chars.
   ms.service: healthcare-apis #Required; use either service or product per approved list. 
   ms.topic: hub-page # Required
-  author: shellyhaverkamp #Required; your GitHub user alias, with correct capitalization.
+  author: jasteppe #Required; your GitHub user alias, with correct capitalization.
   ms.author: jasteppe #Required; microsoft alias of author; optional team alias.
   ms.date: 08/15/2023 #Required; mm/dd/yyyy format.
 
