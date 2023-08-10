@@ -19,7 +19,6 @@ When used as a shared volume, elastic SAN volumes can be resized without any dow
 - Shared volumes can be attached to individual Virtual Machine Scale Sets but can't be defined in the Virtual Machine Scale Set models or automatically deployed.
 - Azure Backup isn't currently supported.
 
-
 ## How it works
 
 Elastic SAN shared volumes use SCSI-3 Persistent Reservations to allow initiators (clients) to control access to a shared elastic SAN volume. This protocol enables an initiator to reserve access to an elastic SAN volume, limit write (or read) access by other initiators, and persistent the reservation on a volume beyond the lifetime of a session by default.
