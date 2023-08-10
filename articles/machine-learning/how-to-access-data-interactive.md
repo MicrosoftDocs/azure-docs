@@ -61,10 +61,10 @@ subscription = '<subscription_id>'
 resource_group = '<resource_group>'
 workspace = '<workspace>'
 datastore_name = '<datastore>'
-path_on_datastore '<path>'
+path_on_datastore = '<path>'
 
 # long-form Datastore uri format:
-uri = f'azureml://subscriptions/{subscription}/resourcegroups/{resource_group}/workspaces/{workspace}/datastores/{datastore_name}/paths/{path_on_datastore}'. 
+uri = f'azureml://subscriptions/{subscription}/resourcegroups/{resource_group}/workspaces/{workspace}/datastores/{datastore_name}/paths/{path_on_datastore}'
 ```
 
 These Datastore URIs are a known implementation of [Filesystem spec](https://filesystem-spec.readthedocs.io/en/latest/index.html) (`fsspec`): A unified pythonic interface to local, remote and embedded file systems and bytes storage.
