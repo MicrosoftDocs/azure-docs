@@ -38,7 +38,7 @@ VM insights is available for Azure Arc-enabled servers in regions where the Arc 
 
 ## Supported operating systems
 
-VM insights supports any operating system that supports the Dependency agent and either Azure Monitor Agent or Log Analytics agent. For a complete list of operating systems supported by Azure Monitor Agent and Log Analytics agent, see [Azure Monitor agent overview](../agents/agents-overview.md#supported-operating-systems).
+VM insights supports all operating systems supported by the Dependency agent and either Azure Monitor Agent or Log Analytics agent. For a complete list of operating systems supported by Azure Monitor Agent and Log Analytics agent, see [Azure Monitor agent overview](../agents/agents-overview.md#supported-operating-systems).
 
 Dependency Agent supports the same [Windows versions that Azure Monitor Agent supports](../agents/agents-overview.md#supported-operating-systems), except Windows Server 2008 SP2 and Azure Stack HCI.
 For Dependency Agent Linux support, see [Dependency Agent Linux support](#dependency-agent-linux-support).
