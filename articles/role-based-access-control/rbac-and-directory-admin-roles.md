@@ -40,7 +40,7 @@ The following diagram is a high-level view of how the Azure roles, Azure AD role
 | [Owner](built-in-roles.md#owner) | <ul><li>Grants full access to manage all resources</li><li>Assign roles in Azure RBAC</li></ul> | The Service Administrator and Co-Administrators are assigned the Owner role at the subscription scope<br>Applies to all resource types. |
 | [Contributor](built-in-roles.md#contributor) | <ul><li>Grants full access to manage all resources</li><li>Can't assign roles in Azure RBAC</li><li>Can't manage assignments in Azure Blueprints or share image galleries</li></ul> | Applies to all resource types. |
 | [Reader](built-in-roles.md#reader) | <ul><li>View Azure resources</li></ul> | Applies to all resource types. |
-| [User Access Administrator](built-in-roles.md#user-access-administrator) | <ul><li>Assign roles in Azure RBAC</li><li>Assign themselves or others the Owner role</li></ul> |  |
+| [User Access Administrator](built-in-roles.md#user-access-administrator) | <ul><li>Manage user access to Azure resources</li><li>Assign roles in Azure RBAC</li><li>Assign themselves or others the Owner role</li></ul> |  |
 
 The rest of the built-in roles allow management of specific Azure resources. For example, the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role allows the user to create and manage virtual machines. For a list of all the built-in roles, see [Azure built-in roles](built-in-roles.md).
 
