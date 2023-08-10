@@ -68,4 +68,4 @@ To find or filter results based on specific properties or values, you can create
 
 ## Next steps
 
-* [Tracking schemas for monitoring B2B messagess](tracking-schemas-as2-x12-custom.md)
+* [Tracking schemas for monitoring B2B messages](tracking-schemas-as2-x12-custom.md)
