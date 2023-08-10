@@ -18,7 +18,6 @@ monikerRange: '>=doc-intel-3.0.0'
 
 [!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
 
-
 Custom neural document models or neural models are a deep learned model type that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. The table below lists common document types for each category:
 
 |Documents | Examples |
@@ -118,6 +117,7 @@ Neural models now support added languages for the ```v3.0``` APIs.
 | French |  `2023-07-31` (GA)|
 | Spanish |  `2023-07-31` (GA)|
 | Dutch |  `2023-07-31` (GA)|
+
 :::moniker-end
 
 ## Tabular fields
