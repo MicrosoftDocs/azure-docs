@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 08/10/2023
 ---
 
 # Query vector data in a search index
@@ -27,7 +27,7 @@ All results are returned in plain text, including vectors. If you use Search Exp
 
 + A search index containing vector fields. See [Add vector fields to a search index](vector-search-how-to-query.md).
 
-+ Use REST API version 2023-07-01-preview or Azure portal to query vector fields. You can also use [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main).
++ Use REST API version 2023-07-01-preview, the [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main), or Search Explorer in the Azure portal.
 
 + (Optional) If you want to also use [semantic search (preview)](semantic-search-overview.md) and vector search together, your search service must be Basic tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
 
@@ -56,7 +56,10 @@ api-key: {{admin-api-key}}
 }
 ```
 
-The expected response is 202 for a successful call to the deployed model. The body of the response provides the vector representation of the "input". The vector for the query is in the "embedding" field. For testing purposes, you would copy the value of the "embedding" array into "vector.value" in a query request, using syntax shown in the next several sections. The actual response for this call to the deployment model includes 1536 embeddings, trimmed here for brevity.
+The expected response is 202 for a successful call to the deployed model. 
+The "embedding" field in the body of the response is the vector representation of the  query string "input". For testing purposes, you would copy the value of the "embedding" array into "vector.value" in a query request, using syntax shown in the next several sections. 
+
+The actual response for this POST call to the deployment model includes 1536 embeddings, trimmed here to just the first few vectors for readability.
 
 ```json
 {
@@ -82,6 +85,28 @@ The expected response is 202 for a successful call to the deployed model. The bo
 ```
 
 ## Query syntax for vector search
+
+### [**Azure portal**](#tab/portal-vector-query)
+
+Be sure to the **JSON view** and formulate the query in JSON. The search bar in **Query view** is for full text search and will treat any vector input as plain text.
+
+1. Sign in to Azure portal and find your search service.
+
+1. Under **Search management** and **Indexes**, select the index.
+
+   :::image type="content" source="media/vector-search-how-to-query/select-index.png" alt-text="Screenshot of the indexes menu." border="true":::
+
+1. On Search Explorer, under **View**, select **JSON view**.
+
+   :::image type="content" source="media/vector-search-how-to-query/select-json-view.png" alt-text="Screenshot of the index list." border="true":::
+
+1. By default, the search API is 2023-07-01-Preview. This is the correct API version for vector search.
+
+1. Paste in a JSON vector query, and then select **Search**. You can use the REST example as a template for your JSON query.
+
+   :::image type="content" source="media/vector-search-how-to-query/paste-vector-query.png" alt-text="Screenshot of the JSON query." border="true":::
+
+### [**REST API**](#tab/rest-vector-query)
 
 In this vector query, which is shortened for brevity, the "value" contains the vectorized text of the query input. The "fields" property specifies which vector fields are searched. The "k" property specifies the number of nearest neighbors to return as top hits.
 
@@ -110,6 +135,8 @@ api-key: {{admin-api-key}}
 The response includes 5 matches, and each result provides a search score, title, content, and category. In a similarity search, the response always includes "k" matches, even if the similarity is weak. For indexes that have fewer than "k" documents, only those number of documents will be returned.
 
 Notice that "select" returns textual fields from the index. Although the vector field is "retrievable" in this example, its content isn't usable as a search result.
+
+---
 
 ## Query syntax for hybrid search
 
