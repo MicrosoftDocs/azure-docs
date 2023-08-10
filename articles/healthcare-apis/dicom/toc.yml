@@ -1,15 +1,16 @@
-- name: DICOM service
+items:
+- name: DICOM service documentation
   href: index.yml
-  expanded: true
-  items: 
-    - name: DICOM extended query tags overview
-      href: dicom-extended-query-tags-overview.md
-    - name: DICOM change feed overview
-      href: dicom-change-feed-overview.md
-    - name: DICOMcast overview
-      href: dicom-cast-overview.md
-    - name: About DICOM service
-      href: dicom-services-overview.md
+- name: Overview
+  href: dicom-services-overview.md
+- name: DICOM extended query tags overview
+  href: dicom-extended-query-tags-overview.md
+- name: DICOM change feed overview
+  href: dicom-change-feed-overview.md
+- name: DICOMcast overview
+  href: dicom-cast-overview.md
+- name: About DICOM service
+  href: dicom-services-overview.md
 - name: Use DICOMweb standard APIs
   href: dicomweb-standard-apis-with-dicom-services.md
 - name: Quickstarts

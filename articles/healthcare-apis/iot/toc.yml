@@ -1,8 +1,6 @@
 items:
 - name: MedTech service documentation
   href: index.yml
-- name: Overview
-  expanded: true
   items:
   - name: "MedTech service overview"
     href: overview.md
@@ -15,7 +13,7 @@ items:
     href: get-started.md
   - name: Deploy the MedTech service
     expanded: false
-    items:    
+    items:
     - name: Choose a deployment method
       href: deploy-choose-method.md
     - name: ARM template
@@ -33,7 +31,7 @@ items:
     href: device-messages-through-iot-hub.md 
 - name: How-tos
   expanded: false
-  items: 
+  items:
   - name: Map
     expanded: false
     items:
@@ -89,5 +87,4 @@ items:
   - name: FAQ - MedTech service
     href: frequently-asked-questions.md
   - name: Open-source projects
-    href: git-projects.md     
-           
+    href: git-projects.md

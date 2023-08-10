@@ -1,9 +1,16 @@
+items:
 - name: FHIR service documentation
   href: index.yml
 - name: FHIR service overview
   href: overview.md
+- name: FHIR service autoscale
+  href: fhir-service-autoscale.md
+- name: FHIR REST API capabilities
+  href: fhir-rest-api-capabilities.md
+- name: Versioning policy and history management
+  href: fhir-versioning-policy-and-history-management.md
 - name: Quickstarts
-  expanded:
+  expanded: true
   items:
   - name: Get started with the FHIR service
     href: get-started-with-fhir.md
@@ -17,7 +24,7 @@
     - name: Using ARM template
       href: fhir-service-resource-manager-template.md
 - name: Tutorials
-  expanded: true
+  expanded: false
   items:
   - name: SMART on FHIR
     href: smart-on-fhir.md
@@ -113,15 +120,6 @@
         href: validation-against-profiles.md  
   - name: Copy data to Synapse
     href: copy-to-synapse.md
-- name: Concepts
-  expanded: true
-  items:
-  - name: FHIR service autoscale
-    href: fhir-service-autoscale.md
-  - name: FHIR REST API capabilities
-    href: fhir-rest-api-capabilities.md
-  - name: Versioning policy and history management
-    href: fhir-versioning-policy-and-history-management.md
 - name: Resources
   expanded: true
   items:

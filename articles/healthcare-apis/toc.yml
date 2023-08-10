@@ -1,20 +1,21 @@
+items:
 - name: Azure Health Data Services documentation
   href: index.yml
 - name: Overview
   href: healthcare-apis-overview.md
-    - name: Health data and PHI integration
-      displayName: FHIR service
-      href: ./fhir/overview.md
-    - name: Image data integration
-      displayName: DICOM service
-      href: ./dicom/dicom-services-overview.md
-    - name: Device data integration
-      displayName: MedTech service
-      href: ./iot/overview.md
-    - name: Automation using Events
-      href: ./events/events-overview.md
-    - name: Workspace provisioning
-      href: workspace-overview.md
+- name: Health data and PHI integration
+  displayName: FHIR service
+  href: ./fhir/overview.md
+- name: Image data integration
+  displayName: DICOM service
+  href: ./dicom/dicom-services-overview.md
+- name: Device data integration
+  displayName: MedTech service
+  href: ./iot/overview.md
+- name: Automation using Events
+  href: ./events/events-overview.md
+- name: Workspace provisioning
+  href: workspace-overview.md
 - name: Quickstarts
   expanded: false
   items: 
