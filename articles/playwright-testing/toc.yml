@@ -13,7 +13,7 @@ items:
     - name: Run end-to-end tests at scale
       displayName: getting started, quickstart, cli, command-line
       href: quickstart-run-end-to-end-tests.md
-    - name: Set up continuous end-to-end tests with CI/CD
+    - name: Set up continuous end-to-end testing
       displayName: getting started, quickstart, github actions, azure pipelines, azure devops, ci/cd, CICD, continuous integration, continuous delivery
       href: quickstart-automate-end-to-end-testing.md
 - name: How-to guides
