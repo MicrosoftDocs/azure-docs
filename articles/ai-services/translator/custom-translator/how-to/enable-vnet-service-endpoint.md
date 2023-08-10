@@ -98,7 +98,7 @@ The following table describes Custom Translator project accessibility per Transl
 |--|--|
 | All networks | &bullet; No restrictions |
 | Selected Networks and Private Endpoints | &bullet; Not accessible. Use [Custom Translator non-interactive REST API](https://microsofttranslator.github.io/CustomTranslatorApiSamples/) to build and publish custom models. |
-| Disabled | &#9679; Not accessible |
+| Disabled | &bullet; Not accessible |
 
 To use Custom Translator without relaxing network access restrictions on your production Translator resource, consider this workaround:
 
