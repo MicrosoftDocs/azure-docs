@@ -317,7 +317,7 @@ The following table explains the properties of the `SignalRConnectionInfo` attri
 
 | Attribute property |Description|
 |---------|----------------------|
-|**hubName**| Required. The hub name.  |
+|**HubName**| Required. The hub name.  |
 |**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 |**UserId**| Optional. The user identifier of a SignalR connection. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query.  |
 |**IdToken**| Optional. A JWT token whose claims will be added to the user claims. It should be used together with **ClaimTypeList**. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query. |
@@ -329,7 +329,7 @@ The following table explains the properties of the `SignalRConnectionInfoInput` 
 
 | Attribute property |Description|
 |---------|----------------------|
-|**hubName**| Required. The hub name.  |
+|**HubName**| Required. The hub name.  |
 |**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 |**UserId**| Optional. The user identifier of a SignalR connection. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query.  |
 |**IdToken**| Optional. A JWT token whose claims will be added to the user claims. It should be used together with **ClaimTypeList**. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query. |
@@ -345,10 +345,10 @@ The following table explains the binding configuration properties that you set i
 |**direction**|  Must be set to `in`.|
 |**name**|  Variable name used in function code for connection info object. |
 |**hubName**| Required. The hub name.  |
-|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
-|**UserId**| Optional. The user identifier of a SignalR connection. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query.  |
-|**IdToken**| Optional. A JWT token whose claims will be added to the user claims. It should be used together with **ClaimTypeList**. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query. |
-|**ClaimTypeList**| Optional. A list of claim types, which filter the claims in **IdToken** . |
+|**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+|**userId**| Optional. The user identifier of a SignalR connection. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query.  |
+|**idToken**| Optional. A JWT token whose claims will be added to the user claims. It should be used together with **claimTypeList**. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query. |
+|**claimTypeList**| Optional. A list of claim types, which filter the claims in **idToken** . |
 
 ---
 
@@ -364,10 +364,10 @@ The following table explains the supported settings for the `SignalRConnectionIn
 |---------|--------|
 |**name**|  Variable name used in function code for connection info object. |
 |**hubName**| Required. The hub name.  |
-|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
-|**UserId**| Optional. The user identifier of a SignalR connection. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query.  |
-|**IdToken**| Optional. A JWT token whose claims will be added to the user claims. It should be used together with **ClaimTypeList**. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query. |
-|**ClaimTypeList**| Optional. A list of claim types, which filter the claims in **IdToken** . |
+|**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+|**userId**| Optional. The user identifier of a SignalR connection. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query.  |
+|**idToken**| Optional. A JWT token whose claims will be added to the user claims. It should be used together with **claimTypeList**. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query. |
+|**claimTypeList**| Optional. A list of claim types, which filter the claims in **idToken** . |
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
@@ -380,10 +380,10 @@ The following table explains the binding configuration properties that you set i
 |**type**|  Must be set to `signalRConnectionInfo`.|
 |**direction**|  Must be set to `in`.|
 |**hubName**| Required. The hub name.  |
-|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
-|**UserId**| Optional. The user identifier of a SignalR connection. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query.  |
-|**IdToken**| Optional. A JWT token whose claims will be added to the user claims. It should be used together with **ClaimTypeList**. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query. |
-|**ClaimTypeList**| Optional. A list of claim types, which filter the claims in **IdToken** . |
+|**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+|**userId**| Optional. The user identifier of a SignalR connection. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query.  |
+|**idToken**| Optional. A JWT token whose claims will be added to the user claims. It should be used together with **claimTypeList**. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query. |
+|**claimTypeList**| Optional. A list of claim types, which filter the claims in **idToken** . |
 
 ::: zone-end
 
