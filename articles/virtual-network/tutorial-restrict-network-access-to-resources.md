@@ -347,6 +347,7 @@ The virtual machine you created earlier that is assigned to the **subnet-1** sub
 ## Next steps
 
 In this tutorial:
+
 * You enabled a service endpoint for a virtual network subnet.
 
 * You learned that you can enable service endpoints for resources deployed from multiple Azure services.
