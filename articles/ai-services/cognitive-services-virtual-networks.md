@@ -193,11 +193,11 @@ To grant access to a virtual network with an existing network rule:
 
 1. Under **Allow access from**, select **Add existing virtual network**.
 
-   :::image type="content" source="media/vnet/virtual-network-add-existing.png" alt-text="Screenshot shows the Networking page with Selected Networks and Private Endpoints selected and Add existing virtual network highlighted." lightbox="media/vnet/virtual-network-add-existing.png" :::
+   :::image type="content" source="media/vnet/virtual-network-add-existing.png" alt-text="Screenshot shows the Networking page with Selected Networks and Private Endpoints selected and Add existing virtual network highlighted." lightbox="media/vnet/virtual-network-add-existing.png":::
 
 1. Select the **Virtual networks** and **Subnets** options, and then select **Enable**.
 
-   :::image type="content" source="media/vnet/virtual-network-add-existing-details.png" alt-text="Screenshot shows the Add networks dialog box where you can enter a virtual network and subnet." :::
+   :::image type="content" source="media/vnet/virtual-network-add-existing-details.png" alt-text="Screenshot shows the Add networks dialog box where you can enter a virtual network and subnet.":::
 
    > [!NOTE]
    > If a service endpoint for Azure AI services wasn't previously configured for the selected virtual network and subnets, you can configure it as part of this operation.
@@ -214,7 +214,7 @@ To create a new virtual network and grant it access:
 
 1. Provide the information necessary to create the new virtual network, and then select **Create**.
 
-   :::image type="content" source="media/vnet/virtual-network-create.png" alt-text="Screenshot shows the Create virtual network dialog box." :::
+   :::image type="content" source="media/vnet/virtual-network-create.png" alt-text="Screenshot shows the Create virtual network dialog box.":::
 
 1. Select **Save** to apply your changes.
 
