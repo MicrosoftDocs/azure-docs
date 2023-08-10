@@ -49,7 +49,7 @@ Before implementing network security for your storage accounts, review the impor
 
 > [!div class="checklist"]
 >
-> - Review the [Restrictions for IP network rules](#restrictions-for-ip-network-rules).
+> - Azure Storage firewall rules only apply to [data plane](../../azure-resource-manager/management/control-plane-and-data-plane#data-plane) operations. [Control plane](../../azure-resource-manager/management/control-plane-and-data-plane#control-plane) operations are not subject to the restrictions specified in firewall rules.> - Review the [Restrictions for IP network rules](#restrictions-for-ip-network-rules).
 > - To access data by using tools such as the Azure portal, Azure Storage Explorer, and AzCopy, you must be on a machine within the trusted boundary that you establish when configuring network security rules.
 > - Network rules are enforced on all network protocols for Azure Storage, including REST and SMB.
 > - Network rules don't affect virtual machine (VM) disk traffic, including mount and unmount operations and disk I/O, but they do help protect REST access to page blobs.
