@@ -39,6 +39,14 @@ CallAutomationClient callAutomationClient = new CallAutomationClientBuilder()
     .connectionString("<Azure Communication Services connection string>") 
     .buildClient();
 ```
+### [JavaScript](#tab/javascript)
+```javas script
+callAutomationClient = new CallAutomationClient(("<Azure Communication Services connection string>"); 
+```
+### [Python](#tab/python)
+```python
+call_automation_client = CallAutomationClient.from_connection_string((("<Azure Communication Services connection string>") 
+```
 -----
 
 ## Send DTMF
@@ -65,6 +73,28 @@ callAutomationClient.getCallConnectionAsync(callConnectionId)
     .sendDtmfTonesWithResponse(tones, new PhoneNumberIdentifier(c2Target), "dtmfs-to-ivr") 
     .block(); 
 ```
+### [JavaScript](#tab/javascript)
+```javascript
+const tones = [DtmfTone.One, DtmfTone.Two, DtmfTone.Three];
+const sendDtmfTonesOptions: SendDtmfTonesOptions = {
+	operationContext: "dtmfs-to-ivr"
+};
+const result: SendDtmfTonesResult = await callAutomationClient.getCallConnection(callConnectionId)
+	.getCallMedia()
+	.sendDtmfTones(tones, {
+		phoneNumber: c2Target
+	}, sendDtmfTonesOptions);
+console.log("sendDtmfTones, result=%s", result);
+```
+### [Python](#tab/python)
+```python
+tones = [DtmfTone.ONE, DtmfTone.TWO, DtmfTone.THREE]
+result = call_automation_client.get_call_connection(call_connection_id).send_dtmf_tones(
+	tones = tones,
+	target_participant = PhoneNumberIdentifier(c2_target),
+	operation_context = "dtmfs-to-ivr")
+app.logger.info("Send dtmf, result=%s", result)
+```
 -----
 When your application sends these DTMF tones, you'll receive event updates. You can use the `SendDtmfCompleted` and `SendDtmfFailed` events to create business logic in your application to determine the next steps. 
 
@@ -83,6 +113,17 @@ if (acsEvent instanceof SendDtmfTonesCompleted) {
     log.info("Send dtmf succeeded: context=" + event.getOperationContext()); 
 } 
 ```
+### [JavaScript](#tab/javascript)
+```javascript
+if (event.type === "Microsoft.Communication.SendDtmfTonesCompleted") {
+	console.log("Send dtmf succeeded: context=%s", eventData.operationContext);
+}
+```
+### [Python](#tab/python)
+```python
+if event.type == "Microsoft.Communication.SendDtmfTonesCompleted":
+	app.logger.info("Send dtmf succeeded: context=%s", event.data['operationContext']);
+```
 -----
 Example of *SendDtmfFailed*
 ### [csharp](#tab/csharp)
@@ -100,6 +141,19 @@ if (acsEvent instanceof SendDtmfTonesFailed) {
     log.info("Send dtmf failed: result=" + event.getResultInformation().getMessage() + ", context=" 
         + event.getOperationContext()); 
 } 
+```
+### [JavaScript](#tab/javascript)
+```javascript
+if (event.type === "Microsoft.Communication.SendDtmfTonesFailed") {
+	console.log("sendDtmfTones failed: result=%s, context=%s",
+		eventData.resultInformation.message,
+		eventData.operationContext);
+}
+```
+### [Python](#tab/python)
+```python
+if event.type == "Microsoft.Communication.SendDtmfTonesFailed": 
+    app.logger.info("Send dtmf failed: result=%s, context=%s", event.data['resultInformation']['message'], event.data['operationContext']) 
 ```
 -----
 ## Continuous DTMF Recognition
@@ -120,6 +174,28 @@ callAutomationClient.getCallConnectionAsync(callConnectionId)
         .startContinuousDtmfRecognitionWithResponse(new PhoneNumberIdentifier(c2Target), "dtmf-reco-on-c2") 
         .block(); 
 ```
+### [JavaScript](#tab/javascript)
+```javascript
+const continuousDtmfRecognitionOptions: ContinuousDtmfRecognitionOptions = {
+	operationContext: "dtmf-reco-on-c2"
+};
+
+await callAutomationclient.getCallConnection(callConnectionId)
+	.getCallMedia()
+	.startContinuousDtmfRecognition({
+		phoneNumber: c2Target
+	}, continuousDtmfRecognitionOptions);
+```
+### [Python](#tab/python)
+```python
+call_automation_client.get_call_connection(
+    call_connection_id
+).start_continuous_dtmf_recognition(
+    target_participant=PhoneNumberIdentifier(c2_target),
+    operation_context="dtmf-reco-on-c2",
+)
+app.logger.info("Started continuous DTMF recognition")
+```
 -----
 
 When your application no longer wishes to receive DTMF tones from the participant anymore you can use the `StopContinuousDtmfRecognitionAsync` method to let ACS know to stop detecting DTMF tones.
@@ -138,6 +214,25 @@ callAutomationClient.getCallConnectionAsync(callConnectionId)
         .getCallMediaAsync() 
         .stopContinuousDtmfRecognitionWithResponse(new PhoneNumberIdentifier(c2Target), "dtmf-reco-on-c2") 
         .block(); 
+```
+### [JavaScript](#tab/javascript)
+```javascript
+const continuousDtmfRecognitionOptions: ContinuousDtmfRecognitionOptions = {
+	operationContext: "dtmf-reco-on-c2"
+};
+
+await callAutomationclient.getCallConnection(callConnectionId)
+	.getCallMedia()
+	.stopContinuousDtmfRecognition({
+		phoneNumber: c2Target
+	}, continuousDtmfRecognitionOptions);
+```
+### [Python](#tab/python)
+```python
+call_automation_client.get_call_connection(call_connection_id).stop_continuous_dtmf_recognition( 
+    target_participant=PhoneNumberIdentifier(c2_target), 
+    operation_context="dtmf-reco-on-c2") 
+app.logger.info("Stopped continuous DTMF recognition") 
 ```
 -----
 
@@ -164,6 +259,24 @@ if (acsEvent instanceof ContinuousDtmfRecognitionToneReceived) {
         + ", context=" + event.getOperationContext()); 
 } 
 ```
+### [JavaScript](#tab/javascript)
+```javascript
+if (event.type === "Microsoft.Communication.ContinuousDtmfRecognitionToneReceived") {
+	console.log("Tone detected: sequenceId=%s, tone=%s, context=%s",
+		eventData.toneInfo.sequenceId,
+		eventData.toneInfo.tone,
+		eventData.operationContext);
+
+}
+```
+### [Python](#tab/python)
+```python
+if event.type == "Microsoft.Communication.ContinuousDtmfRecognitionToneReceived": 
+    app.logger.info("Tone detected: sequenceId=%s, tone=%s, context=%s", 
+                    event.data['toneInfo']['sequenceId'], 
+                    event.data['toneInfo']['tone'], 
+                    event.data['operationContext']) 
+```
 -----
 
 ACS provides you with a `SequenceId` as part of the `ContinuousDtmfRecognitionToneReceived` event, which your application can use to reconstruct the order in which the participant entered the DTMF tones.
@@ -187,6 +300,21 @@ if (acsEvent instanceof ContinuousDtmfRecognitionToneFailed) {
         + ", context=" + event.getOperationContext()); 
 } 
 ```
+### [JavaScript](#tab/javascript)
+```javascript
+if (event.type === "Microsoft.Communication.ContinuousDtmfRecognitionToneFailed") {
+	console.log("Tone failed: result=%s, context=%s", eventData.resultInformation.message, eventData.operationContext);
+}
+```
+### [Python](#tab/python)
+```python
+if event.type == "Microsoft.Communication.ContinuousDtmfRecognitionToneFailed":
+    app.logger.info(
+        "Tone failed: result=%s, context=%s",
+        event.data["resultInformation"]["message"],
+        event.data["operationContext"],
+    )
+```
 -----
 
 ### ContinuousDtmfRecogntionStopped Event
@@ -204,5 +332,16 @@ if (acsEvent instanceof ContinuousDtmfRecognitionStopped) {
     ContinuousDtmfRecognitionStopped event = (ContinuousDtmfRecognitionStopped) acsEvent; 
     log.info("Tone stopped, context=" + event.getOperationContext()); 
 } 
+```
+### [JavaScript](#tab/javascript)
+```javascript
+if (event.type === "Microsoft.Communication.ContinuousDtmfRecognitionStopped") {
+	console.log("Tone stopped: context=%s", eventData.operationContext);
+}
+```
+### [Python](#tab/python)
+```python
+if event.type == "Microsoft.Communication.ContinuousDtmfRecognitionStopped":
+    app.logger.info("Tone stoped: context=%s", event.data["operationContext"])
 ```
 -----
