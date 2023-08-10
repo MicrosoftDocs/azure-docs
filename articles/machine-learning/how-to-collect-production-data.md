@@ -94,7 +94,7 @@ First, you'll need to add custom logging code to your scoring script (`score.py`
     > [!NOTE]
     > Currently, only pandas DataFrames can be logged with the `collect()` API. If the data is not in a DataFrame when passed to `collect()`, it will not be logged to storage and an error will be reported.
 
-The following code is an example of a full scoring script (`score.py`) that uses the custom logging Python SDK. In this example, we are using a third `Collector` called `inputs_outputs_collector`, which logs a joined DataFrame of the `model_inputs` and the `model_outputs`. This joined DataFrame enables additional monitoring signals (feature attribution drift, etc.). If you are not interested in those monitoring signals, please feel free to remove this `Collector`.
+The following code is an example of a full scoring script (`score.py`) that uses the custom logging Python SDK. In this example, a third `Collector` called `inputs_outputs_collector` logs a joined DataFrame of the `model_inputs` and the `model_outputs`. This joined DataFrame enables additional monitoring signals (feature attribution drift, etc.). If you are not interested in those monitoring signals, please feel free to remove this `Collector`.
 
 ```python
 import pandas as pd
