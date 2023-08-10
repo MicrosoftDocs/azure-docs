@@ -46,9 +46,9 @@ items:
   items:
   - name: Usage and Insights report
     href: concept-usage-insights-report.md
-  - name: How to use Identity recommendations
+  - name: How to use Identity Recommendations
     href: howto-use-recommendations.md
-  - name: How to use Azure AD workbooks
+  - name: How to use Identity Workbooks
     href: howto-use-azure-monitor-workbooks.md
   - name: Recommendations
     expanded: false
