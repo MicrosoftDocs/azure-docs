@@ -19,12 +19,7 @@ With the **GCP Pub/Sub Audit Logs** connector, based on our [Codeless Connector 
 > [!IMPORTANT]
 > The GCP Pub/Sub Audit Logs connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.  
 
-Once you ingest the GCP data, you can view the details of three types of audit logs: 
-- Admin activity logs 
-- Data access logs
-- Access transparency logs 
-
-With these, Google's Cloud Audit Logs records a trail that practitioners can use to monitor access and detect potential threats across GCP resources.  
+Google's Cloud Audit Logs records a trail that practitioners can use to monitor access and detect potential threats across GCP resources.  
 
 ## Prerequisites
 
@@ -52,7 +47,7 @@ You can set up the GCP environment in one of two ways:
     gcloud config set project {projectId}  
     ```
 1. In the next window, select **Authorize**. 							 
-1. Copy the Terraform [GCPInitialAuthenticationSetup script](https://github.com/danielohfeld/Azure-Sentinel/tree/feature/danielohfeld/add_gcp_terraform/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPInitialAuthenticationSetup), paste the script to a new file, and save it as a .tf file.  
+1. Copy the Terraform [GCPInitialAuthenticationSetup script](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPInitialAuthenticationSetup), paste the script to a new file, and save it as a .tf file.  
 1. In the editor, type:  
 
     ```
@@ -64,7 +59,7 @@ You can set up the GCP environment in one of two ways:
     terraform apply 
     ```
 
-1. Type your Microsoft tenant ID. Learn how to [find your tenant ID](../active-directory/fundamentals/active-directory-how-to-find-tenant.md). 
+1. Type your Microsoft tenant ID. Learn how to [find your tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name). 
 1. When asked if a workload Identity Pool has already been created for Azure, type *yes* or *no*.  
 1. When asked if you want to create the resources listed, type *yes*.
 1. Save the resources parameters for later use. 	

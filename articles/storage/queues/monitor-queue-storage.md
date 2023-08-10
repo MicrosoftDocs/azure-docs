@@ -7,8 +7,7 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.date: 10/06/2022
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.devlang: csharp, powershell, azurecli
 ms.custom: monitoring, devx-track-csharp, devx-track-azurepowershell
 ---

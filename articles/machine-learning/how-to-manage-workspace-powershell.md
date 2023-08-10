@@ -145,7 +145,7 @@ Get-AzMLWorkspace -Name $Workspace -ResourceGroupName $ResourceGroup
 
 ## Delete a workspace
 
-[!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
+[!INCLUDE [machine-learning-delete-workspace](includes/machine-learning-delete-workspace.md)]
 
 To delete a workspace after it's no longer needed, use the following command:
 

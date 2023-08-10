@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 03/17/2023
 ms.author: anfdocs
 ---
 # Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes
@@ -26,9 +26,9 @@ Azure NetApp Files supports fetching of extended groups from the LDAP name servi
 
 When it’s determined that LDAP will be used for operations such as name lookup and fetching extended groups, the following process occurs:
 
-1. Azure NetApp Files uses an LDAP client configuration to make a connection attempt to the ADDS/AADDS LDAP server that is specified in the [Azure NetApp Files AD configuration](create-active-directory-connections.md).
-1. If the TCP connection over the defined ADDS/AADDS LDAP service port is successful, then the Azure NetApp Files LDAP client attempts to “bind” (sign in) to the ADDS/AADDS LDAP server (domain controller) by using the defined credentials in the LDAP client configuration.
-1. If the bind is successful, then the Azure NetApp Files LDAP client uses the RFC 2307bis LDAP schema to make an LDAP search query to the ADDS/AADDS LDAP server (domain controller).
+1. Azure NetApp Files uses an LDAP client configuration to make a connection attempt to the AD DS/Azure AD DS LDAP server that is specified in the [Azure NetApp Files AD configuration](create-active-directory-connections.md).
+1. If the TCP connection over the defined AD DS/Azure AD DS LDAP service port is successful, then the Azure NetApp Files LDAP client attempts to “bind” (sign in) to the AD DS/Azure AD DS LDAP server (domain controller) by using the defined credentials in the LDAP client configuration.
+1. If the bind is successful, then the Azure NetApp Files LDAP client uses the RFC 2307bis LDAP schema to make an LDAP search query to the AD DS/Azure AD DS LDAP server (domain controller).
 The following information is passed to the server in the query:
    * [Base/user DN](configure-ldap-extended-groups.md#ldap-search-scope) (to narrow search scope)
    * Search scope type (subtree)
@@ -36,15 +36,15 @@ The following information is passed to the server in the query:
    * UID or username 
    * Requested attributes (`uid`, `uidNumber`, `gidNumber` for users, or `gidNumber` for groups) 
 1. If the user or group isn’t found, the request fails, and access is denied.
-1. If the request is successful, then user and group attributes are [cached for future use](configure-ldap-extended-groups.md#considerations). This operation improves the performance of subsequent LDAP queries associated with the cached user or group attributes. It also reduces the load on the ADDS/AADDS LDAP server.
+1. If the request is successful, then user and group attributes are [cached for future use](configure-ldap-extended-groups.md#considerations). This operation improves the performance of subsequent LDAP queries associated with the cached user or group attributes. It also reduces the load on the AD DS/Azure AD DS LDAP server.
 
 ## Considerations
 
 * You can enable the LDAP with extended groups feature only during volume creation. This feature can't be retroactively enabled on existing volumes.  
 
-* LDAP with extended groups is supported only with Active Directory Domain Services (AD DS) or Azure Active Directory Domain services (AADDS). OpenLDAP or other third-party LDAP directory services aren't supported. 
+* LDAP with extended groups is supported only with Active Directory Domain Services (AD DS) or Azure Active Directory Domain services (Azure AD DS). OpenLDAP or other third-party LDAP directory services are not supported. 
 
-* LDAP over TLS must *not* be enabled if you're using Azure Active Directory Domain Services (AADDS).  
+* LDAP over TLS must *not* be enabled if you are using Azure Active Directory Domain Services (Azure AD DS).  
 
 * You can't modify the LDAP option setting (enabled or disabled) after you've created the volume.  
 
@@ -82,6 +82,9 @@ The following information is passed to the server in the query:
 
     The values specified for `objectClass` are separate entries. For example, in Multi-valued String Editor, `objectClass` would have separate values (`user` and `posixAccount`) specified as follows for LDAP users:   
 
+    >[!NOTE]
+    >If the POSIX attributes are not set up correctly, user and group lookup operations may fail, and users may be squashed to `nobody` when accessing NFS volumes. 
+
     ![Screenshot of Multi-valued String Editor that shows multiple values specified for Object Class.](../media/azure-netapp-files/multi-valued-string-editor.png) 
 
     You can manage POSIX attributes by using the Active Directory Users and Computers MMC snap-in. The following example shows the Active Directory Attribute Editor. See [Access Active Directory Attribute Editor](create-volumes-dual-protocol.md#access-active-directory-attribute-editor) for details.  
@@ -90,7 +93,7 @@ The following information is passed to the server in the query:
 
 4. If you want to configure an LDAP-integrated NFSv4.1 Linux client, see [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md).
 
-5. If your LDAP-enabled volumes use NFSv4.1, follow instructions in [Configure NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain) to configure the `/etc/idmapd.conf` file.
+5. If your LDAP-enabled volumes use NFSv4.1, follow instructions in [Configure NFSv4.1 ID domain](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-id-domain-in-nfs-clients) to configure the `/etc/idmapd.conf` file.
 
     You need to set `Domain` in `/etc/idmapd.conf` to the domain that is configured in the Active Directory Connection on your NetApp account. For instance, if `contoso.com` is the configured domain in the NetApp account, then set `Domain = contoso.com`.
 
@@ -123,7 +126,7 @@ The following information is passed to the server in the query:
 
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create and manage Active Directory connections](create-active-directory-connections.md)
-* [Configure NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain)
+* [Configure NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md)
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
 * [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)
 * [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md)

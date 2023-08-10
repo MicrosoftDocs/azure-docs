@@ -67,7 +67,7 @@
     - name: Restrict guest user access
       href: users-restrict-guest-permissions.md
     - name: Clean up unmanaged accounts
-      href: clean-up-unmanaged-azure-ad-accounts.md 
+      href: clean-up-unmanaged-accounts.md 
     - name: Clean up stale guest accounts
       href: clean-up-stale-guest-accounts.md
     - name: Dynamic groups and guests   
@@ -142,7 +142,9 @@
     items:
     - name: Assign licenses to users    
       href: ../fundamentals/license-users-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-    - name: Assign licenses to a group    
+    - name: Use Admin center to assign licenses to groups
+      href: licensing-admin-center.md
+    - name: Assign licenses to a group
       href: licensing-groups-assign.md
     - name: Resolve group license problems   
       href: licensing-groups-resolve-problems.md
@@ -154,6 +156,8 @@
       href: licensing-group-advanced.md
     - name: Group licensing with PowerShell and Graph
       href: licensing-ps-examples.md
+    - name: Group licensing examples Microsoft Graph PowerShell
+      href: licensing-powershell-graph-examples.md
     - name: Service plan IDs for licensing
       href: licensing-service-plan-reference.md
   - name: Sign-in

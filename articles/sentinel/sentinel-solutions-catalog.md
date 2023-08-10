@@ -3,7 +3,7 @@ title: Microsoft Sentinel content hub catalog | Microsoft Docs
 description: This article lists the solutions currently available in the content hub for Microsoft Sentinel and where to find the full list of solutions.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 03/08/2023
+ms.date: 06/22/2023
 ms.author: cwatson
 ---
 
@@ -14,10 +14,6 @@ Solutions in Microsoft Sentinel provide a consolidated way to acquire Microsoft 
 This article lists the domain-specific out-of-the-box (built-in) and on-demand solutions available for you to deploy in your workspace. For the full list of solutions in Microsoft Sentinel, see [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel).
 
 When you deploy a solution, the security content included with the solution, such as data connectors, playbooks, or workbooks, are available in the relevant views for the content. For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md).
-
-> [!IMPORTANT]
->
-> The Microsoft Sentinel content hub experience is currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Domain solutions
 

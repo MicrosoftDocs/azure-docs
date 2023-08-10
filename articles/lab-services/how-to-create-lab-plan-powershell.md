@@ -5,7 +5,7 @@ description: Learn how to create an Azure Lab Services lab plan using PowerShell
 author: RogerBestMSFT
 ms.topic: how-to
 ms.date: 06/15/2022
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurepowershell
 ---
 
 # Create a lab plan in Azure Lab Services using PowerShell and the Azure modules

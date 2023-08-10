@@ -1464,6 +1464,16 @@
         "source_path_from_root": "/articles/postgresql/single-server/partners-migration-postgresql.md",
         "redirect_url": "/azure/postgresql/migrate/partners-migration-postgresql",
         "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/index.yml",
+        "redirect_url": "/azure/postgresql/index",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/flexible-server/index.yml",
+        "redirect_url": "/azure/postgresql/index",
+        "redirect_document_id": false
     }
     ]
 }

@@ -48,7 +48,7 @@ If your default payment method is credit card, the [Account Administrator](add-c
 
 ## Settle balance might be Pay now
 
-Users in the following countries/locales don't see the **Settle balance** option. Instead, they use the [Pay now](../understand/pay-bill.md#pay-now-in-the-azure-portal) option to pay their bill.
+Users in the following countries/regions don't see the **Settle balance** option. Instead, they use the [Pay now](../understand/pay-bill.md#pay-now-in-the-azure-portal) option to pay their bill.
 
 - `AT` - Austria
 - `AU` - Australia

@@ -15,7 +15,7 @@ Replica pod scrapes metrics from `kube-state-metrics` and custom scrape targets 
 
 ## Metrics Throttling
 
-In the Azure portal, navigate to your Azure Monitor Workspace. Go to `Metrics` and verify that the metrics `Active Time Series % Utilization` and `Events Per Minuted Ingested % Utilization` are below 100%.
+In the Azure portal, navigate to your Azure Monitor Workspace. Go to `Metrics` and verify that the metrics `Active Time Series % Utilization` and `Events Per Minute Ingested % Utilization` are below 100%.
 
 :::image type="content" source="media/prometheus-metrics-troubleshoot/throttling.png" alt-text="Screenshot showing how to navigate to the throttling metrics." lightbox="media/prometheus-metrics-troubleshoot/throttling.png":::
 
@@ -118,10 +118,10 @@ The metrics addon can be configured to run in debug mode by changing the configm
 When enabled, all Prometheus metrics that are scraped are hosted at port 9090. Run the following command:
 
 ```
-kubectl port-forward <ama-metrics pod name> -n kube-system 9091
+kubectl port-forward <ama-metrics pod name> -n kube-system 9090
 ``` 
 
-Go to `127.0.0.1:9091/metrics` in a browser to see if the metrics were scraped by the OpenTelemetry Collector. This user interface can be accessed for every `ama-metrics-*` pod. If metrics aren't there, there could be an issue with the metric or label name lengths or the number of labels. Also check for exceeding the ingestion quota for Prometheus metrics as specified in this article.
+Go to `127.0.0.1:9090/metrics` in a browser to see if the metrics were scraped by the OpenTelemetry Collector. This user interface can be accessed for every `ama-metrics-*` pod. If metrics aren't there, there could be an issue with the metric or label name lengths or the number of labels. Also check for exceeding the ingestion quota for Prometheus metrics as specified in this article.
 
 ## Metric names, label names & label values
 

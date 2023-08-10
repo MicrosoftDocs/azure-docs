@@ -35,13 +35,13 @@
     - name: Backend connectivity interoperability
       items:
       - name: Preface and Test Setup
-        href: connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json
+        href: connectivity-interoperability-preface.md
       - name: Test Setup Configuration
-        href: connectivty-interoperability-configuration.md?toc=%2fazure%2fnetworking%2ftoc.json
+        href: connectivity-interoperability-configuration.md
       - name: Control Plane Analysis
-        href: connectivty-interoperability-control-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
+        href: connectivity-interoperability-control-plane.md
       - name: Data Plane Analysis
-        href: connectivty-interoperability-data-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
+        href: connectivity-interoperability-data-plane.md
   - name: Concepts
     items:
     - name: Microsoft global network
@@ -122,12 +122,6 @@
     items:
     - name: Create a Zero Trust network for web applications
       href: create-zero-trust-network-web-apps.md
-  - name: Sample scripts
-    items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
   - name: Tutorials
     items:
     - name: Load balance VMs

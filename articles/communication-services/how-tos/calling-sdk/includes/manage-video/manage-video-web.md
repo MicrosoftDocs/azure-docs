@@ -51,17 +51,38 @@ const defaultSpeaker = deviceManager.selectedSpeaker;
 await deviceManager.selectSpeaker(localSpeakers[0]);
 ```
 
+### Local video stream properties
+
+A `LocalVideoStream` has the following properties:
+
+- `source`: The device information.
+
+```js
+const source = localVideoStream.source;
+```
+
+- `mediaStreamType`: Can be `Video`, `ScreenSharing`, or `RawMedia`.
+
+```js
+const type: MediaStreamType = localVideoStream.mediaStreamType;
+```
+
 ### Local camera preview
 
 You can use `deviceManager` and `VideoStreamRenderer` to begin rendering streams from your local camera. This stream won't be sent to other participants; it's a local preview feed.
 
 ```js
+// To start viewing local camera preview
 const cameras = await deviceManager.getCameras();
 const camera = cameras[0];
 const localVideoStream = new LocalVideoStream(camera);
 const videoStreamRenderer = new VideoStreamRenderer(localVideoStream);
 const view = await videoStreamRenderer.createView();
 htmlElement.appendChild(view.target);
+
+// To stop viewing local camera preview
+view.dispose();
+htmlElement.removeChild(view.target);
 ```
 
 ### Request permission to camera and microphone
@@ -117,18 +138,16 @@ const localVideoStream = new LocalVideoStream(camera);
 await call.startVideo(localVideoStream);
 ```
 
-After you successfully start sending video, a `LocalVideoStream` instance is added to the `localVideoStreams` collection on a call instance.
+After you successfully start sending video, a `LocalVideoStream` instance of type `Video` is added to the `localVideoStreams` collection on a call instance.
 
 ```js
-call.localVideoStreams[0] === localVideoStream;
+const localVideoStream = call.localVideoStreams.find( (stream) => { return stream.mediaStreamType === 'Video'} );
 ```
 
-To stop local video while on a call, pass the `localVideoStream` instance that's available in the `localVideoStreams` collection:
+To stop local video while on a call, pass the `localVideoStream` instance that's being used for video:
 
 ```js
 await call.stopVideo(localVideoStream);
-// or
-await call.stopVideo(call.localVideoStreams[0]);
 ```
 
 You can switch to a different camera device while a video is sending by invoking `switchSource` on a `localVideoStream` instance:
@@ -165,12 +184,19 @@ call.off('isLocalVideoStartedChanged', () => {
 
 
 ## Start and stop screen sharing while on a call
-To start and stop screen sharing while on a call, you can use asynchronous APIs startScreenSharing and stopScreenSharing respectively:
-
+To start screen sharing while on a call, you can use asynchronous API startScreenSharing:
 ```js
 // Start screen sharing
 await call.startScreenSharing();
+```
 
+After you successfully start sending screen sharing, a `LocalVideoStream` instance of type `ScreenSharing`, is added to the `localVideoStreams` collection on the call instance.
+```js
+const localVideoStream = call.localVideoStreams.find( (stream) => { return stream.mediaStreamType === 'ScreenSharing'} );
+```
+
+To stop screen sharing while on a call, you can use asynchronous API stoptScreenSharing:
+```js
 // Stop screen sharing
 await call.stopScreenSharing();
 ```
@@ -193,7 +219,36 @@ call.off('isScreenSharingOnChanged', () => {
 });
 ```
 
-## Render remote participant video streams
+[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
+Local screen share preview is in public preview and available as part of version 1.15.1-beta.1+.
+### Local screen share preview
+You can use `VideoStreamRenderer` to begin rendering streams from your local screen share so you can see what you are sending as a screen sharing stream.
+```js
+// To start viewing local screen share preview
+await call.startScreenSharing();
+const localScreenSharingStream = call.localVideoStreams.find( (stream) => { return stream.mediaStreamType === 'ScreenSharing' });
+const videoStreamRenderer = new VideoStreamRenderer(localScreenSharingStream);
+const view = await videoStreamRenderer.createView();
+htmlElement.appendChild(view.target);
+
+// To stop viewing local screen share preview.
+await call.stopScreenSharing();
+view.dispose();
+htmlElement.removeChild(view.target);
+
+// Screen sharing can also be stoped by clicking on the native browser's "Stop sharing" button.
+// The isScreenSharingOnChanged event will be triggered where you can check the value of call.isScreenSharingOn.
+// If the value is false, then that means screen sharing is turned off and so we can go ahead and dispose the screen share preview.
+// This event is also triggered for the case when stopping screen sharing via Call.stopScreenSharing() API.
+call.on('isScreenSharingOnChanged', () => {
+    if (!call.isScreenSharingOn) {
+        view.dispose();
+        htmlElement.removeChild(view.target);
+    }
+});
+```
+
+## Render remote participant video/screensharing streams
 
 To list the video streams and screen sharing streams of remote participants, inspect the `videoStreams` collections:
 

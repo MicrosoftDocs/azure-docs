@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: article
 ms.date: 01/17/2023
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Control egress traffic for an Azure Spring Apps instance
@@ -46,22 +46,22 @@ This diagram illustrates the following features of the architecture:
 The following example shows how to define a set of environment variables to be used in resource creation:
 
 ```bash
-PREFIX="asa-egress"
-RG="${PREFIX}-rg"
-LOC="eastus"
-ASANAME="${PREFIX}"
-VNET_NAME="${PREFIX}-vnet"
-ASA_APP_SUBNET_NAME="asa-app-subnet"
-ASA_SERVICE_RUNTIME_SUBNET_NAME="asa-service-runtime-subnet"
+export PREFIX="asa-egress"
+export RG="${PREFIX}-rg"
+export LOC="eastus"
+export ASANAME="${PREFIX}"
+export VNET_NAME="${PREFIX}-vnet"
+export ASA_APP_SUBNET_NAME="asa-app-subnet"
+export ASA_SERVICE_RUNTIME_SUBNET_NAME="asa-service-runtime-subnet"
 # Do not change FWSUBNET_NAME. This is currently a requirement for Azure Firewall.
-FWSUBNET_NAME="AzureFirewallSubnet"
-FWNAME="${PREFIX}-fw"
-FWPUBLICIP_NAME="${PREFIX}-fwpublicip"
-FWIPCONFIG_NAME="${PREFIX}-fwconfig"
-APP_ROUTE_TABLE_NAME="${PREFIX}-app-rt"
-SERVICE_RUNTIME_ROUTE_TABLE_NAME="${PREFIX}-service-runtime-rt"
-FWROUTE_NAME="${PREFIX}-fwrn"
-ASA_NAME="${PREFIX}-instance"
+export FWSUBNET_NAME="AzureFirewallSubnet"
+export FWNAME="${PREFIX}-fw"
+export FWPUBLICIP_NAME="${PREFIX}-fwpublicip"
+export FWIPCONFIG_NAME="${PREFIX}-fwconfig"
+export APP_ROUTE_TABLE_NAME="${PREFIX}-app-rt"
+export SERVICE_RUNTIME_ROUTE_TABLE_NAME="${PREFIX}-service-runtime-rt"
+export FWROUTE_NAME="${PREFIX}-fwrn"
+export ASA_NAME="${PREFIX}-instance"
 ```
 
 ### Create a virtual network with multiple subnets
@@ -156,12 +156,12 @@ When the operation is finished, save the firewall's front-end IP address for con
 ```azurecli
 # Capture the firewall IP address for later use.
 
-FWPUBLIC_IP=$(az network public-ip show \
+export FWPUBLIC_IP=$(az network public-ip show \
     --resource-group $RG \
     --name $FWPUBLICIP_NAME \
     --query "ipAddress" \
     --output tsv)
-FWPRIVATE_IP=$(az network firewall show \
+export FWPRIVATE_IP=$(az network firewall show \
     --resource-group $RG \
     --name $FWNAME \
     --query "ipConfigurations[0].privateIPAddress" \
@@ -272,7 +272,7 @@ az network vnet subnet update
 The following example shows how to add a role for the Azure Spring Apps resource provider. The role is assigned to all users identified by the string `e8de9221-a19c-4c81-b814-fd37c6caf9d2`:
 
 ```azurecli
-VIRTUAL_NETWORK_RESOURCE_ID=$(az network vnet show \
+export VIRTUAL_NETWORK_RESOURCE_ID=$(az network vnet show \
     --name $VNET_NAME \
     --resource-group $RG \
     --query "id" \
@@ -283,7 +283,7 @@ az role assignment create \
     --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
     --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
 
-APP_ROUTE_TABLE_RESOURCE_ID=$(az network route-table show \
+export APP_ROUTE_TABLE_RESOURCE_ID=$(az network route-table show \
     --name $APP_ROUTE_TABLE_NAME \
     --resource-group $RG \
     --query "id" \
@@ -294,7 +294,7 @@ az role assignment create \
     --scope ${APP_ROUTE_TABLE_RESOURCE_ID} \
     --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
     
-SERVICE_RUNTIME_ROUTE_TABLE_RESOURCE_ID=$(az network route-table show \
+export SERVICE_RUNTIME_ROUTE_TABLE_RESOURCE_ID=$(az network route-table show \
     --name $SERVICE_RUNTIME_ROUTE_TABLE_NAME \
     --resource-group $RG \
     --query "id" \

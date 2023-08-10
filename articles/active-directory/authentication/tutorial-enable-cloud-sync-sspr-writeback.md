@@ -42,6 +42,8 @@ You can enable Azure AD connect cloud sync provisioning directly in Azure portal
 
 #### Enable password writeback in Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 With password writeback enabled in Azure AD Connect cloud sync, now verify, and configure Azure AD self-service password reset (SSPR) for password writeback. When you enable SSPR to use password writeback, users who change or reset their password have that updated password synchronized back to the on-premises AD DS environment as well. 
 
 To verify and enable password writeback in SSPR, complete the following steps: 
@@ -64,6 +66,7 @@ Set-AADCloudSyncPasswordWritebackConfiguration -Enable $true -Credential $(Get-C
 ``` 
 
 ## Clean up resources
+
 If you no longer want to use the SSPR writeback functionality you have configured as part of this tutorial, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -138,7 +141,7 @@ Try the following operations to validate scenarios using password writeback. All
   
 - If passwords for some user accounts aren't written back to the on-premises directory, make sure that inheritance isn't disabled for the account in the on-premises AD DS environment. Write permissions for passwords must be applied to descendant objects for the feature to work correctly. 
 
-- Password policies in the on-premises AD DS environment may prevent password resets from being correctly processed. If you are testing this feature and want to reset password for users more than once per day, the group policy for Minimum password age must be set to 0. This setting can be found under Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies within gpmc.msc. 
+- Password policies in the on-premises AD DS environment may prevent password resets from being correctly processed. If you are testing this feature and want to reset password for users more than once per day, the group policy for Minimum password age must be set to 0. This setting can be found under Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Password Policy within gpmc.msc. 
 
 - If you update the group policy, wait for the updated policy to replicate, or use the gpupdate /force command. 
 

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/13/2022
+ms.date: 07/11/2023
 ms.custom: mode-ui
 ---
 
-# Quickstart: Use Search explorer to run queries in the portal
+# Quickstart: Use Search explorer to run queries in the Azure portal
 
-In this quickstart, you'll learn how to use **Search explorer**, a built-in query tool in the Azure portal used for running queries against a search index in Azure Cognitive Search. This tool makes it easy to learn query syntax, test a query or filter expression, or confirm data refresh by checking whether new content exists in the index.
+In this Azure Cognitive Search quickstart, you'll learn how to use **Search explorer**, a built-in query tool in the Azure portal used for running queries against a search index in Azure Cognitive Search. This tool makes it easy to learn query syntax, test a query or filter expression, or confirm data refresh by checking whether new content exists in the index.
 
 This quickstart uses an existing index to demonstrate Search explorer. 
 
@@ -43,7 +43,7 @@ Before you begin, have the following prerequisites in place:
 
 ## Unspecified query
 
-In Search explorer, requests are formulated using the [Search REST API](/rest/api/searchservice/search-documents), with responses returned as verbose JSON documents.
+In Search explorer, POST requests are formulated internally using the [Search REST API](/rest/api/searchservice/search-documents), with responses returned as verbose JSON documents.
 
 For a first look at content, execute an empty search by clicking **Search** with no terms provided. An empty search is useful as a first query because it returns entire documents so that you can review document composition. On an empty search, there's no search rank and documents are returned in arbitrary order (`"@search.score": 1` for all documents). By default, 50 documents are returned in a search request.
 

@@ -3,7 +3,7 @@ author: kengaderdus
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: include
-ms.date: 05/05/2023
+ms.date: 07/12/2023
 ms.author: kengaderdus
 ---
 
@@ -13,7 +13,7 @@ To use your client app certificate, you need to associate the app you registered
 
 1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
     
-    1. Select the **Directories + subscriptions** icon in the toolbar. 
+    1. Select the **Directories + subscriptions** icon :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the toolbar. 
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**. 
 

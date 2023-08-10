@@ -2,13 +2,13 @@
 title: Overview of classic alerts in Azure Monitor
 description: Classic alerts will be deprecated. Alerts enable you to monitor Azure resource metrics, events, or logs, and they notify you when a condition you specify is met.
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 06/20/2023
 ---
 
 # What are classic alerts in Azure?
 
 > [!NOTE]
-> This article describes how to create older classic metric alerts. Azure Monitor now supports [near real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **February 29, 2024**.
+> This article describes how to create older classic metric alerts. Azure Monitor now supports [near real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users. Classic alerts for Azure Government cloud and Microsoft Azure operated by 21Vianet will retire on **February 29, 2024**.
 >
 
 Alerts allow you to configure conditions over data, and they notify you when the conditions match the latest monitoring data.

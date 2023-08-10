@@ -1,6 +1,6 @@
 ---
 title: Bing Web Search Python client library quickstart 
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -78,7 +78,7 @@ If the response contains web pages, images, news, or videos, the first result fo
 
 1. Create a new Python project using your favorite IDE or editor.
 
-1. Copy this sample code into your project. `endpoint` can be the global endpoint below, or the [custom subdomain](~/articles/cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.:  
+1. Copy this sample code into your project. `endpoint` can be the global endpoint below, or the [custom subdomain](~/articles/ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.:  
 
     ```python
     # Import required modules.
@@ -311,7 +311,7 @@ When you're done with this project, make sure to remove your subscription key fr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Cognitive Services Python SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+> [Azure AI services Python SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 ## See also
 

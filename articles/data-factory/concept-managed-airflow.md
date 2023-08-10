@@ -70,6 +70,9 @@ Managed Airflow in Azure Data Factory offers a range of powerful features, inclu
 * 2.2.2
 * 2.4.3
 
+> [!NOTE]
+> Changing the Airflow version within an existing IR is not supported. Instead, the recommended solution is to create a new Airflow IR with the desired version
+
 ## Integrations
 
 Apache Airflow integrates with Microsoft Azure services through microsoft.azure [provider](https://airflow.apache.org/docs/apache-airflow-providers-microsoft-azure/stable/index.html).  

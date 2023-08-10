@@ -3,6 +3,7 @@ title: Quickstart - Create a distributed highly available SAP system with Azure 
 description: Learn how to create a distributed highly available SAP system in Azure Center for SAP solutions through Azure CLI.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
+ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ms.date: 05/04/2023
 ms.author: sagarkeswani

@@ -156,6 +156,17 @@ Here, create a new key using Azure Key Vault and retrieve the unique identifier.
 
    :::image type="content" source="media/how-to-setup-customer-managed-keys/new-customer-managed-key.png" lightbox="media/how-to-setup-customer-managed-keys/new-customer-managed-key.png" alt-text="Screenshot of the dialog to create a new key.":::
 
+  > [!TIP]
+  > Alternatively, you can use the Azure CLI to generate a key with:
+  >
+  > ```azurecli
+  > az keyvault key create \
+  >     --vault-name <name-of-key-vault> \
+  >     --name <name-of-key>
+  > ```
+  >
+  > For more information on managing a key vault with the Azure CLI, see [manage Azure Key Vault with the Azure CLI](../key-vault/general/manage-with-cli2.md).
+
 1. After the key is created, select the newly created key and then its current version.
 
 1. Copy the key's **Key Identifier**, except the part after the last forward slash:
@@ -555,9 +566,6 @@ Use the Azure CLI to restore a continuous account that is already configured usi
     # Variable for location
     location="<azure-region>"
 
-    # Variable for key URI in the key vault
-    keyVaultKeyUri="https://<key-vault-name>.vault.azure.net/keys/<key-name>"
-    
     # Variables for identities
     identityId="<identity-resource-id>"
     

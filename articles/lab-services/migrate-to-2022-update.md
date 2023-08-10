@@ -71,14 +71,14 @@ For example, when you move from lab accounts to lab plans, you should first requ
 
 ## 3. Configure shared resources  
 
-You can reuse the same Azure Compute Gallery and licensing servers that you use with your lab accounts.  Optionally, you can also [configure more licensing servers](./how-to-create-a-lab-with-shared-resource.md) and galleries based on your needs. For VMs that require access to a licensing server, you'll create lab plans with [advanced networking](./how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) enabled as shown in the next step.
+You can reuse the same Azure Compute Gallery and licensing servers that you use with your lab accounts.  Optionally, you can also [configure more licensing servers](./how-to-create-a-lab-with-shared-resource.md) and galleries based on your needs. For VMs that require access to a licensing server, you'll create lab plans with [advanced networking](./how-to-connect-vnet-injection.md) enabled as shown in the next step.
 
 ## 4. Create additional lab plans
 
 While you're waiting for capacity to be assigned, you can continue creating lab plans that will be used for setting up your labs.  
 
 1. [Create and configure lab plans](./tutorial-setup-lab-plan.md).
-    - If you plan to use a license server, don't forget to enable [advanced networking](./how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when creating your lab plans.
+    - If you plan to use a license server, don't forget to enable [advanced networking](./how-to-connect-vnet-injection.md) when creating your lab plans.
     - The lab plan’s resource group name is significant because educators will select the resource group to [create a lab](./tutorial-setup-lab.md#create-a-lab).
     - Likewise, the lab plan name is important.  If more than one lab plan is in the resource group, educators will see a dropdown to choose a lab plan when they create a lab.
 1. [Assign permissions](./tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role) to educators that will create labs.
@@ -91,7 +91,7 @@ If you're moving from lab accounts, the following table provides guidance on how
 
 |Lab account configuration|Lab plan configuration|
 |---|---|
-|[Virtual network peering](./how-to-connect-peer-virtual-network.md#configure-at-the-time-of-lab-account-creation)|Lab plans can reuse the same virtual network as lab accounts. </br> - [Setup advanced networking](./how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when you create the lab plan.|
+|[Virtual network peering](./how-to-connect-peer-virtual-network.md#configure-at-the-time-of-lab-account-creation)|Lab plans can reuse the same virtual network as lab accounts. </br> - [Setup advanced networking](./how-to-connect-vnet-injection.md) when you create the lab plan.|
 |[Role assignments](./concept-lab-services-role-based-access-control.md) </br> - Lab account owner\contributor. </br> - Lab creator\owner\contributor.|Lab plans include new specialized roles. </br>1. [Review roles](./concept-lab-services-role-based-access-control.md). </br>2. [Assign permissions](./tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).|
 |Enabled Marketplace images. </br> - Lab accounts only support Gen1 images from the Marketplace.|Lab plans include settings to enable [Azure Marketplace images](./specify-marketplace-images.md). </br> - Lab plans support Gen1 and Gen2 Marketplace images, so the list of images will be different than what you would see if using lab accounts.|
 |[Location](./how-to-manage-lab-accounts.md#create-a-lab-account) </br> - Labs are automatically created within the same geolocation as the lab account. </br> - You can't specify the exact region where a lab is created. |Lab plans enable specific control over which regions labs are created. </br> - [Configure regions for labs](./create-and-configure-labs-admin.md).|
@@ -130,4 +130,4 @@ Update reports to include the new cost entry type, `Microsoft.LabServices/labs`,
 
 - As an admin, [create a lab plan](quick-create-resources.md).
 - As an admin, [manage your lab plan](how-to-manage-lab-plans.md).
-- As an educator, [configure and control usage of a lab](how-to-configure-student-usage.md).
+- As an educator, [configure and control usage of a lab](how-to-manage-lab-users.md).

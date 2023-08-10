@@ -98,6 +98,7 @@ The sync process runtime has the following performance characteristics:
 * Import time grows linearly with the number of objects being synced. For example, if 10,000 objects take 10 minutes to import, then 20,000 objects will take approximately 20 minutes on the same server.
 * Export is also linear.
 * The sync will grow exponentially based on the number of objects with references to other objects. Group memberships and nested groups have the main performance impact, because their members refer to user objects or other groups. These references must be found and referenced to actual objects in the MV to complete the sync cycle.
+* Changing a group member will lead to a re-evaluation of all group members. For example, if you have a group with 50K members and you only update 1 member, this will trigger a synchronization of all 50K members.
 
 ### Filtering
 
@@ -165,6 +166,7 @@ The size of your source Active Directory topology will influence your SQL databa
 
 
 - Organizations with more than 100,000 users can reduce network latencies by colocating SQL database and the provisioning engine on the same server.
+- SQL Named Pipes protocol is not supported as it introduces significant delays in the sync cycle and should be disabled in the SQL Server Configuration Manager under SQL Native Clients and SQL Server Network. Please note that changing Named Pipes configuration only takes effect after restarting database and ADSync services.
 - Due to the high disk input and output (I/O) requirements of the sync process, use Solid State Drives (SSD) for the SQL database of the provisioning engine for optimal results, if not possible, consider RAID 0 or RAID 1 configurations.
 - Don’t do a full sync preemptively; it causes unnecessary churn and slower response times.
 

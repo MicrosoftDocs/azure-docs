@@ -17,7 +17,7 @@ ms.reviewer: kkrishna, kylemar
 
 # Claims challenges, claims requests, and client capabilities
 
-A *claims challenge* is a response sent from an API indicating that an access token sent by a client application has insufficient claims. This can be because the token does not satisfy the conditional access policies set for that API, or the access token has been revoked.
+A *claims challenge* is a response sent from an API indicating that an access token sent by a client application has insufficient claims. This can be because the token does not satisfy the Conditional Access policies set for that API, or the access token has been revoked.
 
 A *claims request* is made by the client application to redirect the user back to the identity provider to retrieve a new token with claims that will satisfy the additional requirements that were not met.
 
@@ -66,7 +66,7 @@ GET https://login.microsoftonline.com/14c2f153-90a7-4689-9db7-9543bf084dad/oauth
 &response_mode=form_post
 &login_hint=kalyan%ccontoso.onmicrosoft.com
 &domain_hint=organizations
-claims=%7B%22access_token%22%3A%7B%22acrs%22%3A%7B%22essential%22%3Atrue%2C%22value%22%3A%22c1%22%7D%7D%7D
+&claims=%7B%22access_token%22%3A%7B%22acrs%22%3A%7B%22essential%22%3Atrue%2C%22value%22%3A%22c1%22%7D%7D%7D
 ```
 
 The claims challenge should be passed as a part of all calls to Azure AD's [/authorize](v2-oauth2-auth-code-flow.md#request-an-authorization-code) endpoint until a token is successfully retrieved, after which it is no longer needed.

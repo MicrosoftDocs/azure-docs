@@ -28,8 +28,10 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 
 ## Register and download your quickstart application
-To start your quickstart application, use either of the following options.
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+To start your quickstart application, use either of the following options.
 
 ### Option 1 (Express): Register and auto configure your app and then download your code sample
 
@@ -42,6 +44,8 @@ To start your quickstart application, use either of the following options.
 ### Option 2 (Manual): Register and manually configure your application and code sample
 
 #### Step 1: Register your application
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.

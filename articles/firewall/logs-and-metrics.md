@@ -19,7 +19,7 @@ You can access some of these logs through the portal. Logs can be sent to [Azure
 Metrics are lightweight and can support near real-time scenarios making them useful for alerting and fast issue detection.
 
 > [!NOTE]
-> Structured firewall logs (preview) is available which offers more control over the logs and faster queries. For more information, see [Azure Firewall preview features](firewall-preview.md#structured-firewall-logs-preview).
+> Structured firewall logs is available which offers more control over the logs and faster queries. For more information, see [Azure Structured Firewall Logs](firewall-structured-logs.md).
 
 ## Diagnostic logs
 
@@ -183,7 +183,7 @@ The following metrics are available for Azure Firewall:
 
    If your firewall is running into SNAT port exhaustion, you should add at least five public IP address. This increases the number of SNAT ports available. For more information, see [Azure Firewall features](features.md#multiple-public-ip-addresses).
 
-- **AZFW Latency Probe (Preview)** - Estimates Azure Firewall average latency.
+- **AZFW Latency Probe** - Estimates Azure Firewall average latency.
 
    Unit: m/s
 

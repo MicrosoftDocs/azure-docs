@@ -16,14 +16,18 @@ An Azure Orbital Ground station emits telemetry events that can be used to analy
 ## Configure Event Hubs
 
 1. In your subscription, go to Resource Provider settings and register Microsoft.Orbital as a provider
-1. Create an Azure Event Hubs in your subscription.
-1. From the left menu, select Access Control (IAM). Under Grant Access to this Resource, select Add Role Assignment
-1. Select Azure Event Hubs Data Sender.
-1. Assign access to 'User, group, or service principal'
-1. Click '+ Select members'
-1. Search for 'Azure Orbital Resource Provider' and press Select
-1. Press Review + Assign. This action will grant Azure Orbital the rights to send telemetry into your event hub.
-1. To confirm the newly added role assignment, go back to the Access Control (IAM) page and select View access to this resource.
+2. Create an Azure Event Hubs in your subscription.
+
+> [!Note]
+> Choose Public access for connectivity access to the Eventhubs. Private access or service endpoints is not supported.
+
+3. From the left menu, select Access Control (IAM). Under Grant Access to this Resource, select Add Role Assignment
+4. Select Azure Event Hubs Data Sender.
+5. Assign access to 'User, group, or service principal'
+6. Click '+ Select members'
+7. Search for 'Azure Orbital Resource Provider' and press Select
+8. Press Review + Assign. This action will grant Azure Orbital the rights to send telemetry into your event hub.
+9. To confirm the newly added role assignment, go back to the Access Control (IAM) page and select View access to this resource.
 Congrats! Orbital can now communicate with your hub.
 
 ## Enable telemetry for a contact profile in the Azure portal
@@ -153,10 +157,6 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
                 }
               },
               {
-                "name": "inputRfPowerDbm",
-                "type": [ "null", "double" ]
-              },
-              {
                 "name": "uplinkEnabled",
                 "type": [ "null", "boolean" ]
               },
@@ -183,6 +183,10 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
                           "type": [ "null", "double" ]
                         },
                         {
+                          "name": "inputRfPowerDbm",
+                          "type": [ "null", "double" ]
+                        },
+                        {
                           "name": "modemLockStatus",
                           "type": [
                             "null",
@@ -195,6 +199,10 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
                               ]
                             }
                           ]
+                        },
+                        {
+                          "name": "commandsSent",
+                          "type": [ "null", "double" ]
                         }
                       ]
                     }
@@ -208,8 +216,9 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
     }
   ]
 }
-
 ```
+## Changelog
+2023-06-05 - Updatd schema to show metrics under channels instead of links.
 
 ## Next steps
 

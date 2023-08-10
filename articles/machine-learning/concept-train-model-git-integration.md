@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: ositanachi  
 ms.author: osiotugo
 ms.reviewer: larryfr
-ms.date: 04/05/2022
+ms.date: 06/02/2023
 ms.custom: sdkv2, event-tier1-build-2022, build-2023
 ---
 # Git integration for Azure Machine Learning
@@ -187,14 +187,14 @@ After submitting a training run, a [Job](/python/api/azure-ai-ml/azure.ai.ml.ent
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 job.properties["azureml.git.commit"]
 ```
 
 # [Azure CLI](#tab/cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```azurecli
 az ml job show --name my_job_id --query "{GitCommit:properties."""azureml.git.commit"""}"

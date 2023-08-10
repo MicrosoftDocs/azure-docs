@@ -59,6 +59,11 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 
+## API Center (preview) limits
+
+[!INCLUDE [api-center-service-limits](../../api-center/includes/api-center-service-limits.md)]
+
+
 ## API Management limits
 
 [!INCLUDE [api-management-service-limits](../../../includes/api-management-service-limits.md)]
@@ -101,7 +106,9 @@ Pricing tiers determine the capacity and limits of your search service. Tiers in
 
 To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure Cognitive Search](../../search/search-limits-quotas-capacity.md).
 
-## Azure Cognitive Services limits
+<a name='azure-cognitive-services-limits'></a>
+
+## Azure AI services limits
 
 [!INCLUDE [azure-cognitive-services-limits](../../../includes/azure-cognitive-services-limits.md)]
 
@@ -370,6 +377,10 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise stated.
 [!INCLUDE [application-gateway-limits](../../../includes/application-gateway-limits.md)]
 
+### Application Gateway for Containers limits
+
+[!INCLUDE [application-gateway-for-containers-limits](../../../includes/application-gateway-for-containers-limits.md)]
+
 ### Azure Bastion limits
 
 [!INCLUDE [Azure Bastion limits](../../../includes/bastion-limits.md)]
@@ -548,6 +559,10 @@ There are limits, per subscription, for deploying resources using Compute Galler
 ## Virtual Machine Scale Sets limits
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
+
+## Dev tunnels limits
+
+[!INCLUDE [dev-tunnels-service-limits](../../../includes/dev-tunnels/dev-tunnels-service-limits.md)]
 
 ## See also
 

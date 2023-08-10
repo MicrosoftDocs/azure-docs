@@ -53,7 +53,7 @@ These features are improvements at the IoT Hub protocol and authentication layer
 
 1. Select **Next: Review + create**, then **Create**.
 
-Once created, an IoT Hub in preview mode always shows this banner, letting you know to use this IoT hub for preview purposes only: 
+Once created, an IoT hub in preview mode always shows this banner, letting you know to use this IoT hub for preview purposes only: 
 
 :::image type="content" source="media/iot-hub-preview-mode/banner.png" alt-text="Image showing banner for preview mode IoT hub":::
 

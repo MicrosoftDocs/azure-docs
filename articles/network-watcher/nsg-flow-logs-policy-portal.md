@@ -1,27 +1,27 @@
 ---
-title: Manage NSG flow logs by using Azure Policy 
+title: Manage NSG flow logs using Azure Policy 
 titleSuffix: Azure Network Watcher
-description: Learn how to use built-in policies to audit network security groups and deploy Azure Network Watcher NSG flow logs.
+description: Learn how to use Azure Policy built-in policies to audit network security groups and deploy Azure Network Watcher NSG flow logs.
 services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 04/30/2023
+ms.date: 05/30/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
 
-# Manage NSG flow logs by using Azure Policy
+# Manage NSG flow logs using Azure Policy
 
 Azure Policy helps you enforce organizational standards and assess compliance at scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. To learn more about Azure policy, see [What is Azure Policy?](../governance/policy/overview.md) and [Quickstart: Create a policy assignment to identify non-compliant resources](../governance/policy/assign-policy-portal.md).
 
 In this article, you learn how to use two built-in policies to manage your setup of network security group (NSG) flow logs. The first policy flags any network security group that doesn't have flow logs enabled. The second policy automatically deploys NSG flow logs that don't have flow logs enabled.
 
-## Audit network security groups by using a built-in policy
+## Audit network security groups using a built-in policy
 
 The **Flow logs should be configured for every network security group** policy audits all existing network security groups in a scope by checking all Azure Resource Manager objects of type `Microsoft.Network/networkSecurityGroups`. This policy then checks for linked flow logs via the flow logs property of the network security group, and it flags any network security group that doesn't have flow logs enabled.
 
-To audit your flow logs by using the built-in policy:
+To audit your flow logs using the built-in policy:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -55,9 +55,9 @@ To audit your flow logs by using the built-in policy:
 
 1. Select **Resource compliance** to get a list of all non-compliant network security groups.
 
-    :::image type="content" source="./media/nsg-flow-logs-policy-portal/audit-policy-compliance-details.png" alt-text="Screenshot of the page for audit policy compliance in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/audit-policy-compliance-details.png":::
+    :::image type="content" source="./media/nsg-flow-logs-policy-portal/audit-policy-compliance-details.png" alt-text="Screenshot of the Policy compliance page that shows the noncompliant resources based on the audit policy." lightbox="./media/nsg-flow-logs-policy-portal/audit-policy-compliance-details.png":::
 
-## Deploy and configure NSG flow logs by using a built-in policy
+## Deploy and configure NSG flow logs using a built-in policy
 
 The **Deploy a flow log resource with target network security group** policy checks all existing network security groups in a scope by checking all Azure Resource Manager objects of type `Microsoft.Network/networkSecurityGroups`. It then checks for linked flow logs via the flow logs property of the network security group. If the property doesn't exist, the policy deploys a flow log.
 
@@ -77,7 +77,7 @@ To assign the *deployIfNotExists* policy:
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/policy-scope.png" alt-text="Screenshot of selecting the scope of the policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/policy-scope.png":::
 
-1. Select the ellipsis (**...**) next to **Policy definition** to choose the built-in policy that you want to assign. Enter *flow log* in the search box, and the select the **Built-in** filter. From the search results, select **Deploy a flow log resource with target network security group**, and then select **Add**.
+1. Select the ellipsis (**...**) next to **Policy definition** to choose the built-in policy that you want to assign. Enter *flow log* in the search box, and then select the **Built-in** filter. From the search results, select **Deploy a flow log resource with target network security group**, and then select **Add**.
 
     :::image type="content" source="./media/nsg-flow-logs-policy-portal/deploy-policy.png" alt-text="Screenshot of selecting the deployment policy in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/deploy-policy.png":::
 
@@ -103,7 +103,7 @@ To assign the *deployIfNotExists* policy:
     | **Create a remediation task** | Select the checkbox if you want the policy to affect existing resources. |
     | **Create a Managed Identity** | Select the checkbox. |
     | **Type of Managed Identity** | Select the type of managed identity that you want to use. |
-    | **System assigned identity location** | Select the region of your system-assigned identity. |
+    | **System assigned identity location** | Select the region of your system assigned identity. |
     | **Scope** | Select the scope of your user-assigned identity. |
     | **Existing user assigned identities** | Select your user-assigned identity. |
 
@@ -120,10 +120,14 @@ To assign the *deployIfNotExists* policy:
 
 1. Select **Resource compliance** to get a list of all non-compliant network security groups.
 
-    :::image type="content" source="./media/nsg-flow-logs-policy-portal/deploy-policy-compliance-details.png" alt-text="Screenshot of the page for deployment policy compliance in the Azure portal." lightbox="./media/nsg-flow-logs-policy-portal/deploy-policy-compliance-details.png":::
+    :::image type="content" source="./media/nsg-flow-logs-policy-portal/deploy-policy-compliance-details.png" alt-text="Screenshot of the Policy compliance page that shows the noncompliant resources." lightbox="./media/nsg-flow-logs-policy-portal/deploy-policy-compliance-details.png":::
+
+1. Leave the policy runs to evaluate and deploy flow logs for all non-compliant network security groups. Then select **Resource compliance** again to check the status of network security groups (you don't see noncompliant network security groups if the policy completed its remediation).
+
+    :::image type="content" source="./media/nsg-flow-logs-policy-portal/deploy-policy-compliance-details-compliant-resources.png" alt-text="Screenshot of the Policy compliance page that shows all resources are compliant." lightbox="./media/nsg-flow-logs-policy-portal/deploy-policy-compliance-details-compliant-resources.png":::
 
 ## Next steps
 
 - To learn more about NSG flow logs, see [Flow logs for network security groups](./network-watcher-nsg-flow-logging-overview.md).
 - To learn about using built-in policies with traffic analytics, see [Manage traffic analytics using Azure Policy](./traffic-analytics-policy-portal.md).
-- To learn how to use an Azure Resource Manager template (ARM template) to deploy flow logs and traffic analytics, see [Configure NSG flow logs using an Azure Resource Manager template](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md).
+- To learn how to use an Azure Resource Manager (ARM) template to deploy flow logs and traffic analytics, see [Configure NSG flow logs using an Azure Resource Manager template](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md).

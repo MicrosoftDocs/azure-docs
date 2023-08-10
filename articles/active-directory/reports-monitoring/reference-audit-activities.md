@@ -222,7 +222,7 @@ This set of audit logs is related to [B2C](../../active-directory-b2c/overview.m
 |Authentication|A self-service sign up request was completed|
 |Authentication|An API was called as part of a user flow|
 |Authentication|Delete all available strong authentication devices|
-|Authentication|Evaluate conditional access policies|
+|Authentication|Evaluate Conditional Access policies|
 |Authentication|Exchange token|
 |Authentication|Federate with an identity provider|
 |Authentication|Get available strong authentication devices|
@@ -379,7 +379,7 @@ This set of audit logs is related to [B2C](../../active-directory-b2c/overview.m
 |Directory Management|Get tenant domains|
 |Directory Management|Initialize tenant|
 |Directory Management|Update age gating configuration|
-|IdentityProtection|Evaluate conditional access policies|
+|IdentityProtection|Evaluate Conditional Access policies|
 |IdentityProtection|Remediate user|
 |KeyManagement|Create policy key|
 |KeyManagement|Delete policy key|
@@ -507,13 +507,13 @@ Use these logs to see when changes were made to your [Conditional Access policie
 |Audit Category|Activity|
 |---|---|
 |Policy|Add AuthenticationContextClassReference|
-|Policy|Add conditional access policy|
+|Policy|Add Conditional Access policy|
 |Policy|Add named location|
 |Policy|Delete AuthenticationContextClassReference|
-|Policy|Delete conditional access policy|
+|Policy|Delete Conditional Access policy|
 |Policy|Delete named location|
 |Policy|Update AuthenticationContextClassReference|
-|Policy|Update conditional access policy|
+|Policy|Update Conditional Access policy|
 |Policy|Update continuous access evaluation|
 |Policy|Update named location|
 |Policy|Update security defaults|
@@ -774,7 +774,7 @@ If you're using Entitlement Management to streamline how you assign members of A
 |Audit Category|Activity|
 |---|---|
 |EntitlementManagement|Add Entitlement Management role assignment|
-|EntitlementManagement|Administrator directly assigns user to access package|		 
+|EntitlementManagement|Administrator directly assigns user to access package|
 |EntitlementManagement|Administrator directly removes user access package assignment|
 |EntitlementManagement|Approval stage completed for access package assignment request|
 |EntitlementManagement|Approve access package assignment request|
@@ -784,9 +784,9 @@ If you're using Entitlement Management to streamline how you assign members of A
 |EntitlementManagement|Cancel access package assignment request|
 |EntitlementManagement|Create access package|
 |EntitlementManagement|Create access package assignment policy|
-|EntitlementManagement|Create access package assignment user update request|	
+|EntitlementManagement|Create access package assignment user update request|
 |EntitlementManagement|Create access package catalog|
-|EntitlementManagement|Create connected organization|	
+|EntitlementManagement|Create connected organization|
 |EntitlementManagement|Create custom extension|
 |EntitlementManagement|Create incompatible access package|
 |EntitlementManagement|Create incompatible group|

@@ -9,7 +9,7 @@ ms.date: 07/22/2022
 Azure Relay supports using Azure Active Directory (Azure AD) to authorize requests to Azure Relay entities (Hybrid Connections, WCF Relays). With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, group, or application service principal. To learn more about roles and role assignments, see [Understanding the different roles](../role-based-access-control/overview.md).   
 
 > [!NOTE]
-> This feature is generally available in all regions except Microsoft Azure operated by 21Vianet (Azure China).
+> This feature is generally available in all regions except Microsoft Azure operated by 21Vianet.
 
 
 [!INCLUDE [relay-roles](./includes/relay-roles.md)]

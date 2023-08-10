@@ -5,7 +5,7 @@ author: juliakm
 ms.topic: conceptual
 ms.date: 05/15/2023
 ms.author: jukullam
-ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurecli, devops-pipelines-deploy"
+ms.custom: devx-track-csharp, devx-track-azurecli, devops-pipelines-deploy
 ms.devlang: azurecli
 zone_pivot_groups: functions-task-versions
 ---
@@ -597,7 +597,8 @@ You'll need to create a separate release pipeline to deploy to Azure Functions. 
 
 ## Deploy a container
 
-You can automatically deploy your code to Azure Functions as a custom container after every successful build. To learn more about containers, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md). 
+You can automatically deploy your code to Azure Functions as a custom container after every successful build. To learn more about containers, see [Working with containers and Azure Functions](./functions-how-to-custom-container.md) . 
+
 ### Deploy with the Azure Function App for Container task
 
 # [YAML](#tab/yaml/)
@@ -700,4 +701,3 @@ To create a build pipeline in Azure, use the `az functionapp devops-pipeline cre
 
 - Review the [Azure Functions overview](functions-overview.md).
 - Review the [Azure DevOps overview](/azure/devops/pipelines/).
-

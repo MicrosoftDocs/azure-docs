@@ -20,41 +20,90 @@ This article provides a reference on the changes and the actions needed to migra
 
 All of the group and artifact IDs in the Azure libraries for Spring Boot have been updated to match a new format. The new package names are:
 
+### [Spring Boot 3](#tab/spring-boot-3)
+
 ```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
-    <version>4.7.0</version>
+    <version>5.4.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>4.7.0</version>
+    <version>5.4.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-feature-management</artifactId>
-    <version>4.7.0</version>
+    <version>5.4.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-    <version>4.7.0</version>
+    <version>5.4.0</version>
 </dependency>
 ```
+
+### [Spring Boot 2](#tab/spring-boot-2)
+
+```xml
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+    <version>4.10.0</version>
+</dependency>
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+    <version>4.10.0</version>
+</dependency>
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-feature-management</artifactId>
+    <version>4.10.0</version>
+</dependency>
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>4.10.0</version>
+</dependency>
+```
+
+---
+
 
 The 4.7.0 version is the first 4.x version of the library. It matches the version of the other Spring Cloud Azure libraries.
 
 As of the 4.7.0 version, the App Configuration and feature management libraries are part of the `spring-cloud-azure-dependencies` bill of materials (BOM). The BOM file ensures that you no longer need to specify the version of the libraries in your project. The BOM automatically manages the version of the libraries.
 
 ```xml
+
+```
+
+### [Spring Boot 3](#tab/spring-boot-3)
+
+```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-dependencies</artifactId>
-    <version>4.7.0</version>
+    <version>5.4.0</version>
     <type>pom</type>
 </dependency>
 ```
+
+### [Spring Boot 2](#tab/spring-boot-2)
+
+```xml
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-dependencies</artifactId>
+    <version>4.10.0</version>
+    <type>pom</type>
+</dependency>
+```
+
+---
 
 ## Package paths renamed
 

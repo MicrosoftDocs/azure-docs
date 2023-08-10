@@ -2,7 +2,6 @@
 title: Schedule indexer execution
 titleSuffix: Azure Cognitive Search
 description: Learn how to schedule Azure Cognitive Search indexers to index content at specific intervals, or at specific dates and times.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -55,7 +54,7 @@ Schedules are specified in an indexer definition. To set up a schedule, you can 
 
 ### [**Azure portal**](#tab/portal)
 
-1. [Sign in to Azure portal](https://portal.azure.com) and open the search service page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the search service page.
 1. On the **Overview** page, select the **Indexers** tab.
 1. Select an indexer.
 1. Select **Settings**.

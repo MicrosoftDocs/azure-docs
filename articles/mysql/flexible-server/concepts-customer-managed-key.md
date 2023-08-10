@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Customer managed keys data encryption – Azure Database for MySQL – Flexible Server
+# Data encryption with customer managed keys for Azure Database for MySQL – Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -130,12 +130,6 @@ To avoid issues while setting up customer-managed data encryption during restore
 
 > [!NOTE]  
 > Using the same identity and key as on the source server is not mandatory when performing a restore.
-
-## Limitations
-
-For Azure Database for MySQL - Flexible Server, the support for encryption of data at rest using customers managed key (CMK) has a limitation -
-
-* This feature is only supported for key vaults, which allow public access from all networks.
 
 ## Next steps
 

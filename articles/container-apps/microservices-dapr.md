@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 09/29/2022
 ms.author: aawislan
-ms.custom: devx-track-azurecli, ignite-2022, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, ignite-2022, devx-track-azurepowershell, devx-track-linux
 ms.devlang: azurecli
 ---
 

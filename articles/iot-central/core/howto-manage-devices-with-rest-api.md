@@ -1,6 +1,6 @@
 ---
 title: How to use the IoT Central REST API to manage devices
-description: How to use the IoT Central REST API to add devices in an application
+description: Learn how to use the IoT Central REST API to add, modify, delete, and manage devices in an application
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/23/2023
@@ -126,17 +126,11 @@ The response to this request looks like the following example:
 PATCH https://{your app subdomain}/api/devices/{deviceId}?api-version=2022-07-31
 ```
 
->[!NOTE]
->`{deviceTemplateId}` should be the same as the `@id` in the payload.
-
-The sample request body looks like the following example that updates the `displayName` to the device:
+The following sample request body changes the `enabled` field to `false`:
 
 ```json
 {
-  "displayName": "CheckoutThermostat5",
-  "template": "dtmi:contoso:Thermostat;1",
-  "simulated": true,
-  "enabled": true
+  "enabled": false
 }
 
 ```
@@ -147,11 +141,11 @@ The response to this request looks like the following example:
 {
     "id": "thermostat1",
     "etag": "eyJoZWFkZXIiOiJcIjI0MDAwYTdkLTAwMDAtMDMwMC0wMDAwLTYxYjgxZDIwMDAwMFwiIiwiZGF0YSI6IlwiMzMwMDQ1M2EtMDAwMC0wMzAwLTAwMDAtNjFiODFkMjAwMDAwXCIifQ",
-    "displayName": "CheckoutThermostat5",
+    "displayName": "CheckoutThermostat",
     "simulated": true,
     "provisioned": false,
     "template": "dtmi:contoso:Thermostat;1",
-    "enabled": true
+    "enabled": false
 }
 ```
 

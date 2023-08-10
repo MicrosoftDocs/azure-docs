@@ -3,7 +3,7 @@ ms.author: dacurwin
 author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 11/08/2022
+ms.date: 06/04/2023
 
 ---
 ## Enable the plan
@@ -20,7 +20,7 @@ ms.date: 11/08/2022
     >
     > :::image type="content" source="../media/release-notes/defender-plans-deprecated-indicator.png" alt-text="Defender for container registries and Defender for Kubernetes plans showing 'Deprecated' and upgrade information.":::
 
-1. Turn the relevant component on to enable it. 
+1. Turn the relevant component on to enable it.
 
     :::image type="content" source="../media/defender-for-containers-enable-plan-gke/container-components-on.png" alt-text="screenshot of turning on components." lightbox="../media/defender-for-containers-enable-plan-gke/container-components-on.png":::
 
@@ -226,10 +226,10 @@ To verify that your cluster has the Defender extension installed on it, follow t
     > [!NOTE]
     > It might show "installState": "Pending" for the first few minutes.
 
-1. If the state shows **Installed**, run the following command on your machine with the `kubeconfig` file pointed to your cluster to check that a pod called "azuredefender-XXXXX" is in 'Running' state:
+1. If the state shows **Installed**, run the following command on your machine with the `kubeconfig` file pointed to your cluster to check that all pods under the mdc namespace are in the 'Running' state:
 
     ```console
-    kubectl get pods -n azuredefender
+    kubectl get pods -n mdc
     ```
 
 ### [**REST API**](#tab/k8s-verify-api)
@@ -249,10 +249,10 @@ To confirm a successful deployment, or to validate the status of your extension 
     > [!TIP]
     > It might show "installState": "Pending" for the first few minutes.
 
-1. If the state shows **Installed**, run the following command on your machine with the `kubeconfig` file pointed to your cluster to check that a pod called "azuredefender-XXXXX" is in 'Running' state:
+1. If the state shows **Installed**, run the following command on your machine with the `kubeconfig` file pointed to your cluster to check that all pods under the mdc namespace are in 'Running' state:
 
     ```console
-    kubectl get pods -n azuredefender
+    kubectl get pods -n mdc
     ```
 
 ---

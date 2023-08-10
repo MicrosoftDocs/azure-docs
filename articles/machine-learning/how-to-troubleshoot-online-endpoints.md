@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot some common deployment and scoring errors with online endpoints.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
@@ -16,7 +16,7 @@ ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2,
 
 # Troubleshooting online endpoints deployment and scoring
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
 Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints.
@@ -341,6 +341,7 @@ This is a list of reasons you might run into this error when using either manage
 * [Subscription does not exist](#subscription-does-not-exist)
 * [Startup task failed due to authorization error](#authorization-error)
 * [Startup task failed due to incorrect role assignments on resource](#authorization-error)
+* [Invalid template function specification](#invalid-template-function-specification)
 * [Unable to download user container image](#unable-to-download-user-container-image)
 * [Unable to download user model](#unable-to-download-user-model)
 
@@ -368,6 +369,10 @@ To do these, Azure uses [managed identities](../active-directory/managed-identit
 - If you created the associated endpoint with User Assigned Identity, the user's managed identity must have Storage blob data reader permission on the storage account for the workspace, and AcrPull permission on the Azure Container Registry (ACR) for the workspace. Make sure your User Assigned Identity has the right permission.
 
 For more information, please see [Container Registry Authorization Error](#container-registry-authorization-error).
+
+#### Invalid template function specification
+
+This error occurs when a template function has been specified incorrectly. Please either fix the policy or remove the policy assignment to unblock. The error message may include the policy assignment name and the policy definition to help you debug this error, as well as the [Azure policy definition structure article](https://aka.ms/policy-avoiding-template-failures) which discusses tips to avoid template failures.
 
 #### Unable to download user container image
 
@@ -522,6 +527,7 @@ Errors regarding to identity and authentication:
 * [GetAADTokenFailed](#error-getaadtokenfailed)
 * [ACRAuthenticationChallengeFailed](#error-acrauthenticationchallengefailed)
 * [ACRTokenExchangeFailed](#error-acrtokenexchangefailed)
+* [KubernetesUnaccessible](#error-kubernetesunaccessible)
 
 Errors regarding to crashloopbackoff:
 * [ImagePullLoopBackOff](#error-imagepullloopbackoff)
@@ -552,6 +558,7 @@ This is a list of reasons you might run into this error when creating/updating t
 * The Azure ARC (For Azure Arc Kubernetes cluster) or Azure Machine Learning extension (For AKS) is not properly installed or configured. Please try to check the Azure ARC or Azure Machine Learning extension configuration and status. 
 * The Kubernetes cluster has improper network configuration, please check the proxy, network policy or certificate.
   * If you are using a private AKS cluster, it is necessary to set up private endpoints for ACR, storage account, workspace in the AKS vnet. 
+* Make sure your Azure machine learning extension version is greater than v1.1.25.
 
 ### ERROR: TokenRefreshFailed
 
@@ -581,6 +588,20 @@ You can follow the troubleshooting steps in [GetAADTokenFailed](#error-getaadtok
 This is because the Kubernetes cluster exchange ACR token failed because AAD token is unauthorized yet, since the role assignment takes some time, so you can wait a moment then try again.
 
 This failure may also be due to too many requests to the ACR service at that time, it should be a transient error, you can try again later.
+
+### ERROR: KubernetesUnaccessible
+
+You might get the following error during the Kubernetes model deployments:
+
+```
+{"code":"BadRequest","statusCode":400,"message":"The request is invalid.","details":[{"code":"KubernetesUnaccessible","message":"Kubernetes error: AuthenticationException. Reason: InvalidCertificate"}],...}
+```
+
+To mitigate this error, you can:
+
+* Rotate AKS certificate for the cluster. More gudiance you can refer to [Certificate Rotation in Azure Kubernetes Service (AKS)](../aks/certificate-rotation.md).
+* The new certificate should be updated to after 5 hours, so you can wait for 5 hours and redeploy it.
+
 
 ### ERROR: ImagePullLoopBackOff
 
@@ -808,12 +829,12 @@ We recommend that you use Azure Functions, Azure Application Gateway, or any ser
 
 ## Common network isolation issues
 
-[!INCLUDE [network isolation issues](../../includes/machine-learning-online-endpoint-troubleshooting.md)]
+[!INCLUDE [network isolation issues](includes/machine-learning-online-endpoint-troubleshooting.md)]
 
 ## Troubleshoot inference server
 In this section, we provide basic troubleshooting tips for [Azure Machine Learning inference HTTP server](how-to-inference-server-http.md). 
 
-[!INCLUDE [inference server TSGs](../../includes/machine-learning-inference-server-troubleshooting.md)]
+[!INCLUDE [inference server TSGs](includes/machine-learning-inference-server-troubleshooting.md)]
 
 ## Next steps
 

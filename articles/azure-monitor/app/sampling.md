@@ -2,7 +2,7 @@
 title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 07/10/2023
 ms.custom: fasttrack-edit
 ms.reviewer: mmcc
 ---
@@ -65,7 +65,7 @@ The accuracy of the approximation largely depends on the configured sampling per
 
 There are three different sampling methods:
 
-* **Adaptive sampling** automatically adjusts the volume of telemetry sent from the SDK in your ASP.NET/ASP.NET Core app, and from Azure Functions. This is the default sampling when you use the ASP.NET or ASP.NET Core SDK. Adaptive sampling is currently only available for ASP.NET server-side telemetry, and for Azure Functions.
+* **Adaptive sampling** automatically adjusts the volume of telemetry sent from the SDK in your ASP.NET/ASP.NET Core app, and from Azure Functions. This is the default sampling when you use the ASP.NET or ASP.NET Core SDK. Adaptive sampling is currently only available for ASP.NET/ASP.NET Core server-side telemetry, and for Azure Functions.
 
 * **Fixed-rate sampling** reduces the volume of telemetry sent from both your ASP.NET or ASP.NET Core or Java server and from your users' browsers. You set the rate. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
 
@@ -183,8 +183,6 @@ Adaptive sampling is enabled by default for all ASP.NET Core applications. You c
 
 The default sampling feature can be disabled while adding the Application Insights service.
 
-### [ASP.NET Core 6 and later](#tab/net-core-new)
-
 Add `ApplicationInsightsServiceOptions` after the `WebApplication.CreateBuilder()` method in the `Program.cs` file:
 
 ```csharp
@@ -197,21 +195,6 @@ builder.Services.AddApplicationInsightsTelemetry(aiOptions);
 var app = builder.Build();
 ```
 
-### [ASP.NET Core 5 and earlier](#tab/net-core-old)
-
-Add `ApplicationInsightsServiceOptions` to the `ConfigureServices()` method in the `Startup.cs` file:
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
-    aiOptions.EnableAdaptiveSampling = false;
-    services.AddApplicationInsightsTelemetry(aiOptions);
-}
-```
-
----
-
 The above code disables adaptive sampling. Follow the steps below to add sampling with more customization options.
 
 #### Configure sampling settings
@@ -221,8 +204,6 @@ Use extension methods of `TelemetryProcessorChainBuilder` as shown below to cust
 > [!IMPORTANT]
 > If you use this method to configure sampling, please make sure to set the `aiOptions.EnableAdaptiveSampling` property to `false` when calling `AddApplicationInsightsTelemetry()`. After making this change, you then need to follow the instructions in the code block below **exactly** in order to re-enable adaptive sampling with your customizations in place. Failure to do so can result in excess data ingestion. Always test post changing sampling settings, and set an appropriate [daily data cap](../logs/daily-cap.md) to help control your costs.
 
-### [ASP.NET Core 6 and later](#tab/net-core-new)
-
 ```csharp
 using Microsoft.ApplicationInsights.AspNetCore.Extensions;
 using Microsoft.ApplicationInsights.Extensibility;
@@ -231,52 +212,35 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<TelemetryConfiguration>(telemetryConfiguration =>
 {
-    var builder = telemetryConfiguration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+   var telemetryProcessorChainBuilder = telemetryConfiguration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
 
-    // Using adaptive sampling
-    builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond: 5);
+   // Using adaptive sampling
+   telemetryProcessorChainBuilder.UseAdaptiveSampling(maxTelemetryItemsPerSecond: 5);
 
-    // Alternately, the following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling:
-    // configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
-
-    // If you have other telemetry processors:
-    builder.Use(next => new AnotherProcessor(next));
-
+   // Alternately, the following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling:
+   // telemetryProcessorChainBuilder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
 });
 
 builder.Services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
 {
-    EnableAdaptiveSampling = false,
+   EnableAdaptiveSampling = false,
 });
 
 var app = builder.Build();
 ```
 
-### [ASP.NET Core 5 and earlier](#tab/net-core-old)
+You can customize additional sampling settings using the [SamplingPercentageEstimatorSettings](https://github.com/microsoft/ApplicationInsights-dotnet/blob/main/BASE/src/ServerTelemetryChannel/Implementation/SamplingPercentageEstimatorSettings.cs) class: 
 
 ```csharp
-using Microsoft.ApplicationInsights.Extensibility
+using Microsoft.ApplicationInsights.WindowsServer.Channel.Implementation;
 
-public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
+telemetryProcessorChainBuilder.UseAdaptiveSampling(new SamplingPercentageEstimatorSettings
 {
-    var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
-    // For older versions of the Application Insights SDK, use the following line instead:
-    // var builder = configuration.TelemetryProcessorChainBuilder;
-
-    // Using adaptive sampling
-    builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5);
-
-    // Alternately, the following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling.
-    // builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
-
-    // If you have other telemetry processors:
-    builder.Use((next) => new AnotherProcessor(next));
-    
-    builder.Build();
-}
+     MinSamplingPercentage = 0.01,
+     MaxSamplingPercentage = 100,
+     MaxTelemetryItemsPerSecond = 5
+ }, null, excludedTypes: "Dependency"); 
 ```
-
----
 
 ### Configuring adaptive sampling for Azure Functions
 
@@ -340,8 +304,6 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 ### Configuring fixed-rate sampling for ASP.NET Core applications
 
 1. **Disable adaptive sampling**
-
-    ### [ASP.NET Core 6 and later](#tab/net-core-new)
     
     Changes can be made after the `WebApplication.CreateBuilder()` method, using `ApplicationInsightsServiceOptions`:
     
@@ -355,24 +317,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     var app = builder.Build();
     ```
 
-    ### [ASP.NET Core 5 and earlier](#tab/net-core-old)
-    
-    Changes can be made in the `ConfigureServices()` method, using `ApplicationInsightsServiceOptions`:
-
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
-        aiOptions.EnableAdaptiveSampling = false;
-        services.AddApplicationInsightsTelemetry(aiOptions);
-    }
-    ```
-    
-    ---
-
 1. **Enable the fixed-rate sampling module**
-
-    ### [ASP.NET Core 6 and later](#tab/net-core-new)
     
     Changes can be made after the `WebApplication.CreateBuilder()` method:
     
@@ -396,34 +341,11 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     var app = builder.Build(); 
     ```
 
-    ### [ASP.NET Core 5 and earlier](#tab/net-core-old)
-    
-    Changes can be made in the `Configure()` method:
-
-    ```csharp
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-        var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
-
-        var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
-        // For older versions of the Application Insights SDK, use the following line instead:
-        // var builder = configuration.TelemetryProcessorChainBuilder;
-
-        // Using fixed rate sampling
-        double fixedSamplingPercentage = 10;
-        builder.UseSampling(fixedSamplingPercentage);
-
-        builder.Build();
-    }
-    ```
-
-    ---
-
 ### Configuring sampling overrides and fixed-rate sampling for Java applications
 
-By default no sampling is enabled in the Java auto-instrumentation and SDK. Currently the Java auto-instrumentation, [sampling overrides](./java-standalone-sampling-overrides.md) and fixed rate sampling are supported. Adaptive sampling isn't supported in Java.
+By default no sampling is enabled in the Java autoinstrumentation and SDK. Currently the Java autoinstrumentation, [sampling overrides](./java-standalone-sampling-overrides.md) and fixed rate sampling are supported. Adaptive sampling isn't supported in Java.
 
-#### Configuring Java auto-instrumentation
+#### Configuring Java autoinstrumentation
 
 * To configure sampling overrides that override the default sampling rate and apply different sampling rates to selected requests and dependencies, use the [sampling override guide](./java-standalone-sampling-overrides.md#getting-started).
 * To configure fixed-rate sampling that applies to all of your telemetry, use the [fixed rate sampling guide](./java-standalone-config.md#sampling).

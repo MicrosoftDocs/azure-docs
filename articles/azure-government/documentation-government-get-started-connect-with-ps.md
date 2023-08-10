@@ -4,7 +4,7 @@ description: Information on connecting to your subscription in Azure Government 
 ms.service: azure-government
 ms.topic: quickstart
 ms.workload: azure-government
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: mode-api
 ms.date: 01/18/2023
 ---
 

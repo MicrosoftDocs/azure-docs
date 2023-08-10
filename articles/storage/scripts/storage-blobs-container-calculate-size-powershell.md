@@ -6,7 +6,6 @@ services: storage
 author: stevenmatthew
 
 ms.service: storage
-ms.subservice: blobs
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 12/04/2019

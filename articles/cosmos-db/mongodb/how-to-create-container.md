@@ -8,7 +8,7 @@ ms.date: 04/07/2022
 author: gahl-levy
 ms.author: gahllevy
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli, ignite-2022, devx-track-arm-template
+ms.custom: devx-track-csharp, devx-track-azurecli, ignite-2022, devx-track-arm-template, devx-track-dotnet, devx-track-extended-java
 ---
 
 # Create a collection in Azure Cosmos DB for MongoDB

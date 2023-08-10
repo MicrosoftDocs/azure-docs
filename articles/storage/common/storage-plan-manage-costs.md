@@ -3,11 +3,11 @@ title: Plan and manage costs for Azure Blob Storage
 description: Learn how to plan for and manage costs for Azure Blob Storage by using cost analysis in Azure portal.
 services: storage
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 04/03/2023
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: subject-cost-optimization
 ---
 
@@ -179,7 +179,7 @@ When you use cost analysis, you can view Azure Storage costs in graphs and table
 
 To view Azure Storage costs in cost analysis:
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Open the **Cost Management + Billing** window, select **Cost management** from the menu and then select **Cost analysis**. You can then change the scope for a specific subscription from the **Scope** dropdown.
 

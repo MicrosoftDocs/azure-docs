@@ -240,7 +240,7 @@ If you chose to create a new template that models the data correctly, migrate de
 
 ### Invalid JSON
 
-If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON in the payload the device sends. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
+If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON in the payload the device sends. To learn more, see [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md).
 
 You can't use the validate commands or the **Raw data** view in the UI to detect if the device is sending malformed JSON.
 

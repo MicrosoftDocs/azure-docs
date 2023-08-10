@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/27/2023
 ms.author: greglin 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ms.devlang: azurecli
 ---
 

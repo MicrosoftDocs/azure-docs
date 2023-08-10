@@ -156,7 +156,7 @@ Example JSON body:
 
 These parameters are defined in the runbook PowerShell script.  When the web activity is executed, the JSON payload passed is WEBHOOKDATA.
 
-This is deserialized and stored as PowerShell parameters, which are then used by the Invoke-ProcesASDatabase PowerShell command.
+This is deserialized and stored as PowerShell parameters, which are then used by the Invoke-ProcessASDatabase PowerShell command.
 
 ![Deserialized Webhook](./media/analysis-services-refresh-azure-automation/20.png)
 

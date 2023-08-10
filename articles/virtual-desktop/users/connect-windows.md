@@ -80,7 +80,7 @@ A workspace combines all the desktops and applications that have been made avail
 3. If you selected **Subscribe**, sign in with your user account when prompted, for example `user@contoso.com`. After a few seconds, your workspaces should show the desktops and applications that have been made available to you by your admin.
    
    > [!TIP]
-   > If you see the message **No workspace is associated with this email address**, your admin might not have set up email discovery. Try the steps in the **Subscribe with URL** tab instead.
+   > If you see the message **No workspace is associated with this email address**, your admin might not have set up email discovery, or you are using an Azure environment that is not Azure cloud, such as Azure US Gov. Try the steps in the **Subscribe with URL** tab instead.
 
 # [Subscribe with URL](#tab/subscribe-with-url)
    
@@ -90,7 +90,7 @@ A workspace combines all the desktops and applications that have been made avail
    |--|--|
    | Azure cloud *(most common)* | `https://rdweb.wvd.microsoft.com` |
    | Azure US Gov | `https://rdweb.wvd.azure.us/api/arm/feeddiscovery` |
-   | Azure China 21Vianet | `https://rdweb.wvd.azure.cn/api/arm/feeddiscovery` |
+   | Azure operated by 21Vianet | `https://rdweb.wvd.azure.cn/api/arm/feeddiscovery` |
 
 4. Select **Next**.
 
@@ -112,4 +112,6 @@ If you want to help us test new builds before they're released, you should downl
 
 ## Next steps
 
-To learn more about the features of the Remote Desktop client for Windows, check out [Use features of the Remote Desktop client for Windows when connecting to Azure Virtual Desktop](client-features-windows.md).
+- To learn more about the features of the Remote Desktop client for Windows, check out [Use features of the Remote Desktop client for Windows when connecting to Azure Virtual Desktop](client-features-windows.md).
+
+- If you want to use Teams on Azure Virtual Desktop with media optimization, see [Use Microsoft Teams on Azure Virtual Desktop](../teams-on-avd.md).

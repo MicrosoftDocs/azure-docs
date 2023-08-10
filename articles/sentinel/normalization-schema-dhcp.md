@@ -95,7 +95,7 @@ The fields below are specific to DHCP events, but many are similar to fields in 
 | <a name="srcmacaddr"></a>**SrcMacAddr** | Mandatory | Mac Address | The MAC address of the client requesting a DHCP lease. <br><br>**Note**: The Windows DHCP server logs MAC address in a non-standard way, omitting the colons, which should be inserted by the parser.<br><br>Example: `06:10:9f:eb:8f:14` |
 | <a name="dhcpleaseduration"></a>**DhcpLeaseDuration** | Optional | Integer | The length of the lease granted to a client, in seconds. |  
 |<a name="dhcpsessionid"></a>**DhcpSessionId** | Optional | string | The session identifier as reported by the reporting device. For the Windows DHCP server, set this to the TransactionID field. <br><br>Example: `2099570186` |
-| **SessionId** | Alias | String | Alias to [DhcpkSessionId](#dhcpsessionid) |
+| **SessionId** | Alias | String | Alias to [DhcpSessionId](#dhcpsessionid) |
 | <a name="dhcpsessionduration"></a>**DhcpSessionDuration** | Optional | Integer | The amount of time, in milliseconds, for the completion of the DHCP session.<br><br>Example: `1500` |
 | **Duration** | Alias | | Alias to [DhcpSessionDuration](#dhcpsessionduration) |
 | **DhcpSrcDHCId** | Optional | String | The DHCP client ID, as defined by [RFC4701](https://datatracker.ietf.org/doc/html/rfc4701) |

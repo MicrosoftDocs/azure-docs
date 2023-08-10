@@ -157,6 +157,8 @@ The following metrics are allow-listed with `minimalingestionprofile=true` for d
 - `kubernetes_build_info`
 - `kube_pod_container_info`
 - `kube_replicaset_owner`
+- `kube_resource_labels` (ex - kube_pod_labels, kube_deployment_labels)
+- `kube_resource_annotations` (ex - kube_pod_annotations, kube_deployment_annotations)
 
 **node-exporter (linux)**<br>
 - `node_cpu_seconds_total`

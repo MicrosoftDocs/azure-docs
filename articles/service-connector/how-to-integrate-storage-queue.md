@@ -94,10 +94,10 @@ Use the connection details below to connect compute services to Queue Storage. F
 
 #### Java - Spring Boot secret / connection string
 
-| Application properties     | Description                | Example value            |
-|----------------------------|----------------------------|--------------------------|
-| azure.storage.account-name | Queue storage account name | `<storage-account-name>` |
-| azure.storage.account-key  | Queue storage account key  | `<account-key>`          |
+| Application properties                 | Description                | Example value            |
+|----------------------------------------|----------------------------|--------------------------|
+| spring.cloud.azure.storage.account     | Queue storage account name | `<storage-account-name>` |
+| spring.cloud.azure.storage.access-key  | Queue storage account key  | `<account-key>`          |
 
 ## Next steps
 

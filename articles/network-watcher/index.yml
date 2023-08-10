@@ -74,7 +74,7 @@ landingContent:
           - text: Troubleshoot connections
             url: network-watcher-connectivity-portal.md
           - text: Monitor communication between VMs
-            url: connection-monitor.md          
+            url: monitor-vm-communication.md          
   
   # Card (optional)
   - title: Log network traffic

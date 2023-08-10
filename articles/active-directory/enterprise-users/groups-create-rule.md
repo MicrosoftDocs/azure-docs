@@ -41,6 +41,8 @@ For examples of syntax, supported properties, operators, and values for a member
 
 ## To create a group membership rule
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is in the Global Administrator, Intune Administrator, or User Administrator role in the Azure AD organization.
 1. Browse to **Azure Active Directory** > **Groups**.
 1. Select **All groups**, and select **New group**.

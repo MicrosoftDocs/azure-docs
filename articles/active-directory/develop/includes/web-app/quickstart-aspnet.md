@@ -30,9 +30,13 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 * [.NET Framework 4.7.2+](https://dotnet.microsoft.com/download/visual-studio-sdks)
 
 ## Register and download the app
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You have two options to start building your application: automatic or manual configuration.
 
 ### Automatic configuration
+
 If you want to automatically configure your app and then download the code sample, follow these steps:
 
 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure portal page for app registration</a>.
@@ -40,6 +44,7 @@ If you want to automatically configure your app and then download the code sampl
 1. Follow the instructions to download and automatically configure your new application in one click.
 
 ### Manual configuration
+
 If you want to manually configure your application and code sample, use the following procedures.
 
 #### Step 1: Register your application
@@ -59,7 +64,7 @@ If you want to manually configure your application and code sample, use the foll
 
 [Download the ASP.NET code sample](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
-[!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
+[!INCLUDE [active-directory-develop-path-length-tip](../error-handling-and-tips/path-length-tip.md)]
 
 
 #### Step 3: Run the project
@@ -101,7 +106,7 @@ You can set up the authentication pipeline with cookie-based authentication by u
 
 ```powershell
 Install-Package Microsoft.Identity.Web.Owin
-Install-Package Microsoft.Identity.Web.MicrosoftGraph
+Install-Package Microsoft.Identity.Web.GraphServiceClient
 Install-Package Microsoft.Owin.Security.Cookies
 ```
 
@@ -167,7 +172,7 @@ You can call Microsoft Graph from the controller by getting the instance of Grap
 ```csharp
     try
     { 
-        var me = await this.GetGraphServiceClient().Me.Request().GetAsync();
+        var me = await this.GetGraphServiceClient().Me.GetAsync();
         ViewBag.Username = me.DisplayName;
     }
     catch (ServiceException graphEx) when (graphEx.InnerException is MicrosoftIdentityWebChallengeUserException)
@@ -177,8 +182,7 @@ You can call Microsoft Graph from the controller by getting the instance of Grap
     }
 ```
 
-
-[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

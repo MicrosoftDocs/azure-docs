@@ -71,7 +71,9 @@ For more information on permissions to restore a deleted group, see [Restore a d
 
 ## Set group expiration
 
-1. Open the [Azure portal](https://portal.azure.com) with an account that is a Global Administrator in your Azure AD organization.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a Global Administrator in your Azure AD organization.
 
 2. Browse to **Azure Active Directory** > **Groups**, then select **Expiration** to open the expiration settings.
   
@@ -92,6 +94,7 @@ For more information on permissions to restore a deleted group, see [Restore a d
 > - When a dynamic group is deleted and restored, it's seen as a new group and re-populated according to the rule. This process can take up to 24 hours.
 > - Expiration notices for groups used in Teams appear in the Teams Owners feed.
 > - When you enable expiration for selected groups, you can add up to 500 groups to the list. If you need to add more than 500 groups, you can enable expiration for all your groups. In that scenario, the 500-group limitation doesn't apply.
+>- Groups do not renew immediately when auto-renew activities occur. In the event of an activity, a flag is placed on the group to indicate it is ready for renewal when it's near expiry. If the group is near expiry, then renewal will occur within 24 hours. 
 
 ## Email notifications
 
@@ -138,15 +141,13 @@ Here are examples of how you can use PowerShell cmdlets to configure the expirat
    Connect-AzureAD
    ```
 
-1. Configure the expiration settings
-   Use the New-AzureADMSGroupLifecyclePolicy cmdlet to set the lifetime for all Microsoft 365 groups in the Azure AD organization to 365 days. Renewal notifications for Microsoft 365 groups without owners will be sent to 'emailaddress@contoso.com'
+1. Configure the expiration settings Use the New-AzureADMSGroupLifecyclePolicy cmdlet to set the lifetime for all Microsoft 365 groups in the Azure AD organization to 365 days. Renewal notifications for Microsoft 365 groups without owners will be sent to `emailaddress@contoso.com`
   
    ``` PowerShell
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
    ```
 
-1. Retrieve the existing policy
-   Get-AzureADMSGroupLifecyclePolicy: This cmdlet retrieves the current Microsoft 365 group expiration  settings that have been configured. In this example, you can see:
+1. Retrieve the existing policy Get-AzureADMSGroupLifecyclePolicy: This cmdlet retrieves the current Microsoft 365 group expiration  settings that have been configured. In this example, you can see:
 
    - The policy ID
    - The lifetime for all Microsoft 365 groups in the Azure AD organization is set to 365 days
@@ -160,22 +161,19 @@ Here are examples of how you can use PowerShell cmdlets to configure the expirat
    26fcc232-d1c3-4375-b68d-15c296f1f077  365                 All               emailaddress@contoso.com
    ```
 
-1. Update the existing policy
-   Set-AzureADMSGroupLifecyclePolicy: This cmdlet is used to update an existing policy. In the example below, the group lifetime in the existing policy is changed from 365 days to 180 days.
+1. Update the existing policy Set-AzureADMSGroupLifecyclePolicy: This cmdlet is used to update an existing policy. In the example below, the group lifetime in the existing policy is changed from 365 days to 180 days.
   
    ```powershell
    Set-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
    ```
   
-1. Add specific groups to the policy
-   Add-AzureADMSLifecyclePolicyGroup: This cmdlet adds a group to the lifecycle policy. As an example:
+1. Add specific groups to the policy Add-AzureADMSLifecyclePolicyGroup: This cmdlet adds a group to the lifecycle policy. As an example:
   
    ```powershell
    Add-AzureADMSLifecyclePolicyGroup -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
    ```
   
-1. Remove the existing Policy
-   Remove-AzureADMSGroupLifecyclePolicy: This cmdlet deletes the Microsoft 365 group expiration settings but requires the policy ID. This cmdlet disables expiration for Microsoft 365 groups.
+1. Remove the existing Policy Remove-AzureADMSGroupLifecyclePolicy: This cmdlet deletes the Microsoft 365 group expiration settings but requires the policy ID. This cmdlet disables expiration for Microsoft 365 groups.
   
    ```powershell
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"

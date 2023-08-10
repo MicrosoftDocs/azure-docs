@@ -20,7 +20,7 @@ Azure Time Series Insights is a managed cloud service with storage, analytics, a
 
 [!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
 
-To view, export, and delete personal data that may be subject to a data subject request, an Azure Time Series Insights tenant administrator can use either the Azure portal or the REST APIs. Using the Azure  portal to service data subject requests, provides a less complex method to perform these operations that most users prefer.
+To view, export, and delete personal data that may be subject to a data subject request, an Azure Time Series Insights tenant administrator can use either the Azure portal or the REST APIs. Using the Azure portal to service data subject requests, provides a less complex method to perform these operations that most users prefer.
 
 ## Identifying customer data
 

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/04/2023
+ms.date: 07/19/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -34,9 +34,12 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | AccountName | EA, pay-as-you-go | Display name of the EA enrollment account or pay-as-you-go billing account. |
 | AccountOwnerId¹ | EA, pay-as-you-go | Unique identifier for the EA enrollment account or pay-as-you-go billing account. |
 | AdditionalInfo¹  | All | Service-specific metadata. For example, an image type for a virtual machine. |
+| BenefitId¹ | EA, MCA | Unique identifier for the purchased savings plan instance. |
+| BenefitName | EA, MCA | Unique identifier for the purchased savings plan instance. |
 | BillingAccountId¹ | All | Unique identifier for the root billing account. |
 | BillingAccountName | All | Name of the billing account. |
 | BillingCurrency | All | Currency associated with the billing account. |
+| BillingCurrencyCode | All | See BillingCurrency. |
 | BillingPeriod | EA, pay-as-you-go | The billing period of the charge. |
 | BillingPeriodEndDate | All | The end date of the billing period. |
 | BillingPeriodStartDate | All | The start date of the billing period. |
@@ -47,7 +50,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | CostCenter¹ | EA, MCA | The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts). |
 | Cost | EA, pay-as-you-go | See CostInBillingCurrency. |
 | CostAllocationRuleName | EA, MCA | Name of the Cost Allocation rule that's applicable to the record. |
-| CostInBillingCurrency | MCA | Cost of the charge in the billing currency before credits or taxes. |
+| CostInBillingCurrency | EA, MCA | Cost of the charge in the billing currency before credits or taxes. |
 | CostInPricingCurrency | MCA | Cost of the charge in the pricing currency before credits or taxes. |
 | Currency | EA, pay-as-you-go | See `BillingCurrency`. |
 | CustomerName | MPA | Name of the Azure Active Directory tenant for the customer's subscription. |
@@ -62,12 +65,12 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | InvoiceSectionId¹ | EA, MCA | Unique identifier for the EA department or MCA invoice section. |
 | InvoiceSectionName | EA, MCA | Name of the EA department or MCA invoice section. |
 | IsAzureCreditEligible | All | Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`). |
-| Location | MCA | Normalized location of the resource, if different resource locations are configured for the same regions. |
+| Location | MCA | Normalized location of the resource, if different resource locations are configured for the same regions. Purchases and Marketplace usage may be shown as blank or `unassigned`. |
 | MeterCategory | All | Name of the classification category for the meter. For example, _Cloud services_ and _Networking_. |
 | MeterId¹ | All | The unique identifier for the meter. |
-| MeterName | All | The name of the meter. |
+| MeterName | All | The name of the meter. Purchases and Marketplace usage may be shown as blank or `unassigned`.|
 | MeterRegion | All | Name of the datacenter location for services priced based on location. See Location. |
-| MeterSubCategory | All | Name of the meter subclassification category. |
+| MeterSubCategory | All | Name of the meter subclassification category. Purchases and Marketplace usage may be shown as blank or `unassigned`.|
 | OfferId¹ | All | Name of the offer purchased. |
 | pay-as-you-goPrice | All | Retail price for the resource. |
 | PartnerEarnedCreditApplied | MPA | Indicates whether the partner earned credit has been applied. |
@@ -90,7 +93,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | Quantity | All | The number of units purchased or consumed. |
 | ResellerName | MPA | The name of the reseller associated with the subscription. |
 | ResellerMpnId | MPA | ID for the reseller associated with the subscription. |
-| ReservationId | EA, MCA | Unique identifier for the purchased reservation instance. |
+| ReservationId¹ | EA, MCA | Unique identifier for the purchased reservation instance. |
 | ReservationName | EA, MCA | Name of the purchased reservation instance. |
 | ResourceGroup | All | Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group will be shown as null or empty, **Others**, or **Not applicable**. |
 | ResourceId¹ | All | Unique identifier of the [Azure Resource Manager](/rest/api/resources/resources) resource. |

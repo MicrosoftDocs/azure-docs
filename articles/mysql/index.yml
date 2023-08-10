@@ -189,7 +189,7 @@ landingContent:
           - text: Troubleshoot data encryption
             url: single-server/how-to-data-encryption-troubleshoot.md
           - text: Troubleshoot replication latency
-            url: single-server/how-to-troubleshoot-replication-latency.md
+            url: how-to-troubleshoot-replication-latency.md
           - text: Troubleshoot database corruption
             url: single-server/how-to-fix-corrupt-database.md
           - text: Troubleshoot connectivity issues

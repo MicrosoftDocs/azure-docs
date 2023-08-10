@@ -1,0 +1,550 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/changelog-release-history.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/changelog-release-history",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/choose-model-feature.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/choose-model-feature",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-accuracy-confidence.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-accuracy-confidence",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-add-on-capabilities.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-add-on-capabilities",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-analyze-document-response.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-analyze-document-response",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-business-card.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-business-card",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-composed-models.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-composed-models",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-custom-classifier.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-custom-classifier",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-custom-label-tips.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-custom-label-tips",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-custom-label.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-custom-label",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-custom-neural.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-custom-neural",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-custom-template.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-custom-template",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-custom.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-custom",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-form-recognizer-studio.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-document-intelligence-studio",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-general-document.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-general-document",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-id-document.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-id-document",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-insurance-card.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-insurance-card",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-invoice.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-invoice",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-layout.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-layout",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-model-overview.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-model-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-query-fields.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-query-fields",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-read.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-read",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-receipt.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-receipt",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-w2.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/concept-w2",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/create-a-form-recognizer-resource.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/create-document-intelligence-resource",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/create-sas-tokens.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/create-sas-tokens",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/deploy-label-tool.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/deploy-label-tool",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/disaster-recovery.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/disaster-recovery",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/encrypt-data-at-rest.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/encrypt-data-at-rest",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/faq.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/faq",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/index.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/index",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/label-tool.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/label-tool",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/language-support.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/language-support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/managed-identities-secured-access.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/managed-identities-secured-access",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/managed-identities.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/managed-identities",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/overview.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/resource-customer-stories.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/resource-customer-stories",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/sdk-overview.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/sdk-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/sdk-preview.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/sdk-preview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/service-limits.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/service-limits",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/studio-overview.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/studio-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/supervised-table-tags.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/supervised-table-tags",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/tutorial-azure-function.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/tutorial-azure-function",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/tutorial-logic-apps.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/tutorial-logic-apps",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/v3-error-guide.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/v3-error-guide",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/v3-migration-guide.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/v3-1-migration-guide",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/whats-new.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/whats-new",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/how-to-cache-token.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/how-to-cache-token",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/how-to-configure-read-aloud.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/how-to-configure-read-aloud",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/how-to-configure-translation.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/how-to-configure-translation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/how-to-create-immersive-reader.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/how-to-create-immersive-reader",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/how-to-customize-launch-button.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/how-to-customize-launch-button",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/how-to-launch-immersive-reader.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/how-to-launch-immersive-reader",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/how-to-multiple-resources.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/how-to-multiple-resources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/how-to-prepare-html.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/how-to-prepare-html",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/how-to-store-user-preferences.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/how-to-store-user-preferences",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/index.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/index",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/language-support.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/language-support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/overview.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/reference.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/release-notes.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/release-notes",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/security-how-to-update-role-assignment.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/security-how-to-update-role-assignment",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/tutorial-ios-picture-immersive-reader.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/tutorial-ios-picture-immersive-reader",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/cost-management.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/cost-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/data-feeds-from-different-sources.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/data-feeds-from-different-sources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/encryption.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/encryption",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/faq.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/faq",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/glossary.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/glossary",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/index.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/index",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/overview.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/whats-new.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/whats-new",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/containers/form-recognizer-container-configuration.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/containers/configuration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/containers/form-recognizer-container-image-tags.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/containers/image-tags",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/containers/install-run",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/containers/form-recognizer-disconnected-containers.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/containers/disconnected",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/how-to-guides/build-a-custom-classifier.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/build-a-custom-classifier",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/how-to-guides/build-a-custom-model.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/build-a-custom-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/how-to-guides/compose-custom-models.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/compose-custom-models",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/how-to-guides/estimate-cost.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/estimate-cost",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/how-to-guides/project-share-custom-models.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/project-share-custom-models",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/get-started-sdks-rest-api.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-form-recognizer-studio.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-sample-label-tool.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/try-sample-label-tool",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/how-to/display-math.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/how-to/display-math",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/how-to/set-cookie-policy.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/how-to/set-cookie-policy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/quickstarts/client-libraries.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/quickstarts/client-libraries",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/how-tos/alerts.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/how-tos/alerts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/how-tos/anomaly-feedback.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/how-tos/anomaly-feedback",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/how-tos/configure-metrics.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/how-tos/configure-metrics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/how-tos/credential-entity.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/how-tos/credential-entity",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/how-tos/diagnose-an-incident.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/how-tos/diagnose-an-incident",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/how-tos/further-analysis.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/how-tos/further-analysis",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/how-tos/manage-data-feeds.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/how-tos/manage-data-feeds",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/how-tos/metrics-graph.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/how-tos/metrics-graph",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/how-tos/onboard-your-data.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/how-tos/onboard-your-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/quickstarts/rest-api-and-client-library.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/quickstarts/rest-api-and-client-library",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/quickstarts/web-portal.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/quickstarts/web-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/tutorials/enable-anomaly-notification.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/tutorials/enable-anomaly-notification",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/tutorials/write-a-valid-query.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/tutorials/write-a-valid-query",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/applied-ai-services-customer-spotlight-use-cases.md",
+      "redirect_url": "/azure/ai-services/what-are-ai-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/faq.md",
+      "redirect_url": "/azure/ai-services/what-are-ai-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/index.md",
+      "redirect_url": "/azure/ai-services/what-are-ai-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/what-are-applied-ai-services.md",
+      "redirect_url": "/azure/ai-services/what-are-ai-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/why-applied-ai-services.md",
+      "redirect_url": "/azure/ai-services/what-are-ai-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/context/context.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/?context=/azure/ai-services/document-intelligence/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/metrics-advisor/context/context.md",
+      "redirect_url": "/azure/ai-services/metrics-advisor/?context=/azure/ai-services/metrics-advisor/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/immersive-reader/context/context.md",
+      "redirect_url": "/azure/ai-services/immersive-reader/?context=/azure/ai-services/immersive-reader/context/context",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/document-intelligence/v3-migration-guide.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/v3-1-migration-guide",
+      "redirect_document_id": true
+    }
+    
+  ]
+}

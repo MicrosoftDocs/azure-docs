@@ -10,7 +10,7 @@ ms.date: 01/09/2023
 
 Learn how to use user-defined data types in Bicep.
 
-[Bicep version 1.2 or newer](./install.md) is required to use this feature.
+[Bicep version 0.12.1 or newer](./install.md) is required to use this feature.
 
 ## Enable the preview feature
 
@@ -29,7 +29,7 @@ To enable this preview, modify your project's [bicepconfig.json](./bicep-config.
 You can use the `type` statement to define user-defined data types. In addition, you can also use type expressions in some places to define custom types.
 
 ```bicep
-Type <userDefinedDataTypeName> = <typeExpression>
+type <userDefinedDataTypeName> = <typeExpression>
 ```
 
 The valid type expressions include:

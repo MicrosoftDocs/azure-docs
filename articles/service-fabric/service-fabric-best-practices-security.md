@@ -256,7 +256,7 @@ By default, Windows Defender antivirus is installed on Windows Server 2016. For 
             "AntimalwareEnabled": "true",
             "Exclusions": {
                 "Paths": "[concat(parameters('svcFabData'), ';', parameters('svcFabLogs'), ';', parameters('svcFabRuntime'))]",
-                "Processes": "Fabric.exe;FabricHost.exe;FabricInstallerService.exe;FabricSetup.exe;FabricDeployer.exe;ImageBuilder.exe;FabricGateway.exe;FabricDCA.exe;FabricFAS.exe;FabricUOS.exe;FabricRM.exe;FileStoreService.exe"
+                "Processes": "Fabric.exe;FabricHost.exe;FabricInstallerService.exe;FabricSetup.exe;FabricDeployer.exe;ImageBuilder.exe;FabricGateway.exe;FabricDCA.exe;FabricFAS.exe;FabricUOS.exe;FabricRM.exe;FileStoreService.exe;FabricBRS.exe;BackupCopier.exe"
             },
             "RealtimeProtectionEnabled": "true",
             "ScheduledScanSettings": {

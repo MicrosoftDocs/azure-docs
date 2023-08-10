@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and Ruby"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API and Ruby.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: mode-api
 
 # Quickstart: Suggest search queries with the Bing Autosuggest REST API and Ruby
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Follow this quickstart to learn how to make calls to the Bing Autosuggest API and read the JSON response. This simple Ruby application sends a partial search query to the API, and returns suggestions for searches. While this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages.
 
@@ -37,7 +37,7 @@ Follow this quickstart to learn how to make calls to the Bing Autosuggest API an
     require 'json'
     ```
 
-2. Create variables for your API host and path, [market code](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and partial search query. Use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for your API host and path, [market code](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and partial search query. Use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```ruby
     subscriptionKey = 'enter your key here'

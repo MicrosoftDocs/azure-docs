@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.author: cshoe
 ms.service: container-apps
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-linux
 ms.topic: tutorial
 ms.date: 1/18/2023
 ---

@@ -32,12 +32,12 @@ The URL endpoints to allow for the Azure portal are specific to the Azure cloud 
 #### Azure portal authentication
 
 ```
-*.login.microsoftonline.com
+login.microsoftonline.com
 *.aadcdn.msftauth.net
 *.aadcdn.msftauthimages.net
 *.aadcdn.msauthimages.net
 *.logincdn.msftauth.net
-*.login.live.com
+login.live.com
 *.msauth.net
 *.aadcdn.microsoftonline-p.com
 *.microsoftonline-p.com
@@ -46,12 +46,16 @@ The URL endpoints to allow for the Azure portal are specific to the Azure cloud 
 #### Azure portal framework
 
 ```
+portal.azure.com
 *.portal.azure.com
 *.hosting.portal.azure.net
+reactblade.portal.azure.net
 *.reactblade.portal.azure.net
-*.management.azure.com
+management.azure.com
 *.ext.azure.com
+graph.windows.net
 *.graph.windows.net
+graph.microsoft.com
 *.graph.microsoft.com
 ```
 
@@ -61,6 +65,7 @@ The URL endpoints to allow for the Azure portal are specific to the Azure cloud 
 *.account.microsoft.com
 *.bmx.azure.com
 *.subscriptionrp.trafficmanager.net
+signup.azure.com
 *.signup.azure.com
 ```
 
@@ -125,6 +130,7 @@ azure.status.microsoft (Azure Status)
 storage.azure.com (Azure Storage)
 storage.azure.net (Azure Storage)
 vault.azure.net (Azure Key Vault Service)
+ux.console.azure.com (Azure Cloud Shell)
 ```
 
 ### [U.S. Government Cloud](#tab/us-government-cloud)
@@ -142,7 +148,7 @@ vault.azure.net (Azure Key Vault Service)
 graph.microsoftazure.us
 ```
 
-### [Azure China Cloud](#tab/azure-china-cloud)
+### [Microsoft Azure operated by 21Vianet Cloud](#tab/azure-china-cloud)
 
 ```
 aadcdn.msauth.cn

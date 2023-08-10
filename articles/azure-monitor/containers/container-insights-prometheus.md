@@ -18,9 +18,6 @@ Container insights can also scrape your custom Prometheus metrics from your appl
 ## Send data to Azure Monitor managed service for Prometheus
 [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) is a fully managed Prometheus-compatible service that supports industry standard features such as PromQL, Grafana dashboards, and Prometheus alerts. This service requires configuring the *metrics addon* for the Azure Monitor agent, which sends data to Prometheus.
 
-> [!NOTE]
-> The metrics addon used to collect Prometheus metrics for Managed Prometheus currently only supports AKS clusters and cannot be used as an Arc enabled Kubernetes extension. To collect Prometheus metrics from Kubernetes clusters that are running self-managed Prometheus we recommend looking at the [remote write capabilities of Managed Prometheus](../essentials/prometheus-remote-write.md). 
-
 > [!TIP]
 > You don't need to enable Container insights to configure your AKS cluster to send data to managed Prometheus. See [Collect Prometheus metrics from AKS cluster (preview)](../essentials/prometheus-metrics-enable.md) for details on how to configure your cluster without enabling Container insights.
 

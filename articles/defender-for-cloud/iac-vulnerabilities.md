@@ -1,6 +1,6 @@
 ---
 title: Discover misconfigurations in Infrastructure as Code
-titleSuffix: Defender for Cloud
+
 description: Learn how to use Defender for DevOps to discover misconfigurations in Infrastructure as Code (IaC)
 ms.date: 01/24/2023
 ms.topic: how-to

@@ -36,13 +36,15 @@ The code sample can be obtained in two ways:
 
 * [Download it as a ZIP file](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip).
 
-[!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
+[!INCLUDE [active-directory-develop-path-length-tip](../error-handling-and-tips/path-length-tip.md)]
 
 ## Register the web API (TodoListService)
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Register your web API in **App registrations** in the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 1. Find and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
@@ -136,7 +138,7 @@ Start both projects. For Visual Studio users;
 
 1. For both projects choose **Start** as the action
 
-1. Ensure the TodoListService service starts first by moving it to the fist position in the list, using the up arrow.
+1. Ensure the TodoListService service starts first by moving it to the first position in the list, using the up arrow.
 
 Sign in to run your TodoListClient project.
 
@@ -169,7 +171,7 @@ By default, any personal accounts, such as *outlook.com* or *live.com* accounts,
 
 To specify who can sign in to your application, by changing the `TenantId` property in the *appsettings.json* file.
 
-[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 
