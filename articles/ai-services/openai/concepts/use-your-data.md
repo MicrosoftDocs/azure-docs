@@ -67,7 +67,14 @@ There are some caveats about document structure and how it might affect the qual
 
 Azure OpenAI on your data does not currently support private endpoints. 
 
-If you have Azure Cognitive Search resource protected by private network, and want to allow Azure OpenAI on your data to access your search service, please fill in this application form. Our customer support team will let you know when we send private endpoint request to your search service, and you will need to approve our private endpoint request, you can start to use Azure OpenAI on your data to access your search service that is protected by private network.
+If you have Azure Cognitive Search resource protected by private network, and want to allow Azure OpenAI on your data to access your search service, please fill in [this application form](https://aka.ms/applyacsvpnaoaionyourdata). 
+Our team will review your application in 5 business days and contact you about the review result. If you are eligible, we will send private endpoint request to your search service, and you will need to approve our private endpoint connection request. See steps below.
+
+   ![Approve private endpoint](../media/use-your-data/approve_private_endpoint.png)
+
+Learn more about the [manual approval workflow](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow).
+
+Upon approval, you can start to use Azure OpenAI on your data to access your search service that is protected by private network.
 
 ## Azure Role-based access controls (Azure RBAC)
 
