@@ -54,7 +54,7 @@ When you enable Microsoft Defender for Cloud's enhanced security features on you
 
 ## Enable Microsoft Defender for Azure Cosmos DB at the resource level
 
-You can enable Microsoft Defender for Cloud on a specific Azure Cosmos DB account through the Azure portal, PowerShell, or the Azure CLI.
+You can enable Microsoft Defender for Cloud on a specific Azure Cosmos DB account through the Azure portal, PowerShell, Azure CLI, ARM template, or Azure Policy.
 
 **To enable Microsoft Defender for Cloud for a specific Azure Cosmos DB account**:
 
@@ -132,7 +132,7 @@ Use an Azure Policy to enable Microsoft Defender for Cloud across storage accoun
 
 ## Simulate security alerts from Microsoft Defender for Azure Cosmos DB
 
-A full list of [supported alerts](alerts-reference.md) is available in the reference table of all Defender for Cloud security alerts.
+A full list of [supported alerts](alerts-reference.md#alerts-azurecosmos) is available in the reference table of all Defender for Cloud security alerts.
 
 You can use sample Microsoft Defender for Azure Cosmos DB alerts to evaluate their value, and capabilities. Sample alerts will also validate any configurations you've made for your security alerts (such as SIEM integrations, workflow automation, and email notifications).
 
@@ -154,7 +154,7 @@ You can use sample Microsoft Defender for Azure Cosmos DB alerts to evaluate the
 
 After a few minutes, the alerts will appear in the security alerts page. Alerts will also appear anywhere that you've configured to receive your Microsoft Defender for Cloud security alerts. For example, connected SIEMs, and email notifications.
 
-## Next Steps
+## Next steps
 
 In this article, you learned how to enable Microsoft Defender for Azure Cosmos DB, and how to simulate security alerts.
 
