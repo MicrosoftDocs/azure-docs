@@ -3,7 +3,7 @@ title: Configure project environment types
 titleSuffix: Azure Deployment Environments
 description: Learn how to add, update, and delete project environment types in Azure Deployment Environments. Define project-level deployment settings and permissions.
 ms.service: deployment-environments
-ms.custom: ignite-2022
+ms.custom: ignite-2022, build-2023
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 04/25/2023
@@ -14,9 +14,9 @@ ms.topic: how-to
 
 Project environment types are a subset of the [environment types configured for a dev center](how-to-configure-devcenter-environment-types.md). They help preconfigure the environments that a specific development team can create. 
 
-In Azure Deployment Environments Preview, [environment types](concept-environments-key-concepts.md#project-environment-types) that you add to the project will be available to developers when they deploy environments. Environment types determine the subscription and identity that are used for those deployments.
+In Azure Deployment Environments, [environment types](concept-environments-key-concepts.md#project-environment-types) that you add to the project will be available to developers when they deploy environments. Environment types determine the subscription and identity that are used for those deployments.
 
-Project environment types enable development infrastructure teams to:
+Project environment types enable platform engineering teams to:
 
 - Configure the target subscription in which Azure resources will be created per environment type and per project. 
   
@@ -29,9 +29,6 @@ In this article, you'll learn how to:
 * Update a project environment type.
 * Enable or disable a project environment type.
 * Delete a project environment type. 
-
-> [!IMPORTANT]
-> Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 Before you configure a project environment type, you need:

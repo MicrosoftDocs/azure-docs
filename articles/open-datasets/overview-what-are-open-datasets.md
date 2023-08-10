@@ -3,8 +3,8 @@ title: What are open datasets? Curated public datasets
 description: Learn about Azure Open Datasets, curated datasets from the public domain such as weather, census, holidays, and location to enrich predictive solutions.
 ms.service: open-datasets
 ms.topic: overview
-author: sdgilley
-ms.author: sgilley
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 05/06/2020
 ---
 
@@ -38,7 +38,7 @@ Following are examples of datasets available.
 
 |Dataset         | Notebooks     | Description                                    |
 |----------------|---------------|------------------------------------------------|
-|[Public Holidays](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureDatabricks) | Worldwide public holiday data, covering 41 countries or regions from 1970 to 2099. Includes country and whether most people have paid time off. |
+|[Public Holidays](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureDatabricks) | Worldwide public holiday data, covering 41 countries or regions from 1970 to 2099. Includes country/region and whether most people have paid time off. |
 
 ## Access to datasets  
 With an Azure account, you can access open datasets using code or through the Azure service interface. The data is colocated with Azure cloud compute resources for use in your machine learning solution.  

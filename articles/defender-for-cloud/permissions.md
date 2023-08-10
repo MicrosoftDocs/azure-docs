@@ -1,5 +1,5 @@
 ---
-title: User roles and permissions in Microsoft Defender for Cloud
+title: User roles and permissions
 description: This article explains how Microsoft Defender for Cloud uses role-based access control to assign permissions to users and identify the permitted actions for each role.
 ms.topic: limits-and-quotas
 ms.custom: ignite-2022
@@ -43,7 +43,7 @@ To allow the Security Admin role to automatically provision agents and extension
 | Service Principal | Roles |
 |:-|:-|
 | Defender for Containers provisioning AKS Security Profile | • Kubernetes Extension Contributor<br>• Contributor<br>• Azure Kubernetes Service Contributor<br>• Log Analytics Contributor |
-| Defender for Containers provisioning ARC K8s Enabled | • Azure Kubernetes Service Contributor<br>• Kubernetes Extension Contributor<br>• Contributor<br>• Log Analytics Contributor |
+| Defender for Containers provisioning Arc-enabled Kubernetes | • Azure Kubernetes Service Contributor<br>• Kubernetes Extension Contributor<br>• Contributor<br>• Log Analytics Contributor |
 | Defender for Containers provisioning Azure Policy Addon for Kubernetes | • Kubernetes Extension Contributor<br>• Contributor<br>• Azure Kubernetes Service Contributor |
 | Defender for Containers provisioning Policy extension for Arc-enabled Kubernetes | • Azure Kubernetes Service Contributor<br>• Kubernetes Extension Contributor<br>• Contributor |
 

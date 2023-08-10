@@ -132,7 +132,7 @@ If you don't use AzCopy, upload your file by using the Azure portal. Go to your 
 
 Create a shared access signature URL for Microsoft Sentinel to retrieve the watchlist data.
 
-1. Follow the steps in [Create SAS tokens for blobs in the Azure portal](../cognitive-services/translator/document-translation/create-sas-tokens.md?tabs=blobs#create-sas-tokens-in-the-azure-portal).
+1. Follow the steps in [Create SAS tokens for blobs in the Azure portal](../ai-services/translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=blobs#create-sas-tokens-in-the-azure-portal).
 1. Set the shared access signature token expiry time to be at minimum 6 hours.
 1. Copy the value for **Blob SAS URL**.
 

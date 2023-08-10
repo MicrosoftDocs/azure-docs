@@ -1,6 +1,6 @@
 ---
 title: "Deploy and manage Azure Arc-enabled Kubernetes cluster extensions"
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli
 ms.date: 04/27/2023
 ms.topic: how-to
 description: "Create and manage extension instances on Azure Arc-enabled Kubernetes clusters."

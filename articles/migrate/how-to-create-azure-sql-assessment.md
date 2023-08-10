@@ -4,6 +4,7 @@ description: Learn how to assess SQL instances for migration to Azure SQL Manage
 author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
+ms.service: azure-migrate
 ms.date: 03/15/2023
 ms.custom: engagement-fy23
 ---

@@ -1,11 +1,11 @@
 ---
 title: Azure Internet of Things (IoT) technologies and solutions
-description: Describes the collection of technologies and services you can use to build an Azure IoT solution.
+description: Describes the collection of technologies and services you can use to build Azure IoT PaaS and aPaaS solutions.
 author: dominicbetts
 ms.service: iot
 services: iot
 ms.topic: conceptual
-ms.date: 05/02/2023
+ms.date: 06/02/2023
 ms.author: dobett
 ---
 
@@ -35,7 +35,7 @@ To learn more, see [Azure IoT device and application development](../iot-develop
 
 [IoT Central](https://apps.azureiotcentral.com) is a managed app platform that reduces the burden and cost of developing, managing, and maintaining IoT solutions. Use IoT Central to quickly evaluate your IoT scenario and assess the opportunities it can create for your business. IoT Central streamlines the development of a complex and continually evolving IoT infrastructure by letting you to focus on determining the business impact you can create with your IoT data.
 
-The web UI lets you quickly connect devices, monitor device conditions, create rules, and manage devices and their data throughout their life cycle. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications. Once you've used IoT Central to evaluate your IoT scenario, you can then build your enterprise ready solutions by using the power of Azure IoT platform.  
+The web UI lets you quickly connect devices, monitor device conditions, create rules, and manage devices and their data throughout their life cycle. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications. After you've used IoT Central to evaluate your IoT scenario, you can then build your enterprise-ready Azure IoT solution.  
 
 As a fully managed app platform, IoT Central has a simple, predictable pricing model.
 
@@ -65,6 +65,12 @@ IoT Central uses digital twins to synchronize devices and data in the real world
 IoT devices typically generate large amounts of time series data, such as temperature readings from sensors. [Azure Data Explorer](/azure/data-explorer/ingest-data-iot-hub-overview) can connect to an IoT hub, read the telemetry stream from your devices, store that data, and enable you to query and visualize it.
 
 [Azure Maps](../azure-maps/index.yml) is a collection of geospatial services that use fresh mapping data to provide accurate geographic context to web and mobile applications. You can use a REST API, a web-based JavaScript control, or an Android SDK to build your applications.
+
+### Actions and notifications
+
+A solution may required automated actions based on device data. For example, you may want to send an email or text message when a device reports a critical condition.
+
+[Azure Functions](../azure-functions/functions-overview.md) is a serverless compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure. Use Azure Functions to create event-driven, serverless apps that can run actions in response to conditions identified in telemetry streams.
 
 ## Next steps
 

@@ -60,6 +60,8 @@ The following two sections help you perform these steps.
 
 ### Create a new certificate
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 First, create and save new certificate with a different expiration date:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

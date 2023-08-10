@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/13/2023
+ms.date: 05/29/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Kintone
@@ -138,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. In the **Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
-	b. In the **Logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
+	b. In the **Logout URL** textbox, paste the value: `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`.
 
 	c. Click **Browse** to upload your downloaded certificate file from Azure portal.
 

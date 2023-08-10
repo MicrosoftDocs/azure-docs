@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic:  conceptual
 ms.date: 03/13/2023
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022
+ms.custom: ignite-fall-2021, event-tier1-build-2022, build-2023
 ---
 
 # Azure Container Apps environments
@@ -26,12 +26,14 @@ Reasons to deploy container apps to the same environment include situations when
 - Have applications to share the same Dapr configuration
 - Have applications share the same log analytics workspace
 
+Also, you may provide an [existing virtual network](vnet-custom.md) when you create an environment.
+
 Reasons to deploy container apps to different environments include situations when you want to ensure:
 
 - Two applications never share the same compute resources
 - Two Dapr applications can't communicate via the Dapr service invocation API
 
-Also, you may provide an [existing virtual network](vnet-custom.md) when you create an environment.
+You can add [**Azure Functions**](https://aka.ms/functionsonaca) and [**Azure Spring Apps**](https://aka.ms/asaonaca) to your Azure Container Apps environment.
 
 ## Logs
 

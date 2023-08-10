@@ -34,6 +34,8 @@ Follow these steps to assign Azure AD roles using the Azure portal. Your experie
 
 ### Assign a role
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.

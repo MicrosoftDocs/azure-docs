@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: devx-track-arm-template, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: quickstart
-ms.date: 04/28/2023
+ms.date: 07/05/2023
 ms.author: jasteppe
 ---
 
@@ -36,7 +36,7 @@ To begin your deployment and complete the quickstart, you must have the followin
 
 When you have these prerequisites, you're ready to deploy the ARM template.
 
-## Review the ARM template (Optional)
+## Review the ARM template
 
 The ARM template used to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
 
@@ -160,7 +160,7 @@ Complete the following five steps to deploy the MedTech service using the Azure 
 
 When deployment is completed, the following resources and access roles are created in the ARM template deployment:
 
-* Azure Event Hubs namespace and device message event hub. In this deployment, the device message event hub is named *devicedata*.
+* Azure Event Hubs namespace and event hub. In this deployment, the event hub is named *devicedata*.
 
   * Event hub consumer group. In this deployment, the consumer group is named *$Default*.
 
@@ -216,9 +216,19 @@ For example: `az group delete --resource-group ArmTestDeployment`
 
 In this quickstart, you learned how to use Azure PowerShell or Azure CLI to deploy an instance of the MedTech service using an ARM template. 
 
-To learn about other methods for deploying the MedTech service, see
+To learn about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-choose-method.md)
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+
+For an overview of the MedTech service device data processing stages, see
+
+> [!div class="nextstepaction"]
+> [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
+
+For frequently asked questions (FAQs) about the MedTech service, see
+
+> [!div class="nextstepaction"]
+> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

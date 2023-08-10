@@ -4,6 +4,7 @@ description: In this quickstart, you create Kafka application,  which is based o
 ms.topic: how-to
 ms.date: 04/26/2023
 ms.devlang: java
+ms.custom: devx-track-extended-java
 author: kasun04
 ms.author: kindrasiri
 ---
@@ -193,4 +194,3 @@ To run the Kafka consumer application, navigate to *azure-schema-registry-for-ka
 
 ## Clean up resources
 Delete the Event Hubs namespace or delete the resource group that contains the namespace. 
-

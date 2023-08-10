@@ -1,0 +1,50 @@
+### YamlMime:Landing
+
+title: Azure Large Instances
+summary: Learn how to use Azure Large Instances.
+
+metadata:
+  title: Azure Large Instances
+  titleSuffix: Azure Large Instances
+  description: Learn how to use ALI.
+  services: baremetal-infrastructure 
+  ms.service: azure-large-instances
+  ms.topic: landing-page
+  author: jjaygbay1
+  ms.author: jacobjaygbay
+  ms.date: 06/01/2023
+
+# card 1
+landingContent:
+  - title: Azure Large Instances
+    linkLists: 
+      - linkListType: overview
+        links:
+          - text: What is Azure Large Instances?
+            url: what-is-azure-large-instances.md
+          - text: Work with Azure Large Instances in the Azure portal
+            url: work-with-azure-large-instances-in-azure-portal.md
+
+# card 2
+  - title: Getting started
+    linkLists: 
+      - linkListType: how-to-guide
+        links:
+          - text: Onboarding requirements
+            url: onboarding-requirements.md
+          - text: Quality checks for Azure Large Instances
+            url: quality-checks.md
+          - text: Find your subscription ID
+            url: find-your-subscription-id.md
+          - text: Configure Azure service health alerts
+            url: configure-azure-service-health-alerts.md
+          
+          
+# card 3
+  - title: Workloads
+    linkLists: 
+      - linkListType: concept
+        links:
+          - text: Azure Large Instances for Epic
+            url: workloads/epic/index.yml
+  

@@ -220,7 +220,7 @@ az network firewall ip-config create -g $RESOURCEGROUP -f aro-private -n fw-conf
 ### Capture Azure Firewall IPs for a later use
 ```azurecli
 FWPUBLIC_IP=$(az network public-ip show -g $RESOURCEGROUP -n fw-ip --query "ipAddress" -o tsv)
-FWPRIVATE_IP=$(az network firewall show -g $RESOURCEGROUP -n aro-private --query "ipConfigurations[0].privateIpAddress" -o tsv)
+FWPRIVATE_IP=$(az network firewall show -g $RESOURCEGROUP -n aro-private --query "ipConfigurations[0].privateIPAddress" -o tsv)
 
 echo $FWPUBLIC_IP
 echo $FWPRIVATE_IP

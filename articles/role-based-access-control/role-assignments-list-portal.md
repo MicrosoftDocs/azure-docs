@@ -132,11 +132,9 @@ You can list role assignments for system-assigned and user-assigned managed iden
 
 You can have up to **4000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. To help you keep track of this limit, the **Role assignments** tab includes a chart that lists the number of role assignments for the current subscription.
 
-The role assignments limit for a subscription is currently being increased. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md#limits).
-
 ![Screenshot of Access control and number of role assignments chart.](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 
-If you are getting close to the maximum number and you try to add more role assignments, you'll see a warning in the **Add role assignment** pane. For ways that you can reduce the number of role assignments, see [Troubleshoot Azure RBAC](troubleshooting.md#limits).
+If you are getting close to the maximum number and you try to add more role assignments, you'll see a warning in the **Add role assignment** pane. For ways that you can reduce the number of role assignments, see [Troubleshoot Azure RBAC limits](troubleshoot-limits.md).
 
 ![Screenshot of Access control and Add role assignment warning.](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 

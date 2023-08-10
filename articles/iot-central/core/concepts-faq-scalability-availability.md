@@ -1,6 +1,5 @@
 ---
 title: Scalability and high availability
-titleSuffix: Azure IoT Central
 description: This article describes how IoT Central automatically scales to handle more devices, its high availability disaster recovery capabilities.
 author: dominicbetts
 ms.author: dobett

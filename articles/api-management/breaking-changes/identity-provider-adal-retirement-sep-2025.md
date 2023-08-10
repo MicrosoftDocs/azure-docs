@@ -24,7 +24,7 @@ Your service is impacted by this change if:
 
 ## What is the deadline for the change?
 
-On 30 September, 2025, these identity providers will stop functioning. To avoid disruption of your developer portal, you need to update your Azure AD applications and identity provider configuration in Azure API Management by that date. Your developer portal might be at a security risk after Microsoft ADAL support ends in June 1, 2023. Learn more in [the official announcement](../../active-directory/fundamentals/whats-new.md#adal-end-of-support-announcement). 
+On 30 September, 2025, these identity providers will stop functioning. To avoid disruption of your developer portal, you need to update your Azure AD applications and identity provider configuration in Azure API Management by that date. Your developer portal might be at a security risk after Microsoft ADAL support ends in June 1, 2023. 
 
 Developer portal sign-in and sign-up with Azure AD or Azure AD B2C will stop working past 30 September, 2025 if you don't update your ADAL-based Azure AD or Azure AD B2C identity providers. This new authentication method is more secure, as it relies on the OAuth 2.0 authorization code flow with PKCE and uses an up-to-date software library. 
 

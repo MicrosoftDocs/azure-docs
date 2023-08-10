@@ -50,12 +50,11 @@ A sample `properties` value looks similar to the following:
 ```json
 {
     "targetResourceType": "Microsoft.Compute/virtualMachines",
-    "previousAvailabilityState": "Available",
-"targetResourceId": "/subscriptions/<subscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/virtualMachines/<VMName>",
+    "targetResourceId": "/subscriptions/<subscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/virtualMachines/<VMName>",
     "occurredTime": "2022-10-11T11:13:59.9570000Z",
+    "previousAvailabilityState": "Available",
     "availabilityState": "Unavailable"
 }
-
 ```
 
 ## microsoft.resourcehealth/resourceannotations
@@ -75,7 +74,7 @@ These annotations can be broadly classified into the following:
 | annotationName | Name of the Annotation emitted |
 | reason | Brief overview of the availability impact observed by the customer |
 | category | Denotes whether the platform activity triggering the annotation was either planned maintenance or unplanned repair. This field is not applicable to customer/VM-initiated events.<br><br>Possible values: Planned \| Unplanned \| Not Applicable \| Null |
-| context | Denotes whether the activity triggering the annotation was due to an authorized user or process (customer initiated), or due to the Azure platform (platform initiated) or even activity in the guest OS that has resulted in availability impact (VM initiated).<br><br>Possible values: Platform-Initiated \| User-initiated \|VM-initiated \| Not Applicable \| Null |
+| context | Denotes whether the activity triggering the annotation was due to an authorized user or process (customer initiated), due to the Azure platform (platform initiated), or due to activity in the guest OS that has resulted in availability impact (VM initiated).<br><br>Possible values: Platform-Initiated \| User-initiated \| VM-initiated \| Not Applicable \| Null |
 | summary | Statement detailing the cause for annotation emission, along with remediation steps that can be taken by users |
 
 See [Azure Resource Graph sample queries by table](../governance/resource-graph/samples/samples-by-table.md?tabs=azure-cli#healthresources) for sample queries using this data.

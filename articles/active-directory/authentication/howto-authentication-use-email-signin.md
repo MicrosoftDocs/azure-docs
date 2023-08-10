@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 06/01/2023
 
 ms.author: justinha
 author: calui
@@ -60,9 +60,9 @@ In the current preview state, the following limitations apply to email as an alt
     * When a user is signed-in with a non-UPN email, they cannot change their password. Azure AD self-service password reset (SSPR) should work as expected. During SSPR, the user may see their UPN if they verify their identity using a non-UPN email.
 
 * **Unsupported scenarios** - The following scenarios are not supported. Sign-in with non-UPN email for:
-    * [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md)
-    * [Azure AD joined devices](../devices/concept-azure-ad-join.md)
-    * [Azure AD registered devices](../devices/concept-azure-ad-register.md)
+    * [Hybrid Azure AD joined devices](../devices/concept-hybrid-join.md)
+    * [Azure AD joined devices](../devices/concept-directory-join.md)
+    * [Azure AD registered devices](../devices/concept-device-registration.md)
     * [Resource Owner Password Credentials (ROPC)](../develop/v2-oauth-ropc.md)
     * Legacy authentication such as POP3 and SMTP
     * Skype for Business
@@ -112,7 +112,7 @@ To support this hybrid authentication approach, you synchronize your on-premises
 
 In both configuration options, the user submits their username and password to Azure AD, which validates the credentials and issues a ticket. When users sign in to Azure AD, it removes the need for your organization to host and manage an AD FS infrastructure.
 
-One of the user attributes that's automatically synchronized by Azure AD Connect is *ProxyAddresses*. If users have an email address defined in the on-premesis AD DS environment as part of the *ProxyAddresses* attribute, it's automatically synchronized to Azure AD. This email address can then be used directly in the Azure AD sign-in process as an alternate login ID.
+One of the user attributes that's automatically synchronized by Azure AD Connect is *ProxyAddresses*. If users have an email address defined in the on-premises AD DS environment as part of the *ProxyAddresses* attribute, it's automatically synchronized to Azure AD. This email address can then be used directly in the Azure AD sign-in process as an alternate login ID.
 
 > [!IMPORTANT]
 > Only emails in verified domains for the tenant are synchronized to Azure AD. Each Azure AD tenant has one or more verified domains, for which you have proven ownership, and are uniquely bound to your tenant.
@@ -135,11 +135,13 @@ Email as an alternate login ID applies to [Azure AD B2B collaboration](../extern
 
 Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
 
-During preview, you currently need *Global Administrator* permissions to enable sign-in with email as an alternate login ID. You can use either Azure portal or PowerShell to set up the feature.
+During preview, you currently need *Global Administrator* permissions to enable sign-in with email as an alternate login ID. You can use either Azure portal or Graph PowerShell to set up the feature.
 
 ### Azure portal
 
-1. Sign in to the [Azure portal][azure-portal] as a *Global Administrator*.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as a *Global Administrator*.
 1. Search for and select **Azure Active Directory**.
 1. From the navigation menu on the left-hand side of the Azure Active Directory window, select **Azure AD Connect > Email as alternate login ID**.
 
@@ -159,7 +161,7 @@ With the policy applied, it can take up to 1 hour to propagate and for users to 
 
 Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign-in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in identifier against UPN values, but also against *ProxyAddresses* values for the email address.
 
-During preview, you can currently only enable email as an alternate login ID using PowerShell or the Microsoft Graph API. You need *Global Administrator* privileges to complete the following steps:
+You need *Global Administrator* privileges to complete the following steps:
 
 1. Open a PowerShell session as an administrator, then install the *Microsoft.Graph* module using the `Install-Module` cmdlet:
 
@@ -453,7 +455,6 @@ For more information on hybrid identity operations, see [how password hash sync]
 [sign-in-logs]: ../reports-monitoring/concept-sign-ins.md
 
 <!-- EXTERNAL LINKS -->
-[azure-portal]: https://portal.azure.com
 [Install-Module]: /powershell/module/powershellget/install-module
 [Connect-AzureAD]: /powershell/module/azuread/connect-azuread
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy

@@ -4,13 +4,12 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Perform data exploration and modeling tasks on the Windows Data Science Virtual Machine.
 services: machine-learning
 ms.service: data-science-vm
-ms.custom: devx-track-python, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 
 author: jesscioffi
 ms.author: jcioffi
 ms.topic: conceptual
 ms.date: 06/23/2022
-
 ---
 
 # Data science with a Windows Data Science Virtual Machine

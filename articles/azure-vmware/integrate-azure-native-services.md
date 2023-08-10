@@ -62,7 +62,7 @@ The following conditions are necessary to enable guest management on a VM.
     4. Replace username with the appropriate user-name.
 If your VM template already has these changes incorporated, you won't need to do the steps for the VM created from that template.
 ### Install extensions
-1.	Go to **Azure** portal.
+1.	Sign in to the [Azure portal](https://portal.azure.com).
 1.	Find the Arc-enabled Azure VMware Solution VM that you want to install an extension on and select the VM name.
 1.	Navigate to **Extensions** in the left navigation, select **Add**.
 1.	Select the extension you want to install.  

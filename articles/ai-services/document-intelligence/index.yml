@@ -1,0 +1,172 @@
+### YamlMime:Landing
+
+title: Azure AI Document Intelligence documentation # < 60 chars
+summary: Azure AI Document Intelligence (formerly Form Recognizer) is a cloud-based Azure AI service that uses machine-learning models to extract key-value pairs, text, and tables from your documents.\n Document Intelligence analyzes your forms and documents, extracts text and data, maps field relationships as key-value pairs, and returns a structured JSON output.\n You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise.\n Use Document Intelligence to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. # < 160 chars
+
+metadata:
+  title: Document Intelligence documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs
+  description: Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. Document Intelligence analyzes your forms and documents, extracts text and data, maps field relationships as key-value pairs, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. Use Document Intelligence to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
+  ms.service: applied-ai-services
+  ms.subservice: forms-recognizer
+  ms.topic: landing-page
+  author: laujan
+  ms.author: lajanuar
+  ms.date: 07/28/2023
+  monikerRange: '<=doc-intel-3.1.0'
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+# Limits: https://review.learn.microsoft.com/help/contribute/contribute-how-to-write-landing-page?branch=main#limits
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+# Card 1
+   - title: About Azure AI Document Intelligence
+     linkLists:
+      - linkListType: overview
+        links:
+          - text: 🆕 What is Azure AI Document Intelligence?
+            url: overview.md
+      - linkListType: whats-new
+        links:
+          - text: What's new in Azure AI Document Intelligence?
+            url: whats-new.md
+      - linkListType: reference
+        links:
+           - text: Language support
+             url: language-support.md
+           - text: 🆕 SDK overview
+             url: sdk-preview.md
+           - text: SDK overview (GA)
+             url: sdk-overview.md
+           - text: Help and support
+             url: ../../ai-services/cognitive-services-support-options.md?context=/azure/ai-services/document-intelligence/context/context
+
+  #Card 2
+   - title: Azure AI Document Intelligence features
+     linkLists:
+         - linkListType: concept
+           links:
+             - text: Read model
+               url: concept-read.md
+             - text: General document model
+               url: concept-general-document.md
+             - text: Layout model
+               url: concept-layout.md
+         - linkListType: concept
+           links:
+             - text: 🆕 Query field extraction
+               url:  concept-query-fields.md
+             - text: 🆕 Add-on capabilities
+               url:  concept-add-on-capabilities.md
+             - text: 🆕 Health insurance card model
+               url:  concept-insurance-card.md
+             - text: Custom model
+               url: concept-custom.md
+             - text: W-2 Form model
+               url: concept-w2.md
+             - text: Invoice model
+               url: concept-invoice.md
+             - text: Receipt model
+               url: concept-receipt.md
+             - text: ID document model
+               url: concept-id-document.md
+             - text: Business card model
+               url: concept-business-card.md
+
+  #Card 3
+   - title: Document Intelligence Studio 
+     linkLists:
+      - linkListType: overview
+        links:
+          - text: Studio overview
+            url: studio-overview.md
+      - linkListType: get-started
+        links:
+          - text: Read model
+            url: https://formrecognizer.appliedai.azure.com/studio/read
+          - text: General document model
+            url: https://formrecognizer.appliedai.azure.com/studio/document
+          - text:  Layout model
+            url: https://formrecognizer.appliedai.azure.com/studio/layout
+          - text:  Custom model
+            url: https://formrecognizer.appliedai.azure.com/studio/custommodel/projects
+          - text: 🆕 Health insurance card model
+            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us
+          - text: W2 model
+            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2
+          - text:  Invoice model
+            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice
+          - text:  Receipt model
+            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt
+          - text:  ID Document model
+            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument
+          - text:  Business Card model
+            url: https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard
+  #Card 4
+   - title: Quickstarts and how-to-guides
+     linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Document Intelligence Studio
+          url: quickstarts/try-document-intelligence-studio.md
+        - text: Document Intelligence SDK
+          url: quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true
+      - linkListType: how-to-guide
+        links:
+          - text: Create a Document Intelligence resource
+            url: create-document-intelligence-resource.md
+          - text: Migrate to Document Intelligence v3.0
+            url: v3-1-migration-guide.md
+          - text: Use the read model
+            url: how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true
+          - text: Create SAS tokens for storage containers
+            url: create-sas-tokens.md
+          - text: Build a custom model (v3.0)
+            url:  how-to-guides/build-a-custom-model.md?view=doc-intel-3.0.0&preserve-view=true
+          - text: Compose custom models (v3.0)
+            url: how-to-guides/compose-custom-models.md?view=doc-intel-3.0.0&preserve-view=true
+          - text: Install and run Document Intelligence containers
+            url: containers/install-run.md
+          - text: Create and use managed identities
+            url: managed-identities.md
+
+  #Card 5
+   - title: Online presentations and community support
+     linkLists:
+      - linkListType: video
+        links:
+          - text: Analyze unstructured documents and more with Azure AI Document Intelligence
+            url: https://aka.ms/form-recognizer/ai-show
+          - text: Using AI With Documents - Syntex, AI Builder & Azure AI services
+            url: https://aka.ms/form-recognizer/event-session
+      - linkListType: reference
+        links:
+          - text: What's new in Document Intelligence - Semantic document segmentation, cross page tables and lots more
+            url: https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/what-s-new-in-form-recognizer-semantic-document-segmentation/ba-p/3468826
+          - text: Streamline insurance claim, patient check-in and more processes with Azure AI Document Intelligence
+            url:  https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/streamline-insurance-claim-patient-check-in-and-more-processes/ba-p/3419467
+          - text: Process large scale PDF or images to extract information forms using Azure AI Document Intelligence
+            url: https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/process-large-scale-pdf-or-images-to-extract-information-forms/ba-p/3481533
+          - text: Document Intelligence Solution Accelerator
+            url: https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/form-recognizer-solution-accelerator/ba-p/3262782
+          - text: Extracting information from unstructured document (e.g., contracts) with Azure AI Document Intelligence
+            url:  https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/extracting-information-from-unstructured-document-e-g-contracts/ba-p/3267207
+          - text: Improve Customer Loyalty Program Automation with Azure AI Document Intelligence
+            url:  https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/improve-customer-loyalty-program-automation-with-azure-form/ba-p/3069233
+          - text: Extract values and line items from invoices with Document Intelligence now generally available
+            url:  https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/extract-values-and-line-items-from-invoices-with-form-recognizer/ba-p/2414729
+
+# Card 6
+   - title: Responsible AI
+     linkLists:
+      - linkListType: reference
+        links:
+           - text: Transparency notes
+             url: /legal/cognitive-services/document-intelligence/transparency-note?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+           - text: Characteristics and limitations
+             url:  /legal/cognitive-services/document-intelligence/characteristics-and-limitations?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+           - text: Guidance for integration and responsible use
+             url: /legal/cognitive-services/document-intelligence/guidance-integration-responsible-use?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+           - text: Data privacy, compliance, and security
+             url: /legal/cognitive-services/document-intelligence/data-privacy-security?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json

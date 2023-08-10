@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/08/2022
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to
 ---
 
 # Manage models registries in Azure Machine Learning with MLflow
@@ -19,12 +19,12 @@ Azure Machine Learning supports MLflow for model management. Such approach repre
 
 ### Prerequisites
 
-[!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
+[!INCLUDE [mlflow-prereqs](includes/machine-learning-mlflow-prereqs.md)]
 
 * Some operations may be executed directly using the MLflow fluent API (`mlflow.<method>`). However, others may require to create an MLflow client, which allows to communicate with Azure Machine Learning in the MLflow protocol. You can create an `MlflowClient` object as follows. This tutorial uses the object `client` to refer to such MLflow client.
 
     ```python
-    using mlflow
+    import mlflow
 
     client = mlflow.tracking.MlflowClient()
     ```

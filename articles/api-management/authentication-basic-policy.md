@@ -41,6 +41,7 @@ Use the `authentication-basic` policy to authenticate with a backend service usi
 ### Usage notes
 
 - This policy can only be used once in a policy section.
+- We recommend using [named values](api-management-howto-properties.md) to provide credentials, with secrets protected in a key vault.
 
 ## Example
 

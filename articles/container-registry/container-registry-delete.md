@@ -228,7 +228,6 @@ For more information about image storage in Azure Container Registry, see [Conta
 
 <!-- LINKS - External -->
 [docker-manifest-inspect]: https://docs.docker.com/edge/engine/reference/commandline/manifest/#manifest-inspect
-[portal]: https://portal.azure.com
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete

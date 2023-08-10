@@ -8,8 +8,8 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: how-to
-ms.date: 06/28/2017
-ms.custom: [amqp, mqtt, devx-track-java]
+ms.date: 05/30/2023
+ms.custom: [amqp, mqtt, devx-track-java, devx-track-extended-java]
 ---
 
 # Send cloud-to-device messages with IoT Hub (Java)
@@ -20,7 +20,7 @@ Azure IoT Hub is a fully managed service that helps enable reliable and secure b
 
 This article shows you how to:
 
-* Send cloud-to-device messages, from your solution backend, to a single device through IoT Hub
+* Send cloud-to-device (C2D) messages from your solution backend to a single device through IoT Hub
 
 * Receive cloud-to-device messages on a device
 
@@ -30,7 +30,7 @@ This article shows you how to:
 
 At the end of this article, you run two Java console apps:
 
-* **SimulatedDevice**: a modified version of the app created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp), which connects to your IoT hub and receives cloud-to-device messages.
+* **HandleMessages**: a sample device app included with the [Microsoft Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples), which connects to your IoT hub and receives cloud-to-device messages.
 
 * **SendCloudToDevice**: sends a cloud-to-device message to the device app through IoT Hub and then receives its delivery acknowledgment.
 
@@ -41,48 +41,73 @@ To learn more about cloud-to-device messages, see [Send cloud-to-device messages
 
 ## Prerequisites
 
-* A complete working version of the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) quickstart or the [Configure message routing with IoT Hub](tutorial-routing.md) article. This cloud-to-device article builds on the quickstart.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* [Java SE Development Kit 8](/java/azure/jdk/). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](iot-hub-create-through-portal.md).
+
+* A device registered in your IoT hub. If you haven't registered a device yet, register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+
+* This article uses sample code from the [Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java).
+
+  * Download or clone the SDK repository from GitHub to your development machine.
+  * Make sure that [Java SE Development Kit 8](/java/azure/jdk/) is installed on your development machine. Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
-## Receive messages in the simulated device app
+## Get the device connection string
 
-In this section, modify your device app to receive cloud-to-device messages from the IoT hub.
+In this article, you run a sample app that simulates a device, which receives cloud-to-device messages sent through your IoT Hub. The **HandleMessages** sample app included with the [Microsoft Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples) connects to your IoT hub and acts as your simulated device. The sample uses the primary connection string of the registered device on your IoT hub. 
 
-1. Using a text editor, open the simulated-device\src\main\java\com\mycompany\app\App.java file.
+[!INCLUDE [iot-hub-include-find-device-connection-string](../../includes/iot-hub-include-find-device-connection-string.md)]
 
-2. Add the following **MessageCallback** class as a nested class inside the **App** class. The **execute** method is invoked when the device receives a message from IoT Hub. In this example, the device always notifies the IoT hub that it has completed the message:
+## Receive messages in the device app
 
-    ```java
-    private static class AppMessageCallback implements MessageCallback {
-      public IotHubMessageResult execute(Message msg, Object context) {
-        System.out.println("Received message from hub: "
-          + new String(msg.getBytes(), Message.DEFAULT_IOTHUB_MESSAGE_CHARSET));
+In this section, run the **HandleMessages** sample device app to receive C2D messages sent through your IoT hub. Open a new command prompt and navigate to the **azure-iot-sdk-java\iothub\device\iot-device-samples\handle-messages** folder, under the folder where you expanded the Azure IoT Java SDK. Run the following commands, replacing the `{Your device connection string}` placeholder value with the device connection string you copied from the registered device in your IoT hub.
 
-        return IotHubMessageResult.COMPLETE;
-      }
-    }
-    ```
+```cmd/sh
+mvn clean package -DskipTests
+java -jar ./target/handle-messages-1.0.0-with-deps.jar "{Your device connection string}"
+```
 
-3. Modify the **main** method to create an **AppMessageCallback** instance and call the **setMessageCallback** method before it opens the client as follows:
+The following output is from the sample device app after it successfully starts and connects to your IoT hub:
+    
+```cmd/sh
+5/22/2023 11:13:18 AM> Press Control+C at any time to quit the sample.
+     
+Starting...
+Beginning setup.
+Successfully read input parameters.
+Using communication protocol MQTT.
+2023-05-23 09:51:06,062 INFO (main) [com.microsoft.azure.sdk.iot.device.transport.ExponentialBackoffWithJitter] - NOTE: A new instance of ExponentialBackoffWithJitter has been created with the following properties. Retry Count: 2147483647, Min Backoff Interval: 100, Max Backoff Interval: 10000, Max Time Between Retries: 100, Fast Retry Enabled: true
+2023-05-23 09:51:06,187 DEBUG (main) [com.microsoft.azure.sdk.iot.device.ClientConfiguration] - Device configured to use software based SAS authentication provider
+2023-05-23 09:51:06,187 INFO (main) [com.microsoft.azure.sdk.iot.device.transport.ExponentialBackoffWithJitter] - NOTE: A new instance of ExponentialBackoffWithJitter has been created with the following properties. Retry Count: 2147483647, Min Backoff Interval: 100, Max Backoff Interval: 10000, Max Time Between Retries: 100, Fast Retry Enabled: true
+2023-05-23 09:51:06,202 DEBUG (main) [com.microsoft.azure.sdk.iot.device.DeviceClient] - Initialized a DeviceClient instance using SDK version 2.1.5
+Successfully created an IoT Hub client.
+Successfully set message callback.
+2023-05-23 09:51:06,205 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.MqttIotHubConnection] - Opening MQTT connection...
+2023-05-23 09:51:06,218 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sending MQTT CONNECT packet...
+2023-05-23 09:51:07,308 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sent MQTT CONNECT packet was acknowledged
+2023-05-23 09:51:07,308 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sending MQTT SUBSCRIBE packet for topic devices/US60536-device/messages/devicebound/#
+2023-05-23 09:51:07,388 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sent MQTT SUBSCRIBE packet for topic devices/US60536-device/messages/devicebound/# was acknowledged
+2023-05-23 09:51:07,388 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.MqttIotHubConnection] - MQTT connection opened successfully
+2023-05-23 09:51:07,388 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - The connection to the IoT Hub has been established
+2023-05-23 09:51:07,404 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Updating transport status to new status CONNECTED with reason CONNECTION_OK
+2023-05-23 09:51:07,404 DEBUG (main) [com.microsoft.azure.sdk.iot.device.DeviceIO] - Starting worker threads
+2023-05-23 09:51:07,408 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking connection status callbacks with new status details
 
-    ```java
-    client = new DeviceClient(connString, protocol);
+CONNECTION STATUS UPDATE: CONNECTED
+CONNECTION STATUS REASON: CONNECTION_OK
+CONNECTION STATUS THROWABLE: null
 
-    MessageCallback callback = new AppMessageCallback();
-    client.setMessageCallback(callback, null);
-    client.open();
-    ```
+The connection was successfully established. Can send messages.
+2023-05-23 09:51:07,408 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Client connection opened successfully
+2023-05-23 09:51:07,408 INFO (main) [com.microsoft.azure.sdk.iot.device.DeviceClient] - Device client opened successfully
+Opened connection to IoT Hub. Messages sent to this device will now be received.
+Press any key to exit...
 
-4. To build the **simulated-device** app using Maven, execute the following command at the command prompt in the simulated-device folder:
-
-    ```cmd/sh
-    mvn clean package -DskipTests
-    ```
+```
 
 The `execute` method in the `AppMessageCallback` class returns `IotHubMessageResult.COMPLETE`. This status notifies IoT Hub that the message has been successfully processed and that the message can be safely removed from the device queue. The device should return this value when its processing successfully completes regardless of the protocol it's using.
 
@@ -100,7 +125,7 @@ For more information about the cloud-to-device message lifecycle and how IoT Hub
 
 ## Get the IoT hub connection string
 
-In this article you create a backend service to send cloud-to-device messages through your IoT Hub. To send cloud-to-device messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
+In this article, you create a backend service to send cloud-to-device messages through your IoT Hub. To send cloud-to-device messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
@@ -185,7 +210,7 @@ In this section, you create a Java console app that sends cloud-to-device messag
     > [!NOTE]
     > For simplicity, this article does not implement a retry policy. In production code, you should implement retry policies (such as exponential backoff) as suggested in the article [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
-9. To build the **simulated-device** app using Maven, execute the following command at the command prompt in the simulated-device folder:
+9. To build the **send-c2d-messages** app using Maven, execute the following command at the command prompt in the simulated-device folder:
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -195,21 +220,21 @@ In this section, you create a Java console app that sends cloud-to-device messag
 
 You're now ready to run the applications.
 
-1. At a command prompt in the simulated-device folder, run the following command to begin sending telemetry to your IoT hub and to listen for cloud-to-device messages sent from your hub:
+1. At a command prompt in the **azure-iot-sdk-java\iothub\device\iot-device-samples\handle-messages** folder, run the following commands, replacing the `{Your device connection string}` placeholder value with the device connection string you copied from the registered device in your IoT hub. This step starts the sample device app, which sends telemetry to your IoT hub and listens for cloud-to-device messages sent from your hub:
+
+    ```cmd/sh
+    java -jar ./target/handle-messages-1.0.0-with-deps.jar "{Your device connection string}"
+    ```
+
+    :::image type="content" source="./media/iot-hub-java-java-c2d/receivec2d.png" alt-text="Screenshot of the sample device app running in a console window." lightbox="./media/iot-hub-java-java-c2d/receivec2d.png":::
+
+2. At a command prompt in the **send-c2d-messages** folder, run the following command to send a cloud-to-device message and wait for a feedback acknowledgment:
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Run the simulated device app](./media/iot-hub-java-java-c2d/receivec2d.png)
-
-2. At a command prompt in the send-c2d-messages folder, run the following command to send a cloud-to-device message and wait for a feedback acknowledgment:
-
-    ```cmd/sh
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
-    ```
-
-    ![Run the command to send the cloud-to-device message](media/iot-hub-java-java-c2d/sendc2d.png)
+    :::image type="content" source="./media/iot-hub-java-java-c2d/sendc2d.png" alt-text="Screenshot of the sample service app running in a console window." lightbox="./media/iot-hub-java-java-c2d/sendc2d.png":::
 
 ## Next steps
 

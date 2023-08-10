@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Guides for Azure Database for PostgreSQL - Flexible Server Preview
+title: Troubleshooting Guides for Azure Database for PostgreSQL - Flexible Server
 description: Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server
@@ -9,12 +9,9 @@ author: AwdotiaRomanowna
 ms.date: 03/21/2023
 ---
 
-# Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server Preview
+# Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
-
-> [!NOTE]
-> Troubleshooting guides for PostgreSQL Flexible Server are currently in preview.
 
 The Troubleshooting Guides for Azure Database for PostgreSQL - Flexible Server are designed to help you quickly identify and resolve common challenges you may encounter while using Azure Database for PostgreSQL. Integrated directly into the Azure portal, the Troubleshooting Guides provide actionable insights, recommendations, and data visualizations to assist you in diagnosing and addressing issues related to common performance problems. With these guides at your disposal, you'll be better equipped to optimize your PostgreSQL experience on Azure and ensure a smoother, more efficient database operation.
 

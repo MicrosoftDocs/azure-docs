@@ -4,9 +4,9 @@ description: List of metrics collected in Azure Operator Nexus.
 author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure-operator-nexus
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/03/2023
-ms.custom: template-concept
+ms.custom: template-reference
 ---
 
 # List of metrics collected in Azure Operator Nexus
@@ -30,6 +30,9 @@ This section provides the list of metrics collected from the different component
 
 **Storage Appliance**
 - [pure storage](#pure-storage)
+
+**Network Fabric**
+- [Network Devices Metrics](#network-devices-metrics)
 
 ## Undercloud Kubernetes
 ### ***Kubernetes API server***
@@ -259,3 +262,56 @@ This section provides the list of metrics collected from the different component
 | purefa_host_performance_bandwidth_bytes | Host | Byte | Average | FlashArray host bandwidth | Cluster, Node, Dimension, Appliance | Yes |
 | purefa_host_space_bytes | Host | Byte | Average | FlashArray host volumes allocated space | Cluster, Node, Dimension, Appliance | Yes |
 | purefa_host_performance_iops | Host | Count | Average | FlashArray host IOPS | Cluster, Node, Dimension, Appliance | Yes |
+
+## Network Fabric Metrics
+### Network Devices Metrics
+
+| Metric Name     | Metric Display Name| Category | Unit | Aggregation Type | Description     | Dimensions     | Exportable via <br/>Diagnostic Settings? |
+|-------------|:-------------:|:-------------:|:-----:|:----------:|-------------------------------------|:---------------------:|:-------:|
+| CpuUtilizationMax | Cpu Utilization Max | Resource Utilization | % | Average | Maximum CPU utilization of the device over a given interval | CPU Cores | No* |
+| CpuUtilizationMin | Cpu Utilization Min | Resource Utilization | % | Average | Minimum CPU utilization of the device over a given interval | CPU Cores | No* |
+| FanSpeed | Fan Speed | Resource Utilization | RPM | Average | Running speed of the fan at any given point of time | Fan number | No* |
+| MemoryAvailable | Memory Available | Resource Utilization | GiB | Average | The amount of memory available or allocated to the device at a given point in time | NA | No* |
+| MemoryUtilized | Memory Utilized | Resource Utilization | GiB | Average | The amount of memory utilized by the device at a given point in time | NA | No* |
+| PowerSupplyInputCurrent | Power Supply Input Current | Resource Utilization | Amps | Average | The input current draw of the power supply | NA | No* |
+| PowerSupplyInputVoltage | Power Supply Input Voltage | Resource Utilization | Volts | Average | The input voltage of the power supply | NA | No* |
+| PowerSupplyMaximumPowerCapacity | Power Supply Maximum Power Capacity | Resource Utilization | Watts | Average | Maximum power capacity of the power supply | NA | No* |
+| PowerSupplyOutputCurrent | Power Supply Output Current | Resource Utilization | Amps | Average | The output current supplied by the power supply | NA | No* |
+| PowerSupplyOutputPower| Power Supply Output Power | Resource Utilization | Watts | Average | The output power supplied by the power supply | NA | No* |
+| PowerSupplyOutputVoltage | Power Supply Output Voltage | Resource Utilization | Volts | Average | The output voltage supplied the power supply | NA | No* |
+| BgpPeerStatus | BGP Peer Status | BGP Status | Count | Average | Operational state of the BGP Peer represented in numerical form. 1-Idle, 2-Connect, 3-Active, 4-OpenSent, 5-OpenConfirm, 6-Established | NA | No* |
+| InterfaceOperStatus | Interface Operational State | Interface Operational State | Count | Average | Operational state of the Interface represented in numerical form. 0-Up, 1-Down, 2-Lower Layer Down, 3-Testing, 4-Unknown, 5-Dormant, 6-Not Present | NA | No* |
+| IfEthInCrcErrors | Ethernet Interface In CRC Errors | Interface State Counters | Count | Average | The count of incoming CRC errors caused by several factors for an ethernet interface over a given interval of time | Interface name | No* |
+| IfEthInFragmentFrames | Ethernet Interface In Fragment Frames | Interface State Counters | Count | Average | The count of incoming fragmented frames for an ethernet interface over a given interval of time | Interface name | No* |
+| IfEthInJabberFrames | Ethernet Interface In Jabber Frames | Interface State Counters | Count | Average | The count of incoming jabber frames. Jabber frames are typically oversized frames with invalid CRC | Interface name | No* |
+| IfEthInMacControlFrames | Ethernet Interface In MAC Control Frames | Interface State Counters | Count | Average | The count of incoming MAC layer control frames for an ethernet interface over a given interval of time | Interface name | No* |
+| IfEthInMacPauseFrames | Ethernet Interface In MAC Pause Frames | Interface State Counters | Count | Average | The count of incoming MAC layer pause frames for an ethernet interface over a given interval of time | Interface name | No* |
+| IfEthInOversizeFrames | Ethernet Interface In Oversize Frames | Interface State Counters | Count | Average | The count of incoming oversized frames (larger than 1518 octets) for an ethernet interface over a given interval of time | Interface name | No* |
+| IfEthOutMacControlFrames | Ethernet Interface Out MAC Control Frames | Interface State Counters | Count | Average | The count of outgoing MAC layer control frames for an ethernet interface over a given interval of time | Interface name | No* |
+| IfEthOutMacPauseFrames | Ethernet Interface Out MAC Pause Frames | Interface State Counters | Count | Average | Shows the count of outgoing MAC layer pause frames for an ethernet interface over a given interval of time | Interface name | No* |
+| IfInBroadcastPkts | Interface In Broadcast Pkts | Interface State Counters | Count | Average | The count of incoming broadcast packets for an interface over a given interval of time | Interface name | No* |
+| IfInDiscards | Interface In Discards | Interface State Counters | Count | Average | The count of incoming discarded packets for an interface over a given interval of time | Interface name | No* |
+| IfInErrors | Interface In Errors | Interface State Counters | Count | Average | The count of incoming packets with errors for an interface over a given interval of time | Interface name | No* |
+| IfInFcsErrors | Interface In FCS Errors | Interface State Counters | Count | Average | The count of incoming packets with FCS (Frame Check Sequence) errors for an interface over a given interval of time | Interface name | No* |
+| IfInMulticastPkts | Interface In Multicast Pkts | Interface State Counters | Count | Average | The count of incoming multicast packets for an interface over a given interval of time | Interface name | No* |
+| IfInOctets | Interface In Octets | Interface State Counters | Count | Average | The total number of incoming octets received by an interface over a given interval of time | Interface name | No* |
+| IfInUnicastPkts | Interface In Unicast Pkts | Interface State Counters | Count | Average | The count of incoming unicast packets for an interface over a given interval of time | Interface name | No* |
+| IfInPkts | Interface In Pkts | Interface State Counters | Count | Average | The total number of incoming packets received by an interface over a given interval of time. Includes all packets - unicast, multicast, broadcast, bad packets, etc. | Interface name | No* |
+| IfOutBroadcastPkts | Interface Out Broadcast Pkts | Interface State Counters | Count | Average | The count of outgoing broadcast packets for an interface over a given interval of time | Interface name | No* |
+| IfOutDiscards | Interface Out Discards | Interface State Counters | Count | Average | The count of outgoing discarded packets for an interface over a given interval of time | Interface name | No* |
+| IfOutErrors | Interface Out Errors | Interface State Counters | Count | Average | The count of outgoing packets with errors for an interface over a given interval of time | Interface name | No* |
+| IfOutMulticastPkts | Interface Out Multicast Pkts | Interface State Counters | Count | Average | The count of outgoing multicast packets for an interface over a given interval of time | Interface name | No* |
+| IfOutOctets | Interface Out Octets | Interface State Counters | Count | Average | The total number of outgoing octets sent from an interface over a given interval of time | Interface name | No* |
+| IfOutUnicastPkts | Interface Out Unicast Pkts | Interface State Counters | Count | Average | The count of outgoing unicast packets for an interface over a given interval of time | Interface name | No* |
+| IfOutPkts | Interface Out Pkts | Interface State Counters | Count | Average | The total number of outgoing packets sent from an interface over a given interval of time. Includes all packets - unicast, multicast, broadcast, bad packets, etc. | Interface name | No* |
+| LacpErrors | LACP Errors | LACP State Counters | Count | Average | The count of LACPDU illegal packet errors | Interface name | No* |
+| LacpInPkts | LACP In Pkts | LACP State Counters | Count | Average | The count of LACPDU packets received by an interface over a given interval of time | Interface name | No* |
+| LacpOutPkts | LACP Out Pkts | LACP State Counters | Count | Average | The count of LACPDU packets sent by an interface over a given interval of time | Interface name | No* |
+| LacpRxErrors | LACP Rx Errors | LACP State Counters | Count | Average | The count of LACPDU packets with errors received by an interface over a given interval of time | Interface name | No* |
+| LacpTxErrors | LACP Tx Errors | LACP State Counters | Count | Average | The count of LACPDU packets with errors transmitted by an interface over a given interval of time | Interface name | No* |
+| LacpUnknownErrors | LACP Unknown Errors | LACP State Counters | Count | Average | The count of LACPDU packets with unknown errors over a given interval of time | Interface name | No* |
+| LldpFrameIn | LLDP Frame In | LLDP State Counters | Count | Average | The count of LLDP frames received by an interface over a given interval of time | Interface name | No* |
+| LldpFrameOut | LLDP Frame Out | LLDP State Counters | Count | Average | The count of LLDP frames trasmitted from an interface over a given interval of time | Interface name | No* |
+| LldpTlvUnknown | LLDP Tlv Unknown | LLDP State Counters | Count | Average | The count of LLDP frames received with unknown TLV by an interface over a given interval of time | Interface name | No* |
+
+\*Network Devices Metrics streaming via Diagnostic Setting is a work in progress and will be enabled in an upcoming release.

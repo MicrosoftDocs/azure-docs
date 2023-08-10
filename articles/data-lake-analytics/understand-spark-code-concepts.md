@@ -3,7 +3,7 @@ title: Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL
 description: This article describes Apache Spark concepts to help U-SQL developers understand Spark code concepts.
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.custom: Understand-apache-spark-code-concepts
+ms.custom: Understand-apache-spark-code-concepts, devx-track-dotnet
 ms.date: 01/20/2023
 ---
 

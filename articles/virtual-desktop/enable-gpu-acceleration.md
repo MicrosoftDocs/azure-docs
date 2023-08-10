@@ -97,6 +97,9 @@ To verify that Remote Desktop is using GPU-accelerated encoding:
 2. Launch the Event Viewer and navigate to the following node: **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**
 3. To determine if GPU-accelerated encoding is used, look for event ID 170. If you see "AVC hardware encoder enabled: 1" then GPU encoding is used.
 
+> [!TIP]
+> If you're connecting to your session host outside of Azure Virtual Desktop for testing GPU acceleration, the logs will instead be stored in **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTs** > **Operational** in Event Viewer.
+
 ## Verify fullscreen video encoding
 
 To verify that Remote Desktop is using fullscreen video encoding:
@@ -104,6 +107,9 @@ To verify that Remote Desktop is using fullscreen video encoding:
 1. Connect to the desktop of the VM using Azure Virtual Desktop client.
 2. Launch the Event Viewer and navigate to the following node: **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**
 3. To determine if fullscreen video encoding  is used, look for event ID 162. If you see "AVC Available: 1 Initial Profile: 2048" then AVC 444 is used.
+
+> [!TIP]
+> If you're connecting to your session host outside of Azure Virtual Desktop for testing GPU acceleration, the logs will instead be stored in **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTs** > **Operational** in Event Viewer.
 
 ## Next steps
 

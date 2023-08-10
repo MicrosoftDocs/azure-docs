@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: multiple
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/12/2021
+ms.date: 06/30/2023
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/30/2019
@@ -29,6 +29,8 @@ Azure Notification Hubs provide an easy-to-use and scaled-out push engine that e
 - Push promotional contents to applications to engage and market to customers.
 - Notify users of enterprise events such as new messages and work items.
 - Send codes for multi-factor authentication.
+
+[!INCLUDE [notification-hubs-firebase-deprecation](../../includes/notification-hubs-firebase-deprecation.md)]
 
 ## What are push notifications?
 

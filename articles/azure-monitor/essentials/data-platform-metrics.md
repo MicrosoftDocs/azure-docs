@@ -26,13 +26,13 @@ There are multiple types of metrics supported by Azure Monitor Metrics:
 - Native metrics use tools in Azure Monitor for analysis and alerting.
   - Platform metrics are collected from Azure resources. They require no configuration and have no cost.
   - Custom metrics are collected from different sources that you configure including applications and agents running on virtual machines.
-- Prometheus metrics (preview) are collected from Kubernetes clusters including Azure Kubernetes service (AKS) and use industry standard tools for analyzing and alerting such as PromQL and Grafana.
+- Prometheus metrics are collected from Kubernetes clusters including Azure Kubernetes service (AKS) and use industry standard tools for analyzing and alerting such as PromQL and Grafana.
 
 ![Diagram that shows sources and uses of metrics.](media/data-platform-metrics/metrics-overview.png)
 
 The differences between each of the metrics are summarized in the following table.
 
-| Category | Native platform metrics | Native custom metrics | Prometheus metrics (preview) |
+| Category | Native platform metrics | Native custom metrics | Prometheus metrics |
 |:---|:---|:---|:---|
 | Sources | Azure resources | Azure Monitor agent<br>Application insights<br>REST API | Azure Kubernetes service (AKS) cluster<br>Any Kubernetes cluster through remote-write |
 | Configuration | None | Varies by source | Enable Azure Monitor managed service for Prometheus |
@@ -64,6 +64,11 @@ Azure Monitor provides REST APIs that allow you to get data in and out of Azure 
 - **Azure Monitor Metrics REST API** - Allows you to access Azure Monitor platform metrics definitions and values. For more information, see [Azure Monitor REST API](/rest/api/monitor/).  For information on how to use the API, see the [Azure monitoring REST API walkthrough](./rest-api-walkthrough.md).
 - **Azure Monitor Metrics Data plane REST API**  - [Azure Monitor Metrics data plane API](/rest/api/monitor/metrics-data-plane/) is a high-volume API designed for customers with large volume metrics queries. It's similar to the existing standard Azure Monitor Metrics REST API, but provides the capability to retrieve metric data for up to 50 resource IDs in the same subscription and region in a single batch API call. This improves query throughput and reduces the risk of throttling.   
 
+## Security
+
+All communication between connected systems and the Azure Monitor service is encrypted using the TLS 1.2 (HTTPS) protocol. The Microsoft SDL process is followed to ensure all Azure services are up-to-date with the most recent advances in cryptographic protocols.  
+
+Secure connection is established between the agent and the Azure Monitor service using certificate-based authentication and TLS with port 443. Azure Monitor uses a secret store to generate and maintain keys. Private keys are rotated every 90 days and are stored in Azure and are managed by the Azure operations who follow strict regulatory and compliance practices. For more information on security, see  [Encryption of data in transit](../../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit), [Encryption of data at rest](../../security/fundamentals/encryption-atrest.md), and [Azure Monitor Logs data security](../logs/data-security.md)
 
 ## Metrics Explorer
 
@@ -75,7 +80,7 @@ For more information, see [Getting started with Azure Monitor Metrics Explorer](
 
 ## Data structure
 
-Data that Azure Monitor Metrics collects is stored in a time-series database that's optimized for analyzing time-stamped data. Each set of metric values is a time series with the following properties:
+Data that Azure Monitor Metrics collects, is stored in a time-series database that's optimized for analyzing time-stamped data. Each set of metric values is a time series with the following properties:
 
 * The time when the value was collected.
 * The resource that the value is associated with.

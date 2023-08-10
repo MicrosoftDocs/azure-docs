@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 03/30/2023
 ms.reviewer: rijolly
 ms.devlang: csharp, java, javascript, python
-ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
+ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet, devx-track-extended-java
 ---
 
 # What is distributed tracing and telemetry correlation?
@@ -20,7 +20,7 @@ Azure Monitor provides two experiences for consuming distributed trace data: the
 
 To enable distributed tracing for an application, add the right agent, SDK, or library to each service based on its programming language.
 
-### Enable via Application Insights through auto-instrumentation or SDKs
+### Enable via Application Insights through autoinstrumentation or SDKs
 
 The Application Insights agents and SDKs for .NET, .NET Core, Java, Node.js, and JavaScript all support distributed tracing natively. Instructions for installing and configuring each Application Insights SDK are available for:
 
@@ -173,14 +173,14 @@ It's important to make sure the incoming and outgoing configurations are exactly
 
 This feature is in `Microsoft.ApplicationInsights.JavaScript`. It's disabled by default. To enable it, use `distributedTracingMode` config. AI_AND_W3C is provided for backward compatibility with any legacy services instrumented by Application Insights.
 
-- **[npm-based setup](./javascript.md#npm-based-setup)**
+- **[npm-based setup](./javascript-sdk.md?tabs=npmpackage#get-started)**
 
    Add the following configuration:
   ```JavaScript
     distributedTracingMode: DistributedTracingModes.W3C
   ```
 
-- **[Snippet-based setup](./javascript.md#snippet-based-setup)**
+- **[JavaScript (Web) SDK Loader Script-based setup](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#get-started)**
 
    Add the following configuration:
   ```

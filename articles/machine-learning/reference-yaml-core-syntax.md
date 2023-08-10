@@ -16,7 +16,7 @@ ms.reviewer: larryfr
 
 # CLI (v2) core YAML syntax
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 Every Azure Machine Learning entity has a schematized YAML representation. You can create a new entity from a YAML configuration file with a `.yml` or `.yaml` extension.
 
@@ -213,7 +213,7 @@ Similar to the `command` for a job, the `command` for a component can also be pa
 
 #### Define optional inputs in command line
 When the input is set as `optional = true`, you need use `$[[]]` to embrace the command line with inputs. For example `$[[--input1 ${{inputs.input1}}]`. The command line at runtime may have different inputs.
-- If you are using only specify the required `training_data` and `model_output` parameters, the command line will look like:
+- If you are using only the required `training_data` and `model_output` parameters, the command line will look like:
 
 ```cli
 python train.py --training_data some_input_path --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
@@ -225,6 +225,12 @@ If no value is specified at runtime, `learning_rate` and `learning_rate_schedule
 ```cli
 python train.py --training_data some_input_path --max_epocs 10 --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
 ```
+
+### Output path expressions
+
+The following expressions can be used in the output path of your job:
+
+[!INCLUDE [output path expressions](includes/output-path-expressions.md)]
 
 ## Next steps
 

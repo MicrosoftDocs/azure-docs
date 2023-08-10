@@ -18,7 +18,6 @@ Operator Nexus meets operators' security, resiliency, observability, and perform
 The platform seamlessly integrates compute, network, and storage.
 Operator Nexus is self service and uses the Azure portal, CLI, SDKs, and other tools to interact with the platform. 
 
-<!--- IMG ![Operator Nexus HL overview diagram](Docs/media/hl-architecture.png) IMG --->
 :::image type="content" source="media/hl-architecture.png" alt-text="Figure of Operator Nexus overview.":::
 
 Figure: Operator Nexus Overview
@@ -43,7 +42,6 @@ Operator Nexus utilizes a curated and certified hardware Bill of Materials (BOM)
 
 The service that manages the Operator Nexus infrastructure is hosted in Azure. Operators can choose an Azure region that supports Operator Nexus for any on-premises Operator Nexus instance.  The diagram illustrates the architecture of the Operator Nexus service.
 
-<!--- IMG ![How Operator Nexus works diagram](Docs/media/architecture-overview.png) IMG --->
 :::image type="content" source="media/architecture-overview.png" alt-text="Screenshot of how Operator Nexus works.":::
 
 Figure: How Operator Nexus works
@@ -76,15 +74,15 @@ One important component of the service is Cluster Manager.
 
 ### Network Fabric Automation
 
-Operator Nexus includes [Network Fabric Automation (NFA)](./howto-configure-network-fabric-controller.md) which enables operators to build, operate and manage carrier grade network fabrics. The reliable and distributed cloud services model supports the operators' telco network functions. Operators have the ability to interact with Operator Nexus to provision the network fabric via Zero-Touch Provisioning (ZTP), as well as perform complex network implementations via a workflow driven, API model. 
+Operator Nexus includes [Network Fabric Automation (NFA)](./howto-configure-network-fabric-controller.md) which enables operators to build, operate and manage carrier grade network fabrics. The reliable and distributed cloud services model supports the operators' telco network functions. Operators have the ability to interact with Operator Nexus to provision the network fabric via Zero-Touch Provisioning (ZTP), and perform complex network implementations via a workflow driven, API model. 
 
 ### Network Packet Broker
 
 Network Packet Broker (NPB) is an integral part of the network fabric in Operator Nexus. NPB enables multiple scenarios from network performance monitoring to security intrusion detection. Operators can monitor every single packet in Operator Nexus and replicate it. They can apply packet filters dynamically and send filtered packets to multiple destinations for further processing.
 
-### Azure Hybrid Kubernetes Service
+### Nexus Kubernetes
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service on Azure. It lets users focus on developing and deploying their workloads while letting Azure handle the management and operational overheads. In [AKS-Hybrid](/azure/aks/hybrid/) the Kubernetes cluster is deployed on-premises. Azure still performs the traditional operational management activities such as updates, certificate rotations, etc.
+Nexus Kubernetes is an Operator Nexus version of Azure Kubernetes Service (AKS) for on-premises use. It's optimized to automate creation of containers to run tenant network function workloads. A Nexus Kubernetes cluster is deployed on-premises and the traditional operational management activities (CRUD) are managed via Azure. See [Nexus Kubernetes](./concepts-nexus-kubernetes-cluster.md) to learn more.
 
 ### Network functions virtualization infrastructure capabilities
 
@@ -111,3 +109,4 @@ Log Analytics has a rich analytical tool-set that operators can use for troubles
 
 * Learn more about Operator Nexus [resource models](./concepts-resource-types.md)
 * Review [Operator Nexus deployment prerequisites and steps](./howto-azure-operator-nexus-prerequisites.md)
+* Learn [how to deploy a Nexus Kubernetes cluster](./quickstarts-kubernetes-cluster-deployment-bicep.md)

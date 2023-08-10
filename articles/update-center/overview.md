@@ -4,7 +4,7 @@ description: The article tells what update management center (preview) in Azure 
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 04/23/2023
+ms.date: 07/05/2023
 ms.topic: overview
 ---
 
@@ -18,7 +18,7 @@ Update management center (preview) is a unified service to help manage and gover
 
 You can use the update management center (preview) in Azure to:
 
-- Oversee update compliance for your entire fleet of machines in Azure, on- premises, and other cloud environments.
+- Oversee update compliance for your entire fleet of machines in Azure, on-premises, and other cloud environments.
 - Instantly deploy critical updates to help secure your machines.
 - Leverage flexible patching options such as [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) in Azure, [hot patching](../automanage/automanage-hotpatch.md), and customer-defined maintenance schedules. 
 
@@ -90,10 +90,44 @@ You need the following permissions to create and manage update deployments. The 
 |Update assessment on Azure VMs |*Microsoft.Compute/virtualMachines/assessPatches/action* ||
 |Install update on Arc enabled server |*Microsoft.HybridCompute/machines/installPatches/action* ||
 |Update assessment on Arc enabled server |*Microsoft.HybridCompute/machines/assessPatches/action* ||
+|Register the subscription for the Microsoft.Maintenance resource provider| *Microsoft.Maintenance/register/action* | Subscription|
 |Create/modify maintenance configuration |*Microsoft.Maintenance/maintenanceConfigurations/write* |Subscription/resource group |
 |Create/modify configuration assignments |*Microsoft.Maintenance/configurationAssignments/write* |Machine |
 |Read permission for Maintenance updates resource |*Microsoft.Maintenance/updates/read* |Machine |
 |Read permission for Maintenance apply updates resource |*Microsoft.Maintenance/applyUpdates/read* |Machine |
+
+### VM images
+For more information, see the [list of supported operating systems and VM images](support-matrix.md#supported-operating-systems).
+
+> [!NOTE]
+> Currently, update management center (preview) has the following limitations regarding the operating system support: 
+> - Marketplace images other than the [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images) are currently not supported.
+> - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and **VMs created by Azure Migrate, Azure Backup, Azure Site Recovery** aren't fully supported for now. However, you can **use on-demand operations such as one-time update and check for updates** in update management center (preview). 
+> 
+> For the above limitations, we recommend that you use [Automation update management](../automation/update-management/overview.md) till the support is available in Update management center (preview). [Learn more](support-matrix.md#supported-operating-systems).
+
+
+## VM Extensions
+
+#### [Azure VM Extensions](#tab/azure-vms)
+
+| **Operating system**| **Extension** 
+|----------|-------------|
+|Windows   | Microsoft.CPlat.Core.WindowsPatchExtension|
+|Linux     | Microsoft.CPlat.Core.LinuxPatchExtension |
+
+#### [Azure Arc-enabled VM Extensions](#tab/azure-arc-vms)
+
+| **Operating system**| **Extension** 
+|----------|-------------|
+|Windows  | Microsoft.CPlat.Core.WindowsPatchExtension (Periodic assessment) <br> Microsoft.SoftwareUpdateManagement.WindowsOsUpdateExtension (On-demand operations and Schedule patching) |
+|Linux  | Microsoft.SoftwareUpdateManagement.LinuxOsUpdateExtension (On-demand operations and Schedule patching) <br> Microsoft.CPlat.Core.LinuxPatchExtension (Periodic assessment) |
+
+To view the available extensions for a VM in the Azure portal, follow these steps:
+1. Go to [Azure portal](https://portal.azure.com), select a VM.
+1. In the VM home page, under **Settings**, select **Extensions + applications**.
+1. Under the **Extensions** tab, you can view the available extensions.
+---
 
 ### Network planning
 
@@ -103,9 +137,7 @@ For Windows machines, you must allow traffic to any endpoints required by Window
 
 For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) for required endpoints. For other Linux distributions, see your provider documentation.
 
-### VM images
 
-Update management center (preview) supports Azure VMs created using Azure Marketplace images, where the virtual machine agent is already included in the Azure Marketplace image.
 
 ## Next steps
 

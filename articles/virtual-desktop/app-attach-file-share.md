@@ -94,5 +94,5 @@ Once you're finished, here are some other resources you might find helpful:
 - [Add and publish MSIX app attach packages with the Azure portal](app-attach-azure-portal.md)
 - Ask our community questions about this feature at the [Azure Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 - You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
-- [MSIX app attach glossary](app-attach-glossary.md)
+- [What is MSIX app attach?](what-is-app-attach.md)
 - [MSIX app attach FAQ](app-attach-faq.yml)

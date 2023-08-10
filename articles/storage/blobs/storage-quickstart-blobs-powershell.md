@@ -5,7 +5,6 @@ description: In this quickstart, you use Azure PowerShell in object (Blob) stora
 services: storage
 author: stevenmatthew
 ms.service: storage
-ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 03/31/2022
 ms.author: shaas

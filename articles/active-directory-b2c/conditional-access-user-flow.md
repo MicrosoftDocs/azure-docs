@@ -88,7 +88,7 @@ Azure AD B2C **Premium P2** is required to create risky sign-in policies. **Prem
 
 To add a Conditional Access policy, disable security defaults:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Under **Azure services**, select **Azure Active Directory**. Or use the search box to find and select **Azure Active Directory**.
@@ -208,7 +208,7 @@ The following template can be used to create a Conditional Access policy with di
 
 Identity Protection can calculate what it believes is normal for a user's behavior and use that to base decisions for their risk. User risk is a calculation of probability that an identity has been compromised. B2C tenants with P2 licenses can create Conditional Access policies incorporating user risk. When a user is detected as at risk, you can require that they securely change their password to remediate the risk and gain access to their account. We highly recommend setting up a user risk policy to require a secure password change so users can self-remediate.
 
-Learn more about [user risk in Identity Protection](../active-directory/identity-protection/concept-identity-protection-risks.md#user-linked-detections), taking into account the [limitations on Identity Protection detections for B2C](identity-protection-investigate-risk.md#service-limitations-and-considerations).
+Learn more about [user risk in Identity Protection](../active-directory/identity-protection/concept-identity-protection-risks.md), taking into account the [limitations on Identity Protection detections for B2C](identity-protection-investigate-risk.md#service-limitations-and-considerations).
 
 Configure Conditional Access through Azure portal or Microsoft Graph APIs to enable a user risk-based Conditional Access policy requiring multifactor authentication (MFA) and password change when user risk is medium OR high.
 
@@ -421,7 +421,7 @@ The claims transformation isn't limited to the `strongAuthenticationPhoneNumber`
 
 To review the result of a Conditional Access event:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.

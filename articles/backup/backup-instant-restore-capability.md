@@ -3,9 +3,9 @@ title: Azure Instant Restore Capability
 description: Azure Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
 ms.reviewer: sogup
 ms.topic: conceptual
-ms.date: 04/23/2019
-author: jyothisuri
-ms.author: jsuri
+ms.date: 07/20/2023
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Get improved backup and restore performance with Azure Backup Instant Restore capability
@@ -43,6 +43,7 @@ By default, snapshots are retained for two days. This feature allows restore ope
 * For premium storage accounts, the snapshots taken for instant recovery points count towards the 10-TB limit of allocated space.
 * You get an ability to configure the snapshot retention based on the restore needs. Depending on the requirement, you can set the snapshot retention to a minimum of one day in the backup policy pane as explained below. This will help you save cost for snapshot retention if you don’t perform restores frequently.
 * It's a one directional upgrade. Once upgraded to Instant restore, you can't go back.
+* When you use an Instant Restore recovery point, you must restore the VM or disks to a subscription and resource group that don't require CMK-encrypted disks via Azure Policy. 
 
 >[!NOTE]
 >With this instant restore upgrade, the snapshot retention duration of all the customers (**new and existing both included**) will be set to a default value of two days. However, you can set the duration according to your requirement to any value between 1 to 5 days.

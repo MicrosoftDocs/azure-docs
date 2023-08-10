@@ -9,11 +9,13 @@ ms.date: 02/20/2023
 
 # Monitor the health and audit the integrity of your analytics rules
 
-To ensure uninterrupted and tampering-free threat detection in your Microsoft Sentinel service, keep track of your analytics rules' health and integrity by monitoring their execution and audit logs.
+To ensure comprehensive, uninterrupted, and tampering-free threat detection in your Microsoft Sentinel service, keep track of your analytics rules' health and integrity and keep them functioning optimally, by monitoring their [execution insights](monitor-optimize-analytics-rule-execution.md#view-analytics-rule-insights), by querying the health and audit logs, and by [using manual rerun to test and optimize your rules](monitor-optimize-analytics-rule-execution.md#use-cases-and-benefits-of-rule-rerun).
 
 Set up notifications of health and audit events for relevant stakeholders, who can then take action. For example, define and send email or Microsoft Teams messages, create new tickets in your ticketing system, and so on.
 
 This article describes how to use Microsoft Sentinel's [auditing and health monitoring features](health-audit.md) to keep track of your analytics rules' health and integrity from within Microsoft Sentinel.
+
+For information on rule insights and manual rerunning of rules, see [Monitor and optimize the execution of your scheduled analytics rules](monitor-optimize-analytics-rule-execution.md).
 
 > [!IMPORTANT]
 >
@@ -264,6 +266,7 @@ The **Audit** tab lets you drill down to particular audit events.
 
 ## Next steps
 
+- [Monitor and optimize analytics rule execution in Microsoft Sentinel](monitor-optimize-analytics-rule-execution.md).
 - Learn about [auditing and health monitoring in Microsoft Sentinel](health-audit.md).
 - [Turn on auditing and health monitoring](enable-monitoring.md) in Microsoft Sentinel.
 - [Monitor the health of your automation rules and playbooks](monitor-automation-health.md).

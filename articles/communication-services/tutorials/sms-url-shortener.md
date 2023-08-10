@@ -2,14 +2,15 @@
 title: Tutorial - Send shortener links through SMS with Azure Communication Services
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to use the Azure URL Shortener sample to send short links through SMS.
-author: ddematheu2
+author: tophpalmer
 manager: shahen
 services: azure-communication-services
-ms.author: dademath
+ms.author: chpalm
 ms.date: 03/8/2023
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: sms
+ms.custom: devx-track-extended-java, devx-track-js
 zone_pivot_groups: acs-js-csharp
 ---
 

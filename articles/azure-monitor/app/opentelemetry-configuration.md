@@ -1,13 +1,14 @@
 ---
-title: Azure Monitor OpenTelemetry configuration for .NET, Java, Node.js, and Python applications
+title: Configure Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides configuration guidance for .NET, Java, Node.js, and Python applications.
 ms.topic: conceptual
-ms.date: 05/10/2023
+ms.date: 07/10/2023
 ms.devlang: csharp, javascript, typescript, python
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
 ---
 
-# Azure Monitor OpenTelemetry configuration
+# Configure Azure Monitor OpenTelemetry
 
 This article covers configuration settings for the Azure Monitor OpenTelemetry distro.
 
@@ -229,15 +230,16 @@ const appInsights = new ApplicationInsightsClient(config);
 
 Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
 
-Set Resource attributes using the `OTEL_RESOURCE_ATTRIBUTES` and/or `OTEL_SERVICE_NAME` environment variables. `OTEL_RESOURCE_ATTRIBUTES` takes series of comma-separated key-value pairs. For example, to set the Cloud Role Name to "my-namespace" and set Cloud Role Instance to "my-instance", you can set `OTEL_RESOURCE_ATTRIBUTES` as such:
+Set Resource attributes using the `OTEL_RESOURCE_ATTRIBUTES` and/or `OTEL_SERVICE_NAME` environment variables. `OTEL_RESOURCE_ATTRIBUTES` takes series of comma-separated key-value pairs. For example, to set the Cloud Role Name to "my-namespace.my-helloworld-service" and set Cloud Role Instance to "my-instance", you can set `OTEL_RESOURCE_ATTRIBUTES` and `OTEL_SERVICE_NAME` as such:
 ```
 export OTEL_RESOURCE_ATTRIBUTES="service.namespace=my-namespace,service.instance.id=my-instance"
+export OTEL_SERVICE_NAME="my-helloworld-service"
 ```
 
-If you don't set Cloud Role Name via the "service.namespace" Resource Attribute, you can alternatively set the Cloud Role Name via the `OTEL_SERVICE_NAME` environment variable:
+If you do not set the `service.namespace` Resource attribute, you can alternatively set the Cloud Role Name with only the OTEL_SERVICE_NAME environment variable or the `service.name` Resource attribute. For example, to set the Cloud Role Name to "my-helloworld-service" and set Cloud Role Instance to "my-instance", you can set `OTEL_RESOURCE_ATTRIBUTES` and `OTEL_SERVICE_NAME` as such:
 ```
 export OTEL_RESOURCE_ATTRIBUTES="service.instance.id=my-instance"
-export OTEL_SERVICE_NAME="my-namespace"
+export OTEL_SERVICE_NAME="my-helloworld-service"
 ```
 
 ---
@@ -247,13 +249,11 @@ export OTEL_SERVICE_NAME="my-namespace"
 You may want to enable sampling to reduce your data ingestion volume, which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a "sampling ratio", which Application Insights converts to "ItemCount". The *fixed-rate* sampler ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. For more information, see [Learn More about sampling](sampling.md#brief-summary).
 
 > [!NOTE] 
-> Metrics are unaffected by sampling.
+> Metrics and Logs are unaffected by sampling.
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
 The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces are sent.
-
-In this example, we utilize the `ApplicationInsightsSampler`, which is included with the Distro.
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
@@ -270,16 +270,12 @@ app.Run();
 
 The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces are sent.
 
-In this example, we utilize the `ApplicationInsightsSampler`, which offers compatibility with Application Insights SDKs.
-
-```dotnetcli
-dotnet add package --prerelease OpenTelemetry.Extensions.AzureMonitor
-```
-
 ```csharp
 var tracerProvider = Sdk.CreateTracerProviderBuilder()
-    .SetSampler(new ApplicationInsightsSampler(new ApplicationInsightsSamplerOptions { SamplingRatio = 1.0F }))
-    .AddAzureMonitorTraceExporter();
+    .AddAzureMonitorTraceExporter(options =>
+    {
+        options.SamplingRatio = 0.1F;
+    });
 ```
 
 #### [Java](#tab/java)
@@ -310,7 +306,7 @@ export OTEL_TRACES_SAMPLER_ARG=0.1
 ---
 
 > [!TIP]
-> When using fixed-rate/percentage sampling and you aren't sure what to set the sampling rate as, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](opentelemetry-enable.md#metrics), which are unaffected by sampling.
+> When using fixed-rate/percentage sampling and you aren't sure what to set the sampling rate as, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](opentelemetry-add-modify.md#metrics), which are unaffected by sampling.
 
 ## Enable Azure AD authentication
 
@@ -327,17 +323,23 @@ We support the credential classes provided by [Azure Identity](https://github.co
 - We recommend `ClientSecretCredential` for service principals.
   - Provide the tenant ID, client ID, and client secret to the constructor.
 
-```csharp
-var builder = WebApplication.CreateBuilder(args);
+1. Install the latest [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) package:
+    ```dotnetcli
+    dotnet add package Azure.Identity
+    ```
+    
+1. Provide the desired credential class:
+    ```csharp
+    var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
-    options.Credential = new DefaultAzureCredential();
-});
+    builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
+        options.Credential = new DefaultAzureCredential();
+    });
 
-var app = builder.Build();
+    var app = builder.Build();
 
-app.Run();
-```
+    app.Run();
+    ```
 
 #### [.NET](#tab/net)
 
@@ -350,32 +352,38 @@ We support the credential classes provided by [Azure Identity](https://github.co
 - We recommend `ClientSecretCredential` for service principals.
   - Provide the tenant ID, client ID, and client secret to the constructor.
 
-```csharp
-var credential = new DefaultAzureCredential();
+1. Install the latest [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) package:
+    ```dotnetcli
+    dotnet add package Azure.Identity
+    ```
 
-var tracerProvider = Sdk.CreateTracerProviderBuilder()
-    .AddAzureMonitorTraceExporter(options =>
-    {
-        options.Credential = credential;
-    });
+1. Provide the desired credential class:    
+    ```csharp
+    var credential = new DefaultAzureCredential();
 
-var metricsProvider = Sdk.CreateMeterProviderBuilder()
-    .AddAzureMonitorMetricExporter(options =>
-    {
-        options.Credential = credential;
-    });
-
-var loggerFactory = LoggerFactory.Create(builder =>
-{
-    builder.AddOpenTelemetry(options =>
-    {
-        options.AddAzureMonitorLogExporter(options =>
+    var tracerProvider = Sdk.CreateTracerProviderBuilder()
+        .AddAzureMonitorTraceExporter(options =>
         {
             options.Credential = credential;
         });
+
+    var metricsProvider = Sdk.CreateMeterProviderBuilder()
+        .AddAzureMonitorMetricExporter(options =>
+        {
+            options.Credential = credential;
+        });
+
+    var loggerFactory = LoggerFactory.Create(builder =>
+    {
+        builder.AddOpenTelemetry(options =>
+        {
+            options.AddAzureMonitorLogExporter(options =>
+            {
+                options.Credential = credential;
+            });
+        });
     });
-});
-```
+    ```
     
 #### [Java](#tab/java)
 
@@ -569,8 +577,8 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside th
     var builder = WebApplication.CreateBuilder(args);
 
     builder.Services.AddOpenTelemetry().UseAzureMonitor();
-    builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddOtlpExporter());
-    builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddOtlpExporter());
+    builder.Services.AddOpenTelemetry().WithTracing(builder => builder.AddOtlpExporter());
+    builder.Services.AddOpenTelemetry().WithMetrics(builder => builder.AddOtlpExporter());
 
     var app = builder.Build();
 
@@ -680,6 +688,6 @@ For more information about OpenTelemetry SDK configuration, see the [OpenTelemet
 
 ### [Python](#tab/python)
 
-Currently unavailable.
+For more information about OpenTelemetry SDK configuration, see the [OpenTelemetry documentation](https://opentelemetry.io/docs/concepts/sdk-configuration). For additional details, see [Azure monitor Distro Usage](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#usage).
 
 ---

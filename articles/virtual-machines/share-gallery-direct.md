@@ -66,7 +66,7 @@ When you are ready, you share your gallery with subscriptions and tenants. Only 
 > [!NOTE]
 > **Known issue**: In the Azure portal, If you get an error "Failed to update Azure compute gallery", please verify if you have owner (or) compute gallery sharing admin permission on the gallery.
 >
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
 1. In the **Azure Compute Gallery** page, click **Add**.
 1. On the **Create Azure Compute Gallery** page, select the correct subscription.

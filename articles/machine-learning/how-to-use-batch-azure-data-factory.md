@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Data Factory to invoke Batch Endpoints.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Run batch endpoints from Azure Data Factory
 
-[!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
 Big data requires a service that can orchestrate and operationalize processes to refine these enormous stores of raw data into actionable business insights. [Azure Data Factory](../data-factory/introduction.md) is a managed cloud service that's built for these complex hybrid extract-transform-load (ETL), extract-load-transform (ELT), and data integration projects.
 
@@ -65,7 +65,7 @@ You can use a service principal or a [managed identity](../active-directory/mana
 
 ## About the pipeline
 
-We are going to create a pipeline in Azure Data Factory that can invoke a given batch endpoint over some data. The pipeline will communicate with Azure Machine Learning batch endpoints using REST. To know more about how to use the REST API of batch endpoints read [Deploy models with REST for batch scoring](how-to-deploy-batch-with-rest.md). 
+We are going to create a pipeline in Azure Data Factory that can invoke a given batch endpoint over some data. The pipeline will communicate with Azure Machine Learning batch endpoints using REST. To know more about how to use the REST API of batch endpoints read [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md?tabs=rest). 
 
 The pipeline will look as follows:
 

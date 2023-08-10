@@ -4,7 +4,7 @@ description: This quickstart describes how to create an event hub using Azure CL
 ms.topic: quickstart
 ms.date: 03/13/2023
 ms.author: spelluru
-ms.custom: devx-track-azurecli, mode-api
+ms.custom: devx-track-azurecli, mode-api, devx-track-extended-java
 ---
 
 # Quickstart: Create an event hub using Azure CLI

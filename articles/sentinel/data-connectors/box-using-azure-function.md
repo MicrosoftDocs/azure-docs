@@ -3,7 +3,7 @@ title: "Box (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Box (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 06/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

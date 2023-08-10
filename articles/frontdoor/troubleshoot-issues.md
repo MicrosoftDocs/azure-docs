@@ -150,6 +150,23 @@ This behavior is separate from the web application firewall (WAF) functionality 
 - Verify that your requests are in compliance with the requirements set out in the necessary RFCs.
 - Take note of any HTML message body that's returned in response to your request. A message body often explains exactly *how* your request is noncompliant.
 
+## My origin is configured as an IP address.
+
+### Symptom
+
+The origin is configured as an IP address. The origin is healthy, but rejecting requests from Azure Front Door.
+
+### Cause
+
+Azure Front Door users the origin host name as the SNI header during SSL handshake. Since the origin is configured as an IP address, the failure can be caused by one of the following reasons:
+
+* Certificate name check is enabled in the Front Door origin configuration. It's recommended to leave this setting enabled. Certificate name check requires the origin host name to match the certificate name or one of the entries in the subject alternative names extension.
+* If certificate name check is disabled, then the cause is likely due to the origin certificate logic rejecting any requests that don't have a valid host header in the request that matches the certificate.
+
+### Troubleshooting steps
+
+Change the origin from an IP address to an FQDN to which a valid certificate is issued that matches the origin certificate.
+
 ## Next steps
 
 * Learn how to [create a Front Door](quickstart-create-front-door.md).

@@ -4,10 +4,10 @@ description: Learn how to achieve service-to-service authentication with Azure D
 
 author: normesta
 ms.service: data-lake-store
+ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: normesta
-
 ---
 # Service-to-service authentication with Azure Data Lake Storage Gen1 using .NET SDK
 > [!div class="op_single_selector"]

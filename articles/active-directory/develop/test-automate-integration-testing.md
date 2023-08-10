@@ -48,9 +48,11 @@ We recommend you securely store the test usernames and passwords as [secrets](..
 
 ## Create test users
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Create some test users in your tenant for testing. Since the test users are not actual humans, we recommend you assign complex passwords and securely store these passwords as [secrets](../../key-vault/secrets/about-secrets.md) in Azure Key Vault.
 
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**.
 1. Go to **Users**.
 1. Select **New user** and create one or more test user accounts in your directory.
 1. The example test later in this article uses a single test user.  [Add the test username and password as secrets](../../key-vault/secrets/quick-create-portal.md) in the key vault you created previously. Add the username as a secret named "TestUserName" and the password as a secret named "TestPassword".
@@ -103,18 +105,19 @@ client_id={your_client_ID}
 Replace *{tenant}* with your tenant ID, *{your_client_ID}* with the client ID of your application, and *{resource_you_want_to_call}* with the identifier URI (for example, "https://graph.microsoft.com") or app ID of the API you are trying to access.
 
 ## Exclude test apps and users from your MFA policy
-Your tenant likely has a conditional access policy that [requires multifactor authentication (MFA) for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md), as recommended by Microsoft.  MFA won't work with ROPC, so you'll need to exempt your test applications and test users from this requirement.
+
+Your tenant likely has a Conditional Access policy that [requires multifactor authentication (MFA) for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md), as recommended by Microsoft.  MFA won't work with ROPC, so you'll need to exempt your test applications and test users from this requirement.
 
 To exclude user accounts:
-1. Navigate to the [Azure portal](https://portal.azure.com) and sign in to your tenant.  Select **Azure Active Directory**.  Select **Security** in the left navigation pane and then select **Conditional Access**.
-1. In **Policies**, select the conditional access policy that requires MFA.
+1. Sign in to the [Azure portal](https://portal.azure.com) to access your tenant.  Select **Azure Active Directory**.  Select **Security** in the left navigation pane and then select **Conditional Access**.
+1. In **Policies**, select the Conditional Access policy that requires MFA.
 1. Select **Users or workload identities**.
 1. Select the **Exclude** tab and then the **Users and groups** checkbox.
 1. Select the user account(s) to exclude in **Select excluded users**.
 1. Select the **Select** button and then **Save**.
 
 To exclude a test application:
-1. In **Policies**, select the conditional access policy that requires MFA.
+1. In **Policies**, select the Conditional Access policy that requires MFA.
 1. Select **Cloud apps or actions**.
 1. Select the **Exclude** tab and then **Select excluded cloud apps**.
 1. Select the app(s) you want to exclude in **Select excluded cloud apps**.

@@ -14,7 +14,7 @@ ms.custom: sdkv2, event-tier1-build-2022
 
 # Distributed GPU training guide (SDK v2)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Learn more about how to use distributed GPU training code in Azure Machine Learning (ML). This article will not teach you about distributed training.  It will help you run your existing distributed training code on Azure Machine Learning. It offers tips and examples for you to follow for each framework:
 
@@ -41,7 +41,7 @@ Azure Machine Learning offers an [MPI job](https://www.mcs.anl.gov/research/proj
 
 To run distributed training using MPI, follow these steps:
 
-1. Use an Azure Machine Learning environment with the preferred deep learning framework and MPI. Azure Machine Learning provides [curated environment](resource-curated-environments.md) for popular frameworks.
+1. Use an Azure Machine Learning environment with the preferred deep learning framework and MPI. Azure Machine Learning provides [curated environment](resource-curated-environments.md) for popular frameworks. Or [create a custom environment](how-to-manage-environments-v2.md#create-an-environment) with the preferred deep learning framework and MPI.
 1. Define  a `command` with `instance_count`. `instance_count` should be equal to the number of GPUs per node for per-process-launch, or set to 1 (the default) for per-node-launch if the user script will be responsible for launching the processes per node.
 1. Use the `distribution` parameter of the `command` to specify settings for `MpiDistribution`.
 
@@ -109,7 +109,7 @@ Beyond these, many applications will also need the following environment variabl
 You don't need to use a launcher utility like `torch.distributed.launch`. To run a distributed PyTorch job:
 
 1. Specify the training script and arguments
-1. Create a `command` and specify the type as `PyTorch` and the `process_count_per_instance` in the `distribution` parameter. The `process_count_per_instance` corresponds to the total number of processes you want to run for your job. `process_count_per_instance` should typically equal `# GPUs per node x # nodes`. If `process_count_per_instance` isn't specified, Azure Machine Learning will by default launch one process per node.
+1. Create a `command` and specify the type as `PyTorch` and the `process_count_per_instance` in the `distribution` parameter. The `process_count_per_instance` corresponds to the total number of processes you want to run for your job. `process_count_per_instance` should typically equal to `# of GPUs per node`. If `process_count_per_instance` isn't specified, Azure Machine Learning will by default launch one process per node.
 
 Azure Machine Learning will set the `MASTER_ADDR`, `MASTER_PORT`, `WORLD_SIZE`, and `NODE_RANK` environment variables on each node, and set the process-level `RANK` and `LOCAL_RANK` environment variables.
 
@@ -181,3 +181,5 @@ If you create an `AmlCompute` cluster of one of these RDMA-capable, InfiniBand-e
 
 * [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
 * [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
+* [Troubleshooting environment issues](how-to-troubleshoot-environments.md)
+

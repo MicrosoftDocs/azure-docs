@@ -1,19 +1,19 @@
 ---
-title: Troubleshoot SNAT exhaustion and connection timeouts
+title: Troubleshoot common outbound connectivity issues with Azure Load Balancer 
 titleSuffix: Azure Load Balancer
-description: Resolutions for common problems with outbound connectivity with Azure Load Balancer. 
+description: In this article, learn to troubleshoot for common problems with outbound connectivity with Azure Load Balancer. This includes most common issues of SNAT exhaustion and connection timeouts.
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.custom: ignite-2022
 ms.topic: troubleshooting
-ms.date: 04/21/2022
+ms.date: 05/22/2023
 ms.author: mbender
 ---
 
-# Troubleshoot SNAT exhaustion and connection timeouts
+# Troubleshoot common outbound connectivity issues with Azure Load Balancer
 
-This article is intended to provide guidance for common problems that can occur with outbound connections from an Azure Load Balancer. Most problems with outbound connectivity that customers experience is due to source network address translation (SNAT) port exhaustion and connection timeouts leading to dropped packets. 
+This article provides troubleshooting guidance for common problems that can occur with outbound connections from an Azure Load Balancer. Most problems with outbound connectivity that customers experience is due to source network address translation (SNAT) port exhaustion and connection timeouts leading to dropped packets. 
 
 To learn more about SNAT ports, see [Source Network Address Translation for outbound connections](load-balancer-outbound-connections.md).
 

@@ -4,7 +4,7 @@ description: Follow this quickstart to run a C# app that uses the Batch .NET cli
 ms.topic: quickstart
 ms.date: 04/28/2023
 ms.devlang: csharp
-ms.custom: mvc, devx-track-csharp, mode-api
+ms.custom: mvc, devx-track-csharp, mode-api, devx-track-dotnet
 ---
 
 # Quickstart: Use .NET to create a Batch pool and run a job

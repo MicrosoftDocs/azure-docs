@@ -325,23 +325,35 @@ As an alternative to using a `.user.ini` file, you can use [ini_set()](https://w
 
 ::: zone pivot="platform-linux"
 
-To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives (see [php.ini directives](https://www.php.net/manual/ini.list.php)), add an *.htaccess* file to the root directory of your app.
+To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives for linux web apps, such as upload_max_filesize and expose_php, use a custom "ini" file. You can create it in an [SSH session](configure-linux-open-ssh-session.md). 
 
-In the *.htaccess* file, add the directives using the `php_value <directive-name> <value>` syntax. For example:
+1. Go to your KUDU site https://\<sitename\>.scm.azurewebsites.net.
+2. Select Bash or SSH from the top menu.
+3. In Bash/SSH, go to your "/home/site/wwwroot" directory.
+4. Create a directory called "ini" (for example, mkdir ini).
+5. Change the current working directory to the "ini" folder you just created.
+
+You need to create an "ini" file to add your settings to. In this example, we use "extensions.ini." There are no file editors such as Vi, Vim, or Nano so you'll use echo to add the settings to the file. Change the "upload_max_filesize" from 2M to 50M. Use the following command to add the setting and create an "extensions.ini" file if one doesn't already exist.
 
 ```
-php_value upload_max_filesize 1000M
-php_value post_max_size 2000M
-php_value memory_limit 3000M
-php_value max_execution_time 180
-php_value max_input_time 180
-php_value display_errors On
-php_value upload_max_filesize 10M
+/home/site/wwwroot/ini>echo "upload_max_filesize=50M" >> extensions.ini
+/home/site/wwwroot/ini>cat extensions.ini
+
+upload_max_filesize=50M
+
+/home/site/wwwroot/ini>
 ```
 
-Redeploy your app with the changes and restart it. If you deploy it with Kudu (for example, using [Git](deploy-local-git.md)), it's automatically restarted after deployment.
+Then, go to the Azure portal and add an Application Setting to scan the "ini" directory that you just created to apply the change for upload_max_filesize. 
+  
+1. Go to the [Azure portal](https://portal.azure.com) and select your App Service Linux PHP application.
+2. Select Application Settings for the app.
+3. Under the Application settings section, select **+ Add new setting**.
+4. For the App Setting Name, enter "PHP_INI_SCAN_DIR" and for value, enter "/home/site/wwwroot/ini."
+5. Select the save button.
 
-As an alternative to using *.htaccess*, you can use [ini_set()](https://www.php.net/manual/function.ini-set.php) in your app to customize these non-PHP_INI_SYSTEM directives.
+> [!NOTE]
+> If you recompiled a PHP extension, such as GD, follow the steps at [Recompiling PHP Extensions at Azure App Service - Adding PHP Extensions](https://blogs.msdn.microsoft.com/azureossds/2019/01/29/azure-app-service-linux-adding-php-extensions/) 
 
 ::: zone-end
 

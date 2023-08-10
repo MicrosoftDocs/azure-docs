@@ -8,7 +8,7 @@ ms.subservice: apache-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/17/2021
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, ignite-2022
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, ignite-2022, devx-track-extended-java
 ---
 
 # Quickstart: Build a Java app to manage Azure Cosmos DB for Apache Cassandra data (v3 Driver)

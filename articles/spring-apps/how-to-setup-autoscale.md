@@ -1,7 +1,7 @@
 ---
 title: "Set up autoscale for applications"
 description: This article describes how to set up Autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article describes how to set up Autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
 
@@ -42,7 +42,7 @@ To follow these procedures, you need:
 
 There are two options for Autoscale demand management:
 
-* Manual scale: Maintains a fixed instance count. In the Standard tier, you can scale out to a maximum of 500 instances. This value changes the number of separate running instances of the application.
+* Manual scale: Maintains a fixed instance count. In the Standard plan, you can scale out to a maximum of 500 instances. This value changes the number of separate running instances of the application.
 * Custom autoscale: Scales on any schedule, based on any metrics.
 
 In the Azure portal, choose how you want to scale. The following figure shows the **Custom autoscale** option and mode settings.
@@ -78,9 +78,9 @@ You can also set Autoscale modes using the Azure CLI. The following commands cre
 
 For information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
 
-## Upgrade to the Standard tier
+## Upgrade to the Standard plan
 
-If you're on the Basic tier and constrained by one or more of these limits, you can upgrade to the Standard tier. To upgrade, go to the **Pricing** tier menu by first selecting the **Standard tier** column and then selecting the **Upgrade** button.
+If you're on the Basic plan and constrained by one or more of these limits, you can upgrade to the Standard plan. To upgrade, go to the **Pricing** plan menu by first selecting the **Standard tier** column and then selecting the **Upgrade** button.
 
 ## Next steps
 

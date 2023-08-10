@@ -75,7 +75,7 @@ Before you begin, review the [conceptual overview of the cluster connect feature
   |----------------|-------|
   |`*.servicebus.windows.net` | 443 |
   |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
-
+  
   > [!NOTE]
   > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
 
@@ -259,8 +259,13 @@ Before you begin, review the [conceptual overview of the cluster connect feature
 You should now see a response from the cluster containing the list of all pods under the `default` namespace.
 
 ## Known limitations
+Use `az connectedk8s show` to check the Arc-enabled Kubernetes agent version.
+
+### [Agent version < 1.11.7](#tab/agent-version)
+
 
 When making requests to the Kubernetes cluster, if the Azure AD entity used is a part of more than 200 groups, you may see the following error:
+
 
 `You must be logged in to the server (Error:Error while retrieving group info. Error:Overage claim (users with more than 200 group membership) is currently not supported.`
 
@@ -268,6 +273,17 @@ This is a known limitation. To get past this error:
 
 1. Create a [service principal](/cli/azure/create-an-azure-service-principal-azure-cli), which is less likely to be a member of more than 200 groups.
 1. [Sign in](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal) to Azure CLI with the service principal before running the `az connectedk8s proxy` command.
+
+### [Agent version >= 1.11.7](#tab/agent-version-latest)
+When making requests to the Kubernetes cluster, if the Azure AD service principal used is a part of more than 200 groups, you may see the following error:
+
+`Overage claim (users with more than 200 group membership) for SPN is currently not supported. For troubleshooting, please refer to aka.ms/overageclaimtroubleshoot`
+
+This is a known limitation. To get past this error:
+
+1. Create a [service principal](/cli/azure/create-an-azure-service-principal-azure-cli), which is less likely to be a member of more than 200 groups.
+1. [Sign in](/cli/azure/create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal) to Azure CLI with the service principal before running the `az connectedk8s proxy` command.
+---
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
 title: Using insights token - Bing Visual Search
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Shows how to use an image's insight token with Bing Visual Search API to get insights about an image.
 services: cognitive-services
 
@@ -11,12 +11,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
 ms.devlang: csharp, java, javascript, python
-ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, devx-track-extended-java
 ---
 
 # Use an insights token to get insights for an image
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 Bing Visual Search API returns information about an image that you provide. You can provide the image by using the URL of the image, an insights token, or by uploading an image. For information about these options, see [What is Bing Visual Search API?](overview.md). This article demonstrates using an insights token. For examples that demonstrate how to upload an image to get insights, see the quickstarts:
 
@@ -50,7 +50,7 @@ If you send Bing Visual Search an image token or URL, the following shows the fo
 }
 ```
 
-The examples in this article show how to use the insights token. You get the insights token from an `Image` object in an /images/search API response. For information about getting the insights token, see [What is the Bing Image Search API?](../Bing-Image-Search/overview.md).
+The examples in this article show how to use the insights token. You get the insights token from an `Image` object in an /images/search API response. For information about getting the insights token, see [What is the Bing Image Search API?](../bing-image-search/overview.md).
 
 ```
 --boundary_1234-abcd
@@ -503,5 +503,5 @@ if __name__ == '__main__':
 
 [Create a Visual Search single-page web app](tutorial-bing-visual-search-single-page-app.md)  
 [What is the Bing Visual Search API?](overview.md)  
-[Try Cognitive Services](https://aka.ms/bingvisualsearchtryforfree)  
+[Try Azure AI services](https://aka.ms/bingvisualsearchtryforfree)  
 [Images - Visual Search](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)

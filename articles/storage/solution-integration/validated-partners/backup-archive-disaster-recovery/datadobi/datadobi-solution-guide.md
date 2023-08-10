@@ -7,8 +7,8 @@ author: karauten
 ms.author: karauten
 ms.date: 04/12/2021
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Backup to Azure with DobiProtect

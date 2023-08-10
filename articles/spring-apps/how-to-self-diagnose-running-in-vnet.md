@@ -1,7 +1,7 @@
 ---
 title: "How to self-diagnose Azure Spring Apps with virtual networks"
 description: Learn how to self-diagnose and solve problems in Azure Spring Apps running in virtual networks.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
@@ -14,7 +14,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to use Azure Spring Apps diagnostics to diagnose and solve problems in Azure Spring Apps running in virtual networks.
 
@@ -60,6 +60,8 @@ The unknown health status results contain related documentation. You can select 
 If you misconfigured your Private DNS Zone record set, a critical result appears such as: `Failed to resolve the Private DNS in subnet xxx`.
 
 In **DNS Resolution Table Renderings**, detailed message information displays from which you can check your configurations.
+
+If your VNET uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. Azure recursive resolvers uses this IP address to resolve requests. If you don't use the Azure recursive resolvers, the Azure Spring Apps environment won't function as expected. For more information, see the [Name resolution that uses your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) section of [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ## Required Outbound Traffic
 
