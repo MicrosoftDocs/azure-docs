@@ -1,17 +1,17 @@
 ---
-title: Redact faces by using the Azure AI Video Indexer API 
+title: Redact faces by using Azure AI Video Indexer API 
 description: Learn how to use the Azure AI Video Indexer face redaction feature by using API.
 ms.topic: how-to
 ms.date: 07/03/2023
 ---
 
-# Redact faces by using the Azure AI Video Indexer API
+# Redact faces by using Azure AI Video Indexer API
 
-You can use Azure AI Video Indexer to detect and identify faces in video. To modify your video to blur (redact) faces of specific individuals, you can use the Face Redaction API.
+You can use Azure AI Video Indexer to detect and identify faces in video. To modify your video to blur (redact) faces of specific individuals, you can use API.
 
-A few minutes of footage that contain multiple faces can take hours to redact manually, but by using presets in the Face Redaction API, the face redaction process requires just a few simple steps.
+A few minutes of footage that contain multiple faces can take hours to redact manually, but by using presets in Video Indexer API, the face redaction process requires just a few simple steps.
 
-This article shows you how to redact faces by using an API. The Face Redaction API includes a **Face Redaction** preset that offers scalable face detection and redaction (blurring) in the cloud. The article demonstrates each step of how to redact faces by using the API in detail.
+This article shows you how to redact faces by using an API. Video Indexer API includes a **Face Redaction** preset that offers scalable face detection and redaction (blurring) in the cloud. The article demonstrates each step of how to redact faces by using the API in detail.
 
 The following video shows how to redact a video by using Azure AI Video Indexer API.
 
@@ -27,7 +27,7 @@ Face service access is limited based on eligibility and usage criteria to suppor
 
 Face redaction in Video Indexer relies on the output of existing Video Indexer face detection results that we provide in our Video Standard and Advanced Analysis presets.
 
-To redact a video, you must first upload a video to Video Indexer and complete an analysis by using the **Standard** or **Advanced** video presets. You can do this by using the [Azure Video Indexer website](https://www.videoindexer.ai/media/library) or [API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video). You can then use the face redaction API to reference this video by using the `videoId` value. We create a new video in which the indicated faces are redacted. Both the video analysis and face redaction are separate billable jobs. For more information, see our [pricing page](https://azure.microsoft.com/pricing/details/video-indexer/).
+To redact a video, you must first upload a video to Video Indexer and complete an analysis by using the **Standard** or **Advanced** video presets. You can do this by using the [Azure Video Indexer website](https://www.videoindexer.ai/media/library) or [API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video). You can then use face redaction API to reference this video by using the `videoId` value. We create a new video in which the indicated faces are redacted. Both the video analysis and face redaction are separate billable jobs. For more information, see our [pricing page](https://azure.microsoft.com/pricing/details/video-indexer/).
 
 ## Types of blurring
 
@@ -65,7 +65,7 @@ Or, use a number that represents the type of blurring that's described in the pr
 
 ## Filters
 
-You can apply filters to set which face IDs to blur. You can specify the IDs of the faces in a comma-separated array in the body of the JSON file. Use the `scope` parameter to exclude or include these faces for redaction. By specifying IDs, you can either redact all faces *except* the IDs you indicate or redact *only* those IDs. See examples in the next sections.
+You can apply filters to set which face IDs to blur. You can specify the IDs of the faces in a comma-separated array in the body of the JSON file. Use the `scope` parameter to exclude or include these faces for redaction. By specifying IDs, you can either redact all faces *except* the IDs that you indicate or redact *only* those IDs. See examples in the next sections.
 
 ### Exclude scope
 
@@ -185,7 +185,7 @@ This URL redirects to the .mp4 file that's stored in the Azure Storage account.
 
 | Question | Answer |
 |---|---|
-| Can I upload a video and redact in one operation? | No. You need to first upload and analyze a video by using the Video Indexer API. Then, reference the indexed video in your redaction job. |
+| Can I upload a video and redact in one operation? | No. You need to first upload and analyze a video by using Video Indexer API. Then, reference the indexed video in your redaction job. |
 | Can I use the [Azure AI Video Indexer website](https://www.videoindexer.ai/) to redact a video? | No. Currently you can use only the API to create a redaction job.|
 | Can I play back the redacted video by using the Video Indexer [website](https://www.videoindexer.ai/)?| Yes. The redacted video is visible on the Video Indexer website like any other indexed video, but it doesn't contain any insights. |
 | How do I delete a redacted video? | You can use the [Delete Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) API and provide the `Videoid` value for the redacted video. |
