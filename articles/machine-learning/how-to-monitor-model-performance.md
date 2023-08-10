@@ -805,7 +805,7 @@ Here is an example output from a custom signal component computing the metric, `
   | DIGITALITEMCOUNT | 7.238 | std_deviation | 2 |
   | PHYSICALITEMCOUNT | 5.509 | std_deviation | 2 |
 
-An example custom signal component definition and metric computation code can be found here: [https://github.com/Azure/azureml-examples/tree/main/cli/monitoring/components/custom_signal](https://github.com/Azure/azureml-examples/tree/main/cli/monitoring/components/custom_signal).
+An example custom signal component definition and metric computation code can be found in our GitHub repo at [https://github.com/Azure/azureml-examples/tree/main/cli/monitoring/components/custom_signal](https://github.com/Azure/azureml-examples/tree/main/cli/monitoring/components/custom_signal).
 
 # [Azure CLI](#tab/azure-cli)
 
