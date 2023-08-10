@@ -87,9 +87,9 @@ By default, all virtual machine instances in a subnet can communicate with any r
 
 1. In the search box at the top of the portal page, search for **Network security group**. Select **Network security groups** in the search results.
 
-1. Select **nsg-1**.
+1. Select **nsg-storage**.
 
-1. Select **Outbound security rules** in ***Settings**.
+1. Select **Outbound security rules** in **Settings**.
 
 1. Select **+ Add**.
 
@@ -111,7 +111,7 @@ By default, all virtual machine instances in a subnet can communicate with any r
 
     :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-outbound-storage-rule.png" alt-text="Screenshot of creating an outbound security to access storage.":::
 
-1. Select **Add**.
+1. Select **+ Add**.
 
 1. Create another outbound security rule that denies communication to the internet. This rule overrides a default rule in all network security groups that allows outbound internet communication. Complete the previous steps with the following values in **Add outbound security rule**:
 
@@ -145,6 +145,8 @@ By default, all virtual machine instances in a subnet can communicate with any r
 
 1. In **Associate subnet**, select **vnet-1** in **Virtual network**. Select **subnet-private** in **Subnet**. 
 
+    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/associate-nsg-private-subnet.png" alt-text="Screenshot of private subnet associated with network security group.":::
+
 1. Select **OK**.
 
 ## Restrict network access to a resource
@@ -169,6 +171,10 @@ The steps required to restrict network access to resources created through Azure
     | ------- | ----- |
     | Name | Enter **file-share**. |
     | Tier | Leave the default of **Transaction optimized**. |
+
+1. Select **Next: Backup**.
+
+1. De-select **Enable backup**.
 
 1. Select **Review + create**, then select **Create**.
 
@@ -196,9 +202,13 @@ To restrict network access to a subnet:
     | Virtual networks | Select **vnet-1**. |
     | Subnets | Select **subnet-private**. |
 
+    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/restrict-network-access.png" alt-text="Screenshot of restriction of storage account to the subnet and virtual network created previously.":::
+
 1. Select **Add**.
 
 1. Select **Save** to save the virtual network configurations.
+
+    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/restrict-network-access-save.png" alt-text="Screenshot of storage account screen and confirmation of subnet restriction.":::
 
 ## Create virtual machines
 
@@ -233,6 +243,8 @@ The virtual machine you created earlier that is assigned to the **subnet-1** sub
 1. In **Security + networking**, select **Access keys**.
 
 1. Copy the value of **key1**. You may need to select the **Show** button to display the key.
+
+    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/storage-account-access-key.png" alt-text="Screenshot of storage account access key.":::
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
