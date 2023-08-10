@@ -47,7 +47,7 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
 1. When prompted, use the HTTPS `username` and `password` for the cluster. The Ambari Web UI for the cluster is displayed.
 1. To view information on Kafka, select `Kafka` from the left panel and then select configs.
   
-   :::image type="content" source="./media/connect-kafka-with-vnet/kafka-config.png" alt-text="Screenshot showing VNet configurations." 
+   :::image type="content" source="./media/connect-kafka-with-vnet/kafka-config.png" alt-text="Screenshot showing KAfka VNet configurations." 
 
 1. To access kafka-env configuration on the Ambari dashboard, just type "kafka-env" in the top right filter field in Ambari UI. border="true" lightbox="./media/connect-kafka-with-vnet/":::
   
@@ -80,7 +80,7 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
 1. To disable maintenance mode, use the `Actions` button and select `Turn Off Maintenance Mode`. Select `OK` to complete this operation.
 1. Now you can execute your jobs from client VM with Kafka IP address. To check IP address of worker nodes from Ambari Portal click on `Hosts` on left panel. 
 
-   :::image type="content" source="./media/connect-kafka-with-vnet/ambari-hosts.png" alt-text="Screenshot showing the worker node IP." border="true" lightbox="./media/connect-kafka-with-vnet/ambari-hosts.png":::
+   :::image type="content" source="./media/connect-kafka-with-vnet/ambari-hosts.png" alt-text="Screenshot showing the worker node IP for Ambari." border="true" lightbox="./media/connect-kafka-with-vnet/ambari-hosts.png":::
    
 1. Use Sample git repository to create Kafka topics, produce and consume data from that topic. [hdinsight-kafka-java-getting-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)
    ```shell
@@ -96,14 +96,14 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
    java -jar kafka-producer-consumer.jar producer <topic_name> $KAFKABROKERS
    java -jar kafka-producer-consumer.jar producer test broker1-ip:9092, broker2-ip:9092
    ```
-   :::image type="content" source="./media/connect-kafka-with-vnet/producer.png" alt-text="Screenshot showing how to view producer." border="true" lightbox="./media/connect-kafka-with-vnet/producer.png":::
+   :::image type="content" source="./media/connect-kafka-with-vnet/producer.png" alt-text="Screenshot showing how to view Kafka producer." border="true" lightbox="./media/connect-kafka-with-vnet/producer.png":::
    
    ```shell
    # Consume Data from Topic
    java -jar kafka-producer-consumer.jar consumer <topic_name> $KAFKABROKERS
    java -jar kafka-producer-consumer.jar consumer test broker1-ip:9092,broker2-ip:9092
    ```
-   :::image type="content" source="./media/connect-kafka-with-vnet/consumer.png" alt-text="Screenshot showing consumer section." border="true" lightbox="./media/connect-kafka-with-vnet/consumer.png":::
+   :::image type="content" source="./media/connect-kafka-with-vnet/consumer.png" alt-text="Screenshot showing KAfka consumer section." border="true" lightbox="./media/connect-kafka-with-vnet/consumer.png":::
    
    > [!NOTE]
    > It is recommended to add all the brokers IP in **$KAFKABROKERS** for fault tolerance.
@@ -184,7 +184,7 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
       > 1. In Windows VM, static hostnames need to be added in the host file which present in the path `C:\Windows\System32\drivers\etc\`.
       > 1. This article assumes that the Ambari server is active on `Head Node 0`. If the Ambari server is active on `Head Node 1` use the FQDN of hn1 to access the Ambari UI.
       
-      :::image type="content" source="./media/connect-kafka-with-vnet/dashboard.png" alt-text="Screenshot showing Windows VM." border="trulightbox="./media/connect-kafka-with-vnet/dashboard.png"::
+      :::image type="content" source="./media/connect-kafka-with-vnet/dashboard.png" alt-text="Screenshot showing the dahsboard." border="trulightbox="./media/connect-kafka-with-vnet/dashboard.png":::
     
    1. You can also send messages to kafka topic and read the topics from the VM. For that you can try to use this sample java application.
      
