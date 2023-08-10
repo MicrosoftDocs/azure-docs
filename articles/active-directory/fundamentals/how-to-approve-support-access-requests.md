@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: troubleshooting
 ms.subservice: fundamentals
 ms.workload: identity
-ms.date: 07/25/2023
+ms.date: 08/10/2023
 ms.collection: M365-identity-device-management
 
 ---
@@ -60,7 +60,7 @@ When you have a pending support access request, you can view and approve that re
 
 ## Approve or reject a support request
 
-The **Pending requests** page shows information about your support case, and the reason that Microsoft Support needs your approval in order to access your diagnostic data.
+When viewing the details of a pending support access request, you can approve or reject the request.
 
 - To approve the support access request, select the **Approve** button.
     - Microsoft Support now has *read-only* access to your identity diagnostic data until your support request is completed.
