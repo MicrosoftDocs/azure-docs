@@ -139,8 +139,6 @@ items:
       href: how-to-manage-creator.md
     - name: Drawing package guide
       href: drawing-package-guide.md
-    - name: Use onboarding tool to create indoor map
-      href: creator-onboarding-tool.md
     - name: Query datasets with WFS API
       href: how-to-creator-wfs.md
     - name: Custom styling for indoor maps
