@@ -138,6 +138,7 @@ For a user who isn't a global administrator, to add groups, applications, or Sha
 | Azure AD directory role | Entitlement management role | Can add security group | Can add Microsoft 365 Group | Can add app | Can add SharePoint Online site |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Global administrator](../roles/permissions-reference.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Identity Governance administrator](../roles/permissions-reference.md) | n/a | :heavy_check_mark:  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [User administrator](../roles/permissions-reference.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Intune administrator](../roles/permissions-reference.md) | Catalog owner | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Exchange administrator](../roles/permissions-reference.md) | Catalog owner |  | :heavy_check_mark: |  |  |

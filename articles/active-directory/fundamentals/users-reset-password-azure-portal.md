@@ -40,7 +40,7 @@ Azure Active Directory (Azure AD) administrators can reset a user's password if 
 
     The **Alain Charon - Profile** page appears with the **Reset password** option.
 
-    ![User's profile page, with Reset password option highlighted](media/active-directory-users-reset-password-azure-portal/user-profile-reset-password-link.png)
+    ![User's profile page, with Reset password option highlighted](media/users-reset-password-azure-portal/user-profile-reset-password-link.png)
 
 3. In the **Reset password** page, select **Reset password**.
 

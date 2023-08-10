@@ -6,7 +6,7 @@ author: Dickson-Mwendia
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: include
+ms.topic: quickstart
 ms.workload: identity
 ms.date: 01/10/2022
 ms.author: dmwendia

@@ -6,7 +6,7 @@ author: cilwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: include
+ms.topic: quickstart
 ms.date: 01/14/2022
 ms.author: cwerner
 ms.custom: mode-api

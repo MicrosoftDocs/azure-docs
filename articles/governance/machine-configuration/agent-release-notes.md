@@ -22,7 +22,7 @@ For information on release notes for the connected machine agent, see
 
 ## Release notes
 
-### Version 1.29.48 - January 2023
+### Version 1.26.48 - January 2023
 
 #### New Features
 

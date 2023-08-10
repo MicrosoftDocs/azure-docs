@@ -181,7 +181,7 @@ definitions as `constraintTemplate` is deprecated.
     template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
     passed via **values** from Azure Policy. For more information, go to [Gatekeeper constraints](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraints).
 - **constraintInfo** (optional)
-  - Can't be used with `constraint`, `constraintTemplate`, `apiGroups`, or `kinds`.
+  - Can't be used with `constraint`, `constraintTemplate`, `apiGroups`, `kinds`, `scope`, `namespaces`, `excludedNamespaces`, or `labelSelector`.
   - If `constraintInfo` isn't provided, the constraint can be generated from `templateInfo` and policy.
   - **sourceType** (required)
     - Defines the type of source for the constraint. Allowed values: _PublicURL_ or _Base64Encoded_.
@@ -195,17 +195,19 @@ definitions as `constraintTemplate` is deprecated.
     to limit policy evaluation to.
   - An empty or missing value causes policy evaluation to include all namespaces not
     defined in _excludedNamespaces_.
-- **excludedNamespaces** (required)
+- **excludedNamespaces** (optional)
   - An _array_ of
     [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
     to exclude from policy evaluation.
-- **labelSelector** (required)
+- **labelSelector** (optional)
   - An _object_ that includes _matchLabels_ (object) and _matchExpression_ (array) properties to
     allow specifying which Kubernetes resources to include for policy evaluation that matched the
     provided
     [labels and selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/).
   - An empty or missing value causes policy evaluation to include all labels and selectors, except
     namespaces defined in _excludedNamespaces_.
+- **scope** (optional)
+  - A _string_ that includes the [scope](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#the-match-field) property to allow specifying if cluster-scoped or namespaced-scoped resources are matched. 
 - **apiGroups** (required when using _templateInfo_)
   - An _array_ that includes the
     [API groups](https://kubernetes.io/docs/reference/using-api/#api-groups) to match. An empty
@@ -217,8 +219,7 @@ definitions as `constraintTemplate` is deprecated.
     of Kubernetes object to limit evaluation to.
   - Defining `["*"]` for _kinds_ is disallowed.
 - **values** (optional)
-  - Defines any parameters and values to pass to the Constraint. Each value must exist in the
-    Constraint template CRD.
+  - Defines any parameters and values to pass to the Constraint. Each value must exist and match a property in the validation openAPIV3Schema section of the Constraint template CRD.
 
 ### Audit example
 

@@ -39,9 +39,6 @@ You can use Azure Communication Services APIs or SDKs to make and receive calls 
 
 ### What are the calling limitations on my trial phone number? 
 Trial phone numbers have 60 minutes of inbound and 60 minutes of outbound PSTN calling. The max duration of a phone call is 5 minutes. The trial phone number may not be used to dial emergency services such as 911, 311, 988 or any emergency numbers.
- 
-### Are there any costs associated with the trial phone number? 
-While the trial phone number itself is provided at no cost during the trial period, there may be associated costs for making and receiving calls or other PSTN Calling services. It's essential to review the pricing details for Azure Communication Services to understand the costs involved.  
 
 ## Verified Phone Numbers
 

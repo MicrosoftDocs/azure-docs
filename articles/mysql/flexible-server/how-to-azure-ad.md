@@ -1,8 +1,8 @@
 ---
 title: Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server
 description: Learn how to set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server
-author: vivgk
-ms.author: vivgk
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 11/21/2022
 ms.service: mysql

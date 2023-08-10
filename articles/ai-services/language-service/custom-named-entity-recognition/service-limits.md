@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 05/06/2022
+ms.date: 08/09/2023
 ms.author: aahi
 ms.custom: language-service-custom-ner, references_regions, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -112,7 +112,8 @@ The following limits are observed for the custom named entity recognition.
 |Count of entity types | 1 | 200 |
 |Entity length in characters | 1 | 500 |
 |Count of trained models per project| 0 | 10 |
-|Count of deployments per project| 0 | 10 |
+|Count of deployments per project (paid tier) | 0 | 10 |
+|Count of deployments per project (free tier) | 0 | 1 |
 
 ## Naming limits
 

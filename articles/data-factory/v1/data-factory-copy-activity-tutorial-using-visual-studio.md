@@ -224,7 +224,7 @@ In this step, you create an output dataset named **OutputDataset**. This dataset
     | tableName | Specified the **table** to which the data is copied. | 
     | frequency/interval | The frequency is set to **Hour** and interval is **1**, which means that the output slices are produced **hourly** between the pipeline start and end times, not before or after these times.  |
 
-    There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
+    There are three columns - **ID**, **FirstName**, and **LastName** - in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
 
     For more information about these JSON properties, see [Azure SQL connector article](data-factory-azure-sql-connector.md#dataset-properties).
 
