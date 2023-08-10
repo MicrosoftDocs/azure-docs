@@ -1,11 +1,11 @@
 {
     "redirections": [          
         {
-            "source_path_from_root": "/articles/defender-for-iot/ot-deploy/sites-and-zones-on-premises.md",
+            "source_path_from_root": "/articles/defender-for-iot/organizations/ot-deploy/sites-and-zones-on-premises.md",
             "redirect_url": "/azure/defender-for-iot/organizations/legacy-central-management/sites-and-zones-on-premises",
             "redirect_document_id": false
         },        {
-            "source_path_from_root": "/articles/defender-for-iot/ot-deploy/activate-deploy-management.md",
+            "source_path_from_root": "/articles/defender-for-iot/organizations/ot-deploy/activate-deploy-management.md",
             "redirect_url": "/azure/defender-for-iot/organizations/legacy-central-management/activate-deploy-management",
             "redirect_document_id": false
         },

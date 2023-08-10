@@ -70,7 +70,7 @@ This procedure describes how **Admin** users can change local user passwords. **
 
 1. On the **Users** page, locate the user whose password needs to be changed.
 
-1. At the right of that user row, select the **Edit** :::image type="icon" source="../media/install-software-on-premises-management-console/icon-edit.png" border="false"::: button.
+1. At the right of that user row, select the **Edit** :::image type="icon" source="../media/manage-users-on-premises-management-console/icon-edit.png" border="false"::: button.
 
 1. In the **Edit user** pane that appears, scroll down to the **Change password** section. Enter and confirm the new password.
 
@@ -151,9 +151,9 @@ For more information, see [Active Directory support on sensors and on-premises m
     > - LDAP and LDAPS can't be configured for the same domain. However, you can configure each in different domains and then use them at the same time.
     >
 
-    For example: 
+    For example:
 
-    :::image type="content" source="../media/install-software-on-premises-management-console/active-directory-config-example.png" alt-text="Screenshot of Active Directory integration configuration on the on-premises management console.":::
+    :::image type="content" source="../media/manage-users-on-premises-management-console/active-directory-config-example.png" alt-text="Screenshot of Active Directory integration configuration on the on-premises management console.":::
 
 1. Create access group rules for on-premises management console users.
 

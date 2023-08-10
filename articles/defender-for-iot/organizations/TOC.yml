@@ -321,7 +321,7 @@
     - name: Connect OT sensors to an on-premises management console
       href: legacy-central-management/connect-sensors-to-management.md
     - name: Configure on-premises sites and zones
-      href: legacy-on-premises-management/sites-and-zones-on-premises.md
+      href: legacy-central-management/sites-and-zones-on-premises.md
       displayName: site, zone, Zero Trust
   - name: Manage devices from the on-premises management console
     href: legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md

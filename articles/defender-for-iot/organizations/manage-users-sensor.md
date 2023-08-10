@@ -92,7 +92,7 @@ This procedure describes how to create new users for a specific OT network senso
 
 Your new user is added and is listed on the sensor **Users** page.
 
-To edit a user, select the **Edit** :::image type="icon" source="../media/legacy-central-management/install-software-on-premises-management-console/icon-edit.png" border="false"::: icon for the user you want to edit, and change any values as needed.
+To edit a user, select the **Edit** :::image type="icon" source="../media/install-software-on-premises-management-console/icon-edit.png" border="false"::: icon for the user you want to edit, and change any values as needed.
 
 To delete a user, select the **Delete** button for the user you want to delete.
 

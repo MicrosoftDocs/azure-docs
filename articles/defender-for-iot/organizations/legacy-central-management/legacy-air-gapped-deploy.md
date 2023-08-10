@@ -36,7 +36,7 @@ Deploying an on-premises management console is done by your deployment team. You
 
 When deploying an on-premises management console, you may also want to configure the following options:
 
-- [Active Directory integration](install-software-on-premises-management-console.md#integrate-users-with-active-directory), to allow Active Directory users to sign into your on-premises management console, use Active Directory groups, and configure global access groups.
+- [Active Directory integration](manage-users-on-premises-management-console.md#integrate-users-with-active-directory), to allow Active Directory users to sign into your on-premises management console, use Active Directory groups, and configure global access groups.
 
 - [Proxy tunneling access](#access-ot-network-sensors-via-proxy-tunneling) from OT network sensors, enhancing system security across your Defender for IoT system
 

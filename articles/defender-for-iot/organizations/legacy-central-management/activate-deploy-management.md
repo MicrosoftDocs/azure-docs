@@ -90,7 +90,7 @@ The following procedures describe how to deploy an SSL/TLS certificate on your O
 The requirements for SSL/TLS certificates are the same for OT sensors and on-premises management consoles. For more information, see:
 
 - [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md)
-- [Create SSL/TLS certificates for OT appliances](../create-ssl-certificates.md)
+- [Create SSL/TLS certificates for OT appliances](../ot-deploy/create-ssl-certificates.md)
 
 **To upload a CA-signed certificate**:
 
