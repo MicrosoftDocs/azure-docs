@@ -185,7 +185,7 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
       > 1. This article assumes that the Ambari server is active on `Head Node 0`. If the Ambari server is active on `Head Node 1` use the FQDN of hn1 to access the Ambari UI.
     
       
-      :::image type="content" source="./media/connect-kafka-with-vnet/dashboard.png" alt-text="Screenshot showing Windows VM."lightbox="./media/connect-kafka-with-vnet/dashboard.png" border="true" lightbox="./media/connect-kafka-with-vnet/dashboard.png":::
+      :::image type="content" source="./media/connect-kafka-with-vnet/dashboard.png" alt-text="Screenshot showing Windows VM." border="trulightbox="./media/connect-kafka-with-vnet/dashboard.png"::
     
    1. You can also send messages to kafka topic and read the topics from the VM. For that you can try to use this sample java application.
      
