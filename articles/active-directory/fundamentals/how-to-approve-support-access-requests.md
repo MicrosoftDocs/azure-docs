@@ -46,11 +46,11 @@ When you have a pending support access request, you can view and approve that re
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) and navigate to **Diagnose and solve problems**.
 
-1. Select the link from the banner message at the top of the page...
+1. Select the link from the banner message at the top of the page.
 
     ![Screenshot of the Diagnose and solve problems page with the banner notification highlighted.](media/how-to-approve-support-access-requests/diagnose-solve-problems-banner.png)
 
-    ... or scroll to the bottom of the page and select **Manage pending requests** from the **Microsoft Support Access Requests** section.
+    Or scroll to the bottom of the page and select **Manage pending requests** from the **Microsoft Support Access Requests** section.
 
     :::image type="content" source="media/how-to-approve-support-access-requests/diagnose-solve-problems-access-requests.png" alt-text="Screenshot of the Diagnose and solve problems page with the Manage pending requests link highlighted." lightbox="media/how-to-approve-support-access-requests/diagnose-solve-problems-access-requests-expanded.png":::
 
@@ -69,8 +69,7 @@ When viewing the details of a pending support access request, you can approve or
     - A message appears, indicating this choice may result in slower resolution of your support request.
     - Your support engineer may ask you for data needed to diagnose the issue, and you must collect and provide that information to your support engineer. 
 
-![Screenshot of the Support Access requests details page with the Reject and Approve buttons highlighted](media/how-to-approve-support-access-requests/pending-request-details.png)
-
+![Screenshot of the Support Access requests details page with the Reject and Approve buttons highlighted.](media/how-to-approve-support-access-requests/pending-request-details.png)
 
 ## Next steps
 
