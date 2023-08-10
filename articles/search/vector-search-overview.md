@@ -21,9 +21,9 @@ We recommend this article for background, but if you'd rather get started, follo
 
 > [!div class="checklist"]
 > + [Generate vector embeddings](vector-search-how-to-generate-embeddings.md) before you start.
-> + [Add vector fields to an index](vector-search-how-to-create-index.md) using Azure portal or the [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview).
+> + [Add vector fields to an index](vector-search-how-to-create-index.md).
 > + [Load vector data](search-what-is-data-import.md) into an index using push or pull methodologies. 
-> + [Query vector data](vector-search-how-to-query.md) using Azure portal or the preview REST APIs.
+> + [Query vector data](vector-search-how-to-query.md) using the Azure portal, preview REST APIs, or beta SDK packages.
 
 You could also start with the [REST quickstart](search-get-started-vector.md) or [code samples on GitHub](https://github.com/Azure/cognitive-search-vector-pr).
 
@@ -47,7 +47,7 @@ You can index vector data as fields in documents alongside textual and other typ
 
 Azure Cognitive Search doesn't generate vector embeddings for your content. You need to provide the embeddings yourself by using a service such as Azure OpenAI. See [How to generate embeddings](./vector-search-how-to-generate-embeddings.md) to learn more.
 
-Vector search does not support customer-managed keys (CMK) at this time. This means you will not be able to add vector fields to an index with CMK enabled.
+Vector search doesn't support customer-managed keys (CMK) at this time. This means you won't be able to add vector fields to an index with CMK enabled.
 
 ## Availability and pricing
 

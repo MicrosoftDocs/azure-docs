@@ -136,6 +136,24 @@ The response includes 5 matches, and each result provides a search score, title,
 
 Notice that "select" returns textual fields from the index. Although the vector field is "retrievable" in this example, its content isn't usable as a search result.
 
+### [**.NET**](#tab/dotnet-vector-query)
+
+Under construction.
+
+Use the [Azure.Search.Documents 11.5.0-beta.4](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.4) package. For code samples, see the [cognitive-search-vector-pr] GitHub repository.
+
+### [**Python**](#tab/python-vector-query)
+
+Under construction.
+
+Use the [Azure.Search.Documents 11.4.0b8](https://pypi.org/project/azure-search-documents/11.4.0b8/) package. For code samples, see the [cognitive-search-vector-pr] GitHub repository.
+
+### [**JavaScript**](#tab/js-vector-query)
+
+Under construction.
+
+Use the [@azure/search-documents 12.0.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2) package. For code samples, see the [cognitive-search-vector-pr] GitHub repository.
+
 ---
 
 ## Query syntax for hybrid search
