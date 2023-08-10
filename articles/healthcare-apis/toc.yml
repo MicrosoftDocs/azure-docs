@@ -1,18 +1,18 @@
 items:
 - name: Azure Health Data Services documentation
   href: index.yml
-- name: Overview
+- name: Azure Health Data Services overview
   href: healthcare-apis-overview.md
-- name: Health data and PHI integration
+- name: Health data and PHI
   displayName: FHIR service
   href: ./fhir/overview.md
-- name: Image data integration
+- name: Image data
   displayName: DICOM service
   href: ./dicom/dicom-services-overview.md
-- name: Device data integration
+- name: Device data
   displayName: MedTech service
   href: ./iot/overview.md
-- name: Automation using Events
+- name: Automation using events
   href: ./events/events-overview.md
 - name: Workspace provisioning
   href: workspace-overview.md

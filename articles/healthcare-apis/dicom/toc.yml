@@ -1,17 +1,15 @@
 items:
 - name: DICOM service documentation
   href: index.yml
-- name: Overview
+- name: DICOM service overview
   href: dicom-services-overview.md
-- name: DICOM extended query tags overview
+- name: Extended query tags overview
   href: dicom-extended-query-tags-overview.md
-- name: DICOM change feed overview
+- name: Change feed overview
   href: dicom-change-feed-overview.md
 - name: DICOMcast overview
   href: dicom-cast-overview.md
-- name: About DICOM service
-  href: dicom-services-overview.md
-- name: Use DICOMweb standard APIs
+- name: DICOMweb standard APIs
   href: dicomweb-standard-apis-with-dicom-services.md
 - name: Quickstarts
   expanded: false
@@ -22,7 +20,7 @@ items:
       href: deploy-dicom-services-in-azure.md
     - name: Get started using DICOM data in analytics workloads
       href: get-started-with-analytics-dicom.md
-- name: How-to guides
+- name: How-tos
   expanded: false
   items: 
     - name: Develop applications

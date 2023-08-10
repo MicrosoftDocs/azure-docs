@@ -1,16 +1,16 @@
 items:
 - name: Azure API for FHIR documentation
   href: index.yml
-- name: Overview
+- name: Azure API for FHIR overview
   href: overview.md
 - name: FHIR REST API capabilities
   href: fhir-rest-api-capabilities.md
 - name: Security controls by Azure policy
   href: ./security-controls-policy.md
-- name: Overview of Azure AD and Azure API for FHIR 
+- name: Azure AD and Azure API for FHIR 
   href: azure-active-directory-identity-configuration.md
 - name: Quickstarts
-  expanded: true
+  expanded: false
   items:
   - name: Get started with Azure API for FHIR
     href: get-started-with-azure-api-fhir.md
