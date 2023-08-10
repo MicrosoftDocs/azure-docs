@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [New architecture hybrid and air-gapped support](#new-architecture-for-hybrid-and-air-gapped-support) |
+| **OT networks** | [New architecture for hybrid and air-gapped support](#new-architecture-for-hybrid-and-air-gapped-support) |
 
 ### New architecture for hybrid and air-gapped support
 
@@ -47,8 +47,6 @@ For more information, see:
 
 - [Deploy hybrid or air-gapped OT sensor management](ot-deploy/air-gapped-deploy.md)
 - [Versioning and support for on-premises software versions](release-notes.md#versioning-and-support-for-on-premises-software-versions)
-
-## August 2023
 
 
 ## July 2023
