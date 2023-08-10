@@ -20,28 +20,27 @@ This article describes advanced features of Metrics Explorer in Azure Monitor. I
 
 ## Resource scope picker
 
-Use the resource scope picker view metrics across single resources and multiple resources. The following sections explain how to use the resource scope picker.
+Use the resource scope picker to view metrics across single resources and multiple resources.
 
 ### Select a single resource
 
-In the Azure portal, select **Metrics** from the **Monitor** menu or from the **Monitoring** section of a resource's menu. Then choose **Select a scope** to open the scope picker.
+1. In the Azure portal, select **Metrics** from the **Monitor** menu or from the **Monitoring** section of a resource's menu. Then choose **Select a scope**.
 
-Use the scope picker to select the resources whose metrics you want to see. If you opened Metrics Explorer from a resource's menu, the scope should be populated.
+1. Use the scope picker to select the resources whose metrics you want to see. If you opened Metrics Explorer from a resource's menu, the scope should be populated.
 
-![Screenshot that shows how to open the resource scope picker.](./media/metrics-charts/scope-picker.png)
+   ![Screenshot that shows the button that opens the resource scope picker.](./media/metrics-charts/scope-picker.png)
 
-For some resources, you can view only one resource's metrics at a time. In the **Resource types** menu, these resources are in the **All resource types** section.
+   For some resources, you can view only one resource's metrics at a time. In the **Resource types** menu, these resources are in the **All resource types** section.
 
-![Screenshot that shows a single resource.](./media/metrics-charts/single-resource-scope.png)
+   ![Screenshot that shows available resources.](./media/metrics-charts/single-resource-scope.png)
 
-After selecting a resource, you see all subscriptions and resource groups that contain that resource.
+1. Select a resource. All subscriptions and resource groups that contain that resource appear.
 
-![Screenshot that shows available resources.](./media/metrics-charts/available-single-resource.png)
+  ![Screenshot that shows a single resource.](./media/metrics-charts/available-single-resource.png)
 
-> [!TIP]
-> If you want the capability to view the metrics for multiple resources at the same time, or to view metrics across a subscription or resource group, select **Upvote**.
+  If you want the capability to view the metrics for multiple resources at the same time, or to view metrics across a subscription or resource group, select **Upvote**.
 
-When you're satisfied with your selection, select **Apply**.
+1. When you're satisfied with your selection, select **Apply**.
 
 ### Select multiple resources
 
@@ -61,7 +60,7 @@ In Metrics Explorer, you can create charts that plot multiple metric lines or sh
 - Display metrics that use different units of measure in close proximity.
 - Visually aggregate and compare metrics from multiple resources.
 
-For example, imagine you have five storage accounts, and you want to know how much space they consume together. You can create a stacked area chart that shows the individual values and the sum of all the values at points in time.
+For example, imagine that you have five storage accounts, and you want to know how much space they consume together. You can create a stacked area chart that shows the individual values and the sum of all the values at points in time.
 
 ### Multiple metrics on the same chart
 
@@ -83,21 +82,21 @@ To reorder or delete multiple charts, select the ellipsis (**...**) button to op
 
 ## Time range controls
 
-In addition to changing the time range using the [time picker panel](metrics-getting-started.md#select-a-time-range), you can also pan and zoom using the controls in the chart area.
+In addition to changing the time range by using the [time picker panel](metrics-getting-started.md#select-a-time-range), you can pan and zoom by using the controls in the chart area.
 
 ### Pan
 
-To pan, select the left and right arrows at the edge of the chart. The arrow control moves the selected time range back and forward by one half the chart's time span. For example, if you're viewing the past 24 hours, selecting the left arrow causes the time range to shift to span a day and a half to 12 hours ago.
+To pan, select the left and right arrows at the edge of the chart. The arrow control moves the selected time range back and forward by one half of the chart's time span. For example, if you're viewing the past 24 hours, selecting the left arrow causes the time range to shift to span a day and a half to 12 hours ago.
 
-Most metrics support 93 days of retention but only let you view 30 days at a time. Using the pan controls, you look at the past 30 days and then easily walk back 15 days at a time to view the rest of the retention period.
+Most metrics support 93 days of retention but only let you view 30 days at a time. By using the pan controls, you look at the past 30 days and then easily go back 15 days at a time to view the rest of the retention period.
 
-![Animated gif showing the left and right pan controls.](./media/metrics-charts/metrics-pan-controls.gif)
+![Animated screenshot that shows the left and right pan controls.](./media/metrics-charts/metrics-pan-controls.gif)
 
 ### Zoom
 
-You can select and drag on the chart to zoom into a section of a chart. Zooming updates the chart's time range to span your selection. If the time grain is set to Automatic, zooming selects a smaller time grain. The new time range applies to all charts in Metrics.
+You can select and drag on the chart to zoom in to a section of a chart. Zooming updates the chart's time range to span your selection. If the time grain is set to **Automatic**, zooming selects a smaller time grain. The new time range applies to all charts in Metrics Explorer.
 
-![Animated gif showing the metrics zoom feature.](./media/metrics-charts/metrics-zoom-control.gif)
+![Animated screenshot that shows the zoom feature in Metrics Explorer.](./media/metrics-charts/metrics-zoom-control.gif)
 
 ## Aggregation
 
@@ -105,18 +104,18 @@ When you add a metric to a chart, Metrics Explorer applies a default aggregation
 
 Before you use different aggregations on a chart, you should understand how Metrics Explorer handles them. Metrics are a series of measurements (or "metric values") that are captured over a time period. When you plot a chart, the values of the selected metric are separately aggregated over the *time granularity*.
 
-You select the size of the time grain by using the time picker panel in Metrics Explorer. If you don't explicitly select the time grain, the currently selected time range is used by default. After the time grain is determined, the metric values that were captured during each time grain are aggregated on the chart, one data point per time grain.
+You select the size of the time grain by using the time picker panel in Metrics Explorer. If you don't explicitly select the time grain, Metrics Explorer uses the currently selected time range by default. After the Metrics Explorer determines the time grain, the metric values that it captured during each time grain are aggregated on the chart, one data point per time grain.
 
 :::image type="content" source="media/metrics-charts/time-granularity.png" alt-text="Screenshot that shows the time range and granularity selector.":::
 
-For example, suppose a chart shows the *Server response time* metric. It uses the *average* aggregation over time span of the *last 24 hours*. In this example:
+For example, suppose a chart shows the *Server response time* metric. It uses the average aggregation over time span of the last 24 hours. In this example:
 
-- If the time granularity is set to 30 minutes, the chart is drawn from 48 aggregated data points. That is, 2 data points per hour for 24 hours. The line chart connects 48 dots in the chart plot area. Each data point represents the *average* of all captured response times for server requests that occurred during each of the relevant 30-minute time periods.
-- If you switch the time granularity to 15 minutes, you get 96 aggregated data points. That is, 4 data points per hour for 24 hours.
+- If you set the time granularity to 30 minutes, Metrics Explorer draws the chart from 48 aggregated data points. That is, it uses two data points per hour for 24 hours. The line chart connects 48 dots in the chart plot area. Each data point represents the average of all captured response times for server requests that occurred during each of the relevant 30-minute time periods.
+- If you switch the time granularity to 15 minutes, you get 96 aggregated data points. That is, you get four data points per hour for 24 hours.
 
 Metrics Explorer has five aggregation types:
 
-- **Sum**: The sum of all values captured during the aggregation interval. The *sum* aggregation is sometimes called the *total* aggregation.
+- **Sum**: The sum of all values captured during the aggregation interval. The sum aggregation is sometimes called the *total* aggregation.
 - **Count**: The number of measurements captured during the aggregation interval.
 
   When the metric is always captured with the value of 1, the count aggregation is equal to the sum aggregation. This scenario is common when the metric tracks the count of distinct events and each measurement represents one event. The code emits a metric record every time a new request arrives.
@@ -124,7 +123,7 @@ Metrics Explorer has five aggregation types:
 - **Min**: The smallest value captured during the aggregation interval.
 - **Max**: The largest value captured during the aggregation interval.
 
-:::image type="content" source="media/metrics-charts/aggregations.png" alt-text="Screenshot that shows the aggregation dropdown." lightbox="media/metrics-charts/aggregations.png":::
+:::image type="content" source="media/metrics-charts/aggregations.png" alt-text="Screenshot that shows the aggregation dropdown list." lightbox="media/metrics-charts/aggregations.png":::
 
 Metrics Explorer hides the aggregations that are irrelevant and can't be used.
 
@@ -138,19 +137,19 @@ You can apply filters to charts whose metrics have dimensions. For example, imag
 
 1. Above the chart, select **Add filter**.
 
-1. Select a dimension from the **Property** dropdown to filter.
+1. Select a dimension from the **Property** dropdown list to filter.
 
-   :::image type="content" source="./media/metrics-charts/filter-property.png" alt-text="Screenshot that shows the filter properties dropdown." lightbox="./media/metrics-charts/filter-property.png":::
+   :::image type="content" source="./media/metrics-charts/filter-property.png" alt-text="Screenshot that shows the dropdown list for filter properties." lightbox="./media/metrics-charts/filter-property.png":::
 
-1. Select the operator you want to apply against the dimension (property). The default operator is = (equals)
+1. Select the operator that you want to apply against the dimension (property). The default operator is **=** (equals).
   
-   :::image type="content" source="./media/metrics-charts/filter-operator.png" alt-text="Screenshot that shows the operator you can use with the filter." lightbox="./media/metrics-charts/filter-operator.png":::
+   :::image type="content" source="./media/metrics-charts/filter-operator.png" alt-text="Screenshot that shows the operator that you can use with the filter." lightbox="./media/metrics-charts/filter-operator.png":::
 
-1. Select which dimension values you want to apply to the filter when plotting the chart. This example shows filtering out the successful storage transactions.
+1. Select which dimension values you want to apply to the filter when you're plotting the chart. This example shows filtering out the successful storage transactions.
 
-   :::image type="content" source="./media/metrics-charts/filter-values.png" alt-text="Screenshot that shows the filter values dropdown." lightbox="./media/metrics-charts/filter-values.png":::
+   :::image type="content" source="./media/metrics-charts/filter-values.png" alt-text="Screenshot that shows the dropdown list for filter values." lightbox="./media/metrics-charts/filter-values.png":::
 
-1. After selecting the filter values, click away from the filter selector to close it. The chart shows how many storage transactions have failed:
+1. After you select the filter values, click away from the filter selector to close it. The chart shows how many storage transactions have failed.
 
    :::image type="content" source="./media/metrics-charts/filtered-chart.png" alt-text="Screenshot that shows the successful filtered storage transactions." lightbox="./media/metrics-charts/filtered-chart.png":::
 
@@ -164,40 +163,40 @@ You can split a metric by dimension to visualize how different segments of the m
 
 1. Above the chart, select **Apply splitting**.
 
-1. Choose dimensions on which to segment your chart:
+1. Choose dimensions on which to segment your chart.
 
    :::image type="content" source="./media/metrics-charts/apply-splitting.png" alt-text="Screenshot that shows the selected dimension on which to segment the chart." lightbox="./media/metrics-charts/apply-splitting.png":::
 
-   The chart shows multiple lines, one for each dimension segment:
+   The chart shows multiple lines, one for each dimension segment.
 
    :::image type="content" source="./media/metrics-charts/segment-dimension.png" alt-text="Screenshot that shows multiple lines, one for each segment of dimension." lightbox="./media/metrics-charts/segment-dimension.png":::
 
-1. Choose a limit on the number of values to be displayed after splitting by selected dimension. The default limit is 10 as shown in the above chart. The range of limit is 1 to 50.
+1. Choose a limit on the number of values to be displayed after you split by the selected dimension. The default limit is 10 as shown in the preceding chart. The range of the limit is 1 to 50.
 
-   :::image type="content" source="./media/metrics-charts/segment-dimension-limit.png" alt-text="Screenshot that shows split limit, which restricts the number of values after splitting." lightbox="./media/metrics-charts/segment-dimension-limit.png":::
+   :::image type="content" source="./media/metrics-charts/segment-dimension-limit.png" alt-text="Screenshot that shows the split limit, which restricts the number of values after splitting." lightbox="./media/metrics-charts/segment-dimension-limit.png":::
 
-1. Choose the sort order on segments: **Ascending** or **Descending**. The default selection is **Descending**.
+1. Choose the sort order on segments: **Descending** (default) or **Ascending**.
 
-   :::image type="content" source="./media/metrics-charts/segment-dimension-sort.png" alt-text="Screenshot that shows sort order on split values." lightbox="./media/metrics-charts/segment-dimension-sort.png":::
+   :::image type="content" source="./media/metrics-charts/segment-dimension-sort.png" alt-text="Screenshot that shows the sort order on split values." lightbox="./media/metrics-charts/segment-dimension-sort.png":::
 
-1. Segment by multiple segments by selecting multiple dimensions from the values dropdown. The legends shows a comma-separated list of dimension values for each segment
+1. Segment by multiple segments by selecting multiple dimensions from the **Values** dropdown list. The legend shows a comma-separated list of dimension values for each segment.
 
    :::image type="content" source="./media/metrics-charts/segment-dimension-multiple.png" alt-text="Screenshot that shows multiple segments selected, and the corresponding chart." lightbox="./media/metrics-charts/segment-dimension-multiple.png":::
 
 1. Click away from the grouping selector to close it.
 
-   > [!TIP]
-   > To hide segments that are irrelevant for your scenario and to make your charts easier to read, use both filtering and splitting on the same dimension.
+> [!TIP]
+> To hide segments that are irrelevant for your scenario and to make your charts easier to read, use both filtering and splitting on the same dimension.
 
 ## Locking the range of the y-axis
 
 Locking the range of the value (y) axis becomes important in charts that show small fluctuations of large values.
 
-For example, a drop in the volume of successful requests from 99.99 percent to 99.5 percent might represent a significant reduction in the quality of service. Noticing a small numeric value fluctuation would be difficult or even impossible if you're using the default chart settings. In this case, you could lock the lowest boundary of the chart to 99 percent to make a small drop more apparent.
+For example, a drop in the volume of successful requests from 99.99 percent to 99.5 percent might represent a significant reduction in the quality of service. Noticing a small fluctuation in numeric value would be difficult or even impossible if you're using the default chart settings. In this case, you could lock the lowest boundary of the chart to 99 percent to make a small drop more apparent.
 
 Another example is a fluctuation in the available memory. In this scenario, the value technically never reaches 0. Fixing the range to a higher value might make drops in available memory easier to spot.
 
-1. To control the y-axis range, open the chart menu **...**. Then select **Chart settings** to access advanced chart settings.
+1. To control the y-axis range, open the chart menu by selecting the ellpisis (**...**). Then select **Chart settings** to access advanced chart settings.
 
    :::image source="./media/metrics-charts/select-chart-settings.png" alt-text="Screenshot that highlights the chart settings selection." lightbox="./media/metrics-charts/select-chart-settings.png":::
 
@@ -205,7 +204,7 @@ Another example is a fluctuation in the available memory. In this scenario, the 
 
    :::image type="content" source="./media/metrics-charts/chart-settings.png" alt-text="Screenshot that shows the Y-axis range section." lightbox="./media/metrics-charts/chart-settings.png":::
 
-If you lock the boundaries of the y-axis for charts that tracks count, sum, min, or max aggregations over a period of time, specify a fixed time granularity. Don't rely on the automatic defaults.
+If you lock the boundaries of the y-axis for a chart that tracks count, sum, minimum, or maximum aggregations over a period of time, specify a fixed time granularity. Don't rely on the automatic defaults.
 
 A fixed time granularity is chosen because chart values change when the time granularity is automatically modified when a user resizes a browser window or changes screen resolution. The resulting change in time granularity affects the appearance of the chart, invalidating the selection of the y-axis range.
 
@@ -268,7 +267,7 @@ The following table summarizes the types of logs and queries provided:
 | Diagnostic log   | Provides insight into operations that were performed within an Azure resource (the data plane). For example, getting a secret from a Key Vault or making a request to a database. The content of resource logs varies by the Azure service and resource type. You must enable logs for the resource. |  
 | Recommended log | Scenario-based queries that you can use to investigate anomalies in Metrics Explorer.  |
 
-Currently, Drill into Logs is available for select resource providers. The following resource providers offer the complete Drill into Logs experience:
+Currently, **Drill into Logs** is available for select resource providers. The following resource providers offer the complete **Drill into Logs** experience:
 
 - Application Insights
 - Autoscale
