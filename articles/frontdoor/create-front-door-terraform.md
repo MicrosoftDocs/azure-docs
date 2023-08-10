@@ -44,7 +44,7 @@ This quickstart describes how to use Terraform to create a Front Door profile to
 
 1. Create a file named `app-service.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-front-door-standard-premium/resource-group.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-front-door-standard-premium/app-service.tf":::
 
 1. Create a file named `front-door.tf` and insert the following code:
 
