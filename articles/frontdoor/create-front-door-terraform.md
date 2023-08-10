@@ -1,61 +1,62 @@
 ---
-title: 'Quickstart: Create an Azure Front Door Standard/Premium profile - Terraform'
+title: 'Quickstart: Create an Azure Front Door Standard/Premium profile using Terraform'
 description: This quickstart describes how to create an Azure Front Door Standard/Premium using Terraform.
 services: front-door
 author: johndowns
 ms.author: jodowns
-ms.date: 10/25/2022
+ms.date: 8/10/2023
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.custom: devx-track-terraform
+content_well_notification: 
+  - AI-contribution
 ---
 
-# Create a Front Door Standard/Premium profile using Terraform
+# Quickstart: Create an Azure Front Door Standard/Premium profile using Terraform
 
 This quickstart describes how to use Terraform to create a Front Door profile to set up high availability for a web endpoint.
 
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
-The steps in this article were tested with the following Terraform and Terraform provider versions:
-
-- [Terraform v1.3.2](https://releases.hashicorp.com/terraform/)
-- [AzureRM Provider v.3.27.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
-
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](~/azure-dev-docs-pr/articles/includes/open-source-devops-prereqs-azure-subscription.md)]
-
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
+
 - IP address or FQDN of a website or web application.
 
 ## Implement the Terraform code
+
+> [!NOTE]
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-front-door-standard-premium). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-front-door-standard-premium/TestRecord.md).
+>
+> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/providers.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-front-door-standard-premium/providers.tf":::
 
 1. Create a file named `resource-group.tf` and insert the following code:
 
-   [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/resource-group.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-front-door-standard-premium/resource-group.tf":::
 
 1. Create a file named `app-service.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/app-service.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-front-door-standard-premium/resource-group.tf":::
 
 1. Create a file named `front-door.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/front-door.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-front-door-standard-premium/front-door.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/variables.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-front-door-standard-premium/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform/quickstart/101-front-door-standard-premium/outputs.tf)]
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-front-door-standard-premium/outputs.tf":::
 
 ## Initialize Terraform
 
