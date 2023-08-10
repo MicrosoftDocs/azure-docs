@@ -1,27 +1,27 @@
 ---
-title: 'Quickstart: Automate end-to-end tests in CI/CD'
+title: 'Quickstart: Continuous end-to-end testing'
 titleSuffix: Microsoft Playwright Testing
-description: In this quickstart, you learn how to run your Playwright tests at scale in your CI pipeline with Microsoft Playwright Testing. Automate your tests with GitHub Actions, Azure Pipelines, or other CI tools.
+description: In this quickstart, you learn how to run your Playwright tests at scale in your CI pipeline with Microsoft Playwright Testing. Continuously validate that your web app runs correctly across browsers and operating systems.
 services: playwright-testing
 ms.service: playwright-testing
 ms.author: nicktrog
 author: ntrogh
 ms.topic: quickstart
-ms.date: 08/09/2023
+ms.date: 08/10/2023
 ---
 
-# Quickstart: Set up continuous end-to-end testing with GitHub Actions and Microsoft Playwright Testing Preview
+# Quickstart: Set up continuous end-to-end testing with Microsoft Playwright Testing Preview
 
-In this tutorial, you'll learn how to set up continuous end-to-end testing with GitHub Actions and Microsoft Playwright Testing Preview. Analyze failing tests by using the test diagnostics information directly within GitHub Actions.
+In this quickstart, you set up continuous end-to-end testing with Microsoft Playwright Testing Preview to validate that your web app runs correctly across different browsers and operating systems with every code commit. Learn how to add your Playwright tests to a continuous integration (CI) workflow, such as GitHub Actions, Azure Pipelines, or other CI platforms.
 
-In this tutorial, you won't be writing Playwright test specifications and fork a sample repository. You'll learn how to do the following tasks:
+After you complete this quickstart, you have a CI workflow that runs your Playwright test suite at scale with Microsoft Playwright Testing.
 
-> [!div class="checklist"]
-> * Set up the sample repository.
-> * Create a GitHub secret to authenticate with Microsoft Playwright Testing.
-> * Create a GitHub Actions workflow.
-> * Trigger tests from CI/CD on every code push.
-> * Explore test results in GitHub Actions.
+To run your Playwright tests in your CI/CD workflow, you perform the following tasks:
+
+- Get an access key for Microsoft Playwright Testing
+- Add the service configuration file
+- Update the CI workflow definition to run your Playwright tests by using the Playwright CLI
+- Save the Playwright test results
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -29,7 +29,19 @@ In this tutorial, you won't be writing Playwright test specifications and fork a
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A GitHub account where you can create a repository. If you don't have one, you can [create one for free](https://github.com/).
+
+* A Microsoft Playwright Testing workspace. Complete the [quickstart: run Playwright tests at scale](./quickstart-run-end-to-end-tests.md) to create a workspace.
+
+# [Azure Pipelines](#tab/pipelines)
+- An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/organizations/projects/create-project?view=azure-devops&tabs=browser).
+- A pipeline definition. If you need help with getting started with Azure Pipelines, see [create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
+
+# [GitHub Actions](#tab/github)
+- A GitHub account. If you don't have a GitHub account, you can [create one for free](https://github.com/).
+- A GitHub repository that contains your Playwright test specifications and GitHub Actions workflow. To create a repository, see [Creating a new repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
+- A GitHub Actions workflow. If you need help getting started with GitHub Actions, see [create your first workflow](https://docs.github.com/en/actions/quickstart)
+
+---
 
 ## Set up the sample repository
 
