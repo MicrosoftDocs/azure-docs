@@ -24,19 +24,17 @@ The Msv3 and Mdsv3 Medium Memory(MM) series, powered by 4<sup>th</sup> generatio
 
 ## Msv3 Medium Memory-series
 
-[Premium Storage](premium-storage-performance.md): Supported
-[Premium Storage caching](premium-storage-performance.md): Supported
-[Live Migration](maintenance-and-updates.md): Not Supported
-[Memory Preserving Updates](maintenance-and-updates.md): Not Supported
-[VM Generation Support](generation-2.md): Generation 2
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 2<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported<br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
-<br> 
 
-|Size|vCPU|Memory: GiB|Max data disks|Max uncached Premium SSD  throughput: IOPS/MBps|Max uncached Ultra Disk and Premium SSD  
-V2 disk throughput: IOPS/MBps|Max NICs|Max network bandwidth (Mbps)|
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+|Size|vCPU|Memory: GiB|Max data disks|Max uncached Premium SSD  throughput: IOPS/MBps|Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps|Max NICs|Max network bandwidth (Mbps)|
+ | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 |Standard_M12s_v3|12|240|64|16,250/390|16,250/390|4|4,000|
 |Standard_M24s_v3|24|480|64|32,500/780|32,500/780|8|8,000|
 |Standard_M48s_1_v3|48|974|64|65,000/ 1,560|65,000/ 1,560|8|16,000|
@@ -56,14 +54,8 @@ These virtual machines feature local SSD storage (up to 400 GiB).
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
-<br> 
 
-|Size|vCPU|Memory: GiB|Temp storage  
-(SSD) GiB|Max data disks|Max temp storage  
-throughput: IOPS/MBps*|Max uncached  
-Premium SSD  throughput: IOPS/MBps|Max uncached  
-Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps|Max NICs|Max network  
-bandwidth (Mbps)|
+|Size|vCPU|Memory: GiB|Temp storage (SSD) GiB|Max data disks|Max temp storage throughput: IOPS/MBps*|Max uncached Premium SSD  throughput: IOPS/MBps|Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps|Max NICs|Max network bandwidth (Mbps)|
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 |Standard_M12ds_v3|12|240|400|64|10,000/100|16,250/390|16,250/390|4|4,000|
 |Standard_M24ds_v3|24|480|400|64|20,000/200|32,500/780|32,500/780|8|8,000|
