@@ -232,7 +232,7 @@ To test network access to a storage account, deploy a virtual machine to each su
 
 ## Confirm access to storage account
 
-The virtual machine you created earlier that is assigned to the **subnet-1** subnet is used to confirm access to the storage account. The virtual machine you created in the previous section that is assigned to the **subnet-private** subnet is used to confirm that access to the storage account is blocked.
+The virtual machine you created earlier that is assigned to the **subnet-private** subnet is used to confirm access to the storage account. The virtual machine you created in the previous section that is assigned to the **subnet-1** subnet is used to confirm that access to the storage account is blocked.
 
 ### Get storage account access key
 
@@ -290,7 +290,7 @@ The virtual machine you created earlier that is assigned to the **subnet-1** sub
 
    The Azure file share successfully mapped to the Z drive.
 
-1. Close the Bastion connection to **vm-1**.
+1. Close the Bastion connection to **vm-private**.
 
 ## Confirm access is denied to storage account
 
