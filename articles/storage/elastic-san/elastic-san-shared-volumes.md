@@ -4,7 +4,7 @@ description: Understand planning for an Azure Elastic SAN deployment. Learn abou
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 08/03/2023
+ms.date: 08/10/2023
 ms.author: rogarana
 ---
 
@@ -12,8 +12,11 @@ ms.author: rogarana
 
 Azure Elastic SAN volumes can be simultaneously attached to multiple compute clients, allowing you to deploy or migrate cluster applications to Azure. You need to use a cluster manager to share an Elastic SAN volume, like Windows Server Failover Cluster (WSFC), or Pacemaker. The cluster manager handles cluster node communications and write locking. Elastic SAN doesn't natively offer a fully managed filesystem that can be accessed over SMB or NFS.
 
+When used as a shared volume, elastic SAN volumes can be resized without any downtime, and can also be shared across availability zones or regions. If you're sharing a volume across availability zones, you don't need to use a SAN backed by zone-redundant storage (ZRS).
+
 ## Limitations
 
+- Shared volumes can be attached to individual Virtual Machine Scale Sets but can't be defined in the Virtual Machine Scale Set models or automatically deployed.
 - Azure Backup isn't currently supported.
 
 
