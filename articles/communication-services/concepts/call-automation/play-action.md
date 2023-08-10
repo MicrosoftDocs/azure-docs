@@ -11,12 +11,17 @@ ms.author: kpunjabi
 
 # Playing audio in call
 
-The play action provided through the call automation SDK allows you to play audio prompts to participants in the call. This action can be accessed through the server-side implementation of your application. The play action allows you to provide Azure Communication Services access to your pre-recorded audio files with support for authentication. 
+The play action provided through the Azure Communication Services Call Automation SDK allows you to play audio prompts to participants in the call. This action can be accessed through the server-side implementation of your application. You can play audio to call participants through one of two methods;
+- Providing Azure Communication Services access to pre-recorded audio files of WAV format, that ACS can access with support for authentication
+- Regular text that can be converted into speech output through the integration with Azure AI services.
+
+You can leverage the newly announced integration between [Azure Communication Services and Azure AI services](./azure-communication-services-azure-cognitive-services-integration.md) to play personalized responses using Azure [Text-To-Speech](../../../../articles/cognitive-services/Speech-Service/text-to-speech.md). You can use human like prebuilt neural voices out of the box or create custom neural voices that are unique to your product or brand. For more information on supported voices, languages and locales please see [Language and voice support for the Speech service](../../../../articles/cognitive-services/Speech-Service/language-support.md). (Supported in public preview)
 
 > [!NOTE]
 > Azure Communication Services currently only supports WAV files formatted as mono channel audio recorded at 16KHz. You can create your own audio files using [Speech synthesis with Audio Content Creation tool](../../../ai-services/Speech-Service/how-to-audio-content-creation.md). 
 
-The Play action allows you to provide access to a pre-recorded audio file of WAV format that Azure Communication Services can access with support for authentication. 
+## Prebuilt Neural Text to Speech voices
+Microsoft uses deep neural networks to overcome the limits of traditional speech synthesis with regards to stress and intonation in spoken language. Prosody prediction and voice synthesis occur simultaneously, resulting in a more fluid and natural sounding output. You can use these neural voices to make interactions with your chatbots and voice assistants more natural and engaging. There are over 100 pre-built voices to choose from. Learn more about [Azure Text-to-Speech voices](../../../../articles/cognitive-services/Speech-Service/language-support.md).
 
 ## Common use cases 
 
@@ -35,6 +40,10 @@ The play action can also be used to play hold music for callers. This action can
 ### Playing compliance messages
 As part of compliance requirements in various industries, vendors are expected to play legal or compliance messages to callers, for example, “This call will be recorded for quality purposes”.
 
+## Sample architecture for playing audio in call using Text-To-Speech (Public preview)
+
+![Play with AI](./media/play-ai.png)
+
 ## Sample architecture for playing audio in a call
 
 ![Screenshot of flow for play action.](./media/play-action.png)
@@ -45,3 +54,4 @@ As part of compliance requirements in various industries, vendors are expected t
 ## Next Steps
 - Check out our how-to guide to learn [how-to play custom voice prompts](../../how-tos/call-automation/play-action.md) to users.
 - Learn about [usage and operational logs](../analytics/logs/call-automation-logs.md) published by call automation.
+- Learn about [gathering customer input](./recognize-action.md).
