@@ -1,5 +1,5 @@
 ---
-title: Advanced features of Metrics Explorer
+title: Advanced features of Metrics Explorer in Azure Monitor
 description: Learn how to use Metrics Explorer to investigate the health and usage of resources.
 services: azure-monitor
 author: EdB-MSFT
@@ -12,15 +12,15 @@ ms.custom: kr2b-contr-experiment
 
 # Advanced features of Metrics Explorer in Azure Monitor
 
-In Azure Monitor, [metrics](data-platform-metrics.md) are a series of measured values and counts that are collected and stored over time. Metrics can be standard (also called "platform") or custom.
+In Azure Monitor, [metrics](data-platform-metrics.md) are a series of measured values and counts that are collected and stored over time. Metrics can be standard (also called *platform*) or custom.
 
-Standard metrics are provided by the Azure platform. They reflect the health and usage statistics of your Azure resources.
+The Azure platform provides standard metrics. These metrics reflect the health and usage statistics of your Azure resources.
 
 This article describes advanced features of Metrics Explorer in Azure Monitor. It assumes that you're familiar with basic features of Metrics Explorer. If you're a new user and want to learn how to create your first metric chart, see [Get started with Metrics Explorer](./metrics-getting-started.md).
 
 ## Resource scope picker
 
-The resource scope picker allows you to view metrics across single resources and multiple resources. The following sections explain how to use the resource scope picker.
+Use the resource scope picker view metrics across single resources and multiple resources. The following sections explain how to use the resource scope picker.
 
 ### Select a single resource
 
@@ -87,9 +87,9 @@ In addition to changing the time range using the [time picker panel](metrics-get
 
 ### Pan
 
-To pan, select the left and right arrows at the edge of the chart.  The arrow control moves the selected time range back and forward by one half the chart's time span.  For example, if you're viewing the past 24 hours, selecting the left arrow causes the time range to shift to span a day and a half to 12 hours ago.
+To pan, select the left and right arrows at the edge of the chart. The arrow control moves the selected time range back and forward by one half the chart's time span. For example, if you're viewing the past 24 hours, selecting the left arrow causes the time range to shift to span a day and a half to 12 hours ago.
 
-Most metrics support 93 days of retention but only let you view 30 days at a time.  Using the pan controls, you look at the past 30 days and then easily walk back 15 days at a time to view the rest of the retention period.
+Most metrics support 93 days of retention but only let you view 30 days at a time. Using the pan controls, you look at the past 30 days and then easily walk back 15 days at a time to view the rest of the retention period.
 
 ![Animated gif showing the left and right pan controls.](./media/metrics-charts/metrics-pan-controls.gif)
 
@@ -107,23 +107,24 @@ Before you use different aggregations on a chart, you should understand how Metr
 
 You select the size of the time grain by using the time picker panel in Metrics Explorer. If you don't explicitly select the time grain, the currently selected time range is used by default. After the time grain is determined, the metric values that were captured during each time grain are aggregated on the chart, one data point per time grain.
 
-:::image type="content" source="media/metrics-charts/time-granularity.png" alt-text="Screenshot that shows the time range and granularity selector.":::  
+:::image type="content" source="media/metrics-charts/time-granularity.png" alt-text="Screenshot that shows the time range and granularity selector.":::
 
 For example, suppose a chart shows the *Server response time* metric. It uses the *average* aggregation over time span of the *last 24 hours*. In this example:
 
 - If the time granularity is set to 30 minutes, the chart is drawn from 48 aggregated data points. That is, 2 data points per hour for 24 hours. The line chart connects 48 dots in the chart plot area. Each data point represents the *average* of all captured response times for server requests that occurred during each of the relevant 30-minute time periods.
-- If you switch the time granularity to 15 minutes, you get 96 aggregated data points.  That is, 4 data points per hour for 24 hours.
+- If you switch the time granularity to 15 minutes, you get 96 aggregated data points. That is, 4 data points per hour for 24 hours.
 
 Metrics Explorer has five aggregation types:
 
 - **Sum**: The sum of all values captured during the aggregation interval. The *sum* aggregation is sometimes called the *total* aggregation.
 - **Count**: The number of measurements captured during the aggregation interval.
+
   When the metric is always captured with the value of 1, the count aggregation is equal to the sum aggregation. This scenario is common when the metric tracks the count of distinct events and each measurement represents one event. The code emits a metric record every time a new request arrives.
 - **Average**: The average of the metric values captured during the aggregation interval.
 - **Min**: The smallest value captured during the aggregation interval.
 - **Max**: The largest value captured during the aggregation interval.
 
-  :::image type="content" source="media/metrics-charts/aggregations.png" alt-text="Screenshot that shows the aggregation dropdown." lightbox="media/metrics-charts/aggregations.png":::
+:::image type="content" source="media/metrics-charts/aggregations.png" alt-text="Screenshot that shows the aggregation dropdown." lightbox="media/metrics-charts/aggregations.png":::
 
 Metrics Explorer hides the aggregations that are irrelevant and can't be used.
 
@@ -147,7 +148,7 @@ You can apply filters to charts whose metrics have dimensions. For example, imag
 
 1. Select which dimension values you want to apply to the filter when plotting the chart. This example shows filtering out the successful storage transactions.
 
-   :::image type="content" source="./media/metrics-charts/filter-values.png" alt-text="Screenshot that shows the filter values dropdown." lightbox="./media/metrics-charts/filter-values.png":::  
+   :::image type="content" source="./media/metrics-charts/filter-values.png" alt-text="Screenshot that shows the filter values dropdown." lightbox="./media/metrics-charts/filter-values.png":::
 
 1. After selecting the filter values, click away from the filter selector to close it. The chart shows how many storage transactions have failed:
 
@@ -204,13 +205,13 @@ Another example is a fluctuation in the available memory. In this scenario, the 
 
    :::image type="content" source="./media/metrics-charts/chart-settings.png" alt-text="Screenshot that shows the Y-axis range section." lightbox="./media/metrics-charts/chart-settings.png":::
 
-If you lock the boundaries of the y-axis for charts that tracks count, sum, min, or max aggregations over a period of time, specify a fixed time granularity. Don't rely on the automatic defaults.  
+If you lock the boundaries of the y-axis for charts that tracks count, sum, min, or max aggregations over a period of time, specify a fixed time granularity. Don't rely on the automatic defaults.
 
 A fixed time granularity is chosen because chart values change when the time granularity is automatically modified when a user resizes a browser window or changes screen resolution. The resulting change in time granularity affects the appearance of the chart, invalidating the selection of the y-axis range.
 
 ## Line colors
 
-Chart lines are automatically assigned a color from a default palette.  
+Chart lines are automatically assigned a color from a default palette.
 
 To change the color of a chart line, select the colored bar in the legend that corresponds to the line on the chart. Use the color picker to select the line color.
 
@@ -220,7 +221,7 @@ Customized colors are preserved when you pin the chart to a dashboard. The follo
 
 ## Saving to dashboards or workbooks
 
-After you configure a chart, you can add it to a dashboard or workbook. By adding a chart to a dashboard or workbook, you can make it accessible to your team.  You can also gain insights by viewing it in the context of other monitoring information.
+After you configure a chart, you can add it to a dashboard or workbook. By adding a chart to a dashboard or workbook, you can make it accessible to your team. You can also gain insights by viewing it in the context of other monitoring information.
 
 - To pin a configured chart to a dashboard, in the upper-right corner of the chart, select **Save to dashboard** and then **Pin to dashboard**.
 - To save a configured chart to a workbook, in the upper-right corner of the chart, select **Save to dashboard** and then **Save to workbook**.
@@ -247,7 +248,7 @@ To create an alert rule:
 
 1. On the **Details** tab, enter a **Name** and **Description** for the alert rule.
 
-1. Select a **Severity** level for the alert rule. Severities include Critical, Error Warning, Informational, and Verbose.  
+1. Select a **Severity** level for the alert rule. Severities include Critical, Error Warning, Informational, and Verbose.
 
 1. Select **Review + create** to review the alert rule, then select **Create** to create the alert rule.
 
