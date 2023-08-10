@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/24/2023
+ms.date: 08/10/2023
 ms.author: ramakk
 ms.custom: references_regions
 ---
@@ -69,6 +69,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   UAE Central
 *   UAE North
 *   UK South
+*   UK West
 *	West Europe
 *   West US
 *   West US 2
