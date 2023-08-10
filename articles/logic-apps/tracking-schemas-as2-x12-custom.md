@@ -12,7 +12,7 @@ ms.date: 08/10/2023
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Azure Logic Apps includes built-in tracking that you can enable for parts of your workflow. To help you monitor the success, errors, and message properties for business-to-business (B2B) messages, you can create and use tracking schemas for AS2, X12, and custom tracking schemas in your integration account. This reference guide describes the syntax and attributes for these tracking schemas.
+Azure Logic Apps includes built-in tracking that you can enable for parts of your workflow. To help you monitor the successful delivery or receipt, errors, and properties for business-to-business (B2B) messages, you can create and use AS2, X12, and custom tracking schemas in your integration account. This reference guide describes the syntax and attributes for these tracking schemas.
 
 ## AS2
 
@@ -499,9 +499,9 @@ The following table describes the attributes in a tracking schema for an X12 fun
 
 <a name="custom"></a>
 
-## Custom tracking schema
+## Custom
 
-You can set up custom tracking that logs events from the start to the end of your logic app workflow, including layers such as built-in triggers and actions, SQL Server, BizTalk Server, or any other layer. The following section provides custom code that you can use in the layers outside your workflow.
+You can set up custom tracking that logs events from the start to the end of your logic app workflow. For example, you can log events from layers that include your workflow, SQL Server, BizTalk Server, or any other layer. The following section provides custom tracking schema code that you can use in the layers outside your workflow.
 
 ```json
 {
