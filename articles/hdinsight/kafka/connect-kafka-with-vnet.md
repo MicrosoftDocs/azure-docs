@@ -33,8 +33,8 @@ This article describes the steps to set up the connectivity between a virtual ma
 1. Update /etc/hosts file in client machine: Update `/etc/hosts` file in client machine with `/etc/hosts` file of Kafka Head/Worker node.
 
 > [!NOTE]
-> 1. Private DNS setup is optional after IP advertising. This is required only when you want to use FQDN of Kafka worker nodes with private DNS domain name instead of private IPs.
-> 1. IPs of Kafka VMs never change if VM is present in cluster. Only when you manually replace VM from the cluster then, that IP changes. You can check the latest IPs from Ambari portal.
+> * Private DNS setup is optional after IP advertising. This is required only when you want to use FQDN of Kafka worker nodes with private DNS domain name instead of private IPs.
+> * IPs of Kafka VMs never change if VM is present in cluster. Only when you manually replace VM from the cluster then, that IP changes. You can check the latest IPs from Ambari portal.
 
 ###  Configure Kafka for IP advertising
 This configuration allows the client to connect using broker IP addresses instead of domain names. By default, Apache Zookeeper returns the domain name of the Kafka brokers to clients.
@@ -175,39 +175,39 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
      </html> 
      ```
 
-#### If Client VM is using Windows OS
+### If Client VM is using Windows OS
 
-   1. Go to overview page of `hdi-kafka` and click on Ambari view to get the URL.
+1. Go to overview page of `hdi-kafka` and click on Ambari view to get the URL.
 
-   1. Put the login credential as username `admin` and password `YOUR_PASSWORD`, which you have set while creating cluster.
+1. Put the login credential as username `admin` and password `YOUR_PASSWORD`, which you have set while creating cluster.
      
-      > [!NOTE]
-      > 1. In Windows VM, static hostnames need to be added in the host file which present in the path `C:\Windows\System32\drivers\etc\`.
-      > 1. This article assumes that the Ambari server is active on `Head Node 0`. If the Ambari server is active on `Head Node 1` use the FQDN of hn1 to access the Ambari UI.
+   > [!NOTE]
+   > 1. In Windows VM, static hostnames need to be added in the host file which present in the path `C:\Windows\System32\drivers\etc\`.
+   > 1. This article assumes that the Ambari server is active on `Head Node 0`. If the Ambari server is active on `Head Node 1` use the FQDN of hn1 to access the Ambari UI.
       
-      :::image type="content" source="./media/connect-kafka-with-vnet/dashboard.png" alt-text="Screenshot showing the dashboard." border="true" lightbox="./media/connect-kafka-with-vnet/dashboard.png":::
+   :::image type="content" source="./media/connect-kafka-with-vnet/dashboard.png" alt-text="Screenshot showing the dashboard." border="true" lightbox="./media/connect-kafka-with-vnet/dashboard.png":::
     
-   1. You can also send messages to kafka topic and read the topics from the VM. For that you can try to use this sample java application.
+1. You can also send messages to kafka topic and read the topics from the VM. For that you can try to use this sample java application.
      
-   1. Use sample git repository to create Kafka topics, produce and consume data from that topic. For more information, see [hdinsight-kafka-java-getting-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+1. Use sample git repository to create Kafka topics, produce and consume data from that topic. For more information, see [hdinsight-kafka-java-getting-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
      
-   1. You can use FQDN, IP or short name(first six letters of cluster name) of brokers to pass as `KAFKABROKERS` in the following commands.
+1. You can use FQDN, IP or short name(first six letters of cluster name) of brokers to pass as `KAFKABROKERS` in the following commands.
               
-       ```
-       # In the previous example       # IP of worker node 0 is `broker1-ip` and worker node 1 is `broker2-ip`
-       # Short Name of worker node 0 is `wn0-hdi-ka` and worker node 1 is `wn1-hdi-ka`      # FQDN of worker node 0 is `wn0-hdi-ka.mvml5coqo4xuzc1nckq1sltcxf.bx.internal.cloudapp.net` and worker node 1 is `wn1-hdi-ka.mvml5coqo4xuzc1nckq1sltcxf.bx.internal.cloudapp.net`
+   ```
+    # In the previous example       # IP of worker node 0 is `broker1-ip` and worker node 1 is `broker2-ip`
+    # Short Name of worker node 0 is `wn0-hdi-ka` and worker node 1 is `wn1-hdi-ka`      # FQDN of worker node 0 is `wn0-hdi-ka.mvml5coqo4xuzc1nckq1sltcxf.bx.internal.cloudapp.net` and worker node 1 is `wn1-hdi-ka.mvml5coqo4xuzc1nckq1sltcxf.bx.internal.cloudapp.net`
             
-       # Create Kafka Topic 
-            java -jar kafka-producer-consumer.jar create <topic_name> $KAFKABROKERS
-            java -jar kafka-producer-consumer.jar create test broker1-ip:9092,broker2-ip:9092
+    # Create Kafka Topic 
+         java -jar kafka-producer-consumer.jar create <topic_name> $KAFKABROKERS
+         java -jar kafka-producer-consumer.jar create test broker1-ip:9092,broker2-ip:9092
             
-       # Produce Data in Topic
-            java -jar kafka-producer-consumer.jar producer <topic_name> $KAFKABROKERS
-            java -jar kafka-producer-consumer.jar producer test wn0-hdi-ka:9092,wn1-hdi-ka:9092
+    # Produce Data in Topic
+         java -jar kafka-producer-consumer.jar producer <topic_name> $KAFKABROKERS
+         java -jar kafka-producer-consumer.jar producer test wn0-hdi-ka:9092,wn1-hdi-ka:9092
          
-       # Consume Data from Topic
-            java -jar kafka-producer-consumer.jar consumer <topic_name> $KAFKABROKERS
-            java -jar kafka-producer-consumer.jar consumer test wn0-hdi-ka.mvml5coqo4xuzc1nckq1sltcxf.bx.internal.cloudapp.net:9092,wn1-hdi-ka.mvml5coqo4xuzc1nckq1sltcxf.bx.internal.cloudapp.net:9092
-       ```   
+    # Consume Data from Topic
+         java -jar kafka-producer-consumer.jar consumer <topic_name> $KAFKABROKERS
+         java -jar kafka-producer-consumer.jar consumer test wn0-hdi-ka.mvml5coqo4xuzc1nckq1sltcxf.bx.internal.cloudapp.net:9092,wn1-hdi-ka.mvml5coqo4xuzc1nckq1sltcxf.bx.internal.cloudapp.net:9092
+   ```   
 > [!NOTE]
 > It is recommended to add all the brokers IP, FQDN or short name in $KAFKABROKERS for fault tolerance.
