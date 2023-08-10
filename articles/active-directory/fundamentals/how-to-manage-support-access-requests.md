@@ -40,7 +40,7 @@ Closing a support request automatically revokes the support engineer's access to
 
 Select the **Remove access** button to revoke access to an approved support access request. 
 
-![Screenshot of the Support access requests history with the Revoke button highlighted](media/how-to-manage-support-access-requests/remove-approved-access.png)
+![Screenshot of the Support access requests history with the Revoke button highlighted.](media/how-to-manage-support-access-requests/remove-approved-access.png)
 
 When your support request is closed, the status of an approved Microsoft Support access request is automatically set to **Completed.** Microsoft Support access requests remain in the **Approved access** list for 30 days.
 
