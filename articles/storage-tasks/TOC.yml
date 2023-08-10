@@ -46,8 +46,6 @@ items:
       href: storage-task-faq.md
     - name: Known issues and limitations
       href: storage-task-known-issues.md
-    - name: Pricing for Azure Storage Tasks
-      href: https://azure.microsoft.com/pricing/details/storage/blobs/
     - name: Azure Storage Tasks on Microsoft Q&A
       href: /answers/topics/azure-blob-storage.html
     - name: Azure Storage Tasks on Stack Overflow
