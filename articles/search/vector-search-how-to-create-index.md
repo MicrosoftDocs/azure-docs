@@ -22,22 +22,13 @@ In Azure Cognitive Search, vector data is indexed as *vector fields* in a [searc
 > + Add one or more vector configurations to the index schema. 
 > + Load the index with vector data [as a separate step](#load-vector-data-for-indexing), after the index schema is defined.
 
-Vector fields are of type `Collection(Edm.Single)` and single-precision floating-point values. A field of this type also has a `dimensions` property and a `vectorConfiguration property
-
-A vector configuration specifies the algorithm and parameters used during indexing to create "nearest neighbor" information among the vector nodes. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
-
-During indexing, HNSW determines how closely the vectors match and stores the neighborhood information as a proximity graph in the index. You can have multiple configurations within an index if you want different HNSW parameter combinations. As long as the vector fields contain embeddings from the same model, having a different vector configuration per field has no effect on queries.
-
 ## Prerequisites
 
 + Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields fails on creation. In this situation, a new service must be created.
 
-+ Pre-existing vector embeddings in your source documents. Cognitive Search doesn't generate vectors. We recommend [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) but you can use any model for vectorization. 
++ Pre-existing vector embeddings in your source documents. Cognitive Search doesn't generate vectors. We recommend [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) but you can use any model for vectorization. For more information, see [Create and use embeddings for search queries and documents](vector-search-how-to-generate-embeddings.md).
 
 + You should know the dimensions limit of the model used to create the embeddings and how similarity is computed. In Azure OpenAI, for **text-embedding-ada-002**, the length of the numerical vector is 1536. Similarity is computed using `cosine`.
-
-> [!NOTE]
-> During query execution, your workflow must call an embedding model that converts the user's query string into a vector. Be sure to use the same embedding model for both queries and indexing. For more information, see [Create and use embeddings for search queries and documents](vector-search-how-to-generate-embeddings.md).
 
 ## Prepare documents for indexing
 
@@ -60,6 +51,12 @@ A short example of a documents payload that includes vector and non-vector field
 ## Add a vector field to the fields collection
 
 The schema must include a `vectorConfiguration` section, a field for the document key, vector fields, and any other fields that you need for hybrid search scenarios.
+
+Vector fields are of type `Collection(Edm.Single)` and single-precision floating-point values. A field of this type also has a `dimensions` property and a `vectorConfiguration property
+
+A vector configuration specifies the algorithm and parameters used during indexing to create "nearest neighbor" information among the vector nodes. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
+
+During indexing, HNSW determines how closely the vectors match and stores the neighborhood information as a proximity graph in the index. You can have multiple configurations within an index if you want different HNSW parameter combinations. As long as the vector fields contain embeddings from the same model, having a different vector configuration per field has no effect on queries.
 
 ### [**Azure portal**](#tab/portal-add-field)
 

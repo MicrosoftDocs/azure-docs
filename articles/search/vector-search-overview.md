@@ -35,11 +35,11 @@ Support for vector search is in public preview and available through the [**2023
 
 The following diagram shows the indexing and query workflows for vector search.
 
-:::image type="content" source="media/vector-search-overview/vector-search-architecture-diagram-2.png" alt-text="Architecture of vector search workflow." border="true":::
+:::image type="content" source="media/vector-search-overview/vector-search-architecture-diagram-2.png" alt-text="Architecture of vector search workflow." border="true" lightbox="media/vector-search-overview/vector-search-architecture-diagram-2.png":::
 
 On the indexing side, prepare and load source documents that contain embeddings. Cognitive Search doesn't generate embeddings, so your solution should include calls to Azure OpenAI or other models that can create a vector representation of your image, audio, text, and other content. Add a *vector field* to your index definition on Cognitive Search. Load the index with a documents payload that includes the embeddings. Your index is now ready to query.
 
-On the query side, in your client application, collect the query input. Add a step that converts the input into a vector, and then send the vector query to your index on Cognitive Search for a similarity search. Cognitive Search returns documents with the requested `k` nearest neighbors (kNN).
+On the query side, in your client application, collect the query input. Add a step that converts the input into a vector, and then send the vector query to your index on Cognitive Search for a similarity search. Cognitive Search returns documents with the requested `k` nearest neighbors (kNN) in the results.
 
 You can index vector data as fields in documents alongside textual and other types of content. Vector queries can be issued independently or in combination with other query types, including term queries (hybrid search) and filters in the same search request.
 
