@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 08/11/2023
 ---
 
-# Peering monitoring and telemetry walkthrough
+# Peering Service monitoring and telemetry walkthrough
 
 In this article, as an Internet peering partner (direct or exchange), you learn how to use the Azure portal to view various metrics associated with a direct or exchange peering.
 
@@ -49,9 +49,9 @@ As an Azure Peering Service Exchange Route Server partner, you can view the aver
 
 All Peering Service resources display the session availability metric for their Peering Service in the **Overview** page of a Peering Service resource. 
 
-    - Provider primary peering session availability: indicates the state of the BGP (Border Gateway Protocol) session between the Peering Service provider and Microsoft at the primary peering location.
+- Provider primary peering session availability: indicates the state of the BGP (Border Gateway Protocol) session between the Peering Service provider and Microsoft at the primary peering location.
 
-    - Provider backup peering session availability: indicates the state of the BGP session between the Peering Service provider and Microsoft at the backup peering location if there's one selected for the Peering Service.
+- Provider backup peering session availability: indicates the state of the BGP session between the Peering Service provider and Microsoft at the backup peering location if there's one selected for the Peering Service.
 
     :::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-service-session-availability.png" alt-text="Screenshot shows how to view the provider peering session availability for a specific Peering Service in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-service-session-availability.png":::
 

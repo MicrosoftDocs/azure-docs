@@ -30,9 +30,9 @@
     href: walkthrough-exchange-route-server-partner.md
   - name: Peering maintenance notification walkthrough
     href: walkthrough-device-maintenance-notification.md
-  - name: Azure Peering Monitoring and Telemetry walkthrough
+  - name: Peering Service monitoring and telemetry walkthrough
     href: walkthrough-monitoring-and-telemetry.md
-  - name: Direct Peering Type Conversion Request Walkthrough
+  - name: Direct peering type conversion request Walkthrough
     href: walkthrough-direct-peering-type-conversions.md
   - name: Associate peer ASN to Azure subscription
     items:
