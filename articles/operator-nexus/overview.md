@@ -12,7 +12,7 @@ ms.service: azure-operator-nexus
 
 Azure Operator Nexus is a carrier-grade, next-generation hybrid cloud platform for telecommunication operators. Azure Operator Nexus is purpose-built for operators' network-intensive workloads and mission-critical applications.
 
-Azure Operator Nexus supports a wide variety of virtualized and containerized network functions from both Microsoft and partners. The platform automates the lifecycle management (LCM) of the infrastructure, including network fabric, bare metal hosts, and storage appliances. It also automates the LCM of tenant workloads for containerized network functions (CNFs) and virtualized network functions (VNFs).
+Azure Operator Nexus supports a wide variety of virtualized and containerized network functions from both Microsoft and partners. The platform automates the lifecycle management (LCM) of the infrastructure, including network fabric, bare-metal hosts, and storage appliances. It also automates the LCM of tenant workloads for containerized network functions (CNFs) and virtualized network functions (VNFs).
 
 Azure Operator Nexus meets operators' security, resiliency, observability, and performance requirements to achieve meaningful business results. The platform seamlessly integrates compute, network, and storage.
 
@@ -41,7 +41,7 @@ The service that manages the Azure Operator Nexus infrastructure is hosted in Az
 Here are important points about the architecture:
 
 * The management layer of Azure Operator Nexus is built on Azure Resource Manager to provide a consistent user experience in the Azure portal and Azure APIs.
-* Azure resource providers provide modeling and LCM of [Azure Operator Nexus resources](./concepts-resource-types.md) such as bare metal machines, clusters, and network devices.
+* Azure resource providers provide modeling and LCM of [Azure Operator Nexus resources](./concepts-resource-types.md) such as bare-metal machines, clusters, and network devices.
 * Azure Operator Nexus controllers include a cluster manager and a network fabric controller, which are deployed in a managed virtual network that's connected to an operator's on-premises network. These controllers enable functionalities such as infrastructure bootstrapping, configurations, and service upgrades.
 * Azure Operator Nexus is integrated with many Azure services, such as Azure Monitor, Azure Container Registry, and Azure Kubernetes Service (AKS).
 * Azure ExpressRoute is a network connectivity service that bridges Azure regions and operators' locations.
@@ -52,7 +52,7 @@ Here are some key features of Azure Operator Nexus.
 
 ### CBL-Mariner
 
-Azure Operator Nexus runs Microsoft's own Linux distribution called [CBL-Mariner](https://microsoft.github.io/CBL-Mariner/docs/) on the bare metal hosts in the operator's facilities. The same Linux distribution supports Azure cloud infrastructure and edge services. It includes a small set of core packages by default.
+Azure Operator Nexus runs Microsoft's own Linux distribution called [CBL-Mariner](https://microsoft.github.io/CBL-Mariner/docs/) on the bare-metal hosts in the operator's facilities. The same Linux distribution supports Azure cloud infrastructure and edge services. It includes a small set of core packages by default.
 
 CBL-Mariner is a lightweight operating system. It consumes limited system resources and is engineered to be efficient. For example, it has a fast startup time with a small footprint and locked-down packages to reduce the threat landscape.
 
@@ -60,9 +60,9 @@ When Microsoft identifies a security vulnerability, it makes the latest security
 
 ### Bare metal and cluster management
 
-Azure Operator Nexus includes capabilities to manage the bare metal hosts in operators' premises. Operators can provision the bare metal hosts by using Azure Operator Nexus. They can interact to restart, shut down, or reimage, for example.
+Azure Operator Nexus includes capabilities to manage the bare-metal hosts in operators' premises. Operators can provision the bare-metal hosts by using Azure Operator Nexus. They can interact to restart, shut down, or reimage, for example.
 
-One important component of the service is the [cluster manager](./howto-cluster-manager.md). It provides the LCM of Kubernetes clusters that are made of the bare metal hosts.  
+One important component of the service is the [cluster manager](./howto-cluster-manager.md). It provides the LCM of Kubernetes clusters that are made of the bare-metal hosts.  
 
 ### Network fabric automation
 
