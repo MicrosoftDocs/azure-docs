@@ -84,5 +84,5 @@ To remove a workspace, follow these steps to [delete a workspace by using the Az
 ## Next steps
 
 - Learn how to [identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-tests.md)
-- Learn more about [automating end-to-end tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).
+- Learn more about [automating end-to-end tests with GitHub Actions](./quickstart-automate-end-to-end-testing.md).
 - Learn how to [run existing Playwright tests in the cloud](./how-to-run-with-playwright-testing.md).

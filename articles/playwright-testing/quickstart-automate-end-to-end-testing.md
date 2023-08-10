@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Set up continuous end-to-end testing'
+title: 'Quickstart: Automate end-to-end tests in CI/CD'
 titleSuffix: Microsoft Playwright Testing
-description: In this tutorial, you learn how to set up continuous end-to-end testing with GitHub Actions and Microsoft Playwright Testing.
+description: In this quickstart, you learn how to run your Playwright tests at scale in your CI pipeline with Microsoft Playwright Testing. Automate your tests with GitHub Actions, Azure Pipelines, or other CI tools.
 services: playwright-testing
 ms.service: playwright-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 08/17/2022
-ms.topic: tutorial
+ms.topic: quickstart
+ms.date: 08/09/2023
 ---
 
-# Tutorial: Set up continuous end-to-end testing with GitHub Actions and Microsoft Playwright Testing Preview
+# Quickstart: Set up continuous end-to-end testing with GitHub Actions and Microsoft Playwright Testing Preview
 
 In this tutorial, you'll learn how to set up continuous end-to-end testing with GitHub Actions and Microsoft Playwright Testing Preview. Analyze failing tests by using the test diagnostics information directly within GitHub Actions.
 
@@ -39,7 +39,7 @@ The sample repository contains Playwright tests and the configuration settings t
 
 1. Select **Fork** to fork the sample application's repository to your GitHub account.
 
-    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/fork-github-repo.png" alt-text="Screenshot that shows the button to fork the sample application's GitHub repo.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/fork-github-repo.png" alt-text="Screenshot that shows the button to fork the sample application's GitHub repo.":::
 
 ## Configure GitHub secret
 
@@ -54,7 +54,7 @@ To securely use the Microsoft Playwright Testing access key in your GitHub Actio
     | **Name** | *ACCESS_KEY* |  
     | **Value** | Paste the workspace access key. Follow these steps to [create an access key](./how-to-manage-access-keys.md#create-an-access-key). |
 
-    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/create-secret-playwright-testing.png" alt-text="Screenshot that shows the page to add a GitHub secret for Microsoft Playwright Testing access key.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/create-secret-playwright-testing.png" alt-text="Screenshot that shows the page to add a GitHub secret for Microsoft Playwright Testing access key.":::
 
 ## Create a GitHub Actions workflow
 
@@ -66,7 +66,7 @@ You'll now create a GitHub Actions workflow that runs your Playwright tests with
 
 1. In your forked repository, select **Actions**, and then select **New workflow**.
 
-      :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/create-github-actions-workflow.png" alt-text="Screenshot that shows Actions page in GitHub, highlighting the New workflow button.":::
+      :::image type="content" source="./media/quickstart-automate-end-to-end-testing/create-github-actions-workflow.png" alt-text="Screenshot that shows Actions page in GitHub, highlighting the New workflow button.":::
 
 1. Select **set up a workflow yourself**, to create a new workflow.
 
@@ -135,7 +135,7 @@ You'll now create a GitHub Actions workflow that runs your Playwright tests with
 
     After you commit the changes, the workflow starts and runs the Playwright tests with Microsoft Playwright Testing.
     
-    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/new-workflow-commit.png" alt-text="Screenshot that shows how to commit the new GitHub Actions workflow file on the GitHub page.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/new-workflow-commit.png" alt-text="Screenshot that shows how to commit the new GitHub Actions workflow file on the GitHub page.":::
 
 ## Explore test results in GitHub Actions
 
@@ -145,23 +145,23 @@ After the tests finish, you notice that the GitHub Actions workflow failed becau
 
 1. Select **Actions** in your GitHub repository, and then select the Microsoft Playwright Testing workflow run.
 
-    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-workflow.png" alt-text="Screenshot that shows the GitHub Actions tab in GitHub.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/github-actions-workflow.png" alt-text="Screenshot that shows the GitHub Actions tab in GitHub.":::
 
 1. Use the GitHub Actions summary for an overview of all failing tests and error details.
 
-    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-summary.png" alt-text="Screenshot that shows the Playwright test results in the GitHub Actions summary view.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/github-actions-summary.png" alt-text="Screenshot that shows the Playwright test results in the GitHub Actions summary view.":::
 
 1. Optionally, access the Microsoft Playwright Testing portal directly by using the links in the summary view.
 
     You can view the entire test run or access an individual test result.
 
-    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-summary-portal-links.png" alt-text="Screenshot that shows Playwright portal links in the GitHub Actions summary.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/github-actions-summary-portal-links.png" alt-text="Screenshot that shows Playwright portal links in the GitHub Actions summary.":::
 
     For more information about using the Microsoft Playwright Testing portal, see [Tutorial: Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-tests.md).
 
 1. To get detailed results of all tests, open the GitHub Actions log.
 
-    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-playwright-log.png" alt-text="Screenshot that shows the Playwright test results in the GitHub Actions log view.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/github-actions-playwright-log.png" alt-text="Screenshot that shows the Playwright test results in the GitHub Actions log view.":::
 
 ## Fix the test specification and rerun tests
 
@@ -172,11 +172,11 @@ You'll now update the `todo-persistence.spec.ts` test specification file to corr
 1. Go to your forked repository on [GitHub](https://github.com).
 1. Open the `todo-persistence.spec.ts` file in the `samples/PlaywrightTestRunner/tests` folder.
 
-    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-open-file.png" alt-text="Screenshot that shows the files in the forked GitHub repository, highlighting the failing test specification file.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/github-open-file.png" alt-text="Screenshot that shows the files in the forked GitHub repository, highlighting the failing test specification file.":::
 
 1. Select the **Edit this file** icon.
 
-    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-edit-file.png" alt-text="Screenshot that shows the Edit this file functionality in GitHub.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/github-edit-file.png" alt-text="Screenshot that shows the Edit this file functionality in GitHub.":::
 
 1. Replace lines 32 and 33 with the following text:
 
@@ -189,7 +189,7 @@ You'll now update the `todo-persistence.spec.ts` test specification file to corr
 
     After you commit the changes, the GitHub Actions workflow starts automatically, and all tests are rerun. The CI/CD log now shows the tests are passing.
 
-    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-trigger-by-commit.png" alt-text="Screenshot that shows the running workflow on the GitHub Actions page.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/github-actions-trigger-by-commit.png" alt-text="Screenshot that shows the running workflow on the GitHub Actions page.":::
 
 As you continue to make application code changes or update your test specifications, you'll get continuous feedback about your application quality.
 

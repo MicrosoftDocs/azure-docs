@@ -237,4 +237,4 @@ You've successfully ran Playwright tests with Microsoft Playwright Testing at hi
 Advance to the next tutorial to learn how to set up continuous end-to-end testing.
 
 > [!div class="nextstepaction"]
-> [Set up continuous end-to-end testing with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md)
+> [Set up continuous end-to-end testing with GitHub Actions](./quickstart-automate-end-to-end-testing.md)
