@@ -118,7 +118,7 @@ A service principal with the following role assignments. The supplemental script
 
 Additionally, the script creates the necessary security group, and adds the service principal to the security group. If the security group exists, it adds the service principal to the existing security group.
 
-Executing `create-service-principal` requires the following environment variables to be set;
+Executing `create-service-principal.sh` requires the following environment variables to be set;
    * SERVICE_PRINCIPAL_NAME - The name of the service principal, created with the `az ad sp create-for-rbac` command.
    * AAD_GROUP_NAME - The name of the security group.
 
@@ -172,5 +172,5 @@ RESOURCE_GROUP="<your resource group>" STORAGE_ACCOUNT_NAME="<your storage accou
 1. A file named `summary-<cluster_name>-<timestamp>.html` is downloaded at the end of the run and contains the testing results. It can be viewed:
     1. From any browser
     1. Using elinks or lynx to view from the command line; for example:
-       1.  `elinks summary-<cluster_name>-<timestamp>..html`
+       1.  `elinks summary-<cluster_name>-<timestamp>.html`
  1. If the `PUBLISH_RESULTS_TO` parameter was provided, the results are uploaded to the blob container you specified. It can be previewed by navigating to the link presented to you at the end of the IRT run.
