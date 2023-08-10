@@ -17,12 +17,12 @@ In this article you'll learn about the latest updates for the Azure Virtual Desk
 
 ## Latest client versions
 
-The following table lists the current version available for the public release. To enable Insider releases, see [Enable Windows Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-insider-releases).
+The following table lists the current version available for the public release. To enable Insider releases, see [Enable Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-insider-releases).
 
 | Release     | Latest version   | Download |
 |-------------|------------------|----------|
 | Public      | 1.2.4487         | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider     | 1.2.4487         | Download the public release, then [Enable Windows Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-insider-releases) and check for updates. |
+| Insider     | 1.2.4487         | Download the public release, then [Enable Insider releases](users/client-features-windows-azure-virtual-desktop-app.md#enable-insider-releases) and check for updates. |
 
 ## Updates for version 1.2.4487
 
