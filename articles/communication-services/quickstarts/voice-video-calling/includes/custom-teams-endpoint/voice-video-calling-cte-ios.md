@@ -83,6 +83,7 @@ The following classes and interfaces handle some of the major features of the Az
 | :--------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `CallClient`                   | The `CallClient` is the main entry point to the Calling SDK.                                                                                                                         |
 | `TeamsCallAgent`               | The `TeamsCallAgent` is used to start and manage calls.                                                                                                                                   |
+| `TeamsIncomingCall`            | The `TeamsIncomingCall` is used to accept or reject incoming teams call.      |
 | `CommunicationTokenCredential` | The `CommunicationTokenCredential` is used as the token credential to instantiate the `TeamsCallAgent`.                                                                                     |
 | `CommunicationIdentifier`      | The `CommunicationIdentifier` is used to represent the identity of the user, which can be one of the following options: `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `CallingApplication`. |
 
@@ -125,7 +126,7 @@ struct ContentView: View {
                         }.disabled(teamsCallAgent == nil)
                         Button(action: endCall) {
                             Text("End Teams Call")
-                        }.disabled(call == nil)
+                        }.disabled(teamsCall == nil)
                         Button(action: toggleLocalVideo) {
                             HStack {
                                 Text(sendingVideo ? "Turn Off Video" : "Turn On Video")
@@ -174,7 +175,7 @@ struct ContentView: View {
                             }
                             Button(action: endCall) {
                                 Text("End Call")
-                            }.disabled(call == nil)
+                            }.disabled(teamsCall == nil)
                             Button(action: toggleLocalVideo) {
                                 HStack {
                                     Text(sendingVideo ? "Turn Off Video" : "Turn On Video")
@@ -199,7 +200,7 @@ struct ContentView: View {
         }.onAppear{
             // Authenticate the client
             
-            // Initialize the Teams CallAgent and access Device Manager
+            // Initialize the TeamsCallAgent and access Device Manager
             
             // Ask for permissions
         }
@@ -454,7 +455,7 @@ teamsIncomingCallHandler.contentView = self
 Set a delegate to the `TeamsCallAgent` after the `TeamsCallAgent` being successfully created:
 
 ```Swift
-self.callAgent!.delegate = incomingCallHandler
+self.teamsCallAgent!.delegate = incomingCallHandler
 ```
 
 Once there's an incoming call, the `TeamsIncomingCallHandler` calls the function `showIncomingCallBanner` to display `answer` and `decline` button.
@@ -465,7 +466,7 @@ func showIncomingCallBanner(_ incomingCall: TeamsIncomingCall) {
     self.teamsIncomingCall = incomingCall
 }
 ```
-======= DONE =======
+
 The actions attached to `answer` and `decline` are implemented as the following code. In order to answer the call with video, we need to turn on the local video and set the options of `AcceptCallOptions` with `localVideoStream`.
 
 ```Swift
@@ -533,23 +534,23 @@ public class RemoteVideoStreamData : NSObject, RendererDelegate {
 
 ## Subscribe to events
 
-We can implement a `CallObserver` class to subscribe to a collection of events to be notified when values change during the call.
+We can implement a `TeamsCallObserver` class to subscribe to a collection of events to be notified when values change during the call.
 
 ```Swift
-public class CallObserver: NSObject, CallDelegate, IncomingCallDelegate {
+public class TeamsCallObserver: NSObject, TeamsCallDelegate, TeamsIncomingCallDelegate {
     private var owner: ContentView
     init(_ view:ContentView) {
             owner = view
     }
         
-    public func call(_ call: Call, didChangeState args: PropertyChangedEventArgs) {
-        if(call.state == CallState.connected) {
+    public func teamsCall(_ teamsCall: TeamsCall, didChangeState args: PropertyChangedEventArgs) {
+        if(teamsCall.state == CallState.connected) {
             initialCallParticipant()
         }
     }
 
     // render remote video streams when remote participant changes
-    public func call(_ call: Call, didUpdateRemoteParticipant args: ParticipantsUpdatedEventArgs) {
+    public func teamsCall(_ teamsCall: TeamsCall, didUpdateRemoteParticipant args: ParticipantsUpdatedEventArgs) {
         for participant in args.addedParticipants {
             participant.delegate = owner.remoteParticipantObserver
             for stream in participant.videoStreams {
@@ -570,7 +571,7 @@ public class CallObserver: NSObject, CallDelegate, IncomingCallDelegate {
 
     // Handle remote video streams when the call is connected
     public func initialCallParticipant() {
-        for participant in owner.call!.remoteParticipants {
+        for participant in owner.teamsCall.remoteParticipants {
             participant.delegate = owner.remoteParticipantObserver
             for stream in participant.videoStreams {
                 renderRemoteStream(stream)
