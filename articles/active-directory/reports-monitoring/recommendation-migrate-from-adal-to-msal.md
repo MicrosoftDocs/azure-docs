@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/26/2023
+ms.date: 08/10/2023
 ms.author: sarahlipsey
 ms.reviewer: jamesmantu
 
@@ -112,15 +112,23 @@ You can run the following set of commands in Windows PowerShell. These commands 
 
 ### Why does it take 30 days to change the status to completed?
 
-To reduce false positives. 
+To reduce false positives, the service uses a 30 day window for ADAL requests. This way, the service can go several days without an ADAL request and not be falsely marked as completed. 
 
-### How were DAL applications identified before the recommendation was released?
+### How were ADAL applications identified before the recommendation was released?
 
 The [Azure AD sign-ins workbook](../develop/howto-get-list-of-all-auth-library-apps.md) is an alternative method to identify these apps. The workbook is still available to you, but using the workbook requires streaming sign-in logs to Azure Monitor first. The ADAL to MSAL recommendation works out of the box. Plus, the sign-ins workbook does not capture Service Principal sign-ins, while the recommendation does.
+
+### Why is the number of ADAL applications different in the workbook and the recommendation?
+
+Because the recommendation captures Service Principal sign-ins and the workbook doesn't, the recommendation may show more ADAL applications.
 
 ### How do I identify the owner of an application in my tenant?
 
 You can locate owner from the recommendation details. Select the resource, which takes you to the application details. Select **Owners** from the navigation menu.
+
+### Can the status change from *completed* to *active*?
+
+Yes. If an application was marked as completed - so no ADAL requests were made during the 30 day window - that application would be marked as complete. If the service detects a new ADAL request, the status changes back to *active*.
 
 ## Next steps
 
