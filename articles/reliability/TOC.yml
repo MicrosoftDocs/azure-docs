@@ -12,10 +12,12 @@
     items:
     - name: Virtual Machines
       items:
-    - name: Overview
-      href: move-vm-regional-to-zonal-overview.md
-    - name: Tutorial
-      href: move-vm-regional-to-zonal-tutorial.md 
+      - name: Overview
+        href: move-vm-regional-to-zonal-overview.md
+      - name: Tutorial
+        href: move-vm-regional-to-zonal-tutorial.md 
+      - name: Move resources using PowerShell
+        href: move-vm-regional-to-zonal-powershell.md
   - name: Migrate to availability zone support
     items:
     - name: Overview
