@@ -563,7 +563,8 @@ Run the following cmdlets in PowerShell:
 			                                                         "ipAddressPools":  [
 			
 			                                                                            ],
-                               "mtu": 1500
+                                            
+            "mtu": 1500
 			                                                     },
 			                                                     {
 			                                                         "name":  "vSwitch2",
@@ -576,7 +577,8 @@ Run the following cmdlets in PowerShell:
 			                                                         "ipAddressPools":  [
 			
 			                                                                            ],
-                               "mtu": 1500
+                                            
+            "mtu": 1500
 			                                                     },
 			                                                     {
 			                                                         "name":  "vSwitch3",
@@ -589,7 +591,8 @@ Run the following cmdlets in PowerShell:
 			                                                         "ipAddressPools":  [
 			
 			                                                                            ],
-                               "mtu": 1500
+                                      
+            "mtu": 1500
 			                                                     }
 			                                                 ],
 			                                   "virtualNetworks":  [
