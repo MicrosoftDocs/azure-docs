@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Network Fil
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/31/2023
+ms.date: 08/09/2023
 ms.author: kendownie
 ms.custom: references_regions, devx-track-linux
 ---
@@ -104,10 +104,6 @@ NFS Azure file shares are only offered on premium file shares, which store data 
 > Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json) for a list of known issues.
 
 NFS has been validated to work well with workloads such as SAP application layer, database backups, database replication, messaging queues, home directories for general purpose file servers, and content repositories for application workloads.
-
-The following workloads have known issues:
-- Oracle Database will experience incompatibility with its `dNFS` feature.
-
 
 ## Next steps
 - [Create an NFS file share](storage-files-how-to-create-nfs-shares.md)

@@ -78,6 +78,7 @@ Azure Machine Learning pipelines are a powerful facility that begins delivering 
 + [Define pipelines with Designer](./how-to-create-component-pipelines-ui.md)
 + Try out [CLI v2 pipeline example](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components)
 + Try out [Python SDK v2 pipeline example](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines)
++ Learn about [SDK and CLI v2 expressions](concept-expressions.md) that can be used in a pipeline.
 :::moniker-end
 :::moniker range="azureml-api-1"
 + [Create and run machine learning pipelines](v1/how-to-create-machine-learning-pipelines.md)

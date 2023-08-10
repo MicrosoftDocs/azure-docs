@@ -6309,6 +6309,26 @@
             "source_path_from_root": "/articles/azure-monitor/insights/solution-agenthealth.md",
             "redirect_url": "/azure/azure-monitor/agents/solution-agenthealth",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-hybrid-setup.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-optout-openshift-v3.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-optout",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-optout-openshift-v4.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-optout",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-optout-hybrid.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-optout",
+            "redirect_document_id": false
         }
     ]
 }
