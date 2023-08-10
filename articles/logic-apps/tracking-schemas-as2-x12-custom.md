@@ -14,17 +14,14 @@ ms.date: 08/10/2023
 
 Azure Logic Apps includes built-in tracking that you can enable for parts of your workflow. To help you monitor the success, errors, and message properties for business-to-business (B2B) messages, you can create and use tracking schemas for AS2, X12, and custom tracking schemas in your integration account. This reference guide describes the syntax and attributes for these tracking schemas.
 
-- AS2 message tracking schema
-- AS2 Message Disposition Notification (MDN) tracking schema
-- X12 transaction set tracking schema
-- X12 transaction set acknowledgment tracking schema
-- X12 interchange tracking schema
-- X12 interchange acknowledgment tracking schema
-- X12 functional group tracking schema
-- X12 functional group acknowledgment tracking schema
-- Custom 
+## AS2
 
-## AS2 message tracking schema
+- [AS2 message tracking schema](#as2-message)
+- [AS2 Message Disposition Notification (MDN) tracking schema](#as2-mdn)
+
+<a name="as2-message"></a>
+
+### AS2 message tracking schema
 
 The following syntax describes the tracking schema for an AS2 message:
 
@@ -80,7 +77,7 @@ The following table describes the attributes in a tracking schema for an AS2 mes
 | isMdnExpected | Yes | Boolean | Whether to use the default value if the value isn't known |
 | mdnType | Yes | Enum | Allowed values: `NotConfigured`, `Sync`, and `Async` |
 
-## AS2 MDN tracking schema
+### AS2 MDN tracking schema
 
 The following syntax describes the tracking schema for an AS2 MDN message:
 
@@ -112,7 +109,7 @@ The following syntax describes the tracking schema for an AS2 MDN message:
 }
 ```
 
-The following table describes the attributes in a tracking schema for an AS2 message:
+The following table describes the attributes in a tracking schema for an AS2 MDN message:
 
 | Property | Required | Type | Description |
 |----------|----------|------|-------------|
@@ -134,7 +131,18 @@ The following table describes the attributes in a tracking schema for an AS2 mes
 | incomingHeaders | No | Dictionary of JToken | Incoming message header details |
 | outgoingHeaders | No | Dictionary of JToken | Outgoing message header details |
 
-## X12 transaction set tracking schema
+## X12
+
+- [X12 transaction set tracking schema](#x12-transaction-set)
+- [X12 transaction set acknowledgment tracking schema](#x12-transaction-set-acknowledgment)
+- [X12 interchange tracking schema](#x12-interchange)
+- [X12 interchange acknowledgment tracking schema](#x12-interchange-acknowledgment)
+- [X12 functional group tracking schema](#x12-functional-group)
+- [X12 functional group acknowledgment tracking schema](#x12-functional-group-acknowledgment)
+
+<a name="x12-transaction-set"></a>
+
+### X12 transaction set tracking schema
 
 The following syntax describes the tracking schema for an X12 transaction set:
 
@@ -188,7 +196,9 @@ The following table describes the attributes in a tracking schema for an X12 tra
 | needAk2LoopForValidMessages | Yes | Boolean | Whether the AK2 loop is required for a valid message |
 | segmentsCount | No | Integer | Number of segments in the X12 transaction set |
 
-## X12 transaction set acknowledgment tracking schema
+<a name="x12-transaction-set-acknowledgment"></a>
+
+### X12 transaction set acknowledgment tracking schema
 
 The following syntax describes the tracking schema for an X12 transaction set acknowledgment:
 
@@ -253,7 +263,9 @@ The following table describes the attributes in a tracking schema for an X12 tra
 | ak3Segment | No | String | Reports errors in a data segment |
 | ak5Segment | No | String | Reports whether the transaction set identified in the AK2 segment is accepted or rejected, and why |
 
-## X12 interchange tracking schema
+<a name="x12-interchange"></a>
+
+### X12 interchange tracking schema
 
 The following syntax describes the tracking schema for an X12 interchange:
 
@@ -309,7 +321,9 @@ The following table describes the attributes in a tracking schema for an X12 int
 | isa15 | No | String | Indicator for test or production |
 | isa16 | No | String | Element separator |
 
-## X12 interchange acknowledgment tracking schema
+<a name="x12-interchange-acknowledgment"></a>
+
+### X12 interchange acknowledgment tracking schema
 
 The following syntax describes the tracking schema for an X12 interchange acknowledgment:
 
@@ -361,7 +375,9 @@ The following table describes the attributes in a tracking schema for an X12 int
 | ta103 | No | String | Interchange time |
 | ta105 | No | String | Interchange note code |
 
-## X12 functional group tracking schema
+<a name="x12-functional-group"></a>
+
+### X12 functional group tracking schema
 
 The following syntax describes the tracking schema for an X12 functional group:
 
@@ -421,7 +437,9 @@ The following table describes the attributes in a tracking schema for an X12 fun
 | gs07 | No | String | Responsible agency code |
 | gs08 | No | String | Identifier code for the version, release, or industry |
 
-## X12 functional group acknowledgment tracking schema
+<a name="x12-functional-group-acknowledgment"></a>
+
+### X12 functional group acknowledgment tracking schema
 
 The following syntax describes the tracking schema for an X12 functional group acknowledgment:
 
@@ -478,6 +496,8 @@ The following table describes the attributes in a tracking schema for an X12 fun
 | ak903 | No | String | Number of transaction sets received |
 | ak904 | No | String | Number of transaction sets accepted in the identified functional group |
 | ak9Segment | No | String | Whether the functional group identified in the AK1 segment is accepted or rejected, and why |
+
+<a name="custom"></a>
 
 ## Custom tracking schema
 
