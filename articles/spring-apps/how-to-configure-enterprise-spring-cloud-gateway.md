@@ -116,7 +116,7 @@ To assign an endpoint in the Azure portal, use the following steps:
 
 After a few minutes, **URL** shows the configured endpoint URL. Save the URL to use later.
 
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway overview pane with the toggle for assigning an endpoint." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png":::
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway overview page with the toggle for assigning an endpoint." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -137,13 +137,13 @@ VMware Spring Cloud Gateway metadata automatically generates OpenAPI version 3 d
 
 The following table describes the available metadata options:
 
-| Property      | Description                                                                                                                                                                                                                                                                 |
-|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `title`         | A title that describes the context of the APIs available on the VMware Spring Cloud Gateway instance. The default value is `Spring Cloud Gateway for K8S`.                                                                                                                                          |
+| Property        | Description                                                                                                                                                                                                                                                                                  |
+|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `title`         | A title that describes the context of the APIs available on the VMware Spring Cloud Gateway instance. The default value is `Spring Cloud Gateway for K8S`.                                                                                                                                   |
 | `description`   | A detailed description of the APIs available on the VMware Spring Cloud Gateway instance. The default value is `Generated OpenAPI 3 document that describes the API routes configured for '[Gateway instance name]' Spring Cloud Gateway instance deployed under '[namespace]' namespace.*.` |
-| `documentation` | The location of API documentation that's available on the VMware Spring Cloud Gateway instance.                                                                                                                                                                                          |
-| `version`       | The version of APIs available on this VMware Spring Cloud Gateway instance. The default value is `unspecified`.                                                                                                                                                                                 |
-| `serverUrl`     | The base URL to access APIs on the VMware Spring Cloud Gateway instance. This property is mandatory if you want to integrate with the [API portal](./how-to-use-enterprise-api-portal.md).                                                                                                                                                                                            |
+| `documentation` | The location of API documentation that's available on the VMware Spring Cloud Gateway instance.                                                                                                                                                                                              |
+| `version`       | The version of APIs available on this VMware Spring Cloud Gateway instance. The default value is `unspecified`.                                                                                                                                                                              |
+| `serverUrl`     | The base URL to access APIs on the VMware Spring Cloud Gateway instance. This property is mandatory if you want to integrate with the [API portal](./how-to-use-enterprise-api-portal.md).                                                                                                   |
 
 You can use the Azure portal or the Azure CLI to edit metadata properties.
 
@@ -156,7 +156,7 @@ To edit metadata in the Azure portal, use the following steps:
 1. Specify values for the properties listed for **API**.
 1. Select **Save**.
 
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway configuration pane for an Azure Spring Apps instance, with the API section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png":::
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway configuration tab for an Azure Spring Apps instance, with the API section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -186,7 +186,7 @@ VMware Spring Cloud Gateway supports authentication and authorization through si
 | `clientSecret` | Yes       | The OpenID Connect client secret from your identity provider.                                                                                                                                                                                                                                |
 | `scope`        | Yes       | A list of scopes to include in JWT identity tokens. This list should be based on the scopes that your identity provider allows.                                                                                                                                                              |
 
-To set up SSO with Azure Active Directory, see [Set up single sign-on with Azure Active Directory for Spring Cloud Gateway and API portal](./how-to-set-up-sso-with-azure-ad.md).
+To set up SSO with Azure Active Directory, see [Set up single sign-on using Azure Active Directory for Spring Cloud Gateway and API Portal](./how-to-set-up-sso-with-azure-ad.md).
 
 You can use the Azure portal or the Azure CLI to edit SSO properties.
 
@@ -199,7 +199,7 @@ To edit SSO properties in the Azure portal, use the following steps:
 1. Specify values for the properties listed for **SSO**.
 1. Select **Save**.
 
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway configuration pane for an Azure Spring Apps instance, with the section for single sign-on highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png":::
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png" alt-text="Screenshot of the Azure portal that shows the Spring Cloud Gateway configuration tab for an Azure Spring Apps instance, with the section for single sign-on highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -258,11 +258,11 @@ req.send();
 
 Cross-origin resource sharing (CORS) allows restricted resources on a webpage to be requested from another domain outside the domain from which the first resource was served. The following table describes the available CORS configuration options.
 
-| Property                | Description                                                                |
-|-------------------------|----------------------------------------------------------------------------|
+| Property                | Description                                                               |
+|-------------------------|---------------------------------------------------------------------------|
 | `allowedOrigins`        | Allowed origins to make cross-site requests                               |
-| `allowedOriginPatterns` | Allowed origin patterns to make cross-site requests                      |
-| `allowedMethods`        | Allowed HTTP methods on cross-site requests                              |
+| `allowedOriginPatterns` | Allowed origin patterns to make cross-site requests                       |
+| `allowedMethods`        | Allowed HTTP methods on cross-site requests                               |
 | `allowedHeaders`        | Allowed headers in cross-site requests                                    |
 | `maxAge`                | How long, in seconds, clients cache the response from a preflight request |
 | `allowCredentials`      | Whether user credentials are supported on cross-site requests             |
@@ -280,8 +280,8 @@ The following table describes the default resource usage.
 
 | Component name                               | Instance count | vCPU per instance | Memory per instance |
 |----------------------------------------------|----------------|-------------------|---------------------|
-| VMware Spring Cloud Gateway                  | 2              | 1 core            | 2 GiB                 |
-| VMware Spring Cloud Gateway operator         | 2              | 1 core            | 2 GiB                 |
+| VMware Spring Cloud Gateway                  | 2              | 1 core            | 2 GiB               |
+| VMware Spring Cloud Gateway operator         | 2              | 1 core            | 2 GiB               |
 
 ## Configure TLS between the gateway and applications
 
@@ -416,7 +416,7 @@ For information on the available metrics, see the [User metrics options](./conce
 
 The Azure Spring Apps service manages and tunes VMware Spring Cloud Gateway. Except for the use cases that configure application performance monitoring (APM) and the log level, you don't normally need to configure VMware Spring Cloud Gateway with environment variables.
 
-But if you have requirements that you can't fulfill by other configurations described in this article, you can try to configure the environment variables shown in the [Common application properties](https://cloud.spring.io/spring-cloud-gateway/reference/html/appendix.html#common-application-properties) list. Be sure to verify your configuration in your test environment before applying it to your production environment.
+If you have requirements that you can't fulfill by other configurations described in this article, you can try to configure the environment variables shown in the [Common application properties](https://cloud.spring.io/spring-cloud-gateway/reference/html/appendix.html#common-application-properties) list. Be sure to verify your configuration in your test environment before applying it to your production environment.
 
 #### [Azure portal](#tab/Azure-portal)
 
@@ -452,7 +452,7 @@ To monitor VMware Spring Cloud Gateway, you can configure APM. The following tab
 | Dynatrace            | `DT_TENANT`<br>`DT_TENANTTOKEN`<br>`DT_CONNECTION_POINT`                                                                                                                                                                                                                                             |
 | New Relic            | `NEW_RELIC_LICENSE_KEY`<br>`NEW_RELIC_APP_NAME`                                                                                                                                                                                                                                                      |
 | AppDynamics          | `APPDYNAMICS_AGENT_APPLICATION_NAME`<br>`APPDYNAMICS_AGENT_TIER_NAME`<br>`APPDYNAMICS_AGENT_NODE_NAME`<br> `APPDYNAMICS_AGENT_ACCOUNT_NAME`<br>`APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY`<br>`APPDYNAMICS_CONTROLLER_HOST_NAME`<br>`APPDYNAMICS_CONTROLLER_SSL_ENABLED`<br>`APPDYNAMICS_CONTROLLER_PORT` |
-| Elastic APM           | `ELASTIC_APM_SERVICE_NAME`<br>`ELASTIC_APM_APPLICATION_PACKAGES`<br>`ELASTIC_APM_SERVER_URL`                                                                                                                                                                                                         |
+| Elastic APM          | `ELASTIC_APM_SERVICE_NAME`<br>`ELASTIC_APM_APPLICATION_PACKAGES`<br>`ELASTIC_APM_SERVER_URL`                                                                                                                                                                                                         |
 
 For other supported environment variables, see the following sources:
 
@@ -523,8 +523,8 @@ You can configure the log levels of VMware Spring Cloud Gateway in the following
 
 The following loggers might contain valuable troubleshooting information at the `TRACE` and `DEBUG` levels:
 
-| Logger                                       | Description                                          |
-|----------------------------------------------|------------------------------------------------------|
+| Logger                                       | Description                                         |
+|----------------------------------------------|-----------------------------------------------------|
 | `io.pivotal.spring.cloud.gateway`            | Filters and predicates, including custom extensions |
 | `org.springframework.cloud.gateway`          | API gateway                                         |
 | `org.springframework.http.server.reactive`   | HTTP server interactions                            |
