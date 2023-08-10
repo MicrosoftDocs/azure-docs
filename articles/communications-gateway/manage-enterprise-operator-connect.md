@@ -21,7 +21,7 @@ Confirm that you have **Reader** access to your subscription and appropriate per
 
 <!-- Must be kept in sync with provision-user-roles.md - steps for understanding and configuring -->
 * To view existing configuration: **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Read**
-* To make changes to consents (which represent the status of enterprises) and numbers: **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Write**
+* To make changes to consents (which represent your relationships with enterprises) and numbers: **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Write**
 
 If you don't have these permissions, ask your administrator to set them up by following [Set up user roles for Azure Communications Gateway](provision-user-roles.md).
 
@@ -65,7 +65,7 @@ Numbers
 
 ## Select an enterprise customer to manage
 
-When an enterprise customer uses the Teams Admin Center to request service, the Operator Connect APIs create a **consent**. This consent represents the relationship between you and the enterprise.
+When an enterprise customer uses the Teams Admin Center to request service, the Operator Connect APIs create a *consent*. This consent represents the relationship between you and the enterprise.
 
 The Number Management Portal allows you to update the status of these consents. Finding the consent for an enterprise is also the easiest way to manage numbers for an enterprise.
 
