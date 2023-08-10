@@ -1,28 +1,29 @@
 ---
-title: Internet peering for Peering Monitoring and Telemetry walkthrough
-description: Learn about Internet peering for Communications Services, its requirements, the steps to establish direct interconnect, and how to register and activate a prefix.
-services: internet-peering
-author: hugobaldner
+title: Monitoring and telemetry walkthrough
+titleSuffix: Internet peering
+description: Learn how to monitor and view telemetry of an Internet peering using the Azure portal.
+author: halkazwini
+ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 07/12/2023
-ms.author: hugobaldner
-ms.custom: template-how-to
+ms.date: 08/11/2023
 ---
 
-# Azure Peering Monitoring and Telemetry walkthrough
+# Peering monitoring and telemetry walkthrough
 
-In this article, you learn how to use the Azure portal to view various metrics associated with a (direct or exchange) peering
+In this article, as an Internet peering partner (direct or exchange), you learn how to use the Azure portal to view various metrics associated with a direct or exchange peering.
 
 ## View received routes
 
-All peering partners (direct or exchange) can view the routes they have announced to Microsoft through their peering sessions under **Received Routes** tab under the **Settings** section  of their Peering's page. 
+AYou can view the you routes announced to Microsoft in the Azure portal:
 
-:::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-received-routes.png" alt-text="Screenshot shows how to view received routes in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-received-routes.png":::
+1. Go to the peering, and then under the **Settings**, select **Received Routes**.
+
+    :::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-received-routes.png" alt-text="Screenshot shows how to view received routes in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-received-routes.png":::
 
 ## View peering metrics
 
-All peering partners can view the following metrics for their peering under **Connections** tab under the **Settings** section  of their Peering's page:
+You can view the following metrics for a peering in the **Connections** page of a peering:
 
 -  Session availability
 -  Ingress traffic rate 
@@ -30,47 +31,38 @@ All peering partners can view the following metrics for their peering under **Co
 -  Flap events count 
 -  Packet drop rate 
 
-:::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-metrics-telemetry.png" alt-text="Screenshot shows how to view various metrics relating a peering in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-metrics-telemetry.png":::
+:::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-metrics-telemetry.png" alt-text="Screenshot shows how to view various metrics related to a peering in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-metrics-telemetry-expanded.png":::
 
 ## View registered prefix latency
 
-Microsoft Azure Peering Service partners and communication services partners can view their registered prefix latency under the **Overview** section of the Registered Prefix page.
+As an Azure Peering Service partner or communication services partner, you can view your registered prefix latency in the **Overview** page of the registered prefix.
 
 :::image type="content" source="./media/walkthrough-monitoring-and-telemetry/registered-prefix-latency-telemetry.png" alt-text="Screenshot shows how to view registered prefix latency in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/registered-prefix-latency-telemetry.png":::
 
 ## View customer prefix latency
 
-Microsoft Azure Peering Service Exchange Route Server partners can view the average latency for all their customer prefixes under a specific registered asn under the **Overview** section of the Registered ASN page.
+As an Azure Peering Service Exchange Route Server partner, you can view the average latency for all of you customer prefixes in the **Overview** page of the registered ASN.
 
 :::image type="content" source="./media/walkthrough-monitoring-and-telemetry/registered-asn-latency-telemetry.png" alt-text="Screenshot shows how to view the average customer prefix latency under a specific registered asn in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/registered-asn-latency-telemetry.png":::
 
-## View peering service metrics
+## View Peering Service metrics
 
-All peering service resources display the following metrics for their peering service under **Overview** section of a Peering Service's page. 
+All Peering Service resources display the session availability metric for their Peering Service in the **Overview** page of a Peering Service resource. 
 
--  Session availability
-    - Provider primary peering session availability
+    - Provider primary peering session availability: indicates the state of the BGP (Border Gateway Protocol) session between the Peering Service provider and Microsoft at the primary peering location.
 
-        This indicates the state of the Border Gateway Protocol session between the peering service provider and Microsoft at the primary peering location.
+    - Provider backup peering session availability: indicates the state of the BGP session between the Peering Service provider and Microsoft at the backup peering location if there's one selected for the Peering Service.
 
-    - Provider backup  peering session availability
-
-        This indicates the state of the Border Gateway Protocol session between the peering service provider and Microsoft at the backup peering location if there's one selected for the peering service.
-
-    :::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-service-session-availability.png" alt-text="Screenshot shows how to view the provider backup peering session availability under a specific peering service in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-service-session-availability.png":::
+    :::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-service-session-availability.png" alt-text="Screenshot shows how to view the provider peering session availability for a specific Peering Service in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-service-session-availability.png":::
 
 ## View peering service prefix metrics
 
-All peering service prefix resources display the following metrics for their peering service prefix under various sections of a Peering Service Prefix's page. 
+All Peering Service prefix resources display the following metrics for their Peering Service prefix in their Peering Service page. 
 
-- Peering service prefix latency
-
-    This shows the median latencies observed over time for prefixes registered under a peering service under the **Overview** section of a Peering Service Prefix's page. Latency for prefixes that are smaller than /24 are shown at the /24 level. 
+- Peering service prefix latency: shows the median latencies observed over time for prefixes registered under a Peering Service. Latency for prefixes that are smaller than /24 are shown at the /24 level. 
 
     :::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-service-prefix-latency-telemetry.png" alt-text="Screenshot shows how to view the peering service prefix latency under a specific peering service prefix in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-service-prefix-latency-telemetry.png":::
 
-- Peering service prefix events
-
-    Various Border Gateway Protocol events like route announcements, withdrawals and routes becoming active on the primary or backup links are displayed for each prefix under the **Prefix events** tab of the **Diagnostics** section of a Peering Service Prefix's page
+- Peering service prefix events: shows various BGP events like route announcements, withdrawals and routes becoming active on the primary or backup links for each prefix in the **Prefix events** page of the Peering Service prefix.
 
     :::image type="content" source="./media/walkthrough-monitoring-and-telemetry/peering-service-prefix-events.png" alt-text="Screenshot shows how to view the prefix events under a specific peering service prefix in the Azure portal." lightbox="./media/walkthrough-monitoring-and-telemetry/peering-service-prefix-events.png":::
