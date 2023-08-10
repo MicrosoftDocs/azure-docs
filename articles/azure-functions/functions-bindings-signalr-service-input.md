@@ -40,7 +40,7 @@ public static SignalRConnectionInfo Negotiate(
 
 # [Isolated process](#tab/isolated-process)
 
-The following example shows a SignalR trigger that reads a message string from one hub using a SignalR trigger and writes it to a second hub using an output binding. The data required to connect to the output binding is obtained as a `MyConnectionInfo` object from an input binding defined using a `SignalRConnectionInfo` attribute.
+The following example shows a [C# function](dotnet-isolated-process-guide.md) that acquires SignalR connection information using the input binding and returns it over HTTP.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRNegotiationFunctions.cs" id="snippet_negotiate":::
 
@@ -158,7 +158,7 @@ App Service authentication sets HTTP headers named `x-ms-client-principal-id` an
 
 # [In-process](#tab/in-process)
 
-You can set the `UserId` property of the binding to the value from either header using a [binding expression](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
+You can set the `UserId` property of the binding to the value from either header using a [binding expression](#binding-expressions-for-http-trigger): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
 
 ```cs
 [FunctionName("negotiate")]
@@ -187,7 +187,7 @@ public static string Negotiate([HttpTrigger(AuthorizationLevel.Anonymous)] HttpR
 
 # [C# Script](#tab/csharp-script)
 
-You can set the `userId` property of the binding to the value from either header using a [binding expression](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
+You can set the `userId` property of the binding to the value from either header using a [binding expression](#binding-expressions-for-http-trigger): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
 
 Example function.json:
 
@@ -236,7 +236,7 @@ public SignalRConnectionInfo negotiate(
 
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
 
-You can set the `userId` property of the binding to the value from either header using a [binding expression](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
+You can set the `userId` property of the binding to the value from either header using a [binding expression](#binding-expressions-for-http-trigger): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
 
 Here's binding data in the *function.json* file:
 
