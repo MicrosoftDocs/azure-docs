@@ -17,7 +17,7 @@ The [data registry] service enables you to register data content in an Azure Sto
 ## Prerequisites
 
 - An [Azure Maps account]
-- A[Subscription key]
+- A [Subscription key]
 - An [Azure storage account]
 
 >[!IMPORTANT]
