@@ -46,7 +46,7 @@ Create an Azure Front Door profile by following the instructions described in [Q
 
 1. Select **Next: Managed rules**.
 
-1. Select **Next: Policy settings**
+1. Select **Next: Policy settings**.
 
 1. On the **Policy settings** tab, enter **You've been blocked!** for the **Block response body** so that you can see that your custom rule is in effect.
 1. Select **Next: Custom rules**.
