@@ -55,7 +55,7 @@ After you configure your Azure AD B2C instance to send logs to Azure Monitor, en
    >[!IMPORTANT]
    >To enable Microsoft Sentinel, obtain Contributor permissions to the subscription in which the Microsoft Sentinel workspace resides. To use Microsoft Sentinel, use Contributor or Reader permissions on the resource group to which the workspace belongs.
 
-1. Go to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select the subscription where the Log Analytics workspace is created.
 3. Search for and select **Microsoft Sentinel**.
 

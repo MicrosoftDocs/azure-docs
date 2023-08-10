@@ -164,11 +164,13 @@ To complete the migration, repeat the configuration for all applications in the 
 
 ## Migrate an OpenID Connect or OAuth 2.0 application to Azure AD
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To migrate an OpenID Connect (OIDC) or OAuth 2.0 application to Azure AD, in your Azure AD tenant, configure the application for access. In this example, we convert a custom OIDC app.
 
 To complete the migration, repeat configuration for all applications in the Okta tenant.
 
-1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Enterprise applications**. 
+1. Sign in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory** > **Enterprise applications**. 
 2. Under **All applications**, select **New application**.
 3. Select **Create your own application**. 
 4. On the menu that appears, name the OIDC app and then select **Register an application you're working on to integrate with Azure AD**. 

@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.date: 03/28/2022
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.devlang: csharp, python
 ms.custom: devx-track-csharp, devx-track-dotnet

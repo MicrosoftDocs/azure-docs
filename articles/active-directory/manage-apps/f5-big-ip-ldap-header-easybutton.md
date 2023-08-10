@@ -21,7 +21,7 @@ In this article, you can learn to secure header and LDAP-based applications usin
 * Improved governance: See, [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) and learn more about Azure AD pre-authentication
   * See also, [What is Conditional Access?](../conditional-access/overview.md) to learn about how it helps enforce organizational policies
 * Full single sign-on (SSO) between Azure AD and BIG-IP published services
-* Manage identities and access from one control plane, the [Azure portal](https://portal.azure.com/)
+* Manage identities and access from one control plane, the [Azure portal](https://portal.azure.com)
 
 To learn about more benefits, see [F5 BIG-IP and Azure AD integration](./f5-integration.md).
 
@@ -38,7 +38,7 @@ Having a BIG-IP in front of the app enables overlay of the service with Azure AD
 The secure hybrid access solution for this scenario has:
 
 * **Application** - BIG-IP published service to be protected by Azure AD secure hybrid access (SHA)
-* **Azure AD** - Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access (CA), and SAML-based SSO to the BIG-IP. With SSO, Azure AD provides the BIG-IP with required session attributes.
+* **Azure AD** - Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access, and SAML-based SSO to the BIG-IP. With SSO, Azure AD provides the BIG-IP with required session attributes.
 * **HR system** - LDAP-based employee database as the source of truth for application permissions
 * **BIG-IP** - Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP, before performing header-based SSO to the back-end application
 
@@ -80,6 +80,8 @@ This tutorial uses Guided Configuration 16.1 with an Easy Button template. With 
 >Replace example strings or values in this guide with those for your environment.
 
 ## Register Easy Button
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform.](../develop/quickstart-register-app.md)
 
@@ -221,9 +223,9 @@ On the **Additional User Attributes** tab, you can enable session augmentation f
 
 #### Conditional Access Policy
 
-CA policies are enforced after Azure AD pre-authentication to control access based on device, application, location, and risk signals.
+Conditional Access policies are enforced after Azure AD pre-authentication to control access based on device, application, location, and risk signals.
 
-The **Available Policies** view lists CA policies that don't include user actions.
+The **Available Policies** view lists Conditional Access policies that don't include user actions.
 
 The **Selected Policies** view shows policies targeting all cloud apps. These policies can't be deselected or moved to the Available Policies list because they're enforced at a tenant level.
 

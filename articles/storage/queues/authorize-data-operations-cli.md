@@ -52,7 +52,7 @@ For details about the permissions required for each Azure Storage operation on a
 
 ### Example: Authorize an operation to create a queue with Azure AD credentials
 
-The following example shows how to create a queue from Azure CLI using your Azure AD credentials. To create the queue, you'll need to log in to the Azure CLI, and you'll need a resource group and a storage account.
+The following example shows how to create a queue from Azure CLI using your Azure AD credentials. To create the queue, you'll need to sign in to the Azure CLI, and you'll need a resource group and a storage account.
 
 1. Before you create the queue, assign the [Storage Queue Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning Azure roles, see [Assign an Azure role for access to queue data](assign-azure-role-data-access.md).
 

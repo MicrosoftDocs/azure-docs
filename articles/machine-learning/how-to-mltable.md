@@ -16,8 +16,7 @@ ms.custom: contperf-fy21q1, data4ml
 
 # Working with tables in Azure Machine Learning
 
-[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Azure Machine Learning supports a Table type (`mltable`). This allows for the creation of a *blueprint* that defines how to load data files into memory as a Pandas or Spark data frame. In this article you learn:
 

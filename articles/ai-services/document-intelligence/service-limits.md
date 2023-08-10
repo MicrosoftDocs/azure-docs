@@ -1,5 +1,5 @@
 ---
-title: Document Intelligence quotas and limits
+title: Service quotas and limits - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Quick reference, detailed description, and best practices for working within Azure AI Document Intelligence service Quotas and Limits
 services: cognitive-services
@@ -10,15 +10,14 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
 # Service quotas and limits
-<!-- markdownlint-disable MD033 -->
 
-::: moniker range="doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+::: moniker range=">=doc-intel-3.0.0"
+[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
@@ -29,7 +28,7 @@ This article contains both a quick reference and detailed description of Azure A
 
 ## Model usage
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 > [!div class="checklist"]
 >
@@ -65,7 +64,7 @@ This article contains both a quick reference and detailed description of Azure A
 | **Max number of Neural models** | 100 | 500 |
 | Adjustable | No | No |
 
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 
 ## Custom model usage
 
@@ -123,7 +122,7 @@ This article contains both a quick reference and detailed description of Azure A
 > <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice), and [adjustment instructions(#create-and-submit-support-request).</br>
 > <sup>3</sup> Neural models training count is reset every calendar month. Open a support request to increase the monthly training limit.
 ::: moniker-end
-::: moniker range="doc-intel-3.0.0"
+::: moniker range=">=doc-intel-3.0.0"
 > <sup>4</sup> This limit applies to all documents found in your training dataset folder prior to any labeling-related updates.
 ::: moniker-end
 
@@ -160,7 +159,7 @@ If you would like to increase your transactions per second, you can enable auto 
 * Region
 
 * **How to get information (Base model)**:
-  * Go to [Azure portal](https://portal.azure.com/)
+  * Sign in to the [Azure portal](https://portal.azure.com)
   * Select the Document Intelligence Resource for which you would like to increase the transaction limit
   * Select *Properties* (*Resource Management* group)
   * Copy and save the values of the following fields:
@@ -172,7 +171,7 @@ If you would like to increase your transactions per second, you can enable auto 
 Initiate the increase of transactions per second(TPS) limit for your resource by submitting the Support Request:
 
 * Ensure you have the [required information](#have-the-required-information-ready)
-* Go to [Azure portal](https://portal.azure.com/)
+* Sign in to the [Azure portal](https://portal.azure.com)
 * Select the Document Intelligence Resource for which you would like to increase the TPS limit
 * Select *New support request* (*Support + troubleshooting* group)
 * A new window appears with autopopulated information about your Azure Subscription and Azure Resource

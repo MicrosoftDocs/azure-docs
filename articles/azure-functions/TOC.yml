@@ -394,8 +394,6 @@
           href: functions-reference-csharp.md
         - name: Execution mode comparison
           href: dotnet-isolated-in-process-differences.md
-    - name: F#
-      href: functions-reference-fsharp.md
     - name: Node.js
       items:
         - name: JavaScript
@@ -543,6 +541,8 @@
           href: legacy-proxies.md  
     - name: Migrate
       items:
+        - name: Migrate .NET apps to the isolated model
+          href: migrate-dotnet-to-isolated-model.md
         - name: Migrate v3.x to v4.x
           href: migrate-version-3-version-4.md
         - name: Migrate v1.x to v4.x
@@ -610,6 +610,12 @@
           items:
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
+            - name: Azure Cache for Redis
+              items:
+                - name: Get started with VS Code 
+                  href: ../azure-cache-for-redis/cache-tutorial-functions-getting-started.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                - name: Create a write-behind cache 
+                  href: ../azure-cache-for-redis/cache-tutorial-write-behind.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Storage
               items:
                 - name: Azure portal
@@ -906,7 +912,9 @@
           - name: AZFD0004
             href: errors-diagnostics/diagnostic-events/azfd0004.md
           - name: AZFD0005
-            href: errors-diagnostics/diagnostic-events/azfd0005.md            
+            href: errors-diagnostics/diagnostic-events/azfd0005.md
+          - name: AZFD0006
+            href: errors-diagnostics/diagnostic-events/azfd0006.md            
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference

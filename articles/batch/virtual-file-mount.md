@@ -3,7 +3,7 @@ title: Mount a virtual file system on a pool
 description: Learn how to mount different kinds of virtual file systems on Batch pool nodes, and how to troubleshoot mounting issues.
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurepowershell
+ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-linux
 ms.date: 04/28/2023
 ---
 

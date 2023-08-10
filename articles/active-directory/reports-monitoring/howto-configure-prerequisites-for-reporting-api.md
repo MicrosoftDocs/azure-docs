@@ -41,7 +41,12 @@ To enable your application to access Microsoft Graph without user intervention, 
 
 ### Register an Azure AD application
 
-1. In the [Azure portal](https://portal.azure.com), go to **Azure Active Directory** > **App registrations**.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Go to **Azure Active Directory** > **App registrations**.
+
 1. Select **New registration**.
 
     ![Screenshot of the App registrations page, with the New registration button highlighted.](./media/howto-configure-prerequisites-for-reporting-api/new-app-registration.png)

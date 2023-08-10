@@ -2,11 +2,10 @@
 title: Tutorial - Embed a Teams call widget into your web application
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to use Azure Communication Services to embed a calling widget into your web application.
-author: ddematheu2
+author: tophpalmer
 manager: shahen
 services: azure-communication-services
-
-ms.author: dademath
+ms.author: chpalm
 ms.date: 04/17/2023
 ms.topic: tutorial
 ms.service: azure-communication-services

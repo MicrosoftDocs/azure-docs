@@ -72,7 +72,7 @@ The following Azure permissions, or scopes, are supported per subscription for b
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+- Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a budget in the Azure portal
 

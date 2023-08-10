@@ -13,19 +13,19 @@ ms.date: 07/17/2023
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Use the stringify transformation to turn complex data types into strings. This can be very useful when you need to store or send column data as a single string entity that may originate as a structure, map, or array type.
+Use the stringify transformation to turn complex data types into strings. This can be useful when you need to store or send column data as a single string entity that may originate as a structure, map, or array type.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMTs9]
 
 ## Configuration
 
-In the stringify transformation configuration panel, you will first pick the type of data contained in the columns that you wish to parse inline. The parse transformation also contains the following configuration settings.
+In the stringify transformation configuration panel, you'll first pick the type of data contained in the columns that you wish to parse inline. The stringify transformation also contains the following configuration settings.
 
 :::image type="content" source="media/data-flow/stringify.png" alt-text="Stringify settings":::
 
 ### Column
 
-Similar to derived columns and aggregates, this is where you will either modify an exiting column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF will store the stringifies source data in this column. In most cases, you will want to define a new column that stringifies the incoming complex field type.
+Similar to derived columns and aggregates, this is where you'll either modify an exiting column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF will store the stringifies source data in this column. In most cases, you'll want to define a new column that stringifies the incoming complex field type.
 
 ### Expression
 

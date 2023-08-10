@@ -7,6 +7,7 @@ ms.reviewer: maghan
 ms.date: 12/30/2022
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: devx-track-linux
 ms.topic: how-to
 ---
 

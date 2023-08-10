@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/16/2022
+ms.date: 07/20/2023
 ---
 
 #  Transform data in AppFigures (Preview) using Azure Data Factory or Synapse Analytics

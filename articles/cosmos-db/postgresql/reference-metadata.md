@@ -411,7 +411,7 @@ function.
 
 -   Setting a node capacity exception by hostname pattern:
 
-	```postgresql
+    ```postgresql
     CREATE FUNCTION v2_node_double_capacity(nodeidarg int)
         RETURNS boolean AS $$
         SELECT

@@ -236,7 +236,7 @@ Below are sample requests to help outline what the sync engine currently sends v
 ## Upgrading from the older customappsso job to the SCIM job
 Following the steps below will delete your existing customappsso job and create a new SCIM job.
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the **Azure Active Directory > Enterprise Applications** section of the Azure portal, locate and select your existing SCIM application.
 3. In the **Properties** section of your existing SCIM app, copy the **Object ID**.
 4. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer and sign in as the administrator for the Azure AD tenant where your app is added.
@@ -275,7 +275,7 @@ Following the steps below will delete your existing customappsso job and create 
 ## Downgrading from the SCIM job to the customappsso job (not recommended)
  We allow you to downgrade back to the old behavior but don't recommend it as the customappsso does not benefit from some of the updates we make, and may not be supported forever. 
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the **Azure Active Directory > Enterprise Applications > Create application** section of the Azure portal, create a new **Non-gallery** application.
 3. In the **Properties** section of your new custom app, copy the **Object ID**.
 4. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer and sign in as the administrator for the Azure AD tenant where your app is added.

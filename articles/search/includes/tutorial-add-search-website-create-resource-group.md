@@ -15,6 +15,6 @@ ms.service: cognitive-search
 1. Enter a region:
 
    * For Node.js, select `West US 2`. This is the recommended region for the Azure Function programming model (PM) v4 preview. 
-   * For C# and Python, select any region.
+   * For C# and Python, we recommend the following regions, supported by Azure Static Web Apps as of this writing: `West US 2`, `East US 2`, `West Europe`, `Central US`, `East Asia`
 
 Use this resource group for all resources created during this tutorial. A resource group gives you a logical unit to manage the resources, including deleting them when you're finished.

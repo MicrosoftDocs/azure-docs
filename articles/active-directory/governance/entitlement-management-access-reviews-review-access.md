@@ -92,13 +92,13 @@ If there are multiple reviewers, the last submitted response is recorded. Consid
 
 To review access for multiple users more quickly, you can use the system-generated recommendations, accepting the recommendations with a single select. The recommendations are generated based on the user's sign-in activity.
 
-1.	In the bar at the top of the page, select **Accept recommendations**.
+1. In the bar at the top of the page, select **Accept recommendations**.
     
     ![Select Accept recommendations](./media/entitlement-management-access-reviews-review-access/review-access-use-recommendations.png)
     
     You see a summary of the recommended actions.
 
-1.	Select **Submit** to accept the recommendations.
+1. Select **Submit** to accept the recommendations.
 
 ## Next steps
 

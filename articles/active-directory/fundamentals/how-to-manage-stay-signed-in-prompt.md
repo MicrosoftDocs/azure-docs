@@ -9,11 +9,10 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 08/09/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
-ms.custom: "it-pro"
-ms.collection: M365-identity-device-management
+
 ---
 # Manage the 'Stay signed in?' prompt
 
@@ -23,9 +22,9 @@ This article covers how the KMSI process works, how to enable it for customers, 
 
 ## How does it work? 
 
-If a user answers **Yes** to the **'Stay signed in?'** prompt, a persistent authentication cookie is issued. The cookie must be stored in session for KMSI to work. KMSI won't work with locally stored cookies. If KMSI isn't enabled, a non-persistent cookie is issued and lasts for 24 hours or until the browser is closed. 
+If a user answers **Yes** to the **'Stay signed in?'** prompt, a persistent authentication cookie is issued. The cookie must be stored in session for KMSI to work. KMSI doesn't work with locally stored cookies. If KMSI isn't enabled, a non-persistent cookie is issued and lasts for 24 hours or until the browser is closed. 
 
-The following diagram shows the user sign-in flow for a managed tenant and federated tenant using the KMSI in prompt. This flow contains smart logic so that the **Stay signed in?** option won't be displayed if the machine learning system detects a high-risk sign-in or a sign-in from a shared device. For federated tenants, the prompt will show after the user successfully authenticates with the federated identity service.
+The following diagram shows the user sign-in flow for a managed tenant and federated tenant using the KMSI in prompt. This flow contains smart logic so that the **Stay signed in?** option isn't displayed if the machine learning system detects a high-risk sign-in or a sign-in from a shared device. For federated tenants, the prompt will show after the user successfully authenticates with the federated identity service.
 
 Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you uncheck the **Show option to remain signed in** option, your users may see other unexpected prompts during the sign-in process.
 
@@ -44,9 +43,11 @@ You must have the **Global Administrator** role to enable the 'Stay signed in?' 
 
 ## Enable the 'Stay signed in?' prompt
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The KMSI setting is managed in the **User settings** of Azure Active Directory (Azure AD).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to **Azure Active Directory** > **Users** > **User settings**.
 1. Set the **Show keep user signed in** toggle to **Yes**.
 
@@ -74,7 +75,7 @@ To ensure that the KMSI prompt is shown only when it can benefit the user, the K
 * User is a guest in the tenant
 * User's risk score is high
 * Sign-in occurs during user or admin consent flow
-* Persistent browser session control is configured in a conditional access policy
+* Persistent browser session control is configured in a Conditional Access policy
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: "Use Document Intelligence SDK for JavaScript / .NET (REST API v3.0)"
+title: "Use Document Intelligence (formerly Form Recognizer) SDK for JavaScript / .NET (REST API v3.0)"
 description: 'Use the Document Intelligence SDK for JavaScript (REST API v3.0) to create a forms processing app that extracts key data from documents.'
 author: laujan
 manager: nitinme
@@ -20,7 +20,7 @@ ms.custom: devx-track-csharp
 >
 > This project targets Document Intelligence REST API version **3.0**.
 
-[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/witemple-msft/azure-sdk-for-js/tree/7e3196f7e529212a6bc329f5f06b0831bf4cc174/sdk/formrecognizer/ai-form-recognizer/samples/v4) |[Supported REST API versions](../../../sdk-overview.md)
+[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/witemple-msft/azure-sdk-for-js/tree/7e3196f7e529212a6bc329f5f06b0831bf4cc174/sdk/formrecognizer/ai-form-recognizer/samples/v4) |[Supported REST API versions](../../../sdk-overview.md)
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ ms.custom: devx-track-csharp
 
 * The latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. For more information, *see* [Node.js in Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)
 
-* The latest LTS version of [Node.js](https://nodejs.org/about/releases/)
+* The latest LTS version of [Node.js](https://nodejs.org/)
 
 * An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Document Intelligence resource, in the Azure portal, to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -37,7 +37,7 @@ ms.custom: devx-track-csharp
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. You paste your key and endpoint into the code later in the quickstart:
 
-  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 * You need a document file at a URL. For this project, you can use the sample forms provided in the following table for each feature:
 
@@ -589,12 +589,12 @@ async function main() {
  } = await poller.pollUntilDone();
 
   if (result) {
-    The identity document model has multiple document types, so we need to know which document type was actually
+// The identity document model has multiple document types, so we need to know which document type was actually
     extracted.
     if (result.docType === "idDocument.driverLicense") {
       const { FirstName, LastName, DocumentNumber, DateOfBirth, DateOfExpiration, Height, Weight, EyeColor, Endorsements, Restrictions, VehicleClassifications} = result.fields;
 
-      For the sake of the example, we'll only show a few of the fields that are produced.
+// For the sake of the example, we'll only show a few of the fields that are produced.
       console.log("Extracted a Driver License:");
       console.log("  Name:", FirstName && FirstName.content, LastName && LastName.content);
       console.log("  License No.:", DocumentNumber && DocumentNumber.content);
@@ -607,7 +607,7 @@ async function main() {
       console.log("  Endorsements:", Endorsements && Endorsements.content);
       console.log("  Class:", VehicleClassifications && VehicleClassifications.content);
     } else if (result.docType === "idDocument.passport") {
-      The passport document type extracts and parses the Passport's machine-readable zone
+// The passport document type extracts and parses the Passport's machine-readable zone
       if (!result.fields.machineReadableZone) {
         throw new Error("No Machine Readable Zone extracted from passport.");
       }
@@ -630,7 +630,7 @@ async function main() {
       console.log("  Issuer:", CountryRegion && CountryRegion.content);
       console.log("  Expiration Date:", DateOfExpiration && DateOfExpiration.content);
     } else {
-      The only reason this would happen is if the client library's schema for the prebuilt identity document model is
+// The only reason this would happen is if the client library's schema for the prebuilt identity document model is
       out of date, and a new document type has been introduced.
       console.error("Unknown document type in result:", result);
     }

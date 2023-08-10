@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Perform a web search with Node.js - Bing Web Search REST API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to send requests to the Bing Web Search REST API using Node.js, and receive a JSON response
 services: cognitive-services
 author: aahill
@@ -92,7 +92,7 @@ function bingWebSearch(query) {
 
 ## Get the query
 
-Let's look at the program's arguments to find the query. The first argument is the path to the node, the second is our filename, and the third is your query. If the query is absent, a default query of "Microsoft Cognitive Services" is used.
+Let's look at the program's arguments to find the query. The first argument is the path to the node, the second is our filename, and the third is your query. If the query is absent, a default query of "Microsoft Azure AI services" is used.
 
 ```javascript
 const query = process.argv[2] || 'Microsoft Cognitive Services'

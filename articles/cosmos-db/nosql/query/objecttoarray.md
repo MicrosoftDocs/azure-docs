@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 07/20/2023
 ms.custom: query-reference
 ---
 
@@ -40,92 +40,35 @@ An array of elements with two fields, either `k` and `v` or custom-named fields.
 
 This example demonstrates converting a static object to an array of field/value pairs using the default `k` and `v` identifiers.
 
-```sql
-SELECT VALUE
-    ObjectToArray({ 
-        "a": "12345", 
-        "b": "67890"
-    })
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray/query.sql" highlight="2-5":::
 
-```json
-[
-  [
-    {
-      "k": "a",
-      "v": "12345"
-    },
-    {
-      "k": "b",
-      "v": "67890"
-    }
-  ]
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray/result.json":::
 
 In this example, the field name is updated to use the `name` identifier.
 
-```sql
-SELECT VALUE
-    ObjectToArray({ 
-        "a": "12345", 
-        "b": "67890"
-    }, "name")
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-key/query.sql" highlight="2-5":::
 
-```json
-[
-  [
-    {
-      "name": "a",
-      "v": "12345"
-    },
-    {
-      "name": "b",
-      "v": "67890"
-    }
-  ]
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-key/result.json":::
 
 In this example, the value name is  updated to use the `value` identifier and the field name uses the `key` identifier.
 
-```sql
-SELECT VALUE
-    ObjectToArray({ 
-        "a": "12345", 
-        "b": "67890"
-    }, "key", "value")
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-key-value/query.sql" highlight="2-5":::
 
-```json
-[
-  [
-    {
-      "key": "a",
-      "value": "12345"
-    },
-    {
-      "key": "b",
-      "value": "67890"
-    }
-  ]
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-key-value/result.json":::
 
 This final example uses an item within an existing container that stores data using fields within a JSON object.
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/object-to-array/seed.json":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-field/seed.json" range="1-2,4-13" highlight="5-10":::
 
 In this example, the function is used to break up the object into an array item for each field/value pair.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/object-to-array/query.sql":::
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-field/query.sql" highlight="3":::
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/object-to-array/result.json":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/objecttoarray-field/result.json":::
 
 ## Remarks
 
-If the input value isn't a valid Object, the result is Undefined\. 
+- If the input value isn't a valid object, the result is `undefined`.
 
 ## See also
 

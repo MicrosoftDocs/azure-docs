@@ -60,7 +60,7 @@ Content-type: application/json
 {
   "value": [
   {
-  	"id": "8b1025e4-1dd2-430b-a150-2ef79cd700f5",
+    "id": "8b1025e4-1dd2-430b-a150-2ef79cd700f5",
         "displayName": "AWS Single-Account Access",
         "homePageUrl": "http://aws.amazon.com/",
         "supportedSingleSignOnModes": [

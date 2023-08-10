@@ -7,7 +7,7 @@ ms.author: banders
 ms.date: 06/22/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
-ms.subservice: common
+ms.subservice: finops
 ms.reviewer: micflan
 ---
 
@@ -17,7 +17,7 @@ This article helps you understand the data ingestion and normalization capabilit
 
 ## Definition
 
-_Data ingestion and normalization refers to the process of collecting, transforming, and organizing data from various sources into a single, easily accessible repository._
+**Data ingestion and normalization refers to the process of collecting, transforming, and organizing data from various sources into a single, easily accessible repository.**
 
 Gather cost, utilization, performance, and other business data from cloud providers, vendors, and on-premises systems. Gathering the data can include:
 
@@ -42,6 +42,8 @@ When you first start managing cost in the cloud, you use the native tools availa
   - Determine the level of granularity required and how often the data needs to be refreshed. Daily cost data can be a challenge to manage for a large account. Consider monthly aggregates to reduce costs and increase query performance and reliability if that meets your reporting needs.
 - Consider using a third-party FinOps platform.
   - Review the available [third-party solutions in the Azure Marketplace](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/searchQuery/cost).
+  - If you decide to build your own solution, consider starting with [FinOps hubs](https://aka.ms/finops/hubs), part of the open source FinOps toolkit provided by Microsoft.
+    - FinOps hubs will accelerate your development and help you focus on building the features you need rather than infrastructure.
 - Select the [cost details solution](../automate/usage-details-best-practices.md) that is right for you. We recommend scheduled exports, which push cost data to a storage account on a daily or monthly basis.
   - If you use daily exports, notice that data is pushed into a new file each day. Ensure that you only select the latest day when reporting on costs.
 - Determine if you need a data integration or workflow technology to process data.
@@ -57,6 +59,8 @@ At this point, you have a data pipeline and are ingesting data into a central da
 
 - Normalize data to a standard schema to support aligning and blending data from multiple sources.
   - For cost data, we recommend using the [FinOps Open Cost & Usage Specification (FOCUS) schema](https://finops.org/focus).
+  - [FinOps hubs](https://aka.ms/finops/hubs) includes a Power BI report that normalizes data to the FOCUS schema, which can be a good starting point.
+  - For an example of the FOCUS schema with Azure data, see the [FOCUS sample report](https://github.com/flanakin/cost-management-powerbi#FOCUS).
 - Complement cloud cost data with organizational hierarchies and budgets.
   - Consider labeling or tagging requirements to map cloud costs to organizational hierarchies.
 - Enrich cloud resource and solution data with internal CMDB or ITAM data.

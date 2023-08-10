@@ -59,10 +59,10 @@ A connection string consists of a list of settings represented as key-value pair
 #### Syntax
 
 - `InstrumentationKey` (for example, 00000000-0000-0000-0000-000000000000).
-   The connection string is a *required* field.
+   `InstrumentationKey` is a *required* field.
 - `Authorization` (for example, ikey). This setting is optional because today we only support ikey authorization.
 - `EndpointSuffix` (for example, applicationinsights.azure.cn).
-   Setting the endpoint suffix will instruct the SDK on which Azure cloud to connect to. The SDK will assemble the rest of the endpoint for individual services.
+   Setting the endpoint suffix tells the SDK which Azure cloud to connect to. The SDK assembles the rest of the endpoint for individual services.
 - Explicit endpoints.
   Any service can be explicitly overridden in the connection string:
    - `IngestionEndpoint` (for example, `https://dc.applicationinsights.azure.com`)
@@ -105,7 +105,7 @@ Here are some examples of connection strings.
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;EndpointSuffix=ai.contoso.com;`
 
-In this example, the connection string specifies the endpoint suffix and the SDK will construct service endpoints:
+In this example, the connection string specifies the endpoint suffix and the SDK constructs service endpoints:
 
 - Authorization scheme defaults to "ikey"
 - Instrumentation key: 00000000-0000-0000-0000-000000000000
@@ -119,7 +119,7 @@ In this example, the connection string specifies the endpoint suffix and the SDK
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://custom.com:111/;LiveEndpoint=https://custom.com:222/;ProfilerEndpoint=https://custom.com:333/;SnapshotEndpoint=https://custom.com:444/;`
 
-In this example, the connection string specifies explicit overrides for every service. The SDK will use the exact endpoints provided without modification:
+In this example, the connection string specifies explicit overrides for every service. The SDK uses the exact endpoints provided without modification:
 
 - Authorization scheme defaults to "ikey"
 - Instrumentation key: 00000000-0000-0000-0000-000000000000
@@ -179,9 +179,6 @@ Connection string: `APPLICATIONINSIGHTS_CONNECTION_STRING`
     var options = new ApplicationInsightsServiceOptions { ConnectionString = app.Configuration["ApplicationInsights:ConnectionString"] };
     builder.Services.AddApplicationInsightsTelemetry(options: options);
     ```
-
-> [!NOTE]
-> When deploying applications to Azure in production scenarios, consider placing connection strings or other configuration secrets in secure locations such as App Service configuration settings or Azure Key Vault. Avoid including secrets in your application code or checking them into source control where they might be exposed or misused. The preceding code example will also work if the connection string is stored in App Service configuration settings. Learn more about [configuring App Service settings](/azure/app-service/configure-common).
 
 # [.NET Framework](#tab/dotnet-framework)
 
