@@ -67,7 +67,7 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
 1. To configure Kafka to listen on all network interfaces, change the value in the `listeners` field to `PLAINTEXT://0.0.0.0:9092`.
 1. To save the configuration changes, use the `Save` button. Enter a text message describing the changes. Select `OK` once the changes have been saved. 
 
-   :::image type="content" source="./media/connect-kafka-with-vnet/save-kafka-broker.png" alt-text="Screenshot showing the save button.":::
+   :::image type="content" source="./media/connect-kafka-with-vnet/save-kafka-broker.png" alt-text="Screenshot showing the save button." border="true" lightbox="./media/connect-kafka-with-vnet/save-kafka-broker.png":::
 
 1. To prevent errors when restarting Kafka, use the `Actions` button and select `Turn On Maintenance Mode`. Select `OK` to complete this operation. 
 
@@ -82,7 +82,8 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
 
    :::image type="content" source="./media/connect-kafka-with-vnet/ambari-hosts.png" alt-text="Screenshot showing the worker node IP for Ambari." border="true" lightbox="./media/connect-kafka-with-vnet/ambari-hosts.png":::
    
-1. Use Sample git repository to create Kafka topics, produce and consume data from that topic. [hdinsight-kafka-java-getting-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)
+1. Use Sample git repository to create Kafka topics](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), to produce and consume data from that topic. 
+
    ```shell
    # In previous example IP of worker node 0 is `broker1-ip` and worker node 1 is `broker2-ip`
    # Create Kafka Topic 
