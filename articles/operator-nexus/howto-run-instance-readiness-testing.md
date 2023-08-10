@@ -74,8 +74,8 @@ There are multiple dependencies expected to be available during execution. Revie
 
 The `setup.sh` script is provided to aid with installing the listed dependencies. It installs any dependencies that aren't available in PATH. It doesn't upgrade any dependencies that don't meet the minimum required versions.
 
-[!NOTE] 
-`setup.sh` assumes a nonroot user and attempts to use `sudo`
+> [!NOTE] 
+> `setup.sh` assumes a nonroot user and attempts to use `sudo`
 
 ### All in one setup
 
@@ -85,8 +85,8 @@ The `setup.sh` script is provided to aid with installing the listed dependencies
 
 If your workflow is incompatible with `all-in-one.sh`, each resource needed for IRT can be created manually with each supplemental script. Like `all-in-one.sh`, running these scripts  writes key/value pairs to your `irt-input.yml` for you to use during your run. These five scripts make up the `all-in-one.sh`. 
 
-[!NOTE]
-Only use this section if you're NOT using `all-in-one.sh`
+> [!NOTE]
+> Only use this section if you're NOT using `all-in-one.sh`
 
 IRT makes commands against your resources, and needs permission to do so. IRT requires a Managed Identity and a Service Principal to execute. It also requires that the service principal is a  member of the Azure AD Security Group that is also provided as input.
 
