@@ -110,7 +110,7 @@ To use Custom Translator without relaxing network access restrictions on your pr
 
 ## Billing region codes
 
-Use the billing region code, listed in the following table, with the 'Create a workspace' API for each supported billing region:
+Use a billing region code, listed in the following table, with the 'Create a workspace' API for each supported billing region:
 
 ##### Create a workspace POST request
 
