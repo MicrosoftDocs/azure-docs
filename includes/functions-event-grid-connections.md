@@ -2,7 +2,7 @@
 author: joshlove-msft
 ms.service: azure-functions
 ms.topic: include
-ms.date: 06/14/2023
+ms.date: 08/10/2023
 ms.author: jolov
 ---
 

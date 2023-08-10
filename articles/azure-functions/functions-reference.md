@@ -3,7 +3,7 @@ title: Guidance for developing Azure Functions
 description: Learn the Azure Functions concepts and techniques that you need to develop functions in Azure, across all programming languages and bindings.
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
-ms.date: 11/11/2022
+ms.date: 08/10/2023
 ms.devlang: csharp
 ms.custom: ignite-2022
 ---
@@ -137,7 +137,7 @@ The following components support identity-based connections:
 [queuev5]: ./functions-bindings-storage-queue.md#storage-extension-5x-and-higher
 [eventhubv5]: ./functions-bindings-event-hubs.md?tabs=extensionv5
 [servicebusv5]: ./functions-bindings-service-bus.md
-[eventgrid]: ./functions-bindings-event-grid-output.md
+[eventgrid]: ./functions-bindings-event-grid.md?tabs=extensionv3
 [cosmosv4]: ./functions-bindings-cosmosdb-v2.md?tabs=extensionv4
 [tablesv1]: ./functions-bindings-storage-table.md#table-api-extension
 [signalr]: ./functions-bindings-signalr-service.md#install-extension
