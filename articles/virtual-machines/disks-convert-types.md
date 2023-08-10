@@ -155,6 +155,8 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 
 
 
+
+
  ```azurecli
 
 #resource group that contains the managed disk
@@ -205,7 +207,9 @@ The disk type conversion is instantaneous. You can start your VM after the conve
 
 ## Migrate to Premium SSD v2 or Ultra Disk
 
-Currently, you can only migrate an existing disk to either an Ultra Disk or a Premium SSD v2 through snapshots. Both Premium SSD v2 disks and Ultra Disks have their own set of restrictions. For example, neither can be used as an OS disk, and also aren't available in all regions. See the [Premium SSD v2 limitations](disks-deploy-premium-v2.md#limitations) and [Ultra Disk GA scope and limitations](disks-enable-ultra-ssd.md#ga-scope-and-limitations) sections of their articles for more information.
+Currently, you can only migrate an existing disk to either an Ultra Disk or a Premium SSD v2 through snapshots stored on Standard Storage. Migration with snapshots stored on Premium storage is not supported.
+
+Both Premium SSD v2 disks and Ultra Disks have their own set of restrictions. For example, neither can be used as an OS disk, and also aren't available in all regions. See the [Premium SSD v2 limitations](disks-deploy-premium-v2.md#limitations) and [Ultra Disk GA scope and limitations](disks-enable-ultra-ssd.md#ga-scope-and-limitations) sections of their articles for more information.
 
 > [!IMPORTANT]
 > When migrating a Standard HDD, Standard SSD, or Premium SSD to either an Ultra Disk or Premium SSD v2, the logical sector size must be 512.
@@ -306,4 +310,5 @@ The following steps assume you already have a snapshot. To learn how to create o
 ## Next steps
 
 Make a read-only copy of a VM by using a [snapshot](snapshot-copy-managed-disk.md).
+
 
