@@ -513,8 +513,7 @@ Private endpoints for Azure AI services resources let you:
 
 A private endpoint is a special network interface for an Azure resource in your [virtual network](../virtual-network/virtual-networks-overview.md). Creating a private endpoint for your Azure AI services resource provides secure connectivity between clients in your virtual network and your resource. The private endpoint is assigned an IP address from the IP address range of your virtual network. The connection between the private endpoint and the Azure AI services service uses a secure private link.
 
-Applications in the virtual network can connect to the service over the private endpoint seamlessly. Connections use the same connection strings and authorization mechanisms that they would use otherwise. The exception is Speech Services, which require a separate endpoint. For more information, see [
-Private endpoints with the Speech Services](#private-endpoints-with-the-speech-services) in this article. Private endpoints can be used with all protocols supported by the Azure AI services resource, including REST.
+Applications in the virtual network can connect to the service over the private endpoint seamlessly. Connections use the same connection strings and authorization mechanisms that they would use otherwise. The exception is Speech Services, which require a separate endpoint. For more information, see [Private endpoints with the Speech Services](#use-private-endpoints-with-the-speech-service) in this article. Private endpoints can be used with all protocols supported by the Azure AI services resource, including REST.
 
 Private endpoints can be created in subnets that use service endpoints. Clients in a subnet can connect to one Azure AI services resource using private endpoint, while using service endpoints to access others. For more information, see [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
@@ -535,9 +534,9 @@ When you create a private endpoint, specify the Azure AI services resource that 
 > [!NOTE]
 > Azure OpenAI Service uses a different private DNS zone and public DNS zone forwarder than other Azure AI services. For the correct zone and forwarder names, see [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration).
 
-Clients on a virtual network that use the private endpoint use the same connection string for the Azure AI services resource as clients connecting to the public endpoint. The exception is the Speech service, which requires a separate endpoint. For more information, see [Use private endpoints with the Speech service](#private-endpoints-with-the-speech-services) in this article. DNS resolution automatically routes the connections from the virtual network to the Azure AI services resource over a private link.
+Clients on a virtual network that use the private endpoint use the same connection string for the Azure AI services resource as clients connecting to the public endpoint. The exception is the Speech service, which requires a separate endpoint. For more information, see [Use private endpoints with the Speech service](#use-private-endpoints-with-the-speech-service) in this article. DNS resolution automatically routes the connections from the virtual network to the Azure AI services resource over a private link.
 
-By default, Azure creates a [private DNS zone](../dns/private-dns-overview.md) attached to the virtual network with the necessary updates for the private endpoints. If you use your own DNS server, you might need to make more changes to your DNS configuration. For updates that might be required for private endpoints, see [Apply DNS changes for private endpoints](#dns-changes-for-private-endpoints) in this article.
+By default, Azure creates a [private DNS zone](../dns/private-dns-overview.md) attached to the virtual network with the necessary updates for the private endpoints. If you use your own DNS server, you might need to make more changes to your DNS configuration. For updates that might be required for private endpoints, see [Apply DNS changes for private endpoints](#apply-dns-changes-for-private-endpoints) in this article.
 
 ### Use private endpoints with the Speech service
 
