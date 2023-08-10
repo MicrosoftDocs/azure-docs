@@ -3,7 +3,7 @@
 - name: Overview
   expanded: true
   items:
-  - name: MedTech service overview
+  - name: "MedTech service overview"
     href: overview.md
   - name: Device data processing stages overview
     href: overview-of-device-data-processing-stages.md
