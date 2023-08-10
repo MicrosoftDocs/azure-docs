@@ -46,6 +46,9 @@
           href: howto-custom-dns.md
         - name: Configure DNS forwarding
           href: dns-forwarding.md
+        - name: Configure multiple IPs per cluster load balancer
+          href: howto-multiple-ips.md
+
         - name: Restrict egress traffic
           href: howto-restrict-egress.md
     - name: Storage
