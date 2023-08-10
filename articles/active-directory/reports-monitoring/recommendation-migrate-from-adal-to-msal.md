@@ -37,7 +37,7 @@ Existing apps that use ADAL will continue to work after the end-of-support date.
 
 ## Action plan
 
-The first step to migrating your apps from ADAL to MSAL is to identify all applications in your tenant that are currently using ADAL. You can identify your apps in the Azure portal or programmatically.
+The first step to migrating your apps from ADAL to MSAL is to identify all applications in your tenant that are currently using ADAL. You can identify your apps in the Azure portal or programmatically with the Microsoft Graph API or the Microsoft Graph PowerShell SDK.
 
 ### [Azure portal](#tab/Azure-portal)
 
@@ -110,17 +110,17 @@ You can run the following set of commands in Windows PowerShell. These commands 
 
 ## Frequently asked questions
 
-**Q**: Why does it take 30 days to change the status to completed?
+### Why does it take 30 days to change the status to completed?
 
-**A**: To reduce false positives. 
+To reduce false positives. 
 
-**Q**: How were DAL applications identified before the recommendation was released?
+### How were DAL applications identified before the recommendation was released?
 
-**A**: The [Azure AD sign-ins workbook](../develop/howto-get-list-of-all-auth-library-apps.md) is an alternative method to identify these apps. The workbook is still available to you, but using the workbook requires streaming sign-in logs to Azure Monitor first. The ADAL to MSAL recommendation works out of the box. Plus, the sign-ins workbook does not capture Service Principal sign-ins, while the recommendation does.
+The [Azure AD sign-ins workbook](../develop/howto-get-list-of-all-auth-library-apps.md) is an alternative method to identify these apps. The workbook is still available to you, but using the workbook requires streaming sign-in logs to Azure Monitor first. The ADAL to MSAL recommendation works out of the box. Plus, the sign-ins workbook does not capture Service Principal sign-ins, while the recommendation does.
 
-**Q**: How do I identify the owner of an application in my tenant?
+### How do I identify the owner of an application in my tenant?
 
-**A**: You can locate owner from the recommendation details. Select the resource, which takes you to the application details. Select **Owners** from the navigation menu.
+You can locate owner from the recommendation details. Select the resource, which takes you to the application details. Select **Owners** from the navigation menu.
 
 ## Next steps
 
