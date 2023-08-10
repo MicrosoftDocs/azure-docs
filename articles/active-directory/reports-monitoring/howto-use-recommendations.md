@@ -13,7 +13,7 @@ ms.author: sarahlipsey
 ms.reviewer: hafowler
 ---
 
-# How to use identity recommendations
+# How to use Azure Active Directory Recommendations
 
 The Azure Active Directory (Azure AD) recommendations feature provides you with personalized insights with actionable guidance to:
 

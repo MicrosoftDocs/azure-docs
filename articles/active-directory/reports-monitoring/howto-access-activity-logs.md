@@ -13,7 +13,7 @@ ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
 
-# How To: Access activity logs in Azure AD
+# How to access activity logs in Azure AD
 
 The data collected in your Azure Active Directory (Azure AD) logs enables you to assess many aspects of your Azure AD tenant. To cover a broad range of scenarios, Azure AD provides you with several options to access your activity log data. As an IT administrator, you need to understand the intended uses cases for these options, so that you can select the right access method for your scenario.  
 

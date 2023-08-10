@@ -15,7 +15,7 @@ ms.reviewer: besiler
 
 ---
 
-# Learn about the logs you can stream to an endpoint
+# Learn about the identity logs you can stream to an endpoint
 
 Using Diagnostic settings in Azure Active Directory (Azure AD), you can route activity logs to several endpoints for long term retention and data insights. You select the logs you want to route, then select the endpoint.
 
@@ -54,7 +54,7 @@ If you need to review sign-in activity for apps or service principals, the `Serv
 
 ### Managed identity sign-in logs
 
-The `ManagedIdentitySignInLogs` provide similar insights as the service principal sign-in logs, but for managed identities, where the secrets are managed by Azure. For more information, see [Managed identity sign-ins](concept-all-sign-ins.md#managed-identity-for-azure-resources-sign-ins).
+The `ManagedIdentitySignInLogs` provide similar insights as the service principal sign-in logs, but for managed identities, where Azure manages the secrets. For more information, see [Managed identity sign-ins](concept-all-sign-ins.md#managed-identity-for-azure-resources-sign-ins).
 
 ### Provisioning logs
 
@@ -80,13 +80,13 @@ The `RiskyServicePrincipals` logs provide information about service principals t
 
 The `ServicePrincipalRiskEvents` logs provide details around the risky sign-in events for service principals. These logs may include any identified suspicious events related to the service principal accounts. For more information, see [Securing workload identities](../identity-protection/concept-workload-identity-risk.md)
 
-### Enriched Office365 audit logs
+### Enriched Microsoft 365 audit logs
 
-The `EnrichedOffice365AuditLogs` logs are associated with the enriched logs you can enable for Microsoft Entra Internet Access. The logs are visible in Azure AD, but selecting this option doesn't add new logs to your workspace unless your organization is using Microsoft Entra Internet to secure access to your Microsoft 365 traffic *and* you enabled the enriched logs. For more information, see [How to use the Global Secure Access enriched Microsoft 365 logs](../../global-secure-access/how-to-view-enriched-logs.md).
+The `EnrichedOffice365AuditLogs` logs are associated with the enriched logs you can enable for Microsoft Entra Internet Access. Selecting this option doesn't add new logs to your workspace unless your organization is using Microsoft Entra Internet to secure access to your Microsoft 365 traffic *and* you enabled the enriched logs. For more information, see [How to use the Global Secure Access enriched Microsoft 365 logs](../../global-secure-access/how-to-view-enriched-logs.md).
 
 ### Microsoft Graph activity logs
 
-The `MicrosoftGraphActivityLogs` logs are associated with a feature that is still in preview. The logs are visible in Azure AD, but selecting these options will not add new logs to your workspace unless your organization was included in the preview.
+The `MicrosoftGraphActivityLogs` logs are associated with a feature that is still in preview. The logs are visible in Azure AD, but selecting these options won't add new logs to your workspace unless your organization was included in the preview.
 
 ### Network access traffic logs
 
