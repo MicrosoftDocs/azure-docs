@@ -83,9 +83,9 @@ Once you've subscribed to a workspace, here's how to connect:
 
 1. To pin your desktops and applications to the Start Menu, right-click one of the icons and select **Pin to Start Menu**, then confirm the prompt.
 
-## Windows Insider
+## Insider releases
 
-If you want to help us test new builds before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available. For more information, see [Enable Windows Insider releases](client-features-windows.md#enable-insider-releases).
+If you want to help us test new builds before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available. For more information, see [Enable Insider releases](client-features-windows.md#enable-insider-releases).
 
 ## Next steps
 

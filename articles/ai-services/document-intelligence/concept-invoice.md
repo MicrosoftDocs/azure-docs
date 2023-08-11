@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 08/10/2023
 ms.author: lajanuar
 monikerRange: '<=doc-intel-3.1.0'
 ---
@@ -156,12 +156,12 @@ See how data, including customer information, vendor details, and line items, is
 
 ::: moniker-end
 
-::: moniker range=">=doc-intel-3.0.0"
-
 ## Supported languages and locales
 
 >[!NOTE]
 > Document Intelligence auto-detects language and locale data.
+
+:::moniker range="doc-intel-3.1.0"
 
 | Supported languages | Details |
 |:----------------------|:---------|
@@ -197,33 +197,61 @@ See how data, including customer information, vendor details, and line items, is
 
 | Supported Currency Codes | Details |
 |:----------------------|:---------|
-| &bullet; ARS | United States (`us`) |
-| &bullet; AUD | Australia (`au`) |
-| &bullet; BRL | United States (`us`) |
+| &bullet; ARS | Argentine Peso (`ar`) |
+| &bullet; AUD | Australian Dollar (`au`) |
+| &bullet; BRL | Brazilian Real (`br`) |
+| &bullet; CAD | Canadian Dollar (`ca`) |
+| &bullet; CLP | Chilean Peso (`cl`) |
+| &bullet; CNY | Chinese Yuan (`cn`) |
+| &bullet; COP | Columbian Peso (`co`) |
+| &bullet; CRC | Costa Rican Coldón (`us`) |
+| &bullet; CZK | Czech Koruna (`cz`) |
+| &bullet; DKK | Danish Krone (`dk`) |
+| &bullet; EUR | Euro (`eu`) |
+| &bullet; GBP | British Pound Sterling (`gb`) |
+| &bullet; GGP | Guernsey Pound (`gg`) |
+| &bullet; HUF | Hungarian Forint (`hu`) |
+| &bullet; IDR | Indonesian Rupiah (`id`) |
+| &bullet; INR | Indian Rupee (`in`) |
+| &bullet; ISK | Icelandic Króna (`us`) |
+| &bullet; JPY | Japanese Yen (`jp`) |
+| &bullet; KRW | South Korean Won (`kr`) |
+| &bullet; NOK | Norwegian Krone (`no`) |
+| &bullet; PAB | Panamanian Balboa (`pa`) |
+| &bullet; PEN | Peruvian Sol (`pe`) |
+| &bullet; PLN | Polish Zloty (`pl`) |
+| &bullet; RON | Romanian Leu (`ro`) |
+| &bullet; RSD | Serbian Dinar (`rs`) |
+| &bullet; SEK | Swedish Krona (`se`) |
+| &bullet; TWD | New Taiwan Dollar (`tw`) |
+| &bullet; USD | United States Dollar (`us`) |
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+| Supported languages | Details |
+|:----------------------|:---------|
+| &bullet; English (`en`) | United States (`us`), Australia (`au`), Canada (`ca`), United Kingdom (-uk), India (-in)|
+| &bullet; Spanish (`es`) |Spain (`es`)|
+| &bullet; German (`de`) | Germany (`de`)|
+| &bullet; French (`fr`) | France (`fr`) |
+| &bullet; Italian (`it`) | Italy (`it`)|
+| &bullet; Portuguese (`pt`) | Portugal (`pt`), Brazil (`br`)|
+| &bullet; Dutch (`nl`) | Netherlands (`nl`)|
+
+| Supported Currency Codes | Details |
+|:----------------------|:---------|
+| &bullet; BRL | Brazilian Real (`br`) |
+| &bullet; GBP | British Pound Sterling (`gb`) |
 | &bullet; CAD | Canada (`ca`) |
-| &bullet; CLP | United States (`us`) |
-| &bullet; CNY | United States (`us`) |
-| &bullet; COP | United States (`us`) |
-| &bullet; CRC | United States (`us`) |
-| &bullet; CZK | United States (`us`) |
-| &bullet; DKK | United States (`us`) |
-| &bullet; EUR | United States (`us`) |
-| &bullet; GBP | United Kingdom (`uk`) |
-| &bullet; HUF | United States (`us`) |
-| &bullet; IDR | United States (`us`) |
-| &bullet; INR | United States (`us`) |
-| &bullet; ISK | United States (`us`) |
-| &bullet; JPY | Japan (`jp`) |
-| &bullet; KRW | United States (`us`) |
-| &bullet; NOK | United States (`us`) |
-| &bullet; PAB | United States (`us`) |
-| &bullet; PEN | United States (`us`) |
-| &bullet; PLN | United States (`us`) |
-| &bullet; RON | United States (`us`) |
-| &bullet; RSD | United States (`us`) |
-| &bullet; SEK | United States (`us`) |
-| &bullet; TWD | United States (`us`) |
+| &bullet; EUR | Euro (`eu`) |
+| &bullet; GGP | Guernsey Pound (`gg`) |
+| &bullet; INR | Indian Rupee (`in`) |
 | &bullet; USD | United States (`us`) |
+:::moniker-end
+
+:::moniker range=">=doc-intel-3.0.0"
 
 ## Field extraction
 
