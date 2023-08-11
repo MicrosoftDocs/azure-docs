@@ -168,9 +168,10 @@ PostgreSQL client applications are connected to the primary server using the DB 
 
 For flexible servers configured with high availability, log data is replicated in real-time to the standby server. Any user errors on the primary server - such as an accidental drop of a table or incorrect data updates, are replicated to the standby replica. So, you cannot use standby to recover from such logical errors. To recover from such errors, you have to perform a point-in-time restore from the backup. Using a flexible server's point-in-time restore capability, you can restore to the time before the error occurred. A new database server is restored as a single-zone flexible server with a new user-provided server name for databases configured with high availability. You can use the restored server for a few use cases:
 
-1. You can use the restored server for production and optionally enable zone-redundant high availability.
-2. If you want to restore an object, export it from the restored database server and import it to your production database server.
-3. If you want to clone your database server for testing and development purposes or to restore for any other purposes, you can perform the point-in-time restore.
+- You can use the restored server for production and optionally enable zone-redundant high availability.
+
+- If you want to restore an object, export it from the restored database server and import it to your production database server.
+- If you want to clone your database server for testing and development purposes or to restore for any other purposes, you can perform the point-in-time restore.
 
 To learn how to do a point-in-time restore of a flexible server, see [Point-in-time restore of a flexible server](/azure/postgresql/flexible-server/how-to-restore-server-portal).
 
