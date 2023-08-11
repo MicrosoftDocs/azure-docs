@@ -1,16 +1,17 @@
 ---
-title: Subscription Prerequisites
-description: Prerequisite steps to complete on your subscription before working with HDInsight on AKS.
+title: Subscription prerequisites for Azure HDInsight on AKS.
+description: Prerequisite steps to complete on your subscription before working with Azure HDInsight on AKS.
 ms.topic: how-to
 ms.service: hdinsight-aks
-ms.date: 08/08/2023
+ms.date: 08/10/2023
 ---
 
 # Subscription prerequisites
 
 If you're using Azure subscription first time for HDInsight on AKS, the following features might need to be enabled.
 
-To enable these features, 
+## Enable features 
+
 1. Sign in to [Azure portal](https://portal.azure.com).
    
 1. Click the Cloud Shell icon (:::image type="content" source="./media/portal-elements/cloud-shell.png" alt-text="Screenshot screenshot showing Cloud Shell icon.":::) at the top right, and select **PowerShell** or **Bash** as your environment depending on the command you use.
@@ -63,3 +64,5 @@ At the next command prompt, enter each of the following commands:
     
     **Output:** The response indicates the registration is in progress. 
 
+## Next steps
+* [One-click deployment](./getting-started.md)
