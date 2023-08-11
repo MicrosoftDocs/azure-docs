@@ -18,7 +18,7 @@ There are two types of VM SKUs:
 * General purpose
 * Performance optimized
 
-The primary difference between the two types of VMs is their approach to emulator thread isolation. VM SKUs optimized for performance have dedicated emulator threads, which allow each VM to operate at maximum efficiency. Conversely, general-purpose VM SKUs do not feature this isolated design, which means that the emulator thread runs within the CPU resources allocated to its own VM.
+The primary difference between the two types of VMs is their approach to emulator thread isolation. VM SKUs optimized for performance have dedicated emulator threads, which allow each VM to operate at maximum efficiency. Conversely, general-purpose VM SKUs don't feature this isolated design, which means that the emulator thread runs within the CPU resources allocated to its own VM.
 
 All these SKUs are having the following characteristics:
 
