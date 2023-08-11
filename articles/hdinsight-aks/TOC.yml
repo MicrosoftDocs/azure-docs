@@ -170,7 +170,7 @@ items:
         href: ./flink/flink-webssh-on-portal-to-flink-sql.md
       - name: Using Azure Cosmos DB (Apache Cassandra)
         href: ./flink/cosmos-db-for-apache-cassandra.md
-      - name: Using Azure Eventhubs
+      - name: Using Azure Event Hubs
         href: ./flink/flink-how-to-setup-event-hub.md  
       - name: Using Delta Connectors
         href: ./flink/use-flink-delta-connector.md  
