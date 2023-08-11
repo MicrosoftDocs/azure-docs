@@ -29,7 +29,7 @@ VMware Spring Cloud Gateway includes the following features:
 - Circuit breaker configuration.
 - Support for accessing application services via HTTP Basic Authentication credentials.
 
-To integrate with API portal for VMware Tanzu, VMware Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after any route configuration additions or changes. For more information, see [Use API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md).
+To integrate with API Portal for VMware Tanzu, VMware Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after any route configuration additions or changes. For more information, see [Use API Portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md).
 
 ## Prerequisites
 
@@ -93,7 +93,7 @@ The following example configures an `AddRequestHeader` factory that uses a varia
 
 ### AddRequestHeadersIfNotPresent
 
-The `AddRequestHeadersIfNotPresent` factory adds a header if they aren't present in the original request.
+The `AddRequestHeadersIfNotPresent` factory adds headers if they aren't present in the original request.
 
 This factory accepts the following configuration parameter:
 
@@ -203,10 +203,10 @@ The `CircuitBreaker` factory wraps routes in a circuit breaker.
 This factory accepts the following configuration parameters:
 
 - `name`: The circuit breaker name.
-- `fallbackUri`: The reroute url (can be a local route or external handler).
+- `fallbackUri`: The reroute URI, which can be a local route or external handler.
 - `status codes` (optional): The colon-separated list of status codes to match, in number or in text format.
-- `failure rate` (optional): The threshold above which the circuit breaker opens (default 50%).
-- `duration` (optional): The time to wait before closing again (default 60 seconds).
+- `failure rate` (optional): The threshold above which the circuit breaker opens. The default value is 50%.
+- `duration` (optional): The time to wait before closing again. The default value is 60 seconds.
 
 The following example configures a `CircuitBreaker` factory:
 
@@ -225,14 +225,14 @@ The following example configures a `CircuitBreaker` factory:
 
 ### DeDupeResponseHeader
 
-The `DedupeResponseHeader` factory removes duplicate values of response headers.
+The `DeDupeResponseHeader` factory removes duplicate values of response headers.
 
 This factory accepts the following configuration parameters:
 
 - `name`: A space-separated list of header names.
-- `strategy` (optional): The accepted values are `RETAIN_FIRST` (default), `RETAIN_LAST`, and `RETAIN_UNIQUE`.
+- `strategy` (optional): The accepted values are `RETAIN_FIRST`, `RETAIN_LAST`, and `RETAIN_UNIQUE`. The default value is `RETAIN_FIRST`.
 
-The following example configures a `DedupeResponseHeader` factory that removes duplicate values of `Access-Control-Allow-Credentials` and `Access-Control-Allow-Origin` response headers when both values are added by the gateway CORS logic and the downstream logic:
+The following example configures a `DeDupeResponseHeader` factory that removes duplicate values of `Access-Control-Allow-Credentials` and `Access-Control-Allow-Origin` response headers when both values are added by the gateway CORS logic and the downstream logic:
 
 ```json
 [
@@ -241,7 +241,7 @@ The following example configures a `DedupeResponseHeader` factory that removes d
             "Path=/api/**"
         ],
         "filters": [
-            "DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin"
+            "DeDupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin"
         ]
     }
 ]
@@ -440,7 +440,7 @@ The `RemoveJsonAttributesResponseBody` factory removes the JSON attributes and t
 This factory accepts the following configuration parameters:
 
 - `attribute names`: A comma-separated list of the names of attributes to remove from a JSON response.
-- `delete recursively` (optional, boolean): A configuration that removes the attributes only at root level (`false`), or recursively (`true`) (default, `false`).
+- `delete recursively` (optional, boolean): A configuration that removes the attributes only at root level (`false`), or recursively (`true`). The default value is `false`.
 
 The following example configures a `RemoveJsonAttributesResponseBody` factory:
 
@@ -556,14 +556,14 @@ The `RewriteLocationResponseHeader` factory modifies the value of the `Location`
 
 This factory accepts the following configuration parameters:
 
-- `stripVersionMode`: This parameter has the following possible values: `NEVER_STRIP`, `AS_IN_REQUEST` (default), and `ALWAYS_STRIP`.
+- `stripVersionMode`: This parameter has the following possible values: `NEVER_STRIP`, `AS_IN_REQUEST`, and `ALWAYS_STRIP`. The default value is `AS_IN_REQUEST`.
 
   - `NEVER_STRIP`: The version isn't stripped, even if the original request path contains no version.
   - `AS_IN_REQUEST`: The version is stripped only if the original request path contains no version.
   - `ALWAYS_STRIP`: The version is always stripped, even if the original request path contains version.
 
 - `hostValue`: This parameter is used to replace the `host:port` portion of the response `Location` header when provided. If it isn't provided, the value of the `Host` request header is used.
-- `protocolsRegex`: A valid regex `String`, against which the protocol name is matched. If it isn't matched, the filter doesn't work. The default is `http|https|ftp|ftps`. 
+- `protocolsRegex`: A valid regex `String`, against which the protocol name is matched. If it isn't matched, the filter doesn't work. The default value is `http|https|ftp|ftps`. 
 - `locationHeaderName`
 
 The following listing configures a `RewriteLocationResponseHeader` factory:
@@ -784,7 +784,7 @@ The `StripPrefix` factory removes the prefix from the request before sending it 
 
 This factory accepts the following configuration parameter:
 
-- `parts`: The number of parts in the path to strip from the request before sending it downstream. The default value of the `parts` parameter is 1. 
+- `parts`: The number of parts in the path to strip from the request before sending it downstream. The default value is 1. 
 
 The following example configures a `StripPrefix` factory:
 
@@ -805,7 +805,7 @@ In this example, a request is made through the gateway to `/name/blue/red`. The 
 
 ### Retry
 
-The `Retry` factory determines the number of retries that is attempted. 
+The `Retry` factory determines the number of retries attempted. 
 
 This factory accepts the following configuration parameters:
 
@@ -845,7 +845,7 @@ The `RequestSize` factory can restrict a request from reaching the downstream se
 
 This factory accepts the following configuration parameter:
 
-- `maxSize`: A `DataSize` type where values are defined as a number followed by an optional `DataUnit` suffix such as 'KB' or 'MB'. The default is 'B' for bytes. It's the permissible size limit of the request defined in bytes. 
+- `maxSize`: A `DataSize` type where values are defined as a number followed by an optional `DataUnit` suffix such as 'KB' or 'MB'. The default suffix value is 'B' for bytes. It's the permissible size limit of the request defined in bytes. 
 
 The following example configures a `RequestSize` factory:
 
@@ -887,7 +887,7 @@ The following example configures a `TokenRelay` factory:
 ]
 ```
 
-## Use Commercial Filters
+## Use commercial filters
 
 Spring Cloud Gateway for Kubernetes also provides many custom filters in addition to the ones included in the OSS project.
 
@@ -1063,7 +1063,7 @@ The `JsonToXml` factory transforms JSON response body into XML response body.
 
 This factory accepts the following configuration parameter:
 
-- `wrapper`: The root tag name for the XML response if an additional root tag is required to generate valid XML. The default root tag name is `response`.
+- `wrapper`: The root tag name for the XML response if an additional root tag is required to generate valid XML. The default value is `response`.
 
 The following example configures a `JsonToXml` factory:
 
@@ -1304,7 +1304,7 @@ The `StoreHeader` factory stores a header value in the context of the applicatio
 
 This factory accepts the following configuration parameters:
 
-- `headers`: A list of headers to check (use the first one that you find).
+- `headers`: A list of headers to check. The first one found is used.
 - `attribute name`: The name used to store the header value as an exchange attribute.
 
 The following example configures a `StoreHeader` factory:
