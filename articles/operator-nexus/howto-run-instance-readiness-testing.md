@@ -72,39 +72,43 @@ If your workflow is incompatible with `all-in-one.sh`, each resource needed for 
 
 IRT makes commands against your resources, and needs permission to do so. IRT requires a Managed Identity and a Service Principal to execute. It also requires that the service principal is a  member of the Azure AD Security Group that is also provided as input.
 
-#### Create managed identity
-A managed identity with the following role assignments is needed to execute tests. The supplemental script, `create-managed-identity.sh` creates a managed identity with these role assignments.
-   * `Contributor` - For creating and manipulating resources
-   * `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
-   * `Log Analytics Reader` - For reading metadata about the LAW
-   * `Kubernetes Connected Cluster Role` - For read/write operations on connected cluster
 
-Executing `create-managed-identity.sh` requires the input yaml to have the following properties, all of them can be overriden by the corrosponding environment variables:
-```yml
-MANAGED_IDENTITY:
-  RESOURCE_GROUP: "<resource-group>" # env: MANAGED_IDENTITY_RESOURCE_GROUP
-  NAME: "<name>" # env: MANAGED_IDENTITY_NAME
-  SUBSCRIPTION: "<subscription>" # env: MANAGED_IDENTITY_SUBSCRIPTION
-  LOCATION: "<location>" # env: MANAGED_IDENTITY_LOCATION
-```
-   * `MANAGED_IDENTITY.RESOURCE_GROUP` - The resource group the Managed Identity is created in.
-   * `MANAGED_IDENTITY.NAME` - The name of the Managed Identity to be created.
-   * `MANAGED_IDENTITY.SUBSCRIPTION` - The subscription where the resource group should reside.
-   * `MANAGED_IDENTITY.LOCATION` - The location to create the resource group.
+<details>
+  <summary>expand to see how to create managed identity</summary>
 
-```bash
-# Example execution of the script
-./create-managed-identity.sh irt.input.yml
-```
-> [NOTE]
-> if `MANAGED_IDENTITY_ID` is set in the input yaml or as an environment variable the script won't create anything.
+   A managed identity with the following role assignments is needed to execute tests. The supplemental script, `create-managed-identity.sh` creates a managed identity with these role assignments.
+      * `Contributor` - For creating and manipulating resources
+      * `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
+      * `Log Analytics Reader` - For reading metadata about the LAW
+      * `Kubernetes Connected Cluster Role` - For read/write operations on connected cluster
 
-**RESULT:** This script prints a value for `MANAGED_IDENTITY_ID` and sets it to the input.yml.
-See [Input Configuration](#input-configuration).
+   Executing `create-managed-identity.sh` requires the input yaml to have the following properties, all of them can be overriden by the corrosponding environment variables:
+   ```yml
+   MANAGED_IDENTITY:
+   RESOURCE_GROUP: "<resource-group>" # env: MANAGED_IDENTITY_RESOURCE_GROUP
+   NAME: "<name>" # env: MANAGED_IDENTITY_NAME
+   SUBSCRIPTION: "<subscription>" # env: MANAGED_IDENTITY_SUBSCRIPTION
+   LOCATION: "<location>" # env: MANAGED_IDENTITY_LOCATION
+   ```
+      * `MANAGED_IDENTITY.RESOURCE_GROUP` - The resource group the Managed Identity is created in.
+      * `MANAGED_IDENTITY.NAME` - The name of the Managed Identity to be created.
+      * `MANAGED_IDENTITY.SUBSCRIPTION` - The subscription where the resource group should reside.
+      * `MANAGED_IDENTITY.LOCATION` - The location to create the resource group.
 
-```yml
-MANAGED_IDENTITY_ID: <generated_id>
-``````
+   ```bash
+   # Example execution of the script
+   ./create-managed-identity.sh irt.input.yml
+   ```
+   > [NOTE]
+   > if `MANAGED_IDENTITY_ID` is set in the input yaml or as an environment variable the script won't create anything.
+
+   **RESULT:** This script prints a value for `MANAGED_IDENTITY_ID` and sets it to the input.yml.
+   See [Input Configuration](#input-configuration).
+
+   ```yml
+   MANAGED_IDENTITY_ID: <generated_id>
+   ```
+</details>
 
 #### Create service principal and security group
 A service principal with the following role assignments. The supplemental script, `create-service-principal.sh`  creates a service principal with these role assignments, or add role assignments to an existing service principal.
