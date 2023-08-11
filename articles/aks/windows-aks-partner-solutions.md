@@ -17,7 +17,7 @@ Our 3rd party partners featured below have published introduction guides to star
 | DevOps             | [GitLab](#gitlab) <br> [CircleCI](#circleci)        |
 | Networking         | [NGINX](#f5-nginx) <br> [Calico](#calico)           |
 | Observability      | [Datadog](#datadog) <br> [New Relic](#new-relic)    |
-| Security           | [Prisma](#prisma)                                   |
+| Security           | [Prisma Cloud](#prisma-cloud)                                   |
 | Storage            | [NetApp](#netapp)                                   |
 | Config Management  | [Chef](#chef)                                       |
 
@@ -80,7 +80,7 @@ Check this [blog](https://techcommunity.microsoft.com/t5/containers/persistent-s
 
 Ensure the integrity and confidentiality of applications, thereby fostering trust and compliance across your infrastructure. 
 
-### Prisma 
+### Prisma Cloud
 
 Prisma Cloud is a comprehensive Cloud-Native Application Protection Platform (CNAPP) tailor-made to help secure Windows containers on Azure Kubernetes Service (AKS). Gain continuous, real-time visibility and control over Windows container environments including vulnerability and compliance management, identities and permissions, and AI-assisted runtime defense. Integrated container scanning across the pipeline and in Azure Container Registry ensure security throughout the entire application lifecycle.  
 
