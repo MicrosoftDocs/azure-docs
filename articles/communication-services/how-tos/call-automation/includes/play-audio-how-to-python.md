@@ -77,11 +77,11 @@ call_automation_client.answer_call(
 
 ## Play audio
 
-Once the call has been established, there are multiple options for how you may wish to play the audio. You can play audio to the participant that has just joined the call or play audio to all the participants in the call.
+Once the call has been established, there are multiple options for how you may wish to play the audio. You can play audio to the participant that has joined the call or play audio to all the participants in the call.
 
 ### Play source - Audio file
 
-To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
+To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files, you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
 
 ``` python
 play_source = FileSource(url=audioUri)
@@ -89,7 +89,7 @@ play_source = FileSource(url=audioUri)
 
 ### Play source - Text-To-Speech (Public Preview)
 
-To play audio using Text-To-Speech through Azure AI services you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](../../../../ai-services/Speech-Service/language-support.md?tabs=tts).
+To play audio using Text-To-Speech through Azure AI services, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](../../../../ai-services/Speech-Service/language-support.md?tabs=tts).
 
 ``` python
 text_to_play = "Welcome to Contoso"
@@ -130,11 +130,11 @@ call_automation_client.get_call_connection(call_connection_id).play_media(
     play_source=play_source, play_to=play_to
 )
 ```
-Once you've decided on which playSource you wish to use for playing audio you can then choose whether you want to play it to a specific participant or to all participants.
+Once you've decided on which playSource you wish to use for playing audio, you can then choose whether you want to play it to a specific participant or to all participants.
 
 ## Play audio - All participants
 
-Play a pre-recorded audio file to all participants in the call.
+Play a prerecorded audio file to all participants in the call.
 
 ``` python 
 text_to_play = "Welcome to Contoso"
@@ -148,7 +148,7 @@ call_automation_client.get_call_connection(call_connection_id).play_media_to_all
 
 ## Play audio - Specific participant
 
-Play a pre-recorded audio file to a specific participant in the call.
+Play a prerecorded audio file to a specific participant in the call.
 
 ``` python 
 play_to = [target_participant]
@@ -174,7 +174,7 @@ call_automation_client.get_call_connection(call_connection_id).play_media_to_all
 
 ## Enhance play with audio file caching
 
-If you're playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour. **Note:** Caching audio files isn't suitable for dynamic prompts. If you change the URL provided to ACS, it will not update the cached URL straight away. The update will occur after the existing cache expires.
+If you're playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour. **Note:** Caching audio files isn't suitable for dynamic prompts. If you change the URL provided to ACS, it does not update the cached URL straight away. The update will occur after the existing cache expires.
 
 ``` python
 play_source = FileSource(url=audioUri, play_source_cache_id="<playSourceId>")
