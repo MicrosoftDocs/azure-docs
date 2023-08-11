@@ -28,15 +28,15 @@ Ensure that you have completed the [subscription prerequisites](prerequisites-su
    
 1. In the Azure portal search bar, type "HDInsight on AKS cluster pool" and select "Azure HDInsight on AKS cluster pools" from the drop-down list.
   
-   :::image type="content" source="./media/create-cluster-pool/search-bar.png" alt-text="Diagram showing search bar in Azure portal.":::
+   :::image type="content" source="./media/quickstart-create-cluster/search-bar.png" alt-text="Diagram showing search bar in Azure portal.":::
   
 1. Click **+ Create**.
 
-   :::image type="content" source="./media/create-cluster-pool/create-button.png" alt-text="Diagram showing create button.":::
+   :::image type="content" source="./media/quickstart-create-cluster/create-button.png" alt-text="Diagram showing create button.":::
   
 1. In the **Basics** tab, enter the following information:
 
-     :::image type="content" source="./media/create-cluster-pool/cluster-pool-basic-tab.png" alt-text="Diagram showing cluster pool creation basic tab.":::
+     :::image type="content" source="./media/quickstart-create-cluster/cluster-pool-basic-tab.png" alt-text="Diagram showing cluster pool creation basic tab.":::
 
      |Property|Description|
      |---|---|
@@ -53,7 +53,7 @@ Ensure that you have completed the [subscription prerequisites](prerequisites-su
         
 1. On the **Security + networking** page, provide the following information:
       
-     :::image type="content" source="./media/create-cluster-pool/cluster-pool-security-tab.png" alt-text="Diagram showing cluster pool creation network and security tab.":::
+     :::image type="content" source="./media/quickstart-create-cluster/cluster-pool-security-tab.png" alt-text="Diagram showing cluster pool creation network and security tab.":::
 
      |Property|Description|
      |---|---|
@@ -65,7 +65,7 @@ Ensure that you have completed the [subscription prerequisites](prerequisites-su
         
 1. On the **Integrations** page, provide the following information:
 
-      :::image type="content" source="./media/create-cluster-pool/create-cluster-pool-integration-tab.png" alt-text="Diagram showing cluster pool creation integration tab." border="true" lightbox="./media/create-cluster-pool/create-cluster-pool-integration-tab.png":::
+      :::image type="content" source="./media/quickstart-create-cluster/create-cluster-pool-integration-tab.png" alt-text="Diagram showing cluster pool creation integration tab." border="true" lightbox="./media/quickstart-create-cluster/create-cluster-pool-integration-tab.png":::
 
      |Property|Description|
      |---|---|
@@ -76,7 +76,7 @@ Ensure that you have completed the [subscription prerequisites](prerequisites-su
     
 1. On the **Tags** page, enter any tags (optional) you’d like to assign to the cluster pool.
    
-     :::image type="content" source="./media/create-cluster-pool/create-cluster-pool-tags-page.png" alt-text="Diagram showing cluster pool creation tags tab." border="true" lightbox="./media/create-cluster-pool/create-cluster-pool-tags-page.png":::
+     :::image type="content" source="./media/quickstart-create-cluster/create-cluster-pool-tags-page.png" alt-text="Diagram showing cluster pool creation tags tab." border="true" lightbox="./media/quickstart-create-cluster/create-cluster-pool-tags-page.png":::
 
      | Property | Description|
      |---|---|
@@ -90,7 +90,7 @@ Ensure that you have completed the [subscription prerequisites](prerequisites-su
 
      The **Deployment is in process** page is displayed while the cluster pool is being created, and the **Your deployment is complete page** is displayed once the cluster pool is fully deployed and ready for use.
 
-   :::image type="content" source="./media/create-cluster-pool/create-cluster-pool-review-create-page.png" alt-text="Diagram showing cluster pool review and create tab." lightbox="./media/create-cluster-pool/create-cluster-review-create-page.png"::: 
+   :::image type="content" source="./media/quickstart-create-cluster/create-cluster-pool-review-create-page.png" alt-text="Diagram showing cluster pool review and create tab." lightbox="./media/quickstart-create-cluster/create-cluster-review-create-page.png"::: 
 
      If you navigate away from the page, you can check the status of the deployment by clicking Notifications ![Notifications icon shown in the Azure portal](./media/portal-elements/notifications.png) in the Azure portal.
 
@@ -116,7 +116,7 @@ For a quickstart, refer to the following steps.
 
    :::image type="content" source="./media/manage-cluster-pool/create-new-cluster.png" alt-text="Screenshot showing create new cluster option.":::
    
-   :::image type="content" source="./media/create-cluster-pool/create-cluster-basic-page.png" alt-text="Diagram showing how to create a new cluster." border="true" lightbox="./media/create-cluster-pool/create-cluster-basic-page.png":::
+   :::image type="content" source="./media/quickstart-create-cluster/create-cluster-basic-page.png" alt-text="Diagram showing how to create a new cluster." border="true" lightbox="./media/quickstart-create-cluster/create-cluster-basic-page.png":::
    
      | Property| Description|
      |---|---|
@@ -138,7 +138,7 @@ For a quickstart, refer to the following steps.
 
 1. On the **Configuration** page, provide the following information:
 
-   :::image type="content" source="./media/create-cluster-pool/configuration-and-pricing-tab.png" alt-text="Diagram showing configuration tab.":::  
+   :::image type="content" source="./media/quickstart-create-cluster/configuration-and-pricing-tab.png" alt-text="Diagram showing configuration tab.":::  
    
 
      |Property|Description|
@@ -157,7 +157,7 @@ For a quickstart, refer to the following steps.
 
 1. On the **Integrations** page, provide the following information:
 
-     :::image type="content" source="./media/create-cluster-pool/cluster-integration-tab.png" alt-text="Diagram showing integration tab.":::
+     :::image type="content" source="./media/quickstart-create-cluster/cluster-integration-tab.png" alt-text="Diagram showing integration tab.":::
 
      |Property|Description|
      |---|---|
@@ -171,7 +171,7 @@ For a quickstart, refer to the following steps.
     
 1. On the **Tags** page, enter any tags(optional) you’d like to assign to the cluster.
    
-     :::image type="content" source="./media/create-cluster-pool/create-cluster-tags-page.png" alt-text="Screenshot showing tags page.":::
+     :::image type="content" source="./media/quickstart-create-cluster/create-cluster-tags-page.png" alt-text="Screenshot showing tags page.":::
 
      | Property | Description|
      |---|---|
@@ -183,7 +183,7 @@ For a quickstart, refer to the following steps.
 
 1. On the **Review + create** page, look for the **Validation succeeded** message at the top of the page and then click **Create**.
 
-   :::image type="content" source="./media/create-cluster-pool/create-cluster-review-create-page.png" alt-text="Diagram showing cluster review and create tab." lightbox="./media/create-cluster-pool/create-cluster-review-create-page.png"::: 
+   :::image type="content" source="./media/quickstart-create-cluster/create-cluster-review-create-page.png" alt-text="Diagram showing cluster review and create tab." lightbox="./media/quickstart-create-cluster/create-cluster-review-create-page.png"::: 
 
    The **Deployment is in process** page is displayed while the cluster is being created, and the **"Your deployment is complete"**  page is displayed once the cluster is fully deployed and ready for use.
 

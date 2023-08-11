@@ -2,7 +2,7 @@
 title: Security in HDInsight on AKS
 description: An introduction to security with managed identity from Azure Active Directory in HDInsight on AKS.
 ms.service: hdinsight-aks
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 08/03/2023
 ---
 
@@ -18,7 +18,7 @@ Enterprise readiness for any software requires stringent security checks to prev
 
 The below diagram illustrates a high-level technical architecture of security in HDInsight on AKS. 
 
-:::image type="content" source="./media/security-concept/security-concept.png" alt-text="Screenshot showing the security flow of authenticating a cluster." border="true" lightbox="./media/security-concept/security-concept.png":::
+:::image type="content" source="./media/concept-security/security-concept.png" alt-text="Screenshot showing the security flow of authenticating a cluster." border="true" lightbox="./media/concept-security/security-concept.png":::
 
 ## Enterprise security pillars
 
@@ -71,7 +71,7 @@ This access enables you to
 The access won't be provided for
 * Cluster deletion
 
-:::image type="content" source="./media/security-concept/cluster-access.png" alt-text="Screenshot showing the cluster data access." border="true" lightbox="./media/security-concept/cluster-access.png":::
+:::image type="content" source="./media/concept-security/cluster-access.png" alt-text="Screenshot showing the cluster data access." border="true" lightbox="./media/concept-security/cluster-access.png":::
 
 > [!Important]
 > Any newly added user will require additional role of  “Azure Kubernetes Service RBAC Reader” for viewing the [service health](./service-health.md).
@@ -95,7 +95,7 @@ Contractual amendments, self-assessments, and customer guidance documents produc
 
 The following image summarizes the major system security areas and the security solutions that are available to you. It also highlights which security areas are your responsibilities as a customer and areas that are  responsibility of HDInsight on AKS as the service provider.
 
-:::image type="content" source="./media/security-concept/shared-responsibility-model.png" alt-text="Screenshot showing the shared responsibility model.":::
+:::image type="content" source="./media/concept-security/shared-responsibility-model.png" alt-text="Screenshot showing the shared responsibility model.":::
 
 The following table provides links to resources for each type of security solution.
 

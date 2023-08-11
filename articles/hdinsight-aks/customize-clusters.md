@@ -1,7 +1,7 @@
 ---
 title: Customize Azure HDInsight on AKS clusters
 description: Add custom components to HDInsight on AKS clusters by using script actions. Script actions are Bash scripts that can be used to customize the cluster configuration.
-ms.topic: concept
+ms.topic: conceptual
 ms.service: hdinsight-aks
 ms.date: 08/04/2023
 ---
@@ -48,7 +48,7 @@ In HDInsight on AKS, the script is automatically persisted. A failure in the scr
 
 The following diagram illustrates when script action runs during the creation process: 
 
-:::image type="content" source="./media/customize-cluster/script-action-overview.png" alt-text="Stages during cluster creation for script action" border="false":::
+:::image type="content" source="./media/customize-clusters/script-action-overview.png" alt-text="Stages during cluster creation for script action" border="false":::
  
 **The script runs while HDInsight on AKS cluster is being provisioned. The script runs in parallel on all the specified nodes in the cluster.**
 
