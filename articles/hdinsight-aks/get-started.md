@@ -12,10 +12,10 @@ One-click deployments are designed for users to experience zero touch creation o
 This article describes how to use readily available ARM templates to create a cluster pool and cluster in few clicks. 
 
 > [!NOTE]
-> 1. These ARM templates cover the basic requirements to create a cluster pool and cluster along with prerequisite resources. To explore advanced options, see [Create cluster pool and clusters](quickstart-create-cluster.md).
-> 1. Necessary resources are created as part of the ARM template deployment in your resource group. For more information, see [Resource prerequisites](prerequisites-resources.md).  
-> 1. The user must have permission to create new resources and assign roles to the resources in the subscription to deploy these ARM templates. 
-> 1. Before you begin with ARM templates, please keep [object ID ready](#find-object-id-of-an-identity) for the identity you are going to use for deployment.
+> - These ARM templates cover the basic requirements to create a cluster pool and cluster along with prerequisite resources. To explore advanced options, see [Create cluster pool and clusters](quickstart-create-cluster.md).
+> - Necessary resources are created as part of the ARM template deployment in your resource group. For more information, see [Resource prerequisites](prerequisites-resources.md).  
+> - The user must have permission to create new resources and assign roles to the resources in the subscription to deploy these ARM templates. 
+> - Before you begin with ARM templates, please keep [object ID ready](#find-object-id-of-an-identity) for the identity you are going to use for deployment.
 
 |Workload|Template|Description|
 |---|---|---|
