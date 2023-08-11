@@ -24,7 +24,8 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 
 ### August 2023
 * General availability: Citus 12 is now available in [all supported regions](./resources-regions.md) with PostgreSQL 14 and PostgreSQL 15.
-    * See [Postgres and Citus version in-place upgrade](./concepts-upgrade.md) 
+    * Check [what's new in Citus 12](https://www.citusdata.com/updates/v12-0/).
+    * See [Postgres and Citus version in-place upgrade](./concepts-upgrade.md).
 * Preview: [Azure Active Directory (Azure AD) authentication](./concepts-authentication.md#azure-active-directory-authentication-preview) is now supported in addition to Postgres roles.
 * Preview: Azure CLI is now supported for all Azure Cosmos DB for PostgreSQL management operations.
     * See [details](/cli/azure/cosmosdb/postgres).
