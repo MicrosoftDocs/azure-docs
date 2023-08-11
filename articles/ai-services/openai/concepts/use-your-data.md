@@ -191,7 +191,7 @@ When customizing the app, we recommend:
 
 - Publishing creates an Azure App Service in your subscription. It may incur costs depending on the 
 [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
-- You can [customize](../concepts/use-your-data.md#using-the-web-app) the frontend and backend logic of the web app.
+- You can customize the frontend and backend logic of the web app.
 - By default, the app will only be accessible to you. To add authentication (for example, restrict access to the app to members of your Azure tenant):
 
     1. Go to the [Azure portal](https://portal.azure.com/#home) and search for the app name you specified during publishing. Select the web app, and go to the **Authentication** tab on the left navigation menu. Then select **Add an identity provider**. 
