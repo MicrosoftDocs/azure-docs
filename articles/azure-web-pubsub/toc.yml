@@ -128,6 +128,49 @@
           href: howto-troubleshoot-resource-logs.md
         - name: Common issues
           href: howto-troubleshoot-common-issues.md
+    - name: Move across regions
+      href: howto-move-across-regions.md
+    - name: Scale
+      items:
+        - name: Autoscale
+          href: howto-scale-autoscale.md
+- name: Socket.IO
+  expanded: false
+  items: 
+    - name: Overview
+      href: socketio-overview.md
+    - name: Quickstart for Socket.IO users
+      href: socketio-quickstart.md
+    - name: Tutorials
+      expanded: true
+      items:
+        - name: Build real time code streaming app
+          href: socketio-build-realtime-code-streaming-app.md
+    - name: How-to guides
+      items:
+        - name: Easily migrate a self-hosted Socket.IO app 
+          href: socketio-migrate-from-self-hosted.md
+        - name: Troubleshoot
+          items: 
+            - name: Common issues
+              href: socketio-troubleshoot-common-issues.md
+            - name: Collect logs
+              href: socketio-troubleshoot-logging.md
+    - name: Concepts
+      items:
+        - name: How does Web PubSub support Socket.IO library
+          href: socketio-service-internal.md
+        - name: Supported Socket.IO server APIs
+          href: socketio-supported-server-apis.md
+- name: Samples
+  expanded: false
+  items: 
+    - name: Authenticate and connect
+      href: samples-authenticate-and-connect.md
+    - name: App scenarios
+      href: samples-app-scenarios.md
+    - name: Platform and frameworks
+      href: samples-platforms-and-frameworks.md
 - name: Concepts
   expanded: false
   items:
@@ -153,15 +196,6 @@
       items:
       - name: Security baseline
         href: /security/benchmark/azure/baselines/azure-web-pubsub-security-baseline?toc=/azure/azure-web-pubsub/toc.json
-- name: Samples
-  expanded: false
-  items: 
-    - name: Authenticate and connect
-      href: samples-authenticate-and-connect.md
-    - name: App scenarios
-      href: samples-app-scenarios.md
-    - name: Platform and frameworks
-      href: samples-platforms-and-frameworks.md
 - name: Reference
   items:
     - name: Client-side API
