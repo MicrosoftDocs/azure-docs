@@ -15,12 +15,16 @@ ms.date: 08/10/2023
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-In Azure Cognitive Search, vector data is indexed as *vector fields* in a [search index](search-what-is-an-index.md), using a *vector configuration* to specify the embedding space. Follow these steps to index vector data:
+In Azure Cognitive Search, vector data is indexed as *vector fields* in a [search index](search-what-is-an-index.md), using a *vector configuration* to specify the embedding space. 
+
+Follow these steps to index vector data:
 
 > [!div class="checklist"]
 > + Add one or more vector fields to the index schema.
-> + Add one or more vector configurations to the index schema. 
+> + Add one or more vector configurations. 
 > + Load the index with vector data [as a separate step](#load-vector-data-for-indexing), after the index schema is defined.
+
+Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
 
 ## Prerequisites
 
@@ -36,7 +40,7 @@ Prior to indexing, assemble a document payload that includes fields of vector an
 
 Make sure your documents:
 
-1. Provide a field or a metadata property that uniquely identifies each document. All search indexes require a document key. To satisfy document key requirements, your documents must have one field or property that is unique in the index. This field must be mapped to type `Edm.String` and `key=true` in the search index. 
+1. Provide a field or a metadata property that uniquely identifies each document. All search indexes require a document key. To satisfy document key requirements, a source document must have one field or property that can uniquely identify it in the index. This source field must be mapped to an index field of type `Edm.String` and `key=true` in the search index. 
 
 1. Provide vector data (an array of single-precision floating point numbers) in source fields.
 
@@ -103,7 +107,7 @@ Although you can add a field to an index, there's no portal (Import data wizard)
 
 ### [**REST API**](#tab/rest-add-field)
 
-Use the **2023-07-01-Prevew** REST API for vector scenarios. If you're updating an existing index to include vector fields, make sure the `allowIndexDowntime` query parameter is set to `true`.
+Use the **2023-07-01-Preview** REST API for vector scenarios. If you're updating an existing index to include vector fields, make sure the `allowIndexDowntime` query parameter is set to `true`.
 
 In the following REST API example, "title" and "content" contain textual content used in full text search and semantic search, while "titleVector" and "contentVector" contain vector data.
 
