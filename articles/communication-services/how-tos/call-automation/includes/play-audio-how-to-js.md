@@ -30,7 +30,7 @@ npm init -y
 npm install @azure/communication-call-automation
 ```
 
-Create a new JavaScript file in your project directory, for example, name it app.js. You write your JavaScript code in this file. Run your application using Node.js with the following command. This executes the JavaScript code you have written. 
+Create a new JavaScript file in your project directory, for example, name it app.js. You write your JavaScript code in this file. Run your application using Node.js with the following command. This code executes the JavaScript code you have written. 
 
 ``` console
 node app.js
@@ -57,11 +57,11 @@ await callAutomationClient.answerCall("<Incoming call context>", "<https://sampl
 
 ## Play audio
 
-Once the call has been established, there are multiple options for how you may wish to play the audio. You can play audio to the participant that has just joined the call or play audio to all the participants in the call.
+Once the call has been established, there are multiple options for how you may wish to play the audio. You can play audio to the participant that has joined the call or play audio to all the participants in the call.
 
 ### Play source - Audio file
 
-To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
+To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files, you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
 
 ``` javascript
 const playSource: FileSource = { url: audioUri, kind: "fileSource" };
@@ -69,7 +69,7 @@ const playSource: FileSource = { url: audioUri, kind: "fileSource" };
 
 ### Play source - Text-To-Speech
 
-To play audio using Text-To-Speech through Azure AI services you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](../../../../ai-services/Speech-Service/language-support.md?tabs=tts).
+To play audio using Text-To-Speech through Azure AI services, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](../../../../ai-services/Speech-Service/language-support.md?tabs=tts).
 
 ``` javascript
 const textToPlay = "Welcome to Contoso"; 
@@ -91,7 +91,7 @@ If you want to customize your Text-To-Speech output even more with Azure AI serv
 const ssmlToPlay = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-JennyNeural\">Hello World!</voice></speak>"; 
 const playSource: SsmlSource = { ssmlText: ssmlToPlay, kind: "ssmlSource" }; 
 ```
-Once you've decided on which playSource you wish to use for playing audio you can then choose whether you want to play it to a specific participant or to all participants.
+Once you've decided on which playSource you wish to use for playing audio, you can then choose whether you want to play it to a specific participant or to all participants.
 
 ## Play audio - All participants
 
@@ -126,7 +126,7 @@ await callAutomationClient.getCallConnection(callConnectionId)
 
 ## Enhance play with audio file caching
 
-If you are playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour. **Note:** Caching audio files is not suitable for dynamic prompts. If you change the URL provided to ACS, it will not update the cached URL straight away. The update will occur after the existing cache expires.
+If you're playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour. **Note:** Caching audio files isn't suitable for dynamic prompts. If you change the URL provided to ACS, it does not update the cached URL straight away. The update will occur after the existing cache expires.
 
 ``` javascript
 const playSource: FileSource = { url: audioUri, playsourcacheid: "<playSourceId>", kind: "fileSource" }; 
@@ -152,7 +152,6 @@ if (event.type === "Microsoft.Communication.PlayCompleted") {
 ```javascript
 if (event.type === "Microsoft.Communication.PlayFailed") { 
     console.log("Play failed: data=%s", JSON.stringify(eventData)); 
-    // TODO: replace above with check for mnemonic code for download failed and invalid file format 
 } 
 ```
 
@@ -171,10 +170,7 @@ await callAutomationClient.getCallConnection(callConnectionId)
 ### Example of how you can deserialize the *PlayCanceled* event:
 
 ```javascript
-var body = req.body[events];
-
-if (body.data && body.type === "Microsoft.Communication.PlayCanceled") {
-var playCanceledEvent: PlayCanceled = body.data;
-    // Handle the PlayCanceled event according to your application logic
+if (event.type === "Microsoft.Communication.PlayCanceled") {
+    console.log("Play canceled, context=%s", eventData.operationContext);
 }
 ```
