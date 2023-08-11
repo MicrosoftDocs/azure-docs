@@ -68,138 +68,144 @@ The `setup.sh` script is provided to aid with installing the listed dependencies
 > [NOTE]
 > Only use this section if you're NOT using `all-in-one.sh`
 
-If your workflow is incompatible with `all-in-one.sh`, each resource needed for IRT can be created manually with each supplemental script. Like `all-in-one.sh`, running these scripts  writes key/value pairs to your `irt-input.yml` for you to use during your run. These five scripts make up the `all-in-one.sh`.
+If your workflow is incompatible with `all-in-one.sh`, each resource needed for IRT can be created manually with each supplemental script. Like `all-in-one.sh`, running these scripts  writes key/value pairs to your `irt-input.yml` for you to use during your run. These four scripts make up the `all-in-one.sh`.
 
 IRT makes commands against your resources, and needs permission to do so. IRT requires a Managed Identity and a Service Principal to execute. It also requires that the service principal is a  member of the Azure AD Security Group that is also provided as input.
 
 #### Create managed identity
 <details>
-  <summary>expand to see how to create managed identity</summary>
+<summary>expand to see how to create managed identity</summary>
 
-   A managed identity with the following role assignments is needed to execute tests. The supplemental script, `create-managed-identity.sh` creates a managed identity with these role assignments.
-   * `Contributor` - For creating and manipulating resources
-   * `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
-   * `Log Analytics Reader` - For reading metadata about the LAW
-   * `Kubernetes Connected Cluster Role` - For read/write operations on connected cluster
+A managed identity with the following role assignments is needed to execute tests. The supplemental script, `create-managed-identity.sh` creates a managed identity with these role assignments.
+* `Contributor` - For creating and manipulating resources
+* `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
+* `Log Analytics Reader` - For reading metadata about the LAW
+* `Kubernetes Connected Cluster Role` - For read/write operations on connected cluster
 
-   Executing `create-managed-identity.sh` requires the input yaml to have the following properties, all of them can be overriden by the corrosponding environment variables:
-   ```yml
-   MANAGED_IDENTITY:
-   RESOURCE_GROUP: "<resource-group>" # env: MANAGED_IDENTITY_RESOURCE_GROUP
-   NAME: "<name>" # env: MANAGED_IDENTITY_NAME
-   SUBSCRIPTION: "<subscription>" # env: MANAGED_IDENTITY_SUBSCRIPTION
-   LOCATION: "<location>" # env: MANAGED_IDENTITY_LOCATION
-   ```
-   * `MANAGED_IDENTITY.RESOURCE_GROUP` - The resource group the Managed Identity is created in.
-   * `MANAGED_IDENTITY.NAME` - The name of the Managed Identity to be created.
-   * `MANAGED_IDENTITY.SUBSCRIPTION` - The subscription where the resource group should reside.
-   * `MANAGED_IDENTITY.LOCATION` - The location to create the resource group.
+Executing `create-managed-identity.sh` requires the input yaml to have the following properties, all of them can be overriden by the corrosponding environment variables:
+```yml
+MANAGED_IDENTITY:
+  RESOURCE_GROUP: "<resource-group>" # env: MANAGED_IDENTITY_RESOURCE_GROUP
+  NAME: "<name>" # env: MANAGED_IDENTITY_NAME
+  SUBSCRIPTION: "<subscription>" # env: MANAGED_IDENTITY_SUBSCRIPTION
+  LOCATION: "<location>" # env: MANAGED_IDENTITY_LOCATION
+```
+* `MANAGED_IDENTITY.RESOURCE_GROUP` - The resource group the Managed Identity is created in.
+* `MANAGED_IDENTITY.NAME` - The name of the Managed Identity to be created.
+* `MANAGED_IDENTITY.SUBSCRIPTION` - The subscription where the resource group should reside.
+* `MANAGED_IDENTITY.LOCATION` - The location to create the resource group.
 
-   ```bash
-   # Example execution of the script
-   ./create-managed-identity.sh irt.input.yml
-   ```
-   > [NOTE]
-   > if `MANAGED_IDENTITY_ID` is set in the input yaml or as an environment variable the script won't create anything.
+```bash
+# Example execution of the script
+./create-managed-identity.sh irt-input.yml
+```
 
-   **RESULT:** This script prints a value for `MANAGED_IDENTITY_ID` and sets it to the input.yml.
-   See [Input Configuration](#input-configuration).
+> [NOTE]
+> if `MANAGED_IDENTITY_ID` is set in the input yaml or as an environment variable the script won't create anything.
 
-   ```yml
-   MANAGED_IDENTITY_ID: <generated_id>
-   ```
+**RESULT:** This script prints a value for `MANAGED_IDENTITY_ID` and sets it to the input.yml.
+See [Input Configuration](#input-configuration).
+
+```yml
+MANAGED_IDENTITY_ID: <generated_id>
+```
 </details>
 
 #### Create service principal and security group
 <details>
-  <summary>expand to see how to create service principal and security group</summary>
+<summary>expand to see how to create service principal and security group</summary>
 
-   A service principal with the following role assignments. The supplemental script, `create-service-principal.sh`  creates a service principal with these role assignments, or add role assignments to an existing service principal.
+A service principal with the following role assignments. The supplemental script, `create-service-principal.sh`  creates a service principal with these role assignments, or add role assignments to an existing service principal.
 
-   * `Contributor` - For creating and manipulating resources
-   * `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
-   * `Azure ARC Kubernetes Admin` - For ARC enrolling the NAKS cluster
+* `Contributor` - For creating and manipulating resources
+* `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
+* `Azure ARC Kubernetes Admin` - For ARC enrolling the NAKS cluster
 
-   Additionally, the script creates the necessary security group, and adds the service principal to the security group. If the security group exists, it adds the service principal to the existing security group.
+Additionally, the script creates the necessary security group, and adds the service principal to the security group. If the security group exists, it adds the service principal to the existing security group.
 
-   Executing `create-service-principal.sh` requires the input yaml to have the following properties, all of them can be overriden by the corrosponding environment variables:
-   ```yml
-   SERVICE_PRINCIPAL:
-   NAME: "<name>" # env: SERVICE_PRINCIPAL_NAME
-   AAD_GROUP_NAME: "<aad-group-name>" # env: SERVICE_PRINCIPAL_AAD_GROUP_NAME
-   SUBSCRIPTION: "<subscription>" # env: SERVICE_PRINCIPAL_SUBSCRIPTION
-   ```
-   * `SERVICE_PRINCIPAL.NAME` - The name of the service principal, created with the `az ad sp create-for-rbac` command.
-   * `SERVICE_PRINCIPAL.AAD_GROUP_NAME` - The name of the security group.
-   * `SERVICE_PRINCIPAL.SUBSCRIPTION` - The subscription of the service principal.
+Executing `create-service-principal.sh` requires the input yaml to have the following properties, all of them can be overriden by the corrosponding environment variables:
+```yml
+SERVICE_PRINCIPAL:
+  NAME: "<name>" # env: SERVICE_PRINCIPAL_NAME
+  AAD_GROUP_NAME: "<aad-group-name>" # env: SERVICE_PRINCIPAL_AAD_GROUP_NAME
+  SUBSCRIPTION: "<subscription>" # env: SERVICE_PRINCIPAL_SUBSCRIPTION
+```
+* `SERVICE_PRINCIPAL.NAME` - The name of the service principal, created with the `az ad sp create-for-rbac` command.
+* `SERVICE_PRINCIPAL.AAD_GROUP_NAME` - The name of the security group.
+* `SERVICE_PRINCIPAL.SUBSCRIPTION` - The subscription of the service principal.
 
-   ```bash
-   # Example execution of the script
-   ./create-service-principal.sh irt.input.yml
-   ```
+```bash
+# Example execution of the script
+./create-service-principal.sh irt-input.yml
+```
 
-   > [NOTE]
-   > if all `SP_ID`,`SP_PASSWORD`,`SP_TENANT_ID`,`AAD_GROUP_ID` are set in the yaml or as an environment variable the script skips creating them.
+> [NOTE]
+> if all `SP_ID`,`SP_PASSWORD`,`SP_TENANT_ID`,`AAD_GROUP_ID` are set in the yaml or as an environment variable the script skips creating them.
 
-   **RESULT:** This script prints values for `AAD_GROUP_ID`, `SP_ID`, `SP_PASSWORD`, and `SP_TENANT` and sets the values back to the input yaml.
-   See [Input Configuration](#input-configuration).
+**RESULT:** This script prints values for `AAD_GROUP_ID`, `SP_ID`, `SP_PASSWORD`, and `SP_TENANT` and sets the values back to the input yaml.
+See [Input Configuration](#input-configuration).
 
-   ```yml
-   SP_ID: "<generated-sp-id>"
-   SP_PASSWORD: "<generated-sp-password>" # If SP already exists sp password is not retreivable, please fill it in.
-   SP_TENANT_ID: "<generated-sp-tenant-id>"
-   AAD_GROUP_ID: "generated-aad-group-id"
-   ```
+```yml
+SP_ID: "<generated-sp-id>"
+SP_PASSWORD: "<generated-sp-password>" # If SP already exists sp password is not retreivable, please fill it in.
+SP_TENANT_ID: "<generated-sp-tenant-id>"
+AAD_GROUP_ID: "generated-aad-group-id"
+```
 </details>
 
-#### Create isolation domains
+#### Create l3 isolation domains
 <details>
-   <summary>expand to see how to create l3 isolation domains</summary>
+<summary>expand to see how to create l3 isolation domains</summary>
 
-   The testing framework doesn't create, destroy, or manipulate isolation domains. Therefore, existing Isolation Domains can be used. Each Isolation Domain requires at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks are created, manipulated, and destroyed through the course of testing. They're created using the data provided in the networks blueprint, which, is part of the input yaml.
+The testing framework doesn't create, destroy, or manipulate isolation domains. Therefore, existing Isolation Domains can be used. Each Isolation Domain requires at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks are created, manipulated, and destroyed through the course of testing.
 
-   Executing `create-l3-isolation-domains.sh` requires one **parameter**, a path to your networks blueprint file:
+Executing `create-l3-isolation-domains.sh` requires one **parameter**, a path to the input file, You can choose either of the standalone network-blueprint.yml or the input.yml that contains the same information as input to this script.
 
-   ```bash
-   # Example of the script being invoked:
-   ./create-l3-isolation-domains.sh ./irt.input.yml
-   ```
+```bash
+# Example of the script being invoked using networks-blueprint.yml:
+./create-l3-isolation-domains.sh networks-blueprint.yml
+```
+
+```bash
+# Example of the script being invoked using irt-input.yml:
+./create-l3-isolation-domains.sh irt-input.yml
+```
 </details>
 
 #### Create archive storage
 <details>
-   <summary>expand to see how to create archive storage</summary>
+<summary>expand to see how to create archive storage</summary>
 
-   IRT creates an html test report after running a test scenario. These reports can optionally be uploaded to a blob storage container. the supplementary script `create-archive-storage.sh` to create a storage container, storage account, and resource group if they don't already exist.
+IRT creates an html test report after running a test scenario. These reports can optionally be uploaded to a blob storage container. the supplementary script `create-archive-storage.sh` to create a storage container, storage account, and resource group if they don't already exist.
 
-   Executing `create-archive-storage.sh` requires the input yaml to have the following properties, all of them can be overriden by the corrosponding environment variables:
+Executing `create-archive-storage.sh` requires the input yaml to have the following properties, all of them can be overriden by the corrosponding environment variables:
 
-   ```yml
-   ARCHIVE_STORAGE:
-   RESOURCE_GROUP: "<resource-group>" # env: ARCHIVE_STORAGE_RESOURCE_GROUP
-   ACCOUNT_NAME: "<storage-account-name>" # env: ARCHIVE_STORAGE_ACCOUNT_NAME
-   CONTAINER_NAME: "<storage-container-name>" # env: ARCHIVE_STORAGE_CONTAINER_NAME
-   SUBSCRIPTION: "<subscription>" # env: ARCHIVE_STORAGE_SUBSCRIPTION
-   LOCATION: "<location>" # env: ARCHIVE_STORAGE_LOCATION
-   ```
-   * `ARCHIVE_STORAGE_RESOURCE_GROUP` - The resource group the Managed Identity is created in.
-   * `ARCHIVE_STORAGE_ACCOUNT_NAME` - The name of the Azure storage account to be created.
-   * `ARCHIVE_STORAGE_CONTAINER_NAME` - The name of the blob storage container to be created.
-   * `SUBSCRIPTION` - The subscription where the resource group is created in.
-   * `LOCATION` - The location where the resource group is created in.
+```yml
+ARCHIVE_STORAGE:
+  RESOURCE_GROUP: "<resource-group>" # env: ARCHIVE_STORAGE_RESOURCE_GROUP
+  ACCOUNT_NAME: "<storage-account-name>" # env: ARCHIVE_STORAGE_ACCOUNT_NAME
+  CONTAINER_NAME: "<storage-container-name>" # env: ARCHIVE_STORAGE_CONTAINER_NAME
+  SUBSCRIPTION: "<subscription>" # env: ARCHIVE_STORAGE_SUBSCRIPTION
+  LOCATION: "<location>" # env: ARCHIVE_STORAGE_LOCATION
+```
+* `ARCHIVE_STORAGE_RESOURCE_GROUP` - The resource group the Managed Identity is created in.
+* `ARCHIVE_STORAGE_ACCOUNT_NAME` - The name of the Azure storage account to be created.
+* `ARCHIVE_STORAGE_CONTAINER_NAME` - The name of the blob storage container to be created.
+* `SUBSCRIPTION` - The subscription where the resource group is created in.
+* `LOCATION` - The location where the resource group is created in.
 
-   > [NOTE]
-   > if `PUBLISH_RESULTS_TO` is set in the input yaml or as an environment variable the script skips creating a new one.
+> [NOTE]
+> if `PUBLISH_RESULTS_TO` is set in the input yaml or as an environment variable the script skips creating a new one.
 
-   ```bash
-   # Example execution of the script
-   ./create-archive-storage.sh irt.input.yaml
-   ```
+```bash
+# Example execution of the script
+./create-archive-storage.sh irt-input.yaml
+```
 
-   **RESULT:** This script prints a value for `PUBLISH_RESULTS_TO` and set the value in the input.yml. See [Input Configuration](#input-configuration).
-   ```yml
-   PUBLISH_RESULTS_TO: <generated_id>
-   ```
+**RESULT:** This script prints a value for `PUBLISH_RESULTS_TO` and set the value in the input.yml. See [Input Configuration](#input-configuration).
+```yml
+PUBLISH_RESULTS_TO: <generated_id>
+```
 </details>
 
 ## Execution
