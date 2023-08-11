@@ -92,6 +92,7 @@ az spring app scale \
     --name ${NATIVE_APP_NAME} \
     --memory 512Mi
 ```
+
 Native image app started successfully.
 
 Use the following command to scale down memory size to `512Mi` for jar app:
@@ -105,7 +106,7 @@ az spring app scale \
 
 Jar app failed to start due to insufficient memory: `Terminating due to java.lang.OutOfMemoryError: Java heap space`.
 
-In Figure below, it shows the optimized memory usage of a native image deployment – which is about 1/5th of the memory consumed by its equivalent JAR deployment - for a constant workload of 400 requests per second into the monolithic version of the Petclinic application.
+In Figure below, it shows the optimized memory usage of the native image deployment – which is about 1/5th of the memory consumed by its equivalent JAR deployment - for a constant workload of 400 requests per second into the Petclinic application.
 :::image type="content" source="./media/quickstart-deploy-java-native-image-app/optimized-memory-usage-native-vs-jar-app.jpg" alt-text="Screenshot of the optimized memory usage of a native image deployment in Azure Spring Apps." lightbox="./media/quickstart-deploy-java-native-image-app/optimized-memory-usage-native-vs-jar-app.jpg":::
 
 Native images offer quicker startup times and reduced runtime memory overhead when compared to the conventional Java Virtual Machine (JVM).
