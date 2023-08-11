@@ -1,9 +1,10 @@
 ---
-title: What is HDInsight on AKS?
-description: An introduction to HDInsight on AKS.
+title: What is Azire HDInsight on AKS?
+description: An introduction to Azure HDInsight on AKS.
+ms.custom: references_regions
 ms.service: hdinsight-aks
 ms.topic: overview
-ms.date: 08/08/2023
+ms.date: 08/11/2023
 ---
 
 # What is HDInsight on AKS?
@@ -43,11 +44,11 @@ The latest version of HDInsight is orchestrated using AKS, which enables the pla
 :::image type="content" source="./media/hdinsight-on-aks-overview/modernized-on-cloud-native-platform.png" alt-text="Diagram showing the HDInsight on AKS how it's modernized on cloud native compute platform.":::
  
 **Key features include:**
-1. Fast cluster creation and scaling.
-2. Ease of maintenance and periodic security updates.
-3. Cluster resiliency powered by modern cloud-native AKS.
-4. Native support for modern auth with OAuth, and Azure Active Directory (Microsoft Entra ID).
-5. Deep integration with Azure Services – Azure Data Factory (ADF), Power BI, Azure Monitor.
+* Fast cluster creation and scaling.
+* Ease of maintenance and periodic security updates.
+* Cluster resiliency powered by modern cloud-native AKS.
+* Native support for modern auth with OAuth, and Azure Active Directory (Microsoft Entra ID).
+* Deep integration with Azure Services – Azure Data Factory (ADF), Power BI, Azure Monitor.
 
 ## Connectivity to HDInsight 
 
@@ -57,10 +58,10 @@ HDInsight on AKS version can connect seamlessly with HDInsight. You can reap the
 
 **The following scenarios are supported.**
 
-1.	[Flink connecting to HBase](./flink/use-flink-to-sink-kafka-message-into-hbase.md)
-1.	[Flink connecting to Kafka](./flink/join-stream-from-kafka-with-table-from-filesystem.md)
-1.	Spark connecting to HBase
-1.	Spark connecting to Kafka
+* [Flink connecting to HBase](./flink/use-flink-to-sink-kafka-message-into-hbase.md)
+* [Flink connecting to Kafka](./flink/join-stream-from-kafka-with-table-from-filesystem.md)
+* Spark connecting to HBase
+* Spark connecting to Kafka
 
 ## Security architecture
 
