@@ -32,41 +32,87 @@ To run your Playwright tests in your CI/CD workflow, you perform the following t
 
 * A Microsoft Playwright Testing workspace. Complete the [quickstart: run Playwright tests at scale](./quickstart-run-end-to-end-tests.md) to create a workspace.
 
-# [Azure Pipelines](#tab/pipelines)
-- An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/organizations/projects/create-project?view=azure-devops&tabs=browser).
-- A pipeline definition. If you need help with getting started with Azure Pipelines, see [create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
-
 # [GitHub Actions](#tab/github)
 - A GitHub account. If you don't have a GitHub account, you can [create one for free](https://github.com/).
 - A GitHub repository that contains your Playwright test specifications and GitHub Actions workflow. To create a repository, see [Creating a new repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
 - A GitHub Actions workflow. If you need help getting started with GitHub Actions, see [create your first workflow](https://docs.github.com/en/actions/quickstart)
 
+# [Azure Pipelines](#tab/pipelines)
+- An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/organizations/projects/create-project?view=azure-devops&tabs=browser).
+- A pipeline definition. If you need help with getting started with Azure Pipelines, see [create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
+
 ---
 
-## Set up the sample repository
+## 1. Configure a service access key
 
-The sample repository contains Playwright tests and the configuration settings to run these tests with Microsoft Playwright Testing.
+Microsoft Playwright Testing uses access keys to authorize users to run Playwright tests with the service. You can generate an access key in the Microsoft Playwright Testing portal. Next, you specify the access key in the service configuration file by using an environment variable.
 
-1. Open a browser and go to the [sample GitHub repository](https://github.com/microsoft/playwright-service-preview).
+Perform the following steps to configure an access key in your CI workflow:
 
-1. Select **Fork** to fork the sample application's repository to your GitHub account.
+1. Generate an access key in MPT portal:
 
-    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/fork-github-repo.png" alt-text="Screenshot that shows the button to fork the sample application's GitHub repo.":::
+    1. Sign in to the [Microsoft Playwright Testing portal](https://preview.playwright-int.io/) with your Azure account.
+    1. Select **Generate new access key**.
 
-## Configure GitHub secret
+        :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-new-access-key.png" alt-text="Screenshot that shows Microsoft Playwright Testing portal, highlighting the 'Generate access key' button.":::
 
-To securely use the Microsoft Playwright Testing access key in your GitHub Actions workflow, create a GitHub secret.
+    1. Select **Generate key** and then copy the access key value.
 
-1. In your forked GitHub repository, select **Settings > Secrets > Actions > New repository secret**.
+        :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-key.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate key' button.":::
 
-1. Enter the secret details, and then select **Add secret** to create the CI/CD secret.
+        :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-copy-access-key.png" alt-text="Screenshot that shows how to copy the generated access key in the Playwright Testing portal.":::
 
-    | Parameter | Value |
-    | ----------- | ------------ |
-    | **Name** | *ACCESS_KEY* |  
-    | **Value** | Paste the workspace access key. Follow these steps to [create an access key](./how-to-manage-access-keys.md#create-an-access-key). |
+1. Store the access key as a CI workflow secret `PLAYWRIGHT_SERVICE_ACCESS_KEY`:
 
-    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/create-secret-playwright-testing.png" alt-text="Screenshot that shows the page to add a GitHub secret for Microsoft Playwright Testing access key.":::
+    The following steps describe how to create a workflow secret in GitHub Actions or Azure Pipelines. Follow the specific instructions of your CI platform to create store the access key securely.
+
+# [GitHub Actions](#tab/github)
+
+    1. Go to your GitHub repository, and select **Settings** > **Secrets and variables** > **Actions**.
+    1. Select **New repository secret**.
+    1. Enter the secret details, and then select **Add secret** to create the CI/CD secret.
+
+        | Parameter | Value |
+        | ----------- | ------------ |
+        | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |  
+        | **Value** | Paste the workspace access key you copied previously. |
+
+    1. Select **OK** to create the workflow secret.
+
+# [Azure Pipelines](#tab/pipelines)
+
+    1. Go to your Azure DevOps project.
+    1. Go to the **Pipelines** page, select the appropriate pipeline, and then select **Edit**.
+    1. Locate the **Variables** for this pipeline.
+    1. Add a new variable.
+    1. Enter the variable details, and then select **Add secret** to create the CI/CD secret.
+
+        | Parameter | Value |
+        | ----------- | ------------ |
+        | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |
+        | **Value** | Paste the workspace access key you copied previously. |
+        | **Keep this value secret** | Check this value |
+
+    1. Select **OK**, and then **Save** to create the workflow secret.
+
+---
+
+## 2. Add service configuration file
+
+## 3. Update workflow definition
+
+- use Playwright cmdline
+    - use service config file 
+    - specify workers
+    - pass env parameters for access key
+
+Mention region affinity here
+
+## 4. Save test results
+
+- Publish as CI workflow artifact
+- Azure Pipelines: publish test results
+
 
 ## Create a GitHub Actions workflow
 
