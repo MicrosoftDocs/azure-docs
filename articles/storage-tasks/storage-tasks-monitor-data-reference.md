@@ -1,6 +1,6 @@
 ---
 title: Storage Task monitoring data reference
-titleSuffix: Azure Storage
+titleSuffix: Azure Storage Tasks
 description: Important reference material needed when you monitor Azure Storage Tasks 
 author: normesta
 

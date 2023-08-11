@@ -1,6 +1,7 @@
 ---
-title: Create an Azure Storage Task
-description: Learn how to create a Storage Task. A storage task can perform operations on containers and blobs in one or more Azure Storage accounts. 
+title: Create a storage task
+titleSuffix: Azure Storage Tasks
+description: Learn how to create a storage task. A storage task can perform operations on containers and blobs in one or more Azure Storage accounts. 
 author: normesta
 ms.service: storage-tasks
 ms.topic: how-to
@@ -12,7 +13,7 @@ ms.date: 05/10/2023
 
 A storage task can perform operations on containers and blobs in an Azure Storage account. As you create a task, you can define the conditions that must be met by each object (container or blob), and the operations to perform on the object. You can also identify one or more Azure Storage account targets. See [What are Azure Storage Tasks?](overview.md).
 
-In this how-to article, you'll learn how to create a Storage Task.
+In this how-to article, you'll learn how to create a storage task.
 
 > [!IMPORTANT]
 > Storage Tasks are currently in PREVIEW and is available in the following regions: \<List regions here\>.
@@ -58,10 +59,10 @@ The following table describes the fields on the **Conditions** tab.
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
 | If | And/Or | Required | An operator which combines two or more predicates to form a logical-AND or logical-OR expression. |
-| If | Blob property | Required | The blob or container property that you like to use in the clause. See [Supported blob properties](storage-task-conditions-operations.md#blob-properties)|
-| If | Operator | Required | The operator that defines how each property in the clause must relate to the corresponding value. See [Supported operators](storage-task-conditions-operations.md#operators)|
-| If| Property value | Required | The value that relates to the corresponding property. See [Supported property values](storage-task-conditions-operations.md#property-values) |
-| Then | Operations | Required | The action to perform when objects meet the conditions defined in this task. See [Supported operations](storage-task-conditions-operations.md#operations)|
+| If | Blob property | Required | The blob or container property that you like to use in the clause. See [Supported blob properties](storage-task-conditions-operations.md#supported-properties-in-a-clause)|
+| If | Operator | Required | The operator that defines how each property in the clause must relate to the corresponding value. See [Supported operators](storage-task-conditions-operations.md#supported-operators-in-a-clause)|
+| If| Property value | Required | The value that relates to the corresponding property.  |
+| Then | Operations | Required | The action to perform when objects meet the conditions defined in this task. See [Supported operations](storage-task-conditions-operations.md#supported-operations)|
 | Then | Parameter | Required | A value used by the operation. |
 
 The following image shows an example of the **Conditions** tab.

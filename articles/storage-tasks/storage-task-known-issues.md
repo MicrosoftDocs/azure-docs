@@ -1,6 +1,6 @@
 ---
 title: Known issues and limitations with Azure Storage Tasks
-titleSuffix: Azure Storage
+titleSuffix: Azure Storage Tasks
 description: Learn about limitations and known issues of Azure Storage Tasks.
 author: normesta
 
@@ -69,4 +69,3 @@ Storage accounts that have a hierarchical namespace display location information
 ## See Also
 
 - [Storage Tasks Overview](overview.md)
-- [Storage Tasks FAQ](storage-task-faq.md)

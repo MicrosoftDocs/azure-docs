@@ -1,6 +1,6 @@
 ---
 title: About Azure Storage Tasks
-titleSuffix: Azure Storage
+titleSuffix: Azure Storage Tasks
 description: Learn how to perform operations on containers and blobs in Azure Storage accounts based on a set of conditions that you define. 
 services: storage
 author: normesta

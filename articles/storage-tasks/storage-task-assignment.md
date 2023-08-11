@@ -1,7 +1,7 @@
 ---
-title: Storage Task assignments
-titleSuffix: Azure Storage
-description: Description of Azure Storage Task assignment goes here.
+title: Storage task assignments
+titleSuffix: Azure Storage Tasks
+description: Learn about how a storage task is configured to operate on one or more storage accounts.
 services: storage
 author: normesta
 
@@ -11,7 +11,7 @@ ms.date: 05/10/2023
 ms.author: normesta
 ---
 
-# Storage Task assignments
+# Storage task assignments
 
 An _assignment_ identifies a storage account and a subset of objects in that account that the task will target. An assignment also defines when the task runs and where execution reports are stored.
 

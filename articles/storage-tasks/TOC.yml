@@ -42,8 +42,6 @@ items:
   expanded: true
 - name: Resources
   items:
-    - name: FAQ
-      href: storage-task-faq.md
     - name: Known issues and limitations
       href: storage-task-known-issues.md
     - name: Azure Storage Tasks on Microsoft Q&A

@@ -1,7 +1,7 @@
 ---
 title: Storage task conditions & operations
-titleSuffix: Azure Storage
-description: Description of Azure Storage Tasks conditions goes here.
+titleSuffix: Azure Storage Tasks
+description: Learn about the elements of conditions and operations in a storage task.
 services: storage
 author: normesta
 
@@ -54,7 +54,7 @@ The following table shows the properties that you can use to compose each clause
 
 <sup>2</sup>    Allowed values are `BlockBlob`, `PageBlob`, or `AppendBlob`
 
-<sup>3</sup>    Can be set to a specific time or to a metadata value dynamically obtained from objects. See [Parameters in values](#parameters-in-values).
+<sup>3</sup>    Can be set to a specific time or to a metadata value dynamically obtained from objects. See [Parameters in values](#referencing-values-from-object-metadata).
 
 ### Supported operators in a clause
 
@@ -89,8 +89,6 @@ The following table shows the supported operations, parameters, and parameter va
 | Set Blob Tags | TagSet | A fixed collection of up to 10 key-value pairs |
 | Set Blob Immutability Policy | Need parameter names | Need value names|
 | Set Blob Legal Hold | Need parameter names | Need parameter names |
-
-Something here about the fact that there is no design-time validation. Errors are reported at run time.
 
 ## See also
 

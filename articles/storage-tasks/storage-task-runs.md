@@ -1,5 +1,6 @@
 ---
 title: Storage task runs
+titleSuffix: Azure Storage Tasks
 description: Description of how to article
 author: normesta
 ms.service: storage-tasks

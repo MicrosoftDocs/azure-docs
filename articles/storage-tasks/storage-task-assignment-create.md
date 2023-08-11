@@ -1,6 +1,7 @@
 ---
 title: Create and manage a storage task assignment
-description: Description of how to article for create task assignment goes here.
+titleSuffix: Azure Storage Tasks
+description: Learn how to create an assignment, and then enable that assignment to run.
 author: normesta
 ms.service: storage-tasks
 ms.topic: how-to
@@ -19,7 +20,7 @@ This article helps you create an assignment, and then enable that assignment to 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
-To learn more about storage task assignments, see [Storage Task assignment](storage-task-assignment.md).
+To learn more about storage task assignments, see [Storage task assignment](storage-task-assignment.md).
 
 ## Create an assignment
 
