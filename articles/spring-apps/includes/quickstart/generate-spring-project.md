@@ -19,7 +19,7 @@ Use the following steps to create the project:
 1. Use the following command to generate a sample project from `start.spring.io` with the recommended dependencies for Azure Spring Apps:
 
    ```bash
-   curl https://start.spring.io/starter.tgz -d dependencies=web -d baseDir=hellospring -d bootVersion=3.0.0 -d javaVersion=17 -d type=maven-project -d groupId=com.example -d artifactId=hellospring -d name=hellospring -d packageName=com.example.demo -d packaging=jar | tar -xzvf -
+   curl https://start.spring.io/starter.tgz -d dependencies=web -d baseDir=demo -d bootVersion=3.0.0 -d javaVersion=17 -d type=maven-project -d groupId=com.example -d artifactId=demo -d name=demo -d packageName=com.example.demo -d packaging=jar | tar -xzvf -
    ```
 
 1. Create a web controller for your web application by adding the file *src/main/java/com/example/demo/HelloController.java* with the following contents:
