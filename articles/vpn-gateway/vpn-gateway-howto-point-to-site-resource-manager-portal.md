@@ -5,7 +5,7 @@ description: Learn how to configure VPN Gateway server settings for P2S configur
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/10/2023
+ms.date: 08/11/2023
 ms.author: cherylmc
 
 ---
