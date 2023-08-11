@@ -1,5 +1,5 @@
 ---
-title: What is Azure AI Document Intelligence?
+title: What is Azure AI Document Intelligence (formerly Form Recognizer)?
 titleSuffix: Azure AI services
 description: Azure AI Document Intelligence is a machine-learning based OCR and intelligent document processing service to automate extraction of key data from forms and documents.
 author: laujan

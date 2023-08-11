@@ -122,7 +122,7 @@ External users can be added only to “assigned” or “Security” groups and 
 
 ## My external user didn't receive an email to redeem
 
-The invitee should check with their ISP or spam filter to ensure that the following address is allowed: Invites@microsoft.com
+The invitee should check with their ISP or spam filter to ensure that the following address is allowed: Invites@microsoft.com.
 
 > [!NOTE]
 >
@@ -198,7 +198,11 @@ Let's say you inadvertently invite a guest user with an email address that match
 
 ## External access blocked by policy error on the login screen
 
-When you try to login to your tenant, you might see this error message: "Your network administrator has restricted what organizations can be accessed. Contact your IT department to unblock access." This error is related to tenant restriction settings. To resolve this issue, ask your IT team to follow the instructions in [this article](/azure/active-directory/manage-apps/tenant-restrictions).  
+When you try to login to your tenant, you might see this error message: "Your network administrator has restricted what organizations can be accessed. Contact your IT department to unblock access." This error is related to tenant restriction settings. To resolve this issue, ask your IT team to follow the instructions in [this article](/azure/active-directory/manage-apps/tenant-restrictions).
+
+## Invitation is blocked due missing cross-tenant access settings 
+
+You might see this message: "This invitation is blocked by cross-tenant access settings in your organization. Your administrator must configure cross-tenant access settings to allow this invitation." In this case, ask your administrator to check the cross-tenant access settings.  
 
 ## Next steps
 

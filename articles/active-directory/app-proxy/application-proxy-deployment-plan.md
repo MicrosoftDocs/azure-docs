@@ -274,7 +274,7 @@ Microsoft advocates the principle of granting the least possible privilege to pe
 | Business role| Business tasks| Azure AD roles |
 |---|---|---|
 | Help desk admin | Typically limited to qualifying end user reported issues and performing limited tasks such as changing users’ passwords, invalidating refresh tokens, and monitoring service health. | Helpdesk Administrator |
-| Identity admin| Read Azure AD sign in reports and audit logs to debug App Proxy related issues.| Security reader |
+| Identity admin| Read Azure AD sign-in reports and audit logs to debug App Proxy related issues.| Security reader |
 | Application owner| Create and manage all aspects of enterprise applications, application registrations, and application proxy settings.| Application Admin |
 | Infrastructure admin | Certificate Rollover Owner | Application Admin |
 

@@ -293,7 +293,7 @@ If your Azure Active Directory is connected to on-premises Active Directory, the
 * Deploy Privileged Access Workstations for all administrators
 * Require MFA
 * Use Just Enough Admin for domain controller maintenance, lowering the attack surface of domains
-* Deploy Advanced Threat Assessment for attack detection
+* Deploy [Advanced Threat Analytics](/advanced-threat-analytics/) for attack detection
 
 ### Additional steps for organizations managing access to Azure
 

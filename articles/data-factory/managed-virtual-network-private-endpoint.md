@@ -84,11 +84,12 @@ Interactive authoring capabilities are used for functionalities like test connec
 :::image type="content" source="./media/managed-vnet/interactive-authoring.png" alt-text="Screenshot that shows interactive authoring.":::
 
 
-## Time to live (preview)
+## Time to live
 
 ### Copy activity
 
 By default, every copy activity spins up a new compute based upon the configuration in copy activity. With managed virtual network enabled, cold computes start-up time takes a few minutes and data movement can't start until it's complete. If your pipelines contain multiple sequential copy activities or you have many copy activities in foreach loop and can’t run them all in parallel, you can enable a time to live (TTL) value in the Azure integration runtime configuration. Specifying a time to live value and DIU numbers required for the copy activity keeps the corresponding computes alive for a certain period of time after its execution completes. If a new copy activity starts during the TTL time, it will reuse the existing computes, and start-up time will be greatly reduced. After the second copy activity completes, the computes will again stay alive for the TTL time.
+You have the flexibility to select from the pre-defined compute sizes, ranging from small to medium to large. Alternatively, you also have the option to customize the compute size based on your specific requirements and real-time needs.
 
 > [!NOTE]
 > Reconfiguring the DIU number will not affect the current copy activity execution. 
@@ -104,7 +105,7 @@ The DIU you select in TTL will be used to run all copy activities, the size of t
 
 ### Pipeline and external activity
 
-Unlike copy activity, pipeline and external activity have a default time to live (TTL) of 60 minutes. You can change the default TTL on Azure integration runtime configuration according to your actual needs, but it’s not supported to disable the TTL. 
+Similar to the copy, you have the ability to tailor the compute size and TTL duration according to your specific requirements. However, unlike the copy, please note that pipeline and external TTL cannot be disabled.
 
 > [!NOTE]
 > Time to live (TTL) is only applicable to managed virtual network.
@@ -120,7 +121,7 @@ The following table lists the differences between different types of TTL：
 | ----------------- | ---------- | -------- | --------------- |
 | When to take effect |	Immediately after enablement | First activity execution | First activity execution |
 | Can be disabled | Y | Y | N |
-| Reserved compute is configurable | N | Y | N |
+| Reserved compute is configurable | N | Y | Y |
 
 > [!NOTE]
 > You can't enable TTL in default auto-resolve Azure integration runtime. You can create a new Azure integration runtime for it.

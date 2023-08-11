@@ -107,7 +107,7 @@ Follow these steps to create a new console application and install the Speech SD
                 recognitionEnd.set_value(); // Notify to stop recognition.
             });
 
-        //conversationTranscriber->StartTranscribingAsync().wait();
+        conversationTranscriber->StartTranscribingAsync().wait();
 
         // Waits for recognition end.
         recognitionEnd.get_future().wait();

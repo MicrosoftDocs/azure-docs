@@ -13,12 +13,14 @@ items:
     - name: Create & run a load test
       href: quickstart-create-and-run-load-test.md
     - name: Automate load tests with CI/CD
+      displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
       href: quickstart-add-load-test-cicd.md
 - name: Tutorials
   items: 
     - name: Identify performance bottlenecks
       href: tutorial-identify-bottlenecks-azure-portal.md
     - name: Automate regression tests with CI/CD
+      displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
       href: tutorial-identify-performance-regression-with-cicd.md
 - name: Concepts
   items: 
@@ -45,6 +47,9 @@ items:
           href: how-to-configure-user-properties.md
         - name: Customize tests with JMeter plugins
           href: how-to-use-jmeter-plugins.md
+        - name: Configure CI/CD for load testing
+          displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
+          href: how-to-configure-load-test-cicd.md
     - name: Run tests
       items:
         - name: Create a load test with a JMeter script
@@ -81,6 +86,8 @@ items:
           href: how-to-create-manage-test-runs.md
         - name: Move between regions
           href: how-to-move-between-regions.md
+        - name: Move across resource groups or subscriptions
+          href: how-to-move-between-resource-groups-subscriptions.md
         - name: Monitor Azure Load Testing
           href: monitor-load-testing.md
 
