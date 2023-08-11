@@ -244,11 +244,27 @@ AzureDiagnostics
 
 ### Additional IKE diagnostics details
 
+```kusto
+AzureDiagnostics
+| where Category == "IKEDiagnosticLog"
+| extend Message1=Message
+| parse Message with * "Remote " RemoteIP ":" * "500: Local " LocalIP ":" * "500: " Message2
+| extend Event = iif(Message has "SESSION_ID", Message2, Message1)
+| project TimeGenerated, RemoteIP, LocalIP, Event, Level
+| sort by TimeGenerated asc
+```
+
 :::image type="content" source="./media/monitor-point-to-site-connections/additional-ikes.png" alt-text="Screenshot shows query for IKE Diagnostic details." lightbox="./media/monitor-point-to-site-connections/additional-ikes.png":::
 
 ### P2S VPN statistics
 
-:::image type="content" source="./media/monitor-point-to-site-connections/p2s-vpn-stats.png" alt-text="Screenshot shows query for P2S VPN statistics." lightbox="./media/monitor-point-to-site-connections/p2s-vpn-stats.png":::
+```kusto
+AzureDiagnostics
+| where Category == "P2SDiagnosticLog" and Message has "Statistics"
+| project Message, MessageFields = split (Message, " ")
+| mv-expand MessageId=MessageFields[2]
+| project MessageId, Message;
+```
 
 ## Next steps
 
