@@ -38,7 +38,6 @@ It's the same experience as the public portal, except with new improvements and 
 
 We encourage you to try out the preview features available in Cost Management Labs and share your feedback. It's your chance to influence the future direction of Cost Management. To provide feedback, use the **Report a bug** link in the Try preview menu. It's a direct way to communicate with the Cost Management engineering team.
 
-
 <a name="rememberpreviews"></a>
 
 ## Remember preview features across sessions
@@ -50,71 +49,6 @@ Cost Management now remembers preview features across sessions in the preview po
 Cloud Solution Provider (CSP) partners can view a breakdown of costs by customer and subscription in the Cost analysis preview. Note this view is only available for Microsoft Partner Agreement (MPA) billing accounts and billing profiles.
 
 The Customers view can be enabled from the [Try preview](https://aka.ms/costmgmt/trypreview) menu in the Azure portal. Use the **How would you rate the cost analysis preview?** option at the bottom of the page to share feedback about the preview.
-
-<a name="aksnestedtable"></a>
-
-## Reservation utilization alerts
-
-[Azure reservations](../reservations/save-compute-costs-reservations.md) can provide cost savings by committing to one-year or three-year plans. However, reservations can sometimes go unutilized or underutilized, resulting in financial losses. As a [billing account](../reservations/reservation-utilization.md#view-utilization-as-billing-administrator) or [reservation user](../reservations/reservation-utilization.md#view-utilization-in-the-azure-portal-with-azure-rbac-access), you can [review the utilization percentage](../reservations/reservation-utilization.md) of your reservation purchases in the Azure portal, but you might miss out important changes. By enabling reservation utilization alerts, you solve this by receiving email notifications whenever any of your reservations exhibit low utilization. This allows you to take prompt action and optimize your reservation purchases for maximum efficiency.
-
-The alert email provides essential information including top unutilized reservations and a hyperlink to the list of reservations. By promptly optimizing your reservation purchases, you can avoid financial losses and ensure that your investments are delivering the expected cost savings. For more information, see [Reservation utilization alerts](reservation-utilization-alerts.md).
-
-:::image type="content" source="./media/enable-preview-features-cost-management-labs/create-alert-rule.png" alt-text="Screenshot showing Create alert rule." lightbox="./media/enable-preview-features-cost-management-labs/create-alert-rule.png" :::
-
-## Grouping SQL databases and elastic pools
-
-Get an at-a-glance view of your total SQL costs by grouping SQL databases and elastic pools. They're shown under their parent server in the Resources view. This feature is enabled by default.
-
-Understanding what you're being charged for can be complicated. The best place to start for many people is the [Resources view](https://aka.ms/costanalysis/resources). It shows resources that are incurring cost. But even a straightforward list of resources can be hard to follow when a single deployment includes multiple, related resources. To help summarize your resource costs, we're trying to group related resources together. So, we're changing cost analysis to show child resources.
-
-Many Azure services use nested or child resources. SQL servers have databases, storage accounts have containers, and virtual networks have subnets. Most of the child resources are only used to configure services, but sometimes the resources have their own usage and charges. SQL databases are perhaps the most common example.
-
-SQL databases are deployed as part of a SQL server instance, but usage is tracked at the database level. Additionally, you might also have charges on the parent server, like for Microsoft Defender for Cloud. To get the total cost for your SQL deployment in classic cost analysis, you need to manually sum up the cost of the server and each individual database. As an example, you can see the **aepool** elastic pool at the top of the following list and the **treyanalyticsengine** server lower down on the first page. What you don't see is another database even lower in the list. You can imagine how troubling this situation would be when you need the total cost of a large server instance with many databases.
-
-Here's an example showing classic cost analysis where multiple related resource costs aren't grouped.
-
-:::image type="content" source="./media/enable-preview-features-cost-management-labs/classic-cost-analysis-ungrouped-costs.png" alt-text="Screenshot showing classic cost analysis where multiple related resource costs aren't grouped." lightbox="./media/enable-preview-features-cost-management-labs/classic-cost-analysis-ungrouped-costs.png" :::
-
-In the Resources view, the child resources are grouped together under their parent resource. The grouping shows a quick, at-a-glance view of your deployment and its total cost. Using the same subscription, you can now see all three charges grouped together under the server, offering a one-line summary for your total server costs.
-
-Here's an example showing grouped resource costs with the **Grouping SQL databases and elastic pools** option enabled.
-
-:::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-analysis-grouped-database-costs.png" alt-text="Screenshot showing grouped resource costs." lightbox="./media/enable-preview-features-cost-management-labs/cost-analysis-grouped-database-costs.png" :::
-
-You might also notice the change in row count. Classic cost analysis shows 53 rows where every resource is broken out on its own. The Resources view only shows 25 rows. The difference is that the individual resources are being grouped together, making it easier to get an at-a-glance cost summary.
-
-In addition to SQL servers, you also see other services with child resources, like App Service, Synapse, and VNet gateways. Each is similarly shown grouped together in the Resources view.
-
-**Grouping SQL databases and elastic pools is available by default in the Resources view.**
-
-<a name="resourceparent"></a>
-
-## Group related resources in the Resources view
-
-Group related resources, like disks under VMs or web apps under App Service plans, by adding a `cm-resource-parent`` tag to the child resources with a value of the parent resource ID. Wait 24 hours for tags to be available in usage and your resources are grouped. Leave feedback to let us know how we can improve this experience further for you.
-
-Some resources have related dependencies that aren't explicit children or nested under the logical parent in Azure Resource Manager. Examples include disks used by a virtual machine or web apps assigned to an App Service plan. Unfortunately, Cost Management isn't aware of these relationships and can't group them automatically. This experimental feature uses tags to summarize the total cost of your related resources together. You see a single row with the parent resource. When you expand the parent resource, you see each linked resource listed individually with their respective cost.
- 
-As an example, let's say you have an Azure Virtual Desktop host pool configured with two VMs. Tagging the VMs and corresponding network/disk resources groups them under the host pool, giving you the total cost of the session host VMs in your host pool deployment. This example gets even more interesting if you want to also include the cost of any cloud solutions made available via your host pool.
-
-:::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-analysis-resource-parent-virtual-desktop.png" alt-text="Screenshot of the cost analysis showing VMs and disks grouped under an Azure Virtual Desktop host pool." lightbox="./media/enable-preview-features-cost-management-labs/cost-analysis-resource-parent-virtual-desktop.png" :::
-
-Before you link resources together, think about how you'd like to see them grouped. You can only link a resource to one parent and cost analysis only supports one level of grouping today. 
- 
-Once you know which resources you'd like to group, use the following steps to tag your resources:
- 
-1.	Open the resource that you want to be the parent.
-2.	Select **Properties** in the resource menu.
-3.	Find the **Resource ID** property and copy its value.
-4.	Open **All resources** or the resource group that has the resources you want to link.
-5.	Select the checkboxes for every resource you want to link and then select the **Assign tags** command.
-6.	Specify a tag key of "cm-resource-parent" (make sure it's typed correctly) and paste the resource ID from step 3.
-7.	Wait 24 hours for new usage to be sent to Cost Management with the tags. (Keep in mind resources must be actively running with charges for tags to be updated in Cost Management.)
-8.	Open the [Resources view](https://aka.ms/costanalysis/resources).
- 
-Wait for the tags to load in the Resources view and you should now see your logical parent resource with its linked children. If you don't see them grouped yet, check the tags on the linked resources to ensure they're set. If not, check again in 24 hours.
-
-**Grouping related resources is available by default in the Resources view.**
 
 <a name="chartsfeature"></a>
 
@@ -150,15 +84,15 @@ Cost analysis is available from every management group, subscription, resource g
 
 The view cost link is enabled by default in the [Azure preview portal](https://preview.portal.azure.com).
 
-<a name="onlyinconfig"></a>
+<a name="newmenu"></a>
 
 ## Streamlined menu
 
-Cost Management includes a central management screen for all configuration settings. Some of the settings are also available directly from the Cost Management menu currently. Enabling the **Streamlined menu** option removes configuration settings from the menu.
+The Cost Management left navigation menu is organized into related sections for reporting, monitoring, optimization, and configuration settings.
 
-In the following image, the left menu is classic cost analysis. The right menu is the streamlined menu.
+In the following image shows the streamlined menu.
 
-:::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-analysis-streamlined-menu.png" alt-text="Screenshot showing the Streamlined menu in cost analysis Resources view." lightbox="./media/enable-preview-features-cost-management-labs/cost-analysis-streamlined-menu.png" :::
+:::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-analysis-streamlined-menu.png" alt-text="Screenshot showing the Streamlined menu in cost analysis." lightbox="./media/enable-preview-features-cost-management-labs/cost-analysis-streamlined-menu.png" :::
 
 You can enable **Streamlined menu** on the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Feel free to [share your feedback](https://feedback.azure.com/d365community/idea/5e0ea52c-1025-ec11-b6e6-000d3a4f07b8). As an experimental feature, we need your feedback to determine whether to release or remove the preview.
 
@@ -187,6 +121,17 @@ If you manage many subscriptions, resource groups, or management groups and need
 It allows changing the scope from the menu for quicker navigation. To enable the feature, navigate to the [Cost Management Labs preview page](https://portal.azure.com/#view/Microsoft_Azure_CostManagement/Menu/~/overview/open/overview.preview) in the Azure portal.
 
 [Share your feedback](https://feedback.azure.com/d365community/idea/e702a826-1025-ec11-b6e6-000d3a4f07b8) about the feature. As an experimental feature, we need your feedback to determine whether to release or remove the preview.
+
+## Currency switcher in Cost analysis smart views
+
+<a name="customizev3currency"></a>
+
+View your non-USD charges in USD or switch between the currencies you have charges in to view the total cost for that currency only. To change currency, select **Customize** at the top of the view and select the currency that you want to apply. Currency selection is only available when you have charges in multiple currencies.
+
+[customize-multiple-currencies.png]
+:::image type="content" source="./media/enable-preview-features-cost-management-labs/customize-multiple-currencies.png" alt-text="Screenshot showing the Customize - Currency option." lightbox="./media/enable-preview-features-cost-management-labs/customize-multiple-currencies.png" :::
+
+Enable the currency switcher on the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Select **How would you rate cost analysis?** at the bottom of the page to share feedback about the preview.
 
 ## How to share feedback
 
