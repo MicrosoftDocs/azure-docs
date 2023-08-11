@@ -31,11 +31,11 @@ To create an Azure OpenAI resource, you need an Azure resource group. When you c
 
 ```azurecli-interactive
 az group create \
-  --name OAIResourceGroup \
-  --location eastus
+--name OAIResourceGroup \
+--location eastus
 ```
 
-For more information, see the [az group create reference documentation](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-create).
+For more information, see the [az group create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-create) reference documentation.
 
 ## Create a resource
 
@@ -51,7 +51,7 @@ az cognitiveservices account create \
 --subscription <mySubscription>
 ```
 
-For more information, see the [az cognitiveservices account create reference documentation](/cli/azure/cognitiveservices/account?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-create).
+For more information, see the [az cognitiveservices account create](/cli/azure/cognitiveservices/account?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-create) reference documentation.
 
 ## Retrieve information about the resource
 
@@ -68,7 +68,7 @@ az cognitiveservices account show \
 | jq -r .properties.endpoint
 ```
 
-For more information, see the [az cognitiveservices account show reference documentation](/cli/azure/cognitiveservices/account?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-show).
+For more information, see the [az cognitiveservices account show](/cli/azure/cognitiveservices/account?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-show) reference documentation.
 
 
 ### Get the primary API key
@@ -82,7 +82,7 @@ az cognitiveservices account keys list \
 | jq -r .key1
 ```
 
-For more information, see the [az cognitiveservices account keys list reference documentation](/cli/azure/cognitiveservices/account?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-keys-list).
+For more information, see the [az cognitiveservices account keys list](/cli/azure/cognitiveservices/account?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-keys-list) reference documentation.
 
 ## Deploy a model
 
@@ -100,7 +100,7 @@ az cognitiveservices account deployment create \
 --sku-name "Standard"
 ```
 
-For more information, see the [az cognitiveservices account deployment create reference documentation](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-create).
+For more information, see the [az cognitiveservices account deployment create](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-create) reference documentation.
 
 ## Delete a model from your resource
 
@@ -113,7 +113,7 @@ az cognitiveservices account deployment delete \
 --deployment-name MyModel
 ```
 
-For more information, see the [az cognitiveservices account deployment delete reference documentation](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-delete).
+For more information, see the [az cognitiveservices account deployment delete](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-delete) reference documentation.
 
 ## Delete a resource
 
@@ -129,4 +129,4 @@ az cognitiveservices account delete \
 -g <myResourceGroupName>
 ```
 
-For more information, see the [az cognitiveservices account delete reference documentation](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-delete).
+For more information, see the [az cognitiveservices account delete](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-delete) reference documentation.

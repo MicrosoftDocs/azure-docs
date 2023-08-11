@@ -27,9 +27,11 @@ The following steps show how to create an Azure OpenAI resource in the Azure por
 
 1. Sign in with your Azure subscription in the Azure portal.
 
-1. Browse to the [Azure OpenAI Service Create Page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_openai_tip#create/Microsoft.CognitiveServicesOpenAI).
+1. Select **Create a resource** and search for the **Azure OpenAI Service**. When you locate the service, select **Create**.
 
-1. On the **Create** page, provide the following information for the fields on the **Basics** tab:
+   :::image type="content" source="../media/create-resource/create-azure-openai-resource-portal.png" alt-text="Screenshot that shows how to create a new Azure OpenAI Service resource in the Azure portal.":::
+
+1. On the **Create Azure OpenAI** page, provide the following information for the fields on the **Basics** tab:
 
    | Field | Description |
    |---|---|
@@ -39,7 +41,7 @@ The following steps show how to create an Azure OpenAI resource in the Azure por
    | **Name** | A descriptive name for your Azure OpenAI Service resource, such as _MyOpenAIResource_. |
    | **Pricing Tier** | Only one pricing tier is available for the service currently. |
 
-   :::image type="content" source="../media/create-resource/create-resource-basic-settings.png" alt-text="Screenshot that shows how to create an Azure OpenAI resource in the Azure portal." lightbox="../media/create-resource/create-resource-basic-settings.png":::
+   :::image type="content" source="../media/create-resource/create-resource-basic-settings.png" alt-text="Screenshot that shows how to configure an Azure OpenAI resource in the Azure portal.":::
 
 1. Select **Next**.
 
@@ -51,7 +53,7 @@ The **Network** tab presents three options for the security **Type**:
 - Option 2: **Selected networks, configure network security for your Azure AI services resource.**
 - Option 3: **Disabled, no networks can access this resource. You could configure private endpoint connections that will be the exclusive way to access this resource.**
 
-:::image type="content" source="../media/create-resource/create-resource-network-settings.png" alt-text="Screenshot that shows the network security options for an Azure OpenAI resource in the Azure portal." lightbox="../media/create-resource/create-resource-network-settings.png":::
+:::image type="content" source="../media/create-resource/create-resource-network-settings.png" alt-text="Screenshot that shows the network security options for an Azure OpenAI resource in the Azure portal.":::
 
 Depending on the option you select, you might need to provide additional information.
 
@@ -68,7 +70,7 @@ The second option lets you identify specific networks that can access your resou
 | **Virtual network** | Specify the virtual networks that are permitted access to your resource. You can edit the default virtual network name provided by Azure. |
 | **Subnets** | Specify the subnets that are permitted access to your resource. You can edit the default subnet name provided by Azure. |
 
-:::image type="content" source="../media/create-resource/create-resource-network-settings-specific.png" alt-text="Screenshot that shows how to configure network security for an Azure OpenAI resource to allow specific networks only." lightbox="../media/create-resource/create-resource-network-settings-specific.png":::
+:::image type="content" source="../media/create-resource/create-resource-network-settings-specific.png" alt-text="Screenshot that shows how to configure network security for an Azure OpenAI resource to allow specific networks only.":::
 
 The **Firewall** section provides an optional **Address range** field that you can use to configure firewall settings for the resource.
 
@@ -76,7 +78,7 @@ The **Firewall** section provides an optional **Address range** field that you c
 
 The third option lets you disable network access to your resource. When you select this option, the page updates to include the **Private endpoint** table.
 
-:::image type="content" source="../media/create-resource/create-resource-network-settings-disable.png" alt-text="Screenshot that shows how to disable network security for an Azure OpenAI resource in the Azure portal." lightbox="../media/create-resource/create-resource-network-settings-disable.png":::
+:::image type="content" source="../media/create-resource/create-resource-network-settings-disable.png" alt-text="Screenshot that shows how to disable network security for an Azure OpenAI resource in the Azure portal.":::
 
 As an option, you can add a private endpoint for access to your resource. Select **Add private endpoint**, and complete the endpoint configuration.
 
@@ -84,7 +86,7 @@ As an option, you can add a private endpoint for access to your resource. Select
 
 1. Select **Next** and configure any **Tags** for your resource, as desired.
 
-1. Select **Next** to move to the final stage in the process: **Review + Submit**.
+1. Select **Next** to move to the final stage in the process: **Review + submit**.
 
 1. Confirm your configuration settings, and select **Create**.
 
