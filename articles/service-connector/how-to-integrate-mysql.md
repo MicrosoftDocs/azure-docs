@@ -48,6 +48,28 @@ Use the connection details below to connect compute services to Azure Database f
 
 ### [Connection String](#secret)
 
+### [java](tab/java)
+java env var tables.
+
+### [spring](tab/spring)
+spring env var tables.
+
+### [.NET](tab/dotnet)
+.NET env var tables.
+
+### [Go](tab/go)
+.NET env var tables.
+
+### [Others](#tab/others)
+others.
+
+---
+
+here're sample codes for each client type.
+[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
+
+---
+
 #### [.NET(MySqlConnector)](#tab/secret-dotnet)
 
 | Default environment variable name | Description                     | Example value                                                                                                                                                  |
@@ -183,7 +205,7 @@ db, err := sql.Open("mysql", connectionString)
 ---
 
 ### [System assigned Managed Identity](#systemmi)
-#### [.NET(MySqlConnector)](#tab/systemmi-dotnet)
+#### [.NET](#tab/systemmi-dotnet)
 
 | Default environment variable name | Description                     | Example value                                                                                                                                                  |
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -192,7 +214,7 @@ db, err := sql.Open("mysql", connectionString)
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
 
 
-#### [Java(JDBC)](#tab/systemmi-java)
+#### [Java](#tab/systemmi-java)
 
 | Default environment variable name | Description                  | Example value                                                                                                          |
 |-----------------------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------|
@@ -201,7 +223,7 @@ db, err := sql.Open("mysql", connectionString)
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
 
 
-#### [Spring Boot(JDBC)](#tab/systemmi-spring)
+#### [Spring Boot](#tab/systemmi-spring)
 
 | Application properties                   | Description                           | Example value                                                                                 |
 |------------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------|
@@ -211,7 +233,7 @@ db, err := sql.Open("mysql", connectionString)
 
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md?tab=spring)]
 
-#### [Go(go-sql-driver)](#tab/systemmi-go)
+#### [Go](#tab/systemmi-go)
 
 | Default environment variable name | Description                     | Example value                                                                                                |
 |-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
@@ -229,7 +251,7 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_PORT`                  | Port number       | `3306`                                     |
 | `AZURE_MYSQL_SSL`                   | SSL option        | `true`                                     |
 
-#### [Python(mysql-connector-python)](#tab/systemmi-python)
+#### [Python](#tab/systemmi-python)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -246,7 +268,7 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_HOST`                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
 | `AZURE_MYSQL_USER`                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 
-#### [PHP(MySQLi)](#tab/systemmi-php)
+#### [PHP](#tab/systemmi-php)
 
 | Default environment variable name   | Description        | Example value                              |
 |-------------------------------------|--------------------|--------------------------------------------|
@@ -256,7 +278,7 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_FLAG`                  | SSL or other flags | `MySQL_CLIENT_SSL`                         |
 | `AZURE_MYSQL_USERNAME`              | Database Username  | `<MySQL-DB-username>`                      |
 
-#### [Ruby(mysql2)](#tab/systemmi-ruby)
+#### [Ruby](#tab/systemmi-ruby)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -268,7 +290,7 @@ db, err := sql.Open("mysql", connectionString)
 ---
 
 ### [User assigned Managed Identity](#usermi)
-#### [.NET(MySqlConnector)](#tab/usermi-dotnet)
+#### [.NET](#tab/usermi-dotnet)
 
 | Default environment variable name | Description                     | Example value                                                                                                                                                  |
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
