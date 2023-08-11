@@ -97,9 +97,11 @@ MANAGED_IDENTITY:
 ./create-managed-identity.sh irt.input.yml
 ```
 > [NOTE]
-> if `MANAGED_IDENTITY_ID` is set in the yaml or as an environment variable the script won't create anything.
+> if `MANAGED_IDENTITY_ID` is set in the input yaml or as an environment variable the script won't create anything.
 
-**RESULT:** This script prints a value for `MANAGED_IDENTITY_ID` and sets it to the input.yml. See [Input Configuration](#input-configuration).
+**RESULT:** This script prints a value for `MANAGED_IDENTITY_ID` and sets it to the input.yml.
+See [Input Configuration](#input-configuration).
+
 ```yml
 MANAGED_IDENTITY_ID: <generated_id>
 ``````
@@ -114,7 +116,6 @@ Additionally, the script creates the necessary security group, and adds the serv
 
 Executing `create-service-principal.sh` requires the input yaml to have the following properties, all of them can be overriden by the corrosponding environment variables:
 ```yml
-### To be used for service principal creation
 SERVICE_PRINCIPAL:
   NAME: "<name>" # env: SERVICE_PRINCIPAL_NAME
   AAD_GROUP_NAME: "<aad-group-name>" # env: SERVICE_PRINCIPAL_AAD_GROUP_NAME
@@ -130,46 +131,59 @@ SERVICE_PRINCIPAL:
 ```
 
 > [NOTE]
-> if all `SP_ID`,`SP_PASSWORD`,`SP_TENANT`,`AAD_GROUP_ID` are set in the yaml or as an environment variable the script won't create anything.
+> if all `SP_ID`,`SP_PASSWORD`,`SP_TENANT_ID`,`AAD_GROUP_ID` are set in the yaml or as an environment variable the script skips creating them.
 
-**RESULT:** This script prints values for `AAD_GROUP_ID`, `SP_ID`, `SP_PASSWORD`, and `SP_TENANT` and will set back to the input yaml. See [Input Configuration](#input-configuration).
+**RESULT:** This script prints values for `AAD_GROUP_ID`, `SP_ID`, `SP_PASSWORD`, and `SP_TENANT` and will set back to the input yaml.
+See [Input Configuration](#input-configuration).
 
 ```yml
 SP_ID: "<generated-sp-id>"
-SP_PASSWORD: "<generated-sp-password>" # If SP already exists sp_password is not retreivable through the script, please fill it in.
+SP_PASSWORD: "<generated-sp-password>" # If SP already exists sp password is not retreivable, please fill it in.
 SP_TENANT_ID: "<generated-sp-tenant-id>"
 AAD_GROUP_ID: "generated-aad-group-id"
 ``````
 
-
 #### Create isolation domains
-The testing framework doesn't create, destroy, or manipulate isolation domains. Therefore, existing Isolation Domains can be used. Each Isolation Domain requires at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks are created, manipulated, and destroy through the course of testing. They're created using the data provided in the networks blueprint.
+The testing framework doesn't create, destroy, or manipulate isolation domains. Therefore, existing Isolation Domains can be used. Each Isolation Domain requires at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks are created, manipulated, and destroyed through the course of testing. They're created using the data provided in the networks blueprint which is part of the input yaml.
 
 Executing `create-l3-isolation-domains.sh` requires one **parameter**, a path to your networks blueprint file:
 
 ```bash
 # Example of the script being invoked:
-./create-l3-isolation-domains.sh ./networks-blueprint.yml
+./create-l3-isolation-domains.sh ./irt.input.yml
 ```
 
 #### Create archive storage
 IRT creates an html test report after running a test scenario. These reports can optionally be uploaded to a blob storage container. the supplementary script `create-archive-storage.sh` to create a storage container, storage account, and resource group if they don't already exist.
 
+Executing `create-archive-storage.sh` requires the input yaml to have the following properties, all of them can be overriden by the corrosponding environment variables:
 
-Executing `create-managed-identity.sh` requires the following environment variables to be set:
-   * **RESOURCE_GROUP** - The resource group the Managed Identity is created in. The resource group is created in `eastus` if the resource group provided doesn't yet exist.
-   * **STORAGE_ACCOUNT_NAME** - The name of the Azure storage account to be created.
-   * **STORAGE_CONTAINER_NAME** - The name of the blob storage container to be created.
-   * **[Optional] SUBSCRIPTION** - to set the subscription. Alternatively, the script uses the az CLI context to look up the subscription.
+```yml
+ARCHIVE_STORAGE:
+  RESOURCE_GROUP: "<resource-group>" # env: ARCHIVE_STORAGE_RESOURCE_GROUP
+  ACCOUNT_NAME: "<storage-account-name>" # env: ARCHIVE_STORAGE_ACCOUNT_NAME
+  CONTAINER_NAME: "<storage-container-name>" # env: ARCHIVE_STORAGE_CONTAINER_NAME
+  SUBSCRIPTION: "<subscription>" # env: ARCHIVE_STORAGE_SUBSCRIPTION
+  LOCATION: "<location>" # env: ARCHIVE_STORAGE_LOCATION
+```
+   * `ARCHIVE_STORAGE_RESOURCE_GROUP` - The resource group the Managed Identity is created in.
+   * `ARCHIVE_STORAGE_ACCOUNT_NAME` - The name of the Azure storage account to be created.
+   * `ARCHIVE_STORAGE_CONTAINER_NAME` - The name of the blob storage container to be created.
+   * `SUBSCRIPTION` - The subscription where the resource group is created in.
+   * `LOCATION` - .The location where the resource group is created in.
 
+> [NOTE]
+> if `PUBLISH_RESULTS_TO` is set in the input yaml or as an environment variable the script skips creating a new one.
 
 ```bash
 # Example execution of the script
-RESOURCE_GROUP="<your resource group>" STORAGE_ACCOUNT_NAME="<your storage account name>" STORAGE_CONTAINER_NAME="<your container name>" ./create-archive-storage.sh
+./create-archive-storage.sh irt.input.yaml
 ```
 
-**RESULT:** This script prints a value for `PUBLISH_RESULTS_TO`. This key/value pair should be recorded in irt-input.yml for use. See [Input Configuration](#input-configuration).
-
+**RESULT:** This script prints a value for `PUBLISH_RESULTS_TO` and set the value in the input.yml. See [Input Configuration](#input-configuration).
+```yml
+PUBLISH_RESULTS_TO: <generated_id>
+``````
 
 ## Execution
 
