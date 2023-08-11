@@ -162,7 +162,7 @@ For a complete example of a zone-redundant scale set and network resources, see 
 
 ## Update scale set to add availability zones
 
-You can modify a scale to expand the set of zones over which to spread VM instances. This allows you to take advantage of higher zonal availability SLA (99.99%) vs regional availability SLA (99.95%), or expand your scale set to take advantage of new availability zones that were not available when the scale set was created.
+You can modify a scale to expand the set of zones over which to spread VM instances. This allows you to take advantage of higher availability SLA for instances spread across availability zones or expand your scale set to take advantage of new availability zones that were not available when the scale set was created. The operation is done without incurring downtime for your existing instances.
 
 > [!IMPORTANT]
 > Update virtual machine scale sets to add availability zones is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
@@ -211,8 +211,7 @@ Get-AzProviderPreviewFeature -Name <feature-name> -ProviderNamespace Microsoft.C
 You can update the scale set to scale out instances to one or more additional availability zones, up to the number of availablity zones supported by the region (for regions that support zones, the minimum number of zones is 3). 
 
 > [!IMPORTANT]
-> When you expand the scale set to additionnal zones, the original instances are not migrated or changed. When you scale out, new instances will be created and spread evenly across the selected availability zones. When you scale in the scale set, any regional instances will be priorized for removal first. After that, instances will be removed based on the [scale in policy](virtual-machine-scale-sets-scale-in-policy.md). 
-
+> When you expand the scale set to additional zones, the original instances are not migrated or changed. When you scale out, new instances will be created and spread evenly across the selected availability zones. When you scale in the scale set, any regional instances will be priorized for removal first. After that, instances will be removed based on the [scale in policy](virtual-machine-scale-sets-scale-in-policy.md). 
 Expanding to a zonal scale set is done in 3 steps:
 
 1. Prepare for zonal expansion
@@ -222,11 +221,10 @@ Expanding to a zonal scale set is done in 3 steps:
 #### Prepare for zonal expansion
 
 > [!WARNING]
->This preview allows you to add zones to the scale set. You cannot remove zones once they have been added, or go back to a regional scale set.
-
+> This preview allows you to add zones to the scale set. You cannot remove zones once they have been added. Updating from a zone-spanning or zonal scale set to a regional scale set is not supported.
 In order to prepare for zonal expansion:
-* Check that you have enough quota for the VM size in the selected region to handle additional instances. Learn more about [checking and requesting additional quota if needed.](../virtual-machines/quotas.md)
-* Check that the VM size and disk types you are using are available in all the desired zones. You can use the [Compute Resources SKUs API](/rest/api/compute/resource-skus/list?tabs=HTTP) to determine which sizes are available in which zones. 
+* Check that you have enough quota for the VM size in the selected region to handle additional instances. Learn more about [checking and requesting additional quota if needed](../virtual-machines/quotas.md)
+* Check that the VM size and disk types you are using are available in all the desired zones. You can use the [Compute Resources SKUs API](/rest/api/compute/resource-skus/list?tabs=HTTP) to determine which sizes are available in which zones
 * Validate that the scale set configuration is valid for zonal scale sets:
     * platformFaultDomainCount must be set to 1 or 5 (fixed spreading with 2 or 3 fault domains is not supported for zonal deployments)
     * Capacity reservations are not supported during zone expansion. Once the scale set is fully zonal (no more regional instances), you can add a capacity reservation group to the scale set
@@ -246,11 +244,16 @@ Update the scale set to change the zones parameter.
 ### [Azure CLI](#tab/cli2)
 
 
+
 ```azurecli
 az vmss update --set zones=["1","2","3"] -n < myScaleSet > -g < myResourceGroup >
 ```
 
 ### [Azure PowerShell](#tab/powershell2)
+
+
+
+
 
 
 
@@ -291,24 +294,36 @@ You can update the zones parameter and the scale set capacity in the same ARM te
 
 When you are satisfied that the new instances are ready, scale in your scale set to remove the original regional instances. You can either manually delete the specific regional instances, or scale in by reducing the scale set capacity. When scaling in via reducing scale set capacity, the platform will always prefer removing the regional instances, then follow the scale in policy.
 
-##### Automate with Rolling upgrades + Maxsurge
-With [Rolling upgrades + MaxSurge](virtual-machine-scale-sets-upgrade-policy.md) , new zonal instances are created and brought up-to-date with the latest scale model in batches. Once a batch of new instances are added to the scale set and report as healthy, a batch of old instances are automated removed from the scale set. This continues until all instances are brought up-to-date. 
+##### Automate with Rolling upgrades + MaxSurge
+
+With [Rolling upgrades + MaxSurge](virtual-machine-scale-sets-upgrade-policy.md), new zonal instances are created and brought up-to-date with the latest scale model in batches. Once a batch of new instances are added to the scale set and report as healthy, a batch of old instances are automated removed from the scale set. This continues until all instances are brought up-to-date. 
 
 > [!IMPORTANT]
-> Rolling upgrades with maxsurge is currently under Public Preview. It is only available for VMSS Uniform Orchestration Mode.
-
+> Rolling upgrades with MaxSurge is currently under Public Preview. It is only available for VMSS Uniform Orchestration Mode.
 #### Preview Known Issues / Limitations
 
 * The preview is targeted to stateless workloads on virtual machine scale sets. 
+
 * Scale sets running Service Fabric or Azure Kubernetes Service are not supported
-You cannot remove or replace zones, only add zones
+
+* You cannot remove or replace zones, only add zones
+
+* You cannot update from a zone spanning or zonal scale set to a regional scaleset.
+
 * platformFaultDomainCount must be set to 1 or 5 (fixed spreading with 2 or 3 fault domains is not supported for zonal deployments)
+
 * Capacity reservations are not supported during zone expansion. Once the scale set is fully zonal (no more regional instances), you can add a capacity reservation group to the scale set
+
 * Azure Dedicated Host deployments are not supported  
 
 ## Next steps
 
 Now that you have created a scale set in an Availability Zone, you can learn how to [Deploy applications on Virtual Machine Scale Sets](tutorial-install-apps-cli.md) or [Use autoscale with Virtual Machine Scale Sets](tutorial-autoscale-cli.md).
+
+
+
+
+
 
 
 
