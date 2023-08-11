@@ -55,6 +55,7 @@ export AZURE_SPRING_APPS_NAME=<Azure-Spring-Apps-service-instance-name>
 export NATIVE_BUILDER=native-builder
 export JAR_APP_NAME=jar-app
 export NATIVE_APP_NAME=native-app
+export JAR_PATH=target/spring-petclinic-3.1.0-SNAPSHOT.jar
 ```
 
 ### 3.2. Create a new resource group
@@ -168,7 +169,7 @@ Use the following command to deploy Spring Petclinic application as jar:
 az spring app deploy \
     --service ${AZURE_SPRING_APPS_NAME} \
     --name ${JAR_APP_NAME} \
-    --artifact-path target/spring-petclinic-3.1.0-SNAPSHOT.jar \
+    --artifact-path ${JAR_PATH} \
     --build-env BP_JVM_VERSION=17
 ```
 
@@ -181,6 +182,6 @@ az spring app deploy \
     --builder ${NATIVE_BUILDER} \
     --build-cpu 8 \
     --build-memory 16Gi \
-    --artifact-path target/spring-petclinic-3.1.0-SNAPSHOT.jar \
+    --artifact-path ${JAR_PATH} \
     --build-env BP_JVM_VERSION=17 BP_NATIVE_IMAGE=true
 ```
