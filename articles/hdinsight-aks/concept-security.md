@@ -14,7 +14,7 @@ This article covers overall security architecture, and security solutions by div
 
 ## Security architecture
 
-Enterprise readiness for any software requires stringent security checks to prevent and address threats that may arise. HDInsight on AKS provides a multi-layered security model to protect you on multiple layers. The security architecture uses modern authorization methods using MSI. All the storage access is through MSI, and the database access is through username/password. The password is stored in Azure [Key Vault](https://learn.microsoft.com/azure/key-vault/general/basic-concepts), defined by the customer. This makes the setup robust and secure by default.
+Enterprise readiness for any software requires stringent security checks to prevent and address threats that may arise. HDInsight on AKS provides a multi-layered security model to protect you on multiple layers. The security architecture uses modern authorization methods using MSI. All the storage access is through MSI, and the database access is through username/password. The password is stored in Azure [Key Vault](../key-vault/general/basic-concepts.md), defined by the customer. This makes the setup robust and secure by default.
 
 The below diagram illustrates a high-level technical architecture of security in HDInsight on AKS. 
 
@@ -26,7 +26,7 @@ One way of looking at enterprise security is to divide security solutions into f
 
 ### Perimeter security
 
-Perimeter security in HDInsight on AKS is achieved through [virtual networks.](https://learn.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment) An enterprise admin can create a cluster inside a virtual network (VNET) and use [network security groups (NSG)](./secure-traffic-by-nsg.md) to restrict access to the virtual network. 
+Perimeter security in HDInsight on AKS is achieved through [virtual networks.](../hdinsight/hdinsight-plan-virtual-network-deployment.md) An enterprise admin can create a cluster inside a virtual network (VNET) and use [network security groups (NSG)](./secure-traffic-by-nsg.md) to restrict access to the virtual network. 
 
 ### Authentication
 
@@ -56,7 +56,7 @@ Authorization managed by ARM roles for cluster management (control plane) and cl
 | Monitoring | |✅| 
 | Scaling actions	| |✅|
 
-The above roles are from the ARM operations perspective. For more information, see [Grant a user access to Azure resources using the Azure portal - Azure RBAC](https://learn.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+The above roles are from the ARM operations perspective. For more information, see [Grant a user access to Azure resources using the Azure portal - Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 #### Cluster access (Data Plane)
 
@@ -88,8 +88,8 @@ Protecting data is important for meeting organizational security and compliance 
 
 ## Compliance
 
-Azure compliance offerings are based on various types of assurances, including formal certifications. Also, attestations, validations, and authorizations. Assessments produced by independent third-party auditing firms. 
-Contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. For HDInsight on AKS compliance information, see the Microsoft [Trust Center](https://www.microsoft.com/trust-center?rtc=1) and the [Overview of Microsoft Azure compliance](https://learn.microsoft.com/samples/browse/?redirectedfrom=TechNet-Gallery).
+Azure compliance offerings are based on various types of assurances, including formal certifications. Also, attestations, validations, and authorizations. Assessments produced by independent third-party auditing firms.
+Contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. For HDInsight on AKS compliance information, see the Microsoft [Trust Center](https://www.microsoft.com/trust-center?rtc=1) and the [Overview of Microsoft Azure compliance](/samples/browse/redirectedfrom=TechNet-Gallery).
 
 ## Shared responsibility model
 
@@ -101,10 +101,10 @@ The following table provides links to resources for each type of security soluti
 
 |Security area	|Solutions available	|Responsible party|
 |-|-|-|
-|Data Access Security	|[Configure access control lists ACLs](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) for Azure Data Lake Storage Gen2	|Customer|
-|	|Enable the [Secure transfer required](https://learn.microsoft.com/azure/storage/common/storage-require-secure-transfer) property on storage|Customer|
-| |Configure [Azure Storage firewalls](https://learn.microsoft.com/azure/storage/common/storage-network-security?tabs=azure-portal) and virtual networks|Customer|
+|Data Access Security	|[Configure access control lists ACLs](../storage/blobs/data-lake-storage-access-control.md) for Azure Data Lake Storage Gen2	|Customer|
+|	|Enable the [Secure transfer required](../storage/common/storage-require-secure-transfer.md) property on storage|Customer|
+| |Configure [Azure Storage firewalls](../storage/common/storage-network-security?tabs=azure-portal.md) and virtual networks|Customer|
 |Operating system security|Create clusters with most recent HDInsight on AKS versions|Customer|
-|Network security| Configure a [virtual network](https://learn.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)||
+|Network security| Configure a [virtual network](../hdinsight/hdinsight-plan-virtual-network-deployment.md)||
 | | Configure [Traffic using Firewall rules](./secure-traffic-by-firewall.md)|Customer|
 | | Configure [Outbound traffic required](./required-outbound-traffic.md) |Customer|

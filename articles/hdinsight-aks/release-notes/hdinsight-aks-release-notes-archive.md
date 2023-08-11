@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 06/26/2023
 ---
 
-# Archived release notes
+# Azure HDInsight on AKS archived release notes
 
 Now there are no archived release notes available for HDInsight on AKS.
 
