@@ -53,7 +53,7 @@ More details on eligible subscription types are as follows:
 |United States|
 
 
-[!INCLUDE [**Use the drop-down menu to check phone number availability for other countries**](./concepts/includes/country-dropdown.md)]
+[!INCLUDE [Country Dropdown](../../includes/country-dropdown.md)]
 
 ## Next steps
 
