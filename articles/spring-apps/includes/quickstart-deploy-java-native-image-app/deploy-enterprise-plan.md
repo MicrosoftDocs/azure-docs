@@ -162,7 +162,7 @@ Azure Spring Apps is used to host the Spring Petclinic app. Create an Azure Spri
 
 Now that the cloud environment is prepared, the applications are ready to deploy. 
 
-Use the following command to deploy deploy Spring Petclinic application as jar:
+Use the following command to deploy Spring Petclinic application as jar:
 
 ```azurecli
 az spring app deploy \
