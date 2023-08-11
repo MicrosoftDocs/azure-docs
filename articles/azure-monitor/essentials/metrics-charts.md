@@ -104,9 +104,11 @@ Before you use different aggregations on a chart, you should understand how Metr
 
 You select the size of the time grain by using the time picker panel in Metrics Explorer. If you don't explicitly select the time grain, Metrics Explorer uses the currently selected time range by default. After Metrics Explorer determines the time grain, the metric values that it captures during each time grain are aggregated on the chart, one data point per time grain.
 
+For example, suppose a chart shows the *Server response time* metric. It uses the average aggregation over the time span of the last 24 hours. 
+
 :::image type="content" source="media/metrics-charts/time-granularity.png" alt-text="Screenshot that shows the time range and granularity selector.":::
 
-For example, suppose a chart shows the *Server response time* metric. It uses the average aggregation over the time span of the last 24 hours. In this example:
+In this example:
 
 - If you set the time granularity to 30 minutes, Metrics Explorer draws the chart from 48 aggregated data points. That is, it uses two data points per hour for 24 hours. The line chart connects 48 dots in the chart plot area. Each data point represents the average of all captured response times for server requests that occurred during each of the relevant 30-minute time periods.
 - If you switch the time granularity to 15 minutes, you get 96 aggregated data points. That is, you get four data points per hour for 24 hours.
@@ -131,7 +133,7 @@ For a deeper discussion of how metric aggregation works, see [Azure Monitor metr
 
 You can apply filters to charts whose metrics have dimensions. For example, imagine a *Transaction count* metric that has a *Response type* dimension. This dimension indicates whether the response from transactions succeeded or failed. If you filter on this dimension, Metrics Explorer displays a chart line for only successful or only failed transactions.
 
-To add a filter:
+### Add a filter
 
 1. Above the chart, select **Add filter**.
 
@@ -139,7 +141,7 @@ To add a filter:
 
    :::image type="content" source="./media/metrics-charts/filter-property.png" alt-text="Screenshot that shows the dropdown list for filter properties." lightbox="./media/metrics-charts/filter-property.png":::
 
-1. Select the operator that you want to apply against the dimension (property). The default operator is **=** (equals).
+1. Select the operator that you want to apply against the dimension (property). The default operator is equals (**=**).
   
    :::image type="content" source="./media/metrics-charts/filter-operator.png" alt-text="Screenshot that shows the operator that you can use with the filter." lightbox="./media/metrics-charts/filter-operator.png":::
 
@@ -157,7 +159,7 @@ To add a filter:
 
 You can split a metric by dimension to visualize how different segments of the metric compare. Splitting can also help you identify the outlying segments of a dimension.
 
-To apply splitting:
+### Apply splitting
 
 1. Above the chart, select **Apply splitting**.
 
@@ -239,7 +241,7 @@ To create an alert rule:
 
 1. Select the **Condition** tab. The **Signal name** entry defaults to the metric from your chart. You can choose a different metric.
 
-1. Enter a number for **Threshold value**. The threshold value is the value that triggers the alert. The **Preview** chart shows the threshold value as a horizontal line over the metric values. When you're finished, select the **Details** tab.
+1. Enter a number for **Threshold value**. The threshold value is the value that triggers the alert. The **Preview** chart shows the threshold value as a horizontal line over the metric values. When you're ready, select the **Details** tab.
 
    :::image source="./media/metrics-charts/alert-rule-condition.png" alt-text="Screenshot that shows the Condition tab on the pane for creating an alert rule." lightbox="./media/metrics-charts/alert-rule-condition.png":::
 
