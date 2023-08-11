@@ -92,7 +92,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
     > [!NOTE]
     > Role assignments must be in place before Lockbox starts to process a request. Any role assignments made after Lockbox starts to process a given request will not be recognized by Lockbox.  Because of this, to use PIM eligible assignments for the Subscription Owner role, users are required to activate the role before the Customer Lockbox request is initiated. Refer to Activate Azure AD roles in PIM / Activate Azure resource roles in PIM for more information on activating PIM eligible roles.
     > 
-    > Role assignments scoped to management groups are not supported in Lockbox at this time. 
+    > **Role assignments scoped to management groups are not supported in Lockbox at this time.**
 1. At the customer organization, designated lockbox approvers ([Azure Subscription Owner](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)/[Azure AD Global admin](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-ad-roles) receive an email from Microsoft to notify them about the pending access request.  
     
     Example email:
