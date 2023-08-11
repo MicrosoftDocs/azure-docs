@@ -66,7 +66,7 @@ Use the following steps to initialize the web application from the Azure Develop
    (✓) Done: Initialized git repository
    (✓) Done: Downloading template code to: <your-local-path>
 
-     Please enter a new environment name: <your-env-name>
+   Enter a new environment name: <your-env-name>
 
    SUCCESS: New project initialized!
    You can view the template code in your directory: <your-local-path>
