@@ -36,11 +36,11 @@ The steps in this article were tested with the following Terraform and Terraform
 
 1. Create a file named `resource-group.tf` and insert the following code:
 
-   [!code-terraform[master](../../terraform/quickstart/101-front-door-classic/resource-group.tf)]
+   
 
 1. Create a file named `front-door.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform/quickstart/101-front-door-classic/front-door.tf)]
+    
 
 1. Create a file named `variables.tf` and insert the following code:
 
