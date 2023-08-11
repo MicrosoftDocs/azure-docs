@@ -1,6 +1,6 @@
 ---
 title: Redact faces with Azure Video Indexer API
-description: This article shows how to use Azure Video Indexer face redaction feature using API.
+description: This article shows how to use the Azure Video Indexer face redaction feature by using an API.
 ms.topic: how-to
 ms.date: 08/11/2023
 ---
@@ -21,11 +21,11 @@ The article demonstrates each step of how to redact faces with the API in detail
 
 As an important [reminder](limited-access-features.md), you must comply with all applicable laws in your use of analytics in Azure Video Indexer.
 
-Face service access is limited based on eligibility and usage criteria in order to support our Responsible AI principles. Face service is only available to Microsoft managed customers and partners. Use the [Face Recognition intake form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu) to apply for access. For more information, see the [Face limited access page](https://learn.microsoft.com/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext).
+Face service access is limited based on eligibility and usage criteria in order to support our Responsible AI principles. Face service is only available to Microsoft managed customers and partners. Use the [Face Recognition intake form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu) to apply for access. For more information, see the [Face limited access page](/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext).
 
 ## Redactor terminology and hierarchy
 
-The Face Redactor in Video Indexer relies on the output of the existing Video Indexer Face Detection results provided in our Video Standard and Advanced Analysis presets. In order to redact a video, you must first upload a video to Video Indexer and perform an analysis using the **standard** or **Advanced** video presets. This can be done using the [Azure Video Indexer website](https://www.videoindexer.ai/media/library) or [API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video). You can then use the Redactor API to reference this video using the `videoId` and we create a new video with the redacted faces. Both the Video Analysis and Face Redaction are separate billable jobs. See our [pricing page](https://azure.microsoft.com/pricing/details/video-indexer/) for more information.
+The Face Redactor in Video Indexer relies on the output of the existing Video Indexer Face Detection results provided in our Video Standard and Advanced Analysis presets. In order to redact a video, you must first upload a video to Video Indexer and perform an analysis using the **standard** or **Advanced** video presets. Upload a video by using the [Azure Video Indexer website](https://www.videoindexer.ai/media/library) or [API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video). You can then use the Redactor API to reference this video using the `videoId` and we create a new video with the redacted faces. Both the Video Analysis and Face Redaction are separate billable jobs. For more information, see our [pricing page](https://azure.microsoft.com/pricing/details/video-indexer/).
 
 ## Blurring kinds
 
@@ -61,7 +61,7 @@ Or when using the BlurringKind number:
 
 ## Filters
 
-You can apply filters to instruct which face IDs should be blurred. You can specify the IDs of the faces in a comma separated array in the json body. Additionally using the scope you can instruct to exclude or include these faces for redaction. This way you have the option to achieve  a behavior of “redact all faces except these IDs” or “redact only these IDs” by specifying the least number of IDs. See examples below.
+You can apply filters to instruct which face IDs should be blurred. You can specify the IDs of the faces in a comma separated array in the json body. Use the scope to exclude or include these faces for redaction. This way you can achieve a behavior of "redact all faces except these IDs" or "redact only these IDs" by specifying the least number of IDs. See the following examples.
 
 ### Exclude scope
 
@@ -121,9 +121,9 @@ The following values are mandatory:
 
 | Name | Value | Description |
 |--|--|--|
-| **Accountid** | `{accountId}` | The ID of your Video Indexer account. |  |
+| **Accountid** | `{accountId}` | The ID of your Video Indexer account. |
 | **Location** | `{location}` | The location of your Video Indexer account that is, Westus. |
-| **AccessToken** | `{token}` | The token with Account Contributor rights generated through the [Azure Resource Manager](https://learn.microsoft.com/rest/api/videoindexer/stable/generate/access-token?tabs=HTTP) REST API. |
+| **AccessToken** | `{token}` | The token with Account Contributor rights generated through the [Azure Resource Manager](/rest/api/videoindexer/stable/generate/access-token?tabs=HTTP) REST API. |
 | **Videoid** | `{videoId}` | The video ID of the source video to redact. You can retrieve the video ID using the [List Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=List-Videos) API. |
 | **Name** | `{name}` | The name of the new redacted video. |
 
@@ -133,7 +133,7 @@ A sample request would be:
 https://api.videoindexer.ai/westeurope/Accounts/<id>/Videos/<id>/redact?priority=Low&name=testredaction&privacy=Private&streamingPreset=Default
 ```
 
-We can specify the token as authorization header with a key value type of bearertoken:{token} or you can provide it as query param using `?token={token}`
+We can specify the token as authorization header with a key value type of `bearertoken:{token}` or you can provide it as query param using `?token={token}`
 
 Additionally we need to add a request body in json format with the redaction job options that is:
 
@@ -149,7 +149,7 @@ When successful you receive an HTTP 202 ACCEPTED.
 
 ## Monitor job status
 
-In the response of the job creation request you receive an HTTP header `Location` with a URL to the job. You can perform a GET request to this url with the same token to see the status of the redaction job. An example url would be:
+In the response of the job creation request, you receive an HTTP header `Location` with a URL to the job. You can perform a GET request to this URL with the same token to see the status of the redaction job. An example URL would be:
 
 ```
 https://api.videoindexer.ai/westeurope/Accounts/<id>/Jobs/<id>
@@ -167,13 +167,13 @@ Response
 }
 ```
 
-Calling the same url once the redaction job has completed you get a Storage SAS url to the redacted video again in the `Location` header. For instance:
+Calling the same URL once the redaction job has completed, you get a Storage SAS URL to the redacted video again in the `Location` header. For instance:
 
 ```
 https://api.videoindexer.ai/westeurope/Accounts/<id>/Videos/<id>/SourceFile/DownloadUrl
 ```
 
-This will redirect to the mp4 stored on the Azure Storage Account.
+This URL will redirect to the mp4 stored on the Azure Storage Account.
 
 ## FAQ
 
@@ -184,10 +184,10 @@ This will redirect to the mp4 stored on the Azure Storage Account.
 | Can I play back the redacted video using the Video Indexer [website](https://www.videoindexer.ai/)? | Yes, the redacted video is visible in the Video Indexer like any other indexed video, however it doesn't contain any insights. |
 | How do I delete a redacted video? | You can use the [Delete Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) API and provide the `Videoid` of the redacted video. |
 | Do I need to pass Facial Identification gating to use Redactor? | Unless you're a US Police Department, no, even when you’re gated we continue to offer Face Detection. We don't offer Face Identification when gated. You can however redact all faces in a video with just the Face Detection. |
-| Will the Face Redaction overwrite my original video? | No, the Redaction job will create a new video output file. |
-| Not all faces are properly redacted. What can I do? | Redaction relies on the initial Face Detection and tracking output of the Analysis pipeline. While we detect all faces most of the time there can be circumstances where we haven't detected a face. This can have several reasons like face angle, number of frames the face was present and quality of the source video. See our [Face insights](face-detection.md) documentation for more information. |
+| Will the Face Redaction overwrite my original video? | No, the Redaction job creates a new video output file. |
+| Not all faces are properly redacted. What can I do? | Redaction relies on the initial Face Detection and tracking output of the Analysis pipeline. While we detect all faces most of the time, there can be circumstances where we haven't detected a face. There can be several reasons like face angle, number of frames the face was present, and quality of the source video. For more information, see our [Face insights](face-detection.md) documentation. |
 | Can I redact other objects than faces? | No, currently we only have face redaction. If you have the need for other objects, provide feedback to our product in the [Azure User Voice](https://feedback.azure.com/d365community/forum/8952b9e3-e03b-ec11-8c62-00224825aadf) channel. |
-| How Long is a SAS URL valid to download the redacted video? | <!--The SAS URL is valid for xxxx. -->To download the redacted video after the SAS url expired, you need to call the initial Job status URL. It's best to keep these `Jobstatus` URLs in a database in your backend for future reference. |
+| How Long is a SAS URL valid to download the redacted video? | <!--The SAS URL is valid for xxxx. -->To download the redacted video after the SAS URL expired, you need to call the initial Job status URL. It's best to keep these `Jobstatus` URLs in a database in your backend for future reference. |
 
 ## Error codes
 
@@ -199,7 +199,7 @@ Account not found or video not found.
 
 | Name | Required | Type | Description |
 |--|--|--|--|
-| x-ms-request-id | false | string | A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request id so a client can provide this request id in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request id never repeats itself. |
+| x-ms-request-id | false | string | A globally unique identifier (GUID) for the request, assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request ID. A client can provide this request ID in support tickets so support engineers can find the logs linked to this particular request. The server makes sure this request ID never repeats itself. |
 
 **ErrorResponse**
 
@@ -220,13 +220,13 @@ Account not found or video not found.
 
 ### Response: 400 Bad Request
 
-Invalid input or cannot redact the video since its original upload failed. Please upload the video again.
+Invalid input or can't redact the video since its original upload failed. Please upload the video again.
 
 **Response headers**
 
 | Name | Required | Type | Description |
 |--|--|--|--|
-| x-ms-request-id | false | string | A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request id so a client can provide this request id in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request id never repeats itself. |
+| x-ms-request-id | false | string | A globally unique identifier (GUID) for the request, assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request ID. A client can provide this request ID in support tickets so support engineers can find the logs linked to this particular request. The server makes sure this request ID never repeats itself. |
 
 **ErrorResponse**
 
@@ -252,7 +252,7 @@ Video is already being indexed.
 
 | Name | Required | Type | Description |
 |--|--|--|--|
-| x-ms-request-id | false | string | A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request id so a client can provide this request id in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request id never repeats itself. |
+| x-ms-request-id | false | string | A globally unique identifier (GUID) for the request, assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request ID. A client can provide this request ID in support tickets so support engineers can find the logs linked to this particular request. The server makes sure this request ID never repeats itself. |
 
 **ErrorResponse**
 
@@ -276,7 +276,7 @@ Video is already being indexed.
 
 | Name | Required | Type | Description |
 |--|--|--|--|
-| x-ms-request-id | false | string | A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request id so a client can provide this request id in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request id never repeats itself. |
+| x-ms-request-id | false | string | A globally unique identifier (GUID) for the request, assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request ID. A client can provide this request ID in support tickets so support engineers can find the logs linked to this particular request. The server makes sure this request ID never repeats itself. |
 
 **ErrorResponse**
 
@@ -300,7 +300,7 @@ Video is already being indexed.
 
 | Name | Required | Type | Description |
 |--|--|--|--|
-| x-ms-request-id | false | string | A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request id so a client can provide this request id in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request id never repeats itself. |
+| x-ms-request-id | false | string | A globally unique identifier (GUID) for the request, assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request ID. A client can provide this request ID in support tickets so support engineers can find the logs linked to this particular request. The server makes sure this request ID never repeats itself. |
 
 **ErrorResponse**
 
@@ -327,7 +327,7 @@ Too many requests were sent, use Retry-After response header to decide when to s
 | Name | Required | Type | Description |
 |--|--|--|--|
 | Retry-After | false | integer | A non-negative decimal integer indicating the seconds to delay after the response is received. |
-| x-ms-request-id | false | string | A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request id so a client can provide this request id in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request id never repeats itself. |
+| x-ms-request-id | false | string | A globally unique identifier (GUID) for the request, assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request ID. A client can provide this request ID in support tickets so support engineers can find the logs linked to this particular request. The server makes sure this request ID never repeats itself. |
 
 ### Response: 504 Gateway Timeout
 
@@ -337,7 +337,7 @@ Server didn't respond to gateway within expected time.
 
 | Name | Required | Type | Description |
 |--|--|--|--|
-| x-ms-request-id | false | string | A globally unique identifier (GUID) for the request which is assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request id so a client can provide this request id in support tickets so support engineers could find the logs linked to this particular request. The server makes sure this request id never repeats itself. |
+| x-ms-request-id | false | string | A globally unique identifier (GUID) for the request, assigned by the server for instrumentation purposes. The server makes sure all logs associated with handling the request can be linked to the server request ID. A client can provide this request ID in support tickets so support engineers can find the logs linked to this particular request. The server makes sure this request ID never repeats itself. |
 
 *default*
 
