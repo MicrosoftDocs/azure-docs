@@ -37,14 +37,14 @@ The managed virtual network is preconfigured with [required default rules](#list
 
 The following diagram shows a managed virtual network configured to __allow internet outbound__:
 
-TBD: Add diagram
+:::image type="content" source="./media/how-to-managed-network/internet-outbound.svg" alt-text="Diagram of managed network isolation configured for internet outbound." lightbox="./media/how-to-managed-network/internet-outbound.svg":::
 
 The following diagram shows a managed virtual network configured to __allow only approved outbound__:
 
 > [!NOTE]
 > In this configuration, the storage, key vault, and container registry used by the workspace are flagged as private. Since they are flagged as private, a private endpoint is used to communicate with them.
 
-:::image type="content" source="./media/how-to-managed-network/only-approved-outbound.svg" alt-text="Diagram of managed virtual network isolation." lightbox="./media/how-to-managed-network/only-approved-outbound.svg":::
+:::image type="content" source="./media/how-to-managed-network/only-approved-outbound.svg" alt-text="Diagram of managed network isolation configured for allow only approved outbound." lightbox="./media/how-to-managed-network/only-approved-outbound.svg":::
 
 ## Supported scenarios
 
