@@ -82,10 +82,10 @@ A managed identity with the following role assignments is needed to execute test
 Executing `create-managed-identity.sh` requires the input yaml to have the following properties, all of them can be overriden by the corrosponding environment variable;
 ```yml
 MANAGED_IDENTITY:
-  RESOURCE_GROUP: "" # env: MANAGED_IDENTITY_RESOURCE_GROUP
-  NAME: "" # env: MANAGED_IDENTITY_NAME
-  SUBSCRIPTION: "" # env: MANAGED_IDENTITY_SUBSCRIPTION
-  LOCATION: "" # env: MANAGED_IDENTITY_LOCATION
+  RESOURCE_GROUP: "<resource-group>" # env: MANAGED_IDENTITY_RESOURCE_GROUP
+  NAME: "<name>" # env: MANAGED_IDENTITY_NAME
+  SUBSCRIPTION: "<subscription>" # env: MANAGED_IDENTITY_SUBSCRIPTION
+  LOCATION: "<location>" # env: MANAGED_IDENTITY_LOCATION
 ``````
    * **MANAGED_IDENTITY.RESOURCE_GROUP** - The resource group the Managed Identity is created in.
    * **MANAGED_IDENTITY.NAME** - The name of the Managed Identity to be created.
@@ -96,6 +96,8 @@ MANAGED_IDENTITY:
 # Example execution of the script
 ./create-managed-identity.sh irt.input.yml
 ```
+> [NOTE]
+> if `MANAGED_IDENTITY_ID` is set in the yaml or as an environment variable the script won't create anything.
 
 **RESULT:** This script prints a value for `MANAGED_IDENTITY_ID` and sets it to the input.yml. See [Input Configuration](#input-configuration).
 
