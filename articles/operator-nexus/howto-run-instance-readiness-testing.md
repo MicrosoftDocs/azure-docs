@@ -87,10 +87,10 @@ MANAGED_IDENTITY:
   SUBSCRIPTION: "<subscription>" # env: MANAGED_IDENTITY_SUBSCRIPTION
   LOCATION: "<location>" # env: MANAGED_IDENTITY_LOCATION
 ``````
-   * **MANAGED_IDENTITY.RESOURCE_GROUP** - The resource group the Managed Identity is created in.
-   * **MANAGED_IDENTITY.NAME** - The name of the Managed Identity to be created.
-   * **MANAGED_IDENTITY.SUBSCRIPTION** - The subscription where the resource group should reside.
-   * **MANAGED_IDENTITY.LOCATION** - The location to create the resource group.
+   * `MANAGED_IDENTITY.RESOURCE_GROUP` - The resource group the Managed Identity is created in.
+   * `MANAGED_IDENTITY.NAME` - The name of the Managed Identity to be created.
+   * `MANAGED_IDENTITY.SUBSCRIPTION` - The subscription where the resource group should reside.
+   * `MANAGED_IDENTITY.LOCATION` - The location to create the resource group.
 
 ```bash
 # Example execution of the script
