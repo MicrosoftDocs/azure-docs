@@ -26,6 +26,7 @@ Update management center (preview) provides you the flexibility to take an immed
 
 Update management center (preview) allows you to secure your machines immediately by installing updates on demand. To perform the on-demand updates, see [Check and install one time updates](deploy-updates.md#install-updates-on-single-vm).
 
+
 ## Scheduled patching
 You can create a schedule on a daily, weekly or hourly cadence as per your requirement, specify the machines that must be updated as part of the schedule, and the updates that you must install. The schedule will then automatically install the updates as per the specifications.
 
@@ -45,6 +46,10 @@ In **Update management center** home page, go to **Update Settings** blade, sele
 
 ## Windows automatic updates
 This mode of patching allows operating system to automatically install updates as soon as they are available. It uses the VM property that is enabled by setting the patch orchestration to OS orchestrated/Automatic by OS. 
+
+## Configure reboot settings
+
+The registry keys listed in [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) and [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) can cause your machines to reboot, even if you specify **Never Reboot** in the **Update Deployment** settings. Configure these registry keys to best suit your environment.
 
 ## Hotpatching
 
