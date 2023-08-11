@@ -51,7 +51,7 @@ For workload specific versions, see
 
 1. **Enhanced Autoscale for HDInsight**
 
-   Azure HDInsight has made notable improvements stability and latency on Autoscale, The essential changes include improved feedback loop for scaling decisions, significant improvement on latency for scaling and support for recommissioning the decommissioned nodes, Learn [more](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/enhanced-autoscale-capabilities-in-hdinsight-clusters/ba-p/3811271) about the enhancements, how to custom configure and migrate your cluster to enhanced autoscale. The enhanced Autoscale capability is available effective 17 May, 2023 across all supported regions.
+   Azure HDInsight has made notable improvements stability and latency on Autoscale, The essential changes include improved feedback loop for scaling decisions, significant improvement on latency for scaling and support for recommissioning the decommissioned nodes, Learn [more](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/enhanced-autoscale-capabilities-in-hdinsight-clusters/ba-p/3811271) about the enhancements, how to custom configure and migrate your cluster to enhanced autoscale. The enhanced Autoscale capability is available effective 17 May 2023 across all supported regions.
     
 1. **Azure HDInsight ESP for Apache Kafka 2.4.1 is now Generally Available**.
 
@@ -85,7 +85,7 @@ For workload specific versions, see
 
 ## Release date: February 28, 2023
 
-This release applies to HDInsight 4.0. and 5.0, 5.1. HDInsight release is be available to all regions over several days. This release is applicable for image number **2302250400**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+This release applies to HDInsight 4.0. and 5.0, 5.1. HDInsight release is available to all regions over several days. This release is applicable for image number **2302250400**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
 HDInsight uses safe deployment practices, which involve gradual region deployment. it may take up to 10 business days for a new release or a new version to be available in all regions.
 
@@ -146,7 +146,7 @@ End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For 
 * Autoscale
   * Autoscale with improved latency and several improvements 
 * Cluster name change limitation 
-  * The max length of cluster name changes to 45 from 59 in Public, Mooncake and Fairfax. 
+  * The max length of cluster name changes to 45 from 59 in Public, Mooncake and Azure Government. 
 * Cluster permissions for secure storage  
   * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to contact the storage account. 
 * Non-ESP ABFS clusters [Cluster Permissions for World Readable] 
@@ -174,7 +174,7 @@ For workload specific versions, see [here.](./hdinsight-40-component-versioning.
 ![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
 
 * **Log Analytics** - Customers can enable classic monitoring to get the latest OMS version 14.19. To remove old versions, disable and enable classic monitoring.
-* **Ambari** user auto UI logout due to inactivity. For more information, see [here](./ambari-web-ui-auto-logout.md)
+* **Ambari** user auto UI sign out due to inactivity. For more information, see [here](./ambari-web-ui-auto-logout.md)
 * **Spark** - A new and optimized version of Spark 3.1.3 is included in this release. We tested Apache Spark 3.1.2(previous version) and Apache Spark 3.1.3(current version) using the TPC-DS benchmark. The test was carried out using E8 V3  SKU, for Apache Spark on 1-TB workload. Apache Spark 3.1.3 (current version) outperformed Apache Spark 3.1.2 (previous version) by over 40% in total query runtime for TPC-DS queries using the same hardware specs. The Microsoft Spark team added optimizations available in Azure Synapse with Azure HDInsight. For more information, please refer to [ Speed up your data workloads with performance updates to Apache Spark 3.1.2 in Azure Synapse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467)
 
 ![Icon showing new regions added with text.](media/hdinsight-release-notes/new-icon-for-new-regions-added.png) 
@@ -255,7 +255,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 **1. Attach external disks in HDI Hadoop/Spark clusters**
 
-HDInsight cluster comes with pre-defined disk space based on SKU. This space may not be sufficient in large job scenarios. 
+HDInsight cluster comes with predefined disk space based on SKU. This space may not be sufficient in large job scenarios. 
 
 This new feature allows you to add more disks in cluster, which used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the  selected disks are part of node manager’s local directories.
 
@@ -286,7 +286,7 @@ Customers using older version of cluster with OMS version 13 need to install OMS
 
 **How to check your current OMS version**
 
-1. Log in to the cluster using SSH.
+1. Sign in to the cluster using SSH.
 1. Run the following command in your SSH Client.
 
 ```
@@ -296,20 +296,20 @@ sudo /opt/omi/bin/ominiserver/ --version
 
 **How to upgrade your OMS version from 13 to 14**
 
-1. Log in to the [Azure portal](https://portal.azure.com/) 
+1. Sign in to the [Azure portal](https://portal.azure.com/) 
 1. From the resource group, select the HDInsight cluster resource 
-1. Click **Script actions** 
+1. Select **Script actions** 
 1. From **Submit script action** panel, choose **Script type** as custom 
 1. Paste the following link in the Bash script URL box
 https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.1/omsagent-vulnerability-fix-1.14.12-0.sh 
 1. Select **Node type(s)**
-1. Click **Create** 
+1. Select **Create** 
 
 ![Screenshot showing how to do OMS Upgrade](media/hdinsight-release-notes/oms-upgrade.png)
 
 1. Verify the successful installation of the patch using the following steps:  
 
-  1. Log in to the cluster using SSH.
+  1. Sign in to the cluster using SSH.
   1. Run the following command in your SSH Client.
 
   ```
@@ -359,9 +359,9 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 **1. Attach external disks in HDI Hadoop/Spark clusters**
 
-HDInsight cluster comes with pre-defined disk space based on SKU. This space may not be sufficient in large job scenarios. 
+HDInsight cluster comes with predefined disk space based on SKU. This space may not be sufficient in large job scenarios. 
 
-This new feature allows you to add more disks in cluster, which will be used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the  selected disks are be part of node manager’s local directories.
+This new feature allows you to add more disks in cluster, which will be used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the selected disks are part of node manager’s local directories.
 
 > [!NOTE]
 > The added disks are only configured for node manager local directories.
@@ -401,20 +401,20 @@ sudo /opt/omi/bin/ominiserver/ --version
 
 **How to upgrade your OMS version from 13 to 14**
 
-1. Log in to the [Azure portal](https://portal.azure.com/) 
+1. Sign in to the [Azure portal](https://portal.azure.com/) 
 1. From the resource group, select the HDInsight cluster resource 
-1. Click **Script actions** 
+1. Select **Script actions** 
 1. From **Submit script action** panel, choose **Script type** as custom 
 1. Paste the following link in the Bash script URL box
 https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.1/omsagent-vulnerability-fix-1.14.12-0.sh 
 1. Select **Node type(s)**
-1. Click **Create** 
+1. Select **Create** 
 
 ![Screenshot showing how to do OMS Upgrade](media/hdinsight-release-notes/oms-upgrade.png)
 
 1. Verify the successful installation of the patch using the following steps:  
 
-  1. Log in to the cluster using SSH.
+  1. Sign in to the cluster using SSH.
   1. Run the following command in your SSH Client.
 
   ```
@@ -1080,7 +1080,7 @@ No component version change for this release. You can find the current component
 
 ### Known issues
 
-An issue has been fixed in the Azure portal, where users were experiencing an error when they were creating an Azure HDInsight cluster using an SSH authentication type of public key. When users clicked **Review + Create**, they would receive the error "Must not contain any three consecutive characters from SSH username." This issue has been fixed, but it may require that you refresh your browser cache by hitting CTRL + F5 to load the corrected view. The workaround to this issue was to create a cluster with an ARM template. 
+An issue has been fixed in the Azure portal, where users were experiencing an error when they were creating an Azure HDInsight cluster using an SSH authentication type of public key. When users clicked **Review + Create**, they would receive the error "Must not contain any three consecutive characters from SSH username." This issue has been fixed, but it may require that you refresh your browser cache by hitting CTRL + F5 to load the corrected view. The workaround to this issue was to create a cluster with an ARM template.
 
 ## Release date: 07/13/2020
 
