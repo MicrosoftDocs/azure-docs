@@ -121,7 +121,7 @@ az group delete --name ${RESOURCE_GROUP}
 ## 8. Next steps
 
 > [!div class="nextstepaction"]
-> [How to deploy polyglot apps in the Azure Spring Apps Enterprise plan](./how-to-enterprise-deploy-polyglot-apps.md)
+> [How to deploy Java Native Image apps in the Azure Spring Apps Enterprise plan](./how-to-enterprise-deploy-polyglot-apps.md#deploy-java-native-image-applications-preview)
 
 > [!div class="nextstepaction"]
 > [Structured application log for Azure Spring Apps](./structured-app-log.md)
