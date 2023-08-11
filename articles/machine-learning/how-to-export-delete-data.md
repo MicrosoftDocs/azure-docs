@@ -52,11 +52,11 @@ To delete these resources, select them from the list, and choose **Delete**:
 
 :::image type="content" source="media/how-to-export-delete-data/delete-resource-group-resources.png" lightbox="media/how-to-export-delete-data/delete-resource-group-resources.png" alt-text="Screenshot of portal, with delete icon highlighted.":::
 
-A confirmation dialog box will open, where you can confirm your choices. To learn more about resource groups, see [Manage Azure resource groups by using the Azure portal](../azure-resource-manager/management/manage-resource-groups-portal.md).
+A confirmation dialog box opens, where you can confirm your choices.
 
 Job history documents might contain personal user information. These documents are stored in the storage account in blob storage, in `/azureml` subfolders. You can download and delete the data from the portal.
 
-:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" lightbox="media/how-to-export-delete-data/storage-account-folders.png" alt-text="Screenshot of azureml directory in storage account, within the portal.":::
+:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" lightbox="media/how-to-export-delete-data/storage-account-folders.png" alt-text="Screenshot of the Azure Machine Learning directory in the storage account, within the portal.":::
 
 ## Export and delete machine learning resources using Azure Machine Learning studio
 

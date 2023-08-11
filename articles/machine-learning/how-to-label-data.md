@@ -52,7 +52,7 @@ Machine learning algorithms may be triggered during your labeling. If your proje
 
     * After some amount of data is labeled, you might notice **Tasks clustered** at the top of your screen, next to the project name. Images are grouped together to present similar images on the same page. If you notice this, switch to one of the multiple image views to take advantage of the grouping.
     
-    * Later on, you might notice **Tasks prelabeled** next to the project name. Items appear with a suggested label produced by a machine learning classification model. No machine learning model has 100% accuracy. While we only use data for which the model has confidence, these data values might still have incorrect pre-labels. When you notice labels, correct any wrong labels before you submit the page.
+    * Later on, you might notice **Tasks prelabeled** next to the project name. Items appear with a suggested label produced by a machine learning classification model. No machine learning model has 100% accuracy. While we only use data for which the model has confidence, these data values might still have incorrect prelabels. When you notice labels, correct any wrong labels before you submit the page.
     
     * For object identification models, you may notice bounding boxes and labels already present. Correct all mistakes with them before you submit the page.
     
@@ -62,9 +62,9 @@ Machine learning algorithms may be triggered during your labeling. If your proje
     
     * You may eventually see **Tasks prelabeled** next to the project name. Items appear with a suggested label that a machine learning classification model produces. No machine learning model has 100% accuracy. While we only use data for which the model is confident, these data values might still be incorrectly prelabeled. When you see labels, correct any wrong labels before submitting the page.
 
-Early in a labeling project, the machine learning model may only have enough accuracy to pre-label a small image subset. Once these images are labeled, the labeling project will return to manual labeling to gather more data for the next model training round. Over time, the model will become more confident about a higher proportion of images. Later in the project, its confidence results in more pre-label tasks.
+Early in a labeling project, the machine learning model may only have enough accuracy to prelabel a small image subset. Once these images are labeled, the labeling project will return to manual labeling to gather more data for the next model training round. Over time, the model will become more confident about a higher proportion of images. Later in the project, its confidence results in more prelabel tasks.
 
-When there are no more pre-labeled tasks, you stop confirming or correcting labels, and go back to manual item tagging.
+When there are no more prelabeled tasks, you stop confirming or correcting labels, and go back to manual item tagging.
 
 ## Image tasks
 
@@ -100,7 +100,7 @@ While you label the medical images with the same tools as any other images, you 
 
 Assign a single tag to the entire image for an "Image Classification Multi-Class" project type. To review the directions at any time, go to the **Instructions** page, and select **View detailed instructions**.
 
-If you realize that you made a mistake after you assign a tag to an image, you can fix it. Select the "**X**" on the label displayed below the image to clear the tag. You can also select the image and choose another class. The newly-selected value replaces the previously applied tag.
+If you realize that you made a mistake after you assign a tag to an image, you can fix it. Select the "**X**" on the label displayed below the image to clear the tag. You can also select the image and choose another class. The newly selected value replaces the previously applied tag.
 
 ## Tag images for multi-label classification
 
@@ -122,7 +122,7 @@ Azure will only enable the **Submit** button after you apply at least one tag to
 
 ## Tag images and specify bounding boxes for object detection
 
-If your project is of type "Object Identification (Bounding Boxes)," you'll specify one or more bounding boxes in the image, and apply a tag to each box. Images can have multiple bounding boxes, each with a single tag. Use **View detailed instructions** to determine if your project uses multiple bounding boxes.
+If your project is of type "Object Identification (Bounding Boxes)," specify one or more bounding boxes in the image, and apply a tag to each box. Images can have multiple bounding boxes, each with a single tag. Use **View detailed instructions** to determine if your project uses multiple bounding boxes.
 
 1. Select a tag for the bounding box you plan to create.
 1. Select the **Rectangular box** tool ![Rectangular box tool](./media/how-to-label-data/rectangular-box-tool.png), or select "R."
@@ -209,7 +209,7 @@ Once you tag all the items in an entry, select **Submit** to move to the next en
 
 When you submit a page of tagged data, Azure assigns new unlabeled data to you from a work queue. If there's no more unlabeled data available, a new message says so, along with a link to the portal home page.
 
-When you finish labeling, select your image inside a circle in the upper-right corner of the studio, and then select **sign-out**. If you don't sign out, Azure will eventually "time you out" and assign your data to another labeler.
+When you finish labeling, select your image inside a circle in the upper-right corner of the studio, and then select **sign-out**. If you don't sign out, Azure times you out and assigns your data to another labeler.
 
 ## Next steps
 
