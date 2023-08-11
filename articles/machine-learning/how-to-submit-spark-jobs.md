@@ -186,7 +186,7 @@ To create a job, a standalone Spark job can be defined as a YAML specification f
   ```yaml
   resources:
     instance_type: standard_e8s_v3
-    runtime_version: "3.3"
+    runtime_version: "3.2"
   ```
 - `compute` - this property defines the name of an attached Synapse Spark pool, as shown in this example:
   ```yaml
@@ -267,7 +267,7 @@ identity:
 
 resources:
   instance_type: standard_e4s_v3
-  runtime_version: "3.3"
+  runtime_version: "3.2"
 ```
 
 > [!NOTE]
@@ -383,7 +383,7 @@ spark_job = spark(
     executor_instances=2,
     resources={
         "instance_type": "Standard_E8S_V3",
-        "runtime_version": "3.3.0",
+        "runtime_version": "3.2.0",
     },
     inputs={
         "titanic_data": Input(
@@ -612,7 +612,7 @@ jobs:
 
     resources:
       instance_type: standard_e8s_v3
-      runtime_version: "3.3"
+      runtime_version: "3.2"
 ```
 > [!NOTE]
 > To use an attached Synapse Spark pool, define the `compute` property in the sample YAML specification file shown above, instead of `resources` property.
@@ -695,7 +695,7 @@ def spark_pipeline(spark_input_data):
     spark_step.identity = ManagedIdentityConfiguration()
     spark_step.resources = {
         "instance_type": "Standard_E8S_V3",
-        "runtime_version": "3.3.0",
+        "runtime_version": "3.2.0",
     }
 
 pipeline = spark_pipeline(
