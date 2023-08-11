@@ -169,9 +169,9 @@ You can create an APM configuration and bind to app builds and deployments, as e
 You can manage APM integration by configuring properties or secrets in the APM configuration using the Azure portal or the Azure CLI.
 
 > [!NOTE]
-> When configuring properties or secrets via APM configurations, use key names without the APM name as prefix. For example, don't use a DT_ prefix for a Dynatrace binding or APPLICATIONINSIGHTS_ for Application Insights. Tanzu APM buildpacks transform the key name to the original environment variable name with a prefix. 
+> When configuring properties or secrets via APM configurations, use key names without the APM name as prefix. For example, don't use a DT_ prefix for Dynatrace or APPLICATIONINSIGHTS_ for Application Insights. Tanzu APM buildpacks transform the key name to the original environment variable name with a prefix. 
 > 
-> In case you intend to override or configure some properties/secrets like app name on app level , you need to set environment variables when doing app deployment with the original environment variables with the APM name as prefix.
+> In case you intend to override or configure some properties/secrets like app name on app level, you need to set environment variables when deploying app with the original environment variables with the APM name as prefix.
 
 ##### [Azure portal](#tab/azure-portal)
 
