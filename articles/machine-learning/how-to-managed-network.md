@@ -773,6 +773,7 @@ __Inbound__ service tag rules:
 * Managed virtual network uses private endpoint connection to access your private resources. You can't have a private endpoint and a service endpoint at the same time for your Azure resources, such as a storage account. We recommend using private endpoints in all scenarios.
 * The managed network will be deleted and cleaned up when the workspace is deleted. 
 * Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add additional outbounds, such as to FQDNs, Microsoft can't guarantee that you are protected from data exfiltration to those outbound destinations.
+* Creating a compute cluster in a different region than the workspace isn't supported when using a managed virtual network.
 
 ## Next steps
 
