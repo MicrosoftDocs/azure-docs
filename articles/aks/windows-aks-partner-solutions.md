@@ -23,12 +23,12 @@ Our 3rd party partners featured below have published introduction guides to star
 
 
 ## DevOps 
-
+ 
 DevOps streamlines the delivery process, improves collaboration across teams, and enhances software quality, ensuring swift, reliable, and continuous deployment of your Windows-based applications. 
 
 ### GitLab 
 
-![Image of GitLab's logo.](./media/windows-aks-partner-solutions/gitlab.png) 
+![Logo of GitLab.](./media/windows-aks-partner-solutions/gitlab.png) 
 
 The GitLab DevSecOps Platform supports the Microsoft development ecosystem with performance, accessibility testing, SAST, DAST and Fuzzing security scanning, dependency scanning, SBOM, license management and more. 
 
@@ -38,7 +38,7 @@ To learn more, please our see our [joint blog](https://techcommunity.microsoft.c
 
 ### CircleCI 
 
-![Image of Circle CI's logo.](./media/windows-aks-partner-solutions/circleci.png)
+![Logo of Circle CI.](./media/windows-aks-partner-solutions/circleci.png)
 
 CircleCI’s integration with Azure Kubernetes Services (AKS) allows you to automate, build, validate, and ship containerized Windows applications, ensuring faster and more reliable software deployment. You can easily integrate your pipeline with AKS using CircleCI orbs, which are prepacked snippets of YAML configuration.  
  
@@ -50,7 +50,7 @@ Ensure efficient traffic management, enhanced security, and optimal network perf
 
 ### F5 NGINX 
 
-![Image of F5 NGINX's logo.](./media/windows-aks-partner-solutions/f5.png) 
+![Logo of F5 NGINX.](./media/windows-aks-partner-solutions/f5.png) 
 
 NGINX Ingress Controller deployed in AKS, on-premises, and in the cloud implements unified Kubernetes-native API gateways, load balancers, and Ingress controllers to reduce complexity, increase uptime, and provide in-depth insights into app health and performance for containerized Windows workloads. 
 
@@ -60,7 +60,7 @@ Learn how to manage connectivity to your Windows applications running on Windows
 
 ### Calico 
 
-![Image of Calico's logo.](./media/windows-aks-partner-solutions/tigera.png) 
+![Logo of Tigera Calico.](./media/windows-aks-partner-solutions/tigera.png) 
 
 Tigera provides an active security platform with full-stack observability for containerized workloads and Microsoft AKS as a fully managed SaaS (Calico Cloud) or a self-managed service (Calico Enterprise). The platform prevents, detects, troubleshoots, and automatically mitigates exposure risks of security breaches for workloads in Microsoft AKS.   
 
@@ -74,7 +74,7 @@ Observability provides deep insights into your systems, enabling rapid issue det
 
 ### Datadog 
 
-![Image of Datadog's logo.](./media/windows-aks-partner-solutions/datadog.png)
+![Logo of Datadog.](./media/windows-aks-partner-solutions/datadog.png)
 
 Datadog is the essential monitoring and security platform for cloud applications. We bring together end-to-end traces, metrics, and logs to make your applications, infrastructure, and third-party services entirely observable. Partner with Datadog for Windows on AKS environments to streamline monitoring, proactively resolve issues, and optimize application performance and availability.  
 
@@ -82,7 +82,7 @@ Get started by following the recommendations in our [joint blog](https://techcom
 
 ### New Relic 
 
-![Image of New Relic's logo.](./media/windows-aks-partner-solutions/newrelic.png) 
+![Logo of New Relic.](./media/windows-aks-partner-solutions/newrelic.png) 
 
 New Relic's Azure Kubernetes integration is a powerful solution that seamlessly connects New Relic's monitoring and observability capabilities with Azure Kubernetes Service (AKS). By deploying the New Relic Kubernetes integration, users gain deep insights into their AKS clusters' performance, health, and resource utilization. This integration allows users to efficiently manage and troubleshoot containerized applications, optimize resource allocation, and proactively identify and resolve issues in their AKS environments. With New Relic's comprehensive monitoring and analysis tools, businesses can ensure the smooth operation and optimal performance of their Kubernetes workloads on Azure. 
 
@@ -94,7 +94,7 @@ Ensure the integrity and confidentiality of applications, thereby fostering trus
 
 ### Prisma Cloud
 
-![Image of Prisma Cloud's logo.](./media/windows-aks-partner-solutions/prismacloud.png)
+![Logo of Palo Alto Network's Prisma Cloud.](./media/windows-aks-partner-solutions/prismacloud.png)
 
 Prisma Cloud is a comprehensive Cloud-Native Application Protection Platform (CNAPP) tailor-made to help secure Windows containers on Azure Kubernetes Service (AKS). Gain continuous, real-time visibility and control over Windows container environments including vulnerability and compliance management, identities and permissions, and AI-assisted runtime defense. Integrated container scanning across the pipeline and in Azure Container Registry ensure security throughout the entire application lifecycle.  
 
@@ -106,7 +106,7 @@ Storage enables standardized and seamless storage interactions, ensuring high ap
 
 ### NetApp 
 
-![Image of NetApp's logo.](./media/windows-aks-partner-solutions/netapp.png) 
+![Logo of NetApp.](./media/windows-aks-partner-solutions/netapp.png) 
 
 Astra Control provides application data management for stateful workloads on Azure Kubernetes Service (AKS). Discover your apps and define protection policies that automatically back up workloads offsite. Protect, clone, and move applications across Kubernetes environments with ease. 
 
@@ -118,7 +118,7 @@ Automate and standardize the system settings across your environments to enhance
 
 ### Chef 
 
-![Image of Chef's logo.](./media/windows-aks-partner-solutions/progress.png) 
+![Logo of Chef.](./media/windows-aks-partner-solutions/progress.png) 
 
 Chef provides visibility and threat detection from build to runtime that monitors, audits, and remediates the security of your Azure cloud services and Kubernetes and Windows container assets. Chef provides comprehensive visibility and continuous compliance into your cloud security posture and helps limit the risk of misconfigurations in cloud-native environments by providing best practices based on CIS, STIG, SOC2, PCI-DSS and other benchmarks. This is part of a broader compliance offering that supports on-premises or hybrid cloud environments including applications deployed on the edge. 
 
