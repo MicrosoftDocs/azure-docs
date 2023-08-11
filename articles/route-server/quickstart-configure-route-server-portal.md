@@ -1,12 +1,11 @@
 ---
 title: 'Quickstart: Create and configure Route Server - Azure portal'
 description: In this quickstart, you learn how to create and configure an Azure Route Server using the Azure portal.
-services: route-server
 author: halkazwini
+ms.author: halkazwini
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 07/19/2022
-ms.author: halkazwini
+ms.date: 08/11/2022
 ms.custom: mode-ui, template-quickstart
 ---
 
