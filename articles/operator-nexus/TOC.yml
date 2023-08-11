@@ -162,3 +162,5 @@
       href: reference-near-edge-storage.md
     - name: Limits & quotas
       href: reference-limits-and-quotas.md
+    - name: Azure Kubernetes Service VM SKUs
+      href: reference-nexus-kubernetes-cluster-sku.md
