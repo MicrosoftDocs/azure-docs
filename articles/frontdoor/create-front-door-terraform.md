@@ -88,7 +88,7 @@ In this article, you learn how to:
 
 1. Paste the endpoint into a browser.
 
-    :::image type="content" source="./media/create-front-door-terraform/endpoint.png" alt-text="Screenshot of the successful connection to endpoint.":::
+    :::image type="content" source="./media/create-front-door-terraform/endpoint.png" alt-text="Screenshot of a successful connection to endpoint.":::
 
 ## Clean up resources
 
