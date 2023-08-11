@@ -234,7 +234,7 @@ minimal CPU overhead.
 Our default is to use 1/4 of the JVM heap for [memtable_heap_space](https://cassandra.apache.org/doc/latest/cassandra/configuration/cass_yaml_file.html#memtable_heap_space)
 in the cassandra.yaml. For write oriented application and/or on SKUs with small memory
 this can lead to frequent flushing and fragmented sstables thus requiring more compaction.
-In such cases increasing it to at least 4048 might be beneficial but requires careful beanchmarking
+In such cases increasing it to at least 4048 might be beneficial but requires careful benchmarking
 to make sure other operations (e.g. reads) are not effected.
 
 ## Next steps
