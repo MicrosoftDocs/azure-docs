@@ -19,7 +19,7 @@ To protect your Virtual Machine Scale Sets from datacenter-level failures, you c
 
 ## Design considerations for availability zones
 
-Virtual machine scale sets supports 3 zonal deployment models:
+Virtual Machine Scale Sets supports 3 zonal deployment models:
 
 - Zone redundant or zone spanning (recommended)
 - Zonal or zone aligned (single zone)
