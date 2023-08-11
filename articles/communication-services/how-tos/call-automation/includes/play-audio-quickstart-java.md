@@ -26,7 +26,7 @@ ms.author: kpunjabi
 
 ## Create a new Java application
 
-In your terminal or command window, navigate to the directory where you would like to create your Java application. Run the command below to generate the Java project from the maven-archetype-quickstart template. 
+In your terminal or command window, navigate to the directory where you would like to create your Java application. Run the command shown here to generate the Java project from the maven-archetype-quickstart template. 
 
 ```console
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
@@ -34,7 +34,7 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 
 The previous command creates a directory with the same name as `artifactId` argument. Under this directory, `src/main/java` directory contains the project source code, `src/test/java` directory contains the test source. 
 
-You'll notice that the 'generate' step created a directory with the same name as the artifactId. Under this directory, `src/main/java` directory contains source code, `src/test/java` directory contains tests, and `pom.xml` file is the project's Project Object Model, or POM.
+You notice that the 'generate' step created a directory with the same name as the artifactId. Under this directory, `src/main/java` directory contains source code, `src/test/java` directory contains tests, and `pom.xml` file is the project's Project Object Model, or POM.
 
 Update your applications POM file to use Java 8 or higher.
 
@@ -48,7 +48,7 @@ Update your applications POM file to use Java 8 or higher.
 
 ## Configure Azure SDK Dev Feed
 
-For AI features in public preview add the [azure-sdk-for-java feed](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java) to your `pom.xml`. Follow the instructions after clicking the "Connect to Feed" button.
+For AI features in public preview, add the [azure-sdk-for-java feed](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java) to your `pom.xml`. Follow the instructions after clicking the "Connect to Feed" button.
 
 ## Add package references
 
@@ -56,7 +56,7 @@ In your POM file, add the following reference for the project.
 
 **azure-communication-callautomation**
 
-Azure Communication Services Call Automation SDK package is retrieved from the Azure SDK Dev Feed configured above.
+Azure Communication Services Call Automation SDK package is retrieved from the Azure SDK Dev Feed.
 
 ``` xml 
 <dependency>
@@ -82,7 +82,7 @@ In your editor of choice, open App.java file and update it with the code provide
 
 ## Establish a call
 
-By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/quickstart-make-an-outbound-call.md). In this quickstart, we'll create an outbound call.
+By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).  You can also use the code snippet provided here to understand how to answer a call.
 
 ``` java
 AnswerCallOptions answerCallOptions = new AnswerCallOptions("<Incoming call context>", "<https://sample-callback-uri>"); 
@@ -94,11 +94,11 @@ Response<AnswerCallResult> answerCallResult = callAutomationClient
 
 ## Play audio
 
-Once the call has been established, there are multiple options for how you may wish to play the audio. You can play audio to the participant that has just joined the call or play audio to all the participants in the call.
+Once the call has been established, there are multiple options for how you may wish to play the audio. You can play audio to the participant that has joined the call or play audio to all the participants in the call.
 
 ### Play source - Audio file
 
-To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
+To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files, you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
 
 ``` java
 var playSource = new FileSource(new Uri(audioUri));
@@ -106,7 +106,7 @@ var playSource = new FileSource(new Uri(audioUri));
 
 ### Play source - Text-To-Speech (Public Preview)
 
-To play audio using Text-To-Speech through Azure AI services you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](../../../../ai-services/Speech-Service/language-support.md?tabs=tts).
+To play audio using Text-To-Speech through Azure AI services, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](../../../../ai-services/Speech-Service/language-support.md?tabs=tts).
 
 ``` java
 // Provide SourceLocale and VoiceKind to select an appropriate voice.
@@ -130,9 +130,12 @@ String ssmlToPlay = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/sy
 var playSource = new SsmlSource() 
     .setSsmlText(ssmlToPlay);
 ```
+
+Once you've decided on which playSource you wish to use for playing audio, you can then choose whether you want to play it to a specific participant or to all participants.
+
 ## Play audio to all participants
 
-In this scenario audio is played to all participants on the call.
+In this scenario, audio is played to all participants on the call.
 
 ``` java
 var playOptions = new PlayToAllOptions(playSource); 
@@ -145,7 +148,7 @@ log.info("Play result: " + playResponse.getStatusCode());
 
 ## Play audio to a specific participant
 
-In this scenario audio is played to a specific participant. 
+In this scenario, audio is played to a specific participant. 
 
 ``` java 
 var playTo = Arrays.asList(targetParticipant); 
@@ -158,7 +161,7 @@ var playResponse = callAutomationClient.getCallConnectionAsync(callConnectionId)
 
 ## Play audio on loop
 
-You can use the loop option to play hold music that loops until your application is ready to accept the caller or progress the caller to the next logical step based on your applications business logic. 
+You can use the loop option to play hold music that loops until your application is ready to accept the caller. Or progress the caller to the next logical step based on your applications business logic.
 
 ``` java
 var playOptions = new PlayToAllOptions(playSource) 
@@ -171,7 +174,7 @@ var playResponse = callAutomationClient.getCallConnectionAsync(callConnectionId)
 
 ## Enhance play with audio file caching
 
-If you are playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour. **Note:** Caching audio files is not suitable for dynamic prompts. If you change the URL provided to ACS, it will not update the cached URL straight away. The update will occur after the existing cache expires.
+If you are playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour. **Note:** Caching audio files is not suitable for dynamic prompts. If you change the URL provided to ACS, it does not update the cached URL straight away. The update will occur after the existing cache expires.
 
 ``` java
 var playTo = Arrays.asList(targetParticipant); 
@@ -187,7 +190,7 @@ var playResponse = callAutomationClient.getCallConnectionAsync(callConnectionId)
 
 ## Handle play action event updates 
 
-Your application will receive action lifecycle event updates on the callback URL that was provided to Call Automation service at the time of answering the call. Below is an example of a successful play event update.
+Your application receives action lifecycle event updates on the callback URL that was provided to Call Automation service at the time of answering the call. An example of a successful play event update.
 
 ### Example of how you can deserialize the *PlayCompleted* event:
 
