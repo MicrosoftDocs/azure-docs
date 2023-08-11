@@ -23,7 +23,7 @@ Saving images to a compute gallery and replicating those images incurs extra cos
 
 ## Prerequisites
 
-- To change settings for the lab plan, your Azure account needs the [Owner](/azure/role-based-access-control/built-in-roles#owner), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Lab Services Contributor](/azure/role-based-access-control/built-in-roles#lab-services-contributor) role on the lab plan. Learn more about the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
+- To change settings for the lab plan, your Azure account needs the [Owner](/azure/role-based-access-control/built-in-roles#owner), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Lab Services Contributor](/azure/role-based-access-control/built-in-roles#lab-services-contributor) role on the lab plan. Learn more about the [Azure Lab Services built-in roles](./concept-lab-services-role-based-access-control.md).
 
 - To attach an Azure compute gallery to a lab plan, your Azure account needs to have the following permissions:
 

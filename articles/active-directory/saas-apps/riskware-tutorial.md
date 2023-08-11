@@ -131,7 +131,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the top right, click **Maintenance** to open the maintenance page.
 
-	![Screenshot shows the Riskware Configurations maintain.](./media/riskware-tutorial/maintain.png "Maintainance")
+	![Screenshot shows the Riskware Configurations maintain.](./media/riskware-tutorial/maintain.png "Maintenance")
 
 1. In the maintenance page, click **Authentication**.
 

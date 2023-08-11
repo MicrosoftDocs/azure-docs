@@ -1,21 +1,21 @@
 ### YamlMime:Hub
 
 title: Azure Native ISV Services
-summary: Use Azure Native ISV Services to seamlessly provision, manage, and integrate preferred third-party solutions on Azure.
+summary: Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native ISV Services are developed and managed by Microsoft and the ISV.
 brand: azure
 
 metadata:
   title: Azure Native ISV Services
-  description: Use Azure Native ISV Services to seamlessly provision, manage, and integrate preferred third-party solutions on Azure. 
+  description: Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native ISV Services are developed and managed by Microsoft and the ISV.
   author: flang-msft
   ms.topic: hub-page
-  ms.date: 04/26/2023
+  ms.date: 06/06/2023
   ms.author: franlanglois
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: What is Azure Native ISV Services?
+    - title: What are Azure Native ISV Services?
       itemType: overview
       url: ./overview.md
     - title: Find Azure Native ISV Services 
@@ -23,7 +23,7 @@ highlightedContent:
       url: ./partners.md
 
 productDirectory:
-  title: Our partners
+  title: Available Services
   items:
     # Card 1
     - title: Elastic
@@ -68,13 +68,13 @@ productDirectory:
         - url: ./qumulo/qumulo-overview.md
           text: Use a multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.
   # Card 8
-    - title: New Relic Preview
+    - title: New Relic
       imageSrc: ./media/index/new-relic.svg
       links:
         - url: ./new-relic/new-relic-overview.md
           text: Get end-to-end cloud observability to analyze and troubleshoot performance of applications, infrastructure, logs, real-user monitoring and more.
   # Card 9
-    - title: Palo Alto Networks Preview
+    - title: Palo Alto Networks
       imageSrc: ./media/index/palo-alto.svg
       links:
         - url: ./palo-alto/palo-alto-overview.md

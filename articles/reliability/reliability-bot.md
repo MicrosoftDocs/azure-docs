@@ -23,7 +23,7 @@ For more information on deploying bots with local data residency and regional co
 
 ## Availability zone support
 
-Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. Availability zones are designed to ensure high availability in the case of a local zone failure.  When one zone experiences a failure, the remaining two zones support all regional services, capacity, and high availability. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Regions and availability zones](/azure/availability-zones/az-overview).
+[!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
 For regional bots, Azure Bot Service supports zone redundancy by default.  You don't need to set it up or reconfigure for availability zone support. 
 

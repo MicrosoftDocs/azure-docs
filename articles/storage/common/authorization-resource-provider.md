@@ -4,12 +4,12 @@ description: The Azure Storage resource provider is a service that provides acce
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
 ---
 

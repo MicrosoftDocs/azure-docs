@@ -84,8 +84,8 @@ landingContent:
     linkLists:
       - linkListType: sample
         links:
-          - text: Policies
-            url: ./policies/index.md
+          - text: API Management policy snippets
+            url: https://github.com/Azure/api-management-policy-snippets
           - text: Azure PowerShell
             url: powershell-samples.md
           - text: Azure Policy built-ins

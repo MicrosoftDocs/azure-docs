@@ -52,7 +52,9 @@ The required role of least privilege varies based on the type of user you're add
 
 ## Create a new user
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the **User Administrator** role.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) in the **User Administrator** role.
 
 1. Navigate to **Azure Active Directory** > **Users**.
 
@@ -128,7 +130,7 @@ The final tab captures several key details from the user creation process. Revie
 
 The overall process for inviting an external guest user is similar, except for a few details on the **Basics** tab and the email invitation process. You can't assign external users to administrative units. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the **User Administrator** role. A role with Guest Inviter privileges can also invite external users.
+1. Sign in to the [Azure portal](https://portal.azure.com) in the **User Administrator** role. A role with Guest Inviter privileges can also invite external users.
 
 1. Navigate to **Azure Active Directory** > **Users**.
 
@@ -176,7 +178,7 @@ You can delete an existing user using Azure portal.
 
 To delete a user, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using one of the appropriate roles.
+1. Sign in to the [Azure portal](https://portal.azure.com) using one of the appropriate roles.
 
 1. Go to **Azure Active Directory** > **Users**.
 

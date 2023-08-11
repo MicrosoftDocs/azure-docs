@@ -25,7 +25,7 @@ These actions may be disabled if there no more cores that can be enabled for you
 
 ### Prerequisites
 
-- To create a support request, your Azure account needs the [Owner](/azure/role-based-access-control/built-in-roles#owner), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Support Request Contributor](/azure/role-based-access-control/built-in-roles#support-request-contributor) Azure Active Directory role at the subscription level.
+[!INCLUDE [Create support request](./includes/lab-services-prerequisite-create-support-request.md)]
 
 ## Request a limit increase
 

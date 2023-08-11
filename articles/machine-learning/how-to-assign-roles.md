@@ -11,19 +11,20 @@ ms.author: meyetman
 author: meyetman
 ms.date: 08/01/2022
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2, event-tier1-build-2022, devx-track-arm-template
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 
 # Manage access to an Azure Machine Learning workspace
 
-In this article, you learn how to manage access (authorization) to an Azure Machine Learning workspace. [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) is used to manage access to Azure resources, such as the ability to create new resources or use existing ones. Users in your Azure Active Directory (Azure AD) are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles.
+In this article, you learn how to manage access (authorization) to an Azure Machine Learning workspace. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) is used to manage access to Azure resources, such as the ability to create new resources or use existing ones. Users in your Azure Active Directory (Azure AD) are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles.
 
 > [!TIP]
 > While this article focuses on Azure Machine Learning, individual services that Azure Machine Learning relies on provide their own RBAC settings. For example, using the information in this article, you can configure who can submit scoring requests to a model deployed as a web service on Azure Kubernetes Service. But Azure Kubernetes Service provides its own set of Azure roles. For service specific RBAC information that may be useful with Azure Machine Learning, see the following links:
 >
-> * [Control access to Azure Kubernetes cluster resources](../aks/azure-ad-rbac.md)
-> * [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
-> * [Use Azure RBAC for access to blob data](../storage/blobs/assign-azure-role-data-access.md)
+> * [Control access to Azure Kubernetes cluster resources](/azure/aks/azure-ad-rbac)
+> * [Use Azure RBAC for Kubernetes authorization](/azure/aks/manage-azure-rbac)
+> * [Use Azure RBAC for access to blob data](/azure/storage/blobs/assign-azure-role-data-access)
 
 > [!WARNING]
 > Applying some roles may limit UI functionality in Azure Machine Learning studio for other users. For example, if a user's role does not have the ability to create a compute instance, the option to create a compute instance will not be available in studio. This behavior is expected, and prevents the user from attempting operations that would return an access denied error.
@@ -40,7 +41,7 @@ Azure Machine Learning workspaces have a five built-in roles that are available 
 | **Contributor** | View, create, edit, or delete (where applicable) assets in a workspace. For example, contributors can create an experiment, create or attach a compute cluster, submit a run, and deploy a web service. |
 | **Owner** | Full access to the workspace, including the ability to view, create, edit, or delete (where applicable) assets in a workspace. Additionally, you can change role assignments. |
 
-In addition, [Azure Machine Learning registries](how-to-manage-registries.md) have a **AzureML Registry User** role that can be assigned to a registry resource to grant data scientists user-level prermissions. For administrator-level permissions to create or delete registries, use **Contributor** or **Owner** role.
+In addition, [Azure Machine Learning registries](how-to-manage-registries.md) have a **AzureML Registry User** role that can be assigned to a registry resource to grant data scientists user-level permissions. For administrator-level permissions to create or delete registries, use **Contributor** or **Owner** role.
 
 | Role | Access level |
 | --- | --- |
@@ -49,30 +50,38 @@ In addition, [Azure Machine Learning registries](how-to-manage-registries.md) ha
 You can combine the roles to grant different levels of access. For example, you can grant a workspace user both **AzureML Data Scientist** and **AzureML Compute Operator** roles to permit the user to perform experiments while creating computes in a self-service manner.
 
 > [!IMPORTANT]
-> Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How Azure RBAC works](../role-based-access-control/overview.md#how-azure-rbac-works).
+> Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How Azure RBAC works](/azure/role-based-access-control/overview#how-azure-rbac-works).
 
 
 ## Manage workspace access
 
 If you're an owner of a workspace, you can add and remove roles for the workspace. You can also assign roles to users. Use the following links to discover how to manage access:
-- [Azure portal UI](../role-based-access-control/role-assignments-portal.md)
-- [PowerShell](../role-based-access-control/role-assignments-powershell.md)
-- [Azure CLI](../role-based-access-control/role-assignments-cli.md)
-- [REST API](../role-based-access-control/role-assignments-rest.md)
-- [Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)
+
+- [Azure portal UI](/azure/role-based-access-control/role-assignments-portal)
+- [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
+- [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
+- [REST API](/azure/role-based-access-control/role-assignments-rest)
+- [Azure Resource Manager templates](/azure/role-based-access-control/role-assignments-template)
+
+For example, use [Azure CLI](/azure/role-based-access-control/role-assignments-cli) to assign contributor role to joe@contoso.com for resource group "this-rg" with the following command:
+
+```azurecli 
+az role assignment create --role "Contributor" --assignee "joe@contoso.com" --resource-group this-rg
+```
+
 
 ## Use Azure AD security groups to manage workspace access
 
 You can use Azure AD security groups to manage access to workspaces. This approach has following benefits:
  * Team or project leaders can manage user access to workspace as security group owners, without needing Owner role on the workspace resource directly.
  * You can organize, manage and revoke users' permissions on workspace and other resources as a group, without having to manage permissions on user-by-user basis.
- * Using Azure AD groups helps you to avoid reaching the [subscription limit](../role-based-access-control/troubleshooting.md#limits) on role assignments. 
+ * Using Azure AD groups helps you to avoid reaching the [subscription limit](/azure/role-based-access-control/troubleshoot-limits) on role assignments. 
 
 To use Azure AD security groups:
- 1. [Create a security group](../active-directory/fundamentals/active-directory-groups-view-azure-portal.md).
- 2. [Add a group owner](../active-directory/fundamentals/how-to-manage-groups.md#add-or-remove-members-and-owners). This user has permissions to add or remove group members. Note that the group owner isn't required to be group member, or have direct RBAC role on the workspace.
+ 1. [Create a security group](/azure/active-directory/fundamentals/active-directory-groups-view-azure-portal).
+ 2. [Add a group owner](/azure/active-directory/fundamentals/how-to-manage-groups#add-or-remove-members-and-owners). This user has permissions to add or remove group members. Note that the group owner isn't required to be group member, or have direct RBAC role on the workspace.
  3. Assign the group an RBAC role on the workspace, such as AzureML Data Scientist, Reader or Contributor. 
- 4. [Add group members](../active-directory/fundamentals/how-to-manage-groups.md#add-or-remove-members-and-owners). The members consequently gain access to the workspace.
+ 4. [Add group members](/azure/active-directory/fundamentals/how-to-manage-groups#add-or-remove-members-and-owners). The members consequently gain access to the workspace.
 
 ## Create custom role
 
@@ -117,19 +126,19 @@ This custom role can do everything in the workspace except for the following act
 
 To deploy this custom role, use the following Azure CLI command:
 
-```azurecli-interactive 
+```azurecli 
 az role definition create --role-definition data_scientist_role.json
 ```
 
 After deployment, this role becomes available in the specified workspace. Now you can add and assign this role in the Azure portal.
 
-For more information on custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md). 
+For more information on custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles). 
 
 ### Azure Machine Learning operations
 
-For more information on the operations (actions and not actions) usable with custom roles, see [Resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices). You can also use the following Azure CLI command to list operations:
+For more information on the operations (actions and not actions) usable with custom roles, see [Resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices). You can also use the following Azure CLI command to list operations:
 
-```azurecli-interactive
+```azurecli
 az provider operation show –n Microsoft.MachineLearningServices
 ```
 
@@ -137,13 +146,13 @@ az provider operation show –n Microsoft.MachineLearningServices
 
 In the Azure CLI, run the following command:
 
-```azurecli-interactive
+```azurecli
 az role definition list --subscription <sub-id> --custom-role-only true
 ```
 
 To view the role definition for a specific custom role, use the following Azure CLI command. The `<role-name>` should be in the same format returned by the command above:
 
-```azurecli-interactive
+```azurecli
 az role definition list -n <role-name> --subscription <sub-id>
 ```
 
@@ -151,7 +160,7 @@ az role definition list -n <role-name> --subscription <sub-id>
 
 In the Azure CLI, run the following command:
 
-```azurecli-interactive
+```azurecli
 az role definition update --role-definition update_def.json --subscription <sub-id>
 ```
 
@@ -186,12 +195,12 @@ The following table is a summary of Azure Machine Learning activities and the pe
 | Scoring against a deployed AKS endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (when you are not using Azure Active Directory auth) OR `"/workspaces/read"` (when you are using token auth) |
 | Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listStorageAccountKeys/action", "/workspaces/listNotebookAccessToken/read"`|
 | Create new custom role | Owner, contributor, or custom role allowing `Microsoft.Authorization/roleDefinitions/write` | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
-| Create/manage online endpoints and deployments | Not required | Not required | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*` |
+| Create/manage online endpoints and deployments | Not required | Not required | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. If you use studio to create/manage online endpoints/deployments, you will need an additional permission "Microsoft.Resources/deployments/write" from the resource group owner. |
 | Retrieve authentication credentials for online endpoints | Not required | Not required | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` and `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listkeys/action`.
 
 1: If you receive a failure when trying to create a workspace for the first time, make sure that your role allows `Microsoft.MachineLearningServices/register/action`. This action allows you to register the Azure Machine Learning resource provider with your Azure subscription.
 
-2: When attaching an AKS cluster, you also need to have the [Azure Kubernetes Service Cluster Admin Role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) on the cluster.
+2: When attaching an AKS cluster, you also need to have the [Azure Kubernetes Service Cluster Admin Role](/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-admin-role) on the cluster.
 
 ### Differences between actions for V1 and V2 APIs
 
@@ -211,11 +220,11 @@ You can make custom roles compatible with both V1 and V2 APIs by including both 
 
 When using a customer-managed key (CMK), an Azure Key Vault is used to store the key. The user or service principal used to create the workspace must have owner or contributor access to the key vault.
 
-Within the key vault, the user or service principal must have create, get, delete, and purge access to the key through a key vault access policy. For more information, see [Azure Key Vault security](../key-vault/general/security-features.md#controlling-access-to-key-vault-data).
+Within the key vault, the user or service principal must have create, get, delete, and purge access to the key through a key vault access policy. For more information, see [Azure Key Vault security](/azure/key-vault/general/security-features#controlling-access-to-key-vault-data).
 
 ### User-assigned managed identity with Azure Machine Learning compute cluster
 
-To assign a user assigned identity to an Azure Machine Learning compute cluster, you need write permissions to create the compute and the [Managed Identity Operator Role](../role-based-access-control/built-in-roles.md#managed-identity-operator). For more information on Azure RBAC with Managed Identities, read [How to manage user assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
+To assign a user assigned identity to an Azure Machine Learning compute cluster, you need write permissions to create the compute and the [Managed Identity Operator Role](/azure/role-based-access-control/built-in-roles#managed-identity-operator). For more information on Azure RBAC with Managed Identities, read [How to manage user assigned identity](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 ### MLflow operations
 
@@ -595,13 +604,11 @@ Here are a few things to be aware of while you use Azure role-based access contr
 
 - To perform quota operations in a workspace, you need subscription level permissions. This means setting either subscription level quota or workspace level quota for your managed compute resources can only happen if you have write permissions at the subscription scope.
 
-- When there are two role assignments to the same Azure Active Directory user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they are also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
+- In order to deploy on studio, you need "Microsoft.Resources/deployments/write" AND "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments/write". For SDK/CLI deployments, you need "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments/write". Contact your workspace/resource group owner for the additional permissions.
 
-- To deploy your compute resources inside a VNet, you need to explicitly have permissions for the following actions:
-    - `Microsoft.Network/virtualNetworks/*/read` on the VNet resources.
-    - `Microsoft.Network/virtualNetworks/subnets/join/action` on the subnet resource.
-    
-    For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking).
+- When there are two role assignments to the same Azure Active Directory user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they are also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
+
+[!INCLUDE [network-rbac](includes/network-rbac.md)]
 
 - It can sometimes take up to 1 hour for your new role assignments to take effect over cached permissions across the stack.
 
@@ -610,4 +617,4 @@ Here are a few things to be aware of while you use Azure role-based access contr
 - [Enterprise security overview](concept-enterprise-security.md)
 - [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 - [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
-- [Resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)
+- [Resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

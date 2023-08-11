@@ -56,7 +56,7 @@ App developers must meet a few requirements to complete the publisher verificati
 
 - The Azure AD tenant where the app is registered must be associated with the PGA. If the tenant where the app is registered isn't the primary tenant associated with the PGA, complete the steps to [set up the MPN PGA as a multitenant account and associate the Azure AD tenant](/partner-center/multi-tenant-account#add-an-azure-ad-tenant-to-your-account).
 
-- The app must be registered in an Azure AD tenant and have a [publisher domain](howto-configure-publisher-domain.md) set.
+- The app must be registered in an Azure AD tenant and have a [publisher domain](howto-configure-publisher-domain.md) set. The feature is not supported in Azure AD B2C tenant.
 
 - The domain of the email address that's used during MPN account verification must either match the publisher domain that's set for the app or be a DNS-verified [custom domain](../fundamentals/add-custom-domain.md) that's added to the Azure AD tenant. (**NOTE**__: the app's publisher domain can't be *.onmicrosoft.com to be publisher verified) 
 

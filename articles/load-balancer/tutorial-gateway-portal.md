@@ -6,8 +6,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 12/03/2021
-ms.custom: template-tutorial, ignite-fall-2021
+ms.date: 06/27/2023
+ms.custom: template-tutorial, ignite-fall-2021, engagement-fy23
 ---
 
 # Tutorial: Create a gateway load balancer using the Azure portal
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create virtual network
 
@@ -84,6 +84,12 @@ A virtual network is needed for the resources that are in the backend pool of th
 11. Select the **Review + create** tab or select the **Review + create** button.
 
 12. Select **Create**.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
 
 ## Create NSG
 

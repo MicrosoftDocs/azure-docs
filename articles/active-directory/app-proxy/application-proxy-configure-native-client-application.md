@@ -7,6 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
+ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 11/17/2022
 ms.author: kenwith
@@ -30,6 +31,8 @@ This article walks you through the four steps to publish a native application wi
 Publish your proxy application as you would any other application and assign users to access your application. For more information, see [Publish applications with Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md).
 
 ## Step 2: Register your native application
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 You now need to register your application in Azure AD, as follows:
 

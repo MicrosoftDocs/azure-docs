@@ -5,13 +5,12 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: quickstart
-ms.custom: mvc, devcenter, seodec18, devdivchpfy22, ignite-2022
-ms.date: 03/22/2022
+ms.custom: mvc, devcenter, seodec18, devdivchpfy22, ignite-2022, devx-track-js
+ms.date: 07/17/2023
 ms.devlang: javascript
-#zone_pivot_groups: app-service-ide-oss
 zone_pivot_groups: app-service-vscode-cli-portal
 ---
-# Create a Node.js web app in Azure
+# Deploy a Node.js web app in Azure
 
 In this quickstart, you'll learn how to create and deploy your first Node.js ([Express](https://www.expressjs.com)) web app to [Azure App Service](overview.md). App Service supports various versions of Node.js on both Linux and Windows. 
 
@@ -220,20 +219,17 @@ You can launch the app at http://&lt;app-name>.azurewebsites.net
 :::zone target="docs" pivot="development-environment-azure-portal"
 ### Sign in to Azure portal
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create Azure resources
 
-1. Type **app services** in the search. Under **Services**, select **App Services**.
+1. To start creating a Node.js app, browse to [https://portal.azure.com/#create/Microsoft.WebSite](https://portal.azure.com/#create/Microsoft.WebSite).
 
-     :::image type="content" source="./media/quickstart-nodejs/portal-search.png?text=Azure portal search details" alt-text="Screenshot of portal search":::
-
-1. In the **App Services** page, select **Create**.
 1. In the **Basics** tab, under **Project details**, ensure the correct subscription is selected and then select to **Create new** resource group. Type *myResourceGroup* for the name.
 
     :::image type="content" source="./media/quickstart-nodejs/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the web app":::
 
-1. Under **Instance details**, type a globally unique name for your web app and select **Code**. Select *Node 14 LTS* **Runtime stack**, an **Operating System**, and a **Region** you want to serve your app from.
+1. Under **Instance details**, type a globally unique name for your web app and select **Code**. Select *Node 18 LTS* **Runtime stack**, an **Operating System**, and a **Region** you want to serve your app from.
 
     :::image type="content" source="./media/quickstart-nodejs/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size":::
 
@@ -251,7 +247,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     :::image type="content" source="./media/quickstart-nodejs/next-steps.png" alt-text="Screenshot showing the next step of going to the resource":::
 
-### Get FTP credentials
+### Get FTPS credentials
 
 Azure App Service supports [**two types of credentials**](deploy-configure-credentials.md) for FTP/S deployment. These credentials aren't the same as your Azure subscription credentials. In this section, you get the *application-scope credentials* to use with FileZilla.
 
@@ -261,13 +257,13 @@ Azure App Service supports [**two types of credentials**](deploy-configure-crede
 
 1. Open **FileZilla** and create a new site.
 
-1. From the **FTPS credentials** tab, copy **FTPS endpoint**, **Username**, and **Password** into FileZilla.
+1. From the **FTPS credentials** tab, under **Application scope**, copy **FTPS endpoint**, **FTPS Username**, and **Password** into FileZilla.
 
     :::image type="content" source="./media/quickstart-nodejs/filezilla-ftps-connection.png" alt-text="FTPS connection details":::
 
 1. Select **Connect** in FileZilla.
  
-### Deploy files with FTP
+### Deploy files with FTPS
 
 1. Copy all files and directories files to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure.
     
@@ -316,7 +312,7 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
 
 :::zone target="docs" pivot="development-environment-azure-portal"
 
-2. Save your changes, then redeploy the app using your FTP client again.
+2. Save your changes, then redeploy the app using your FTP client.
     
 1. Once deployment is complete, refresh the webpage `http://<app-name>.azurewebsites.net`. You should see that the `Welcome to Express` message has been changed to `Welcome to Azure!`.
 

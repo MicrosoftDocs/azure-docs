@@ -3,7 +3,7 @@ title: Apache Spark guidelines on Azure HDInsight
 description: Learn guidelines for using Apache Spark in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 07/12/2023
 ---
 
 # Apache Spark guidelines

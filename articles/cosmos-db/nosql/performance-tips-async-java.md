@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-java, contperf-fy21q2
+ms.custom: devx-track-java, contperf-fy21q2, devx-track-extended-java
 ---
 
 # Performance tips for Azure Cosmos DB Async Java SDK v2

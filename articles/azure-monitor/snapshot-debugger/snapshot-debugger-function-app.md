@@ -7,7 +7,7 @@ ms.reviewer: charles.weininger
 reviewer: cweining
 ms.topic: conceptual
 ms.date: 08/18/2022
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, devx-track-dotnet
 ---
 
 # Enable Snapshot Debugger for .NET and .NET Core apps in Azure Functions
@@ -115,7 +115,7 @@ namespace SnapshotCollectorAzureFunction
 
 ## Enable Snapshot Debugger for other clouds
 
-Currently, the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
+Currently, the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Microsoft Azure operated by 21Vianet](/azure/china/resources-developer-guide).
 
 The following example shows the `host.json` updated with the US Government Cloud agent endpoint:
 

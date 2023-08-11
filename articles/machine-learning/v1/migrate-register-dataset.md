@@ -4,7 +4,7 @@ description: Rebuild Studio (classic) datasets in Azure Machine Learning designe
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, event-tier1-build-2022, ignite-2022
 ms.topic: how-to
 ms.reviewer: larryfr
 author: xiaoharper

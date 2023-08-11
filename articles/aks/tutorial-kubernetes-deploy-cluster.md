@@ -36,6 +36,7 @@ AKS clusters can use [Kubernetes role-based access control (Kubernetes RBAC)][k8
 
 To learn more about AKS and Kubernetes RBAC, see [Control access to cluster resources using Kubernetes RBAC and Azure Active Directory identities in AKS][aks-k8s-rbac].
 
+
 ### [Azure CLI](#tab/azure-cli)
 
 Create an AKS cluster using [`az aks create`][az aks create]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr] in the *eastus* region. The AKS cluster will also be created in the *eastus* region.
@@ -53,6 +54,9 @@ az aks create \
     --attach-acr <acrName>
 ```
 
+> [!NOTE]
+> If you've already generated SSH keys, you may encounter an error similar to `linuxProfile.ssh.publicKeys.keyData is invalid`. To proceed, retry the command without the `--generate-ssh-keys` parameter.
+
 ### [Azure PowerShell](#tab/azure-powershell)
 
 Create an AKS cluster using [`New-AzAksCluster`][new-azakscluster]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr] in the *eastus* region. The AKS cluster will also be created in the *eastus* region.
@@ -64,6 +68,9 @@ To allow an AKS cluster to interact with other Azure resources, a cluster identi
 ```azurepowershell
 New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -GenerateSshKey -AcrNameToAttach <acrName>
 ```
+
+> [!NOTE]
+> If you've already generated SSH keys, you may encounter an error similar to `linuxProfile.ssh.publicKeys.keyData is invalid`. To proceed, retry the command without the `-GenerateSshKey` parameter.
 
 ---
 
@@ -127,9 +134,9 @@ The following example output shows the list of cluster nodes.
 ```
 $ kubectl get nodes
 
-NAME                                STATUS   ROLES   AGE     VERSION
-aks-nodepool1-37463671-vmss000000   Ready    agent   2m37s   v1.18.10
-aks-nodepool1-37463671-vmss000001   Ready    agent   2m28s   v1.18.10
+NAME                                STATUS   ROLES   AGE   VERSION
+aks-nodepool1-19366578-vmss000002   Ready    agent   47h   v1.25.6
+aks-nodepool1-19366578-vmss000003   Ready    agent   47h   v1.25.6
 ```
 
 ## Next steps

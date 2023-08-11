@@ -8,7 +8,7 @@ ms.date: 12/29/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-ms.custom: mvc, devx-track-js
+ms.custom: mvc
 ---
 
 # Tutorial: Find and display routes for different modes of travel using Azure Maps

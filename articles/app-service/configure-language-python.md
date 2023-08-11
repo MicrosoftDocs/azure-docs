@@ -46,7 +46,7 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
   - Set the Python version with [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set)
 
     ```azurecli
-    az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
+    az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.11"
     ```
 
   - Show all Python versions that are supported in Azure App Service with [az webapp list-runtimes](/cli/azure/webapp#az-webapp-list-runtimes):

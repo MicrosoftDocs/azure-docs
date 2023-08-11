@@ -30,6 +30,8 @@ The `<extensions-app-id>` is specific to your tenant. To find this identifier, n
 
 ## Create a custom attribute
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.

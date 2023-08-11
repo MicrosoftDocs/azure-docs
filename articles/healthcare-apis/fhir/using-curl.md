@@ -77,6 +77,8 @@ token=$(az account get-access-token --resource=$dicomtokenurl --query accessToke
 ```
 
 ---
+> [!NOTE] 
+> In the scenarios where the FHIR service audience parameter is not mapped to the FHIR service endpoint url. The resource parameter value should be mapped to Audience value under FHIR Service Authentication blade.
 
 ## Access data in the FHIR service
 

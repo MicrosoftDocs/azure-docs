@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 06/17/2022
-ms.custom: seo-python-october2019, seodec18, mvc, devx-track-js, devx-track-azurecli, mode-api
+ms.custom: seo-python-october2019, seodec18, mvc, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Deploy a container instance in Azure using the Azure CLI

@@ -105,7 +105,7 @@ Before configuring Infor CloudSuite for automatic user provisioning with Azure A
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Infor CloudSuite based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Infor CloudSuite, following the instructions provided in the [Infor CloudSuite Single sign-on tutorial](./infor-cloud-suite-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for Infor CloudSuite, following the instructions provided in the [Infor CloudSuite Single sign-on tutorial](./infor-cloud-suite-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features complement each other.
 
 ### To configure automatic user provisioning for Infor CloudSuite in Azure AD:
 
@@ -157,7 +157,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:actorId|String||
 	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:federationId|String||
 	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:ifsPersonId|String||
-	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:inUser|String||
+	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:lnUser|String||
 	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:userAlias|String||
 
 

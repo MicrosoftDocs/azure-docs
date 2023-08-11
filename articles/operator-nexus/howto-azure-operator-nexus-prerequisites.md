@@ -43,7 +43,7 @@ In subsequent deployments of Operator Nexus, you can skip to creating the NFC an
   - Microsoft.ResourceConnector 
   - Microsoft.Resources
 
-## Dependant Azure resources setup
+## Dependent Azure resources setup
 - Establish [ExpressRoute](/azure/expressroute/expressroute-introduction) connectivity
   from your on-premises network to an Azure Region:
   - ExpressRoute circuit [creation and verification](/azure/expressroute/expressroute-howto-circuit-portal-resource-manager)

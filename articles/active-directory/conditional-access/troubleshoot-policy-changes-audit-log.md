@@ -51,7 +51,7 @@ Once enabled find access to Log Analytics in the **Azure portal** > **Azure AD**
 
 ```kusto
 AuditLogs 
-| where OperationName == "Update conditional access policy"
+| where OperationName == "Update Conditional Access policy"
 ```
 
 Changes can be found under **TargetResources** > **modifiedProperties**.

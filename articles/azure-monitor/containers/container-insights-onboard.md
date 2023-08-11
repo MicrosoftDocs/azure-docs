@@ -78,10 +78,7 @@ If you have a Kubernetes cluster with Windows nodes, review and configure the ne
 
 ## Authentication
 
-Container insights now supports authentication by using managed identity (in preview). This secure and simplified authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a *Monitoring Metrics Publisher* role to the cluster.
-
-> [!NOTE]
-> Container insights preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available." They're excluded from the service-level agreements and limited warranty. Container insights previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use. For more information, see [Frequently asked questions about Azure Kubernetes Service](../../aks/faq.md).
+Container insights defaults to managed identity authentication. This secure and simplified authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a *Monitoring Metrics Publisher* role to the cluster. Read more in [Authentication for Container Insights](container-insights-authentication.md)
 
 ## Agent
 
@@ -124,9 +121,9 @@ The following table lists the extra firewall configuration required for managed 
 | `<cluster-region-name>.ingest.monitor.azure.com` | Azure monitor managed service for Prometheus - metrics ingestion endpoint (DCE) | 443 |
 | `<cluster-region-name>.handler.control.monitor.azure.com` | Fetch data collection rules for specific AKS cluster | 443 |
 
-**Azure China 21Vianet cloud**
+**Microsoft Azure operated by 21Vianet cloud**
 
-The following table lists the proxy and firewall configuration information for Azure China 21Vianet.
+The following table lists the proxy and firewall configuration information for Azure operated by 21Vianet.
 
 |Agent resource| Purpose | Port | 
 |--------------|------|-------------|

@@ -11,7 +11,7 @@ ms.author: nikuklic
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A [phone number acquired](../get-phone-number.md) in your Communication Services resource, or Azure Communication Services [direct routing configured](../../../concepts/telephony/direct-routing-provisioning.md)
+- A [phone number acquired](../get-phone-number.md) in your Communication Services resource, or Azure Communication Services [Direct routing configured](../../../concepts/telephony/direct-routing-provisioning.md). If you have a free subscription, you can [get a trial phone number](../../telephony/get-trial-phone-number.md).
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../identity/access-tokens.md)
 - Complete the quickstart for [getting started with adding calling to your application](../../voice-video-calling/getting-started-with-calling.md)
 
@@ -24,11 +24,11 @@ ms.author: nikuklic
 
 ## Start a call to phone
 
-Specify phone number you acquired in Communication Services resource, that will be used to start the call:
+Specify phone number you acquired in Communication Services resource that is used to start the call:
 > [!WARNING]
 > Note that phone numbers should be provided in E.164 international standard format. (e.g.: +12223334444)
 
-Modify `startCall` event handler that will be performed when the *Start Call* button is tapped:
+Modify `startCall` event handler that is performed when the *Start Call* button is tapped:
 
 ```swift
 func startCall() {
@@ -55,7 +55,7 @@ You can build and run your app on iOS simulator by selecting **Product** > **Run
 
 ![Final look and feel of the quick start app](../media/pstn-call/quick-start-make-call.png)
 
-You can make an call to phone by providing a phone number in the added text field and clicking the **Start Call** button.
+You can make a call to phone by providing a phone number in the added text field and clicking the **Start Call** button.
 > [!WARNING]
 > Note that phone numbers should be provided in E.164 international standard format. (e.g.: +12223334444)
 

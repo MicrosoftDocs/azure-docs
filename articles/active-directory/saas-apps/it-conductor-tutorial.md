@@ -82,7 +82,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure IT-Conductor SSO
 
-To configure single sign-on on **IT-Conductor** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [IT-Conductor support team](mailto:support@itconductor.com). They set this setting to have the SAML SSO connection set properly on both sides. For more information, please refer [this](https://docs.itconductor.com/wiki/start-here/sso-setup) link.
+To configure single sign-on on **IT-Conductor** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [IT-Conductor support team](mailto:support@itconductor.com). They set this setting to have the SAML SSO connection set properly on both sides. For more information, please refer [this](https://docs.itconductor.com/start-here/sso-setup) link.
 
 ### Create IT-Conductor test user
 

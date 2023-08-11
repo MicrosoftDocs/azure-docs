@@ -2,11 +2,10 @@
 title: Configuring Azure Files network endpoints
 description: Learn how to configure Azure File network endpoints.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 07/02/2021
 ms.author: kendownie
-ms.subservice: files 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -40,7 +39,8 @@ We recommend reading [Azure Files networking considerations](storage-files-netwo
 
 You can configure your endpoints to restrict network access to your storage account. There are two approaches to restricting access to a storage account to a virtual network:
 
-- [Create one or more private endpoints for the storage account](#create-a-private-endpoint)  and restrict all access to the public endpoint. This ensures that only traffic originating from within the desired virtual networks can access the Azure file shares within the storage account.
+- [Create one or more private endpoints for the storage account](#create-a-private-endpoint)  and restrict all access to the public endpoint. This ensures that only traffic originating from within the desired virtual networks can access the Azure file shares within the storage account. 
+*See [Private Link cost](https://azure.microsoft.com/pricing/details/private-link/).
 - [Restrict the public endpoint to one or more virtual networks](#restrict-public-endpoint-access). This works by using a capability of the virtual network called *service endpoints*. When you restrict the traffic to a storage account via a service endpoint, you are still accessing the storage account via the public IP address, but access is only possible from the locations you specify in your configuration.
 
 ### Create a private endpoint
@@ -52,7 +52,7 @@ Creating a private endpoint for your storage account will result in the followin
 - **A private DNS zone**: If you've never deployed a private endpoint for this virtual network before, a new private DNS zone will be deployed for your virtual network. A DNS A record will also be created for the storage account in this DNS zone. If you've already deployed a private endpoint in this virtual network, a new A record for the storage account will be added to the existing DNS zone. Deploying a DNS zone is optional, however highly recommended, and required if you are mounting your Azure file shares with an AD service principal or using the FileREST API.
 
 > [!Note]  
-> This article uses the storage account DNS suffix for the Azure Public regions, `core.windows.net`. This commentary also applies to Azure Sovereign clouds such as the Azure US Government cloud and the Azure China cloud - just substitute the the appropriate suffixes for your environment. 
+> This article uses the storage account DNS suffix for the Azure Public regions, `core.windows.net`. This commentary also applies to Azure Sovereign clouds such as the Azure US Government cloud and the Microsoft Azure operated by 21Vianet cloud - just substitute the the appropriate suffixes for your environment. 
 
 # [Portal](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-private-portal](../../../includes/storage-files-networking-endpoints-private-portal.md)]

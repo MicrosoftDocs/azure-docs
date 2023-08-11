@@ -48,7 +48,7 @@ With SAML/WS-Fed IdP federation, guest users sign into your Azure AD tenant usin
 
 ## Sign-in endpoints
 
-SAML/WS-Fed IdP federation guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using their own credentials.
+SAML/WS-Fed IdP federation guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-process-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using their own credentials.
 
 SAML/WS-Fed IdP federation guest users can also use application endpoints that include your tenant information, for example:
 
@@ -191,7 +191,9 @@ Next, configure federation with the IdP configured in step 1 in Azure AD. You ca
 
 ### To configure federation in the Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an External Identity Provider Administrator or a Global Administrator. 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as an External Identity Provider Administrator or a Global Administrator.
 2. In the left pane, select **Azure Active Directory**.
 3. Select **External Identities** > **All identity providers**.
 4. Select **New SAML/WS-Fed IdP**.
@@ -222,13 +224,13 @@ Next, configure federation with the IdP configured in step 1 in Azure AD. You ca
 
 7. (Optional) To add more domain names to this federating identity provider: 
    
-   a. Select the link in the **Domains** column.
+   1. Select the link in the **Domains** column.
 
-   ![Screenshot showing the link for adding domains to the SAML/WS-Fed identity provider.](media/direct-federation/new-saml-wsfed-idp-add-domain.png)
+      ![Screenshot showing the link for adding domains to the SAML/WS-Fed identity provider.](media/direct-federation/new-saml-wsfed-idp-add-domain.png)
 
-   b. Next to **Domain name of federating IdP**, type the domain name, and then select **Add**. Repeat for each domain you want to add. When you're finished, select **Done**.
+   1. Next to **Domain name of federating IdP**, type the domain name, and then select **Add**. Repeat for each domain you want to add. When you're finished, select **Done**.
    
-   ![Screenshot showing the Add button in the domain details pane.](media/direct-federation/add-domain.png)
+      ![Screenshot showing the Add button in the domain details pane.](media/direct-federation/add-domain.png)
    
 ### To configure federation using the Microsoft Graph API
 
@@ -276,7 +278,7 @@ On the **All identity providers** page, you can view the list of SAML/WS-Fed ide
 You can remove your federation configuration. If you do, federation guest users who have already redeemed their invitations can no longer sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md).
 To remove a configuration for an IdP in the Azure portal:
 
-1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com). In the left pane, select **Azure Active Directory**.
 1. Select **External Identities**.
 1. Select **All identity providers**.
 1. Under **SAML/WS-Fed identity providers**, scroll to the identity provider in the list or use the search box.

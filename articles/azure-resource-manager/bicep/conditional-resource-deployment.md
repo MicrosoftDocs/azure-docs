@@ -77,6 +77,9 @@ output storageAccountId string = ((newOrExisting == 'new') ? saNew.id : saExisti
 
 When the parameter `newOrExisting` is set to **new**, the condition evaluates to true. The storage account is deployed. Otherwise the existing storage account is used.
 
+> [!WARNING]
+> If you reference a conditionally-deployed resource that is not deployed. You will get an error saying the resource is not defined in the template.
+
 ## Runtime functions
 
 If you use a [reference](./bicep-functions-resource.md#reference) or [list](./bicep-functions-resource.md#list) function with a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the function refers to a resource that doesn't exist.
@@ -88,7 +91,7 @@ param vmName string
 param location string
 param logAnalytics string = ''
 
-resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2023-03-01'' = if (!empty(logAnalytics)) {
+resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2023-03-01' = if (!empty(logAnalytics)) {
   name: '${vmName}/omsOnboarding'
   location: location
   properties: {

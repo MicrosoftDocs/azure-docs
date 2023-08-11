@@ -67,9 +67,9 @@ This article uses a GitHub template repository to make it easy for you to get st
     > [!NOTE]
     > Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single _index.html_ file.
 
-1. Select **Create repository from template**.
+1. Select **Create repository**.
 
-    :::image type="content" source="./media/getting-started/create-template.png" alt-text="Create repository from template":::
+    :::image type="content" source="./media/getting-started/create-template.png" alt-text="screenshot of the Create repository button.":::
 
 ## Create the ARM Template
 
@@ -249,18 +249,18 @@ Connect-AzAccount
 
 ---
 
-If you have multiple Azure subscriptions, select the subscription you want to use. Replace `<SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>` with your subscription information:
+If you have multiple Azure subscriptions, select the subscription you want to use. Replace `<SUBSCRIPTION-ID>` with your subscription information:
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az account set --subscription <SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>
+az account set --subscription <SUBSCRIPTION-ID>
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Set-AzContext <SUBSCRIPTION-ID-OR-SUBSCRIPTION-NAME>
+Set-AzContext <SUBSCRIPTION-ID>
 ```
 
 ---

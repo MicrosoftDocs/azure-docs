@@ -1,5 +1,5 @@
 ---
-title: New GCP connector in Microsoft Defender for Cloud
+title: New GCP connector 
 description: Learn all about the new GCP connector in Microsoft Defender for Cloud.
 ms.topic: reference
 ms.date: 04/27/2023
@@ -9,9 +9,7 @@ ms.date: 04/27/2023
 
 **Episode description**: In this episode of Defender for Cloud in the field, Or Serok joins Yuri Diogenes to share the new GCP Connector in Microsoft Defender for Cloud. Or explains the use case scenarios for the new connector and how the new connector works. She demonstrates the onboarding process to connect GCP with Microsoft Defender for Cloud and talks about custom assessment and the CSPM experience for multicloud
 
-<br>
-<br>
-<iframe src="https://aka.ms/docs/player?id=80ba04f0-1551-48f3-94a2-d2e82e7073c9" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://aka.ms/docs/player?id=80ba04f0-1551-48f3-94a2-d2e82e7073c9]
 
 - [1:23](/shows/mdc-in-the-field/gcp-connector#time=01m23s) - Overview of the new GCP connector
 

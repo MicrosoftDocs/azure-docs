@@ -2,7 +2,7 @@
 title: Azure Service Bus - message browsing
 description: Browse and peek Service Bus messages enables an Azure Service Bus client to enumerate all messages in a queue or subscription.
 ms.topic: article
-ms.date: 05/31/2022
+ms.date: 06/08/2023
 ---
 
 # Message browsing
@@ -34,7 +34,7 @@ Peek works on queues, subscriptions, and their dead-letter queues.
 
 When called repeatedly, the peek operation enumerates all messages in the queue or subscription, in order, from the lowest available sequence number to the highest. It’s the order in which messages were enqueued, not the order in which messages might eventually be retrieved.
 
-You can also pass a SequenceNumber to a peek operation. It will be used to determine where to start peeking from. You can make subsequent calls to the peek operation without specifying the parameter to enumerate further.
+You can also pass a SequenceNumber to a peek operation. It's used to determine where to start peeking from. You can make subsequent calls to the peek operation without specifying the parameter to enumerate further.
 
 ## Next steps
 Try the samples in the language of your choice to explore Azure Service Bus features. 

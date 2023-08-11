@@ -2,6 +2,7 @@
 title: Chicago Safety Data
 description: Learn how to use the Chicago Safety Data dataset in Azure Open Datasets.
 ms.service: open-datasets
+ms.custom: devx-track-python
 ms.topic: sample
 ms.date: 04/16/2021
 ---

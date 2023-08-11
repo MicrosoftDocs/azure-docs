@@ -62,7 +62,7 @@ The [Azure Cosmos DB Migration for MongoDB extension](/sql/azure-data-studio/ext
 
 
 > [!NOTE]
-> Azure Cosmos DB Migration for MongoDB extension does not perform an end-to-end assessment. We recommend you to go through [the supported features and syntax](./feature-support-42.md), [Azure Cosmos DB limits and quotas](../concepts-limits.md#per-account-limits) in detail, as well as perform a proof-of-concept prior to the actual migration.
+> We recommend you to go through [the supported features and syntax](./feature-support-42.md), [Azure Cosmos DB limits and quotas](../concepts-limits.md#per-account-limits) in detail, as well as perform a proof-of-concept prior to the actual migration.
 
 ### Manual discovery (legacy) 
 

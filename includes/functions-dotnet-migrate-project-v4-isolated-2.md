@@ -7,9 +7,9 @@ ms.author: glenga
 ---
 The following changes are required in the .csproj XML project file: 
 
-1. Change the value of `PropertyGroup`.`TargetFramework` to `net7.0`.
+1. Set the value of `PropertyGroup`.`TargetFramework` to `net7.0`.
 
-1. Change the value of `PropertyGroup`.`AzureFunctionsVersion` to `v4`.
+1. Set the value of `PropertyGroup`.`AzureFunctionsVersion` to `v4`.
 
 1. Add the following `OutputType` element to the `PropertyGroup`:
 
@@ -26,7 +26,6 @@ The following changes are required in the .csproj XML project file:
 After you make these changes, your updated project should look like the following example:
 
 ```xml
-
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -37,8 +36,8 @@ After you make these changes, your updated project should look like the followin
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.8.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.7.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.18.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.13.0" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

@@ -56,7 +56,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 > [!NOTE]
 > If you're using Azure AD B2C, open a support ticket by first switching to an Azure AD tenant that has an Azure subscription associated with it. Typically, this is your employee tenant or the default tenant created for you when you signed up for an Azure subscription. To learn more, see [how an Azure subscription is related to Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-1. Sign in to [the Azure portal](https://portal.azure.com) and open **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open **Azure Active Directory**.
    
 1. Scroll down to **Troubleshooting + Support** and select **New support request**.
 

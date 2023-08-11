@@ -1,11 +1,11 @@
 ---
 title: Attach, push, and pull supply chain artifacts
 description: Attach, push, and pull supply chain artifacts using Azure Registry (Preview)
-author: SteveLasker
+author: tejaswikolli-web
 manager: gwallace
 ms.topic: article
 ms.date: 01/04/2023
-ms.author: stevelas
+ms.author: tejaswikolli
 ms.custom: references_regions
 ---
 
@@ -33,7 +33,7 @@ While Docker Desktop isn't required, the `oras` cli utilizes the Docker desktop 
 
 ## Preview limitations
 
-OCI Artifact Manifest support ([OCI 1.1 specification][oci-1_1-spec]) is available in all Azure public regions. Azure China and government clouds aren't yet supported.
+OCI Artifact Manifest support ([OCI 1.1 specification][oci-1_1-spec]) is available in all Azure public regions. Microsoft Azure operated by 21Vianet and government clouds aren't yet supported.
 
 ## Configure a registry
 
@@ -102,7 +102,7 @@ For more information on oras attach, see [ORAS documentation][oras-docs].
 ## Attach a multi-file artifact as a reference
 
 When OCI artifacts are pushed to a registry with ORAS, each file reference is pushed as a blob. To push separate blobs, reference the files individually, or collection of files by referencing a directory.  
-For more information how to push a collection of files, see [Pushing artifacts with multiple files][oras-push-multifiles]
+For more information how to push a collection of files, see [Pushing artifacts with multiple files][oras-push-multifiles].
 
 Create some documentation around an artifact:
 
@@ -385,19 +385,20 @@ In this article, a graph of supply chain artifacts is created, discovered, promo
 
 ## Next steps
 
-* Learn more about [the ORAS CLI](https://oras.land/cli/)
+* Learn more about [the ORAS CLI][oras-cli]
 * Learn more about [OCI Artifact Manifest][oci-artifact-manifest] for how to push, discover, pull, copy a graph of supply chain artifacts
 
 <!-- LINKS - external -->
 [docker-install]:           https://www.docker.com/get-started/
-[oci-artifact-manifest]:    https://github.com/opencontainers/image-spec/blob/main/artifact.md/
+[oci-artifact-manifest]:    https://github.com/opencontainers/image-spec/blob/main/manifest.md
 [oci-artifact-referrers]:   https://github.com/opencontainers/distribution-spec/blob/main/spec.md#listing-referrers/
 [oci-spec]:                 https://github.com/opencontainers/distribution-spec/blob/main/spec.md/
 [oci-1_1-spec]:             https://github.com/opencontainers/distribution-spec/releases/tag/v1.1.0-rc1
 [oras-docs]:                https://oras.land/
-[oras-install-docs]:        https://oras.land/cli/
-[oras-push-multifiles]:     https://oras.land/cli/1_pushing/#pushing-artifacts-with-multiple-files
-[oras-cli]:                 https://oras.land/cli_reference/
+[oras-install-docs]:        https://oras.land/docs/installation
+[oras-cli]:                 https://oras.land/docs/category/oras-commands/
+[oras-push-multifiles]:     https://oras.land/docs/how_to_guides/pushing_and_pulling#pushing-artifacts-with-multiple-files
+
 
 <!-- LINKS - internal -->
 [acr-authentication]:       ./container-registry-authentication.md?tabs=azure-cli

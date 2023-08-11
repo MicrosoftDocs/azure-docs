@@ -1,9 +1,9 @@
 ---
-title: Privileged Identity Management (PIM) for Groups (preview)
+title: Privileged Identity Management (PIM) for Groups
 description: How to manage Azure AD Privileged Identity Management (PIM) for Groups.
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 ms.assetid: 
 ms.service: active-directory
@@ -11,8 +11,8 @@ ms.subservice: pim
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/3/2023
-ms.author: amsliu
+ms.date: 6/7/2023
+ms.author: billmath
 ms.custom: pim 
 ms.collection: M365-identity-device-management
 
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a dev or IT admin, I want to manage group assignments in PIM, so that I can grant eligibility for elevation to a role assigned via group membership
 ---
 
-# Privileged Identity Management (PIM) for Groups (preview)
+# Privileged Identity Management (PIM) for Groups
 
 With Azure Active Directory (Azure AD), part of Microsoft Entra, you can provide users just-in-time membership in the group and just-in-time ownership of the group using the Azure AD Privileged Identity Management for Groups feature. These groups can be used to govern access to various scenarios that include Azure AD roles, Azure roles, as well as Azure SQL, Azure Key Vault, Intune, other application roles, and third party applications.
 
@@ -46,7 +46,7 @@ To learn more about Azure AD built-in roles and their permissions, see [Azure AD
 
 One Azure AD tenant can have up to 500 role-assignable groups. To learn more about Azure AD service limits and restrictions, see [Azure AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md).
 
-Azure AD role-assignable group feature is not part of Azure AD Privileged Identity Management (Azure AD PIM). It requires Azure AD Premium P1 or P2 license.
+Azure AD role-assignable group feature is not part of Azure AD Privileged Identity Management (Azure AD PIM). It requires a Microsft Entra Premium P1, P2, or Micrsoft Entra ID Governance license.
 
 ## Relationship between role-assignable groups and PIM for Groups
 
@@ -59,8 +59,8 @@ Up until January 2023, it was required that every Privileged Access Group (forme
 ## Making group of users eligible for Azure AD role
 
 There are two ways to make a group of users eligible for Azure AD role:
-1.	Make active assignments of users to the group, and then assign the group to a role as eligible for activation.
-2.	Make active assignment of a role to a group and assign users to be eligible to group membership.
+1. Make active assignments of users to the group, and then assign the group to a role as eligible for activation.
+2. Make active assignment of a role to a group and assign users to be eligible to group membership.
 
 To provide a group of users with just-in-time access to Azure AD directory roles with permissions in SharePoint, Exchange, or Security & Microsoft Purview compliance portal (for example, Exchange Administrator role), be sure to make active assignments of users to the group, and then assign the group to a role as eligible for activation (Option #1 above). If you choose to make active assignment of a group to a role and assign users to be eligible to group membership instead, it may take significant time to have all permissions of the role activated and ready to use.
 
@@ -74,7 +74,7 @@ If a user is an active member of Group A, and Group A is an eligible member of G
 
 ## Next steps
 
-- [Bring groups into Privileged Identity Management (preview)](groups-discover-groups.md)
-- [Assign eligibility for a group (preview) in Privileged Identity Management](groups-assign-member-owner.md)
+- [Bring groups into Privileged Identity Management](groups-discover-groups.md)
+- [Assign eligibility for a group in Privileged Identity Management](groups-assign-member-owner.md)
 - [Activate your group membership or ownership in Privileged Identity Management](groups-activate-roles.md)
-- [Approve activation requests for group members and owners (preview)](groups-approval-workflow.md)
+- [Approve activation requests for group members and owners](groups-approval-workflow.md)

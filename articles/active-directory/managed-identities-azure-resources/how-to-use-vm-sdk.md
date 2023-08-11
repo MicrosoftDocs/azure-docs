@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2022
+ms.date: 05/23/2023
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---

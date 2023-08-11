@@ -50,7 +50,7 @@ If the Log Analytics workspace is in commercial Azure, run the following command
 $ helm upgrade --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
 ```
 
-If the Log Analytics workspace is in Azure China 21Vianet, run the following command:
+If the Log Analytics workspace is in Microsoft Azure operated by 21Vianet, run the following command:
 
 ```console
 $ helm upgrade --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
@@ -91,7 +91,7 @@ To reenable discovery of the environmental variables, apply the same process you
 ```  
 ## Semantic version update of container insights agent version
 
-Container Insights has shifted the image version and naming convention to [semver format] (https://semver.org/). SemVer helps developers keep track of every change made to a software during its development phase and ensures that the software versioning is consistent and meaningful. The old version was in format of ciprod<timestamp>-<commitId> and win-ciprod<timestamp>-<commitId>, our first image versions using the Semver format are 3.1.4 for Linux and win-3.1.4 for Windows. 
+Container Insights has shifted the image version and naming convention to [semver format] (https://semver.org/). SemVer helps developers keep track of every change made to a software during its development phase and ensures that the software versioning is consistent and meaningful. The old version was in format of ciprod\<timestamp\>-\<commitId\> and win-ciprod\<timestamp\>-\<commitId\>, our first image versions using the Semver format are 3.1.4 for Linux and win-3.1.4 for Windows. 
 
 Semver is a universal software versioning schema which is defined in the format MAJOR.MINOR.PATCH, which follows the following constraints: 
 

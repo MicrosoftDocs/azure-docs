@@ -17,7 +17,7 @@ Connection strings, environment variables, and other application settings are de
 
 ## Get started in the Azure portal
 
-1. To begin, go to the [Azure portal] and sign in to your Azure account. In the search bar at the top of the portal, enter the name of your function app and select it from the list. 
+1. To begin, sign in to the [Azure portal] using your Azure account. In the search bar at the top of the portal, enter the name of your function app and select it from the list. 
 
 2. Under **Settings** in the left pane, select **Configuration**.
 

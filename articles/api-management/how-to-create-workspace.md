@@ -71,6 +71,10 @@ After creating a workspace, assign permissions to users to manage the workspace'
     * **API Management Workspace API Developer**
     * **API Management Workspace API Product Manager**
 
+## Migrate resources to a workspace
+
+The open source [Azure API Management workspaces migration tool](https://github.com/Azure-Samples/api-management-workspaces-migration) can help you with the initial setup of resources in the workspace. Use the tool to migrate selected service-level APIs with their dependencies from an Azure API Management instance to a workspace.  
+
 ## Next steps
 
 * Workspace collaborators can get started [managing APIs and other resources in their API Management workspace](api-management-in-workspace.md)

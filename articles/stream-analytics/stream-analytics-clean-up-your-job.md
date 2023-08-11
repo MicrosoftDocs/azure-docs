@@ -6,7 +6,7 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-dotnet
 ---
 
 # Stop or delete your Azure Stream Analytics job
@@ -20,7 +20,7 @@ Azure Stream Analytics jobs can be easily stopped or deleted through the Azure p
 
 When you stop a job, the resources are deprovisioned and it stops processing events. Charges related to this job are also stopped. However all your configuration are kept and you can restart the job later 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Locate your running Stream Analytics job and select it.
 

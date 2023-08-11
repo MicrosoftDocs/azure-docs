@@ -6,10 +6,9 @@ ms.author: edbaynash
 ms.topic: how-to
 ms.date: 01/05/2023
 ms.subservice: autoscale
+ms.custom: devx-track-azurepowershell
 ms.reviewer: akkumari
-
 # Customer intent: As a user or dev ops administrator, I want to use powershell to set up autoscale so I can scale my VMSS.
-
 ---
 
 # Configure autoscale with PowerShell
@@ -314,4 +313,3 @@ The following cmdlet deletes the resource group and all of its resources.
 Remove-AzResourceGroup -Name $resourceGroupName
 
 ```
-

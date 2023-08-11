@@ -4,9 +4,10 @@ description: Symptoms, causes, and resolutions of Azure Backup failures related 
 ms.topic: troubleshooting
 ms.date: 05/05/2022
 ms.service: backup
+ms.custom: devx-track-linux
 ms.reviewer: geg
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot Azure Backup failure: Issues with the agent or extension

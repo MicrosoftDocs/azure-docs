@@ -7,7 +7,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 02/28/2022
+ms.date: 06/23/2023
 ---
 
 # Azure Cache for Redis with Azure Private Link
@@ -25,7 +25,7 @@ You can restrict public access to the private endpoint of your cache by disablin
 >[!Important]
 > Private endpoint is supported on cache tiers Basic, Standard, Premium, and Enterprise. We recommend using private endpoint instead of VNets. Private endpoints are easy to set up or remove, are supported on all tiers, and can connect your cache to multiple different VNets at once.
 >
->
+> When using the Basic tier, you might experience data loss when you delete and recreate a private endpoint.
 
 ## Prerequisites
 

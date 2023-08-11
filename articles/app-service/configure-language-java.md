@@ -6,7 +6,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
 ms.reviewer: cephalin
-ms.custom: seodec18, devx-track-java, devx-track-azurecli
+ms.custom: seodec18, devx-track-java, devx-track-azurecli, devx-track-extended-java
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
 ---
@@ -60,7 +60,7 @@ az webapp list-runtimes --os linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
 With the [Maven Plugin for Azure Web Apps](https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), you can prepare your Maven Java project for Azure Web App easily with one command in your project root:
 
 ```shell
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.11.0:config
 ```
 
 This command adds a `azure-webapp-maven-plugin` plugin and related configuration by prompting you to select an existing Azure Web App or create a new one. Then you can deploy your Java app to Azure using the following command:
@@ -75,7 +75,7 @@ Here is a sample configuration in `pom.xml`:
 <plugin> 
   <groupId>com.microsoft.azure</groupId>  
   <artifactId>azure-webapp-maven-plugin</artifactId>  
-  <version>2.2.0</version>  
+  <version>2.11.0</version>  
   <configuration>
     <subscriptionId>111111-11111-11111-1111111</subscriptionId>
     <resourceGroup>spring-boot-xxxxxxxxxx-rg</resourceGroup>
@@ -108,7 +108,7 @@ Here is a sample configuration in `pom.xml`:
 
     ```groovy
     plugins {
-      id "com.microsoft.azure.azurewebapp" version "1.2.0"
+      id "com.microsoft.azure.azurewebapp" version "1.7.1"
     }
     ```
 
@@ -241,6 +241,10 @@ Azure App Service supports out of the box tuning and customization through the A
 - [Configure TLS/SSL bindings](configure-ssl-bindings.md)
 - [Add a CDN](../cdn/cdn-add-to-web-app.md)
 - [Configure the Kudu site](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
+
+### Copy App Content Locally
+
+Set the app setting `JAVA_COPY_ALL` to `true` to copy your app contents to the local worker from the shared file system. This helps address file-locking issues.
 
 ### Set Java runtime options
 
@@ -376,7 +380,7 @@ Follow the instructions in the [Secure a custom DNS name with an TLS/SSL binding
 
 [Azure KeyVault](../key-vault/general/overview.md) provides centralized secret management with access policies and audit history. You can store secrets (such as passwords or connection strings) in KeyVault and access these secrets in your application through environment variables.
 
-First, follow the instructions for [granting your app access to Key Vault](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) and [making a KeyVault reference to your secret in an Application Setting](app-service-key-vault-references.md#reference-syntax). You can validate that the reference resolves to the secret by printing the environment variable while remotely accessing the App Service terminal.
+First, follow the instructions for [granting your app access to a key vault](app-service-key-vault-references.md#grant-your-app-access-to-a-key-vault) and [making a KeyVault reference to your secret in an Application Setting](app-service-key-vault-references.md#source-app-settings-from-key-vault). You can validate that the reference resolves to the secret by printing the environment variable while remotely accessing the App Service terminal.
 
 To inject these secrets in your Spring or Tomcat configuration file, use environment variable injection syntax (`${MY_ENV_VAR}`). For Spring configuration files, see this documentation on [externalized configurations](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 

@@ -7,9 +7,9 @@ manager: dcscontentpm
 ms.service: load-balancer
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
-ms.date: 03/02/2022
+ms.date: 06/27/2023
 ms.author: mbender
-ms.custom: seodoc18
+ms.custom: seodoc18, engagement-fy23
 ---
 
 # Troubleshoot Azure Load Balancer backend traffic responses
@@ -18,7 +18,7 @@ This page provides troubleshooting information for Azure Load Balancer questions
 
 ## Virtual machines behind a load balancer are receiving uneven distribution of traffic
 
-If you suspect backend pool members are receiving traffic, it could be due to the following causes. Azure Load Balancer distributes traffic based on connections. Be sure to check traffic distribution per connection and not per packet. Verify using the **Flow Distribution** tab in your pre-configured [Load Balancer Insights dashboard](load-balancer-insights.md#flow-distribution).
+If you suspect backend pool members are receiving traffic, it could be due to the following causes. Azure Load Balancer distributes traffic based on connections. Be sure to check traffic distribution per connection and not per packet. Verify using the **Flow Distribution** tab in your preconfigured [Load Balancer Insights dashboard](load-balancer-insights.md#flow-distribution).
 
 Azure Load Balancer doesn't support true round robin load balancing but supports a hash based [distribution mode](distribution-mode-concepts.md). 
 
@@ -104,7 +104,7 @@ Internal load balancers don't translate outbound originated connections to the f
 
 A side effect is that if an outbound flow from a VM in the back-end pool attempts a flow to front end of the internal load balancer in its pool _and_ is mapped back to itself, the two legs of the flow don't match. Because they don't match, the flow fails. The flow succeeds if the flow didn't map back to the same VM in the back-end pool that created the flow to the front end.
 
-When the flow maps back to itself, the outbound flow appears to originate from the VM to the front end and the corresponding inbound flow appears to originate from the VM to itself. From the guest operating system's point of view, the inbound and outbound parts of the same flow don't match inside the virtual machine. The TCP stack won't recognize these halves of the same flow as being part of the same flow. The source and destination don't match. When the flow maps to any other VM in the back-end pool, the halves of the flow do match and the VM can respond to the flow.
+When the flow maps back to itself, the outbound flow appears to originate from the VM to the front end, and the corresponding inbound flow appears to originate from the VM to itself. From the guest operating system's point of view, the inbound and outbound parts of the same flow don't match inside the virtual machine. The TCP stack won't recognize these halves of the same flow as being part of the same flow. The source and destination don't match. When the flow maps to any other VM in the back-end pool, the halves of the flow do match and the VM can respond to the flow.
 
 The symptom for this scenario is intermittent connection timeouts when the flow returns to the same backend that originated the flow. Common workarounds include insertion of a proxy layer behind the internal load balancer and using Direct Server Return (DSR) style rules. For more information, see [Multiple frontends for Azure Load Balancer](load-balancer-multivip-overview.md).
 
