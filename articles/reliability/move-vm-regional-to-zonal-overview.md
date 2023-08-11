@@ -11,16 +11,16 @@ ms.author: ankitadutta
 
 # Azure virtual machines - Regional to Zonal Move
 
-This article describes how to move single instance Azure virtual machines from a Regional configuration to a target Availability Zone  within the same Azure region.
+This article describes how to move single instance Azure virtual machines from a Regional configuration to a target [Availability Zone](../reliability/availability-zones-overview.md) within the same Azure region.
 
 ##  Key benefits of regional to zonal move
 
-Following are the benefits of regional to zonal move:
+Here are the benefits of regional to zonal move:
 
-- Enhanced user experience- The ability to take advantage of  The new availability zones in the desired region, which can reduce lowers the  latency and bring you closer to customers builds a good customer experience.
-- Reduced downtime - Improved application resiliency and availability, as The virtual machines are supported by a 99.99% uptime SLA there by improving the application resiliency and availability.
-- Network connectivity – Leverages the existing infrastructure, such as virtual networks (VNETs), subnets, network security groups (NSGs), and load balancers (LBs), which can support the target Zonal configuration. 
-- High scalability - Orchestrate the move at scale by, reducing manual touch points and minimize the overall migration time from days to hours or even minutes, depending on the amount of data.
+- **Enhanced user experience**- The new availability zones in the desired region lowers the latency and builds a good customer experience.
+- **Reduced downtime**- The virtual machines are supported by a 99.99% uptime SLA, thereby improving the application resiliency and availability.
+- **Network connectivity**– Leverages the existing infrastructure, such as virtual networks (VNETs), subnets, network security groups (NSGs), and load balancers (LBs), which can support the target Zonal configuration. 
+- **High scalability**- Orchestrates the move at scale by reducing manual touch points and minimizes the overall migration time from days to hours or even minutes, depending on the volume of data.
 
 
 ## Components
@@ -31,8 +31,7 @@ The following components are used during the regional to zonal move:
 | --- | --- |
 | Move collection |	A move collection is an Azure Resource Manager object that is created during the Regional to Zonal move process. The collection is based on the VMs' region and subscription parameters and contains metadata and configuration information about the resources you want to move. VMs added to a move collection must be in the same subscription and region/location but can be selected from different resource groups.|
 | Move resource |	When you add VM(s) to a move collection, it's tracked as a move resource and this information is maintained in the move collection for each of the VM(s) that are currently in the move process. The move collection will be created in a temporary resource group in your subscription and can be deleted along with the resource group if desired. |
-| Move resource | When you add VM(s) to a move collection, it's tracked as a move resource and this information is maintained in the move collection for each of the VM(s) that are currently in the move process. |
-| Dependencies | When you add VMs to the move collection, validation checks are performed to determine if the VMs have any dependencies that are not in the move collection. For example, a network interface card (NIC) is a dependent resource for a VM and must be moved along with the VM. After identifying dependencies for each of the VMs, you can either add dependencies to the move collection and move them as well, or you can select alternate existing resources in the target zonal configuration. For example, yYou can select a new VNET that’s already existing in the target zonal configuration. |
+| Dependencies | When you add VMs to the move collection, validation checks are done to determine if the VMs have any dependencies that are not in the move collection. For example, a network interface card (NIC) is a dependent resource for a VM and must be moved along with the VM. After identifying the dependencies for each of the VMs, you can either add dependencies to the move collection and move them as well, or you can select alternate existing resources in the target zonal configuration. You can select a new VNET that’s already existing in the target zonal configuration. |
 
 
 ## Support matrix
@@ -47,11 +46,11 @@ The following table describes the support matrix for moving virtual machines fro
 | VMs within an Availability Set | Not supported | |
 | VMs inside VMSS with uniform orchestration | Not supported | |
 | VMs inside VMSS with flexible orchestration | Not supported | |
-| Supported regions | Supported | Only Availability Zone supported regions are supported. Learn [more](../availability-zones/az-overview#regions) to learn about the region details. |
-| VMs already located in an Availability Zone | Not supported | Currently, only VMs that are within the same region can be moved to another availability zone. Cross Zone Move is currently unsupported. |
+| Supported regions | Supported | Only Availability Zone supported regions are supported. Learn [more](../reliability/availability-zones-service-support.md) to learn about the region details. |
+| VMs already located in an Availability Zone | Not supported | Currently, only VMs that are within the same region can be moved to another availability zone. Currently, we do not support Cross Zone move. |
 | VM extensions | Not Supported | VM move is supported, but extensions are not copied to target zonal VM. |
-| VMs with trusted launch | Supported | Re-enable the Integrity Monitoring option in the portal and save the configuration after the move. |
-| Confidential VMs | Supported | Re-enable the Integrity Monitoring option in the portal and save the configuration after the move. |
+| VMs with trusted launch | Supported | Re-enable the **Integrity Monitoring** option in the portal and save the configuration after the move. |
+| Confidential VMs | Supported | Re-enable the **Integrity Monitoring** option in the portal and save the configuration after the move. |
 | Generation 2 VMs (UEFI boot) | Supported | |
 | VMs in Proximity placement groups | Supported | Source proximity placement group (PPG) is not retained in the zonal configuration. |
 | Spot VMs (Low priority VMs) | Supported | |
@@ -78,7 +77,7 @@ The following table describes the support matrix for moving virtual machines sto
 | VMs with standard SSDs | Supported | |
 | VMs with premium SSDs | Supported | |
 | VMs with NVMe disks (Storage optimized - Lsv2-series) | Supported | |
-| Temporary disk in VMs | Supported | Temporary disks will be created, however, they will not contain the data from the source temporary disks. |
+| Temporary disk in VMs | Supported | Temporary disks will be created; however, they will not contain the data from the source temporary disks. |
 | VMs with ZRS disks | Not Supported | |
 | VMs with ADE (Azure Disk Encryption) | Not Supported | |
 | VMs with server-side encryption using service-managed keys | Not Supported | |
@@ -97,3 +96,5 @@ The following table describes the support matrix for moving virtual machines net
 | VNET | By default, the source virtual network (VNET) is used, or you can specify an existing resource in the target configuration. | |
 
 ## Next steps
+
+TBD
