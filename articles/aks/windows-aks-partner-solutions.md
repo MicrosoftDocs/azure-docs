@@ -17,7 +17,7 @@ Our 3rd party partners featured below have published introduction guides to star
 | DevOps             | [GitLab](#gitlab) <br> [CircleCI](#circleci)        |
 | Networking         | [NGINX](#f5-nginx) <br> [Calico](#calico)           |
 | Observability      | [Datadog](#datadog) <br> [New Relic](#new-relic)    |
-| Security           | [Prisma Cloud](#prisma)                                   |
+| Security           | [Prisma Cloud](#prisma-cloud)                                   |
 | Storage            | [NetApp](#netapp)                                   |
 | Config Management  | [Chef](#chef)                                       |
 
