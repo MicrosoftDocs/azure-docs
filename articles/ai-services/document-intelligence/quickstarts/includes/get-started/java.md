@@ -1,5 +1,5 @@
 ---
-title: "Get started: Document Intelligence client library for Java v2.1"
+title: "Get started: Document Intelligence (formerly Form Recognizer) client library for Java v2.1"
 description: Use the Document Intelligence SDK for Java to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 author: laujan
 manager: nitinme
