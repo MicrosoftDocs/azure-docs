@@ -25,7 +25,7 @@ You can create resources in Azure in several different ways:
 - The REST APIs, the Azure CLI, PowerShell, or client libraries
 - Azure Resource Manager (ARM) templates
 
-In this article, we review examples for creating and deploying resources in the Azure portal and with the Azure CLI.
+In this article, you review examples for creating and deploying resources in the Azure portal and with the Azure CLI.
 
 ::: zone pivot="web-portal"
 
