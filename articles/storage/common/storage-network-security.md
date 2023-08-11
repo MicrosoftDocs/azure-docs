@@ -5,7 +5,7 @@ services: storage
 author: jimmart-dev
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 08/10/2023
+ms.date: 08/11/2023
 ms.author: jammart
 ms.reviewer: santoshc
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement
@@ -33,12 +33,12 @@ With the Azure Storage firewall, you can control access to the data in your stor
 - [Allow access from trusted Azure services](#grant-access-to-trusted-azure-services) (using [Manage exceptions](#manage-exceptions)).
 - [Configure exceptions for logging and metrics services](#manage-exceptions).
 
-There are two types of endpoints:
+There are two types of network endpoints for storage accounts:
 
 - [Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [Private endpoints](storage-private-endpoints.md)
 
-Virtual Network service endpoints for Azure Storage are public and accessible via the internet. The Azure Storage firewall provides the ability to control access via the public endpoints using access rules. When you configure access rules for your storage account, all incoming requests for data are blocked by default. Only applications that request data from the networks, services, and resources you configure in the Azure Storage firewall can access data in your storage account. You can also use the firewall to block all access through the public endpoint when you're using private endpoints. Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services, unless you explicitly allow access in your configuration.
+Virtual Network service endpoints are public and accessible via the internet. The Azure Storage firewall provides the ability to control access via the public endpoints using access rules. When you configure access rules for your storage account, all incoming requests for data are blocked by default. Only applications that request data from the virtual network subnets you configure in the Azure Storage firewall can access data in your storage account. You can also use the firewall to block all access through the public endpoint when you're using private endpoints. Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services, unless you explicitly allow access in your configuration.
 
 A private endpoint uses a private IP address from your virtual network to access a storage account over the Microsoft backbone network. With a private endpoint, traffic between your virtual network and the storage account are secured over a private link. Storage firewall rules apply to the public endpoints of a storage account, not private endpoints. The process of approving the creation of a private endpoint grants implicit access to traffic from the subnet that hosts the private endpoint. You can use [Network Policies](../../private-link/private-endpoint-overview.md#network-security-of-private-endpoints) to control traffic over private endpoints.
 
@@ -52,7 +52,8 @@ Before implementing network security for your storage accounts, review the impor
 
 > [!div class="checklist"]
 >
-> - Azure Storage firewall rules only apply to [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#data-plane) operations. [Control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#control-plane) operations are not subject to the restrictions specified in firewall rules.> - Review the [Restrictions for IP network rules](#restrictions-for-ip-network-rules).
+> - Azure Storage firewall rules only apply to [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#data-plane) operations. [Control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#control-plane) operations are not subject to the restrictions specified in firewall rules.
+> - Review the [Restrictions for IP network rules](#restrictions-for-ip-network-rules).
 > - To access data by using tools such as the Azure portal, Azure Storage Explorer, and AzCopy, you must be on a machine within the trusted boundary that you establish when configuring network security rules.
 > - Network rules are enforced on all network protocols for Azure Storage, including REST and SMB.
 > - Network rules don't affect virtual machine (VM) disk traffic, including mount and unmount operations and disk I/O, but they do help protect REST access to page blobs.
