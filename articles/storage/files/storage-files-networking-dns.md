@@ -4,7 +4,7 @@ description: Learn how to configure DNS forwarding for Azure Files.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/10/2023
+ms.date: 08/11/2023
 ms.author: kendownie
 ---
 
@@ -56,7 +56,7 @@ Before you can setup DNS forwarding to Azure Files, you'll need the following:
 If you already have DNS servers in place within your Azure virtual network, or if you prefer to deploy your own DNS server VMs by whatever methodology your organization uses, you can configure DNS with the built-in DNS server PowerShell cmdlets.
 
 > [!Important]  
-> This guide assumes you're using the DNS server within Windows Server in your on-premises environment. All of the steps described in this guide are possible with any DNS server, not just the Windows DNS Server.
+> This guide assumes you're using the DNS server within Windows Server in your on-premises environment. All of the steps described here are possible with any DNS server, not just the Windows DNS Server.
 
 On your on-premises DNS servers, create a conditional forwarder using `Add-DnsServerConditionalForwarderZone`. This conditional forwarder must be deployed on all of your on-premises DNS servers to be effective at properly forwarding traffic to Azure. Remember to replace `<azure-dns-server-ip>` with the appropriate IP addresses for your environment.
 
