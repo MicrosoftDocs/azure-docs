@@ -21,9 +21,9 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Configure customer-managed keys with Hardware Security Module](configure-customer-managed-keys-hardware.md) (Preview)
+* [Volume encryption with customer-managed keys with managed HSM](configure-customer-managed-keys-hardware.md) (Preview)
 
-    <!-- pending PM input -->
+    Volume encryption with customer-managed keys with managed HSM (Hardware Security Module) extends the [customer-managed keys](configure-customer-managed-keys.md), enabling you to store your keys in a more secure FIPS 140-2 Level 3 HSM service instead of the FIPS 140-2 Level 1 or 2 encryption offered with Azure Key Vault. 
 
 ## August 2023
 
