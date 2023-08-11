@@ -83,7 +83,7 @@ Download [public cloud IP addresses](https://www.microsoft.com/download/details.
 
 Download [US Government cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57063).
 
-#### Azure China cloud
+#### Microsoft Azure operated by 21Vianet cloud
 
 Download [China cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57062).
 

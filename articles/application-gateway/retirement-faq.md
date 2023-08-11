@@ -24,7 +24,7 @@ Once the deadline arrives V1 gateways aren't supported. Any V1 SKU resources tha
 
 ### What is the definition of a new customer on Application Gateway V1 SKU?
 
-Customers who didn't have Application Gateway V1 SKU in their subscriptions as of 4 July 2023 are considered as new customers. These customers won’t be able to create new V1 gateways going forward.
+Customers who didn't have Application Gateway V1 SKU in their subscriptions as of 4 July 2023 are considered as new customers. These customers won’t be able to create new V1 gateways in subscriptions which didn't have an existing V1 gateway as of 4 July 2023 going forward.
 
 ### What is the definition of an existing customer on Application Gateway V1 SKU?
 

@@ -170,6 +170,8 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 Our app needs to catch the `error=interaction_required`. The application can then use either `acquireTokenPopup()` or `acquireTokenRedirect()` on the same resource. The user is forced to do a multi-factor authentication. After the user completes the multi-factor authentication, the app is issued a fresh access token for the requested resource.
 
+To try out this scenario, see our [React SPA calling Node.js web API using on-behalf-of flow](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/6-AdvancedScenarios/1-call-api-obo) code sample. This code sample uses the Conditional Access policy and web API you registered earlier with a React SPA to demonstrate this scenario. It shows how to properly handle the claims challenge and get an access token that can be used for your web API.
+
 ## See also
 
 * To learn more about the capabilities, see [Conditional Access in Azure Active Directory](../conditional-access/overview.md).

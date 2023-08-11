@@ -60,9 +60,9 @@ In the current preview state, the following limitations apply to email as an alt
     * When a user is signed-in with a non-UPN email, they cannot change their password. Azure AD self-service password reset (SSPR) should work as expected. During SSPR, the user may see their UPN if they verify their identity using a non-UPN email.
 
 * **Unsupported scenarios** - The following scenarios are not supported. Sign-in with non-UPN email for:
-    * [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md)
-    * [Azure AD joined devices](../devices/concept-azure-ad-join.md)
-    * [Azure AD registered devices](../devices/concept-azure-ad-register.md)
+    * [Hybrid Azure AD joined devices](../devices/concept-hybrid-join.md)
+    * [Azure AD joined devices](../devices/concept-directory-join.md)
+    * [Azure AD registered devices](../devices/concept-device-registration.md)
     * [Resource Owner Password Credentials (ROPC)](../develop/v2-oauth-ropc.md)
     * Legacy authentication such as POP3 and SMTP
     * Skype for Business

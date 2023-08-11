@@ -1,6 +1,6 @@
 ---
 title: Sending and using API queries and responses - Bing Local Business Search
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this article to learn how to send and use search queries with the Bing Local Business Search API.
 services: cognitive-services
 author: aahill

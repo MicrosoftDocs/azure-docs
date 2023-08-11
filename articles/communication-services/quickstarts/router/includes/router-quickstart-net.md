@@ -19,6 +19,10 @@ ms.author: williamzhao
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 - The latest version [.NET client library](https://dotnet.microsoft.com/download/dotnet) for your operating system.
 
+## Sample code
+
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/JobRouterQuickStart).
+
 ## Setting up
 
 ### Create a new C# application

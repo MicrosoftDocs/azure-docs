@@ -5,8 +5,8 @@ description: Learn how to copy a blob from a source object URL in Azure Storage 
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 04/28/2023
-ms.service: storage
+ms.date: 08/02/2023
+ms.service: azure-storage
 ms.topic: how-to
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
@@ -20,13 +20,10 @@ The client library methods covered in this article use the [Put Blob From URL](/
 
 ## Prerequisites
 
-To work with the code examples in this article, make sure you have:
-
-- An authorized client object to connect to Blob Storage data resources. To learn more, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
-- Permissions to perform a copy operation. To learn more, see the authorization guidance for the following REST API operations:
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform a copy operation. To learn more, see the authorization guidance for the following REST API operation:
     - [Put Blob From URL](/rest/api/storageservices/put-blob-from-url#authorization)
     - [Put Block From URL](/rest/api/storageservices/put-block-from-url#authorization)
-- Packages installed to your project directory. These examples use **azure-storage-blob**. If you're using `DefaultAzureCredential` for authorization, you also need **azure-identity**. To learn more about setting up your project, see [Get Started with Azure Storage and Python](storage-blob-python-get-started.md#set-up-your-project). To see the necessary `using` directives, see [Code samples](#code-samples).
 
 ## About copying blobs from a source object URL
 

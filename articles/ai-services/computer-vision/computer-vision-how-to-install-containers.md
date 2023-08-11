@@ -356,4 +356,4 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Review the [OCR overview](overview-ocr.md) to learn more about recognizing printed and handwritten text
 * Refer to the [Read API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) for details about the methods supported by the container.
 * Refer to [Frequently asked questions (FAQ)](FAQ.yml) to resolve issues related to Azure AI Vision functionality.
-* Use more [Azure AI services Containers](../cognitive-services-container-support.md)
+* Use more [Azure AI services containers](../cognitive-services-container-support.md)

@@ -47,7 +47,7 @@ For the application that the administrator added to their tenant, they want to s
 
 ## Create a Conditional Access policy
 
-The administrator wants to make sure that only the people they assign to the application can securely sign in. To do this, they can configure a conditional access policy for a group of users that enforces multi-factor authentication (MFA). For more information, see [What is Conditional Access?](../conditional-access/overview.md).
+The administrator wants to make sure that only the people they assign to the application can securely sign in. To do this, they can configure a Conditional Access policy for a group of users that enforces multi-factor authentication (MFA). For more information, see [What is Conditional Access?](../conditional-access/overview.md).
 
 ### Create a group
 
@@ -99,7 +99,7 @@ Juan wants to make sure that certain terms and conditions are known to users bef
 1. Upload your terms of use PDF file.
 1. For **Language**, select **English**.
 1. For **Require users to expand the terms of use**, select **On**.
-1. For **Enforce with conditional access policy templates**, select **Custom policy**.
+1. For **Enforce with Conditional Access policy templates**, select **Custom policy**.
 1. Select **Create**.
 
 ### Add the terms of use to the policy
@@ -147,7 +147,7 @@ You can keep the resources for future use, or if you're not going to continue to
 1. In the **Manage** section of the left menu, select **Properties**.
 1. At the top of the **Properties** pane, select **Delete**, and then select **Yes** to confirm you want to delete the application from your Azure AD tenant.
 
-### Delete the conditional access policy
+### Delete the Conditional Access policy
 
 1. Select **Enterprise applications**.
 1. Under **Security**, select **Conditional Access**.
