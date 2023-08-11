@@ -104,8 +104,6 @@ You can also authorize requests to Azure Blob Storage by using the account acces
 
 The Azure Identity library provides Azure Active Directory (Azure AD) token authentication support across the Azure SDK. It provides a set of `TokenCredential` implementations which can be used to construct Azure SDK clients which support Azure AD token authentication. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime.
 
-The following code example attempts to authenticate using a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), and falls back to Azure CLI sign-in credentials if a managed identity isn't available in the current environment.
-
 #### Assign roles to your Azure AD user account
 
 [!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
@@ -174,7 +172,30 @@ The following code example retrieves the connection string for the storage accou
 
 Add this code to the end of `main()`:
 
-:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" ID="Snippet_ConnectionString":::
+```cpp
+    // Retrieve the connection string for use with the application. The storage
+    // connection string is stored in an environment variable on the machine
+    // running the application called AZURE_STORAGE_CONNECTION_STRING.
+    // Note that _MSC_VER is set when using MSVC compiler.
+    static const char* AZURE_STORAGE_CONNECTION_STRING = "AZURE_STORAGE_CONNECTION_STRING";
+
+#if !defined(_MSC_VER)
+    const char* connectionString = std::getenv(AZURE_STORAGE_CONNECTION_STRING);
+#else
+	// Use getenv_s for MSVC
+	size_t requiredSize;
+	getenv_s(&requiredSize, NULL, NULL, AZURE_STORAGE_CONNECTION_STRING);
+	if (requiredSize == 0) {
+		throw std::runtime_error("missing connection string from env.");
+	}
+	std::vector<char> value(requiredSize);
+	getenv_s(&requiredSize, value.data(), value.size(), AZURE_STORAGE_CONNECTION_STRING);
+	std::string connectionStringStr = std::string(value.begin(), value.end());
+	const char* connectionString = connectionStringStr.c_str();
+#endif
+
+	auto blobServiceClient = BlobServiceClient::CreateFromConnectionString(connectionString);
+```
 
 > [!IMPORTANT]
 > The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
@@ -183,14 +204,21 @@ Add this code to the end of `main()`:
 
 ### Create a container
 
-Create an instance of the [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html) class by calling the [CreateFromConnectionString](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#a5d253aacb6e20578b7f5f233547be3e2) function. Then call [CreateIfNotExists](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#ab3ef187d2e30e1a19ebadf45d0fdf9c4) to create the actual container in your storage account.
+Decide on a name for the new container. Then create an instance of `BlobContainerClient` and create the container.
 
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 Add this code to the end of `main()`:
 
-:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" ID="Snippet_CreateContainer":::
+```cpp
+std::string containerName = "myblobcontainer";
+auto containerClient = blobServiceClient.GetBlobContainerClient("myblobcontainer");
+
+// Create the container if it does not exist
+std::cout << "Creating container: " << containerName << std::endl;
+containerClient.CreateIfNotExists();
+```
 
 ### Upload blobs to a container
 
