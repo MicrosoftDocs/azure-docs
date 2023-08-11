@@ -34,9 +34,9 @@ dotnet new web -n MyApplication
 
 ## Install the NuGet package
 
-The NuGet package can be obtained from [here](https://www.nuget.org/packages/Azure.Communication.CallAutomation/), if you have not already done so. 
+The NuGet package can be obtained from [here](https://www.nuget.org/packages/Azure.Communication.CallAutomation/), if you haven't already done so. 
 
-For access to AI features in public preview you will need to obtain the NuGet package from the Dev Feed. You can do this by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed) and locate **Azure.Communication.CallAutomation** package.
+For access to AI features in public preview, you need to obtain the NuGet package from the Dev Feed. You can do this by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed) and locate **Azure.Communication.CallAutomation** package.
 
 ## (Optional) Prepare your audio file if you wish to use audio files for playing prompts
 
@@ -64,11 +64,11 @@ var answerCallResult = await callAutomationClient.AnswerCallAsync(answerCallOpti
 
 ## Play audio
 
-Once the call has been established, there are multiple options for how you may wish to play the audio. You can play audio to the participant that has just joined the call or play audio to all the participants in the call.
+Once the call has been established, there are multiple options for how you may wish to play the audio. You can play audio to the participant that has joined the call or play audio to all the participants in the call.
 
 ### Play source - Audio file
 
-To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
+To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files, you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
 
 ``` csharp
 var playSource = new FileSource(new Uri(audioUri));
@@ -76,7 +76,7 @@ var playSource = new FileSource(new Uri(audioUri));
 
 ### Play source - Text-To-Speech
 
-To play audio using Text-To-Speech through Azure AI services you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](../../../../ai-services/Speech-Service/language-support.md?tabs=tts).
+To play audio using Text-To-Speech through Azure AI services, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](../../../../ai-services/Speech-Service/language-support.md?tabs=tts).
 
 ``` csharp
 String textToPlay = "Welcome to Contoso";
@@ -101,11 +101,11 @@ String ssmlToPlay = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/sy
 
 var playSource = new SsmlSource(ssmlToPlay); 
 ```
-Once you've decided on which playSource you wish to use for playing audio you can then choose whether you want to play it to a specific participant or to all participants.
+Once you've decided on which playSource you wish to use for playing audio, you can then choose whether you want to play it to a specific participant or to all participants.
 
 ## Play audio to all participants
 
-In this scenario audio is played to all participants on the call.
+In this scenario, audio is played to all participants on the call.
 
 ``` csharp
 var playResponse = await callAutomationClient.GetCallConnection(callConnectionId) 
@@ -115,7 +115,7 @@ var playResponse = await callAutomationClient.GetCallConnection(callConnectionId
 
 ## Play audio to a specific participant
 
-In this scenario audio is played to a specific participant. 
+In this scenario, audio is played to a specific participant. 
 
 ``` csharp
 var playTo = new List<CommunicationIdentifier> { targetParticipant }; 
@@ -140,7 +140,7 @@ var playResult = await callAutomationClient.GetCallConnection(callConnectionId)
 
 ## Enhance play with audio file caching
 
-If you are playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour. **Note:** Caching audio files is not suitable for dynamic prompts. If you change the URL provided to ACS, it will not update the cached URL straight away. The update will occur after the existing cache expires.
+If you're playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour. **Note:** Caching audio files isn't suitable for dynamic prompts. If you change the URL provided to ACS, it does not update the cached URL straight away. The update will occur after the existing cache expires.
 
 ``` csharp
 var playTo = new List<CommunicationIdentifier> { targetParticipant }; 
@@ -155,7 +155,7 @@ var playResult = await callAutomationClient.GetCallConnection(callConnectionId)
 
 ## Handle play action event updates 
 
-Your application will receive action lifecycle event updates on the callback URL that was provided to Call Automation service at the time of answering the call. Below is an example of a successful play event update.
+Your application receives action lifecycle event updates on the callback URL that was provided to Call Automation service at the time of answering the call. An example of a successful play event update.
 
 ### Example of how you can deserialize the *PlayCompleted* event:
 
