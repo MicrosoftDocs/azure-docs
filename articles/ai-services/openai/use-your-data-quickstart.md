@@ -9,7 +9,7 @@ ms.subservice: openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 08/08/2023
+ms.date: 08/11/2023
 recommendations: false
 zone_pivot_groups: openai-use-your-data
 ---

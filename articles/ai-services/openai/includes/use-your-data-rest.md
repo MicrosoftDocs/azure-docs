@@ -6,7 +6,7 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 05/22/2023
+ms.date: 08/11/2023
 ---
 
 
