@@ -37,7 +37,7 @@ A zonal or zone aligned scale set will place instances in a single availability 
 
 ### Regional
 
-A regional VMSS is when the zone assignment is not explicitly set (zones=[] or zones=null). In this configuration, the scale set will create Regional (not-zone pinned) instances and will implicitly place instances throughout the region. There is no guarantee for balance or spread across zones, or that instances will land in the same availability zone. Disk colocation is guaranteed for Ultra and Premium v2 disks, best effort for Premium V1 disks, and not guaranteed for Standard sku (SSD or HDD) disks. 
+A regional Virtual Machine Scale Set is when the zone assignment is not explicitly set (`"zones"=[]` or `"zones"=null`). In this configuration, the scale set will create Regional (not-zone pinned) instances and will implicitly place instances throughout the region. There is no guarantee for balance or spread across zones, or that instances will land in the same availability zone. Disk colocation is guaranteed for Ultra and Premium v2 disks, best effort for Premium V1 disks, and not guaranteed for Standard SKU (SSD or HDD) disks. 
 
 In the rare case of a full zonal outage, any or all instances within the scale set may be impacted.
 
