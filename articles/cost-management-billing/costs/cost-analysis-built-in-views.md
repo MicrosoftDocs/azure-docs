@@ -95,7 +95,7 @@ The **Customers** view is available for CSP partners when you have a billing acc
 Use this view to:
 
 - Identify the customers that are incurring the most cost.
-- Identify the subscriptions thta are incurring the most cost for a specific customer.
+- Identify the subscriptions that are incurring the most cost for a specific customer.
 
 <a name="Reservations"></a>
 
