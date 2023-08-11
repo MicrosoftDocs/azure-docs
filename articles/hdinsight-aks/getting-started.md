@@ -47,7 +47,7 @@ When you click on one of these templates, it launches Custom deployment page in 
    
  ### Find Object ID of an identity
  
- 1. In the top search bar in the Azure portal, enter your user ID. (For example, ohn@contoso.com)
+ 1. In the top search bar in the Azure portal, enter your user ID. (For example, john@contoso.com)
 
     :::image type="content" source="./media/one-click-deployment/search-object-id.png" alt-text="Screenshot showing how to search object ID.":::
    
