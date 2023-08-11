@@ -24132,11 +24132,15 @@
             "source_path_from_root": "/articles/reliability/migrate-app-service-environment.md",
             "redirect_url": "/azure/reliability/reliability-app-service",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/flexible-server/concepts-high-availability.md",
+            "redirect_url": "/azure/reliability/reliability-postgre-flexible",
+            "redirect_document_id": false
         }
 
 
 
-
-       
+        
     ]
 }
