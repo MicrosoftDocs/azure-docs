@@ -3,7 +3,7 @@ title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates (ARM templates) using declarative JSON syntax.
 ms.topic: conceptual
 ms.custom: ignite-2022, devx-track-arm-template
-ms.date: 05/01/2023
+ms.date: 08/10/2023
 ---
 
 # Understand the structure and syntax of ARM templates
@@ -24,6 +24,7 @@ In its simplest structure, a template has the following elements:
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "",
   "contentVersion": "",
   "apiProfile": "",
   "parameters": {  },
@@ -37,6 +38,12 @@ In its simplest structure, a template has the following elements:
 | Element name | Required | Description |
 |:--- |:--- |:--- |
 | $schema |Yes |Location of the JavaScript Object Notation (JSON) schema file that describes the version of the template language. The version number you use depends on the scope of the deployment and your JSON editor.<br><br>If you're using [Visual Studio Code with the Azure Resource Manager tools extension](quickstart-create-templates-use-visual-studio-code.md), use the latest version for resource group deployments:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Other editors (including Visual Studio) may not be able to process this schema. For those editors, use:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>For subscription deployments, use:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>For management group deployments, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>For tenant deployments, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
+| languageVersion |No |Language version of the template. To support [Bicep](../bicep/overview.md) symbolic name in ARM JSON templates, add `languageVersion` with the version `2.0` or newer, and change the resource definition from an array to an object. For more information, see [Resources](#resources).
+
+> [!NOTE]
+> Using any `languageVersion` that ends in `-experimental` is not recommended in production environments because experimental functionality could be changed at any time.
+
+|
 | contentVersion |Yes |Version of the template (such as 1.0.0.0). You can provide any value for this element. Use this value to document significant changes in your template. When deploying resources using the template, this value can be used to make sure that the right template is being used. |
 | apiProfile |No | An API version that serves as a collection of API versions for resource types. Use this value to avoid having to specify API versions for each resource in the template. When you specify an API profile version and don't specify an API version for the resource type, Resource Manager uses the API version for that resource type that is defined in the profile.<br><br>The API profile property is especially helpful when deploying a template to different environments, such as Azure Stack and global Azure. Use the API profile version to make sure your template automatically uses versions that are supported in both environments. For a list of the current API profile versions and the resources API versions defined in the profile, see [API Profile](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>For more information, see [Track versions using API profiles](./template-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |No |Values that are provided when deployment is executed to customize resource deployment. |
@@ -179,60 +186,60 @@ You define resources with the following structure:
 ```json
 "resources": [
   {
-      "condition": "<true-to-deploy-this-resource>",
-      "type": "<resource-provider-namespace/resource-type-name>",
-      "apiVersion": "<api-version-of-resource>",
-      "name": "<name-of-the-resource>",
-      "comments": "<your-reference-notes>",
-      "location": "<location-of-resource>",
-      "dependsOn": [
-          "<array-of-related-resource-names>"
-      ],
-      "tags": {
-          "<tag-name1>": "<tag-value1>",
-          "<tag-name2>": "<tag-value2>"
-      },
-      "identity": {
-        "type": "<system-assigned-or-user-assigned-identity>",
-        "userAssignedIdentities": {
-          "<resource-id-of-identity>": {}
-        }
-      },
-      "sku": {
-          "name": "<sku-name>",
-          "tier": "<sku-tier>",
-          "size": "<sku-size>",
-          "family": "<sku-family>",
-          "capacity": <sku-capacity>
-      },
-      "kind": "<type-of-resource>",
-      "scope": "<target-scope-for-extension-resources>",
-      "copy": {
-          "name": "<name-of-copy-loop>",
-          "count": <number-of-iterations>,
-          "mode": "<serial-or-parallel>",
-          "batchSize": <number-to-deploy-serially>
-      },
-      "plan": {
-          "name": "<plan-name>",
-          "promotionCode": "<plan-promotion-code>",
-          "publisher": "<plan-publisher>",
-          "product": "<plan-product>",
-          "version": "<plan-version>"
-      },
-      "properties": {
-          "<settings-for-the-resource>",
-          "copy": [
-              {
-                  "name": ,
-                  "count": ,
-                  "input": {}
-              }
-          ]
-      },
-      "resources": [
-          "<array-of-child-resources>"
-      ]
+    "condition": "<true-to-deploy-this-resource>",
+    "type": "<resource-provider-namespace/resource-type-name>",
+    "apiVersion": "<api-version-of-resource>",
+    "name": "<name-of-the-resource>",
+    "comments": "<your-reference-notes>",
+    "location": "<location-of-resource>",
+    "dependsOn": [
+        "<array-of-related-resource-names>"
+    ],
+    "tags": {
+        "<tag-name1>": "<tag-value1>",
+        "<tag-name2>": "<tag-value2>"
+    },
+    "identity": {
+      "type": "<system-assigned-or-user-assigned-identity>",
+      "userAssignedIdentities": {
+        "<resource-id-of-identity>": {}
+      }
+    },
+    "sku": {
+        "name": "<sku-name>",
+        "tier": "<sku-tier>",
+        "size": "<sku-size>",
+        "family": "<sku-family>",
+        "capacity": <sku-capacity>
+    },
+    "kind": "<type-of-resource>",
+    "scope": "<target-scope-for-extension-resources>",
+    "copy": {
+        "name": "<name-of-copy-loop>",
+        "count": <number-of-iterations>,
+        "mode": "<serial-or-parallel>",
+        "batchSize": <number-to-deploy-serially>
+    },
+    "plan": {
+        "name": "<plan-name>",
+        "promotionCode": "<plan-promotion-code>",
+        "publisher": "<plan-publisher>",
+        "product": "<plan-product>",
+        "version": "<plan-version>"
+    },
+    "properties": {
+        "<settings-for-the-resource>",
+        "copy": [
+            {
+                "name": ,
+                "count": ,
+                "input": {}
+            }
+        ]
+    },
+    "resources": [
+        "<array-of-child-resources>"
+    ]
   }
 ]
 ```
@@ -255,6 +262,82 @@ You define resources with the following structure:
 | plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. |
 | properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. You can also specify a copy array to create several instances of a property. To determine available values, see [template reference](/azure/templates/). |
 | resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. Dependency on the parent resource isn't implied. You must explicitly define that dependency. See [Set name and type for child resources](child-resource-name-type.md). |
+
+### Use symbolic name
+
+In [Bicep](../bicep/overview.md), each resource definition has a symbolic name. The symbolic name is used to reference the resource from the other parts of your Bicep file. To support symbolic name in ARM JSON templates, add `languageVersion` with the version `2.0` or newer, and change the resource definition from an array to an object. When `languageVersion` is specified for a template, symbolic name must be specified for root level resources. For example:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.ContainerService/managedClusters",
+      ...
+    }
+  ]
+}
+```
+
+The preceding JSON can be written into the following JSON:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "resources": {
+    "aks": {
+      "type": "Microsoft.ContainerService/managedClusters",
+      ...
+    }
+  }
+}
+```
+
+Symbolic names are case-sensitive. The allowed characters for symbolic names are letters, numbers, and _. Symbolic names must be unique in a template, but can overlap with variable names, parameter names, and output names in a template.  In the following example, the symbolic name of the storage account resource has the same name as the output.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "type": "string",
+      "defaultValue": "[format('storage{0}', uniqueString(resourceGroup().id))]"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "resources": {
+    "myStorage": {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2022-09-01",
+      "name": "[parameters('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {}
+    }
+  },
+  "outputs": {
+    "myStorage":{
+      "type": "object",
+      "value": "[reference('myStorage')]"
+    }
+  }
+}
+``````
+
+If [Deployments resource](/azure/templates/microsoft.resources/deployments?tabs=json) is used in a symbolic-name deployment, use apiVersion `2020-09-01` or later.
+
+*** jgao: 2020-09-01 can't be found in the template reference, and the rest API. The earliest version is 2020-10-01. ***
 
 In Bicep, see [resources](../bicep/file.md#resources).
 
@@ -307,7 +390,7 @@ For inline comments, you can use either `//` or `/* ... */`. In Visual Studio Co
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2018-10-01",
+  "apiVersion": "2023-03-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[parameters('location')]", //defaults to resource group location
   "dependsOn": [ /* storage account and network interface must be deployed first */
@@ -358,8 +441,8 @@ For `resources`, add a `comments` element or a `metadata` object. The following 
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2018-07-01",
-    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+    "apiVersion": "2022-09-01",
+    "name": "[format('{0}{1}', 'storage', uniqueString(resourceGroup().id))]",
     "comments": "Storage account used to store VM disks",
     "location": "[parameters('location')]",
     "metadata": {
@@ -407,7 +490,7 @@ You can break a string into multiple lines. For example, see the `location` prop
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2018-10-01",
+  "apiVersion": "2023-03-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[
     parameters('location')

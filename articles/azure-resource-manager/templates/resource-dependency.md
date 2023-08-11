@@ -2,7 +2,7 @@
 title: Set deployment order for resources
 description: Describes how to set one Azure resource as dependent on another resource during deployment. The dependencies ensure resources are deployed in the correct order.
 ms.topic: conceptual
-ms.date: 05/22/2023
+ms.date: 08/10/2023
 ---
 
 # Define the order for deploying resources in ARM templates
@@ -99,9 +99,9 @@ In the following example, a CDN endpoint explicitly depends on the CDN profile, 
 
 ```json
 {
-    "name": "[variables('endpointName')]",
-    "apiVersion": "2021-06-01",
     "type": "endpoints",
+    "apiVersion": "2021-06-01",
+    "name": "[variables('endpointName')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
       "[variables('profileName')]"
@@ -171,13 +171,18 @@ The following example shows how to deploy three storage accounts before deployin
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {},
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2012-06-01",
+      "apiVersion": "2022-09-01",
       "name": "[format('{0}storage{1}, copyIndex(), uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_LRS"
       },
@@ -195,8 +200,47 @@ The following example shows how to deploy three storage accounts before deployin
       "dependsOn": ["storagecopy"],
       ...
     }
-  ],
-  "outputs": {}
+  ]
+}
+```
+
+[Symbolic names](./syntax.md#use-symbolic-name) can be used in dependsOn arrays. If a symbolic name is for a copy loop, all resources in the loop are added as dependencies. The preceding sample can be written as the following JSON. In the sample, **myVM** depends on all of the storage accounts in the **myStorages** loop.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "resources": {
+    "myStorages": {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2022-09-01",
+      "name": "[format('{0}storage{1}, copyIndex(), uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "copy": {
+        "name": "storagecopy",
+        "count": 3
+      },
+      "properties": {}
+    },
+    "myVM": {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2022-11-01",
+      "name": "[format('VM{0}', uniqueString(resourceGroup().id))]",
+      "dependsOn": ["myStorages"],
+      ...
+    }
+  }
 }
 ```
 

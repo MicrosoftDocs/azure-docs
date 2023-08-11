@@ -327,7 +327,7 @@ The JSON data type from the specified string, or an empty value when **null** is
 
 ### Remarks
 
-If you need to include a parameter value or variable in the JSON object, use the [concat](template-functions-string.md#concat) function to create the string that you pass to the function.
+If you need to include a parameter value or variable in the JSON object, use the [format](template-functions-string.md#format) function to create the string that you pass to the function.
 
 You can also use [null()](#null) to get a null value.
 
