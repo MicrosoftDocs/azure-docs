@@ -183,11 +183,13 @@ If you plan on using the Azure Machine Learning studio, there are extra configur
 
 ## Next steps
 
+For more information on using a __managed virtual network__, see the following articles:
+
 * [Managed Network Isolation](how-to-managed-network.md)
 * [Use private endpoint to access your workspace](how-to-configure-private-link.md)
 * [Use custom DNS](how-to-custom-dns.md)
 
-## Next steps with your VNet
+For more information on using an __Azure Virtual Network__, see the following articles:
 
 * [Virtual network overview](how-to-network-security-overview.md)
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
