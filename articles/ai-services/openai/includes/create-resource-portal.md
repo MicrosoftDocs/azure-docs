@@ -122,4 +122,4 @@ To deploy a model, follow these steps:
 
 The deployments table shows a new entry that corresponds to your newly created model.
 
-When the deployment is complete and ready for use, your deployment status changes to _succeeded_.
+When the deployment completes, your model deployment status changes to _succeeded_.

@@ -27,7 +27,7 @@ keywords:
 
 ## Create an Azure resource group
 
-To create an Azure OpenAI resource, you need an Azure resource group. When you create a new resource through the Azure CLI, you can also create a new resource group or instruct Azure to use an existing group. The following example shows how to create a new resource group with the `az group create` command. The resource group is created in the East US location. 
+To create an Azure OpenAI resource, you need an Azure resource group. When you create a new resource through the Azure CLI, you can also create a new resource group or instruct Azure to use an existing group. The following example shows how to create a new resource group named _OAIResourceGroup_ with the `az group create` command. The resource group is created in the East US location. 
 
 ```azurecli-interactive
 az group create \
@@ -39,7 +39,7 @@ For more information, see the [az group create](/cli/azure/group?view=azure-cli-
 
 ## Create a resource
 
-We use the `az cognitiveservices account create` command to create an Azure OpenAI resource in the resource group. In the following example, we create a resource named `MyOpenAIResource` in a resource group named `OAIResourceGroup`. When you try the example, update the code to use your desired values for the resource group and resource name, along with your Azure subscription ID (`<mySubscription>`).
+We use the `az cognitiveservices account create` command to create an Azure OpenAI resource in the resource group. In the following example, we create a resource named _MyOpenAIResource_ in the _OAIResourceGroup_ resource group. When you try the example, update the code to use your desired values for the resource group and resource name, along with your Azure subscription ID _\<subscriptionID>_.
 
 ```azurecli-interactive
 az cognitiveservices account create \
@@ -48,7 +48,7 @@ az cognitiveservices account create \
 -l eastus \
 --kind OpenAI \
 --sku s0 \
---subscription <mySubscription>
+--subscription <subscriptionID>
 ```
 
 For more information, see the [az cognitiveservices account create](/cli/azure/cognitiveservices/account?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-create) reference documentation.
@@ -59,7 +59,7 @@ After you create the resource, you can use different commands to find useful inf
 
 ### Get the endpoint URL
 
-We use the `az cognitiveservices account show` command to retrieve the REST API endpoint base URL for the resource. When you try the example, update the code to use your values for the resource group (`<myResourceGroupName>`) and resource name (`<myResourceName>`).
+We use the `az cognitiveservices account show` command to retrieve the REST API endpoint base URL for the resource. When you try the example, update the code to use your values for the resource group _\<myResourceGroupName>_ and resource name _\<myResourceName>_.
 
 ```azurecli-interactive
 az cognitiveservices account show \
@@ -86,7 +86,7 @@ For more information, see the [az cognitiveservices account keys list](/cli/azur
 
 ## Deploy a model
 
-To deploy a model, we use the `az cognitiveservices account deployment create` command. In the following example, we deploy an instance of the `text-embedding-ada-002` model and give it the name `MyModel`. When you try the example, update the code to use your values for the resource group and resource name. You don't need to change the `model-version`, `model-format` or `sku-capacity`, and `sku-name` values. 
+To deploy a model, we use the `az cognitiveservices account deployment create` command. In the following example, we deploy an instance of the `text-embedding-ada-002` model and give it the name _MyModel_. When you try the example, update the code to use your values for the resource group and resource name. You don't need to change the `model-version`, `model-format` or `sku-capacity`, and `sku-name` values. 
 
 ```azurecli-interactive
 az cognitiveservices account deployment create \
@@ -104,7 +104,7 @@ For more information, see the [az cognitiveservices account deployment create](/
 
 ## Delete a model from your resource
 
-You can delete any model deployed from your resource with the `az cognitiveservices account deployment delete` command. In the following example, we delete a model named `MyModel`. When you try the example, update the code to use your values for the resource group, resource name, and deployed model name (`deployment-name`). 
+You can delete any model deployed from your resource with the `az cognitiveservices account deployment delete` command. In the following example, we delete a model named _MyModel_. When you try the example, update the code to use your values for the resource group, resource name, and deployed model name. 
 
 ```azurecli-interactive
 az cognitiveservices account deployment delete \
@@ -121,7 +121,7 @@ If you want to clean up after these exercises, you can remove your Azure OpenAI 
 
 To remove the resource group and its associated resources, we use the `az group delete` command.
 
-If you're not going to continue to use the resources created in these exercises, run the following command to delete your resource group. Be sure to update the code to use your values for the resource group and resource name.
+If you're not going to continue to use the resources created in these exercises, run the following command to delete your resource group. Be sure to update the example code to use your values for the resource group and resource name.
 
 ```azurecli-interactive
 az cognitiveservices account delete \
