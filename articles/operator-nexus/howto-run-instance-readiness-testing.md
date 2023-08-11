@@ -133,7 +133,7 @@ SERVICE_PRINCIPAL:
 > [NOTE]
 > if all `SP_ID`,`SP_PASSWORD`,`SP_TENANT_ID`,`AAD_GROUP_ID` are set in the yaml or as an environment variable the script skips creating them.
 
-**RESULT:** This script prints values for `AAD_GROUP_ID`, `SP_ID`, `SP_PASSWORD`, and `SP_TENANT` and will set back to the input yaml.
+**RESULT:** This script prints values for `AAD_GROUP_ID`, `SP_ID`, `SP_PASSWORD`, and `SP_TENANT` and sets the values back to the input yaml.
 See [Input Configuration](#input-configuration).
 
 ```yml
@@ -144,7 +144,7 @@ AAD_GROUP_ID: "generated-aad-group-id"
 ``````
 
 #### Create isolation domains
-The testing framework doesn't create, destroy, or manipulate isolation domains. Therefore, existing Isolation Domains can be used. Each Isolation Domain requires at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks are created, manipulated, and destroyed through the course of testing. They're created using the data provided in the networks blueprint which is part of the input yaml.
+The testing framework doesn't create, destroy, or manipulate isolation domains. Therefore, existing Isolation Domains can be used. Each Isolation Domain requires at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks are created, manipulated, and destroyed through the course of testing. They're created using the data provided in the networks blueprint, which, is part of the input yaml.
 
 Executing `create-l3-isolation-domains.sh` requires one **parameter**, a path to your networks blueprint file:
 
@@ -170,7 +170,7 @@ ARCHIVE_STORAGE:
    * `ARCHIVE_STORAGE_ACCOUNT_NAME` - The name of the Azure storage account to be created.
    * `ARCHIVE_STORAGE_CONTAINER_NAME` - The name of the blob storage container to be created.
    * `SUBSCRIPTION` - The subscription where the resource group is created in.
-   * `LOCATION` - .The location where the resource group is created in.
+   * `LOCATION` - The location where the resource group is created in.
 
 > [NOTE]
 > if `PUBLISH_RESULTS_TO` is set in the input yaml or as an environment variable the script skips creating a new one.
