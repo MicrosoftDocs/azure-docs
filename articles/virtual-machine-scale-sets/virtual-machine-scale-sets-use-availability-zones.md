@@ -165,7 +165,7 @@ For a complete example of a zone-redundant scale set and network resources, see 
 You can modify a scale to expand the set of zones over which to spread VM instances. This allows you to take advantage of higher availability SLA for instances spread across availability zones or expand your scale set to take advantage of new availability zones that were not available when the scale set was created. The operation is done without incurring downtime for your existing instances.
 
 > [!IMPORTANT]
-> Update virtual machine scale sets to add availability zones is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+> Updating Virtual Machine Scale Sets to add availability zones is currently in preview. Previews are made available to you on the condition that you agree to the [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 > [!IMPORTANT]
 > This preview is intended for stateless workloads on virtual machine scale sets. Scale sets with stateful workloads or used with **Service Fabric or Azure Kubernetes Services are not supported for zonal expansion**.
