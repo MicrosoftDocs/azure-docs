@@ -88,17 +88,19 @@ Allocate the following IP addresses for each data network in the site:
 
 :::zone pivot="ase-pro-2"
 
-The following IP address must be shared by all the data networks in the site:
+The following IP addresses must be used by all the data networks in the site:
 
-- One IP address for port 4 on the Azure Stack Edge Pro 2 device.
+- One IP address for all data networks on port 3 on the Azure Stack Edge Pro 2 device.
+- One IP address for all data networks on port 4 on the Azure Stack Edge Pro 2 device.
 
 :::zone-end
 
 :::zone pivot="ase-pro-gpu"
 
-The following IP address must be shared by all the data networks in the site:
+The following IP addresses must be used by all the data networks in the site:
 
-- One IP address for port 6 on the Azure Stack Edge Pro GPU device.
+- One IP address for all data networks on port 65 on the Azure Stack Edge Pro GPU device.
+- One IP address for all data networks on port 6 on the Azure Stack Edge Pro GPU device.
 
 :::zone-end
 
