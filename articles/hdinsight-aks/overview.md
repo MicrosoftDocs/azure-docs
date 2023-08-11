@@ -16,7 +16,7 @@ All these capabilities combined with HDInsight on AKS’s strong developer focus
 
 HDInsight on AKS integrates seamlessly with the entire Azure ecosystem shortening implementation cycles and improving time to realize value.
  
-:::image type="content" source="./media/hdinsight-on-aks-overview/hdinsight-on-aks-advantages.png" alt-text="Diagram showing the HDInsight on AKS advantages." border="true" lightbox="./media/hdinsight-on-aks-overview/hdinsight-on-aks-advantages.png":::
+:::image type="content" source="./media/overview/hdinsight-on-aks-advantages.png" alt-text="Diagram showing the HDInsight on AKS advantages." border="true" lightbox="./media/overview/hdinsight-on-aks-advantages.png":::
  
  ## Technical architecture
 
@@ -35,13 +35,13 @@ You can create the pool with a single cluster or a combination of cluster types,
 
 The following diagram shows the logical technical architecture of components installed in a default cluster pool. The clusters are isolated using [namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) in AKS cluster.
  
-:::image type="content" source="./media/hdinsight-on-aks-overview/hdinsight-on-aks-technical-architecture.png" alt-text="Diagram showing the HDInsight on AKS architecture." border="true" lightbox="./media/hdinsight-on-aks-overview/hdinsight-on-aks-technical-architecture.png":::
+:::image type="content" source="./media/overview/hdinsight-on-aks-technical-architecture.png" alt-text="Diagram showing the HDInsight on AKS architecture." border="true" lightbox="./media/overview/hdinsight-on-aks-technical-architecture.png":::
  
 ## Modernized cloud-native compute platform
 
 The latest version of HDInsight is orchestrated using AKS, which enables the platform to be more robust and empowers the users to handle the clusters effectively. Provisioning of clusters on HDInsight on AKS is fast and reliable, making it easy to manage clusters and perform in-place upgrades. With vast SKU choices and flexible subscription models, modernizing data lakehouses using open-source, cloud-native, and scalable infrastructure on HDInsight on AKS can meet all your analytics needs.
   
-:::image type="content" source="./media/hdinsight-on-aks-overview/modernized-on-cloud-native-platform.png" alt-text="Diagram showing the HDInsight on AKS how it's modernized on cloud native compute platform.":::
+:::image type="content" source="./media/overview/modernized-on-cloud-native-platform.png" alt-text="Diagram showing the HDInsight on AKS how it's modernized on cloud native compute platform.":::
  
 **Key features include:**
 * Fast cluster creation and scaling.
@@ -54,7 +54,7 @@ The latest version of HDInsight is orchestrated using AKS, which enables the pla
 
 HDInsight on AKS version can connect seamlessly with HDInsight. You can reap the benefits of using needed cluster types in a hybrid model that is, interoperate with cluster types of HDInsight using the same storage and metastore across both the offerings. 
 
-:::image type="content" source="./media/hdinsight-on-aks-overview/connectivity-diagram.png" alt-text="Diagram showing connectivity concepts.":::
+:::image type="content" source="./media/overview/connectivity-diagram.png" alt-text="Diagram showing connectivity concepts.":::
 
 **The following scenarios are supported.**
 
@@ -68,7 +68,7 @@ HDInsight on AKS version can connect seamlessly with HDInsight. You can reap the
 HDInsight on AKS is secure by default. It enables enterprises to protect enterprise data assets with Azure Virtual Network, encryption, and integration with Azure Active Directory (Microsoft Entra ID). It also meets the most popular industry and government compliance standards upholding the Azure standards. With over 30 certifications that help protect data along with periodic updates, health advisor notifications, service health analytics, along with best-in-class Azure security standards. HDInsight on AKS offers several methods to address your enterprise security needs by default.
 For more information, see [HDInsight on AKS Security](./concept-security.md).
 
-:::image type="content" source="./media/hdinsight-on-aks-overview/security-concept.png" alt-text="Diagram showing the security concept.":::
+:::image type="content" source="./media/overview/security-concept.png" alt-text="Diagram showing the security concept.":::
  
 ## Region availability (public preview)
 
