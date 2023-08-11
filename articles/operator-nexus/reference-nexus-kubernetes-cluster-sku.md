@@ -11,7 +11,7 @@ ms.custom: template-reference
 
 # Azure Operator Nexus Kubernetes cluster VM SKUs
 
-The Azure Operator Nexus Kubernetes cluster VMs are grouped into node pools, which are collections of VMs that have the same configuration. The VMs in a node pool are used to run your Kubernetes workloads. The Azure Operator Nexus Kubernetes cluster supports the following VM SKUs.
+The Azure Operator Nexus Kubernetes cluster VMs are grouped into node pools, which are collections of VMs that have the same configuration. The VMs in a node pool are used to run your Kubernetes workloads. The Azure Operator Nexus Kubernetes cluster supports the following VM SKUs. These SKUs are available in all Azure regions where the Azure Operator Nexus Kubernetes cluster is available.
 
 There are two types of VM SKUs:
 
@@ -25,6 +25,8 @@ All these SKUs are having the following characteristics:
 1. Dedicated CPU placement
 2. Kubelet reserved CPUs (Except NC_G2_8_v1)
 3. 1Gi memory pages for VM
+
+These VM SKUs can be used for both worker and control plane nodes within the Azure Operator Nexus Kubernetes cluster.
 
 ## General purpose VM SKUs
 
