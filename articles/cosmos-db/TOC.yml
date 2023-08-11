@@ -14,7 +14,7 @@
     - name: Distributed relational
       href: distributed-relational.md
     - name: Use Cosmos DB with Azure OpenAI
-          href: how-to-azure-openai.md
+      href: how-to-azure-openai.md
 - name: NoSQL
   href: nosql/toc.yml
 - name: MongoDB
