@@ -5,7 +5,7 @@ description: Learn how to configure Application Gateway with a frontend private 
 services: application-gateway
 author: greg-lindsay
 ms.topic: how-to
-ms.date: 08/10/2023
+ms.date: 08/14/2023
 ms.author: greglin
 ms.service: application-gateway
 ms.custom: mvc, mode-ui
@@ -15,7 +15,7 @@ ms.custom: mvc, mode-ui
 
 ## Overview 
 
-[Azure Application Gateway](overview.md) now supports dual stack (IPv4 and IPv6) frontend connections, providing greater flexibility and connectivity. If you're currently using Application Gateway with IPv4 addresses, you can continue to do so without any changes. However, if you want to take advantage of the benefits of IPv6 addressing, you can configure your gateway to use IPv6 addresses. Currently, we don't support connectivity to IPv6 backends.
+[Azure Application Gateway](overview.md) now supports dual stack (IPv4 and IPv6) frontend connections, providing greater flexibility and connectivity. If you're currently using Application Gateway with IPv4 addresses, you can continue to do so without any changes. However, if you want to take advantage of the benefits of IPv6 addressing, you can configure your gateway to use IPv6 addresses. IPv6 backend connections aren't currently supported.
 
 To support IPv6 connectivity, you must create a dual-stack VNet. This dual-stack VNet has subnets for both IPv4 and IPv6. Azure VNets already [provide dual-stack capability](../virtual-network/ip-services/ipv6-overview.md). 
 
@@ -25,13 +25,13 @@ For more information about the components of an application gateway, see [Applic
 > Application Gateway IPv6 frontend is currently in PREVIEW.<br>
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## In this quickstart
+## In this guide
 
-The Azure portal is used to create an IPv6 Azure Application Gateway and perform testing to ensure it works correctly.
+The Azure portal is used to create an IPv6 Azure Application Gateway. Testing is performed to verify it works correctly.
 
 You learn how to:
 * [Register](#register-to-the-preview) and [unregister](#unregister-from-the-preview) from the preview
-* Set up the [dual-stack network](#dual-stack)
+* Set up a [dual-stack network](#dual-stack)
 * Create an application gateway with [IPv6 frontend](#frontends-tab)
 * Create a virtual machine and install IIS for [testing](#test-the-application-gateway)
 
