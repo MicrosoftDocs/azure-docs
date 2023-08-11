@@ -10,6 +10,10 @@ ms.date: 05/22/2023
 ---
 
 
+## Add your data using Azure OpenAI Studio
+
+[!INCLUDE [Connect your data to OpenAI](./connect-your-data-studio.md)]
+
 ## Retrieve required variables
 
 To successfully make a call against Azure OpenAI, you need the following variables. This quickstart assumes you've uploaded your data to an Azure blob storage account and have an Azure Cognitive Search index created. See [Add your data using Azure AI studio](../use-your-data-quickstart.md?pivots=programming-language-studio)
