@@ -106,7 +106,7 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 
 * Use the NodeJS **json tool** as a JSON formatter for curl.
 
-* If you don't have [Node.js](https://nodejs.org/about/releases/) installed, download and install the latest version.
+* If you don't have [Node.js](https://nodejs.org/) installed, download and install the latest version.
 
 * Open a new command prompt and install the **json tool** with the following command:
 
