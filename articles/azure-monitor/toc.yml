@@ -773,7 +773,7 @@ items:
         - name: LA Agent Management
           href: agents/agent-manage.md
         - name: LA Agent Health
-          href: insights/solution-agenthealth.md
+          href: agents/solution-agenthealth.md
         - name: LA Agent data sources
           items:
           - name: Overview
@@ -861,7 +861,7 @@ items:
         items:  
           - name: Log Analytics VM Extension
             displayName: troubleshoot, troubleshooting
-            href: visualize/vmext-troubleshoot.md
+            href: agents/vmext-troubleshoot.md
           - name: Log Analytics Windows agent
             displayName: troubleshoot, troubleshooting
             href: agents/agent-windows-troubleshoot.md
@@ -890,12 +890,7 @@ items:
         displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-code.md    
     - name: Data collector API
-      items:
-      - name: Overview
-        displayName: data collector api
-        href: logs/data-collector-api.md
-      - name: Log Analytics Data Collector API Pipeline example
-        href: logs/create-pipeline-datacollector-api.md
+      href: logs/data-collector-api.md
   - name: Data collection endpoints
     href: essentials/data-collection-endpoint-overview.md
   - name: Private Link networking
@@ -1242,8 +1237,6 @@ items:
           href: logs/workspace-expression.md
         - name: resource expression
           href: logs/resource-expression.md
-        - name: Unify application data resources
-          href: logs/unify-app-resource-data.md
         - name: Query Azure Data Explorer from Azure Monitor
           href: logs/azure-monitor-data-explorer-proxy.md
       - name: API
@@ -1518,7 +1511,7 @@ items:
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
   - name: Azure CLI metric alerts
-    href: azure-cli-metrics-alert-sample.md
+    href: alerts/azure-cli-metrics-alert-sample.md
 - name: Reference
   items:
   - name: Service limits

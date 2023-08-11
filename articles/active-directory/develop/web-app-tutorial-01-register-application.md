@@ -1,10 +1,13 @@
 ---
 title: "Tutorial: Register an application with the Microsoft identity platform"
 description: In this tutorial, you learn how to register a web application with the Microsoft identity platform.
+services: active-directory
 author: cilwerner
+
+ms.service: active-directory
+ms.subservice: develop
 ms.author: cwerner
 manager: CelesteDG
-ms.service: active-directory
 ms.topic: tutorial
 ms.date: 02/09/2023
 #Customer intent: As an application developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue access tokens to client applications that request them.
