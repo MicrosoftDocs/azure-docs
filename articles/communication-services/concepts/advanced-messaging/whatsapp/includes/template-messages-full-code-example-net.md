@@ -39,7 +39,7 @@ namespace SendTemplateMessages
             foreach (MessageTemplateItem template in templates)
             {
                 Console.WriteLine("Name: {0}\tLanguage: {1}\tStatus: {2}\tChannelType: {3}\nContent: {4}\n",
-                    template.Name, template.Language, template.Status, template.ChannelType, template.WhatsApp.Content);
+                  template.Name, template.Language, template.Status, template.ChannelType, template.WhatsApp.Content);
             }
 
             // Send Sample Template sample_template
@@ -89,9 +89,9 @@ namespace SendTemplateMessages
             string templateLanguage = "en_us";
 
             var image = new MessageTemplateImage("image", new Uri("https://aka.ms/acsicon1"));
-            var title = new MessageTemplateText("title", "Avengers");
+            var title = new MessageTemplateText("title", "Contoso");
             var time = new MessageTemplateText("time", "July 1st, 2023 12:30PM");
-            var venue = new MessageTemplateText("venue", "Cineplex");
+            var venue = new MessageTemplateText("venue", "Southridge Video");
             var seats = new MessageTemplateText("seats", "Seat 1A");
             var values = new List<MessageTemplateValue> { image, title, time, venue, seats };
             var bindings = new MessageTemplateWhatsAppBindings(

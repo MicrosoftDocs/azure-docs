@@ -145,7 +145,7 @@ string channelRegistrationId = "<your channel registration id GUID>";
 
 ## Set recipient list
 You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account receives the text and media messages sent in this quickstart.
-By this quickstart, this phone number may be your personal phone number.   
+For this quickstart, this phone number may be your personal phone number.   
 
 The recipient phone number can't be the business phone number (Sender ID) associated with the WhatsApp channel registration. The Sender ID appears as the sender of the text and media messages sent to the recipient.
 
@@ -161,7 +161,7 @@ var recipientList = new List<string> { "<your WhatsApp number>" };
 
 Example:
 ```csharp
-var recipientList = new List<string> { "+14250000000" };
+var recipientList = new List<string> { "+14255550199" };
 ```
 
 ## Start sending messages between business and WhatsApp User

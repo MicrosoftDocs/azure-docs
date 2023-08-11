@@ -12,7 +12,7 @@ ms.custom: include file
 ms.author: memontic
 ---
 
-### Use Sample Template sample_template
+### Use sample template sample_template
 
 The sample template named `sample_template` takes no parameters.
 
@@ -27,7 +27,7 @@ string templateLanguage = "en_us";
 var sampleTemplate = new MessageTemplate(templateName, templateLanguage); 
 ``````
 
-### Use Sample Template sample_shipping_confirmation
+### Use sample template sample_shipping_confirmation
 
 Some templates take parameters. Only include the parameters that the template requires. Including parameters not in the template is invalid.
 
@@ -55,7 +55,7 @@ MessageTemplateWhatsAppBindings bindings = new MessageTemplateWhatsAppBindings(
 var shippingConfirmationTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings); 
 ``````
 
-### Use Sample Template sample_movie_ticket_confirmation
+### Use sample template sample_movie_ticket_confirmation
 
 Templates can require various types of parameters such as text and images.
 
@@ -77,16 +77,16 @@ And the body of the template requires four text parameters:
 },
 ```
 
-Create one `MessageTemplateImage` and four `MessageTemplateText` variables. Then, assemble your list of MessageTemplateValue and your MessageTemplateWhatsAppBindings by providing the parameters in the order that the parameters appear in the template content.
+Create one `MessageTemplateImage` and four `MessageTemplateText` variables. Then, assemble your list of `MessageTemplateValue` and your `MessageTemplateWhatsAppBindings` by providing the parameters in the order that the parameters appear in the template content.
 
 ```csharp
 string templateName = "sample_movie_ticket_confirmation"; 
 string templateLanguage = "en_us"; 
 
 var image = new MessageTemplateImage("image", new Uri("https://aka.ms/acsicon1"));
-var title = new MessageTemplateText("title", "Avengers");
+var title = new MessageTemplateText("title", "Contoso");
 var time = new MessageTemplateText("time", "July 1st, 2023 12:30PM");
-var venue = new MessageTemplateText("venue", "Cineplex");
+var venue = new MessageTemplateText("venue", "Southridge Video");
 var seats = new MessageTemplateText("seats", "Seat 1A");
 var values = new List<MessageTemplateValue> { image, title, time, venue, seats };
 var bindings = new MessageTemplateWhatsAppBindings(

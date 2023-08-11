@@ -1,5 +1,5 @@
 ---
-title: Send WhatsApp Template Messages
+title: Send WhatsApp template messages
 titleSuffix: An Azure Communication Services Advanced Messaging concept
 description: In this concept, you learn the various ways to send WhatsApp template messages with Advanced Messaging.
 author: memontic-ms
@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Send WhatsApp Template Messages
+# Send WhatsApp template messages
 
 This document provides guidance to send WhatsApp Template messages using Advanced Communication Messages SDK.   
 
-## Why Do I Need to Send a Template Message?
+## Why do I need to send a template message?
 
 Conversations between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways:
 - The business sends a template message to the WhatsApp user.
@@ -27,28 +27,31 @@ A business can only send template messages until the user sends a message to the
 Refer to the guidelines in the [WhatsApp Business Platform API reference](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates) for further requirements on templates.
 Businesses must also adhere to [opt-in requirements](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in) before sending messages to WhatsApp users.
 
-## Choosing a Template
+## Choosing a template
 
 When a WhatsApp Business Account is created through the Azure portal during embedded signup, a set of sample templates may be automatically available for you to try out. See the usage for a few of these sample templates at [Examples](#examples).   
 
-### Create Template
+### Create template
 
 To create your own templates, use the Meta WhatsApp Manager. 
 Follow the instructions in the Meta Business Help Center at [Create message templates for your WhatsApp Business account](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343).
 
-### List Templates
+### List templates
 
 You can view your templates in the Azure portal by going to your Azure Communication Service resource > Templates.
 
 :::image type="content" source="./media/template-messages/list-templates-azure-portal.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Templates' tab.":::
 
-By selecting a template, you can view the template details. The template details content value may include bindings, noted as double brackets surrounding a number, such as `{{1}}`. The number, indexed started at 1, indicates the order in which the binding values must be supplied to create the message template.
+By selecting a template, you can view the template details.   
+The `content` field of the template details may include parameter bindings. The parameter bindings can be denoted as:
+- A "format" field with a value such as `IMAGE`.
+- Double brackets surrounding a number, such as `{{1}}`. The number, indexed started at 1, indicates the order in which the binding values must be supplied to create the message template.
 
 :::image type="content" source="./media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" alt-text="Screenshot that shows template details.":::
 
 Alternatively, you can view and edit all of your WhatsApp Business Account's templates in the [WhatsApp Manager](https://business.facebook.com/wa/manage/home/) > Account tools > [Message templates](https://business.facebook.com/wa/manage/message-templates/). 
 
-To list out your templates programatically, you can fetch all templates for your channel ID:
+To list out your templates programmatically, you can fetch all templates for your channel ID:
 
 [!INCLUDE [List templates with .NET](./includes/template-messages-list-templates-net.md)]
 
@@ -58,10 +61,10 @@ These examples utilize sample templates available to WhatsApp Business Accounts 
 
 [!INCLUDE [Template Examples with .NET](./includes/template-messages-examples-net.md)]
 
-## Full Code Example
+## Full code example
 
 [!INCLUDE [Full Code Example with .NET](./includes/template-messages-full-code-example-net.md)]
 
-## Next Steps
+## Next steps
 
 -   [Get Started With Advanced Communication Messages SDK](../../../quickstarts/advanced-messaging/whatsapp/get-started.md)
