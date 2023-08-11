@@ -20,7 +20,7 @@ To complete the steps in this article, you need the following resources:
 
 ## Review the code
 
-In the copy of the Microsoft Azure IoT SDK for Python you downloaded previously, open the *azure-iot-sdk-python-2/samples/pnp/temp_controller_with_thermostats.py* file in a text editor.
+In the copy of the Microsoft Azure IoT SDK for Python you downloaded previously, open the *azure-iot-sdk-python/samples/pnp/temp_controller_with_thermostats.py* file in a text editor.
 
 The sample implements the multiple-component [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) Digital Twin Definition Language model.
 
@@ -250,7 +250,7 @@ async def send_telemetry_from_temp_controller(device_client, telemetry_msg, comp
 
 ## Run the code
 
-To run the sample application, open a command-line environment and navigate to the folder *azure-iot-sdk-python-2/samples/pnp* folder that contains the *temp_controller_with_thermostats.py* sample file.
+To run the sample application, open a command-line environment and navigate to the folder *azure-iot-sdk-python/samples/pnp* folder that contains the *temp_controller_with_thermostats.py* sample file.
 
 [!INCLUDE [iot-central-connection-environment](iot-central-connection-environment.md)]
 
