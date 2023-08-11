@@ -12,16 +12,18 @@ ms.author: rogarana
 
 Azure Elastic SAN volumes can be simultaneously attached to multiple compute clients, allowing you to deploy or migrate cluster applications to Azure. You need to use a cluster manager to share an Elastic SAN volume, like Windows Server Failover Cluster (WSFC), or Pacemaker. The cluster manager handles cluster node communications and write locking. Elastic SAN doesn't natively offer a fully managed filesystem that can be accessed over SMB or NFS.
 
-When used as a shared volume, elastic SAN volumes can be expanded without downtime, and can also be shared across availability zones or regions. If you share a volume across availability zones, you don't need to use a SAN backed by zone-redundant storage (ZRS).
+When used as a shared volume, elastic SAN volumes can be expanded without downtime, and can also be shared across availability zones or regions. If you share a volume across availability zones, you don't need to use a SAN backed by zone-redundant storage (ZRS). However, sharing a volume in a local-redundant storage SAN across zones will reduce your performance due to increased latency between the volume and clients.
 
 ## Limitations
 
 - Shared volumes can be attached to individual Virtual Machine Scale Sets but can't be defined in the Virtual Machine Scale Set models or automatically deployed.
 - Azure Backup isn't currently supported.
+- The maximum number of sessions a shared volume supports is 128.
+    - An individual client can create multiple sessions to an individual volume for increased performance. For example, if you create 32 sessions on each of your clients, only four clients could connect to a single volume.
 
 ## How it works
 
-Elastic SAN shared volumes use SCSI-3 Persistent Reservations to allow initiators (clients) to control access to a shared elastic SAN volume. This protocol enables an initiator to reserve access to an elastic SAN volume, limit write (or read) access by other initiators, and persistent the reservation on a volume beyond the lifetime of a session by default.
+Elastic SAN shared volumes use [SCSI-3 Persistent Reservations](https://www.t10.org/members/w_spc3.htm) to allow initiators (clients) to control access to a shared elastic SAN volume. This protocol enables an initiator to reserve access to an elastic SAN volume, limit write (or read) access by other initiators, and persist the reservation on a volume beyond the lifetime of a session by default.
 
 SCSI-3 PR has a pivotal role in maintaining data consistency and integrity within shared volumes in cluster scenarios. Compute nodes in a cluster can read or write to their attached elastic SAN volumes based on the reservation chosen by their cluster applications.
 
@@ -46,7 +48,7 @@ The following diagram illustrates another common clustered workload consisting o
 
 The flow is as follows:
 1. The clustered application running on all VMs registers its intent to read or write to the elastic SAN volume.
-1. The application instance on VM1 takes an exclusive registration to write to the volume while opening up reads to the volume from other VMs.
+1. The application instance on VM1 takes an exclusive reservation to write to the volume while opening up reads to the volume from other VMs.
 1. This reservation is enforced on the volume.
 1. All nodes in the cluster can now read from the volume. Only one node writes back results to the volume, on behalf of all nodes in the cluster.
 
