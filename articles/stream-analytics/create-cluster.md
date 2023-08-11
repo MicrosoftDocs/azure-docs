@@ -6,7 +6,7 @@ author: xujxu
 ms.author: xujiang1
 ms.topic: quickstart
 ms.custom: mvc, mode-ui, event-tier1-build-2022
-ms.date: 05/10/2022
+ms.date: 08/11/2023
 ---
 
 # Quickstart: Create a dedicated Azure Stream Analytics cluster using Azure portal
