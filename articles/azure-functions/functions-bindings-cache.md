@@ -68,8 +68,6 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 
 ## Install bundle
 
-Install the .Net SDK.
-
 ::: zone pivot="programming-language-java"
 
 1. Create a Java function project. You could use Maven:

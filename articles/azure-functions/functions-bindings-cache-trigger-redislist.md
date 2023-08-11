@@ -22,7 +22,7 @@ The `RedisListTrigger` pops new elements from a list and surfaces those entries 
 | Lists | Yes  | Yes   |  Yes  |
 
 > [!IMPORTANT]
-> Redis triggers are not currently supported on consumption functions.
+> Redis triggers are not currently supported on Azure Functions Consumption plan.
 >
 
 ## Example
@@ -74,6 +74,8 @@ The following sample polls the key `listTest` at a localhost Redis instance at `
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 
+### [v3](#tab/javasscript-v1)
+
 Each sample uses the same `index.js` file, with binding data in the `function.json` file.
 
 Here is the `index.js` file:
@@ -104,6 +106,12 @@ From `function.json`, here is the binding data:
   "scriptFile": "index.js"
 }
 ```
+
+### [v4](#tab/javascript-v2)
+
+The Javascript v4 programming model example is not available in preview.
+
+---
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
@@ -180,7 +188,7 @@ From `function.json`, here is the binding data:
 
 ### [v2](#tab/python-v2)
 
-The Python v2 programming model is not available in preview.
+The Python v2 programming model example is not available in preview.
 
 ---
 
@@ -245,7 +253,7 @@ The `RedisListTrigger` pops new elements from a list and surfaces those entries 
 ::: zone pivot="programming-language-csharp"
 
 > [!NOTE]
-> During preview, the output bindings are presented here with the trigger functions.
+> Once the `RedisListTrigger` becomes generally available, the information below will be moved to a dedicated Output page.
 
 StackExchange.Redis.RedisValue
 
@@ -259,7 +267,7 @@ StackExchange.Redis.RedisValue
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
 > [!NOTE]
-> During preview, the output bindings are presented here with the trigger functions.
+> Once the `RedisListTrigger` becomes generally available, the information below will be moved to a dedicated Output page.
 
 | Output Type | Description                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------|

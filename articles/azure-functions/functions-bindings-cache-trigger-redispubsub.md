@@ -131,6 +131,8 @@ This sample listens to any `keyevent` notifications for the delete command [`DEL
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 
+### [v3](#tab/javasscript-v1)
+
 Each sample uses the same `index.js` file, with binding data in the `function.json` file determining on which channel the trigger will occur.
 
 Here is the `index.js` file:
@@ -193,7 +195,11 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
   "scriptFile": "index.js"
 }
 ```
+### [v4](#tab/javascript-v2)
 
+The Javascript v4 programming model example is not available in preview.
+
+---
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 
@@ -332,7 +338,7 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 
 ### [v2](#tab/python-v2)
 
-The Python v2 programming model is not available in preview.
+The Python v2 programming model example is not available in preview.
 
 ---
 
@@ -411,7 +417,9 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 
 ::: zone pivot="programming-language-csharp"
 
-During preview, the output bindings are presented here with the trigger functions.
+> [!NOTE]
+> Once the `RedisPubSubTrigger` becomes generally available, the information below will be moved to a dedicated Output page.
+
 
 | Output Type | Description|
 |---|---|
@@ -423,7 +431,8 @@ During preview, the output bindings are presented here with the trigger function
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
-During preview, the output bindings are presented here with the trigger functions.
+> [!NOTE]
+> Once the `RedisPubSubTrigger` becomes generally available, the information below will be moved to a dedicated Output page.
 
 | Output Type | Description                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------|
