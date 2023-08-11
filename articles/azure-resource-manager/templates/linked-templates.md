@@ -311,7 +311,7 @@ The following example deploys a SQL server and retrieves a key vault secret to u
             }
           },
           "variables": {
-            "sqlServerName": "[format('sql-{0}', uniqueString(resourceGroup().id, 'sql'))]"
+            "sqlServerName": "[format('sql-{0}sql', uniqueString(resourceGroup().id, 'sql'))]"
           },
           "resources": [
             {
