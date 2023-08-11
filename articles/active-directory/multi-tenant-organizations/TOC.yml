@@ -3,6 +3,8 @@
 - name: Overview
   expanded: true
   items:
+  - name: Multi-tenant organization scenario
+    href: scenario.md
   - name: What is a multi-tenant organization?
     href: overview.md
   - name: What is cross-tenant synchronization?
