@@ -21,7 +21,7 @@ Generally, scale sets are useful for any multi-VM deployment, as it allows you t
 ### Scale set-specific features
 
 - Once you specify the scale set configuration, you can update the *capacity* property to deploy more VMs in parallel. This process is better than writing a script to orchestrate deploying many individual VMs in parallel.
-- You can [use Azure Autoscale to automatically](./virtual-machine-scale-sets-autoscale-overview.md)add or remove instances based on a predefined schedule, metrics, or predictive AI.
+- You can [use Azure Autoscale](./virtual-machine-scale-sets-autoscale-overview.md) to automatically add or remove instances based on a predefined schedule, metrics, or predictive AI.
 - You can specify an [upgrade policy](./virtual-machine-scale-sets-upgrade-scale-set.md) to make it easy to roll out upgrades across VMs in your scale set. With individual VMs, you must orchestrate updates yourself.
 
 ### VM-specific features
