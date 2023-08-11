@@ -3,8 +3,8 @@
 
 <svg
    width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   height="112mm"
+   viewBox="0 0 210 112"
    version="1.1"
    id="svg1"
    sodipodi:docname="only-approved-outbound.svg"
@@ -27,13 +27,14 @@
      showgrid="true"
      inkscape:zoom="2.0899411"
      inkscape:cx="353.12"
-     inkscape:cy="172.01442"
+     inkscape:cy="248.5716"
      inkscape:window-width="3440"
      inkscape:window-height="1369"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g137">
+     inkscape:current-layer="g137"
+     inkscape:export-bgcolor="#ffffffff">
     <inkscape:grid
        id="grid1"
        units="px"
@@ -215,7 +216,7 @@
     <clipPath
        id="clip19">
       <rect
-         x="-9.31323e-10"
+         x="-9.3132302e-10"
          y="0"
          width="371475"
          height="361950"
@@ -242,7 +243,7 @@
     <clipPath
        id="clip22">
       <rect
-         x="9.31323e-10"
+         x="9.3132302e-10"
          y="0"
          width="361950"
          height="361950"
@@ -287,7 +288,7 @@
     <clipPath
        id="clip27">
       <rect
-         x="9.31323e-10"
+         x="9.3132302e-10"
          y="0"
          width="457200"
          height="457200"
@@ -362,7 +363,7 @@
        transform="matrix(0.21243302,0,0,0.20896912,-26.949298,-19.320256)"
        id="g137">
       <path
-         d="m 204,503 c 0,-7.732 6.268,-14 14,-14 h 159 c 7.732,0 14,6.268 14,14 v 56 c 0,7.732 -6.268,14 -14,14 H 218 c -7.732,0 -14,-6.268 -14,-14 z"
+         d="m 189.05412,503 c 0,-7.732 6.268,-14 14,-14 h 159 c 7.732,0 14,6.268 14,14 v 56 c 0,7.732 -6.268,14 -14,14 h -159 c -7.732,0 -14,-6.268 -14,-14 z"
          stroke="#0c445e"
          stroke-width="2"
          stroke-miterlimit="8"
@@ -375,24 +376,24 @@
          font-weight="400"
          font-size="15px"
          id="text30"
-         x="222.25905"
+         x="207.31316"
          y="567">On</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="15px"
          id="text31"
-         x="241.09206"
+         x="226.14616"
          y="567">-</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="15px"
          id="text32"
-         x="246.09206"
+         x="231.14616"
          y="567">premises network</text>
       <path
-         d="m 204,358 c 0,-7.732 6.268,-14 14,-14 h 159 c 7.732,0 14,6.268 14,14 v 56 c 0,7.732 -6.268,14 -14,14 H 218 c -7.732,0 -14,-6.268 -14,-14 z"
+         d="m 189.05412,358 c 0,-7.732 6.268,-14 14,-14 h 159 c 7.732,0 14,6.268 14,14 v 56 c 0,7.732 -6.268,14 -14,14 h -159 c -7.732,0 -14,-6.268 -14,-14 z"
          stroke="#0c445e"
          stroke-width="2"
          stroke-miterlimit="8"
@@ -403,7 +404,7 @@
       <g
          clip-path="url(#clip0)"
          id="g39"
-         transform="translate(-7.4729436)">
+         transform="translate(-22.41883)">
         <g
            clip-path="url(#clip1)"
            id="g38">
@@ -438,32 +439,34 @@
          font-weight="400"
          font-size="15px"
          id="text39"
-         x="253.38907"
+         x="238.44318"
          y="423">Your Azure VNet</text>
       <path
-         d="M 0.666667,-1.16252e-6 0.66676,53.5399 H -0.666573 L -0.666667,1.16252e-6 Z M 4.00009,52.2065 l -3.999985013,8 -4.000014987,-8 z"
-         transform="matrix(1,0,0,-1,297.5,488.707)"
+         d="m 283.22079,488.707 9e-5,-53.5399 h -1.33333 l -10e-5,53.5399 z m 3.33342,-52.2065 -3.99999,-8 -4.00001,8 z"
          id="path39" />
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="12px"
-         transform="translate(314.296,450)"
-         id="text40">Express Route</text>
+         id="text40"
+         x="299.35019"
+         y="450">Express Route</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="12px"
-         transform="translate(314.296,464)"
-         id="text41">VPN connection</text>
+         id="text41"
+         x="299.35019"
+         y="464">VPN connection</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="12px"
-         transform="translate(314.296,479)"
-         id="text42">Bastion with jump box VM</text>
+         id="text42"
+         x="299.35019"
+         y="479">Bastion with jump box VM</text>
       <g
-         transform="matrix(1.04987e-4,0,0,1.04987e-4,239,347)"
+         transform="matrix(1.04987e-4,0,0,1.04987e-4,224.05412,347)"
          id="g43">
         <g
            clip-path="url(#clip4)"
@@ -478,7 +481,8 @@
         </g>
       </g>
       <g
-         id="g48">
+         id="g48"
+         transform="translate(-14.945887)">
         <g
            id="g47">
           <g
@@ -510,22 +514,25 @@
          font-family="'Segoe UI', 'Segoe UI_MSFontService', sans-serif"
          font-weight="400"
          font-size="24px"
-         transform="translate(295.401,215)"
-         id="text48">Machine</text>
+         id="text48"
+         x="280.45517"
+         y="215">Machine</text>
       <text
          font-family="'Segoe UI', 'Segoe UI_MSFontService', sans-serif"
          font-weight="400"
          font-size="24px"
-         transform="translate(295.401,244)"
-         id="text49">Learning</text>
+         id="text49"
+         x="280.45517"
+         y="244">Learning</text>
       <text
          font-family="'Segoe UI', 'Segoe UI_MSFontService', sans-serif"
          font-weight="400"
          font-size="24px"
-         transform="translate(295.401,273)"
-         id="text50">Workspace</text>
+         id="text50"
+         x="280.45517"
+         y="273">Workspace</text>
       <rect
-         x="204"
+         x="189.05411"
          y="147"
          width="630"
          height="165"
@@ -536,7 +543,7 @@
          fill="none"
          id="rect50" />
       <path
-         d="M 441,171.598 C 441,165.745 445.745,161 451.598,161 h 356.804 c 5.853,0 10.598,4.745 10.598,10.598 V 294.402 C 819,300.255 814.255,305 808.402,305 H 451.598 C 445.745,305 441,300.255 441,294.402 Z"
+         d="m 426.05412,171.598 c 0,-5.853 4.745,-10.598 10.598,-10.598 h 356.804 c 5.853,0 10.598,4.745 10.598,10.598 v 122.804 c 0,5.853 -4.745,10.598 -10.598,10.598 h -356.804 c -5.853,0 -10.598,-4.745 -10.598,-10.598 z"
          stroke="#0c445e"
          stroke-width="2"
          stroke-miterlimit="8"
@@ -545,10 +552,10 @@
          fill-rule="evenodd"
          id="path50" />
       <path
-         d="m 250.182,348.098 -0.319,-70.928 1.334,-0.006 0.318,70.928 z m -3.646,-69.58 3.964,-8.018 4.036,7.982 z"
+         d="m 235.23612,348.098 -0.319,-70.928 1.334,-0.006 0.318,70.928 z m -3.646,-69.58 3.964,-8.018 4.036,7.982 z"
          id="path51" />
       <path
-         d="M 441,358.667 C 441,351.119 447.119,345 454.667,345 h 202.666 c 7.548,0 13.667,6.119 13.667,13.667 v 54.666 C 671,420.881 664.881,427 657.333,427 H 454.667 C 447.119,427 441,420.881 441,413.333 Z"
+         d="m 426.05412,358.667 c 0,-7.548 6.119,-13.667 13.667,-13.667 h 202.666 c 7.548,0 13.667,6.119 13.667,13.667 v 54.666 c 0,7.548 -6.119,13.667 -13.667,13.667 h -202.666 c -7.548,0 -13.667,-6.119 -13.667,-13.667 z"
          stroke="#e8e8e8"
          stroke-width="6"
          stroke-miterlimit="8"
@@ -556,7 +563,7 @@
          fill-rule="evenodd"
          id="path52" />
       <g
-         transform="matrix(1.04987e-4,0,0,1.04987e-4,458,363)"
+         transform="matrix(1.04987e-4,0,0,1.04987e-4,443.05412,363)"
          id="g53">
         <g
            clip-path="url(#clip6)"
@@ -571,7 +578,7 @@
       </g>
       <g
          clip-path="url(#clip7)"
-         transform="matrix(1.04987e-4,0,0,1.04987e-4,533,360)"
+         transform="matrix(1.04987e-4,0,0,1.04987e-4,518.05412,360)"
          id="g55">
         <g
            clip-path="url(#clip9)"
@@ -586,7 +593,8 @@
         </g>
       </g>
       <g
-         id="g64">
+         id="g64"
+         transform="translate(-14.945887)">
         <g
            id="g63">
           <g
@@ -632,10 +640,10 @@
          font-weight="400"
          font-size="11px"
          id="text65"
-         x="481.7428"
+         x="466.797"
          y="441">Workspace default resources</text>
       <g
-         transform="matrix(1.04987e-4,0,0,1.04987e-4,471,281)"
+         transform="matrix(1.04987e-4,0,0,1.04987e-4,456.05412,281)"
          id="g67">
         <g
            clip-path="url(#clip10)"
@@ -651,7 +659,7 @@
       </g>
       <g
          clip-path="url(#clip11)"
-         transform="matrix(1.04987e-4,0,0,1.04987e-4,620,281)"
+         transform="matrix(1.04987e-4,0,0,1.04987e-4,605.05412,281)"
          id="g69">
         <g
            clip-path="url(#clip12)"
@@ -666,7 +674,7 @@
         </g>
       </g>
       <g
-         transform="matrix(1.04987e-4,0,0,1.04987e-4,546,281)"
+         transform="matrix(1.04987e-4,0,0,1.04987e-4,531.05412,281)"
          id="g71">
         <g
            clip-path="url(#clip13)"
@@ -681,19 +689,17 @@
         </g>
       </g>
       <path
-         d="M 0.666667,-1.12963e-6 0.66676,55.2929 H -0.666573 L -0.666667,1.12963e-6 Z M 4.00009,53.9596 l -3.999985013,8 -4.000014987,-8 z"
-         transform="matrix(-1,0,0,1,482.5,301.5)"
+         d="m 466.88745,301.5 -9e-5,55.2929 h 1.33333 l 1e-4,-55.2929 z m -3.33342,53.9596 3.99998,8 4.00002,-8 z"
          id="path71" />
       <path
-         d="M 0.666667,-1.18731e-6 0.66676,52.2829 H -0.666574 L -0.666667,1.18731e-6 Z M 4.00009,50.9496 l -3.999985013,8 -4.000014987,-8 z"
-         transform="matrix(-1,0,0,1,557.5,301.5)"
+         d="m 541.88745,301.5 -9e-5,52.2829 h 1.33333 l 10e-5,-52.2829 z m -3.33342,50.9496 3.99998,8 4.00002,-8 z"
          id="path72" />
       <path
-         d="m 632.167,301.5 v 55.293 h -1.334 V 301.5 Z m 3.333,53.96 -4,8 -4,-8 z"
+         d="m 617.22112,301.5 v 55.293 h -1.334 V 301.5 Z m 3.333,53.96 -4,8 -4,-8 z"
          id="path73" />
       <g
          clip-path="url(#clip14)"
-         transform="matrix(1.04987e-4,0,0,1.04987e-4,448,225)"
+         transform="matrix(1.04987e-4,0,0,1.04987e-4,433.05412,225)"
          id="g74">
         <g
            clip-path="url(#clip15)"
@@ -708,11 +714,10 @@
         </g>
       </g>
       <path
-         d="M 1.98573e-6,-0.666667 28.5805,-0.666582 V 0.666752 L -1.98573e-6,0.666667 Z M 27.2472,-3.99992 35.2471,1.04987e-4 27.2471,4.00008 Z"
-         transform="matrix(-1,0,0,1,448.747,235.5)"
+         d="m 433.80112,234.83333 -28.5805,9e-5 v 1.33333 l 28.5805,-8e-5 z m -27.2472,-3.33325 -7.9999,4.00002 8,3.99998 z"
          id="path74" />
       <g
-         transform="matrix(1.04987e-4,0,0,1.04987e-4,488,206)"
+         transform="matrix(1.04987e-4,0,0,1.04987e-4,473.05412,206)"
          id="g76">
         <g
            clip-path="url(#clip17)"
@@ -729,16 +734,18 @@
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(485.336,254)"
-         id="text76">Compute</text>
+         id="text76"
+         x="470.3902"
+         y="254">Compute</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(487.003,267)"
-         id="text77">instance</text>
+         id="text77"
+         x="472.05719"
+         y="267">instance</text>
       <g
-         transform="matrix(1.04987e-4,0,0,1.04987e-4,549,206)"
+         transform="matrix(1.04987e-4,0,0,1.04987e-4,534.05412,206)"
          id="g78">
         <g
            clip-path="url(#clip18)"
@@ -755,17 +762,19 @@
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(546.283,254)"
-         id="text78">Compute</text>
+         id="text78"
+         x="531.33716"
+         y="254">Compute</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(551.037,267)"
-         id="text79">cluster</text>
+         id="text79"
+         x="536.09119"
+         y="267">cluster</text>
       <g
          clip-path="url(#clip19)"
-         transform="matrix(1.04987e-4,0,0,1.04987e-4,611,206)"
+         transform="matrix(1.04987e-4,0,0,1.04987e-4,596.05412,206)"
          id="g80">
         <g
            clip-path="url(#clip20)"
@@ -783,10 +792,11 @@
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(606.327,254)"
-         id="text80">Serverless</text>
+         id="text80"
+         x="591.38116"
+         y="254">Serverless</text>
       <g
-         transform="matrix(1.04987e-4,0,0,1.04987e-4,675,206)"
+         transform="matrix(1.04987e-4,0,0,1.04987e-4,660.05412,206)"
          id="g82">
         <g
            clip-path="url(#clip21)"
@@ -803,23 +813,26 @@
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(669.967,254)"
-         id="text82">Serverless</text>
+         id="text82"
+         x="655.02118"
+         y="254">Serverless</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(680.8,267)"
-         id="text83">S</text>
+         id="text83"
+         x="665.85419"
+         y="267">S</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(686.8,267)"
-         id="text84">park</text>
+         id="text84"
+         x="671.85419"
+         y="267">park</text>
       <g
          clip-path="url(#clip22)"
-         transform="matrix(1.04987e-4,0,0,1.04987e-4,738,206)"
+         transform="matrix(1.04987e-4,0,0,1.04987e-4,723.05412,206)"
          id="g85">
         <g
            clip-path="url(#clip23)"
@@ -836,24 +849,27 @@
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(735.515,254)"
-         id="text85">Managed</text>
+         id="text85"
+         x="720.56921"
+         y="254">Managed</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(741.515,267)"
-         id="text86">online</text>
+         id="text86"
+         x="726.56921"
+         y="267">online</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(736.015,279)"
-         id="text87">endpoint</text>
+         id="text87"
+         x="721.06921"
+         y="279">endpoint</text>
       <g
          clip-path="url(#clip24)"
          id="g93"
-         transform="translate(-7.4729436)">
+         transform="translate(-22.41883)">
         <g
            clip-path="url(#clip25)"
            id="g92">
@@ -888,18 +904,18 @@
          font-weight="400"
          font-size="15px"
          id="text93"
-         x="636.52515"
+         x="621.57935"
          y="181">Azure Machine Learning</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="15px"
          id="text94"
-         x="636.55249"
+         x="621.60669"
          y="195.53976">managed VNet</text>
       <g
          clip-path="url(#clip27)"
-         transform="matrix(1.04987e-4,0,0,1.04987e-4,708,363)"
+         transform="matrix(1.04987e-4,0,0,1.04987e-4,693.05412,363)"
          id="g96">
         <g
            clip-path="url(#clip28)"
@@ -914,7 +930,7 @@
       </g>
       <g
          clip-path="url(#clip29)"
-         transform="matrix(1.04987e-4,0,0,1.04987e-4,721,281)"
+         transform="matrix(1.04987e-4,0,0,1.04987e-4,706.05412,281)"
          id="g98">
         <g
            clip-path="url(#clip30)"
@@ -929,30 +945,32 @@
         </g>
       </g>
       <path
-         d="M 0.666667,-1.12963e-6 0.66676,55.2929 H -0.666573 L -0.666667,1.12963e-6 Z M 4.00009,53.9596 l -3.999985013,8 -4.000014987,-8 z"
-         transform="matrix(-1,0,0,1,732.5,301.5)"
+         d="m 716.88745,301.5 -9e-5,55.2929 h 1.33333 l 10e-5,-55.2929 z m -3.33342,53.9596 3.99998,8 4.00002,-8 z"
          id="path98" />
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(719.515,419)"
-         id="text98">Your</text>
+         id="text98"
+         x="704.56921"
+         y="419">Your</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(709.102,432)"
-         id="text99">business</text>
+         id="text99"
+         x="694.15619"
+         y="432">business</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(712.428,444)"
-         id="text100">storage</text>
+         id="text100"
+         x="697.48218"
+         y="444">storage</text>
       <g
          clip-path="url(#clip31)"
-         transform="matrix(1.04987e-4,0,0,1.04987e-4,786,280)"
+         transform="matrix(1.04987e-4,0,0,1.04987e-4,771.05412,280)"
          id="g101">
         <g
            clip-path="url(#clip32)"
@@ -967,15 +985,13 @@
         </g>
       </g>
       <path
-         d="M 0.666667,-1.11682e-6 0.66676,56.0034 H -0.666573 L -0.666667,1.11682e-6 Z M 4.00009,54.67 1.04987e-4,62.67 -3.99991,54.67 Z"
-         transform="matrix(-1,0,0,1,797.5,300.5)"
+         d="m 781.88745,300.5 -9e-5,56.0034 h 1.33333 l 10e-5,-56.0034 z m -3.33342,54.67 3.99998,8 4.00002,-8 z"
          id="path101" />
       <path
-         d="M 1.47437e-6,-0.666667 40.8054,-0.666576 V 0.666757 L -1.47437e-6,0.666667 Z M 39.472,-3.99991 l 8,4.000014987 -8,3.999985013 z"
-         transform="matrix(1,0,0,-1,819.5,233.5)"
+         d="m 804.55412,234.16667 40.8054,-9e-5 v -1.33334 l -40.8054,9e-5 z m 39.472,3.33324 8,-4.00001 -8,-3.99999 z"
          id="path102" />
       <g
-         transform="matrix(1.04987e-4,0,0,1.04987e-4,778,363)"
+         transform="matrix(1.04987e-4,0,0,1.04987e-4,763.05412,363)"
          id="g103">
         <g
            clip-path="url(#clip34)"
@@ -992,22 +1008,25 @@
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(787.28,421)"
-         id="text103">Your</text>
+         id="text103"
+         x="772.33417"
+         y="421">Your</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(784.78,434)"
-         id="text104">Azure</text>
+         id="text104"
+         x="769.83417"
+         y="434">Azure</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(780.613,446)"
-         id="text105">OpenAI</text>
+         id="text105"
+         x="765.66718"
+         y="446">OpenAI</text>
       <path
-         d="m 817.5,453.5 c 0,5.799 -0.783,10.5 -1.75,10.5 h -51 c -0.966,0 -1.75,4.701 -1.75,10.5 0,-5.799 -0.783,-10.5 -1.75,-10.5 h -51 c -0.966,0 -1.75,-4.701 -1.75,-10.5"
+         d="m 802.55412,453.5 c 0,5.799 -0.783,10.5 -1.75,10.5 h -51 c -0.966,0 -1.75,4.701 -1.75,10.5 0,-5.799 -0.783,-10.5 -1.75,-10.5 h -51 c -0.966,0 -1.75,-4.701 -1.75,-10.5"
          stroke="#000000"
          stroke-width="1.33333"
          stroke-miterlimit="8"
@@ -1018,22 +1037,26 @@
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(703.875,487)"
-         id="text106">You can configure private</text>
+         id="text106"
+         x="688.9292"
+         y="487">You can configure private</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(699.455,500)"
-         id="text107">endpoint outbound rules to</text>
+         id="text107"
+         x="684.50916"
+         y="500">endpoint outbound rules to</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="11px"
-         transform="translate(709.375,512)"
-         id="text108">your private resources.</text>
+         id="text108"
+         x="694.4292"
+         y="512">your private resources.</text>
       <g
-         id="g134">
+         id="g134"
+         transform="translate(-14.945887)">
         <g
            id="g133">
           <g
@@ -1145,26 +1168,30 @@
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="16px"
-         transform="translate(875.443,209)"
-         id="text134">Internet outbound is</text>
+         id="text134"
+         x="860.49719"
+         y="209">Internet outbound is</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="16px"
-         transform="translate(875.443,228)"
-         id="text135">denied. You can configure</text>
+         id="text135"
+         x="860.49719"
+         y="228">denied. You can configure</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="16px"
-         transform="translate(875.443,247)"
-         id="text136">FQDN or service tag based</text>
+         id="text136"
+         x="860.49719"
+         y="247">FQDN or service tag based</text>
       <text
          font-family="Aptos, Aptos_MSFontService, sans-serif"
          font-weight="400"
          font-size="16px"
-         transform="translate(875.443,266)"
-         id="text137">outbound rules.</text>
+         id="text137"
+         x="860.49719"
+         y="266">outbound rules.</text>
     </g>
   </g>
 </svg>
