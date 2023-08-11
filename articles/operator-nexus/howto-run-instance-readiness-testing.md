@@ -79,14 +79,14 @@ A managed identity with the following role assignments is needed to execute test
    * `Log Analytics Reader` - For reading metadata about the LAW
    * `Kubernetes Connected Cluster Role` - For read/write operations on connected cluster
 
-Executing `create-managed-identity.sh` requires the input yaml to have the following properties, all of them can be overriden by the corrosponding environment variable;
+Executing `create-managed-identity.sh` requires the input yaml to have the following properties, all of them can be overriden by the corrosponding environment variables:
 ```yml
 MANAGED_IDENTITY:
   RESOURCE_GROUP: "<resource-group>" # env: MANAGED_IDENTITY_RESOURCE_GROUP
   NAME: "<name>" # env: MANAGED_IDENTITY_NAME
   SUBSCRIPTION: "<subscription>" # env: MANAGED_IDENTITY_SUBSCRIPTION
   LOCATION: "<location>" # env: MANAGED_IDENTITY_LOCATION
-``````
+```
    * `MANAGED_IDENTITY.RESOURCE_GROUP` - The resource group the Managed Identity is created in.
    * `MANAGED_IDENTITY.NAME` - The name of the Managed Identity to be created.
    * `MANAGED_IDENTITY.SUBSCRIPTION` - The subscription where the resource group should reside.
@@ -100,7 +100,9 @@ MANAGED_IDENTITY:
 > if `MANAGED_IDENTITY_ID` is set in the yaml or as an environment variable the script won't create anything.
 
 **RESULT:** This script prints a value for `MANAGED_IDENTITY_ID` and sets it to the input.yml. See [Input Configuration](#input-configuration).
-
+```yml
+MANAGED_IDENTITY_ID: <generated_id>
+``````
 
 #### Create service principal and security group
 A service principal with the following role assignments. The supplemental script, `create-service-principal.sh`  creates a service principal with these role assignments, or add role assignments to an existing service principal.
@@ -110,16 +112,34 @@ A service principal with the following role assignments. The supplemental script
 
 Additionally, the script creates the necessary security group, and adds the service principal to the security group. If the security group exists, it adds the service principal to the existing security group.
 
-Executing `create-service-principal.sh` requires the following environment variables to be set:
-   * SERVICE_PRINCIPAL_NAME - The name of the service principal, created with the `az ad sp create-for-rbac` command.
-   * AAD_GROUP_NAME - The name of the security group.
+Executing `create-service-principal.sh` requires the input yaml to have the following properties, all of them can be overriden by the corrosponding environment variables:
+```yml
+### To be used for service principal creation
+SERVICE_PRINCIPAL:
+  NAME: "<name>" # env: SERVICE_PRINCIPAL_NAME
+  AAD_GROUP_NAME: "<aad-group-name>" # env: SERVICE_PRINCIPAL_AAD_GROUP_NAME
+  SUBSCRIPTION: "<subscription>" # env: SERVICE_PRINCIPAL_SUBSCRIPTION
+```
+   * `SERVICE_PRINCIPAL.NAME` - The name of the service principal, created with the `az ad sp create-for-rbac` command.
+   * `SERVICE_PRINCIPAL.AAD_GROUP_NAME` - The name of the security group.
+   * `SERVICE_PRINCIPAL.SUBSCRIPTION` - The subscription of the service principal.
 
 ```bash
 # Example execution of the script
-SERVICE_PRINCIPAL_NAME="<your service principal name>" AAD_GROUP_NAME="<your security group name>" ./create-service-principal.sh
+./create-service-principal.sh irt.input.yml
 ```
 
-**RESULT:** This script prints values for `AAD_GROUP_ID`, `SP_ID`, `SP_PASSWORD`, and `SP_TENANT`. This key/value pair should be recorded in irt-input.yml for use. See [Input Configuration](#input-configuration).
+> [NOTE]
+> if all `SP_ID`,`SP_PASSWORD`,`SP_TENANT`,`AAD_GROUP_ID` are set in the yaml or as an environment variable the script won't create anything.
+
+**RESULT:** This script prints values for `AAD_GROUP_ID`, `SP_ID`, `SP_PASSWORD`, and `SP_TENANT` and will set back to the input yaml. See [Input Configuration](#input-configuration).
+
+```yml
+SP_ID: "<generated-sp-id>"
+SP_PASSWORD: "<generated-sp-password>" # If SP already exists sp_password is not retreivable through the script, please fill it in.
+SP_TENANT_ID: "<generated-sp-tenant-id>"
+AAD_GROUP_ID: "generated-aad-group-id"
+``````
 
 
 #### Create isolation domains
