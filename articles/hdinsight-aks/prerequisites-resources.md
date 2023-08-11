@@ -1,9 +1,9 @@
 ---
-title: Resource prerequisites 
+title: Resource prerequisites for Azure HDInsight on AKS
 description: Prerequisite steps to complete for Azure resources before working with HDInsight on AKS.
 ms.topic: how-to
 ms.service: hdinsight-aks
-ms.date: 08/08/2023
+ms.date: 08/10/2023
 ---
 
 # Resource prerequisites
@@ -25,28 +25,28 @@ The following table depicts the necessary resources that are required for cluste
 
 ## Optional resources
 
-1. Virtual Network (VNet) and Subnet: [Create virtual network](/azure/virtual-network/quick-create-portal)
-1. Log Analytics Workspace: [Create Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal) 
+* Virtual Network (VNet) and Subnet: [Create virtual network](/azure/virtual-network/quick-create-portal)
+* Log Analytics Workspace: [Create Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal) 
 
 > [!NOTE] 
 >
-> 1. HDInsight on AKS allows you to bring your own VNet and Subnet, enabling you to customize your [network requirements](./secure-traffic-by-firewall.md) to suit the needs of your enterprise.  
-> 1. Log Analytics workspace is optional and needs to be created ahead in case you would like to use Azure Monitor capabilities like [Azure Log Analytics](./how-to-azure-monitor-integration.md). 
+> * HDInsight on AKS allows you to bring your own VNet and Subnet, enabling you to customize your [network requirements](./secure-traffic-by-firewall.md) to suit the needs of your enterprise.  
+> * Log Analytics workspace is optional and needs to be created ahead in case you would like to use Azure Monitor capabilities like [Azure Log Analytics](./how-to-azure-monitor-integration.md). 
 
 You can create the necessary resources in two ways: 
 
-1. [Ready-to-use ARM templates](#using-arm-templates)
-2. [Using Azure portal](#using-azure-portal)
+* [Ready-to-use ARM templates](#using-arm-templates)
+* [Using Azure portal](#using-azure-portal)
 
 ### Using ARM templates
 
 The following ARM templates allow you to create the specified necessary resources, in one click using a resource prefix and more details as required. 
 
 For example, if you provide resource prefix as “demo” then, following resources are created in your resource group depending on the template you select - 
-1. MSI is created with name as `demoMSI`. 
-2. Storage is created with name as `demostore` along with a container as `democontainer`. 
-3. Key vault is created with name as `demoKeyVault` along with the secret provided as parameter in the template. 
-4. Azure SQL database is created with name as `demoSqlDB` along with SQL server with name as `demoSqlServer`. 
+* MSI is created with name as `demoMSI`. 
+* Storage is created with name as `demostore` along with a container as `democontainer`. 
+* Key vault is created with name as `demoKeyVault` along with the secret provided as parameter in the template. 
+* Azure SQL database is created with name as `demoSqlDB` along with SQL server with name as `demoSqlServer`. 
  
 |Workload|Prerequisites|
 |---|---|
@@ -90,10 +90,10 @@ For example, if you provide resource prefix as “demo” then, following resour
    |SQL Database  |Allow Azure services and resources to access this server |Enable this property under Networking blade in your SQL database in the Azure portal.|
 
    > [!NOTE]
-   > 1. Currently, we support only Azure SQL Database as inbuilt metastore.
-   > 1. Due to Hive limitation, "-" (hyphen) character in metastore database name is not supported. 
-   > 1. Azure SQL Database should be in the same region as your cluster.
-   > 1. Option to create a SQL Database during cluster creation is also available. However, you need to refresh the cluster creation page to get the newly created database appear in the dropdown list. 
+   > * Currently, we support only Azure SQL Database as inbuilt metastore.
+   > * Due to Hive limitation, "-" (hyphen) character in metastore database name is not supported. 
+   > * Azure SQL Database should be in the same region as your cluster.
+   > * Option to create a SQL Database during cluster creation is also available. However, you need to refresh the cluster creation page to get the newly created database appear in the dropdown list. 
 
 #### [Create Azure Key Vault](/azure/key-vault/general/quick-create-portal#create-a-vault)
 
@@ -105,5 +105,5 @@ For example, if you provide resource prefix as “demo” then, following resour
    1. [Create a secret](/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault): This step allows you to keep your SQL Server admin password as a secret in Azure Key Vault. Add your password in the “Value” field while creating a secret.
 
    > [!NOTE]
-   > 1. Make sure to note the secret name, as this is required during cluster creation.
-   > 1. You need to have a “Key Vault Administrator” role assigned to your identity or account to add a secret in the Key Vault using Azure portal. Navigate to the Key Vault and follow the steps on [how to assign the role](/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page).
+   > * Make sure to note the secret name, as this is required during cluster creation.
+   > * You need to have a “Key Vault Administrator” role assigned to your identity or account to add a secret in the Key Vault using Azure portal. Navigate to the Key Vault and follow the steps on [how to assign the role](/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page).
