@@ -17,6 +17,8 @@ ms.author: yili7
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+
 [Native Image](https://www.graalvm.org/latest/reference-manual/native-image/) capability allows you to compile Java applications to standalone executables, known as native images. These executables can provide significant benefits, including faster startup times and lower runtime memory overhead compared to a traditional JVM (Java Virtual Machine). 
 
 This quickstart shows how to deploy a Spring Boot application to Azure Spring Apps as native image. The sample project is the Spring Petclinic application. The following screenshot shows the application:
@@ -103,6 +105,9 @@ az spring app scale \
 
 Jar app failed to start due to insufficient memory: `Terminating due to java.lang.OutOfMemoryError: Java heap space`.
 
+In Figure below, it shows the optimized memory usage of a native image deployment – which is about 1/5th of the memory consumed by its equivalent JAR deployment - for a constant workload of 400 requests per second into the monolithic version of the Petclinic application.
+:::image type="content" source="./media/quickstart-deploy-java-native-image-app/optimized-memory-usage-native-vs-jar-app.jpg" alt-text="Screenshot of the optimized memory usage of a native image deployment in Azure Spring Apps." lightbox="./media/quickstart-deploy-java-native-image-app/optimized-memory-usage-native-vs-jar-app.jpg":::
+
 Native images offer quicker startup times and reduced runtime memory overhead when compared to the conventional Java Virtual Machine (JVM).
 
 ## 7. Clean up resources
@@ -114,6 +119,9 @@ az group delete --name ${RESOURCE_GROUP}
 ```
 
 ## 8. Next steps
+
+> [!div class="nextstepaction"]
+> [How to deploy polyglot apps in the Azure Spring Apps Enterprise plan](./how-to-enterprise-deploy-polyglot-apps.md)
 
 > [!div class="nextstepaction"]
 > [Structured application log for Azure Spring Apps](./structured-app-log.md)
