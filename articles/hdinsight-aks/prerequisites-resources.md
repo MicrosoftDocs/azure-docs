@@ -86,7 +86,7 @@ For example, if you provide resource prefix as “demo” then, following resour
   
    |Resource Type| Property| Description| 
    |-|-|-|
-   |SQL Server |Authentication method |While creating a SQL Server, use "Authentication method" as <br> :::image type="content" source="./media/hilo-prerequisites/authentication-method.png" alt-text="Screenshot showing how to select authentication method." border="true" lightbox="media/hilo-prerequisites/authentication-method.png":::|
+   |SQL Server |Authentication method |While creating a SQL Server, use "Authentication method" as <br> :::image type="content" source="./media/prerequisites-resources/authentication-method.png" alt-text="Screenshot showing how to select authentication method." border="true" lightbox="media/prerequisites-resources/authentication-method.png":::|
    |SQL Database  |Allow Azure services and resources to access this server |Enable this property under Networking blade in your SQL database in the Azure portal.|
 
    > [!NOTE]
