@@ -73,6 +73,8 @@ items:
   items:
   - name: App and deployment
     href: concept-understand-app-and-deployment.md
+  - name: Version support for Java, Spring Boot, and more
+    href: concept-app-customer-responsibilities.md
   - name: Blue-green deployment strategies
     href: concepts-blue-green-deployment-strategies.md
   - name: Zero downtime deployment
