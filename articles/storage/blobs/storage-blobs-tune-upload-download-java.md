@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 08/10/2023
+ms.date: 08/14/2023
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-java
 ---
@@ -70,7 +70,7 @@ ParallelTransferOptions parallelTransferOptions = new ParallelTransferOptions()
         .setMaxConcurrency(2)
         .setMaxSingleUploadSizeLong((long) 8 * 1024 * 1024); // 8 MiB max size for single request upload
 
-BlobUploadFromFileOptions options = new BlobUploadFromFileOptions("<file-path>");
+BlobUploadFromFileOptions options = new BlobUploadFromFileOptions("<localFilePath>");
 options.setParallelTransferOptions(parallelTransferOptions);
 
 Response<BlockBlobItem> blockBlob = blobClient.uploadFromFileWithResponse(options, null, null);
@@ -97,8 +97,10 @@ Properly tuning data transfer options is key to reliable performance for downloa
 
 The following values can be tuned for downloads based on the needs of your app:
 
-- [blockSize](#blockSize): The maximum block size to transfer for each request.
-- [maxConcurrency](#maxConcurrency): The maximum number of parallel requests that will be issued at any given time as a part of a single parallel transfer.
+- `blockSize`: The maximum block size to transfer for each request.
+- `maxConcurrency: The maximum number of parallel requests that will be issued at any given time as a part of a single parallel transfer.
+
+The following code example shows how to set values for [ParallelTransferOptions](/java/api/com.azure.storage.common.paralleltransferoptions) and include the options as part of a [BlobDownloadToFileOptions](/java/api/com.azure.storage.blob.options.blobdownloadtofileoptions) instance.
 
 #### Code example
 
@@ -115,7 +117,7 @@ blobClient.downloadToFileWithResponse(options, null, null);
 
 ### Performance considerations for downloads
 
-During a download, the Storage client libraries split a given download request into multiple subdownloads based on the configuration options defined during client construction. Each subdownload has its own dedicated call to the REST operation. Depending on transfer options, the client libraries manage these REST operations in parallel to complete the full download.
+During a download, the Storage client libraries split a given download request into multiple subdownloads based on the configuration options defined by `ParallelTransferOptions`. Each subdownload has its own dedicated call to the REST operation. Depending on transfer options, the client libraries manage these REST operations in parallel to complete the full download.
 
 ## Next steps
 
