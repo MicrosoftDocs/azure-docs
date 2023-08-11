@@ -26,6 +26,8 @@ Both admin and non-admin users can download user lists.
 
 ## To download a list of users
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to **Azure Active Directory** > **Users**.
 3. In Azure AD, select **Users** > **Download users**. By default, all user profiles are exported.

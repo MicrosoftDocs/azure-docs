@@ -16,7 +16,7 @@ ms.reviewer: cmmdesai
 # Quickstart API-driven inbound provisioning with cURL (Public preview)
 
 ## Introduction
-[cURL](https://curl.se/) is a popular, free, open-source, command-line tool used by API developers, and it is [available by default on Windows 10/11](https://curl.se/windows/microsoft.html). This tutorial describes how you can quickly test [API-driven inbound provisioning](inbound-provisioning-api-concepts.md) with cURL. 
+[cURL](https://curl.se/) is a popular, free, open-source, command-line tool used by API developers, and it's [available by default on Windows 10/11](https://curl.se/windows/microsoft.html). This tutorial describes how you can quickly test [API-driven inbound provisioning](inbound-provisioning-api-concepts.md) with cURL. 
 
 ## Pre-requisites
 
@@ -30,12 +30,12 @@ ms.reviewer: cmmdesai
      ```
      curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "client_id=[yourClientId]&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=[yourClientSecret]&grant_type=client_credentials" "https://login.microsoftonline.com/[yourTenantId]/oauth2/v2.0/token"
      ```
-1. Copy the [bulk request with SCIM Enterprise User Schema](#bulk-request-with-scim-enterprise-user-schema) and save the contents in a file called scim-bulk-upload-users.json.
+1. Copy the [bulk request with SCIM Enterprise User Schema](#bulk-request-with-scim-enterprise-user-schema) and save the contents in a file called `scim-bulk-upload-users.json`.
 1. Replace the variable `[InboundProvisioningAPIEndpoint]` with the provisioning API endpoint associated with your provisioning app. Use the `[AccessToken]` value from the previous step and run the following curl command to upload the bulk request to the provisioning API endpoint. 
      ```
      curl -v "[InboundProvisioningAPIEndpoint]" -d @scim-bulk-upload-users.json -H "Authorization: Bearer [AccessToken]" -H "Content-Type: application/scim+json"
      ```
-1. Upon successful upload, you will receive HTTP 202 Accepted response code. 
+1. Upon successful upload, you'll receive HTTP 202 Accepted response code. 
 1. The provisioning service starts processing the bulk request payload immediately and you can see the provisioning details by accessing the provisioning logs of the inbound provisioning app. 
 
 ## Verify processing of the bulk request payload
@@ -48,7 +48,7 @@ ms.reviewer: cmmdesai
 
       [![Screenshot of provisioning logs in menu.](media/inbound-provisioning-api-curl-tutorial/access-provisioning-logs.png)](media/inbound-provisioning-api-curl-tutorial/access-provisioning-logs.png#lightbox)
 
-1. Click on any record in the provisioning logs to view additional processing details.
+1. Click on any record in the provisioning logs to view more processing details.
 1. The provisioning log details screen displays all the steps executed for a specific user. 
       [![Screenshot of provisioning logs details.](media/inbound-provisioning-api-curl-tutorial/provisioning-log-details.png)](media/inbound-provisioning-api-curl-tutorial/provisioning-log-details.png#lightbox)
       * Under the **Import from API** step, see details of user data extracted from the bulk request.
@@ -63,11 +63,7 @@ ms.reviewer: cmmdesai
 The bulk request shown below uses the SCIM standard Core User and Enterprise User schema. 
 
 **Request body**
-# [HTTP](#tab/http)
-<!-- {
-  "blockType": "request",
-  "name": "Quick_start_with_curl"
-}-->
+
 ```http
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:BulkRequest"],
@@ -205,5 +201,6 @@ The bulk request shown below uses the SCIM standard Core User and Enterprise Use
 
 ## Next steps
 - [Troubleshoot issues with the inbound provisioning API](inbound-provisioning-api-issues.md)
-- [API-driven inbound provisioning concepts](inbound-provisioning-api-concepts.md)
 - [Frequently asked questions about API-driven inbound provisioning](inbound-provisioning-api-faqs.md)
+- [Quick start using PowerShell](inbound-provisioning-api-powershell.md)
+- [Quick start using Azure Logic Apps](inbound-provisioning-api-logic-apps.md)

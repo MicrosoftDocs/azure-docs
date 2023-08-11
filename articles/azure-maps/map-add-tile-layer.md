@@ -83,7 +83,7 @@ A web-mapping tile service (WMTS) is an Open Geospatial Consortium (OGC) standar
 
 For a fully functional sample that shows how to create a tile layer that points to a Web Mapping Tile Service (WMTS), see the [WMTS Tile Layer] sample in the [Azure Maps Samples]. For the source code for this sample, see [WMTS Tile Layer source code].
 
-The following screenshot shows the [WMTS Tile Layer] sample overlaying a web-mapping tile service of imagery from the [U.S. Geological Survey (USGS) National Map] on top of a map, below roads and labels.
+The following screenshot shows the WMTS Tile Layer sample overlaying a web-mapping tile service of imagery from the U.S. Geological Survey (USGS) National Map on top of a map, below roads and labels.
 
 :::image type="content" source="./media/map-add-tile-layer/wmts-tile-layer.png"alt-text="A screenshot of a map with a tile layer that points to a Web Mapping Tile Service (WMTS) overlay.":::
 

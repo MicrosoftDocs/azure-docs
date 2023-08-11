@@ -84,11 +84,7 @@ You can inspect the processing using the provisioning logs API URL returned as p
 The bulk request shown below uses the SCIM standard Core User and Enterprise User schema. 
 
 **Request body**
-# [HTTP](#tab/http)
-<!-- {
-  "blockType": "request",
-  "name": "Quick_start_with_Graph_Explorer"
-}-->
+
 ```http
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:BulkRequest"],
@@ -225,5 +221,6 @@ The bulk request shown below uses the SCIM standard Core User and Enterprise Use
 ```
 ## Next steps
 - [Troubleshoot issues with the inbound provisioning API](inbound-provisioning-api-issues.md)
-- [API-driven inbound provisioning concepts](inbound-provisioning-api-concepts.md)
 - [Frequently asked questions about API-driven inbound provisioning](inbound-provisioning-api-faqs.md)
+- [Quick start using PowerShell](inbound-provisioning-api-powershell.md)
+- [Quick start using Azure Logic Apps](inbound-provisioning-api-logic-apps.md)

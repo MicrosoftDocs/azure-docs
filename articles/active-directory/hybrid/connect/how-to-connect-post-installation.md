@@ -28,7 +28,9 @@ Now that your users have been synchronized to the cloud, you need to assign them
 
 ### To assign an Azure AD Premium or Enterprise Mobility Suite License
 
-1. Sign in to the Azure portal as an admin.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as an admin.
 2. On the left, select **Active Directory**.
 3. On the **Active Directory** page, double-click the directory that has the users you want to set up.
 4. At the top of the directory page, select **Licenses**.
@@ -39,7 +41,8 @@ Now that your users have been synchronized to the cloud, you need to assign them
 Use the Azure portal to check the status of a synchronization.
 
 ### To verify the scheduled synchronization task
-1. Sign in to the Azure portal as an admin.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as an admin.
 2. On the left, select **Active Directory**.
 3. On the left, select **Azure AD Connect**
 4. At the top of the page, note the last synchronization.

@@ -55,6 +55,8 @@ By the end of this article, you'll be able to:
 
 ## Step 2: Enable user synchronization in the target tenant
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 ![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator in the target tenant.

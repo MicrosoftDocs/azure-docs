@@ -141,7 +141,7 @@ additionalContent:
               url: https://portal.customtranslator.azure.ai/
             - text: Azure Machine Learning
               url: https://ml.azure.com/
-        - title: Explore more AI services
+        - title: Explore more AI resources
           links:
             - text: Azure Machine Learning
               url: ../machine-learning/index.yml
@@ -157,6 +157,8 @@ additionalContent:
               url: https://docs.github.com/copilot/getting-started-with-github-copilot
         - title: Training & certification
           links:
+            - text: AI learning and community hub
+              url: /ai/
             - text: Identify principles and practices for responsible AI
               url: /training/paths/responsible-ai-business-principles/
             - text: AI Learning paths and modules

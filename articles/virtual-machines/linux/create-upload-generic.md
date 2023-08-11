@@ -60,7 +60,7 @@ The mechanism for rebuilding the initrd or initramfs image may vary depending on
 1. Back up the existing initrd image:
 
     ```bash
-    sudo cd /boot
+    cd /boot
     sudo cp initrd-`uname -r`.img  initrd-`uname -r`.img.bak
     ```
 
@@ -185,7 +185,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    **Initramfs**
 
    ```bash
-   sudo cd /boot
+   cd /boot
    sudo cp initramfs-<kernel-version>.img <kernel-version>.img.bak 
    sudo dracut -f -v initramfs-<kernel-version>.img <kernel-version> --add-drivers "hv_vmbus hv_netvsc hv_storvsc"
    sudo grub-mkconfig -o /boot/grub/grub.cfg 
@@ -195,7 +195,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    **Initrd**
 
    ```bash
-   sudo cd /boot
+   cd /boot
    sudo cp initrd.img-<kernel-version>  initrd.img-<kernel-version>.bak
    sudo mkinitramfs -o initrd.img-<kernel-version> <kernel-version>  --with=hv_vmbus,hv_netvsc,hv_storvsc
    sudo update-grub 
@@ -341,7 +341,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    ```bash
    sudo rm -f /var/log/waagent.log
    sudo cloud-init clean
-   sudo  -force -deprovision+user
+   sudo waagent -force -deprovision+user
    sudo rm -f ~/.bash_history
    sudo export HISTSIZE=0
    ```  

@@ -29,9 +29,11 @@ To complete the scenario in this quickstart, you need:
 
 ## Sign-in without terms of use
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The goal of this step is to get an impression of the sign-in experience without a Conditional Access policy.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as your test user.
+1. Sign in to the [Azure portal](https://portal.azure.com) as your test user.
 1. Sign out.
 
 ## Create your terms of use

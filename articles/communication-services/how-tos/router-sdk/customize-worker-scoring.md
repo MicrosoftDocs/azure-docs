@@ -215,7 +215,7 @@ var queue = await administrationClient.CreateQueueAsync(
 // Create workers
 var worker1 = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "Worker_1", totalCapacity: 100)
     {
-        QueueIds = { [queue.Value.Id] = new RouterQueueAssignment() },
+        QueueAssignments = { [queue.Value.Id] = new RouterQueueAssignment() },
         ChannelConfigurations = { ["Xbox_Chat_Channel"] = new ChannelConfiguration(capacityCostPerJob: 10) },
         Labels =
         {
@@ -230,7 +230,7 @@ var worker1 = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "
 
 var worker2 = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "Worker_2", totalCapacity: 100)
     {
-        QueueIds = { [queue.Value.Id] = new RouterQueueAssignment() },
+        QueueAssignments = { [queue.Value.Id] = new RouterQueueAssignment() },
         ChannelConfigurations = { ["Xbox_Chat_Channel"] = new ChannelConfiguration(capacityCostPerJob: 10) },
         Labels =
         {
@@ -245,7 +245,7 @@ var worker2 = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "
 
 var worker3 = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "Worker_3", totalCapacity: 100)
     {
-        QueueIds = { [queue.Value.Id] = new RouterQueueAssignment() },
+        QueueAssignments = { [queue.Value.Id] = new RouterQueueAssignment() },
         ChannelConfigurations = { ["Xbox_Chat_Channel"] = new ChannelConfiguration(capacityCostPerJob: 10) },
         Labels =
         {

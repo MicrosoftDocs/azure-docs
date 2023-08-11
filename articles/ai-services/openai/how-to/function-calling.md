@@ -35,10 +35,10 @@ When functions are provided, by default the `function_call` will be set to `"aut
 import os
 import openai
 
-openai.api_key = os.getenv("AZURE_OPENAI_ENDPOINT") 
+openai.api_key = os.getenv("AZURE_OPENAI_KEY")
 openai.api_version = "2023-07-01-preview"
 openai.api_type = "azure"
-openai.api_base = os.getenv("AZURE_OPENAI_KEY")
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")
 
 messages= [
     {"role": "user", "content": "Find beachfront hotels in San Diego for less than $300 a month with free breakfast."}
