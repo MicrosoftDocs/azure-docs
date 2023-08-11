@@ -14,30 +14,81 @@ keywords:
 ## Prerequisites
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
-- Access granted to Azure Open AI in the desired Azure subscription.
+- Access granted to Azure OpenAI in the desired Azure subscription.
 
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repo to contact Microsoft.
 
 ## Create a resource
 
-The following steps show how to create an Azure OpenAI resource in the Azure portal.
+The following steps show how to create an Azure OpenAI resource in the Azure portal. 
+
+### Identify the resource
 
 1. Sign in with your Azure subscription in the Azure portal.
 
 1. Browse to the [Azure OpenAI Service Create Page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_openai_tip#create/Microsoft.CognitiveServicesOpenAI).
 
-1. On the **Create** page, provide the following information:
+1. On the **Create** page, provide the following information for the fields on the **Basics** tab:
 
    | Field | Description |
    |---|---|
    | **Subscription** | Select the Azure subscription used in your Azure OpenAI Service onboarding application. |
    | **Resource group** | The Azure resource group to contain your Azure OpenAI resource. You can create a new group or use a pre-existing group. |
    | **Region** | The location of your instance. Different locations can introduce latency, but they don't affect the runtime availability of your resource. |
-   | **Name** | A descriptive name for your Azure AI services resource, such as _MyOpenAIResource_. |
+   | **Name** | A descriptive name for your Azure OpenAI Service resource, such as _MyOpenAIResource_. |
    | **Pricing Tier** | Only one pricing tier is available for the service currently. |
 
-   :::image type="content" source="../media/create-resource/create.png" alt-text="Screenshot that shows how to create an Azure OpenAI resource in the Azure portal." lightbox="../media/create-resource/create.png":::
+   :::image type="content" source="../media/create-resource/create-resource-basic-settings.png" alt-text="Screenshot that shows how to create an Azure OpenAI resource in the Azure portal." lightbox="../media/create-resource/create-resource-basic-settings.png":::
+
+1. Select **Next**.
+
+### Configure network security
+
+The **Network** tab presents three options for the security **Type**:
+   
+- Option 1: **All networks, including the internet, can access this resource.**
+- Option 2: **Selected networks, configure network security for your Azure AI services resource.**
+- Option 3: **Disabled, no networks can access this resource. You could configure private endpoint connections that will be the exclusive way to access this resource.**
+
+:::image type="content" source="../media/create-resource/create-resource-network-settings.png" alt-text="Screenshot that shows the network security options for an Azure OpenAI resource in the Azure portal." lightbox="../media/create-resource/create-resource-network-settings.png":::
+
+Depending on the option you select, you might need to provide additional information.
+
+#### Option 1: Allow all networks
+
+The first option allows all networks, including the internet, to access your resource. This option is the default setting. No extra settings are required for this option.
+
+#### Option 2: Allow specific networks only
+
+The second option lets you identify specific networks that can access your resource. When you select this option, the page updates to include the following required fields:
+
+| Field | Description |
+|---|---|
+| **Virtual network** | Specify the virtual networks that are permitted access to your resource. You can edit the default virtual network name provided by Azure. |
+| **Subnets** | Specify the subnets that are permitted access to your resource. You can edit the default subnet name provided by Azure. |
+
+:::image type="content" source="../media/create-resource/create-resource-network-settings-specific.png" alt-text="Screenshot that shows how to configure network security for an Azure OpenAI resource to allow specific networks only." lightbox="../media/create-resource/create-resource-network-settings-specific.png":::
+
+The **Firewall** section provides an optional **Address range** field that you can use to configure firewall settings for the resource.
+
+#### Option 3: Disable network access
+
+The third option lets you disable network access to your resource. When you select this option, the page updates to include the **Private endpoint** table.
+
+:::image type="content" source="../media/create-resource/create-resource-network-settings-disable.png" alt-text="Screenshot that shows how to disable network security for an Azure OpenAI resource in the Azure portal." lightbox="../media/create-resource/create-resource-network-settings-disable.png":::
+
+As an option, you can add a private endpoint for access to your resource. Select **Add private endpoint**, and complete the endpoint configuration.
+
+### Confirm the configuration and create the resource
+
+1. Select **Next** and configure any **Tags** for your resource, as desired.
+
+1. Select **Next** to move to the final stage in the process: **Review + Submit**.
+
+1. Confirm your configuration settings, and select **Create**.
+
+Azure displays a notification when the new resource is available.
 
 ## Deploy a model
 
@@ -47,7 +98,7 @@ To deploy a model, follow these steps:
 
 1. Sign in to [Azure OpenAI Studio](https://oai.azure.com).
 
-1. Select the subscription and Azure OpenAI resource to work with.
+1. Select the subscription and the Azure OpenAI resource to work with.
 
 1. Under **Management** select **Deployments**.
 
@@ -65,4 +116,8 @@ To deploy a model, follow these steps:
 
    1. For your first deployment, leave the **Advanced options** set to the defaults.
 
-The deployments table displays a new entry that corresponds to this newly created model. Your deployment status changes to _succeeded_ when the deployment is complete and ready for use.
+1. Select **Create**.
+
+The deployments table shows a new entry that corresponds to your newly created model.
+
+When the deployment is complete and ready for use, your deployment status changes to _succeeded_.
