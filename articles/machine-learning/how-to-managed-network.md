@@ -180,8 +180,7 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
 
 * __Update an existing workspace__:
 
-    > [!WARNING]
-    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, and managed online endpoints.
+    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
 
     The following example updates an existing workspace. The `--managed-network allow_internet_outbound` parameter configures a managed VNet for the workspace:
 
@@ -251,8 +250,7 @@ To configure a managed VNet that allows internet outbound communications, use th
 
 * __Update an existing workspace__:
 
-    > [!WARNING]
-    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, and managed online endpoints.
+    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
 
     The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`:
     
@@ -295,8 +293,7 @@ To configure a managed VNet that allows internet outbound communications, use th
 
 * __Update an existing workspace__:
 
-    > [!WARNING]
-    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, and managed online endpoints.
+    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
 
     1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure Machine Learning workspace that you want to enable managed virtual network isolation for.
     1. Select __Networking__, then select __Private with Internet Outbound__. Select __Save__ to save the changes.
@@ -376,8 +373,7 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
 
 * __Update an existing workspace__
 
-    > [!WARNING]
-    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, and managed online endpoints.
+    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
 
     The following example uses the `--managed-network allow_only_approved_outbound` parameter to configure the managed VNet for an existing workspace:
 
@@ -488,8 +484,7 @@ To configure a managed VNet that allows only approved outbound communications, u
 
 * __Update an existing workspace__:
 
-    > [!WARNING]
-    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, and managed online endpoints.
+    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
 
     The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`. The example also adds several outbound rules for the managed VNet:
 
@@ -563,8 +558,7 @@ To configure a managed VNet that allows only approved outbound communications, u
 
 * __Update an existing workspace__:
 
-    > [!WARNING]
-    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, and managed online endpoints.
+    [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
 
     1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure Machine Learning workspace that you want to enable managed virtual network isolation for.
     1. Select __Networking__, then select __Private with Approved Outbound__. Select __Save__ to save the changes.
@@ -774,6 +768,15 @@ __Inbound__ service tag rules:
 * The managed network will be deleted and cleaned up when the workspace is deleted. 
 * Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add additional outbounds, such as to FQDNs, Microsoft can't guarantee that you are protected from data exfiltration to those outbound destinations.
 * Creating a compute cluster in a different region than the workspace isn't supported when using a managed virtual network.
+
+### Migration of compute resources
+
+If you have an existing workspace and want to enable managed virtual network for it, there is currently no supported migration path for existing manged compute resources. You will need to delete all existing managed compute resources and recreate them after enabling the managed virtual network. This includes the following compute types:
+
+* Compute cluster
+* Compute instance
+* Serverless compute (including serverless spark)
+* Managed online endpoints
 
 ## Next steps
 
