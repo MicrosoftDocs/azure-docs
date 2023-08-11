@@ -1,7 +1,7 @@
 ---
 title: Create a Translator resource
 titleSuffix: Azure AI services
-description: Learn how to create an Azure AI Translator resource and retrieve your git key and endpoint URL in the Azure portal.
+description: Learn how to create an Azure AI Translator resource and retrieve your API key and endpoint URL in the Azure portal.
 services: cognitive-services
 author: laujan
 ms.author: lajanuar
@@ -48,7 +48,7 @@ After you decide which resource type you want use to access the Translator servi
    * Each subscription has a free tier.
    * The free tier has the same features and functionality as the paid plans and doesn't expire.
    * Only one free tier is available per subscription.
-   * Document Translation is supported in paid tiers. The Language Studio only supports the S1 or D3 instance tiers. If you just want to try Document Translation, you should select the Standard S1 instance tier. 
+   * Document Translation is supported in paid tiers. The Language Studio only supports the S1 or D3 instance tiers. If you just want to try Document Translation, select the Standard S1 instance tier. 
 
 1. If you've created a multi-service resource, you need to confirm more usage details via the check boxes.
 
