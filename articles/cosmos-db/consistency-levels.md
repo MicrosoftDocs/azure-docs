@@ -102,7 +102,7 @@ After every write operation, the client receives an updated Session Token from t
 > [!IMPORTANT]
 > In Session Consistency, the client’s usage of a session token guarantees that data corresponding to an older session will never be read. However, if the client is using an older session token and more recent updates have been made to the database, the more recent version of the data will be returned despite an older session token being used. The Session Token is used as a minimum version barrier but not as a specific (possibly historical) version of the data to be retrieved from the database.
 
-Session Tokens in Azure Cosmos DB are partition-bound, meaning they are exclusively associated one partition. In order to ensure you can read your writes, use the session token that was last generated for the relevant item(s).
+Session Tokens in Azure Cosmos DB are partition-bound, meaning they are exclusively associated with one partition. In order to ensure you can read your writes, use the session token that was last generated for the relevant item(s).
 
 If the client didn't initiate a write to a physical partition, the client doesn't contain a session token in its cache and reads to that physical partition behave as reads with Eventual Consistency. Similarly, if the client is re-created, its cache of session tokens is also re-created. Here too, read operations follow the same behavior as Eventual Consistency until subsequent write operations rebuild the client’s cache of session tokens.
 
