@@ -15,11 +15,15 @@ ms.date: 08/10/2023
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-In Azure Cognitive Search, if you added vector fields to a search index, this article explains how to query those fields. It also explains how to combine vector queries with full text search and semantic search for hybrid query combination scenarios.
+In Azure Cognitive Search, if you added vector fields to a search index, this article explains how to:
 
-Query execution in Cognitive Search doesn't include vector conversion of the input string. Encoding (text-to-vector) of the query string requires that you pass the text to an embedding model for vectorization. You would then pass the output of the call to the embedding model to the search engine for similarity search over vector fields.
+> [!div class="checklist"]
+> + [Query vector fields](#query-syntax-for-vector-search).
+> + [Combine vector, full text search, and semantic search in a hybrid query](#query-syntax-for-hybrid-search).
+> + [Query multiple vector fields at once](#query-syntax-for-vector-query-over-multiple-fields).
+> + [Run multiple vector queries in parallel](#query-syntax-for-multiple-vector-queries).
 
-All results are returned in plain text, including vectors. If you use Search Explorer in the Azure portal to query an index that contains vectors, the numeric vectors are returned in plain text. Because numeric vectors aren't useful in search results, choose other fields in the index as a proxy for the vector match. For example, if an index has "descriptionVector" and "descriptionText" fields, the query can match on "descriptionVector" but the search result shows "descriptionText". Use the `select` parameter to specify only human-readable fields in the results.
+Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
 
 ## Prerequisites
 
@@ -27,9 +31,15 @@ All results are returned in plain text, including vectors. If you use Search Exp
 
 + A search index containing vector fields. See [Add vector fields to a search index](vector-search-how-to-query.md).
 
-+ Use REST API version 2023-07-01-preview, the [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main), or Search Explorer in the Azure portal.
++ Use REST API version **2023-07-01-Preview**, the [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main), or Search Explorer in the Azure portal.
 
 + (Optional) If you want to also use [semantic search (preview)](semantic-search-overview.md) and vector search together, your search service must be Basic tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
+
+## Limitations
+
+Cognitive Search doesn't provide built-in vectorization of the query input string. Encoding (text-to-vector) of the query string requires that you pass the query string to an embedding model for vectorization. You would then pass the response to the search engine for similarity search over vector fields.
+
+All results are returned in plain text, including vectors. If you use Search Explorer in the Azure portal to query an index that contains vectors, the numeric vectors are returned in plain text. Because numeric vectors aren't useful in search results, choose other fields in the index as a proxy for the vector match. For example, if an index has "descriptionVector" and "descriptionText" fields, the query can match on "descriptionVector" but the search result shows "descriptionText". Use the `select` parameter to specify only human-readable fields in the results.
 
 ## Check your index for vector fields
 
@@ -45,7 +55,9 @@ You can also send an empty query (`search=*`) against the index. If the vector f
 
 To query a vector field, the query itself must be a vector. To convert a text query string provided by a user into a vector representation, your application must call an embedding library that provides this capability. Use the same embedding library that you used to generate embeddings in the source documents.
 
-Here's an example of a query string submitted to a deployment of an Azure OpenAI model:
+You can find multiple instances of query string conversion in the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr/) repository for each of the Azure SDKs.
+
+Here's a REST API example of a query string submitted to a deployment of an Azure OpenAI model:
 
 ```http
 POST https://{{openai-service-name}}.openai.azure.com/openai/deployments/{{openai-deployment-name}}/embeddings?api-version={{openai-api-version}}
@@ -86,6 +98,8 @@ The actual response for this POST call to the deployment model includes 1536 emb
 
 ## Query syntax for vector search
 
+You can use the Azure portal, REST APIs, or the beta packages of the Azure SDKs to query vectors.
+
 ### [**Azure portal**](#tab/portal-vector-query)
 
 Be sure to the **JSON view** and formulate the query in JSON. The search bar in **Query view** is for full text search and will treat any vector input as plain text.
@@ -100,7 +114,7 @@ Be sure to the **JSON view** and formulate the query in JSON. The search bar in 
 
    :::image type="content" source="media/vector-search-how-to-query/select-json-view.png" alt-text="Screenshot of the index list." border="true":::
 
-1. By default, the search API is 2023-07-01-Preview. This is the correct API version for vector search.
+1. By default, the search API is **2023-07-01-Preview**. This is the correct API version for vector search.
 
 1. Paste in a JSON vector query, and then select **Search**. You can use the REST example as a template for your JSON query.
 
@@ -110,7 +124,7 @@ Be sure to the **JSON view** and formulate the query in JSON. The search bar in 
 
 In this vector query, which is shortened for brevity, the "value" contains the vectorized text of the query input. The "fields" property specifies which vector fields are searched. The "k" property specifies the number of nearest neighbors to return as top hits.
 
-The sample vector query for this article is: `"what Azure services support full text search"`. The query targets the "contentVector" field.
+In the following example, the vector is a representation of this query string: `"what Azure services support full text search"`. The query request targets the "contentVector" field. The actual vector has 1536 embeddings. It's trimmed in this example for readability.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -134,7 +148,25 @@ api-key: {{admin-api-key}}
 
 The response includes 5 matches, and each result provides a search score, title, content, and category. In a similarity search, the response always includes "k" matches, even if the similarity is weak. For indexes that have fewer than "k" documents, only those number of documents will be returned.
 
-Notice that "select" returns textual fields from the index. Although the vector field is "retrievable" in this example, its content isn't usable as a search result.
+Notice that "select" returns textual fields from the index. Although the vector field is "retrievable" in this example, its content isn't usable as a search result, so it's not included in the results.
+
+### [**.NET**](#tab/dotnet-vector-query)
+
++ Use the [**Azure.Search.Documents 11.5.0-beta.4**](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.4) package for vector scenarios. 
+
++ See the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) GitHub repository for .NET code samples.
+
+### [**Python**](#tab/python-vector-query)
+
++ Use the [**Azure.Search.Documents 11.4.0b8**](https://pypi.org/project/azure-search-documents/11.4.0b8/) package for vector scenarios. 
+
++ See the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
+
+### [**JavaScript**](#tab/js-vector-query)
+
++ Use the [**@azure/search-documents 12.0.0-beta.2**](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2) package for vector scenarios.  
+
++ See the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
 
 ---
 
@@ -176,7 +208,7 @@ api-key: {{admin-api-key}}
 
 ## Query syntax for vector query over multiple fields
 
-You can set the "vectors.fields" property to multiple vector fields. For example, the Postman collection has vector fields named "titleVector" and "contentVector". Your vector query executes over both the "titleVector" and "contentVector" fields, which must have the same embedding space since they share the same query vector.
+You can set the "vectors.fields" property to multiple vector fields. For example, the Postman collection has vector fields named "titleVector" and "contentVector". A single vector query executes over both the "titleVector" and "contentVector" fields, which must have the same embedding space since they share the same query vector.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}
@@ -274,4 +306,4 @@ Multiple sets are created if the query targets multiple vector fields, or if the
 
 ## Next steps
 
-As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), or [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet).
+As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) or [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript).
