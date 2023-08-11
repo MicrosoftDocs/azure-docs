@@ -35,7 +35,7 @@ The following steps demonstrate how to create an indoor map in your Azure Maps a
 
 1. Once your drawing package has been processed, select the **Review + Create** tab, then the **Create + Download** button. Selecting the **Create + Download** button begins the process of creating the indoor maps.
 
-    :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/select-review-create.png" alt-text="Screenshot showing the package upload screen of the Azure Maps Creator onboarding tool.":::
+    :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/select-review-create.png" alt-text="Screenshot showing the Review + Create screen of the Azure Maps Creator onboarding tool, with the Create + Download button highlighted.":::
 
 1. The first step in this process uploads the package into the Azure Maps account.
 
@@ -43,15 +43,15 @@ The following steps demonstrate how to create an indoor map in your Azure Maps a
 
 1. Once the package is uploaded, the onboarding tool converts the geometry and data from drawing package into a digital indoor map.
 
-    :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/package-conversion.png" alt-text="Screenshot showing the package upload screen of the Azure Maps Creator onboarding tool.":::
+    :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/package-conversion.png" alt-text="Screenshot showing the package conversion screen of the Azure Maps Creator onboarding tool, including the Conversion ID value.":::
 
 1. The next step in the process is to create the dataset. Datasets contain a collection of [features] contained in the facility.
 
-    :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/dataset-creation.png" alt-text="Screenshot showing the dataset-creation screen of the Azure Maps Creator onboarding tool.":::
+    :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/dataset-creation.png" alt-text="Screenshot showing the dataset-creation screen of the Azure Maps Creator onboarding tool, including the dataset ID value.":::
 
 1. The dataset is used to create a tileset. tilesets are a lightweight storage format used by Azure Maps when rendering map data.
 
-    :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/tileset-creation.png" alt-text="Screenshot showing the tileset creation screen of the Azure Maps Creator onboarding tool.":::
+    :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/tileset-creation.png" alt-text="Screenshot showing the tileset creation screen of the Azure Maps Creator onboarding tool, including the Map Configuration ID value.":::
 
     > [!IMPORTANT]
     > The `MapConfigurationId` is created as a part of the tileset creation process and is required to reference the indoor map in your applications. Make sure to make a copy of it for future reference.
