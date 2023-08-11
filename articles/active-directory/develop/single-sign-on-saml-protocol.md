@@ -1,5 +1,5 @@
 ---
-title: Azure single sign-on SAML protocol
+title: Single sign-on SAML protocol
 description: This article describes the single sign-on (SSO) SAML protocol in Azure Active Directory
 services: active-directory
 documentationcenter: .net
