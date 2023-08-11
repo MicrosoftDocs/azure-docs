@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 04/20/2023
+ms.date: 08/10/2023
 #CustomerIntent: As a developer, I want a practical example of using Azure Cache for Redis triggers with Azure Functions so that I can write applications that tie together a Redis cache and a database like Azure SQL.
 
 ---
@@ -32,19 +32,24 @@ In this tutorial, you learn how to:
 - Completion of the previous tutorial, [Get started with Azure Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md), with these resources provisioned:
   - Azure Cache for Redis instance
   - Azure Functions instance
+  - A working knowledge of using Azure SQL
   - Visual Studio Code (VS Code) environment set up with NuGet packages installed
 
 ## Create and configure a new SQL database
 
 The SQL database is the backing database for this example. You can create a SQL database through the Azure portal or through your preferred method of automation.
 
+For more information on creating a SQL database, see 
+
 This example uses the portal:
 
 1. Enter a database name and select **Create new** to create a new server to hold the database.
 
 1. Select **Use SQL authentication** and enter an admin sign-in and password. Be sure to remember these credentials or write them down. When you're deploying a server in production, use Azure Active Directory (Azure AD) authentication instead.
+<!-- screenshot -->
 
 1. Go to the **Networking** tab and choose **Public endpoint** as a connection method. Select **Yes** for both firewall rules that appear. This endpoint allows access from your Azure function app.
+<!-- screenshot -->
 
 1. After validation finishes, select **Review + create** and then **Create**. The SQL database starts to deploy.
 
@@ -62,17 +67,15 @@ This example uses the portal:
 
 1. After the command finishes running, expand the *Tables* folder and verify that the new table was created.
 
-[!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
-
 ## Configure the Redis trigger
 
-First, make a copy of the same VS Code project that you used in the previous tutorial. Copy the folder from the previous tutorial under a new name, such as *RedisWriteBehindTrigger*, and open it in VS Code.
+First, make a copy of the same VS Code project that you used in the previous tutorial. Copy the folder from the previous tutorial under a new name, such as _RedisWriteBehindTrigger_, and open it in VS Code.
 
 In this example, you use the [pub/sub trigger](cache-how-to-functions.md#redispubsubtrigger) to trigger on `keyevent` notifications. The goals of the example are:
 
 - Trigger every time a `SET` event occurs. A `SET` event happens when either new keys are written to the cache instance or the value of a key is changed.
 - After a `SET` event is triggered, access the cache instance to find the value of the new key.
-- Determine if the key already exists in the *inventory* table in the SQL database.
+- Determine if the key already exists in the _inventory_ table in the SQL database.
   - If so, update the value of that key.
   - If not, write a new row with the key and its value.
 
@@ -84,7 +87,7 @@ To configure the trigger:
    dotnet add package System.Data.SqlClient
    ```
 
-1. Copy and paste the following code in *redisfunction.cs* to replace the existing code:
+1. Copy and paste the following code in _redisfunction.cs_ to replace the existing code:
 
    ```csharp
    using Microsoft.Extensions.Logging;
@@ -166,7 +169,7 @@ To configure the trigger:
 
 ## Configure connection strings
 
-You need to update the *local.settings.json* file to include the connection string for your SQL database. Add an entry in the `Values` section for `SQLConnectionString`. Your file should look like this example:
+You need to update the _local.settings.json_ file to include the connection string for your SQL database. Add an entry in the `Values` section for `SQLConnectionString`. Your file should look like this example:
 
 ```json
 {
@@ -180,11 +183,12 @@ You need to update the *local.settings.json* file to include the connection stri
 }
 ```
 
+To find the Redis connection string, go to the resource menu in the Azure Cache for Redis resource. The string is in the **Access Keys** area of **Settings**.
+
+To find the SQL database connection string, go to the resource menu in the SQL database resource. Under **Settings**, select **Connection strings**, and then select the **ADO.NET** tab. 
+The string is in the **ADO.NET (SQL authentication)** area.
+
 You need to manually enter the password for your SQL database connection string, because the password isn't pasted automatically.
-
-To find the Redis connection string, go to the resource menu in the Azure Cache for Redis resource. The string is in the **Access Keys** area.
-
-To find the SQL database connection string, go to the resource menu in the SQL database resource, and then select the **ADO.NET** tab. The string is in the **Connection strings** area.
 
 > [!IMPORTANT]
 > This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](../service-connector/tutorial-portal-key-vault.md) to store connection string information.
@@ -193,6 +197,7 @@ To find the SQL database connection string, go to the resource menu in the SQL d
 ## Build and run the project
 
 1. In VS Code, go to the **Run and debug tab** and run the project.
+
 1. Go back to your Azure Cache for Redis instance in the Azure portal, and select the **Console** button to enter the Redis console. Try using some `SET` commands:
 
    - `SET apple 5.25`
@@ -240,6 +245,8 @@ If you ever want to clear the SQL database table without deleting it, you can us
 ```sql
 TRUNCATE TABLE [dbo].[inventory]
 ```
+
+[!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
 ## Summary
 
