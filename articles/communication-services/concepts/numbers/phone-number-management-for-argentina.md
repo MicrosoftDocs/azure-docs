@@ -52,6 +52,7 @@ More details on eligible subscription types are as follows:
 |United Kingdom|
 |United States|
 
+## Find information about other countries
 
 [!INCLUDE [Country Dropdown](../../includes/country-dropdown.md)]
 
