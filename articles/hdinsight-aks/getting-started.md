@@ -1,9 +1,9 @@
 ---
-title: One-click deployment
-description: How to create cluster pool and cluster with one-click deployment.
+title: One-click deployment for Azure HDInsight on AKS.
+description: How to create cluster pool and cluster with one-click deployment on Azure HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/3/2023
+ms.date: 08/11/2023
 ---
 
 # Getting started with one-click deployment
@@ -13,9 +13,9 @@ This article describes how to use readily available ARM templates to create a cl
 
 > [!NOTE]
 > 1. These ARM templates cover the basic requirements to create a cluster pool and cluster along with prerequisite resources. To explore advanced options, see [Create cluster pool and clusters](quickstart-create-cluster.md).
-> 2. Necessary resources are created as part of the ARM template deployment in your resource group. For more information, see [Resource prerequisites](prerequisites-resources.md).  
-> 3. The user must have permission to create new resources and assign roles to the resources in the subscription to deploy these ARM templates. 
-> 4. Before you begin with ARM templates, please keep [object ID ready](#find-object-id-of-an-identity) for the identity you are going to use for deployment.
+> 1. Necessary resources are created as part of the ARM template deployment in your resource group. For more information, see [Resource prerequisites](prerequisites-resources.md).  
+> 1. The user must have permission to create new resources and assign roles to the resources in the subscription to deploy these ARM templates. 
+> 1. Before you begin with ARM templates, please keep [object ID ready](#find-object-id-of-an-identity) for the identity you are going to use for deployment.
 
 |Workload|Template|Description|
 |---|---|---|
@@ -68,7 +68,7 @@ When you click on one of these templates, it launches Custom deployment page in 
 
    :::image type="content" source="./media/one-click-deployment/custom-deployment-complete.png" alt-text="Screenshot showing custom deployment complete.":::
    
-   If you navigate away from the page, you can check the status of the deployment by clicking Notifications ![Notifications icon in the Azure portal](./media/portal-elements/notifications.png) in the Azure portal.
+   :::image type="content" source="./media/portal-elements/notifications.png" alt-text="Screenshot showing notifications icon in the Azure portal.":::
    
 > [!TIP]
 >
