@@ -6,7 +6,7 @@ Get started with the Phone Numbers client library for Java to look up operator i
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- To enable Number Lookup service on your Azure Communication Services subscription, please complete this [form](https://forms.microsoft.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR058xZQ9HIBLikwspEUN6t5URUVDTTdWMEg5VElQTFpaMVMyM085ODkwVS4u) for us to allow-list your subscription. 
+- To enable Number Lookup service on your Azure Communication Services subscription, complete this [form](https://forms.microsoft.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR058xZQ9HIBLikwspEUN6t5URUVDTTdWMEg5VElQTFpaMVMyM085ODkwVS4u) for us to allowlist your subscription. 
 - [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
@@ -21,13 +21,13 @@ To set up an environment for sending lookup queries, take the steps in the follo
 
 ### Create a new Java application
 
-In a terminal or command window, navigate to the directory where you'd like to create your Java application. Run the command below to generate the Java project from the maven-archetype-quickstart template.
+In a terminal or command window, navigate to the directory where you'd like to create your Java application. Run the following command to generate the Java project from the maven-archetype-quickstart template.
 
 ```console
 mvn archetype:generate -DgroupId=com.communication.lookup.quickstart -DartifactId=communication-lookup-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
-You'll notice that the 'generate' task created a directory with the same name as the `artifactId`. Under this directory, the src/main/java directory contains the project source code, the `src/test/java directory` contains the test source, and the `pom.xml` file is the project's Project Object Model, or POM.
+The 'generate' task creates a directory with the same name as the `artifactId`. Under this directory, the src/main/java directory contains the project source code, the `src/test/java directory` contains the test source, and the `pom.xml` file is the project's Project Object Model, or POM.
 
 ### Connect to dev package feed
 The public preview version of the SDK is published to a dev package feed. To connect to the dev feed, open the **pom.xml** file in your text editor and add the dev repo to **both** your pom.xml's `<repositories>` and `<distributionManagement>` sections

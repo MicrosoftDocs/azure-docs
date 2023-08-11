@@ -6,7 +6,7 @@ Get started with the Phone Numbers client library for JavaScript to look up oper
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- To enable Number Lookup service on your Azure Communication Services subscription, please complete this [form](https://forms.microsoft.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR058xZQ9HIBLikwspEUN6t5URUVDTTdWMEg5VElQTFpaMVMyM085ODkwVS4u) for us to allow-list your subscription. 
+- To enable Number Lookup service on your Azure Communication Services subscription, complete this [form](https://forms.microsoft.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR058xZQ9HIBLikwspEUN6t5URUVDTTdWMEg5VElQTFpaMVMyM085ODkwVS4u) for us to allowlist your subscription. 
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
@@ -32,7 +32,7 @@ Run `npm init -y` to create a **package.json** file with default settings.
 npm init -y
 ```
 
-Create a file called **number-lookup-quickstart.js** in the root of the directory you just created. Add the following snippet to it:
+Create a file called **number-lookup-quickstart.js** in the root of the directory you created. Add the following snippet to it:
 
 ```javascript
 async function main() {
@@ -56,7 +56,7 @@ The `--save` option adds the library as a dependency in your **package.json** fi
 
 ### Authenticate the client
 
-Import the **PhoneNumbersClient** from the client library and instantiate it with your connection string which can be acquired from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com). It's recommended to use a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable to avoid putting your connection string in plain text within your code. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Import the **PhoneNumbersClient** from the client library and instantiate it with your connection string, which can be acquired from an Azure Communication Services resource in the [Azure portal](https://portal.azure.com). It's recommended to use a `COMMUNICATION_SERVICES_CONNECTION_STRING` environment variable to avoid putting your connection string in plain text within your code. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 Add the following code to the top of **phone-numbers-quickstart.js**:
 

@@ -6,7 +6,7 @@ Get started with the Phone Numbers client library for Python to look up operator
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- To enable Number Lookup service on your Azure Communication Services subscription, please complete this [form](https://forms.microsoft.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR058xZQ9HIBLikwspEUN6t5URUVDTTdWMEg5VElQTFpaMVMyM085ODkwVS4u) for us to allow-list your subscription. 
+- To enable Number Lookup service on your Azure Communication Services subscription, complete this [form](https://forms.microsoft.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR058xZQ9HIBLikwspEUN6t5URUVDTTdWMEg5VElQTFpaMVMyM085ODkwVS4u) for us to allowlist your subscription. 
 - [Python](https://www.python.org/downloads/) 3.7+.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
@@ -26,7 +26,7 @@ In a terminal or command window, create a new directory for your app and navigat
 mkdir number-lookup-quickstart && cd number-lookup-quickstart
 ```
 
-Use a text editor to create a file called number_lookup_sample.py in the project root directory and add the the following code. We'll be adding the remaining quickstart code in the following sections.
+Use a text editor to create a file called number_lookup_sample.py in the project root directory and add the following code. The remaining quickstart code is added in the following sections.
 
 ```python
 import os
