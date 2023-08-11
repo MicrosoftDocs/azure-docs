@@ -13,13 +13,12 @@ ms.custom: template-how-to
 
 ## Install an ISV solution
 
-1. Once you've installed an instance of Agri Data Manager from Azure portal, navigate to Solutions tab on the left hand side in your instance.
+1. Once you've installed an instance of Agri Data Manager from Azure portal, navigate to Settings ->Solutions tab on the left hand side in your instance.
 2. You'll be able to view the list of available Solutions. Click on the solution of your choice and click on Add button against it.
 3. You'll be navigated to Azure Marketplace page for the Solution. 
 4. Click on Contact Me CTA and the ISV partner will contact you to help with next steps of installation. 
 5. To edit an installed Solution, click on the edit icon against the Solution in Solutions page. You'll be redirected to Azure Marketplace from where you can contact the ISV partner by clicking on Contact Me.
 6. To delete an installed Solution, click on the delete icon against the Solution in Solutions page and you'll be redirected to Azure Marketplace from where you can Contact the ISV partner by clicking on Contact Me.
-
 
 ## Use an ISV solution
 

@@ -39,7 +39,7 @@ The solution framework is built on top of Data Manager for Agriculture that prov
 
 The above list has only a few examples but an ISV partner can come with their own specific scenario and build a solution. 
 
-## Bayer Ag Powered Services
+## Bayer AgPowered Services
 
 Additionally, Bayer has built the below Solutions in partnership with Microsoft and can be installed on top of customer's ADMA instance.
 * Growing Degree Days
