@@ -30,7 +30,7 @@ These VM SKUs can be used for both worker and control plane nodes within the Azu
 
 ## General purpose VM SKUs
 
-| VM SKU Name   | CPU Core Count | RAM in GiB | Root Disk in GiB |
+| VM SKU Name   | vCPU | Memory (GiB) | Root Disk (GiB) |
 |---------------|----------------|------------|------------------|
 | NC_G48_224_v1 | 48             | 224        | 300              |
 | NC_G36_168_v1 | 36             | 168        | 300              |
