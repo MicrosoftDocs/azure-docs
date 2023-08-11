@@ -76,15 +76,16 @@ var playSource = new FileSource(new Uri(audioUri));
 
 ### Play source - Text-To-Speech
 
-To play audio using Text-To-Speech through Azure AI services you need to provide the text you wish to play, as well either the SourceLocale, and VoiceGender or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](../../../../ai-services/Speech-Service/language-support.md?tabs=tts).
+To play audio using Text-To-Speech through Azure AI services you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](../../../../ai-services/Speech-Service/language-support.md?tabs=tts).
 
-```csharp
+``` csharp
 String textToPlay = "Welcome to Contoso";
 
-// Provide SourceLocale and VoiceKind to select an appropriate voice. SourceLocale or VoiceName needs to be provided. 
+// Provide SourceLocale and VoiceKind to select an appropriate voice. 
 var playSource = new TextSource(textToPlay, "en-US", VoiceKind.Female); 
 ```
-```csharp
+
+``` csharp
 String textToPlay = "Welcome to Contoso"; 
  
 // Provide VoiceName to select a specific voice. 
