@@ -13,7 +13,9 @@ items:
     href: cost-management.md
   - name: Compare Java application hosting options on Azure
     href: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
-  - name: Migrate Spring workloads to Azure Spring Apps
+  - name: Migrate Spring Boot to Azure Spring Apps
+    href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Migrate Spring Cloud to Azure Spring Apps
     href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
@@ -71,6 +73,8 @@ items:
   items:
   - name: App and deployment
     href: concept-understand-app-and-deployment.md
+  - name: Version support for Java, Spring Boot, and more
+    href: concept-app-customer-responsibilities.md
   - name: Blue-green deployment strategies
     href: concepts-blue-green-deployment-strategies.md
   - name: Zero downtime deployment
