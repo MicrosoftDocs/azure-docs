@@ -24,7 +24,7 @@ All these SKUs are having the following characteristics:
 
 1. Dedicated CPU placement
 2. Kubelet Reserved CPUs (Except NC_G2_8_v1)
-3. 1Gi Memory pages for VM
+3. 1Gi memory pages for VM
 
 ## General purpose VM SKUs
 
