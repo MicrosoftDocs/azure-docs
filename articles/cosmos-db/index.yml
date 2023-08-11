@@ -42,6 +42,9 @@ highlightedContent:
     - title: Learn more about Azure Cosmos DB
       itemType: learn
       url: /training/modules/explore-azure-cosmos-db/
+    - title: Use Azure Cosmos DB with Azure OpenAI
+      itemType: how-to-guide
+      url: how-to-azure-openai.md
 
 additionalContent:
   sections:
