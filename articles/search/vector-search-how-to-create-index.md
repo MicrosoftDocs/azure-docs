@@ -206,27 +206,21 @@ In the following REST API example, "title" and "content" contain textual content
 
 ### [**.NET**](#tab/dotnet-add-field)
 
-Under construction.
++ Use the [**Azure.Search.Documents 11.5.0-beta.4**](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.4) package for vector scenarios. 
 
-Use the [**Azure.Search.Documents 11.5.0-beta.4**](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.4) package for vector scenarios. 
-
-See the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr) GitHub repository for .NET code samples.
++ See the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) GitHub repository for .NET code samples.
 
 ### [**Python**](#tab/python-add-field)
 
-Under construction.
++ Use the [**Azure.Search.Documents 11.4.0b8**](https://pypi.org/project/azure-search-documents/11.4.0b8/) package for vector scenarios. 
 
-Use the [**Azure.Search.Documents 11.4.0b8**](https://pypi.org/project/azure-search-documents/11.4.0b8/) package for vector scenarios. 
-
-See the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr) GitHub repository for Python code samples.
++ See the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python) GitHub repository for Python code samples.
 
 ### [**JavaScript**](#tab/js-add-field)
 
-Under construction.
++ Use the [**@azure/search-documents 12.0.0-beta.2**](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2) package for vector scenarios.  
 
-Use the [**@azure/search-documents 12.0.0-beta.2**](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2) package for vector scenarios.
-
-See the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr) GitHub repository for JavaScript code samples.
++ See the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript) GitHub repository for JavaScript code samples.
 
 ---
 

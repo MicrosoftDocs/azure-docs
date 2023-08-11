@@ -27,17 +27,17 @@ We recommend this article for background, but if you'd rather get started, follo
 
 You could also begin with the [vector quickstart](search-get-started-vector.md) or the [code samples on GitHub](https://github.com/Azure/cognitive-search-vector-pr).
 
+Support for vector search is in public preview and available through the [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview), Azure portal, and the more recent beta packages of the Azure SDKs for [.NET](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.4), [Python](https://pypi.org/project/azure-search-documents/11.4.0b8/), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2).
+
 ## What's vector search in Cognitive Search?
 
 Vector search is a new capability for indexing, storing, and retrieving vector embeddings from a search index. You can use it to power similarity search, multi-modal search, recommendations engines, or applications implementing the [Retrieval Augmented Generation (RAG) architecture](https://arxiv.org/abs/2005.11401).
-
-Support for vector search is in public preview and available through the [**2023-07-01-Preview REST APIs**](/rest/api/searchservice/index-preview), Azure portal, and the more recent beta packages of the Azure SDKs for [.NET](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.4), [Python](https://pypi.org/project/azure-search-documents/11.4.0b8/), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2).
 
 The following diagram shows the indexing and query workflows for vector search.
 
 :::image type="content" source="media/vector-search-overview/vector-search-architecture-diagram-2.png" alt-text="Architecture of vector search workflow." border="true" lightbox="media/vector-search-overview/vector-search-architecture-diagram-2.png":::
 
-On the indexing side, prepare and load source documents that contain embeddings. Cognitive Search doesn't generate embeddings, so your solution should include calls to Azure OpenAI or other models that can create a vector representation of your image, audio, text, and other content. Add a *vector field* to your index definition on Cognitive Search. Load the index with a documents payload that includes the embeddings. Your index is now ready to query.
+On the indexing side, prepare source documents that contain embeddings. Cognitive Search doesn't generate embeddings, so your solution should include calls to Azure OpenAI or other models that can create a vector representation of your image, audio, text, and other content. Add a *vector field* to your index definition on Cognitive Search. Load the index with a documents payload that includes the embeddings. Your index is now ready to query.
 
 On the query side, in your client application, collect the query input. Add a step that converts the input into a vector, and then send the vector query to your index on Cognitive Search for a similarity search. Cognitive Search returns documents with the requested `k` nearest neighbors (kNN) in the results.
 
