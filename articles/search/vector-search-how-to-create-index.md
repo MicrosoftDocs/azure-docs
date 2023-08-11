@@ -21,8 +21,10 @@ Follow these steps to index vector data:
 
 > [!div class="checklist"]
 > + Add one or more vector fields to the index schema.
-> + Add one or more vector configurations to the index schema. 
+> + Add one or more vector configurations. 
 > + Load the index with vector data [as a separate step](#load-vector-data-for-indexing), after the index schema is defined.
+
+Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr) repository demonstrate end-to-end workflows that include schema definition, vectorization, indexing, and queries.
 
 ## Prerequisites
 
@@ -38,7 +40,7 @@ Prior to indexing, assemble a document payload that includes fields of vector an
 
 Make sure your documents:
 
-1. Provide a field or a metadata property that uniquely identifies each document. All search indexes require a document key. To satisfy document key requirements, your documents must have one field or property that is unique in the index. This field must be mapped to type `Edm.String` and `key=true` in the search index. 
+1. Provide a field or a metadata property that uniquely identifies each document. All search indexes require a document key. To satisfy document key requirements, a source document must have one field or property that can uniquely identify it in the index. This source field must be mapped to an index field of type `Edm.String` and `key=true` in the search index. 
 
 1. Provide vector data (an array of single-precision floating point numbers) in source fields.
 
