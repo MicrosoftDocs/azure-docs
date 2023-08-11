@@ -1,5 +1,5 @@
 ---
-title: Document Intelligence SDKs 
+title: Document Intelligence (formerly Form Recognizer) SDKs 
 titleSuffix: Azure AI services
 description: Document Intelligence software development kits (SDKs) expose Document Intelligence models, features and capabilities, using C#, Java, JavaScript, and Python programming language.
 author: laujan

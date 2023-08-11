@@ -93,7 +93,7 @@ To ensure people outside of your organization can request access packages and ge
 - If you want to create an entitlement management policy that includes **All users** (All connected organizations + any new external users), you must first enable email one-time passcode authentication for your directory. For more information, see [Email one-time passcode authentication](../external-identities/one-time-passcode.md).
 - For more information about Azure AD B2B external collaboration settings, see [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md).
 
-    [ ![Azure AD external collaboration settings](./media/entitlement-management-external-users/collaboration-settings.png) ](./media/entitlement-management-external-users/collaboration-settings.png#lightbox)
+    [![Azure AD external collaboration settings](./media/entitlement-management-external-users/collaboration-settings.png)](./media/entitlement-management-external-users/collaboration-settings.png#lightbox)
     
     > [!NOTE]
     > If you create a connected organization for an Azure AD tenant from a different Microsoft cloud, you also need to configure cross-tenant access settings appropriately. For more information on how to configure these settings, see [Configure cross-tenant access settings](../external-identities/cross-cloud-settings.md).

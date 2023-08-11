@@ -41,7 +41,7 @@ Azure Resource Manager handles all control plane requests. It automatically appl
 * [Management Locks](lock-resources.md)
 * [Activity Logs](../../azure-monitor/essentials/activity-log.md)
 
-After authenticating the request, Azure Resource Manager sends it to the resource provider, which completes the operation.
+After authenticating the request, Azure Resource Manager sends it to the resource provider, which completes the operation. Even during periods of unavailability for the control plane, you can still access the data plane of your Azure resources. For instance, you can continue to access and operate on data in your storage account resource via its separate storage URI `https://myaccount.blob.core.windows.net` even when `https://management.azure.com` is not available.
 
 The control plane includes two scenarios for handling requests - "green field" and "brown field". Green field refers to new resources. Brown field refers to existing resources. As you deploy resources, Azure Resource Manager understands when to create new resources and when to update existing resources. You don't have to worry that identical resources will be created.
 

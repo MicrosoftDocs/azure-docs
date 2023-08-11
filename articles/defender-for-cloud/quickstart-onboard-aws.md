@@ -115,6 +115,10 @@ To connect your AWS to Defender for Cloud by using a native connector:
 
     Optionally, select **Management account** to create a connector to a management account. Connectors are created for each member account discovered under the provided management account. Auto-provisioning is enabled for all of the newly onboarded accounts.
 
+## Select Defender plans
+
+In this section of the wizard, you select the Defender for Cloud plans that you want to enable.
+
 1. Select **Next: Select plans**.
 
     The **Select plans** tab is where you choose which Defender for Cloud capabilities to enable for this AWS account. Each plan has its own [requirements for permissions](concept-aws-connector.md#native-connector-plan-requirements) and might incur [charges](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h).

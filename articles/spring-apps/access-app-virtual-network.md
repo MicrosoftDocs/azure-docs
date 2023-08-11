@@ -50,7 +50,7 @@ export SERVICE_RUNTIME_RG=$(az spring show \
 export IP_ADDRESS=$(az network lb frontend-ip list \
     --lb-name kubernetes-internal \
     --resource-group $SERVICE_RUNTIME_RG \
-    --query "[0].privateIpAddress" \
+    --query "[0].privateIPAddress" \
     --output tsv)
 ```
 
