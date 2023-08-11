@@ -1,13 +1,13 @@
 ---
 title: Monitor GitOps (Flux v2) status and activity
-ms.date: 08/09/2023
+ms.date: 08/11/2023
 ms.topic: how-to
 description: Learn how to monitor status, compliance, resource consumption, and reconciliation activity for GitOps with Flux v2.
 ---
 
 # Monitor GitOps (Flux v2) status and activity
 
-We provide dashboards to help you monitor status, compliance, resource consumption, and reconciliation activity for GitOps with Flux v2 in your Azure Arc-enabled Kubernetes clusters or Azure Kubernetes Service (AKS) clusters. These JSON dashboards can be imported to Grafana to help you view and analyze your data in real time.
+We provide dashboards to help you monitor status, compliance, resource consumption, and reconciliation activity for GitOps with Flux v2 in your Azure Arc-enabled Kubernetes clusters or Azure Kubernetes Service (AKS) clusters. These JSON dashboards can be imported to Grafana to help you view and analyze your data in real time. You can also set up alerts for this information.
 
 ## Prerequisites
 
@@ -70,6 +70,8 @@ For example, in the **Flux Configuration Compliance Status** table, you can sele
 ### Create alerts for extension and configuration failures
 
 After you've imported the dashboard as described in the previous section, you can set up alerts. These alerts notify you when Flux extensions or Flux configurations experience failures.
+
+The steps below create an alert that detects a failure in extension provisioning or extension upgrade. The query below is one example that you can edit as needed. You can also create queries to detect failures in compliance state.
 
 1. In the left navigation menu of the dashboard, select **Alerting**.
 1. Select **Alert rules**.
