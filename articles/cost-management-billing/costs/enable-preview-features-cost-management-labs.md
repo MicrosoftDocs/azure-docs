@@ -128,7 +128,6 @@ It allows changing the scope from the menu for quicker navigation. To enable the
 
 View your non-USD charges in USD or switch between the currencies you have charges in to view the total cost for that currency only. To change currency, select **Customize** at the top of the view and select the currency that you want to apply. Currency selection is only available when you have charges in multiple currencies.
 
-[customize-multiple-currencies.png]
 :::image type="content" source="./media/enable-preview-features-cost-management-labs/customize-multiple-currencies.png" alt-text="Screenshot showing the Customize - Currency option." lightbox="./media/enable-preview-features-cost-management-labs/customize-multiple-currencies.png" :::
 
 Enable the currency switcher on the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Select **How would you rate cost analysis?** at the bottom of the page to share feedback about the preview.
