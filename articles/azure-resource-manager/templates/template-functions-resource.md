@@ -627,7 +627,7 @@ The following example template references a storage account that isn't deployed 
 
 `references(symbolic name of a resource collection, ['Full', 'Properties])`
 
-The `references` function works similarly as [`reference`](#reference). Instead of returning an object presenting a resource's runtime state, the `references` function returns an array of objects representing a resource collection's runtime states. This function requires ARM template language version `1.10-experimental` and with [symbolic name](../bicep/file.md#resources) enabled:
+The `references` function works similarly as [`reference`](#reference). Instead of returning an object presenting a resource's runtime state, the `references` function returns an array of objects representing a resource collection's runtime states. This function requires ARM template language version `2.0` and with [symbolic name](../bicep/file.md#resources) enabled:
 
 ```json
 {

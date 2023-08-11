@@ -151,8 +151,6 @@ The following example deploys a storage account through a nested template.
 }
 ```
 
-*** jgao: the preceding example failed deployment with "Deployment template validation failed: 'The template parameter 'storageAccountName' is not found". It works fine without using LanguageVersion. ***
-
 ### Expression evaluation scope in nested templates
 
 When using a nested template, you can specify whether template expressions are evaluated within the scope of the parent template or the nested template. The scope determines how parameters, variables, and functions like [resourceGroup](template-functions-resource.md#resourcegroup) and [subscription](template-functions-resource.md#subscription) are resolved.
@@ -506,9 +504,7 @@ If you're linking to a template in GitHub, use the raw URL. The link has the for
 
 [!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
-For linked templates, you can nest a non-symbolic-name deployment inside a [symbolic-name template](./syntax.md#use-symbolic-name), or nest a symbolic-name deployment inside a non-symbolic template.
-
-*** jgao: how about nest a symbolic-name deployment inside another symbolic-name template?
+For linked templates, you can nest a non-symbolic-name deployment inside a [symbolic-name template](./syntax.md#use-symbolic-name), or nest a symbolic-name deployment inside a non-symbolic template, or  nest a symbolic-name deployment inside another symbolic-name template, or vice versa.
 
 ### Parameters for linked template
 

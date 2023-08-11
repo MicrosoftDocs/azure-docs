@@ -378,7 +378,7 @@ This Bicep file is transpiled into the following ARM JSON template that utilizes
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "languageVersion": "1.10-experimental",
+  "languageVersion": "2.0",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -419,7 +419,7 @@ This Bicep file is transpiled into the following ARM JSON template that utilizes
 }
 ```
 
-Note in the preceding ARM JSON template, `languageVersion` must be set to `1.10-experimental`, and the resource element is an object instead of an array.
+Note in the preceding ARM JSON template, `languageVersion` must be set to `2.0` or newer, and the resource element is an object instead of an array.
 
 ## Next steps
 
