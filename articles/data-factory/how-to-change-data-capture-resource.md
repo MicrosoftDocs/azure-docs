@@ -1,6 +1,6 @@
 ---
 title: Capture changed data by using a change data capture resource
-description: Get step-by-step instructions on how to capture changed data from Azure Data Lake Storage Gen2 to Azure SQL Database by using a change data capture resource.
+description: Get step-by-step instructions on how to capture changed data from Azure Data Lake Storage Gen2 to Azure SQL Database by using a change data capture (CDC) resource.
 author: n0elleli
 ms.author: noelleli
 ms.reviewer: 
@@ -38,7 +38,7 @@ Before you begin the procedures in this article, make sure that you have these r
   
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-61.png" alt-text="Screenshot of a new top-level artifact for change data capture on the Factory Resources pane." lightbox="media/adf-cdc/change-data-capture-resource-61.png":::
   
-1. Hover over **Change Data Capture (preview)** until you three dots appear. Then select **Change Data Capture (preview) Actions**.
+1. Hover over **Change Data Capture (preview)** until three dots appear. Then select **Change Data Capture (preview) Actions**.
 
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-62.png" alt-text="Screenshot of the button for change data capture actions appearing over the new top-level artifact." lightbox="media/adf-cdc/change-data-capture-resource-62.png":::
 
@@ -46,7 +46,7 @@ Before you begin the procedures in this article, make sure that you have these r
 
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-63.png" alt-text="Screenshot of a list of change data capture actions." lightbox="media/adf-cdc/change-data-capture-resource-63.png":::
   
-1. You're prompted to name your CDC resource. By default, the name is "adfcdc" with a number that increments by 1. You can replace this default name with your own.
+1. You're prompted to name your CDC resource. By default, the name is "adfcdc" with a number that increments by 1. You can replace this default name with a name that you choose.
 
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-64.png" alt-text="Screenshot of the text box to update the name of a resource.":::
 
