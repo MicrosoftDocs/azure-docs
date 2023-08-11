@@ -1,12 +1,12 @@
 ### YamlMime:Hub
 
 title: Azure Storage Task documentation
-summary: Azure Storage Tasks is blah.
+summary: Azure Storage Tasks can perform operations on containers and blobs in Azure Storage accounts based on a set of conditions that you define. 
 brand: azure
 
 metadata:
   title: Azure Storage Tasks documentation
-  description: Azure Storage Tasks documentation hub page. Points to service documentation for using the Azure Storage Tasks to blah. 
+  description: Azure Storage Tasks documentation hub page. Points to service documentation for using the Azure Storage Tasks perform operations on containers and blobs in Azure Storage accounts based on a set of conditions that you define. 
   ms.service: azure-storage-tasks
   ms.topic: hub-page
   author: normesta
@@ -34,31 +34,31 @@ highlightedContent:
 additionalContent:
   # Supports up to 3 sections
   sections:
-    - title: Create, define, and assign storage tasks
+    - title: Get started with Azure Storage Tasks
       items:
         # Card
-        - title: Get started
+        - title: Create
           links:
-          - url: Create a storage task.md
+          - url: storage-task-create.md
             text: Create a storage task
           - url: storage-task-quickstart-portal.md
             text: 'Quickstart: Create, assign, and run a storage task'
         # Card
-        - title: Define conditions and operations
+        - title: Define
           links:
           - url: storage-task-conditions-operations-edit.md
             text: Define storage task conditions and operations
           - url: storage-task-conditions-operations.md
             text: Supported properties, operators, and operations
         # Card
-        - title: Assign tasks to storage accounts
+        - title: Assign
           links:
           - url: storage-task-assignment-create.md
             text: Create and manage a storage task assignment
           - url: storage-task-assignment.md
             text: Storage task assignments
         # Card
-        - title: Monitor and audit task runs
+        - title: Monitor
           links:
           - url: storage-task-runs.md
             text: Storage task runs
