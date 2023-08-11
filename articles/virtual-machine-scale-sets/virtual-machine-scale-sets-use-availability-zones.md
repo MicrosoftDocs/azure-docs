@@ -13,7 +13,7 @@ ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell, devx-track
 
 # Create a Virtual Machine Scale Set that uses Availability Zones
 
-Azure availability zones are fault-isolated locations within an Azure region that provide redundant power, cooling, and networking. They allow you to run applications with high availability and fault tolerance to data center failures. Azure regions that support Availability Zones have a minimum of three separate zones. Each availability zone consists of one or more data centers equipped with independent infrastructure power, network and cooling. Availability zones are connected by a high-performance network with a round-trip latency of less than 2ms. For more information, see [Overview of Availability Zones](../availability-zones/az-overview.md).
+Azure availability zones are fault-isolated locations within an Azure region that provide redundant power, cooling, and networking. They allow you to run applications with high availability and fault tolerance to data center failures. Azure regions that support Availability Zones have a minimum of three separate zones. Each availability zone consists of one or more data centers equipped with independent infrastructure power, network, and cooling. Availability zones are connected by a high-performance network with a round-trip latency of less than 2 milliseconds. For more information, see [Overview of Availability Zones](../availability-zones/az-overview.md).
 
 To protect your Virtual Machine Scale Sets from datacenter-level failures, you can create a scale set across Availability Zones. To use Availability Zones, your scale set must be created in a [supported Azure region](../availability-zones/az-region.md).
 
