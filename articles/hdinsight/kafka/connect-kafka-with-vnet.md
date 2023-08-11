@@ -18,7 +18,7 @@ This article describes the steps to set up the connectivity between a virtual ma
 
 1. Ensure that the peering status shows as connected.
 
-   :::image type="content" source="./media/connect-kafka-with-vnet/vnet-peering.png" alt-text="Screenshot showing VNet peering." " border="true" lightbox="./media/connect-kafka-with-vnet/vnet-peering.png":::
+   :::image type="content" source="./media/connect-kafka-with-vnet/vnet-peering.png" alt-text="Screenshot showing VNet peering." border="true" lightbox="./media/connect-kafka-with-vnet/vnet-peering.png":::
 
 1. Create HDInsight Kafka cluster in first VNet `hdi-primary-vnet`. For more information, see [Create an HDInsight Kafka cluster](./apache-kafka-get-started.md#create-an-apache-kafka-cluster).
 
@@ -29,12 +29,12 @@ This article describes the steps to set up the connectivity between a virtual ma
 
 ## Methods to connect to HDInsight Kafka cluster from client VM
 
-1. Configure Kafka for IP advertising: Use `Kafka IP advertising` to populate Kafka worker node private IPs in different vnet. Once IP advertising is done, use [private DNS setup](#set-up-a-private-dns-server-for-fqdn-resolution) for DNS resolution of worker nodes FQDN.
+1. Configure Kafka for IP advertising: Use `Kafka IP advertising` to populate Kafka worker node private IPs in different vnet. Once IP advertising is done, use private DNS setup for DNS resolution of worker nodes FQDN.
 1. Update /etc/hosts file in client machine: Update `/etc/hosts` file in client machine with `/etc/hosts` file of Kafka Head/Worker node.
 
 > [!NOTE]
-> 1. Private DNS setup is optional after IP advertising. This is required only when you want to use FQDN of Kafka worker nodes with private DNS domain name instead of private IPs.
-> 1. IPs of Kafka VMs never change if VM is present in cluster. Only when you manually replace VM from the cluster then, that IP changes. You can check the latest IPs from Ambari portal.
+> * Private DNS setup is optional after IP advertising. This is required only when you want to use FQDN of Kafka worker nodes with private DNS domain name instead of private IPs.
+> * IPs of Kafka VMs never change if VM is present in cluster. Only when you manually replace VM from the cluster then, that IP changes. You can check the latest IPs from Ambari portal.
 
 ###  Configure Kafka for IP advertising
 This configuration allows the client to connect using broker IP addresses instead of domain names. By default, Apache Zookeeper returns the domain name of the Kafka brokers to clients.
@@ -47,9 +47,9 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
 1. When prompted, use the HTTPS `username` and `password` for the cluster. The Ambari Web UI for the cluster is displayed.
 1. To view information on Kafka, select `Kafka` from the left panel and then select configs.
   
-   :::image type="content" source="./media/connect-kafka-with-vnet/kafka-config.png" alt-text="Screenshot showing VNet configurations." 
+   :::image type="content" source="./media/connect-kafka-with-vnet/kafka-config.png" alt-text="Screenshot showing Kafka VNet configurations." border="true" lightbox="./media/connect-kafka-with-vnet/kafka-config.png":::
 
-1. To access kafka-env configuration on the Ambari dashboard, just type "kafka-env" in the top right filter field in Ambari UI. border="true" lightbox="./media/connect-kafka-with-vnet/":::
+1. To access `kafka-env` configuration on the Ambari dashboard, just type `kafka-env` in the top right filter field in Ambari UI. 
   
    :::image type="content" source="./media/connect-kafka-with-vnet/kafka-env.png" alt-text="Screenshot showing Kafka environment." border="true" lightbox="./media/connect-kafka-with-vnet/kafka-env.png":::
 
@@ -67,7 +67,7 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
 1. To configure Kafka to listen on all network interfaces, change the value in the `listeners` field to `PLAINTEXT://0.0.0.0:9092`.
 1. To save the configuration changes, use the `Save` button. Enter a text message describing the changes. Select `OK` once the changes have been saved. 
 
-   :::image type="content" source="./media/connect-kafka-with-vnet/save-kafka-broker.png" alt-text="Screenshot showing the save button.":::
+   :::image type="content" source="./media/connect-kafka-with-vnet/save-kafka-broker.png" alt-text="Screenshot showing the save button." border="true" lightbox="./media/connect-kafka-with-vnet/save-kafka-broker.png":::
 
 1. To prevent errors when restarting Kafka, use the `Actions` button and select `Turn On Maintenance Mode`. Select `OK` to complete this operation. 
 
@@ -80,9 +80,10 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
 1. To disable maintenance mode, use the `Actions` button and select `Turn Off Maintenance Mode`. Select `OK` to complete this operation.
 1. Now you can execute your jobs from client VM with Kafka IP address. To check IP address of worker nodes from Ambari Portal click on `Hosts` on left panel. 
 
-   :::image type="content" source="./media/connect-kafka-with-vnet/ambari-hosts.png" alt-text="Screenshot showing the worker node IP." border="true" lightbox="./media/connect-kafka-with-vnet/ambari-hosts.png":::
+   :::image type="content" source="./media/connect-kafka-with-vnet/ambari-hosts.png" alt-text="Screenshot showing the worker node IP for Ambari." border="true" lightbox="./media/connect-kafka-with-vnet/ambari-hosts.png":::
    
-1. Use Sample git repository to create Kafka topics, produce and consume data from that topic. [hdinsight-kafka-java-getting-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)
+1. Use Sample git repository to create Kafka topics](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), to produce and consume data from that topic. 
+
    ```shell
    # In previous example IP of worker node 0 is `broker1-ip` and worker node 1 is `broker2-ip`
    # Create Kafka Topic 
@@ -96,14 +97,14 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
    java -jar kafka-producer-consumer.jar producer <topic_name> $KAFKABROKERS
    java -jar kafka-producer-consumer.jar producer test broker1-ip:9092, broker2-ip:9092
    ```
-   :::image type="content" source="./media/connect-kafka-with-vnet/producer.png" alt-text="Screenshot showing how to view producer." border="true" lightbox="./media/connect-kafka-with-vnet/producer.png":::
+   :::image type="content" source="./media/connect-kafka-with-vnet/producer.png" alt-text="Screenshot showing how to view Kafka producer." border="true" lightbox="./media/connect-kafka-with-vnet/producer.png":::
    
    ```shell
    # Consume Data from Topic
    java -jar kafka-producer-consumer.jar consumer <topic_name> $KAFKABROKERS
    java -jar kafka-producer-consumer.jar consumer test broker1-ip:9092,broker2-ip:9092
    ```
-   :::image type="content" source="./media/connect-kafka-with-vnet/consumer.png" alt-text="Screenshot showing consumer section." border="true" lightbox="./media/connect-kafka-with-vnet/consumer.png":::
+   :::image type="content" source="./media/connect-kafka-with-vnet/consumer.png" alt-text="Screenshot showing Kafka consumer section." border="true" lightbox="./media/connect-kafka-with-vnet/consumer.png":::
    
    > [!NOTE]
    > It is recommended to add all the brokers IP in **$KAFKABROKERS** for fault tolerance.
@@ -174,40 +175,39 @@ Use the following steps to configure HDInsight Kafka to advertise IP addresses i
      </html> 
      ```
 
-#### If Client VM is using Windows OS
+### If Client VM is using Windows OS
 
-   1. Go to overview page of `hdi-kafka` and click on Ambari view to get the URL.
+1. Go to overview page of `hdi-kafka` and click on Ambari view to get the URL.
 
-   1. Put the login credential as username `admin` and password `YOUR_PASSWORD`, which you have set while creating cluster.
+1. Put the login credential as username `admin` and password `YOUR_PASSWORD`, which you have set while creating cluster.
      
-      > [!NOTE]
-      > 1. In Windows VM, static hostnames need to be added in the host file which present in the path `C:\Windows\System32\drivers\etc\`.
-      > 1. This article assumes that the Ambari server is active on `Head Node 0`. If the Ambari server is active on `Head Node 1` use the FQDN of hn1 to access the Ambari UI.
-    
+   > [!NOTE]
+   > 1. In Windows VM, static hostnames need to be added in the host file which present in the path `C:\Windows\System32\drivers\etc\`.
+   > 1. This article assumes that the Ambari server is active on `Head Node 0`. If the Ambari server is active on `Head Node 1` use the FQDN of hn1 to access the Ambari UI.
       
-      :::image type="content" source="./media/connect-kafka-with-vnet/dashboard.png" alt-text="Screenshot showing Windows VM."lightbox="./media/connect-kafka-with-vnet/dashboard.png" border="true" lightbox="./media/connect-kafka-with-vnet/dashboard.png":::
+   :::image type="content" source="./media/connect-kafka-with-vnet/dashboard.png" alt-text="Screenshot showing the dashboard." border="true" lightbox="./media/connect-kafka-with-vnet/dashboard.png":::
     
-   1. You can also send messages to kafka topic and read the topics from the VM. For that you can try to use this sample java application.
+1. You can also send messages to kafka topic and read the topics from the VM. For that you can try to use this sample java application.
      
-   1. Use sample git repository to create Kafka topics, produce and consume data from that topic. For more information, see [hdinsight-kafka-java-getting-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+1. Use sample git repository to create Kafka topics, produce and consume data from that topic. For more information, see [hdinsight-kafka-java-getting-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
      
-   1. You can use FQDN, IP or short name(first six letters of cluster name) of brokers to pass as `KAFKABROKERS` in the following commands.
+1. You can use FQDN, IP or short name(first six letters of cluster name) of brokers to pass as `KAFKABROKERS` in the following commands.
               
-       ```
-       # In the previous example       # IP of worker node 0 is `broker1-ip` and worker node 1 is `broker2-ip`
-       # Short Name of worker node 0 is `wn0-hdi-ka` and worker node 1 is `wn1-hdi-ka`      # FQDN of worker node 0 is `wn0-hdi-ka.mvml5coqo4xuzc1nckq1sltcxf.bx.internal.cloudapp.net` and worker node 1 is `wn1-hdi-ka.mvml5coqo4xuzc1nckq1sltcxf.bx.internal.cloudapp.net`
+   ```
+    # In the previous example       # IP of worker node 0 is `broker1-ip` and worker node 1 is `broker2-ip`
+    # Short Name of worker node 0 is `wn0-hdi-ka` and worker node 1 is `wn1-hdi-ka`      # FQDN of worker node 0 is `wn0-hdi-ka.mvml5coqo4xuzc1nckq1sltcxf.bx.internal.cloudapp.net` and worker node 1 is `wn1-hdi-ka.mvml5coqo4xuzc1nckq1sltcxf.bx.internal.cloudapp.net`
             
-       # Create Kafka Topic 
-            java -jar kafka-producer-consumer.jar create <topic_name> $KAFKABROKERS
-            java -jar kafka-producer-consumer.jar create test broker1-ip:9092,broker2-ip:9092
+    # Create Kafka Topic 
+         java -jar kafka-producer-consumer.jar create <topic_name> $KAFKABROKERS
+         java -jar kafka-producer-consumer.jar create test broker1-ip:9092,broker2-ip:9092
             
-       # Produce Data in Topic
-            java -jar kafka-producer-consumer.jar producer <topic_name> $KAFKABROKERS
-            java -jar kafka-producer-consumer.jar producer test wn0-hdi-ka:9092,wn1-hdi-ka:9092
+    # Produce Data in Topic
+         java -jar kafka-producer-consumer.jar producer <topic_name> $KAFKABROKERS
+         java -jar kafka-producer-consumer.jar producer test wn0-hdi-ka:9092,wn1-hdi-ka:9092
          
-       # Consume Data from Topic
-            java -jar kafka-producer-consumer.jar consumer <topic_name> $KAFKABROKERS
-            java -jar kafka-producer-consumer.jar consumer test wn0-hdi-ka.mvml5coqo4xuzc1nckq1sltcxf.bx.internal.cloudapp.net:9092,wn1-hdi-ka.mvml5coqo4xuzc1nckq1sltcxf.bx.internal.cloudapp.net:9092
-       ```   
+    # Consume Data from Topic
+         java -jar kafka-producer-consumer.jar consumer <topic_name> $KAFKABROKERS
+         java -jar kafka-producer-consumer.jar consumer test wn0-hdi-ka.mvml5coqo4xuzc1nckq1sltcxf.bx.internal.cloudapp.net:9092,wn1-hdi-ka.mvml5coqo4xuzc1nckq1sltcxf.bx.internal.cloudapp.net:9092
+   ```   
 > [!NOTE]
 > It is recommended to add all the brokers IP, FQDN or short name in $KAFKABROKERS for fault tolerance.

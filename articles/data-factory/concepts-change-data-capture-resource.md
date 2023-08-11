@@ -59,6 +59,8 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 
 For more information on known limitations and troubleshooting assistance, please reference [this troubleshooting guide](change-data-capture-troubleshoot.md).
 
+> [!NOTE]
+> We always use the last published configuration when starting a CDC. For running CDCs, while your data is being processed, you will be billed 4 v-cores of General Purpose Data Flows.
 
 ## Next steps
 - [Learn how to set up a change data capture resource](how-to-change-data-capture-resource.md).
