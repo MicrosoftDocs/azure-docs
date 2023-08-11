@@ -145,6 +145,8 @@ If you have a virtual network gateway (ExpressRoute or VPN) in the same virtual 
 
 [!INCLUDE [VPN gateway note](../../includes/route-server-note-vpn-gateway.md)]
 
+[!INCLUDE [downtime note](../../includes/route-server-note-vng-downtime.md)]
+
 1. To enable route exchange between Azure Route Server and the gateway(s), use [Update-AzRouteServer](/powershell/module/az.network/update-azrouteserver) with the *-AllowBranchToBranchTraffic* flag:
 
 ```azurepowershell-interactive

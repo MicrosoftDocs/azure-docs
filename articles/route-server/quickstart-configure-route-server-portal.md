@@ -93,9 +93,11 @@ If you have a virtual network gateway (ExpressRoute or VPN) in the same virtual 
 
 [!INCLUDE [VPN gateway note](../../includes/route-server-note-vpn-gateway.md)]
 
-1. Go to [Route Server](./overview.md) in the Azure portal and select the Route Server you want to configure.
+[!INCLUDE [downtime note](../../includes/route-server-note-vng-downtime.md)]
 
-1. Select **Configuration** under *Settings* in the left navigation panel.
+1. Go to the Route Server that you want to configure.
+
+1. Select **Configuration** under **Settings** in the left navigation panel.
 
 1. Select **Enable** for the **Branch-to-Branch** setting and then select **Save**.
 

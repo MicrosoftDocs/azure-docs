@@ -6,5 +6,4 @@ ms.topic: include
 ms.date: 08/11/2023
 ---
 > [!IMPORTANT]
-> - Azure VPN gateway must be created before creating Azure Route Server and must be configured in **active-active** mode and have the ASN set to 65515.
-> - When you create or delete a Route Server in a virtual network that contains a virtual network gateway (ExpressRoute or VPN), expect downtime until the operation is complete. If you have an ExpressRoute circuit connected to the virtual network where you're creating or deleting the Route Server, the downtime doesn't affect the ExpressRoute circuit or its connections to other virtual networks.
+> Azure VPN gateway must be created before creating the Route Server and must be configured in **active-active** mode and have the ASN set to **65515**.
