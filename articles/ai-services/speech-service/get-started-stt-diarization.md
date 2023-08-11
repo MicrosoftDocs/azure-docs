@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-set-twenty-two
 keywords: speech to text, speech to text software
 ---
 
-# Quickstart: Real-time diarization
+# Quickstart: Real-time diarization (preview)
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](includes/quickstarts/stt-diarization/csharp.md)]

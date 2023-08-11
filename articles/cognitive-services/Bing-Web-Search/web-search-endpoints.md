@@ -32,7 +32,7 @@ Endpoint: For details about headers, parameters, market codes, response objects,
 
 ## Response JSON
 
-The response to a Web search request includes all results as JSON objects. Parsing the result requires procedures that handle the elements of each type. See the [tutorial](./tutorial-bing-web-search-single-page-app.md) and [source code](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/bing-web-search) for examples.
+The response to a Web search request includes all results as JSON objects. Parsing the result requires procedures that handle the elements of each type. See the [tutorial](./tutorial-bing-web-search-single-page-app.md) and [source code](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) for examples.
 
 ## Next steps
 

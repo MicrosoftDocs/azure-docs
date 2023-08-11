@@ -54,7 +54,7 @@ This feature is now available in the following Azure clouds:
 
 - Azure Global
 - Azure Government
-- Azure China 21Vianet
+- Microsoft Azure operated by 21Vianet
 
 ### Network requirements
 
@@ -72,7 +72,7 @@ Azure Government:
 - `https://login.microsoftonline.us`: For authentication flows.
 - `https://pasff.usgovcloudapi.net`: For Azure RBAC flows.
 
-Azure China 21Vianet:
+Microsoft Azure operated by 21Vianet:
 - `https://enterpriseregistration.partner.microsoftonline.cn`: For device registration.
 - `http://169.254.169.254`: Azure Instance Metadata Service endpoint.
 - `https://login.chinacloudapi.cn`: For authentication flows.

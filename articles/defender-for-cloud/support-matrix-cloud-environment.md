@@ -13,9 +13,10 @@ This article indicates which Defender for Cloud features are supported in Azure 
 
 In the support table, **NA** indicates that the feature isn't available.
 
-**Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/>**21Vianet**
---- | --- | --- | ---
-**GENERAL FEATURES** | | |
+
+**Feature/Plan** | **Azure** | **Azure Government** | **Microsoft Azure operated by 21Vianet**|
+|--- | --- | --- | --- |
+|**GENERAL FEATURES** | | |
 [Continuous data export](continuous-export.md) | GA | GA | GA
 [Response automation with Azure Logic Apps](./workflow-automation.md) | GA | GA | GA
 [Security alerts](alerts-overview.md)<br/> Generated when one or more Defender for Cloud plans is enabled. | GA | GA | GA

@@ -41,7 +41,7 @@ The dates when these changes take effect are:
 | Azure (global)       |  January 13, 2020  | Postponed because of COVID-19  |
 | Azure Government     |  March 13, 2020    | Postponed because of COVID-19  |
 | Azure Germany        |  March 13, 2020    | Postponed because of COVID-19  |
-| Azure China 21Vianet |  March 13, 2020    | Postponed because of COVID-19  |
+| Microsoft Azure operated by 21Vianet |  March 13, 2020    | Postponed because of COVID-19  |
 
 > [!NOTE]
 > Phase 2 is postponed because of COVID-19. This article will be updated when specific dates are set.

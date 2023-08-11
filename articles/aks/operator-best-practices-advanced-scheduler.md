@@ -40,7 +40,7 @@ The Kubernetes scheduler uses taints and tolerations to restrict what workloads 
 * Apply a **taint** to a node to indicate only specific pods can be scheduled on them.
 * Then apply a **toleration** to a pod, allowing them to *tolerate* a node's taint.
 
-When you deploy a pod to an AKS cluster, Kubernetes only schedules pods on nodes whose taint aligns with the toleration. Taints and tolerations work together to ensure that pods are not scheduled onto inappropriate nodes. One or more taints are applied to a node, marking the the node so that it does not accept any pods that do not tolerate the taints.
+When you deploy a pod to an AKS cluster, Kubernetes only schedules pods on nodes whose taint aligns with the toleration. Taints and tolerations work together to ensure that pods aren't scheduled onto inappropriate nodes. One or more taints are applied to a node, marking the node so that it doesn't accept any pods that don't tolerate the taints.
 
 For example, assume you added a node pool in your AKS cluster for nodes with GPU support. You define name, such as *gpu*, then a value for scheduling. Setting this value to *NoSchedule* restricts the Kubernetes scheduler from scheduling pods with undefined toleration on the node.
 
@@ -53,7 +53,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-With a taint applied to nodes in the node pool, you'll define a toleration in the pod specification that allows scheduling on the nodes. The following example defines the `sku: gpu` and `effect: NoSchedule` to tolerate the taint applied to the node pool in the previous step:
+With a taint applied to nodes in the node pool, you define a toleration in the pod specification that allows scheduling on the nodes. The following example defines the `sku: gpu` and `effect: NoSchedule` to tolerate the taint applied to the node pool in the previous step:
 
 ```yaml
 kind: Pod
@@ -82,13 +82,13 @@ When this pod is deployed using `kubectl apply -f gpu-toleration.yaml`, Kubernet
 
 When you apply taints, work with your application developers and owners to allow them to define the required tolerations in their deployments.
 
-For more information about how to use multiple node pools in AKS, see [Create and manage multiple node pools for a cluster in AKS][use-multiple-node-pools].
+For more information about how to use multiple node pools in AKS, see [Create multiple node pools for a cluster in AKS][use-multiple-node-pools].
 
 ### Behavior of taints and tolerations in AKS
 
 When you upgrade a node pool in AKS, taints and tolerations follow a set pattern as they're applied to new nodes:
 
-#### Default clusters that use VM scale sets
+#### Default clusters that use Azure Virtual Machine Scale Sets
 
 You can [taint a node pool][taint-node-pool] from the AKS API to have newly scaled out nodes receive API specified node taints.
 
@@ -96,26 +96,26 @@ Let's assume:
 
 1. You begin with a two-node cluster: *node1* and *node2*. 
 1. You upgrade the node pool.
-1. Two additional nodes are created: *node3* and *node4*. 
+1. Two other nodes are created: *node3* and *node4*. 
 1. The taints are passed on respectively.
 1. The original *node1* and *node2* are deleted.
 
-#### Clusters without VM scale set support
+#### Clusters without Virtual Machine Scale Sets support
 
 Again, let's assume:
 
 1. You have a two-node cluster: *node1* and *node2*. 
 1. You upgrade the node pool.
-1. An additional node is created: *node3*.
+1. An extra node is created: *node3*.
 1. The taints from *node1* are applied to *node3*.
 1. *node1* is deleted.
 1. A new *node1* is created to replace to original *node1*.
 1. The *node2* taints are applied to the new *node1*. 
 1. *node2* is deleted.
 
-In essence *node1* becomes *node3*, and *node2* becomes the new *node1*.
+In essence, *node1* becomes *node3*, and *node2* becomes the new *node1*.
 
-When you scale a node pool in AKS, taints and tolerations do not carry over by design.
+When you scale a node pool in AKS, taints and tolerations don't carry over by design.
 
 ## Control pod scheduling using node selectors and affinity
 
@@ -129,7 +129,7 @@ Alternatively, you can use node selectors. For example, you label nodes to indic
 
 Unlike tolerations, pods without a matching node selector can still be scheduled on labeled nodes. This behavior allows unused resources on the nodes to consume, but prioritizes pods that define the matching node selector.
 
-Let's look at an example of nodes with a high amount of memory. These nodes prioritize pods that request a high amount of memory. To ensure the resources don't sit idle, they also allow other pods to run. The following example command adds a node pool with the label *hardware=highmem* to the *myAKSCluster* in the *myResourceGroup*. All nodes in that node pool will have this label.
+Let's look at an example of nodes with a high amount of memory. These nodes prioritize pods that request a high amount of memory. To ensure the resources don't sit idle, they also allow other pods to run. The following example command adds a node pool with the label *hardware=highmem* to the *myAKSCluster* in the *myResourceGroup*. All nodes in that node pool have this label.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -245,6 +245,6 @@ This article focused on advanced Kubernetes scheduler features. For more informa
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
 [aks-best-practices-isolation]: operator-best-practices-cluster-isolation.md
-[use-multiple-node-pools]: use-multiple-node-pools.md
-[taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
+[use-multiple-node-pools]: create-node-pools.md
+[taint-node-pool]: manage-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
 [use-gpus-aks]: gpu-cluster.md

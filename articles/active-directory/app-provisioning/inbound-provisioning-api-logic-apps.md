@@ -60,18 +60,18 @@ The Logic Apps deployment template published in the [Microsoft Entra ID inbound 
 > [!NOTE]
 > The sample Azure Logic Apps workflow is provided "as-is" for implementation reference. If you have questions related to it or if you'd like to enhance it, please use the [GitHub project repository](https://github.com/AzureAD/entra-id-inbound-provisioning).
 
-|# | Automation task | Implementation guidance |
-|---------|---------|---------|
-|1 | Read worker data from the CSV file. | The Logic Apps workflow uses an Azure Function to read the CSV file stored in an Azure File Share. The Azure Function converts CSV data into JSON format. If your CSV file format is different, update the workflow step "Parse JSON" and "Construct SCIMUser". <br> If your system of record is different, check guidance provided in the section [Integration scenario variations](#integration-scenario-variations) on how you can customize the Logic Apps workflow by using an appropriate connector. |
-|2 | Pre-process and convert data to SCIM format.  | By default, the Logic Apps workflow converts each record in the CSV file to a SCIM Core User + Enterprise User representation. If you plan to use custom SCIM schema extensions, you can update the step "Construct SCIMUser" to include your custom SCIM schema extensions. If you want to run C# code for advanced formatting and data validation, you can use [custom Azure Functions](../../logic-apps/logic-apps-azure-functions.md).|
-|3 | Use the right authentication method | You can either [use a service principal](inbound-provisioning-api-grant-access.md#configure-a-service-principal)  or [use managed identity](inbound-provisioning-api-grant-access.md#configure-a-managed-identity) to access the inbound provisioning API. Update the step "Send SCIMBulkPayload to API endpoint" with the right authentication method. |
-|4 | Provision accounts in on-premises Active Directory or Microsoft Entra ID.  | Configure [API-driven inbound provisioning app](inbound-provisioning-api-configure-app.md). This will generate a unique [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. Update the step "Send SCIMBulkPayload to API endpoint" to use the right bulkUpload API endpoint. |
-|5 | Scan the provisioning logs and retry provisioning for failed records.  |  This automation is not yet implemented in the sample Logic Apps workflow. To implement it refer to the [provisioning logs Graph API](/graph/api/resources/provisioningobjectsummary) |
-|6 | Deploy your Logic Apps based automation to production.  |  Once you have verified your API-driven provisioning flow and customized the Logic Apps workflow to meet your requirements, you can deploy the automation in your environment. |
+|# | Automation task | Implementation guidance | Advanced customization |
+|---------|---------|---------|---------|
+|1 | Read worker data from the CSV file. | The Logic Apps workflow uses an Azure Function to read the CSV file stored in an Azure File Share. The Azure Function converts CSV data into JSON format. If your CSV file format is different, update the workflow step "Parse JSON" and "Construct SCIMUser". |  If your system of record is different, check guidance provided in the section [Integration scenario variations](#integration-scenario-variations) on how to customize the Logic Apps workflow by using an appropriate connector. |
+|2 | Pre-process and convert data to SCIM format.  | By default, the Logic Apps workflow converts each record in the CSV file to a SCIM Core User + Enterprise User representation. If you plan to use custom SCIM schema extensions, update the step "Construct SCIMUser" to include your custom SCIM schema extensions. | If you want to run C# code for advanced formatting and data validation, use [custom Azure Functions](../../logic-apps/logic-apps-azure-functions.md).|
+|3 | Use the right authentication method | You can either [use a service principal](inbound-provisioning-api-grant-access.md#configure-a-service-principal)  or [use managed identity](inbound-provisioning-api-grant-access.md#configure-a-managed-identity) to access the inbound provisioning API. Update the step "Send SCIMBulkPayload to API endpoint" with the right authentication method. | - |
+|4 | Provision accounts in on-premises Active Directory or Microsoft Entra ID.  | Configure [API-driven inbound provisioning app](inbound-provisioning-api-configure-app.md). This generates a unique [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API endpoint. Update the step "Send SCIMBulkPayload to API endpoint" to use the right bulkUpload API endpoint. | If you plan to use bulk request with custom SCIM schema, then extend the provisioning app schema to include your custom SCIM schema attributes. |
+|5 | Scan the provisioning logs and retry provisioning for failed records.  |  This automation is not yet implemented in the sample Logic Apps workflow. To implement it, refer to the [provisioning logs Graph API](/graph/api/resources/provisioningobjectsummary). | - |
+|6 | Deploy your Logic Apps based automation to production.  |  Once you have verified your API-driven provisioning flow and customized the Logic Apps workflow to meet your requirements, deploy the automation in your environment. | - |
 
 
 ## Step 1: Create an Azure Storage account to host the CSV file
-The steps documented in this section are optional. If you already have an existing storage account or would like to read the CSV file from another source like SharePoint site or Blob storage, you can tweak the Logic App to use your connector of choice.
+The steps documented in this section are optional. If you already have an existing storage account or would like to read the CSV file from another source like SharePoint site or Blob storage, update the Logic App to use your connector of choice.
 
 1. Log in to your Azure portal as administrator.
 1. Search for "Storage accounts" and create a new storage account. 
@@ -156,7 +156,7 @@ The steps documented in this section are optional. If you already have an existi
 
 1. In the "Generally Available" version of the Logic Apps designer, click on Run Trigger to manually execute the workflow.
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/run-logic-app.png" alt-text="Screenshot of running the Logic App." lightbox="media/inbound-provisioning-api-logic-apps/run-logic-app.png":::  
-1. After the execution is complete, you can review what action Logic Apps performed in each iteration.
+1. After the execution is complete, review what action Logic Apps performed in each iteration.
 1. In the final iteration, you should see the Logic Apps upload data to the inbound provisioning API endpoint. Look for `202 Accept` status code. You can copy-paste and verify the bulk upload request.
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/execution-results.png" alt-text="Screenshot of the Logic Apps execution result." lightbox="media/inbound-provisioning-api-logic-apps/execution-results.png":::  
 

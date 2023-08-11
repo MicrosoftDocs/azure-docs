@@ -19,19 +19,19 @@ Storage Explorer makes requests to various endpoints while in use. The following
 
 - ARM endpoints:
   - `management.azure.com` (global Azure)
-  - `management.chinacloudapi.cn` (Azure China)
+  - `management.chinacloudapi.cn` (Microsoft Azure operated by 21Vianet)
   - `management.usgovcloudapi.net` (Azure US Government)
 - Login endpoints:
   - `login.microsoftonline.com` (global Azure)
-  - `login.chinacloudapi.cn` (Azure China)
+  - `login.chinacloudapi.cn` (Microsoft Azure operated by 21Vianet)
   - `login.microsoftonline.us` (Azure US Government)
 - Graph endpoints:
   - `graph.windows.net` (global Azure)
-  - `graph.chinacloudapi.cn` (Azure China)
+  - `graph.chinacloudapi.cn` (Microsoft Azure operated by 21Vianet)
   - `graph.windows.net` (Azure US Government)
 - Azure Storage endpoints:
   - `(blob|file|queue|table|dfs).core.windows.net` (global Azure)
-  - `(blob|file|queue|table|dfs).core.chinacloudapi.cn` (Azure China)
+  - `(blob|file|queue|table|dfs).core.chinacloudapi.cn` (Microsoft Azure operated by 21Vianet)
   - `(blob|file|queue|table|dfs).core.usgovcloudapi.net` (Azure US Government)
 - Storage Explorer updating: `storageexplorerpublish.blob.core.windows.net`
 - Microsoft link forwarding:
