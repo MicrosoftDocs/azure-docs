@@ -1094,6 +1094,11 @@
           href: how-to-managed-network.md
         - name: Troubleshoot managed virtual network
           href: how-to-troubleshoot-managed-network.md
+        - name: Use private endpoint
+          displayName: private endpoint
+          href: how-to-configure-private-link.md
+        - name: Use custom DNS
+          href: how-to-custom-dns.md
         - name: Use Azure Virtual Network
           items:
             - name: Secure workspace resources
@@ -1121,9 +1126,6 @@
             - name: Use studio in a virtual network
               displayName: vnet
               href: how-to-enable-studio-virtual-network.md
-            - name: Use private endpoint
-              displayName: private endpoint
-              href: how-to-configure-private-link.md
             # v1
             - name: Use private endpoint
               displayName: private endpoint
@@ -1132,8 +1134,6 @@
               displayName: ssl, tls
               href: ./v1/how-to-secure-web-service.md
             # end v1
-            - name: Use custom DNS
-              href: how-to-custom-dns.md
             - name: Configure required network traffic
               displayName: firewall, user-defined route, udr
               href: how-to-access-azureml-behind-firewall.md
