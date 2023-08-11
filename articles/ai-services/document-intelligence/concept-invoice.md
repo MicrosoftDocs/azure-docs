@@ -242,12 +242,13 @@ See how data, including customer information, vendor details, and line items, is
 
 | Supported Currency Codes | Details |
 |:----------------------|:---------|
-| &bullet; BRL | United States (`us`) |
+| &bullet; BRL | Brazilian Real (`br`) |
+| &bullet; GBP | British Pound Sterling (`gb`) |
 | &bullet; CAD | Canada (`ca`) |
 | &bullet; EUR | Euro (`eu`) |
-| &bullet; GBP | British Pound Sterling (`gb`) |
 | &bullet; GGP | Guernsey Pound (`gg`) |
 | &bullet; INR | Indian Rupee (`in`) |
+| &bullet; USD | United States (`us`) |
 :::moniker-end
 
 :::moniker range=">=doc-intel-3.0.0"
