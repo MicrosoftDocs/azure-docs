@@ -25,7 +25,7 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 
 - An Azure storage account. See [create a storage account](../common/storage-account-create.md).
 
-- A blob container that has a metadata key named `Classification` which is set to the string "Confidential". This condition
+- A blob container that has a metadata key named `Classification` which is set to the string "Confidential".
 
 - One or more Microsoft Word documents stored to the blob container.
 
@@ -55,9 +55,9 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 
 6. Select **Next** to open the **Conditions** page.
 
-## Add conditions
+## Add clauses to a condition
 
-You can specify the conditions of a storage task by making selections in **If** section of the **Visual Builder** tab. Every storage task has at least one condition (or _clause_).
+You can specify the conditions of a storage task by making selections in **If** section of the **Visual Builder** tab. Every storage task has at least one condition with one clause in that condition.
 
 1. In the **Select a property** drop-down list of the **If** section, select **Container metadata value**.
 
@@ -73,7 +73,7 @@ You can specify the conditions of a storage task by making selections in **If** 
 4. For the **Operator** of that condition, select **Ends with**, and in the **Enter a string** box, enter _.docx_.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the If condition that filters for blob name.](./media/storage-task-quickstart-portal/if-condition-blob-name.png)
+   > ![Screenshot of the clause that filters for blob name.](./media/storage-task-quickstart-portal/if-condition-blob-name.png)
 
    This condition allows operations only on Word documents.
 

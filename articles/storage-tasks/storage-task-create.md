@@ -51,14 +51,14 @@ The following image shows an example of the **Basics** tab.
 
 On the **Conditions** tab, define the conditions that must be met by each object (container or blob), and the operations to perform on the object.
 
-You must define at least one condition and one operation. To add conditions, select  **Add new clause**. To add operations, select **Add new operation**. 
+You must define at least one condition and one operation. To add a clause to a condition, select  **Add new clause**. To add operations, select **Add new operation**.
 
 The following table describes the fields on the **Conditions** tab.
 
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
 | If | And/Or | Required | An operator which combines two or more predicates to form a logical-AND or logical-OR expression. |
-| If | Blob property | Required | The blob or container property that you like to use in the condition. See [Supported blob properties](storage-task-conditions-operations.md#blob-properties)|
+| If | Blob property | Required | The blob or container property that you like to use in the clause. See [Supported blob properties](storage-task-conditions-operations.md#blob-properties)|
 | If | Operator | Required | The operator that defines how each property in the clause must relate to the corresponding value. See [Supported operators](storage-task-conditions-operations.md#operators)|
 | If| Property value | Required | The value that relates to the corresponding property. See [Supported property values](storage-task-conditions-operations.md#property-values) |
 | Then | Operations | Required | The action to perform when objects meet the conditions defined in this task. See [Supported operations](storage-task-conditions-operations.md#operations)|

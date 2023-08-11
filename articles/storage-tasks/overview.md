@@ -27,7 +27,7 @@ Azure Storage Tasks is a service that manages *storage tasks*. A storage task co
 
 | Component | Description |
 |---|---|
-| Conditions | A *condition* contains a property, a value, and an operator. When the storage task runs, it uses the operator to compare a property with a value to determine whether the condition is met by the target object. For example, a condition might evaluate whether a `creation-time` property of a blob is greater than five days ago. |
+| Conditions | A *condition* a collection of one or more *clauses*. Each clause contains a property, a value, and an operator. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. For example, a clause might evaluate whether a `creation-time` property of a blob is greater than five days ago. |
 | Operations | An operation is the action a storage task performs on each object that meets the defined set of conditions. Deleting a blob is an example of an operation. |
 | Assignments | An assignment identifies a storage account and a subset of objects to target in that account. It also specifies when the task runs and where execution reports are stored. |
 

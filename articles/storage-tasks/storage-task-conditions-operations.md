@@ -23,7 +23,7 @@ A storage task performs operations on containers and blobs in an Azure Storage a
 
 ## Defining conditions and operations
 
-A _condition_ contains a property, a value, and an operator. The storage tasks uses the operator to compare a property with a value to determine whether the condition is met by the target object. An _operation_ is the action a storage task performs on each object that meets the defined conditions.
+A _condition_ contains one or more conditional _clauses_. A clause contains a property, a value, and an operator. The storage tasks uses the operator to compare a property with a value to determine whether a clause is met by the target object. An _operation_ is the action a storage task performs on each object that meets the defined conditions.
 
 You can define conditions and operations by using a visual designer in the Azure portal. The following image shows the visual designer that you can use to define the conditions and operations of a storage task.
 
@@ -34,9 +34,9 @@ Conditions and operations are stored as a JSON document that is generated based 
 
 For more information about how to define conditions and operations, see [Define storage task conditions and operations](storage-task-conditions-operations-edit.md).
 
-## Supported properties in conditions
+## Supported properties in a clause
 
-The following table shows the properties that you can use to compose a condition. A condition can contain string, boolean, numeric, as well as date and time properties.
+The following table shows the properties that you can use to compose each clause of a condition. A clause can contain string, boolean, numeric, as well as date and time properties.
 
 | String                         | Date and time<sup>3</sup>      | Numeric        | Boolean          |
 |--------------------------------|----------------------|----------------|------------------|
@@ -56,9 +56,9 @@ The following table shows the properties that you can use to compose a condition
 
 <sup>3</sup>    Can be set to a specific time or to a metadata value dynamically obtained from objects. See [Parameters in values](#parameters-in-values).
 
-### Supported operators in conditions
+### Supported operators in a clause
 
-The following table shows the operators that you can use in a condition to evaluate the value of each type of property.
+The following table shows the operators that you can use in a clause to evaluate the value of each type of property.
 
 | String | Date and time | Numeric | Boolean |
 |---|---|---|---|
@@ -75,7 +75,7 @@ Explain matching and wild card patterns. At the time of this draft, it appears t
 
 ### Referencing values from object metadata
 
-Conditions that include a date and time property can reference a value from the metadata of a container or an index tag of a blob. These values are obtained dynamically at runtime when the task executes. To learn more, see [Reference a value from object metadata](storage-task-conditions-operations-edit.md#reference-a-value-from-object-metadata).
+clauses that include a date and time property can reference a value from the metadata of a container or an index tag of a blob. These values are obtained dynamically at runtime when the task executes. To learn more, see [Reference a value from object metadata](storage-task-conditions-operations-edit.md#reference-a-value-from-object-metadata).
 
 ## Supported operations
 
@@ -91,20 +91,6 @@ The following table shows the supported operations, parameters, and parameter va
 | Set Blob Legal Hold | Need parameter names | Need parameter names |
 
 Something here about the fact that there is no design-time validation. Errors are reported at run time.
-
-### Ordering operations
-
-- The order of operations and what order means to users.
-
-- Include information here about onSucceed and onFailure if those capabilities make into the public preview.
-
-## Preview
-
-(Use an include file to share this section with the assignment article)
-
-Describe the experience and the benefit.
-
-It can be used to try things out. Then, you can debug issues. For example, tags value and count apply only to accounts that do not have a hierarchical namespace enabled.
 
 ## See also
 

@@ -54,9 +54,9 @@ If incompatible storage task operations are tried out on storage accounts, the t
 
 Whitespace characters in the key and value of blob tags are acceptable inputs. However, storage task conditions are unable to process the whitespace characters. If a key or value contains a whitespace character, an error will appear when the task runs.
 
-## Blob name condition contains or matches "." is unsupported
+## Blob name property value contains or matches "." is unsupported
 
-The string field input on blob name conditions accepts ".doc" or ".pdf" as inputs but fails to deploy the task resource. The service resource provider validation catches it and throws the error. The value of the property 'Name' is '.doc' and it does not follow the pattern '^[a-zA-Z0-9]+$'"}]}.
+The string field input on blob name clause accepts ".doc" or ".pdf" as inputs but fails to deploy the task resource. The service resource provider validation catches it and throws the error. The value of the property 'Name' is '.doc' and it does not follow the pattern '^[a-zA-Z0-9]+$'"}]}.
 
 ## Storage task assignments operate on an incomplete list of blobs when used with multiple directory filters in accounts that have a hierarchical namespace
 
