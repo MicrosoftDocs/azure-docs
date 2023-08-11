@@ -1,6 +1,6 @@
 ---
 title: Capture changed data with schema evolution by using a change data capture resource
-description: Get step-by-step instructions on how to capture changed data with schema evolution from Azure SQL Database to a Delta sink by using a change data capture resource.
+description: Get step-by-step instructions on how to capture changed data with schema evolution from Azure SQL Database to a Delta sink by using a change data capture (CDC) resource.
 author: KrishnakumarRukmangathan
 ms.author: krirukm
 ms.reviewer: 
@@ -47,7 +47,7 @@ Before you begin the procedures in this article, make sure that you have these r
 
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-102.png" alt-text="Screenshot of a list of change data capture actions." lightbox="media/adf-cdc/change-data-capture-resource-102.png":::
   
-1. You're prompted to name your CDC resource. By default, the name is "adfcdc" with a number that increments by 1. You can replace this default name with your own.
+1. You're prompted to name your CDC resource. By default, the name is "adfcdc" with a number that increments by 1. You can replace this default name with a name that you choose.
 
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-103.png" alt-text="Screenshot of the text box to update the name of a resource.":::
   
