@@ -1,0 +1,68 @@
+### YamlMime:Hub
+
+title: Azure Storage Task documentation
+summary: Azure Storage Tasks is blah.
+brand: azure
+
+metadata:
+  title: Azure Storage Tasks documentation
+  description: Azure Storage Tasks documentation hub page. Points to service documentation for using the Azure Storage Tasks to blah. 
+  ms.service: azure-storage-tasks
+  ms.topic: hub-page
+  author: normesta
+  ms.author: normesta
+  ms.date: 08/11/2023
+
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  items:
+    # Card
+    - title: What is Azure Storage Tasks?
+      itemType: concept
+      url: overview.md
+    - title: 'Quickstart: Create, assign, and run a storage task'
+      itemType: quickstart
+      url: storage-task-quickstart-portal.md
+    - title: Known issues and limitations with Azure Storage Tasks
+      itemType: concept
+      url: storage-task-known-issues.md
+
+ 
+# additionalContent section (optional)
+# Card with links style
+additionalContent:
+  # Supports up to 3 sections
+  sections:
+    - title: Create, define, and assign storage tasks
+      items:
+        # Card
+        - title: Get started
+          links:
+          - url: Create a storage task.md
+            text: Create a storage task
+          - url: storage-task-quickstart-portal.md
+            text: 'Quickstart: Create, assign, and run a storage task'
+        # Card
+        - title: Define conditions and operations
+          links:
+          - url: storage-task-conditions-operations-edit.md
+            text: Define storage task conditions and operations
+          - url: storage-task-conditions-operations.md
+            text: Supported properties, operators, and operations
+        # Card
+        - title: Assign tasks to storage accounts
+          links:
+          - url: storage-task-assignment-create.md
+            text: Create and manage a storage task assignment
+          - url: storage-task-assignment.md
+            text: Storage task assignments
+        # Card
+        - title: Monitor and audit task runs
+          links:
+          - url: storage-task-runs.md
+            text: Storage task runs
+          - url: monitor-storage-tasks.md
+            text: Monitor Azure Storage Tasks
+
+    

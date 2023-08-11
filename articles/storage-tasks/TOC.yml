@@ -1,6 +1,6 @@
 items:
 - name: Azure Storage Tasks documentation
-  href: /azure/storage/container-storage/
+  href: ./index.yml
 - name: Overview
   items:
   - name: What is Azure Storage Tasks?
