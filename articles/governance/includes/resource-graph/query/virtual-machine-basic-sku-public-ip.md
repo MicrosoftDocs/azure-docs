@@ -1,14 +1,14 @@
 ---
 ms.service: resource-graph
 ms.topic: include
-ms.date: 08/10/2023
+ms.date: 08/11/2023
 author: davidsmatlak
 ms.author: davidsmatlak
 ---
 
-### Show Virtual Machines with Basic SKU Public IP Addresses
+### Show virtual machines with Basic SKU public IP addresses
 
-This query returns a list of Virtual Machines IDs with Basic SKU Public IP addresses attached.
+This query returns a list of virtual machine IDs with Basic SKU public IP addresses attached.
 
 ```kusto
 Resources
