@@ -254,8 +254,6 @@ AzureDiagnostics
 | sort by TimeGenerated asc
 ```
 
-:::image type="content" source="./media/monitor-point-to-site-connections/additional-ikes.png" alt-text="Screenshot shows query for IKE Diagnostic details." lightbox="./media/monitor-point-to-site-connections/additional-ikes.png":::
-
 ### P2S VPN statistics
 
 ```kusto
