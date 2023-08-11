@@ -20,7 +20,7 @@ Instance Readiness Testing (IRT) is a framework built to orchestrate real-world 
     * Networks to use for the test are specified in a "networks-blueprint.yml" file, see [Input Configuration](#input-configuration).
 - curl to download IRT package
 - The User Access Admin & Contributor roles for the execution subscription
-- The ability to create security groups in your Active Directory tenant 
+- The ability to create security groups in your Active Directory tenant
 
 ## Input configuration
 
@@ -36,7 +36,7 @@ The network information is provided in either a `networks-blueprint.yml` file, s
 
 ## One Time Setup
 
-### Download IRT 
+### Download IRT
 IRT is distributed via tarball, download it, extract it, and navigate to the `irt` directory
 1. From your Linux environment, download nexus-irt.tar.gz from aka.ms/nexus-irt `curl -Lo nexus-irt.tar.gz aka.ms/nexus-irt`
 1. Extract the tarball to the local file system: `mkdir -p irt && tar xf nexus-irt.tar.gz --directory ./irt`
@@ -49,26 +49,26 @@ There are multiple dependencies expected to be available during execution. Revie
 * `jq` version 1.6 or greater
 * `yq` version 4.33 or greater
 * `azcopy` version 10 or greater
-* `az` Azure CLI minimum version not known, stay up to date.
+* `az` Azure CLI stay up to date, minimum expected 2.11.0
 * `elinks` - for viewing html files on the command line
 * `tree` - for viewing directory structures
-* `moreutils` - for viewing progress from the ACI container
+* `moreutils` - for viewing progress from the Azure Containter Instance(ACI) container
 
 The `setup.sh` script is provided to aid with installing the listed dependencies. It installs any dependencies that aren't available in PATH. It doesn't upgrade any dependencies that don't meet the minimum required versions.
 
-> [!NOTE] 
+> [NOTE]
 > `setup.sh` assumes a nonroot user and attempts to use `sudo`
 
 ### All in one setup
 
-`all-in-one-setup.sh` is provided to create all of the Azure resources required to run IRT. This process includes creating a managed identity, a service principal, a security group, isolation domains, and a storage account to archive the test results. These resources can be created during the all in one script, or they can be created step by step per the instructions in this document. Each of the script, individually and via the all in one script, writes updates to your `irt-input.yml` file with the key value pairs needed to utilize the resources you created. Review the `irt-input.example.yml` file for the required inputs needed for the script(s), regardless of the methodology you pursue. All of the scripts are idempotent, and also allow you to use existing resources if desired. 
+`all-in-one-setup.sh` is provided to create all of the Azure resources required to run IRT. This process includes creating a managed identity, a service principal, a security group, isolation domains, and a storage account to archive the test results. These resources can be created during the all in one script, or they can be created step by step per the instructions in this document. Each of the script, individually and via the all in one script, writes updates to your `irt-input.yml` file with the key value pairs needed to utilize the resources you created. Review the `irt-input.example.yml` file for the required inputs needed for one or more of the scripts, regardless of the methodology you pursue. All of the scripts are idempotent, and also allow you to use existing resources if desired.
 
 ### Step-by-Step setup
 
-> [!NOTE]
+> [NOTE]
 > Only use this section if you're NOT using `all-in-one.sh`
 
-If your workflow is incompatible with `all-in-one.sh`, each resource needed for IRT can be created manually with each supplemental script. Like `all-in-one.sh`, running these scripts  writes key/value pairs to your `irt-input.yml` for you to use during your run. These five scripts make up the `all-in-one.sh`. 
+If your workflow is incompatible with `all-in-one.sh`, each resource needed for IRT can be created manually with each supplemental script. Like `all-in-one.sh`, running these scripts  writes key/value pairs to your `irt-input.yml` for you to use during your run. These five scripts make up the `all-in-one.sh`.
 
 IRT makes commands against your resources, and needs permission to do so. IRT requires a Managed Identity and a Service Principal to execute. It also requires that the service principal is a  member of the Azure AD Security Group that is also provided as input.
 
@@ -77,23 +77,31 @@ A managed identity with the following role assignments is needed to execute test
    * `Contributor` - For creating and manipulating resources
    * `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
    * `Log Analytics Reader` - For reading metadata about the LAW
+   * `Kubernetes Connected Cluster Role` - For read/write operations on connected cluster
 
-
-Executing `create-managed-identity.sh` requires the following environment variables to be set;
-   * **MI_RESOURCE_GROUP** - The resource group the Managed Identity is created in. The resource group is created in `eastus` if the resource group provided doesn't yet exist.
-   * **MI_NAME** - The name of the Managed Identity to be created.
-   * **[Optional] SUBSCRIPTION** - to set the subscription. Alternatively, the script uses az CLI context to look up the subscription.
+Executing `create-managed-identity.sh` requires the input yaml to have the following properties, all of them can be overriden by the corrosponding environment variable;
+```yml
+MANAGED_IDENTITY:
+  RESOURCE_GROUP: "" # env: MANAGED_IDENTITY_RESOURCE_GROUP
+  NAME: "" # env: MANAGED_IDENTITY_NAME
+  SUBSCRIPTION: "" # env: MANAGED_IDENTITY_SUBSCRIPTION
+  LOCATION: "" # env: MANAGED_IDENTITY_LOCATION
+``````
+   * **MANAGED_IDENTITY.RESOURCE_GROUP** - The resource group the Managed Identity is created in.
+   * **MANAGED_IDENTITY.NAME** - The name of the Managed Identity to be created.
+   * **MANAGED_IDENTITY.SUBSCRIPTION** - The subscription where the resource group should reside.
+   * **MANAGED_IDENTITY.LOCATION** - The location to create the resource group.
 
 ```bash
 # Example execution of the script
-MI_RESOURCE_GROUP="<your resource group>" MI_NAME="<your managed identity name>" SUBSCRIPTION="<your subscription ID>" ./create-managed-identity.sh
+./create-managed-identity.sh irt.input.yml
 ```
 
-**RESULT:** This script prints a value for `MANAGED_IDENTITY_ID`. This key/value pair should be recorded in the irt-input.yml for use. See [Input Configuration](#input-configuration).
+**RESULT:** This script prints a value for `MANAGED_IDENTITY_ID` and sets it to the input.yml. See [Input Configuration](#input-configuration).
 
 
 #### Create service principal and security group
-A service principal with the following role assignments. The supplemental script, `create-service-principal.sh`  creates a service principal with these role assignments, or add role assignments to an existing service principal. 
+A service principal with the following role assignments. The supplemental script, `create-service-principal.sh`  creates a service principal with these role assignments, or add role assignments to an existing service principal.
    * `Contributor` - For creating and manipulating resources
    * `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
    * `Azure ARC Kubernetes Admin` - For ARC enrolling the NAKS cluster
@@ -116,7 +124,7 @@ SERVICE_PRINCIPAL_NAME="<your service principal name>" AAD_GROUP_NAME="<your sec
 The testing framework doesn't create, destroy, or manipulate isolation domains. Therefore, existing Isolation Domains can be used. Each Isolation Domain requires at least one external network. The supplemental script, `create-l3-isolation-domains.sh`. Internal networks are created, manipulated, and destroy through the course of testing. They're created using the data provided in the networks blueprint.
 
 Executing `create-l3-isolation-domains.sh` requires one **parameter**, a path to your networks blueprint file:
-  
+
 ```bash
 # Example of the script being invoked:
 ./create-l3-isolation-domains.sh ./networks-blueprint.yml
