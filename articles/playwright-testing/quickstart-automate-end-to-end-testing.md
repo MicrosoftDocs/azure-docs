@@ -47,9 +47,9 @@ To run your Playwright tests in your CI/CD workflow, you perform the following t
 
 Microsoft Playwright Testing uses access keys to authorize users to run Playwright tests with the service. You can generate an access key in the Microsoft Playwright Testing portal. Next, you specify the access key in the service configuration file by using an environment variable.
 
-Perform the following steps to configure an access key in your CI workflow:
+Perform the following steps to configure an access key in your CI workflow.
 
-1. Generate an access key in MPT portal:
+### Generate an access key in MPT portal:
 
     1. Sign in to the [Microsoft Playwright Testing portal](https://preview.playwright-int.io/) with your Azure account.
     1. Select **Generate new access key**.
@@ -62,38 +62,40 @@ Perform the following steps to configure an access key in your CI workflow:
 
         :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-copy-access-key.png" alt-text="Screenshot that shows how to copy the generated access key in the Playwright Testing portal.":::
 
-1. Store the access key as a CI workflow secret `PLAYWRIGHT_SERVICE_ACCESS_KEY`:
+### Store the access key as a CI workflow secret
 
-    The following steps describe how to create a workflow secret in GitHub Actions or Azure Pipelines. Follow the specific instructions of your CI platform to create store the access key securely.
+The service configuration references the workspace access key by using an environment variable. To avoid passing the access key in clear text in the workflow definition, create a CI workflow secret `PLAYWRIGHT_SERVICE_ACCESS_KEY` to store the access key.
+
+The following steps describe how to create a workflow secret in GitHub Actions or Azure Pipelines. Follow the specific instructions of your CI platform to create store the access key securely.
 
 # [GitHub Actions](#tab/github)
 
-    1. Go to your GitHub repository, and select **Settings** > **Secrets and variables** > **Actions**.
-    1. Select **New repository secret**.
-    1. Enter the secret details, and then select **Add secret** to create the CI/CD secret.
+1. Go to your GitHub repository, and select **Settings** > **Secrets and variables** > **Actions**.
+1. Select **New repository secret**.
+1. Enter the secret details, and then select **Add secret** to create the CI/CD secret.
 
-        | Parameter | Value |
-        | ----------- | ------------ |
-        | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |  
-        | **Value** | Paste the workspace access key you copied previously. |
+    | Parameter | Value |
+    | ----------- | ------------ |
+    | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |  
+    | **Value** | Paste the workspace access key you copied previously. |
 
-    1. Select **OK** to create the workflow secret.
+1. Select **OK** to create the workflow secret.
 
 # [Azure Pipelines](#tab/pipelines)
 
-    1. Go to your Azure DevOps project.
-    1. Go to the **Pipelines** page, select the appropriate pipeline, and then select **Edit**.
-    1. Locate the **Variables** for this pipeline.
-    1. Add a new variable.
-    1. Enter the variable details, and then select **Add secret** to create the CI/CD secret.
+1. Go to your Azure DevOps project.
+1. Go to the **Pipelines** page, select the appropriate pipeline, and then select **Edit**.
+1. Locate the **Variables** for this pipeline.
+1. Add a new variable.
+1. Enter the variable details, and then select **Add secret** to create the CI/CD secret.
 
-        | Parameter | Value |
-        | ----------- | ------------ |
-        | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |
-        | **Value** | Paste the workspace access key you copied previously. |
-        | **Keep this value secret** | Check this value |
+    | Parameter | Value |
+    | ----------- | ------------ |
+    | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |
+    | **Value** | Paste the workspace access key you copied previously. |
+    | **Keep this value secret** | Check this value |
 
-    1. Select **OK**, and then **Save** to create the workflow secret.
+1. Select **OK**, and then **Save** to create the workflow secret.
 
 ---
 
