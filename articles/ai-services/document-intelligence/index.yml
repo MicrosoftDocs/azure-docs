@@ -36,7 +36,7 @@ landingContent:
            - text: Language support
              url: language-support.md
            - text: 🆕 SDK overview
-             url: sdk-preview.md
+             url: sdk-overview-v3-1.md
            - text: SDK overview (GA)
              url: sdk-overview.md
            - text: Help and support

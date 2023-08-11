@@ -1,7 +1,7 @@
 ---
-title: Document Intelligence (formerly Form Recognizer) SDKs 
+title: Document Intelligence (formerly Form Recognizer) SDKs v3.0
 titleSuffix: Azure AI services
-description: Document Intelligence software development kits (SDKs) expose Document Intelligence models, features and capabilities, using C#, Java, JavaScript, and Python programming language.
+description: Document Intelligence v3.0 software development kits (SDKs) expose Document Intelligence models, features and capabilities, using C#, Java, JavaScript, and Python programming language.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
+monikerRange: '<=doc-intel-3.0.0'
 ---
 
 
@@ -19,7 +19,7 @@ monikerRange: '<=doc-intel-3.1.0'
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD051 -->
 
-# Document Intelligence SDK (GA)
+# Document Intelligence SDK v3.0 (GA)
 
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-v2-1.md)]
 
