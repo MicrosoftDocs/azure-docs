@@ -27,14 +27,13 @@
      showgrid="true"
      inkscape:zoom="2.0899411"
      inkscape:cx="353.12"
-     inkscape:cy="248.5716"
+     inkscape:cy="249.05008"
      inkscape:window-width="3440"
      inkscape:window-height="1369"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g137"
-     inkscape:export-bgcolor="#ffffffff">
+     inkscape:current-layer="layer1">
     <inkscape:grid
        id="grid1"
        units="px"
@@ -359,6 +358,13 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="display:inline;fill:#ffffff;stroke:#008a00;stroke-width:0.264583;stroke-dasharray:0, 2.91042"
+       id="rect31"
+       width="209.77367"
+       height="111.91304"
+       x="0.11894194"
+       y="0.0074848998" />
     <g
        transform="matrix(0.21243302,0,0,0.20896912,-26.949298,-19.320256)"
        id="g137">
