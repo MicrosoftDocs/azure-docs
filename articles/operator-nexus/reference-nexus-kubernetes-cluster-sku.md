@@ -49,4 +49,4 @@ All these SKUs are having the following characteristics:
 
 ## Next steps
 
-Try these SKUs in the Azure Operator Nexus Kubernetes cluster [QuickStart](./quickstarts-kubernetes-cluster-deployment-bicep.md).
+Try these SKUs in the Azure Operator Nexus Kubernetes cluster. For more information, see [Quickstart: Deploy an Azure Operator Nexus Kubernetes cluster](./quickstarts-kubernetes-cluster-deployment-bicep.md).
