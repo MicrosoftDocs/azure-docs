@@ -25,9 +25,9 @@ Properly tuning data transfer options is key to reliable performance for uploads
 
 You can configure the values in [ParallelTransferOptions](/java/api/com.azure.storage.blob.models.paralleltransferoptions) to improve performance for data transfer operations. The following values can be tuned for uploads based on the needs of your app:
 
-- [maxSingleUploadSize](#maxSingleUploadSize): The maximum blob size in bytes for a single request upload.
-- [blockSize](#blockSize): The maximum block size to transfer for each request.
-- [maxConcurrency](#maxConcurrency): The maximum number of parallel requests that will be issued at any given time as a part of a single parallel transfer.
+- [maxSingleUploadSize](#maxsingleuploadsize): The maximum blob size in bytes for a single request upload.
+- [blockSize](#blocksize): The maximum block size to transfer for each request.
+- [maxConcurrency](#maxconcurrency): The maximum number of parallel requests issued at any given time as a part of a single parallel transfer.
 
 > [!NOTE]
 > The client libraries will use defaults for each data transfer option, if not provided. These defaults are typically performant in a data center environment, but not likely to be suitable for home consumer environments. Poorly tuned data transfer options can result in excessively long operations and even request timeouts. It's best to be proactive in testing these values, and tuning them based on the needs of your application and environment.
@@ -56,7 +56,7 @@ To keep data moving efficiently, the client libraries may not always reach the `
 
 #### maxConcurrency
 
-The `maxConcurrency` value is the maximum number of parallel requests that will be issued at any given time as a part of a single parallel transfer. This value can be set using the following method:
+The `maxConcurrency` value is the maximum number of parallel requests issued at any given time as a part of a single parallel transfer. This value can be set using the following method:
 
 - [`setMaxConcurrency(Integer maxConcurrency)`](/java/api/com.azure.storage.blob.models.paralleltransferoptions#com-azure-storage-blob-models-paralleltransferoptions-setmaxconcurrency(java-lang-integer))
 
@@ -97,8 +97,8 @@ Properly tuning data transfer options is key to reliable performance for downloa
 
 The following values can be tuned for downloads based on the needs of your app:
 
-- `blockSize`: The maximum block size to transfer for each request.
-- `maxConcurrency: The maximum number of parallel requests that will be issued at any given time as a part of a single parallel transfer.
+- `blockSize`: The maximum block size to transfer for each request. You can set this value by using the [setBlockSizeLong](/java/api/com.azure.storage.common.paralleltransferoptions#com-azure-storage-common-paralleltransferoptions-setblocksizelong(java-lang-long)) method.
+- `maxConcurrency`: The maximum number of parallel requests issued at any given time as a part of a single parallel transfer. You can set this value by using the [setMaxConcurrency](/java/api/com.azure.storage.common.paralleltransferoptions#com-azure-storage-common-paralleltransferoptions-setmaxconcurrency(java-lang-integer)) method.
 
 The following code example shows how to set values for [ParallelTransferOptions](/java/api/com.azure.storage.common.paralleltransferoptions) and include the options as part of a [BlobDownloadToFileOptions](/java/api/com.azure.storage.blob.options.blobdownloadtofileoptions) instance.
 
