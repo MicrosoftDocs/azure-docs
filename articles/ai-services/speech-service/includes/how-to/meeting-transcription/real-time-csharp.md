@@ -131,7 +131,7 @@ public static async Task TranscribeMeetingsAsync(string voiceSignatureStringUser
     var filepath = "audio-file-to-transcribe.wav";
 
     var config = SpeechConfig.FromSubscription(subscriptionKey, region);
-    config.SetProperty("MeetingTranscriptionInRoomAndOnline", "true");
+    config.SetProperty("ConversationTranscriptionInRoomAndOnline", "true");
 
     // en-us by default. Adding this code to specify other languages, like zh-cn.
     // config.SpeechRecognitionLanguage = "zh-cn";
