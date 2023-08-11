@@ -1,5 +1,5 @@
 ---
- title: include file
+title: include file
  description: include file
  services: virtual-machines
  author: roygara
@@ -22,7 +22,7 @@
 
 Incremental snapshots of Premium SSD v2 and Ultra Disks have the following extra restrictions:
 
-- You must request and receive access to the feature from this [link](https://aka.ms/UltraPremiumv2SnapshotPreview).
+- You can now take incremental snapshots of Premium SSD v2 and Ultra Disks on any subscription via PowerShell, CLI and Azure Resource Manager. Portal support Will become available soon. 
 - Snapshots with a 512 logical sector size are stored as VHD, and can be used to create any disk type. Snapshots with a 4096 logical sector size are stored as VHDX and can only be used to create Ultra Disks and Premium SSD v2 disks, they can't be used to create other disk types. To determine which sector size your snapshot is, see [check sector size](#check-sector-size).
 - Up to five disks may be simultaneously created from a snapshot of a Premium SSD v2 or an Ultra Disk.
 - When an incremental snapshot of either a Premium SSD v2 or an Ultra Disk is created, a background copy process for that disk is started. While a background copy is ongoing, you can have up to three total snapshots pending. The process must complete before any more snapshots of that disk can be created.
@@ -38,3 +38,5 @@ Incremental snapshots of Premium SSD v2 and Ultra Disks are currently available 
 
 - Incremental snapshots of Ultra Disks are currently only available in North Europe, West Europe, Sweden Central, East US, East US 2, North Central US, South Central US, and West US 2.
 - Incremental snapshots of Premium SSD v2 disks are currently only available in North Europe, West Europe, Central US, East US, East US 2, West US 2.
+
+
