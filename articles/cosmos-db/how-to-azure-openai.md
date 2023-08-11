@@ -1,13 +1,13 @@
 ---
 title: How to use Azure Cosmos DB data with Azure OpenAI
-description: Get started developing a Python application that works with Azure Cosmos DB for NoSQL. This article helps you learn how to set up a project and configure access to an Azure Cosmos DB for NoSQL endpoint.
+description: Get started using Retrieval Augmented Generation and vector search to ground your Azure OpenAI models with your data stored in Azure Cosmos DB. 
 author: jacodel
 ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 07/25/2023
-ms.custom: OpenAI, vector-search, RAG
+ms.custom: OpenAI, vector search, RAG, LLM
 ---
 
 # Use Cosmos DB data with Azure OpenAI 
@@ -106,5 +106,5 @@ Prior to sending a request to Azure OpenAI, the user input/query/request is also
  - Learn more about [vector search with Azure Cosmos DB for MongoDB vCore(mongodb/vcore/vector-search.md)
  - Learn more about [vector search with Azure Cosmos DB PostgreSQL](postgresql/howto-use-pgvector.md)
  - [Learn about Azure OpenAI embeddings](../ai-services/openai/concepts/understand-embeddings.md)
- - [Learn more about Azure OpenAI Service Models](../i-services/openai/concepts/models.md)
+ - [Learn more about Azure OpenAI Service Models](../ai-services/openai/concepts/models.md)
  - Learn more about Responsible AI practices for Azure OpenAI: [Overview of Responsible AI practices for Azure OpenAI models](https://learn.microsoft.com/legal/cognitive-services/openai/overview)
