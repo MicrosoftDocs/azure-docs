@@ -77,10 +77,10 @@ IRT makes commands against your resources, and needs permission to do so. IRT re
   <summary>expand to see how to create managed identity</summary>
 
    A managed identity with the following role assignments is needed to execute tests. The supplemental script, `create-managed-identity.sh` creates a managed identity with these role assignments.
-      * `Contributor` - For creating and manipulating resources
-      * `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
-      * `Log Analytics Reader` - For reading metadata about the LAW
-      * `Kubernetes Connected Cluster Role` - For read/write operations on connected cluster
+   * `Contributor` - For creating and manipulating resources
+   * `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
+   * `Log Analytics Reader` - For reading metadata about the LAW
+   * `Kubernetes Connected Cluster Role` - For read/write operations on connected cluster
 
    Executing `create-managed-identity.sh` requires the input yaml to have the following properties, all of them can be overriden by the corrosponding environment variables:
    ```yml
@@ -90,10 +90,10 @@ IRT makes commands against your resources, and needs permission to do so. IRT re
    SUBSCRIPTION: "<subscription>" # env: MANAGED_IDENTITY_SUBSCRIPTION
    LOCATION: "<location>" # env: MANAGED_IDENTITY_LOCATION
    ```
-      * `MANAGED_IDENTITY.RESOURCE_GROUP` - The resource group the Managed Identity is created in.
-      * `MANAGED_IDENTITY.NAME` - The name of the Managed Identity to be created.
-      * `MANAGED_IDENTITY.SUBSCRIPTION` - The subscription where the resource group should reside.
-      * `MANAGED_IDENTITY.LOCATION` - The location to create the resource group.
+   * `MANAGED_IDENTITY.RESOURCE_GROUP` - The resource group the Managed Identity is created in.
+   * `MANAGED_IDENTITY.NAME` - The name of the Managed Identity to be created.
+   * `MANAGED_IDENTITY.SUBSCRIPTION` - The subscription where the resource group should reside.
+   * `MANAGED_IDENTITY.LOCATION` - The location to create the resource group.
 
    ```bash
    # Example execution of the script
@@ -115,9 +115,10 @@ IRT makes commands against your resources, and needs permission to do so. IRT re
   <summary>expand to see how to create service principal and security group</summary>
 
    A service principal with the following role assignments. The supplemental script, `create-service-principal.sh`  creates a service principal with these role assignments, or add role assignments to an existing service principal.
-      * `Contributor` - For creating and manipulating resources
-      * `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
-      * `Azure ARC Kubernetes Admin` - For ARC enrolling the NAKS cluster
+
+   * `Contributor` - For creating and manipulating resources
+   * `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
+   * `Azure ARC Kubernetes Admin` - For ARC enrolling the NAKS cluster
 
    Additionally, the script creates the necessary security group, and adds the service principal to the security group. If the security group exists, it adds the service principal to the existing security group.
 
@@ -128,9 +129,9 @@ IRT makes commands against your resources, and needs permission to do so. IRT re
    AAD_GROUP_NAME: "<aad-group-name>" # env: SERVICE_PRINCIPAL_AAD_GROUP_NAME
    SUBSCRIPTION: "<subscription>" # env: SERVICE_PRINCIPAL_SUBSCRIPTION
    ```
-      * `SERVICE_PRINCIPAL.NAME` - The name of the service principal, created with the `az ad sp create-for-rbac` command.
-      * `SERVICE_PRINCIPAL.AAD_GROUP_NAME` - The name of the security group.
-      * `SERVICE_PRINCIPAL.SUBSCRIPTION` - The subscription of the service principal.
+   * `SERVICE_PRINCIPAL.NAME` - The name of the service principal, created with the `az ad sp create-for-rbac` command.
+   * `SERVICE_PRINCIPAL.AAD_GROUP_NAME` - The name of the security group.
+   * `SERVICE_PRINCIPAL.SUBSCRIPTION` - The subscription of the service principal.
 
    ```bash
    # Example execution of the script
