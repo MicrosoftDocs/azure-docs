@@ -49,18 +49,18 @@ The following steps demonstrate how to create an indoor map in your Azure Maps a
 
     :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/dataset-creation.png" alt-text="Screenshot showing the dataset-creation screen of the Azure Maps Creator onboarding tool.":::
 
-1. The dataset is used to create a tileset. tilesets are a lightwieght storage format used by Azure Maps when rendering map data.
+1. The dataset is used to create a tileset. tilesets are a lightweight storage format used by Azure Maps when rendering map data.
 
     :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/tileset-creation.png" alt-text="Screenshot showing the tileset creation screen of the Azure Maps Creator onboarding tool.":::
 
     > [!IMPORTANT]
     > The `MapConfigurationId` is created as a part of the tileset creation process and is required to reference the indoor map in your applications. Make sure to make a copy of it for future reference.
 
-1. The indoor map is created and displayed in the onbording tool as a preview of how it will appear in ther application.
+1. The indoor map is created and displayed in the onboarding tool as a preview of how it appears in their application.
 
      :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/map.png" alt-text="Screenshot showing the map screen of the Azure Maps Creator onboarding tool.":::
 
-Your indoor map is created and stored in your Azure Maps account and is now ready to be used in your applications. You will reference this indoor map using the `MapConfigurationId` created as a part of the tileset creation process in step 6.
+Your indoor map is created and stored in your Azure Maps account and is now ready to be used in your applications. You reference this indoor map using the `MapConfigurationId` created as a part of the tileset creation process in step 6.
 
 ## Next steps
 
