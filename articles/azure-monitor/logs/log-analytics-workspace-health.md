@@ -21,7 +21,7 @@ Azure Service Health monitors:
 
 ## Prerequisites
 
-[Create a diagnostic setting for the activity log](../essentials/diagnostic-settings.md#create-diagnostic-settings) and select the Log Analytics workspace whose health you want to monitor as the destination.
+[Create a diagnostic setting for the activity log](../essentials/diagnostic-settings.md#create-diagnostic-settings). For its destination, select the Log Analytics workspace whose health you want to monitor.
 
 ## Permissions required
 
