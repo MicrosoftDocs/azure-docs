@@ -7,7 +7,7 @@ ms.custom: references_regions, build-2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 05/10/2023
+ms.date: 8/2/2023
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -18,8 +18,8 @@ This page provides latest news and updates regarding feature additions, engine v
 
 
 ## Release: July 2023
-* Support for [minor versions](./concepts-supported-versions.md) 15.3 (preview), 14.8, 13.11, 12.15, 11.20 <sup>$</sup>
 * General Availability of PostgreSQL 15 for Azure Database for PostgreSQL – Flexible Server.
+* Public preview of [Automation Tasks](./create-automation-tasks.md) for Azure Database for PostgreSQL – Flexible Server.
 
 ## Release: June 2023
 * Support for [minor versions](./concepts-supported-versions.md) 15.2 (preview), 14.7, 13.10, 12.14, 11.19 <sup>$</sup>
@@ -44,11 +44,11 @@ This page provides latest news and updates regarding feature additions, engine v
 ## Release: March 2023
 * General availability of [Read Replica](concepts-read-replicas.md) for Azure Database for PostgreSQL – Flexible Server.
 * Public preview of [PgBouncer Metrics](./concepts-monitoring.md#pgbouncer-metrics) for Azure Database for PostgreSQL – Flexible Server.
-* General availability of [Azure Monitor workbooks](./concepts-workbooks.md) for Azure Database for PostgreSQL – Flexible Server.
+* General availability of [Azure Monitor workbooks](./concepts-workbooks.md) for Azure Database for PostgreSQL – Flexible Server
 
 ## Release: February 2023
 * Public preview of [Autovacuum Metrics](./concepts-monitoring.md#autovacuum-metrics) for Azure Database for PostgreSQL – Flexible Server.
-* Support for [extension](concepts-extensions.md) server with new servers<sup>$</sup>
+* Support for [extension](concepts-extensions.md) semver with new servers<sup>$</sup>
 * Public Preview of [Major Version Upgrade](concepts-major-version-upgrade.md) for Azure Database for PostgreSQL – Flexible Server.
 * Support for [Geo-redundant backup feature](./concepts-backup-restore.md#geo-redundant-backup-and-restore) when using [Disk Encryption with Customer Managed Key (CMK)](./concepts-data-encryption.md#how-data-encryption-with-a-customer-managed-key-work) feature.
 * Support for [minor versions](./concepts-supported-versions.md) 14.6, 13.9, 12.13, 11.18 <sup>$</sup>
@@ -220,3 +220,4 @@ We continue to support Single Server and encourage you to adopt Flexible Server,
 ## Next steps
 
 Now that you've read an introduction to Azure Database for PostgreSQL flexible server deployment mode, you're ready to create your first server: [Create an Azure Database for PostgreSQL - Flexible Server using Azure portal](./quickstart-create-server-portal.md)
+

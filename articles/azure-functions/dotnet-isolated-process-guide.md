@@ -3,7 +3,7 @@ title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use a .NET isolated worker process to run your C# functions in Azure, which supports non-LTS versions of .NET and .NET Framework apps.  
 ms.service: azure-functions
 ms.topic: conceptual 
-ms.date: 01/16/2023
+ms.date: 07/21/2023
 ms.custom: template-concept, devx-track-dotnet
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated worker process so that I can run my function code on current (not LTS) releases of .NET.
@@ -22,6 +22,8 @@ Use the following links to get started right away building .NET isolated worker 
 If you still need to run your functions in the same process as the host, see [In-process C# class library functions](functions-dotnet-class-library.md). 
 
 For a comprehensive comparison between isolated worker process and in-process .NET Functions, see [Differences between in-process and isolate worker process .NET Azure Functions](dotnet-isolated-in-process-differences.md).
+
+To learn about migration from the in-process model to the isolated worker model, see [Migrate .NET apps from the in-process model to the isolated worker model][migrate].
 
 ## Why .NET Functions isolated worker process?
 
@@ -62,8 +64,8 @@ A .NET Functions isolated worker process project uses a unique set of packages, 
 
 The following packages are required to run your .NET functions in an isolated worker process:
 
-+ [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)
-+ [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/)
++ [Microsoft.Azure.Functions.Worker]
++ [Microsoft.Azure.Functions.Worker.Sdk]
 
 ### Extension packages
 
@@ -81,7 +83,7 @@ The following code shows an example of a [HostBuilder] pipeline:
 
 This code requires `using Microsoft.Extensions.DependencyInjection;`. 
 
-A [HostBuilder] is used to build and return a fully initialized [IHost] instance, which you run asynchronously to start your function app. 
+A [HostBuilder] is used to build and return a fully initialized [`IHost`][IHost] instance, which you run asynchronously to start your function app. 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
 
@@ -111,9 +113,73 @@ Dependency injection is simplified, compared to .NET class libraries. Rather tha
 
 The following example injects a singleton service dependency:  
  
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_dependency_injection" :::
+```csharp
+.ConfigureServices(services =>
+{
+    services.AddSingleton<IHttpResponderService, DefaultHttpResponderService>();
+})
+```
 
 This code requires `using Microsoft.Extensions.DependencyInjection;`. To learn more, see [Dependency injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true).
+
+#### Register Azure clients
+
+Dependency injection can be used to interact with other Azure services. You can inject clients from the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet) using the [Microsoft.Extensions.Azure](https://www.nuget.org/packages/Microsoft.Extensions.Azure) package. After installing the package, [register the clients](/dotnet/azure/sdk/dependency-injection#register-clients) by calling `AddAzureClients()` on the service collection in `Program.cs`. The following example configures a [named client](/dotnet/azure/sdk/dependency-injection#configure-multiple-service-clients-with-different-names) for Azure Blobs:
+
+```csharp
+using Microsoft.Extensions.Azure;
+using Microsoft.Extensions.Hosting;
+
+var host = new HostBuilder()
+    .ConfigureFunctionsWorkerDefaults()
+    .ConfigureServices((hostContext, services) =>
+    {
+        services.AddAzureClients(clientBuilder =>
+        {
+            clientBuilder.AddBlobServiceClient(hostContext.Configuration.GetSection("MyStorageConnection"))
+                .WithName("copierOutputBlob");
+        });
+    })
+    .Build();
+
+host.Run();
+```
+
+The following example shows how we can use this registration and [SDK types](#sdk-types) to copy blob contents as a stream from one container to another using an injected client:
+
+```csharp
+using Microsoft.Extensions.Azure;
+using Microsoft.Extensions.Logging;
+
+namespace MyFunctionApp
+{
+    public class BlobCopier
+    {
+        private readonly ILogger<BlobCopier> _logger;
+        private readonly BlobContainerClient _copyContainerClient;
+
+        public BlobCopier(ILogger<BlobCopier> logger, IAzureClientFactory<BlobServiceClient> blobClientFactory)
+        {
+            _logger = logger;
+            _copyContainerClient = blobClientFactory.CreateClient("copierOutputBlob").GetBlobContainerClient("samples-workitems-copy");
+            _copyContainerClient.CreateIfNotExists();
+        }
+
+        [Function("BlobCopier")]
+        public async Task Run([BlobTrigger("samples-workitems/{name}", Connection = "MyStorageConnection")] Stream myBlob, string name)
+        {
+            await _copyContainerClient.UploadBlobAsync(name, myBlob);
+            _logger.LogInformation($"Blob {name} copied!");
+        }
+
+    }
+}
+```
+
+The [ILogger&lt;T&gt;] in this example was also obtained through dependency injection. It is registered automatically. To learn more about configuration options for logging, see [Logging](#logging).
+
+> [!TIP]
+> The example used a literal string for the name of the client in both `Program.cs` and the function. Consider instead using a shared constant string defined on the function class. For example, you could add `public const string CopyStorageClientName = nameof(_copyContainerClient);` and then reference `BlobCopier.CopyStorageClientName` in both locations. You could similarly define the configuration section name with the function rather than in `Program.cs`.
 
 ### Middleware
 
@@ -172,7 +238,7 @@ To compile your project as ReadyToRun, update your project file by adding the `<
 
 ## Execution context
 
-.NET isolated passes a [FunctionContext] object to your function methods. This object lets you get an [ILogger] instance to write to the logs by calling the [GetLogger] method and supplying a `categoryName` string. To learn more, see [Logging](#logging). 
+.NET isolated passes a [FunctionContext] object to your function methods. This object lets you get an [`ILogger`][ILogger] instance to write to the logs by calling the [GetLogger] method and supplying a `categoryName` string. To learn more, see [Logging](#logging). 
 
 ## Bindings 
 
@@ -184,7 +250,7 @@ The trigger attribute specifies the trigger type and binds input data to a metho
 
 The `Function` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name.
 
-Bindings can provide data as strings, arrays, and serializable types, such as plain old class objects (POCOs). You can also bind to [types from some service SDKs](#sdk-types-preview).
+Bindings can provide data as strings, arrays, and serializable types, such as plain old class objects (POCOs). You can also bind to [types from some service SDKs](#sdk-types).
 
 For HTTP triggers, you must use [HttpRequestData] and [HttpResponseData] to access the request and response data. This is because you don't have access to the original HTTP request and response objects when using .NET Functions isolated worker process.
 
@@ -208,23 +274,28 @@ The data written to an output binding is always the return value of the function
 
 The response from an HTTP trigger is always considered an output, so a return value attribute isn't required.
 
-### SDK types (preview)
+### SDK types
 
-For some service-specific binding types, binding data can be provided using types from service SDKs and frameworks. These provide additional capability beyond what a serialized string or plain-old CLR object (POCO) may offer. Support for SDK types is currently in preview with limited scenario coverage.
+For some service-specific binding types, binding data can be provided using types from service SDKs and frameworks. These provide additional capability beyond what a serialized string or plain-old CLR object (POCO) may offer. To use the newer types, your project needs to be updated to use newer versions of core dependencies.
 
-To use SDK type bindings, your project must reference [Microsoft.Azure.Functions.Worker 1.15.0-preview1 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.15.0-preview1) and [Microsoft.Azure.Functions.Worker.Sdk 1.11.0-preview1 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.11.0-preview1). Specific package versions will be needed for each of the service extensions as well. When testing SDK types locally on your machine, you will also need to use [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). You can check your current version using the command `func version`.
+| Dependency | Version requirement |
+|-|-|
+|[Microsoft.Azure.Functions.Worker]| For **Generally Available** extensions in the table below: 1.18.0 or later<br/>For extensions that have **preview support**: 1.15.0-preview1 |
+|[Microsoft.Azure.Functions.Worker.Sdk]|For **Generally Available** extensions in the table below: 1.13.0 or later<br/>For extensions that have **preview support**: 1.11.0-preview1 |
 
-The following service-specific bindings are currently included in the preview:
+When testing SDK types locally on your machine, you will also need to use [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). You can check your current version using the command `func version`.
+
+Each trigger and binding extension also has its own minimum version requirement, which is described in the extension reference articles. The following service-specific bindings offer additional SDK types:
 
 | Service | Trigger | Input binding | Output binding |
 |-|-|-|-|
-| [Azure Blobs][blob-sdk-types] | **Preview support** | **Preview support** | _SDK types not recommended<sup>1</sup>_ | 
-| [Azure Queues][queue-sdk-types] | **Preview support** | _Input binding does not exist_ | _SDK types not recommended<sup>1</sup>_ | 
-| [Azure Service Bus][servicebus-sdk-types] | **Preview support<sup>2</sup>** | _Input binding does not exist_ | _SDK types not recommended<sup>1</sup>_ | 
-| [Azure Event Hubs][eventhub-sdk-types] | **Preview support** | _Input binding does not exist_ | _SDK types not recommended<sup>1</sup>_ | 
-| [Azure Cosmos DB][cosmos-sdk-types] | _SDK types not used<sup>3</sup>_ | **Preview support**  |  _SDK types not recommended<sup>1</sup>_ | 
-| [Azure Tables][tables-sdk-types] | _Trigger does not exist_ | **Preview support**  |  _SDK types not recommended<sup>1</sup>_ | 
-| [Azure Event Grid][eventgrid-sdk-types] | **Preview support** | _Input binding does not exist_ |  _SDK types not recommended<sup>1</sup>_ | 
+| [Azure Blobs][blob-sdk-types] | **Generally Available** | **Generally Available** | _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Queues][queue-sdk-types] | **Generally Available** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Service Bus][servicebus-sdk-types] | **Generally Available**<sup>2</sup>  | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Event Hubs][eventhub-sdk-types] | **Generally Available** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Cosmos DB][cosmos-sdk-types] | _SDK types not used<sup>3</sup>_ | **Generally Available**  |  _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Tables][tables-sdk-types] | _Trigger does not exist_ | **Preview support**  |  _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Event Grid][eventgrid-sdk-types] | **Generally Available** | _Input binding does not exist_ |  _SDK types not recommended.<sup>1</sup>_ | 
 
 [blob-sdk-types]: ./functions-bindings-storage-blob.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
 [cosmos-sdk-types]: ./functions-bindings-cosmosdb-v2.md?tabs=isolated-process%2Cextensionv4&pivots=programming-language-csharp#binding-types
@@ -234,9 +305,9 @@ The following service-specific bindings are currently included in the preview:
 [eventhub-sdk-types]: ./functions-bindings-event-hubs.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
 [servicebus-sdk-types]: ./functions-bindings-service-bus.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
 
-<sup>1</sup> For output scenarios in which you would use an SDK type, you should create and work with SDK clients directly instead of using an output binding.
+<sup>1</sup> For output scenarios in which you would use an SDK type, you should create and work with SDK clients directly instead of using an output binding. See [Register Azure clients](#register-azure-clients) for an example of how to do this with dependency injection.
 
-<sup>2</sup> The preview for the Service Bus trigger does not yet support message settlement scenarios.
+<sup>2</sup> The Service Bus trigger does not yet support message settlement scenarios for the isolated model.
 
 <sup>3</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
 
@@ -301,15 +372,117 @@ This section shows how to work with the underlying HTTP request and response obj
 
 ## Logging
 
-In .NET isolated, you can write to logs by using an [ILogger] instance obtained from a [FunctionContext] object passed to your function. Call the [GetLogger] method, passing a string value that is the name for the category in which the logs are written. The category is usually the name of the specific function from which the logs are written. To learn more about categories, see the [monitoring article](functions-monitoring.md#log-levels-and-categories). 
+In .NET isolated, you can write to logs by using an [`ILogger<T>`][ILogger&lt;T&gt;] or [`ILogger`][ILogger] instance. The logger can be obtained through [dependency injection](#dependency-injection) of an [`ILogger<T>`][ILogger&lt;T&gt;] or of an [ILoggerFactory]:
 
-The following example shows how to get an [ILogger] and write logs inside a function:
+```csharp
+public class MyFunction {
+    
+    private readonly ILogger<MyFunction> _logger;
+    
+    public MyFunction(ILogger<MyFunction> logger) {
+        _logger = logger;
+    }
+    
+    [Function(nameof(MyFunction))]
+    public void Run([BlobTrigger("samples-workitems/{name}", Connection = "")] string myBlob, string name)
+    {
+        _logger.LogInformation($"C# Blob trigger function Processed blob\n Name: {name} \n Data: {myBlob}");
+    }
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
+}
+```
 
-Use various methods of [ILogger] to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories).
+The logger can also be obtained from a [FunctionContext] object passed to your function. Call the [GetLogger&lt;T&gt;] or [GetLogger] method, passing a string value that is the name for the category in which the logs are written. The category is usually the name of the specific function from which the logs are written. To learn more about categories, see the [monitoring article](functions-monitoring.md#log-levels-and-categories).
 
-An [ILogger] is also provided when using [dependency injection](#dependency-injection).
+Use the methods of [ILogger&lt;T&gt;] and [`ILogger`][ILogger] to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories). You can customize the log levels for components added to your code by registering filters as part of the `HostBuilder` configuration:
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+
+var host = new HostBuilder()
+    .ConfigureFunctionsWorkerDefaults()
+    .ConfigureServices(services =>
+    {
+        // Registers IHttpClientFactory.
+        // By default this sends a lot of Information-level logs.
+        services.AddHttpClient();
+    })
+    .ConfigureLogging(logging =>
+    {
+        // Disable IHttpClientFactory Informational logs.
+        // Note -- you can also remove the handler that does the logging: https://github.com/aspnet/HttpClientFactory/issues/196#issuecomment-432755765 
+        logging.AddFilter("System.Net.Http.HttpClient", LogLevel.Warning);
+    })
+    .Build();
+```
+
+As part of configuring your app in `Program.cs`, you can also define the behavior for how errors are surfaced to your logs. By default, exceptions thrown by your code may end up wrapped in an `RpcException`. To remove this extra layer, set the `EnableUserCodeExceptions` property to "true" as part of configuring the builder:
+
+```csharp
+var host = new HostBuilder()
+    .ConfigureFunctionsWorkerDefaults(builder => {}, options =>
+    {
+        options.EnableUserCodeExceptions = true;
+    })
+    .Build();
+```
+
+### Application Insights
+
+You can configure your isolated process application to emit logs directly [Application Insights](../azure-monitor/app/app-insights-overview.md?tabs=net), giving you control over how those logs are emitted. This replaces the default behavior of [relaying custom logs through the host](./configure-monitoring.md#custom-application-logs). To work with Application Insights directly, you will need to add a reference to [Microsoft.Azure.Functions.Worker.ApplicationInsights, version 1.0.0-preview5 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights/). You will also need to reference [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService). Add these packages to your isolated process project:
+
+```dotnetcli
+dotnet add package Microsoft.ApplicationInsights.WorkerService
+dotnet add package Microsoft.Azure.Functions.Worker.ApplicationInsights --prerelease
+```
+
+You then need to call to `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` during service configuration in your `Program.cs` file:
+
+```csharp    
+var host = new HostBuilder()
+    .ConfigureFunctionsWorkerDefaults()
+    .ConfigureServices(services => {
+        services.AddApplicationInsightsTelemetryWorkerService();
+        services.ConfigureFunctionsApplicationInsights();
+    })
+    .Build();
+
+host.Run();
+```
+
+The call to `ConfigureFunctionsApplicationInsights()` adds an `ITelemetryModule` listening to a Functions-defined `ActivitySource`. This creates dependency telemetry needed to support distributed tracing in Application Insights. To learn more about `AddApplicationInsightsTelemetryWorkerService()` and how to use it, see [Application Insights for Worker Service applications](../azure-monitor/app/worker-service.md).
+
+> [!IMPORTANT]
+> The Functions host and the isolated process worker have separate configuration for log levels, etc. Any [Application Insights configuration in host.json](./functions-host-json.md#applicationinsights) will not affect the logging from the worker, and similarly, configuration made in your worker code will not impact logging from the host. You may need to apply changes in both places if your scenario requires customization at both layers.
+
+The rest of your application continues to work with `ILogger` and `ILogger<T>`. However, by default, the Application Insights SDK adds a logging filter that instructs the logger to capture only warnings and more severe logs. If you want to disable this behavior, remove the filter rule as part of service configuration:
+
+```csharp
+var host = new HostBuilder()
+    .ConfigureFunctionsWorkerDefaults()
+    .ConfigureServices(services => {
+        services.AddApplicationInsightsTelemetryWorkerService();
+        services.ConfigureFunctionsApplicationInsights();
+    })
+    .ConfigureLogging(logging =>
+    {
+        logging.Services.Configure<LoggerFilterOptions>(options =>
+        {
+            LoggerFilterRule defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
+                == "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider");
+            if (defaultRule is not null)
+            {
+                options.Rules.Remove(defaultRule);
+            }
+        });
+    })
+    .Build();
+
+host.Run();
+```
 
 ## Debugging when targeting .NET Framework
 
@@ -366,11 +539,19 @@ Because your isolated worker process app runs outside the Functions runtime, you
 
 ## Next steps
 
-+ [Learn more about triggers and bindings](functions-triggers-bindings.md)
-+ [Learn more about best practices for Azure Functions](functions-best-practices.md)
+> [!div class="nextstepaction"]
+> [Learn more about best practices for Azure Functions](functions-best-practices.md)
 
+> [!div class="nextstepaction"]
+> [Migrate .NET apps to the isolated worker model][migrate]
+
+[migrate]: ./migrate-dotnet-to-isolated-model.md
 
 [supported-versions]: #supported-versions
+
+[Microsoft.Azure.Functions.Worker]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/
+[Microsoft.Azure.Functions.Worker.Sdk]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/
+
 [HostBuilder]: /dotnet/api/microsoft.extensions.hosting.hostbuilder
 [IHost]: /dotnet/api/microsoft.extensions.hosting.ihost
 [ConfigureFunctionsWorkerDefaults]: /dotnet/api/microsoft.extensions.hosting.workerhostbuilderextensions.configurefunctionsworkerdefaults?view=azure-dotnet&preserve-view=true#Microsoft_Extensions_Hosting_WorkerHostBuilderExtensions_ConfigureFunctionsWorkerDefaults_Microsoft_Extensions_Hosting_IHostBuilder_
@@ -380,10 +561,9 @@ Because your isolated worker process app runs outside the Functions runtime, you
 [FunctionContext]: /dotnet/api/microsoft.azure.functions.worker.functioncontext?view=azure-dotnet&preserve-view=true
 [ILogger]: /dotnet/api/microsoft.extensions.logging.ilogger
 [ILogger&lt;T&gt;]: /dotnet/api/microsoft.extensions.logging.ilogger-1
-[GetLogger]: /dotnet/api/microsoft.azure.functions.worker.functioncontextloggerextensions.getlogger?view=azure-dotnet&preserve-view=true
-[BlobClient]: /dotnet/api/azure.storage.blobs.blobclient?view=azure-dotnet&preserve-view=true
-[DocumentClient]: /dotnet/api/microsoft.azure.documents.client.documentclient
-[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[ILoggerFactory]: /dotnet/api/microsoft.extensions.logging.iloggerfactory
+[GetLogger]: /dotnet/api/microsoft.azure.functions.worker.functioncontextloggerextensions.getlogger
+[GetLogger&lt;T&gt;]: /dotnet/api/microsoft.azure.functions.worker.functioncontextloggerextensions.getlogger#microsoft-azure-functions-worker-functioncontextloggerextensions-getlogger-1
 [HttpRequestData]: /dotnet/api/microsoft.azure.functions.worker.http.httprequestdata?view=azure-dotnet&preserve-view=true
 [HttpResponseData]: /dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata?view=azure-dotnet&preserve-view=true
 [HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest

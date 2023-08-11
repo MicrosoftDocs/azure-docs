@@ -1,6 +1,6 @@
 ---
 title: What is the Bing Image Search API?
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: The Bing Image Search API enables you to use Bing's cognitive image search capabilities in your application. By sending user search queries with the API, you can get and display relevant and high-quality images similar to Bing Images.
 services: cognitive-services
 author: aahill
@@ -17,7 +17,7 @@ ms.custom: seodec2018
 
 # What is the Bing Image Search API?
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing Image Search API enables you to use Bing's image search capabilities in your application. By sending search queries to the API, you can get high-quality images similar to [bing.com/images](https://www.bing.com/images).
 
@@ -37,7 +37,7 @@ While the Bing Image Search API provides image-only search results, you can comb
 
 The Bing Image Search API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON. You can use the service using either the [REST API](./quickstarts/csharp.md), or the [SDK](./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp).
 
-1. Create a [Cognitive Services API account](../cognitive-services-apis-create-account.md) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/free/cognitive-services/) for free.
+1. Create an [Azure AI services API account](../cognitive-services-apis-create-account.md) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/free/cognitive-services/) for free.
 2. Send a request to the API, with a valid [search query](./concepts/bing-image-search-sending-queries.md).
 3. Process the API response by parsing the returned JSON message.
 

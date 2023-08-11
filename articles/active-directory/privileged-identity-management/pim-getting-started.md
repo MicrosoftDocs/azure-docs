@@ -74,9 +74,11 @@ Once Privileged Identity Management is set up, you can learn your way around.
 
 ## Add a PIM tile to the dashboard
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To make it easier to open Privileged Identity Management, add a PIM tile to your Azure portal dashboard.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **All services** and find the **Azure AD Privileged Identity Management** service.
 

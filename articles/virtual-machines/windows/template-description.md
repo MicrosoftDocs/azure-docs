@@ -4,7 +4,7 @@ description: Learn more about how the virtual machine resource is defined in an 
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure
-ms.custom: devx-track-arm-template
+ms.custom: devx-track-arm-template, devx-track-linux
 ms.topic: how-to
 ms.date: 04/11/2023
 ms.author: cynthn 

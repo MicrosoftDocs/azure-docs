@@ -1,10 +1,10 @@
 ---
-title: Using Microsoft Defender for Endpoint in Microsoft Defender for Cloud to protect native, on-premises, and AWS machines.
+title: Using Microsoft Defender for Endpoint to protect native, on-premises, and AWS machines.
 description: Learn about deploying Microsoft Defender for Endpoint from Microsoft Defender for Cloud to protect Azure, hybrid, and multicloud machines.
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 06/14/2023
+ms.date: 07/20/2023
 ---
 
 # Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
@@ -30,7 +30,7 @@ For more information about migrating servers from Defender for Endpoint to Defen
 | Pricing: | Requires [Microsoft Defender for Servers Plan 1 or Plan 2](plan-defender-for-servers-select-plan.md#plan-features) |
 | Supported environments: | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines running Windows/Linux<br>:::image type="icon" source="./media/icons/yes-icon.png":::Azure VMs running Linux ([supported versions](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux))<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure VMs running Windows Server 2022, 2019, 2016, 2012 R2, 2008 R2 SP1, [Windows 10/11 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure VMs running Windows 10 or Windows 11 (except if running Windows 10/11 Enterprise multi-session) |
 | Required roles and permissions: | - To enable/disable the integration: **Security admin** or **Owner**<br>- To view Defender for Endpoint alerts in Defender for Cloud: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor** |
-| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts     <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP projects |
+| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts     <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP projects |
 
 ## Benefits of integrating Microsoft Defender for Endpoint with Defender for Cloud
 
@@ -257,6 +257,15 @@ Use the [Defender for Endpoint status workbook](https://aka.ms/MDEStatus) to ver
 ##### Enable for multiple subscriptions with a PowerShell script
 
 Use our [PowerShell script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/Enable%20MDE%20Integration%20for%20Linux) from the Defender for Cloud GitHub repository to enable endpoint protection on Linux machines that are in multiple subscriptions.
+
+##### Manage automatic updates configuration for Linux
+
+In Windows, Defender for Endpoint version updates are provided via continuous knowledge base updates; in Linux you need to update the Defender for Endpoint package. When you use Defender for Servers with the `MDE.Linux` extension, automatic updates for Microsoft Defender for Endpoint are enabled by default. If you wish to manage the Defender for Endpoint version updates manually, you can disable automatic updates on your machines. To do so, add the following tag for machines onboarded with the `MDE.Linux` extension.
+
+- Tag name: 'ExcludeMdeAutoUpdate'
+- Tag value:  'true'
+
+This configuration is supported for Azure VMs and Azure Arc machines, where the `MDE.Linux` extension initiates auto-update.
 
 ### Enable the MDE unified solution at scale
 

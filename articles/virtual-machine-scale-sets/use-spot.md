@@ -24,7 +24,7 @@ The following sizes are not supported for Azure Spot Virtual Machines:
  - B-series
  - Promo versions of any size (like Dv2, NV, NC, H promo sizes)
 
-Azure Spot Virtual Machine can be deployed to any region, except Microsoft Azure China 21Vianet.
+Azure Spot Virtual Machine can be deployed to any region, except Microsoft Azure operated by 21Vianet.
 
 The following [offer types](https://azure.microsoft.com/support/legal/offer-details/) are currently supported:
 

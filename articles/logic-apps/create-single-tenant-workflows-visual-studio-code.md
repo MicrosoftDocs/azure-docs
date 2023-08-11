@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 07/21/2023
 ms.custom: ignite-fall-2021, engagement-fy23
 
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
@@ -198,9 +198,9 @@ Before you can create your logic app, create a local project so that you can man
 
 1. In Visual Studio Code, close all open folders.
 
-1. In the Azure window, on the **Workspace** section toolbar, select **Create New Project** (folder icon).
+1. In the **Azure** window, on the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Create New Project**.
 
-   ![Screenshot shows Azure window and Workspace toolbar with Create New Project selected.](./media/create-single-tenant-workflows-visual-studio-code/create-new-project-folder.png)
+   ![Screenshot shows Azure window, Workspace toolbar, and Azure Logic Apps menu with Create New Project selected.](./media/create-single-tenant-workflows-visual-studio-code/create-new-project-folder.png)
 
 1. If Windows Defender Firewall prompts you to grant network access for `Code.exe`, which is Visual Studio Code, and for `func.exe`, which is the Azure Functions Core Tools, select **Private networks, such as my home or work network** **>** **Allow access**.
 
@@ -544,8 +544,12 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
    > [!NOTE]
    >
    > If your project is NuGet package-based (.NET), not extension bundle-based (Node.js), 
-   > `"FUNCTIONS_WORKER_RUNTIME"` is set to `"dotnet"`. However, to use **Inline Code Operations**, 
-   > you must have `"FUNCTIONS_WORKER_RUNTIME"` set to `"node"`
+   > `"FUNCTIONS_WORKER_RUNTIME"` is set to `"dotnet"`. To use the **Transform XML** action 
+   > [with XSLT maps that call .NET Framework assemblies](#add-assemblies-to-your-project), 
+   > to [create maps for data transformation](create-maps-data-transformation-visual-studio-code.md), 
+   > or to [create and run .NET code from Standard workflows](create-run-custom-code-functions.md), 
+   > you must set `"FUNCTIONS_WORKER_RUNTIME"` to `"dotnet-isolated"`. To use **Inline Code Operations**, 
+   > you must set`"FUNCTIONS_WORKER_RUNTIME"` to `"node"`.
 
 The first time when you start a local debugging session or run the workflow without debugging, the Azure Logic Apps runtime registers the workflow with the service endpoint and subscribes to that endpoint for notifying the webhook operations. The next time that your workflow runs, the runtime won't register or resubscribe because the subscription registration already exists in local storage.
 
@@ -831,9 +835,9 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
 
 1. On the Visual Studio Code Activity Bar, select the Azure icon to open the Azure window.
 
-1. In the **Workspace** section, on the toolbar, select **Deploy** > **Deploy to Logic App**.
+1. In the **Azure** window, on the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Deploy to Logic App**.
 
-   ![Screenshot shows Azure window with Workspace toolbar and Deploy shortcut menu with Deploy to Logic App selected.](./media/create-single-tenant-workflows-visual-studio-code/deploy-to-logic-app.png)
+   ![Screenshot shows Azure window with Workspace toolbar and Azure Logic Apps shortcut menu with Deploy to Logic App selected.](./media/create-single-tenant-workflows-visual-studio-code/deploy-to-logic-app.png)
 
 1. If prompted, select the Azure subscription to use for your logic app deployment.
 
@@ -864,6 +868,7 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
    1. For optimal performance, select the same resource group as your project for the deployment.
 
       > [!NOTE]
+      >
       > Although you can create or use a different resource group, doing so might affect performance. 
       > If you create or choose a different resource group, but cancel after the confirmation prompt appears, 
       > your deployment is also canceled.
@@ -898,6 +903,7 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
          ```
 
          > [!TIP]
+         >
          > You can check whether the trigger and action names correctly appear in your Application Insights instance.
          >
          > 1. In the Azure portal, go to your Application Insights resource.
@@ -997,7 +1003,7 @@ You can have multiple workflows in your logic app project. To add a blank workfl
 
 1. On the Visual Studio Code Activity Bar, select the Azure icon.
 
-1. In the Azure window, in the **Workspace** section, on the toolbar, select **Create Workflow** (Azure Logic Apps icon).
+1. In the **Azure** window, on the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Create workflow**.
 
 1. Select the workflow type that you want to add: **Stateful** or **Stateless**
 

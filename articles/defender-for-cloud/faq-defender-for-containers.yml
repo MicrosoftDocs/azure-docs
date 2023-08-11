@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Microsoft Defender for Cloud common questions - Defender for Containers
+  title: Common questions - Defender for Containers
   description: Get answers to frequently asked questions about Microsoft Defender for Containers.
   ms.topic: faq
   ms.service: defender-for-cloud
@@ -99,9 +99,9 @@ sections:
           No, the Qualys scanner is hosted by Microsoft, and no customer data is shared with Qualys.
 
       - question: |
-          Why is Defender for Cloud alerting me to vulnerabilities about an image that isn’t in my registry?
+          Why is Defender for Cloud alerting me to vulnerabilities about an image that isn't in my registry?
         answer: |
-          Some images may reuse tags from an image that was already scanned. For example, you may reassign the tag “Latest” every time you add an image to a digest. In such cases, the ‘old’ image does still exist in the registry and may still be pulled by its digest. If the image has security findings and is pulled, it will expose security vulnerabilities.
+          Some images may reuse tags from an image that was already scanned. For example, you may reassign the tag “Latest” every time you add an image to a digest. In such cases, the 'old' image does still exist in the registry and may still be pulled by its digest. If the image has security findings and is pulled, it will expose security vulnerabilities.
 
       - question: |
           Does Defender for Containers scan images in Microsoft Container Registry?
@@ -114,6 +114,14 @@ sections:
           Can I get the scan results via REST API?
         answer: |
           Yes. The results are under [Sub-Assessments REST API](/rest/api/defenderforcloud/sub-assessments/list). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
+
+      - question: |
+          How do I check which media type my containers are using?
+        answer: |
+          To check an image type, you need to use a tool that can check the raw image manifest such as [skopeo](https://github.com/containers/skopeo), and inspect the raw image format.
+
+          - For the Docker v2 format, the manifest media type would be **application/vnd.docker.distribution.manifest.v1+json** or **application/vnd.docker.distribution.manifest.v2+json**, as documented [here](https://docs.docker.com/registry/spec/manifest-v2-2/).
+          - For the OCI image format, the manifest media type would be **application/vnd.oci.image.manifest.v1+json**, and config media type **application/vnd.oci.image.config.v1+json**, as documented [here](https://specs.opencontainers.org/image-spec/media-types/).
 
 additionalContent: |
 

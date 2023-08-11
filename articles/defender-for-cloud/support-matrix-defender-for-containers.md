@@ -1,5 +1,5 @@
 ---
-title: Support for the Defender for Containers plan in Microsoft Defender for Cloud
+title: Support for the Defender for Containers plan
 description: Review support requirements for the Defender for Containers plan in Microsoft Defender for Cloud.
 ms.topic: limits-and-quotas
 author: dcurwin
@@ -19,26 +19,32 @@ This article summarizes support information for the [Defender for Containers pla
 
 | Feature | Supported Resources | Linux release state | Windows release state   | Agentless/Agent-based | Pricing Tier | Azure clouds availability |
 |--|--|--|--|--|--|--|
-| Compliance-Docker CIS | VM, Virtual Machine Scale Set | GA | - | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md)-registry scan [OS packages](#registries-and-images-support-aks)| ACR, Private ACR | GA | Preview | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md)-registry scan [language packages](#registries-and-images-support-aks) | ACR, Private ACR | Preview | - | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| [Vulnerability assessment-running images](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) | AKS | GA | Preview | Defender profile | Defender for Containers | Commercial clouds |
-| [Hardening  (control plane)](defender-for-containers-architecture.md) | ACR, AKS | GA | Preview | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| [Hardening (Kubernetes data plane)](kubernetes-workload-protections.md) | AKS | GA | - | Azure Policy | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| [Runtime threat detection](defender-for-containers-introduction.md#run-time-protection-for-kubernetes-nodes-and-clusters) (control plane)| AKS | GA | GA | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
+| Compliance-Docker CIS | VM, Virtual Machine Scale Set | GA | - | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Microsoft Azure operated by 21Vianet  |
+| [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md) (powered by Qualys) - registry scan [OS packages](#registries-and-images-support-for-aks---powered-by-qualys) | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md) (powered by Qualys) -registry scan [language packages](#registries-and-images-support-for-aks---powered-by-qualys) | ACR, Private ACR | Preview | - | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| [Vulnerability assessment (powered by Qualys) - running images](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) | AKS | GA | Preview | Defender profile | Defender for Containers | Commercial clouds |
+| [Vulnerability assessment](agentless-container-registry-vulnerability-assessment.md) powered by MDVM - registry scan | ACR, Private ACR | Preview |  | Agentless | Defender for Containers | Commercial clouds |
+| [Vulnerability assessment](agentless-container-registry-vulnerability-assessment.md) powered by MDVM - running images | AKS | Preview |  | Defender profile | Defender for Containers | Commercial clouds |
+| [Hardening  (control plane)](defender-for-containers-architecture.md) | ACR, AKS | GA | Preview | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| [Hardening (Kubernetes data plane)](kubernetes-workload-protections.md) | AKS | GA | - | Azure Policy | Free | Commercial clouds<br><br> National clouds: Azure Government,Azure operated by 21Vianet |
+| [Runtime threat detection](defender-for-containers-introduction.md#run-time-protection-for-kubernetes-nodes-and-clusters) (control plane)| AKS | GA | GA | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 | Runtime threat detection (workload) | AKS | GA | - | Defender profile | Defender for Containers | Commercial clouds |
-| Discovery/provisioning-Unprotected clusters | AKS | GA | GA | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| Discovery/provisioning-Collecting control plane threat data | AKS | GA | GA | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| Discovery/provisioning-Defender profile auto provisioning | AKS | GA | - | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| Discovery/provisioning-Azure policy add-on auto provisioning | AKS | GA | - | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
+| Discovery/provisioning-Unprotected clusters | AKS | GA | GA | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Discovery/provisioning-Collecting control plane threat data | AKS | GA | GA | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Discovery/provisioning-Defender profile auto provisioning | AKS | GA | - | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Discovery/provisioning-Azure policy add-on auto provisioning | AKS | GA | - | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 
-### Registries and images support-AKS
+### Registries and images support for AKS - powered by Qualys
 
 | Aspect | Details |
 |--|--|
 | Registries and images | **Supported**<br> • [ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md) (Private registries requires access to Trusted Services) <br> • Windows images using Windows OS version 1709 and above (Preview). This is free while it's in preview, and will incur charges (based on the Defender for Containers plan) when it becomes generally available.<br><br>**Unsupported**<br> • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> • "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br> • Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md) <br> • Providing image tag information for [multi-architecture images](https://www.docker.com/blog/multi-arch-build-and-images-the-simple-way/) is currently unsupported|
 | OS Packages | **Supported** <br> • Alpine Linux 3.12-3.16 <br> • Red Hat Enterprise Linux 6, 7, 8 <br> • CentOS 6, 7 <br> • Oracle Linux 6, 7, 8 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap 42, 15 <br> • SUSE Enterprise Linux 11, 12, 15 <br> • Debian GNU/Linux wheezy, jessie, stretch, buster, bullseye <br> • Ubuntu 10.10-22.04 <br> • FreeBSD 11.1-13.1  <br> • Fedora 32, 33, 34, 35|
 | Language specific packages (Preview) <br><br> (**Only supported for Linux images**) | **Supported** <br> • Python <br> • Node.js <br> • .NET <br> • JAVA <br> • Go |
+
+### Registries and images - powered by MDVM
+
+[!INCLUDE [Registries and images support powered by MDVM](./includes/registries-images-mdvm.md)]
 
 ### Kubernetes distributions and configurations
 
@@ -119,7 +125,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 | Compliance | Docker CIS | GCP VMs | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
 | Vulnerability Assessment | Registry scan | - | - | - | - | - |
 | Vulnerability Assessment | View vulnerabilities for running images | - | - | - | - | - |
-| Hardening | Control plane recommendations | - | - | - | - | - |
+| Hardening | Control plane recommendations | GKE | GA | GA | Agentless | Free |
 | Hardening | Kubernetes data plane recommendations | GKE | Preview | - | Azure Policy extension | Defender for Containers |
 | Runtime protection| Threat detection (control plane)| GKE | Preview | Preview | Agentless | Defender for Containers |
 | Runtime protection| Threat detection (workload) | GKE | Preview | - | Defender extension | Defender for Containers |
@@ -132,7 +138,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 | Aspect | Details |
 |--|--|
-| Kubernetes distributions and configurations | **Supported**<br> • Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters<br>• [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) with [Kubernetes RBAC](../aks/concepts-identity.md#kubernetes-rbac) <br> • [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/)<br> • [Google Kubernetes Engine (GKE) Standard](https://cloud.google.com/kubernetes-engine/) <br><br> **Supported via Arc enabled Kubernetes** <sup>[1](#footnote1)</sup> <sup>[2](#footnote2)</sup><br>• [Azure Kubernetes Service hybrid](/azure/aks/hybrid/aks-hybrid-options-overview)<br> • [Kubernetes](https://kubernetes.io/docs/home/)<br> • [AKS Engine](https://github.com/Azure/aks-engine)<br> • [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> • [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> • [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> • [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/)<br> |
+| Kubernetes distributions and configurations | **Supported**<br> • Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters<br>• [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) with [Kubernetes RBAC](../aks/concepts-identity.md#kubernetes-rbac) <br> • [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/)<br> • [Google Kubernetes Engine (GKE) Standard](https://cloud.google.com/kubernetes-engine/) <br><br> **Supported via Arc enabled Kubernetes** <sup>[1](#footnote1)</sup> <sup>[2](#footnote2)</sup><br>• [Azure Kubernetes Service hybrid](/azure/aks/hybrid/aks-hybrid-options-overview)<br> • [Kubernetes](https://kubernetes.io/docs/home/)<br> • [AKS Engine](https://github.com/Azure/aks-engine)<br> • [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> • [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> • [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> • [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/)<br><br />**Unsupported**<br /> • Private network clusters<br /> • GKE autopilot<br /> • GKE AuthorizedNetworksConfig |
 
 <sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.
 

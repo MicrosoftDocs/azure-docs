@@ -124,6 +124,10 @@ additionalContent:
           summary: Learn basic Azure Active Directory (Azure AD) concepts and processes.
           url: ./fundamentals/index.yml
         # Card
+        - title: Architecture
+          summary: Learn basic Azure Active Directory (Azure AD) architecture.
+          url: ./architecture/index.yml
+        # Card
         - title: Enterprise users
           summary: Create Azure AD tenants, manage user accounts, roles, and groups, and assign app access.
           url: ./enterprise-users/index.yml

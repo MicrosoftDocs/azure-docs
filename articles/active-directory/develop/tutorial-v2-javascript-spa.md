@@ -323,9 +323,11 @@ In the next steps, you'll create a new folder for the JavaScript SPA and set up 
 
 ## Register the application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Before you proceed with authentication, register the application on Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to **Azure Active Directory**.
 1. On the left panel, under **Manage**, select **App registrations**. Then, on the top menu bar, select **New registration**.
 1. For **Name**, enter a name for the application (for example, **sampleApp**). You can change the name later if necessary.

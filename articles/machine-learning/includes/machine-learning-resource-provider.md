@@ -21,14 +21,14 @@ The following table contains a list of the resource providers required by Azure 
 | __Microsoft.Storage__ | Azure Storage Account is used as the default storage for the workspace. |
 | __Microsoft.ContainerRegistry__ | Azure Container Registry is used by the workspace to build Docker images. |
 | __Microsoft.KeyVault__ | Azure Key Vault is used by the workspace to store secrets. |
-| __Microsoft.Notebooks/NotebookProxies__ | Integrated notebooks on Azure Machine Learning compute instance. |
+| __Microsoft.Notebooks__ | Integrated notebooks on Azure Machine Learning compute instance. |
 | __Microsoft.ContainerService__ | If you plan on deploying trained models to Azure Kubernetes Services. |
 
 If you plan on using a customer-managed key with Azure Machine Learning, then the following service providers must be registered:
 
 | Resource provider | Why it's needed |
 | ----- | ----- |
-| __Microsoft.DocumentDB/databaseAccounts__ | Azure CosmosDB instance that logs metadata for the workspace. |
-| __Microsoft.Search/searchServices__ | Azure Search provides indexing capabilities for the workspace. |
+| __Microsoft.DocumentDB__ | Azure CosmosDB instance that logs metadata for the workspace. |
+| __Microsoft.Search__ | Azure Search provides indexing capabilities for the workspace. |
 
 For information on registering resource providers, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/templates/error-register-resource-provider).

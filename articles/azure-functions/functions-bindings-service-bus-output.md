@@ -57,56 +57,6 @@ The following example shows a [C# function](dotnet-isolated-process-guide.md) th
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusFunction.cs" range="10-25":::
 
-# [C# Script](#tab/csharp-script)
-
-The following example shows a Service Bus output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "bindings": [
-        {
-            "schedule": "0/15 * * * * *",
-            "name": "myTimer",
-            "runsOnStartup": true,
-            "type": "timerTrigger",
-            "direction": "in"
-        },
-        {
-            "name": "outputSbQueue",
-            "type": "serviceBus",
-            "queueName": "testqueue",
-            "connection": "MyServiceBusConnection",
-            "direction": "out"
-        }
-    ],
-    "disabled": false
-}
-```
-
-Here's C# script code that creates a single message:
-
-```cs
-public static void Run(TimerInfo myTimer, ILogger log, out string outputSbQueue)
-{
-    string message = $"Service Bus queue message created at: {DateTime.Now}";
-    log.LogInformation(message); 
-    outputSbQueue = message;
-}
-```
-
-Here's C# script code that creates multiple messages:
-
-```cs
-public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<string> outputSbQueue)
-{
-    string message = $"Service Bus queue messages created at: {DateTime.Now}";
-    log.LogInformation(message); 
-    await outputSbQueue.AddAsync("1 " + message);
-    await outputSbQueue.AddAsync("2 " + message);
-}
-```
 ---
 
 ::: zone-end
@@ -307,7 +257,7 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#service-bus-output).
 
 # [In-process](#tab/in-process)
 
@@ -359,20 +309,6 @@ The following table explains the properties you can set using the attribute:
 |**EntityType**|Sets the entity type as either `Queue` for sending messages to a queue or `Topic` when sending messages to a topic. |
 |**QueueOrTopicName**|Name of the topic or queue to send messages to. Use `EntityType` to set the destination type.|
 |**Connection**|The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
-
-# [C# script](#tab/csharp-script)
-
-C# script uses a *function.json* file for configuration instead of attributes. The following table explains the binding configuration properties that you set in the *function.json* file.
-
-|function.json property | Description|
-|---------|---------|----------------------|
-|**type** |Must be set to "serviceBus". This property is set automatically when you create the trigger in the Azure portal.|
-|**direction**  | Must be set to "out". This property is set automatically when you create the trigger in the Azure portal. |
-|**name**  | The name of the variable that represents the queue or topic message in function code. Set to "$return" to reference the function return value. |
-|**queueName**|Name of the queue.  Set only if sending queue messages, not for a topic.
-|**topicName**|Name of the topic. Set only if sending topic messages, not for a queue.|
-|**connection**|The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
-|**accessRights** (v1 only)|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 
 ---
 
@@ -473,29 +409,11 @@ Use the [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmes
 
 # [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 
-Messaging-specific types are not yet supported.
+Earlier versions of this extension in the isolated worker process only support binding to messaging-specific types. Additional options are available to **Extension 5.x and higher**
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
-Messaging-specific types are not yet supported.
-
-# [Extension 5.x and higher](#tab/extensionv5/csharp-script)
-
-Use the [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage) type when sending messages with metadata. Parameters are defined as `out` parameters. Use an `ICollector<T>` or `IAsyncCollector<T>` to write multiple messages. A message is created when you call the `Add` method.
-
-When the parameter value is null when the function exits, Functions doesn't create a message.
-
-# [Functions 2.x and higher](#tab/functionsv2/csharp-script)
-
-Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type when sending messages with metadata. Parameters are defined as `out` parameters. Use an `ICollector<T>` or `IAsyncCollector<T>` to write multiple messages. A message is created when you call the `Add` method.
-
-When the parameter value is null when the function exits, Functions doesn't create a message.
-
-# [Functions 1.x](#tab/functionsv1/csharp-script)
-
-Use the [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) type when sending messages with metadata. Parameters are defined as `out` parameters. Use an `ICollector<T>` or `IAsyncCollector<T>` to write multiple messages. A message is created when you call the `Add` method. 
-
-When the parameter value is null when the function exits, Functions doesn't create a message.
+Functions version 1.x doesn't support isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
 
 ---
 ::: zone-end  
@@ -529,3 +447,5 @@ For a complete example, see [the examples section](#example).
 ## Next steps
 
 - [Run a function when a Service Bus queue or topic message is created (Trigger)](./functions-bindings-service-bus-trigger.md)
+
+[upgrade your application to Functions 4.x]: ./migrate-version-1-version-4.md

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory activity logs in Azure Monitor
-description: Introduction to Azure Active Directory activity logs in Azure Monitor
+title: Azure Active Directory activity log integration options
+description: Introduction to the options for integrating Azure Active Directory activity logs with storage and analysis tools.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,161 +8,118 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/03/2023
+ms.date: 07/27/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ---
-# Azure AD activity logs in Azure Monitor
+# Azure AD activity log integrations
 
-Using **Diagnostic settings** in Azure Active Directory (Azure AD), you can route activity logs to several endpoints for long term retention and data insights. This feature allows you to:
+Using **Diagnostic settings** in Azure Active Directory (Azure AD), you can route activity logs to several endpoints for long term data retention and insights. You can archive logs for storage, route to Security Information and Event Management (SIEM) tools, and integrate logs with Azure Monitor logs.
 
-* Archive Azure AD activity logs to an Azure storage account.
-* Stream Azure AD activity logs to an Azure event hub for analytics, using popular Security Information and Event Management (SIEM) tools such as Splunk, QRadar, and Microsoft Sentinel.
-* Integrate Azure AD activity logs with your own custom log solutions by streaming them to an event hub.
-* Send Azure AD activity logs to Azure Monitor to enable rich visualizations, monitoring, and alerting on the connected data.
-
-> [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
+With these integrations, you can enable rich visualizations, monitoring, and alerting on the connected data. This article describes the recommended uses for each integration type or access method. Cost considerations for sending Azure AD activity logs to various endpoints are also covered.
 
 ## Supported reports
 
-You can route Azure AD audit logs and sign-in logs to your Azure Storage account, an event hub, Azure Monitor, or a custom solution.
+The following logs can be integrated with one of many endpoints:
 
-* **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
-* **Sign-in logs**: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
-* **Provisioning logs**: With the [provisioning logs](../app-provisioning/application-provisioning-log-analytics.md), you can monitor which users have been created, updated, and deleted in all your third-party applications. 
-* **Risky users logs**: With the [risky users logs](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users), you can monitor changes in user risk level and remediation activity. 
-* **Risk detections logs**: With the [risk detections logs](../identity-protection/howto-identity-protection-investigate-risk.md#risk-detections), you can monitor user's risk detections and analyze trends in risk activity detected in your organization. 
+* The [**audit logs activity report**](concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
+* With the [**sign-in activity report**](concept-sign-ins.md), you can see when users attempt to sign in to your applications or troubleshoot sign-in errors.
+* With the [**provisioning logs**](../app-provisioning/application-provisioning-log-analytics.md), you can monitor which users have been created, updated, and deleted in all your third-party applications. 
+* The [**risky users logs**](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users) helps you monitor changes in user risk level and remediation activity. 
+* With the [**risk detections logs**](../identity-protection/howto-identity-protection-investigate-risk.md#risk-detections), you can monitor user's risk detections and analyze trends in risk activity detected in your organization. 
 
-## Getting started
+## Integration options
 
-To use this feature, you need the appropriate license and roles.
+To help choose the right method for integrating Azure AD activity logs for storage or analysis, think about the overall task you're trying to accomplish. We've grouped the options into three main categories:
 
-* An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
-* Azure AD Free, Basic, Premium 1, or Premium 2 [license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). You can find the license type of your tenant on the [Overview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) page in Azure AD.
-* Azure AD Premium 1, or Premium 2 [license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing), to access the Azure AD sign-in logs in the Azure portal. 
-* **Global Administrator** or **Security Administrator** access for the Azure AD tenant.
+- Troubleshooting
+- Long-term storage
+- Analysis and monitoring
 
-Depending on where you want to route the audit log data, you also need one of the following endpoints:
+### Troubleshooting
 
-* An **[Azure Log Analytics workspace](tutorial-log-analytics-wizard.md)** to send Azure AD logs to Azure Monitor. 
-* An **[Azure storage account](../../storage/common/storage-account-create.md)** that you have `ListKeys` permissions for.
-    - We recommend that you use a general storage account and not a Blob storage account.
-    - For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage). 
-* An **[Azure Event Hubs namespace](../../event-hubs/event-hubs-create.md)** to integrate with third-party solutions.
+If you're performing troubleshooting tasks but you don't need to retain the logs for more than 30 days, we recommend using the Azure portal or Microsoft Graph to access activity logs. You can filter the logs for your scenario and export or download them as needed.
 
-Once you have your endpoint established, go to **Azure AD** and then **Diagnostic settings.** From here, you can choose what logs to send to the endpoint of your choice. For more information, see the **Create diagnostic settings** section of the [Diagnostic settings in Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md#create-diagnostic-settings) article.
+If you're performing troubleshooting tasks *and* you need to retain the logs for more than 30 days, take a look at the long-term storage options.
+
+### Long-term storage
+
+If you're performing troubleshooting tasks *and* you need to retain the logs for more than 30 days, you can export your logs to an Azure storage account. This option is ideal of you don't plan on querying that data often.
+
+If you need to query the data that you're retaining for more than 30 days, take a look at the analysis and monitoring options.
+
+### Analysis and monitoring
+
+If your scenario requires that you retain data for more than 30 days *and* you plan on querying that data regularly, you've got a few options to integrate your data with SIEM tools for analysis and monitoring.
+
+If you have a third party SIEM tool, we recommend setting up an Event Hubs namespace and event hub that you can stream your data through. With an event hub, you can stream logs to one of the supported SIEM tools.
+
+If you don't plan on using a third-party SIEM tool, we recommend sending your Azure AD activity logs to Azure Monitor logs. With this integration, you can query your activity logs with Log Analytics. In Addition to Azure Monitor logs, Microsoft Sentinel provides near real-time security detection and threat hunting. If you decide to integrate with SIEM tools later, you can stream your Azure AD activity logs along with your other Azure data through an event hub. 
 
 ## Cost considerations
 
-If you already have an Azure AD license, you need an Azure subscription to set up the storage account and Event Hubs. The Azure subscription comes at no cost, but you have to pay to utilize Azure resources. These resources could include the storage account that you use for archival and the Event Hubs that you use for streaming. The amount of data and, thus, the cost incurred, can vary significantly depending on the tenant size. 
+There's a cost for sending data to a Log Analytics workspace, archiving data in a storage account, or streaming logs to an event hub. The amount of data and the cost incurred can vary significantly depending on the tenant size, the number of policies in use, and even the time of day.
+
+Because the size and cost for sending logs to an endpoint is difficult to predict, the most accurate way to determine your expected costs is to route your logs to an endpoint for day or two. With this snapshot, you can get an accurate prediction for your expected costs. You can also get an estimate of your costs by downloading a sample of your logs and multiplying accordingly to get an estimate for one day.
+
+Other considerations for sending Azure AD logs to Azure Monitor logs are covered in the following Azure Monitor cost details articles:
+
+- [Azure Monitor logs cost calculations and options](../../azure-monitor/logs/cost-logs.md)
+- [Azure Monitor cost and usage](../../azure-monitor/usage-estimated-costs.md)
+- [Optimize costs in Azure Monitor](../../azure-monitor/best-practices-cost.md)
 
 Azure Monitor provides the option to exclude whole events, fields, or parts of fields when ingesting logs from Azure AD. Learn more about this cost saving feature in [Data collection transformation in Azure Monitor](../../azure-monitor/essentials/data-collection-transformations.md).
 
-### Storage size for activity logs
+## Estimate your costs
 
-Every audit log event uses about 2 KB of data storage. Sign-in event logs are about 4 KB of data storage. For a tenant with 100,000 users, which would incur about 1.5 million events per day, you would need about 3 GB of data storage per day. Because writes occur in approximately five-minute batches, you can anticipate around 9,000 write operations per month. 
+To estimate the costs for your organization, you can estimate either the daily log size or the daily cost for integrating your logs with an endpoint.
 
-The following table contains a cost estimate of, depending on the size of the tenant, a general-purpose v2 storage account in West US for at least one year of retention. To create a more accurate estimate for the data volume that you anticipate for your application, use the [Azure storage pricing calculator](https://azure.microsoft.com/pricing/details/storage/blobs/).
+The following factors could affect costs for your organization:
 
+- Audit log events use around 2 KB of data storage
+- Sign-in log events use on average 11.5 KB of data storage
+- A tenant of about 100,000 users could incur about 1.5 million events per day
+- Events are batched into about 5-minute intervals and sent as a single message that contains all the events within that time frame
 
-| Log category | Number of users | Events per day | Volume of data per month (est.) | Cost per month (est.) | Cost per year (est.) |
-|--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
-| Audit | 100,000 | 1.5&nbsp;million | 90 GB | $1.93 | $23.12 |
-| Audit | 1,000 | 15,000 | 900 MB | $0.02 | $0.24 |
-| Sign-ins | 1,000 | 34,800 | 4 GB | $0.13 | $1.56 |
-| Sign-ins | 100,000 | 15&nbsp;million | 1.7 TB | $35.41 | $424.92 |
- 
+### Daily log size
 
-If you want to know for how long the activity data is stored in a Premium tenant, see: [How long does Azure AD store the data?](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)
+To estimate the daily log size, gather a sample of your logs, adjust the sample to reflect your tenant size and settings, then apply that sample to the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). 
 
-### Event Hubs messages for activity logs
+If you haven't downloaded logs from the Azure portal, review the [How to download logs in Azure AD](howto-download-logs.md) article. Depending on the size of your organization, you may need to choose a different sample size to start your estimation. The following sample sizes are a good place to start:
 
-Events are batched into approximately five-minute intervals and sent as a single message that contains all the events within that timeframe. A message in the Event Hubs has a maximum size of 256 KB. If the total size of all the messages within the timeframe exceeds that volume, multiple messages are sent. 
+- 1000 records
+- For large tenants, 15 minutes of sign-ins
+- For small to medium tenants, 1 hour of sign-ins
 
-For example, about 18 events per second ordinarily occur for a large tenant of more than 100,000 users, a rate that equates to 5,400 events every five minutes. Audit logs are about 2 KB per event, which equates to 10.8 MB of data. Therefore, 43 messages are sent to the event hub in that five-minute interval. 
+You should also consider the geographic distribution and peak hours of your users when you capture your data sample. If your organization is based in one region, it's likely that sign-ins peak around the same time. Adjust your sample size and when you capture the sample accordingly.
 
-The following table contains estimated costs per month for a basic event hub in West US. The volume of event data can vary from tenant to tenant, based on factors like user sign-in behavior. To calculate an accurate estimate of the data volume that you anticipate for your application, use the [Event Hubs pricing calculator](https://azure.microsoft.com/pricing/details/event-hubs/).
+With the data sample captured, multiply accordingly to find out how large the file would be for one day.
 
-| Log category | Number of users | Events per second | Events per five-minute interval | Volume per interval | Messages per interval | Messages per month | Cost per month (est.) |
-|--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
-| Audit | 100,000 | 18 | 5,400 | 10.8 MB | 43 | 371,520 | $10.83 |
-| Audit | 1,000 | 0.1 | 52 | 104 KB | 1 | 8,640 | $10.80 |
-| Sign-ins | 100,000 | 18000 | 5,400,000 | 10.8 GB | 42188 | 364,504,320 | $23.9 |  
-| Sign-ins | 1,000 | 178 | 53,400 | 106.8&nbsp;MB | 418 | 3,611,520 | $11.06 |  
+### Estimate the daily cost
 
-### Azure Monitor logs cost considerations
+To get an idea of how much a log integration could cost for your organization, you can enable an integration for a day or two. Use this option if your budget allows for the temporary increase.
 
-| Log category | Number of users | Events per day | Events per month (30 days) | Cost per month in USD (est.) |
-|:-|--|--|--|-:|
-| Audit and Sign-ins | 100,000 | 16,500,000 | 495,000,000 | $1093.00 |
-| Audit | 100,000 | 1,500,000 | 45,000,000 | $246.66 |
-| Sign-ins | 100,000 | 15,000,000 | 450,000,000 | $847.28 |
+To enable a log integration, follow the steps in the [Integrate activity logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md) article. If possible, create a new resource group for the logs and endpoint you want to try out. Having a devoted resource group makes it easy to view the cost analysis and then delete it when you're done.
 
-To review costs related to managing the Azure Monitor logs, see [Azure Monitor Logs pricing details](../../azure-monitor/logs/cost-logs.md).
+With the integration enabled, navigate to **Azure portal** > **Cost Management** > **Cost analysis**. There are several ways to analyze costs. This [Cost Management quickstart](../../cost-management-billing/costs/quick-acm-cost-analysis.md) should help you get started. The figures in the following screenshot are used for example purposes and are not intended to reflect actual amounts.
 
-## Frequently asked questions
+![Screenshot of a cost analysis breakdown as a pie chart.](media/concept-activity-logs-azure-monitor/cost-analysis-breakdown.png)
 
-This section answers frequently asked questions and discusses known issues with Azure AD logs in Azure Monitor.
+Make sure you're using your new resource group as the scope. Explore the daily costs and forecasts to get an idea of how much your log integration could cost.
 
-**Q: Which logs are included?**
+## Calculate estimated costs
 
-**A**: The sign-in activity logs and audit logs are both available for routing through this feature, although B2C-related audit events are currently not included. To find out which types of logs and which feature-based logs are currently supported, see [Audit log schema](./overview-reports.md) and [Sign-in log schema](reference-azure-monitor-sign-ins-log-schema.md). 
+From the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) landing page, you can estimate the costs for various products.
 
----
+- [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/)
+- [Azure storage](https://azure.microsoft.com/pricing/details/storage/blobs/)
+- [Azure Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/)
+- [Microsoft Sentinel](https://azure.microsoft.com/pricing/details/microsoft-sentinel/)
 
-**Q: What happens if an Administrator changes the retention period of a diagnostic setting?**
+Once you have an estimate for the GB/day that will be sent to an endpoint, enter that value in the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). The figures in the following screenshot are used for example purposes and are not intended to reflect actual prices.
 
-**A**: The new retention policy will be applied to logs collected after the change. Logs collected before the policy change will be unaffected.
-
----
-
-**Q: How much will it cost to store my data?**
-
-**A**: The storage costs depend on both the size of your logs and the retention period you choose. For a list of the estimated costs for tenants, which depend on the volume of logs generated, see the [Storage size for activity logs](#storage-size-for-activity-logs) section.
-
----
-
-**Q: How much will it cost to stream my data to an event hub?**
-
-**A**: The streaming costs depend on the number of messages you receive per minute. This article discusses how the costs are calculated and lists cost estimates, which are based on the number of messages. 
-
----
-
-**Q: How do I integrate Azure AD activity logs with my SIEM tools?**
-
-**A**: You can do integrate with your SIEM tools in two ways:
-
-- Use Azure Monitor with Event Hubs to stream logs to your SIEM tool. First, [stream the logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md) and then [set up your SIEM tool](tutorial-azure-monitor-stream-logs-to-event-hub.md#access-data-from-your-event-hub) with the configured event hub. 
-
-- Use the [Reporting Graph API](concept-reporting-api.md) to access the data, and push it into the SIEM system using your own scripts.
-
----
-
-**Q: What SIEM tools are currently supported?** 
-
-**A**: Currently, Azure Monitor is supported by [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/docs/integrations/microsoft-azure/active-directory-azure/), [ArcSight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm, and Logz.io. For more information about how the connectors work, see [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
-
----
-
-**Q: How do I integrate Azure AD activity logs with my Splunk instance?**
-
-**A**: First, [route the Azure AD activity logs to an event hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md), then follow the steps to [Integrate activity logs with Splunk](./howto-integrate-activity-logs-with-splunk.md).
-
----
-
-**Q: How do I integrate Azure AD activity logs with Sumo Logic?** 
-
-**A**: First, [route the Azure AD activity logs to an event hub](https://help.sumologic.com/docs/integrations/microsoft-azure/active-directory-azure#collecting-logs-for-azure-active-directory), then follow the steps to [Install the Azure AD application and view the dashboards in SumoLogic](https://help.sumologic.com/docs/integrations/microsoft-azure/active-directory-azure#viewing-azure-active-directory-dashboards).
-
----
-
-**Q: Can I access the data from an event hub without using an external SIEM tool?** 
-
-**A**: Yes. To access the logs from your custom application, you can use the [Event Hubs API](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md). 
-
----
-
+![Screenshot of the Azure pricing calculator, with 8 GB/Day used as an example.](media/concept-activity-logs-azure-monitor/azure-pricing-calculator-values.png)
 
 ## Next steps
 

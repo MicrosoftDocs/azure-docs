@@ -50,17 +50,17 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 |Service category|Service name|Azure Public|Azure Government|Notes|
 |-----------|-----------|-------|----------|----------------------|
 |**AI + machine learning**|Azure Bot Service|botframework.com|botframework.azure.us||
-||Azure Form Recognizer|cognitiveservices.azure.com|cognitiveservices.azure.us||
+||Azure AI Document Intelligence|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Computer Vision|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Custom Vision|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://www.customvision.azure.us/)||
 ||Content Moderator|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Face API|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)|Part of [Cognitive Services for Language](../cognitive-services/language-service/index.yml)|
+||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
 ||Personalizer|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Cognitive Services for Language](../cognitive-services/language-service/index.yml)|
-||Speech service|See [STT API docs](../cognitive-services/speech-service/rest-speech-to-text-short.md#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](../cognitive-services/Speech-Service/sovereign-clouds.md)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
-||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Cognitive Services for Language](../cognitive-services/language-service/index.yml)|
-||Translator|See [Translator API docs](../cognitive-services/translator/reference/v3-0-reference.md#base-urls)|cognitiveservices.azure.us||
+||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
+||Speech service|See [STT API docs](../ai-services/speech-service/rest-speech-to-text-short.md#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](../ai-services/Speech-Service/sovereign-clouds.md)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
+||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
+||Translator|See [Translator API docs](../ai-services/translator/reference/v3-0-reference.md#base-urls)|cognitiveservices.azure.us||
 |**Analytics**|Azure HDInsight|azurehdinsight.net|azurehdinsight.us||
 ||Event Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
 ||Power BI|app.powerbi.com|app.powerbigov.us|[Power BI US Gov](https://powerbi.microsoft.com/documentation/powerbi-service-govus-overview/)|
@@ -142,28 +142,36 @@ For information on how to deploy Bot Framework and Azure Bot Service bots to Azu
 
 For feature variations and limitations, see [Azure Machine Learning feature availability across cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md).
 
-### [Cognitive Services: Content Moderator](../cognitive-services/content-moderator/index.yml)
+<a name='cognitive-services-content-moderator'></a>
+
+### [Azure AI services: Content Moderator](../ai-services/content-moderator/index.yml)
 
 The following Content Moderator **features aren't currently available** in Azure Government:
 
 - Review UI and Review APIs.
 
-### [Cognitive Services: Language Understanding (LUIS)](../cognitive-services/luis/index.yml)
+<a name='cognitive-services-language-understanding-luis'></a>
+
+### [Azure AI Language Understanding (LUIS)](../ai-services/luis/index.yml)
 
 The following Language Understanding **features aren't currently available** in Azure Government:
 
 - Speech Requests
 - Prebuilt Domains
 
-Cognitive Services Language Understanding (LUIS) is part of [Cognitive Services for Language](../cognitive-services/language-service/index.yml).
+Azure AI Language Understanding (LUIS) is part of [Azure AI Language](../ai-services/language-service/index.yml).
 
-### [Cognitive Services: Speech](../cognitive-services/speech-service/index.yml)
+<a name='cognitive-services-speech'></a>
 
-For feature variations and limitations, including API endpoints, see [Speech service in sovereign clouds](../cognitive-services/speech-service/sovereign-clouds.md).
+### [Azure AI Speech](../ai-services/speech-service/index.yml)
 
-### [Cognitive Services: Translator](../cognitive-services/translator/index.yml)
+For feature variations and limitations, including API endpoints, see [Speech service in sovereign clouds](../ai-services/speech-service/sovereign-clouds.md).
 
-For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../cognitive-services/translator/sovereign-clouds.md).
+<a name='cognitive-services-translator'></a>
+
+### [Azure AI services: Translator](../ai-services/translator/index.yml)
+
+For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../ai-services/translator/sovereign-clouds.md).
 
 ## Analytics
 
@@ -181,11 +189,11 @@ For secured virtual networks, you'll want to allow network security groups (NSGs
 |US Gov Virginia|13.72.49.126 </br> 13.72.55.55 </br> 13.72.184.124 </br> 13.72.190.110| 443|
 |US Gov Arizona|52.127.3.176 </br> 52.127.3.178| 443|
 
-For a demo on how to build data-centric solutions on Azure Government using HDInsight, see Cognitive Services, HDInsight, and Power BI on Azure Government.
+For a demo on how to build data-centric solutions on Azure Government using HDInsight, see Azure AI services, HDInsight, and Power BI on Azure Government.
 
 ### [Power BI](/power-bi/fundamentals/)
 
-For usage guidance, feature variations, and limitations, see [Power BI for US government customers](/power-bi/admin/service-govus-overview). For a demo on how to build data-centric solutions on Azure Government using Power BI, see Cognitive Services, HDInsight, and Power BI on Azure Government.
+For usage guidance, feature variations, and limitations, see [Power BI for US government customers](/power-bi/admin/service-govus-overview). For a demo on how to build data-centric solutions on Azure Government using Power BI, see Azure AI services, HDInsight, and Power BI on Azure Government.
 
 ### [Power BI Embedded](/power-bi/developer/embedded/)
 

@@ -1,6 +1,6 @@
 ---
 title: "Find similar images from previous searches using image insights tokens and the Bing Visual Search API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use the Bing Visual Search client library to get URLs of images from previous searches. 
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp
 ---
 # Tutorial: Find similar images from previous searches using an image insights token
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Visual Search client library enables you to find images online from previous searches that return an `ImageInsightsToken`. This application gets an `ImageInsightsToken` and uses the token in a subsequent search. It then sends the `ImageInsightsToken` to Bing and returns results that include Bing Search URLs and URLs of similar images found online.
 

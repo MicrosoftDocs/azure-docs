@@ -8,6 +8,7 @@ ms.topic: article
 ms.date: 12/01/2022
 ms.author: danlep
 ---
+
 # API Management policy reference
 This section provides links to reference articles for all API Management policies.
 
@@ -85,7 +86,7 @@ More information about policies:
 -   [Find and replace string in body](find-and-replace-policy.md) - Finds a request or response substring and replaces it with a different substring.
 -   [Mask URLs in content](redirect-content-urls-policy.md) - Rewrites (masks) links in the response body so that they point to the equivalent link via the gateway.
 -   [Set backend service](set-backend-service-policy.md) - Changes the backend service for an incoming request.
--   [Set body](set-body-policy.md) - Sets the message body for incoming and outgoing requests.
+- [Set body](set-body-policy.md) - Sets the message body for a request or response.
 -   [Set HTTP header](set-header-policy.md) - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
 -   [Set query string parameter](set-query-parameter-policy.md) - Adds, replaces value of, or deletes request query string parameter.
 -   [Rewrite URL](rewrite-uri-policy.md) - Converts a request URL from its public form to the form expected by the web service.
@@ -95,6 +96,7 @@ More information about policies:
 
 - [Validate content](validate-content-policy.md) - Validates the size or content of a request or response body against one or more API schemas. The supported schema formats are JSON and XML.
 - [Validate GraphQL request](validate-graphql-request-policy.md) - Validates and authorizes a request to a GraphQL API. 
+- [Validate OData request](validate-odata-request-policy.md) - Validates a request to an OData API to ensure conformance with the OData specification.
 - [Validate parameters](validate-parameters-policy.md) - Validates the request header, query, or path parameters against the API schema.
 - [Validate headers](validate-headers-policy.md) - Validates the response headers against the API schema.
 - [Validate status code](validate-status-code-policy.md) - Validates the HTTP status codes in responses against the API schema.
@@ -105,3 +107,5 @@ For more information about working with policies, see:
 + [Tutorial: Transform and protect your API](transform-api.md)
 + [Set or edit policies](set-edit-policies.md)
 + [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	
+
+

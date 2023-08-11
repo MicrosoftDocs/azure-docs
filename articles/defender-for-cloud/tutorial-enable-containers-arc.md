@@ -1,6 +1,5 @@
 ---
-title: Protect your on-premises Kubernetes clusters with Defender for Containers - Microsoft Defender for Cloud
-titleSuffix: Microsoft Defender for Cloud
+title: Protect your on-premises Kubernetes clusters with Defender for Containers
 description: Learn how to enable the Defender for Containers plan on your on-premises devices for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/27/2023
@@ -53,6 +52,9 @@ If you would prefer to [assign a custom workspace](defender-for-containers-enabl
     :::image type="content" source="media/tutorial-enable-containers-azure/containers-enabled-aks.png" alt-text="Screenshot of the Defender plans page that shows where to toggle the containers plan switch to on is located." lightbox="media/tutorial-enable-containers-azure/containers-enabled-aks.png":::
 
 1. Select **Save**.
+
+> [!NOTE]
+> To enable or disable individual Defender for Containers capabilities, either globally or for specific resources, see [How to enable Microsoft Defender for Containers components](defender-for-containers-enable.md).
 
 ## Deploy the Defender extension on Arc-enabled Kubernetes clusters that were onboarded to an Azure subscription
 

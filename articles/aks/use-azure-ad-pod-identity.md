@@ -312,7 +312,7 @@ az aks pod-identity delete --name ${POD_IDENTITY_NAME} --namespace ${POD_IDENTIT
 ```
 
 ```azurecli
-az aks update --resource-group myResourceGroup --cluster-name myAKSCluster --disable-pod-identity
+az aks update --resource-group myResourceGroup --name myAKSCluster --disable-pod-identity
 ```
 
 ## Clean up

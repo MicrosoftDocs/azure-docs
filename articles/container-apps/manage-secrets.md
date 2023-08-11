@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: how-to
 ms.date: 05/10/2023
 ms.author: cshoe
-ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, devx-track-azurepowershell, build-2023
+ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, devx-track-azurepowershell, build-2023, devx-track-linux
 ---
 
 # Manage secrets in Azure Container Apps
@@ -115,7 +115,7 @@ Here, a connection string to a queue storage account is declared. The value for 
 
 ---
 
-### <a name="reference-secret-from-key-vault"></a>Reference secret from Key Vault (preview)
+### <a name="reference-secret-from-key-vault"></a>Reference secret from Key Vault
 
 When you define a secret, you create a reference to a secret stored in Azure Key Vault. Container Apps automatically retrieves the secret value from Key Vault and makes it available as a secret in your container app.
 

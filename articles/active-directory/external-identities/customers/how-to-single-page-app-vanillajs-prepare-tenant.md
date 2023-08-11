@@ -18,7 +18,7 @@ ms.date: 06/09/2023
 
 This tutorial series demonstrates how to build a vanilla JavaScript single-page application (SPA) and prepare it for authentication using the Microsoft Entra admin center. You'll use the [Microsoft Authentication Library for JavaScript](/javascript/api/overview/msal-overview) library to authenticate your app with your Azure Active Directory (Azure AD) for customers tenant. Finally, you'll run the application and test the sign-in and sign-out experiences.
 
-In this tutorial, you'll;
+In this tutorial;
 
 > [!div class="checklist"]
 > * Register a SPA in the Microsoft Entra admin center, and record its identifiers

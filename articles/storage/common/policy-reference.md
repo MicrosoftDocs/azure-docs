@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Storage
 description: Lists Azure Policy built-in policy definitions for Azure Storage. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 07/06/2023
+ms.date: 08/08/2023
 ms.topic: reference
 author: tamram
 ms.author: tamram

@@ -4,6 +4,7 @@ description: This guide describes how Caddy can be used as a reverse proxy to en
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
+ms.custom: devx-track-azurecli
 services: container-instances
 ms.topic: how-to
 ms.date: 06/12/2023

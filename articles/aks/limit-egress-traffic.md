@@ -2,7 +2,7 @@
 title: Control egress traffic using Azure Firewall in Azure Kubernetes Service (AKS)
 description: Learn how to control egress traffic using Azure Firewall in Azure Kubernetes Service (AKS)
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.topic: how-to
 ms.author: allensu
 ms.date: 03/10/2023
@@ -172,7 +172,7 @@ For information on how to override Azure's default system routes or add addition
 This section covers three network rules and an application rule you can use to configure on your firewall. You may need to adapt these rules based on your deployment.
 
 * The first network rule allows access to port 9000 via TCP.
-* The second network rule allows access to port 1194 and 123 via UDP. If you're deploying to Azure China 21Vianet, see the [Azure China 21Vianet required network rules](./outbound-rules-control-egress.md#azure-china-21vianet-required-network-rules). Both these rules will only allow traffic destined to the Azure Region CIDR in this article, which is East US.
+* The second network rule allows access to port 1194 and 123 via UDP. If you're deploying to Microsoft Azure operated by 21Vianet, see the [Azure operated by 21Vianet required network rules](./outbound-rules-control-egress.md#microsoft-azure-operated by-21vianet-required-network-rules). Both these rules will only allow traffic destined to the Azure Region CIDR in this article, which is East US.
 * The third network rule opens port 123 to `ntp.ubuntu.com` FQDN via UDP. Adding an FQDN as a network rule is one of the specific features of Azure Firewall, so you'll need to adapt it when using your own options.
 * The application rule covers all needed FQDNs accessible through TCP port 443 and port 80.
 
@@ -243,7 +243,7 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
 
 If you don't have user-assigned identities, follow the steps in this section. If you already have user-assigned identities, skip to [Create an AKS cluster with user-assigned identities](#create-an-aks-cluster-with-user-assigned-identities).
 
-1. Create a control plane managed identity using the [`az identity create`][az-identity-create] command.
+1. Create a managed identity using the [`az identity create`][az-identity-create] command.
 
     ```azurecli-interactive
     az identity create --name myIdentity --resource-group myResourceGroup
@@ -290,11 +290,11 @@ If you don't have user-assigned identities, follow the steps in this section. If
    ```
 
   > [!NOTE]
-  > If you create your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you're using an ARM template or other client, you need to use the Principal ID of the cluster managed identity to perform a [role assignment][add role to identity].
+  > If you create your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you're using an ARM template or other method, you need to use the Principal ID of the cluster managed identity to perform a [role assignment][add role to identity].
 
 ### Create an AKS cluster with user-assigned identities
 
-Create an AKS cluster with your existing identities in the subnet using the [`az aks create`][az-aks-create] command and providing your control plane identity resource ID kubelet managed identity.
+Create an AKS cluster with your existing identities in the subnet using the [`az aks create`][az-aks-create] command, provide the resource ID of the managed identity for the control plane by including the `assign-kubelet-identity` argument.
 
 ```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \
@@ -633,7 +633,7 @@ In this article, you learned how to secure your outbound traffic using Azure Fir
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [az-network-firewall-nat-rule-create]: /cli/azure/network/firewall/nat-rule#az-network-firewall-nat-rule-create
 [az-group-delete]: /cli/azure/group#az_group_delete
-[add role to identity]: use-managed-identity.md#add-role-assignment-for-control-plane-identity
+[add role to identity]: use-managed-identity.md#add-role-assignment-for-managed-identity
 [Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials

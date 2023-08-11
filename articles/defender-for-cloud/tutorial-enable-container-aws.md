@@ -1,6 +1,5 @@
 ---
-title: Protect your Amazon Web Service (AWS) accounts containers with Defender for Containers  - Microsoft Defender for Cloud
-titleSuffix: Microsoft Defender for Cloud
+title: Protect your Amazon Web Service (AWS) accounts containers with Defender for Containers
 description: Learn how to enable the Defender for Containers plan on your Amazon Web Service (AWS) accounts for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 06/29/2023
@@ -20,9 +19,9 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
-- [Connect your AWS account to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
+- [Connect your AWS account to Microsoft Defender for Cloud](quickstart-onboard-aws.md#connect-your-aws-account)
 
-- Validate the following domains only if you're using a relevant OS. For example, if you have EKS clusters running in AWS, then you would only need to apply the `Amazon Linux 2 (Eks): Domain: "amazonlinux.*.amazonaws.com/2/extras/*"` domain.
+- Validate the following domains only if you're using a relevant OS.
 
     | Domain                     | Port | Host operating systems |
     | -------------------------- | ---- |--|
@@ -62,6 +61,9 @@ To protect your EKS clusters, you need to enable the Containers plan on the rele
 1. Select **Next: Review and generate**.
 
 1. Select **Update**.
+
+> [!NOTE]
+> To enable or disable individual Defender for Containers capabilities, either globally or for specific resources, see [How to enable Microsoft Defender for Containers components](defender-for-containers-enable.md).
 
 ## Deploy the Defender extension in Azure
 

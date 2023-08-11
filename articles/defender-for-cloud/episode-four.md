@@ -1,5 +1,5 @@
 ---
-title: Security posture management improvements in Microsoft Defender for Cloud
+title: Security posture management improvements
 description: Learn how to manage your security posture with Microsoft Defender for Cloud.
 ms.topic: reference
 ms.date: 04/27/2023
@@ -9,9 +9,7 @@ ms.date: 04/27/2023
 
 **Episode description**: In this episode of Defender for Cloud in the field, Lior Arviv joins Yuri Diogenes to talk about the cloud security posture management improvements in Microsoft Defender for Cloud. Lior explains the MITRE ATT&CK Framework integration with recommendations, the overall improvements of recommendations and the other fields added in the API. Lior also demonstrates the different ways to access the MITRE ATT&CK integration via filters and recommendations.
 
-<br>
-<br>
-<iframe src="https://aka.ms/docs/player?id=845108fd-e57d-40e0-808a-1239e78a7390" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://aka.ms/docs/player?id=845108fd-e57d-40e0-808a-1239e78a7390]
 
 - [1:24](/shows/mdc-in-the-field/defender-for-containers#time=01m24s) - Security recommendation refresh time changes
 
