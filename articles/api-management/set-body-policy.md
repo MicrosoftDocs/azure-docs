@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Set body
 
-Use the `set-body` policy to set the message body for an incoming request or an outgoing response. To access the message body you can use the `context.Request.Body` property or the `context.Response.Body`, depending on whether the policy is in the inbound or outbound section.
+Use the `set-body` policy to set the message body for a request or response. To access the message body you can use the `context.Request.Body` property or the `context.Response.Body`, depending on whether the policy is in the inbound or outbound section.
 
 > [!IMPORTANT]
 >  By default when you access the message body using `context.Request.Body` or `context.Response.Body`, the original message body is lost and must be set by returning the body back in the expression. To preserve the body content, set the `preserveContent` parameter to `true` when accessing the message. If `preserveContent` is set to `true` and a different body is returned by the expression, the returned body is used.
