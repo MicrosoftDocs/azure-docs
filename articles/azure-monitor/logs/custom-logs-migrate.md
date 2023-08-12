@@ -33,7 +33,13 @@ The migration procedure described in this article assumes you have:
 
 ## Permissions required
 
-- To migrate existing custom tables or create new tables, you need `Microsoft.OperationalInsights/workspaces/tables/migrate/action`permissions on the workspace, as provided by the 
+| Action | Permissions required |
+|:---|:---|
+| Create a data collection endpoint. | `Microsoft.Insights/dataCollectionEndpoints/write` permissions as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), for example. |
+| Create or modify a data collection rule. | `Microsoft.Insights/DataCollectionRules/Write` permissions as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), for example. |
+| Convert a table that uses the Data Collector API to data collection rules and the Log Ingestion API. | `Microsoft.OperationalInsights/workspaces/tables/migrate/action`permissions as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
+| Create new tables or modify table schemas | `microsoft.operationalinsights/workspaces/tables/write` permissions as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
+| Call the Log Ingestion API. | `microsoft.operationalinsights/workspaces/tables/write` permissions permissions as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
 
 ## Create new resources required for the Log ingestion API
 
