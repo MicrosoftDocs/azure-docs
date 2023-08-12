@@ -176,7 +176,7 @@ This feature can be used with API version 2023-03-01 or greater.
 
 You must register for four feature flags on your subscription:
 
-### [Azure CLI](#tab/cli)
+### [Azure CLI](#tab/cli-1)
 
 ```azurecli
 az feature register --namespace Microsoft.Compute --name VmssAllowRegionalToZonalMigration
@@ -191,7 +191,7 @@ You can check the registration status of each feature by using:
 az feature show --namespace Microsoft.Compute --name \<feature-name\>
 ```
 
-### [Azure PowerShell](#tab/powershell)
+### [Azure PowerShell](#tab/powershell-1)
 
 ```powershell
 Register-AzProviderPreviewFeature -Name VmssAllowRegionalToZonalMigration -ProviderNamespace Microsoft.Compute
@@ -208,7 +208,7 @@ Get-AzProviderPreviewFeature -Name <feature-name> -ProviderNamespace Microsoft.C
 ---
 
 ### Expand scale set to use availability zones
-You can update the scale set to scale out instances to one or more additional availability zones, up to the number of availablity zones supported by the region (for regions that support zones, the minimum number of zones is 3). 
+You can update the scale set to scale out instances to one or more additional availability zones, up to the number of availability zones supported by the region. For regions that support zones, the minimum number of zones is 3. 
 
 > [!IMPORTANT]
 > When you expand the scale set to additional zones, the original instances are not migrated or changed. When you scale out, new instances will be created and spread evenly across the selected availability zones. When you scale in the scale set, any regional instances will be priorized for removal first. After that, instances will be removed based on the [scale in policy](virtual-machine-scale-sets-scale-in-policy.md). 
@@ -226,22 +226,22 @@ In order to prepare for zonal expansion:
 * Check that you have enough quota for the VM size in the selected region to handle additional instances. Learn more about [checking and requesting additional quota if needed](../virtual-machines/quotas.md)
 * Check that the VM size and disk types you are using are available in all the desired zones. You can use the [Compute Resources SKUs API](/rest/api/compute/resource-skus/list?tabs=HTTP) to determine which sizes are available in which zones
 * Validate that the scale set configuration is valid for zonal scale sets:
-    * platformFaultDomainCount must be set to 1 or 5 (fixed spreading with 2 or 3 fault domains is not supported for zonal deployments)
-    * Capacity reservations are not supported during zone expansion. Once the scale set is fully zonal (no more regional instances), you can add a capacity reservation group to the scale set
-    * Azure Dedicated Host deployments are not supported
+    * `platformFaultDomainCount` must be set to 1 or 5. Fixed spreading with 2 or 3 fault domains is not supported for zonal deployments.
+    * Capacity reservations are not supported during zone expansion. Once the scale set is fully zonal (no more regional instances), you can add a capacity reservation group to the scale set.
+    * Azure Dedicated Host deployments are not supported.
 
 #### Update the zones parameter on the scale set
 
 Update the scale set to change the zones parameter.
 
-### [Azure Portal](#tab/portal2)
+### [Azure Portal](#tab/portal-2)
 
 1. Navigate to the scale set you want to update
-1. On the Properties tab of the scale set landing page, find the Availability zone property and press **Edit**
-1. On the Edit Location dialog box which appears, select the desired zone(s)
-1. Select **Apply**.
+1. On the Properties tab of the scale set landing page, find the **Availability zone** property and press **Edit**
+1. On the **Edit Location** dialog box which appears, select the desired zone(s)
+1. Select **Apply**
 
-### [Azure CLI](#tab/cli2)
+### [Azure CLI](#tab/cli-2)
 
 
 
@@ -249,7 +249,7 @@ Update the scale set to change the zones parameter.
 az vmss update --set zones=["1","2","3"] -n < myScaleSet > -g < myResourceGroup >
 ```
 
-### [Azure PowerShell](#tab/powershell2)
+### [Azure PowerShell](#tab/powershell-2)
 
 
 
@@ -259,7 +259,7 @@ az vmss update --set zones=["1","2","3"] -n < myScaleSet > -g < myResourceGroup 
 
 
 ```azurepowershell
-# Get the VMSS object
+# Get the Virtual Machine Scale Set object
 $vmss = Get-AzVmss -ResourceGroupName < resource-group-name > -VMScaleSetName < vmss-name >
 
 # Update the zones parameter
@@ -269,8 +269,9 @@ $vmss.Zones = [Collections.Generic.List[string]]('1','2','3')
 Update-AzVmss -ResourceGroupName < resource-group-name > -VMScaleSetName < vmss-name > -VirtualMachineScaleSet $vmss
 ```
 
-### [REST API](#tab/template2)
+### [REST API](#tab/template-2)
 
+```json
 PATCH /subscriptions/subscriptionid/resourceGroups/resourcegroupo/providers/Microsoft.Compute/virtualMachineScaleSets/myscaleset?api-version=2023-03-01
 
 ```javascript
@@ -288,7 +289,7 @@ PATCH /subscriptions/subscriptionid/resourceGroups/resourcegroupo/providers/Micr
 
 ##### Manually scale out and in
 
-[Update the capacity](virtual-machine-scale-sets-autoscale-overview.md) of the scale set to add additional instances. The new capacity should be set to the original capacity plus the number of new instances. For example, if your scale set had 5 regional instances, and you would like to scale out so that you have 3 instances in each of 3 zones, you should set the capacity to 14. 
+[Update the capacity](virtual-machine-scale-sets-autoscale-overview.md) of the scale set to add additional instances. The new capacity should be set to the original capacity plus the number of new instances. For example, if your scale set had 5 regional instances and you would like to scale out so that you have 3 instances in each of 3 zones, you should set the capacity to 14. 
 
 You can update the zones parameter and the scale set capacity in the same ARM template or REST API call.
 
@@ -300,19 +301,19 @@ With [Rolling upgrades + MaxSurge](virtual-machine-scale-sets-upgrade-policy.md)
 
 > [!IMPORTANT]
 > Rolling upgrades with MaxSurge is currently under Public Preview. It is only available for VMSS Uniform Orchestration Mode.
-#### Preview Known Issues / Limitations
+#### Preview known issues and limitations
 
-* The preview is targeted to stateless workloads on virtual machine scale sets. 
+* The preview is targeted to stateless workloads on Virtual Machine Scale Sets. 
 
-* Scale sets running Service Fabric or Azure Kubernetes Service are not supported
+* Scale sets running Service Fabric or Azure Kubernetes Service are not supported.
 
 * You cannot remove or replace zones, only add zones
 
 * You cannot update from a zone spanning or zonal scale set to a regional scaleset.
 
-* platformFaultDomainCount must be set to 1 or 5 (fixed spreading with 2 or 3 fault domains is not supported for zonal deployments)
+* `platformFaultDomainCount` must be set to 1 or 5. Fixed spreading with 2 or 3 fault domains is not supported for zonal deployments.
 
-* Capacity reservations are not supported during zone expansion. Once the scale set is fully zonal (no more regional instances), you can add a capacity reservation group to the scale set
+* Capacity reservations are not supported during zone expansion. Once the scale set is fully zonal (no more regional instances), you can add a capacity reservation group to the scale set.
 
 * Azure Dedicated Host deployments are not supported  
 
