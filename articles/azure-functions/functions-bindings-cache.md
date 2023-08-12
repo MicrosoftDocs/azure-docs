@@ -75,19 +75,19 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 
 1. Add the extension bundle by adding or replacing the following code in your _host.json_ file:
 
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.11.*, 5.0.0)"
-  }
-}
-```
+    ```json
+    {
+      "version": "2.0",
+      "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+        "version": "[4.11.*, 5.0.0)"
+      }
+    }
+   ```
 
->[!WARNING]
->The Redis extension is currently only available in a preview bundle release.
->
+   >[!WARNING]
+   >The Redis extension is currently only available in a preview bundle release.
+   >
 
 1. Add the Java library for Redis bindings to the `pom.xml` file:
 
@@ -104,20 +104,20 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 
 1. Add the extension bundle by adding or replacing the following code in your _host.json_ file:
 
-<!-- I don't see this in the samples.  -->
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.11.*, 5.0.0)"
+    <!-- I don't see this in the samples.  -->
+    ```json
+    {
+      "version": "2.0",
+      "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+        "version": "[4.11.*, 5.0.0)"
+    }
   }
-}
-```
+  ```
 
->[!WARNING]
->The Redis extension is currently only available in a preview bundle release.
->
+    >[!WARNING]
+    >The Redis extension is currently only available in a preview bundle release.
+    >
 
 ::: zone-end
 
