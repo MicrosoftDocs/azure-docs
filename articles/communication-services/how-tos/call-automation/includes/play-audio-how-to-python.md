@@ -141,7 +141,7 @@ text_to_play = "Welcome to Contoso"
 
 play_source = TextSource(text=text_to_play, voice_name="en-US-ElizabethNeural")
 
-call_automation_client.get_call_connection(call_connection_id).play_media_to_all(
+call_automation_client.get_call_connection(call_connection_id).play_media(
     play_source=play_source
 )
 ```
@@ -167,7 +167,7 @@ text_to_play = "Welcome to Contoso"
 
 play_source = TextSource(text=text_to_play, voice_name="en-US-ElizabethNeural")
 
-call_automation_client.get_call_connection(call_connection_id).play_media_to_all(
+call_automation_client.get_call_connection(call_connection_id).play_media(
     play_source=play_source, loop=True
 )
 ```
