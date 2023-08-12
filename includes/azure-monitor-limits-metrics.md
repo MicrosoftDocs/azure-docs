@@ -28,7 +28,8 @@ The following limits apply to the data collection rule (DCR) and data collection
 | Ingestion requests per minute to a data collection endpoint | 15,000<br>This limit can't be increased. |
 | Data ingestion per minute to a data collection endpoint | 50 GB<br>This limit can't be increased. |
 
-#### Queries 
+#### Queries
+
 Prometheus queries are created by using PromQL and can be authored in either Azure Managed Grafana or self-managed Grafana.
 
 | Limit | Value |
@@ -40,14 +41,14 @@ Prometheus queries are created by using PromQL and can be authored in either Azu
 | Minimum query step size<br>with time range >= 48 hours | 60 seconds. |
 
 **Query data limits**<br>
-Based on query time range and request type over a 30-second window (Interactive query):
+For client traffic:
 
 | Limit | Value |
 |:---|:---|
 | Throttling window lookup length | 30 seconds |
 | Data returned per Azure Monitor workspace | 0.5 GB |
 
-Based on query time range and request type over a 30-second window (non-interactive query):
+For recording rules traffic:
 
 | Limit | Value |
 |:---|:---|
@@ -55,7 +56,7 @@ Based on query time range and request type over a 30-second window (non-interact
 | Data returned per Azure Monitor workspace | 1 GB |
 
 **Query pre-parsing limits**<br>
-Based on query time range and request type over a 30-second window (Interactive query):
+Based on query time range and request type over a 30-second window (for client traffic):
 
 | Limit | Value |
 |:---|:---|
@@ -63,7 +64,7 @@ Based on query time range and request type over a 30-second window (Interactive 
 | Query hours per Azure Monitor workspace | 60,000 |
 | Query hours per Azure tenant | 600,000 |
 
-Based on query time range and request type over a 3-minute window (Non-interactive query):
+Based on query time range and request type over a 3-minute window (for recording rules traffic):
 
 | Limit | Value |
 |:---|:---|
@@ -71,7 +72,7 @@ Based on query time range and request type over a 3-minute window (Non-interacti
 | Query hours per Azure tenant | 600,000 |
 
 **Query post-parsing limits**<br>
-Based on query time range and range vectors in query over a 30-second window (Interactive query):
+Based on query time range and range vectors in query over a 30-second window (for client traffic):
 
 | Limit | Value |
 |:---|:---|
@@ -79,19 +80,12 @@ Based on query time range and range vectors in query over a 30-second window (In
 | Query hours per Azure Monitor workspace | 2,000,000 |
 | Query hours per Azure tenant | 20,000,000 |
 
-Based on query time range and range vectors in query over a 3-minute window (Non-interactive query):
+Based on query time range and range vectors in query over a 3-minute window (for recording rules traffic):
 
 | Limit | Value |
 |:---|:---|
 | Query hours per Azure Monitor workspace | 2,000,000 |
 | Query hours per Azure tenant | 20,000,000 |
-
-**Query cost throttling limits**<br>
-
-| Limit | Value |
-|:---|:---|
-| Maximum query cost per query | 15000 |
-| Maximum query cost for recording rules query | 3000 |
 
 
 #### Alert and recording rules 
