@@ -313,12 +313,14 @@ Set-AzPublicIpAddress -PublicIpAddress $publicIp
 Previously, we assigned the DNS name **myipv6appgw.westcentralus.cloudapp.azure.com** to the public IPv6 address of the application gateway. To test this connection:
 
 1. Using the Invoke-WebRequest cmdlet, issue a request to the IPv6 frontend.
-2. Check the response. A valid response of **myVM1** or **myVM2** verifies that the application gateway was successfully created and can successfully connect with the backend.  If you issue the command several times, the gateway will load balance and respond with each of the
+2. Check the response. A valid response of **myVM1** or **myVM2** verifies that the application gateway was successfully created and can successfully connect with the backend.  If you issue the command several times, the gateway will load balance and respond to subsequent requests from a different backend server.
 
 ```PowerShell
 PS C:\> (Invoke-WebRequest -Uri myipv6appgw.eastus.cloudapp.azure.com).Content
 myVM2
 ```
+> [!IMPORTANT]
+> If the connection to the DNS name or IPv6 address fails, it might be because you can't browse IPv6 addresses from your device. To check if this is your problem, also test the IPv4 address of the application gateway. If the IPv4 address connects successfully, then it's likely you don't have a public IPv6 address assigned to your device. If this is the case, you can try testing the connection with a [dual-stack VM](../virtual-network/ip-services/create-vm-dual-stack-ipv6-portal.md).
 
 ## Clean up resources
 
