@@ -109,7 +109,7 @@ From `function.json`, here is the binding data:
 
 ### [v4](#tab/javascript-v2)
 
-The Javascript v4 programming model example is not available in preview.
+The JavaScript v4 programming model example is not available in preview.
 
 ---
 

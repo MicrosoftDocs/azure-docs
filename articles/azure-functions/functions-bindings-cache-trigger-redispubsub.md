@@ -197,7 +197,7 @@ Here is binding data to listen to `keyevent` notifications for the delete comman
 ```
 ### [v4](#tab/javascript-v2)
 
-The Javascript v4 programming model example is not available in preview.
+The JavaScript v4 programming model example is not available in preview.
 
 ---
 ::: zone-end
