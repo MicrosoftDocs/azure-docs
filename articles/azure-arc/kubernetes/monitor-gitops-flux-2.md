@@ -104,29 +104,26 @@ Follow the steps below to create an alert. Example queries are provided to detec
 
    1. For **Threshold box**, select **A** for input type and set the threshold to **0** to receive alerts even if just one extension fails on the cluster. Mark this as the **Alert condition**.
 
-   1. Specify the alert evaluation interval:
+1. Specify the alert evaluation interval:
 
-      1. For **Condition**, select the query or expression to trigger the alert rule.
-      1. For **Evaluate every**, enter the evaluation frequency. The value must be a multiple of 10 seconds.
-      1. For **Evaluate for**, enter the duration for which the condition must be true before the alert is created.
-      1. In **Configure no data and error handling**, choose the desired behavior when the alert rule returns no data or returns an error.
-      1. To check the results from running the query, select **Preview**.
+   1. For **Condition**, select the query or expression to trigger the alert rule.
+   1. For **Evaluate every**, enter the evaluation frequency. The value must be a multiple of 10 seconds.
+   1. For **Evaluate for**, enter the duration for which the condition must be true before the alert is created.
+   1. In **Configure no data and error handling**, choose the desired behavior when the alert rule returns no data or returns an error.
+   1. To check the results from running the query, select **Preview**.
 
-      :::image type="content" source="media/monitor-gitops-flux2/application-dashboard-set-alerts.png" alt-text="Screenshot showing the alert creation process." lightbox="media/monitor-gitops-flux2/application-dashboard-set-alerts.png":::
+   :::image type="content" source="media/monitor-gitops-flux2/application-dashboard-set-alerts.png" alt-text="Screenshot showing the alert creation process." lightbox="media/monitor-gitops-flux2/application-dashboard-set-alerts.png":::
 
-   1. Add the storage location, rule group, and any additional metadata that you want to associate with the rule.
+1. Add the storage location, rule group, and any additional metadata that you want to associate with the rule.
 
-      1. For **Folder**, select the folder where the rule should be stored.
-      1. For **Group**, specify a pre-defined group.
-      1. Add a description and summary to customize alert messages.
-      1. Add Runbook URL, panel, dashboard, and alert IDs.
+   1. For **Folder**, select the folder where the rule should be stored.
+   1. For **Group**, specify a pre-defined group.
+   1. Add a description and summary to customize alert messages.
+   1. Add Runbook URL, panel, dashboard, and alert IDs.
 
-   1. If desired, add any custom labels, and then select **Save**.
+1. If desired, add any custom labels, and then select **Save**.
 
-Add custom labels selecting existing key-value pairs from the drop down, or add new labels by entering the new key or value .
-Click Save to save the rule or Save and exit to save the rule and go back to the Alerting page.
-
-Next, create a for the rule.
+You can also [configure contact points](https://grafana.com/docs/grafana/latest/alerting/alerting-rules/manage-contact-points/) and [configure notification policies](https://grafana.com/docs/grafana/latest/alerting/alerting-rules/create-notification-policy/) for your alerts.
 
 ## Monitor resource consumption and reconciliations
 
