@@ -41,7 +41,7 @@ These VM SKUs can be used for both worker and control plane nodes within the Azu
 
 ## Performance optimized VM SKUs
 
-| VM SKU Name   | CPU Core Count | RAM in GiB | Root Disk in GiB |
+| VM SKU Name   | vCPU | Memory (GiB) | Root Disk (GiB) |
 |---------------|----------------|------------|------------------|
 | NC_P46_224_v1 | 46             | 224        | 300              |
 | NC_P34_168_v1 | 34             | 168        | 300              |
