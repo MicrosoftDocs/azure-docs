@@ -44,7 +44,7 @@ public static void StreamsTrigger(
 
 ### [Isolated process](#tab/isolated-process)
 
-The isolated process examples are not available in preview.
+The isolated process examples aren't available in preview.
 
 ```csharp
 //TBD
@@ -81,7 +81,7 @@ The isolated process examples are not available in preview.
 
 Each sample uses the same `index.js` file, with binding data in the `function.json` file.
 
-Here is the `index.js` file:
+Here's the `index.js` file:
 
 ```javascript
 module.exports = async function (context, entry) {
@@ -89,7 +89,7 @@ module.exports = async function (context, entry) {
 }
 ```
 
-From `function.json`, here is the binding data:
+From `function.json`, here's the binding data:
 
 ```json
 {
@@ -112,7 +112,7 @@ From `function.json`, here is the binding data:
 
 ### [v4](#tab/javascript-v2)
 
-The JavaScript v4 programming model example is not available in preview.
+The JavaScript v4 programming model example isn't available in preview.
 
 ---
 
@@ -121,14 +121,14 @@ The JavaScript v4 programming model example is not available in preview.
 
 Each sample uses the same `run.ps1` file, with binding data in the `function.json` file.
 
-Here is the `run.ps1` file:
+Here's the `run.ps1` file:
 
 ```powershell
 param($entry, $TriggerMetadata)
 Write-Host ($entry | ConvertTo-Json)
 ```
 
-From `function.json`, here is the binding data:
+From `function.json`, here's the binding data:
 
 ```powershell
 {
@@ -158,7 +158,7 @@ The Python v1 programming model requires you to define bindings in a separate _f
 
 Each sample uses the same `__init__.py` file, with binding data in the `function.json` file.
 
-Here is the `__init__.py` file:
+Here's the `__init__.py` file:
 
 ```python
 import logging
@@ -167,7 +167,7 @@ def main(entry: str):
     logging.info(entry)
 ```
 
-From `function.json`, here is the binding data:
+From `function.json`, here's the binding data:
 
 ```json
 {
@@ -190,7 +190,7 @@ From `function.json`, here is the binding data:
 
 ### [v2](#tab/python-v2)
 
-The Python v2 programming model example is not available in preview.
+The Python v2 programming model example isn't available in preview.
 
 ---
 
@@ -219,7 +219,7 @@ The Python v2 programming model example is not available in preview.
 | `connectionStringSetting` | The name of the setting in the `appsettings` that contains cache connection string  For example: `<cacheName>.redis.cache.windows.net:6380,password=...` | Yes      |         |
 | `key`                     | Key to read from.                                                                                                                                        | Yes      |         |
 | `pollingIntervalInMs`     | How frequently to poll Redis, in milliseconds.                                                                                                           | Optional | `1000`  |
-| `messagesPerWorker`       | The number of messages each functions worker should process. It is used to determine how many workers the function should scale to                       | Optional | `100`   |
+| `messagesPerWorker`       | The number of messages each functions worker should process. It's used to determine how many workers the function should scale to                       | Optional | `100`   |
 | `count`                   | Number of entries to read from Redis at one time. These are processed in parallel.                                                                       | Optional | `10`    |
 | `deleteAfterProcess`      | Whether to delete the stream entries after the function has run.                                                                                         | Optional | `false` |
 
@@ -259,7 +259,7 @@ The consumer group for all function instances is the `ID` of the function. For e
 ::: zone pivot="programming-language-csharp"
 
 > [!NOTE]
-> Once the `RedisStreamTrigger` becomes generally available, the information below will be moved to a dedicated Output page.
+> Once the `RedisStreamTrigger` becomes generally available, the following information will be moved to a dedicated Output page.
 
 | Output Type                                                                                                                                           | Description                                                                                                                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -273,7 +273,7 @@ The consumer group for all function instances is the `ID` of the function. For e
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
 > [!NOTE]
-> Once the `RedisStreamTrigger` becomes generally available, the information below will be moved to a dedicated Output page.
+> Once the `RedisStreamTrigger` becomes generally available, the following information will be moved to a dedicated Output page.
 
 | Output Type | Description                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------|

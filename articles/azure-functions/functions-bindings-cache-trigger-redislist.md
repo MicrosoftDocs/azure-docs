@@ -45,7 +45,7 @@ public static void ListsTrigger(
 
 ### [Isolated process](#tab/isolated-process)
 
-The isolated process examples are not available in preview.
+The isolated process examples aren't available in preview.
 
 ---
 
@@ -78,7 +78,7 @@ The following sample polls the key `listTest` at a localhost Redis instance at `
 
 Each sample uses the same `index.js` file, with binding data in the `function.json` file.
 
-Here is the `index.js` file:
+Here's the `index.js` file:
 
 ```javascript
 module.exports = async function (context, entry) {
@@ -86,7 +86,7 @@ module.exports = async function (context, entry) {
 }
 ```
 
-From `function.json`, here is the binding data:
+From `function.json`, here's the binding data:
 
 ```javascript
 {
@@ -109,7 +109,7 @@ From `function.json`, here is the binding data:
 
 ### [v4](#tab/javascript-v2)
 
-The JavaScript v4 programming model example is not available in preview.
+The JavaScript v4 programming model example isn't available in preview.
 
 ---
 
@@ -118,7 +118,7 @@ The JavaScript v4 programming model example is not available in preview.
 
 Each sample uses the same `run.ps1` file, with binding data in the `function.json` file.
 
-Here is the `run.ps1` file:
+Here's the `run.ps1` file:
 
 ```powershell
 param($entry, $TriggerMetadata)
@@ -126,7 +126,7 @@ Write-Host $entry
 
 ```
 
-From `function.json`, here is the binding data:
+From `function.json`, here's the binding data:
 
 ```powershell
 {
@@ -156,7 +156,7 @@ Each sample uses the same `__init__.py` file, with binding data in the `function
 
 The Python v1 programming model requires you to define bindings in a separate _function.json_ file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
 
-Here is the `__init__.py` file:
+Here's the `__init__.py` file:
 
 ```python
 import logging
@@ -165,7 +165,7 @@ def main(entry: str):
     logging.info(entry)
 ```
 
-From `function.json`, here is the binding data:
+From `function.json`, here's the binding data:
 
 ```json
 {
@@ -188,7 +188,7 @@ From `function.json`, here is the binding data:
 
 ### [v2](#tab/python-v2)
 
-The Python v2 programming model example is not available in preview.
+The Python v2 programming model example isn't available in preview.
 
 ---
 
@@ -199,7 +199,7 @@ The Python v2 programming model example is not available in preview.
 
 | Parameter                 | Description                                                                                                                                                                                                                           | Required | Default |
 |---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|--------:|
-| `ConnectionStringSetting` | Name of the setting in the `appsettings` that holds the to the Redis cache connection string (eg `<cacheName>.redis.cache.windows.net:6380,password=...`).                                                                            | Yes      |         |
+| `ConnectionStringSetting` | Name of the setting in the `appsettings` that holds the cache connection string (for example, `<cacheName>.redis.cache.windows.net:6380,password=...`).                                                                            | Yes      |         |
 | `Key`                     | Key to read from. This field can be resolved using `INameResolver`.                                                                                                                                                                   | Yes      |         |
 | `PollingIntervalInMs`     | How often to poll Redis in milliseconds.                                                                                                                                                                                              | Optional | `1000`  |
 | `MessagesPerWorker`       | How many messages each functions instance should process. Used to determine how many instances the function should scale to.                                                                                                          | Optional | `100`   |
@@ -253,7 +253,7 @@ The `RedisListTrigger` pops new elements from a list and surfaces those entries 
 ::: zone pivot="programming-language-csharp"
 
 > [!NOTE]
-> Once the `RedisListTrigger` becomes generally available, the information below will be moved to a dedicated Output page.
+> Once the `RedisListTrigger` becomes generally available, the following information will be moved to a dedicated Output page.
 
 StackExchange.Redis.RedisValue
 
@@ -267,7 +267,7 @@ StackExchange.Redis.RedisValue
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
 > [!NOTE]
-> Once the `RedisListTrigger` becomes generally available, the information below will be moved to a dedicated Output page.
+> Once the `RedisListTrigger` becomes generally available, the following information will be moved to a dedicated Output page.
 
 | Output Type | Description                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------|
