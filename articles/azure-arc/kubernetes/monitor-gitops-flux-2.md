@@ -71,7 +71,7 @@ For example, in the **Flux Configuration Compliance Status** table, you can sele
 
 After you've imported the dashboard as described in the previous section, you can set up alerts. These alerts notify you when Flux extensions or Flux configurations experience failures.
 
-The steps below create an alert that detects a failure in extension provisioning or extension upgrade. The query below is one example that you can edit as needed. You can also create queries to detect failures in compliance state.
+Follow the steps below to create an alert. Example queries are provided to detect extension provisioning or extension upgrade failures, or to detect compliance state failures.
 
 1. In the left navigation menu of the dashboard, select **Alerting**.
 1. Select **Alert rules**.
@@ -82,7 +82,7 @@ The steps below create an alert that detects a failure in extension provisioning
    1. Select a data source. The same data source used for the dashboard may be used here.
    1. For **Service**, select **Azure Resource Graph**.
    1. Select the subscriptions from the dropdown list.
-   1. Enter this query:
+   1. Enter the query you want to use. For example, for extension provisioning or upgrade failures, you can enter this query:
 
       ```kusto
       kubernetesconfigurationresources
@@ -92,9 +92,41 @@ The steps below create an alert that detects a failure in extension provisioning
       | summarize count() by provisioningState
       ```
 
+      Or for compliance state failures, you can enter this query: 
+
+      ```kusto
+      kubernetesconfigurationresources
+      | where type == "microsoft.kubernetesconfiguration/fluxconfigurations"
+      | extend complianceState=tostring(properties.complianceState)
+      | where complianceState == "Non-Compliant"
+      | summarize count() by complianceState
+      ```
+
    1. For **Threshold box**, select **A** for input type and set the threshold to **0** to receive alerts even if just one extension fails on the cluster. Mark this as the **Alert condition**.
 
+   1. Specify the alert evaluation interval:
+
+      1. For **Condition**, select the query or expression to trigger the alert rule.
+      1. For **Evaluate every**, enter the evaluation frequency. The value must be a multiple of 10 seconds.
+      1. For **Evaluate for**, enter the duration for which the condition must be true before the alert is created.
+      1. In **Configure no data and error handling**, choose the desired behavior when the alert rule returns no data or returns an error.
+      1. To check the results from running the query, select **Preview**.
+
       :::image type="content" source="media/monitor-gitops-flux2/application-dashboard-set-alerts.png" alt-text="Screenshot showing the alert creation process." lightbox="media/monitor-gitops-flux2/application-dashboard-set-alerts.png":::
+
+   1. Add the storage location, rule group, and any additional metadata that you want to associate with the rule.
+
+      1. For **Folder**, select the folder where the rule should be stored.
+      1. For **Group**, specify a pre-defined group.
+      1. Add a description and summary to customize alert messages.
+      1. Add Runbook URL, panel, dashboard, and alert IDs.
+
+   1. If desired, add any custom labels, and then select **Save**.
+
+Add custom labels selecting existing key-value pairs from the drop down, or add new labels by entering the new key or value .
+Click Save to save the rule or Save and exit to save the rule and go back to the Alerting page.
+
+Next, create a for the rule.
 
 ## Monitor resource consumption and reconciliations
 
