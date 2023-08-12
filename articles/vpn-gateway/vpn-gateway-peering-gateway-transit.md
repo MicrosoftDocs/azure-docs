@@ -97,7 +97,7 @@ If the peering was already created, you can modify the peering for transit.
 
    * Traffic to remote virtual network: **Allow**
    * Traffic forwarded to virtual network; **Allow**
-   * Virtual network gateway: **Use remote virtual network's gateway**
+   * Virtual network gateway: **Use the remote virtual network's gateway**
 
      :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/modify-peering-settings.png" alt-text="Screenshot shows modify peering gateway." lightbox="./media/vpn-gateway-peering-gateway-transit/modify-peering-settings.png":::
 
