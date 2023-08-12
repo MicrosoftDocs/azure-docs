@@ -89,7 +89,7 @@ Protecting data is important for meeting organizational security and compliance 
 ## Compliance
 
 Azure compliance offerings are based on various types of assurances, including formal certifications. Also, attestations, validations, and authorizations. Assessments produced by independent third-party auditing firms.
-Contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. For HDInsight on AKS compliance information, see the Microsoft [Trust Center](https://www.microsoft.com/trust-center?rtc=1) and the [Overview of Microsoft Azure compliance](/samples/browse/redirectedfrom=TechNet-Gallery).
+Contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. For HDInsight on AKS compliance information, see the Microsoft [Trust Center](https://www.microsoft.com/trust-center?rtc=1) and the [Overview of Microsoft Azure compliance](/samples/browse/).
 
 ## Shared responsibility model
 
