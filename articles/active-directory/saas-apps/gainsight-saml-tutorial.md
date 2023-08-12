@@ -56,11 +56,11 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 3. Provide any dummy url like (https://gainsight.com) in the Identifier (Entity ID) and Reply URL (Assertion Consumer Service URL).
 4. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-   ![Screenshot shows the Certificate download link.](common/gs.certificatebase64.png "Certificate")
+   ![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
 
 5. On the **Set up Gainsight SAML** section, copy the **Login URL**.
 
-   ![Screenshot shows to copy configuration appropriate URL.](common/gs.copy-configuration-urls.png "Metadata")
+   ![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
 
 6. Now on the Gainsight Side, Navigate to **User Management** and click on **Authentication** tab, Create a New **SAML** Authentication.
 
@@ -71,21 +71,21 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     1. Login to your **Gainsight** Instance.  
     2. Click on the **search bar** on the left side.  
-       ![ Screenshot shows the Gainsight Left Nav Search Bar ](common/gs.searchbar.png "Searchbar")
+       ![ Screenshot shows the Gainsight Left Nav Search Bar ](media/gainsight-tutorial/searchbar.png "Searchbar")
     3. Type in **User Management** in the search bar then click on the **User Management** Page.  
-       ![ Screenshot shows the type in user and then clicks on the User Management Page ](common/gs.searchusermanagement.png "User Management Page Click")
+       ![ Screenshot shows the type in user and then clicks on the User Management Page ](media/gainsight-tutorial/searchusermanagement.png "User Management Page Click")
     4. Click on the **Authentication** tab
-       ![ Screenshot shows click on the authentication tab ](common/gs.usermanagementpage.png "Authentication Tab")
+       ![ Screenshot shows click on the authentication tab ](media/gainsight-tutorial/usermanagementpage.png "Authentication Tab")
     5. Click Add **AUTHENTICATION** and select **SAML**. The SAML Mechanism window appears.  
-       ![Screenshot shows the Gainsight User Management Authentication Page](common/gs.authenticationpage.png "Authentication Page")
+       ![Screenshot shows the Gainsight User Management Authentication Page](media/gainsight-tutorial/authenticationpage.png "Authentication Page")
 
     6. For more info on SAML creation click on the link - [GAINSIGHT SAML](https://support.gainsight.com/Gainsight_NXT/01Onboarding_and_Implementation/Onboarding_for_Gainsight_NXT/Login_and_Permissions/03Gainsight_Authentication)
 
 
 7. Provide a **Name**, **Email domain**, **Sign In URL** (Login URL obtained in previous Step), Upload the **certificate**(Obtained in previous step), Save the changes.  
-   ![Screenshot shows how to create SAML configuration in Gainsight.](common/gs.samlconnectioncreatepage.png "SAML Connection Create")
+   ![Screenshot shows how to create SAML configuration in Gainsight.](media/gainsight-tutorial/samlconnectioncreatepage.png "SAML Connection Create")
 8. Reopen the new **SAML** Authentication by click on edit on the newly created connection, and download the **metadata**. Open the **metadata** file in your favourite Editor, and copy **entityID** and **Assertion Consumer Service Location URL**.
-   ![Screenshot shows how to edit SAML configuration in Gainsight.](common/gs.samlconnectioneditpage.png "SAML Connection Edit")
+   ![Screenshot shows how to edit SAML configuration in Gainsight.](media/gainsight-tutorial/samlconnectioneditpage.png "SAML Connection Edit")
 9. Now back to Azure Portal, On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
