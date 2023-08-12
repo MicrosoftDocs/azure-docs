@@ -104,6 +104,8 @@ Follow the steps below to create an alert. Example queries are provided to detec
 
    1. For **Threshold box**, select **A** for input type and set the threshold to **0** to receive alerts even if just one extension fails on the cluster. Mark this as the **Alert condition**.
 
+   :::image type="content" source="media/monitor-gitops-flux2/application-dashboard-set-alerts.png" alt-text="Screenshot showing the alert creation process." lightbox="media/monitor-gitops-flux2/application-dashboard-set-alerts.png":::
+
 1. Specify the alert evaluation interval:
 
    1. For **Condition**, select the query or expression to trigger the alert rule.
@@ -111,8 +113,6 @@ Follow the steps below to create an alert. Example queries are provided to detec
    1. For **Evaluate for**, enter the duration for which the condition must be true before the alert is created.
    1. In **Configure no data and error handling**, choose the desired behavior when the alert rule returns no data or returns an error.
    1. To check the results from running the query, select **Preview**.
-
-   :::image type="content" source="media/monitor-gitops-flux2/application-dashboard-set-alerts.png" alt-text="Screenshot showing the alert creation process." lightbox="media/monitor-gitops-flux2/application-dashboard-set-alerts.png":::
 
 1. Add the storage location, rule group, and any additional metadata that you want to associate with the rule.
 
