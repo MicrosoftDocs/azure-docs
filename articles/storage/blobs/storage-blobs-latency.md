@@ -9,7 +9,6 @@ ms.service: storage
 ms.topic: overview
 ms.date: 09/05/2019
 ms.author: tamram
-ms.subservice: blobs
 ---
 
 # Latency in Blob storage

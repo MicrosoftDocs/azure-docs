@@ -10,15 +10,15 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/15/2023
-ms.custom: sdkv2, ignite-2022
+ms.custom: sdkv2, ignite-2022, build-2023, devx-track-python
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
 # Quickstart: Get started with Azure Machine Learning
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-This tutorial is an introduction to some of the most used features of the Azure Machine Learning service.  In it, you will create, register and deploy a model. This tutorial will help you become familiar with the core concepts of Azure Machine Learning and their most common usage. 
+This tutorial is an introduction to some of the most used features of the Azure Machine Learning service.  In it, you will create, register and deploy a model. This tutorial will help you become familiar with the core concepts of Azure Machine Learning and their most common usage.
 
 You'll learn how to run a training job on a scalable compute resource, then deploy it, and finally test the deployment.
 
@@ -34,6 +34,10 @@ The steps you'll take are:
 > * View the output of your training script
 > * Deploy the newly-trained model as an endpoint
 > * Call the Azure Machine Learning endpoint for inferencing
+
+Watch this video for an overview of the steps in this quickstart.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RW14vFs]
+
 
 ## Prerequisites
 
@@ -217,12 +221,14 @@ You might need to select **Refresh** to see the new folder and script in your **
 
 ## Create a compute cluster, a scalable way to run a training job
 
+> [!NOTE]
+> To try [serverless compute (preview)](./how-to-use-serverless-compute.md), skip this step and proceed to [configure the command](#configure-the-command).
+
 You already have a compute instance, which you're using to run the notebook.  Now you'll add a second type of compute, a **compute cluster** that you'll use to run your training job. While a compute instance is a single node machine, a compute cluster can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
 You'll provision a Linux compute cluster. See the [full list on VM sizes and prices](https://azure.microsoft.com/pricing/details/machine-learning/) .
 
 For this example, you only need a basic cluster, so you'll use a Standard_DS3_v2 model with 2 vCPU cores, 7-GB RAM.
-
 
 ```python
 from azure.ai.ml.entities import AmlCompute
@@ -241,6 +247,8 @@ except Exception:
     print("Creating a new cpu compute target...")
 
     # Let's create the Azure Machine Learning compute object with the intended parameters
+    # if you run into an out of quota error, change the size to a comparable VM that is available.\
+    # Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
     cpu_cluster = AmlCompute(
         name=cpu_compute_target,
         # Azure Machine Learning Compute is the on-demand VM service
@@ -273,6 +281,8 @@ Here, you'll create input variables to specify the input data, split ratio, lear
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
 * In this sample, we access the data from a file on the internet. 
 
+> [!NOTE]
+> To use [serverless compute (preview)](./how-to-use-serverless-compute.md), delete `compute="cpu-cluster"` in this code. Serverless is the simplest way to run jobs on AzureML.
 
 ```python
 from azure.ai.ml import command
@@ -293,7 +303,7 @@ job = command(
     code="./src/",  # location of source code
     command="python main.py --data ${{inputs.data}} --test_train_ratio ${{inputs.test_train_ratio}} --learning_rate ${{inputs.learning_rate}} --registered_model_name ${{inputs.registered_model_name}}",
     environment="AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest",
-    compute="cpu-cluster",
+    compute="cpu-cluster", #delete this line to use serverless compute
     display_name="credit_default_prediction",
 )
 ```
@@ -402,6 +412,9 @@ model = ml_client.models.get(name=registered_model_name, version=latest_model_ve
 
 # Expect this deployment to take approximately 6 to 8 minutes.
 # create an online deployment.
+# if you run into an out of quota error, change the instance_type to a comparable VM that is available.\
+# Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
+
 blue_deployment = ManagedOnlineDeployment(
     name="blue",
     endpoint_name=online_endpoint_name,
@@ -482,7 +495,7 @@ If you're not going to use it now, stop the compute instance:
 
 ### Delete all resources
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
 ## Next steps
 

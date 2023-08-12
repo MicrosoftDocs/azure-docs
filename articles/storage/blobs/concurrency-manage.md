@@ -5,11 +5,11 @@ description: Learn how to manage multiple writers to a blob by implementing eith
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 04/05/2023
 ms.author: pauljewell
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---

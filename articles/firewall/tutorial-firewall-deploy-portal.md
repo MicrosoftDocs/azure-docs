@@ -59,7 +59,7 @@ First, create a resource group to contain the resources needed to deploy the fir
 
 The resource group contains all the resources used in this procedure.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Then select **Create**.
 4. For **Subscription**, select your subscription.
 1. For **Resource group** name, type **Test-FW-RG**.
@@ -286,4 +286,5 @@ You can keep your firewall resources to continue testing, or if no longer needed
 
 ## Next steps
 
-[Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+- [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+- [Learn more about Azure network security](../networking/security/index.yml)

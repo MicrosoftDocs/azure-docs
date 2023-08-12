@@ -4,10 +4,10 @@ description: Azure Cosmos DB's point-in-time restore feature helps to recover da
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2023
+ms.date: 04/15/2023
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: references_regions, cosmos-db-video, ignite-2022
+ms.custom: references_regions, cosmos-db-video, ignite-2022, build-2023
 ---
 
 # Continuous backup with point-in-time restore in Azure Cosmos DB
@@ -20,7 +20,6 @@ Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios incl
 * Restoring a deleted account, database, or a container.
 * Restoring into any region (where backups existed) at the restore point in time.
 
->
 > [!VIDEO https://aka.ms/docs.continuous-backup-restore]
 
 Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database. Continuous backups are taken in every region where the account exists. For example, an account can have a write region in West US and read regions in East US and East US 2. These replica regions can then be backed up to a remote Azure Storage account in each respective region. By default, each region stores the backup in Locally Redundant storage accounts. If the region has [Availability zones](/azure/architecture/reliability/architect) enabled  then the backup is stored in Zone-Redundant storage accounts.
@@ -39,7 +38,10 @@ Currently, you can restore an Azure Cosmos DB account (API for NoSQL or MongoDB,
 
 By default, Azure Cosmos DB stores continuous mode backup data in locally redundant storage blobs. For the regions that have zone redundancy configured, the backup is stored in zone-redundant storage blobs. In continuous backup mode, you can't update the backup storage redundancy.
 
-## What is restored?
+## Different ways to restore
+Continuous backup mode supports two ways to restore deleted containers and databases. They can be restored into a [new account](restore-account-continuous-backup.md) as documented here or can be restored into an existing account as described [here](restore-account-continuous-backup.md). The choice between these two depends on the scenarios and impact. In most cases it is preferred to restore deleted containers and databases into an existing account to prevent the cost of data transfer which is required in the case they are restored to a new account. For scenarios where you have modified the data accidentally restore into new account could be the prefered option. 
+
+## What is restored into a new account?
 
 In a steady state, all mutations performed on the source account (which includes databases, containers, and items) are backed up asynchronously within 100 seconds. If the Azure Storage backup media is down or unavailable, the mutations are persisted locally until the media is available. Then the mutations are flushed out to prevent any loss in fidelity of operations that can be restored.
 
@@ -53,8 +55,7 @@ You can choose to restore any combination of provisioned throughput containers, 
 The following configurations aren't restored after the point-in-time recovery:
 
 * Firewall, VNET, Data plane RBAC or private endpoint settings. 
-* Consistency settings, by default - account is restored with session consistency.
-* Regions.
+* All the Regions from the source account.
 * Stored procedures, triggers, UDFs.
 * Role-based access control assignments. These will need to be re-assigned.
 
@@ -135,7 +136,7 @@ Currently the point in time restore functionality has the following limitations:
 
 * The restored account is created in the same region where your source account exists. You can't restore an account into a region where the source account didn't exist.
 
-* The restore window is only 30-day for continuous 30-day tier and it can't be changed. Similarly it's only 7-day for continuous 7-day tier and that also can't be changed.
+* The restore window is only 30 days for continuous 30-day tier and seven days for continuous 7-day tier. These tiers can be switched, but the actual quantities (``7`` or ``30``) can't be changed. Furthermore, if you switch from 30-day tier to 7-day tier, there's the potential for data loss on days beyond the seventh.
 
 * The backups aren't automatically geo-disaster resistant. You've to explicitly add another region to have resiliency for the account and the backup.
 

@@ -2,7 +2,7 @@
 title: Deploy updates and track results in update management center (preview).
 description: The article details how to use update management center (preview) in the Azure portal to deploy updates and view results for supported machines.
 ms.service: update-management-center
-ms.date: 12/27/2022
+ms.date: 05/31/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -33,7 +33,7 @@ Update management center (preview) is available in all [Azure public regions](su
 
 To install one time updates on a single VM, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In **Update management center (preview)**, **Overview**, choose your **Subscription** and select **One-time update** to install updates.
 
@@ -102,7 +102,7 @@ To install one time updates on a single VM, follow these steps:
 ---
 
 ## Install updates at scale
- 
+
 To create a new update deployment for multiple machines, follow these steps:
 
 >[!NOTE]
@@ -113,7 +113,7 @@ You can schedule updates
 # [From Overview blade](#tab/install-scale-overview) 
 
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In **Update management center (Preview)**, **Overview**, choose your **Subscription**, select **One-time update**, and **Install now** to install updates.
 
@@ -128,7 +128,7 @@ The **Machines** displays a list of machines for which you can deploy one-time u
 
 # [From Machines blade](#tab/install-scale-machines) 
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Go to **Machines**, select your subscription and choose your machines. You can choose **Select all** to select  all the machines. 
 

@@ -276,6 +276,6 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 For more information, see:
 
-* [SDK v1 - Tune Hyperparameters](./v1/how-to-tune-hyperparameters-v1.md)
+* [SDK v1 - Tune Hyperparameters](./v1/how-to-tune-hyperparameters.md)
 * [SDK v2 - Tune Hyperparameters](/python/api/azure-ai-ml/azure.ai.ml.sweep)
 * [SDK v2 - Sweep in Pipeline](how-to-use-sweep-in-pipeline.md)

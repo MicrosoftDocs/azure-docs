@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 12/10/2021
 ms.author: tamram
 ms.reviewer: nachakra
-ms.subservice: blobs
 ms.custom: contperf-fy21q1
 ---
 

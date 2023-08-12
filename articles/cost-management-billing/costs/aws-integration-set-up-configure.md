@@ -262,4 +262,4 @@ AWS linked accounts always inherit permissions from the management group that th
 
 - Now that you've set up and configured AWS Cost and Usage report integration, continue to [Manage AWS costs and usage](aws-integration-manage.md).
 - If you're unfamiliar with cost analysis, see [Explore and analyze costs with cost analysis](quick-acm-cost-analysis.md) quickstart.
-- If you're unfamiliar with budgets in Azure, see [Create and manage Azure budgets](tutorial-acm-create-budgets.md).
+- If you're unfamiliar with budgets in Azure, see [Create and manage budgets](tutorial-acm-create-budgets.md).

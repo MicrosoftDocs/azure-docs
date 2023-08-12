@@ -79,7 +79,7 @@ These match conditions are designed to identify requests based on the requester'
 | [AS Number](https://docs.vdms.com/cdn/Content/HRE/M/AS-Number.htm) | Identifies requests that originate from a particular network. |
 | City Name | Identifies requests by whether they originate from a city whose name matches a: <br> **-** Specific value ([City Name Literal](https://docs.vdms.com/cdn/Content/HRE/M/City-Name-Literal.htm)) <br> **-** Regular expression ([City Name Regex](https://docs.vdms.com/cdn/Content/HRE/M/City-Name-Regex.htm)) |
 | [Continent](https://docs.vdms.com/cdn/Content/HRE/M/Continent.htm) | Identifies requests that originate from the specified continents. |
-| [Country](https://docs.vdms.com/cdn/Content/HRE/M/Country.htm) | Identifies requests that originate from the specified countries. |
+| [Country](https://docs.vdms.com/cdn/Content/HRE/M/Country.htm) | Identifies requests that originate from the specified countries/regions. |
 | [DMA Code](https://docs.vdms.com/cdn/Content/HRE/M/DMA-Code.htm) | Identifies requests that originate from the specified metros (Designated Market Areas). |
 | [Latitude](https://docs.vdms.com/cdn/Content/HRE/M/Latitude.htm) | Identifies requests that originate from the specified latitudes. |
 | [Longitude](https://docs.vdms.com/cdn/Content/HRE/M/Longitude.htm) | Identifies requests that originate from the specified longitudes. |

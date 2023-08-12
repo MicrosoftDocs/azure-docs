@@ -139,10 +139,14 @@ For example, if you anticipate that storage will continue to grow, you may choos
 
 In contrast, if you believe that storage will not grow significantly post-migration, you may choose to set the value higher, for example 45 GB. This means each partition will be ~90% full (45 GB out of 50 GB). This minimizes the number of physical partitions your data is spread across, which means each physical partition can get a larger fraction of the total provisioned RU/s. 
  
-### Step 3: Calculate the number of RU/s to start with
-`Starting RU/s = Number of physical partitions * Initial throughput per physical partition`.
-- `Initial throughput per physical partition` = 10,000 RU/s when using autoscale or shared throughput databases
-- `Initial throughput per physical partition` = 6000 RU/s when using manual throughput 
+### Step 3: Calculate the number of RU/s to start with for all partitions
+
+`Starting RU/s for all partitions = Number of physical partitions * Initial throughput per physical partition`.
+
+Let's start with an example with an arbitrary number of target RU/s per physical partition.
+
+- `Initial throughput per physical partition` = 10,000 RU/s per physical partition when using autoscale or shared throughput databases
+- `Initial throughput per physical partition` = 6000 RU/s per physical partition when using manual throughput 
  
 ### Example
 Let's say we have 1 TB (1000 GB) of data we plan to ingest and we want to use manual throughput. Each physical partition in Azure Cosmos DB has a capacity of 50 GB. Let's assume we aim to pack partitions to be 80% full (40 GB), leaving us room for future growth. 

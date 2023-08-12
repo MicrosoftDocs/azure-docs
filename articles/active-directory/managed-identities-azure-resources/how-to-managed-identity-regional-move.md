@@ -9,7 +9,7 @@ ms.subservice: msi
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/26/2022
+ms.date: 05/25/2023
 ms.author: barclayn
 ms.custom: subject-moving-resources
 #Customer intent: As an Azure administrator, I want to move a solution using managed identities from one Azure region to another one. 
@@ -20,7 +20,7 @@ ms.custom: subject-moving-resources
 
 There are situations in which you'd want to move your existing user-assigned managed identities from one region to another. For example, you may need to move a solution that uses user-assigned managed identities to another region. You may also want to move an existing identity to another region as part of disaster recovery planning, and testing.
 
-Moving User-assigned managed identities across Azure regions is not supported.  You can however, recreate a user-assigned managed identity in the target region.
+Moving User-assigned managed identities across Azure regions isn't supported.  You can however, recreate a user-assigned managed identity in the target region.
 
 ## Prerequisites
 

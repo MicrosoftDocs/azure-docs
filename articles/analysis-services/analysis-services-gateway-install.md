@@ -7,8 +7,7 @@ ms.topic: conceptual
 ms.date: 01/27/2023
 ms.author: owend
 ms.reviewer: minewiskan 
-ms.custom: devx-track-azurepowershell
-
+ms.custom:
 ---
 # Install and configure an on-premises data gateway
 

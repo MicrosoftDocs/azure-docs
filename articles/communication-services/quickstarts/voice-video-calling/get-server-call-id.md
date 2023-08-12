@@ -5,6 +5,7 @@ author: dbasantes
 title: Get server Call ID
 ms.author: dbasantes
 ms.service: azure-communication-services
+ms.custom: devx-track-js
 description: This section describes how to get the serverCallid from a JavaScript server app
 ---
 

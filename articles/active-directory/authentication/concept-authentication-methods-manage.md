@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/10/2023
+ms.date: 05/19/2023
 
 ms.author: justinha
 author: justinha
@@ -42,8 +42,8 @@ Only the [converged registration experience](concept-registration-mfa-sspr-combi
 
 Two other policies, located in **Multifactor authentication** settings and **Password reset** settings, provide a legacy way to manage some authentication methods for all users in the tenant. You can't control who uses an enabled authentication method, or how the method can be used. A [Global Administrator](../roles/permissions-reference.md#global-administrator) is needed to manage these policies. 
 
->[!NOTE]
->Hardware OATH tokens and security questions can only be enabled today by using these legacy policies. In the future, these methods will be available in the Authentication methods policy.
+>[!Important]
+>In March 2023, we announced the deprecation of managing authentication methods in the legacy multifactor authentication (MFA) and self-service password reset (SSPR) policies. Beginning September 30, 2024, authentication methods can't be managed in these legacy MFA and SSPR policies. We recommend customers use the manual migration control to migrate to the Authentication methods policy by the deprecation date.
 
 To manage the legacy MFA policy, click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings**.
 
@@ -78,7 +78,7 @@ Similarly, let's suppose you enable **Voice calls** for a group. After you enabl
 The Authentication methods policy provides a migration path toward unified administration of all authentication methods. All desired methods can be enabled in the Authentication methods policy. Methods in the legacy MFA and SSPR policies can be disabled. Migration has three settings to let you move at your own pace, and avoid problems with sign-in or SSPR during the transition. After migration is complete, you'll centralize control over authentication methods for both sign-in and SSPR in a single place, and the legacy MFA and SSPR policies will be disabled.
 
 >[!Note]
->Controls in the Authentication methods policy for Hardware OATH tokens and security questions are coming soon, but not yet available. If you are using hardware OATH tokens, which are currently in public preview, you should hold off on migrating OATH tokens and do not complete the migration process. If you are using security questions, and don't want to disable them, make sure to keep them enabled in the legacy SSPR policy until the new control is available in the future.
+>Hardware OATH tokens and security questions can only be enabled today by using these legacy policies. In the future, these methods will be available in the Authentication methods policy. If you use hardware OATH tokens, which are currently in preview, you should hold off on migrating OATH tokens and don't complete the migration process. If you're using security questions, and don't want to disable them, make sure to keep them enabled in the legacy SSPR policy until the new control is available in the future.
 
 To view the migration options, open the Authentication methods policy and click **Manage migration**.
 

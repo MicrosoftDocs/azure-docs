@@ -4,9 +4,10 @@ description: Learn how you can use Azure Backup to send data off the network by 
 ms.reviewer: saurse
 ms.topic: how-to
 ms.date: 12/05/2022
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
+
 # Offline seeding for MARS using customer-owned disks with Azure Import/Export
 
 This article describes how to send the initial full backup data from MARS to Azure using customer-owned disks instead of sending it via the network. Learn about [sending the initial full backup data from DPM/MABS to Azure using customer-owned disks](backup-azure-backup-server-import-export.md).

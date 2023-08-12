@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Data Manager for Energy Preview - How to convert a segy to ovds file
+title: Microsoft Azure Data Manager for Energy - How to convert a segy to ovds file
 description: This article explains how to convert a SGY file to oVDS file format
 author: elizabethhalper
 ms.author: elhalper
@@ -15,13 +15,11 @@ In this article, you will learn how to convert SEG-Y formatted data to the Open 
 
 [OSDU&trade; SEG-Y to oVDS conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-vds-conversion/-/tree/release/0.15)
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## Prerequisites
 
 1. Download and install [Postman](https://www.postman.com/) desktop app.
 2. Import the [oVDS Conversions.postman_collection](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M9/Azure-M9/Services/DDMS/oVDS_Conversions.postman_collection.json) into Postman. All curl commands used below are added to this collection. Update your Environment file accordingly
-3. Ensure that an Azure Data Manager for Energy Preview instance is created already
+3. Ensure that an Azure Data Manager for Energy instance is created already
 4. Clone the **sdutil** repo as shown below:
 
   ```markdown
@@ -66,7 +64,7 @@ In this article, you will learn how to convert SEG-Y formatted data to the Open 
         empty: none
     ```
 
-3. Run **sdutil** to see if it's working fine. Follow the directions in [Setup and Usage for Azure env](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable#setup-and-usage-for-azure-env). Understand that depending on your OS and Python version, you may have to run `python3` command as opposed to `python`.
+3. Run **sdutil** to see if it's working fine. Follow the directions in [Setup and Usage for Azure env](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/home/-/tree/master). Understand that depending on your OS and Python version, you may have to run `python3` command as opposed to `python`.
 
     > [!NOTE] 
     > when running `python sdutil config init`, you don't need to enter anything when prompted with `Insert the azure (azureGlabEnv) application key:`.

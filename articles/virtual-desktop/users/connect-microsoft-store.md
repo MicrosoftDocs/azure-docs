@@ -3,7 +3,7 @@ title: Connect to Azure Virtual Desktop with the Remote Desktop app for Windows 
 description: Learn how to connect to Azure Virtual Desktop using the Remote Desktop app for Windows.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 06/12/2023
 ms.author: daknappe
 ---
 
@@ -12,9 +12,9 @@ ms.author: daknappe
 The Microsoft Remote Desktop app is used to connect to Azure Virtual Desktop to access your desktops and applications. This article shows you how to connect to Azure Virtual Desktop with the Remote Desktop app for Windows.
 
 > [!IMPORTANT]
-> We're no longer updating the Remote Desktop app for Windows with new features.
->
-> For the best Azure Virtual Desktop experience that includes the latest features and updates, we recommend you download the [Azure Virtual Desktop Store app for Windows](connect-windows-azure-virtual-desktop-app.md) instead.
+> We're no longer updating the Remote Desktop app for Windows with new features and support for Azure Virtual Desktop will be removed in the future.
+> 
+> For the best Azure Virtual Desktop experience that includes the latest features and updates, we recommend you download the [Windows Desktop client](connect-windows.md) instead.
 
 You can find a list of all the Remote Desktop clients at [Remote Desktop clients overview](remote-desktop-clients-overview.md).
 
@@ -47,7 +47,7 @@ A workspace combines all the desktops and applications that have been made avail
    |--|--|
    | Azure cloud *(most common)* | `https://rdweb.wvd.microsoft.com` |
    | Azure US Gov | `https://rdweb.wvd.azure.us/api/arm/feeddiscovery` |
-   | Azure China 21Vianet | `https://rdweb.wvd.azure.cn/api/arm/feeddiscovery` |
+   | Azure operated by 21Vianet | `https://rdweb.wvd.azure.cn/api/arm/feeddiscovery` |
 
 1. Select **Subscribe**.
 

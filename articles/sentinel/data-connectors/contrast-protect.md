@@ -3,14 +3,14 @@ title: "Contrast Protect connector for Microsoft Sentinel"
 description: "Learn how to install the connector Contrast Protect to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 05/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Contrast Protect connector for Microsoft Sentinel
 
-Contrast Protect mitigates security threats in production applications with runtime protection and observability.  Attack event results (blocked, probed, suspicious...) and other information can be sent to Microsoft Microsoft Sentinel to blend with security information from other systems.
+Contrast Protect mitigates security threats in production applications with runtime protection and observability.  Attack event results (blocked, probed, suspicious...) and other information can be sent to Microsoft Sentinel to blend with security information from other systems.
 
 ## Connector attributes
 
@@ -78,7 +78,7 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 
    Run the following command to install and apply the CEF collector:
 
-   sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py python cef_installer.py {0} {1}
+   `sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}`
 
 2. Forward Common Event Format (CEF) logs to Syslog agent
 
@@ -100,7 +100,7 @@ If the logs are not received, run the following connectivity validation script:
 
    Run the following command to validate your connectivity:
 
-   sudo wget  -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py python cef_troubleshoot.py  {0}
+   `sudo wget  -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py  {0}`
 
 4. Secure your machine 
 

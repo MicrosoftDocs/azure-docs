@@ -8,7 +8,7 @@ adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-node_uiex
 ms.devlang: javascript
-ms.custom: mode-api, vscode-azure-extension-update-complete
+ms.custom: mode-api, vscode-azure-extension-update-complete, devx-track-js
 zone_pivot_groups: functions-nodejs-model
 ---
 

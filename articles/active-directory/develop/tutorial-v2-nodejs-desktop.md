@@ -7,6 +7,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: devx-track-js
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: cwerner
@@ -173,7 +174,7 @@ The Microsoft Graph API requires the *user.read* scope to read a user's profile.
 
 As you add scopes, your users might be prompted to provide another consent for the added scopes.
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

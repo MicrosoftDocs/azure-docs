@@ -4,7 +4,8 @@ description: Learn how to access a lab in Azure DevTest Labs, and claim, connect
 ms.topic: tutorial
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/30/2022
+ms.date: 05/22/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Tutorial: Access a lab in Azure DevTest Labs

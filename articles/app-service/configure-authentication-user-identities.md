@@ -17,7 +17,7 @@ For all language frameworks, App Service makes the claims in the incoming token 
 |------------------------------|-----------------------------------------------------------------------|
 | `X-MS-CLIENT-PRINCIPAL`      | A Base64 encoded JSON representation of available claims. See [Decoding the client principal header](#decoding-the-client-principal-header) for more information.   |
 | `X-MS-CLIENT-PRINCIPAL-ID`   | An identifier for the caller set by the identity provider.            |
-| `X-MS-CLIENT-PRINCIPAL-NAME` | A human-readable name for the caller set by the identity provider.    |
+| `X-MS-CLIENT-PRINCIPAL-NAME` | A human-readable name for the caller set by the identity provider, e.g. Email Address, User Principal Name.   |
 | `X-MS-CLIENT-PRINCIPAL-IDP`  | The name of the identity provider used by App Service Authentication. |
 
 Provider tokens are also exposed through similar headers. For example, the Microsoft Identity Provider also sets `X-MS-TOKEN-AAD-ACCESS-TOKEN` and `X-MS-TOKEN-AAD-ID-TOKEN` as appropriate.
@@ -110,7 +110,7 @@ public static class ClaimsPrincipalParser
          *  other .NET code.
          */
 
-        var identity = new ClaimsIdentity(principal.IdentityProvider);
+        var identity = new ClaimsIdentity(principal.IdentityProvider, principal.NameClaimType, principal.RoleClaimType);
         identity.AddClaims(principal.Claims.Select(c => new Claim(c.Type, c.Value)));
         
         return new ClaimsPrincipal(identity);
@@ -125,6 +125,9 @@ For ASP.NET 4.6 apps, App Service populates [ClaimsPrincipal.Current](/dotnet/ap
 For [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` is not populated for .NET code, but you can still find the user claims in the request headers, or get the `ClaimsPrincipal` object from the request context or even through a binding parameter. See [working with client identities in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) for more information.
 
 For .NET Core, [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) supports populating the current user with App Service authentication. To learn more, you can read about it on the [Microsoft.Identity.Web wiki](https://github.com/AzureAD/microsoft-identity-web/wiki/1.2.0#integration-with-azure-app-services-authentication-of-web-apps-running-with-microsoftidentityweb), or see it demonstrated in [this tutorial for a web app accessing Microsoft Graph](./scenario-secure-app-access-microsoft-graph-as-user.md?tabs=command-line#install-client-library-packages).
+
+> [!NOTE]
+> For claims mapping to work, you must enable the [Token store](overview-authentication-authorization.md#token-store).
 
 ## Access user claims using the API
 

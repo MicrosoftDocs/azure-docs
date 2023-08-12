@@ -9,7 +9,7 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 03/07/2022
 ms.reviewer: mjbrown
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Perform bulk operations on Azure Cosmos DB data

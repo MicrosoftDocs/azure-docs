@@ -64,7 +64,9 @@ select * from pgaadauth_list_principals(true);
 ## Create a role using Azure AD principal name
 
 ```sql
-select * from pgaadauth_create_principal('mary@contoso.com', false, false);
+select * from pgaadauth_create_principal('<roleName>', <isAdmin>, <isMfa>);
+
+For example: select * from pgaadauth_create_principal('mary@contoso.com', false, false);
 ```
 
 **Parameters:**
@@ -77,7 +79,9 @@ select * from pgaadauth_create_principal('mary@contoso.com', false, false);
 ## Create a role using Azure AD object identifier
 
 ```sql
-select * from pgaadauth_create_principal_with_oid('accounting_application', '00000000-0000-0000-0000-000000000000', 'service', false, false);
+select * from pgaadauth_create_principal_with_oid('<roleName>', '<objectId>', '<objectType>', <isAdmin>, <isMfa>);
+
+For example: select * from pgaadauth_create_principal_with_oid('accounting_application', '00000000-0000-0000-0000-000000000000', 'service', false, false);
 ```
 
 **Parameters:**
@@ -85,7 +89,7 @@ select * from pgaadauth_create_principal_with_oid('accounting_application', '000
 - *objectId* - Unique object identifier of the Azure AD object:
    - For **Users**, **Groups** and **Managed Identities** the ObjectId can be found by searching for the object name in Azure AD page in Azure portal. [See this guide as example](/partner-center/find-ids-and-domain-names)
    - For **Applications**, Objectid of the corresponding **Service Principal** must be used. In Azure portal the required ObjectId can be found on **Enterprise Applications** page.
-- *objectType* - Type of the Azure AD object to link to this role.
+- *objectType* - Type of the Azure AD object to link to this role: service, user, group.
 - *isAdmin* - Set to **true** if when creating an admin user and **false** for a regular user. Admin user created this way has the same privileges as one created via portal or API.
 - *isMfa* - Flag if Multi Factor Authentication must be enforced for this role.
 

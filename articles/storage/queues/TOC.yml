@@ -122,7 +122,7 @@
       - name: Logs
         href: ../common/storage-analytics-logging.md?toc=/azure/storage/queues/toc.json
       - name: Monitor, diagnose, and troubleshoot
-        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=/azure/storage/queues/toc.json
+        href: /troubleshoot/azure/azure-storage/storage-monitoring-diagnosing-troubleshooting
 - name: How to
   items:
   - name: Create and manage storage accounts
@@ -222,18 +222,6 @@
       href: ../common/storage-use-azurite.md?toc=/azure/storage/queues/toc.json
     - name: Use the Azure Storage emulator (deprecated)
       href: ../common/storage-use-emulator.md?toc=/azure/storage/queues/toc.json
-  - name: Develop with queues
-    items:
-    - name: .NET
-      href: storage-dotnet-how-to-use-queues.md
-    - name: Java
-      href: storage-java-how-to-use-queue-storage.md
-    - name: Python
-      href: storage-python-how-to-use-queue-storage.md
-    - name: Node.js
-      href: storage-nodejs-how-to-use-queues.md
-    - name: C++
-      href: storage-c-plus-plus-how-to-use-queues.md
   - name: Manage queues
     items:
     - name: PowerShell for Azure Queues
@@ -251,13 +239,13 @@
   - name: Troubleshoot
     items:
     - name: Performance
-      href: ../common/troubleshoot-storage-performance.md?toc=/azure/storage/queues/toc.json
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-performance
     - name: Availability
-      href: ../common/troubleshoot-storage-availability.md?toc=/azure/storage/queues/toc.json
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-availability
     - name: Client errors
-      href: ../common/troubleshoot-storage-client-application-errors.md?toc=/azure/storage/queues/toc.json
+      href: /troubleshoot/azure/azure-storage/troubleshoot-storage-client-application-errors
     - name: Latency issues
-      href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=/azure/storage/queues/toc.json
+      href: /troubleshoot/azure/azure-storage/troubleshoot-latency-storage-analytics-logs
 - name: Reference
   items:
   - name: APIs for data access
@@ -304,7 +292,7 @@
     - name: Storage Explorer release notes
       href: https://github.com/microsoft/AzureStorageExplorer/releases
     - name: Troubleshoot Storage Explorer
-      href: ../common/storage-explorer-troubleshooting.md?toc=/azure/storage/queues/toc.json
+      href: /troubleshoot/azure/azure-storage/storage-explorer-troubleshooting
     - name: Storage Explorer accessibility
       href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=/azure/storage/queues/toc.json
   - name: Queue storage on Microsoft Q&A
@@ -367,15 +355,15 @@
         href: https://github.com/Azure/azure-storage-python
   - name: Code samples using deprecated SDKs
     items:
-      - name: .NET
-        items:
-          - name: Version 11.x samples
-            href: queues-v11-samples-dotnet.md
-          - name: Design highly available applications (.NET version 11.x)
-            href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/queues/toc.json
-      - name: Java version 8 samples
-        href: queues-v8-samples-java.md
-      - name: Python version 2 samples
-        href: queues-v2-samples-python.md
+    - name: .NET
+      items:
+      - name: Version 11.x samples
+        href: queues-v11-samples-dotnet.md
+      - name: Design highly available applications (.NET version 11.x)
+        href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/queues/toc.json
+    - name: Java version 8 samples
+      href: queues-v8-samples-java.md
+    - name: Python version 2 samples
+      href: queues-v2-samples-python.md
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md

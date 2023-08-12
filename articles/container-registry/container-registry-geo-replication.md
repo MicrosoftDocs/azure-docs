@@ -1,7 +1,7 @@
 ---
 title: Geo-replicate a registry
 description: Get started creating and managing a geo-replicated Azure container registry, which enables the registry to serve multiple regions with multi-primary regional replicas. Geo-replication is a feature of the Premium service tier.
-author: stevelas
+author: tejaswikolli-web
 ms.topic: article
 ms.author: tejaswikolli
 ms.date: 10/11/2022
@@ -76,7 +76,7 @@ Geo-replication is a feature of [Premium registries](container-registry-skus.md)
 
 ![Switching service tiers in the Azure portal](media/container-registry-skus/update-registry-sku.png)
 
-To configure geo-replication for your Premium registry, log in to the Azure portal at https://portal.azure.com.
+To configure geo-replication for your Premium registry, sign in to the [Azure portal](https://portal.azure.com).
 
 Navigate to your Azure Container Registry, and select **Replications**:
 

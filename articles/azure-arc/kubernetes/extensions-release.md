@@ -30,7 +30,7 @@ For more information, see [Understand Azure Policy for Kubernetes clusters](../.
 
 ## Azure Key Vault Secrets Provider
 
-- **Supported distributions**: AKS on Azure Stack HCI, AKS hybrid clusters provisioned from Azure, Cluster API Azure, Google Kubernetes Engine,  Canonical Kubernetes Distribution, OpenShift Kubernetes Distribution, Amazon Elastic Kubernetes Service, VMWare Tanzu Kubernetes Grid
+- **Supported distributions**: AKS on Azure Stack HCI, AKS hybrid clusters provisioned from Azure, Cluster API Azure, Google Kubernetes Engine,  Canonical Kubernetes Distribution, OpenShift Kubernetes Distribution, Amazon Elastic Kubernetes Service, VMware Tanzu Kubernetes Grid
 
 The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of Azure Key Vault as a secrets store with a Kubernetes cluster via a CSI volume. For Azure Arc-enabled Kubernetes clusters, you can install the Azure Key Vault Secrets Provider extension to fetch secrets.
 
@@ -38,7 +38,7 @@ For more information, see [Use the Azure Key Vault Secrets Provider extension to
 
 ## Microsoft Defender for Containers
 
-- **Supported distributions**: AKS hybrid clusters provisioned from Azure, Cluster API Azure, Azure Red Hat OpenShift, Red Hat OpenShift (version 4.6 or newer), Google Kubernetes Engine Standard, Amazon Elastic Kubernetes Service, VMWare Tanzu Kubernetes Grid, Rancher Kubernetes Engine, Canonical Kubernetes Distribution
+- **Supported distributions**: AKS hybrid clusters provisioned from Azure, Cluster API Azure, Azure Red Hat OpenShift, Red Hat OpenShift (version 4.6 or newer), Google Kubernetes Engine Standard, Amazon Elastic Kubernetes Service, VMware Tanzu Kubernetes Grid, Rancher Kubernetes Engine, Canonical Kubernetes Distribution
 
 Microsoft Defender for Containers is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications. It gathers information related to security like audit log data from the Kubernetes cluster, and provides recommendations and threat alerts based on gathered data.
 
@@ -50,7 +50,7 @@ For more information, see [Enable Microsoft Defender for Containers](../../defen
 
 ## Azure Arc-enabled Open Service Mesh
 
-- **Supported distributions**: AKS, AKS on Azure Stack HCI, AKS hybrid clusters provisioned from Azure, Cluster API Azure, Google Kubernetes Engine, Canonical Kubernetes Distribution, Rancher Kubernetes Engine, OpenShift Kubernetes Distribution, Amazon Elastic Kubernetes Service, VMWare Tanzu Kubernetes Grid
+- **Supported distributions**: AKS, AKS on Azure Stack HCI, AKS hybrid clusters provisioned from Azure, Cluster API Azure, Google Kubernetes Engine, Canonical Kubernetes Distribution, Rancher Kubernetes Engine, OpenShift Kubernetes Distribution, Amazon Elastic Kubernetes Service, VMware Tanzu Kubernetes Grid
 
 [Open Service Mesh (OSM)](https://docs.openservicemesh.io/) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 
@@ -97,7 +97,7 @@ With the integration between Azure API Management and Azure Arc on Kubernetes, y
 For more information, see [Deploy an Azure API Management gateway on Azure Arc (preview)](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md).
 
 > [!IMPORTANT]
-> API Management self-hosted gateway on Azure Arc is currently in public preview. During preview, the API Management gateway extension is available in the following regions: West Europe, East US.
+> API Management self-hosted gateway on Azure Arc is currently in public preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Azure Arc-enabled Machine Learning

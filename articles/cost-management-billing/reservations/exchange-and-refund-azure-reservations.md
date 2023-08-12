@@ -7,7 +7,7 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 05/03/2023
+ms.date: 08/08/2023
 ms.author: banders
 ---
 
@@ -43,7 +43,7 @@ The following reservations aren't eligible for refunds:
 
 ## How to exchange or refund an existing reservation
 
-You can exchange your reservation from [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+You can exchange your reservation from the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 1. Select the reservations that you want to refund and select **Exchange**.  
     [![Example image showing reservations to return](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png#lightbox)
@@ -58,7 +58,7 @@ To refund a reservation, go to **Reservation Details** and select **Refund**.
 
 You can return similar types of reservations in one action.
 
-When you exchange reservations, the new purchase currency amount must be greater than the refund amount. If your new purchase amount is less than the refund amount, an error message appears. If you see the error, reduce the quantity that you want to return, or increase the amount to purchase.
+When you exchange reservations, the new purchase currency amount must be greater than the refund amount. You can exchange any number of reservations for other allowed reservations if the currency amount is greater or equal to returned (exchanged) reservations. If your new purchase amount is less than the refund amount, an error message appears. If you see the error, reduce the quantity you want to return or increase the amount to purchase.
 
 1. Sign in to the Azure portal and navigate to **Reservations**.
 1. In the list of reservations, select the box for each reservation that you want to exchange.
@@ -80,11 +80,11 @@ If you're exchanging for a different size, series, region or payment frequency, 
 
 Microsoft cancels the existing reservation. Then the pro-rated amount for that reservation is refunded. If there's an exchange, the new purchase is processed. Microsoft processes refunds using one of the following methods, depending on your account type and payment method.
 
-### Enterprise agreement customers
+### Enterprise Agreement customers
 
 Money is added to the Azure Prepayment (previously called monetary commitment) for exchanges and refunds if the original purchase was made using one. If the Azure Prepayment term using the reservation was purchased is no longer active, then credit is added to your current enterprise agreement Azure Prepayment term. The credit is valid for 90 days from the date of refund. Unused credit expires at the end of 90 days.
 
-If the original purchase was made as an overage, the original invoice on which the reservation was purchased and all later invoices are reopened and readjusted. Microsoft issues a credit memo for the refunds.
+If the original reservation purchase was made from an overage, the refund is returned to you as a partial credit note. The refund doesn’t affect the original or later invoices.
 
 ### Pay-as-you-go invoice payments and CSP program
 

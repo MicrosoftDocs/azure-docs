@@ -14,7 +14,7 @@ ms.custom: UpdateFrequency5, data4ml, sdkv1, event-tier1-build-2022
 ---
 # Collect data from models in production
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 This article shows how to collect data from an Azure Machine Learning model deployed on an Azure Kubernetes Service (AKS) cluster. The collected data is then stored in Azure Blob storage.
 
@@ -74,13 +74,13 @@ The path to the output data in the blob follows this syntax:
 - If you don't have an Azure subscription, create a
  [free account](https://azure.microsoft.com/free/) before you begin.
 
-- An Azure Machine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python must be installed. To learn how to install them, see [How to configure a development environment](how-to-configure-environment-v1.md).
+- An Azure Machine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python must be installed. To learn how to install them, see [How to configure a development environment](how-to-configure-environment.md).
 
 - You need a trained machine-learning model to be deployed to AKS. If you don't have a model, see the [Train image classification model](../tutorial-train-deploy-notebook.md) tutorial.
 
 - You need an AKS cluster. For information on how to create one and deploy to it, see [Deploy machine learning models to Azure](how-to-deploy-and-where.md).
 
-- [Set up your environment](how-to-configure-environment-v1.md) and install the [Azure Machine Learning Monitoring SDK](/python/api/overview/azure/ml/install).
+- [Set up your environment](how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](/python/api/overview/azure/ml/install).
 
 - Use a docker image based on Ubuntu 18.04, which is shipped with `libssl 1.0.0`, the essential dependency of [modeldatacollector](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector). You can refer to [prebuilt images](../concept-prebuilt-docker-images-inference.md).
 

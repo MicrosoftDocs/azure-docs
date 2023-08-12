@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.devlang: cpp
 author: savjani
 ms.author: pariks
-ms.custom: mvc, mode-api
+ms.custom: mvc, mode-api, devx-track-dotnet
 ms.date: 06/20/2022
 ---
 

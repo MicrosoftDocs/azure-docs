@@ -5,6 +5,7 @@ description: Learn how to get started prototyping and developing machine learnin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: devx-track-python
 ms.topic: tutorial
 author: lebaro-msft
 ms.author: lebaro
@@ -244,7 +245,7 @@ If you're not going to use it now, stop the compute instance:
 
 ### Delete all resources
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
 ## Next steps
 

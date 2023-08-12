@@ -15,11 +15,13 @@ This article describes how to stream and filter logs in both the CEF and Syslog 
 - You're using a Linux log collector to forward both Syslog and CEF events to your Microsoft Sentinel workspaces using the Azure Monitor Agent (AMA). 
 - You want to ingest Syslog events in the Syslog table and CEF events in the CommonSecurityLog table.
 
-During this process, you use the AMA and Data Collection Rules (DCRs). With DCRs, you can filter the logs before they're ingested, for quicker upload, efficient analysis, and querying. Data Collection Rules (DCRs) to filter the logs before they're ingested, for quicker upload, efficient analysis, and querying.
+During this process, you use the AMA and Data Collection Rules (DCRs). With DCRs, you can filter the logs before they're ingested, for quicker upload, efficient analysis, and querying. 
+
+Learn how to [collect Syslog with the Azure Monitor Agent](../azure-monitor/agents/data-collection-syslog.md), including how to configure Syslog and create a DCR.
 
 > [!IMPORTANT]
 >
-> On **February 28th 2023**, we will introduce [changes to the CommonSecurityLog table schema](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232). This means that custom queries will require being reviewed and updated. Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) will be updated by Microsoft Sentinel.   
+> On **February 28th 2023**, we introduced changes to the CommonSecurityLog table schema. Following this change, you might need to review and update custom queries. For more details, see the [recommended actions section](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232) in this blog post. Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) has been updated by Microsoft Sentinel.   
 
 Read more about [CEF](connect-cef-ama.md#what-is-cef-collection) and [Syslog](connect-syslog.md#architecture) collection in Microsoft Sentinel. 
 
@@ -31,6 +33,7 @@ Before you begin, verify that you have:
 - A defined Microsoft Sentinel workspace.
 - A Linux machine to collect logs.
     - The Linux machine must have Python 2.7 or 3 installed on the Linux machine. Use the ``python --version`` or ``python3 --version`` command to check.
+    - For space requirements for your log forwarder, see the [Azure Monitor Agent Performance Benchmark](../azure-monitor/agents/azure-monitor-agent-performance.md). You can also review this blog post, which includes [designs for scalable ingestion](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/designs-for-accomplishing-microsoft-sentinel-scalable-ingestion/ba-p/3741516).
 - Either the `syslog-ng` or `rsyslog` daemon enabled.
 - To collect events from any system that isn't an Azure virtual machine, ensure that [Azure Arc](../azure-monitor/agents/azure-monitor-agent-manage.md) is installed.
 - To ingest Syslog and CEF logs into Microsoft Sentinel, you can designate and configure a Linux machine that collects the logs from your devices and forwards them to your Microsoft Sentinel workspace. [Configure a log forwarder](connect-cef-ama.md#configure-a-log-forwarder).
@@ -42,11 +45,11 @@ Using the same facility for both Syslog and CEF messages may result in data inge
 To avoid this scenario, use one of these methods:
 
 - **If the source device enables configuration of the target facility**: On each source machine that sends logs to the log forwarder in CEF format, edit the Syslog configuration file to remove the facilities used to send CEF messages. This way, the facilities sent in CEF won't also be sent in Syslog. Make sure that each DCR you configure in the next steps uses the relevant facility for CEF or Syslog respectively.
-- **If changing the facility for the source appliance isn't applicable**: Use an ingest time transformation to filter out CEF messages from the Syslog stream to avoid duplication:
+- **If changing the facility for the source appliance isn't applicable**: Use an ingest time transformation to filter out CEF messages from the Syslog stream to avoid duplication. The data will be sent twice from the collector machine to the workspace:
 
     ```kusto
     source |
-    where ProcessName !contains “\“CEF\””
+    where ProcessName !contains \"CEF\"
     ```
 ## Create a DCR for your CEF logs
 
@@ -75,7 +78,7 @@ Create the DCR for your Syslog-based logs using the Azure Monitor [guidelines](.
 1. Run this command to launch the installation script:
  
     ```python
-    sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py 
+    sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python3 Forwarder_AMA_installer.py 
     ```
     The installation script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon.  
 

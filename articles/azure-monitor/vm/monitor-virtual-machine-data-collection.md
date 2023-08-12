@@ -43,9 +43,18 @@ Because your Azure Monitor cost is dependent on how much data you collect, ensur
 
 [!INCLUDE [azure-monitor-cost-optimization](../../../includes/azure-monitor-cost-optimization.md)]
 
-A typical virtual machine generates between 1 GB and 3 GB of data per month. This data size depends on the configuration of the machine, the workloads running on it, and the configuration of your DCRs. Before you configure data collection across your entire virtual machine environment, begin collection on some representative machines to better predict your expected costs when deployed across your environment. Use log queries in [Data volume by computer](../logs/analyze-usage.md#data-volume-by-computer) to determine the amount of billable data collected for each machine and adjust accordingly.
+A typical virtual machine generates between 1 GB and 3 GB of data per month. This data size depends on the configuration of the machine, the workloads running on it, and the configuration of your DCRs. Before you configure data collection across your entire virtual machine environment, begin collection on some representative machines to better predict your expected costs when deployed across your environment. Use [Log Analytics workspace insights](../logs/log-analytics-workspace-insights-overview.md) or log queries in [Data volume by computer](../logs/analyze-usage.md#data-volume-by-computer) to determine the amount of billable data collected for each machine and adjust accordingly.
 
-Each data source that you collect might have a different method for filtering out unwanted data. You can use [transformations](../essentials/data-collection-transformations.md) to implement more granular filtering and also to filter data from columns that provide little value. For example, you might have a Windows event that's valuable for alerting, but it includes columns with redundant or excessive data. You can create a transformation that allows the event to be collected but removes this excessive data.
+Evaluate collected data and filter out any that meets the following criteria to reduce your costs. Each data source that you collect may have a different method for filtering out unwanted data. See the sections below for the details each of the common data sources.
+- Not used for alerting.
+- No known forensic or diagnostic value.
+- Not required by regulators.
+- Not used in any dashboards or workbooks.
+
+
+You can also use [transformations](../essentials/data-collection-transformations.md) to implement more granular filtering and also to filter data from columns that provide little value. For example, you might have a Windows event that's valuable for alerting, but it includes columns with redundant or excessive data. You can create a transformation that allows the event to be collected but removes this excessive data.
+
+Filter data as much as possible before it's sent to Azure Monitor to avoid a [potential charge for filtering too much data using transformations](../essentials/data-collection-transformations.md#cost-for-transformations). Use [transformations](../essentials/data-collection-transformations.md) for record filtering using complex logic and for filtering columns with data that you don't require. 
 
 ## Default data collection
 Azure Monitor automatically performs the following data collection without requiring any other configuration.

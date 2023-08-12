@@ -1,7 +1,7 @@
 ---
 title: Link your partner ID to track your impact on delegated resources
 description: Associate your partner ID to receive partner earned credit (PEC) on customer resources you manage through Azure Lighthouse.
-ms.date: 06/22/2022
+ms.date: 05/23/2023
 ms.topic: how-to
 ---
 
@@ -13,7 +13,7 @@ To earn recognition for Azure Lighthouse activities, you'll need to [link your p
 
 ## Associate your partner ID when you onboard new customers
 
-Use the following process to link your partner ID (and enable partner earned credit, if applicable). You'll need to know your [partner ID](/partner-center/partner-center-account-setup#locate-your-partnerd) to complete these steps. Be sure to use the **Associated Partner ID** shown on your partner profile.
+Use the following process to link your partner ID (and enable partner earned credit, if applicable). You'll need to know your [partner ID](/partner-center/partner-center-account-setup#locate-your-partnerid) to complete these steps. Be sure to use the **Associated Partner ID** shown on your partner profile.
 
 For simplicity, we recommend creating a service principal account in your tenant, linking it to your **Associated Partner ID**, then granting it an [Azure built-in role that is eligible for PEC](/partner-center/azure-roles-perms-pec) to every customer that you onboard.
 

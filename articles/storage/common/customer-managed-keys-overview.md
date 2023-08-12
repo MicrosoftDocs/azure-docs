@@ -5,12 +5,12 @@ description: You can use your own encryption key to protect the data in your sto
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.date: 05/11/2023
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23
 ---
 

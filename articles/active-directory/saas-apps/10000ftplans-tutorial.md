@@ -81,9 +81,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     c. In the **Sign-on URL** text box, type the URL:
     ` https://rm.smartsheet.com`
 
-	> [!NOTE]
-	> The value for **Identifier** is different if you have a custom domain. Contact [10,000ft Plans Client support team](https://www.10000ft.com/plans/support) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, select the copy icon to copy **App Federation Metadata Url**. Save it on your computer.
 
 	![Screenshot of SAML Signing Certificate, with copy icon highlighted](common/copy-metadataurl.png)
@@ -135,9 +132,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ### Create 10000ft Plans test user
 
 In this section, a user called Britta Simon is created in 10,000ft Plans. 10,000ft Plans supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in 10,000ft Plans, a new one is created after authentication.
-
-> [!NOTE]
-> If you need to create a user manually, you need to contact the [10,000ft Plans Client support team](https://www.10000ft.com/plans/support).
 
 ## Test SSO
 

@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.date: 03/10/2022
 ms.topic: quickstart
 ms.service: container-instances
-ms.custom: subject-armqs, devx-track-js, mode-arm, devx-track-bicep
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Deploy a container instance in Azure using Bicep

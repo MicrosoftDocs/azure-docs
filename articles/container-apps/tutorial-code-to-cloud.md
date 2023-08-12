@@ -4,6 +4,7 @@ description: Build and deploy your app to Azure Container Apps with az container
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 05/11/2022
 ms.author: cshoe

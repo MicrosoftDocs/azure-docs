@@ -6,7 +6,7 @@ author: rajeevmv
 ms.author: ravokkar
 ms.service: iot
 ms.topic: conceptual
-ms.date: 04/24/2023
+ms.date: 06/27/2023
 ms.custom:  [amqp, mqtt]
 ---
 
@@ -54,7 +54,7 @@ If a device can't use the device SDKs, it can still connect to the public device
 
 The following list contains DPS implementation-specific behaviors:
 
- * DPS doesn't support persistent sessions. It treats every session as nonpersistent, regardless of the value of the **CleanSession** flag. We recommend setting **CleanSession** to true.
+ * DPS doesn't support persistent sessions. It treats every session as non-persistent, regardless of the value of the **CleanSession** flag. We recommend setting **CleanSession** to true.
 
  * When a device app subscribes to a topic with **QoS 2**, DPS grants maximum QoS level 1 in the **SUBACK** packet. After that, DPS delivers messages to the device using QoS 1.
 
@@ -80,6 +80,8 @@ When connecting over Websocket, specify the subprotocol as `mqtt`. Follow [RFC 6
 ## Next steps
 
 To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt.org/).
+
+To browse sample MQTT code, see [MQTT application samples](https://github.com/Azure-Samples/MqttApplicationSamples).
 
 To further explore the capabilities of DPS, see:
 

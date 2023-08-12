@@ -3,7 +3,7 @@ title: Troubleshoot resource access denied in Privileged Identity Management
 description: Learn how to troubleshoot system errors with roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 10/07/2021
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---

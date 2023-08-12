@@ -122,9 +122,6 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
 
 ## Next steps
 
-* [Create or modify a Direct peering by using the portal](howto-direct-portal.md)
-* [Convert a legacy Direct peering to an Azure resource by using the portal](howto-legacy-direct-portal.md)
-
-## Additional resources
-
-For more information, see [Internet peering FAQs](faqs.md).
+- [Create or modify a Direct peering by using the portal](howto-direct-portal.md).
+- [Convert a legacy Direct peering to an Azure resource by using the portal](howto-legacy-direct-portal.md).
+- [Internet peering frequently asked questions (FAQ)](faqs.md).

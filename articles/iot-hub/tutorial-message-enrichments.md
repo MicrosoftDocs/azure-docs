@@ -1,11 +1,12 @@
 ---
-title: Tutorial - Use Azure IoT Hub message enrichments
+title: Tutorial - Use message enrichments
+titleSuffix: Azure IoT Hub
 description: Tutorial showing how to use message enrichments for Azure IoT Hub messages
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 07/29/2022
+ms.date: 05/11/2023
 ms.author: kgremban
 ms.custom: "mqtt, devx-track-azurecli, devx-track-csharp"
 # Customer intent: As a customer using Azure IoT Hub, I want to add information to the messages that come through my IoT hub and are sent to another endpoint. For example, I'd like to pass the IoT hub name to the application that reads the messages from the final endpoint, such as Azure Storage.
@@ -60,7 +61,7 @@ In [the first part](tutorial-routing.md#create-a-storage-account) of this tutori
 
    :::image type="content" source="./media/tutorial-message-enrichments/create-storage-container.png" alt-text="Screenshot of creating a storage container.":::
 
-1. Name the container *enriched* and select **Create**.
+1. Name the container `enriched`, and select **Create**.
 
 # [Azure CLI](#tab/cli)
 
@@ -103,29 +104,24 @@ Create a second endpoint and route for the enriched messages.
 
 # [Azure portal](#tab/portal)
 
-1. In the Azure portal, navigate to your IoT hub.
+1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
 
-1. Select **Message Routing** from the **Hub settings** section of the menu.
+1. In the resource menu under **Hub settings**,  select **Message routing** then select **Add**.
 
-1. In the **Routes** tab, select **Add**.
+   :::image type="content" source="media/tutorial-routing/message-routing-add.png" alt-text="Screenshot that shows location of the Add button, to add a new route in your IoT hub.":::
 
-   :::image type="content" source="./media/tutorial-message-enrichments/add-route.png" alt-text="Screenshot of adding a new message route.":::
-
-1. Select **Add endpoint** next to the **Endpoint** field, then select **Storage** from the dropdown menu.
-
-   :::image type="content" source="./media/tutorial-message-enrichments/add-storage-endpoint.png" alt-text="Screenshot of adding a new endpoint for a route.":::
-
-1. Provide the following information for the new storage endpoint:
+1. On the **Endpoint** tab, create a Storage endpoint by providing the following information:
 
    | Parameter | Value |
    | --------- | ----- |
-   | **Endpoint name** | ContosoStorageEndpointEnriched |
-   | **Azure Storage container** | Select **Pick a container**, which takes you to a list of storage accounts. Choose the storage account that you created in the previous section, then choose the **enriched** container that you created in that account. Select **Select**.|
+   | **Endpoint type** | Select **Storage**. |
+   | **Endpoint name** | Enter `ContosoStorageEndpointEnriched`. |
+   | **Azure Storage container** | Select **Pick a container**. Follow the prompts to select the storage account and **enriched** container that you created in the previous section. |
    | **Encoding** | Select **JSON**. If this field is greyed out, then your storage account region doesn't support JSON. In that case, continue with the default **AVRO**. |
 
    :::image type="content" source="./media/tutorial-message-enrichments/create-storage-endpoint.png" alt-text="Screenshot showing selecting a container for an endpoint.":::
 
-1. Accept the default values for the rest of the parameters and select **Create**.
+1. Accept the default values for the rest of the parameters and select **Create + next**.
 
 1. Continue creating the new route, now that you've added the storage endpoint. Provide the following information for the new route:
 
@@ -138,7 +134,7 @@ Create a second endpoint and route for the enriched messages.
 
    :::image type="content" source="./media/tutorial-message-enrichments/create-storage-route.png" alt-text="Screenshot showing saving routing query information.":::
 
-1. Select **Save**.
+1. Select **Create + add enrichments**.
 
 # [Azure CLI](#tab/cli)
 
@@ -185,33 +181,21 @@ Create three message enrichments that will be routed to the **enriched** storage
 
 # [Azure portal](#tab/portal)
 
-1. In the Azure portal, navigate to your IoT hub.
+1. On the **Enrichment** tab of the **Add a route** wizard, add three message enrichments for the messages going to the endpoint for the storage container called **enriched**.
 
-1. Select **Message routing** for the IoT hub.
+   Add these values as message enrichments for the ContosoStorageEndpointEnriched endpoint:
 
-   :::image type="content" source="./media/tutorial-message-enrichments/select-iot-hub.png" alt-text="Screenshot that shows how to select message routing.":::
+   | Name | Value |
+   | ---- | ----- |
+   | myIotHub | `$hubname` |
+   | DeviceLocation | `$twin.tags.location` (assumes that the device twin has a location tag) |
+   | customerID | `6ce345b8-1e4a-411e-9398-d34587459a3a` |
 
-   The message routing pane has three tabs labeled **Routes**, **Custom endpoints**, and **Enrich messages**.
-
-1. Select the **Enrich messages** tab to add three message enrichments for the messages going to the endpoint for the storage container called **enriched**.
-
-1. For each message enrichment, fill in the name and value, and then select the endpoint **ContosoStorageEndpointEnriched** from the drop-down list. Here's an example of how to set up an enrichment that adds the IoT hub name to the message:
-
-   :::image type="content" source="./media/tutorial-message-enrichments/add-message-enrichments.png" alt-text="Screenshot that shows adding the first enrichment.":::
-
-   Add these values to the list for the ContosoStorageEndpointEnriched endpoint:
-
-   | Name | Value | Endpoint |
-   | ---- | ----- | -------- |
-   | myIotHub | `$hubname` | ContosoStorageEndpointEnriched |
-   | DeviceLocation | `$twin.tags.location` (assumes that the device twin has a location tag) | ContosoStorageEndpointEnriched |
-   | customerID | `6ce345b8-1e4a-411e-9398-d34587459a3a` | ContosoStorageEndpointEnriched |
-
-   When you're finished, your pane should look similar to this image:
+   When you're finished, your enrichments should look similar to this image:
 
    :::image type="content" source="./media/tutorial-message-enrichments/all-message-enrichments.png" alt-text="Screenshot of table with all enrichments added.":::
 
-1. Select **Apply** to save the changes.
+1. Select **Add** to add the message enrichments.
 
 # [Azure CLI](#tab/cli)
 
@@ -252,12 +236,12 @@ Follow these steps to add a location tag to your device's twin:
 
 1. Navigate to your IoT hub in the Azure portal.
 
-1. Select **Devices** on the left-pane of the IoT hub, then select your device.
+1. Select **Devices** on the navigation menu of the IoT hub, then select your device.
 
 1. Select the **Device twin** tab at the top of the device page and add the following line just before the closing brace at the bottom of the device twin. Then select **Save**.
 
     ```json
-    		, "tags": {"location": "Plant 43"}
+      , "tags": {"location": "Plant 43"}
     ```
 
     :::image type="content" source="./media/tutorial-message-enrichments/add-location-tag-to-device-twin.png" alt-text="Screenshot of adding location tag to device twin in Azure portal.":::

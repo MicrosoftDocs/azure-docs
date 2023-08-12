@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/10/2023
+ms.date: 08/09/2023
 ms.author: rolyon
 ---
 
@@ -52,11 +52,11 @@ Job function roles allow management of specific Azure resources. For example, th
 
 Privileged administrator roles are roles that grant privileged administrator access, such as the ability to manage Azure resources or assign roles to other users. The following roles are considered privileged and apply to all resource types.
 
-| Role | Description |
+| Azure role | Permissions |
 | --- | --- |
-| [Owner](built-in-roles.md#owner) | Grants full access to manage all resources, including the ability to assign roles in Azure RBAC. |
-| [Contributor](built-in-roles.md#contributor) | Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries. |
-| [User Access Administrator](built-in-roles.md#user-access-administrator) | Lets you manage user access to Azure resources. |
+| [Owner](built-in-roles.md#owner) | <ul><li>Grants full access to manage all resources</li><li>Assign roles in Azure RBAC</li></ul> |
+| [Contributor](built-in-roles.md#contributor) | <ul><li>Grants full access to manage all resources</li><li>Can't assign roles in Azure RBAC</li><li>Can't manage assignments in Azure Blueprints or share image galleries</li></ul> |
+| [User Access Administrator](built-in-roles.md#user-access-administrator) | <ul><li>Manage user access to Azure resources</li><li>Assign roles in Azure RBAC</li><li>Assign themselves or others the Owner role</li></ul> |
 
 It's a best practice to grant users the least privilege to get their work done. You should avoid assigning a privileged administrator role when a job function role can be assigned instead. If you must assign a privileged administrator role, use a narrow scope, such as resource group or resource, instead of a broader scope, such as management group or subscription.
 
@@ -89,7 +89,7 @@ If you are using a service principal to assign roles, you might get the error "I
 
 Once you know the security principal, role, and scope, you can assign the role. You can assign roles using the Azure portal, Azure PowerShell, Azure CLI, Azure SDKs, or REST APIs.
 
-You can have up to **4000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. You can have up to **500** role assignments in each management group. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md#limits).
+You can have up to **4000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. You can have up to **500** role assignments in each management group. For more information, see [Troubleshoot Azure RBAC limits](troubleshoot-limits.md).
 
 Check out the following articles for detailed steps for how to assign roles.
 

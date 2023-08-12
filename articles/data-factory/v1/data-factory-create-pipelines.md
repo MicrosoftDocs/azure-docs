@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
 ms.date: 04/12/2023
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Pipelines and Activities in Azure Data Factory

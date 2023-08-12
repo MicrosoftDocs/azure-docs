@@ -96,6 +96,10 @@
       href: ../connectors/compare-built-in-azure-connectors.md
     - name: Edit host and app settings for logic apps in single-tenant
       href: edit-app-settings-host-settings.md
+    - name: Create and run .NET Framework code
+      href: create-run-custom-code-functions.md
+    - name: Enable stateful mode for stateless built-in connectors
+      href: ../connectors/enable-stateful-affinity-built-in-connectors.md
     - name: DevOps deployment for single-tenant
       href: devops-deployment-single-tenant-azure-logic-apps.md
     - name: Set up DevOps deployment for single-tenant
@@ -284,7 +288,7 @@
         href: logic-apps-enterprise-integration-liquid-transform.md
     - name: Troubleshoot B2B errors
       href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
-  - name: Connectors - In-depth topics
+  - name: Connectors - How-to guides
     items:
     - name: AS2
       href: logic-apps-enterprise-integration-as2.md
@@ -324,8 +328,6 @@
       href: logic-apps-enterprise-integration-flatfile.md
     - name: FTP
       href: ../connectors/connectors-create-api-ftp.md
-    - name: GitHub
-      href: ../connectors/connectors-create-api-github.md
     - name: Gmail - Google data security & privacy policies
       href: ../connectors/connectors-google-data-security-privacy-policy.md
     - name: HTTP
@@ -359,7 +361,13 @@
     - name: RosettaNet
       href: logic-apps-enterprise-integration-rosettanet.md
     - name: SAP
-      href: logic-apps-using-sap-connector.md
+      items:
+      - name: Prerequisites and setup
+        href: logic-apps-using-sap-connector.md
+      - name: Create common example workflows
+        href: sap-create-example-scenario-workflows.md
+      - name: Generate schemas for SAP artifacts
+        href: sap-generate-schemas-for-artifacts.md
     - name: SFTP - SSH
       href: ../connectors/connectors-sftp-ssh.md
     - name: Sliding Window
@@ -428,6 +436,8 @@
         href: monitor-b2b-messages-log-analytics.md
       - name: Create monitoring and tracking queries
         href: create-monitoring-tracking-queries.md
+      - name: Tracking schemas for monitoring messages
+        href: tracking-schemas-as2-x12-custom.md
   - name: Business continuity and disaster recovery
     items:
     - name: Set up zone redundant logic apps
@@ -482,14 +492,6 @@
         href: workflow-definition-language-functions-reference.md
       - name: GA - Schema history
         href: logic-apps-schema-2016-04-01.md
-  - name: Tracking schemas
-    items:
-      - name: AS2 tracking schema
-        href: logic-apps-track-integration-account-as2-tracking-schemas.md
-      - name: X12 tracking schema
-        href: logic-apps-track-integration-account-x12-tracking-schema.md
-      - name: Custom tracking schema
-        href: logic-apps-track-integration-account-custom-tracking-schema.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

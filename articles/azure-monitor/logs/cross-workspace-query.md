@@ -4,7 +4,7 @@ description: This article describes how you can query against resources from mul
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/01/2023
+ms.date: 05/30/2023
 
 ---
 
@@ -24,8 +24,8 @@ There are two methods to query data that's stored in multiple workspaces and app
 
 ## Cross-resource query limits
 
-* The number of Application Insights resources and Log Analytics workspaces that you can include in a single query is limited to 100.
-* Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch).
+* The number of Application Insights components and Log Analytics workspaces that you can include in a single query is limited to 100.
+* Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../alerts/alerts-log-api-switch.md).
 * References to a cross resource, such as another workspace, should be explicit and can't be parameterized. See [Identify workspace resources](#identify-workspace-resources) for examples.
 
 ## Query across Log Analytics workspaces and from Application Insights
@@ -33,13 +33,13 @@ To reference another workspace in your query, use the [workspace](../logs/worksp
 
 ### Identify workspace resources
 
-You can identify a workspace in one of several ways:
+You can identify a workspace using one of these IDs:
 
 * **Workspace ID**: A workspace ID is the unique, immutable, identifier assigned to each workspace represented as a globally unique identifier (GUID).
 
     `workspace("00000000-0000-0000-0000-000000000000").Update | count`
 
-* **Azure Resource ID**: This ID is the Azure-defined unique identity of the workspace. You use the Resource ID when the resource name is ambiguous. For workspaces, the format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/workspaceName*.
+* **Azure Resource ID**: This ID is the Azure-defined unique identity of the workspace. For workspaces, the format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/workspaceName*.
 
     For example:
 
@@ -50,13 +50,13 @@ You can identify a workspace in one of several ways:
 ### Identify an application
 The following examples return a summarized count of requests made against an app named *fabrikamapp* in Application Insights.
 
-You can identify an application in Application Insights with the `app(Identifier)` expression. The `Identifier` argument specifies the app by using one of the following IDs:
+You can identify an app using one of these IDs:
 
 * **ID**: This ID is the app GUID of the application.
 
     `app("00000000-0000-0000-0000-000000000000").requests | count`
 
-* **Azure Resource ID**: This ID is the Azure-defined unique identity of the app. You use the resource ID when the resource name is ambiguous. The format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*.
+* **Azure Resource ID**: This ID is the Azure-defined unique identity of the app. The format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*.
 
     For example:
 
@@ -67,24 +67,25 @@ You can identify an application in Application Insights with the `app(Identifier
 ### Perform a query across multiple resources
 You can query multiple resources from any of your resource instances. These resources can be workspaces and apps combined.
 
-Example for a query across two workspaces:
+Example for a query across three workspaces:
 
 ```
 union 
   Update, 
-  workspace("").Update, workspace("00000000-0000-0000-0000-000000000000").Update
+  workspace("00000000-0000-0000-0000-000000000001").Update, 
+  workspace("00000000-0000-0000-0000-000000000002").Update
 | where TimeGenerated >= ago(1h)
 | where UpdateState == "Needed"
 | summarize dcount(Computer) by Classification
 ```
 
 ## Use a cross-resource query for multiple resources
-When you use cross-resource queries to correlate data from multiple Log Analytics workspaces and Application Insights resources, the query can become complex and difficult to maintain. You should make use of [functions in Azure Monitor log queries](./functions.md) to separate the query logic from the scoping of the query resources. This method simplifies the query structure. The following example demonstrates how you can monitor multiple Application Insights resources and visualize the count of failed requests by application name.
+When you use cross-resource queries to correlate data from multiple Log Analytics workspaces and Application Insights components, the query can become complex and difficult to maintain. You should make use of [functions in Azure Monitor log queries](./functions.md) to separate the query logic from the scoping of the query resources. This method simplifies the query structure. The following example demonstrates how you can monitor multiple Application Insights components and visualize the count of failed requests by application name.
 
-Create a query like the following example that references the scope of Application Insights resources. The `withsource= SourceApp` command adds a column that designates the application name that sent the log. [Save the query as a function](./functions.md#create-a-function) with the alias `applicationsScoping`.
+Create a query like the following example that references the scope of Application Insights components. The `withsource= SourceApp` command adds a column that designates the application name that sent the log. [Save the query as a function](./functions.md#create-a-function) with the alias `applicationsScoping`.
 
 ```Kusto
-// crossResource function that scopes my Application Insights resources
+// crossResource function that scopes my Application Insights components
 union withsource= SourceApp
 app('00000000-0000-0000-0000-000000000000').requests, 
 app('00000000-0000-0000-0000-000000000001').requests,

@@ -4,6 +4,7 @@ description: In this quickstart, you create a .NET Core application that sends/r
 ms.topic: quickstart
 ms.date: 04/26/2023
 ms.devlang: csharp
+ms.custom: devx-track-dotnet
 author: kasun04
 ms.author: kindrasiri
 ---

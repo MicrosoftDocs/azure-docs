@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/27/2022
+ms.date: 06/05/2023
 ---
 
 # Read replicas in Azure Cosmos DB for PostgreSQL
@@ -81,7 +81,7 @@ For instance, given a server named **my replica** with the admin username
 psql:
 
 ```bash
-psql -h c.myreplica.postgres.database.azure.com -U citus@myreplica -d postgres
+psql -h c-myreplica.12345678901234.postgres.cosmos.azure.com -U citus@myreplica -d postgres
 ```
 
 At the prompt, enter the password for the user account.

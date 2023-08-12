@@ -2,6 +2,7 @@
 title: "Azure Arc-enabled Kubernetes system requirements"
 ms.date: 04/27/2023
 ms.topic: conceptual
+ms.custom: devx-track-azurepowershell
 description: Learn about the system requirements to connect Kubernetes clusters to Azure Arc.
 ---
 

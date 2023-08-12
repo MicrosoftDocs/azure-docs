@@ -1,14 +1,14 @@
 ---
 title: Oracle solutions on Azure virtual machines | Microsoft Docs
 description: Learn about supported configurations and limitations of Oracle virtual machine images on Microsoft Azure.
-author: dbakevlar
+author: jjaygbay1
 ms.service: virtual-machines
 ms.subservice: oracle
+ms.custom: devx-track-linux
 ms.collection: linux
 ms.topic: article
 ms.date: 04/11/2023
-ms.author: kegorman
-
+ms.author: jacobjaygbay
 ---
 # Oracle VM images and their deployment on Microsoft Azure
 
@@ -240,7 +240,10 @@ Azure NetApp Files was designed to run high-performance workloads like databases
 - High availability, high durability, and manageability at scale, typically demanded by mission critical enterprise workloads, like SAP and Oracle
 - Fast and efficient backup and recovery, to achieve the most aggressive RTO and RPO SLAs
 
-These capabilities are possible because Azure NetApp Files is based on NetApp® ONTAP® all-flash systems that run in Azure data center environment as an Azure Native service. The result is an ideal database storage technology that can be provisioned and consumed just like other Azure storage options. For more information on how to deploy and access Azure NetApp Files NFS volumes, see [Azure NetApp Files](../../../azure-netapp-files/index.yml). For best practice recommendations for operating an Oracle database on Azure NetApp Files, see [Oracle Databases on Microsoft Azure](https://www.netapp.com/us/media/tr-4780.pdf).
+These capabilities are possible because Azure NetApp Files is based on NetApp® ONTAP® all-flash systems that run in Azure data center environment as an Azure Native service. The result is an ideal database storage technology that can be provisioned and consumed just like other Azure storage options. For more information on how to deploy and access Azure NetApp Files NFS volumes, see [Azure NetApp Files](../../../azure-netapp-files/index.yml). For best practice recommendations for operating an Oracle database on Azure NetApp Files, see [Oracle Solutions Using Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-solution-architectures.md#oracle).
+
+> [!IMPORTANT]
+> Customers using Oracle 19c and higher must ensure they are **patched for Oracle bug 32931941, 33132050 and 33676296**, as per [Are there any Oracle patches required with dNFS?](../../../azure-netapp-files/faq-nfs.md#are-there-any-oracle-patches-required-with-dnfs).
 
 ## Licensing Oracle Database and software on Azure
 

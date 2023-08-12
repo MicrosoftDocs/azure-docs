@@ -9,7 +9,7 @@ ms.author: halkazwini
 ms.date: 09/29/2022
 ---
 
-# Troubleshooting
+# Troubleshooting Network Insights
 
 For general troubleshooting guidance, see the dedicated workbook-based insights [troubleshooting article](../azure-monitor/insights/troubleshoot-workbooks.md).
 

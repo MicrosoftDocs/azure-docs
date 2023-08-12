@@ -1,12 +1,12 @@
 ---
 title: Use Azure Spring Apps CI/CD with GitHub Actions
 description: How to build up a CI/CD workflow for Azure Spring Apps with GitHub Actions
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 09/08/2020
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
@@ -272,7 +272,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: deploy to production with artifact
-        uses: azure/spring-cloud-deploy@v1
+        uses: azure/spring-apps-deploy@v1
         with:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
           action: Deploy
@@ -294,7 +294,7 @@ env:
 jobs:
   deploy_to_production:
     runs-on: ubuntu-latest
-    name: deploy to production with soruce code
+    name: deploy to production with source code
     steps:
       - name: Checkout GitHub Action
         uses: actions/checkout@v2
@@ -304,8 +304,8 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: deploy to production step with soruce code
-        uses: azure/spring-cloud-deploy@v1
+      - name: deploy to production step with source code
+        uses: azure/spring-apps-deploy@v1
         with:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
           action: deploy
@@ -315,7 +315,7 @@ jobs:
           package: ${{ env.ASC_PACKAGE_PATH }}
 ```
 
-The following example deploys to the default production deployment in Azure Spring Apps using source code in Enterprise tier. You can specify which builder to use for deploy actions using the `builder` option.
+The following example deploys to the default production deployment in Azure Spring Apps using source code in the Enterprise plan. You can specify which builder to use for deploy actions using the `builder` option.
 
 ```yml
 name: AzureSpringApps
@@ -327,7 +327,7 @@ env:
 jobs:
   deploy_to_production:
     runs-on: ubuntu-latest
-    name: deploy to production with soruce code
+    name: deploy to production with source code
     steps:
       - name: Checkout GitHub Action
         uses: actions/checkout@v2
@@ -337,8 +337,8 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: deploy to production step with soruce code in Enterprise tier
-        uses: azure/spring-cloud-deploy@v1
+      - name: deploy to production step with source code in the Enterprise plan
+        uses: azure/spring-apps-deploy@v1
         with:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
           action: deploy
@@ -361,7 +361,7 @@ env:
 jobs:
   deploy_to_production:
     runs-on: ubuntu-latest
-    name: deploy to production with soruce code
+    name: deploy to production with source code
     steps:
       - name: Checkout GitHub Action
         uses: actions/checkout@v2
@@ -385,15 +385,17 @@ jobs:
           container-image: <your image tag>
 ```
 
+During deployment, you can achieve more functionality by using more arguments. For more information, see the [Arguments](https://github.com/Azure/spring-apps-deploy#arguments) section of [GitHub Action for deploying to Azure Spring Apps](https://github.com/Azure/spring-apps-deploy).
+
 #### Blue-green
 
-The following examples deploy to an existing staging deployment. This deployment doesn't receive production traffic until it's set as a production deployment. You can set use-staging-deployment true to find the staging deployment automatically or just allocate specific deployment-name. We only focus on the `spring-cloud-deploy` action and leave out the preparatory jobs in the rest of the article.
+The following examples deploy to an existing staging deployment. This deployment doesn't receive production traffic until it's set as a production deployment. You can set use-staging-deployment true to find the staging deployment automatically or just allocate specific deployment-name. We only focus on the `spring-apps-deploy` action and leave out the preparatory jobs in the rest of the article.
 
 ```yml
 # environment preparation configurations omitted
     steps:
       - name: blue green deploy step use-staging-deployment
-        uses: azure/spring-cloud-deploy@v1
+        uses: azure/spring-apps-deploy@v1
         with:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
           action: deploy
@@ -407,7 +409,7 @@ The following examples deploy to an existing staging deployment. This deployment
 # environment preparation configurations omitted
     steps:
       - name: blue green deploy step with deployment-name
-        uses: azure/spring-cloud-deploy@v1
+        uses: azure/spring-apps-deploy@v1
         with:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
           action: deploy
@@ -427,7 +429,7 @@ The following example sets the current staging deployment as production, effecti
 # environment preparation configurations omitted
     steps:
       - name: set production deployment step
-        uses: azure/spring-cloud-deploy@v1
+        uses: azure/spring-apps-deploy@v1
         with:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
           action: set-production
@@ -444,7 +446,7 @@ The `Delete Staging Deployment` action allows you to delete the deployment not r
 # environment preparation configurations omitted
     steps:
       - name: Delete staging deployment step
-        uses: azure/spring-cloud-deploy@v1
+        uses: azure/spring-apps-deploy@v1
         with:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
           action: delete-staging-deployment
@@ -452,9 +454,9 @@ The `Delete Staging Deployment` action allows you to delete the deployment not r
           app-name: <app name>
 ```
 
-### Create or update build
+### Create or update build (Enterprise plan only)
 
-The following example creates or updates a build resource:
+The following example creates or updates a build resource in the Enterprise plan:
 
 ```yml
 # environment preparation configurations omitted
@@ -470,9 +472,9 @@ The following example creates or updates a build resource:
           builder: <builder>
 ```
 
-### Delete build
+### Delete build (Enterprise plan only)
 
-The following example deletes a build resource:
+The following example deletes a build resource in the Enterprise plan:
 
 ```yml
 # environment preparation configurations omitted
@@ -542,3 +544,4 @@ If your action runs in error, for example, if you haven't set the Azure credenti
 * [Authenticate Azure Spring Apps with Azure Key Vault in GitHub Actions](./github-actions-key-vault.md)
 * [Azure Active Directory service principals](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
 * [GitHub Actions for Azure](https://github.com/Azure/actions/)
+* [GitHub Action for deploying to Azure Spring Apps](https://github.com/Azure/spring-apps-deploy)

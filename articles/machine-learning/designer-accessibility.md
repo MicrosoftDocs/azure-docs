@@ -28,6 +28,7 @@ The following keyboard actions help you navigate a pipeline graph:
 - Tab: Move to first node > each port of the node > next node.
 - Up/down arrow keys: Move to next or previous node by its position in the graph.
 - Ctrl+G when focus is on a port: Go to the connected port. When there's more than one connection from one port, open a list view to select the target. Use the Esc key to go to the selected target.
+- Ctrl + Shift + H to focus on the canvas.
 
 ## Edit the pipeline graph
 

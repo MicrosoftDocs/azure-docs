@@ -7,6 +7,7 @@ ms.subservice: redhat
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 04/25/2023
 ms.author: maries
@@ -359,17 +360,18 @@ EOF
 
 15. Deprovision
 
-	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
+    Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
     > [!CAUTION]
     > If you are migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step. Running the command `waagent -force -deprovision+user` will render the source machine unusable, this step is intended only to create a generalized image.
-	```bash
-	sudo rm -f /var/log/waagent.log
-	sudo cloud-init clean
-	sudo waagent -force -deprovision+user
-	sudo rm -f ~/.bash_history
-	sudo export HISTSIZE=0
-	```
+
+    ```bash
+    sudo rm -f /var/log/waagent.log
+    sudo cloud-init clean
+    sudo waagent -force -deprovision+user
+    sudo rm -f ~/.bash_history
+    sudo export HISTSIZE=0
+    ```
     
 
 16. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
@@ -546,15 +548,15 @@ EOF
 
 13. Deprovision
 
-	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
+    Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-	```bash
-	sudo cloud-init clean
-	sudo waagent -force -deprovision+user
-	sudo rm -f ~/.bash_history
-	sudo sudo rm -f /var/log/waagent.log
-	sudo export HISTSIZE=0
-	```
+    ```bash
+    sudo cloud-init clean
+    sudo waagent -force -deprovision+user
+    sudo rm -f ~/.bash_history
+    sudo sudo rm -f /var/log/waagent.log
+    sudo export HISTSIZE=0
+    ```
     > [!CAUTION]
     > If you are migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step. Running the command `waagent -force -deprovision+user` will render the source machine unusable, this step is intended only to create a generalized image.
 
@@ -772,7 +774,6 @@ EOF
     sudo qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-6.9.raw rhel-6.9.vhd
     ```
 
-		
 ### RHEL 7 using KVM
 
 1. Download the KVM image of RHEL 7 from the Red Hat website. This procedure uses RHEL 7 as the example.
@@ -1457,11 +1458,11 @@ This section shows you how to prepare a RHEL 7 distro from an ISO using a kickst
 
 4. Open the virtual machine settings:
 
-	a.  Attach a new virtual hard disk to the virtual machine. Make sure to select **VHD Format** and **Fixed Size**.
+    1. Attach a new virtual hard disk to the virtual machine. Make sure to select **VHD Format** and **Fixed Size**.
 
-	b.  Attach the installation ISO to the DVD drive.
+    1. Attach the installation ISO to the DVD drive.
 
-	c.  Set the BIOS to boot from CD.
+    1. Set the BIOS to boot from CD.
 
 5. Start the virtual machine. When the installation guide appears, press **Tab** to configure the boot options.
 
@@ -1496,4 +1497,3 @@ For more details, see the information about [rebuilding initramfs](https://acces
 * You're now ready to use your Red Hat Enterprise Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).
 * For more details about the hypervisors that are certified to run Red Hat Enterprise Linux, see [the Red Hat website](https://access.redhat.com/certified-hypervisors).
 * To learn more about using production-ready RHEL BYOS images, go to the documentation page for [BYOS](../workloads/redhat/byos.md).
-

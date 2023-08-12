@@ -46,7 +46,7 @@ There are many recommendations that Azure AD Free, Office 365, or Microsoft 365 
 
 | Recommended action | Detail |
 | --- | --- |
-| [Enable Security Defaults](concept-fundamentals-security-defaults.md) | Protect all user identities and applications by enabling MFA and blocking legacy authentication |
+| [Enable Security Defaults](security-defaults.md) | Protect all user identities and applications by enabling MFA and blocking legacy authentication |
 | [Enable Password Hash Sync](../hybrid/how-to-connect-password-hash-synchronization.md) (if using hybrid identities) | Provide redundancy for authentication and improve security (including Smart Lockout, IP Lockout, and the ability to discover leaked credentials.) |
 | [Enable ADFS smart lock out](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (If applicable) | Protects your users from experiencing extranet account lockout from malicious activity. |
 | [Enable Azure Active Directory smart lockout](../authentication/howto-password-smart-lockout.md) (if using managed identities) | Smart lockout helps to lock out bad actors who are trying to guess your users' passwords or use brute-force methods to get in. |
@@ -130,5 +130,5 @@ The following table is intended to highlight the key actions for the following l
 
 ## Next steps
 
-- For detailed deployment guidance for individual features of Azure AD, review the [Azure AD project deployment plans](active-directory-deployment-plans.md).
+- For detailed deployment guidance for individual features of Azure AD, review the [Azure AD project deployment plans](deployment-plans.md).
 - Organizations can use [identity secure score](identity-secure-score.md) to track their progress against other Microsoft recommendations.

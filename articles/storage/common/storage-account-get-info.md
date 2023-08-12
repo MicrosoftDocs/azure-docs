@@ -7,8 +7,8 @@ author: tamram
 
 ms.author: tamram
 ms.date: 12/12/2022
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ---

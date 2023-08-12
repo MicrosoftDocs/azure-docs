@@ -23,7 +23,7 @@ HTTP headers allow a client and server to pass additional information with a req
 
 Application Gateway allows you to add, remove, or update HTTP request and response headers while the request and response packets move between the client and backend pools.
 
-To learn how to rewrite request and response headers with Application Gateway using Azure portal, see [here](rewrite-url-portal.md).
+To learn how to rewrite request and response headers with Application Gateway using Azure portal, see [here](rewrite-http-headers-portal.md).
 
 ![img](./media/rewrite-http-headers-url/header-rewrite-overview.png)
 
@@ -285,7 +285,7 @@ For a URL redirect, Application Gateway sends a redirect response to the client 
 - If a response has more than one header with the same name, then rewriting the value of one of those headers will result in dropping the other headers in the response. This can usually happen with Set-Cookie header since you can have more than one Set-Cookie header in a response. One such scenario is when you're using an app service with an application gateway and have configured cookie-based session affinity on the application gateway. In this case the response will contain two Set-Cookie headers: one used by the app service, for example: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` and another for application gateway affinity, for example, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Rewriting one of the Set-Cookie headers in this scenario can result in removing the other Set-Cookie header from the response.
 - Rewrites aren't supported when the application gateway is configured to redirect the requests or to show a custom error page.
 - Request header names can contain alphanumeric characters and hyphens. Headers names containing other characters will be discarded when a request is sent to the backend target.
-- Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27), with the exception of underscores (\_).
+- Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27).
 - Connection and upgrade headers cannot be rewritten
 - Rewrites aren't supported for 4xx and 5xx responses generated directly from Application Gateway
 

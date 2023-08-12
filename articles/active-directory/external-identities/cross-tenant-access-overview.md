@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 05/17/2023
 
 ms.author: cmulligan
 author: csmulligan
@@ -34,7 +34,7 @@ By default, B2B collaboration with other Azure AD organizations is enabled, and 
 
 - **Inbound access settings** control whether users from external Azure AD organizations can access resources in your organization. You can apply these settings to everyone, or specify individual users, groups, and applications.
 
-- **Trust settings** (inbound) determine whether your Conditional Access policies will trust the multi-factor authentication (MFA), compliant device, and [hybrid Azure AD joined device](../devices/concept-azure-ad-join-hybrid.md) claims from an external organization if their users have already satisfied these requirements in their home tenants. For example, when you configure your trust settings to trust MFA, your MFA policies are still applied to external users, but users who have already completed MFA in their home tenants won't have to complete MFA again in your tenant.
+- **Trust settings** (inbound) determine whether your Conditional Access policies will trust the multi-factor authentication (MFA), compliant device, and [hybrid Azure AD joined device](../devices/concept-hybrid-join.md) claims from an external organization if their users have already satisfied these requirements in their home tenants. For example, when you configure your trust settings to trust MFA, your MFA policies are still applied to external users, but users who have already completed MFA in their home tenants won't have to complete MFA again in your tenant.
 
 ## Default settings
 
@@ -77,12 +77,28 @@ For more information, see [Configure cross-tenant synchronization](../multi-tena
 
 To configure this setting using Microsoft Graph, see the [Update crossTenantIdentitySyncPolicyPartner](/graph/api/crosstenantidentitysyncpolicypartner-update) API. For more information, see [Configure cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md).
 
+## Tenant restrictions
+
+With **Tenant Restrictions** settings, you can control the types of external accounts your users can use on the devices you manage, including:
+
+- Accounts your users have created in unknown tenants.
+- Accounts that external organizations have given to your users so they can access that organization's resources.  
+
+We recommend configuring your tenant restrictions to disallow these types of external accounts and use B2B collaboration instead. B2B collaboration gives you the ability to:
+
+- Use Conditional Access and force multi-factor authentication for B2B collaboration users.
+- Manage inbound and outbound access.
+- Terminate sessions and credentials when a B2B collaboration user's employment status changes or their credentials are breached.
+- Use sign-in logs to view details about the B2B collaboration user.
+
+Tenant restrictions are independent of other cross-tenant access settings, so any inbound, outbound, or trust settings you've configured won't impact tenant restrictions. For details about configuring tenant restrictions, see [Set up tenant restrictions V2](tenant-restrictions-v2.md).
+
 ## Microsoft cloud settings
 
 Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
 
 - Microsoft Azure commercial cloud and Microsoft Azure Government
-- Microsoft Azure commercial cloud and Microsoft Azure China (operated by 21Vianet)
+- Microsoft Azure commercial cloud and Microsoft Microsoft Azure operated by 21Vianet (operated by 21Vianet)
 
 > [!NOTE]
 > Microsoft Azure Government includes the Office GCC-High and DoD clouds.

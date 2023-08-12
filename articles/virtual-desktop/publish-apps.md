@@ -3,7 +3,7 @@ title: Publish built-in apps in Azure Virtual Desktop - Azure
 description: How to publish built-in apps in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/17/2022
+ms.date: 05/25/2023
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
@@ -40,10 +40,6 @@ To publish a built-in app:
 
 >[!NOTE]
 > Azure Virtual Desktop only supports publishing apps with install locations that begin with `C:\Program Files\WindowsApps`.
-
-## Update app icons
-
-After you publish an app, it will have the default Windows app icon instead of its regular icon picture. To change the icon to its regular icon, put the image of the icon you want on a network share. Supported image formats are PNG, BMP, GIF, JPG, JPEG, and ICO.
 
 ## Publish Microsoft Edge
 
