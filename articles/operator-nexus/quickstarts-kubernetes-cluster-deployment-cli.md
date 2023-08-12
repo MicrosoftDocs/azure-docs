@@ -45,7 +45,6 @@ Before you run the commands, you need to set several variables to define the con
 | SERVICE_CIDR               | The network range for the Kubernetes services in the cluster, in CIDR notation.                                          |
 | DNS_SERVICE_IP             | The IP address for the Kubernetes DNS service.                                                                           |
 
-
 Once you've defined these variables, you can run the Azure CLI command to create the cluster. Add the ```--debug``` flag at the end to provide more detailed output for troubleshooting purposes.
 
 To define these variables, use the following set commands and replace the example values with your preferred values. You can also use the default values for some of the variables, as shown in the following example:
@@ -63,14 +62,15 @@ K8S_VERSION="v1.24.9"
 ADMIN_USERNAME="azureuser"
 SSH_PUBLIC_KEY="$(cat ~/.ssh/id_rsa.pub)"
 CONTROL_PLANE_COUNT="1"
-CONTROL_PLANE_VM_SIZE="NC_G2_v1"
+CONTROL_PLANE_VM_SIZE="NC_G6_28_v1"
 INITIAL_AGENT_POOL_NAME="${CLUSTER_NAME}-nodepool-1"
 INITIAL_AGENT_POOL_COUNT="1"
-INITIAL_AGENT_POOL_VM_SIZE="NC_M4_v1"
+INITIAL_AGENT_POOL_VM_SIZE="NC_P10_56_v1"
 POD_CIDR="10.244.0.0/16"
 SERVICE_CIDR="10.96.0.0/16"
 DNS_SERVICE_IP="10.96.0.10"
 ```
+
 > [!IMPORTANT]
 > It is essential that you replace the placeholders for CUSTOM_LOCATION, CSN_ARM_ID, CNI_ARM_ID, and AAD_ADMIN_GROUP_OBJECT_ID with your actual values before running these commands.
 
@@ -110,6 +110,7 @@ After a few minutes, the command completes and returns information about the clu
 [!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/quickstart-cluster-connect.md)]
 
 ## Add an agent pool
+
 The cluster created in the previous step has a single node pool. Let's add a second agent pool using the ```az networkcloud kubernetescluster agentpool create``` command. The following example creates an agent pool named ```myNexusAKSCluster-nodepool-2```:
 
 You can also use the default values for some of the variables, as shown in the following example:
@@ -123,6 +124,7 @@ AGENT_POOL_VM_SIZE="NC_M4_v1"
 AGENT_POOL_COUNT="1"
 AGENT_POOL_MODE="User"
 ```
+
 After defining these variables, you can add an agent pool by executing the following Azure CLI command:
 
 ```azurecli
