@@ -241,8 +241,7 @@ To create the virtual machines, we get the recently created Application Gateway 
 * Create the virtual machines with *New-AzVM*.
 
 > [!NOTE]
-> When you run the following code sample to create virtual machines, Azure prompts you for credentials. Enter your username and password.​
-> Creation of the VMs will take a few minutes.
+> When you run the following code sample to create virtual machines, Azure prompts you for credentials. Enter your username and password.​ Creation of the VMs will take a few minutes.
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway -ResourceGroupName myResourceGroupAG -Name myipv6AppGW
