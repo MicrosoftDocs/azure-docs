@@ -3,10 +3,10 @@ title: Versioning
 description: Versioning in HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 07/21/2023
+ms.date: 08/12/2023
 ---
 
-# Versioning
+# Azure HDInsight on AKS versions
 
 HDInsight on AKS service has three components, a Resource provider, an Open-source software (OSS), and Controllers that are deployed on a cluster. Microsoft periodically upgrades the images and the aforementioned components to include new improvements and features.
 
