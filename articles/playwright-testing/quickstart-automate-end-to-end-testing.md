@@ -49,18 +49,18 @@ Microsoft Playwright Testing uses access keys to authorize users to run Playwrig
 
 Perform the following steps to configure an access key in your CI workflow.
 
-### Generate an access key in MPT portal:
+### Generate an access key
 
-    1. Sign in to the [Microsoft Playwright Testing portal](https://preview.playwright-int.io/) with your Azure account.
-    1. Select **Generate new access key**.
+1. Sign in to the [Microsoft Playwright Testing portal](https://preview.playwright-int.io/) with your Azure account.
+1. Select **Generate new access key**.
 
-        :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-new-access-key.png" alt-text="Screenshot that shows Microsoft Playwright Testing portal, highlighting the 'Generate access key' button.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-new-access-key.png" alt-text="Screenshot that shows Microsoft Playwright Testing portal, highlighting the 'Generate access key' button.":::
 
-    1. Select **Generate key** and then copy the access key value.
+1. Select **Generate key** and then copy the access key value.
 
-        :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-key.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate key' button.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-key.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate key' button.":::
 
-        :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-copy-access-key.png" alt-text="Screenshot that shows how to copy the generated access key in the Playwright Testing portal.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-copy-access-key.png" alt-text="Screenshot that shows how to copy the generated access key in the Playwright Testing portal.":::
 
 ### Store the access key as a CI workflow secret
 
