@@ -1,6 +1,6 @@
 ---
-title: Use firewall to restrict outbound traffic on HDInsight on AKS using Azure CLI. 
-description: Learn how to secure traffic using firewall on HDInsight on AKS using Azure CLI.
+title: Use firewall to restrict outbound traffic on HDInsight on AKS using Azure CLI 
+description: Learn how to secure traffic using firewall on HDInsight on AKS using Azure CLI
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/3/2023
