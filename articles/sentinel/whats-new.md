@@ -28,7 +28,7 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ### Improve SOX compliance with new workbook for SAP
 
-The **SAP Audit Controls workbook** is now provided to you as part of the [Microsoft Sentinel solution for SAP® applications](solution-overview.md).
+The **SAP Audit Controls workbook** is now provided to you as part of the [Microsoft Sentinel solution for SAP® applications](./sap/solution-overview.md).
 
 This workbook helps you check your SAP® environment's security controls for compliance with your chosen control framework, be it [SOX](https://www.bing.com/search?q=sox+compliance+IT+security&qs=n&form=QBRE&sp=-1&lq=0&pq=sox+compliance+it+security&sc=8-26&sk=&cvid=3ACE338C88CE43368A223D4DB7FC35E6&ghsh=0&ghacc=0&ghpl=), [NIST](https://www.nist.gov/cyberframework/framework), or a custom framework of your choice.
 
