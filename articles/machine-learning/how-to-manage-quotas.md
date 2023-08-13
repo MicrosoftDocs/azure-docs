@@ -234,28 +234,15 @@ You manage the Azure Machine Learning compute quota on your subscription separat
 
 ## Request quota increases
 
-To raise the limit or VM quota above the default limit, [open an online customer support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) at no charge.
-
-You can't raise limits above the maximum values shown in the preceding tables. If there's no maximum limit, you can't adjust the limit for the resource.
-
-When you're requesting a quota increase, select the service that you have in mind. For example, select Machine Learning Service, Container Instances, or Storage. For Azure Machine Learning endpoint, you can select the **Request Quota** button while viewing the quota in the preceding steps.
- 
-1. Scroll to **Machine Learning Service: Virtual Machine Quota**.
- 
-    :::image type="content" source="./media/how-to-manage-quotas/virtual-machine-quota.png" lightbox="./media/how-to-manage-quotas/virtual-machine-quota.png" alt-text="Screenshot of the VM quota details.":::
-
-2. Under **Additional Details** specify the request details with the number of additional vCPUs required to run your Machine Learning Endpoint.
- 
-    :::image type="content" source="./media/how-to-manage-quotas/vm-quota-request-additional-info.png" lightbox="./media/how-to-manage-quotas/vm-quota-request-additional-info.png" alt-text="Screenshot of the VM quota additional details.":::
-
-> [!NOTE]
-> [Free trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a free trial subscription, you can upgrade to a [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure free trial to pay-as-you-go](../cost-management-billing/manage/upgrade-azure-subscription.md) and [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq).
+To raise the limit for Azure Machine Learning VM quota above the default limit, you can request for quota increase from the above **Usage + quotas** view or submit a quota increase request from Azure Machine Learning studio.
 
 ### Endpoint quota increases
 
-When requesting the quota increase, provide the following information:
+To raise endpoint quota, [open an online customer support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). When requesting for quota increase, provide the following information:
 
-1. When opening the support request, select __Machine Learning Service: Endpoint Limits__ as the __Quota type__.
+1. When opening the support request, select __Service and subscription limits (quotas)__ as the __Issue type__.
+2. Select the subscription of your choice
+3. Select __Machine Learning Service: Endpoint Limits__ as the __Quota type__.
 1. On the __Additional details__ tab, select __Enter details__ and then provide the quota you'd like to increase and the new value, the reason for the quota increase request, and __location(s)__ where you need the quota increase. Finally, select __Save and continue__ to continue.
 
     :::image type="content" source="./media/how-to-manage-quotas/quota-details.png" lightbox="./media/how-to-manage-quotas/quota-details.png" alt-text="Screenshot of the endpoint quota details form.":::
