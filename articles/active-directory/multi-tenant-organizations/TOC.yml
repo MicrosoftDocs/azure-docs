@@ -4,27 +4,27 @@
   expanded: true
   items:
   - name: Multi-tenant organization scenario
-    href: scenario.md
-  - name: What is a multi-tenant organization?
     href: overview.md
+  - name: What is a multi-tenant organization?
+    href: multi-tenant-organization-overview.md
   - name: What is cross-tenant synchronization?
     href: cross-tenant-synchronization-overview.md
 - name: Concepts
   expanded: true
   items:
   - name: Multi-tenant organization capabilities
-    href: capabilities.md
+    href: multi-tenant-organization-capabilities.md
   - name: Multi-tenant organizations and Microsoft 365
-    href: microsoft-365.md
+    href: multi-tenant-organization-microsoft-365.md
   - name: Multi-tenant organization templates
-    href: templates.md
+    href: multi-tenant-organization-templates.md
   - name: Topologies for cross-tenant synchronization
     href: cross-tenant-synchronization-topology.md
 - name: How-to guides
   expanded: true
   items:
   - name: Configure a multi-tenant organization
-    href: configure-graph.md
+    href: multi-tenant-organization-configure-graph.md
   - name: Configure cross-tenant synchronization
     items:
     - name: Portal

@@ -24,8 +24,10 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is a multi-tenant organization?
+          - text: Multi-tenant scenario
             url: overview.md
+          - text: What is a multi-tenant organization?
+            url: multi-tenant-organization-overview.md
           - text: What is cross-tenant synchronization?
             url: cross-tenant-synchronization-overview.md
   
@@ -40,13 +42,21 @@ landingContent:
             url: cross-tenant-synchronization-topology.md
 
   # Card
+  - title: Configure a multi-tenant organization
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Microsoft Graph API
+            url: multi-tenant-organization-configure-graph.md
+
+  # Card
   - title: Configure cross-tenant synchronization
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Azure portal
             url: cross-tenant-synchronization-configure.md
-          - text: Microsoft Graph API
+          - text: PowerShell or Microsoft Graph API
             url: cross-tenant-synchronization-configure-graph.md
           - text: Scoping users or groups to be provisioned
             url: ../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md?toc=/azure/active-directory/multi-tenant-organizations/toc.json&pivots=cross-tenant-synchronization
