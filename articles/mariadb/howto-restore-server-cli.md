@@ -2,8 +2,8 @@
 title: Backup and restore - Azure CLI - Azure Database for MariaDB
 description: Learn how to backup and restore a server in Azure Database for MariaDB by using the Azure CLI.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.devlang: azurecli
 ms.topic: how-to
 ms.custom: devx-track-azurecli
