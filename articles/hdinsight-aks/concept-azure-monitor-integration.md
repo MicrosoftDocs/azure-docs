@@ -1,5 +1,5 @@
 ---
-title: Metrics & monitoring in HDInsight on AKS
+title: Metrics and monitoring in HDInsight on AKS
 description: Learn about how HDInsight on AKS interacts with Azure Monitoring. 
 ms.service: hdinsight-aks
 ms.topic: conceptual
