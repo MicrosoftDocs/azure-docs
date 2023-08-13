@@ -104,7 +104,7 @@ The sample Deployer configuration file `MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars` i
 
 The sample SAP Library configuration file `MGMT-WEEU-SAP_LIBRARY.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/Terraform/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY` folder.
 
-Running the following command creates the Deployer, the SAP Library and adds the Service Principal details to the deployment key vault. If you followed the web app setup in the step above, this command will also create the infrastructure to host the application. 
+Running the following command creates the Deployer, the SAP Library and adds the Service Principal details to the deployment key vault. If you followed the web app setup in the previous step, this command also creates the infrastructure to host the application. 
 
 # [Linux](#tab/linux)
 
@@ -149,7 +149,7 @@ sudo ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh          
 
 # [Windows](#tab/windows)
 
-You can't perform this action from Windows
+You can't perform a control plane deployment from Windows.
 # [Azure DevOps](#tab/devops)
 
 Open (https://dev.azure.com) and go to your Azure DevOps project.
