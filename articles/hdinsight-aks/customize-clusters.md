@@ -48,7 +48,7 @@ In HDInsight on AKS, the script is automatically persisted. A failure in the scr
 
 The following diagram illustrates when script action runs during the creation process: 
 
-:::image type="content" source="./media/customize-clusters/script-action-overview.png" alt-text="Stages during cluster creation for script action" border="false":::
+:::image type="content" source="./media/customize-clusters/script-action-overview.png" alt-text="Screenshot showing the stages during cluster creation for script action." border="true" lightbox=".media/customize-clusters/script-action-overview.png":::
  
 **The script runs while HDInsight on AKS cluster is being provisioned. The script runs in parallel on all the specified nodes in the cluster.**
 
