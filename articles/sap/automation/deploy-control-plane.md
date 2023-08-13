@@ -119,19 +119,19 @@ cd ~/Azure_SAP_Automated_Deployment
 cp -Rp samples/Terraform/WORKSPACES config
 cd config/WORKSPACES
 
-export subscriptionId="<subscriptionId>"
-export         spn_id="<appId>"
-export     spn_secret="<password>"
-export      tenant_id="<tenantId>"
-export       env_code="MGMT"
-export    region_code="WEEU"
-export      vnet_code="WEEU"
+export ARM_SUBSCRIPTION_ID="<subscriptionId>"
+export       ARM_CLIENT_ID="<appId>"
+export   ARM_CLIENT_SECRET="<password>"
+export       ARM_TENANT_ID="<tenantId>"
+export            env_code="MGMT"
+export         region_code="WEEU"
+export           vnet_code="WEEU"
 
-az login --service-principal -u $spn_id -p=$spn_secret --tenant $tenant_id
+az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
 
 
 export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
-export ARM_SUBSCRIPTION_ID="${subscriptionId}"
+="${subscriptionId}"
 export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/config/WORKSPACES"
 export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 
@@ -139,10 +139,10 @@ export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-auto
 sudo ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh                                                                                                            \
     --deployer_parameter_file "${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars" \
     --library_parameter_file "${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"                                   \
-    --subscription "${subscriptionId}"                                                                                                                                            \
-    --spn_id "${spn_id}"                                                                                                                                                          \
-    --spn_secret "${spn_secret}"                                                                                                                                                  \
-    --tenant_id "${tenant_id}"                                                                                                                                                    \
+    --subscription "${ARM_SUBSCRIPTION_ID}"                                                                                                                                       \
+    --spn_id "${ARM_CLIENT_ID}"                                                                                                                                                   \
+    --spn_secret "${ARM_CLIENT_SECRET}"                                                                                                                                           \
+    --tenant_id "${ARM_TENANT_ID}"                                                                                                                                                \
     --auto-approve
 ```
 
