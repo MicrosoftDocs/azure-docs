@@ -1,6 +1,6 @@
 ---
-title: Use firewall to restrict outbound traffic on HDInsight on AKS, using Azure portal. 
-description: Learn how to secure traffic using firewall on HDInsight on AKS using Azure portal.
+title: Use firewall to restrict outbound traffic on HDInsight on AKS, using Azure portal
+description: Learn how to secure traffic using firewall on HDInsight on AKS using Azure portal
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/3/2023
@@ -29,8 +29,8 @@ The following diagram illustrates the example used in this article to simulate a
       :::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-virtual-network-step4.png" alt-text="Diagram showing creating a virtual network and setting IP address using Azure portal in step number four." border= "true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-virtual-network-step4.png":::
      
       > [!IMPORTANT]
-      > 1. If you add NSG in subnet , you need to add certain outbound and inbound rules manually. Follow [use NSG to restrict the traffic](/secure-traffic-by-nsg.md).
-      > 2. Don't associate subnet `hdiaks-egress-subnet` with a route table because HDInsight on AKS creates cluster pool with default outbound type and can't create the cluster pool in a subnet already associated with a route table.
+      > * If you add NSG in subnet , you need to add certain outbound and inbound rules manually. Follow [use NSG to restrict the traffic](/secure-traffic-by-nsg.md).
+      > * Don't associate subnet `hdiaks-egress-subnet` with a route table because HDInsight on AKS creates cluster pool with default outbound type and can't create the cluster pool in a subnet already associated with a route table.
 
 ## Create HDInsight on AKS cluster pool using Azure portal
 
