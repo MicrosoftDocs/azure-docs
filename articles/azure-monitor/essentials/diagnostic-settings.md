@@ -6,7 +6,7 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 02/13/2022
+ms.date: 08/13/2023
 ms.reviewer: lualderm
 ---
 
