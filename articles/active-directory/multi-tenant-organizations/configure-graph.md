@@ -94,6 +94,8 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     }
     ```
 
+1. To allow for asynchronous processing, wait a **minimum of 2 hours** before adding tenants to your multi-tenant organization.
+
 ## Step 3: Add tenants
 
 ![Icon for the owner tenant.](./media/common/icon-tenant-owner.png)<br/>**Owner tenant**
@@ -297,8 +299,13 @@ You can remove any member tenant, including your own. You can't remove owner ten
         }
     }
     ```
+## Step 6: Wait
 
-## Step 6: Sign in to a member tenant
+![Icon for the member tenant.](./media/common/icon-tenant-member.png)<br/>**Member tenant**
+
+- To allow for asynchronous processing, wait a **minimum of 2 hours** before any subsequently added pending tenants can submit their join requests.
+
+## Step 7: Sign in to a member tenant
 
 ![Icon for the member tenant.](./media/common/icon-tenant-member.png)<br/>**Member tenant**
 
@@ -317,39 +324,6 @@ The Cairo tenant created a multi-tenant organization and added the Berlin and At
     - `Policy.ReadWrite.CrossTenantAccess`
     - `Application.ReadWrite.All`
     - `Directory.ReadWrite.All`
-
-## Step 7: Unconfigure TRV2
-
-![Icon for the member tenant.](./media/common/icon-tenant-member.png)<br/>**Member tenant**
-
-1. In the member tenant, use the [Update crossTenantAccessPolicyConfigurationDefault](/graph/api/crosstenantaccesspolicyconfigurationdefault-update) to unconfigure tenant restrictions version 2 (TRV2). 
-
-    **Request**
-
-    ```http
-    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/default
-    {
-        "tenantRestrictions": {
-            "devices": null,
-            "usersAndGroups": {
-                "accessType": "blocked",
-                "targets": [ {
-                    "target": "AllUsers",
-                    "targetType": "user"
-                } ]
-            },
-            "applications": {
-                "accessType": "blocked",
-                "targets": [ {
-                    "target": "AllApplications",
-                    "targetType": "application"
-                } ]
-            }
-        }
-    }
-    ```
-
-1. In the unlikely case of any tenant-specific partner configuration having a patched tenantRestrictions attribute, you need to reset that attribute back to null as well.
 
 ## Step 8: Join the multi-tenant organization
 
@@ -454,6 +428,38 @@ The Cairo tenant created a multi-tenant organization and added the Berlin and At
             }
         ]
     }
+    ```
+
+1. To allow for asynchronous processing, wait **up to 4 hours** before joining a multi-tenant organization is completed.
+
+## Step 9: (Optional) Leave the multi-tenant organization
+
+![Icon for the member tenant.](./media/common/icon-tenant-member.png)<br/>**Member tenant**
+
+You can leave an multi-tenant organization that you have joined. The process for removing your own tenant from the multi-tenant organization is the same as the process for removing another tenant from the multi-tenant organization.
+
+If your tenant is the only multi-tenant organization owner, you will need to designate a new tenant to be the multi-tenant organization owner. For steps, see [Step 4: (Optional) Change the role of a tenant](#step-4-optional-change-the-role-of-a-tenant) 
+
+- In the tenant, use the [Remove multiTenantOrganizationMember](/graph/api/multitenantorganization-delete-tenants?branch=pr-en-us-21123) API to remove the tenant. This operation takes a few minutes.
+
+    **Request**
+
+    ```http
+    DELETE https://graph.microsoft.com/beta/tenantRelationships/multiTenantOrganization/tenants/{memberTenantIdD}
+    ```
+
+## Step 10: (Optional) Delete the multi-tenant organization
+
+![Icon for the owner tenant.](./media/common/icon-tenant-owner.png)<br/>**Owner tenant**
+
+You delete an multi-tenant organization by removing all tenants. The process for removing the final owner tenant is the same as the process for removing all other member tenants.
+
+- In the final owner tenant, use the [Remove multiTenantOrganizationMember](/graph/api/multitenantorganization-delete-tenants?branch=pr-en-us-21123) API to remove the tenant. This operation takes a few minutes.
+
+    **Request**
+
+    ```http
+    DELETE https://graph.microsoft.com/beta/tenantRelationships/multiTenantOrganization/tenants/{memberTenantIdD}
     ```
 
 ## Next steps
