@@ -6281,6 +6281,36 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/azure-cli-metrics-alert-sample.md",
+            "redirect_url": "/azure/azure-monitor/alerts/azure-cli-metrics-alert-sample",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/terminology.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/create-pipeline-datacollector-api.md",
+            "redirect_url": "/azure/azure-monitor/logs/data-collector-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/vmext-troubleshoot.md",
+            "redirect_url": "/azure/azure-monitor/agents/vmext-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/unify-app-resource-data.md",
+            "redirect_url": "/azure/azure-monitor/logs/cross-workspace-query",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/solution-agenthealth.md",
+            "redirect_url": "/azure/azure-monitor/agents/solution-agenthealth",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-hybrid-setup.md",
             "redirect_url": "/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters",
             "redirect_document_id": false
