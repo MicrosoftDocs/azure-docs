@@ -17,7 +17,7 @@ This page describes how to use Microsoft Defender for Cloud's set of security re
 
 ## Set up your workload protection
 
-Microsoft Defender for Cloud includes a bundle of recommendations that are available once you've installed the **Azure Policy for Kubernetes**.
+Microsoft Defender for Cloud includes a bundle of recommendations that are available once you've installed the **[Azure Policy for Kubernetes](defender-for-cloud-glossary.md#azure-policy-for-kubernetes)**.
 
 ## Prerequisites
 

@@ -37,15 +37,15 @@ To learn more about implementation details such as supported operating systems, 
 
 ### Architecture diagram of Defender for Cloud and AKS clusters<a name="jit-asc"></a>
 
-When Defender for Cloud protects a cluster hosted in Azure Kubernetes Service, the collection of audit log data is agentless and frictionless.
+When Defender for Cloud protects a cluster hosted in Azure Kubernetes Service, the collection of audit log data is agentless and frictionless. These are the required components:
 
-The **Defender extension** deployed to each node provides the runtime protections and collects signals from nodes using [eBPF technology](https://ebpf.io/).
+- **Defender agent**: The DaemonSet that is deployed on each node, collects signals from hosts using [eBPF technology](https://ebpf.io/), and provides runtime protection. The agent is registered with a Log Analytics workspace, and used as a data pipeline. However, the audit log data isn't stored in the Log Analytics workspace. It is deployed under AKS Security profile in AKS clusters and as an Arc extension in Arc enabled Kubernetes clusters. The Defender agent is deployed as an AKS Security profile.
 
-The **Azure Policy for Kubernetes** collects cluster and workload configuration for admission control policies as explained in [Protect your Kubernetes workloads](kubernetes-workload-protections.md).
+- **Azure Policy for Kubernetes**:  A pod that extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) and registers as a web hook to Kubernetes admission control making it possible to apply at-scale enforcements, and safeguards on your clusters in a centralized, consistent manner. For more information, see [Protect your Kubernetes workloads](kubernetes-workload-protections.md) and [Understand Azure Policy for Kubernetes clusters](/azure/governance/policy/concepts/policy-for-kubernetes). The Azure Policy for Kubernetes pod is deployed as an AKS add-on.
 
 :::image type="content" source="./media/defender-for-containers/architecture-aks-cluster.png" alt-text="Diagram of high-level architecture of the interaction between Microsoft Defender for Containers, Azure Kubernetes Service, and Azure Policy." lightbox="./media/defender-for-containers/architecture-aks-cluster.png":::
 
-### Defender extension component details
+### Defender agent component details
 
 | Pod Name | Namespace | Kind | Short Description | Capabilities | Resource limits | Egress Required |
 |--|--|--|--|--|--|--|
@@ -80,9 +80,9 @@ These components are required in order to receive the full protection offered by
 
 - **[Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md)** - An agent based solution that connects your EKS clusters to Azure. Azure then is capable of providing services such as Defender, and Policy as [Arc extensions](../azure-arc/kubernetes/extensions.md).
 
-- **The Defender extension** – The [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) that collects signals from hosts using [eBPF technology](https://ebpf.io/), and provides runtime protection. The extension is registered with a Log Analytics workspace, and used as a data pipeline. However, the audit log data isn't stored in the Log Analytics workspace.
+- **Defender agent**: The DaemonSet that is deployed on each node, collects signals from hosts using [eBPF technology](https://ebpf.io/), and provides runtime protection. The agent is registered with a Log Analytics workspace, and used as a data pipeline. However, the audit log data isn't stored in the Log Analytics workspace. It is deployed under AKS Security profile in AKS clusters and as an Arc extension in Arc enabled Kubernetes clusters. The Defender agent is deployed as an Arc-enabled Kubernetes extension. The Azure Policy for Kubernetes pod is deployed as an Arc-enabled Kubernetes extension.
 
-- **Azure Policy for Kubernetes** - The workload's configuration information is collected by the Azure Policy for Kubernetes. The Azure Policy for Kubernetes extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/). The extension registers as a web hook to Kubernetes admission control and makes it possible to apply at-scale enforcements, and safeguards on your clusters in a centralized, consistent manner. For more information, see [Understand Azure Policy for Kubernetes clusters](../governance/policy/concepts/policy-for-kubernetes.md).
+- **Azure Policy for Kubernetes**:  A pod that extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) and registers as a web hook to Kubernetes admission control making it possible to apply at-scale enforcements, and safeguards on your clusters in a centralized, consistent manner. For more information, see [Protect your Kubernetes workloads](kubernetes-workload-protections.md) and [Understand Azure Policy for Kubernetes clusters](/azure/governance/policy/concepts/policy-for-kubernetes).
 
 > [!NOTE]
 > Defender for Containers support for AWS EKS clusters is a preview feature.
@@ -99,9 +99,9 @@ These components are required in order to receive the full protection offered by
 
 - **[Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md)** - An agent based solution that connects your GKE clusters to Azure. Azure then is capable of providing services such as Defender, and Policy as [Arc extensions](../azure-arc/kubernetes/extensions.md).
 
-- **The Defender extension** – The [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) that collects signals from hosts using [eBPF technology](https://ebpf.io/), and provides runtime protection. The extension is registered with a Log Analytics workspace, and used as a data pipeline. However, the audit log data isn't stored in the Log Analytics workspace.
+- **Defender agent**: The DaemonSet that is deployed on each node, collects signals from hosts using [eBPF technology](https://ebpf.io/), and provides runtime protection. The agent is registered with a Log Analytics workspace, and used as a data pipeline. However, the audit log data isn't stored in the Log Analytics workspace. It is deployed under AKS Security profile in AKS clusters and as an Arc extension in Arc enabled Kubernetes clusters. The Defender agent is deployed as an Arc-enabled Kubernetes extension. The Azure Policy for Kubernetes pod is deployed as an Arc-enabled Kubernetes extension.
 
-- **Azure Policy for Kubernetes** - The workload's configuration information is collected by the Azure Policy for Kubernetes. The Azure Policy for Kubernetes extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/). The extension registers as a web hook to Kubernetes admission control and makes it possible to apply at-scale enforcements, and safeguards on your clusters in a centralized, consistent manner. For more information, see [Understand Azure Policy for Kubernetes clusters](../governance/policy/concepts/policy-for-kubernetes.md).
+- **Azure Policy for Kubernetes**:  A pod that extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) and registers as a web hook to Kubernetes admission control making it possible to apply at-scale enforcements, and safeguards on your clusters in a centralized, consistent manner. For more information, see [Protect your Kubernetes workloads](kubernetes-workload-protections.md) and [Understand Azure Policy for Kubernetes clusters](/azure/governance/policy/concepts/policy-for-kubernetes).
 
 > [!NOTE]
 > Defender for Containers support for GCP GKE clusters is a preview feature.
