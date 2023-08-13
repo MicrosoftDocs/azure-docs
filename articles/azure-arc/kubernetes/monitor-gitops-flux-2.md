@@ -79,10 +79,10 @@ Follow the steps below to create an alert. Example queries are provided to detec
 1. In **Rule name**, add a descriptive name. This name is displayed in the alert rule list, and it will be the used as the `alertname` label for every alert instance created from this rule.
 1. Under **Set a query and alert condition**:
 
-   1. Select a data source. The same data source used for the dashboard may be used here.
-   1. For **Service**, select **Azure Resource Graph**.
-   1. Select the subscriptions from the dropdown list.
-   1. Enter the query you want to use. For example, for extension provisioning or upgrade failures, you can enter this query:
+   - Select a data source. The same data source used for the dashboard may be used here.
+   - For **Service**, select **Azure Resource Graph**.
+   - Select the subscriptions from the dropdown list.
+   - Enter the query you want to use. For example, for extension provisioning or upgrade failures, you can enter this query:
 
       ```kusto
       kubernetesconfigurationresources
@@ -108,20 +108,20 @@ Follow the steps below to create an alert. Example queries are provided to detec
 
 1. Specify the alert evaluation interval:
 
-   1. For **Condition**, select the query or expression to trigger the alert rule.
-   1. For **Evaluate every**, enter the evaluation frequency. The value must be a multiple of 10 seconds.
-   1. For **Evaluate for**, enter the duration for which the condition must be true before the alert is created.
-   1. In **Configure no data and error handling**, choose the desired behavior when the alert rule returns no data or returns an error.
-   1. To check the results from running the query, select **Preview**.
+   - For **Condition**, select the query or expression to trigger the alert rule.
+   - For **Evaluate every**, enter the evaluation frequency as a multiple of 10 seconds.
+   - For **Evaluate for**, specify how long the condition must be true before the alert is created.
+   - In **Configure no data and error handling**, indicate what should happen when the alert rule returns no data or returns an error.
+   - To check the results from running the query, select **Preview**.
 
 1. Add the storage location, rule group, and any additional metadata that you want to associate with the rule.
 
-   1. For **Folder**, select the folder where the rule should be stored.
-   1. For **Group**, specify a pre-defined group.
-   1. Add a description and summary to customize alert messages.
-   1. Add Runbook URL, panel, dashboard, and alert IDs.
+   - For **Folder**, select the folder where the rule should be stored.
+   - For **Group**, specify a predefined group.
+   - If desired, add a description and summary to customize alert messages.
+   - Add Runbook URL, panel, dashboard, and alert IDs as needed.
 
-1. If desired, add any custom labels, and then select **Save**.
+1. If desired, add any custom labels. Then select **Save**.
 
 You can also [configure contact points](https://grafana.com/docs/grafana/latest/alerting/alerting-rules/manage-contact-points/) and [configure notification policies](https://grafana.com/docs/grafana/latest/alerting/alerting-rules/create-notification-policy/) for your alerts.
 
