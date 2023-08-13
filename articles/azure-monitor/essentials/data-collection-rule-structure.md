@@ -4,7 +4,7 @@ description: Details on the structure of different kinds of data collection rule
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/10/2022
+ms.date: 08/08/2023
 ms.reviwer: nikeist
 
 ---
@@ -24,7 +24,7 @@ This section contains the declaration of all the different types of data that wi
 The shape of the data you send to the endpoint doesn't need to match that of the destination table. Instead, the output of the transform that's applied on top of the input data needs to match the destination shape. The possible data types that can be assigned to the properties are `string`, `int`, `long`, `real`, `boolean`, `dynamic`, and `datetime`.
 
 ### destinations
-This section contains a declaration of all the destinations where the data will be sent. Only Log Analytics is currently supported as a destination. Each Log Analytics destination requires the full workspace resource ID and a friendly name that will be used elsewhere in the DCR to refer to this workspace.
+This section contains a declaration of all the destinations where the data will be sent. Only Log Analytics is currently supported as a destination. Each Log Analytics destination requires the full workspace resource ID and a friendly name that will be used elsewhere in the DCR to refer to this workspace. 
 
 ### dataFlows
 This section ties the other sections together. It defines the following properties for each stream declared in the `streamDeclarations` section:
@@ -32,6 +32,10 @@ This section ties the other sections together. It defines the following properti
 - `destination` from the `destinations` section where the data will be sent.
 - `transformKql` section, which is the [transformation](data-collection-transformations.md) applied to the data that was sent in the input shape described in the `streamDeclarations` section to the shape of the target table.
 - `outputStream` section, which describes which table in the workspace specified under the `destination` property the data will be ingested into. The value of `outputStream` has the `Microsoft-[tableName]` shape when data is being ingested into a standard Log Analytics table, or `Custom-[tableName]` when ingesting data into a custom-created table. Only one destination is allowed per stream.
+
+> [!Note]
+> 
+> You can only send logs from one specific data source to one workspace. To send data from a single data source to multiple workspaces, please create one DCR per workspace.
 
 ## Azure Monitor Agent
  A DCR for [Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md) contains the following sections. For a sample, see [Sample data collection rule - agent](../agents/data-collection-rule-sample-agent.md). For agent based custom logs, see [Sample Custom Log Rules - Agent](../agents/data-collection-text-log.md)

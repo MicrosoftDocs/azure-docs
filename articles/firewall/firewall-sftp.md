@@ -252,4 +252,5 @@ Remove-AzResourceGroup -Name $rg -Force
 
 ## Next steps
 
+- [Deploy Azure Firewall to inspect traffic to a private endpoint](https://techcommunity.microsoft.com/t5/azure-network-security-blog/deploy-azure-firewall-to-inspect-traffic-to-a-private-endpoint/ba-p/3714575)
 - [Azure Firewall FTP support](ftp-support.md)
