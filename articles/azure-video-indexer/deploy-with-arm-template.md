@@ -28,7 +28,7 @@ You need an Azure Media Services account. You can create one for free through [C
 
 ### Option 1: Select the button for deploying to Azure, and fill in the missing parameters
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fmedia-services-video-indexer%2Fmaster%2FARM-Quick-Start%2Favam.template.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fmedia-services-video-indexer%2Fmaster%2FDeploy-Samples%2FArmTemplates%2Favam.template.json)
 
 ----
 
