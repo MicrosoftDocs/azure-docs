@@ -243,7 +243,7 @@ Use the following commands to restore data on your OT network sensor using the m
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**support**     |   `system restore`      |   No attributes      |
-|**cyberx**     |   ` cyberx-xsense-system-restore`      |   -f <filename>      |
+|**cyberx**     |   ` cyberx-xsense-system-restore`      |   `-f` `<filename>`      |
 
 
 For example, for the *support* user:
