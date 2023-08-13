@@ -102,7 +102,7 @@ Follow the steps below to create an alert. Example queries are provided to detec
       | summarize count() by complianceState
       ```
 
-   1. For **Threshold box**, select **A** for input type and set the threshold to **0** to receive alerts even if just one extension fails on the cluster. Mark this as the **Alert condition**.
+   - For **Threshold box**, select **A** for input type and set the threshold to **0** to receive alerts even if just one extension fails on the cluster. Mark this as the **Alert condition**.
 
    :::image type="content" source="media/monitor-gitops-flux2/application-dashboard-set-alerts.png" alt-text="Screenshot showing the alert creation process." lightbox="media/monitor-gitops-flux2/application-dashboard-set-alerts.png":::
 
