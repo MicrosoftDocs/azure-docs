@@ -92,8 +92,8 @@ Ensure that you have completed the [subscription prerequisites](prerequisites-su
 
    :::image type="content" source="./media/quickstart-create-cluster/create-cluster-pool-review-create-page.png" alt-text="Diagram showing cluster pool review and create tab." lightbox="./media/quickstart-create-cluster/create-cluster-review-create-page.png"::: 
 
-     If you navigate away from the page, you can check the status of the deployment by clicking Notifications ![Notifications icon shown in the Azure portal](./media/portal-elements/notifications.png) in the Azure portal.
-
+     If you navigate away from the page, you can check the status of the deployment by clicking Notifications :::icon type="content" source="./media/portal-elements/notifications.png" alt-text="diagram showing notification icon."::: in the Azure portal.
+    
      > [!TIP]
      > For troubleshooting any deployment errors, you can refer this [page](./create-cluster-error-dictionary.md).
 
@@ -189,7 +189,7 @@ For a quickstart, refer to the following steps.
 
    :::image type="content" source="./media/one-click-deployment/custom-deployment-complete.png" alt-text="Screenshot showing custom deployment complete.":::
 
-   If you navigate away from the page, you can check the status of the deployment by clicking Notifications ![Notifications icon shown in the Azure portal](./media/portal-elements/notifications.png) in the Azure portal.
+   :::image type="content" source="./media/quickstart-create-cluster/create-cluster-pool-review-create-page.png" alt-text="Diagram showing cluster pool review and create tab." lightbox="./media/quickstart-create-cluster/create-cluster-review-create-page.png"::
 
    > [!TIP]
    > For troubleshooting any deployment errors, you can refer to this [page](./create-cluster-error-dictionary.md).
