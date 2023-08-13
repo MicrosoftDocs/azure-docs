@@ -1,6 +1,6 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications - SAP Audit Controls workbook overview
-description: Learn about the SAP -Security Audit log and Initial Access workbook, used to monitor and track data across your SAP systems.
+description: Learn about the SAP - Security Audit Controls workbook, used to monitor and track security control framework compliance across your SAP systems.
 author: yelevin
 ms.author: yelevin
 ms.topic: reference
