@@ -41,9 +41,8 @@ $scope=$(az cosmosdb show --name $cosmosdbname --resource-group $resourcegroup -
 ```azurepowershell
 az cosmosdb sql role assignment create --account-name $cosmosdbname --resource-group $resourcegroup --role-definition-id $readOnlyRoleDefinitionId --principal-id $sys_principal --scope $scope
 ``````
-* *Only applicable for Cosmos Sql ApiKind*:
-  [Enforcing RBAC as the only authentication method in Azure Cosmos DB](../cosmos-db/how-to-setup-rbac.md#disable-local-auth)
-is supported for Sql Collections and follow above link to set the `disableLocalAuth` to `true` for your cosmos account.
+* For Cosmos DB for NoSQL, you can optionally [Enforcing RBAC as the only authentication method](../cosmos-db/how-to-setup-rbac.md#disable-local-auth)
+for data connections by setting `disableLocalAuth` to `true` for your Cosmos DB account.
 
 * *For Gremlin and MongoDB Collections*: 
    Indexer support is currently in preview. At this time, a preview limitation exists that requires Cognitive Search to connect using keys. You can still set up a managed identity and role assignment, but Cognitive Search will only use the role assignment to get keys for the connection. This limitation means that you can't configure an [RBAC-only approach](../cosmos-db/how-to-setup-rbac.md#disable-local-auth) if your indexers are connecting to Gremlin or MongoDB using Search with managed identities to connect to Azure Cosmos DB.
