@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 08/07/2023
+ms.date: 08/16/2023
 ms.author: greglin
 ms.custom: mvc, devx-track-azurepowershell
 ---
@@ -299,7 +299,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 A DNS name makes testing easier for the IPv6 application gateway. You can assign a public DNS name using your own domain and registrar or you can create a name in azure.com. 
 
-Use the following commands to assign a name in azure.com. In this example, the AAAA record **myipv6appgw** is created in the namespace **eastus.cloudapp.azure.com**:
+Use the following commands to assign a name in azure.com. The name is set to the label you specify + the region + cloudapp.azure.com. In this example, the AAAA record **myipv6appgw** is created in the namespace **eastus.cloudapp.azure.com**:
 
 ```azurepowershell-interactive
 $publicIp = Get-AzPublicIpAddress -Name myAGPublicIPAddress6 -ResourceGroupName myResourceGroupAG
