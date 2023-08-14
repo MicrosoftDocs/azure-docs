@@ -231,8 +231,7 @@ sections:
            Yes, the default maximum limit to trigger restore is 10 attempts per VM in 24 hours.
 
       - question: How does restored disk SKU depend on target SA provided?
-
-      - answer: |
+        answer: |
           In the case of an unmanaged VM, the VM disk type is Premium SSD or HDD and depends on the SA in which VHDs exist. If you provide normal SA during restore, the VM disk would be HDD, and if you provide Premium SA, all disks would be Premium SSDs.
 
           >[!Note]
