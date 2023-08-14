@@ -226,9 +226,7 @@ The following image is a screenshot showing the results of this sample code, a t
 :::image type="content" source="./media/how-to-use-services-module/services-module-in-webpage.png"alt-text="A screenshot of an HTML table showing the address searched and the resulting coordinates.":::
 
 <!-------------------------------------------------------
-<iframe height="500" scrolling="no" title="Using the Services Module" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>Using the Services Module</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true]
 --------------------------------------------------------->
 
 ## Azure Government cloud support
