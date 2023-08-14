@@ -57,7 +57,7 @@ The `AddRequestHeader` factory adds a header to the downstream request's headers
 This factory accepts the following configuration parameters:
 
 - `name`
-- `value` 
+- `value`
 
 The following example configures an `AddRequestHeader` factory that adds the header `X-Request-red:blue` to the downstream request’s headers for all matching requests:
 
@@ -74,7 +74,7 @@ The following example configures an `AddRequestHeader` factory that adds the hea
 ]
 ```
 
-The `AddRequestHeader` factory has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. 
+The `AddRequestHeader` factory has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime.
 
 The following example configures an `AddRequestHeader` factory that uses a variable:
 
@@ -116,12 +116,12 @@ The following example configures an `AddRequestHeadersIfNotPresent` factory:
 
 ### AddRequestParameter
 
-The `AddRequestParameter` factory adds a parameter to the downstream request’s query string for all matching requests. 
+The `AddRequestParameter` factory adds a parameter to the downstream request’s query string for all matching requests.
 
 This factory accepts the following configuration parameters:
 
 - `name`
-- `value` 
+- `value`
 
 The following example configures an `AddRequestParameter` factory that adds a `red=blue` parameter to the downstream request’s query string for all matching requests:
 
@@ -138,7 +138,7 @@ The following example configures an `AddRequestParameter` factory that adds a `r
 ]
 ```
 
-The `AddRequestParameter` factory has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. 
+The `AddRequestParameter` factory has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime.
 
 The following example configures an `AddRequestParameter` factory that uses a variable:
 
@@ -162,7 +162,7 @@ The `AddResponseHeader` factory adds a header to the downstream response’s hea
 This factory accepts the following configuration parameters:
 
 - `name`
-- `value` 
+- `value`
 
 The following example configures an `AddResponseHeader` factory that adds a `X-Response-Red:Blue` header to the downstream response’s headers for all matching requests:
 
@@ -179,7 +179,7 @@ The following example configures an `AddResponseHeader` factory that adds a `X-R
 ]
 ```
 
-The `AddResponseHeader` factory has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. 
+The `AddResponseHeader` factory has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime.
 
 The following example configures an `AddResponseHeader` factory that uses a variable:
 
@@ -299,7 +299,7 @@ protoc --proto_path=src/main/resources/proto/ \
     src/main/resources/proto/hello.proto
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > `streaming` isn't supported.
 
 The following example configures a `JSONToGRPCFilter` factory using the output from `protoc`:
@@ -349,8 +349,8 @@ This factory accepts the following configuration parameters:
 
 - `fromHeader`
 - `toHeader`
- 
-This factory creates a new named header (`toHeader`), and the value is extracted out of an existing named header (`fromHeader`) from the incoming HTTP request. If the input header doesn't exist, the filter has no impact. If the new named header already exists, its values are augmented with the new values. 
+
+This factory creates a new named header (`toHeader`), and the value is extracted out of an existing named header (`fromHeader`) from the incoming HTTP request. If the input header doesn't exist, the filter has no impact. If the new named header already exists, its values are augmented with the new values.
 
 The following example configures a `MapRequestHeader` factory that adds the `X-Request-Red:<values>` header to the downstream request with updated values from the incoming HTTP request’s `Blue` header:
 
@@ -369,11 +369,11 @@ The following example configures a `MapRequestHeader` factory that adds the `X-R
 
 ### PrefixPath
 
-The `PrefixPath` factory adds a prefix to the path of all requests. 
+The `PrefixPath` factory adds a prefix to the path of all requests.
 
 This factory accepts the following configuration parameter:
 
-- `prefix` 
+- `prefix`
 
 The following example configures a `PrefixPath` factory that adds the prefix `/api` to the path of all requests, so that a request to `/catalog` is sent to `/api/catalog`:
 
@@ -392,7 +392,7 @@ The following example configures a `PrefixPath` factory that adds the prefix `/a
 
 ### PreserveHostHeader
 
-The `PreserveHostHeader` factory sets a request attribute that the routing filter inspects to determine whether to send the original host header or the host header determined by the HTTP client. 
+The `PreserveHostHeader` factory sets a request attribute that the routing filter inspects to determine whether to send the original host header or the host header determined by the HTTP client.
 
 There are no parameters for this factory.
 
@@ -413,12 +413,12 @@ The following example configures a `PreserveHostHeader` factory:
 
 ### RedirectTo
 
-The `RedirectTo` factory adds a redirect to the original URL. 
+The `RedirectTo` factory adds a redirect to the original URL.
 
 This factory accepts the following configuration parameters:
 
 - `status`: A 300 series redirect HTTP code, such as `301`.
-- `url`: A valid URL and is also the value of the `Location` header. For relative redirects, you should use `uri: no://op` as the URI of your route definition. 
+- `url`: A valid URL and is also the value of the `Location` header. For relative redirects, you should use `uri: no://op` as the URI of your route definition.
 
 The following example configures a `RedirectTo` factory that sends a status `302` with a `Location:https://acme.org` header to perform a redirect:
 
@@ -459,11 +459,11 @@ The following example configures a `RemoveJsonAttributesResponseBody` factory:
 
 ### RemoveRequestHeader
 
-The `RemoveRequestHeader` factory removes a header from the downstream request. 
+The `RemoveRequestHeader` factory removes a header from the downstream request.
 
 This factory accepts the following configuration parameter:
- 
-- `name`: The name of the header to be removed. 
+
+- `name`: The name of the header to be removed.
 
 The following listing configures a `RemoveRequestHeader` factory that removes the `X-Request-Foo` header before it's sent downstream:
 
@@ -482,11 +482,11 @@ The following listing configures a `RemoveRequestHeader` factory that removes th
 
 ### RemoveRequestParameter
 
-The `RemoveRequestParameter` factory removes a parameter before it's sent downstream. 
+The `RemoveRequestParameter` factory removes a parameter before it's sent downstream.
 
 This factory accepts the following configuration parameter:
- 
-- `name`: The name of the query parameter to be removed. 
+
+- `name`: The name of the query parameter to be removed.
 
 The following example configures a `RemoveRequestParameter` factory that removes the `red` parameter before it's sent downstream:
 
@@ -505,11 +505,11 @@ The following example configures a `RemoveRequestParameter` factory that removes
 
 ### RemoveResponseHeader
 
-The `RemoveResponseHeader` factory removes a header from the response before it's returned to the gateway client. 
+The `RemoveResponseHeader` factory removes a header from the response before it's returned to the gateway client.
 
 This factory accepts the following configuration parameter:
- 
-- `name`: The name of the header to be removed. 
+
+- `name`: The name of the header to be removed.
 
 The following listing configures a `RemoveResponseHeader` factory that removes the `X-Response-Foo` header from the response before it's returned to the gateway client:
 
@@ -528,10 +528,10 @@ The following listing configures a `RemoveResponseHeader` factory that removes t
 
 ### RequestHeaderSize
 
-The `RequestHeaderSize` factory determines the size of the request header. 
+The `RequestHeaderSize` factory determines the size of the request header.
 
 This factory accepts the following configuration parameters:
- 
+
 - `maxSize`: The maximum data size allowed by the request header (including key and value).
 - `errorHeaderName`: The name of the response header containing an error message. By default, the name of the response header is `errorMessage`.
 
@@ -552,7 +552,7 @@ The following listing configures a `RequestHeaderSize` factory that sends a stat
 
 ### RewriteLocationResponseHeader
 
-The `RewriteLocationResponseHeader` factory modifies the value of the `Location` response header, usually to get rid of backend-specific details. 
+The `RewriteLocationResponseHeader` factory modifies the value of the `Location` response header, usually to get rid of backend-specific details.
 
 This factory accepts the following configuration parameters:
 
@@ -563,7 +563,7 @@ This factory accepts the following configuration parameters:
   - `ALWAYS_STRIP`: The version is always stripped, even if the original request path contains version.
 
 - `hostValue`: This parameter is used to replace the `host:port` portion of the response `Location` header when provided. If it isn't provided, the value of the `Host` request header is used.
-- `protocolsRegex`: A valid regex `String`, against which the protocol name is matched. If it isn't matched, the filter doesn't work. The default value is `http|https|ftp|ftps`. 
+- `protocolsRegex`: A valid regex `String`, against which the protocol name is matched. If it isn't matched, the filter doesn't work. The default value is `http|https|ftp|ftps`.
 - `locationHeaderName`
 
 The following listing configures a `RewriteLocationResponseHeader` factory:
@@ -585,12 +585,12 @@ In this example, for a request value of `POST` `api.example.com/some/object/name
 
 ### RewritePath
 
-The `RewritePath` factory uses Java regular expressions for a flexible way to rewrite the request path. 
+The `RewritePath` factory uses Java regular expressions for a flexible way to rewrite the request path.
 
 This factory accepts the following configuration parameters:
 
 - `regexp`
-- `replacement` 
+- `replacement`
 
 The following listing configures a `RewritePath` factory:
 
@@ -611,13 +611,13 @@ In this example, for a request path of `/red/blue`, this configuration sets the 
 
 ### RewriteResponseHeader
 
-The `RewriteResponseHeader` factory uses Java regular expressions for a flexible way to rewrite the response header value. 
+The `RewriteResponseHeader` factory uses Java regular expressions for a flexible way to rewrite the response header value.
 
 This factory accepts the following configuration parameters:
 
 - `name`
 - `regexp`
-- `replacement` 
+- `replacement`
 
 The following example configures a `RewriteResponseHeader` factory:
 
@@ -638,7 +638,7 @@ In this example, for a header value of `/42?user=ford&password=omg!what&flag=tru
 
 ### SetPath
 
-The `SetPath` factory offers a simple way to manipulate the request path by allowing templated segments of the path. This filter uses the URI templates from Spring Framework and allows multiple matching segments. 
+The `SetPath` factory offers a simple way to manipulate the request path by allowing templated segments of the path. This filter uses the URI templates from Spring Framework and allows multiple matching segments.
 
 This factory accepts the following configuration parameter:
 
@@ -659,11 +659,11 @@ The following example configures a `SetPath` factory:
 ]
 ```
 
-In this example, for a request path of `/red/blue`, this configuration sets the path to `/blue` before making the downstream request. 
+In this example, for a request path of `/red/blue`, this configuration sets the path to `/blue` before making the downstream request.
 
 ### SetRequestHeader
 
-The `SetRequestHeader` factory replaces (rather than adding) all headers with the given name. 
+The `SetRequestHeader` factory replaces (rather than adding) all headers with the given name.
 
 This factory accepts the following configuration parameters:
 
@@ -687,7 +687,7 @@ The following listing configures a `SetRequestHeader` factory:
 
 In this example, the downstream server responded with `X-Request-Red:1234`, and it's replaced with `X-Request-Red:Blue`.
 
-The `SetRequestHeader` factory has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. 
+The `SetRequestHeader` factory has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime.
 
 The following example configures an `SetRequestHeader` factory that uses a variable:
 
@@ -706,12 +706,12 @@ The following example configures an `SetRequestHeader` factory that uses a varia
 
 ### SetResponseHeader
 
-The `SetResponseHeader` factory replaces (rather than adding) all headers with the given name. 
+The `SetResponseHeader` factory replaces (rather than adding) all headers with the given name.
 
 This factory accepts the following configuration parameters:
 
 - `name`
-- `value` 
+- `value`
 
 The following listing configures a `SetResponseHeader` factory:
 
@@ -730,7 +730,7 @@ The following listing configures a `SetResponseHeader` factory:
 
 In this example, the downstream server responded with `X-Response-Red:1234`, and it's replaced with `X-Response-Red:Blue`.
 
-The `SetResponseHeader` factory has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime. 
+The `SetResponseHeader` factory has access to the URI variables used to match a path or host. You can use URI variables in the value, and the variables are expanded at runtime.
 
 The following example configures an `SetResponseHeader` factory that uses a variable:
 
@@ -749,11 +749,11 @@ The following example configures an `SetResponseHeader` factory that uses a vari
 
 ### SetStatus
 
-The `SetStatus` factory configures the response status of the server request. 
+The `SetStatus` factory configures the response status of the server request.
 
 This factory accepts the following configuration parameter:
 
-- `status`: A valid Spring `HttpStatus`. It could be the integer value `404`, or the string representation of the enumeration: `NOT_FOUND`. 
+- `status`: A valid Spring `HttpStatus`. It could be the integer value `404`, or the string representation of the enumeration: `NOT_FOUND`.
 
 The following listing configures a `SetStatus` factory:
 
@@ -780,11 +780,11 @@ The following listing configures a `SetStatus` factory:
 
 ### StripPrefix
 
-The `StripPrefix` factory removes the prefix from the request before sending it downstream. 
+The `StripPrefix` factory removes the prefix from the request before sending it downstream.
 
 This factory accepts the following configuration parameter:
 
-- `parts`: The number of parts in the path to strip from the request before sending it downstream. The default value is 1. 
+- `parts`: The number of parts in the path to strip from the request before sending it downstream. The default value is 1.
 
 The following example configures a `StripPrefix` factory:
 
@@ -805,7 +805,7 @@ In this example, a request is made through the gateway to `/name/blue/red`. The 
 
 ### Retry
 
-The `Retry` factory determines the number of retries attempted. 
+The `Retry` factory determines the number of retries attempted.
 
 This factory accepts the following configuration parameters:
 
@@ -841,11 +841,11 @@ The following example configures a `Retry` factory:
 
 ### RequestSize
 
-The `RequestSize` factory can restrict a request from reaching the downstream service when the request size is greater than the permissible limit. 
+The `RequestSize` factory can restrict a request from reaching the downstream service when the request size is greater than the permissible limit.
 
 This factory accepts the following configuration parameter:
 
-- `maxSize`: A `DataSize` type where values are defined as a number followed by an optional `DataUnit` suffix such as 'KB' or 'MB'. The default suffix value is 'B' for bytes. It's the permissible size limit of the request defined in bytes. 
+- `maxSize`: A `DataSize` type where values are defined as a number followed by an optional `DataUnit` suffix such as 'KB' or 'MB'. The default suffix value is 'B' for bytes. It's the permissible size limit of the request defined in bytes.
 
 The following example configures a `RequestSize` factory:
 
@@ -862,7 +862,7 @@ The following example configures a `RequestSize` factory:
 ]
 ```
 
-In this example, when the request is rejected due to size, the `RequestSize` factory sets the response status as `413 Payload Too Large` with an additional header `errorMessage`. 
+In this example, when the request is rejected due to size, the `RequestSize` factory sets the response status as `413 Payload Too Large` with an additional header `errorMessage`.
 
 The following example shows an `errorMessage`:
 
@@ -962,7 +962,7 @@ The following example configures a `AllowedRequestQueryParamsCount` factory:
 
 ### BasicAuth
 
-The `BasicAuth` factory adds a `BasicAuth` `Authorization` header to requests. 
+The `BasicAuth` factory adds a `BasicAuth` `Authorization` header to requests.
 
 There are no parameters for this factory.
 
@@ -1324,7 +1324,7 @@ The following example configures a `StoreHeader` factory:
 
 ### XmlToJson
 
-The `XmlToJson` factory transforms XML response body into JSON response body. 
+The `XmlToJson` factory transforms XML response body into JSON response body.
 
 There are no parameters for this factory.
 
