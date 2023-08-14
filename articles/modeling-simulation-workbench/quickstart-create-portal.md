@@ -213,8 +213,6 @@ To create an Azure Modeling and Simulation Workbench, you first fill out the Azu
       > [!NOTE]
       > If you have another **Chamber Admin** with 100.100.100.101 and 2 **Chamber Users** with 100.100.100.102 and 100.100.100.103, then the **Network ACLs** value is *100.100.100.100/30*.
 
-   - **License file URL**: Enter the secret identifier Key Vault URL for *QuickstartModSimWorkbenchDesktopLicenseKey* you documented in the **Add secrets to Key Vault** step.
-
 1. Provide the following information for the **Chamber VM**:
    - **Chamber VM name**: Enter *myFirstChamberWorkload*.
    - **Chamber VM size**: Select *E2s_v5*.
