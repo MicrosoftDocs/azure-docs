@@ -57,6 +57,6 @@ For more information about using the DICOM service, see
 For more information about DICOM cast, see
 
 >[!div class="nextstepaction"]
->[DICOM cast overview](dicom-cast-overview.md)
+>[DICOM cast overview](https://github.com/microsoft/dicom-server/blob/main/docs/concepts/dicom-cast.md)
 
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
