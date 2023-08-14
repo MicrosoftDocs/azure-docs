@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 08/14/2023
 ---
 
-# Manage multi-factor authentication (MFA) enforcement on your subscriptions
+# Manage multi-factor authentication (MFA) on your subscriptions
 
-If you're using passwords, only to authenticate your users, you're leaving an attack vector open. Users often use weak passwords or reuse them for multiple services. With [MFA](https://www.microsoft.com/security/business/identity/mfa) enabled, your accounts are more secure, and users can still authenticate to almost any application with single sign-on (SSO).
+If you're using passwords only to authenticate your users, you're leaving an attack vector open. Users often use weak passwords or reuse them for multiple services. With [MFA](https://www.microsoft.com/security/business/identity/mfa) enabled, your accounts are more secure, and users can still authenticate to almost any application with single sign-on (SSO).
 
-There are multiple ways to enable MFA for your Azure Active Directory (AD) users based on the licenses that your organization owns. This page provides the details for each in the context of Microsoft Defender for Cloud.
+There are multiple ways to enable MFA for your Azure Active Directory (Azure AD) users based on the licenses that your organization owns. This page provides the details for each in the context of Microsoft Defender for Cloud.
 
 ## MFA and Microsoft Defender for Cloud
 
@@ -21,7 +21,7 @@ The recommendations in the Enable MFA control ensure you're meeting the recommen
 - Accounts with write permissions on Azure resources should be MFA enabled
 - Accounts with read permissions on Azure resources should be MFA enabled
 
-There are three ways to enable MFA and be compliant with the two recommendations in Defender for Cloud: security defaults, per-user assignment, conditional access (CA) policy.
+There are three ways to enable MFA and be compliant with the two recommendations in Defender for Cloud: security defaults, per-user assignment, and conditional access (CA) policy.
 
 ### Free option - security defaults
 
@@ -33,7 +33,7 @@ Customers with Microsoft 365 can use **Per-user assignment**. In this scenario, 
 
 ### MFA for Azure AD Premium customers
 
-For an improved user experience, upgrade to Azure AD Premium P1 or P2 for **conditional access (CA) policy** options. To configure a CA policy, you'll need [Azure Active Directory (AD) tenant permissions](../active-directory/roles/permissions-reference.md).
+For an improved user experience, upgrade to Azure AD Premium P1 or P2 for **conditional access (CA) policy** options. To configure a CA policy, you need [Azure Active Directory (Azure AD) tenant permissions](../active-directory/roles/permissions-reference.md).
 
 Your CA policy must:
 
@@ -51,7 +51,7 @@ Learn more in the [Azure Conditional Access documentation](../active-directory/c
 
 ## Identify accounts without multi-factor authentication (MFA) enabled
 
-You can view the list of user accounts without MFA enabled from either the Defender for Cloud recommendations details page, or using Azure Resource Graph.
+You can view the list of user accounts without MFA enabled from either the Defender for Cloud recommendations details page, or by using the Azure Resource Graph.
 
 ### View the accounts without MFA enabled in the Azure portal
 
@@ -63,7 +63,7 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
 
 1. Open **Azure Resource Graph Explorer**.
 
-    :::image type="content" source="./media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page" :::
+    :::image type="content" source="./media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png" alt-text="Screenshot showing launching the Azure Resource Graph Explorer** recommendation page"  lightbox="media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png":::
 
 1. Enter the following query and select **Run query**.
 
