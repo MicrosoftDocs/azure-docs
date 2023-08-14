@@ -61,19 +61,21 @@ And add the following request body:
 
 ```
 {
-    "properties": {
+   "properties": {
         "isEnabled": true,
         "malwareScanning": {
             "onUpload": {
                 "isEnabled": true,
                 "capGBPerMonth": 5000
             }
+			"scanResultsEventGridTopicResourceId": "/subscriptions/<Subscription>/resourceGroups/<resourceGroup>/providers/Microsoft.EventGrid/topics/<topicName>"
         },
         "sensitiveDataDiscovery": {
             "isEnabled": true
         },
         "overrideSubscriptionLevelSettings": true
-    }
+    },
+    "scope": "[resourceId('Microsoft.Storage/storageAccounts', parameters('StorageAccountName'))]"
 }
 ```
 
