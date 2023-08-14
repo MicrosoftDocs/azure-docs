@@ -1,5 +1,6 @@
 ---
-title: Azure Route Server support for ExpressRoute and Azure VPN
+title: Support for ExpressRoute and Azure VPN
+titleSuffix: Azure Route Server
 description: Learn about how Azure Route Server exchanges routes between network virtual appliances (NVA), Azure ExpressRoute gateways, and Azure VPN gateways.
 author: halkazwini
 ms.author: halkazwini
