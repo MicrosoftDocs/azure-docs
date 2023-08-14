@@ -55,7 +55,7 @@ $ratelimitrule = New-AzApplicationGatewayFirewallCustomRule -Name ClientIPRateLi
 
 The Azure CLI commands to enable and configure Rate Limit rules are coming soon.
 
----
+* * *
 
 **Scenario Two** - Create Rate Limit Custom Rule to match all traffic except for traffic originating from the United States.  Traffic will be grouped, counted and rate limited based on the GeoLocation of the Client Source IP address 
 
@@ -90,7 +90,8 @@ $ratelimitrule = New-AzApplicationGatewayFirewallCustomRule -Name GeoRateLimitRu
 
 The Azure CLI commands to enable and configure Rate Limit rules are coming soon.
 
----
+* * *
+
 **Scenario Three** - Create Rate Limit Custom Rule matching all traffic for the login page, and using the GroupBy None variable.  This will group and count all traffic which matches the rule as one, and apply the action across all traffic matching the rule (/login).
 
 #### [Portal](#tab/browser)
@@ -125,7 +126,7 @@ $ratelimitrule = New-AzApplicationGatewayFirewallCustomRule -Name LoginRateLimit
 
 The Azure CLI commands to enable and configure Rate Limit rules are coming soon.
 
----
+* * *
 
 ## Next steps
 
