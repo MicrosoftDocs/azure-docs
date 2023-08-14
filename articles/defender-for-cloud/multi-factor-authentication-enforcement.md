@@ -81,8 +81,8 @@ securityresources
     > [!NOTE]
     > The 'Account ObjectIDs' column contains the list of account object IDs for accounts that don't have MFA enforced per recommendation.
 
-> [!TIP]
-> Alternatively, you can use the Defender for Cloud REST API method [Assessments - Get](/rest/api/defenderforcloud/assessments/get).
+    > [!TIP]
+    > Alternatively, you can use the Defender for Cloud REST API method [Assessments - Get](/rest/api/defenderforcloud/assessments/get).
 
 ## Next steps
 
