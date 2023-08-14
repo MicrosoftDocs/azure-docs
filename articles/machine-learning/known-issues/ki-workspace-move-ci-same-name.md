@@ -1,6 +1,6 @@
 ---
 title: Known issue - After a workspace move Etag conflict error when creating a compute instance with the same name.
-description: While using the compute instance terminal inside a mounted path of data folder, any commands executed from the terminal result in slowness.
+description: After a moving a workspace to a different subscription or resource group, creating a compute instance with the same name as a previous compute instance will fail with an Etag conflict error.
 author: s-polly
 ms.author: scottpolly
 ms.topic: troubleshooting  

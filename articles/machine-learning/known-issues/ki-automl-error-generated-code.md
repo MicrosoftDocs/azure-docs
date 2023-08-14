@@ -1,6 +1,6 @@
 ---
 title: Known issue - AutoML "Unable to copy files" error retrieving generated code
-description: A known issue is posted when a workspace has public IP but the storage is private then the workspace cannot interact with the storage account directly.
+description: A known issue is posted when a workspace has public IP but the storage is private then the workspace can't interact with the storage account directly.
 author: s-polly
 ms.author: scottpolly
 ms.topic: troubleshooting  
@@ -10,9 +10,9 @@ ms.date: 08/04/2023
 ms.custom: known-issue
 ---
 
-# Known issue  - AutoML | Error retrieving generated code FilesharePermissionFailure:Unable to copy files to fileshare because authorization failed.
+# Known issue  - AutoML | Error retrieving generated code FilesharePermissionFailure: Unable to copy files to fileshare because authorization failed.
 
-When a workspace has a public IP but the storage is private, then the workspace cannot interact with the storage account directly. 
+When a workspace has a public IP but the storage is private, then the workspace can't interact with the storage account directly. 
 
 [!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
 
@@ -23,7 +23,7 @@ When a workspace has a public IP but the storage is private, then the workspace 
 
 ## Symptoms
 
-When a workspace has a public IP but the storage is private,  the workspace cannot directly interact with the storage account.
+When a workspace has a public IP but the storage is private, the workspace can't directly interact with the storage account.
 
 ## Solutions and workarounds
 

@@ -1,6 +1,6 @@
 ---
-title: Known issue - Workspace RP | Create workspace with bring your own storage scenario does not work in SDK V2 
-description: Create workspace with bring your own storage scenario does not work in SDK V2
+title: Known issue - Workspace RP | Create workspace with bring your own storage scenario doesn't work in SDK V2 
+description: Create workspace with bring your own storage scenario doesn't work in SDK V2
 author: s-polly
 ms.author: scottpolly
 ms.topic: troubleshooting  
@@ -10,10 +10,10 @@ ms.date: 08/04/2023
 ms.custom: known-issue
 ---
 
-# Known issue  - Workspace RP | Create workspace with bring your own storage scenario does not work in SDK V2 
+# Known issue  - Workspace RP | Create workspace with bring your own storage scenario doesn't work in SDK V2 
 
 
-When following the document [Manage Azure Machine Learning workspaces in the portal or with the Python SDK (v2)](../how-to-manage-workspace.md) using a bring-your-own-storage scenario, the procedure will fail if the storage is in a different subscription than the workspace.
+When following the document [Manage Azure Machine Learning workspaces in the portal or with the Python SDK (v2)](../how-to-manage-workspace.md) using a bring-your-own-storage scenario, the procedure fails if the storage is in a different subscription than the workspace.
 
 [!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
 
@@ -24,7 +24,7 @@ When following the document [Manage Azure Machine Learning workspaces in the por
 
 ## Cause
 
-This issue occurs when using the SDK(v2)to create a workspace with bring-your-own storage in a subscription different than the workspace subscription. An example of this is shown in the sample code below from [Manage Azure Machine Learning workspaces in the portal or with the Python SDK (v2)](../how-to-manage-workspace.md)
+This issue occurs when using the SDK(v2) to create a workspace with bring-your-own storage in a subscription different than the workspace subscription. An example is shown in the sample code from [Manage Azure Machine Learning workspaces in the portal or with the Python SDK (v2)](../how-to-manage-workspace.md)
 
 ```python
 from azure.ai.ml
@@ -49,7 +49,7 @@ ws_with_existing_resources = ml_client.begin_create_or_update(
     ws_with_existing_resources).result()
 print(ws_with_existing_resources)
 ```
-If your storage is in a different subscription from your workspace, you will receive the error error:
+If your storage is in a different subscription from your workspace, you'll receive the error:
 
 ```python
 Unable to check existing role assignments on resource /subscriptions/,sub id of storage>/resourceGroups/<rg>/providers/Microsoft.Storage/storageAccounts/<existing storage>: The Resource 'Microsoft.Storage/storageAccounts/<existing storage>' under resource group '<rg>' was not found
@@ -57,9 +57,9 @@ Unable to check existing role assignments on resource /subscriptions/,sub id of 
 
 
 ## Solutions and workarounds
-Currently SDK(v2) does not support creating a workspace with bring-your-own storage in another subscription. The code tries to look for storage in same subscription as the workspace.
+Currently SDK(v2) doesn't support creating a workspace with bring-your-own storage in another subscription. The code tries to look for storage in same subscription as the workspace.
 
-A workaround is to use the API to create the workspace. The API does not have this limitation. The API can be found at [Create or update workspace](https://learn.microsoft.com/rest/api/azureml/2023-04-01/workspaces/create-or-update?tabs=HTTP)
+A workaround is to use the API to create the workspace. The API doesn't have this limitation. The API can be found at [Create or update workspace](https://learn.microsoft.com/rest/api/azureml/2023-04-01/workspaces/create-or-update?tabs=HTTP)
 
 
 ## Next steps

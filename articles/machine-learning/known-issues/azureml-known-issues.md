@@ -12,40 +12,25 @@ ms.custom:
 
 # Azure Machine Learning known issues
 
-This page lists known issues for Azure Machine Learning features. Before submitting a Support request, review this list to see if the issue that you are experiencing is already known and being addressed. 
+This page lists known issues for Azure Machine Learning features. Before submitting a Support request, review this list to see if the issue that you're experiencing is already known and being addressed. 
 
 
 ## Currently active known issues
 
-Click the **Title** to view more information about that specific known issue.
+Select the **Title** to view more information about that specific known issue.
 
 
 |Area  |Title  |Issue publish date  |
 |---------|---------|---------|
-|Compute | [Jupyter R Kernel does not start in new compute instance images](ki-jupyter-r-kernel-not-starting.md)        |   August 14, 2023      |
+|Compute | [Jupyter R Kernel doesn't start in new compute instance images](ki-jupyter-r-kernel-not-starting.md)        |   August 14, 2023      |
 |Compute | [Provisioning error when creating a compute instance with A10 SKU](ki-compute-a10-sku-not-supported.md) | August 14, 2023 |
 |Compute | [Idleshutdown property in Bicep template causes error](ki-compute-idleshutdown-bicep.md) |    August 14, 2023      |   
 |Compute | [Slowness in compute instance terminal from a mounted path](ki-compute-slowness-terminal-mounted-path.md)| August 14, 2023|   
 |Compute| [Creating compute instance after a workspace move results in an Etag conflict error.](ki-workspace-move-ci-same-name.md)| August 14, 2023 | 
  
 
-## Recently closed known issues
-
-Click the **Title** to view more information about that specific known issue. Fixed issues are removed after 46 days.
-
-
-|Area     |Title  |Issues publish date  |Status  |
-|---------|---------|---------|---------|
-|Row1     |         |         |         |
-|Row2     |         |         |         |
-|Row3     |         |         |         |
-|Row4     |         |         |         |
-|Row5     |         |         |         |
-
-
-
 ## Next steps
 
-- 
+
 - [See Azure service level outages](https://azure.status.microsoft/status)
 - [Get your questions answered by the Azure Machine Learning community](https://learn.microsoft.com/answers/tags/75/azure-machine-learning)

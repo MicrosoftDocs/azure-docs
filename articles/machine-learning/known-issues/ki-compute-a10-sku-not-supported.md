@@ -1,6 +1,6 @@
 ---
 title: Known issue - A10 SKU not supported
-description: While trying to create a compute instance with A10 SKU, users will encounter a provisioning error.
+description: While trying to create a compute instance with A10 SKU, users encounter a provisioning error.
 author: s-polly
 ms.author: scottpolly
 ms.topic: troubleshooting  
@@ -14,7 +14,7 @@ ms.custom: known-issue
 
 [!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
 
-While trying to create a compute instance with A10 SKU, you will encounter a provisioning error.
+While trying to create a compute instance with A10 SKU, you'll encounter a provisioning error.
 
 :::image type="content" source="media/ki-compute-a10-sku-not-supported/ci-a10.png" alt-text="A screenshot showing the provisioning error message":::
 
@@ -26,7 +26,7 @@ While trying to create a compute instance with A10 SKU, you will encounter a pro
 
 ## Solutions and workarounds
 
-A10 AKUs are not supported for compute instances. Please use a different SKU.
+A10 AKUs aren't supported for compute instances. Use a different SKU.
 
 ## Next steps
 

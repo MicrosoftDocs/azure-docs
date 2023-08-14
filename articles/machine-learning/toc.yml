@@ -1320,20 +1320,20 @@
       items:
         - name: Active known issues for Azure Machine Learning
           href: ./known-issues/azureml-known-issues.md
-        - name: Workspace known issues
-          items:
-          - name: AutoML| Error retrieving generated code
-            href: ./known-issues/ki-automl-error-generated-code.md
-          - name: Create workspace with BYOS does not work in SDK V2
-            href: ./known-issues/ki-workspace-storage-different-subscription.md
         - name: Compute instance known issues
           items:
           - name: Jupyter R Kernel does not start in new compute instance images
             href: ./known-issues/ki-jupyter-r-kernel-not-starting.md
-        - name: Inferencing known issues
-          items:
-          - name: CORS error when invoking a managed online endpoint
-            href: ./known-issues/ki-inferencing-cors-error.md
+          - name: Provisioning error when creating a compute instance with A10 SKU
+            href: ./known-issues/ki-compute-a10-sku-not-supported.md
+          - name: Idleshutdown property in Bicep template causes error
+            href: ./known-issues/ki-compute-idleshutdown-bicep.md
+          - name: Slowness in compute instance terminal from a mounted path
+            href: ./known-issues/ki-compute-slowness-terminal-mounted-path.md
+          - name: Creating compute instance after a workspace move causes Etag conflict error
+            href: ./known-issues/ki-workspace-move-ci-same-name.md
+          - name: Application Sharing Policy isn't supported 
+            href: ./known-issues/ki-applicaton-sharing-policy-not-supported.md
 - name: Samples
   items:
     - name: Jupyter Notebooks
