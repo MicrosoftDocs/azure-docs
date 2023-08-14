@@ -3,7 +3,7 @@ title: 'Tutorial: Access data with managed identity in Java'
 description: Secure Azure Database for PostgreSQL connectivity with managed identity from a sample Java Tomcat app, and apply it to other Azure services.
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 09/26/2022
+ms.date: 08/14/2023
 author: KarlErickson
 ms.author: karler
 ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track-extended-java
@@ -51,8 +51,8 @@ Follow these steps to create an Azure Database for Postgres in your subscription
 1. Create an Azure Resource Group, noting the resource group name.
 
    ```azurecli-interactive
-   RESOURCE_GROUP=<resource-group-name>
-   LOCATION=eastus
+   export RESOURCE_GROUP=<resource-group-name>
+   export LOCATION=eastus
 
    az group create --name $RESOURCE_GROUP --location $LOCATION
    ```
@@ -62,10 +62,10 @@ Follow these steps to create an Azure Database for Postgres in your subscription
    ### [Flexible Server](#tab/flexible)
 
    ```azurecli-interactive
-   POSTGRESQL_ADMIN_USER=azureuser
+   export POSTGRESQL_ADMIN_USER=azureuser
    # PostgreSQL admin access rights won't be used because Azure AD authentication is leveraged to administer the database.
-   POSTGRESQL_ADMIN_PASSWORD=<admin-password>
-   POSTGRESQL_HOST=<postgresql-host-name>
+   export POSTGRESQL_ADMIN_PASSWORD=<admin-password>
+   export POSTGRESQL_HOST=<postgresql-host-name>
 
    # Create a PostgreSQL server.
    az postgres flexible-server create \
@@ -75,16 +75,16 @@ Follow these steps to create an Azure Database for Postgres in your subscription
        --admin-user $POSTGRESQL_ADMIN_USER \
        --admin-password $POSTGRESQL_ADMIN_PASSWORD \
        --public-access 0.0.0.0 \
-       --sku-name Standard_D2s_v3 
+       --sku-name Standard_D2s_v3
    ```
 
    ### [Single Server](#tab/single)
 
    ```azurecli-interactive
-   POSTGRESQL_ADMIN_USER=azureuser
+   export POSTGRESQL_ADMIN_USER=azureuser
    # PostgreSQL admin access rights won't be used because Azure AD authentication is leveraged to administer the database.
-   POSTGRESQL_ADMIN_PASSWORD=<admin-password>
-   POSTGRESQL_HOST=<postgresql-host-name>
+   export POSTGRESQL_ADMIN_PASSWORD=<admin-password>
+   export POSTGRESQL_HOST=<postgresql-host-name>
 
    # Create a PostgreSQL server.
    az postgres server create \
@@ -94,7 +94,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
        --admin-user $POSTGRESQL_ADMIN_USER \
        --admin-password $POSTGRESQL_ADMIN_PASSWORD \
        --public-access 0.0.0.0 \
-       --sku-name B_Gen5_1 
+       --sku-name B_Gen5_1
    ```
 
 1. Create a database for the application.
@@ -102,7 +102,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
    ### [Flexible Server](#tab/flexible)
 
    ```azurecli-interactive
-   DATABASE_NAME=checklist
+   export DATABASE_NAME=checklist
 
    az postgres flexible-server db create \
        --resource-group $RESOURCE_GROUP \
@@ -113,7 +113,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
    ### [Single Server](#tab/single)
 
    ```azurecli-interactive
-   DATABASE_NAME=checklist
+   export DATABASE_NAME=checklist
 
    az postgres db create \
        --resource-group $RESOURCE_GROUP \
@@ -134,8 +134,8 @@ Follow these steps to build a WAR file and deploy to Azure App Service on Tomcat
 1. Create an Azure App Service resource on Linux using Tomcat 9.0.
 
    ```azurecli-interactive
-   APPSERVICE_PLAN=<app-service-plan>
-   APPSERVICE_NAME=<app-service-name>
+   export APPSERVICE_PLAN=<app-service-plan>
+   export APPSERVICE_NAME=<app-service-name>
    # Create an App Service plan
    az appservice plan create \
        --resource-group $RESOURCE_GROUP \
@@ -205,22 +205,37 @@ az webapp connection create postgres \
 ```
 
 ---
+
 This command creates a connection between your web app and your PostgreSQL server, and manages authentication through a system-assigned managed identity.
 
 Next, update App Settings and add plugin in connection string
 
 ```azurecli-interactive
-AZURE_POSTGRESQL_CONNECTIONSTRING=$(az webapp config appsettings list --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME | jq -c -r '.[] | select ( .name == "AZURE_POSTGRESQL_CONNECTIONSTRING" ) | .value')
+export AZURE_POSTGRESQL_CONNECTIONSTRING=$(\
+    az webapp config appsettings list \
+        --resource-group $RESOURCE_GROUP \
+        --name $APPSERVICE_NAME \
+    | jq -c -r '.[] \
+    | select ( .name == "AZURE_POSTGRESQL_CONNECTIONSTRING" ) \
+    | .value')
 
-az webapp config appsettings set --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --settings 'CATALINA_OPTS=-DdbUrl="'"${AZURE_POSTGRESQL_CONNECTIONSTRING}"'&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin"'
+az webapp config appsettings set \
+    --resource-group $RESOURCE_GROUP \
+    --name $APPSERVICE_NAME \
+    --settings 'CATALINA_OPTS=-DdbUrl="'"${AZURE_POSTGRESQL_CONNECTIONSTRING}"'&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin"'
 ```
 
-## Test sample web app
+## Test the sample web app
 
 Run the following command to test the application.
+
 ```bash
-WEBAPP_URL=$(az webapp show --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --query defaultHostName -o tsv)
-    
+export WEBAPP_URL=$(az webapp show \
+    --resource-group $RESOURCE_GROUP \
+    --name $APPSERVICE_NAME \
+    --query defaultHostName \
+    --output tsv)
+
 # Create a list
 curl -X POST -H "Content-Type: application/json" -d '{"name": "list1","date": "2022-03-21T00:00:00","description": "Sample checklist"}' https://${WEBAPP_URL}/checklist
 

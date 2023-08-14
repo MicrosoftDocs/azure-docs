@@ -3,7 +3,7 @@ title: 'Tutorial: Access data with managed identity in Java JBoss EAP'
 description: Secure Azure Database for MySQL connectivity with managed identity from a sample Java JBoss EAP app, and apply it to other Azure services.
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 03/20/2023
+ms.date: 08/14/2023
 ms.service: service-connector
 author: xfz11
 ms.author: xiaofanzhou
@@ -54,69 +54,66 @@ Follow these steps to create an Azure Database for MySQL in your subscription. T
 1. Create an Azure Resource Group, noting the resource group name.
 
    ```azurecli-interactive
-   RESOURCE_GROUP=<resource-group-name>
-   LOCATION=eastus
+   export RESOURCE_GROUP=<resource-group-name>
+   export LOCATION=eastus
 
    az group create --name $RESOURCE_GROUP --location $LOCATION
    ```
 
 1. Create an Azure Database for MySQL server. The server is created with an administrator account, but it won't be used because we'll use the Azure Azure AD admin account to perform administrative tasks.
 
-    ```azurecli-interactive
-    MYSQL_ADMIN_USER=azureuser
-    # MySQL admin access rights won't be used because Azure AD authentication is leveraged to administer the database.
-    MYSQL_ADMIN_PASSWORD=<admin-password>
-    MYSQL_HOST=<mysql-host-name>
+   ```azurecli-interactive
+   export MYSQL_ADMIN_USER=azureuser
+   # MySQL admin access rights won't be used because Azure AD authentication is leveraged to administer the database.
+   export MYSQL_ADMIN_PASSWORD=<admin-password>
+   export MYSQL_HOST=<mysql-host-name>
 
-    # Create a MySQL server.
-    az mysql flexible-server create \
-        --name $MYSQL_HOST \
-        --resource-group $RESOURCE_GROUP \
-        --location $LOCATION \
-        --admin-user $MYSQL_ADMIN_USER \
-        --admin-password $MYSQL_ADMIN_PASSWORD \
-        --public-access 0.0.0.0 \
-        --tier Burstable \
-        --sku-name Standard_B1ms \
-        --storage-size 32 
+   # Create a MySQL server.
+   az mysql flexible-server create \
+       --name $MYSQL_HOST \
+       --resource-group $RESOURCE_GROUP \
+       --location $LOCATION \
+       --admin-user $MYSQL_ADMIN_USER \
+       --admin-password $MYSQL_ADMIN_PASSWORD \
+       --public-access 0.0.0.0 \
+       --tier Burstable \
+       --sku-name Standard_B1ms \
+       --storage-size 32
    ```
-
 
 1. Create a database for the application.
 
+   ```azurecli-interactive
+   export DATABASE_NAME=checklist
 
-    ```azurecli-interactive
-    DATABASE_NAME=checklist
-
-    az mysql flexible-server db create \
-        --resource-group $RESOURCE_GROUP \
-        --server-name $MYSQL_HOST \
-        --database-name $DATABASE_NAME
-    ```
+   az mysql flexible-server db create \
+       --resource-group $RESOURCE_GROUP \
+       --server-name $MYSQL_HOST \
+       --database-name $DATABASE_NAME
+   ```
 
 ## Create an App Service
 
 Create an Azure App Service resource on Linux. JBoss EAP requires Premium SKU.
 
-   ```azurecli-interactive
-   APPSERVICE_PLAN=<app-service-plan>
-   APPSERVICE_NAME=<app-service-name>
-   # Create an App Service plan
-   az appservice plan create \
-       --resource-group $RESOURCE_GROUP \
-       --name $APPSERVICE_PLAN \
-       --location $LOCATION \
-       --sku P1V3 \
-       --is-linux
+```azurecli-interactive
+export APPSERVICE_PLAN=<app-service-plan>
+export APPSERVICE_NAME=<app-service-name>
+# Create an App Service plan
+az appservice plan create \
+    --resource-group $RESOURCE_GROUP \
+    --name $APPSERVICE_PLAN \
+    --location $LOCATION \
+    --sku P1V3 \
+    --is-linux
 
-   # Create an App Service resource.
-   az webapp create \
-       --resource-group $RESOURCE_GROUP \
-       --name $APPSERVICE_NAME \
-       --plan $APPSERVICE_PLAN \
-       --runtime "JBOSSEAP:7-java8"
-   ```
-
+# Create an App Service resource.
+az webapp create \
+    --resource-group $RESOURCE_GROUP \
+    --name $APPSERVICE_NAME \
+    --plan $APPSERVICE_PLAN \
+    --runtime "JBOSSEAP:7-java8"
+```
 
 ## Connect the MySQL database with identity connectivity
 
@@ -131,8 +128,8 @@ az extension add --name serviceconnector-passwordless --upgrade
 Then, use the following command to create a user-assigned managed identity for Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
 
 ```azurecli
-USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
-IDENTITY_RESOURCE_ID=$(az identity create \
+export USER_IDENTITY_NAME=<your-user-assigned-managed-identity-name>
+export IDENTITY_RESOURCE_ID=$(az identity create \
     --name $USER_IDENTITY_NAME \
     --resource-group $RESOURCE_GROUP \
     --query id \
@@ -159,10 +156,10 @@ az webapp connection create mysql-flexible \
 
 This Service Connector command will do the following tasks in the background:
 
-- Enable system-assigned managed identity for the app `$APPSERVICE_NAME` hosted by Azure App Service.
-- Set the Azure Active Directory admin to the current signed-in user.
-- Add a database user for the system-assigned managed identity in step 1 and grant all privileges of the database `$DATABASE_NAME` to this user. The user name can be get from the connection string in above command output
-- Add a connection string to App Settings in the app named `AZURE_MYSQL_CONNECTIONSTRING`
+* Enable system-assigned managed identity for the app `$APPSERVICE_NAME` hosted by Azure App Service.
+* Set the Azure Active Directory admin to the current signed-in user.
+* Add a database user for the system-assigned managed identity in step 1 and grant all privileges of the database `$DATABASE_NAME` to this user. The user name can be get from the connection string in above command output
+* Add a connection string to App Settings in the app named `AZURE_MYSQL_CONNECTIONSTRING`
 
   > [!NOTE]
   > If you see the error message `The subscription is not registered to use Microsoft.ServiceLinker`, run the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider, then run the connection command again.
@@ -175,57 +172,93 @@ Follow these steps to prepare data in a database and deploy the application.
 
 1. Open a firewall to allow connection from your current IP address.
 
-    ```azurecli
-    # Create a temporary firewall rule to allow connections from your current machine to the MySQL server
-    MY_IP=$(curl http://whatismyip.akamai.com)
-    az mysql flexible-server firewall-rule create --resource-group $RESOURCE_GROUP --name $MYSQL_HOST --rule-name AllowCurrentMachineToConnect --start-ip-address ${MY_IP} --end-ip-address ${MY_IP}
-    ```
+   ```azurecli
+   # Create a temporary firewall rule to allow connections from your current machine to the MySQL server
+   export MY_IP=$(curl http://whatismyip.akamai.com)
+   az mysql flexible-server firewall-rule create \
+       --resource-group $RESOURCE_GROUP \
+       --name $MYSQL_HOST \
+       --rule-name AllowCurrentMachineToConnect \
+       --start-ip-address ${MY_IP} \
+       --end-ip-address ${MY_IP}
+   ```
 
 1. Connect to the database and create tables.
 
-    ```azurecli
-    DATABASE_FQDN=${MYSQL_HOST}.mysql.database.azure.com
-    CURRENT_USER=$(az account show --query user.name -o tsv)
-    RDBMS_ACCESS_TOKEN=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)
-    mysql -h "${DATABASE_FQDN}" --user "${CURRENT_USER}" --enable-cleartext-plugin --password="$RDBMS_ACCESS_TOKEN" < azure/init-db.sql
-    ```
+   ```azurecli
+   export DATABASE_FQDN=${MYSQL_HOST}.mysql.database.azure.com
+   export CURRENT_USER=$(az account show --query user.name --output tsv)
+   export RDBMS_ACCESS_TOKEN=$(az account get-access-token \
+       --resource-type oss-rdbms \
+       --output tsv \
+       --query accessToken)
+   mysql -h "${DATABASE_FQDN}" --user "${CURRENT_USER}" --enable-cleartext-plugin --password="$RDBMS_ACCESS_TOKEN" < azure/init-db.sql
+   ```
 
 1. Remove the temporary firewall rule.
 
-    ```azurecli
-    az mysql flexible-server firewall-rule delete --resource-group $RESOURCE_GROUP --name $MYSQL_HOST --rule-name AllowCurrentMachineToConnect
-    ```
+   ```azurecli
+   az mysql flexible-server firewall-rule delete \
+       --resource-group $RESOURCE_GROUP \
+       --name $MYSQL_HOST \
+       --rule-name AllowCurrentMachineToConnect
+   ```
 
 ### Deploy the application
 
 1. Update the connection string in App Settings.
- 
-    Get the connection string generated by Service Connector and add passwordless authentication plugin. This connection string will be referenced in the startup script.
-    ```azurecli-interactive
-    PASSWORDLESS_URL=$(az webapp config appsettings list --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME | jq -c '.[] | select ( .name == "AZURE_MYSQL_CONNECTIONSTRING" ) | .value' | sed 's/"//g')
-    # Create a new environment variable with the connection string including the passwordless authentication plugin
-    PASSWORDLESS_URL=${PASSWORDLESS_URL}'&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin'
-    az webapp config appsettings set --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --settings "AZURE_MYSQL_CONNECTIONSTRING_PASSWORDLESS=${PASSWORDLESS_URL}"
-    ```
+
+   Get the connection string generated by Service Connector and add passwordless authentication plugin. This connection string will be referenced in the startup script.
+
+   ```azurecli-interactive
+   export PASSWORDLESS_URL=$(\
+       az webapp config appsettings list \
+           --resource-group $RESOURCE_GROUP \
+           --name $APPSERVICE_NAME \
+       | jq -c '.[] \
+       | select ( .name == "AZURE_MYSQL_CONNECTIONSTRING" ) \
+       | .value' \
+       | sed 's/"//g')
+   # Create a new environment variable with the connection string including the passwordless authentication plugin
+   export PASSWORDLESS_URL=${PASSWORDLESS_URL}'&defaultAuthenticationPlugin=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin'
+   az webapp config appsettings set \
+       --resource-group $RESOURCE_GROUP \
+       --name $APPSERVICE_NAME \
+       --settings "AZURE_MYSQL_CONNECTIONSTRING_PASSWORDLESS=${PASSWORDLESS_URL}"
+   ```
 
 1. The sample app contains a *pom.xml* file that can generate the WAR file. Run the following command to build the app.
 
-    ```bash
-    mvn clean package -DskipTests
-    ```
+   ```bash
+   mvn clean package -DskipTests
+   ```
 
 1. Deploy the WAR and the startup script to the app service.
-    ```azurecli
-    az webapp deploy --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --src-path target/ROOT.war --type war
-    az webapp deploy --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --src-path src/main/webapp/WEB-INF/createMySQLDataSource.sh --type startup
-    ```
+
+   ```azurecli
+   az webapp deploy \
+       --resource-group $RESOURCE_GROUP \
+       --name $APPSERVICE_NAME \
+       --src-path target/ROOT.war \
+       --type war
+   az webapp deploy \
+       --resource-group $RESOURCE_GROUP \
+       --name $APPSERVICE_NAME \
+       --src-path src/main/webapp/WEB-INF/createMySQLDataSource.sh \
+       --type startup
+   ```
 
 ## Test sample web app
 
 Run the following command to test the application.
+
 ```bash
-WEBAPP_URL=$(az webapp show --resource-group $RESOURCE_GROUP --name $APPSERVICE_NAME --query defaultHostName -o tsv)
-    
+export WEBAPP_URL=$(az webapp show \
+    --resource-group $RESOURCE_GROUP \
+    --name $APPSERVICE_NAME \
+    --query defaultHostName \
+    --output tsv)
+
 # Create a list
 curl -X POST -H "Content-Type: application/json" -d '{"name": "list1","date": "2022-03-21T00:00:00","description": "Sample checklist"}' https://${WEBAPP_URL}/checklist
 
