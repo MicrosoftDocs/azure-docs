@@ -54,27 +54,6 @@ The following diagram shows a managed virtual network configured to __allow only
 |Compute|&#x2022; [Compute Instance](concept-compute-instance.md)<br>&#x2022; [Compute Cluster](how-to-create-attach-compute-cluster.md)<br>&#x2022; [Serverless](how-to-use-serverless-compute.md)<br>&#x2022; [Serverless spark](apache-spark-azure-ml-concepts.md)<br>&#x2022; New managed online endpoint creation<br>&#x2022; No Public IP option of Compute Instance, Compute Cluster and Serverless |
 |Outbound|&#x2022; Private Endpoint<br>&#x2022; Service Tag<br>&#x2022; FQDN | 
 
-### Private endpoints
-
-Private endpoints are currently supported for the following Azure services:
-
-* Azure Machine Learning
-* Azure Machine Learning registries
-* Azure Storage (all sub resource types)
-* Azure Container Registry
-* Azure Key Vault
-* Azure AI services
-* Azure SQL Server
-* Azure Data Factory
-* Azure CosmosDB (all sub resource types)
-* Azure Event Hub
-* Azure Redis Cache
-* Azure Databricks
-* Azure Database for MariaDB
-* Azure Database for PostgreSQL
-* Azure Database for MySQL
-* Azure SQL Managed Instance
-
 ## Prerequisites
 
 Before following the steps in this article, make sure you have the following prerequisites:
@@ -775,6 +754,27 @@ __Inbound__ service tag rules:
 ## List of recommended outbound rules
 
 [!INCLUDE [recommended outbound](includes/recommended-network-outbound.md)]
+
+## Private endpoints
+
+Private endpoints are currently supported for the following Azure services:
+
+* Azure Machine Learning
+* Azure Machine Learning registries
+* Azure Storage (all sub resource types)
+* Azure Container Registry
+* Azure Key Vault
+* Azure AI services
+* Azure SQL Server
+* Azure Data Factory
+* Azure CosmosDB (all sub resource types)
+* Azure Event Hub
+* Azure Redis Cache
+* Azure Databricks
+* Azure Database for MariaDB
+* Azure Database for PostgreSQL
+* Azure Database for MySQL
+* Azure SQL Managed Instance
 
 ## Pricing
 
