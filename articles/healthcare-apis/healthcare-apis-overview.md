@@ -30,7 +30,7 @@ Azure Health Data Services and Azure API for FHIR are two different offerings fr
 - **Azure API for FHIR** requires you to create a separate resource for each FHIR service instance, which limits the interoperability and integration of health data. **Azure Health Data Services** allows you to deploy a FHIR service and a DICOM service in the same workspace, which enables you to connect and analyze health data from different sources and formats.
 - **Azure API for FHIR** doesn't have some platform features that are available in **Azure Health Data Services**, such as private link, customer managed keys, and logging. These features enhance the security and compliance of your health data.
  
-In addition, Azure Health Data Services has a redesigned business model and infrastructure platform that can accommodate the expansion and introduction of different and future healthcare data standards.
+In addition, Azure Health Data Services has a business model and infrastructure platform that accommodates the expansion and introduction of different and future healthcare data standards.
 
 ## Next steps
 
