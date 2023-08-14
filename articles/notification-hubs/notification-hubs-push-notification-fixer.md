@@ -263,4 +263,20 @@ For more information about programmatic access, see [Programmatic access](/previ
 > To use telemetry-related features, first ensure in the Azure portal that you're using the Standard service tier.  
 
 <!-- IMAGES -->
-[0]: ./media/notification-hubs-push-notification-fixer/Architecture.png[Templates]: /previous-versions/azure/azure-services/dn530748(v=azure.100)
+[0]: ./media/notification-hubs-push-notification-fixer/Architecture.png
+[1]: ./media/notification-hubs-push-notification-fixer/FCMConfigure.png
+[3]: ./media/notification-hubs-push-notification-fixer/FCMServerKey.png
+[4]: ../../includes/media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png
+[5]: ./media/notification-hubs-push-notification-fixer/PortalDashboard.png
+[6]: ./media/notification-hubs-push-notification-fixer/PortalAnalytics.png
+[7]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
+[9]: ./media/notification-hubs-push-notification-fixer/vsserverexplorer.png
+[10]: ./media/notification-hubs-push-notification-fixer/VSTestNotification.png
+
+<!-- LINKS -->
+[Notification Hubs overview]: notification-hubs-push-notification-overview.md
+[Get started with Azure Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[Templates]: /previous-versions/azure/azure-services/dn530748(v=azure.100)
+[APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
+[About FCM messages]: https://firebase.google.com/docs/cloud-messaging/concept-options
+[EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend
