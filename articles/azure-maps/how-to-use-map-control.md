@@ -376,7 +376,7 @@ The following code example demonstrates how to impement 3D terrain tiles.
             // Create a tile source for elevation data. For more information on creating
             // elevation data & services using open data, see https://aka.ms/elevation
             var elevationSource = new atlas.source.ElevationTileSource("elevation", {
-                url: “<tileSourceUrl>”
+                url: "<tileSourceUrl>"
             });
 
             // Wait until the map resources are ready.
