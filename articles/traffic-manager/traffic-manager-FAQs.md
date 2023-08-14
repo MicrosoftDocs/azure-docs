@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/30/2022
+ms.date: 08/14/2023
 ms.author: greglin 
 ---
 
@@ -88,7 +88,9 @@ One of the metrics provided by Traffic Manager is the number of queries responde
 
 ### When I delete a Traffic Manager profile, what is the amount of time before the name of the profile is available for reuse?
 
-It can take up to 2 hours for the name to become available after a Traffic Manger profile is deleted.
+When you delete a Traffic Manager profile, the associated domain name is reserved for a period of time. Other Traffic Manager profiles in the same tenant can immediately reuse the name. However, a different Azure tenant is not able to use the same profile name until the reservation expires. This feature enables you to maintain authority over the namespaces that you deploy, eliminating concerns that the name will be taken by another tenant.
+
+For example, if your Traffic Manager profile name is **label1**, then **label1.trafficmanager.net** is reserved for your tenant even if you delete the profile. Child namespaces, such as **xyz.label1** or **123.abc.label1** are also reserved. When the reservation expires, the name will become available to other tenants. The name associated with a disabled profile is reserved indefinitely. For questions about the length of time a name is reserved, contact your account representative. 
 
 ## Traffic Manager Geographic traffic routing method
 

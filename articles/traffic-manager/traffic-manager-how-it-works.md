@@ -7,7 +7,7 @@ manager: kumud
 ms.service: traffic-manager
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/27/2023
+ms.date: 08/14/2023
 ms.author: greglin
 ms.custom: template-concept
 ---
@@ -24,6 +24,8 @@ Traffic Manager provides two key benefits:
 When a client attempts to connect to a service, it must first resolve the DNS name of the service to an IP address. The client then connects to that IP address to access the service.
 
 **The most important point to understand is that Traffic Manager works at the DNS level which is at the Application layer (Layer-7).**  Traffic Manager uses DNS to direct clients to specific service endpoints based on the rules of the traffic-routing method. Clients connect to the selected endpoint **directly**. Traffic Manager is not a proxy or a gateway. Traffic Manager does not see the traffic passing between the client and the service.
+
+Traffic Manager uses profiles to control traffic to your cloud services or website endpoints. For more information about profiles, see [Manage an Azure Traffic Manager profile](traffic-manager-manage-profiles.md).
 
 ## Traffic Manager example
 
