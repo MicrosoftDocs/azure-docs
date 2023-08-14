@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/16/2023
+ms.date: 08/14/2023
 ---
 
 # Return a semantic answer in Azure Cognitive Search
@@ -68,7 +68,9 @@ The "semanticConfiguration" parameter is required. It's defined in a search inde
 
 + "queryLanguage" must be one of the values from the [supported languages list (REST API)](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
 
-+ A "semanticConfiguration" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. See [Create a semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration) for details. 
++ A "semanticConfiguration" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. See [Create a semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration) for details.
+
++ For semantic captions functionality only, the fields referenced in the "semanticConfiguration" must have a word limit in the range of 2000-3000 words (or equivalent to 10000 tokens), otherwise, it will miss important caption results. If you anticipate that the fields used by the "semanticConfiguration" word count could be higher than the exposed limit and you need to use captions, consider [Text split cognitive skill]cognitive-search-skill-textsplit.md) as part of your [AI enrichment pipeline](cognitive-search-concept-intro.md) while indexing your data with [built-in pull indexers](search-indexer-overview.md).
 
 + For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of 10.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
 
