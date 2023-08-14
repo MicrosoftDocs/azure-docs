@@ -1,7 +1,8 @@
 ---
-title: storage/blobs/data-lake-storage-introduction
+title: Library Management in HDInsight on AKS
 description: Learn how to use Library Management in HDInsight on AKS with Spark 
-ms.tpoic: how-to
+ms.service: hdinsight-aks
+ms.topic: how-to
 ms.date: 08/04/2023
 ---
 
