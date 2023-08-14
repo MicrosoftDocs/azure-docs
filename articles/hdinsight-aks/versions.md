@@ -70,19 +70,19 @@ In the below sample, we illustrate a lifecycle of version change with HDInsight 
 In the below example, you can observe, how to select the versions on cluster pool and clusters.
 The cluster pool always aligns to the major version of the clusters. That is, if you're looking for an update on 2.4.5 version of HDInsight on AKS, you need to use 2.0 version of cluster pool. 
 
-:::image type="content" source="./media/versioning/cluster-pool-basic-tab.png" alt-text="Screenshot showing cluster pool basic-tab.":::
+:::image type="content" source="./media/versions/cluster-pool-basic-tab.png" alt-text="Screenshot showing cluster pool basic-tab.":::
  
 When creating a HDInsight on AKS cluster or Flink cluster, you can choose the minor.patch version from the supported version list.
 
-:::image type="content" source="./media/versioning/cluster-details.png" alt-text="Screenshot showing cluster details.":::
+:::image type="content" source="./media/versions/cluster-details.png" alt-text="Screenshot showing cluster details.":::
 
 The latest supported Open-source component following list as a dropdown for you to get started. 
 
-:::image type="content" source="./media/versioning/pool-version.png" alt-text="Screenshot showing pool version.":::
+:::image type="content" source="./media/versions/pool-version.png" alt-text="Screenshot showing pool version.":::
 
 Since HDInsight on AKS exposes and updates a minor version with each regular release, you can now arrange enough tests before upgrade to the new version and control your schedule.
 
-:::image type="content" source="./media/versioning/aks-version.png" alt-text="Screenshot showing AKS version.":::
+:::image type="content" source="./media/versions/aks-version.png" alt-text="Screenshot showing AKS version.":::
 
 
 > [!IMPORTANT]
