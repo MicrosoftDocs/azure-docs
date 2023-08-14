@@ -71,7 +71,7 @@ You can use access reviews to ensure that users who were invited and added to a 
 
 5. If the group isn't used for access management, you also can remove users who weren't selected to participate in the review because they didn't accept their invitation. Not accepting might indicate that the invited user's email address had a typo. If a group is used as a distribution list, perhaps some guest users weren't selected to participate because they're contact objects.
 
-### Ask an authorized to review a guest's membership in a group
+### Ask an authorized user to review a guest's membership in a group
 
 You can ask an authorized, such as the owner of a group, to review a guest's need for continued membership in a group.
 
