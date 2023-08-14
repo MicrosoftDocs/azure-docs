@@ -42,9 +42,9 @@ If your VM is still running and you don't see the size you want in the list, sto
 
 ### [CLI](#tab/cli)
 
-To resize a VM, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index).
+To resize a VM, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az sign-in](/cli/azure/reference-index).
 
-The below script checks if the desired VM size is available before resizing. If the desired size is not available, the script exits with an error message. If the desired size is available, the script deallocates the VM, resizes it, and starts it again. You can replace the values of `resourceGroup`, `vm`, and `size` with your own.
+The below script checks if the desired VM size is available before resizing. If the desired size isn't available, the script exits with an error message. If the desired size is available, the script deallocates the VM, resizes it, and starts it again. You can replace the values of `resourceGroup`, `vm`, and `size` with your own.
    
 ```azurecli-interactive
  # Set variables
@@ -75,7 +75,7 @@ az vm start --resource-group $resourceGroup --name $vm
 
 **Use Azure CLI to resize a VM in an availability set.**
 
-The below script sets the variables `resourceGroup`, `vm`, and `size`. It then checks if the desired VM size is available by using `az vm list-vm-resize-options` and checking if the output contains the desired size. If the desired size is not available, the script exits with an error message. If the desired size is available, the script deallocates the VM, resizes it, and starts it again.
+The below script sets the variables `resourceGroup`, `vm`, and `size`. It then checks if the desired VM size is available by using `az vm list-vm-resize-options` and checking if the output contains the desired size. If the desired size isn't available, the script exits with an error message. If the desired size is available, the script deallocates the VM, resizes it, and starts it again.
 
 ```azurecli-interactive
 
@@ -126,7 +126,7 @@ az vm resize \
 
 **Use PowerShell to resize a VM not in an availability set.**
 
-This script sets the variables `$resourceGroup`, `$vm`, and `$size`. It then checks if the desired VM size is available by using `az vm list-vm-resize-options` and checking if the output contains the desired size. If the desired size is not available, the script exits with an error message. If the desired size is available, the script deallocates the VM, resizes it, and starts it again.
+This script sets the variables `$resourceGroup`, `$vm`, and `$size`. It then checks if the desired VM size is available by using `az vm list-vm-resize-options` and checking if the output contains the desired size. If the desired size isn't available, the script exits with an error message. If the desired size is available, the script deallocates the VM, resizes it, and starts it again.
 
 ```azurepowershell-interactive
 # Set variables
@@ -159,7 +159,7 @@ az vm start --resource-group $resourceGroup --name $vm
 
 **Use PowerShell to resize a VM in an availability set**
 
-If the new size for a VM in an availability set isn't available on the hardware cluster currently hosting the VM, then you will need to deallocate all VMs in the availability set to resize the VM. You also might need to update the size of other VMs in the availability set after one VM has been resized. To resize a VM in an availability set, run the below script. You can replace the values of `$resourceGroup`, `$vmName`, `$newVmSize`, and `$availabilitySetName` with your own.
+If the new size for a VM in an availability set isn't available on the hardware cluster currently hosting the VM, then you'll need to deallocate all VMs in the availability set to resize the VM. You also might need to update the size of other VMs in the availability set after one VM has been resized. To resize a VM in an availability set, run the below script. You can replace the values of `$resourceGroup`, `$vmName`, `$newVmSize`, and `$availabilitySetName` with your own.
 
 ```azurepowershell-interactive
 # Set variables
@@ -198,7 +198,7 @@ Update-AzVM `
   -ResourceGroupName $resourceGroup
 ```
 
-This script sets the variables `$resourceGroup`, `$vmName`, `$newVmSize`, and `$availabilitySetName`. It then checks if the desired VM size is available by using `Get-AzVMSize` and checking if the output contains the desired size. If the desired size is not available, the script deallocates all VMs in the availability set, resizes them, and starts them again. If the desired size is available, the script resizes the VM.
+This script sets the variables `$resourceGroup`, `$vmName`, `$newVmSize`, and `$availabilitySetName`. It then checks if the desired VM size is available by using `Get-AzVMSize` and checking if the output contains the desired size. If the desired size isn't available, the script deallocates all VMs in the availability set, resizes them, and starts them again. If the desired size is available, the script resizes the VM.
 
 ### [Terraform](#tab/terraform)
 
@@ -243,6 +243,22 @@ resource "azurerm_windows_virtual_machine" "main" {
    > If you are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region. 
 
 ---
+
+## Choose the right SKU
+
+When resizing a VM, it's important to choose the right SKU based on the signals from the VM to determine whether you need more CPU, memory, or storage capacity:
+
+- If the VM is running a CPU-intensive workload, such as a database server or a web server with high traffic, you may need to choose a SKU with more CPU cores.
+- If the VM is running a memory-intensive workload, such as a machine learning model or a big data application, you may need to choose a SKU with more memory.
+- If the VM is running out of storage capacity, you may need to choose a SKU with more storage.
+
+
+To choose the right SKU, you can use the following resources:
+- [Sizes for VMs in Azure](sizes.md): This article lists all the VM sizes available in Azure.
+- [Azure VM Selector](https://azure.microsoft.com/en-us/pricing/vm-selector/): This tool helps you find the right VM SKU based on your workload type, OS and software, and deployment region.
+
+
+
 ## Limitations
 
 You can't resize a VM size that has a local temp disk to a VM size with no local temp disk and vice versa.
@@ -252,7 +268,7 @@ The only combinations allowed for resizing are:
 - VM (with local temp disk) -> VM (with local temp disk); and
 - VM (with no local temp disk) -> VM (with no local temp disk).
 
-For a work-around, see [How do I migrate from a VM size with local temp disk to a VM size with no local temp disk? ](azure-vms-no-temp-disk.yml#how-do-i-migrate-from-a-vm-size-with-local-temp-disk-to-a-vm-size-with-no-local-temp-disk---). The work-around can be used to resize a VM with no local temp disk to VM with a local temp disk. You will create a snapshot of the VM with no local temp disk > create a disk from the snapshot > create VM from the disk with appropriate [VM size](sizes.md) that supports VMs with a local temp disk.
+For a work-around, see [How do I migrate from a VM size with local temp disk to a VM size with no local temp disk? ](azure-vms-no-temp-disk.yml#how-do-i-migrate-from-a-vm-size-with-local-temp-disk-to-a-vm-size-with-no-local-temp-disk---). The work-around can be used to resize a VM with no local temp disk to VM with a local temp disk. You'll create a snapshot of the VM with no local temp disk > create a disk from the snapshot > create VM from the disk with appropriate [VM size](sizes.md) that supports VMs with a local temp disk.
 
 
 ## Next steps
