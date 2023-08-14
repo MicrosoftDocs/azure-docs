@@ -28,7 +28,7 @@ Multi-tenant organization is a feature in Azure Active Directory (Azure AD) and 
 Here are the primary goals of multi-tenant organization:
 
 - Define a group of tenants belonging to your organization
-- Collaborate across your tenants in Microsoft Teams
+- Collaborate across your tenants in new Microsoft Teams
 - Connect with colleagues across your tenants in Viva Engage
 - Enable search and discovery of user profiles across your tenants through Microsoft 365 people search
 
@@ -49,7 +49,7 @@ Here are the primary benefits of a multi-tenant organization:
     In Azure AD, external users originating from within a multi-tenant organization can be differentiated from external users originating from outside the multi-tenant organization. This differentiation facilitates the application of different policies for in-organization and out-of-organization external users.
 - Improved collaborative experience in Microsoft Teams
 
-    In Microsoft Teams, multi-tenant organization users can expect an improved collaborative experience across tenants with chat, calling, and meeting start notifications from all connected tenants across the multi-tenant organization. Tenant switching is more seamless and faster. For more information, see [Microsoft Teams: Advantages of the new architecture](https://techcommunity.microsoft.com/t5/microsoft-teams-blog/microsoft-teams-advantages-of-the-new-architecture/ba-p/3775704).
+    In new Microsoft Teams, multi-tenant organization users can expect an improved collaborative experience across tenants with chat, calling, and meeting start notifications from all connected tenants across the multi-tenant organization. Tenant switching is more seamless and faster. For more information, see [Microsoft Teams: Advantages of the new architecture](https://techcommunity.microsoft.com/t5/microsoft-teams-blog/microsoft-teams-advantages-of-the-new-architecture/ba-p/3775704).
 
 - Improved people search experience across tenants
 
@@ -189,4 +189,5 @@ To participate in public preview of multi-tenant organization capabilities, you 
 
 ## Next steps
 
+- [Plan for multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/plan-multi-tenant-org-overview?branch=mikeplum-mto)
 - [What is cross-tenant synchronization?](cross-tenant-synchronization-overview.md)
