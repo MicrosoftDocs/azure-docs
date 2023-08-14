@@ -135,8 +135,7 @@ az feature register --namespace Microsoft.VirtualMachineImages --name MooncakePu
 
 VM Image Builder is designed to work with all Azure Marketplace base operating system images.
 
->[!IMPORTANT]
-> These operating systems have been tested and now work with VM Image Builder. However, VM Image Builder should work with any Linux or Windows image in the marketplace.
+
 
 > [!NOTE]
 > You can now use the Azure Image Builder service inside the portal as of March 2023. [Get started](https://ms.portal.azure.com/#create/Microsoft.ImageTemplate) with building and validating custom images inside the portal.
