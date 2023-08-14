@@ -17,7 +17,6 @@ ms.custom: references_regions
 - This article requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
 - You'll need an Azure Kubernetes Service (AKS) cluster with a node pool of at least three [general purpose VMs](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
 - Follow the instructions in [Install Azure Container Storage](container-storage-aks-quickstart.md) to assign [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role to the AKS managed identity and install Azure Container Storage Preview.
-- [Sign up and register](../elastic-san/elastic-san-create.md#register-for-the-preview) for Azure Elastic SAN Preview.
 
 ## Regional availability
 
