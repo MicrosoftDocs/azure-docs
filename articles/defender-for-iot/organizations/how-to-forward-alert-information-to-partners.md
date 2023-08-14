@@ -85,7 +85,7 @@ To edit or delete an existing rule:
     |---------|---------|
     |**Minimal alert level**     | At the top-right of the dialog, use the dropdown list to select the minimum [alert severity level](alert-engine-messages.md#alert-severities) that you want to forward.    <br><br>For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded.    |
     |**Protocols**     |   Select **All** to forward alerts from all protocol traffic, or select **Specific** to add specific protocols only.     |
-    |**Engines****     |  Select **All** to forward alerts triggered by all sensor analytics engines, or select **Specific** to add specific engines only.       |
+    |**Engines**     |  Select **All** to forward alerts triggered by all sensor analytics engines, or select **Specific** to add specific engines only.       |
     |**System Notifications**     | Select the **Report System Notifications** option to notify about disconnected sensors or remote backup failures.        |
     |**Alert Notifications**     |  Select the **Report Alert Notifications** option to notify about an alert's date and time, title, severity, source and destination name and IP address, suspicious traffic, and the engine that detected the event.     |
     |**Actions**     |   Select **Add** to add an action to apply and enter any parameters values needed for the selected action. Repeat as needed to add multiple actions.  <br><br>For more information, see [Configure alert forwarding rule actions](#configure-alert-forwarding-rule-actions).    |
@@ -229,22 +229,24 @@ In the **Actions** area, enter the following details:
 |**Hostname / Port**     | Enter the NetWitness server's hostname and port. |
 |**Time zone**    | Enter the time zone you want to use in the time stamp for the alert detection at the SIEM. |
 
-### Other partner server integrations
+## Configure forwarding rules for partner server integrations
 
 You may be integrating Defender for IoT with a partner service to send alert or device inventory information to another security or device management system, or to communicate with partner-side firewalls.
 
 [Partner integrations](integrate-overview.md) can help to bridge previously siloed security solutions, enhance device visibility, and accelerate system-wide response to more rapidly mitigate risks.
 
-In such cases, use the **Actions** area to enter credentials and other information required to communicate with integrated partner services.
+In such cases, use the **Actions** area to enter credentials and other information required to communicate with integrated partner services as follows:
 
-For more information, see:
+|Service  |In the actions area ...  |
+|---------|---------|
+|**Splunk**     |  Select **Splunk**, and then enter the server, host, username, and password details for the Splunk server, and port **8089**.       |
+|**Qradar**     |    Select **Qradar**, and then enter details for the QRadar host, port, and timezone. <br><br>Optionally, select to enable encryption, and then configure encryption, and/or select to manage alerts externally.     |
+|**Fortinet Fortigate**     | 1. Select **FortiGate**. <br>2. Define the server IP address where you want to send the data. <br>3. Enter an [API key](tutorial-fortinet.md#create-an-api-key-in-fortinet) created in FortiGate.  4. Enter the incoming and outgoing firewall interface ports. <br><br>Select to forward and of the following alert details:    <br> - **Block illegal function codes**:	Protocol violations - Illegal field value violating ICS protocol specification (potential exploit) <br> - **Block unauthorized PLC programming / firmware updates**:	Unauthorized PLC changes <br> - **Block unauthorized PLC stop**	PLC stop (downtime)<br> - **Block malware related alerts**: Blocking of the industrial malware attempts, such as TRITON or NotPetya <br> - **Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance)    |
+|**Aruba ClearPass**     |    Select **ClearPass** and enter the ClearPass server IP address and port. <br><br>Select to forward and of the following alert details:   <br> - **Block illegal function codes**:	Protocol violations - Illegal field value violating ICS protocol specification (potential exploit) <br> - **Block unauthorized PLC programming / firmware updates**:	Unauthorized PLC changes <br> - **Block unauthorized PLC stop**	PLC stop (downtime)<br> - **Block malware related alerts**: Blocking of the industrial malware attempts, such as TRITON or NotPetya <br> - **Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance) |
+|**Palo Alto Panorama**     |  1. Select **Palo Alto NGFW**, and enter details for the NGFW server. <br>2. Define how blocking is executed, either **By IP Address**, which always creates blocking policies on Panorama based on the IP address, or **By FQDN or IP Address**, which creates blocking policies on Panorama based on FQDN if it exists, otherwise by the IP Address.   <br>3. Set the email address for the policy notification email. <br>4. Select to forward and of the following alert details:   <br> - **Block illegal function codes**:	Protocol violations - Illegal field value violating ICS protocol specification (potential exploit) <br> - **Block unauthorized PLC programming / firmware updates**:	Unauthorized PLC changes <br> - **Block unauthorized PLC stop**	PLC stop (downtime)<br> - **Block malware related alerts**: Blocking of the industrial malware attempts, such as TRITON or NotPetya <br> - **Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance)<br><br>**Note**: Make sure you have configured a Mail Server on your OT sensor. If no email address is entered, Defender for IoT does not send a notification email.  |
 
-- [Integrate Qradar with Microsoft Defender for IoT](tutorial-qradar.md)
-- [Integrate CyberArk with Microsoft Defender for IoT](tutorial-cyberark.md)
-- [Integrate Fortinet with Microsoft Defender for IoT](tutorial-fortinet.md)
-- [Integrate Forescout with Microsoft Defender for IoT](tutorial-forescout.md)
 
-## Configure alert groups in partner services
+### Configure alert groups in partner services
 
 When you configure forwarding rules to send alert data to Syslog servers, QRadar, and ArcSight, *alert groups* are automatically applied and are available in those partner servers.
 

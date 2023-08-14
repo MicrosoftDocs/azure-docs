@@ -97,34 +97,7 @@ To send alert information to the Splunk servers from Defender for IoT, you need 
 
 Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
 
-**To create the forwarding rule**:
-
-1. Sign in to the sensor, and select **Forwarding**.
-
-1. Select **Create new rule**.
-
-1. In the **Add forwarding rule** pane, define the rule parameters:
-
-    :::image type="content" source="media/tutorial-splunk/forwarding-rule.png" alt-text="Screenshot of creating the rules for your forwarding rule." lightbox="media/tutorial-splunk/forwarding-rule.png":::
-
-    | Parameter | Description |
-    |--|--|
-    | **Rule name** | The forwarding rule name. |
-    | **Minimal alert level** | The minimal security level incident to forward. For example, if Minor is selected, minor alerts and any alert above this severity level will be forwarded. |
-    | **Any protocol detected**     |  Toggle off to select the protocols you want to include in the rule.       |
-    | **Traffic detected by any engine**     | Toggle off to select the traffic you want to include in the rule.       |
-
-1. In the **Actions** area, define the following values:
-
-    | Parameter | Description |
-    |--|--|
-    | **Server** | Select Splunk Server. |
-    | **Host** | Enter the Splunk server address. |
-    | **Port** | Enter 8089. |
-    | **Username** | Enter the Splunk server username. |
-    | **Password** | Enter the Splunk server password. |
-
-1. Select **Save**.
+For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
 
 ## Next steps
 

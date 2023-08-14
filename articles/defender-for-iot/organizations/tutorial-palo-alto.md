@@ -8,9 +8,9 @@ ms.topic: how-to
 # Integrate Palo-Alto with Microsoft Defender for IoT (on-premises integration)
 
 > [!IMPORTANT]
-> In line with our focus on cloud integrations, Defender for IoT plans to end support for the legacy, on-premises Palo Alto Panorama integration with an upcoming patch version of 23.1.x.
+> While you can continue to configure forwarding alert rules to Palo Alto Panorama, Defender for IoT plans to end support for other legacy Palo Alto Panorama integrations with an version of 23.x.
 >
-> We recommend that you connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install one or more of the following solutions instead:
+> For a cloud integration, we recommend that you connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install one or more of the following solutions instead:
 >- [Palo Alto PAN-OS Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltopanos?tab=Overview)
 >- [Palo Alto Networks Cortex Data Lake Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltocdl?tab=Overview)
 >- [Palo Alto Prisma Cloud CSPM solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltoprisma?tab=Overview) 
@@ -20,7 +20,7 @@ ms.topic: how-to
 >- [Palo Alto Networks Cortex Data Lake (CDL) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-cortex-data-lake-cdl)
 >- [Palo Alto Prisma Cloud CSPM (using Azure Function) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function)
 >
-> Even after integration support ends, you can continue to send syslog files to Palo Alto. For more information, see [Configure alert forwarding rule actions](how-to-forward-alert-information-to-partners.md#configure-alert-forwarding-rule-actions).
+> For an air-gapped integration, we recommend that you [configure a forwarding rule](how-to-forward-alert-information-to-partners.md).
 
 This article helps you learn how to integrate and use Palo Alto with Microsoft Defender for IoT via the on-premises, legacy integration.
 
@@ -56,48 +56,9 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 When Defender for IoT identifies a critical threat, it sends an alert that includes an option of blocking the infected source. Selecting **Block Source** in the alert’s details activates the forwarding rule, which sends the blocking command to the specified Palo Alto firewall.
 
-**To configure immediate blocking**:
+For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
 
-1. Sign in to the sensor, and select **Forwarding**.
-
-1. Select **Create new rule**.
-
-1. In the **Add forwarding rule** pane, define the rule parameters:
-
-    :::image type="content" source="media/tutorial-palo-alto/forwarding-rule.png" alt-text="Screenshot of creating the rules for your forwarding rule." lightbox="media/tutorial-palo-alto/forwarding-rule.png":::
-
-    | Parameter | Description |
-    |--|--|
-    | **Rule name** | The forwarding rule name. |
-    | **Minimal alert level** | The minimal security level incident to forward. For example, if Minor is selected, minor alerts and any alert above this severity level will be forwarded. |
-    | **Any protocol detected**     |  Toggle off to select the protocols you want to include in the rule.       |
-    | **Traffic detected by any engine**     | Toggle off to select the traffic you want to include in the rule.       |
-
-1. In the **Actions** area, set the following parameters:
-
-    | Parameter | Description |
-    |--|--|
-    | **Server** | Select Palo Alto NGFW. |
-    | **Host** | Enter the NGFW server IP address. |
-    | **Port** | Enter the NGFW server port. |
-    | **Username** | Enter the NGFW server username. |
-    | **Password** | Enter the NGFW server password. |
-
-1. Configure the following options to allow blocking of the suspicious sources by the Palo Alto firewall:
-
-    | Parameter | Description |
-    |--|--|
-    | **Block illegal function codes** | Protocol violations - Illegal field value violating ICS protocol specification (potential exploit). |
-    | **Block unauthorized PLC programming / firmware updates** | Unauthorized PLC changes. |
-    | **Block unauthorized PLC stop** | PLC stop (downtime). |
-    | **Block malware related alerts** | Blocking of industrial malware attempts (TRITON, NotPetya, etc.). <br><br> You can select the option of **Automatic blocking**. <br> In that case, the blocking is executed automatically and immediately. |
-    | **Block unauthorized scanning** | Unauthorized scanning (potential reconnaissance). |
-
-1. Select **Save**.
-
-You'll then need to block any suspicious source.
-
-**To block a suspicious source**:
+After creating your forwarding rule, you'll need to block any suspicious source, as follows:
 
 1. Navigate to the **Alerts** page, and select the alert related to the Palo Alto integration.
 

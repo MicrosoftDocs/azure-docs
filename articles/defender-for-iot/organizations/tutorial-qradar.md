@@ -72,36 +72,14 @@ Create a forwarding rule from your on-premises management console to forward ale
 
 Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
 
-**To create a QRadar forwarding rule**:
-
-1. Sign in to the on-premises management console and select **Forwarding**.
-
-1. Select the **+** to create a new rule.
-
-1. In the **Create Forwarding Rule** pane, define the following values:
-
-    | Parameter | Description |
-    |--|--|
-    | **Name** | Enter a meaningful name for the forwarding rule. |
-    | **Warning** | From the drop-down menu, select the minimal security level incident to forward. <br> For example, if **Minor** is selected, minor alerts and any alert above this severity level will be forwarded.|
-    | **Protocols** | To select a specific protocol, select **Specific**, and select the protocol for which this rule is applied. <br> By default, all the protocols are selected. |
-    | **Engines** | To select a specific security engine for which this rule is applied, select **Specific**, and select the engine. <br> By default, all the security engines are involved. |
-    | **System Notifications** | Forward the sensor's *online* and *offline* status. |
-    | **Alert Notifications** | Forward the sensor's alerts. |
-
-1. In the **Actions** area, select **Add**, and then select **Qradar**. For example:
-
-   :::image type="content" source="media/tutorial-qradar/create.png" alt-text="Screenshot of the Create a Forwarding Rule window." lightbox="media/tutorial-qradar/create.png":::
-
-1. Define the QRadar **Host**, **Port**, and **Timezone**. You can also choose to **Enable Encryption** and then **CONFIGURE ENCRYPTION**, and you can choose to **Manage alerts externally**.
-
-1. Select **SAVE**.
-
 The following is an example of a payload sent to QRadar:
 
 ```sample payload
 <9>May 5 12:29:23 sensor_Agent LEEF:1.0|CyberX|CyberX platform|2.5.0|CyberX platform Alert|devTime=May 05 2019 15:28:54 devTimeFormat=MMM dd yyyy HH:mm:ss sev=2 cat=XSense Alerts title=Device is Suspected to be Disconnected (Unresponsive) score=81 reporter=192.168.219.50 rta=0 alertId=6 engine=Operational senderName=sensor Agent UUID=5-1557059334000 site=Site zone=Zone actions=handle dst=192.168.2.2 dstName=192.168.2.2 msg=Device 192.168.2.2 is suspected to be disconnected (unresponsive).
 ```
+
+For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
+
 
 ## Map notifications to QRadar
 

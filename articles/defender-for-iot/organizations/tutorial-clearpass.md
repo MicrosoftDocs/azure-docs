@@ -152,42 +152,7 @@ To enable viewing the alerts discovered by Defender for IoT in Aruba, you need t
 
 Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
 
-**To define a ClearPass forwarding rule on the Defender for IoT sensor**:
-
-1. Sign in to the sensor, and select **Forwarding**.
-
-1. Select **+ Create new rule**.
-
-1. In the **Add forwarding rule** pane, define the rule parameters:
-
-    :::image type="content" source="media/tutorial-clearpass/create-rule.png" alt-text="Screenshot of how to create a Forwarding Rule." lightbox="media/tutorial-clearpass/create-rule.png":::
-
-    | Parameter | Description |
-    |--|--|
-    | **Rule name** | The forwarding rule name. |
-    | **Minimal alert level** | The minimal security level incident to forward. For example, if Minor is selected, minor alerts and any alert above this severity level will be forwarded. |
-    | **Any protocol detected**     |  Toggle off to select the protocols you want to include in the rule.       |
-    | **Traffic detected by any engine**     | Toggle off to select the traffic you want to include in the rule.       |
-
-1. In the **Actions** area, define the following values:
-
-    | Parameter | Description |
-    |--|--|
-    | **Server** | Select ClearPass. |
-    | **Host** | Define the ClearPass server IP to send alert information. |
-    | **Port** | Define the ClearPass port to send alert information. |
-
-1. Configure which alert information you want to forward:
-
-    | Parameter | Description |
-    |--|--|
-    | **Report illegal function codes** | Protocol violations - Illegal field value violating ICS protocol specification (potential exploit). |
-    | **Report unauthorized PLC programming / firmware updates** | Unauthorized PLC changes. |
-    | **Report unauthorized PLC stop** | PLC stop (downtime). |
-    | **Report malware related alerts** | Industrial malware attempts, such as TRITON, NotPetya. |
-    | **Report unauthorized scanning** | Unauthorized scanning (potential reconnaissance) |
-
-1. Select **Save**.
+For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
 
 ## Monitor ClearPass and Defender for IoT communication
 
