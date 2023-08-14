@@ -112,6 +112,13 @@ Similar to the copy, you have the ability to tailor the compute size and TTL dur
 
 :::image type="content" source="./media/managed-vnet/time-to-live-configuration.png" alt-text="Screenshot that shows the TTL configuration.":::
 
+You can utilize the table below as a reference to determine the optimal number of nodes for executing both Pipelines and external activities.
+
+| Activity Type | Capacity |
+| --------------------------- | --------------------------------------------- |
+| Pipeline activity | Approximately 50 per node <br> Script activity and Lookup activity with SQL alwaysEncrypted tend to consume more resources compared to other pipeline activities, with the suggested number being around 10 per node |
+| External activity | Approximately 800 per node |
+
 
 ### Comparison of different TTL
 
