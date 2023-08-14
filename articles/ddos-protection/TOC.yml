@@ -100,7 +100,7 @@
   - name: Manage permissions and restrictions
     href: manage-permissions.md   
   - name: DDoS Protection on Front Door
-    href: ../front-door/front-door-ddos.md?toc=/azure/ddos-protection/TOC.json
+    href: ../frontdoor/front-door-ddos.md?toc=/azure/ddos-protection/TOC.json
 - name: How-to guides
   items:
     - name: Switch tiers
@@ -110,7 +110,7 @@
     - name: Engage DDoS Rapid Response (DRR)
       href: ddos-rapid-response.md
     - name: Defend against API Management DDoS attacks
-      href: /api-management/protect-with-ddos-protection.md?toc=/azure/ddos-protection/TOC.json
+      href: ../api-management/protect-with-ddos-protection.md?toc=/azure/ddos-protection/TOC.json
 - name: Reference
   items:
   - name: Azure Policy built-ins
