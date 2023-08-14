@@ -490,8 +490,6 @@
             href: ../cdn/cdn-improve-performance.md?toc=/azure/frontdoor/TOC.json
           - name: Endpoint multi-origin
             href: ../cdn/endpoint-multiorigin.md?toc=/azure/frontdoor/TOC.json
-          - name: Enforce HTTPS by using the Standard rules engine
-            href: ../cdn/cdn-standard-rules-engine.md?toc=/azure/frontdoor/TOC.json
           - name: Control caching behavior
             items:
             - name: Control caching behavior by using caching rules
