@@ -1,13 +1,12 @@
 ---
 title: 'Quickstart: Create and configure Route Server - Azure CLI'
 description: In this quickstart, you learn how to create and configure an Azure Route Server using Azure CLI.
-services: route-server
 author: halkazwini
+ms.author: halkazwini
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 09/01/2021
-ms.author: halkazwini
-ms.custom: mode-api, devx-track-azurecli, template-quickstart
+ms.date: 08/14/2023
+ms.custom: mode-api, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -21,30 +20,9 @@ This article helps you configure Azure Route Server to peer with a Network Virtu
 
 ##  Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Install the latest Azure CLI](/cli/azure/install-azure-cli), or make sure you can use [Azure Cloud Shell](../cloud-shell/quickstart.md) in the portal. 
-* Review the [service limits for Azure Route Server](route-server-faq.md#limitations).
-
-##  Sign in to your Azure account and select your subscription.
-
-To begin your configuration, sign in to your Azure account. If you use the Cloud Shell "Try It", you're signed in automatically. Use the following examples to help you connect:
-
-```azurecli-interactive
-az login
-```
-
-Check the subscriptions for the account.
-
-```azurecli-interactive
-az account list
-```
-
-Select the subscription for which you want to create an ExpressRoute circuit.
-
-```azurecli-interactive
-az account set \
-    --subscription "<subscription ID>"
-```
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal. You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
+- Review the [service limits for Azure Route Server](route-server-faq.md#limitations).
 
 ## Create a resource group and a virtual network 
 
@@ -168,6 +146,8 @@ RouteServerIps  : {10.5.10.4, 10.5.10.5}  "virtualRouterAsn": 65515,
 If you have a virtual network gateway (ExpressRoute or VPN) in the same virtual network, you can enable *b2b traffic* to exchange routes between the gateway and the Route Server.
 
 [!INCLUDE [VPN gateway note](../../includes/route-server-note-vpn-gateway.md)]
+
+[!INCLUDE [downtime note](../../includes/route-server-note-vng-downtime.md)]
 
 1. To enable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic`` flag set to **true**:
 
