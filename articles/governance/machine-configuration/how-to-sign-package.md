@@ -92,8 +92,7 @@ Parameters of the `Protect-GuestConfigurationPackage` cmdlet:
 
 ## Certificate requirements
 
-The machine configuration agent expects the certificate public key to be present in "Trusted Root
-Certificate Authorities" on Windows machines and in the path `/usr/local/share/ca-certificates/gc`
+The machine configuration agent expects the certificate public key to be present in "Trusted Publishers" on Windows machines and in the path `/usr/local/share/ca-certificates/gc`
 on Linux machines. For the node to verify signed content, install the certificate public key on the
 machine before applying the custom policy. This process can be done using any technique inside the
 VM or by using Azure Policy. An example template is available
