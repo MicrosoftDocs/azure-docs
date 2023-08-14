@@ -226,9 +226,9 @@ sections:
 
           Also, before you swap VM disks, you must power off the VM.
 
-      -  question: Is there a limit to trigger restore in a day?
-         answer: |
-           Yes, the default maximum limit to trigger restore is 10 attempts per VM in 24 hours.
+      - question: Is there a limit to trigger restore in a day?
+        answer: |
+          Yes, the default maximum limit to trigger restore is 10 attempts per VM in 24 hours.
 
       - question: How does restored disk SKU depend on target SA provided?
         answer: |
