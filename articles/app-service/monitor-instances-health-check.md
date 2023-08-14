@@ -16,14 +16,14 @@ This article uses Health check in the Azure portal to monitor App Service instan
 
 ![Health check failure][1]
 
-Please note that _/api/health_ is just an example added for illustration purposes. We do not create a Health Check path by default. You should make sure that the path you are selecting is a valid path that exists within your application
+Note that _/api/health_ is just an example added for illustration purposes. We do not create a Health Check path by default. You should make sure that the path you are selecting is a valid path that exists within your application
 
 ## What App Service does with Health checks
 
 - When given a path on your app, Health check pings this path on all instances of your App Service app at 1-minute intervals.
 - If an instance doesn't respond with a status code between 200-299 (inclusive) after 10 requests, App Service determines it's unhealthy and removes it from the load balancer for this Web App. The required number of failed requests for an instance to be deemed unhealthy is configurable to a minimum of two requests.
 - After removal, Health check continues to ping the unhealthy instance. If the instance begins to respond with a healthy status code (200-299) then the instance is returned to the load balancer.
-- If an instance remains unhealthy for one hour, it will be replaced with a new instance.
+- If an instance remains unhealthy for one hour, it is replaced with a new instance.
 - When scaling out, App Service pings the Health check path to ensure new instances are ready.
 
 > [!NOTE]
@@ -61,7 +61,7 @@ In addition to configuring the Health check options, you can also configure the 
 
 #### Authentication and security
 
-Health check integrates with App Service's [authentication and authorization features](overview-authentication-authorization.md). No additional settings are required if these security features are enabled.
+Health check integrates with App Service's [authentication and authorization features](overview-authentication-authorization.md). No other settings are required if these security features are enabled.
 
 If you're using your own authentication system, the Health check path must allow anonymous access. To secure the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict application access. Once you have those features in-place, you can authenticate the health check request by inspecting the header, `x-ms-auth-internal-token`, and validating that it matches the SHA256 hash of the environment variable `WEBSITE_AUTH_ENCRYPTION_KEY`. If they match, then the health check request is valid and originating from App Service. 
 
