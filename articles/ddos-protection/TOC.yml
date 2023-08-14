@@ -60,17 +60,17 @@
       - name: View diagnostic logs in Log Analytics workspace
         href: ddos-view-diagnostic-logs.md  
   - name: Deploy Route Server with DDoS Protection
-    href: articles/route-server/tutorial-protect-route-server-ddos
+    href: ./articles/route-server/tutorial-protect-route-server-ddos
   - name: Deploy Firewall with DDoS Protection
-    href: articles/firewall/tutorial-protect-firewall-ddos
+    href: ./articles/firewall/tutorial-protect-firewall-ddos
   - name: Deploy Application Gateway with DDoS Protection
-    href: articles/application-gateway/tutorial-protect-application-gateway-ddos
+    href: ./articles/application-gateway/tutorial-protect-application-gateway-ddos
   - name: Deploy Load Balancer with DDoS Protection
-    href: articles/load-balancer/tutorial-protect-load-balancer-ddos
+    href: ./articles/load-balancer/tutorial-protect-load-balancer-ddos
   - name: Deploy VPN Gateway with DDoS Protection
-    href: articles/vpn-gateway/tutorial-protect-vpn-gateway
+    href: ./articles/vpn-gateway/tutorial-protect-vpn-gateway
   - name: Deploy Bastion with DDoS Protection
-    href: articles/bastion/tutorial-protect-bastion-host-ddos
+    href: ./articles/bastion/tutorial-protect-bastion-host-ddos
 
 - name: Concepts
   items:
@@ -99,7 +99,7 @@
   - name: Manage permissions and restrictions
     href: manage-permissions.md   
   - name: DDoS Protection on Front Door
-    href: articles/front-door/front-door-ddos
+    href: ./articles/front-door/front-door-ddos
 - name: How-to guides
   items:
     - name: Switch tiers
@@ -109,7 +109,7 @@
     - name: Engage DDoS Rapid Response (DRR)
       href: ddos-rapid-response.md
     - name: Defend against API Management DDoS attacks
-      href: articles/api-management/protect-with-ddos-protection
+      href: ./articles/api-management/protect-with-ddos-protection
 - name: Reference
   items:
   - name: Azure Policy built-ins
