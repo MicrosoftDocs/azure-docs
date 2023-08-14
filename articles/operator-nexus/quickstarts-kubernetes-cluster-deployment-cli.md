@@ -120,7 +120,7 @@ RESOURCE_GROUP="myResourceGroup"
 CUSTOM_LOCATION="/subscriptions/<subscription_id>/resourceGroups/<managed_resource_group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
 CLUSTER_NAME="myNexusAKSCluster"
 AGENT_POOL_NAME="${CLUSTER_NAME}-nodepool-2"
-AGENT_POOL_VM_SIZE="NC_M4_v1"
+AGENT_POOL_VM_SIZE="NC_P4_28_v1"
 AGENT_POOL_COUNT="1"
 AGENT_POOL_MODE="User"
 ```
