@@ -59,13 +59,13 @@ Flink schedules jobs using three distributed components, Job manager, Task manag
 
 ## Checkpoints in Apache Flink
 
-Every function and operator in Flink can be stateful. Stateful functions store data across the processing of individual elements/events, making state a critical building block for any type of more elaborate operation. In order to make state fault tolerant, Flink needs to **checkpoint the state**. Checkpoints allow Flink to recover state and positions in the streams to give the application the same semantics as a failure-free execution, that means they play an important role for Flink to recover from failure both its state and the corresponding stream positions.
+Every function and operator in Flink can be stateful. Stateful functions store data across the processing of individual elements/events, making state a critical building block for any type of more elaborate operation. In order to make state fault tolerant, Flink needs to **checkpoint the state**. Checkpoints allow Flink to recover state and positions in the streams to give the application the same semantics as a failure-free execution that means they play an important role for Flink to recover from failure both its state and the corresponding stream positions.
 
-Checkpointing is enabled in HDlnsight on AKS Flink by default. Default settings on HDInsight on AKS maintain the last five checkpoints in persistent storage. In case, your job fails, the job can be restarted from the latest checkpoint. 
+Checkpointing is enabled in HDInsight on AKS Flink by default. Default settings on HDInsight on AKS maintain the last five checkpoints in persistent storage. In case, your job fails, the job can be restarted from the latest checkpoint. 
 
 ## State Backends
 
-Backends determine where state is stored. Stream processing applications are often stateful, *remembering* information from processed events and using it to influence further event processing. In Flink, the remembered information, i.e., state, is stored locally in the configured state backend. 
+Backends determine where state is stored. Stream processing applications are often stateful, *remembering* information from processed events and using it to influence further event processing. In Flink, the remembered information, that is, state, is stored locally in the configured state backend. 
 
 When checkpointing is activated, such state is persisted upon checkpoints to guard against data loss and recover consistently. How the state is represented internally, and how and where it's persisted upon checkpoints depends on the chosen **State Backend**. HDInsight on AKS uses the RocksDB  as default StateBackend.
 
@@ -104,7 +104,7 @@ RocksDB supports Incremental Checkpoints, which can dramatically reduce the chec
 
 Flink applies RocksDB’s internal compaction mechanism in a way that is self-consolidating over time. As a result, the incremental checkpoint history in Flink doesn't grow indefinitely, and old checkpoints are eventually subsumed and pruned automatically. Recovery time of incremental checkpoints may be longer or shorter compared to full checkpoints. If your network bandwidth is the bottleneck, it may take a bit longer to restore from an incremental checkpoint, because it implies fetching more data (more deltas). 
 
-Restoring from an incremental checkpoint is faster, if the bottleneck is your CPU or IOPs, because restoring from an incremental checkpoint means not to rebuild the local RocksDB tables from Flink’s canonical key/value snapshot format (used in savepoints and full checkpoints).
+Restore from an incremental checkpoint is faster, if the bottleneck is your CPU or IOPs, because restore from an incremental checkpoint means not to rebuild the local RocksDB tables from Flink’s canonical key value snapshot format (used in savepoints and full checkpoints).
 
 While we encourage the use of incremental checkpoints for large state, you need to enable this feature manually:
 
@@ -125,9 +125,9 @@ This value can be changed by changing the following config"
 
 Windowing is a key feature in stream processing systems such as Apache Flink. Windowing splits the continuous stream into finite batches on which computations can be performed. In Flink, windowing can be done on the entire steam or per-key basis.
 
-Windowing refers to the process of dividing a stream of events into finite, nonoverlapping  segments called windows. This allows users to perform computations on specific subsets of data based on time or key-based criteria. 
+Windowing refers to the process of dividing a stream of events into finite, nonoverlapping  segments called windows. This feature allows users to perform computations on specific subsets of data based on time or key-based criteria. 
 
-Windows allow users to split the streamed data into segments that can be processed. Due to the unbounded nature of data streams, there is never a situation where all of the data is available, because users would be waiting indefinitely for new data points to arrive - so instead, windowing offers a way to define a subset of data points that you can then process and analyze.The trigger defines when the window is considered ready for processing, and the function set for the window specifies how to process the data. 
+Windows allow users to split the streamed data into segments that can be processed. Due to the unbounded nature of data streams, there's no situation where all the data is available, because users would be waiting indefinitely for new data points to arrive - so instead, windowing offers a way to define a subset of data points that you can then process and analyze. The trigger defines when the window is considered ready for processing, and the function set for the window specifies how to process the data. 
 
 Learn [more](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/dev/datastream/operators/windows/)
 
