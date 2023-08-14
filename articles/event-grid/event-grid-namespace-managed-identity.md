@@ -13,7 +13,7 @@ In this article, you learn how to assign a system-assigned or a user-assigned id
 > [!NOTE]
 > - You can assign one system-assigned identity and up to two user-assigned identities to a namespace.
 
-## Enable managed identity for an existing system topic
+## Enable managed identity for an existing namespace
 This section shows you how to enable a managed identity for an existing system topic. 
 
 1. Go to the [Azure portal](https://portal.azure.com).
@@ -63,7 +63,7 @@ This section shows you how to enable a managed identity for an existing system t
                 1. Select the **user-assigned identity**.
                 1. Select **Add**.
 
-:::image type="content" source="./media/event-grid-namespace-managed-identity/event-grid-enable-managed-identity-create-flow.png" alt-text="Image showing the screenshot of namespace creation wizard with system assigned identiy and user assigned identity options selected.":::
+:::image type="content" source="./media/event-grid-namespace-managed-identity/event-grid-enable-managed-identity-create-flow.png" alt-text="Image showing the screenshot of namespace creation wizard with system assigned identity and user assigned identity options selected.":::
 
 ## Next steps
 - [Publish and subscribe to MQTT message using Event Grid](mqtt-publish-and-subscribe-portal.md)

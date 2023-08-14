@@ -81,7 +81,7 @@ The following are sample role definitions that allow you to publish and subscrib
 1. Navigate to topic spaces page in Event Grid namespace
 1. Select the topic space for which the custom RBAC role needs to be created
 1. Navigate to the Access control (IAM) page within the topic space
-1. In the Roles tab, right select any of the role to clone a new custom role.  Provide the custom role name.
+1. In the Roles tab, right select any of the roles to clone a new custom role.  Provide the custom role name.
 1. Switch the Baseline permissions to **Start from scratch**
 1. On the Permissions tab, select **Add permissions**
 1. In the selection page, find and select Microsoft Event Grid
