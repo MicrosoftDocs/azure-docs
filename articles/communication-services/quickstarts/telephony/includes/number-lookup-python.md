@@ -8,7 +8,7 @@ Get started with the Phone Numbers client library for Python to look up operator
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - To enable Number Lookup service on your Azure Communication Services subscription, complete this [form](https://forms.microsoft.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR058xZQ9HIBLikwspEUN6t5URUVDTTdWMEg5VElQTFpaMVMyM085ODkwVS4u) for us to allowlist your subscription. 
 - [Python](https://www.python.org/downloads/) 3.7+.
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 
 ### Prerequisite check
 
@@ -119,7 +119,7 @@ else:
 print(str.format("{0} is a {1} number operated by {2}", operator_information.phone_number, number_type, operator_name))
 ```
 
-You may also use the operator information to determine whether to send an SMS.  For more information on sending an SMS, see the [SMS Quickstart](../sms/send.md).
+You may also use the operator information to determine whether to send an SMS.  For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
 
 ## Run the code
 
