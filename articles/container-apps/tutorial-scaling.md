@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Scale a container app'
-description: Scale a Azure Container Apps application using the Azure CLI.
+description: Scale an Azure Container Apps application using the Azure CLI.
 services: container-apps
 author: v-jaswel
 ms.service: container-apps
@@ -21,7 +21,7 @@ In this tutorial, you add an HTTP scale rule to your container app and observe h
 
 | Requirement  | Instructions |
 |--|--|
-| Azure account | If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). <br><br>You need the *User Access Administrator* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
+| Azure account | If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). <br><br>You need the *Contributor* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
 | GitHub Account | Get one for [free](https://github.com/join). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |
 
@@ -100,12 +100,6 @@ az provider register --namespace Microsoft.OperationalInsights
 
 ---
 
-## Prepare the GitHub repository
-
-Go to the [sample code repository](https://github.com/azure-samples/containerapps-albumapi-csharp) on GitHub to fork the repository. This article uses a C# code sample, but the programming language and environment doesn't matter for the reason of the tutorial. 
-
-Select the **Fork** button at the top of the album API repo to fork the repo to your account. This creates a repo with a name in the form of `https://github.com/<owner>/containerapps-albumapi-csharp`, where `<owner>` is your Github username. Save this repo name, as you'll use it in the next section.
-
 ## Create and deploy the container app
 
 Create and deploy your container app with the `containerapp up` command. This command creates a:
@@ -118,8 +112,6 @@ If any of these resources already exist, the command uses the existing resources
 
 Lastly, the command creates and deploys the container app using a public container image.
 
-Replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHub repository name from the [previous section](#prepare-the-github-repository).
-
 # [Bash](#tab/bash)
 
 ```azurecli
@@ -128,11 +120,10 @@ az containerapp up \
   --resource-group my-container-apps \
   --location centralus \
   --environment 'my-container-apps' \
+  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
   --target-port 80 \
   --ingress external \
   --query properties.configuration.ingress.fqdn \
-  --context-path ./src \
-  --repo <YOUR_GITHUB_REPOSITORY_NAME>
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -143,11 +134,10 @@ az containerapp up `
   --resource-group my-container-apps `
   --location centralus `
   --environment my-container-apps `
+  --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest `
   --target-port 80 `
   --ingress external  `
   --query properties.configuration.ingress.fqdn `
-  --context-path ./src `
-  --repo <YOUR_GITHUB_REPOSITORY_NAME>
 ```
 
 ---
@@ -157,7 +147,7 @@ az containerapp up `
 
 By setting `--ingress` to `external`, you make the container app available to public requests.
 
-The `up` command returns the fully qualified domain name (FQDN) for the container app. Copy this FQDN to a text file. You'll use it in the [Send requests](#send-requests) section. An example FQDN looks like the following:
+The `up` command returns the fully qualified domain name (FQDN) for the container app. Copy this FQDN to a text file. You'll use it in the [Send requests](#send-requests) section. Your FQDN looks like the following example:
 
 ```text
 https://my-container-app.icydune-96848328.centralus.azurecontainerapps.io
@@ -219,7 +209,7 @@ az containerapp logs show `
 
 ---
 
-The `show` command returns entries from the system logs for your container app in real time. The following is an example of the type of response you can expect.
+The `show` command returns entries from the system logs for your container app in real time. You can expect a response like the following example:
 
 ```json
 {
@@ -275,19 +265,19 @@ For more information, see [az containerapp logs](/cli/azure/containerapp/logs).
 Open a new bash shell. Run the following command, replacing `<YOUR_CONTAINER_APP_FQDN>` with the fully qualified domain name for your container app that you saved from the [Create and deploy the container app](#create-and-deploy-the-container-app) section.
 
 ```bash
-seq 1 50 | xargs -Iname -P5 curl "<YOUR_CONTAINER_APP_FQDN>"
+seq 1 50 | xargs -Iname -P10 curl "<YOUR_CONTAINER_APP_FQDN>"
 ```
 
-These commands send 50 requests to your container app in concurrent batches of five requests each.
+These commands send 50 requests to your container app in concurrent batches of 10 requests each.
 
 | Command or argument | Description |
 |---|---|
 | `seq 1 50` | Generates a sequence of numbers from 1 to 50. |
 | `|` | The pipe operator sends the sequence to the `xargs` command. |
 | `xargs` | Runs `curl` with the specified URL |
-| `-Iname` | Acts as a placeholder for the output of `seq`. This prevents the return value from being sent to the `curl` command. |
+| `-Iname` | Acts as a placeholder for the output of `seq`. This argument prevents the return value from being sent to the `curl` command. |
 | `curl` | Calls the given URL. |
-| `-P5` | Instructs `xargs` to run up to five processes at a time. |
+| `-P10` | Instructs `xargs` to run up to 10 processes at a time. |
 
 For more information, see the documentation for:
 - [seq](https://www.man7.org/linux/man-pages/man1/seq.1.html)
@@ -300,7 +290,7 @@ Open a new command prompt and enter PowerShell. Run the following commands, repl
 
 ```powershell
 $url="<YOUR_CONTAINER_APP_FQDN>"
-$Runspace = [runspacefactory]::CreateRunspacePool(1,5)
+$Runspace = [runspacefactory]::CreateRunspacePool(1,10)
 $Runspace.Open()
 1..50 | % {
     $ps = [powershell]::Create()
@@ -310,11 +300,11 @@ $Runspace.Open()
 }
 ```
 
-These commands send 50 requests to your container app in asynchronous batches of five requests each.
+These commands send 50 requests to your container app in asynchronous batches of 10 requests each.
 
 | Command or argument | Description |
 |---|---|
-| `[runspacefactory]::CreateRunspacePool(1,5)` |  Creates a `RunspacePool` that allows up to five runspaces to run concurrently. |
+| `[runspacefactory]::CreateRunspacePool(1,10)` |  Creates a `RunspacePool` that allows up to 10 runspaces to run concurrently. |
 | `1..50 | % {  }` | Runs the code enclosed in the curly braces 50 times. |
 | `$ps = [powershell]::Create()` | Creates a new PowerShell instance. |
 | `$ps.RunspacePool = $Runspace` | Tells the PowerShell instance to run in the `RunspacePool`. |
@@ -323,7 +313,7 @@ These commands send 50 requests to your container app in asynchronous batches of
 | `.AddParameter("Uri", $url)` | Sends a request to your container app. |
 | `[void]$ps.BeginInvoke()` | Tells the PowerShell instance to run asynchronously. |
 
-For more information, refer to [Beginning Use of PowerShell Runspaces](https://devblogs.microsoft.com/scripting/beginning-use-of-powershell-runspaces-part-3/)
+For more information, see [Beginning Use of PowerShell Runspaces](https://devblogs.microsoft.com/scripting/beginning-use-of-powershell-runspaces-part-3/)
 
 ---
 
@@ -363,16 +353,16 @@ You may need to select **Refresh** to see the new replicas.
 1. Select the blue checkmark icon to finish editing the splitting.
 1. The graph shows the requests received by your container app, split by replica.
 
-:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-1.png" alt-text="Container app metrics graph.":::
+:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-1.png" alt-text="Container app metrics graph, showing requests split by replica.":::
 
 1. By default, the graph scale is set to last 24 hours, with a time granularity of 15 minutes. Select the scale and change it to the last 30 minutes, with a time granularity of one minute. Select the **Apply** button.
 1. Select on the graph and drag to highlight the recent increase in requests received by your container app.
 
-:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-2.png" alt-text="Container app metrics graph.":::
+:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-2.png" alt-text="Container app metrics graph, showing requests split by replica, with a scale of 30 minutes and time granularity of one minute.":::
 
 The following screenshot shows a zoomed view of how the requests received by your container app are divided among replicas.
 
-:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-3.png" alt-text="Container app metrics graph.":::
+:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-3.png" alt-text="Container app metrics graph, showing requests split by replica, in a zoomed view.":::
 
 ## Clean up resources
 
