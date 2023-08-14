@@ -34,13 +34,18 @@ The following steps demonstrate how to create an indoor map in your Azure Maps a
     > [!TIP]
     > If your drawing package doesn't contain a manifest, [The Drawing Package Guide] describes how to create one.
 
-1. Once your drawing package has been processed, select the **Create + Download** button to begin the process of creating the indoor map.
+1. Once your drawing package has been processed, select the **Create + Download** button to begin creating the indoor map.
 
     :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/select-review-create.png" alt-text="Screenshot showing the Review + Create screen of the Azure Maps Creator onboarding tool, with the Create + Download button highlighted.":::
 
 1. The first step in this process uploads the package into the Azure Maps account.
 
     :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/package-upload.png" alt-text="Screenshot showing the package upload screen of the Azure Maps Creator onboarding tool.":::
+
+<!--------------------------------------------------------
+    > [!NOTE]
+    > If the manifest included in the drawing package is incomplete or contains errors, the onboarding tool will not go directly to the **Review + Create** tab, but instead goes to the tab where you are best able to address the issue.
+-------------------------------------------------------->
 
 1. Once the package is uploaded, the onboarding tool uses the [Conversion service] to validate the data then convert the geometry and data from the drawing package into a digital indoor map. For more information about the conversion process, see [Convert a drawing package] in the Creator concepts article.
 
@@ -85,3 +90,4 @@ Integrate the indoor map into your applications using the Web SDK.
 [The Map Configuration ID]: #the-map-configuration-id
 [tileset]: creator-indoor-maps.md#tilesets
 [Use the Azure Maps Indoor Maps module]: how-to-use-indoor-module.md
+[What is Azure Maps Creator?]: about-creator.md
