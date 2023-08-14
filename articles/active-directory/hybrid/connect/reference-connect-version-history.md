@@ -71,7 +71,7 @@ To read more about autoupgrade, see [Azure AD Connect: Automatic upgrade](how-to
 ## 2.2.1.0
 
 ### Release status
-6/19/2023: Released for download and autoupgrade.
+6/19/2023: Released for download.
 
 ### Functional Changes
  - We have enabled Auto Upgrade for tenants with custom synchronization rules. Note that deleted (not disabled) default rules will be re-created and enabled upon Auto Upgrade.

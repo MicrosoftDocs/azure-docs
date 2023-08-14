@@ -1,5 +1,5 @@
 ---
-title: General key-value extraction - Document Intelligence
+title: General key-value extraction - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Extract key-value pairs, tables, selection marks, and text from your documents with Document Intelligence
 author: laujan

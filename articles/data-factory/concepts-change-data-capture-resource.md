@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom:
 ms.topic: conceptual
-ms.date: 04/06/2023
+ms.date: 08/08/2023
 ---
 
 # Change data capture resource overview
@@ -39,6 +39,7 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 * Parquet
 * SQL Server
 * XML
+* Snowflake
 
 ## Supported targets
 
@@ -58,6 +59,8 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 
 For more information on known limitations and troubleshooting assistance, please reference [this troubleshooting guide](change-data-capture-troubleshoot.md).
 
+> [!NOTE]
+> We always use the last published configuration when starting a CDC. For running CDCs, while your data is being processed, you will be billed 4 v-cores of General Purpose Data Flows.
 
 ## Next steps
 - [Learn how to set up a change data capture resource](how-to-change-data-capture-resource.md).

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 08/09/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -28,6 +28,8 @@ To deploy Application Proxy successfully, you need at least one connector, but w
 ### Windows Server
 You need a server running Windows Server 2012 R2 or later on which you can install the Application Proxy connector. The server needs to connect to the Application Proxy services in Azure, and the on-premises applications that you're publishing.
 
+Starting from the version 1.5.3437.0, having the .NET version 4.7.1 or greater is required for successful installation (upgrade).
+
 The server needs to have TLS 1.2 enabled before you install the Application Proxy connector. To enable TLS 1.2 on the server:
 
 1. Set the following registry keys:
@@ -36,7 +38,7 @@ The server needs to have TLS 1.2 enabled before you install the Application Prox
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.8.4250.0] "SchUseStrongCrypto"=dword:00000001
     ```
 
     A `regedit` file you can use to set these values follows:
@@ -51,7 +53,7 @@ The server needs to have TLS 1.2 enabled before you install the Application Prox
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server]
     "DisabledByDefault"=dword:00000000
     "Enabled"=dword:00000001
-    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.8.4250.0]
     "SchUseStrongCrypto"=dword:00000001
     ```
     

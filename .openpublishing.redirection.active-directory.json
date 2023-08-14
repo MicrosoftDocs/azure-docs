@@ -13480,6 +13480,84 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-accesscontrol-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-business-needs.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-contentmgt-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/aplan-hybrid-identity-design-considerations-data-protection-strategy.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-dataprotection-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-identity-adoption-strategy.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-data-protection-strategy.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-directory-sync-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-incident-response-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/index",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-nextsteps.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-overview.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-tools-comparison.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+
+
+    {
       "source_path_from_root": "/articles/active-directory/fundamentals/add-users-azure-active-directory.md",
       "redirect_url": "/azure/active-directory/fundamentals/add-users",
       "redirect_document_id": false

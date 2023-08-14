@@ -85,6 +85,17 @@ items:
     href: how-to-find-tenant.md
   - name: Get support for Azure AD
     href: how-to-get-support.md
+  - name: Support access requests
+    expanded: false
+    items:
+      - name: About support access requests
+        href: concept-support-access-requests.md
+      - name: Approve support access requests
+        href: how-to-approve-support-access-requests.md
+      - name: Manage support access requests
+        href: how-to-manage-support-access-requests.md
+      - name: View support access request activity logs
+        href: how-to-view-support-access-request-logs.md
 - name: Reference
   expanded: false
   items:

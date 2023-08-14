@@ -1241,6 +1241,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-video-indexer/observed-people-tracing.md",
+            "redirect_url": "/azure/azure-video-indexer/observed-people-tracking",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cloudfoundry/index.yml",
             "redirect_url": "https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html",
             "redirect_document_id": false
@@ -24127,11 +24132,20 @@
             "source_path_from_root": "/articles/reliability/migrate-app-service-environment.md",
             "redirect_url": "/azure/reliability/reliability-app-service",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/flexible-server/concepts-high-availability.md",
+            "redirect_url": "/azure/reliability/reliability-postgre-flexible",
+            "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/azure-cache-for-redis/cache-how-to-functions.md",
+          "redirect_url": "/azure/azure-functions/functions-bindings-cache",
+          "redirect_document_id": false
         }
 
 
 
-
-       
+        
     ]
 }
