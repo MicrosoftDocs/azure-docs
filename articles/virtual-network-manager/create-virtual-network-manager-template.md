@@ -12,17 +12,15 @@ ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-arm-template
 
 # Quickstart: Create a mesh network topology with Azure Virtual Network Manager using Azure Resource Manager template (ARM template)
 
-Get started with Azure Virtual Network Manager by using Bicep to manage connectivity for all your virtual networks.
+Get started with Azure Virtual Network Manager by using Azure Resource Manager templates to manage connectivity for all your virtual networks.
 
-In this quickstart, an Azure Resource Manager template is used to deploy Azure Virtual Network Manager and example Virtual Networks with different connectivity topology and network group membership types. Use deployment parameters to specify the type of configuration to deploy.
+In this tutorial, an Azure Resource Manager template is used to deploy Azure Virtual Network Manager and example Virtual Networks with different connectivity topology and network group membership types. Use deployment parameters to specify the type of configuration to deploy.
 
 In order to support deploying Azure Policy for dynamic group membership, this sample is designed to deploy at the subscription scope. However, this is not a requirement for Azure Virtual Network Manager if using static group membership.
 
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsubscription-deployments%2Fmicrosoft.network%2Fvirtual-network-manager-create%2Fazuredeploy.json)
-[![Deploy To Azure US Gov](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsubscription-deployments%2Fmicrosoft.network%2Fvirtual-network-manager-create%2Fazuredeploy.json)
-[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsubscription-deployments%2Fmicrosoft.network%2Fvirtual-network-manager-create%2Fazuredeploy.json)
-
-:::image type="content" source="media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png" alt-text="Diagram of resources deployed for a mesh virtual network topology with Azure virtual network manager.":::
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsubscription-deployments%2Fmicrosoft.network%2Fvirtual-network-manager-connectivity%2Fazuredeploy.json)
+[![Deploy To Azure US Gov](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsubscription-deployments%2Fmicrosoft.network%2Fvirtual-network-manager-connectivity%2Fazuredeploy.json)
+[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsubscription-deployments%2Fmicrosoft.network%2Fvirtual-network-manager-connectivity%2Fazuredeploy.json)
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is generally available for Virtual Network Manager and hub-and-spoke connectivity configurations. Mesh connectivity configurations and security admin rules remain in public preview.
@@ -57,35 +55,71 @@ The template defines multiple Azure resources:
 
 To find more templates that are related to Azure Traffic Manager, see [Azure Quickstart Templates](https://learn.microsoft.com/samples/browse/?terms=%22virtual%20network%20manager%22&products=azure&languages=bicep%2Cjson).
 
+## Solution deployment parameters
+
+| Parameter | Type | Description | Default |
+|---|---|---|--|
+| `location` | string | Deployment location. Location must support availability zones. | `eastus` |
+| `resourceGroupName` | string | The name of the resource group where AVMN will be deployed | `rg-avnm-sample` |
+| `connectivityTopology` | string | Defines how spokes will connect to each other and how spokes will connect the hub. Valid values: "mesh", "hubAndSpoke", "meshWithHubAndSpoke" | `meshWithHubAndSpoke` |
+| `networkGroupMembershipType` | string | Connectivity group membership type.| `static` |
+
 ## Deploy the template
 
 1. Select **Try it** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure.
 
 Deploy the ARM template to Azure by doing the following:
 
-1. Sign in to Azure and open the ARM template by selecting the **Deploy to Azure** button here. The template creates the private endpoint, the instance of SQL Database, the network infrastructure, and a virtual machine to be validated.
+1. Sign in to Azure and open the ARM template by selecting the **Deploy to Azure** button here. The template creates the instance of Azure Virtual Network Manager, the network infrastructure, and the network manager configurations.
 
-   [![The 'Deploy to Azure' button.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.sql%2Fprivate-endpoint-sql%2Fazuredeploy.json)
+   [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsubscription-deployments%2Fmicrosoft.network%2Fvirtual-network-manager-connectivity%2Fazuredeploy.json)
 
-1. Select your resource group or create a new one.
-1. Enter the SQL administrator sign-in name and password.
-1. Enter the virtual machine administrator username and password.
-1. Read the terms and conditions statement. If you agree, select **I agree to the terms and conditions stated above**, and then select **Purchase**. The deployment can take 20 minutes or longer to complete.
+1. In the Azure portal, select or enter the following information:
+
+   | Setting | Value |
+   |---|---|
+   | Subscription | Select the subscription to use for the deployment. |
+   | **Instance Details** |  |
+   | Resource Group Name | Use the default of  |
+   | Region | Select the region to deploy the resources. |
+   | Location | Enter the location to deploy the resources.</br> This will match the **Region** you've chosen, and is written with no spaces. For example, *East US* is written as EastUS. |
+   | Connectivity Topology | Select the connectivity topology to deploy. The options include **mesh**, **hubAndSpoke**, and **meshWithHubAndSpoke**. |
+   | Network Group Membership Type | Select the network group membership type. The options include **static** and **dynamic**. |
+
+1. Select **Review + create** to review the settings and read the terms and conditions statement. 
+1. Select **Create** to deploy the template.
+1. The deployment takes a few minutes to complete. After the deployment is complete, the **Deployment succeeded** message appears.
 
 ## Validate the deployment
+
+1. From the **Home** page in the Azure portal, select **Resource groups** and select **rg-avnm-sample**.
+1. Verify all of the components are deployed successfully.
+
+    :::image type="content" source="media/create-virtual-network-manager-template/template-resources.png" alt-text="Screenshot of all deployed resources in Azure portal.":::
+
+1. Select the **avnm-EastUS** resource.
+1. In the **Network Groups** page,  select **Settings>NetworkGroups>ng-EastUS-static**.
+   
+   :::image type="content" source="media/create-virtual-network-manager-template/static-network-group.png" alt-text="Screenshot of deployed network groups in Azure portal.":::
+
+1. On the **ng-EastUS-static** page, select **Settings>Group Members** and verify a set of virtual networks are deployed.
+
+    :::image type="content" source="media/create-virtual-network-manager-template/mesh-group-members.png" alt-text="Screenshot of static members in network group for a static topology deployment.":::
+
+> [!NOTE]
+> Depending on the selections you made for the deployment, you may see different virtual networks for the group members.
+> Also,
 
 ## Clean up resources
 
 When you no longer need the resources that you created with the private endpoint, delete the resource group. Doing so removes the private endpoint and all the related resources.
 
-To delete the resource group, run the `Remove-AzResourceGroup` cmdlet:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name <your resource group name>
-```
+1. To delete the resource group, open the resource group in the Azure portal and select **Delete resource group**.
+1. Enter the name of the resource group, and then select **Delete**.
+1. One the resource group is deleted, verify the network manager instance and all related resources are deleted.
 
 ## Next steps
 
-For more information about the services that support private endpoints, see:
+For more information about deploying Azure Virtual Network Manager, see:
 > [!div class="nextstepaction"]
-> 
+> [Quickstart: Create a mesh network topology with Azure Virtual Network Manager using Terraform](create-virtual-network-manager-terraform.md)
