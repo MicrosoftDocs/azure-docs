@@ -156,18 +156,18 @@
             href: certificate-based-authentication-federation-android.md
           - name: Use on iOS Devices
             href: certificate-based-authentication-federation-ios.md
-      - name: Use a Temporary Access Pass
-        href: howto-authentication-temporary-access-pass.md
-      - name: Use SMS-based authentication
-        items:  
-        - name: Manage
-          href: howto-authentication-sms-signin.md
-        - name: Supported apps for SMS-based authentication
-          href: how-to-authentication-sms-supported-apps.md
-        - name: Two-way SMS unsupported
-          href: how-to-authentication-two-way-sms-unsupported.md
-      - name: Use email address sign-in
-        href: howto-authentication-use-email-signin.md
+  - name: Use a Temporary Access Pass
+    href: howto-authentication-temporary-access-pass.md
+  - name: Use SMS-based authentication
+    items:  
+    - name: Manage
+      href: howto-authentication-sms-signin.md
+    - name: Supported apps for SMS-based authentication
+      href: how-to-authentication-sms-supported-apps.md
+    - name: Two-way SMS unsupported
+      href: how-to-authentication-two-way-sms-unsupported.md
+  - name: Use email address sign-in
+    href: howto-authentication-use-email-signin.md
   - name: Self-service password reset
     items:
     - name: Deployment guide
