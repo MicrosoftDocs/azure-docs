@@ -21,7 +21,7 @@ Azure Machine Learning provides support for managed virtual network (VNet) isola
 
 ## Managed virtual network architecture
 
-When you enable managed virtual network isolation, a managed VNet is created for the workspace. Managed compute resources (compute clusters and compute instances) for the workspace automatically use this managed VNet. The managed VNet can use private endpoints for Azure resources that are used by your workspace, such as Azure Storage, Azure Key Vault, and Azure Container Registry. 
+When you enable managed virtual network isolation, a managed VNet is created for the workspace. Managed compute resources you create for the workspace automatically use this managed VNet. The managed VNet can use private endpoints for Azure resources that are used by your workspace, such as Azure Storage, Azure Key Vault, and Azure Container Registry. 
 
 There are two different configuration modes for outbound traffic from the managed virtual network:
 
@@ -60,7 +60,7 @@ Private endpoints are currently supported for the following Azure services:
 
 * Azure Machine Learning
 * Azure Machine Learning registries
-* Azure Storage (all group IDs)
+* Azure Storage (all sub resource types)
 * Azure Container Registry
 * Azure Key Vault
 * Azure AI services
@@ -797,7 +797,6 @@ If you have an existing workspace and want to enable managed virtual network for
 
 * Compute cluster
 * Compute instance
-* Serverless compute (including serverless spark)
 * Managed online endpoints
 
 ## Next steps
