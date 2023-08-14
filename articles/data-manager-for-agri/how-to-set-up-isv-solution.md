@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Working with an ISV solution
 
-Follow the following guidelines to install and use an ISV solution -
+Follow the following guidelines to install and use an ISV solution.
 
 ## Install an ISV solution
 
