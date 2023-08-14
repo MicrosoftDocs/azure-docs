@@ -19,7 +19,7 @@ This article covers the details around the Trino UI provided for monitoring the 
   
 7. Select your cluster name from the list page.
   
-   :::image type="content" source="./media/trino-ui.md/portal-search-result.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list":::
+   :::image type="content" source="./media/trino-ui/portal-search-result.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list":::
    
 11. From the "Overview" page, you can access the Trino UI.
     
