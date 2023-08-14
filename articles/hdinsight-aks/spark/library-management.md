@@ -1,5 +1,5 @@
 ---
-title: Library management
+title: Library management in HDInsight on AKS with Spark
 description: Learn how to use Library Management in HDInsight on AKS with Spark 
 ms.tpoic: how-to
 ms.date: 08/04/2023
