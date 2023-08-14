@@ -44,9 +44,9 @@ If you need to add resources to an access package, you should check whether the 
 
 1. If the resources aren't already in the catalog, and you're an administrator or a catalog owner, you can [add resources to a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog). The types of resources you can add are groups, applications, and SharePoint Online sites. For example:
 
- * Groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups. Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD. To give users access to an application that uses AD security group memberships, create a new group in Azure AD, configure [group writeback to AD](../hybrid/how-to-connect-group-writeback-v2.md), and [enable that group to be written to AD](../enterprise-users/groups-write-back-portal.md). Groups that originate in Exchange Online as Distribution groups can't be modified in Azure AD either.
- * Applications can be Azure AD enterprise applications, which include both software as a service (SaaS) applications and your own applications integrated with Azure AD. If your application hasn't yet been integrated with Azure AD, see [govern access for applications in your environment](identity-governance-applications-prepare.md) and [integrate an application with Azure AD](identity-governance-applications-integrate.md).
- * Sites can be SharePoint Online sites or SharePoint Online site collections.
+   * Groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups. Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD. To give users access to an application that uses AD security group memberships, create a new group in Azure AD, configure [group writeback to AD](../hybrid/how-to-connect-group-writeback-v2.md), and [enable that group to be written to AD](../enterprise-users/groups-write-back-portal.md). Groups that originate in Exchange Online as Distribution groups can't be modified in Azure AD either.
+   * Applications can be Azure AD enterprise applications, which include both software as a service (SaaS) applications and your own applications integrated with Azure AD. If your application hasn't yet been integrated with Azure AD, see [govern access for applications in your environment](identity-governance-applications-prepare.md) and [integrate an application with Azure AD](identity-governance-applications-integrate.md).
+   * Sites can be SharePoint Online sites or SharePoint Online site collections.
 
 1. If you're an access package manager and you need to add resources to the catalog, you can ask the catalog owner to add them.
 
@@ -56,7 +56,7 @@ A resource role is a collection of permissions associated with a resource.  Reso
 
 If you want some users to receive different roles than others, then you need to create multiple access packages in the catalog, with separate access packages for each of the resource roles.  You can also mark the access packages as [incompatible](entitlement-management-access-package-incompatible.md) with each other so users can't request access to access packages that would give them excessive access.
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
 
@@ -185,7 +185,7 @@ You can add a resource role to an access package using Microsoft Graph. A user i
 
 ### Add resource roles to an access package with Microsoft PowerShell
 
-You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or later.  This script illustrates using the Graph `beta` profile.
+You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 1.x.x.
 
 First, you would retrieve the ID of the catalog, and of the resources and their roles in that catalog that you wish to include in the access package, using a script similar to the following.
 

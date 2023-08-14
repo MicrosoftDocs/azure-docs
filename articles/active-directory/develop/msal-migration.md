@@ -54,7 +54,7 @@ MSAL provides multiple benefits over ADAL, including the following features:
 |**Authentication experiences**|||
 | Continuous access evaluation through proactive token refresh |![Proactive token renewal - MSAL provides the feature][y]|![Proactive token renewal - ADAL doesn't provide the feature][n]|
 | Throttling |![Throttling - MSAL provides the feature][y]|![Throttling - ADAL doesn't provide the feature][n]|
-|Auth broker support |![Device-based conditional access policy - MSAL has the feature built-in][y]|![Device-based conditional access policy - ADAL doesn't provide the feature][n]|
+|Auth broker support |![Device-based Conditional Access policy - MSAL has the feature built-in][y]|![Device-based Conditional Access policy - ADAL doesn't provide the feature][n]|
 | Token protection|![Token protection - MSAL provides the feature][y]|![Token protection - ADAL doesn't provide the feature][n]|
 
 

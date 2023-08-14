@@ -4,6 +4,7 @@ description: Learn more about ephemeral OS disks for Azure VMs.
 author: Aarthi-Vijayaraghavan
 ms.service: virtual-machines
 ms.workload: infrastructure-services
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: aarthiv

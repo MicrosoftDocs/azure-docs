@@ -38,7 +38,7 @@ Connect-MgGraph -Scopes OnPremDirectorySynchronization.Read.All, OnPremDirectory
 Get-MgDirectoryOnPremisSynchronization | Select-Object -ExpandProperty Features | Format-List
 ```
 
-The output looks similar to `Get-MsolDireSyncFeatures`:
+The output looks similar to `Get-MsolDirSyncFeatures`:
 ```powershell
 BlockCloudObjectTakeoverThroughHardMatchEnabled  : False
 BlockSoftMatchEnabled                            : False

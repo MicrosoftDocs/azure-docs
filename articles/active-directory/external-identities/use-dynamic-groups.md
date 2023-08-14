@@ -22,12 +22,15 @@ ms.custom: engagement-fy23
 # Create dynamic groups in Azure Active Directory B2B collaboration
 
 ## What are dynamic groups?
-A dynamic group is a dynamic configuration of security group membership for Azure Active Directory (Azure AD) available in [the Azure portal](https://portal.azure.com). Administrators can set rules to populate groups that are created in Azure AD based on user attributes (such as [userType](user-properties.md), department, or country/region). Members can be automatically added to or removed from a security group based on their attributes. These groups can provide access to applications or cloud resources (SharePoint sites, documents) and to assign licenses to members. Learn more about [dedicated groups in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
+A dynamic group is a dynamic configuration of security group membership for Azure Active Directory (Azure AD) available in the [Azure portal](https://portal.azure.com). Administrators can set rules to populate groups that are created in Azure AD based on user attributes (such as [userType](user-properties.md), department, or country/region). Members can be automatically added to or removed from a security group based on their attributes. These groups can provide access to applications or cloud resources (SharePoint sites, documents) and to assign licenses to members. Learn more about [dedicated groups in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## Prerequisites
 [Azure AD Premium P1 or P2 licensing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) is required to create and use dynamic groups. Learn more in [Create attribute-based rules for dynamic group membership in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
 
 ## Creating an "all users" dynamic group
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can create a group containing all users within a tenant using a membership rule. When users are added or removed from the tenant in the future, the group's membership is adjusted automatically.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Global administrator or User administrator role in the tenant.

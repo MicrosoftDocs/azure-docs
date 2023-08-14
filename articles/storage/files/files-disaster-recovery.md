@@ -2,11 +2,10 @@
 title: Disaster recovery and failover for Azure Files
 description: Learn how to recover your data in Azure Files. Understand the concepts and processes involved with disaster recovery and storage account failover.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 06/19/2023
+ms.date: 07/28/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Disaster recovery and failover for Azure Files
@@ -50,7 +49,7 @@ You can subscribe to the [Azure Service Health Dashboard](https://azure.microsof
 
 ## Understand the account failover process
 
-Customer-managed account failover enables you to fail your entire storage account over to the secondary region if the primary becomes unavailable for any reason. When you force a failover to the secondary region, clients can begin writing data to the secondary endpoint after the failover is complete. The failover typically takes about an hour.
+Customer-managed account failover enables you to fail your entire storage account over to the secondary region if the primary becomes unavailable for any reason. When you force a failover to the secondary region, clients can begin writing data to the secondary endpoint after the failover is complete. The failover typically takes about an hour. We recommend suspending your workload as much as possible before initiating an account failover.
 
 To learn how to initiate an account failover, see [Initiate an account failover](../common/storage-initiate-account-failover.md).
 
@@ -68,7 +67,7 @@ The customer initiates the account failover to the secondary endpoint. The failo
 
 [ ![Diagram showing the customer initiates account failover to secondary endpoint.](media/files-disaster-recovery/failover-to-secondary.png) ](media/files-disaster-recovery/failover-to-secondary.png#lightbox)
 
-Write access is restored for geo-redundant accounts once the DNS entry has been updated and requests are being directed to the new primary endpoint. Existing storage service endpoints remain the same after the failover.
+Write access is restored for geo-redundant accounts once the DNS entry has been updated and requests are being directed to the new primary endpoint. Existing storage service endpoints remain the same after the failover. File handles and leases aren't retained on failover, so clients must unmount and remount the file shares.
 
 > [!IMPORTANT]
 > After the failover is complete, the storage account is configured to be locally redundant in the new primary endpoint/region (we say this later too). To resume replication to the new secondary, configure the account for geo-redundancy again.

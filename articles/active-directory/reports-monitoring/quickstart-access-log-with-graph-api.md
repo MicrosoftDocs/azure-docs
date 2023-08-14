@@ -30,11 +30,13 @@ To complete the scenario in this quickstart, you need:
 
 ## Perform a failed sign-in
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The goal of this step is to create a record of a failed sign-in in the Azure AD sign-ins log.
 
 **To complete this step:**
 
-1. Sign in to your [Azure portal](https://portal.azure.com/) as Isabella Simonsen using an incorrect password.
+1. Sign in to the [Azure portal](https://portal.azure.com) as Isabella Simonsen using an incorrect password.
 
 2. Wait for 5 minutes to ensure that you can find a record of the sign-in in the sign-ins log. For more information, see [Activity reports](reference-reports-latencies.md#activity-reports).
 

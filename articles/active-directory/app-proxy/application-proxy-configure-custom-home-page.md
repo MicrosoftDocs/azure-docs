@@ -42,9 +42,11 @@ You can set the home page URL either through the Azure portal or by using PowerS
 
 ## Change the home page in the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To change the home page URL of your app through the Azure portal, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 1. Select **Azure Active Directory**, and then **App registrations**. The list of registered apps appears.
 1. Choose your app from the list. A page showing the details of the registered app appears.
 1. Under **Manage**, select **Branding**.

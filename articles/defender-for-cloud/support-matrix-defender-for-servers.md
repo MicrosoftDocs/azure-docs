@@ -1,5 +1,5 @@
 ---
-title: Support for the Defender for Servers plan in Microsoft Defender for Cloud
+title: Support for the Defender for Servers plan
 description: Review support requirements for the Defender for Servers plan in Microsoft Defender for Cloud.
 ms.topic: limits-and-quotas
 author: dcurwin
@@ -36,7 +36,7 @@ Validate the following endpoints are configured for outbound access so that Azur
 
 This table summarizes Azure cloud support for Defender for Servers features.
 
-**Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/>**21Vianet**
+**Feature/Plan** | **Azure** | **Azure Government** | **Microsoft Azure operated by 21Vianet**<br/>**21Vianet**
 --- | --- | --- | ---
 [Microsoft Defender for Endpoint integration](./integration-defender-for-endpoint.md) | GA | GA | NA
 [Compliance standards](./regulatory-compliance-dashboard.md)<br/>Compliance standards might differ depending on the cloud type.| GA | GA | GA

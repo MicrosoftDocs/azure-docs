@@ -1,10 +1,10 @@
 ---
 title: Build queries with cloud security explorer
-titleSuffix: Defender for Cloud
+
 description: Learn how to build queries in cloud security explorer to find vulnerabilities that exist on your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 05/16/2023
+ms.date: 08/10/2023
 ---
 
 # Build queries with cloud security explorer
@@ -17,21 +17,30 @@ With the cloud security explorer, you can query all of your security issues and 
 
 Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer](concept-attack-path.md).
 
+## Availability
+
+| Aspect | Details |
+|--|--|
+| Release state | GA (General Availability) |
+| Required plans | - Defender Cloud Security Posture Management (CSPM) enabled<br>- Defender for Servers P2 customers can use the explorer UI to query for keys and secrets, but must have Defender CSPM enabled to get the full value of the Explorer. |
+| Required roles and permissions: | - **Security Reader** <br> - **Security Admin** <br> - **Reader** <br> - **Contributor** <br> - **Owner** |
+| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS) <br>:::image type="icon" source="./media/icons/no-icon.png"::: Commercial clouds (GCP) <br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet) |
+
 ## Prerequisites
 
 - You must [enable Defender CSPM](enable-enhanced-security.md).
-    - For Agentless Container Posture, you must enable the following extensions:
-        - Agentless discovery for Kubernetes (preview)
-        - Container registries vulnerability assessments (preview)
+  - For agentless container posture, you must enable the following extensions:
+    - Agentless discovery for Kubernetes (preview)
+    - Container registries vulnerability assessments (preview)
 
 - You must [enable agentless scanning](enable-vulnerability-assessment-agentless.md).
 
-- Required roles and permissions: 
-    - Security Reader
-    - Security Admin
-    - Reader
-    - Contributor
-    - Owner
+- Required roles and permissions:
+  - Security Reader
+  - Security Admin
+  - Reader
+  - Contributor
+  - Owner
 
 Check the [cloud availability tables](supported-machines-endpoint-solutions-clouds-servers.md) to see which government and cloud environments are supported.
 

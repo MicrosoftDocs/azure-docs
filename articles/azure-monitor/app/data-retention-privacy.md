@@ -85,7 +85,7 @@ You'll need to write a [telemetry processor plug-in](./api-filtering-sampling.md
 
 ## How long is the data kept?
 
-Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table) of 30, 60, 90, 120, 180, 270, 365, 550, or 730 days. If you need to keep data longer than 730 days, you can use [diagnostic settings](../essentials/diagnostic-settings.md#diagnostic-settings-in-azure-monitor).
+Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](../logs/data-retention-archive.md#configure-retention-and-archive-at-the-table-level) of 30, 60, 90, 120, 180, 270, 365, 550, or 730 days. If you need to keep data longer than 730 days, you can use [diagnostic settings](../essentials/diagnostic-settings.md#diagnostic-settings-in-azure-monitor).
 
 Data kept longer than 90 days incurs extra charges. For more information about Application Insights pricing, see the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 

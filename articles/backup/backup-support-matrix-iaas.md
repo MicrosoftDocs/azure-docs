@@ -6,8 +6,8 @@ ms.date: 07/05/2023
 ms.custom: references_regions 
 ms.reviewer: sharrai
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Support matrix for Azure VM backups

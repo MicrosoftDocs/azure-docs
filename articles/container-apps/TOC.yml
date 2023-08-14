@@ -149,18 +149,28 @@
       href: authentication.md
     - name: Enable authentication
       items:
-        - name: Azure Active Directory
-          href: authentication-azure-active-directory.md
-        - name: Facebook
-          href: authentication-facebook.md
-        - name: GitHub
-          href: authentication-github.md
-        - name: Google
-          href: authentication-google.md
-        - name: Twitter
-          href: authentication-twitter.md
-        - name: Custom OpenID Connect
-          href: authentication-openid.md
+      - name: Azure Active Directory
+        href: authentication-azure-active-directory.md
+      - name: Facebook
+        href: authentication-facebook.md
+      - name: GitHub
+        href: authentication-github.md
+      - name: Google
+        href: authentication-google.md
+      - name: Twitter
+        href: authentication-twitter.md
+      - name: Custom OpenID Connect
+        href: authentication-openid.md
+    - name: Dapr
+      items:
+        - name: Connect to Azure services via Dapr components
+          href: dapr-component-connection.md
+        - name: Enable token authentication for Dapr requests 
+          href: dapr-authentication-token.md
+    - name: Use storage mounts
+      href: storage-mounts.md
+    - name: Reliability
+      href: disaster-recovery.md
 - name: Security
   items:
     - name: Manage secrets

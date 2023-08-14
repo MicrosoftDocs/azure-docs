@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 01/04/2022
+ms.custom: UpdateFrequency2
 ---
 
 # Create a custom image for Azure DevTest Labs virtual machines from VHD files

@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 12/14/2022
 ms.service: backup
 ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up Azure file shares

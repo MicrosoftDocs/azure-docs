@@ -89,13 +89,15 @@ This tutorial uses Guided Configuration v16.1 with an Easy button template. With
 
 ## Register Easy Button
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Before a client or service accesses Microsoft Graph, the Microsoft identity platform must trust it.
 
 Learn more: [Quickstart: Register an application with the Microsoft identity platform](../develop/quickstart-register-app.md)
 
 Create a tenant app registration to authorize the Easy Button access to Graph. With these permissions, the BIG-IP pushes the configurations to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com/) with Application Administrative permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com) with Application Administrative permissions.
 2. In the left navigation, select **Azure Active Directory**.
 3. Under **Manage**, select **App registrations > New registration**.
 4. Enter an application **Name**.
@@ -165,23 +167,23 @@ In Service Provider settings, define SAML SP instance settings for the SHA-prote
 
 3. (Optional) In Security Settings, select **Enable Encryption Assertion** to enable Azure AD to encrypt issued SAML assertions. Azure AD and BIG-IP APM encryption assertions help assure content tokens aren't intercepted, nor personal or corporate data compromised.
 
-4.	In **Security Settings**, from the **Assertion Decryption Private Key** list, select **Create New**.
+4. In **Security Settings**, from the **Assertion Decryption Private Key** list, select **Create New**.
  
    ![Screenshot of the Create New option in the Assertion Decryption Private Key list.](./media/f5-big-ip-oracle/configure-security-create-new.png)
 
-5.	Select **OK**. 
-6.	The **Import SSL Certificate and Keys** dialog appears. 
-7.	For **Import Type**, select **PKCS 12 (IIS)**. This action imports the certificate and private key. 
-8.	For **Certificate and Key Name**, select **New** and enter the input.
-9.	Enter the **Password**.
-10.	Select **Import**.
-11.	Close the browser tab to return to the main tab.
+5. Select **OK**. 
+6. The **Import SSL Certificate and Keys** dialog appears. 
+7. For **Import Type**, select **PKCS 12 (IIS)**. This action imports the certificate and private key. 
+8. For **Certificate and Key Name**, select **New** and enter the input.
+9. Enter the **Password**.
+10. Select **Import**.
+11. Close the browser tab to return to the main tab.
 
    ![Screenshot of selections and entries for SSL Certificate Key Source.](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
 
-12.	Check the box for **Enable Encrypted Assertion**.
-13.	If you enabled encryption, from the **Assertion Decryption Private Key** list, select the certificate. BIG-IP APM uses this certificate private key to decrypt Azure AD assertions.
-14.	If you enabled encryption, from the **Assertion Decryption Certificate** list, select the certificate. BIG-IP uploads this certificate to Azure AD to encrypt the issued SAML assertions.
+12. Check the box for **Enable Encrypted Assertion**.
+13. If you enabled encryption, from the **Assertion Decryption Private Key** list, select the certificate. BIG-IP APM uses this certificate private key to decrypt Azure AD assertions.
+14. If you enabled encryption, from the **Assertion Decryption Certificate** list, select the certificate. BIG-IP uploads this certificate to Azure AD to encrypt the issued SAML assertions.
    
    ![Screenshot of two entries and one option for Security Settings.](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
 
@@ -245,8 +247,8 @@ Conditional Access policies control access based on device, application, locatio
 
 To select a policy to be applied to the application being published:
 
-1.	On the **Conditional Access Policy** tab, in the **Available Policies** list, select a policy. 
-2.	Select the **right arrow** and move it to the **Selected Policies** list.
+1. On the **Conditional Access Policy** tab, in the **Available Policies** list, select a policy. 
+2. Select the **right arrow** and move it to the **Selected Policies** list.
 
   > [!NOTE]
   > You can select the **Include** or **Exclude** option for a policy. If both options are selected, the policy is unenforced.
@@ -309,7 +311,7 @@ Learn more: see, [My Apps](https://myapplications.microsoft.com/)
 
 The SAML federation metadata for the published application is imported from your tenant. The import provides the APM with the SAML sign out endpoint for Azure AD. This action ensures SP-initiated sign out terminates client and Azure AD sessions. Ensure the APM knows when user sign out occurs.
 
-If the BIG-IP webtop portal accesses published applications, then th eAPM processes the sign out to call the Azure AD sign out endpoint. If the BIG-IP webtop portal isn’t used, users can't instruct the APM to sign out. If users sign out of the application, the BIG-IP is oblivious. Thus, ensure SP-initiated sign out securely terminates sessions. You can add an SLO function to an application **Sign out** button, Then, clients are redirected to the Azure AD SAML or BIG-IP sign out endpoint. To locate the SAML sign out endpoint URL for your tenant, go to **App Registrations > Endpoints**.
+If the BIG-IP webtop portal accesses published applications, then th eAPM processes the sign out to call the Azure AD sign-out endpoint. If the BIG-IP webtop portal isn’t used, users can't instruct the APM to sign out. If users sign out of the application, the BIG-IP is oblivious. Thus, ensure SP-initiated sign out securely terminates sessions. You can add an SLO function to an application **Sign out** button, Then, clients are redirected to the Azure AD SAML or BIG-IP sign out endpoint. To locate the SAML sign out endpoint URL for your tenant, go to **App Registrations > Endpoints**.
 
 If you can't change the app, enable the BIG-IP to listen for the application sign out call and trigger SLO. 
 

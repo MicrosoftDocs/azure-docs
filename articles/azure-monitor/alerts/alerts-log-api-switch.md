@@ -24,28 +24,11 @@ In the past, users used the [legacy Log Analytics Alert API](/azure/azure-monito
 - Ability to create a [cross workspace log alert](/azure/azure-monitor/logs/cross-workspace-query) that spans several external resources like Log Analytics workspaces or Application Insights resources for switched rules.
 - Users can specify dimensions to split the alerts for switched rules.
 - Log alerts have extended period of up to two days of data (previously limited to one day) for switched rules.
-- 
-## Changes to the log alert rule creation experience
-
-The current alert rule wizard is different from the earlier experience:
-
-- Previously, search results were included in the payload of the triggered alert and its associated notifications. The email included only 10 rows from the unfiltered results while the webhook payload contained 1,000 unfiltered results. To get detailed context information about the alert so that you can decide on the appropriate action:
-    - We recommend using [dimensions](alerts-types.md#narrow-the-target-using-dimensions). Dimensions provide the column value that fired the alert, which gives you context for why the alert fired and how to fix the issue.
-    - When you need to investigate in the logs, use the link in the alert to the search results in logs.
-    - If you need the raw search results or for any other advanced customizations, [use Azure Logic Apps](alerts-logic-apps.md).
-- The new alert rule wizard doesn't support customization of the JSON payload.
-    - Use custom properties in the [new API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update#actions) to add static parameters and associated values to the webhook actions triggered by the alert.
-    - For more advanced customizations, [use Azure Logic Apps](alerts-logic-apps.md).
-- The new alert rule wizard doesn't support customization of the email subject.
-    - Customers often use the custom email subject to indicate the resource on which the alert fired, instead of using the Log Analytics workspace. Use the [new API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update#actions) to trigger an alert of the desired resource by using the resource ID column.
-    - For more advanced customizations, [use Azure Logic Apps](alerts-logic-apps.md).
-
 
 ## Impact
 
 - All switched rules must be created/edited with the current API. See [sample use via Azure Resource Template](/azure/azure-monitor/alerts/alerts-log-create-templates) and [sample use via PowerShell](/azure/azure-monitor/alerts/alerts-manage-alerts-previous-version#manage-log-alerts-by-using-powershell).
-- As rules become Azure Resource Manager tracked resources in the current API and must be unique, rules resource ID will change to this structure: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Display names of the alert rule will remain unchanged.
-
+- As rules become Azure Resource Manager tracked resources in the current API and must be unique, rules resource ID will change to this structure: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Display names of the alert rule will remain unchanged. 
 ## Process
 
 View workspaces to upgrade using this [Azure Resource Graph Explorer query](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D~%20%22microsoft.insights%2Fscheduledqueryrules%22%0A%7C%20where%20properties.isLegacyLogAnalyticsRule%20%3D%3D%20true%0A%7C%20distinct%20tolower%28properties.scopes%5B0%5D%29). Open the [link](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D~%20%22microsoft.insights%2Fscheduledqueryrules%22%0A%7C%20where%20properties.isLegacyLogAnalyticsRule%20%3D%3D%20true%0A%7C%20distinct%20tolower%28properties.scopes%5B0%5D%29), select all available subscriptions, and run the query. 

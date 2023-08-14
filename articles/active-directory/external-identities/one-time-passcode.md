@@ -29,7 +29,7 @@ The email one-time passcode feature is a way to authenticate B2B collaboration u
 
 ## Sign-in endpoints
 
-Email one-time passcode guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using one-time passcode.
+Email one-time passcode guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-process-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using one-time passcode.
 
 Email one-time passcode guest users can also use application endpoints that include your tenant information, for example:
 
@@ -90,7 +90,9 @@ The email one-time passcode feature is now turned on by default for all new tena
 
 ### To enable or disable email one-time passcodes
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD global administrator.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD global administrator.
 
 1. In the navigation pane, select **Azure Active Directory**.
 
@@ -110,7 +112,7 @@ The email one-time passcode feature is now turned on by default for all new tena
 
 **What happens to my existing guest users if I enable email one-time passcode?**
 
-Your existing guest users won't be affected if you enable email one-time passcode, as your existing users are already past the point of redemption. Enabling email one-time passcode will only affect future redemption activities where new guest users are redeeming into the tenant.
+Your existing guest users won't be affected if you enable email one-time passcode, as your existing users are already past the point of redemption. Enabling email one-time passcode will only affect future redemption process activities where new guest users are redeeming into the tenant.
 
 **What is the user experience when email one-time passcode is disabled?**
 
@@ -118,7 +120,7 @@ If you’ve disabled the email one-time passcode feature, the user is prompted t
 
 Also, when email one-time passcode is disabled, users might see a sign-in error when they're redeeming a direct application link and they weren't added to your directory in advance.
 
-For more information about the different redemption pathways, see [B2B collaboration invitation redemption](redemption-experience.md).
+For more information about the different redemption process pathways, see [B2B collaboration invitation redemption](redemption-experience.md).
 
 **Will the “No account? Create one!” option for self-service sign-up go away?**
 

@@ -62,6 +62,8 @@ Transient `nameID` is also supported, but isn't available in the dropdown and ca
 
 ### Attributes
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Select the desired source for the `NameIdentifier` (or `nameID`) claim. You can select from the options in the following table.
 
 | Name | Description |
@@ -79,7 +81,8 @@ For more information about identifier values, see the table that lists the valid
 
 Any constant (static) value can be assigned to any claim. Use the following steps to assign a constant value:
 
-1. In the [Azure portal](https://portal.azure.com/), in the **User Attributes & Claims** section, select **Edit** to edit the claims.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the **User Attributes & Claims** section, select **Edit** to edit the claims.
 1. Select the required claim that you want to modify.
 1. Enter the constant value without quotes in the **Source attribute** as per your organization and select **Save**.
 
@@ -93,7 +96,9 @@ Any constant (static) value can be assigned to any claim. Use the following step
 
 You can also configure directory schema extension attributes as non-conditional/conditional attributes. Use the following steps to configure the single or multi-valued directory schema extension attribute as a claim:
 
-1.  In the [Azure portal](https://portal.azure.com/), in the **User Attributes & Claims** section, select **Edit** to edit the claims.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the **User Attributes & Claims** section, select **Edit** to edit the claims.
 1. Select **Add new claim** or edit an existing claim.
 
     :::image type="content" source="./media/saml-claims-customization/mv-extension-1.jpg" alt-text="Screenshot of the MultiValue extension configuration section in the Azure portal.":::

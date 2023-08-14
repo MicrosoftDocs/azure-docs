@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview using Azure Monit
 description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent (Preview), which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 06/15/2023
+ms.date: 08/01/2023
 ms.topic: conceptual
 ---
 
@@ -60,7 +60,7 @@ The following table shows the tracked item limits per machine for change trackin
 
 Change Tracking and Inventory is supported on all operating systems that meet Azure Monitor agent requirements. See [supported operating systems](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent.
 
-To understand client requirements for TLS 1.2, see [TLS 1.2 for Azure Automation](../automation-managing-data.md#tls-12-for-azure-automation).
+To understand client requirements for TLS 1.2 or higher, see [TLS 1.2 or higher for Azure Automation](../automation-managing-data.md#tls-12-or-higher-for-azure-automation).
 
 
 ## Enable Change Tracking and Inventory
@@ -77,9 +77,16 @@ You can enable Change Tracking and Inventory in the following ways:
 
 For tracking changes in files on both Windows and Linux, Change Tracking and Inventory uses SHA256 hashes of the files. The feature uses the hashes to detect if changes have been made since the last inventory.
 
+## Tracking file content changes
+
+Change Tracking and Inventory allows you to view the contents of a Windows or Linux file. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure Storage account](../../storage/common/storage-account-create.md). When you're tracking a file, you can view its contents before or after a change. The file content can be viewed either inline or side by side. [Learn more](manage-change-tracking-monitoring-agent.md#configure-file-content-changes).
+
+![Screenshot of viewing changes in a Windows or Linux file.](./media/overview/view-file-changes.png)
+
+
 ## Tracking of registry keys
 
-Change Tracking and Inventory allows monitoring of changes to Windows registry keys. Monitoring allows you to pinpoint extensibility points where third-party code and malware can activate. The following table lists preconfigured (but not enabled) registry keys. To track these keys, you must enable each one.
+Change Tracking and Inventory allows monitoring of changes to Windows registry keys. Monitoring allows you to pinpoint extensibility points where third-party code and malware can activate. The following table lists pre-configured (but not enabled) registry keys. To track these keys, you must enable each one.
 
 > [!div class="mx-tdBreakAll"]
 > |Registry Key | Purpose |

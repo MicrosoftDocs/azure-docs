@@ -70,7 +70,7 @@ If you would like to increase your limit, you can enable auto scaling on your re
 
 #### Retrieve resource ID and region
 
-* Go to [Azure portal](https://portal.azure.com/)
+* Sign in to the [Azure portal](https://portal.azure.com)
 * Select the Anomaly Detector Resource for which you would like to increase the transaction limit
 * Select Properties (Resource Management group)
 * Copy and save the values of the following fields:
@@ -81,7 +81,7 @@ If you would like to increase your limit, you can enable auto scaling on your re
 
 To request a limit increase for your resource submit a **Support Request**:
 
-1. Go to [Azure portal](https://portal.azure.com/)
+1. Sign in to the [Azure portal](https://portal.azure.com)
 2. Select the Anomaly Detector Resource for which you would like to increase the limit
 3. Select New support request (Support + troubleshooting group)
 4. A new window will appear with auto-populated information about your Azure Subscription and Azure Resource

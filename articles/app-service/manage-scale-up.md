@@ -42,9 +42,8 @@ For information about the pricing and features of individual App Service plans, 
 
 > [!NOTE]
 > To scale up to Premium V3 tier, see [Configure Premium V3 tier for App Service](app-service-configure-premium-tier.md).
->
 
-1. In your browser, open the [Azure portal][portal].
+1. In your browser, open the [Azure portal](https://portal.azure.com).
 
 1. In the left navigation of your App Service app page, select **Scale up (App Service plan)**.
 
@@ -92,7 +91,6 @@ For a table of service limits, quotas, and constraints, and supported features i
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/
 [SQLaccountsbilling]:https://go.microsoft.com/fwlink/?LinkId=234930
 [azuresubscriptions]:https://account.windowsazure.com/subscriptions
-[portal]: https://portal.azure.com/
 
 <!-- IMAGES -->
 [ChooseWHP]: ./media/web-sites-scale/scale1ChooseWHP.png

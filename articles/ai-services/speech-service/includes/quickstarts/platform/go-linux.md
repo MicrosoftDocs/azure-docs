@@ -8,7 +8,7 @@ ms.author: eur
 
 ## Platform requirements
 
-The Speech SDK for Go only supports **Ubuntu 18.04/20.04/22.04**, **Debian 9/10/11**, **Red Hat Enterprise Linux (RHEL) 8**, and **CentOS 8** on the x64 architecture when used with Linux. 
+The Speech SDK for Go only supports **Ubuntu 18.04/20.04/22.04**, **Debian 10/11**, **Red Hat Enterprise Linux (RHEL) 8**, and **CentOS 8** on the x64 architecture when used with Linux.
 
 [!INCLUDE [Linux distributions](linux-distributions.md)]
 

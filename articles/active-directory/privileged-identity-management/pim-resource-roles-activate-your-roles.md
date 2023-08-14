@@ -33,9 +33,11 @@ This article is for members who need to activate their Azure resource role in Pr
 
 ## Activate a role
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 When you need to take on an Azure resource role, you can request activation by using the **My roles** navigation option in Privileged Identity Management.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Open **Azure AD Privileged Identity Management**. For information about how to add the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).
 

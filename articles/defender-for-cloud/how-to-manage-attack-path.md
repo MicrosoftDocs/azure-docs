@@ -1,6 +1,6 @@
 ---
 title: Identify and remediate attack paths
-titleSuffix: Defender for Cloud
+
 description: Learn how to manage your attack path analysis and build queries to locate vulnerabilities in your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2022
@@ -23,7 +23,7 @@ You can check out the full list of [Attack path names and descriptions](attack-p
 | Prerequisites | - [Enable agentless scanning](enable-vulnerability-assessment-agentless.md), or [Enable Defender for Server P1 (which includes MDVM)](defender-for-servers-introduction.md) or [Defender for Server P2 (which includes MDVM and Qualys)](defender-for-servers-introduction.md). <br> - [Enable Defender CSPM](enable-enhanced-security.md) <br> - Enable agentless container posture extension in Defender CSPM, or [Enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. This also gives you the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in security explorer. |
 | Required plans | - Defender Cloud Security Posture Management (CSPM) enabled |
 | Required roles and permissions: | - **Security Reader** <br> - **Security Admin** <br> - **Reader** <br> - **Contributor** <br> - **Owner** |
-| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS) <br>:::image type="icon" source="./media/icons/no-icon.png"::: Commercial clouds (GCP) <br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
+| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS) <br>:::image type="icon" source="./media/icons/no-icon.png"::: Commercial clouds (GCP) <br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet) |
 
 ## Features of the attack path overview page
 

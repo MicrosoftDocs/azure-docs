@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 07/26/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -63,7 +63,7 @@ Locations such as your organization's public network ranges can be marked as tru
 
 - Conditional Access policies can include or exclude these locations.
 - Sign-ins from trusted named locations improve the accuracy of Azure AD Identity Protection's risk calculation, lowering a user's sign-in risk when they authenticate from a location marked as trusted.
-- Locations marked as trusted cannot be deleted. Remove the trusted designation before attempting to delete.
+- Locations marked as trusted can't be deleted. Remove the trusted designation before attempting to delete.
 
 > [!WARNING]
 > Even if you know the network and mark it as trusted does not mean you should exclude it from policies being applied. Verify explicitly is a core principle of a Zero Trust architecture. To find out more about Zero Trust and other ways to align your organization to the guiding principles, see the [Zero Trust Guidance Center](/security/zero-trust/).
@@ -145,7 +145,7 @@ If you have these trusted IPs configured, they show up as **MFA Trusted IPs** in
 
 ### All Network Access locations of my tenant
 
-Organizations with access to Global Secure Access preview features will have an additional location listed that is made up of users and devices that comply with your organization's security policies. For more information, see the section [Enable Global Secure Access signaling for Conditional Access](../../global-secure-access/how-to-compliant-network.md#enable-global-secure-access-signaling-for-conditional-access). It can be used with Conditional Access policies to perform a compliant network check for access to resources.
+Organizations with access to Global Secure Access preview features have an another location listed that is made up of users and devices that comply with your organization's security policies. For more information, see the section [Enable Global Secure Access signaling for Conditional Access](../../global-secure-access/how-to-compliant-network.md#enable-global-secure-access-signaling-for-conditional-access). It can be used with Conditional Access policies to perform a compliant network check for access to resources.
 
 ### Selected locations
 
@@ -162,6 +162,9 @@ You can discover IPv6 traffic in your tenant by going the [Azure AD sign-in acti
 You can also find the client IP by clicking a row in the report, and then going to the “Location” tab in the sign-in activity details. 
 
 :::image type="content" source="media/location-condition/sign-in-logs-showing-ip-address-filter-for-ipv6.png" alt-text="A screenshot showing Azure AD Sign-in logs and an IP address filter for IPv6 addresses." lightbox="media/location-condition/sign-in-logs-showing-ip-address-filter-for-ipv6.png":::
+
+> [!NOTE]
+> IPv6 addresses from service endpoints may appear in the sign-in logs with failures due to the way they handle traffic. It's important to note that [service endpoints are not supported](/azure/virtual-network/virtual-network-service-endpoints-overview#limitations). If users are seeing these IPv6 addresses, remove the service endpoint from their virtual network subnet configuration.
 
 ## What you should know
 

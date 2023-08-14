@@ -10,15 +10,13 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: franksolomon
 ms.date: 06/02/2023
-ms.custom: contperf-fy21q1, devx-track-python, data4ml
-
+ms.custom: contperf-fy21q1, data4ml
 # Customer intent: As an experienced Python developer, I need to make my Azure storage data available to my remote compute, to train my machine learning models.
 ---
 
 # Working with tables in Azure Machine Learning
 
-[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Azure Machine Learning supports a Table type (`mltable`). This allows for the creation of a *blueprint* that defines how to load data files into memory as a Pandas or Spark data frame. In this article you learn:
 

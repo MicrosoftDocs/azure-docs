@@ -32,7 +32,7 @@ The *ID token* introduced by OpenID Connect is issued by the authorization serve
 
 ID tokens aren't issued by default for an application registered with the Microsoft identity platform. ID tokens for an application are enabled by using one of the following methods:
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select **Azure Active Directory** > **App registrations** > *\<your application\>* > **Authentication**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Azure Active Directory** > **App registrations** > *\<your application\>* > **Authentication**.
 1. Under **Implicit grant and hybrid flows**, select the **ID tokens (used for implicit and hybrid flows)** checkbox.
 
 Or:
@@ -71,7 +71,7 @@ The value of `{tenant}` varies based on the application's sign-in audience as sh
 > [!TIP]
 > Note that when using the `common` or `consumers` authority for personal Microsoft accounts, the consuming resource application must be configured to support such type of accounts in accordance with [signInAudience](./supported-accounts-validation.md).
 
-To find the OIDC configuration document in the Azure portal, navigate to the [Azure portal](https://portal.azure.com) and then:
+To find the OIDC configuration document in the Azure portal, sign in to the [Azure portal](https://portal.azure.com) and then:
 
 1. Select **Azure Active Directory** > **App registrations** > *\<your application\>* > **Endpoints**.
 1. Locate the URI under **OpenID Connect metadata document**.

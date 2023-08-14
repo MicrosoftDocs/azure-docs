@@ -4,6 +4,7 @@ description: This article shows you how to upgrade from an Azure Front Door Stan
 services: frontdoor
 author: duongau
 ms.service: frontdoor
+ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
 ms.date: 06/05/2023
 ms.author: duau

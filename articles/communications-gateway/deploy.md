@@ -47,9 +47,10 @@ If you haven't filled in the configuration correctly, you'll see an error messag
 
 Check your configuration and ensure it matches your requirements. If the configuration is correct, select **Create**.
 
-You now need to wait for your resource to be provisioned and connected to the Microsoft Teams environment. When your resource has been provisioned and connected, your onboarding team will contact you and the Provisioning Status filed on the resource overview will be "Complete". We recommend you check in periodically to see if your resource has been provisioned. This process can take up to two weeks, because updating ACLs in the Azure and Teams environments is done on a periodic basis.
-
 Once your resource has been provisioned, a message appears saying **Your deployment is complete**. Select **Go to resource group**, and then check that your resource group contains the correct Azure Communications Gateway resource.
+
+> [!NOTE]
+> You will not be able to make calls immediately. You need to complete the remaining steps in this guide before your resource is ready to handle traffic.
 
 :::image type="content" source="media/deploy/go-to-resource-group.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing a completed deployment screen.":::
 
@@ -166,6 +167,10 @@ Microsoft Teams only sends traffic to domains that you've confirmed that you own
 1. Complete the following procedure: [Add your custom domain name to Azure AD](../active-directory/fundamentals/add-custom-domain.md#add-your-custom-domain-name-to-azure-ad).
 1. Share your DNS TXT record information with your onboarding team. Wait for your onboarding team to confirm that the DNS TXT record has been configured correctly.
 1. Complete the following procedure: [Verify your custom domain name](../active-directory/fundamentals/add-custom-domain.md#verify-your-custom-domain-name).
+
+## 9. Wait for provisioning to complete
+
+You now need to wait for your resource to be provisioned and connected to the Microsoft Teams environment. When your resource has been provisioned and connected, your onboarding team will contact you and the Provisioning Status filed on the resource overview will be "Complete". We recommend you check in periodically to see if your resource has been provisioned. This process can take up to two weeks, because updating ACLs in the Azure and Teams environments is done on a periodic basis.
 
 ## Next steps
 

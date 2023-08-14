@@ -6,6 +6,7 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
+ms.custom: UpdateFrequency2
 ---
 
 # Orchestrate the implementation of Azure DevTest Labs

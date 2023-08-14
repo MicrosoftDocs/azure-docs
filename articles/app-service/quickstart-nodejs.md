@@ -219,11 +219,11 @@ You can launch the app at http://&lt;app-name>.azurewebsites.net
 :::zone target="docs" pivot="development-environment-azure-portal"
 ### Sign in to Azure portal
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create Azure resources
 
-1. To start creating a Node.js app, browse to [https://ms.portal.azure.com/#create/Microsoft.WebSite](https://ms.portal.azure.com/#create/Microsoft.WebSite).
+1. To start creating a Node.js app, browse to [https://portal.azure.com/#create/Microsoft.WebSite](https://portal.azure.com/#create/Microsoft.WebSite).
 
 1. In the **Basics** tab, under **Project details**, ensure the correct subscription is selected and then select to **Create new** resource group. Type *myResourceGroup* for the name.
 

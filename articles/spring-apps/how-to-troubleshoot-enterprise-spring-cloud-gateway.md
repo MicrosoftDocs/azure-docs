@@ -6,7 +6,7 @@ ms.author: jiec
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 06/26/2023
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java
 ---
 
 # Troubleshoot VMware Spring Cloud Gateway
@@ -115,7 +115,7 @@ You can now configure the alert rule details.
 
 ## Restart Gateway
 
-For some errors, a restart might help solve the issue. For more information, see the [Restart Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md#restart-spring-cloud-gateway) section of [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md).
+For some errors, a restart might help solve the issue. For more information, see the [Restart Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md#restart-vmware-spring-cloud-gateway) section of [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md).
 
 ## Next steps
 

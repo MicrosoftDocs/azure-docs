@@ -14,7 +14,7 @@ ms.subservice: sap-automation
 
 An [SAP application](deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The [SAP on Azure Deployment Automation Framework](deployment-framework.md) refers to these tiers as [workload zones](deployment-framework.md#deployment-components).
 
-You can use workload zones in multiple Azure regions. Each workload zone then has its own Azure Virtual Network (Azure VNet)
+You can use workload zones in multiple Azure regions. Each workload zone then has its own Azure Virtual Network (Azure virtual network)
 
 The following services are provided by the SAP workload zone:
 
@@ -22,12 +22,14 @@ The following services are provided by the SAP workload zone:
 - Azure Key Vault, for system credentials.
 - Storage account for boot diagnostics
 - Storage account for cloud witnesses
+- Azure NetApp account and capacity pools (optional)
+- Azure Files NFS Shares (optional)
 
 :::image type="content" source="./media/deployment-framework/workload-zone.png" alt-text="Diagram SAP Workload Zone.":::
 
 The workload zones are typically deployed in spokes in a hub and spoke architecture. They may be in their own subscriptions.
 
-Supports the Private DNS from the Control Plane.
+Supports the Private DNS from the Control Plane or from a configurable source.
 
 
 ## Core configuration
@@ -89,9 +91,9 @@ az role assignment create --assignee <appId> \
 
 ## Deploying the SAP Workload zone
 
-The sample Workload Zone configuration file `DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE` folder.
+The sample Workload Zone configuration file `DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/Terraform/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE` folder.
 
-Running the command below will deploy the SAP Workload Zone.
+Running the following command deploys the SAP Workload Zone.
 
 # [Linux](#tab/linux)
 
@@ -103,62 +105,45 @@ You can copy the sample configuration files to start testing the deployment auto
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -R sap-automation/samples/WORKSPACES WORKSPACES
+cp -R sap-automation/samples/WORKSPACES config
 
 ```
 
 
 ```bash
 
-export subscriptionId="<subscriptionId>"
-export         spn_id="<appId>"
-export     spn_secret="<password>"
-export      tenant_id="<tenantId>"
-export       env_code="MGMT"
-export    region_code="<region_code>"
+export  ARM_SUBSCRIPTION_ID="<subscriptionId>"
+export        ARM_CLIENT_ID="<appId>"
+export    ARM_CLIENT_SECRET="<password>"
+export        ARM_TENANT_ID="<tenantId>"
+export             env_code="DEV"
+export          region_code="<region_code>"
+export            vnet_code="SAP02"
+export deployer_environment="MGMT"
+
+az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
+
 
 export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
-export ARM_SUBSCRIPTION_ID="${subscriptionId}"
+export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/config/WORKSPACES"
+export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                                                       \
-    --deployer_parameter_file DEPLOYER/${env_code}-${region_code}-DEP00-INFRASTRUCTURE/${env_code}-${region_code}-DEP00-INFRASTRUCTURE.tfvars  \
-    --library_parameter_file LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars                      \
-    --subscription "${subscriptionId}"                                                                                                         \
-    --spn_id "${spn_id}"                                                                                                                       \
-    --spn_secret "${spn_secret}"                                                                                                               \
-    --tenant_id "${tenant_id}"                                                                                                                 \
-    --auto-approve
+cd "${CONFIG_REPO_PATH}/LANDSCAPE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE"
+parameterFile="${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
+
+$SAP_AUTOMATION_REPO_PATH/deploy/scripts/install_workloadzone.sh   \
+    --parameterfile "${parameterFile}"                             \
+    --deployer_environment "${deployer_environment}"               \ 
+    --subscription "${ARM_SUBSCRIPTION_ID}"                        \
+    --spn_id "${ARM_CLIENT_ID}"                                    \
+    --spn_secret "${ARM_CLIENT_SECRET}"                            \
+    --tenant_id "${ARM_TENANT_ID}"                                 \
+    --auto-approve 
+    
 ```
 # [Windows](#tab/windows)
 
-You can copy the sample configuration files to start testing the deployment automation framework.
-
-```powershell
-
-cd C:\Azure_SAP_Automated_Deployment
-
-xcopy sap-automation\samples\WORKSPACES WORKSPACES
-
-```
-
-
-```powershell
-$subscription="<subscriptionID>"
-$spn_id="<appID>"
-$spn_secret="<password>"
-$tenant_id="<tenant>"
-$keyvault=<keyvaultName>
-$storageaccount=<storageaccountName>
-$statefile_subscription=<statefile_subscription>
-$region_code="WEEU"
-
-cd C:\Azure_SAP_Automated_Deployment\WORKSPACES\LANDSCAPE\DEV-$region_code-SAP01-INFRASTRUCTURE
-
-New-SAPWorkloadZone -Parameterfile DEV-$region_code-SAP01-INFRASTRUCTURE.tfvars
--Subscription $subscription -SPN_id $spn_id -SPN_password $spn_secret -Tenant_id $tenant_id
--State_subscription $statefile_subscription -Vault $keyvault -$StorageAccountName $storageaccount
-```
-
+It isn't possible to perform the deployment from Windows.
 ---
 
 > [!NOTE]
@@ -175,7 +160,7 @@ Open (https://dev.azure.com) and go to your Azure DevOps Services project.
 > [!NOTE]
 > Ensure that the 'Deployment_Configuration_Path' variable in the 'SDAF-General' variable group is set to the folder that contains your configuration files, for this example you can use 'samples/WORKSPACES'.
 
-The deployment will use the configuration defined in the Terraform variable file located in the 'samples/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE' folder.
+The deployment uses the configuration defined in the Terraform variable file located in the 'samples/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE' folder.
 
 Run the pipeline by selecting the _Deploy workload zone_ pipeline from the Pipelines section. Enter the workload zone configuration name and the deployer environment name. Use 'DEV-WEEU-SAP01-INFRASTRUCTURE' as the Workload zone configuration name and 'MGMT' as the Deployer Environment Name.
 

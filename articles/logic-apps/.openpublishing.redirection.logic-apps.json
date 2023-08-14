@@ -362,18 +362,18 @@
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-track-integration-account-as2-tracking-schemas",
-            "redirect_document_id": true
+            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema",
-            "redirect_document_id": true
+            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-track-integration-account-x12-tracking-schema",
-            "redirect_document_id": true
+            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-connector-file.md",
@@ -635,7 +635,6 @@
             "redirect_url": "/azure/logic-apps/monitor-workflows-collect-diagnostic-data",
             "redirect_document_id": true
         },
-
         {
             "source_path_from_root": "/articles/connectors/connectors-create-api-sharepointonline.md",
             "redirect_url": "/azure/connectors/connectors-create-api-sharepoint",
@@ -772,6 +771,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/connectors/connectors-create-api-github.md",
+            "redirect_url": "/connectors/github",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/connectors/connectors-schema-migration.md",
             "redirect_url": "/azure/logic-apps/update-consumption-workflow-schema",
             "redirect_document_id": false
@@ -789,6 +793,21 @@
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-architectures-enterprise-integration-with-queues-events.md",
             "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/queues-events",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
             "redirect_document_id": false
         }
     ]

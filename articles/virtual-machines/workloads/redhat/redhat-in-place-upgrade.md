@@ -4,6 +4,7 @@ description: Learn how to do an in-place upgrade from Red Hat Enterprise 7.x ima
 author: mamccrea
 ms.service: virtual-machines
 ms.subservice: redhat
+ms.custom: devx-track-linux
 ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020

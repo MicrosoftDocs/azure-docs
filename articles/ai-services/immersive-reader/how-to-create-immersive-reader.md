@@ -208,7 +208,7 @@ For more information, _see_ [Azure AD built-in roles](../../active-directory/rol
 
     Manage your Azure AD application secrets
 
-    ![Azure Portal Certificates and Secrets blade](./media/client-secrets-blade.png)
+    ![Azure portal Certificates and Secrets blade](./media/client-secrets-blade.png)
 
 1. Copy the JSON output into a text file for later use. The output should look like the following.
 

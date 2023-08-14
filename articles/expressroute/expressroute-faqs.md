@@ -141,6 +141,10 @@ Supported bandwidth offers:
 
 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps
 
+> [!NOTE]
+> ExpressRoute supports redundant pair of cross connection. If you exceed the configured bandwidth of your ExpressRoute circuit in a cross connection, your traffic would be subjected to rate limiting within that cross connection.
+>
+
 ### What's the maximum MTU supported?
 
 ExpressRoute and other hybrid networking services--VPN and vWAN--supports a maximum MTU of 1400 bytes.
@@ -179,6 +183,9 @@ See [here](./designing-for-high-availability-with-expressroute.md) for designing
 ### How can I ensure high availability for a virtual network connected to ExpressRoute?
 
 You can achieve high availability by connecting up to 4 ExpressRoute circuits in the same peering location to your virtual network. You can also connect up to 16 ExpressRoute circuits in different peering locations to your virtual network. For example, Singapore and Singapore2. If one ExpressRoute circuit disconnects, connectivity fails over to another ExpressRoute circuit. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use **connection weight** to prefer one circuit to another. For more information, see [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md).
+
+> [!NOTE]
+> Although it is possible to connect up to 16 circuits to your virtual network, the outgoing traffic from your virtual network will be load-balanced using Equal-Cost Multipath (ECMP) across a maximum of 4 circuits.
 
 ### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering or public peering is preferred on the ExpressRoute path?
 
@@ -377,6 +384,9 @@ Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges a
 ExpressRoute Local is a SKU of ExpressRoute circuit, in addition to the Standard SKU and the Premium SKU. A key feature of Local is that a Local circuit at an ExpressRoute peering location gives you access only to one or two Azure regions in or near the same metro. In contrast, a Standard circuit gives you access to all Azure regions in a geopolitical area and a Premium circuit to all Azure regions globally. Specifically, with a Local SKU you can only advertise routes over Microsoft and private peering from the corresponding local region of the ExpressRoute circuit. You won't receive routes for other regions different than the defined local region.
 
 ExpressRoute Local may not be available for an ExpressRoute Location. For peering location and supported Azure local region, see [locations and connectivity providers](expressroute-locations-providers.md#partners).
+
+ > [!NOTE]
+ > The restriction of Azure regions in the same metro doesn't apply for ExpressRoute Local in Virtual WAN. 
 
 ### What are the benefits of ExpressRoute Local?
 
