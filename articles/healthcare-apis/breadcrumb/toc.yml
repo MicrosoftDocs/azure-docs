@@ -6,8 +6,6 @@
       tocHref: /azure/healthcare-apis
       topicHref: /azure/healthcare-apis/index
       items:
-        - name: Overview
-          href: index.yml
         - name: FHIR service
           tocHref: /azure/healthcare-apis/fhir
           topicHref: /azure/healthcare-apis/fhir/index
