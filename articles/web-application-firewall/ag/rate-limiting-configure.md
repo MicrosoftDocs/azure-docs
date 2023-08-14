@@ -14,7 +14,7 @@ ms.topic: how-to
 
 Rate limiting enables you to detect and block abnormally high levels of traffic destined for your application. Rate Limiting works by counting all traffic that that matches the configured Rate Limit rule and performing the configured action for traffic matching that rule which exceeds the configured threshold. 
 
-For more information, please see What is Azure Web Application Rate Limiting Rules 
+For more information, please see [What is Azure Web Application Rate Limiting Rules](rate-limiting-overview.md)
 
 ## Configure Rate Limit Custom Rules
 
@@ -54,7 +54,7 @@ $ratelimitrule = New-AzApplicationGatewayFirewallCustomRule -Name ClientIPRateLi
 #### [CLI](#tab/cli)
 
 The Azure CLI commands to enable and configure Rate Limit rules are coming soon.  
-
+---
 **Scenario Two** - Create Rate Limit Custom Rule to match all traffic except for traffic originating from the United States.  Traffic will be grouped, counted and rate limited based on the GeoLocation of the Client Source IP address 
 
 #### [Portal](#tab/browser)
@@ -88,7 +88,7 @@ Set-AzApplicationGatewayFirewallPolicy -Name Joe_AppGW -ResourceGroupName 'JoeO_
 #### [CLI](#tab/cli)
 
 The Azure CLI commands to enable and configure Rate Limit rules are coming soon.
-
+---
 **Scenario Three** - Create Rate Limit Custom Rule matching all traffic for the login page, and using the GroupBy None variable.  This will group and count all traffic which matches the rule as one, and apply the action across all traffic matching the rule (/login).
 
 #### [Portal](#tab/browser)
@@ -122,7 +122,7 @@ $ratelimitrule = New-AzApplicationGatewayFirewallCustomRule -Name LoginRateLimit
 #### [CLI](#tab/cli)
 
 The Azure CLI commands to enable and configure Rate Limit rules are coming soon.  
-
+---
 ## Next steps
 
 [Customize web application firewall rules](application-gateway-customize-waf-rules-portal.md)
