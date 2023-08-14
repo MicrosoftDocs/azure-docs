@@ -5,65 +5,47 @@ ms.date: 06/26/2023
 ms.topic: how-to
 ---
 
-# Integrate Palo-Alto with Microsoft Defender for IoT (on-premises integration)
+# Integrate Palo Alto with Microsoft Defender for IoT (on-premises integration)
 
 This article describes how to integrate Palo Alto with Microsoft Defender for IoT, in order to view both Palo Alto and Defender for IoT information in a single place.
 
-Viewing both Defender for IoT and Palo Alto information together provides SOC analysts with multidimensional visibility into the specialized OT protocols and IIoT devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior.
+Viewing both Defender for IoT and Palo Alto information together provides SOC analysts with multidimensional visibility so that they can block critical threats faster.
 
 ## Cloud integration (recommended)
 
-If you're integrating a cloud-connected OT sensor with Splunk, we recommend that you use Splunk's own [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151). For more information, see:
+If you're integrating a cloud-connected OT sensor with Palo Alto we recommend that you connect Defender for IoT to [Microsoft Sentinel](concept-sentinel-integration.md), and then install one or more of the following solutions:
 
-- [The Splunk documentation on installing add-ins](https://docs.splunk.com/Documentation/AddOns/released/Overview/Distributedinstall)
-- [The Splunk documentation on the OT Security Add-on for Splunk](https://splunk.github.io/ot-security-solution/integrationguide/)
+|Solution  |Learn more  |
+|---------|---------|
+|[Palo Alto PAN-OS Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltopanos?tab=Overview)     |   [Palo Alto Networks (Firewall) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-firewall)      |
+|[Palo Alto Networks Cortex Data Lake Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltocdl?tab=Overview)     |  [Palo Alto Networks Cortex Data Lake (CDL) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-cortex-data-lake-cdl)       |
+|[Palo Alto Prisma Cloud CSPM solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltoprisma?tab=Overview)      |   [Palo Alto Prisma Cloud CSPM (using Azure Function) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function)      |
 
+View both Palo Alto and Defender for IoT data in Microsoft Sentinel.
 
 ## On-premises integration (recommended)
+
+If you're working with an air-gapped, locally managed OT sensor, you'll need an on-premises solution to view Defender for IoT and Palo Alto information in the same place.
+
+In such cases, we recommend that you configure your OT sensor to send syslog files directly to Palo Alto. For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
+
+
+## On-premises integration (legacy)
+
+This section describes how to integrate Defender for IoT with Palo Alto using the on-premises, legacy integration.
+
 > [!IMPORTANT]
-> While you can continue to configure forwarding alert rules to Palo Alto Panorama, Defender for IoT plans to end support for other legacy Palo Alto Panorama integrations with an version of 23.x.
->
-> For a cloud integration, we recommend that you connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install one or more of the following solutions instead:
->- [Palo Alto PAN-OS Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltopanos?tab=Overview)
->- [Palo Alto Networks Cortex Data Lake Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltocdl?tab=Overview)
->- [Palo Alto Prisma Cloud CSPM solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltoprisma?tab=Overview) 
->
-> For more information, see the following Microsoft Sentinel documentation: 
->- [Palo Alto Networks (Firewall) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-firewall)
->- [Palo Alto Networks Cortex Data Lake (CDL) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-cortex-data-lake-cdl)
->- [Palo Alto Prisma Cloud CSPM (using Azure Function) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function)
->
-> For an air-gapped integration, we recommend that you [configure a forwarding rule](how-to-forward-alert-information-to-partners.md).
+> Defender for IoT plans to end support for the legacy Palo Alto Panorama integration with an upcoming version of 23.x. We recommend that you transition your legacy, on-premises Palo Alto integrations to one of the recommended integration methods instead.
 
-This article helps you learn how to integrate and use Palo Alto with Microsoft Defender for IoT via the on-premises, legacy integration.
-
-Defender for IoT has integrated its continuous ICS threat monitoring platform with Palo Alto’s next-generation firewalls to enable blocking of critical threats, faster and more efficiently.
-
-The following integration types are available:
-
-- Automatic blocking option: Direct Defender for IoT to Palo Alto integration.
-
-- Send recommendations for blocking to the central management system: Defender for IoT to Panorama integration.
-
-In this article, you learn how to:
-
-> [!div class="checklist"]
->
-> - Configure immediate blocking by a specified Palo Alto firewall
-> - Create Panorama blocking policies in Defender for IoT
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-## Prerequisites
+### Prerequisites
 
 Before you begin, make sure that you have the following prerequisites:
 
 - Confirmation by the Panorama Administrator to allow automatic blocking.
-- Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+- Access to a Defender for IoT OT sensor as an [Admin user](roles-on-premises.md).
+### Configure immediate blocking by a specified Palo Alto firewall
 
-## Configure immediate blocking by a specified Palo Alto firewall
-
-In cases, such as malware-related alerts, you can enable automatic blocking. Defender for IoT forwarding rules are utilized to send a blocking command directly to a specific Palo Alto firewall.
+In cases such as malware-related alerts, you can enable automatic blocking. Defender for IoT forwarding rules are utilized to send a blocking command directly to a specific Palo Alto firewall.
 
 Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
 
@@ -81,7 +63,7 @@ After creating your forwarding rule, you'll need to block any suspicious source,
 
 The suspicious source is now blocked by the Palo Alto firewall.
 
-## Create Panorama blocking policies in Defender for IoT
+### Create Panorama blocking policies in Defender for IoT
 
 Defender for IoT and Palo Alto Network's integration automatically creates new policies in the Palo Alto Network's NMS and Panorama.
 
@@ -130,7 +112,7 @@ The first step in creating Panorama blocking policies in Defender for IoT is to 
 
 1. Select **Save**.
 
-## Block suspicious traffic with the Palo Alto firewall
+### Block suspicious traffic with the Palo Alto firewall
 
 Suspicious traffic needs to be blocked with the Palo Alto firewall. You can block suspicious traffic through the use forwarding rules in Defender for IoT.
 
