@@ -67,14 +67,14 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
 
 1. Enter the following query and select **Run query**.
 
-```
-securityresources
-| where type =~ "microsoft.security/assessments/subassessments"
-| where id has "assessments/dabc9bc4-b8a8-45bd-9a5a-43000df8aa1c" or id has "assessments/c0cb17b2-0607-48a7-b0e0-903ed22de39b" or id has "assessments/6240402e-f77c-46fa-9060-a7ce53997754"
-| parse id with start "/assessments/"assessmentId"/subassessments/" userObjectId
-| summarize make_list(userObjectId) by strcat(tostring(properties.displayName), " (", assessmentId, ")")
-| project ["Recommendation Name"] = Column1 , ["Account ObjectIDs"] = list_userObjectId
-```
+    ```
+    securityresources
+    | where type =~ "microsoft.security/assessments/subassessments"
+    | where id has "assessments/dabc9bc4-b8a8-45bd-9a5a-43000df8aa1c" or id has "assessments/c0cb17b2-0607-48a7-b0e0-903ed22de39b" or id has "assessments/6240402e-f77c-46fa-9060-a7ce53997754"
+    | parse id with start "/assessments/"assessmentId"/subassessments/" userObjectId
+    | summarize make_list(userObjectId) by strcat(tostring(properties.displayName), " (", assessmentId, ")")
+    | project ["Recommendation Name"] = Column1 , ["Account ObjectIDs"] = list_userObjectId
+    ```
 
 1. The `additionalData` property reveals the list of account object IDs for accounts that don't have MFA enforced.
 
