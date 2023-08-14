@@ -17,7 +17,7 @@ keywords:
 - Access granted to Azure OpenAI in the desired Azure subscription.
 
 > [!NOTE]
-> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repo to contact Microsoft.
+> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repository to contact Microsoft.
 
 ## Create a resource
 
@@ -35,11 +35,11 @@ The following steps show how to create an Azure OpenAI resource in the Azure por
 
    | Field | Description |
    |---|---|
-   | **Subscription** | Select the Azure subscription used in your Azure OpenAI Service onboarding application. |
+   | **Subscription** | The Azure subscription used in your Azure OpenAI Service onboarding application. |
    | **Resource group** | The Azure resource group to contain your Azure OpenAI resource. You can create a new group or use a pre-existing group. |
    | **Region** | The location of your instance. Different locations can introduce latency, but they don't affect the runtime availability of your resource. |
    | **Name** | A descriptive name for your Azure OpenAI Service resource, such as _MyOpenAIResource_. |
-   | **Pricing Tier** | Only one pricing tier is available for the service currently. |
+   | **Pricing Tier** | The pricing tier for the resource. Currently, only the Standard tier is available for the Azure OpenAI Service. |
 
    :::image type="content" source="../media/create-resource/create-resource-basic-settings.png" alt-text="Screenshot that shows how to configure an Azure OpenAI resource in the Azure portal.":::
 
@@ -67,8 +67,8 @@ The second option lets you identify specific networks that can access your resou
 
 | Field | Description |
 |---|---|
-| **Virtual network** | Specify the virtual networks that are permitted access to your resource. You can edit the default virtual network name provided by Azure. |
-| **Subnets** | Specify the subnets that are permitted access to your resource. You can edit the default subnet name provided by Azure. |
+| **Virtual network** | Specify the virtual networks that are permitted access to your resource. You can edit the default virtual network name in the Azure portal. |
+| **Subnets** | Specify the subnets that are permitted access to your resource. You can edit the default subnet name in the Azure portal. |
 
 :::image type="content" source="../media/create-resource/create-resource-network-settings-specific.png" alt-text="Screenshot that shows how to configure network security for an Azure OpenAI resource to allow specific networks only.":::
 
@@ -90,7 +90,7 @@ As an option, you can add a private endpoint for access to your resource. Select
 
 1. Confirm your configuration settings, and select **Create**.
 
-Azure displays a notification when the new resource is available.
+The Azure portal displays a notification when the new resource is available.
 
 ## Deploy a model
 
@@ -100,7 +100,7 @@ To deploy a model, follow these steps:
 
 1. Sign in to [Azure OpenAI Studio](https://oai.azure.com).
 
-1. Select the subscription and the Azure OpenAI resource to work with.
+1. Choose the subscription and the Azure OpenAI resource to work with, and select **Use resource**.
 
 1. Under **Management** select **Deployments**.
 
@@ -109,10 +109,10 @@ To deploy a model, follow these steps:
    | Field | Description |
    |---|---|
    | **Select a model** | Model availability varies by region. For a list of available models per region, see [Model summary table and region availability](../concepts/models.md#model-summary-table-and-region-availability). |
-   | **Deployment name** | Choose a name carefully. The deployment name is used in your code to call the model via the client libraries and the REST APIs. |
-   | **Advanced options** | - For the **Content Filter**, assign a content filter to your deployment.<br> - For the **Tokens per Minute Rate Limit**, adjust the Tokens per Minute (TPM) to set the effective rate limit for your deployment. You can modify this value at any time via the [**Quotas**](../how-to/quota.md) menu. |
+   | **Deployment name** | Choose a name carefully. The deployment name is used in your code to call the model by using the client libraries and the REST APIs. |
+   | **Advanced options** | - For the **Content Filter**, assign a content filter to your deployment.<br> - For the **Tokens per Minute Rate Limit**, adjust the Tokens per Minute (TPM) to set the effective rate limit for your deployment. You can modify this value at any time by using the [**Quotas**](../how-to/quota.md) menu. |
 
-   1. Select a model from the drop-down list.
+   1. Select a model from the dropdown list.
 
    1. Enter a deployment name to help you identify the model.
 
