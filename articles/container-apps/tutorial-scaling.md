@@ -104,7 +104,7 @@ az provider register --namespace Microsoft.OperationalInsights
 
 Go to the [sample code repository](https://github.com/azure-samples/containerapps-albumapi-csharp) on GitHub to fork the repository. This article uses a C# code sample, but the programming language and environment doesn't matter for the reason of the tutorial. 
 
-Select the **Fork** button at the top of the album API repo to fork the repo to your account.
+Select the **Fork** button at the top of the album API repo to fork the repo to your account. This creates a repo with a name in the form of `https://github.com/<owner>/containerapps-albumapi-csharp`, where `<owner>` is your Github username. Save this repo name, as you'll use it in the next section.
 
 ## Create and deploy the container app
 
@@ -118,7 +118,7 @@ If any of these resources already exist, the command uses the existing resources
 
 Lastly, the command creates and deploys the container app using a public container image.
 
-Replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHub repository name in the form of `https://github.com/<owner>/containerapps-albumapi-csharp` or `<owner>/containerapps-albumapi-csharp`.
+Replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHub repository name from the [previous section](#prepare-the-github-repository).
 
 # [Bash](#tab/bash)
 
@@ -272,7 +272,7 @@ For more information, see [az containerapp logs](/cli/azure/containerapp/logs).
 
 # [Bash](#tab/bash)
 
-Open a new bash shell using Windows Subsystem for Linux or a Linux virtual machine. Run the following command, replacing `<YOUR_CONTAINER_APP_FQDN>` with the fully qualified domain name for your container app that you saved from the [Create and deploy the container app](#create-and-deploy-the-container-app) section.
+Open a new bash shell. Run the following command, replacing `<YOUR_CONTAINER_APP_FQDN>` with the fully qualified domain name for your container app that you saved from the [Create and deploy the container app](#create-and-deploy-the-container-app) section.
 
 ```bash
 seq 1 50 | xargs -Iname -P5 curl "<YOUR_CONTAINER_APP_FQDN>"
@@ -346,27 +346,27 @@ In the first shell, where you ran the `az containerapp logs show` command, the o
 ## View scaling in Azure portal (optional)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the *Search* bar at the top, enter **my-container-app**.
-1. In the search results, under *Resources*, select *my-container-app*.
-1. In the navigation bar at the left, expand *Application* and select *Scale and replicas*.
-1. In the *Scale and Replicas* page, select *Replicas*.
+1. In the **Search** bar at the top, enter **my-container-app**.
+1. In the search results, under *Resources*, select **my-container-app**.
+1. In the navigation bar at the left, expand **Application** and select **Scale and replicas**.
+1. In the *Scale and Replicas* page, select **Replicas**.
 1. Your container app now has more than one replica running.
 
 :::image type="content" source="media/scale-app/azure-container-apps-scale-replicas.png" alt-text="Container app replicas.":::
 
 You may need to select **Refresh** to see the new replicas.
 
-1. In the navigation bar at the left, expand *Monitoring* and select *Metrics*.
-1. In the *Metrics* page, set *Metric* to *Requests*.
-1. Click *Apply splitting*.
-1. In the *Values* drop-down, check *Replica*.
-1. Click the blue checkmark icon to finish editing the splitting.
+1. In the navigation bar at the left, expand **Monitoring** and select **Metrics**.
+1. In the *Metrics* page, set **Metric** to **Requests**.
+1. Select **Apply splitting**.
+1. Expand the **Values** drop-down and check **Replica**.
+1. Select the blue checkmark icon to finish editing the splitting.
 1. The graph shows the requests received by your container app, split by replica.
 
 :::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-1.png" alt-text="Container app metrics graph.":::
 
-1. By default, the graph scale is set to last 24 hours, with a time granularity of 15 minutes. Click the scale and change it to the last 30 minutes, with a time granularity of one minute. Click the *Apply* button.
-1. Left-click on the graph and drag to highlight the recent increase in requests received by your container app.
+1. By default, the graph scale is set to last 24 hours, with a time granularity of 15 minutes. Select the scale and change it to the last 30 minutes, with a time granularity of one minute. Select the **Apply** button.
+1. Select on the graph and drag to highlight the recent increase in requests received by your container app.
 
 :::image type="content" source="media/scale-app/azure-container-apps-scale-replicas-metrics-2.png" alt-text="Container app metrics graph.":::
 
