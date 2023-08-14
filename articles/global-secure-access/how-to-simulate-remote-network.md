@@ -1,5 +1,5 @@
 ---
-title: Simulate remote network connectivity in Azure
+title: Extend remote network connectivity to Azure virtual networks
 description: Configure Azure resources to simulate remote network connectivity to Microsoft's Security Edge Solutions, Microsoft Entra Internet Access and Microsoft Entra Private Access.
 ms.service: network-access
 ms.topic: how-to
@@ -9,16 +9,19 @@ author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: absinh
 ---
-# Create a remote network using Azure virtual network gateway
+# Create a remote network using Azure virtual networks
 
-
+Organizations may want to extend the capabilities of Microsoft Entra Internet Access to entire networks not just devices they can [install the Global Secure Access Client](how-to-install-windows-client.md) on. This article shows how to extend these capabilities to a Azure virtual network hosted in the cloud. Similar principles may be applied to a customer's on-premises network.
 
 :::image type="content" source="media/how-to-simulate-remote-network/simulate-remote-network.png" alt-text="Diagram showing a virtual network in Azure connected to Microsoft Entra Internet Access simulating a customer's network." lightbox="media/how-to-simulate-remote-network/simulate-remote-network.png":::
 
 ## Prerequisites
 
-Azure subscription and permission to create resources in the [Azure portal](https://portal.azure.com).
-Microsoft Entra ID tenant with Global Secure Access Administrator permissions
+In order to complete the steps outlined below you must have the following prerequisites in place.
+
+- An Azure subscription and permission to create resources in the [Azure portal](https://portal.azure.com).
+- A Microsoft Entra ID tenant with the [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference#global-secure-access-administrator) role assigned.
+   - Completed the [remote network onboarding steps](how-to-create-remote-networks.md#onboard-your-tenant-for-remote-networks).
 
 ## Infrastructure creation
 
@@ -30,7 +33,19 @@ In this document, we use the following default values. Feel free to configure th
 
 ### Resource group
 
-Create a resource group named Network_Simulation in the East US region. For assistance creating a resource group, see the article [Manage Azure resource groups by using the Azure portal](/azure/azure-resource-manager/management/manage-resource-groups-portal).
+Create a resource group to contain all of the necessary resources. 
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with permission to create resources.
+1. Select **Create a resource**.
+1. Search for **Resource group** and choose **Create** > **Resource group**.
+1. Select your **Subscription**, **Region**, and provide a name for your **Resource group**. 
+1. Select **Review + create**.
+1. Confirm your details, then select **Create**.
+
+If you are using this article for testing, you may clean up all related resources in Azure by deleting the resource group after you are done.
+
+For more information about creating resource groups, see the article [Manage Azure resource groups by using the Azure portal](/azure/azure-resource-manager/management/manage-resource-groups-portal).
+
 
 ### Virtual network
 
