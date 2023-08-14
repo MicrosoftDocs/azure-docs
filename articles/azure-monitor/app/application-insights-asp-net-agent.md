@@ -112,7 +112,7 @@ This tab describes how to onboard to the PowerShell Gallery and download the App
 Included are the most common parameters that you'll need to get started.
 We've also provided manual download instructions in case you don't have internet access.
 
-### Get an instrumentation key
+### Get a connection string
 
 To get started, you need an connection string. For more information, see [Connection strings](sdk-connection-string.md).
 
