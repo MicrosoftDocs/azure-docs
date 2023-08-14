@@ -16,6 +16,6 @@ $ az networkcloud kubernetescluster agentpool list --kubernetes-cluster-name myN
 This command is experimental and under development. Reference and support levels: https://aka.ms/CLI_refstatus
 Count    Location    Mode    Name                          ProvisioningState    ResourceGroup    VmSkuName
 -------  ----------  ------  ----------------------------  -------------------  ---------------  -----------
-1        eastus      System  myNexusAKSCluster-nodepool-1  Succeeded            myResourceGroup  NC_M4_v1
-1        eastus      User    myNexusAKSCluster-nodepool-2  Succeeded            myResourceGroup  NC_M4_v1
+1        eastus      System  myNexusAKSCluster-nodepool-1  Succeeded            myResourceGroup  NC_P10_56_v1
+1        eastus      User    myNexusAKSCluster-nodepool-2  Succeeded            myResourceGroup  NC_P10_56_v1
 ```
