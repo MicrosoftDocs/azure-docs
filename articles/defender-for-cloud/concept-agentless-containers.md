@@ -39,7 +39,6 @@ The discovery process is based on snapshots taken at intervals:
 When you enable the agentless discovery for Kubernetes extension, the following process occurs:
 
 - **Create**: Defender for Cloud creates an identity in customer environments called CloudPosture/securityOperator/DefenderCSPMSecurityOperator.
-
 - **Assign**: Defender for Cloud assigns a built-in role called **Kubernetes Agentless Operator** to that identity on subscription scope. The role contains the following permissions:
    - AKS read (Microsoft.ContainerService/managedClusters/read)
 
@@ -55,9 +54,8 @@ When you enable the agentless discovery for Kubernetes extension, the following 
 
 
    - **Discover**: Using the system assigned identity, Defender for Cloud performs a discovery of the AKS clusters in your environment using API calls to the API server of AKS.
-
    - **Bind**: Upon discovery of an AKS cluster, Defender for Cloud performs an AKS bind operation between the created identity and the Kubernetes role “Microsoft.Security/pricings/microsoft-defender-operator”. The role is visible via API and gives Defender for Cloud data plane read permission inside the cluster.
-
+   
    ### What's the refresh interval?
 
    Agentless information in Defender CSPM is updated through a snapshot mechanism. It can take up to **24 hours** to see results in attack paths and the cloud security explorer.
