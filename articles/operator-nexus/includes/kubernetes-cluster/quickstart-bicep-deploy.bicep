@@ -166,6 +166,7 @@ resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-05-01
     initialAgentPoolConfigurations: [
       {
         name: '${kubernetesClusterName}-nodepool-1'
+        administratorConfiguration: {}
         count: systemPoolNodeCount
         vmSkuName: workerVmSkuName
         mode: 'System'
@@ -184,6 +185,7 @@ resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-05-01
       }
     ]
     controlPlaneNodeConfiguration: {
+      administratorConfiguration: {}
       count: controlPlaneCount
       vmSkuName: controlPlaneVmSkuName
       availabilityZones: empty(controlPlaneZones) ? null : controlPlaneZones

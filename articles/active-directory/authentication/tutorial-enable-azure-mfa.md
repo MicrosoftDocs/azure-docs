@@ -188,7 +188,7 @@ If you no longer want to use the Conditional Access policy that you configured a
 
 1. Search for and select **Azure Active Directory**, and then select **Security** from the menu on the left-hand side.
 
-1. Select **Conditional access**, and then select the policy that you created, such as **MFA Pilot**.
+1. Select **Conditional Access**, and then select the policy that you created, such as **MFA Pilot**.
 
 1. select **Delete**, and then confirm that you want to delete the policy.
 

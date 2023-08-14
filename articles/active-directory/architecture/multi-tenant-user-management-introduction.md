@@ -67,7 +67,7 @@ The following conceptual and how-to articles provide information about Azure AD 
 - [B2B and Office 365 external sharing](../external-identities/o365-external-user.md) explains the similarities and differences among sharing resources through B2B, Office 365, and SharePoint/OneDrive.
 - [Properties on an Azure AD B2B collaboration user](../external-identities/user-properties.md) describes the properties and states of the external user object in Azure AD. The description provides details before and after invitation redemption.
 - [B2B user tokens](../external-identities/user-token.md) provides examples of the bearer tokens for B2B for an external user.
-- [Conditional access for B2B](../external-identities/authentication-conditional-access.md) describes how Conditional Access and MFA work for external users.
+- [Conditional Access for B2B](../external-identities/authentication-conditional-access.md) describes how Conditional Access and MFA work for external users.
 - [Cross-tenant access settings](../external-identities/cross-tenant-access-overview.md) provides granular control over how external Azure AD organizations collaborate with you (inbound access) and how your users collaborate with external Azure AD organizations (outbound access).
 - [Cross-tenant synchronization overview](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) explains how to automate creating, updating, and deleting Azure AD B2B collaboration users across tenants in an organization.
 

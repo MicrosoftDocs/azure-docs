@@ -1,7 +1,7 @@
 ---
  services: storage
  author: normesta
- ms.service: azure-storage
+ ms.service: storage
  ms.topic: include
  ms.date: 09/29/2020
  ms.author: normesta

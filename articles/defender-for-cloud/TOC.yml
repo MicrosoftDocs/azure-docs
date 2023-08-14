@@ -79,12 +79,12 @@
         href: tutorial-enable-container-aws.md
       - name: Protect your Google Cloud Platform (GCP) project containers
         href: tutorial-enable-container-gcp.md
+      - name: How to enable Defender for Containers components
+        displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
+        href: defender-for-containers-enable.md
     - name: Protect your key vaults with Defender for Key Vault
       displayName: enable, key, vault, key vault
       href: tutorial-enable-key-vault-plan.md
-    - name: Protect your Domain Name System (DNS) with Defender for DNS
-      displayName: DNS
-      href: tutorial-enable-dns-plan.md
     - name: Protect your resources with Defender for Resource Manager
       displayName: resource manager, resource, manager, enable
       href: tutorial-enable-resource-manager-plan.md
@@ -547,9 +547,6 @@
     - name: How does Defender for Containers work?
       displayName: containers
       href: defender-for-containers-architecture.md
-    - name: Enable Defender for Containers
-      displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
-      href: defender-for-containers-enable.md
     - name: Vulnerability assessment for Azure powered by Qualys
       displayName: ACR, registry, images, qualys
       href: defender-for-containers-vulnerability-assessment-azure.md
@@ -727,9 +724,6 @@
     - name: Overview
       displayName: domain, Defender for DNS
       href: defender-for-dns-introduction.md
-    - name: Protect your Domain Name System (DNS) with Defender for DNS
-      displayName: DNS
-      href: tutorial-enable-dns-plan.md
     - name: Respond to Microsoft Defender for DNS alerts
       displayName: DNS
       href: defender-for-dns-alerts.md 
@@ -866,7 +860,9 @@
     - name: Agentless Container Posture Management
       href: episode-thirty-three.md
     - name: Understanding the DevOps Threat Matrix
-      href: episode-thirty-four.md              
+      href: episode-thirty-four.md
+    - name: Security alert correlation
+      href: episode-thirty-five.md                 
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation

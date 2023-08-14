@@ -27,8 +27,8 @@ Azure Active Directory (Azure AD) enables your organization to meet these goals 
 
 There are multiple methods to integrate your devices into Azure AD, they can work separately or together based on the operating system and your requirements:
 
-* You can [register devices](concept-azure-ad-register.md) with Azure AD.
-* [Join devices](concept-azure-ad-join.md) to Azure AD (cloud-only).
+* You can [register devices](concept-device-registration.md) with Azure AD.
+* [Join devices](concept-directory-join.md) to Azure AD (cloud-only).
 * [Hybrid Azure AD join](concept-hybrid-join.md) devices to your on-premises Active Directory domain and Azure AD. 
 
 ## Learn
@@ -74,7 +74,7 @@ Communication is critical to the success of any new service. Proactively communi
 
 We recommend that the initial configuration of your integration method is in a test environment, or with a small group of test devices. See [Best practices for a pilot](../fundamentals/deployment-plans.md).
 
-You may want to do a [targeted deployment of hybrid Azure AD join](hybrid-azuread-join-control.md) before enabling it across the entire organization.
+You may want to do a [targeted deployment of hybrid Azure AD join](hybrid-join-control.md) before enabling it across the entire organization.
 
 > [!WARNING]
 > Organizations should include a sample of users from varying roles and profiles in their pilot group. A targeted rollout will help identify any issues your plan may not have addressed before you enable for the entire organization.
@@ -140,7 +140,7 @@ BYOD and corporate owned mobile device are registered by users installing the Co
 
 If registering your devices is the best option for your organization, see the following resources:
 
-* This overview of [Azure AD registered devices](concept-azure-ad-register.md).
+* This overview of [Azure AD registered devices](concept-device-registration.md).
 * This end-user documentation on [Register your personal device on your organization’s network](https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8).
 
 ## Azure AD join
@@ -151,7 +151,7 @@ Azure AD join enables you to transition towards a cloud-first model with Windows
 
 If this option is best for your organization, see the following resources:
 
-* This overview of [Azure AD joined devices](concept-azure-ad-join.md).
+* This overview of [Azure AD joined devices](concept-directory-join.md).
 * Familiarize yourself with the [Azure AD join implementation plan](device-join-plan.md).
 
 ### Provisioning Azure AD Joined devices
@@ -178,23 +178,23 @@ You may determine that Azure AD join is the best solution for a device in a diff
 
 ## Hybrid Azure AD join
 
-If you have an on-premises Active Directory environment and want to join your existing domain-joined computers to Azure AD, you can accomplish this task with hybrid Azure AD join. It supports a [broad range of Windows devices](hybrid-azuread-join-plan.md), including both Windows current and Windows down-level devices.
+If you have an on-premises Active Directory environment and want to join your existing domain-joined computers to Azure AD, you can accomplish this task with hybrid Azure AD join. It supports a [broad range of Windows devices](hybrid-join-plan.md), including both Windows current and Windows down-level devices.
 
 Most organizations already have domain joined devices and manage them via Group Policy or System Center Configuration Manager (SCCM). In that case, we recommend configuring hybrid Azure AD join to start getting benefits while using existing investments.
 
 If hybrid Azure AD join is the best option for your organization, see the following resources:
 
 * This overview of [hybrid Azure AD joined devices](concept-hybrid-join.md).
-* Familiarize yourself with the [hybrid Azure AD join implementation](hybrid-azuread-join-plan.md) plan.
+* Familiarize yourself with the [hybrid Azure AD join implementation](hybrid-join-plan.md) plan.
 
 ### Provisioning hybrid Azure AD join to your devices
 
-[Review your identity infrastructure](hybrid-azuread-join-plan.md). Azure AD Connect provides you with a wizard to configure hybrid Azure AD join for:
+[Review your identity infrastructure](hybrid-join-plan.md). Azure AD Connect provides you with a wizard to configure hybrid Azure AD join for:
 
 * [Managed domains](how-to-hybrid-join.md#managed-domains)
 * [Federated domains](how-to-hybrid-join.md#federated-domains)
 
-If installing the required version of Azure AD Connect isn't an option for you, see [how to manually configure hybrid Azure AD join](hybrid-azuread-join-manual.md). 
+If installing the required version of Azure AD Connect isn't an option for you, see [how to manually configure hybrid Azure AD join](hybrid-join-manual.md). 
 
 > [!NOTE] 
 > The on-premises domain-joined Windows 10 or newer device attempts to auto-join to Azure AD to become hybrid Azure AD joined by default. This will only succeed if you have set up the right environment. 
@@ -206,18 +206,18 @@ You may determine that hybrid Azure AD join is the best solution for a device in
 | On-premises domain joined | Hybrid Azure AD joined | Use Azure AD connect or AD FS to join to Azure. |
 | On-premises workgroup joined or new | Hybrid Azure AD joined | Supported with [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot). Otherwise device needs to be on-premises domain joined before hybrid Azure AD join. |
 | Azure AD joined | Hybrid Azure AD joined | Unjoin from Azure AD, which puts it in the on-premises workgroup or new state. |
-| Azure AD registered | Hybrid Azure AD joined | Depends on Windows version. [See these considerations](hybrid-azuread-join-plan.md). |
+| Azure AD registered | Hybrid Azure AD joined | Depends on Windows version. [See these considerations](hybrid-join-plan.md). |
 
 ## Manage your devices
 
 Once you've registered or joined your devices to Azure AD, use the [Azure portal](https://portal.azure.com/) as a central place to manage your device identities. The Azure Active Directory devices page enables you to:
 
-* [Configure your device settings](device-management-azure-portal.md#configure-device-settings).
+* [Configure your device settings](manage-device-identities.md#configure-device-settings).
 * You need to be a local administrator to manage Windows devices. [Azure AD updates this membership for Azure AD joined devices](assign-local-admin.md), automatically adding users with the device manager role as administrators to all joined devices.
 
 Make sure that you keep the environment clean by [managing stale devices](manage-stale-devices.md), and focus your resources on managing current devices.
 
-* [Review device-related audit logs](device-management-azure-portal.md#audit-logs)
+* [Review device-related audit logs](manage-device-identities.md#audit-logs)
 
 ### Supported device management tools
 
@@ -238,5 +238,5 @@ Administrators can also [deploy virtual desktop infrastructure (VDI) platforms](
 ## Next steps
 
 * [Plan your Azure AD join implementation](device-join-plan.md)
-* [Plan your hybrid Azure AD join implementation](hybrid-azuread-join-plan.md)
-* [Manage device identities](device-management-azure-portal.md)
+* [Plan your hybrid Azure AD join implementation](hybrid-join-plan.md)
+* [Manage device identities](manage-device-identities.md)

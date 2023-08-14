@@ -2,7 +2,7 @@
 title: Encryption of backup data using customer-managed keys
 description: Learn how Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK).
 ms.topic: conceptual
-ms.date: 07/27/2023
+ms.date: 08/02/2023
 ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 ms.service: backup
 author: AbhishekMallick-MS
@@ -489,7 +489,7 @@ To specify the Disk Encryption Set under Encryption Settings in the restore pane
 2. From the dropdown, select the DES you wish to use for the restored disk(s). **Ensure you have access to the DES.**
 
 >[!NOTE]
->The ability to choose a DES while restoring isn't available if you're restoring a VM that uses Azure Disk Encryption or if you're performing cross region restore. 
+>The ability to choose a `DES` while restore is now supported if you're doing Cross Region Restore. However, it's currently not suppported if you're restoring a VM that uses Azure Disk Encryption.
 
 ![Encrypt disk using your key](./media/encryption-at-rest-with-cmk/encrypt-disk-using-your-key.png)
 

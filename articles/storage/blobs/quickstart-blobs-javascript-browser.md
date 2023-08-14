@@ -6,7 +6,7 @@ author: normesta
 
 ms.author: normesta
 ms.date: 02/25/2022
-ms.service: azure-storage
+ms.service: storage
 ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api

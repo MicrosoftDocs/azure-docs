@@ -197,7 +197,7 @@ There are several filter options to choose from:
 - **User:** The *user principal name* (UPN) of the user in question.
 - **Status:** Options are *Success*, *Failure*, and *Interrupted*.
 - **Resource:** The name of the service used for the sign-in.
-- **Conditional access:** The status of the Conditional Access policy. Options are: 
+- **Conditional Access:** The status of the Conditional Access policy. Options are: 
     - *Not applied:* No policy applied to the user and application during sign-in.
     - *Success:* One or more Conditional Access policies applied to the user and application (but not necessarily the other conditions) during sign-in.
     - *Failure:* The sign-in satisfied the user and application condition of at least one Conditional Access policy and grant controls are either not satisfied or set to block access.
