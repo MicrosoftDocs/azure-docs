@@ -1,9 +1,10 @@
 ---
-title: Library management in HDInsight on AKS with Spark
+title: storage/blobs/data-lake-storage-introduction
 description: Learn how to use Library Management in HDInsight on AKS with Spark 
 ms.tpoic: how-to
 ms.date: 08/04/2023
 ---
+
 # Library management in Spark
 
 The purpose of Library Management is to make open-source or custom code available to notebooks and jobs running on your clusters. You can upload Python libraries from PyPI repositories.
