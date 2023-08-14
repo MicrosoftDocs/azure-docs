@@ -237,6 +237,10 @@ resource "azurerm_windows_virtual_machine" "main" {
   }
 }
 ```
+   > [!WARNING]
+   > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
+   > 
+   > If you are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region. 
 
 ---
 ## Limitations
