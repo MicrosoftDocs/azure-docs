@@ -161,11 +161,6 @@ Creating a client secret allows the Azure Modeling and Simulation Workbench to r
    - **Name**: Enter *QuickstartModSimWorkbenchAppSecretValue*
    - **Value**: Enter the **Client secret value** you documented in the Add a client secret step.
    - Leave the other values to their defaults.
-1. Create another secret and provide the following information:
-   - **Upload options**: Select *Manual*.
-   - **Name**: Enter *QuickstartModSimWorkbenchDesktopLicenseKey*
-   - **Value**: Enter the OpenText Exceed TurboX license key text.
-   - Leave the other values to their defaults.
 1. Locate and document the three secret identifiers:
    - Select **secret**.
    - Select the **latest version**.
@@ -238,6 +233,9 @@ To create an Azure Modeling and Simulation Workbench, you first fill out the Azu
    :::image type="content" source="./media/quickstart-create-portal/chamber-iam-03.png" alt-text="Screenshot of the Add role assignment page showing where you select the Role.":::
 
 1. Leave the **Assign access to** default **User, group, or service principal**. Select **+ Select members**. In the **Select members** blade on the left side of the screen, search for your security principal by entering a string or scrolling through the list. Select your security principal. Select **Select** to save the selections.
+
+    > [!NOTE]
+    > Chamber Admins and Chamber Users *MUST* have an alias set within their Azure AD profile email field, or they can't log into the environment.
 
    :::image type="content" source="./media/quickstart-create-portal/chamber-iam-04.png" alt-text="Screenshot of the Add role assignment page showing where you select the security principal.":::
 
