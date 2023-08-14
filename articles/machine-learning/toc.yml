@@ -516,6 +516,8 @@
     href: how-to-train-model.md
   - name: Training with UI
     href: how-to-train-with-ui.md
+  - name: CLI and Python SDK v2 expressions
+    href: concept-expressions.md
   - name: Using secrets in training 
     href: how-to-use-secrets-in-runs.md
   - name: Custom Training
@@ -1409,7 +1411,7 @@
               href: reference-automl-nlp-cli-multilabel-classification.md
             - name: Automated ML NLP NER
               href: reference-automl-nlp-cli-ner.md
-            - name: CLI (v2) Spark job YAML schema
+            - name: Spark
               href: reference-yaml-job-spark.md
         - name: Datastore
           items:
@@ -1449,7 +1451,7 @@
               href: reference-yaml-deployment-batch.md
         - name: Component
           items:
-            - name: CLI (v2) Spark component YAML schema
+            - name: Spark
               href: reference-yaml-component-spark.md
             - name: Command
               href: reference-yaml-component-command.md
