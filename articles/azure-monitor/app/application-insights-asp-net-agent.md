@@ -114,7 +114,7 @@ We've also provided manual download instructions in case you don't have internet
 
 ### Get an instrumentation key
 
-To get started, you need an instrumentation key. For more information, see [Create an Application Insights resource](create-workspace-resource.md#copy-the-instrumentation-key).
+To get started, you need an connection string. For more information, see [Connection strings](sdk-connection-string.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
