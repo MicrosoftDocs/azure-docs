@@ -21,7 +21,7 @@ ms.collection: engagement-fy23, M365-identity-device-management
 # Add Facebook as an identity provider for External Identities
 
 > [!TIP]
-> This article describes adding Facebook as an identity provider for B2B collaboration. If your tenant is configured for customer identity and access management, see [Add Facebook as an identity provider](customers/how-to-facebook-federation-customers.md).
+> This article describes adding Facebook as an identity provider for B2B collaboration. If your tenant is configured for customer identity and access management, see [Add Facebook as an identity provider](customers/how-to-facebook-federation-customers.md) for customers.
 
 You can add Facebook to your self-service sign-up user flows so that users can sign in to your applications using their own Facebook accounts. To allow users to sign in using Facebook, you'll first need to [enable self-service sign-up](self-service-sign-up-user-flow.md) for your tenant. After you add Facebook as an identity provider, set up a user flow for the application and select Facebook as one of the sign-in options.
 

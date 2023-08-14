@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 08/09/2023
+ms.date: 08/14/2023
 
 ms.author: mimart
 author: msmimart
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 Self-service sign-up is an essential feature for your External ID workforce and customer scenarios. It gives your partners, consumers, and other external users a frictionless way to sign up and get access to your apps without any intervention on your part.
 
 - In a B2B collaboration scenario, you might not always know in advance who will need access to an application you want to share. As an alternative to sending invitations directly to individuals, you can allow external users to sign up for specific applications themselves. Learn how to [create a self-service sign-up user flow for B2B collaboration](self-service-sign-up-user-flow.md).
-- In a customer identity and access management (CIAM) scenario, probably one of your topmost priorities is to create a personalized sign-up experience for the apps you build for consumers. You can do so by configuring self-service sign-up user flows. Learn more about [planning the customer experience](customers/concept-planning-your-solution.md) or [creating a sign-up and sign-in user flow for customers](customers/how-to-user-flow-sign-up-sign-in-customers.md).
+- In a customer identity and access management (CIAM) scenario, it's important to add a self-service sign-up experience to the apps you build for consumers. You can do so by configuring self-service sign-up user flows. Learn more about [planning the customer experience](customers/concept-planning-your-solution.md) or [creating a sign-up and sign-in user flow for customers](customers/how-to-user-flow-sign-up-sign-in-customers.md).
 
 In either scenario, you can create a personalized sign-up experience by customizing the look and feel, providing sign-in with social identity providers, and collecting information about the user during the sign-up process.
 
