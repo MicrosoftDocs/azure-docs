@@ -150,8 +150,6 @@ For more information on core Kubernetes and AKS concepts, see:
 - [Kubernetes / AKS scale][aks-concepts-scale]
 
 <!-- LINKS - External -->
-[kured]: https://github.com/kubereboot/kured
-[kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
 [encryption-atrest]: ../security/fundamentals/encryption-atrest.md
 
@@ -159,7 +157,7 @@ For more information on core Kubernetes and AKS concepts, see:
 [microsoft-defender-for-containers]: ../defender-for-cloud/defender-for-containers-introduction.md
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-azure-ad.md
-[aks-add-np-containerd]: /create-node-pools.md#add-a-windows-server-node-pool-with-containerd
+[aks-add-np-containerd]: create-node-pools.md#add-a-windows-server-node-pool-with-containerd
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md
@@ -169,11 +167,9 @@ For more information on core Kubernetes and AKS concepts, see:
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [developer-best-practices-pod-security]:developer-best-practices-pod-security.md
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [authorized-ip-ranges]: api-server-authorized-ip-ranges.md
 [private-clusters]: private-clusters.md
 [network-policy]: use-network-policies.md
 [microsoft-vulnerability-management-aks]: concepts-vulnerability-management.md
 [aks-vulnerability-management-nodes]: concepts-vulnerability-management.md#worker-nodes
 [manage-ssh-access]: manage-ssh-node-access.md
-[aks-add-np-containerd]: create-node-pools.md#add-a-windows-server-node-pool-with-containerd
