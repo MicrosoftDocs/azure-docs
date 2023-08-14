@@ -224,7 +224,7 @@ The column **Using private endpoint** is always shown as blank even if you creat
 
 :::image type="content" source="./media/managed-vnet/akv-pe.png" alt-text="Screenshot that shows a private endpoint for Key Vault.":::
 
-### Fully Qualified Domain Name ( FQDN ) of Azure HDInsight
+### Fully Qualified Domain Name (FQDN) of Azure HDInsight
 
 If you created a custom private link service, FQDN should end with **azurehdinsight.net**  without leading *privatelink* in domain name when you create a private end point. If you use privatelink in domain name, make sure it is valid and you are able to resolve it.  
 
