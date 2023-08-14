@@ -27,7 +27,7 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
 - An Azure OpenAI resource with a chat model deployed (for example, GPT-3 or GPT-4). For more information about model deployment, see the [resource deployment guide](./how-to/create-resource.md).
 
-    Your chat model must use version `0301`. You can view or change your model version in [Azure OpenAI Studio](./concepts/models.md#model-updates)
+    - Your chat model must use version `0301`. You can view or change your model version in [Azure OpenAI Studio](./concepts/models.md#model-updates).
 
 - Be sure that you are assigned at least the [Cognitive Services OpenAI Contributor](/azure/role-based-access-control/built-in-roles#cognitive-services-openai-contributor) role for the Azure OpenAI resource. 
 
