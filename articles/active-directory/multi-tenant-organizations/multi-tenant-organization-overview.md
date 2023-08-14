@@ -44,9 +44,9 @@ As such, the multi-tenant organization capability assumes the simultaneous use o
 
 Here are the benefits of a multi-tenant organization:
 
-- In Azure AD, external users originating from within a multi-tenant organization can be differentiated from external users originating from outside the multi-tenant organization, thereby facilitating the application of different policies for in-organization and out-of-organization external users.
-- In Microsoft Teams, multi-tenant organization users can expect an improved collaborative experience across tenants with chat, calling, and meeting start notifications from all connected tenants across the multi-tenant organization. Tenant switching will be seamless and significantly faster than ever before. For more information, see [Microsoft Teams: Advantages of the new architecture](https://techcommunity.microsoft.com/t5/microsoft-teams-blog/microsoft-teams-advantages-of-the-new-architecture/ba-p/3775704).
-- Across Microsoft 365 services, the multi-tenant organization people search experience is a collaboration feature that enables search and discovery of people across multiple tenants. Once enabled, users will be able to search and discover synced user profiles in a tenant's global address list and view their corresponding people cards. For more information, see [Microsoft 365 Multi-Tenant Organization People Search (public preview)](/microsoft-365/enterprise/multi-tenant-people-search).
+- **Differentiate in-organization and out-of-organization external users**: In Azure AD, external users originating from within a multi-tenant organization can be differentiated from external users originating from outside the multi-tenant organization. This differentiation facilitates the application of different policies for in-organization and out-of-organization external users.
+- **Improved collaborative experience in Microsoft Teams**: In Microsoft Teams, multi-tenant organization users can expect an improved collaborative experience across tenants with chat, calling, and meeting start notifications from all connected tenants across the multi-tenant organization. Tenant switching is more seamless and faster. For more information, see [Microsoft Teams: Advantages of the new architecture](https://techcommunity.microsoft.com/t5/microsoft-teams-blog/microsoft-teams-advantages-of-the-new-architecture/ba-p/3775704).
+- **Improved people search experience across tenants**: Across Microsoft 365 services, the multi-tenant organization people search experience is a collaboration feature that enables search and discovery of people across multiple tenants. Once enabled, users are able to search and discover synced user profiles in a tenant's global address list and view their corresponding people cards. For more information, see [Microsoft 365 Multi-Tenant Organization People Search (public preview)](/microsoft-365/enterprise/multi-tenant-people-search).
 
 ## How does a multi-tenant organization work?
 
@@ -54,7 +54,7 @@ The multi-tenant organization capability enables you to form a tenant group with
 
 - Define a multi-tenant organization
 
-    One tenant administrator will define a multi-tenant organization as a grouping of tenants. The grouping of tenants is not reciprocal until each listed tenant takes action to join the multi-tenant organization. The objective is a reciprocal agreement between all listed tenants.
+    One tenant administrator defines a multi-tenant organization as a grouping of tenants. The grouping of tenants isn't reciprocal until each listed tenant takes action to join the multi-tenant organization. The objective is a reciprocal agreement between all listed tenants.
 
 - Join a multi-tenant organization
 
@@ -62,13 +62,13 @@ The multi-tenant organization capability enables you to form a tenant group with
 
 - Leave a multi-tenant organization
 
-    Tenant administrators of listed tenants can leave a multi-tenant organization at any time. While a tenant administrator who defined the multi-tenant organization can add and remove listed tenants, he or she does not control the other tenants.
+    Tenant administrators of listed tenants can leave a multi-tenant organization at any time. While a tenant administrator who defined the multi-tenant organization can add and remove listed tenants they don't control the other tenants.
 
 A multi-tenant organization is established as a collaboration of equals. Each tenant administrator stays in control of their tenant and their membership in the multi-tenant organization.
 
 ## Cross-tenant access settings
 
-Administrators staying in control of their resources is a guiding principle for multi-tenant organization collaboration. Cross-tenant access settings are required for each tenant-to-tenant relationship. Tenant administrators will explicitly configure, as needed, the following policies:
+Administrators staying in control of their resources is a guiding principle for multi-tenant organization collaboration. Cross-tenant access settings are required for each tenant-to-tenant relationship. Tenant administrators explicitly configure, as needed, the following policies:
 
 - Cross-tenant access partner configurations
 
@@ -86,13 +86,13 @@ The following diagram shows three tenants A, B, and C that form a multi-tenant o
 
 | Tenant | Description |
 | :---: | --- |
-| A | Administrators will see a multi-tenant organization consisting of A, B, C. They will also see cross-tenant access settings for B and C. |
-| B | Administrators will see a multi-tenant organization consisting of A, B, C. They will also see cross-tenant access settings for A and C. |
-| C | Administrators will see a multi-tenant organization consisting of A, B, C. They will also see cross-tenant access settings for A and B. |
+| A | Administrators see a multi-tenant organization consisting of A, B, C. They also see cross-tenant access settings for B and C. |
+| B | Administrators see a multi-tenant organization consisting of A, B, C. They also see cross-tenant access settings for A and C. |
+| C | Administrators see a multi-tenant organization consisting of A, B, C. They also see cross-tenant access settings for A and B. |
 
 ## Templates for cross-tenant access settings
 
-To ease the setup of homogenous cross-tenant access settings applied to partner tenants in the multi-tenant organization, the administrator of each multi-tenant organization tenant can configure optional cross-tenant access settings templates dedicated to the multi-tenant organization, which can be used to pre-configure cross-tenant access settings that will be applied to any partner tenant newly joining the multi-tenant organization.
+To ease the setup of homogenous cross-tenant access settings applied to partner tenants in the multi-tenant organization, the administrator of each multi-tenant organization tenant can configure optional cross-tenant access settings templates dedicated to the multi-tenant organization. These templates can be used to preconfigure cross-tenant access settings that are applied to any partner tenant newly joining the multi-tenant organization.
 
 ## Tenant role and state
 
@@ -100,12 +100,12 @@ To facilitate the management of a multi-tenant organization, any given multi-ten
 
 | Role | Description |
 | --- | --- |
-| Owner | One tenant creates the multi-tenant organization. The multi-tenant organization creating tenant receives the role of owner. The privilege of the owner tenant is to add tenants into a pending states as well as to remove tenants from the multi-tenant org. Also, an owner tenant can change the role of other multi-tenant organization tenants. |
+| Owner | One tenant creates the multi-tenant organization. The multi-tenant organization creating tenant receives the role of owner. The privilege of the owner tenant is to add tenants into a pending state as well as to remove tenants from the multi-tenant organization. Also, an owner tenant can change the role of other multi-tenant organization tenants. |
 | Member | Following the addition of pending tenants to the multi-tenant organization, pending tenants need to join the multi-tenant organization to turn their state from pending to active. Joined tenants typically start in the member role. Any member tenant has the privilege to leave the multi-tenant organization. |
 
 | State | Description |
 | --- | --- |
-| Pending | A pending tenant has yet to join a multi-tenant organization. While listed in an administrator’s view of the multi-tenant organization, a pending tenant is not yet part of the multi-tenant organization, and as such is hidden from an end user’s view of a multi-tenant organization. |
+| Pending | A pending tenant has yet to join a multi-tenant organization. While listed in an administrator’s view of the multi-tenant organization, a pending tenant isn't yet part of the multi-tenant organization, and as such is hidden from an end user’s view of a multi-tenant organization. |
 | Active | Following the addition of pending tenants to the multi-tenant organization, pending tenants need to join the multi-tenant organization to turn their state from pending to active. Joined tenants typically start in the member role. Any member tenant has the privilege to leave the multi-tenant organization. |
 
 ## Design constraints
@@ -120,14 +120,14 @@ The multi-tenant organization capability has been designed to the following cons
 
 ## External user segmentation
 
-By defining a multi-tenant organization, as well as pivoting on the Azure AD user property of userType, [external identities](../external-identities/user-properties.md) will be segmented as follows:
+By defining a multi-tenant organization, as well as pivoting on the Azure AD user property of userType, [external identities](../external-identities/user-properties.md) are segmented as follows:
 
 - External members originating from within a multi-tenant organization
 - External guests originating from within a multi-tenant organization
 - External members originating from outside of your organization
 - External guests originating from outside of your organization
 
-This segmentation of external users, due to the definition of a multi-tenant organization, enables administrators to better manage differentiate in-organization from out-of-organization external users.
+This segmentation of external users, due to the definition of a multi-tenant organization, enables administrators to better differentiate in-organization from out-of-organization external users.
 
 External members originating from within a multi-tenant organization are called multi-tenant organization members.
 
@@ -156,7 +156,7 @@ Join a multi-tenant organization using [Microsoft 365 admin center](/microsoft-3
 - Joiner tenants submit a join request to join the multi-tenant organization of owner tenant.
 - Wait for up to 4 hours. Current asynchronous processing time is up to 4 hours.
 
-Your multi-tenant organization will have been formed.
+Your multi-tenant organization is formed.
 
 ### Step 4: Synchronize users
 
@@ -169,7 +169,7 @@ Depending on your use case, you may want to synchronize users using one of the f
 
 ## Limits
 
-Multi-tenant organizations are currently limited in size to the following:
+Multi-tenant organizations have the following limits:
 
 - A maximum of five active tenants per multi-tenant organization
 - A maximum of 100,000 internal users per active tenant at the time of joining
@@ -178,7 +178,7 @@ If you want to add more than five tenants or 100,000 internal users per tenant, 
 
 ## License requirements
 
-To participate in public preview of multi-tenant organization capabilities, you will need Azure AD Premium P1 licenses in all multi-tenant organization tenants. To find the right license for your requirements, see [Compare generally available features of Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+To participate in public preview of multi-tenant organization capabilities, you must have Azure AD Premium P1 licenses in all multi-tenant organization tenants. To find the right license for your requirements, see [Compare generally available features of Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Next steps
 

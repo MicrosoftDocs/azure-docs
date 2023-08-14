@@ -95,15 +95,13 @@ Here are the primary constraints with using cross-tenant synchronization across 
 > Multi-tenant organization is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Multi-tenant organization is a new feature (currently available in public preview) for Microsoft Entra and Microsoft 365 customers. The multi-tenant organization capability allows you to form a tenant group within your organization. Each pair of tenants in the group is governed by cross-tenant access settings that you can use to configure B2B or cross-tenant synchronization.
+[Multi-tenant organization](./multi-tenant-organization-overview.md) is a feature in Azure AD and Microsoft 365 that enables you to form a tenant group within your organization. Each pair of tenants in the group is governed by cross-tenant access settings that you can use to configure B2B or cross-tenant synchronization.
 
-To ease the setup of homogenous cross-tenant access settings applied to partner tenants in the multi-tenant organization, the administrator of each multi-tenant organization tenant can configure optional cross-tenant access settings templates dedicated to the multi-tenant organization, which can be used to pre-configure cross-tenant access settings that will be applied to any partner tenant newly joining the multi-tenant organization.
+Here are the primary benefits of a multi-tenant organization:
 
-Here are the primary benefits of forming a multi-tenant organization:
-
-- In Microsoft Entra or Azure Active Directory, external users originating from within a multi-tenant organization can be differentiated from external users originating from outside the multi-tenant organization, thereby facilitating the application of different policies for in-org and out-of-org external users. 
-- In new Microsoft Teams, multi-tenant organization users can expect a smooth and improved collaborative experience across tenants with chat, calling, and meeting start notifications from all connected tenants across the multi-tenant organization. Tenant switching will be seamless and significantly faster than ever before. [Learn more](https://techcommunity.microsoft.com/t5/microsoft-teams-blog/microsoft-teams-advantages-of-the-new-architecture/ba-p/3775704)
-- Across Microsoft 365 services, the multi-tenant organization People Search experience is a collaboration feature that enables search and discovery of people across multiple tenants. Once enabled, users will be able to search and discover synced user profiles in a tenant's global address list and view their corresponding people cards. [Learn more](/microsoft-365/enterprise/multi-tenant-people-search)
+- Differentiate in-organization and out-of-organization external users
+- Improved collaborative experience in Microsoft Teams
+- Improved people search experience across tenants
 
 :::image type="content" source="./media/common/multi-tenant-organization-topology.png" alt-text="Diagram that shows a multi-tenant organization topology and cross-tenant access settings." lightbox="./media/common/multi-tenant-organization-topology.png":::
 
@@ -140,13 +138,13 @@ To better understand multi-tenant organization scenario related Azure AD capabil
 | added tenant | A tenant that was added by an owner tenant. |
 | joiner tenant | A tenant that is joining the multi-tenant organization. |
 | join request | A joiner or added tenant submits a join request to join the multi-tenant organization. |
-| pending tenant | A tenant that was added by an owner but that has not yet joined. |
+| pending tenant | A tenant that was added by an owner but that hasn't yet joined. |
 | active tenant | A tenant that created or joined the multi-tenant organization. |
 | member tenant | A tenant with the member role. Most joiner tenants start as members. |
 | multi-tenant organization tenant | An active tenant of the multi-tenant organization, not pending. |
 | cross-tenant synchronization | A one-way synchronization service in Azure AD that automates creating, updating, and deleting B2B collaboration users across tenants in an organization. |
 | cross-tenant access settings | Settings to manage collaboration for specific Azure AD organizations. |
-| cross-tenant access settings template | An optional template to pre-configure cross-tenant access settings that will be applied to any partner tenant newly joining the multi-tenant organization. |
+| cross-tenant access settings template | An optional template to preconfigure cross-tenant access settings that are applied to any partner tenant newly joining the multi-tenant organization. |
 | organizational settings | Cross-tenant access settings for specific Azure AD organizations. |
 | configuration | An application and underlying service principal in Azure AD that includes the settings (such as target tenant, user scope, and attribute mappings) needed for cross-tenant synchronization. |
 | provisioning | The process of automatically creating or synchronizing objects across a boundary. |
