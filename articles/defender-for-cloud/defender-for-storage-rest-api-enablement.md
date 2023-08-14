@@ -92,6 +92,6 @@ Learn more about the [Microsoft.Security/DefenderForStorageSettings API](/rest/a
 
 Learn more on how to [set up response for malware scanning](defender-for-storage-configure-malware-scan.md) results.
 
-## Next Steps
+## Next steps
 
 - Learn how to [enable and Configure the Defender for Storage plan at scale with an Azure built-in policy](defender-for-storage-policy-enablement.md).
