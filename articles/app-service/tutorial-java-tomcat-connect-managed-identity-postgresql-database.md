@@ -11,7 +11,7 @@ ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track
 
 # Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](../postgresql/index.yml) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you will learn how to:
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](../postgresql/index.yml) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a PostgreSQL database.
@@ -39,7 +39,7 @@ cd Passwordless-Connections-for-Java-Apps/Tomcat/
 
 ## Create an Azure Database for PostgreSQL
 
-Follow these steps to create an Azure Database for Postgres in your subscription. The Spring Boot app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
+Follow these steps to create an Azure Database for Postgres in your subscription. The Spring Boot app connects to this database and store its data when running, persisting the application state no matter where you run the application.
 
 1. Sign into the Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
 
@@ -57,7 +57,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
    az group create --name $RESOURCE_GROUP --location $LOCATION
    ```
 
-1. Create an Azure Database for PostgreSQL server. The server is created with an administrator account, but it won't be used because we'll use the Azure Active Directory (Azure AD) admin account to perform administrative tasks.
+1. Create an Azure Database for PostgreSQL server. The server is created with an administrator account, but it isn't used because we're going to use the Azure Active Directory (Azure AD) admin account to perform administrative tasks.
 
    ### [Flexible Server](#tab/flexible)
 
@@ -176,7 +176,7 @@ Then, connect your app to a Postgres database with a system-assigned managed ide
 
 ### [Flexible Server](#tab/flexible)
 
-To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command.
+To make this connection, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command.
 
 ```azurecli-interactive
 az webapp connection create postgres-flexible \
@@ -191,7 +191,7 @@ az webapp connection create postgres-flexible \
 
 ### [Single Server](#tab/single)
 
-To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres) command.
+To make this connection, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres) command.
 
 ```azurecli-interactive
 az webapp connection create postgres \

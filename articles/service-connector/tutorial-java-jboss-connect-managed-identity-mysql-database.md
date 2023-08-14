@@ -12,7 +12,7 @@ ms.custom: passwordless-java, service-connector
 
 # Tutorial: Connect to a MySQL Database from Java JBoss EAP App Service with passwordless connection
 
-[Azure App Service](../app-service/overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](../app-service/overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for MySQL](../mysql/index.yml) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you will learn how to:
+[Azure App Service](../app-service/overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](../app-service/overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for MySQL](../mysql/index.yml) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a MySQL database.
@@ -42,7 +42,7 @@ cd Passwordless-Connections-for-Java-Apps/JakartaEE/jboss-eap/
 
 ## Create an Azure Database for MySQL
 
-Follow these steps to create an Azure Database for MySQL in your subscription. The Spring Boot app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
+Follow these steps to create an Azure Database for MySQL in your subscription. The Spring Boot app connects to this database and store its data when running, persisting the application state no matter where you run the application.
 
 1. Sign into the Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
 
@@ -60,7 +60,7 @@ Follow these steps to create an Azure Database for MySQL in your subscription. T
    az group create --name $RESOURCE_GROUP --location $LOCATION
    ```
 
-1. Create an Azure Database for MySQL server. The server is created with an administrator account, but it won't be used because we'll use the Azure Azure AD admin account to perform administrative tasks.
+1. Create an Azure Database for MySQL server. The server is created with an administrator account, but it isn't used because we're going to use the Azure AD admin account to perform administrative tasks.
 
    ```azurecli-interactive
    export MYSQL_ADMIN_USER=azureuser
@@ -139,9 +139,7 @@ export IDENTITY_RESOURCE_ID=$(az identity create \
 > [!IMPORTANT]
 > After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](/azure/mysql/flexible-server/concepts-azure-ad-authentication#permissions) section of [Active Directory authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication).
 
-Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector.
-
-To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-mysql-flexible) command.
+Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector. To make this connection, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-mysql-flexible) command.
 
 ```azurecli-interactive
 az webapp connection create mysql-flexible \
@@ -154,12 +152,12 @@ az webapp connection create mysql-flexible \
     --client-type java
 ```
 
-This Service Connector command will do the following tasks in the background:
+This Service Connector command does the following tasks in the background:
 
 * Enable system-assigned managed identity for the app `$APPSERVICE_NAME` hosted by Azure App Service.
 * Set the Azure Active Directory admin to the current signed-in user.
-* Add a database user for the system-assigned managed identity in step 1 and grant all privileges of the database `$DATABASE_NAME` to this user. The user name can be get from the connection string in above command output
-* Add a connection string to App Settings in the app named `AZURE_MYSQL_CONNECTIONSTRING`
+* Add a database user for the system-assigned managed identity in step 1 and grant all privileges of the database `$DATABASE_NAME` to this user. You can get the user name from the connection string in the output from the previous command.
+* Add a connection string to App Settings in the app named `AZURE_MYSQL_CONNECTIONSTRING`.
 
   > [!NOTE]
   > If you see the error message `The subscription is not registered to use Microsoft.ServiceLinker`, run the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider, then run the connection command again.
@@ -208,7 +206,7 @@ Follow these steps to prepare data in a database and deploy the application.
 
 1. Update the connection string in App Settings.
 
-   Get the connection string generated by Service Connector and add passwordless authentication plugin. This connection string will be referenced in the startup script.
+   Get the connection string generated by Service Connector and add passwordless authentication plugin. This connection string is referenced in the startup script.
 
    ```azurecli-interactive
    export PASSWORDLESS_URL=$(\
