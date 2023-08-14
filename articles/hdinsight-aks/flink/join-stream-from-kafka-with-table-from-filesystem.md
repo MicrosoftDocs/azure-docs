@@ -14,7 +14,7 @@ In this article, you can learn how you can enrich the real time events by joinin
 
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md) 
 * [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
-    *  You're required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); thats to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
+    *  You're required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
 * For this demonstration, we're using a Window VM as maven project develop environment in the same VNet as HDInsight on AKS  
 
 ## Kafka Topic Preparation
