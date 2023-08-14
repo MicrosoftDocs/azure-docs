@@ -7,6 +7,19 @@ ms.topic: how-to
 
 # Integrate Palo-Alto with Microsoft Defender for IoT (on-premises integration)
 
+This article describes how to integrate Palo Alto with Microsoft Defender for IoT, in order to view both Palo Alto and Defender for IoT information in a single place.
+
+Viewing both Defender for IoT and Palo Alto information together provides SOC analysts with multidimensional visibility into the specialized OT protocols and IIoT devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior.
+
+## Cloud integration (recommended)
+
+If you're integrating a cloud-connected OT sensor with Splunk, we recommend that you use Splunk's own [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151). For more information, see:
+
+- [The Splunk documentation on installing add-ins](https://docs.splunk.com/Documentation/AddOns/released/Overview/Distributedinstall)
+- [The Splunk documentation on the OT Security Add-on for Splunk](https://splunk.github.io/ot-security-solution/integrationguide/)
+
+
+## On-premises integration (recommended)
 > [!IMPORTANT]
 > While you can continue to configure forwarding alert rules to Palo Alto Panorama, Defender for IoT plans to end support for other legacy Palo Alto Panorama integrations with an version of 23.x.
 >
