@@ -48,22 +48,22 @@ Use the connection details below to connect compute services to Azure Database f
 
 ### [Connection String](#secret)
 
-### [java](tab/java)
+### [java](#tab/java)
 java env var tables.
 
-### [spring](tab/spring)
+### [spring](#tab/spring)
 spring env var tables.
 
-### [.NET](tab/dotnet)
+### [.NET](#tab/dotnet)
 .NET env var tables.
 
-### [Go](tab/go)
+### [Go](#tab/go)
 .NET env var tables.
 
 ### [Others](#tab/others)
 others.
 
----
+
 
 here're sample codes for each client type.
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
