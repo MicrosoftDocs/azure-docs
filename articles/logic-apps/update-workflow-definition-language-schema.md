@@ -160,7 +160,7 @@ When you select the option to update the schema, Azure Logic Apps automatically 
    >
    > If the **Update Schema** command is unavailable, your workflow already uses the current schema.
 
-   ![Screenshot showing Azure portal, Consumption logic app resource, Overview page, and selected Update Schema command.](./media/update-consumption-workflow-schema/update-schema.png)
+   ![Screenshot showing Azure portal, Consumption logic app resource, Overview page, and selected Update Schema command.](./media/update-workflow-definition-language-schema/update-schema.png)
 
    The **Update Schema** pane opens and shows a link to a document that describes the improvements in the current schema. You can copy and paste the returned workflow definition, which you can copy and paste into your logic app resource definition if necessary.
 
