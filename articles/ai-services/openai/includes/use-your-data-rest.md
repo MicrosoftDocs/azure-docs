@@ -131,6 +131,9 @@ The Azure OpenAI chat models are optimized to work with inputs formatted as a co
 
 To trigger a response from the model, you should end with a user message indicating that it's the assistant's turn to respond.
 
+> [!TIP]
+> There are several parameters you can use to change the model's response, such as `temperature` or `top_p`. See the [reference documentation](../reference.md#completions-extensions) for more information.
+
 ```bash
 curl -i -X POST $AOAIEndpoint/openai/deployments/$AOAIDeploymentId/extensions/chat/completions?api-version=2023-06-01-preview \
 -H "Content-Type: application/json" \
