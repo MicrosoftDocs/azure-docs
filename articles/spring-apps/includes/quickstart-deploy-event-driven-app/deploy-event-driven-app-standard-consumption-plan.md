@@ -16,8 +16,6 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## 2. Prepare the Spring project
 
-Use the following steps to prepare the sample locally.
-
 [!INCLUDE [prepare-spring-project-event-driven](../../includes/quickstart-deploy-event-driven-app/prepare-spring-project-event-driven.md)]
 
 ## 3. Prepare the cloud environment
