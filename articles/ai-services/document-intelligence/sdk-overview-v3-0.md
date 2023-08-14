@@ -252,7 +252,7 @@ For more information, *see* [Authenticate the client](https://github.com/Azure/a
 
 ### [JavaScript](#tab/javascript)
 
-Here's how to acquire and use the [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential?view=azure-node-&preserve-view=true) for JavaScript applications:
+Here's how to acquire and use the [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential?view=azure-node-latest&preserve-view=true) for JavaScript applications:
 
 1. Install the [Azure Identity library for JavaScript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true):
 
