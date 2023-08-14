@@ -11,6 +11,10 @@ ms.reviewer: absinh
 ---
 # Create a remote network using Azure virtual network gateway
 
+
+
+:::image type="content" source="media/how-to-simulate-remote-network/simulate-remote-network.png" alt-text="Diagram showing a virtual network in Azure connected to Microsoft Entra Internet Access simulating a customer's network." lightbox="media/how-to-simulate-remote-network/simulate-remote-network.png":::
+
 ## Prerequisites
 
 Azure subscription and permission to create resources in the [Azure portal](https://portal.azure.com).
