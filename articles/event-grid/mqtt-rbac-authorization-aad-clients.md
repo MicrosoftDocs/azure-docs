@@ -88,7 +88,7 @@ The following are sample role definitions that allow you to publish and subscrib
 :::image type="content" source="./media/mqtt-rbac-authorization-aad-clients/event-grid-custom-role-permissions.png" alt-text="Screenshot showing the Microsoft Event Grid option to find the permissions.":::
 1. Navigate to Data Actions
 1. Select **Topic spaces publish** data action and select **Add**
-:::image type="content" source="./media/mqtt-rbac-authorization-aad-clients/event-grid-custom-role-permissions-data-actions.png" alt-text="Screenshot showing the Microsoft Event Grid option to find the permissions.":::
+:::image type="content" source="./media/mqtt-rbac-authorization-aad-clients/event-grid-custom-role-permissions-data-actions.png" alt-text="Screenshot showing the data action selection.":::
 1. Select Next to see the topic space in the Assignable scopes tab.  You can add other assignable scopes if needed.
 1. Select **Create** in Review + create tab to create the custom role.
 1. Once the custom role is created, you can assign the role to an identity to provide the publish permission on the topic space.  You can learn how to assign roles [here](/azure/role-based-access-control/role-assignments-portal).
