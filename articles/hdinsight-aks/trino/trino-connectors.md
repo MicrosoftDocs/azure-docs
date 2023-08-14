@@ -18,7 +18,7 @@ Trino in HDInsight on AKS enables seamless integration with data sources. You ca
 * [Elasticsearch](https://trino.io/docs/410/connector/elasticsearch.html)
 * [Google Sheets](https://trino.io/docs/410/connector/googlesheets.html)
 * [Hive](https://trino.io/docs/410/connector/hive.html)
-* [Hudi](https://trino.io/docs/410/connector/hudi.html)
+* [`Hudi`](https://trino.io/docs/410/connector/hudi.html)
 * [Iceberg](https://trino.io/docs/410/connector/iceberg.html)
 * [Ignite](https://trino.io/docs/410/connector/ignite.html)
 * [JMX](https://trino.io/docs/410/connector/jmx.html)
