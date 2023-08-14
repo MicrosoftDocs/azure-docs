@@ -22,13 +22,11 @@ Features released earlier than nine months ago are described in the [What's new 
 |---------|---------|
 | **OT networks** | [Updated partner integration recommendations](#updated-partner-integration-recommendations) |
 
-## Updated partner integration recommendations
+## Updated security stack integration guidance
 
-Defender for IoT's recommendations for partner integrations now focuses on cloud-based solutions, such synchronizing data via Microsoft Sentinel. Integrating with partner services enhances your system's scalability, robustness, and effectiveness, allowing you to synchronize data between partner services and your security stack.
+Defender for IoT's now has updated guidance for integrating with your security stack services, increasing robsutness, scalability, and ease of maintenance. 
 
-In line with our focus on cloud-based integrations, Defender for IoT plans to end support for legacy, on-premises  integrations with Splunk, Aruba ClearPass, and Palo Alto Panorama in an upcoming patch version of 23.1.x. Once support ends, you'll be able to continue sending syslog files to the listed services, but advanced integrations, such as TBD, will no longer be available.
-
-Instead, we recommend that you transition to cloud integration methods, as described in the following table:
+Defender for IoT plans to end support for legacy, on-premises integrations with Splunk, Aruba ClearPass, and Palo Alto Panorama in an an upcoming 23.x version. We recommend that you transition to updated methods, as described in the following table:
 
 |Integration  |Recommended method  | Legacy method
 |---------|---------|---------|
