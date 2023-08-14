@@ -202,7 +202,7 @@ This script sets the variables `$resourceGroup`, `$vmName`, `$newVmSize`, and `$
 
 ### [Terraform](#tab/terraform)
 
-To resize your VM in Terraform code, you modify the `size` parameter in the `azurerm_linux_virtual_machine` or `azurerm_windows_virtual_machine` resource blocks to the desired size and run `terraform plan -out main.tfplan` to see the changes that will be made. Then run `terraform apply main.tfplan` to apply the changes to resize the VM.
+To resize your VM in Terraform code, you modify the `size` parameter in the `azurerm_linux_virtual_machine` or `azurerm_windows_virtual_machine` resource blocks to the desired size and run `terraform plan -out main.tfplan` to see the VM size change that will be made. Then run `terraform apply main.tfplan` to apply the changes to resize the VM.
 
 
 ```Terraform
