@@ -2,7 +2,7 @@
 title: Security recommendations for multi-factor authentication
 description: Learn how to enforce multi-factor authentication for your Azure subscriptions using Microsoft Defender for Cloud
 ms.topic: conceptual
-ms.date: 06/28/2023
+ms.date: 08/14/2023
 ---
 
 # Manage multi-factor authentication (MFA) enforcement on your subscriptions
@@ -67,17 +67,19 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
 
 1. Enter the following query and select **Run query**.
 
-    ```kusto
-    securityresources
-     | where type == "microsoft.security/assessments"
-     | where properties.displayName contains "Accounts with owner permissions on Azure resources should be MFA enabled"
-     | where properties.status.code == "Unhealthy"
+    ```
+securityresources
+| where type =~ "microsoft.security/assessments/subassessments"
+| where id has "assessments/dabc9bc4-b8a8-45bd-9a5a-43000df8aa1c" or id has "assessments/c0cb17b2-0607-48a7-b0e0-903ed22de39b" or id has "assessments/6240402e-f77c-46fa-9060-a7ce53997754"
+| parse id with start "/assessments/"assessmentId"/subassessments/" userObjectId
+| summarize make_list(userObjectId) by strcat(tostring(properties.displayName), " (", assessmentId, ")")
+| project ["Recommendation Name"] = Column1 , ["Account ObjectIDs"] = list_userObjectId
     ```
 
 1. The `additionalData` property reveals the list of account object IDs for accounts that don't have MFA enforced.
 
     > [!NOTE]
-    > The accounts are shown as object IDs rather than account names to protect the privacy of the account holders.
+    > The 'Account ObjectIDs' column contains the list of account object IDs for accounts that don't have MFA enforced per recommendation.
 
 > [!TIP]
 > Alternatively, you can use the Defender for Cloud REST API method [Assessments - Get](/rest/api/defenderforcloud/assessments/get).
