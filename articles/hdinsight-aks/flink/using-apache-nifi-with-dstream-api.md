@@ -22,7 +22,7 @@ By combining the low latency streaming features of Apache Flink and the dataflow
 * [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
     *  You're required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
 * For this demonstration, we are using a Window VM as maven project develop env in the same VNET as HDInsight on AKS
-* For this demonstration, we are using an Ubuntu VM in the same VNET as HDInsight on AKS, install Apache Nifi 1.22.0 on this VM
+* For this demonstration, we are using an Ubuntu VM in the same VNET as HDInsight on AKS, install Apache NiFi 1.22.0 on this VM
 
 ## Prepare HDInsight Kafka topic
 
