@@ -484,7 +484,7 @@ Trigger an on-demand backup using the [az dataprotection backup-instance adhoc-b
 
 
 ```azurecli-interactive
-az dataprotection backup-instance adhoc-backup --name "diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166" --rule-name "Default" --resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
+az dataprotection backup-instance adhoc-backup --name "diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166" --rule-name "BackupDaily" --resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1" --retention-tag-override "default"
 ```
 
 ## Tracking jobs
