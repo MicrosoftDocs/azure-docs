@@ -149,7 +149,7 @@ If you have a virtual network gateway (ExpressRoute or VPN) in the same virtual 
 
 [!INCLUDE [downtime note](../../includes/route-server-note-vng-downtime.md)]
 
-1. To enable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic`` flag set to **true**:
+1. To enable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic` flag set to **true**:
 
     ```azurecli-interactive 
     az network routeserver update \
@@ -158,7 +158,7 @@ If you have a virtual network gateway (ExpressRoute or VPN) in the same virtual 
         --allow-b2b-traffic true 
     ``` 
 
-2. To disable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic`` flag set to **false**:
+2. To disable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic` flag set to **false**:
 
     ```azurecli-interactive
     az network routeserver update \
