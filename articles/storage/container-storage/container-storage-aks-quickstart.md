@@ -22,7 +22,7 @@ ms.custom: devx-track-azurecli
 
 - You'll need the Kubernetes command-line client, `kubectl`. You can install it locally by running the `az aks install-cli` command.
 
-- Optional: If you'd like to provide input about how you plan to use Azure Container Storage, complete this [short survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
+- Optional: We'd like input on how you plan to use Azure Container Storage. Please complete this [short survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
 
 ## Install Azure Container Storage
 

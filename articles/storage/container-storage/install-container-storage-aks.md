@@ -20,7 +20,7 @@ ms.custom: devx-track-azurecli
 
 - This article requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using the Bash environment in Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges. For more information, see [Quickstart for Bash in Azure Cloud Shell](../../cloud-shell/quickstart.md).
 
-- Optional: If you'd like to provide input about how you plan to use Azure Container Storage, complete this [short survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
+- Optional: We'd like input on how you plan to use Azure Container Storage. Please complete this [short survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
 
 > [!NOTE]
 > Instead of following the steps in this article, you can install Azure Container Storage Preview using a provided installation script. See [Quickstart: Use Azure Container Storage Preview with Azure Kubernetes Service](container-storage-aks-quickstart.md).
