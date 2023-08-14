@@ -25,6 +25,8 @@ Because the Public IP allocation is set to 'Static' before detaching from the VM
 
 The module logs all upgrade activity to a file named `PublicIPUpgrade.log`, created in the same location where the module was executed (by default). 
 
+To see a list of the virtual machines in your environment which have Basic SKU Public IP Addresses attached, use this [Resource Graph query](../../governance/resource-graph/samples/samples-by-category?tabs=azure-cli#show-virtual-machines-with-basic-sku-public-ip-addresses).
+
 ## Constraints/ Unsupported Scenarios
 
 * **VMs with NICs associated to a Load Balancer**: Because the Load Balancer and Public IP SKUs associated with a VM must match, it isn't possible to upgrade the instance-level Public IP addresses associated with a VM when the VM's NICs are also associated with a Load Balancer, either though Backend Pool or NAT Pool membership. Use the scripts for upgrading a basic load balancer used with [virtual machines](../../load-balancer/upgrade-basic-standard.md) or [virtual machine scale sets](../../load-balancer/upgrade-basic-standard-virtual-machine-scale-sets.md) to upgrade both the Load Balancer and Public IPs as the same time.
