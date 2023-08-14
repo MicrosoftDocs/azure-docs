@@ -21,59 +21,74 @@ ms.custom: it-pro
 > Multi-tenant organization is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Multi-tenant organization is a new feature (currently available in public preview) for Microsoft Entra and Microsoft 365 customers. The multi-tenant organization capability allows you to form a tenant group within your organization. Each pair of tenants in the group is governed by cross-tenant access settings that you can use to configure B2B or cross-tenant synchronization.
+Multi-tenant organization is a feature in Azure Active Directory (Azure AD) and Microsoft 365 that enables you to form a tenant group within your organization. Each pair of tenants in the group is governed by cross-tenant access settings that you can use to configure B2B or cross-tenant synchronization.
 
 ## Why use multi-tenant organization?
 
 Here are the primary goals of multi-tenant organization:
 
 - Define a group of tenants belonging to your organization
-- Collaborate across your tenants in new Teams
+- Collaborate across your tenants in Microsoft Teams
 - Connect with colleagues across your tenants in Viva Engage
-- Enable search and discovery of user profiles across your tenants through M365 People Search
+- Enable search and discovery of user profiles across your tenants through Microsoft 365 people search
 
 ## Who should use it?
 
-Organizations that own multiple Azure AD tenants and want to streamline intra-organization cross-tenant collaboration in M365.
+Organizations that own multiple Azure AD tenants and want to streamline intra-organization cross-tenant collaboration in Microsoft 365.
 
 The multi-tenant organization capability is built on the assumption of reciprocal provisioning of B2B member users across multi-tenant organization tenants.
 
-As such, the multi-tenant organization capability assumes the simultaneous use of Azure AD cross-tenant synchronization or an alternative bulk provisioning engine for external identities.
+As such, the multi-tenant organization capability assumes the simultaneous use of Azure AD cross-tenant synchronization or an alternative bulk provisioning engine for [external identities](../external-identities/user-properties.md).
 
 ## Benefits
 
-- In Microsoft Entra or Azure AD, external users originating from within a multi-tenant organization can be differentiated from external users originating from outside the multi-tenant organization, thereby facilitating the application of different policies for in-org and out-of-org external users.
-- In new Microsoft Teams, multi-tenant organization users can expect a smooth and improved collaborative experience across tenants with chat, calling, and meeting start notifications from all connected tenants across the multi-tenant organization. Tenant switching will be seamless and significantly faster than ever before. Learn more.
-- Across Microsoft 365 services, the multi-tenant organization People Search experience is a collaboration feature that enables search and discovery of people across multiple tenants. Once enabled, users will be able to search and discover synced user profiles in a tenant's global address list and view their corresponding people cards. Learn more.
+Here are the benefits of a multi-tenant organization:
+
+- In Azure AD, external users originating from within a multi-tenant organization can be differentiated from external users originating from outside the multi-tenant organization, thereby facilitating the application of different policies for in-organization and out-of-organization external users.
+- In Microsoft Teams, multi-tenant organization users can expect an improved collaborative experience across tenants with chat, calling, and meeting start notifications from all connected tenants across the multi-tenant organization. Tenant switching will be seamless and significantly faster than ever before. For more information, see [Microsoft Teams: Advantages of the new architecture](https://techcommunity.microsoft.com/t5/microsoft-teams-blog/microsoft-teams-advantages-of-the-new-architecture/ba-p/3775704).
+- Across Microsoft 365 services, the multi-tenant organization people search experience is a collaboration feature that enables search and discovery of people across multiple tenants. Once enabled, users will be able to search and discover synced user profiles in a tenant's global address list and view their corresponding people cards. For more information, see [Microsoft 365 Multi-Tenant Organization People Search (public preview)](/microsoft-365/enterprise/multi-tenant-people-search).
 
 ## How does a multi-tenant organization work?
 
-The multi-tenant organization capability allows you to form a tenant group within your organization.
+The multi-tenant organization capability enables you to form a tenant group within your organization. The following list describes the basic lifecycle of a multi-tenant organization.
 
-- Defining a Multi-tenant Organization: One tenant admin will define a multi-tenant organization as a grouping of tenants. The grouping of tenants is not reciprocal until each listed tenant takes action to join the multi-tenant organization. The objective is a reciprocal agreement between all listed tenants.
-- Joining a Multi-tenant Organization: Tenant admins of listed tenants take action to join the multi-tenant organization. After joining, the multi-tenant organization relationship is reciprocal between each and every tenant that joined the multi-tenant organization.
-- Leaving a Multi-tenant Organization: Tenant admins of listed tenants can leave a multi-tenant organization at any time. While a tenant admin who defined the multi-tenant organization can add and remove listed tenants, he or she does not control the other tenants.
+- Define a multi-tenant organization
 
-A multi-tenant organization is established as a collaboration of equals. Each tenant admin stays in control of their tenant and their membership in the multi-tenant organization.
+    One tenant administrator will define a multi-tenant organization as a grouping of tenants. The grouping of tenants is not reciprocal until each listed tenant takes action to join the multi-tenant organization. The objective is a reciprocal agreement between all listed tenants.
+
+- Join a multi-tenant organization
+
+    Tenant administrators of listed tenants take action to join the multi-tenant organization. After joining, the multi-tenant organization relationship is reciprocal between each and every tenant that joined the multi-tenant organization.
+
+- Leave a multi-tenant organization
+
+    Tenant administrators of listed tenants can leave a multi-tenant organization at any time. While a tenant administrator who defined the multi-tenant organization can add and remove listed tenants, he or she does not control the other tenants.
+
+A multi-tenant organization is established as a collaboration of equals. Each tenant administrator stays in control of their tenant and their membership in the multi-tenant organization.
 
 ## Cross-tenant access settings
 
-Admins staying in control of their resources is a guiding principle for multi-tenant organization collaboration. Cross-tenant access settings are required for each tenant-to-tenant relationship. Tenant admins will explicitly configure, as needed, the following policies:
+Administrators staying in control of their resources is a guiding principle for multi-tenant organization collaboration. Cross-tenant access settings are required for each tenant-to-tenant relationship. Tenant administrators will explicitly configure, as needed, the following policies:
 
-- Cross-tenant access partner configurations -> Learn more in Entra.  Learn more in MS Graph.
-- Cross-tenant access identity synchronization -> Learn more in Entra. Learn more in MS Graph.
+- Cross-tenant access partner configurations
+
+    For more information, see [Configure cross-tenant access settings for B2B collaboration](../external-identities/cross-tenant-access-settings-b2b-collaboration.md) and [crossTenantAccessPolicyConfigurationPartner resource type](/graph/api/resources/crosstenantaccesspolicyconfigurationpartner?view=graph-rest-beta&preserve-view=true).
+
+- Cross-tenant access identity synchronization
+
+    For more information, see [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md) and [crossTenantIdentitySyncPolicyPartner resource type](/graph/api/resources/crosstenantidentitysyncpolicypartner).
 
 ## Multi-tenant organization example
 
-Example: Three tenants A, B, and C form a multi-tenant organization.
+The following diagram shows three tenants A, B, and C that form a multi-tenant organization.
 
 :::image type="content" source="./media/common/multi-tenant-organization-topology.png" alt-text="Diagram that shows a multi-tenant organization topology and cross-tenant access settings." lightbox="./media/common/multi-tenant-organization-topology.png":::
 
-Tenant A: Admins will see a multi-tenant organization consisting of A, B, C. They will also see cross-tenant access settings for B and C.
-
-Tenant B: Admins will see a multi-tenant organization consisting of A, B, C. They will also see cross-tenant access settings for A and C. 
-
-Tenant C: Admins will see a multi-tenant organization consisting of A, B, C. They will also see cross-tenant access settings for A and B.
+| Tenant | Description |
+| :---: | --- |
+| A | Administrators will see a multi-tenant organization consisting of A, B, C. They will also see cross-tenant access settings for B and C. |
+| B | Administrators will see a multi-tenant organization consisting of A, B, C. They will also see cross-tenant access settings for A and C. |
+| C | Administrators will see a multi-tenant organization consisting of A, B, C. They will also see cross-tenant access settings for A and B. |
 
 ## Templates for cross-tenant access settings
 
@@ -81,12 +96,17 @@ To ease the setup of homogenous cross-tenant access settings applied to partner 
 
 ## Tenant role and state
 
-To facilitate the management of a multi-tenant organization, any given multi-tenant organization tenant has an associated role and state:
+To facilitate the management of a multi-tenant organization, any given multi-tenant organization tenant has an associated role and state.
 
-- Owner role: One tenant creates the multi-tenant organization. The multi-tenant org creating tenant receives the role of owner. The privilege of the owner tenant is to add tenants into a pending states as well as to remove tenants from the multi-tenant org. Also, an owner tenant can change the role of other multi-tenant org tenants.
-- Member role: Following the addition of pending tenants to the multi-tenant organization, pending tenants need to join the multi-tenant org to turn their state from pending to active. Joined tenants typically start in the member role. Any member tenant has the privilege to leave the MTO.
-- Pending state: A pending tenant has yet to join a multi-tenant organization. While listed in an administrator’s view of the multi-tenant organization, a pending tenant is not yet part of the multi-tenant organization, and as such is hidden from an end user’s view of a multi-tenant organization.
-- Active state: Following the addition of pending tenants to the multi-tenant organization, pending tenants need to join the multi-tenant org to turn their state from pending to active. Joined tenants typically start in the member role. Any member tenant has the privilege to leave the MTO.
+| Role | Description |
+| --- | --- |
+| Owner | One tenant creates the multi-tenant organization. The multi-tenant organization creating tenant receives the role of owner. The privilege of the owner tenant is to add tenants into a pending states as well as to remove tenants from the multi-tenant org. Also, an owner tenant can change the role of other multi-tenant organization tenants. |
+| Member | Following the addition of pending tenants to the multi-tenant organization, pending tenants need to join the multi-tenant organization to turn their state from pending to active. Joined tenants typically start in the member role. Any member tenant has the privilege to leave the multi-tenant organization. |
+
+| State | Description |
+| --- | --- |
+| Pending | A pending tenant has yet to join a multi-tenant organization. While listed in an administrator’s view of the multi-tenant organization, a pending tenant is not yet part of the multi-tenant organization, and as such is hidden from an end user’s view of a multi-tenant organization. |
+| Active | Following the addition of pending tenants to the multi-tenant organization, pending tenants need to join the multi-tenant organization to turn their state from pending to active. Joined tenants typically start in the member role. Any member tenant has the privilege to leave the multi-tenant organization. |
 
 ## Design constraints
 
@@ -100,46 +120,54 @@ The multi-tenant organization capability has been designed to the following cons
 
 ## External user segmentation
 
-By defining a multi-tenant organization, as well as pivoting on the Azure AD user property of userType, external identities will be segmented as follows:
+By defining a multi-tenant organization, as well as pivoting on the Azure AD user property of userType, [external identities](../external-identities/user-properties.md) will be segmented as follows:
 
 - External members originating from within a multi-tenant organization
 - External guests originating from within a multi-tenant organization
 - External members originating from outside of your organization
 - External guests originating from outside of your organization
 
-This segmentation of external users, due to the definition of a multi-tenant organization, will allow admins to better manage differentiate in-org from out-of-org external users.
+This segmentation of external users, due to the definition of a multi-tenant organization, enables administrators to better manage differentiate in-organization from out-of-organization external users.
 
 External members originating from within a multi-tenant organization are called multi-tenant organization members.
 
-Multi-tenant collaboration capabilities in M365 aim to provide a seamless collaboration experience across tenant boundaries when collaborating with multi-tenant organization member users.
+Multi-tenant collaboration capabilities in Microsoft 365 aim to provide a seamless collaboration experience across tenant boundaries when collaborating with multi-tenant organization member users.
 
-## Get Started
+## Get started
 
-Plan your deployment. Learn more about multi-tenant collaboration.
+Here are the basic steps to get started using multi-tenant organization.
 
-Create your multi-tenant organization via Set up in M365 admin center or via Graph API:
+### Step 1: Plan your deployment
 
-- Step 1: First tenant, soon-to-be owner tenant, creates a multi-tenant organization.
-- Step 2: Owner tenant adds one or more joiner tenants.
-- Step 3: Current asynchronous processing time is up to 2 hours. Wait for at least 2 hours. 
+For more information, see [Plan for multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/plan-multi-tenant-org-overview?branch=mikeplum-mto).
 
-The order of steps 2 and 3 may be interchanged.
+### Step 2: Create your multi-tenant organization
 
-Join a multi-tenant organization via Join in M365 admin center or Graph API:
+Create your multi-tenant organization using [Microsoft 365 admin center](/microsoft-365/enterprise/set-up-multi-tenant-org?branch=mikeplum-mto) or [Microsoft Graph API](multi-tenant-organization-configure-graph.md):
 
-- Step 4: Joiner tenants submit a join request to join the multi-tenant org of owner tenant.
-- Step 5: Current asynchronous processing time is up to 4 hours. Wait for up to 4 hours.
+- First tenant, soon-to-be owner tenant, creates a multi-tenant organization.
+- Owner tenant adds one or more joiner tenants.
+- Wait for at least 2 hours. Current asynchronous processing time is up to 2 hours. 
+
+### Step 3: Join a multi-tenant organization
+
+Join a multi-tenant organization using [Microsoft 365 admin center](/microsoft-365/enterprise/join-leave-multi-tenant-org?branch=mikeplum-mto) or [Microsoft Graph API](multi-tenant-organization-configure-graph.md):
+
+- Joiner tenants submit a join request to join the multi-tenant organization of owner tenant.
+- Wait for up to 4 hours. Current asynchronous processing time is up to 4 hours.
 
 Your multi-tenant organization will have been formed.
 
-Depending on your use case, you may want to synchronize users using
+### Step 4: Synchronize users
 
-- Synchronize users in M365 admin center,
-- Cross-tenant synchronization in Entra,
-- Cross-tenant synchronization using Graph API, or
-- your alternative bulk provisioning engine.
+Depending on your use case, you may want to synchronize users using one of the following methods:
 
-## Size limitation
+- [Synchronize users in multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/sync-users-multi-tenant-orgs?branch=mikeplum-mto)
+- [Configure cross-tenant synchronization using the Azure portal](cross-tenant-synchronization-configure.md)
+- [Configure cross-tenant synchronization using Microsoft Graph API](cross-tenant-synchronization-configure-graph.md)
+- Your alternative bulk provisioning engine
+
+## Limits
 
 Multi-tenant organizations are currently limited in size to the following:
 
@@ -150,7 +178,7 @@ If you want to add more than five tenants or 100,000 internal users per tenant, 
 
 ## License requirements
 
-To participate in public preview of multi-tenant organization capabilities, you will need Azure AD Premium P1 licenses in all multi-tenant organization tenants. To find the right license for your requirements, see Compare generally available features of Azure AD.
+To participate in public preview of multi-tenant organization capabilities, you will need Azure AD Premium P1 licenses in all multi-tenant organization tenants. To find the right license for your requirements, see [Compare generally available features of Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Next steps
 
