@@ -165,9 +165,8 @@ GROUP BY <group_by_element>
 
 ### Query results pagination
 
-> [!IMPORTANT]
-> A **query object** is instantiated with a max page size of **less than** or **equal to** 100 records. To obtain multiple pages, call the [nextAsTwin](device-twins-node.md#create-a-service-app-that-updates-desired-properties-and-queries-twins) on Node.js SDK or [GetNextAsTwinAsync](device-twins-dotnet.md#create-a-service-app-that-updates-desired-properties-and-queries-twins) on .Net SDK method multiple times.
->A **query object** can expose multiple **Next** values, depending on the deserialization option required by the query. For example, a query object can return device twin or job objects, or plain JSON when using projections.
+A query object is instantiated with a max page size of **less than** or **equal to** 100 records. To obtain multiple pages, call the [nextAsTwin](device-twins-node.md#create-a-service-app-that-updates-desired-properties-and-queries-twins) on Node.js SDK or [GetNextAsTwinAsync](device-twins-dotnet.md#create-a-service-app-that-updates-desired-properties-and-queries-twins) on .Net SDK method multiple times.
+A query object can expose multiple Next values, depending on the deserialization option required by the query. For example, a query object can return device twin or job objects, or plain JSON when using projections.
 
 ## Expressions and conditions
 
@@ -276,7 +275,7 @@ In routes conditions, the following string functions are supported:
 | ENDSWITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
 | CONTAINS(x,y) | Returns a Boolean indicating whether the first string expression contains the second. |
 
-### Query examples with the service SDKs
+## Query examples with the service SDKs
 
 ### C# example
 
@@ -296,7 +295,7 @@ while (query.HasMoreResults)
 }
 ```
 
-The **query** object is instantiated with the parameters mentioned in the [query results pagination](#query-results-pagination) section. Multiple pages are retrieved by calling the **GetNextAsTwinAsync** methods multiple times.
+The query object is instantiated with the parameters mentioned in the [query results pagination](#query-results-pagination) section. Multiple pages are retrieved by calling the **GetNextAsTwinAsync** methods multiple times.
 
 ### Node.js example
 
@@ -323,7 +322,7 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-The **query object** is instantiated with the parameters mentioned in the [query results pagination](#query-results-pagination) section. Multiple pages are retrieved by calling the **nextAsTwin** method multiple times.  
+The query object is instantiated with the parameters mentioned in the [query results pagination](#query-results-pagination) section. Multiple pages are retrieved by calling the **nextAsTwin** method multiple times.  
 
 ## Next steps
 
