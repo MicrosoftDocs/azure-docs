@@ -73,7 +73,7 @@ You can use access reviews to ensure that users who were invited and added to a 
 
 ### Ask an authorized user to review a guest's membership in a group
 
-You can ask an authorized, such as the owner of a group, to review a guest's need for continued membership in a group.
+You can ask an authorized user, such as the owner of a group, to review a guest's need for continued membership in a group.
 
 1. To create an access review for the group, select the review to include guest user members only. Then specify one or more reviewers. For more information, see [Create an access review of groups or applications](create-access-review.md).
 
