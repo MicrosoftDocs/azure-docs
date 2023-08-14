@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/virtual-network-manager-connectivity/).
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/virtual-network-manager-connectivity/)
 
 :::code language="json" source="~/quickstart-templates/subscription-deployments/microsoft.network/virtual-network-manager-connectivity/azuredeploy.json":::
 
@@ -48,12 +48,10 @@ The template defines multiple Azure resources:
 * [**Microsoft.Network/networkManagers/networkGroups/staticMembers**](/azure/templates/microsoft.network/networkmanagers/networkgroups/staticmembers) - A static member is added to each network group.
 * [**Microsoft.Network/networkManagers/networkGroups**](/azure/templates/microsoft.network/networkmanagers/networkgroups) - A network group is created for each virtual network.
 * [**Microsoft.Network/networkManagers**](/azure/templates/microsoft.network/networkmanagers) - This is the Azure Virtual Network Manager which will be used to implement the connected group for spoke-to-spoke connectivity.
-* [**Microsoft.Network/networkManagers/connectivityConfigurations**](Microsoft.Network/networkManagers/connectivityConfigurations) - A connectivity configuration is created for topologies.
+* [**Microsoft.Network/networkManagers/connectivityConfigurations**](/azure/templates/Microsoft.Network/networkManagers/connectivityconfigurations) - A connectivity configuration is created for topologies.
 * [**Microsoft.ManagedIdentity/userAssignedIdentities**](/azure/templates/microsoft.managedidentity/userassignedidentities) - A user-assigned identity is used by the Deployment Script resource to interact with Azure resources.
 * [**Microsoft.Authorization/roleAssignments**](/azure/templates/microsoft.authorization/roleassignments) - A role assignment is created for the user-assigned identity.
 * [**Microsoft.Resources/deploymentScripts**](/azure/templates/microsoft.resources/deploymentscripts) - A deployment script is used to apply the connectivity configuration to the Azure Virtual Network Manager.
-
-To find more templates that are related to Azure Traffic Manager, see [Azure Quickstart Templates](https://learn.microsoft.com/samples/browse/?terms=%22virtual%20network%20manager%22&products=azure&languages=bicep%2Cjson).
 
 ## Solution deployment parameters
 
