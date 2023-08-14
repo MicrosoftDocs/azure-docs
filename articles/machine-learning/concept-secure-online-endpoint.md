@@ -28,6 +28,24 @@ The following architecture diagram shows how communications flow through private
 
 :::image type="content" source="media/concept-secure-online-endpoint/endpoint-network-isolation-with-workspace-managed-vnet.png" alt-text="Diagram showing inbound communication via a workspace private endpoint and outbound communication via private endpoints of a workspace managed VNet." lightbox="media/concept-secure-online-endpoint/endpoint-network-isolation-with-workspace-managed-vnet.png":::
 
+## Limitations
+
+- The `v1_legacy_mode` flag must be disabled (false) on your Azure Machine Learning workspace. If this flag is enabled, you won't be able to create a managed online endpoint. For more information, see [Network isolation with v2 API](how-to-configure-network-isolation-with-v2.md).
+
+- If your Azure Machine Learning workspace has a private endpoint that was created before May 24, 2022, you must recreate the workspace's private endpoint before configuring your online endpoints to use a private endpoint. For more information on creating a private endpoint for your workspace, see [How to configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
+
+    > [!TIP]
+    > To confirm when a workspace is created, you can check the workspace properties. In Studio, click `View all properties in Azure Portal` from `Directory + Subscription + Workspace` section (top right of the Studio), Click JSON View from top right of the Overview page, and choose the latest API Version. You can check the value of `properties.creationTime`. You can do the same by using `az ml workspace show` with [CLI](how-to-manage-workspace-cli.md#get-workspace-information), or `my_ml_client.workspace.get("my-workspace-name")` with [SDK](how-to-manage-workspace.md?tabs=python#find-a-workspace), or `curl` on workspace with [REST API](how-to-manage-rest.md#drill-down-into-workspaces-and-their-resources).
+
+<!-- - When you use network isolation with a deployment, Azure Log Analytics is partially supported. All metrics and the `AMLOnlineEndpointTrafficLog` table are supported via Azure Log Analytics. `AMLOnlineEndpointConsoleLog` and `AMLOnlineEndpointEventLog` tables are currently not supported. As a workaround, you can use the [az ml online-deployment get_logs](/cli/azure/ml/online-deployment#az-ml-online-deployment-get-logs) CLI command, the [OnlineDeploymentOperations.get_logs()](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations#azure-ai-ml-operations-onlinedeploymentoperations-get-logs) Python SDK, or the Deployment log tab in the Azure Machine Learning studio instead. For more information, see [Monitoring online endpoints](how-to-monitor-online-endpoints.md). -->
+
+- When you use network isolation with a deployment, you can use resources (Azure Container Registry (ACR), Storage account, Key Vault, and Application Insights) from a different resource group or subscription than that of your workspace. However, these resources must belong to the same tenant as your workspace.
+
+- Access from online deployments to Microsoft Container Registry (MCR) is allowed. However, because the _*.data.mcr.microsoft.com_ domain name is not included in the MCR service tag, you may have to add an FQDN outbound rule to _*.data.mcr.microsoft.com_ for certain Docker images. For more information on how to enable access to servers and services on the internet, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
+
+> [!NOTE]
+> Requests to create, update, or retrieve the authentication keys are sent to the Azure Resource Manager over the public network.
+
 ## Secure inbound scoring requests
 
 Secure inbound communication from a client to a managed online endpoint is possible by using a [private endpoint for the Azure Machine Learning workspace](./how-to-configure-private-link.md). This private endpoint on the client's VNet communicates with the workspace of the managed online endpoint and is the means by which the managed online endpoint can receive incoming scoring requests from the client.
@@ -195,5 +213,5 @@ The following table lists the supported configurations when configuring inbound 
 
 ## Next steps
 
-- [Workspace managed network isolation (preview)](how-to-managed-network.md)
+- [Workspace managed network isolation](how-to-managed-network.md)
 - [How to secure managed online endpoints with network isolation](how-to-secure-online-endpoint.md)

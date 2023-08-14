@@ -89,20 +89,18 @@ Public access is disabled for all the services. While the Azure Machine Learning
 * Azure Front Door
 * Microsoft Container Registries
 
-The following diagram shows the different components created in this architecture:
-
 The following diagram shows the overall architecture of this example:
 
 :::image type="content" source="./media/how-to-secure-online-endpoint/endpoint-network-isolation-diagram.png" alt-text="Diagram of the services created.":::
 
-To create the resources, use the following Azure CLI commands. To create a resource group. Replace `<my-resource-group>` and `<my-location>` with the desired values.  
+To create the resources, use the following Azure CLI commands. To create a resource group, replace `<my-resource-group>` and `<my-location>` with the desired values.  
 
 ```azurecli
 # create resource group
 az group create --name <my-resource-group> --location <my-location>
 ```
 
-Clone the example files for the deployment, use the following command:
+Clone the example files for the deployment, using the following command:
 
 ```azurecli
 #Clone the example files
