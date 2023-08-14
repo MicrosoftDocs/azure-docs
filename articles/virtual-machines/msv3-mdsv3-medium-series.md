@@ -4,7 +4,7 @@
 # For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
 
 title:       Overview of Msv3 and Mdsv3 Medium Memory Series
-description: Overview of Msv3 and Mdsv3 Medium Memory virtual machines
+description: Overview of Msv3 and Mdsv3 Medium Memory virtual machines. These are the next generation of M-series medium memory (MM) virtual machine sizes with faster performance and lower TCO.
 author:      ayshakeen # GitHub alias
 ms.author:   ayshak # Microsoft alias
 ms.service:  virtual-machines
@@ -22,7 +22,7 @@ ms.date:     08/10/2023
 
 The Msv3 and Mdsv3 Medium Memory(MM) series, powered by 4<sup>th</sup> generation Intel® Xeon® Scalable processors, are the next generation of memory-optimized VM sizes delivering faster performance, lower total cost of ownership and improved resilience to failures compared to previous generation Mv2 VMs. The Mv3 MM offers VM sizes of up to 3TB of memory and 4,000 MBps throughout to remote storage and provides up to 25% networking performance improvements over previous generations.
 
-## Msv3 Medium Memory-series
+## Msv3 Medium Memory series
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
@@ -42,7 +42,7 @@ The Msv3 and Mdsv3 Medium Memory(MM) series, powered by 4<sup>th</sup> generatio
 |Standard_M96s_2_v3|96|1,946|64|130,000/ 3,120|130,000/ 3,120|8|30,000|
 |Standard_M176s_3_v3|176|2794|64|130,000/ 4,000|130,000/ 4,000|8|40,000|
 
-## Mdsv3 Medium Memory-series
+## Mdsv3 Medium Memory series
 
 These virtual machines feature local SSD storage (up to 400 GiB).
 
