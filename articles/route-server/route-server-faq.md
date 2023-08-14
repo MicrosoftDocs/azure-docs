@@ -100,11 +100,11 @@ Azure VPN gateway must be configured in active-active mode and have the ASN set 
 
 No. It's not a requirement to have BGP enabled on the VPN gateway. 
 
-### Can I peer two route servers in two peered virtual networks and enable the NVAs connected to the route servers to talk to each other? 
+### Can I peer two Azure Route Servers in two peered virtual networks and enable the NVAs connected to the Route Servers to talk to each other? 
 
 ***Topology: NVA1 -> RouteServer1 -> (via VNet Peering) -> RouteServer2 -> NVA2***
 
-No, Azure Route Server doesn't forward data traffic. To enable transit connectivity through the NVA, set up a direct connection (for example, an IPsec tunnel) between the NVAs and use the route servers for dynamic route propagation. 
+No, Azure Route Server doesn't forward data traffic. To enable transit connectivity through the NVA, set up a direct connection (for example, an IPsec tunnel) between the NVAs and use the Route Servers for dynamic route propagation. 
 
 ### Can I use Azure Route Server to direct traffic between subnets in the same virtual network to flow inter-subnet traffic through the NVA?
 
@@ -118,9 +118,9 @@ No, Azure Route Server provides transit only between ExpressRoute and Site-to-Si
 
 ## Limitations
 
-### How many route servers can I create in a virtual network?
+### How many Azure Route Servers can I create in a virtual network?
 
-You can create only one route server in a virtual network. You must deploy the route server in a dedicated subnet called *RouteServerSubnet*.
+You can create only one Route Server in a virtual network. You must deploy the route server in a dedicated subnet called *RouteServerSubnet*.
 
 ### Can I associate a UDR to the *RouteServerSubnet*?
 
