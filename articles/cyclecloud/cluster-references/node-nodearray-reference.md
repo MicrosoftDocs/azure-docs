@@ -157,12 +157,16 @@ Marketplace image and images defined by ImageIds need a few additional settings 
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-InstallJetpack | Boolean | CycleCloud will install Jetpack with OS extension.
-AwaitInstallation | Boolean | Once a VM is started, wait for Jetpack to report installation details.
+DownloadJetpack | Boolean | If false, CycleCloud will not download Jetpack from the storage account. Jetpack must already be installed. Note: only Linux nodes are supported. Defaults to true. Added in 8.4.1. 
+InstallJetpack | Boolean | If false, CycleCloud will not install Jetpack on new VMs. Defaults to true.
+AwaitInstallation | Boolean | If false, CycleCloud will not wait for Jetpack to report installation details when the VM is created. Defaults to true.
 JetpackPlatform | String | Jetpack installer platform to use: `centos-7`, `centos-6`, `ubuntu-14.04`, `ubuntu-16.04`, `windows`. Deprecated in 7.7.0.
 
+> [!WARNING]
+> Setting `InstallJetpack` or `AwaitInstallation` is not recommended. In addition, setting `DownloadJetpack` requires a custom image with correct version of Jetpack install and is only recommended for environments that are experiencing issues downloading from storage accounts. 
+
 > [!NOTE]
-> ImageId is used by default if multiple image definitions are included in a single node definition.
+> `ImageId` is used by default if multiple image definitions are included in a single node definition.
 
 ### Alternative Image Sample
 
@@ -182,8 +186,7 @@ Here is a sample template using the three alternate image constructs for the nod
     ImageId = /subscriptions/9B16BFF1-879F-4DB3-A55E-8F8AC1E6D461/resourceGroups/my-rg/providers/Microsoft.Compute/images/jetpack-rhel7-1b1e3e93
 
     # Jetpack already installed on image
-    InstallJetpack = false
-    AwaitInstallation = true
+    DownloadJetpack = false
 
   [[node marketplace-vm-image]]
     Azure.Publisher = Canonical
@@ -196,10 +199,6 @@ Here is a sample template using the three alternate image constructs for the nod
     ImagePlan.Name = rhel-lvm8
     ImagePlan.Publisher = redhat
     ImagePlan.Product = rhel-byos
-
-    # Install jetpack at launch time
-    InstallJetpack = true
-    AwaitInstallation = true
 ```
 
 ## Advanced Networking Attributes
