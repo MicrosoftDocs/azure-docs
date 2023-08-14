@@ -157,7 +157,6 @@ For more information on core Kubernetes and AKS concepts, see:
 
 <!-- LINKS - Internal -->
 [microsoft-defender-for-containers]: ../defender-for-cloud/defender-for-containers-introduction.md
-[aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-azure-ad.md
 [aks-add-np-containerd]: /create-node-pools.md#add-a-windows-server-node-pool-with-containerd
@@ -166,7 +165,6 @@ For more information on core Kubernetes and AKS concepts, see:
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
-[aks-kured]: node-updates-kured.md
 [aks-limit-egress-traffic]: limit-egress-traffic.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
@@ -175,7 +173,7 @@ For more information on core Kubernetes and AKS concepts, see:
 [authorized-ip-ranges]: api-server-authorized-ip-ranges.md
 [private-clusters]: private-clusters.md
 [network-policy]: use-network-policies.md
-[node-image-upgrade]: node-image-upgrade.md
 [microsoft-vulnerability-management-aks]: concepts-vulnerability-management.md
 [aks-vulnerability-management-nodes]: concepts-vulnerability-management.md#worker-nodes
 [manage-ssh-access]: manage-ssh-node-access.md
+[aks-add-np-containerd]: create-node-pools.md#add-a-windows-server-node-pool-with-containerd
