@@ -290,7 +290,7 @@ For more information, see the [Promitor documentation](https://promitor.io/).
 
 ![QRadar logo.](./media/partners/qradar.png)
 
-The IBM QRadar Device Support Module (DSM) for the Microsoft Azure platform and the Microsoft Azure Event Hubs protocol are available for download from [the IBM support website](https://www.ibm.com/support). You can learn more about the integration with Azure in the [QRadar documentation](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+The IBM QRadar Device Support Module (DSM) for the Microsoft Azure platform and the Microsoft Azure Event Hubs protocol are available for download from [the IBM support website](https://www.ibm.com/support). You can learn more about the integration with Azure in the [QRadar documentation](https://www.ibm.com/docs/en/qsip/7.5).
 
 
 ## RSA
