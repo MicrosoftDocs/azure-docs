@@ -16,7 +16,7 @@ This tutorial shows how to connect to OneLake with a Jupyter notebook from an Az
 
     :::image type="content" source="./media/connect-to-one-lake-storage/basic-tab.png" alt-text="Screenshot showing cluster basic tab.":::
 
-1. Give this UAMI access to the Fabric workspace that contains your items. Learn more about Fabric role-based access control (RBAC): [Workspace roles](../fabric/get-started/roles-workspaces.md) to decide what role is suitable.
+1. Give this UAMI access to the Fabric workspace that contains your items. Learn more about Fabric role-based access control (RBAC): [Workspace roles](/fabric/get-started/roles-workspaces) to decide what role is suitable.
    
     :::image type="content" source="./media/connect-to-one-lake-storage/manage-access.png" alt-text="Screenshot showing manage access box.":::
    
