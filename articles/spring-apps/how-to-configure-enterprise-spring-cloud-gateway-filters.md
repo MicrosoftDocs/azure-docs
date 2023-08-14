@@ -40,7 +40,7 @@ To integrate with API Portal for VMware Tanzu, VMware Spring Cloud Gateway autom
 
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.0.67 or later.
 
-## Filters
+## Use filters
 
 You use filters in your Spring Cloud Gateway configuration to act on the incoming request or outgoing response to a route configuration.
 
@@ -48,7 +48,7 @@ For example, you can use a filter to add an HTTP header or to deny access based 
 
 ## Use open source filters
 
-Spring Cloud Gateway OSS includes several `GatewayFilter` factories used to create filters for routes.
+Spring Cloud Gateway OSS includes several `GatewayFilter` factories used to create filters for routes. The following sections describe these factories.
 
 ### AddRequestHeader
 
@@ -59,7 +59,7 @@ This factory accepts the following configuration parameters:
 - `name`
 - `value`
 
-The following example configures an `AddRequestHeader` factory that adds the header `X-Request-red:blue` to the downstream request’s headers for all matching requests:
+The following example configures an `AddRequestHeader` factory that adds the header `X-Request-red:blue` to the downstream request's headers for all matching requests:
 
 ```json
 [
@@ -116,14 +116,14 @@ The following example configures an `AddRequestHeadersIfNotPresent` factory:
 
 ### AddRequestParameter
 
-The `AddRequestParameter` factory adds a parameter to the downstream request’s query string for all matching requests.
+The `AddRequestParameter` factory adds a parameter to the downstream request's query string for all matching requests.
 
 This factory accepts the following configuration parameters:
 
 - `name`
 - `value`
 
-The following example configures an `AddRequestParameter` factory that adds a `red=blue` parameter to the downstream request’s query string for all matching requests:
+The following example configures an `AddRequestParameter` factory that adds a `red=blue` parameter to the downstream request's query string for all matching requests:
 
 ```json
 [
@@ -157,14 +157,14 @@ The following example configures an `AddRequestParameter` factory that uses a va
 
 ### AddResponseHeader
 
-The `AddResponseHeader` factory adds a header to the downstream response’s headers for all matching requests.
+The `AddResponseHeader` factory adds a header to the downstream response's headers for all matching requests.
 
 This factory accepts the following configuration parameters:
 
 - `name`
 - `value`
 
-The following example configures an `AddResponseHeader` factory that adds a `X-Response-Red:Blue` header to the downstream response’s headers for all matching requests:
+The following example configures an `AddResponseHeader` factory that adds a `X-Response-Red:Blue` header to the downstream response's headers for all matching requests:
 
 ```json
 [
@@ -204,7 +204,7 @@ This factory accepts the following configuration parameters:
 
 - `name`: The circuit breaker name.
 - `fallbackUri`: The reroute URI, which can be a local route or external handler.
-- `status codes` (optional): The colon-separated list of status codes to match, in number or in text format.
+- `status codes` (optional): The colon-separated list of status codes to match, in number or text format.
 - `failure rate` (optional): The threshold above which the circuit breaker opens. The default value is 50%.
 - `duration` (optional): The time to wait before closing again. The default value is 60 seconds.
 
@@ -253,7 +253,7 @@ The `FallbackHeaders` factory adds any circuit breaker exception to a header. Th
 
 There are no parameters for this factory.
 
-The following example configures a `FallbackHeaders` factory with the exception type, message, and (if available) root cause exception type and message that are added to the request by the `FallbackHeaders` filter:
+The following example configures a `FallbackHeaders` factory with the exception type, message, and (if available) root cause exception type and message that the `FallbackHeaders` filter adds to the request:
 
 ```json
 [
@@ -291,16 +291,16 @@ This factory accepts the following configuration parameter:
 
 - `protoDescriptor`: A proto descriptor file.
 
-This file can be generated using `protoc` and specifying the `--descriptor_set_out` flag:
+You can generate this file by using `protoc` and specifying the `--descriptor_set_out` flag, as shown in the following example:
 
 ```bash
 protoc --proto_path=src/main/resources/proto/ \
-    --descriptor_set_out=src/main/resources/proto/hello.pb  \
+    --descriptor_set_out=src/main/resources/proto/hello.pb \
     src/main/resources/proto/hello.proto
 ```
 
 > [!NOTE]
-> `streaming` isn't supported.
+> The `streaming` parameter isn't supported.
 
 The following example configures a `JSONToGRPCFilter` factory using the output from `protoc`:
 
@@ -319,12 +319,12 @@ The following example configures a `JSONToGRPCFilter` factory using the output f
 
 ### LocalResponseCache
 
-The `LocalResponseCache` factory overrides the local response cache configuration for specific routes when global cache is activated.
+The `LocalResponseCache` factory overrides the local response cache configuration for specific routes when the global cache is activated.
 
 This factory accepts the following configuration parameters:
 
-- `size`: The maximum allowed size of the cache entries for this route before cache eviction begins (in KB, MB and GB).
-- `timeToLive`: The allowed lifespan of a cache entry before expiration (use the duration suffix `s` for seconds, `m` for minutes, or `h` for hours).
+- `size`: The maximum allowed size of the cache entries for this route before cache eviction begins (in KB, MB, and GB).
+- `timeToLive`: The allowed lifespan of a cache entry before expiration. Use the duration suffix `s` for seconds, `m` for minutes, or `h` for hours.
 
 The following example configures a `LocalResponseCache` factory:
 
@@ -343,16 +343,16 @@ The following example configures a `LocalResponseCache` factory:
 
 ### MapRequestHeader
 
-The `MapRequestHeader` factory adds a header to the downstream request with updated values from the incoming HTTP request’s header.
+The `MapRequestHeader` factory adds a header to the downstream request with updated values from the incoming HTTP request's header.
 
 This factory accepts the following configuration parameters:
 
 - `fromHeader`
 - `toHeader`
 
-This factory creates a new named header (`toHeader`), and the value is extracted out of an existing named header (`fromHeader`) from the incoming HTTP request. If the input header doesn't exist, the filter has no impact. If the new named header already exists, its values are augmented with the new values.
+This factory creates a new named header (`toHeader`), and the value is extracted out of an existing named header (`fromHeader`) from the incoming HTTP request. If the input header doesn't exist, the filter has no effect. If the new named header already exists, its values are augmented with the new values.
 
-The following example configures a `MapRequestHeader` factory that adds the `X-Request-Red:<values>` header to the downstream request with updated values from the incoming HTTP request’s `Blue` header:
+The following example configures a `MapRequestHeader` factory that adds the `X-Request-Red:<values>` header to the downstream request with updated values from the incoming HTTP request's `Blue` header:
 
 ```json
 [
@@ -418,7 +418,7 @@ The `RedirectTo` factory adds a redirect to the original URL.
 This factory accepts the following configuration parameters:
 
 - `status`: A 300 series redirect HTTP code, such as `301`.
-- `url`: A valid URL and is also the value of the `Location` header. For relative redirects, you should use `uri: no://op` as the URI of your route definition.
+- `url`: The value of the `Location` header. Must be a valid URI. For relative redirects, you should use `uri: no://op` as the URI of your route definition.
 
 The following example configures a `RedirectTo` factory that sends a status `302` with a `Location:https://acme.org` header to perform a redirect:
 
@@ -532,10 +532,10 @@ The `RequestHeaderSize` factory determines the size of the request header.
 
 This factory accepts the following configuration parameters:
 
-- `maxSize`: The maximum data size allowed by the request header (including key and value).
+- `maxSize`: The maximum data size allowed by the request header, including key and value.
 - `errorHeaderName`: The name of the response header containing an error message. By default, the name of the response header is `errorMessage`.
 
-The following listing configures a `RequestHeaderSize` factory that sends a status `431` if size of any request header is greater than 1000 Bytes:
+The following listing configures a `RequestHeaderSize` factory that sends a status `431` if the size of any request header is greater than 1000 bytes:
 
 ```json
 [
@@ -753,7 +753,7 @@ The `SetStatus` factory configures the response status of the server request.
 
 This factory accepts the following configuration parameter:
 
-- `status`: A valid Spring `HttpStatus`. It could be the integer value `404`, or the string representation of the enumeration: `NOT_FOUND`.
+- `status`: A valid Spring `HttpStatus` value, which can an integer value such as `404`, or the string representation of the enumeration, such as `NOT_FOUND`.
 
 The following listing configures a `SetStatus` factory:
 
@@ -845,7 +845,7 @@ The `RequestSize` factory can restrict a request from reaching the downstream se
 
 This factory accepts the following configuration parameter:
 
-- `maxSize`: A `DataSize` type where values are defined as a number followed by an optional `DataUnit` suffix such as 'KB' or 'MB'. The default suffix value is 'B' for bytes. It's the permissible size limit of the request defined in bytes.
+- `maxSize`: A `DataSize` type where values are defined as a number followed by an optional `DataUnit` suffix such as `KB` or `MB`. The default suffix value is `B` for bytes. It's the permissible size limit of the request defined in bytes.
 
 The following example configures a `RequestSize` factory:
 
@@ -862,17 +862,17 @@ The following example configures a `RequestSize` factory:
 ]
 ```
 
-In this example, when the request is rejected due to size, the `RequestSize` factory sets the response status as `413 Payload Too Large` with an additional header `errorMessage`.
+In this example, when the request is rejected due to size, the `RequestSize` factory sets the response status to `413 Payload Too Large` with another header `errorMessage`.
 
 The following example shows an `errorMessage`:
 
-```bash
+```output
 errorMessage : Request size is larger than permissible limit. Request size is 6.0 MB where permissible limit is 5.0 MB
 ```
 
 ### TokenRelay
 
-The `TokenRelay` factory forwards `OAuth2` access token to downstream resources. This filter is configured as a `boolean` value in the route definition rather than an explicit filter.
+The `TokenRelay` factory forwards an `OAuth2` access token to downstream resources. This filter is configured as a `boolean` value in the route definition rather than an explicit filter.
 
 The following example configures a `TokenRelay` factory:
 
@@ -889,11 +889,11 @@ The following example configures a `TokenRelay` factory:
 
 ## Use commercial filters
 
-Spring Cloud Gateway for Kubernetes also provides many custom filters in addition to the ones included in the OSS project.
+Spring Cloud Gateway for Kubernetes also provides many custom `GatewayFilter` factories. The following sections describe these factories.
 
 ### AllowedRequestCookieCount
 
-The `AllowedRequestCookieCount` factory determines if a matching request is allowed to proceed based on the number of cookies.
+The `AllowedRequestCookieCount` factory determines whether a matching request is allowed to proceed based on the number of cookies.
 
 This factory accepts the following configuration parameter:
 
@@ -916,7 +916,7 @@ The following example configures a `AllowedRequestCookieCount` factory:
 
 ### AllowedRequestHeadersCount
 
- The `AllowedRequestHeadersCount` factory determines if a matching request is allowed to proceed based on the number of headers.
+The `AllowedRequestHeadersCount` factory determines whether a matching request is allowed to proceed based on the number of headers.
 
 This factory accepts the following configuration parameter:
 
@@ -939,7 +939,7 @@ The following example configures a `AllowedRequestHeadersCount` factory:
 
 ### AllowedRequestQueryParamsCount
 
-The `AllowedRequestQueryParamsCount` factory determines if a matching request is allowed to proceed based on the number query params.
+The `AllowedRequestQueryParamsCount` factory determines whether a matching request is allowed to proceed based on the number query parameters.
 
 This factory accepts the following configuration parameter:
 
@@ -1011,8 +1011,8 @@ The `ClientCertificateHeader` factory validates the `X-Forwarded-Client-Cert` he
 
 This factory accepts the following configuration parameters:
 
-- `domain pattern`: The `X-Forwarded-Client-Cert` value according to Kubernetes's ability to recognize client certificate's CA.
-- `certificate fingerprint`(optional): The SSL certificate fingerprint.
+- `domain pattern`: The `X-Forwarded-Client-Cert` value according to Kubernetes's ability to recognize the client certificate's CA.
+- `certificate fingerprint`(optional): The TLS/SSL certificate fingerprint.
 
 The following example configures a `ClientCertificateHeader` factory:
 
@@ -1063,7 +1063,7 @@ The `JsonToXml` factory transforms JSON response body into XML response body.
 
 This factory accepts the following configuration parameter:
 
-- `wrapper`: The root tag name for the XML response if an additional root tag is required to generate valid XML. The default value is `response`.
+- `wrapper`: The root tag name for the XML response if another root tag is required to generate valid XML. The default value is `response`.
 
 The following example configures a `JsonToXml` factory:
 
@@ -1082,13 +1082,13 @@ The following example configures a `JsonToXml` factory:
 
 ### RateLimit
 
-The `RateLimit` factory determines if a matching request is allowed to proceed based on request volume.
+The `RateLimit` factory determines whether a matching request is allowed to proceed based on request volume.
 
 This factory accepts the following configuration parameters:
 
 - `request limit`: The maximum number of requests accepted during the window.
-- `window duration`: The window duration in milliseconds. Alternatively the `s`, `m` or `h` suffixes can be used to specify the duration in seconds, minutes, or hours.
-- `partition source` (optional): The location of the partition key ('claim', 'header', or 'IPs').
+- `window duration`: The window duration in milliseconds. Alternatively, you can use the `s`, `m` or `h` suffixes to specify the duration in seconds, minutes, or hours.
+- `partition source` (optional): The location of the partition key (`claim`, `header`, or `IPs`).
 - `partition key` (optional): The value used to partition request counters.
 
 The following example configures a `RateLimit` factory:
@@ -1106,24 +1106,24 @@ The following example configures a `RateLimit` factory:
 ]
 ```
 
-Examples of other `RateLimit` configurations:
+The following examples show other `RateLimit` configurations:
 
 ```
-    RateLimit=1,10s
-    RateLimit=1,10s,{claim:client_id}
-    RateLimit=1,10s,{header:client_id}
-    RateLimit=2,10s,{IPs:2;127.0.0.1;192.168.0.1}
+RateLimit=1,10s
+RateLimit=1,10s,{claim:client_id}
+RateLimit=1,10s,{header:client_id}
+RateLimit=2,10s,{IPs:2;127.0.0.1;192.168.0.1}
 ```
 
 ### RestrictRequestHeaders
 
-The `RestrictRequestHeaders` factory determines if a matching request is allowed to proceed based on the headers.
+The `RestrictRequestHeaders` factory determines whether a matching request is allowed to proceed based on the headers.
 
-If there are any HTTP headers that aren't in the `headerList` configuration (case insensitive), then a response of `431 Forbidden error` is returned to the client.
+If there are any HTTP headers that aren't in the case-insensitive `headerList` configuration, then a response of `431 Forbidden error` is returned to the client.
 
 This factory accepts the following configuration parameter:
 
-- `headerList`: The list of names of allowed headers (case insensitive).
+- `headerList`: The case-insensitive list of names of allowed headers.
 
 The following example configures a `RestrictRequestHeaders` factory:
 
@@ -1260,7 +1260,7 @@ The following example configures a `Scopes` factory:
 
 ### StoreIpAddress
 
-The `StoreIPAddress` factory is used for extension development only and in context of the application.
+The `StoreIPAddress` factory is used for extension development only and in the context of the application.
 
 This factory accepts the following configuration parameter:
 
