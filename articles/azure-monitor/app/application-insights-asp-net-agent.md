@@ -114,7 +114,7 @@ We've also provided manual download instructions in case you don't have internet
 
 ### Get an instrumentation key
 
-To get started, you need an instrumentation key. For more information, see [Create an Application Insights resource](create-new-resource.md#copy-the-instrumentation-key).
+To get started, you need an instrumentation key. For more information, see [Create an Application Insights resource](create-workspace-resource.md#copy-the-instrumentation-key).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -333,7 +333,7 @@ This tab describes the following cmdlets, which are members of the [Az.Applicati
 - [Start-ApplicationInsightsMonitoringTrace](?tabs=api-reference#start-applicationinsightsmonitoringtrace)
 
 > [!NOTE]
-> - To get started, you need an instrumentation key. For more information, see [Create a resource](create-new-resource.md#copy-the-instrumentation-key).
+> - To get started, you need an instrumentation key. For more information, see [Create a resource](create-workspace-resource.md).
 > - This cmdlet requires that you review and accept our license and privacy statement.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
