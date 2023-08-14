@@ -44,7 +44,7 @@ You can manage the lifecycle of a Network Fabric via Azure using any of the supp
 
 ### Network racks
 
-Network Rack resource is a representation of your on-premises Racks from the networking perspective. The number of network racks in an Operator Nexus instance depends on the Network Fabric SKU which was chosen while creation. In a multi-rack setup, you can create up to either 4 compute racks + 1 aggregate rack or 8 compute racks + 1 aggregate rack.
+Network Rack resource is a representation of your on-premises Racks from the networking perspective. The number of network racks in an Operator Nexus instance depends on the Network Fabric SKU which was chosen while creation. 
 
 Each network rack consists of Network Devices which are part of that rack. For example - Customer Edge (CE) routers, Top of Rack (ToR) Switches, Management Switches, Network Packet Brokers (NPB).
 

@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 09/28/2022
+ms.date: 08/11/2023
 ---
 
 # Branching and chaining activities in a Data Factory pipeline

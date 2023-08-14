@@ -328,8 +328,6 @@
       href: logic-apps-enterprise-integration-flatfile.md
     - name: FTP
       href: ../connectors/connectors-create-api-ftp.md
-    - name: GitHub
-      href: ../connectors/connectors-create-api-github.md
     - name: Gmail - Google data security & privacy policies
       href: ../connectors/connectors-google-data-security-privacy-policy.md
     - name: HTTP
@@ -438,6 +436,8 @@
         href: monitor-b2b-messages-log-analytics.md
       - name: Create monitoring and tracking queries
         href: create-monitoring-tracking-queries.md
+      - name: Tracking schemas for monitoring messages
+        href: tracking-schemas-as2-x12-custom.md
   - name: Business continuity and disaster recovery
     items:
     - name: Set up zone redundant logic apps
@@ -492,14 +492,6 @@
         href: workflow-definition-language-functions-reference.md
       - name: GA - Schema history
         href: logic-apps-schema-2016-04-01.md
-  - name: Tracking schemas
-    items:
-      - name: AS2 tracking schema
-        href: logic-apps-track-integration-account-as2-tracking-schemas.md
-      - name: X12 tracking schema
-        href: logic-apps-track-integration-account-x12-tracking-schema.md
-      - name: Custom tracking schema
-        href: logic-apps-track-integration-account-custom-tracking-schema.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

@@ -1,5 +1,5 @@
 ---
-title: "Document Intelligence Studio"
+title: "Document Intelligence (formerly Form Recognizer) Studio"
 titleSuffix: Azure AI services
 description: "Concept: Form and document processing, data extraction, and analysis using Document Intelligence Studio "
 author: laujan
@@ -70,10 +70,6 @@ The following image shows the landing page for Document Intelligence Studio.
 ✔️ **Project sharing**
 
 * Share custom extraction projects with ease. For more information, see [Project sharing with custom models](how-to-guides/project-share-custom-models.md).
-
-✔️ **Query fields**
-
-* With Document Intelligence [General documents](concept-general-document.md) model, utilize the query fields feature to add fields to the extraction process without the need for added training. For more information, see [Document Intelligence query field extraction](concept-query-fields.md).
 
 ## Document Intelligence model support
 

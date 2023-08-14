@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Document Intelligence JavaScript SDK v2.1"
+title: "Quickstart: Document Intelligence (formerly Form Recognizer) JavaScript SDK v2.1"
 titleSuffix: Azure AI services
 description: Form and document processing, data extraction, and analysis using Document Intelligence JavaScript client library v2.1
 author: laujan
@@ -25,7 +25,7 @@ In this quickstart, you use the following APIs to extract structured data from f
 
 * The latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE.
 
-* The latest LTS version of [Node.js](https://nodejs.org/about/releases/)
+* The latest LTS version of [Node.js](https://nodejs.org/)
 
 * An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Document Intelligence resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -34,7 +34,7 @@ In this quickstart, you use the following APIs to extract structured data from f
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. You paste your key and endpoint into the code later in the quickstart:
 
-  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 ## Set up
 
@@ -134,7 +134,7 @@ recognizeContent().catch((err) => {
 
 ## **Try it**: Prebuilt model
 
-This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example. *See* our prebuilt concept page for a complete list of [**invoice fields**](../../../concept-invoice.md#field-extraction)
+This sample demonstrates how to analyze data from certain types of common documents with pretrained models, using an invoice as an example. *See* our prebuilt concept page for a complete list of [**invoice fields**](../../../concept-invoice.md#field-extraction)
 
 > [!div class="checklist"]
 >

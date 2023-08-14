@@ -1,5 +1,5 @@
 ---
-title: "Use Azure AI Document Intelligence REST API v3.0"
+title: "Use Azure AI Document Intelligence (formerly Form Recognizer) REST API v3.0"
 description: Use the Document Intelligence REST API v3.0 to create a forms processing app that extracts key data from documents.
 author: laujan
 manager: nitinme
@@ -41,7 +41,7 @@ ms.author: lajanuar
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. You paste your key and endpoint into the code later in the quickstart:
 
-  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=how-to&Section=prerequisites) -->
@@ -106,7 +106,7 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 
 * Use the NodeJS **json tool** as a JSON formatter for curl.
 
-* If you don't have [Node.js](https://nodejs.org/about/releases/) installed, download and install the latest version.
+* If you don't have [Node.js](https://nodejs.org/) installed, download and install the latest version.
 
 * Open a new command prompt and install the **json tool** with the following command:
 

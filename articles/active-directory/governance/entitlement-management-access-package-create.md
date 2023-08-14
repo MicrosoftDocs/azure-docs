@@ -36,7 +36,7 @@ All access packages must have at least one policy for users to be assigned to th
 
 ![Diagram of an example marketing catalog, including its resources and its access package.](./media/entitlement-management-access-package-create/access-package-create.png)
 
-Here are the high-level steps to create an access package:
+Here are the high-level steps to create an access package with an initial policy:
 
 1. In Identity Governance, start the process to create an access package.
 
@@ -46,9 +46,9 @@ Here are the high-level steps to create an access package:
 
 1. Specify an initial policy for users who can request access.
 
-1. Specify approval settings.
+1. Specify approval settings and lifecycle settings in that policy.
 
-1. Specify lifecycle settings.
+Then once the access package is created, you can [change the hidden setting](entitlement-management-access-package-edit.md#change-the-hidden-setting), [add or remove resource roles](entitlement-management-access-package-resources.md), and [add additional policies](entitlement-management-access-package-request-policy.md).
 
 ## Start the creation process
 
@@ -135,6 +135,8 @@ On the **Review + create** tab, you can review your settings and check for any v
 
     The new access package appears in the list of access packages.
 
+1. If the access package is intended to be visible to everyone in scope of the policies, then leave the **Hidden** setting of the access package at **No**. Optionally, if you intend to only allow users with the direct link to request the access package, [edit the access package](entitlement-management-access-package-edit.md#change-the-hidden-setting) to change the **Hidden** setting to **Yes**.  Then [copy the link to request the access package](entitlement-management-access-package-settings.md#share-link-to-request-an-access-package) and share it with users who need access.
+
 ## Create an access package programmatically
 
 There are two ways to create an access package programmatically: through Microsoft Graph and through the PowerShell cmdlets for Microsoft Graph.
@@ -151,7 +153,7 @@ You can create an access package by using Microsoft Graph. A user in an appropri
 
 ### Create an access package by using Microsoft PowerShell
 
-You can also create an access package in PowerShell by using the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or later. This script illustrates using the Microsoft Graph `beta` profile.
+You can also create an access package in PowerShell by using the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 1.x.x.
 
 First, retrieve the ID of the catalog (and of the resources and their roles in that catalog) that you want to include in the access package. Use a script similar to the following example:
 

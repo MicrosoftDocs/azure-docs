@@ -4,7 +4,7 @@ description: An overview of Azure Container Storage Preview, a service built nat
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: overview
-ms.date: 07/25/2023
+ms.date: 08/02/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -43,12 +43,7 @@ Azure Container Storage offers persistent volume support with ReadWriteOnce acce
 
 ## Regional availability
 
-Azure Container Storage Preview is only available in the following Azure regions:
-
-- East US
-- West Europe
-- West US 2
-- West US 3
+Azure Container Storage Preview is only available in the following Azure regions: East US, East US 2, West US 2, West US 3, South Central US, Southeast Asia, Australia East, West Europe, North Europe, UK South, Sweden Central, and France Central.
 
 ## Why Azure Container Storage is useful
 Until now, providing cloud storage for containers required using individual container storage interface (CSI) drivers to use storage services intended for IaaS-centric workloads and make them work for containers. This creates operational overhead and increases the risk of issues with application availability, scalability, performance, usability, and cost.

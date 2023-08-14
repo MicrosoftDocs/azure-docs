@@ -14,7 +14,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/25/2023
+ms.date: 08/03/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -64,6 +64,8 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- August 03, 2023: Change of recommendation to use a /25 IP range for delegated subnet for ANF for SAP workload [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
+- August 03, 2023: Change in support of block storage and NFS on ANF storage for SAP HANA documented in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
 - July 25, 2023: Adding reference to SAP Note #3074643 to [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md)
 - July 13, 2023: Clarifying dfifferences in zonal replication between NFS on AFS and ANF in table in [Azure Storage types for SAP workload](./planning-guide-storage.md)
 - July 13, 2023: Statement that 512byte and 4096 sector size for Premium SSD v2 do not show any performance difference in [SAP HANA Azure virtual machine Ultra Disk storage configurations](./hana-vm-ultra-disk.md)

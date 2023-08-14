@@ -1,7 +1,7 @@
 ---
-title: Document Intelligence insurance card prebuilt model
+title: Health insurance card processing - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
-description: Data extraction and analysis extraction using the insurance card model
+description: Data extraction and analysis extraction using the health insurance card model
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -54,7 +54,7 @@ See how data is extracted from health insurance cards using the Document Intelli
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/insurance-card-analyze.png" alt-text="Screenshot: analyze health insurance card window in the Document Intelligence Studio.":::
+    :::image type="content" source="media/studio/insurance-card-analyze.png" alt-text="Screenshot of analyze health insurance card window in the Document Intelligence Studio.":::
 
     > [!div class="nextstepaction"]
     > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)

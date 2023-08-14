@@ -11,6 +11,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/governance/tutorial-prepare-azure-ad-user-accounts.md",
+      "redirect_url": "/azure/active-directory/governance/tutorial-prepare-user-accounts",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-schema-extensions.md",
       "redirect_url": "/azure/active-directory/develop/schema-extensions",
       "redirect_document_id": false
