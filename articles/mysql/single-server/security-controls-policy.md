@@ -4,8 +4,8 @@ description: Lists Azure Policy Regulatory Compliance controls available for Azu
 ms.topic: sample
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.custom: subject-policy-compliancecontrols
 ms.date: 08/03/2023
 ---
