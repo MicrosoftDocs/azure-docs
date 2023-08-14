@@ -1,7 +1,9 @@
 items:
 - name: FHIR service documentation
   href: index.yml
-- name: FHIR service overview
+- name: Overview
+  expanded: true
+- name: What is the FHIR service?
   href: overview.md
 - name: FHIR service autoscale
   href: fhir-service-autoscale.md

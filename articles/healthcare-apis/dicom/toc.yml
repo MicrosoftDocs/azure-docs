@@ -1,7 +1,9 @@
 items:
 - name: DICOM service documentation
   href: index.yml
-- name: DICOM service overview
+- name: Overview
+  expanded: true
+- name: What is the DICOM service?
   href: dicom-services-overview.md
 - name: Extended query tags overview
   href: dicom-extended-query-tags-overview.md

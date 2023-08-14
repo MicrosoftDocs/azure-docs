@@ -5,11 +5,11 @@ services: healthcare-apis
 author: shellyhaverkamp
 ms.service: healthcare-apis
 ms.topic: overview
-ms.date: 06/03/2022
+ms.date: 09/01/2023
 ms.author: mikaelw
 ---
 
-# What is Azure Health Data Services?
+# Overview
 
 Azure Health Data Services is a cloud-based solution that helps you collect, store, and analyze health data from different sources and formats. It supports various healthcare standards, such as FHIR and DICOM, and converts data from legacy or proprietary device formats to FHIR. 
 

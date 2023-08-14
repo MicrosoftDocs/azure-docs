@@ -1,29 +1,32 @@
-items:
 - name: MedTech service documentation
   href: index.yml
+- name: Overview
+  expanded: true
   items:
-  - name: MedTech service overview
-    href: overview.md
-  - name: Device data processing stages overview
-    href: overview-of-device-data-processing-stages.md
+    - name: What is the MedTech service?
+      href: overview.md
+    - name: Device data processing stages overview
+      href: overview-of-device-data-processing-stages.md
+    - name: Samples overview
+      href: overview-of-samples.md
 - name: Quickstarts
   expanded: false
   items:
-  - name: Get started with the MedTech service
-    href: get-started.md
-  - name: Deploy the MedTech service
-    expanded: false
-    items:
-    - name: Choose a deployment method
-      href: deploy-choose-method.md
-    - name: ARM template
-      href: deploy-arm-template.md
-    - name: Azure PowerShell or the Azure CLI
-      href: deploy-json-powershell-cli.md
-    - name: Bicep
-      href: deploy-bicep-powershell-cli.md
-    - name: Azure portal
-      href: deploy-manual-portal.md
+    - name: Get started with the MedTech service
+      href: get-started.md
+    - name: Deploy the MedTech service
+      expanded: false
+      items:
+        - name: Choose a deployment method
+          href: deploy-choose-method.md
+        - name: ARM template
+          href: deploy-arm-template.md
+        - name: Azure PowerShell or the Azure CLI
+          href: deploy-json-powershell-cli.md
+        - name: Bicep
+          href: deploy-bicep-powershell-cli.md
+        - name: Azure portal
+          href: deploy-manual-portal.md
 - name: Tutorials
   expanded: false
   items:
@@ -69,9 +72,6 @@ items:
       href: troubleshoot-errors-deployment.md
     - name: Service log errors
       href: troubleshoot-errors-logs.md
-- name: Samples
-  expanded: false
-  href: overview-of-samples.md     
 - name: Concepts
   expanded: false
   items:

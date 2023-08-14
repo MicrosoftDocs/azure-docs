@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure API for FHIR documentation
-summary: Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
+summary: Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables actionable analytics and machine learning solutions. 
 
 metadata:
   title: Azure API for FHIR Documentation - tutorials, how-to guides
@@ -11,9 +11,9 @@ metadata:
   ms.subservice: fhir
   ms.topic: landing-page 
   ms.collection: collection
-  author: shellyhaverkamp
+  author: expekesheth
   ms.author: kesheth
-  ms.date: 09/30/2022
+  ms.date: 09/01/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,12 +25,10 @@ landingContent:
         links:
           - text: What is Azure API for FHIR?
             url: overview.md
-      - linkListType: quickstart
+      - linkListType: how-to-guide
         links:
           - text: Get started with Azure API for FHIR
             url: get-started-with-azure-api-fhir.md
-      - linkListType: deploy
-        links:
           - text: Deploy Azure API for FHIR
             url: fhir-paas-portal-quickstart.md
 

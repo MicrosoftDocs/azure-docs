@@ -1,7 +1,10 @@
 items:
 - name: Events documentation
   href: index.yml
-- name: Events overview
+- name: Overview
+  expanded: true
+- name: What are events?
+  href: events-overview.md
 - name: Events message structures
   href: events-message-structure.md
 - name: Quickstarts
