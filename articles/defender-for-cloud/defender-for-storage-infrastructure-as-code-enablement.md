@@ -162,6 +162,8 @@ If you want to turn off the On-upload malware scanning or Sensitive data threat 
 
 To disable the entire Defender plan for the storage account, set the isEnabled property value to false and remove the malwareScanning and sensitiveDataDiscovery sections from the properties.
 
+---
+
 ## Next steps
 
 Learn more about the [Microsoft.Security/DefenderForStorageSettings](/rest/api/defenderforcloud/defender-for-storage/create) API documentation.
