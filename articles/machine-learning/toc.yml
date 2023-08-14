@@ -1102,7 +1102,7 @@
           href: how-to-custom-dns.md
         - name: Use Azure Virtual Network
           items:
-            - name: "Tutorial: Create a workspace secure workspace with a VNet"
+            - name: "Tutorial: Create a secure workspace with a VNet"
               displayName: azure virtual network
               href: tutorial-create-secure-workspace-vnet.md
             - name: Secure workspace resources
