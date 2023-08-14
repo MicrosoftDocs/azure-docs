@@ -98,7 +98,7 @@ Azure VPN gateway must be configured in active-active mode and have the ASN set 
 
 ### Do I need to enable BGP on the VPN gateway?
 
-No. It's not a requirement to have BGP enabled on the VPN gateway. 
+No. It's not a requirement to have BGP enabled on the VPN gateway to communicate with the Route Server.
 
 ### Can I peer two Azure Route Servers in two peered virtual networks and enable the NVAs connected to the Route Servers to talk to each other? 
 
