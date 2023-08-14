@@ -7,7 +7,7 @@
       href: overview.md
     - name: Compare container options in Azure
       href: compare-options.md
-    - name: Azure Container Apps basics
+    - name: Overview
       items:
         - name: Plans
           href: plans.md
@@ -35,7 +35,7 @@
       href: quickstart-portal.md
     - name: Command line
       href: get-started.md
-  - name: Deploy an app from code
+  - name: Deploy from code
     expanded: true
     items:
     - name: Command line
@@ -46,7 +46,7 @@
       href: deploy-visual-studio-code.md
   - name: Run a job
     href: jobs-get-started-cli.md
-- name: Development & deployment
+- name: Build and deploy
   items:
     - name: Deploy an app with containerapp up
       href: containerapp-up.md
@@ -149,28 +149,18 @@
       href: authentication.md
     - name: Enable authentication
       items:
-      - name: Azure Active Directory
-        href: authentication-azure-active-directory.md
-      - name: Facebook
-        href: authentication-facebook.md
-      - name: GitHub
-        href: authentication-github.md
-      - name: Google
-        href: authentication-google.md
-      - name: Twitter
-        href: authentication-twitter.md
-      - name: Custom OpenID Connect
-        href: authentication-openid.md
-    - name: Dapr
-      items:
-        - name: Connect to Azure services via Dapr components
-          href: dapr-component-connection.md
-        - name: Enable token authentication for Dapr requests 
-          href: dapr-authentication-token.md
-    - name: Use storage mounts
-      href: storage-mounts.md
-    - name: Reliability
-      href: disaster-recovery.md
+        - name: Azure Active Directory
+          href: authentication-azure-active-directory.md
+        - name: Facebook
+          href: authentication-facebook.md
+        - name: GitHub
+          href: authentication-github.md
+        - name: Google
+          href: authentication-google.md
+        - name: Twitter
+          href: authentication-twitter.md
+        - name: Custom OpenID Connect
+          href: authentication-openid.md
 - name: Security
   items:
     - name: Manage secrets
@@ -258,11 +248,6 @@
       href: network-proxy.md
     - name: Use a custom VNET
       href: vnet-custom.md
-- name: Disaster recovery
-  expanded: true
-  items:
-    - name: Plan for disaster recovery
-      href: disaster-recovery.md
 - name: Billing and quotas
   expanded: true
   items:
