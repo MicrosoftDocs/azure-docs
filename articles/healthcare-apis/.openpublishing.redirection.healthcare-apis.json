@@ -476,7 +476,7 @@
         "redirect_document_id": false
       },
       {
-        "source_path_from_root": "articles/healthcare-apis/dicom/dicom-cast-overview.md",
+        "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-cast-overview.md",
         "redirect_url": "/azure/healthcare-apis/dicom/dicom-services-overview",
         "redirect_document_id": false
       },
