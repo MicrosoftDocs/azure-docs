@@ -46,7 +46,7 @@ Additionally, Bayer has built the below Solutions in partnership with Microsoft 
 * Crop Water Usage Maps
 * Biomass Variability
 
-To install the above Solutions, please click [here](./how-to-set-up-isv-solution.md).
+To install the above Solutions, please refer to [this](./how-to-set-up-isv-solution.md) article.
 
 ## Next steps
 
