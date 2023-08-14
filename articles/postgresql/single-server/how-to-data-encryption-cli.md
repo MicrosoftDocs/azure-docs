@@ -95,18 +95,18 @@ After Azure Database for PostgreSQL Single server is encrypted with a customer's
 
 ### Once the server is restored, revalidate data encryption the restored server
 
-*	Assign identity for the replica server
+*    Assign identity for the replica server
 ```azurecli-interactive
 az postgres server update --name  <server name>  -g <resource_group> --assign-identity
 ```
 
-*	Get the existing key that has to be used for the restored/replica server
+*    Get the existing key that has to be used for the restored/replica server
 
 ```azurecli-interactive
 az postgres server key list --name  '<server_name>'  -g '<resource_group_name>'
 ```
 
-*	Set the policy for the new identity for the restored/replica server
+*    Set the policy for the new identity for the restored/replica server
 
 ```azurecli-interactive
 az keyvault set-policy --name <keyvault> -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principl id of the server returned by the step 1>
@@ -147,7 +147,7 @@ Apart from Azure portal, you can also enable data encryption on your Azure Datab
 ### For a new server
 
 Use one of the pre-created Azure Resource Manager templates to provision the server with data encryption enabled:
-[Example with Data encryption](https://github.com/Azure/azure-postgresql/tree/master/arm-templates/ExampleWithDataEncryption)
+[Example with Data encryption](https://github.com/Azure/azure-postgresql/tree/master/postgresql-server/arm-templates/ExampleWithDataEncryption)
 
 This Azure Resource Manager template creates an Azure Database for PostgreSQL Single server and uses the **KeyVault** and **Key** passed as parameters to enable data encryption on the server.
 

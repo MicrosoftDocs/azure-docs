@@ -89,7 +89,7 @@ For additional details and information, visit [Speech Service documentation](../
 
 The following [Azure Cognitive Vision Services](https://azure.microsoft.com/services/cognitive-services/directory/vision/) provide Azure services that can identify and analyze content within images and videos.
 
-- [Computer vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)
+- [Computer vision](https://azure.microsoft.com/products/ai-services?activetab=pivot:visiontab)
 - [Face](https://azure.microsoft.com/services/cognitive-services/face/)
 - [Video indexer](https://azure.microsoft.com/services/media-services/video-indexer/)
 - [Content moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/)

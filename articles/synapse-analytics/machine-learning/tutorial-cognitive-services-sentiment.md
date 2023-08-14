@@ -98,5 +98,5 @@ The sentiments are returned as **positive**, **negative**, **neutral**, or **mix
 ## Next steps
 - [Tutorial: Anomaly detection with Azure AI services](tutorial-cognitive-services-anomaly.md)
 - [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL pools](tutorial-sql-pool-model-scoring-wizard.md)
-- [SynapseML text sentiment analysis](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#textsentiment)
+- [SynapseML text sentiment analysis](https://microsoft.github.io/SynapseML/docs/Explore%20Algorithms/AI%20Services/Overview/#language)
 - [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)
