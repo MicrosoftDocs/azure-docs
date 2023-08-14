@@ -758,7 +758,7 @@ items:
         href: concepts/pstn-pricing.md
       - name: Phone number types
         href: concepts/numbers/number-types.md
-      - name: Subscription eligibility 
+      - name: Country availability 
         href: concepts/numbers/sub-eligibility-number-capability.md
       - name: Emergency calling
         href: concepts/telephony/emergency-calling-concept.md 
