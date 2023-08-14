@@ -42,11 +42,18 @@ As such, the multi-tenant organization capability assumes the simultaneous use o
 
 ## Benefits
 
-Here are the benefits of a multi-tenant organization:
+Here are the primary benefits of a multi-tenant organization:
 
-- **Differentiate in-organization and out-of-organization external users**: In Azure AD, external users originating from within a multi-tenant organization can be differentiated from external users originating from outside the multi-tenant organization. This differentiation facilitates the application of different policies for in-organization and out-of-organization external users.
-- **Improved collaborative experience in Microsoft Teams**: In Microsoft Teams, multi-tenant organization users can expect an improved collaborative experience across tenants with chat, calling, and meeting start notifications from all connected tenants across the multi-tenant organization. Tenant switching is more seamless and faster. For more information, see [Microsoft Teams: Advantages of the new architecture](https://techcommunity.microsoft.com/t5/microsoft-teams-blog/microsoft-teams-advantages-of-the-new-architecture/ba-p/3775704).
-- **Improved people search experience across tenants**: Across Microsoft 365 services, the multi-tenant organization people search experience is a collaboration feature that enables search and discovery of people across multiple tenants. Once enabled, users are able to search and discover synced user profiles in a tenant's global address list and view their corresponding people cards. For more information, see [Microsoft 365 Multi-Tenant Organization People Search (public preview)](/microsoft-365/enterprise/multi-tenant-people-search).
+- Differentiate in-organization and out-of-organization external users
+
+    In Azure AD, external users originating from within a multi-tenant organization can be differentiated from external users originating from outside the multi-tenant organization. This differentiation facilitates the application of different policies for in-organization and out-of-organization external users.
+- Improved collaborative experience in Microsoft Teams
+
+    In Microsoft Teams, multi-tenant organization users can expect an improved collaborative experience across tenants with chat, calling, and meeting start notifications from all connected tenants across the multi-tenant organization. Tenant switching is more seamless and faster. For more information, see [Microsoft Teams: Advantages of the new architecture](https://techcommunity.microsoft.com/t5/microsoft-teams-blog/microsoft-teams-advantages-of-the-new-architecture/ba-p/3775704).
+
+- Improved people search experience across tenants
+
+    Across Microsoft 365 services, the multi-tenant organization people search experience is a collaboration feature that enables search and discovery of people across multiple tenants. Once enabled, users are able to search and discover synced user profiles in a tenant's global address list and view their corresponding people cards. For more information, see [Microsoft 365 Multi-Tenant Organization People Search (public preview)](/microsoft-365/enterprise/multi-tenant-people-search).
 
 ## How does a multi-tenant organization work?
 
@@ -86,9 +93,9 @@ The following diagram shows three tenants A, B, and C that form a multi-tenant o
 
 | Tenant | Description |
 | :---: | --- |
-| A | Administrators see a multi-tenant organization consisting of A, B, C. They also see cross-tenant access settings for B and C. |
-| B | Administrators see a multi-tenant organization consisting of A, B, C. They also see cross-tenant access settings for A and C. |
-| C | Administrators see a multi-tenant organization consisting of A, B, C. They also see cross-tenant access settings for A and B. |
+| A | Administrators see a multi-tenant organization consisting of A, B, C.<br/>They also see cross-tenant access settings for B and C. |
+| B | Administrators see a multi-tenant organization consisting of A, B, C.<br/>They also see cross-tenant access settings for A and C. |
+| C | Administrators see a multi-tenant organization consisting of A, B, C.<br/>They also see cross-tenant access settings for A and B. |
 
 ## Templates for cross-tenant access settings
 
@@ -108,7 +115,7 @@ To facilitate the management of a multi-tenant organization, any given multi-ten
 | Pending | A pending tenant has yet to join a multi-tenant organization. While listed in an administrator’s view of the multi-tenant organization, a pending tenant isn't yet part of the multi-tenant organization, and as such is hidden from an end user’s view of a multi-tenant organization. |
 | Active | Following the addition of pending tenants to the multi-tenant organization, pending tenants need to join the multi-tenant organization to turn their state from pending to active. Joined tenants typically start in the member role. Any member tenant has the privilege to leave the multi-tenant organization. |
 
-## Design constraints
+## Constraints
 
 The multi-tenant organization capability has been designed to the following constraints:
 
