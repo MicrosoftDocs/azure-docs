@@ -1,7 +1,7 @@
 ---
 title: Resize a virtual machine
 description: Change the VM size used for an Azure virtual machine.
-author: cynthn
+author: ericd-mst-github
 ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
@@ -199,6 +199,45 @@ Update-AzVM `
 ```
 
 This script sets the variables `$resourceGroup`, `$vmName`, `$newVmSize`, and `$availabilitySetName`. It then checks if the desired VM size is available by using `Get-AzVMSize` and checking if the output contains the desired size. If the desired size is not available, the script deallocates all VMs in the availability set, resizes them, and starts them again. If the desired size is available, the script resizes the VM.
+
+### [Terraform](#tab/terraform)
+
+To resize your VM in Terraform code, you modify the `size` parameter in the `azurerm_linux_virtual_machine` or `azurerm_windows_virtual_machine` resource blocks to the desired size and running `terraform plan -out main.tfplan` to see the changes that will be made. Then run `terraform apply main.tfplan` to apply the changes to resize the VM.
+
+
+```Terraform
+# Create virtual machine
+resource "azurerm_windows_virtual_machine" "main" {
+  name                  = "${var.prefix}-vm"
+  admin_username        = "azureuser"
+  admin_password        = random_password.password.result
+  location              = azurerm_resource_group.rg.location
+  resource_group_name   = azurerm_resource_group.rg.name
+  network_interface_ids = [azurerm_network_interface.my_terraform_nic.id]
+  size                  = "Standard_DS1_v2" # Change the VM size here
+
+  os_disk {
+    name                 = "myOsDisk"
+    caching              = "ReadWrite"
+    storage_account_type = "Premium_LRS"
+  }
+
+  source_image_reference {
+    publisher = "MicrosoftWindowsServer"
+    offer     = "WindowsServer"
+    sku       = "2022-datacenter-azure-edition"
+    version   = "latest"
+  }
+
+
+  boot_diagnostics {
+    storage_account_uri = azurerm_storage_account.my_storage_account.primary_blob_endpoint
+  }
+}
+```
+
+> [!IMPORTANT]
+> This example modifies the size of an existing virtual machine when you're using the state file that created the original virtual machine.
 
 ---
 ## Limitations
