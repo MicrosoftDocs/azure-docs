@@ -40,15 +40,15 @@ After completing this tutorial, you'll have the following architecture:
 
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ to create the service in. If you don't have an existing resource group, select __Create new__ to create one. Enter a unique name for the __Workspace name__. Leave the rest of the fields at the default values; new instances of the required services will be created for the workspace.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-workspace.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-workspace.png" alt-text="Screenshot of the workspace creation form.":::
 
 1. From the __Networking__ tab, select __Private with Internet Outbound__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/private-internet-outbound.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/private-internet-outbound.png" alt-text="Screenshot of the workspace network tab with internet outbound selected.":::
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/review-create-machine-learning.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/review-create-machine-learning.png" alt-text="Screenshot of the review page for workspace creation.":::
 
 1. Once the workspace has been created, select __Go to resource__.
 
@@ -59,13 +59,13 @@ From the __Overview__ page for your workspace, select __Launch studio__.
 > [!TIP]
 > You can also go to the [Azure Machine Learning studio](https://ml.azure.com) and select your workspace from the list.
 
-:::image type="content" source="./media/tutorial-create-secure-workspace/launch-studio.png" alt-text="{alt-text}":::
+:::image type="content" source="./media/tutorial-create-secure-workspace/launch-studio.png" alt-text="Screenshot of the studio button in the Azure portal.":::
 
 ## Create compute instance
 
 1. From studio, select __Compute__, __Compute instances__, and then __+ New__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-new-compute-instance.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-new-compute-instance.png" alt-text="Screenshot of the create new compute option in studio.":::
     
 1. From the __Configure required settings__ dialog, enter a unique value as the __Compute name__. Leave the rest of the selections at the default value.
 
