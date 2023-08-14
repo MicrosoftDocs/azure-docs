@@ -454,39 +454,10 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
 ]
 ```
 
-You can specify a retention rule while triggering backup. To view the retention rules in policy, look through the policy JSON for retention rules. In the below example, the rule with the name _default_ is displayed and we'll use that rule for the on-demand backup.
+You can specify a rule and tagname while triggering backup. To view the rules in policy, look through the policy JSON. In the below example, the rule with the name BackupDaily, and tag name "default" is displayed and we'll use that rule for the on-demand backup.
 
 ```json
-{
-      "isDefault": true,
-      "lifecycles": [
-        {
-          "deleteAfter": {
-            "duration": "P7D",
-            "objectType": "AbsoluteDeleteOption"
-          },
-          "sourceDataStore": {
-            "dataStoreType": "OperationalStore",
-            "objectType": "DataStoreInfoBase"
-          }
-        }
-      ],
-      "name": "Default",
-      "objectType": "AzureRetentionRule"
-    }
-```
-
-Fetch tbe Backup Policy details using following command:
-
-```azurecli-interactive
-az dataprotection backup-policy show -g <rgname> --vault-name <vaultname> -n <policyname>
-
-```
-
-**Sample output**
-
-```Output
-name": "BackupDaily",
+"name": "BackupDaily",
         "objectType": "AzureBackupRule",
         "trigger": {
           "objectType": "ScheduleBasedTriggerContext",
@@ -504,19 +475,13 @@ name": "BackupDaily",
                 "eTag": null,
                 "id": "Default_",
                 "tagName": "Default"
-           },
-
+              },
+              "taggingPriority": 99
+    }
 ```
 
-Once you have the Backup Policy details, trigger an on-demand backup using the [az dataprotection backup-instance adhoc-backup](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-adhoc-backup) command.
+Trigger an on-demand backup using the [az dataprotection backup-instance adhoc-backup](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-adhoc-backup) command.
 
-```azurecli-interactive
-az dataprotection backup-instance adhoc-backup --name "<DiskName>" --rule-name "BackupDaily" --resource-group "rgName" --vault-name "vaultName" --retention-tag-override "Default" --subscription <Subscription ID>
-
-```
-
-
-**Example**
 
 ```azurecli-interactive
 az dataprotection backup-instance adhoc-backup --name "diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166" --rule-name "Default" --resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1"
