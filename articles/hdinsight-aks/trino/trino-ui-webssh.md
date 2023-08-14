@@ -14,11 +14,11 @@ This article describes how you can run queries on your Trino cluster using web s
   
 3. In the Azure portal search bar, type "HDInsight on AKS cluster" and select "Azure HDInsight on AKS clusters" from the drop-down list.
   
-   :::image type="content" source="../media/trino-ui-webssh/portal-search.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster":::
+   :::image type="content" source="./media/trino-ui-webssh/portal-search.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster":::
   
 7. Select your cluster name from the list page.
   
-   :::image type="content" source="../media/trino-ui-webssh/portal-search-result.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list":::
+   :::image type="content" source="./media/trino-ui-webssh/portal-search-result.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list":::
 
 3. Navigate to "Secure shell (SSH)" blade and click on the endpoint of a pod. You need to authenticate to open the SSH session.
   
