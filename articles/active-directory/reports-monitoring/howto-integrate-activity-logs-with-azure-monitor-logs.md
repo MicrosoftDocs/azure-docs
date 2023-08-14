@@ -51,11 +51,11 @@ Follow the steps below to send logs from Azure Active Directory to Azure Monitor
 
 [!INCLUDE [diagnostic-settings-include](../includes/diagnostic-settings-include.md)]
 
-1. Under **Destination Details** select the **Send to Log Analytics workspace** check box. 
+6. Under **Destination Details** select the **Send to Log Analytics workspace** check box. 
 
-1. Select the appropriate **Subscription** and **Log Analytics workspace** from the menus.
+7. Select the appropriate **Subscription** and **Log Analytics workspace** from the menus.
 
-1. Select the **Save** button.
+8. Select the **Save** button.
 
     ![Screenshot of the Diagnostics settings with some destination details shown.](./media/howto-integrate-activity-logs-with-azure-monitor-logs/diagnostic-settings-log-analytics-workspace.png)
 

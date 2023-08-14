@@ -28,9 +28,9 @@ Once you have an event hub that contains Azure AD activity logs, you can set up 
 
 [!INCLUDE [diagnostic-settings-include](../includes/diagnostic-settings-include.md)]
 
-1. Select the **Stream to an event hub** check box.
+6. Select the **Stream to an event hub** check box.
 
-1. Select the Azure subscription, Event Hubs namespace, and optional event hub where you want to route the logs.
+7. Select the Azure subscription, Event Hubs namespace, and optional event hub where you want to route the logs.
 
 The subscription and Event Hubs namespace must both be associated with the Azure AD tenant from where you're streaming the logs.
 

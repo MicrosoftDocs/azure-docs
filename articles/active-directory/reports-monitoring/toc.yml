@@ -14,6 +14,19 @@ items:
 - name: Identity logs
   expanded: true
   items:
+  - name: Concepts
+    expanded: false
+    items:
+    - name: Audit logs
+      href: concept-audit-logs.md
+    - name: Sign-in logs
+      href: concept-sign-ins.md
+    - name: Sign-in logs (preview)
+      href: concept-all-sign-ins.md
+    - name: Basic info in the sign-in logs
+      href: reference-basic-info-sign-in-logs.md
+    - name: Provisioning logs
+      href: concept-provisioning-logs.md
   - name: How-to guides 
     expanded: true
     items:
@@ -31,12 +44,18 @@ items:
 - name: Identity reports 
   expanded: true
   items:
-  - name: Usage and Insights report
-    href: concept-usage-insights-report.md
-  - name: How to use Identity Recommendations
-    href: howto-use-recommendations.md
-  - name: How to use Identity Workbooks
-    href: howto-use-azure-monitor-workbooks.md
+  - name: Concepts
+    expanded: false
+    items:
+    - name: Usage and Insights report
+      href: concept-usage-insights-report.md
+  - name: How-to guides 
+    expanded: true
+    items:
+    - name: How to use Identity Recommendations
+      href: howto-use-recommendations.md
+    - name: How to use Identity Workbooks
+      href: howto-use-azure-monitor-workbooks.md
   - name: Recommendations
     expanded: false
     items:
