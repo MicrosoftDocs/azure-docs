@@ -34,7 +34,7 @@ The following steps demonstrate how to create an indoor map in your Azure Maps a
     > [!TIP]
     > If your drawing package doesn't contain a manifest, [The Drawing Package Guide] describes how to create one.
 
-1. Once your drawing package has been processed, select the **Review + Create** tab, then the **Create + Download** button. Selecting the **Create + Download** button begins the process of creating the indoor map.
+1. Once your drawing package has been processed, select the **Create + Download** button to begin the process of creating the indoor map.
 
     :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/select-review-create.png" alt-text="Screenshot showing the Review + Create screen of the Azure Maps Creator onboarding tool, with the Create + Download button highlighted.":::
 
