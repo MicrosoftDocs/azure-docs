@@ -20,7 +20,7 @@ Welcome to the Azure Cosmos DB for MongoDB vCore Troubleshooting Guide. This res
 ## Common errors and solutions
 
 ### Unable to Connect to MongoDB vCore DB - Timeout Error Solution
-This issue might occur when the cluster only has the "Allowed Azure IP" resource firewall rule enabled. If you're trying to access the cluster from a non-Azure IP range, you need to add extra firewall rules. Refer to [Security options and features](./security.md) <!--#network-security-options--> - Azure Cosmos DB for MongoDB vCore for detailed steps. Firewall rules can be configured in the portal's Networking setting for the cluster. Options include adding a known IP address/range or enabling public IP access.
+This issue might occur when the cluster only has the "Allowed Azure IP" resource firewall rule enabled. If you're trying to access the cluster from a non-Azure IP range, you need to add extra firewall rules. Refer to [Security options and features - Azure Cosmos DB for MongoDB vCore](./security.md#network-security-options) for detailed steps. Firewall rules can be configured in the portal's Networking setting for the cluster. Options include adding a known IP address/range or enabling public IP access.
 
 :::image type="content" source="./media/troubleshoot-guide/timeout-error-solution.png" alt-text="Screenshot of the Timeout error solution for Azure Cosmos DB for MongoDB vCore":::
 
