@@ -1,5 +1,5 @@
 ---
-title: "Use Azure AI Document Intelligence REST API v3.0"
+title: "Use Azure AI Document Intelligence (formerly Form Recognizer) REST API v3.0"
 description: Use the Document Intelligence REST API v3.0 to create a forms processing app that extracts key data from documents.
 author: laujan
 manager: nitinme
@@ -106,7 +106,7 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 
 * Use the NodeJS **json tool** as a JSON formatter for curl.
 
-* If you don't have [Node.js](https://nodejs.org/about/releases/) installed, download and install the latest version.
+* If you don't have [Node.js](https://nodejs.org/) installed, download and install the latest version.
 
 * Open a new command prompt and install the **json tool** with the following command:
 

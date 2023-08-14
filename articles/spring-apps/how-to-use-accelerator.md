@@ -218,7 +218,7 @@ To create your own accelerator, open the **Accelerators** section and then selec
 Use the following command to create your own accelerator in Azure CLI.
 
 ```azurecli
-az spring application-accelerator customized-accelerator add \
+az spring application-accelerator customized-accelerator create \
     --name <customized-accelerator-name> \
     --service <service-instance-name> \
     --resource-group <resource-group-name> \
@@ -319,7 +319,7 @@ To configure a certificate for an accelerator, open the **Accelerators** section
 Use the following command to configure a certificate for the accelerator:
 
 ```azurecli
-az spring application-accelerator customized-accelerator add \
+az spring application-accelerator customized-accelerator create \
     --resource-group <resource-group-name> \
     --service <service-instance-name> \
     --name <customized-accelerator-name> \

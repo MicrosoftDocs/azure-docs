@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Document Intelligence Studio | v3.0"
+title: "Quickstart: Document Intelligence (formerly Form Recognizer) Studio | v3.0"
 titleSuffix: Azure AI services
 description: Form and document processing, data extraction, and analysis using Document Intelligence Studio
 author: laujan

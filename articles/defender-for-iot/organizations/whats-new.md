@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 08/07/2023
+ms.date: 08/14/2023
 ms.custom: enterprise-iot
 ---
 
@@ -44,7 +44,7 @@ Instead, we recommend that you transition to cloud integration methods, as descr
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Version 23.1.2**: <br>- [OT sensor installation and setup enhancements](#ot-sensor-installation-and-setup-enhancements) <br>- [Analyze and fine tune your deployment](#analyze-and-fine-tune-your-deployment) <br>- [Simplified privileged users](#simplified-privileged-users) <br><br>[Migrate to site-based licenses](#migrate-to-site-based-licenses) |
+| **OT networks** | **Version 23.1.2**: <br>- [OT sensor installation and setup enhancements](#ot-sensor-installation-and-setup-enhancements) <br>- [Analyze and fine tune your deployment](#analyze-and-fine-tune-your-deployment) <br>- [Configure monitored interfaces via the sensor GUI](#configure-monitored-interfaces-via-the-sensor-gui)<br>- [Simplified privileged users](#simplified-privileged-users) <br><br>[Migrate to site-based licenses](#migrate-to-site-based-licenses) |
 
 ### OT sensor installation and setup enhancements
 
@@ -91,6 +91,8 @@ In sensors that have been updated from previous versions to 23.1.2, the *cyberx*
 |---------|---------|
 | **OT networks** | [Migrate to site-based licenses](#migrate-to-site-based-licenses) |
 
+> [!TIP]
+> To run CLI commands that are available only to the *cyberx* or *cyberx_host* users when signed in as the *support* user, make sure to first access the host machine's system root. For more information, see [Access the system root as a *support* user](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-a-support-user).
 
 ### Migrate to site-based licenses
 
