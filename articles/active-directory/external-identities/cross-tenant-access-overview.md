@@ -98,7 +98,7 @@ Tenant restrictions are independent of other cross-tenant access settings, so an
 Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
 
 - Microsoft Azure commercial cloud and Microsoft Azure Government
-- Microsoft Azure commercial cloud and Microsoft Azure China (operated by 21Vianet)
+- Microsoft Azure commercial cloud and Microsoft Microsoft Azure operated by 21Vianet (operated by 21Vianet)
 
 > [!NOTE]
 > Microsoft Azure Government includes the Office GCC-High and DoD clouds.

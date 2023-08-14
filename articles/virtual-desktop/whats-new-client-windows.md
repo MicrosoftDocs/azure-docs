@@ -13,7 +13,7 @@ In this article you'll learn about the latest updates for the Remote Desktop cli
 
 ## Supported client versions
 
-The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Windows Insider releases](users/client-features-windows.md#enable-windows-insider-releases).
+The following table lists the current versions available for the public and Insider releases. To enable Insider releases, see [Enable Insider releases](users/client-features-windows.md#enable-insider-releases).
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
@@ -32,7 +32,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4485
 
-*Date published: July 25, 2023*
+*Date published: July 11, 2023*
 
 Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17f1J), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17mKo), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17sgF)
 

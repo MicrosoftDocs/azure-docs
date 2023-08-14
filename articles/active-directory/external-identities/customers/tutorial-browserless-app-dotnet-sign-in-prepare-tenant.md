@@ -8,10 +8,10 @@ manager: mwongerapk
 ms.author: shermanouko
 ms.service: active-directory
 ms.workload: identity
+ms.custom: devx-track-dotnet
 ms.subservice: ciam
 ms.topic: tutorial
 ms.date: 07/24/2023
-
 #Customer intent: As a dev, devops, I want to learn how to register and configure .NET browserless app authentication details in a customer tenant so as to sign in users using Device Code flow.
 ---
 

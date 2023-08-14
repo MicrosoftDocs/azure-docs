@@ -3278,6 +3278,8 @@
         href: linkedinelevate-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator
         href: linkedinsalesnavigator-provisioning-tutorial.md
+      - name: Litmos
+        href: litmos-provisioning-tutorial.md
       - name: Lucid (All Products)
         href: lucid-all-products-provisioning-tutorial.md
       - name: Lucidchart
@@ -3466,6 +3468,8 @@
       items:
       - name: Tableau Cloud
         href: tableau-online-provisioning-tutorial.md
+      - name: Tailscale
+        href: tailscale-provisioning-tutorial.md
       - name: Talentech
         href: talentech-provisioning-tutorial.md
       - name: Tanium SSO
@@ -3514,6 +3518,8 @@
         href: uni-tel-as-provisioning-tutorial.md
       - name: Vault Platform
         href: vault-platform-provisioning-tutorial.md
+      - name: Vbrick Rev Cloud
+        href: vbrick-rev-cloud-provisioning-tutorial.md
       - name: V-Client
         href: v-client-provisioning-tutorial.md
       - name: Velpic
@@ -3524,6 +3530,8 @@
         href: visibly-provisioning-tutorial.md
       - name: Visitly
         href: visitly-provisioning-tutorial.md
+      - name: VMware Identity Service
+        href: vmware-identity-service-provisioning-tutorial.md
       - name: Vonage
         href: vonage-provisioning-tutorial.md
       - name: Webroot Security Awareness Training

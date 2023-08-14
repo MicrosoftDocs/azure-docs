@@ -77,7 +77,7 @@ The table below lists the URLs that must be available in order to install and us
 |`*.blob.core.usgovcloudapi.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.applicationinsights.us`|Agent telemetry|Optional, not used in agent versions 1.24+| Public |
 
-#### [Azure China](#tab/azure-china)
+#### [Microsoft Azure operated by 21Vianet](#tab/azure-china)
 
 | Agent resource | Description | When required|
 |---------|---------|--------|

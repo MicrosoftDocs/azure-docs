@@ -140,8 +140,6 @@ Access control: Block access <br>
 
 Now when User B attempts to access the **PAYROLL APP** they're blocked.
 
-![Diagram showing access token issuance](media/plan-conditional-access/CA-policy-token-issuance.png)
-
 ## Recommendations
 
 Taking into account our learnings in the use of Conditional Access and supporting other customers, here are a few recommendations based on our learnings.
