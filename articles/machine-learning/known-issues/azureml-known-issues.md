@@ -17,21 +17,21 @@ This page lists known issues for Azure Machine Learning features. Before submitt
 
 ## Currently active known issues
 
-Select the **Title** to view more information about that specific known issue.
+Click the **Title** to view more information about that specific known issue.
 
 
 |Area  |Title  |Issue publish date  |
 |---------|---------|---------|
-|Workspace RP     | [AutoML | Error retrieving generated code](ki-automl-error-generated-code.md)       | June 6, 2023       |
-|Workspace RP     |  [Workspace RP | Create workspace with bring your own storage scenario does not work in SDK V2](ki-workspace-storage-different-subscription.md)       |  April 19, 2023       |
-|Compute | [Jupyter R Kernel does not start in new compute instance images](ki-jupyter-r-kernel-not-starting.md)        |   August 2, 2023      |
-|Inferencing     | [CORS error when invoking a managed online endpoint](ki-inferencing-cors-error.md)        | May 25, 2023        |
-|Row5     |         |         |
-
+|Compute | [Jupyter R Kernel does not start in new compute instance images](ki-jupyter-r-kernel-not-starting.md)        |   August 14, 2023      |
+|Compute | [Provisioning error when creating a compute instance with A10 SKU](ki-compute-a10-sku-not-supported.md) | August 14, 2023 |
+|Compute | [Idleshutdown property in Bicep template causes error](ki-compute-idleshutdown-bicep.md) |    August 14, 2023      |   
+|Compute | [Slowness in compute instance terminal from a mounted path](ki-compute-slowness-terminal-mounted-path.md)| August 14, 2023|   
+|Compute| [Creating compute instance after a workspace move results in an Etag conflict error.](ki-workspace-move-ci-same-name.md)| August 14, 2023 | 
+ 
 
 ## Recently closed known issues
 
-Select the **Title** to view more information about that specific known issue. Fixed issues are removed after 46 days.
+Click the **Title** to view more information about that specific known issue. Fixed issues are removed after 46 days.
 
 
 |Area     |Title  |Issues publish date  |Status  |

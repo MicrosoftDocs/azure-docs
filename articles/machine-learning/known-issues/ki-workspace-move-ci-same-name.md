@@ -1,0 +1,38 @@
+---
+title: Known issue - After a workspace move Etag conflict error when creating a compute instance with the same name.
+description: While using the compute instance terminal inside a mounted path of data folder, any commands executed from the terminal result in slowness.
+author: s-polly
+ms.author: scottpolly
+ms.topic: troubleshooting  
+ms.service: machine-learning
+ms.subservice: core
+ms.date: 08/14/2023
+ms.custom: known-issue
+---
+
+# Known issue  - Compute instance | Creating compute instance after a workspace move results in an Etag conflict error.
+
+After a moving a workspace to a different subscription or resource group, creating a compute instance with the same name as a previous compute instance will fail with an Etag conflict error.
+
+
+[!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
+<!--- Choose the correct include --->
+
+**Status:** Open
+
+**Problem area:** Compute
+
+## Symptoms
+
+After a workspace move, creating a compute instance with the same name as a previous compute instance will fail due to an Etag conflict error.
+
+When you make a workspace move the compute resources aren't moved to the target subscription. However, you can't use the same compute instance names that you were using previously. 
+
+
+## Solutions and workarounds
+
+The following are workarounds for this issue. Use a different name for the compute instance.
+
+## Next steps
+
+- [About known issues](azureml-known-issues.md)

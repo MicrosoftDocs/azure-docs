@@ -6,7 +6,7 @@ ms.author: scottpolly
 ms.topic: troubleshooting  
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 08/04/2023
+ms.date: 08/14/2023
 ms.custom: known-issue
 ---
 
@@ -38,7 +38,7 @@ Aug 01 14:18:48 august-compute2Q6DP2A jupyter[11568]: Execution halted
 
 ## Solutions and workarounds
 
-To work around this issue, run the code below in your terminal:
+To work around this issue, run the code below in the compute instance terminal:
 
 ```azurecli
 jupyter kernelspec list

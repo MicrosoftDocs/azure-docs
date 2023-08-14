@@ -1,5 +1,5 @@
 ---
-title: Known issue - AutoML Error retrieving generated code FilesharePermissionFailure:Unable to copy files
+title: Known issue - AutoML "Unable to copy files" error retrieving generated code
 description: A known issue is posted when a workspace has public IP but the storage is private then the workspace cannot interact with the storage account directly.
 author: s-polly
 ms.author: scottpolly
@@ -12,8 +12,7 @@ ms.custom: known-issue
 
 # Known issue  - AutoML | Error retrieving generated code FilesharePermissionFailure:Unable to copy files to fileshare because authorization failed.
 
-When a workspace has a public IP but the storage is private, then the workspace cannot interact with the storage account directly.
-
+When a workspace has a public IP but the storage is private, then the workspace cannot interact with the storage account directly. 
 
 [!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
 
