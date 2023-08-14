@@ -33,7 +33,7 @@ You can create custom roles using the publish and subscribe actions.
 
 The following are sample role definitions that allow you to publish and subscribe to MQTT messages.  These custom roles give permissions at topic space scope.  You can also create roles to provide permissions at subscription, resource group scope.
 
-**EventGridMQTTPublisherRole.json**: MQTT message publish operation.
+**EventGridMQTTPublisherRole.json**: MQTT messages publish operation.
 
 ```json
 {
@@ -55,7 +55,7 @@ The following are sample role definitions that allow you to publish and subscrib
 }
 ```
 
-**EventGridMQTTSubscriberRole.json**: MQTT message subscribe operation.
+**EventGridMQTTSubscriberRole.json**: MQTT messages subscribe operation.
 
 ```json
 {
