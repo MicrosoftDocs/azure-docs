@@ -15,11 +15,11 @@ This article covers the details around the Trino UI provided for monitoring the 
   
 3. In the Azure portal search bar, type "HDInsight on AKS cluster" and select "Azure HDInsight on AKS clusters" from the drop-down list.
   
-   :::image type="content" source="../media/Manage-Cluster/Getstarted-PortalSearch-Step1.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster":::
+   :::image type="content" source="../media/trino-ui/portal-search.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster":::
   
 7. Select your cluster name from the list page.
   
-   :::image type="content" source="../media/Manage-Cluster/Getstarted-Portallistview-Step2.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list":::
+   :::image type="content" source="../media/trino-ui.md/portal-search-result.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list":::
    
 11. From the "Overview" page, you can access the Trino UI.
     
