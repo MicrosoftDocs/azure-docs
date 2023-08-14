@@ -1,31 +1,33 @@
-items:
 - name: Azure API for FHIR documentation
   href: index.yml
-- name: Azure API for FHIR overview
-  href: overview.md
-- name: FHIR REST API capabilities
-  href: fhir-rest-api-capabilities.md
-- name: Security controls by Azure policy
-  href: ./security-controls-policy.md
-- name: Azure AD and Azure API for FHIR 
-  href: azure-active-directory-identity-configuration.md
+- name: Overview
+  expanded: true
+  items:
+    - name: What is Azure API for FHIR?
+      href: overview.md
+    - name: FHIR REST API capabilities
+      href: fhir-rest-api-capabilities.md
+    - name: Security controls by Azure policy
+      href: ./security-controls-policy.md
+    - name: Azure AD and Azure API for FHIR 
+      href: azure-active-directory-identity-configuration.md
 - name: Quickstarts
   expanded: false
   items:
-  - name: Get started with Azure API for FHIR
-    href: get-started-with-azure-api-fhir.md
-  - name: Deploy Azure API for FHIR
-    expanded: false
-    items:
-    - name: Using Portal
-      href: fhir-paas-portal-quickstart.md
-    - name: Using PowerShell
-      href: fhir-paas-powershell-quickstart.md
-    - name: Using CLI
-      href: fhir-paas-cli-quickstart.md
-    - name: Using ARM template
-      displayName: Resource Manager
-      href: azure-api-fhir-resource-manager-template.md
+    - name: Get started with Azure API for FHIR
+      href: get-started-with-azure-api-fhir.md
+    - name: Deploy Azure API for FHIR
+      expanded: false
+      items:
+        - name: Using Portal
+          href: fhir-paas-portal-quickstart.md
+        - name: Using PowerShell
+          href: fhir-paas-powershell-quickstart.md
+        - name: Using CLI
+          href: fhir-paas-cli-quickstart.md
+        - name: Using ARM template
+          displayName: Resource Manager
+          href: azure-api-fhir-resource-manager-template.md
 - name: Tutorials
   expanded: false
   items:
