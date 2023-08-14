@@ -4,8 +4,8 @@ description: Learn how to manage an Azure Database for MySQL server from the Azu
 ms.service: mysql
 ms.subservice: single-server
 ms.custom: devx-track-azurecli
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.date: 06/20/2022
 ---

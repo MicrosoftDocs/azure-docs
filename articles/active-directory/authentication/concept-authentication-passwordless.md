@@ -131,7 +131,6 @@ The following providers offer FIDO2 security keys of different form factors that
 | [IDmelon Technologies Inc.](https://www.idmelon.com/#idmelon) | ![y] | ![y]| ![y]| ![y]| ![n] |
 | [Kensington](https://www.kensington.com/solutions/product-category/why-biometrics/) | ![y] | ![y]| ![n]| ![n]| ![n] |
 | [KONA I](https://konai.com/business/security/fido) | ![y] | ![n]| ![y]| ![y]| ![n] |
-| [Movenda](https://www.movenda.com/en/authentication/fido2/overview) | ![y] | ![n]| ![y]| ![y]| ![n] |
 | [NeoWave](https://neowave.fr/en/products/fido-range/) | ![n] | ![y]| ![y]| ![n]| ![n] |
 | [Nymi](https://www.nymi.com/nymi-band) | ![y] | ![n]| ![y]| ![n]| ![n] |
 | [Octatco](https://octatco.com/) | ![y] | ![y]| ![n]| ![n]| ![n] |
