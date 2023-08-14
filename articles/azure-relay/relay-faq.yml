@@ -4,7 +4,7 @@ metadata:
   description: This article provides answers to some of the frequently asked questions about the Azure Relay service.
   ms.topic: faq
   ms.service: service-bus-relay
-  ms.date: 06/21/2022
+  ms.date: 08/10/2023
 title: Azure Relay FAQs
 summary: |
   This article answers some frequently asked questions (FAQs) about [Azure Relay](https://azure.microsoft.com/services/service-bus/). For general Azure pricing and support information, see the [Azure Support FAQs](https://azure.microsoft.com/support/faq/).
@@ -38,25 +38,25 @@ sections:
       - question: |
           How do you charge for Hybrid Connections and WCF Relay?
         answer: |
-          For complete information about Relay pricing, see the [Hybrid Connections and WCF Relays](https://azure.microsoft.com/pricing/details/service-bus) table on the Service Bus pricing details page. In addition to the prices noted on that page, you are charged for associated data transfers for egress outside of the datacenter in which your application is provisioned.
+          For complete information about Relay pricing, see the [Hybrid Connections and WCF Relays](https://azure.microsoft.com/pricing/details/service-bus) table on the Service Bus pricing details page. In addition to the prices noted on that page, you're charged for associated data transfers for egress outside of the datacenter in which your application is provisioned.
           
       - question: |
           How are hours calculated for Relay?
         answer: |
-          WCF Relay is available only in Standard tier namespaces. Pricing and [connection quotas](../service-bus-messaging/service-bus-quotas.md) for relays otherwise have not changed. This means that relays continue to be charged based on the number of messages (not operations) and relay hours. For more information, see the ["Hybrid Connections and WCF Relays"](https://azure.microsoft.com/pricing/details/service-bus/) table on the pricing details page.
+          WCF Relay is available only in Standard tier namespaces. Pricing and [connection quotas](../service-bus-messaging/service-bus-quotas.md) for relays otherwise haven't changed. This means that relays continue to be charged based on the number of messages (not operations) and relay hours. For more information, see the ["Hybrid Connections and WCF Relays"](https://azure.microsoft.com/pricing/details/service-bus/) table on the pricing details page.
           
       - question: |
           What if I have more than one listener connected to a specific relay?
-        answer: In some cases, a single relay has many connected listeners. A relay is considered open when at least one relay listener is connected to it. Adding listeners to an open relay results in additional relay hours. The number of relay senders (clients that invoke or send messages to relays) that are connected to a relay does not affect the calculation of relay hours.
+        answer: In some cases, a single relay has many connected listeners. A relay is considered open when at least one relay listener is connected to it. Adding listeners to an open relay results in additional relay hours. The number of relay senders (clients that invoke or send messages to relays) that are connected to a relay doesn't affect the calculation of relay hours.
 
       - question: |
           How is the message meter calculated for WCF Relays?
         answer: |
-          (**This applies only to WCF relays. Messages are not a cost for Hybrid Connections.**)
+          (**This applies only to WCF relays. Messages aren't a cost for Hybrid Connections.**)
           
           In general, billable messages for relays are calculated by using the same method that is used for brokered entities (queues, topics, and subscriptions), described previously. However, there are some notable differences.
           
-          Sending a message to Azure Relay is treated as a "full through" send to the relay listener that receives the message. It is not treated as a send operation to the Azure Relay, followed by a delivery to the relay listener. A request-reply style service invocation (of up to 64 KB) against a relay listener results in two billable messages: one billable message for the request and one billable message for the response (assuming the response is also 64 KB or smaller). This is different than using a queue to mediate between a client and a service. If you use a queue to mediate between a client and a service, the same request-reply pattern requires a request send to the queue, followed by a dequeue/delivery from the queue to the service. This is followed by a response send to another queue, and a dequeue/delivery from that queue to the client. Using the same size assumptions throughout (up to 64 KB), the mediated queue pattern results in 4 billable messages. You'd be billed for twice the number of messages to implement the same pattern that you accomplish by using relay. Of course, there are benefits to using queues to achieve this pattern, such as durability and load leveling. These benefits might justify the additional expense.
+          Sending a message to Azure Relay is treated as a "full through" send to the relay listener that receives the message. It isn't treated as a send operation to the Azure Relay, followed by a delivery to the relay listener. A request-reply style service invocation (of up to 64 KB) against a relay listener results in two billable messages: one billable message for the request and one billable message for the response (assuming the response is also 64 KB or smaller). This is different than using a queue to mediate between a client and a service. If you use a queue to mediate between a client and a service, the same request-reply pattern requires a request send to the queue, followed by a dequeue/delivery from the queue to the service. This is followed by a response send to another queue, and a dequeue/delivery from that queue to the client. Using the same size assumptions throughout (up to 64 KB), the mediated queue pattern results in 4 billable messages. You'd be billed for twice the number of messages to implement the same pattern that you accomplish by using relay. Of course, there are benefits to using queues to achieve this pattern, such as durability and load leveling. These benefits might justify the additional expense.
           
           Relays that are opened by using the **netTCPRelay** WCF binding treat messages not as individual messages, but as a stream of data flowing through the system. When you use this binding, only the sender and listener have visibility into the framing of the individual messages sent and received. For relays that use the **netTCPRelay** binding, all data is treated as a stream for calculating billable messages. In this case, Service Bus calculates the total amount of data sent or received via each individual relay on a 5-minute basis. Then, it divides that total amount of data by 64 KB to determine the number of billable messages for that relay during that time period.
           
@@ -129,7 +129,7 @@ sections:
           Is it possible to allow only some relay endpoints?
         answer: |
           Yes. The relay client makes connections to the Azure Relay service by using fully qualified domain names. Customers can add an entry for `*.servicebus.windows.net` on firewalls that support DNS approval listing. 
-          It is also possible to allowlist a specific namespace by using `your-namespace-name.servicebus.windows.net`. In this case you will also need to allowlist the gateways for your namespace, which can be found by using [this PowerShell script](https://github.com/Azure/azure-relay-dotnet/blob/master/tools/GetNamespaceInfo.ps1).
+          It's also possible to allowlist a specific namespace by using `your-namespace-name.servicebus.windows.net`. In this case you'll also need to allowlist the gateways for your namespace, which can be found by using [this PowerShell script](https://github.com/Azure/azure-relay-dotnet/blob/master/tools/GetNamespaceInfo.ps1).
 
 additionalContent: |
 

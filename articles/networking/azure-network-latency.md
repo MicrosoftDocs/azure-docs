@@ -22,35 +22,44 @@ The latency measurements are collected from Azure cloud regions worldwide, and c
 
 The monthly Percentile P50 round trip times between Azure regions for a 30-day window are shown in the following tabs. The latency is measured in milliseconds (ms).
 
-The current dataset was taken on *July 21st, 2023*, and it covers the 30-day period from *June 21st, 2023* to *July 21st, 2023*.
+The current dataset was taken on *July 21, 2023*, and it covers the 30-day period from *June 21, 2023* to *July 21, 2023*.
+
+For readability, each table is split into tabs for groups of Azure regions. The tabs are organized by regions, and then by source region in the first column of each table. For example, the *East US* tab also shows the latency from all source regions to the two *East US* regions: *East US* and *East US 2*. 
 
 > [!IMPORTANT]
-> Monthly latency numbers across Azure regions do not change on a regular basis. You can expect an update of these tables every 6 to 9 months. Not all public Azure regions are listed in the tables below. When new regions come online, we will update this document as soon as latency data is available.
+> Monthly latency numbers across Azure regions do not change on a regular basis. You can expect an update of these tables every 6 to 9 months. Not all public Azure regions are listed in the following tables. When new regions come online, we will update this document as soon as latency data is available.
 > 
 > You can perform VM-to-VM latency between regions using [test Virtual Machines](../virtual-network/virtual-network-test-latency.md) in your Azure subscription.
 
 #### [North America / South America](#tab/Americas)
 
-Listing of Americas regions including US, Canada, and Brazil.
+Latency tables for Americas regions including US, Canada, and Brazil.
+
+Use the following tabs to view latency statistics for each region.
 
 #### [Europe](#tab/Europe)
 
-Listing of European regions.
+Latency tables for European regions.
 
-#### [Asia / Pacific](#tab/AsiaPacific)
+Use the following tabs to view latency statistics for each region.
 
-Listing of Asia / Pacific regions including Japan, Korea, India, and Australia.
+#### [Australia / Asia / Pacific](#tab/APAC)
 
+Latency tables for Australia, Asia, and Pacific regions including and Australia, Japan, Korea, and India.
+
+Use the following tabs to view latency statistics for each region.
 
 #### [Middle East / Africa](#tab/MiddleEast)
 
-Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
+Latency tables for Middle East / Africa regions including UAE, South Africa, and Qatar.
+
+Use the following tabs to view latency statistics for each region.
 
 ---
 
 #### [West US](#tab/WestUS/Americas)
 
-|Source|West US|West US 2|West US 3|
+|Source region |West US|West US 2|West US 3|
 |---|---|---|---|
 |Australia Central|144|164|158|
 |Australia Central 2|144|164|158|
@@ -98,7 +107,7 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 
 #### [Central US](#tab/CentralUS/Americas)
 
-|Source|North Central US|Central US|South Central US|West Central US|
+|Source region|North Central US|Central US|South Central US|West Central US|
 |---|---|---|---|---|
 |Australia Central|193|180|175|167|
 |Australia Central 2|193|181|176|167|
@@ -147,7 +156,7 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 
 #### [East US](#tab/EastUS/Americas)
 
-|Source|East US|East US 2|
+|Source region|East US|East US 2|
 |---|---|---|
 |Australia Central|213|208|
 |Australia Central 2|213|209|
@@ -195,7 +204,7 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 
 #### [Canada / Brazil](#tab/Canada/Americas)
 
-|Source|Brazil</br>South|Canada</br>Central|Canada</br>East|
+|Source region|Brazil</br>South|Canada</br>Central|Canada</br>East|
 |---|---|---|---|
 |Australia Central|323|204|212|
 |Australia Central 2|323|204|212|
@@ -241,7 +250,7 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 |West US 2|182|64|73|
 |West US 3|162|66|73|
 
-#### [Australia](#tab/Australia/AsiaPacific)
+#### [Australia](#tab/Australia/APAC)
 
 | Source | Australia</br>Central | Australia</br>Central 2 | Australia</br>East | Australia</br>Southeast |
 |--------|-------------------|---------------------|----------------|---------------------|
@@ -289,9 +298,9 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 | West US 2 | 164 | 164 | 160 | 172 |
 | West US 3 | 158 | 158 | 156 | 167 |
 
-#### [Japan](#tab/Japan/AsiaPacific)
+#### [Japan](#tab/Japan/APAC)
 
-|Source|Japan East|Japan West|
+|Source region|Japan East|Japan West|
 |---|---|---|
 |Australia Central|127|134|
 |Australia Central 2|127|135|
@@ -339,7 +348,7 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 
 #### [Western Europe](#tab/WesternEurope/Europe)
 
-|Source|France Central|France South|West Europe|
+|Source region|France Central|France South|West Europe|
 |---|---|---|---|
 |Australia Central|238|227|245|
 |Australia Central 2|238|227|245|
@@ -387,7 +396,7 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 
 #### [Central Europe](#tab/CentralEurope/Europe)
 
-|Source|Germany North|Germany West Central|Switzerland North|Switzerland West|
+|Source region|Germany North|Germany West Central|Switzerland North|Switzerland West|
 |---|---|---|---|---|
 |Australia Central|248|242|237|234|
 |Australia Central 2|248|242|237|234|
@@ -435,7 +444,7 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 
 #### [Norway / Sweden](#tab/NorwaySweden/Europe)
 
-|Source|Norway East|Norway West|Sweden Central|
+|Source region|Norway East|Norway West|Sweden Central|
 |---|---|---|---|
 |Australia Central|262|258|265|
 |Australia Central 2|262|258|266|
@@ -483,7 +492,7 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 
 #### [UK / North Europe](#tab/UKNorthEurope/Europe)
 
-|Source|UK South|UK West|North Europe|
+|Source region|UK South|UK West|North Europe|
 |---|---|---|---|
 |Australia Central|243|245|251|
 |Australia Central 2|243|245|251|
@@ -530,9 +539,9 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 |West US 3|124|127|115|
 
 
-#### [Korea](#tab/Korea/AsiaPacific)
+#### [Korea](#tab/Korea/APAC)
 
-|Source|Korea Central|Korea South|
+|Source region|Korea Central|Korea South|
 |---|---|---|
 |Australia Central|152|144|
 |Australia Central 2|152|144|
@@ -579,9 +588,9 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 |West US 3|135|124|
 
 
-#### [India](#tab/India/AsiaPacific)
+#### [India](#tab/India/APAC)
 
-|Source|Central India|West India|South India|
+|Source region|Central India|West India|South India|
 |---|---|---|---|
 |Australia Central|145|145|126|
 |Australia Central 2|144|145|126|
@@ -627,9 +636,9 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 |West US 2|210|211|195|
 |West US 3|232|233|217|
 
-#### [Asia](#tab/Asia/AsiaPacific)
+#### [Asia](#tab/Asia/APAC)
 
-|Source|East Asia|Southeast Asia|
+|Source region|East Asia|Southeast Asia|
 |---|---|---|
 |Australia Central|125|94|
 |Australia Central 2|125|94|
@@ -677,7 +686,7 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 
 #### [UAE / Qatar](#tab/uae-qatar/MiddleEast)
 
-|Source|Qatar Central|UAE Central|UAE North|
+|Source region|Qatar Central|UAE Central|UAE North|
 |---|---|---|---|
 |Australia Central|191|170|170|
 |Australia Central 2|191|170|171|
@@ -725,7 +734,7 @@ Listing of Middle East / Africa regions including UAE, South Africa, and Qatar.
 
 ### [South Africa](#tab/southafrica/MiddleEast)
 
-|Source|South Africa North|South Africa West|
+|Source region|South Africa North|South Africa West|
 |---|---|---|
 |Australia Central|384|399|
 |Australia Central 2|384|399|
