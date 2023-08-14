@@ -2,7 +2,7 @@
 title: Enable and Configure the Defender for Storage plan at scale using the Azure portal
 description: Learn how to enable the Defender for Storage on your Azure subscription for Microsoft Defender for Cloud using the Azure portal.
 ms.topic: install-set-up-deploy
-ms.date: 08/08/2023
+ms.date: 08/14/2023
 ---
 
 # Enable and configure with the Azure portal
@@ -12,7 +12,7 @@ We recommend that you enable Defender for Storage on the subscription level. Doi
 > [!TIP]
 > You can always [configure specific storage accounts](/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription#override-defender-for-storage-subscription-level-settings) with custom configurations that differ from the settings configured at the subscription level (override subscription-level settings).
 
-## Enable on a subscription using the Azure portal (recommended)
+## [Enable on a subscription (recommended)](#tab/enable-subscription/)
 
 To enable Defender for Storage at the subscription level using the Azure portal:
 
@@ -36,7 +36,7 @@ If you want to change the malware scanning size capping per storage account per 
 
 If you want to disable the plan, turn status button to **Off** for the Storage plan on the Defender plans page and save the changes.
 
-## Enable and configure Microsoft Defender for Storage for a specific account using the Azure portal
+## [Enable on a storage account](#tab/enable-storage-account/)
 
 To enable and configure Microsoft Defender for Storage for a specific account using the Azure portal:
 

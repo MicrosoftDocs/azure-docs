@@ -15,7 +15,7 @@ We recommend that you enable Defender for Storage on the subscription level. Doi
 > [!TIP]
 > You can always [configure specific storage accounts](/azure/storage/common/azure-defender-storage-configure?toc=%2Fazure%2Fdefender-for-cloud%2Ftoc.json&tabs=enable-subscription#override-defender-for-storage-subscription-level-settings) with custom configurations that differ from the settings configured at the subscription level (override subscription-level settings).
 
-## Enable on a subscription (recommended)
+## [Enable on a subscription](#tab/enable-subscription/)
 
 ### Bicep template
 
@@ -89,7 +89,7 @@ To disable the entire Defender plan, set the `pricingTier` property value to **F
 
 Learn more about the ARM template in the Microsoft.Security/Pricings documentation.
 
-## Enable on a storage account
+## [Enable on a storage account](#tab/enable-storage-account/)
 
 ### Bicep template - storage account
 
@@ -162,6 +162,6 @@ If you want to turn off the On-upload malware scanning or Sensitive data threat 
 
 To disable the entire Defender plan for the storage account, set the isEnabled property value to false and remove the malwareScanning and sensitiveDataDiscovery sections from the properties.
 
-Next steps
+## Next steps
 
 Learn more about the [Microsoft.Security/DefenderForStorageSettings](/rest/api/defenderforcloud/defender-for-storage/create) API documentation.
