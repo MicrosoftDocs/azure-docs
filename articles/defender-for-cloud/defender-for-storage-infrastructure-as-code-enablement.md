@@ -1,5 +1,5 @@
 ---
-title: Infrastructure as Code Enablement | Microsoft Defender for Storage
+title: Infrastructure as Code enablement | Microsoft Defender for Storage
 description: Learn how to enable and configure Microsoft Defender for Storage with IaC templates.
 ms.date: 08/08/2023
 author: dcurwin
@@ -8,7 +8,7 @@ ms.topic: how-to
 ---
 
 
-# Enable and Configure with Infrastructure as Code Templates
+# Enable and configure with Infrastructure as Code templates
 
 We recommend that you enable Defender for Storage on the subscription level. Doing so ensures all storage accounts in the subscription will be protected, including future ones.
 

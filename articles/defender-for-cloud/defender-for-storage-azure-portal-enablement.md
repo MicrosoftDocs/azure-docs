@@ -1,5 +1,5 @@
 ---
-title: Enable and Configure the Defender for Storage plan at scale using the Azure portal
+title: Enable and configure the Defender for Storage plan at scale using the Azure portal
 description: Learn how to enable the Defender for Storage on your Azure subscription for Microsoft Defender for Cloud using the Azure portal.
 ms.topic: install-set-up-deploy
 ms.date: 08/14/2023
