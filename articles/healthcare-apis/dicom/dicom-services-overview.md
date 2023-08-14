@@ -9,7 +9,7 @@ ms.date: 09/01/2023
 ms.author: mmitrik
 ---
 
-# Overview
+# What is the DICOM service?
 
 DICOM (Digital Imaging and Communications in Medicine) is the international standard to transmit, store, retrieve, print, process, and display medical imaging information, and is the primary medical imaging standard accepted across healthcare. 
 

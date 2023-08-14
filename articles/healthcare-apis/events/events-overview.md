@@ -10,7 +10,7 @@ ms.date: 09/01/2023
 ms.author: jasteppe
 ---
 
-# Overview
+# What are events?
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
