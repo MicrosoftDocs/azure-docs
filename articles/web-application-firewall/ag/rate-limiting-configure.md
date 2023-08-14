@@ -3,7 +3,7 @@ title: Create rate limiting custom rules for Application Gateway WAF v2
 titleSuffix: Azure Web Application Firewall
 description: Learn how to configure rate limit custom rules for Application Gateway WAF v2.
 services: web-application-firewall
-author: vhorne
+author: joeolerich
 ms.service: web-application-firewall
 ms.date: 07/28/2023
 ms.author: victorh
@@ -53,7 +53,7 @@ $ratelimitrule = New-AzApplicationGatewayFirewallCustomRule -Name ClientIPRateLi
 ```
 #### [CLI](#tab/cli)
 
-The Azure CLI commands to enable and configure Sensitive Data Protection are coming soon.
+The Azure CLI commands to enable and configure Rate Limit rules are coming soon.  
 
 **Scenario Two** - Create Rate Limit Custom Rule to match all traffic except for traffic originating from the United States.  Traffic will be grouped, counted and rate limited based on the GeoLocation of the Client Source IP address 
 
@@ -87,7 +87,7 @@ Set-AzApplicationGatewayFirewallPolicy -Name Joe_AppGW -ResourceGroupName 'JoeO_
 ```
 #### [CLI](#tab/cli)
 
-The Azure CLI commands to enable and configure Sensitive Data Protection are coming soon.
+The Azure CLI commands to enable and configure Rate Limit rules are coming soon.
 
 **Scenario Three** - Create Rate Limit Custom Rule matching all traffic for the login page, and using the GroupBy None variable.  This will group and count all traffic which matches the rule as one, and apply the action across all traffic matching the rule (/login).
 
@@ -112,16 +112,16 @@ The Azure CLI commands to enable and configure Sensitive Data Protection are com
 1. Select Save to save the configuration and make the custom rule active for the WAF policy. 
 
 #### [PowerShell](#tab/powershell)
-
+```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri  
 $condition = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable -Operator Contains -MatchValue "/login" -NegationCondition $True  
 $groupByVariable = New-AzApplicationGatewayFirewallCustomRuleGroupByVariable -VariableName None       
 $groupByUserSession = New-AzApplicationGatewayFirewallCustomRuleGroupByUserSession -GroupByVariable $groupByVariable 
 $ratelimitrule = New-AzApplicationGatewayFirewallCustomRule -Name LoginRateLimitRule -Priority 99 -RateLimitDuration OneMin -RateLimitThreshold 100 -RuleType RateLimitRule -MatchCondition $condition -GroupByUserSession $groupByUserSession -Action Block -State Enabled 
-
+```
 #### [CLI](#tab/cli)
 
-The Azure CLI commands to enable and configure Sensitive Data Protection are coming soon.
+The Azure CLI commands to enable and configure Rate Limit rules are coming soon.  
 
 ## Next steps
 
