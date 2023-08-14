@@ -1,6 +1,6 @@
 ---
-title: RBAC authorization for AAD clients to publish, subscribe MQTT messages
-description: Describes RBAC role configuration to authorize AAD clients to publish or subscribe to MQTT messages
+title: RBAC authorization for clients with Azure AD identity to publish, subscribe MQTT messages
+description: Describes RBAC roles to authorize clients with Azure AD identity to publish or subscribe MQTT messages
 ms.topic: conceptual
 ms.date: 8/11/2023
 author: veyaddan
@@ -8,7 +8,7 @@ ms.author: veyaddan
 ---
 
 # Authorizing access to publish or subscribe to MQTT messages in Event Grid namespace
-You can use Azure role-based access control (Azure RBAC) to provide MQTT clients with publish or subscribe access to specific topic spaces.
+You can use Azure role-based access control (Azure RBAC) to enable MQTT clients, with Azure Active Directory (AAD) identity, to publish or subscribe access to specific topic spaces.
 
 ## Prerequisites
 - You need an Event Grid namespace with MQTT enabled.  [Learn about creating Event Grid namespace](/azure/event-grid/create-view-manage-namespaces#create-a-namespace)
