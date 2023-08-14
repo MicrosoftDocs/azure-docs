@@ -41,7 +41,7 @@ To view session host utilization:
 
 1. From the drop-down lists, select one or more **subscriptions**, **resource groups**, **host pools**, and specify a **time range**, then select the **Utilization** tab
 
-1. Review the **Session history** chart, which displays the number of active and idle (disconnected) sessions over time and illustrate periods of activity over time. Identify any periods of high activity, and periods of low activity from the peak user session count and the time period in which the peaks occur. If you find a regular, repeated pattern of activity, this usually implies there's a good opportunity to implement a scaling plan.
+1. Review the **Session history** chart, which displays the number of active and idle (disconnected) sessions over time. Identify any periods of high activity, and periods of low activity from the peak user session count and the time period in which the peaks occur. If you find a regular, repeated pattern of activity, this usually implies there's a good opportunity to implement a scaling plan.
 
    In this example, the graph shows the number of users sessions over the course of a week. Peaks occur at around midday on weekdays, and there's a noticeable lack of activity over the weekend. This suggests that there's an opportunity to scale session hosts to meet demand during the week, and reduce the number of session hosts over the weekend.        
 
