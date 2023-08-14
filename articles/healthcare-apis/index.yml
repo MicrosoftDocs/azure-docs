@@ -28,7 +28,7 @@ highlightedContent:
 conceptualContent:
   items: 
         # Card
-        - title: Get started
+        - title: Get started with Azure Health Data Services
           links:
             - url: ./get-started-with-health-data-services.md
               itemType: how-to-guide
