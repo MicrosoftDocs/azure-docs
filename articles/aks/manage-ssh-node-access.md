@@ -125,14 +125,10 @@ az aks nodepool upgrade --cluster-name myManagedCluster --name mynodepool --reso
 
 ## Update SSH public key on an existing AKS cluster
 
-> [!NOTE]
-> Updating of the SSH key is supported on Azure virtual machine scale sets with AKS clusters.
-
 Use the [az aks update][az-aks-update] command to update the SSH public key (preview) on your cluster. This operation updates the key on all node pools. You can either specify the key or a key file using the `--ssh-key-value` argument.
 
-```azurecli
-az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value <new SSH key value or SSH key file>
-```
+> [!NOTE]
+> Updating of the SSH key is supported on Azure virtual machine scale sets with AKS clusters.
 
 The following are examples of this command:
 
