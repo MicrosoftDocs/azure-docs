@@ -123,19 +123,7 @@ The upgrade process triggers each node pool to be re-imaged simultaneously. Upgr
 
 Cilium will begin enforcing network policies only after all nodes have been re-imaged.
 
-To perform the upgrade, you will need Azure CLI with *aks-preview* extension version 0.5.150 or later.
-
-1. Install the *aks-preview* extension:
-
-   ```azurecli-interactive
-   az extension add --name aks-preview
-   ```
-
-1. Update to the latest version of the extension:
-
-   ```azurecli-interactive
-   az extension update --name aks-preview
-   ```
+To perform the upgrade, you will need Azure CLI version 2.52.0 or later. Run `az --version` to see the currently installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 Use the following command to upgrade an existing cluster to Azure CNI Powered by Cilium. Replace the values for `<clusterName>`, `<resourceGroupName>`, and `<location>`:
 
