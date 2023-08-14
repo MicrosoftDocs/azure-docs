@@ -1,16 +1,16 @@
 ---
-title: Document Intelligence (formerly Form Recognizer) SDKs 
+title: Document Intelligence (formerly Form Recognizer) v3.1 SDKs 
 titleSuffix: Azure AI services
-description: Document Intelligence software development kits (SDKs) expose Document Intelligence models, features and capabilities, using C#, Java, JavaScript, and Python programming language.
+description: The Document Intelligence v3.1 software development kits (SDKs) expose Document Intelligence models, features and capabilities that are in active development for C#, Java, JavaScript, or Python programming language.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.custom: devx-track-python
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 08/11/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
+monikerRange: '>=doc-intel-3.0.0'
 ---
 
 
@@ -19,12 +19,9 @@ monikerRange: '<=doc-intel-3.1.0'
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD051 -->
 
-# Document Intelligence SDK (GA)
+# Document Intelligence SDK v3.1 (GA)
 
-[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-v2-1.md)]
-
-> [!IMPORTANT]
-> For more information on the latest public preview version (**2023-02-28-preview**), *see* [Document Intelligence SDK (preview)](sdk-preview.md)
+**The SDKs referenced in this article are supported by:** ![Document Intelligence checkmark](media/yes-icon.png) **Document Intelligence REST API version 2023-07-31 — v3.1 (GA)**.
 
 Azure AI Document Intelligence is a cloud service that uses machine learning to analyze text and structured data from documents. The Document Intelligence software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Intelligence models and capabilities into your applications. Document Intelligence SDK is available across platforms in C#/.NET, Java, JavaScript, and Python programming languages.
 
@@ -32,23 +29,54 @@ Azure AI Document Intelligence is a cloud service that uses machine learning to 
 
 Document Intelligence SDK supports the following languages and platforms:
 
-| Language → Document Intelligence SDK version | Package| Supported API version| Platform support |
-|:----------------------:|:----------|:----------| :----------------|
-| [.NET/C# → 4.0.0 (latest GA release)](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)|[NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer)|[v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux, Docker](https://dotnet.microsoft.com/download)|
-|[Java → 4.0.6 (latest GA release)](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) |[MVN repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.6) |[v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/java/openjdk/install)|
-|[JavaScript → 4.0.0 (latest GA release)](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer)| [v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
-|[Python → 3.2.0 (latest GA release)](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html) | [PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/)| [v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
+| Language → Document Intelligence SDK version &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;| Package| Supported API version &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;| Platform support |
+|:----------------------:|:----------|:----------| :----------------:|
+| [**.NET/C# → 4.1.0 → GA </br>(2023-08-10)**](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.1.0/index.html)|[NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.1.0)|[&bullet; 2023-07-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [&bullet; 2022-08-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [&bullet; v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[&bullet; v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux, Docker](https://dotnet.microsoft.com/download)|
+|[**Java →  4.1.0 → GA</br>(2023-08-10)**](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.1.0/index.html) |[MVN repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) |[&bullet; 2023-07-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [&bullet; 2022-08-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [&bullet; v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[&bullet; v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/java/openjdk/install)|
+|[**JavaScript → 5.0.0 → GA</br> (2023-08-08)**](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/5.0.0/index.html)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer)| [&bullet; 2023-07-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> &bullet; [2022-08-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [&bullet; v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[&bullet; v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
+|[**Python → 3.3.0 → GA</br> (2023-08-08)**](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.3.0/index.html) | [PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.3.0/)| [&bullet; 2023-07-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> &bullet; [2022-08-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</br> [&bullet; v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[&bullet; v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
 
 ## Supported Clients
 
-| Language| SDK version | API version | Supported clients|
+The following tables present the correlation between each SDK version the supported API versions of the Document Intelligence service.
+
+### [C#/.NET](#tab/csharp)
+
+| Language| SDK version | API version (default) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Supported clients|
 | :------ | :-----------|:---------- | :-----------------|
-|.NET/C#</br> Java</br> JavaScript</br>| 4.0.0 (latest GA release)| v3.0 / 2022-08-31 (default)|  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
-|.NET/C#</br> Java</br> JavaScript</br>| 3.1.x |  v2.1 (default)</br>v2.0 |  **FormRecognizerClient**</br>**FormTrainingClient** |
-|.NET/C#</br> Java</br> JavaScript</br>| 3.0.x| v2.0 |  **FormRecognizerClient**</br>**FormTrainingClient** |
-| Python| 3.2.x (latest GA release) | v3.0 / 2022-08-31 (default)|  DocumentAnalysisClient</br>DocumentModelAdministrationClient|
-| Python | 3.1.x |  v2.1 (default)</br>v2.0 |**FormRecognizerClient**</br>**FormTrainingClient** |
-| Python | 3.0.0 |  v2.0 |**FormRecognizerClient**</br>**FormTrainingClient** |
+|**.NET/C#**| 4.1.0 (GA)| v3.1 → 2023-07-31|**DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
+|**.NET/C#**| 4.0.0 (GA)| v3.0 → 2022-08-31|  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
+|**.NET/C#**| 3.1.x |  v2.1 |  **FormRecognizerClient**</br>**FormTrainingClient** |
+|**.NET/C#**| 3.0.x| v2.0 |  **FormRecognizerClient**</br>**FormTrainingClient** |
+
+### [Java](#tab/java)
+
+| Language| SDK version | API version (default) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Supported clients|
+| :------ | :-----------|:---------- | :-----------------|
+|**Java**| 4.1.0 (GA)| v3.1 → 2023-07-31|**DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
+|**.NET/C#**</br> **Java**</br> **JavaScript**</br>| 4.0.0 (GA)| v3.0 → 2022-08-31|  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
+|**.NET/C#**</br> **Java**</br> **JavaScript**</br>| 3.1.x |  v2.1 |  **FormRecognizerClient**</br>**FormTrainingClient** |
+|**.NET/C#**</br> **Java**</br> **JavaScript**</br>| 3.0.x| v2.0 |  **FormRecognizerClient**</br>**FormTrainingClient** |
+
+### [JavaScript](#tab/javascript)
+
+| Language| SDK version | API version (default) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Supported clients|
+| :------ | :-----------|:---------- | :-----------------|
+|**JavaScript**| 5.0.0 (GA)| v3.1 → 2023-07-31|**DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
+|**.NET/C#**</br> **Java**</br> **JavaScript**</br>| 4.0.0 (GA)| v3.0 → 2022-08-31|  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
+|**.NET/C#**</br> **Java**</br> **JavaScript**</br>| 3.1.x |  v2.1 |  **FormRecognizerClient**</br>**FormTrainingClient** |
+|**.NET/C#**</br> **Java**</br> **JavaScript**</br>| 3.0.x| v2.0 |  **FormRecognizerClient**</br>**FormTrainingClient** |
+
+### [Python](#tab/python)
+
+| Language| SDK version | API version (default) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Supported clients|
+| :------ | :-----------|:---------- | :-----------------|
+| **Python**| 3.3.0 (GA)| v3.1 → 2023-07-31 |  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient**|
+| **Python**| 3.2.x (GA) | v3.0 / 2022-08-31|  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient**|
+| **Python**| 3.1.x |  v2.1  |  **FormRecognizerClient**</br>**FormTrainingClient** |
+| **Python** | 3.0.0 |  v2.0 |**FormRecognizerClient**</br>**FormTrainingClient** |
+
+---
 
 ## Use Document Intelligence SDK in your applications
 
@@ -59,40 +87,40 @@ The Document Intelligence SDK enables the use and management of the Document Int
 ### [C#/.NET](#tab/csharp)
 
 ```dotnetcli
-dotnet add package Azure.AI.FormRecognizer --version 4.0.0
+dotnet add package Azure.AI.FormRecognizer --version 4.1.0
 ```
 
 ```powershell
-Install-Package Azure.AI.FormRecognizer -Version 4.0.0
+Install-Package Azure.AI.FormRecognizer -Version 4.1.0
 ```
 
 ### [Java](#tab/java)
 
 ```xml
-<dependency>
-<groupId>com.azure</groupId>
-<artifactId>azure-ai-formrecognizer</artifactId>
-<version>4.0.6</version>
-</dependency>
+  <dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-formrecognizer</artifactId>
+  <version>4.1.0</version>
+  </dependency>
 ```
 
 ```kotlin
-implementation("com.azure:azure-ai-formrecognizer:4.0.6")
+implementation("com.azure:azure-ai-formrecognizer:4.1.0")
 ```
 
 ### [JavaScript](#tab/javascript)
 
 ```javascript
-npm i @azure/ai-form-recognizer@4.0.0
+npm i @azure/ai-form-recognizer@5.0.0
 ```
 
 ### [Python](#tab/python)
 
 ```python
-pip install azure-ai-formrecognizer==3.2.0
+pip install azure-ai-formrecognizer==3.3.0
 ```
----
 
+---
 
 ### 2. Import the SDK client library into your application
 
@@ -127,7 +155,6 @@ from azure.core.credentials import AzureKeyCredential
 ```
 
 ---
-
 
 ### 3. Set up authentication
 
@@ -183,7 +210,6 @@ async function main() {
 ```
 
 ---
-
 
 #### Use an Azure Active Directory (Azure AD) token credential
 
@@ -313,7 +339,6 @@ For more information, *see* [Authenticate the client](https://github.com/Azure/a
 
 ---
 
-
 ### 4. Build your application
 
 Create a client object to interact with the Document Intelligence SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try a [quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) in a language of your choice.
@@ -324,8 +349,5 @@ The [Microsoft Q&A](/answers/topics/azure-form-recognizer.html) and [Stack Overf
 
 ## Next steps
 
->[!div class="nextstepaction"]
-> [**Explore Document Intelligence REST API v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
-
 > [!div class="nextstepaction"]
-> [**Try a Document Intelligence quickstart**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)
+>Explore  [**Document Intelligence REST API 2023-07-31**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) operations.
