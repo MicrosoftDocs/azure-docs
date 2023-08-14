@@ -19,7 +19,7 @@ ms.custom: engagement-fy23
 # Language customization in Azure Active Directory
 
 > [!TIP]
-> This article applies to workforce tenants. For customer tenant information, see [Customize the language of the authentication experience](customers/how-to-customize-languages-customers.md).
+> This article applies to B2B collaboration user flows. If your tenant is configured for customer identity and access management, see [Customize the language of the authentication experience](customers/how-to-customize-languages-customers.md).
 
 Language customization in Azure Active Directory (Azure AD) allows your user flow to accommodate different languages to suit your user's needs. Microsoft provides the translations for [36 languages](#supported-languages). In this article, you'll learn how to customize the attribute names on the [attribute collection page](self-service-sign-up-user-flow.md#select-the-layout-of-the-attribute-collection-form), even if your experience is provided for only a single language.
 
