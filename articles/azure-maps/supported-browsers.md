@@ -63,9 +63,7 @@ You might want to target older browsers that don't support WebGL or that have on
 The [Render Azure Maps in Leaflet] Azure Maps sample shows how to render Azure Maps Raster Tiles in the Leaflet JS map control. This sample uses the open source [Azure Maps Leaflet plugin]. For the source code for this sample, see [Render Azure Maps in Leaflet sample source code].
 
 <!----------------------------------------
-<iframe height="500" scrolling="no" title="Azure Maps + Leaflet" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + Leaflet</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result]
 ---------------------------------------->
 
 For more code samples using Azure Maps in Leaflet, see [Azure Maps Samples].
