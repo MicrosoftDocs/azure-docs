@@ -30,7 +30,7 @@ Defender for Storage in Microsoft Defender for Cloud is an Azure-native layer of
 ## Prerequisites for Malware scanning
 To enable and configure Malware Scanning, you must have Owner roles (such as Subscription Owner or Storage Account Owner) or specific roles with the necessary data actions. Learn more about the [required permissions](support-matrix-defender-for-storage.md).
 
-## Setup and configure Microsoft Defender for Storage
+## Set up and configure Microsoft Defender for Storage
 
 To enable and configure Microsoft Defender for Storage and ensure maximum protection and cost optimization, the following configuration options are available:
 

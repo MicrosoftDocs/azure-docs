@@ -4,14 +4,14 @@ description: Learn about the permissions required to enable Defender for Storage
 ms.topic: reference
 author: dcurwin
 ms.author: dacurwin
-ms.date: 08/02/2023
+ms.date: 08/14/2023
 ---
 
 # Required permissions for enabling Defender for Storage and its features
 
 This article lists the permissions required to [enable Defender for Storage](../storage/common/azure-defender-storage-configure.md) and its features.
 
-icrosoft Defender for Storage is an Azure-native layer of security intelligence that detects potential threats to your storage accounts. It helps prevent the three major impacts on your data and workload: malicious file uploads, sensitive data exfiltration, and data corruption.
+Microsoft Defender for Storage is an Azure-native layer of security intelligence that detects potential threats to your storage accounts. It helps prevent the three major impacts on your data and workload: malicious file uploads, sensitive data exfiltration, and data corruption.
 
 - **Activity monitoring:** Detects suspicious activities in storage accounts by analyzing data plane and control plane activities and using Microsoft Threat Intelligence, behavioral modeling, and machine-learning.
 
