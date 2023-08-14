@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description:  This article helps you understand when to use which view, how each one provides unique insights about your costs and recommended next steps to investigate further.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2022
+ms.date: 08/10/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
