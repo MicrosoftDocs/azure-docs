@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 08/15/2023
 ---
 
 # Exchange AS2 messages using workflows in Azure Logic Apps
@@ -86,15 +86,9 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. On the designer, under the trigger or action where you want to add the **AS2 (v2)** action, select **New step**.
+1. In the designer, [follow these general steps to add the **AS2 (v2)** action named **AS2 Encode** to your workflow](create-workflow-with-trigger-or-action?tabs=consumption#add-action).
 
-1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **as2**.
-
-1. From the actions list, select the action named **AS2 Encode**.
-
-   ![Screenshot showing the Azure portal, designer for Consumption workflow, and "AS2 Encode" action selected.](./media/logic-apps-enterprise-integration-as2/select-as2-v2-encode-consumption.png)
-
-1. In the action information box, provide the following information.
+1. In the action information box, provide the following information:
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -108,13 +102,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. On the designer, under the trigger or action where you want to add the **AS2** action, select **New step**.
-
-1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **as2 encode**.
-
-1. From the actions list, select the action named **Encode to AS2 message**.
-
-   ![Screenshot showing the Azure portal, designer for Consumption workflow, and "Encode to AS2 message" action selected.](./media/logic-apps-enterprise-integration-as2/select-encode-as2-consumption.png)
+1. In the designer, [follow these general steps to add the **AS2** action named **Encode to AS2 message** to your workflow](create-workflow-with-trigger-or-action?tabs=consumption#add-action).
 
 1. When prompted to create a connection to your integration account, provide the following information:
 
@@ -145,13 +133,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. On the designer, under the trigger or action where you want to add the **AS2 (v2)** action, select **Insert a new step** (plus sign), and then select **Add an action**.
-
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **as2 encode**.
-
-1. From the actions list, select the action named **AS2 Encode**.
-
-   ![Screenshot showing the Azure portal, designer for Standard workflow, and "AS2 Encode" action selected.](./media/logic-apps-enterprise-integration-as2/select-as2-v2-encode-built-in-standard.png)
+1. In the designer, [follow these general steps to add the **AS2 (v2)** action named **AS2 Encode** to your workflow](create-workflow-with-trigger-or-action?tabs=standard#add-action).
 
 1. In the action information pane, provide the following information:
 
@@ -169,13 +151,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. On the designer, under the trigger or action where you want to add the **AS2** action, select **Insert a new step** (plus sign), and then select **Add an action**.
-
-1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter **as2 encode**.
-
-1. From the actions list, select the action named **Encode to AS2 message**.
-
-   ![Screenshot showing the Azure portal, workflow designer for Standard, and "Encode to AS2 message" action selected.](./media/logic-apps-enterprise-integration-as2/select-encode-as2-message-managed-standard.png)
+1. In the designer, [follow these general steps to add the **AS2** action named **Encode to AS2 message** to your workflow](create-workflow-with-trigger-or-action?tabs=standard#add-action).
 
 1. When prompted to create a connection to your integration account, provide the following information:
 
@@ -214,13 +190,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. On the designer, under the trigger or action where you want to add the **AS2 (v2)** action, select **New step**.
-
-1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **as2**.
-
-1. From the actions list, select the action named **AS2 Decode**.
-
-   ![Screenshot showing the Azure portal, designer for Consumption workflow, and "AS2 Decode" action selected.](media/logic-apps-enterprise-integration-as2/select-as2-v2-decode-consumption.png)
+1. In the designer, [follow these general steps to add the **AS2 (v2)** action named **AS2 Decode** to your workflow](create-workflow-with-trigger-or-action?tabs=consumption#add-action).
 
 1. In the action information box, provide the following information:
 
@@ -237,13 +207,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. On the designer, under the trigger or action where you want to add the **AS2** action, select **New step**.
-
-1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **as2 decode**.
-
-1. From the actions list, select the action named **Decode AS2 message**.
-
-   ![Screenshot showing the Azure portal, designer for Consumption workflow, and "Decode AS2 message" action selected.](./media/logic-apps-enterprise-integration-as2/select-decode-as2-consumption.png)
+1. In the designer, [follow these general steps to add the **AS2** action named **Decode AS2 message** to your workflow](create-workflow-with-trigger-or-action?tabs=consumption#add-action).
 
 1. When prompted to create a connection to your integration account, provide the following information:
 
@@ -273,13 +237,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. On the designer, under the trigger or action where you want to add the AS2 action, select **Insert a new step** (plus sign), and then select **Add an action**.
-
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **as2 decode**.
-
-1. From the actions list, select the action named **AS2 Decode**.
-
-   ![Screenshot showing the Azure portal, designer for Standard workflow, and "AS2 Decode" action selected.](./media/logic-apps-enterprise-integration-as2/select-as2-v2-decode-built-in-standard.png)
+1. In the designer, [follow these general steps to add the **AS2 (v2)** action named **AS2 Decode** to your workflow](create-workflow-with-trigger-or-action?tabs=standard#add-action).
 
 1. In the action information pane, provide the following information:
 
@@ -296,13 +254,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. On the designer, under the trigger or action where you want to add the AS2 action, select **Insert a new step** (plus sign), and then select **Add an action**.
-
-1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter **as2 decode**.
-
-1. From the actions list, select the action named **Decode AS2 message**.
-
-   ![Screenshot showing the Azure portal, designer for Standard workflow, and "Decode AS2 message" operation selected.](./media/logic-apps-enterprise-integration-as2/select-decode-as2-message-managed-standard.png)
+1. In the designer, [follow these general steps to add the **AS2** action named **Decode AS2 message** to your workflow](create-workflow-with-trigger-or-action?tabs=consumption#add-action).
 
 1. When prompted to create a connection to your integration account, provide the following information:
 
