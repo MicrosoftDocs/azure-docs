@@ -115,7 +115,7 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
 > [!NOTE]
 > You can update an existing cluster to Azure CNI Powered by Cilium if the cluster meets the following criteria:
 >
-> - The cluster uses either [Azure CNI Overlay](./azure-cni-overlay.md) or [Azure CNI with dynamic IP allocation](./configure-azure-cni-dynamic-ip-allocation.md).
+> - The cluster uses either [Azure CNI Overlay](./azure-cni-overlay.md) or [Azure CNI with dynamic IP allocation](./configure-azure-cni-dynamic-ip-allocation.md). This does **not** include [Azure CNI](./configure-azure-cni).
 > - The cluster does not have Azure NPM or Calico enabled.
 > - The cluster does not have any Windows node pools.
 
