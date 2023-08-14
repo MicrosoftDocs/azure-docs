@@ -104,7 +104,7 @@ To resolve this error, ensure that the device can promptly [notify IoT Hub file 
 
 During a cloud-to-device (C2D) communication, such as C2D message, twin update, or direct method, you may see that the operation fails with error **404001 DeviceNotFound**.
 
-The operation failed because the device cannot be found by IoT Hub. The device either is not registered or is disabled.
+The operation failed because IoT Hub can't find the device. The device either isn't registered or is disabled.
 
 To resolve this error, register the device ID that you used, then try again.
 
@@ -124,7 +124,7 @@ Or, devices disconnect randomly, and you see **404104 DeviceConnectionClosedRemo
 
 Or, many devices disconnect at once, you see a dip in the [Connected devices (connectedDeviceCount) metric](monitor-iot-hub-reference.md), and there are more **404104 DeviceConnectionClosedRemotely** and [500xxx Internal errors](#500xxx-internal-errors) in Azure Monitor Logs than usual.
 
-This error can occur because the [SAS token used to connect to IoT Hub](iot-hub-dev-guide-sas.md#sas-tokens) expired, which causes IoT Hub to disconnect the device. The connection is re-established when the token is refreshed by the device. For example, [the SAS token expires every hour by default for C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-authentication), which can lead to regular disconnects. To learn more, see [401003 IoTHubUnauthorized](#401003-iothubunauthorized).
+This error can occur because the [SAS token used to connect to IoT Hub](iot-hub-dev-guide-sas.md#sas-tokens) expired, which causes IoT Hub to disconnect the device. The connection is re-established when the token is refreshed by the device. For example, [the SAS token expires every hour by default for C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-authentication), which can lead to regular disconnects. To learn more, see [401003 IoTHubUnauthorized](#401003-iot-hub-unauthorized).
 
 Some other possibilities include:
 
@@ -136,7 +136,7 @@ Or, IoT Hub might be experiencing a transient issue. See [IoT Hub internal serve
 
 To resolve this error:
 
-* See the guidance for [error 401003 IoTHubUnauthorized](#401003-iothubunauthorized).
+* See the guidance for [error 401003 IoTHubUnauthorized](#401003-iot-hub-unauthorized).
 * Make sure the device has good connectivity to IoT Hub by [testing the connection](tutorial-connectivity.md). If the network is unreliable or intermittent, we don't recommend increasing the keep-alive value because it could result in detection (via Azure Monitor alerts, for example) taking longer.
 * Use the latest versions of the [IoT SDKs](iot-hub-devguide-sdks.md).
 * See the guidance for [IoT Hub internal server errors](#500xxx-internal-errors).
@@ -159,7 +159,7 @@ You may see the error **409002 LinkCreationConflict** in logs along with device 
 
 Generally, this error happens when IoT Hub detects a client has more than one connection. In fact, when a new connection request arrives for a device with an existing connection, IoT Hub closes the existing connection with this error.
 
-In the most common case, a separate issue (such as [404104 DeviceConnectionClosedRemotely](#404104-deviceconnectionclosedremotely)) causes the device to disconnect. The device tries to reestablish the connection immediately, but IoT Hub still considers the device connected. IoT Hub closes the previous connection and logs this error.
+In the most common case, a separate issue (such as [404104 DeviceConnectionClosedRemotely](#404104-device-connection-closed-remotely)) causes the device to disconnect. The device tries to reestablish the connection immediately, but IoT Hub still considers the device connected. IoT Hub closes the previous connection and logs this error.
 
 Or, faulty device-side logic causes the device to establish the connection when one is already open.
 
@@ -187,7 +187,7 @@ Consider [scaling up your IoT Hub](iot-hub-scaling.md) if you're running into qu
 
 ## 500xxx Internal errors
 
-You may see that your request to IoT Hub fails with an error that begins with 500 and/or some sort of "server error". Some possibilities are:
+You may see that your request to IoT Hub fails with an error that begins with 500 and/or some sort of "server error." Some possibilities are:
 
 * **500001 ServerError**: IoT Hub ran into a server-side issue.
 
@@ -197,7 +197,7 @@ You may see that your request to IoT Hub fails with an error that begins with 50
 
 * **InternalServerError (no error code)**: IoT Hub encountered an internal error.
 
-There can be a number of causes for a 500xxx error response. In all cases, the issue is most likely transient. While the IoT Hub team works hard to maintain [the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), small subsets of IoT Hub nodes can occasionally experience transient faults. When your device tries to connect to a node that's having issues, you receive this error.
+There can be many causes for a 500xxx error response. In all cases, the issue is most likely transient. While the IoT Hub team works hard to maintain [the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), small subsets of IoT Hub nodes can occasionally experience transient faults. When your device tries to connect to a node that's having issues, you receive this error.
 
 To mitigate 500xxx errors, issue a retry from the device. To [automatically manage retries](../iot-develop/concepts-manage-device-reconnections.md#connection-and-retry), make sure you use the latest version of the [Azure IoT SDKs](iot-hub-devguide-sdks.md). For best practice on transient fault handling and retries, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
