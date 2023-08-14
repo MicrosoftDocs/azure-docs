@@ -59,7 +59,7 @@ To view session host utilization:
 
    In these examples, the first graph shows the pattern of user activity throughout a week between 6AM and 10PM. On the weekend there is minimal activity. The second graph shows the number of active and idle session hosts throughout the same week. There are long periods of time where idle session hosts are powered on. Use this information to help determine optimal ramp-up and ramp-down times for a scaling plan.
 
-   :::image type="content" source="media/insights-use-cases/insights-session-count-over-time-single-host-pool.png" alt-text="A graph showing the number of active and idle session hosts over the course of a week for a single host pool.":::
+   :::image type="content" source="media/insights-use-cases/insights-session-count-over-time-single-host-pool.png" alt-text="A graph showing the number of users sessions over the course of a week for a single host pool.":::
 
    :::image type="content" source="media/insights-use-cases/insights-session-host-idle-count-over-time-single-host-pool.png" alt-text="A graph showing the number of active and idle session hosts over the course of a week for a single host pool.":::
 
