@@ -116,7 +116,7 @@ The following table lists the supported configurations for inbound and outbound 
 For managed online endpoints, you can also secure outbound communication between deployments and resources by using an Azure Machine Learning VNet for each deployment in the endpoint. The secure outbound communication is also handled by using private endpoints to those service instances.
 
 > [!NOTE]
-> We strongly recommend that you secure outbound communication between deployments and resources using private endpoints of the workspace's managed VNet as described in the section [Secure outbound access with managed workspace VNet](#secure-outbound-access-with-managed-workspace-vnet).
+> We strongly recommend that you use the approach described in [Secure outbound access with managed workspace VNet](#secure-outbound-access-with-managed-workspace-vnet) instead.
 
 To restrict communication between a deployment and external resources, including the Azure resources it uses, you should ensure that:
 
@@ -195,5 +195,5 @@ The following table lists the supported configurations when configuring inbound 
 
 ## Next steps
 
-- [How to secure managed online endpoints with network isolation](how-to-secure-online-endpoint.md)
 - [Workspace managed network isolation (preview)](how-to-managed-network.md)
+- [How to secure managed online endpoints with network isolation](how-to-secure-online-endpoint.md)
