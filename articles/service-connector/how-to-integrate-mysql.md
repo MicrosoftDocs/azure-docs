@@ -63,7 +63,7 @@ spring env var tables.
 ### [Others](#tab/others)
 others.
 
-
+---
 
 here're sample codes for each client type.
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
