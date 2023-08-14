@@ -1,15 +1,15 @@
 ---
-title: Use the application routing add-on with Azure Kubernetes Service (AKS) clusters (preview)
+title: Azure Kubernetes Service (AKS) ingress with the application routing add-on (preview)
 description: Use the application routing add-on to securely access applications deployed on Azure Kubernetes Service (AKS).
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
-author: sabbour
+author: asudbring
 ms.topic: how-to
-ms.date: 05/04/2023
-ms.author: asabbour
+ms.date: 08/07/2023
+ms.author: allensu
 ---
 
-# Use the application routing add-on with Azure Kubernetes Service (AKS) clusters (preview)
+# Azure Kubernetes Service (AKS) ingress with the application routing add-on (preview)
 
 The application routing add-on configures an [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in your Azure Kubernetes Service (AKS) cluster with SSL termination through certificates stored in Azure Key Vault. It can optionally integrate with Open Service Mesh (OSM) for end-to-end encryption of inter-cluster communication using mutual TLS (mTLS). When you deploy ingresses, the add-on creates publicly accessible DNS names for endpoints on an Azure DNS zone.
 

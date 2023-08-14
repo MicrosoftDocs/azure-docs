@@ -6,7 +6,7 @@ author: cilwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: include
+ms.topic: quickstart
 ms.date: 09/09/2022
 ms.author: cwerner
 #Customer intent: As an application developer, I want to learn how my Node.js app can get an access token and call an API that is protected by a Microsoft identity platform endpoint using client credentials flow.

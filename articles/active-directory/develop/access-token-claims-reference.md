@@ -21,7 +21,7 @@ Access tokens are [JSON web tokens (JWT)](https://wikipedia.org/wiki/JSON_Web_To
 - **Payload** - Contains all of the important data about the user or application that's attempting to call the service.
 - **Signature** - Is the raw material used to validate the token.
 
-Each piece is separated by a period (`.`) and separately Base64 encoded.
+Each piece is separated by a period (`.`) and separately Base 64 encoded.
 
 Claims are present only if a value exists to fill it. An application shouldn't take a dependency on a claim being present. Examples include `pwd_exp` (not every tenant requires passwords to expire) and `family_name` ([client credential](v2-oauth2-client-creds-grant-flow.md) flows are on behalf of applications that don't have names). Claims used for access token validation are always present.
 
@@ -40,6 +40,7 @@ The Microsoft identity platform uses some claims to help secure tokens for reuse
 
 | Claim | Format | Description | Authorization considerations |
 |-------|--------|-------------|------------------------------|
+| `acrs` | JSON array of strings | Indicates the Auth Context IDs of the operations that the bearer is eligible to perform. Auth Context IDs can be used to trigger a demand for step-up authentication from within your application and services. Often used along with the `xms_cc` claim. |
 | `aud` | String, an Application ID URI or GUID | Identifies the intended audience of the token. In v2.0 tokens, this value is always the client ID of the API. In v1.0 tokens, it can be the client ID or the resource URI used in the request. The value can depend on how the client requested the token. | This value must be validated, reject the token if the value doesn't match the intended audience. |
 | `iss` | String, a security token service (STS) URI | Identifies the STS that constructs and returns the token, and the Azure AD tenant of the authenticated user. If the token issued is a v2.0 token (see the `ver` claim), the URI ends in `/v2.0`. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. | The application can use the GUID portion of the claim to restrict the set of tenants that can sign in to the application, if applicable. |
 |`idp`| String, usually an STS URI | Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account isn't in the same tenant as the issuer, such as guests. Use the value of `iss` if the claim isn't present. For personal accounts being used in an organizational context (for instance, a personal account invited to an Azure AD tenant), the `idp` claim may be 'live.com' or an STS URI containing the Microsoft account tenant `9188040d-6c67-4c5b-b112-36a304b66dad`. | |
@@ -68,7 +69,7 @@ The Microsoft identity platform uses some claims to help secure tokens for reuse
 | `uti` | String | Token identifier claim, equivalent to `jti` in the JWT specification. Unique, per-token identifier that is case-sensitive. | |
 | `rh` | Opaque String | An internal claim used by Azure to revalidate tokens. Resources shouldn't use this claim. | |
 | `ver` | String, either `1.0` or `2.0` | Indicates the version of the access token. | |
-| `xms_cc` | JSON array of strings | Indicates whether the client application that acquired the token is capable of handling claims challenges. This claim is commonly used in Conditional Access and Continuous Access Evaluation scenarios. The resource server that the token is issued for controls the presence of the claim in it. For example, a service application. For more information, see [Claims challenges, claims requests and client capabilities](claims-challenge.md?tabs=dotnet). Resource servers should check this claim in access tokens received from client applications. If this claim is present, resource servers can respond back with a claims challenge. The claims challenge requests more claims in a new access token to authorize access to a protected resource. |
+| `xms_cc` | JSON array of strings | Indicates whether the client application that acquired the token is capable of handling claims challenges. It's often used along with claim `acrs`. This claim is commonly used in Conditional Access and Continuous Access Evaluation scenarios. The resource server or service application that the token is issued for controls the presence of this claim in a token. A value of `cp1` in the access token is the authoritative way to identify that a client application is capable of handling a claims challenge. For more information, see [Claims challenges, claims requests and client capabilities](claims-challenge.md?tabs=dotnet). |
 
 ### Groups overage claim
 
