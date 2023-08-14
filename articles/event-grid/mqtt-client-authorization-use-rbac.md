@@ -8,12 +8,11 @@ ms.author: veyaddan
 ---
 
 # Authorizing access to publish or subscribe to MQTT messages in Event Grid namespace
-You can use Azure role-based access control (Azure RBAC) to enable MQTT clients, with Azure Active Directory (AAD) identity, to publish or subscribe access to specific topic spaces.
+You can use Azure role-based access control (Azure RBAC) to enable MQTT clients, with Azure Active Directory identity, to publish or subscribe access to specific topic spaces.
 
 ## Prerequisites
 - You need an Event Grid namespace with MQTT enabled.  [Learn about creating Event Grid namespace](/azure/event-grid/create-view-manage-namespaces#create-a-namespace)
 - Review the process to [create a custom role](/azure/role-based-access-control/custom-roles-portal)
-
 
 ## Operation types
 You can use following two data actions to provide publish or subscribe permissions to clients with Azure AD identities on specific topic spaces.
@@ -25,7 +24,7 @@ Microsoft.EventGrid/topicSpaces/publish/action
 Microsoft.EventGrid/topicSpaces/subscribe/action
 
 > [!NOTE]
-> Currently, we recommend using custom roles with the actions provided.  Built-in roles for publish and subscribe will be available in future.
+> Currently, we recommend using custom roles with the actions provided.
 
 ## Custom roles
 
@@ -85,14 +84,13 @@ The following are sample role definitions that allow you to publish and subscrib
 1. Switch the Baseline permissions to **Start from scratch**
 1. On the Permissions tab, select **Add permissions**
 1. In the selection page, find and select Microsoft Event Grid
-    :::image type="content" source="./media/mqtt-rbac-authorization-aad-clients/event-grid-custom-role-permissions.png" alt-text="Screenshot showing the Microsoft Event Grid option to find the permissions.":::
+    :::image type="content" source="./media/mqtt-rbac-authorization-aad-clients/event-grid-custom-role-permissions.png" lightbox="./media/mqtt-rbac-authorization-aad-clients/event-grid-custom-role-permissions.png" alt-text="Screenshot showing the Microsoft Event Grid option to find the permissions.":::
 1. Navigate to Data Actions
 1. Select **Topic spaces publish** data action and select **Add**
     :::image type="content" source="./media/mqtt-rbac-authorization-aad-clients/event-grid-custom-role-permissions-data-actions.png" lightbox="./media/mqtt-rbac-authorization-aad-clients/event-grid-custom-role-permissions-data-actions.png" alt-text="Screenshot showing the data action selection.":::
 1. Select Next to see the topic space in the Assignable scopes tab.  You can add other assignable scopes if needed.
 1. Select **Create** in Review + create tab to create the custom role.
 1. Once the custom role is created, you can assign the role to an identity to provide the publish permission on the topic space.  You can learn how to assign roles [here](/azure/role-based-access-control/role-assignments-portal).
-
 
 > [!NOTE]
 > You can follow similar steps to create and assign a custom Event Grid MQTT subscriber permission to a topic space.
