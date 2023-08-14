@@ -125,10 +125,10 @@ Cilium will begin enforcing network policies only after all nodes have been re-i
 
 To perform the upgrade, you will need Azure CLI version 2.52.0 or later. Run `az --version` to see the currently installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-Use the following command to upgrade an existing cluster to Azure CNI Powered by Cilium. Replace the values for `<clusterName>`, `<resourceGroupName>`, and `<location>`:
+Use the following command to upgrade an existing cluster to Azure CNI Powered by Cilium. Replace the values for `<clusterName>` and `<resourceGroupName>`:
 
 ```azurecli-interactive
-az aks update -n <clusterName> -g <resourceGroupName> -l <location> \
+az aks update -n <clusterName> -g <resourceGroupName> \
   --network-dataplane cilium
 ```
 
