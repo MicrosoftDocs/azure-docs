@@ -15,18 +15,11 @@ ms.custom: devx-track-azurecli
 
 **Applies to:** :heavy_check_mark: Linux Images
 
-Azure supports two provisioning agents [cloud-init](https://github.com/canonical/cloud-init), and the [Azure Linux Agent](https://github.com/Azure/WALinuxAgent) (WALA), which forms the prerequisites for creating the generalized images (Azure Compute Gallery or Managed Image). The Azure Linux Agent contains Provisioning Agent Code and Extension Handling code in one package.
+Azure supports two provisioning agents [cloud-init](https://github.com/canonical/cloud-init), and the [Azure Linux Agent](https://github.com/Azure/WALinuxAgent) (WALA), which forms the prerequisites for creating the generalized images (Azure Compute Gallery or Managed Image). The Azure Linux Agent contains Provisioning Agent code and Extension Handling code in one package.
 
-The provisioning agent provides feature support such as setting the host name, configuring SSH authentication types, and [more](/azure/virtual-machines/extensions/agent-linux?branch=pr-en-us-247336#image-provisioning) for all endorsed Azure Linux distributions. The extension handling code is responsible for communicating with the Azure fabric, and handling the VM extensions operations such as installations, reporting status, updating the individual extensions, and removing them.
-But there could be a scenario when you don't want to use either of these applications for your provisioning agent, such as:
+It's crucial to comprehend what functionalities the VM loses before deciding to remove the Linux guest agent. Removal of the guest agent removes the functionality enumerated at [Azure linux VM Agent](/azure/virtual-machines/extensions/agent-linux?branch=pr-en-us-247336).
 
-- Reducing the size of your [Trusted Computing Base (TCB)](/azure/confidential-computing/overview#reducing-the-attack-surface) to create a secure environment for your VM.
-- You require specific VM properties to be set, such as hostname.
-
-It's crucial to comprehend what functionalities the VM loses before deciding to remove the Linux Agent. Removal of the guest agent removes the functionality enumerated at [Azure linux VM Agent](/azure/virtual-machines/extensions/agent-linux?branch=pr-en-us-247336).
-
-This "how to" shows you steps to remove guest agent from the Linux image and deploy a confidential virtual machine (confidential VM) in Azure.
-
+This "how to" shows you steps to remove guest agent from the Linux image.
 ## Prerequisites
 
 - If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -43,7 +36,7 @@ Steps to create an image that removes the Azure guest agents are as follows:
 
     Follow the instructions in step 2 of [remove sudo users from the Linux Image](/azure/confidential-computing/harden-the-linux-image-to-remove-sudo-users) to mount the image.
 
-3.  Remove the Azure linux agent
+3.  Remove the Azure Linux agent
 
 
     Run as root to [remove the Azure Linux Agent](/azure/virtual-machines/linux/disable-provisioning)
@@ -86,9 +79,9 @@ Steps to create an image that removes the Azure guest agents are as follows:
     umount /mnt/dev/$imagedevice
     ```
 
-    The image prepared does not include Azure Linux Agent that can be used for creating the confidential VMs.
+    The image prepared does not include Azure Linux Agent anymore.
 
-7. Use this agent-less image in step 4 of [Create a custom image for Azure confidential VM](/azure/confidential-computing/how-to-create-custom-image-confidential-vm) while doing azcopy and the rest of the steps remains the same to create a Azure confidential agent-less VM.
+7. Use the prepared image to deploy a CVM. Follow the steps from 4 in this[Create a custom image for Azure confidential VM](/azure/confidential-computing/how-to-create-custom-image-confidential-vm) to deploy the agent-less confidential VM.
 
 ## Next Steps
 
