@@ -1,14 +1,14 @@
 ---
-title: Updates for Workflow Definition Language schema
-description: Learn about schema updates for the Workflow Definition Language in Azure Logic Apps.
+title: Update schema for Workflow Definition Language
+description: Learn how to update the schema for the Workflow Definition Language in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/20/2022
+ms.date: 08/15/2023
 ---
 
-# Schema updates for the Workflow Definition Language in Azure Logic Apps - June 1, 2016
+# Update schema for Workflow Definition Language in Azure Logic Apps - June 1, 2016
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
