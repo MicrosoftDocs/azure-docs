@@ -6,28 +6,31 @@ ms.date: 01/09/2023
 ms.author: eur
 ---
 
-### May 2023 release
+### August 2023 release
 
 #### Pronunciation Assessment
 
-- Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 3 additional languages generally available in German (Germany), Japanese (Japan), and Spanish (Mexico), with 4 additional languages available in preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
+- Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 3 additional languages generally available in English (Canada), English (India), and French (Canada), with 3 additional languages available in preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
 
   | Language | Locale (BCP-47) | 
   |--|--|
   |Arabic (Saudi Arabia)|`ar-SA`<sup>1</sup> |
   |Chinese (Mandarin, Simplified)|`zh-CN`|
   |English (Australia)|`en-AU`|
-  |English (Canada)|`en-CA`<sup>1</sup> |
-  |English (India)|`en-IN`<sup>1</sup> |
+  |English (Canada)|`en-CA` |
+  |English (India)|`en-IN` |
   |English (United Kingdom)|`en-GB`|
   |English (United States)|`en-US`|  
-  |French (Canada)|`fr-CA`<sup>1</sup> | 
+  |French (Canada)|`fr-CA`| 
   |French (France)|`fr-FR`|  
   |German (Germany)|`de-DE`|
+  |Italian (Italy)|`it-IT`<sup>1</sup>|
   |Japanese (Japan)|`ja-JP`|
+  |Korean (Korea)|`ko-KR`<sup>1</sup>|
   |Malay (Malaysia)|`ms-MY`<sup>1</sup>|
   |Norwegian Bokmål (Norway)|`nb-NO`<sup>1</sup>|
   |Portuguese (Brazil)|`pt-BR`<sup>1</sup>|
+  |Russian (Russia)|`ru-RU`<sup>1</sup>|
   |Spanish (Mexico)|`es-MX` | 
   |Spanish (Spain)|`es-ES` | 
   |Tamil (India)|`ta-IN`<sup>1</sup> | 
@@ -35,6 +38,11 @@ ms.author: eur
 
   <sup>1</sup> The language is in public preview for pronunciation assessment.
 
+### May 2023 release
+
+#### Pronunciation Assessment
+
+- Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 3 additional languages generally available in German (Germany), Japanese (Japan), and Spanish (Mexico), with 4 additional languages available in preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
 - You can now use the standard Speech to Text commitment tier for pronunciation assessment on all public regions. If you purchase a commitment tier for standard Speech to text, the spend for pronunciation assessment goes towards meeting the commitment. See [commitment tier pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services). 
 
 ### February 2023 release
