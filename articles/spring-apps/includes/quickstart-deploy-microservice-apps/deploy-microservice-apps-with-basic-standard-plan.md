@@ -55,14 +55,14 @@ Use the following steps to create the service instance:
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/create-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with the Basics tab selected." lightbox="../../media/quickstart-deploy-microservice-apps/create-basics.png":::
 
-   Use the following table as a guide for completing the form. The recommended **Plan** is **Basic**.
+   Use the following table as a guide for completing the form. The recommended **Plan** is **Standard**.
 
    | Setting            | Suggested value                  | Description                                                                                                                                                                                                                                                                                         |
    |--------------------|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | **Subscription**   | Your subscription name           | The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription for which you'd like to be billed for the resource.                                                                                                                       |
    | **Resource group** | *myresourcegroup*                | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                                |
    | **Name**           | *myasa*                          | A unique name that identifies your Azure Spring Apps instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
-   | **Plan**           | **Basic**                        | The pricing plan determines the resources and cost associated with your instance.                                                                                                                                                                                                                   |
+   | **Plan**           | **Standard**                     | The pricing plan determines the resources and cost associated with your instance.                                                                                                                                                                                                                   |
    | **Region**         | The region closest to your users | The location that is closest to your users.                                                                                                                                                                                                                                                         |
    | **Zone Redundant** | Unchecked                        | Creates your Azure Spring Apps service in an Azure availability zone. Not currently supported in all regions.                                                                                                                                                                                       |
 
@@ -70,7 +70,7 @@ Use the following steps to create the service instance:
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/diagnostic-settings.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with the Diagnostics tab selected and the Create new button highlighted." lightbox="../../media/quickstart-deploy-microservice-apps/diagnostic-settings.png":::
 
-1. Navigate to the **Application Insights** tab on the **Create Azure Spring Apps** page and then select **Create new** to create a new Application Insights instance. On the **Create new Application Insights resource** page, update the **Application insights name** as needed, select the **Classic** for **Resource mode**, and then select **OK** to confirm the creation.
+1. Navigate to the **Application Insights** tab on the **Create Azure Spring Apps** page and then select **Create new** to create a new Application Insights instance. On the **Create new Application Insights resource** page, update the **Application insights name** as needed, select **Workspace-based** for **Resource mode**, and then select **OK** to confirm the creation.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page with the Create new Application Insights resource pane showing." lightbox="../../media/quickstart-deploy-microservice-apps/application-insights-creation.png":::
 
@@ -110,7 +110,7 @@ Use the following steps to deploy the microservice applications using the [Maven
 1. Use the following command to build and deploy each application:
 
    ```bash
-   ./mvnw -P spring-apps com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:deploy
+   ./mvnw azure-spring-apps:deploy
    ```
 
 1. For the **OAuth2 login** prompt, authorize the login to Azure based on the OAuth2 protocol.

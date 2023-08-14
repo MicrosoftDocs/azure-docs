@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022
-ms.date: 02/24/2023
+ms.date: 08/01/2023
 show_latex: true
 ---
 
@@ -90,9 +90,9 @@ AutoML executes several preprocessing steps on your data to prepare for model tr
 |--|--|
 Fill missing data|[Impute missing values and observation gaps](./concept-automl-forecasting-methods.md#missing-data-handling) and optionally [pad or drop short time series](./how-to-auto-train-forecast.md#short-series-handling)|
 |Create calendar features|Augment the input data with [features derived from the calendar](./concept-automl-forecasting-calendar-features.md) like day of the week and, optionally, holidays for a specific country/region.|
-|Encode categorical data|[Label encode](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html) strings and other categorical types; this includes all [time series ID columns](./how-to-auto-train-forecast.md#configuration-settings).|
+|Encode categorical data|[Label encode](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html) strings and other categorical types; this includes all [time series ID columns](./how-to-auto-train-forecast.md#forecasting-job-settings).|
 |Target transform|Optionally apply the natural logarithm function to the target depending on the results of certain statistical tests.|
-|Normalization|[Z-score normalize](https://en.wikipedia.org/wiki/Standard_score) all numeric data; normalization is performed per feature and per time series group, as defined by the [time series ID columns](./how-to-auto-train-forecast.md#configuration-settings).
+|Normalization|[Z-score normalize](https://en.wikipedia.org/wiki/Standard_score) all numeric data; normalization is performed per feature and per time series group, as defined by the [time series ID columns](./how-to-auto-train-forecast.md#forecasting-job-settings).
 
 These steps are included in AutoML's transform pipelines, so they are automatically applied when needed at inference time. In some cases, the inverse operation to a step is included in the inference pipeline. For example, if AutoML applied a $\log$ transform to the target during training, the raw forecasts are exponentiated in the inference pipeline.  
 

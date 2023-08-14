@@ -120,7 +120,7 @@ Secrets that don't have a known attack path, are referred to as `secrets without
 
 ## Remediate secrets with cloud security explorer
 
-The [cloud security explorer](concept-attack-path.md#what-is-cloud-security-explorer) allows you to proactively identify potential security risks within your cloud environment. By querying the [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph), the context engine of Defender for Cloud. The cloud security explorer allows your security team to prioritize any concerns, while also considering the specific context and conventions of your organization.
+The [cloud security explorer](concept-attack-path.md#what-is-cloud-security-explorer) enables you to proactively identify potential security risks within your cloud environment. It does so by querying the [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph), which is the context engine of Defender for Cloud. The cloud security explorer allows your security team to prioritize any concerns, while also considering the specific context and conventions of your organization.
 
 **To remediate secrets with cloud security explorer**:
 

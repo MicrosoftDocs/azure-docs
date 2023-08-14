@@ -11,7 +11,7 @@ The Slider control lets users select from a range of allowed values.
 
 ## UI sample
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-slider.png" alt-text="Microsoft.Common.Slider":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-slider.png" alt-text="Screenshot of Microsoft.Common.Slider UI element with a range of allowed values.":::
 
 ## Schema
 

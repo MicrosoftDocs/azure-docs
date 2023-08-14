@@ -6,6 +6,7 @@ author: mcleanbyron
 ms.author: mcleans
 ms.service: azure-app-configuration
 ms.topic: reference
+ms.custom: horz-monitor
 ms.date: 05/05/2021
 ---
 

@@ -2,7 +2,7 @@
 author: DavidCBerry13
 ms.author: daberry
 ms.topic: include
-ms.date: 01/29/2022
+ms.date: 07/26/2023
 ---
 On the **Create Web App** page, fill out the form as follows.
 
@@ -10,4 +10,4 @@ On the **Create Web App** page, fill out the form as follows.
 1. **Name** &rarr; *msdocs-python-webapp-quickstart-XYZ* where XYZ is any three random characters. This name must be unique across Azure.
 1. **Runtime stack** &rarr; **Python 3.9**.
 1. **Region** &rarr; Any Azure region near you.
-1. **App Service Plan** &rarr; Under **Sku and size**, select **Change size** to select a different App Service plan.
+1. **App Service Plan** &rarr; Under **Pricing plan**, select **Explore pricing plans** to select a different App Service plan.

@@ -103,10 +103,10 @@ configure push credentials in your notification hub. Even if you have no prior e
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
     <dict>
-    	<key>HUB_NAME</key>
-    	<string>--HUB-NAME--</string>
-    	<key>CONNECTION_STRING</key>
-    	<string>--CONNECTION-STRING--</string>
+      <key>HUB_NAME</key>
+      <string>--HUB-NAME--</string>
+      <key>CONNECTION_STRING</key>
+      <string>--CONNECTION-STRING--</string>
     </dict>
     </plist>
     ```
@@ -123,7 +123,7 @@ configure push credentials in your notification hub. Even if you have no prior e
     @end
 
     @implementation AppDelegate
-    
+
     @synthesize notificationPresentationCompletionHandler;
     @synthesize notificationResponseCompletionHandler;
 
@@ -131,7 +131,7 @@ configure push credentials in your notification hub. Even if you have no prior e
 
         NSString *path = [[NSBundle mainBundle] pathForResource:@"DevSettings" ofType:@"plist"];
         NSDictionary *configValues = [NSDictionary dictionaryWithContentsOfFile:path];
-        
+
         NSString *connectionString = [configValues objectForKey:@"CONNECTION_STRING"];
         NSString *hubName = [configValues objectForKey:@"HUB_NAME"];
 
@@ -139,7 +139,7 @@ configure push credentials in your notification hub. Even if you have no prior e
             [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
             [MSNotificationHub setDelegate:self];
             [MSNotificationHub initWithConnectionString:connectionString withHubName:hubName];
-    
+
             return YES;
         }
 
@@ -181,16 +181,16 @@ configure push credentials in your notification hub. Even if you have no prior e
    #import "SetupViewController.h"
 
     static NSString *const kNHMessageReceived = @"MessageReceived";
-    
+
     @interface SetupViewController ()
-    
+
     @end
 
     @implementation SetupViewController
 
     - (void)viewDidLoad {
         [super viewDidLoad];
-        
+
         // Listen for messages using NSNotificationCenter
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceivePushNotification:) name:kNHMessageReceived object:nil];
     }
@@ -209,7 +209,7 @@ configure push credentials in your notification hub. Even if you have no prior e
                       preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
         [self presentViewController:alertController animated:YES completion:nil];
-        
+
         // Dismiss after 2 seconds
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [alertController dismissViewControllerAnimated:YES completion: nil];

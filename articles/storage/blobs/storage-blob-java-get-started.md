@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 07/12/2023
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java

@@ -49,6 +49,6 @@ The following example calculates the arctangent for the specified `x` and `y` co
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`TAN`](tan.md)
 - [`ATAN`](atan.md)

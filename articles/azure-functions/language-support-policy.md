@@ -32,8 +32,10 @@ There are few exceptions to the retirement policy outlined above. Here is a list
 
 |Language Versions                        |EOL Date         |Retirement Date|
 |-----------------------------------------|-----------------|----------------|
+|Python 3.7|27 June 2023|30 September 2023|
 |Node 14|30 April 2023|30 June 2024|
 |Node 16|11 September 2023|30 June 2024|
+
 
 ## Language version support timeline
 
@@ -48,7 +50,8 @@ To learn more about specific language version support policy timeline, visit the
 
 |Language                         | Configuration guides         |
 |-----------------------------------------|-----------------|
-|C# (class library) |[link](./functions-dotnet-class-library.md#supported-versions)|
+|C# (in-process model) |[link](./functions-dotnet-class-library.md#supported-versions)|
+|C# (isolated worker model) |[link](./dotnet-isolated-process-guide.md#supported-versions)|
 |Node |[link](./functions-reference-node.md#setting-the-node-version)|
 |PowerShell |[link](./functions-reference-powershell.md#changing-the-powershell-version)|
 |Python |[link](./functions-reference-python.md#python-version)|

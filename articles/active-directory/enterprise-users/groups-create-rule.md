@@ -41,11 +41,13 @@ For examples of syntax, supported properties, operators, and values for a member
 
 ## To create a group membership rule
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is in the Global Administrator, Intune Administrator, or User Administrator role in the Azure AD organization.
 1. Browse to **Azure Active Directory** > **Groups**.
 1. Select **All groups**, and select **New group**.
 
-   ![Screenshot showing how to select the "add new group" action](./media/groups-create-rule/create-new-group-azure-active-directory.png)
+   ![Screenshot showing how to select the "add new group" action](./media/groups-create-rule/create-new-group.png)
 
 1. On the **Group** page, enter a name and description for the new group. Select a **Membership type** for either users or devices, and then select **Add dynamic query**. The rule builder supports up to five expressions. To add more than five expressions, you must use the text box.
 

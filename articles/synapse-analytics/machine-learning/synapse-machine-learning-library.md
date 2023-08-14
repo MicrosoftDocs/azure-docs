@@ -28,7 +28,7 @@ A unified API standardizes many tools, frameworks, algorithms and streamlines th
 
 ### Use pre-built intelligent models
 
-Many tools in SynapseML don't require a large labeled training dataset. Instead, SynapseML provides simple APIs for pre-built intelligent services, such as Azure AI services, to quickly solve large-scale AI challenges related to both business and research. SynapseML enables developers to embed over 50 different state-of-the-art ML services directly into their systems and databases. These ready-to-use algorithms can parse a wide variety of documents, transcribe multi-speaker conversations in real time, and translate text to over 100 different languages. For more examples of how to use pre-built AI to solve tasks quickly, see [the SynapseML "cognitive" examples](https://microsoft.github.io/SynapseML/docs/features/cognitive_services/CognitiveServices%20-%20Overview/).
+Many tools in SynapseML don't require a large labeled training dataset. Instead, SynapseML provides simple APIs for pre-built intelligent services, such as Azure AI services, to quickly solve large-scale AI challenges related to both business and research. SynapseML enables developers to embed over 50 different state-of-the-art ML services directly into their systems and databases. These ready-to-use algorithms can parse a wide variety of documents, transcribe multi-speaker conversations in real time, and translate text to over 100 different languages.
 
 To make SynapseML's integration with Azure AI services fast and efficient SynapseML introduces many optimizations for service-oriented workflows. In particular, SynapseML automatically parses common throttling responses to ensure that jobs don’t overwhelm backend services. Additionally, it uses exponential back-offs to handle unreliable network connections and failed responses. Finally, Spark’s worker machines stay busy with new asynchronous parallelism primitives for Spark. Asynchronous parallelism allows worker machines to send requests while waiting on a response from the server and can yield a tenfold increase in throughput.
 
@@ -50,6 +50,6 @@ SynapseML is generally available on Azure Synapse Analytics with enterprise supp
 
 * To learn more about SynapseML, see the [blog post.](https://www.microsoft.com/en-us/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/)
 
-* [Install SynapseML and get started with examples.](https://microsoft.github.io/SynapseML/docs/getting_started/installation/)
+* [Install SynapseML and get started with examples.](https://microsoft.github.io/SynapseML/docs/Get%20Started/Install%20SynapseML/)
 
 * [SynapseML GitHub repository.](https://github.com/microsoft/SynapseML)

@@ -1,10 +1,10 @@
 ---
-title: Security framework - Azure IoT Edge | Microsoft Docs 
-description: Learn about the security, authentication, and authorization standards that were used to develop Azure IoT Edge and should be considered as you design your solution
+title: Security framework for Azure IoT Edge
+description: Learn about the security, authentication, and authorization standards used to develop Azure IoT Edge for you to consider in your solution design.
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 08/30/2019
+ms.date: 07/27/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -41,7 +41,7 @@ For more information, see [Azure IoT Edge certificate usage](iot-edge-certs.md).
 
 ## Authorization
 
-The principle of least privilege says that users and components of a system should have access only to the minimum set of resources and data needed to perform their roles. Devices, modules, and actors should access only the resources and data within their permission scope, and only when it is architecturally allowable. Some permissions are configurable with sufficient privileges and others are architecturally enforced. For example, some modules may be authorized to connect to Azure IoT Hub. However, there is no reason why a module in one IoT Edge device should access the twin of a module in another IoT Edge device.
+The principle of least privilege says that users and components of a system should have access only to the minimum set of resources and data needed to perform their roles. Devices, modules, and actors should access only the resources and data within their permission scope, and only when it's architecturally allowable. Some permissions are configurable with sufficient privileges and others are architecturally enforced. For example, some modules may be authorized to connect to Azure IoT Hub. However, there's no reason why a module in one IoT Edge device should access the twin of a module in another IoT Edge device.
 
 Other authorization schemes include certificate signing rights and role-based access control (RBAC).
 
@@ -59,7 +59,7 @@ Static attestation verifies the integrity of all software on a device during pow
 
 ### Runtime attestation
 
-Once a system has completed a secure boot process, well-designed systems should detect attempts to inject malware and take proper countermeasures. Malware attacks may target the system's ports and interfaces. If malicious actors have physical access to a device, they may tamper with the device itself or use side-channel attacks to gain access. Such malcontent, whether malware or unauthorized configuration changes, can't be detected by static attestation because it is injected after the boot process. Countermeasures offered or enforced by the device’s hardware help to ward off such threats. The security framework for IoT Edge explicitly calls for extensions that combat runtime threats.  
+Once a system has completed a secure boot process, well-designed systems should detect attempts to inject malware and take proper countermeasures. Malware attacks may target the system's ports and interfaces. If malicious actors have physical access to a device, they may tamper with the device itself or use side-channel attacks to gain access. Such malcontent, whether malware or unauthorized configuration changes, can't be detected by static attestation because it's injected after the boot process. Countermeasures offered or enforced by the device's hardware help to ward off such threats. The security framework for IoT Edge explicitly calls for extensions that combat runtime threats.  
 
 ### Software attestation
 
@@ -67,11 +67,15 @@ All healthy systems, including intelligent edge systems, need patches and upgrad
 
 ## Hardware root of trust
 
-For many intelligent edge devices, especially devices that can be physically accessed by potential malicious actors, hardware security is the last defense for protection. Tamper resistant hardware is crucial for such deployments. Azure IoT Edge encourages secure silicon hardware vendors to offer different flavors of hardware root of trust to accommodate various risk profiles and deployment scenarios. Hardware trust may come from common security protocol standards like Trusted Platform Module (ISO/IEC 11889) and Trusted Computing Group’s Device Identifier Composition Engine (DICE). Secure enclave technologies like TrustZones and Software Guard Extensions (SGX) also provide hardware trust.
+For many intelligent edge devices, especially devices that can be physically accessed by potential malicious actors, hardware security is the last defense for protection. Tamper resistant hardware is crucial for such deployments. Azure IoT Edge encourages secure silicon hardware vendors to offer different flavors of hardware root of trust to accommodate various risk profiles and deployment scenarios. Hardware trust may come from common security protocol standards like Trusted Platform Module (ISO/IEC 11889) and Trusted Computing Group's Device Identifier Composition Engine (DICE). Secure enclave technologies like TrustZones and Software Guard Extensions (SGX) also provide hardware trust.
 
 ## Certification
 
 To help customers make informed decisions when procuring Azure IoT Edge devices for their deployment, the IoT Edge framework includes certification requirements. Foundational to these requirements are certifications pertaining to security claims and certifications pertaining to validation of the security implementation. For example, a security claim certification means that the IoT Edge device uses secure hardware known to resist boot attacks. A validation certification means that the secure hardware was properly implemented to offer this value in the device. In keeping with the principle of simplicity, the framework tries to keep the burden of certification minimal.
+
+## Encryption at rest
+
+Encryption at rest provides data protection for stored data. Attacks against data at-rest include attempts to get physical access to the hardware where the data is stored, and then compromise the contained data. You can use storage encryption to protect data stored on the device. Linux has several options for encryption at rest. Choose the option that best fits your needs. For Windows, [Windows BitLocker](/windows/security/operating-system-security/data-protection/bitlocker) is the recommended option for encryption at rest.
 
 ## Extensibility
 

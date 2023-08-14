@@ -161,6 +161,7 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 > [!TIP]
 > When using a service endpoint, you can also disable public access. For more information, see [disallow public read access](../../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
 
+
 ---
 
 ## Secure Azure Key Vault
@@ -334,10 +335,12 @@ validate=False)
 
 To enable network isolation for Azure Monitor and the Application Insights instance for the workspace, use the following steps:
 
-1. Upgrade the Application Insights instance for your workspace. For steps on how to upgrade, see [Migrate to workspace-based Application Insights resources](/azure/azure-monitor/app/convert-classic-resource).
+1. Open your Application Insights resource in the Azure Portal. The __Overview__ tab may or may not have a Workspace property. If it _doesn't_ have the property, perform step 2. If it _does_, then you can proceed directly to step 3.
 
     > [!TIP]
-    > New workspaces create a workspace-based Application Insights resource by default.
+    > New workspaces create a workspace-based Application Insights resource by default. If your workspace was recently created, then you would not need to perform step 2.
+   
+1. Upgrade the Application Insights instance for your workspace. For steps on how to upgrade, see [Migrate to workspace-based Application Insights resources](/azure/azure-monitor/app/convert-classic-resource).
 
 1. Create an Azure Monitor Private Link Scope and add the Application Insights instance from step 1 to the scope. For steps on how to do this, see [Configure your Azure Monitor private link](/azure/azure-monitor/logs/private-link-configure).
 
@@ -362,3 +365,5 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 * [Tutorial: Create a secure workspace](../tutorial-create-secure-workspace.md)
 * [Tutorial: Create a secure workspace using a template](../tutorial-create-secure-workspace-template.md)
 * [API platform network isolation](../how-to-configure-network-isolation-with-v2.md)
+
+

@@ -98,33 +98,34 @@ For Microsoft Graph, the parameters for the **Send welcome email to new hire** t
 |arguments     |  The optional common email task parameters can be specified; if they are not included, the default behavior takes effect.    |
 
 
+Example of usage within the workflow:
 
-```Example for usage within the workflow
+```json
 {
-	"category": "joiner",
-	"continueOnError": false,
-	"description": "Send welcome email to new hire",
-	"displayName": "Send Welcome Email",
-	"isEnabled": true,
-	"taskDefinitionId": "70b29d51-b59a-4773-9280-8841dfd3f2ea",
-	"arguments": [
-		{
-			"name": "cc",
-			"value": "e94ad2cd-d590-4b39-8e46-bb4f8e293f85,ac17d108-60cd-4eb2-a4b4-084cacda33f2"
-		},
-		{
-			"name": "customSubject",
-			"value": "Welcome to the organization {{userDisplayName}}!"
-		},
-		{
-			"name": "customBody",
-			"value": "Welcome to our organization {{userGivenName}} {{userSurname}}.\n\nFor more information, reach out to your manager {{managerDisplayName}} at {{managerEmail}}."
-		},
-		{
-			"name": "locale",
-			"value": "en-us"
-		}
-	]
+    "category": "joiner",
+    "continueOnError": false,
+    "description": "Send welcome email to new hire",
+    "displayName": "Send Welcome Email",
+    "isEnabled": true,
+    "taskDefinitionId": "70b29d51-b59a-4773-9280-8841dfd3f2ea",
+    "arguments": [
+        {
+            "name": "cc",
+            "value": "e94ad2cd-d590-4b39-8e46-bb4f8e293f85,ac17d108-60cd-4eb2-a4b4-084cacda33f2"
+        },
+        {
+            "name": "customSubject",
+            "value": "Welcome to the organization {{userDisplayName}}!"
+        },
+        {
+            "name": "customBody",
+            "value": "Welcome to our organization {{userGivenName}} {{userSurname}}.\n\nFor more information, reach out to your manager {{managerDisplayName}} at {{managerEmail}}."
+        },
+        {
+            "name": "locale",
+            "value": "en-us"
+        }
+    ]
 }
 ```
 
@@ -151,33 +152,34 @@ For Microsoft Graph, the parameters for the **Send onboarding reminder email** t
 |taskDefinitionId     |   3C860712-2D37-42A4-928F-5C93935D26A1     |
 |arguments     |  The optional common email task parameters can be specified; if they are not included, the default behavior takes effect.    |
 
+Example of usage within the workflow:
 
-```Example for usage within the workflow
+```json
 {
-	"category": "joiner",
-	"continueOnError": false,
-	"description": "Send onboarding reminder email to user\u2019s manager",
-	"displayName": "Send onboarding reminder email",
-	"isEnabled": true,
-	"taskDefinitionId": "3C860712-2D37-42A4-928F-5C93935D26A1",
-	"arguments": [
-		{
-			"name": "cc",
-			"value": "e94ad2cd-d590-4b39-8e46-bb4f8e293f85,068fa0c1-fa00-4f4f-8411-e968d921c3e7"
-		},
-		{
-			"name": "customSubject",
-			"value": "Reminder: {{userDisplayName}} is starting soon"
-		},
-		{
-			"name": "customBody",
-			"value": "Hello {{managerDisplayName}}\n\nthis is a reminder that {{userDisplayName}} is starting soon.\n\nRegards\nYour IT department"
-		},
-		{
-			"name": "locale",
-			"value": "en-us"
-		}
-	]
+    "category": "joiner",
+    "continueOnError": false,
+    "description": "Send onboarding reminder email to user\u2019s manager",
+    "displayName": "Send onboarding reminder email",
+    "isEnabled": true,
+    "taskDefinitionId": "3C860712-2D37-42A4-928F-5C93935D26A1",
+    "arguments": [
+        {
+            "name": "cc",
+            "value": "e94ad2cd-d590-4b39-8e46-bb4f8e293f85,068fa0c1-fa00-4f4f-8411-e968d921c3e7"
+        },
+        {
+            "name": "customSubject",
+            "value": "Reminder: {{userDisplayName}} is starting soon"
+        },
+        {
+            "name": "customBody",
+            "value": "Hello {{managerDisplayName}}\n\nthis is a reminder that {{userDisplayName}} is starting soon.\n\nRegards\nYour IT department"
+        },
+        {
+            "name": "locale",
+            "value": "en-us"
+        }
+    ]
 }
 ```
 
@@ -213,41 +215,42 @@ For Microsoft Graph, the parameters for the **Generate Temporary Access Pass and
 |taskDefinitionId     |   1b555e50-7f65-41d5-b514-5894a026d10d     |
 |arguments     |  Argument contains the name parameter "tapLifetimeInMinutes", which is the lifetime of the temporaryAccessPass in minutes starting at startDateTime. Minimum 10, Maximum 43200 (equivalent to 30 days). The argument also contains the tapIsUsableOnce parameter, which determines whether the passcode is limited to a one time use. If true, the pass can be used once; if false, the pass can be used multiple times within the temporaryAccessPass lifetime. Additionally, the optional common email task parameters can be specified; if they are not included, the default behavior takes effect.    |
 
+Example of usage within the workflow:
 
-```Example for usage within the workflow
+```json
 {
-	"category": "joiner",
-	"continueOnError": false,
-	"description": "Generate Temporary Access Pass and send via email to user's manager",
-	"displayName": "Generate TAP and Send Email",
-	"isEnabled": true,
-	"taskDefinitionId": "1b555e50-7f65-41d5-b514-5894a026d10d",
-	"arguments": [
-		{
-			"name": "tapLifetimeMinutes",
-			"value": "480"
-		},
-		{
-			"name": "tapIsUsableOnce",
-			"value": "false"
-		},
-		{
-			"name": "cc",
-			"value": "068fa0c1-fa00-4f4f-8411-e968d921c3e7,9d208c40-7eb6-46ff-bebd-f30148c39b47"
-		},
-		{
-			"name": "customSubject",
-			"value": "Temporary access pass for your new employee {{userDisplayName}}"
-		},
-		{
-			"name": "customBody",
-			"value": "Hello {{managerDisplayName}}\n\nPlease find the temporary access pass for your new employee {{userDisplayName}} below:\n\n{{temporaryAccessPass}}\n\nRegards\nYour IT department"
-		},
-		{
-			"name": "locale",
-			"value": "en-us"
-		}
-	]
+    "category": "joiner",
+    "continueOnError": false,
+    "description": "Generate Temporary Access Pass and send via email to user's manager",
+    "displayName": "Generate TAP and Send Email",
+    "isEnabled": true,
+    "taskDefinitionId": "1b555e50-7f65-41d5-b514-5894a026d10d",
+    "arguments": [
+        {
+            "name": "tapLifetimeMinutes",
+            "value": "480"
+        },
+        {
+            "name": "tapIsUsableOnce",
+            "value": "false"
+        },
+        {
+            "name": "cc",
+            "value": "068fa0c1-fa00-4f4f-8411-e968d921c3e7,9d208c40-7eb6-46ff-bebd-f30148c39b47"
+        },
+        {
+            "name": "customSubject",
+            "value": "Temporary access pass for your new employee {{userDisplayName}}"
+        },
+        {
+            "name": "customBody",
+            "value": "Hello {{managerDisplayName}}\n\nPlease find the temporary access pass for your new employee {{userDisplayName}} below:\n\n{{temporaryAccessPass}}\n\nRegards\nYour IT department"
+        },
+        {
+            "name": "locale",
+            "value": "en-us"
+        }
+    ]
 }
 ```
 
@@ -272,32 +275,34 @@ For Microsoft Graph the parameters for the **Send email to notify manager of use
 |taskDefinitionId     |   aab41899-9972-422a-9d97-f626014578b7      |
 |arguments     |  The optional common email task parameters can be specified; if they are not included, the default behavior takes effect.    |
 
-```Example for usage within the workflow
+Example of usage within the workflow:
+
+```json
 {
-	"category": "mover",
-	"continueOnError": false,
-	"description": "Send email to notify user\u2019s manager of user move",
-	"displayName": "Send email to notify manager of user move",
-	"isEnabled": true,
-	"taskDefinitionId": "aab41899-9972-422a-9d97-f626014578b7",
-	"arguments": [
-		{
-			"name": "cc",
-			"value": "ac17d108-60cd-4eb2-a4b4-084cacda33f2,7d3ee937-edcc-46b0-9e2c-f832e01231ea"
-		},
-		{
-			"name": "customSubject",
-			"value": "{{userDisplayName}} has moved"
-		},
-		{
-			"name": "customBody",
-			"value": "Hello {{managerDisplayName}}\n\nwe are reaching out to let you know {{userDisplayName}} has moved in the organization.\n\nRegards\nYour IT department"
-		},
-		{
-			"name": "locale",
-			"value": "en-us"
-		}
-	]
+    "category": "mover",
+    "continueOnError": false,
+    "description": "Send email to notify user\u2019s manager of user move",
+    "displayName": "Send email to notify manager of user move",
+    "isEnabled": true,
+    "taskDefinitionId": "aab41899-9972-422a-9d97-f626014578b7",
+    "arguments": [
+        {
+            "name": "cc",
+            "value": "ac17d108-60cd-4eb2-a4b4-084cacda33f2,7d3ee937-edcc-46b0-9e2c-f832e01231ea"
+        },
+        {
+            "name": "customSubject",
+            "value": "{{userDisplayName}} has moved"
+        },
+        {
+            "name": "customBody",
+            "value": "Hello {{managerDisplayName}}\n\nwe are reaching out to let you know {{userDisplayName}} has moved in the organization.\n\nRegards\nYour IT department"
+        },
+        {
+            "name": "locale",
+            "value": "en-us"
+        }
+    ]
 }
 ```
 
@@ -318,25 +323,26 @@ For Microsoft Graph, the parameters for the **Request user access package assign
 |taskDefinitionId     |   c1ec1e76-f374-4375-aaa6-0bb6bd4c60be      |
 |arguments     |  Argument contains two name parameter that is the "assignmentPolicyId", and "accessPackageId".    |
 
+Example of usage within the workflow:
 
-```Example for usage within the workflow
+```json
 {
-	"category": "joiner,mover",
-	"continueOnError": false,
-	"description": "Request user assignment to selected access package",
-	"displayName": "Request user access package assignment",
-	"isEnabled": true,
-	"taskDefinitionId": "c1ec1e76-f374-4375-aaa6-0bb6bd4c60be",
-	"arguments": [
-		{
-			"name": "assignmentPolicyId",
-			"value": "00d6fd25-6695-4f4a-8186-e4c6f901d2c1"
-		},
-		{
-			"name": "accessPackageId",
-			"value": "2ae5d6e5-6cbe-4710-82f2-09ef6ffff0d0"
-		}
-	]
+    "category": "joiner,mover",
+    "continueOnError": false,
+    "description": "Request user assignment to selected access package",
+    "displayName": "Request user access package assignment",
+    "isEnabled": true,
+    "taskDefinitionId": "c1ec1e76-f374-4375-aaa6-0bb6bd4c60be",
+    "arguments": [
+        {
+            "name": "assignmentPolicyId",
+            "value": "00d6fd25-6695-4f4a-8186-e4c6f901d2c1"
+        },
+        {
+            "name": "accessPackageId",
+            "value": "2ae5d6e5-6cbe-4710-82f2-09ef6ffff0d0"
+        }
+    ]
 }
 ```
 
@@ -678,18 +684,18 @@ For Microsoft Graph, the parameters for the **Remove access package assignment f
 
 ```Example for usage within the workflow
 {
-	"category": "leaver,mover",
-	"continueOnError": false,
-	"description": "Remove user assignment of selected access package",
-	"displayName": "Remove access package assignment for user",
-	"isEnabled": true,
-	"taskDefinitionId": "4a0b64f2-c7ec-46ba-b117-18f262946c50",
-	"arguments": [
-		{
-			"name": "accessPackageId",
-			"value": "2ae5d6e5-6cbe-4710-82f2-09ef6ffff0d0"
-		}
-	]
+    "category": "leaver,mover",
+    "continueOnError": false,
+    "description": "Remove user assignment of selected access package",
+    "displayName": "Remove access package assignment for user",
+    "isEnabled": true,
+    "taskDefinitionId": "4a0b64f2-c7ec-46ba-b117-18f262946c50",
+    "arguments": [
+        {
+            "name": "accessPackageId",
+            "value": "2ae5d6e5-6cbe-4710-82f2-09ef6ffff0d0"
+        }
+    ]
 }
 ```
 
@@ -709,16 +715,17 @@ For Microsoft Graph, the parameters for the **Remove all access package assignme
 |description     |  Remove all access packages assigned to the user (Customizable by user)        |
 |taskDefinitionId     |   42ae2956-193d-4f39-be06-691b8ac4fa1d      |
 
+Example of usage within the workflow:
 
-```Example for usage within the workflow
+```json
 {
-	"category": "leaver",
-	"continueOnError": false,
-	"description": "Remove all access packages assigned to the user",
-	"displayName": "Remove all access package assignments for user",
-	"isEnabled": true,
-	"taskDefinitionId": "42ae2956-193d-4f39-be06-691b8ac4fa1d",
-	"arguments": []
+    "category": "leaver",
+    "continueOnError": false,
+    "description": "Remove all access packages assigned to the user",
+    "displayName": "Remove all access package assignments for user",
+    "isEnabled": true,
+    "taskDefinitionId": "42ae2956-193d-4f39-be06-691b8ac4fa1d",
+    "arguments": []
 }
 ```
 
@@ -740,15 +747,17 @@ For Microsoft Graph, the parameters for the **Cancel all pending access package 
 |taskDefinitionId     |   498770d9-bab7-4e4c-b73d-5ded82a1d0b3      |
 
 
-```Example for usage within the workflow
+Example of usage within the workflow:
+
+```json
 {
-	"category": "leaver",
-	"continueOnError": false,
-	"description": "Cancel all access package assignment requests pending for the user",
-	"displayName": "Cancel all pending access package assignment requests for user",
-	"isEnabled": true,
-	"taskDefinitionId": "498770d9-bab7-4e4c-b73d-5ded82a1d0b3",
-	"arguments": []
+    "category": "leaver",
+    "continueOnError": false,
+    "description": "Cancel all access package assignment requests pending for the user",
+    "displayName": "Cancel all pending access package assignment requests for user",
+    "isEnabled": true,
+    "taskDefinitionId": "498770d9-bab7-4e4c-b73d-5ded82a1d0b3",
+    "arguments": []
 }
 ```
 
@@ -835,32 +844,34 @@ For Microsoft Graph the parameters for the **Send email before user's last day**
 |taskDefinitionId     |   52853a3e-f4e5-4eb8-bb24-1ac09a1da935      |
 |arguments     |  The optional common email task parameters can be specified; if they are not included, the default behavior takes effect.    |
 
-```Example for usage within the workflow
+Example of usage within the workflow:
+
+```
 {
-	"category": "leaver",
-	"continueOnError": false,
-	"description": "Send offboarding email to user’s manager before the last day of work",
-	"displayName": "Send email before user’s last day",
-	"isEnabled": true,
-	"taskDefinitionId": "52853a3e-f4e5-4eb8-bb24-1ac09a1da935",
-	"arguments": [
-		{
-			"name": "cc",
-			"value": "068fa0c1-fa00-4f4f-8411-e968d921c3e7,e94ad2cd-d590-4b39-8e46-bb4f8e293f85"
-		},
-		{
-			"name": "customSubject",
-			"value": "Reminder that {{userDisplayName}}'s last day is coming up"
-		},
-		{
-			"name": "customBody",
-			"value": "Hello {{managerDisplayName}}\n\nthis is a reminder that {{userDisplayName}}'s last day is coming up.\n\nRegards\nYour IT department"
-		},
-		{
-			"name": "locale",
-			"value": "en-us"
-		}
-	]
+    "category": "leaver",
+    "continueOnError": false,
+    "description": "Send offboarding email to user’s manager before the last day of work",
+    "displayName": "Send email before user’s last day",
+    "isEnabled": true,
+    "taskDefinitionId": "52853a3e-f4e5-4eb8-bb24-1ac09a1da935",
+    "arguments": [
+        {
+            "name": "cc",
+            "value": "068fa0c1-fa00-4f4f-8411-e968d921c3e7,e94ad2cd-d590-4b39-8e46-bb4f8e293f85"
+        },
+        {
+            "name": "customSubject",
+            "value": "Reminder that {{userDisplayName}}'s last day is coming up"
+        },
+        {
+            "name": "customBody",
+            "value": "Hello {{managerDisplayName}}\n\nthis is a reminder that {{userDisplayName}}'s last day is coming up.\n\nRegards\nYour IT department"
+        },
+        {
+            "name": "locale",
+            "value": "en-us"
+        }
+    ]
 }
 ```
 
@@ -884,32 +895,34 @@ For Microsoft Graph, the parameters for the **Send email on user last day** task
 |taskDefinitionId     |   9c0a1eaf-5bda-4392-9d9e-6e155bb57411      |
 |arguments     |  The optional common email task parameters can be specified; if they are not included, the default behavior takes effect.    |
 
-```Example for usage within the workflow
+Example of usage within the workflow:
+
+```json
 {
-	"category": "leaver",
-	"continueOnError": false,
-	"description": "Send offboarding email to user’s manager on the last day of work",
-	"displayName": "Send email on user’s last day",
-	"isEnabled": true,
-	"taskDefinitionId": "9c0a1eaf-5bda-4392-9d9e-6e155bb57411",
-	"arguments": [
-		{
-			"name": "cc",
-			"value": "068fa0c1-fa00-4f4f-8411-e968d921c3e7,e94ad2cd-d590-4b39-8e46-bb4f8e293f85"
-		},
-		{
-			"name": "customSubject",
-			"value": "{{userDisplayName}}'s last day"
-		},
-		{
-			"name": "customBody",
-			"value": "Hello {{managerDisplayName}}\n\nthis is a reminder that {{userDisplayName}}'s last day is today and their access will be revoked.\n\nRegards\nYour IT department"
-		},
-		{
-			"name": "locale",
-			"value": "en-us"
-		}
-	]
+    "category": "leaver",
+    "continueOnError": false,
+    "description": "Send offboarding email to user’s manager on the last day of work",
+    "displayName": "Send email on user’s last day",
+    "isEnabled": true,
+    "taskDefinitionId": "9c0a1eaf-5bda-4392-9d9e-6e155bb57411",
+    "arguments": [
+        {
+            "name": "cc",
+            "value": "068fa0c1-fa00-4f4f-8411-e968d921c3e7,e94ad2cd-d590-4b39-8e46-bb4f8e293f85"
+        },
+        {
+            "name": "customSubject",
+            "value": "{{userDisplayName}}'s last day"
+        },
+        {
+            "name": "customBody",
+            "value": "Hello {{managerDisplayName}}\n\nthis is a reminder that {{userDisplayName}}'s last day is today and their access will be revoked.\n\nRegards\nYour IT department"
+        },
+        {
+            "name": "locale",
+            "value": "en-us"
+        }
+    ]
 }
 ```
 
@@ -934,32 +947,34 @@ For Microsoft Graph, the parameters for the **Send email to users manager after 
 |taskDefinitionId     |   6f22ddd4-b3a5-47a4-a846-0d7c201a49ce      |
 |arguments     |  The optional common email task parameters can be specified; if they are not included, the default behavior takes effect.    |
 
-```Example for usage within the workflow
+Example of usage within the workflow:
+
+```json
 {
-	"category": "leaver",
-	"continueOnError": false,
-	"description": "Send offboarding email to user’s manager after the last day of work",
-	"displayName": "Send email after user’s last day",
-	"isEnabled": true,
-	"taskDefinitionId": "6f22ddd4-b3a5-47a4-a846-0d7c201a49ce",
-	"arguments": [
-		{
-			"name": "cc",
-			"value": "ac17d108-60cd-4eb2-a4b4-084cacda33f2,7d3ee937-edcc-46b0-9e2c-f832e01231ea"
-		},
-		{
-			"name": "customSubject",
-			"value": "{{userDisplayName}}'s accounts will be deleted today"
-		},
-		{
-			"name": "customBody",
-			"value": "Hello {{managerDisplayName}}\n\nthis is a reminder that {{userDisplayName}} left the organization a while ago and today their disabled accounts will be deleted.\n\nRegards\nYour IT department"
-		},
-		{
-			"name": "locale",
-			"value": "en-us"
-		}
-	]
+    "category": "leaver",
+    "continueOnError": false,
+    "description": "Send offboarding email to user’s manager after the last day of work",
+    "displayName": "Send email after user’s last day",
+    "isEnabled": true,
+    "taskDefinitionId": "6f22ddd4-b3a5-47a4-a846-0d7c201a49ce",
+    "arguments": [
+        {
+            "name": "cc",
+            "value": "ac17d108-60cd-4eb2-a4b4-084cacda33f2,7d3ee937-edcc-46b0-9e2c-f832e01231ea"
+        },
+        {
+            "name": "customSubject",
+            "value": "{{userDisplayName}}'s accounts will be deleted today"
+        },
+        {
+            "name": "customBody",
+            "value": "Hello {{managerDisplayName}}\n\nthis is a reminder that {{userDisplayName}} left the organization a while ago and today their disabled accounts will be deleted.\n\nRegards\nYour IT department"
+        },
+        {
+            "name": "locale",
+            "value": "en-us"
+        }
+    ]
 }
 ```
 
