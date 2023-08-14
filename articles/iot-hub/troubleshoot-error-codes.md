@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Azure IoT Hub error codes
-description: Understand how to fix errors reported by Azure IoT Hub
+description: Understand specific error codes and how to fix errors reported by Azure IoT Hub
 author: kgremban
 manager: lizross
 ms.service: iot-hub
@@ -15,15 +15,15 @@ ms.custom: [mqtt, iot]
 
 This article describes the causes and solutions for common error codes that you might encounter while using IoT Hub.
 
-## 400027 ConnectionForcefullyClosedOnNewConnection
+## 400027 Connection forcefully closed on new connection
 
-You may see the **40027** error if your device disconnects and reports **Communication_Error** as the **ConnectionStatusChangeReason** using .NET SDK and MQTT transport type. Or, your device-to-cloud twin operation (such as read or patch reported properties) or direct method invocation fails with the error code **400027**.
+You may see the **400027 ConnectionForcefullyClosedOnNewConnection** error if your device disconnects and reports **Communication_Error** as the **ConnectionStatusChangeReason** using .NET SDK and MQTT transport type. Or, your device-to-cloud twin operation (such as read or patch reported properties) or direct method invocation fails with the error code **400027**.
 
 This error occurs when another client creates a new connection to IoT Hub using the same identity, so IoT Hub closes the previous connection. IoT Hub doesn't allow more than one client to connect using the same identity.
 
 To resolve this error, ensure that each client connects to IoT Hub using its own identity.
 
-## 401003 IoTHubUnauthorized
+## 401003 IoT Hub unauthorized
 
 In logs, you may see a pattern of devices disconnecting with **401003 IoTHubUnauthorized**, followed by **404104 DeviceConnectionClosedRemotely**, and then successfully connecting shortly after.
 
@@ -66,7 +66,7 @@ In general, the error message presented should explain how to fix the error. If 
 >
 > Often, performing a time sync using NTP or rebooting the device (which can automatically perform a time sync during the boot sequence) fixes the issue and allows the device to connect again. To avoid this error, configure the device to perform a periodic time sync using NTP. You can schedule the sync for daily, weekly or monthly depending on the amount of drift the device experiences. If you can't configure a periodic NTP sync on your device, then schedule a periodic reboot.
 
-## 403002 IoTHubQuotaExceeded
+## 403002 IoT Hub quota exceeded
 
 You may see requests to IoT Hub fail with the error  **403002 IoTHubQuotaExceeded**. And in Azure portal, the IoT hub device list doesn't load.
 
@@ -78,7 +78,7 @@ This error typically occurs when the daily message quota for the IoT hub is exce
 
 This error may also be returned by a bulk import job when the number of devices registered to your IoT hub approaches or exceeds the quota limit for an IoT hub. To learn more, see [Troubleshoot import jobs](iot-hub-bulk-identity-mgmt.md#import-troubleshooting).
 
-## 403004 DeviceMaximumQueueDepthExceeded
+## 403004 Device maximum queue depth exceeded
 
 When trying to send a cloud-to-device message, you may see that the request fails with the error **403004** or **DeviceMaximumQueueDepthExceeded**.
 
@@ -92,15 +92,15 @@ Alternatively, enhance device side logic to complete, reject, or abandon queued 
 
 Lastly, consider using the [Purge Queue API](/rest/api/iothub/service/cloud-to-device-messages/purge-cloud-to-device-message-queue) to periodically clean up pending messages before the limit is reached.
 
-## 403006 DeviceMaximumActiveFileUploadLimitExceeded
+## 403006 Device maximum active file upload limit exceeded
 
-You may see that your file upload request fails with the error code **403006** and a message "Number of active file upload requests cannot exceed 10".
+You may see that your file upload request fails with the error code **403006 DeviceMaximumActiveFileUploadLimitExceeded** and a message "Number of active file upload requests cannot exceed 10".
 
 This error occurs because each device client is limited for [concurrent file uploads](iot-hub-devguide-quotas-throttling.md#other-limits). You can easily exceed the limit if your device doesn't notify IoT Hub when file uploads are completed. This problem is commonly caused by an unreliable device side network.
 
 To resolve this error, ensure that the device can promptly [notify IoT Hub file upload completion](iot-hub-devguide-file-upload.md#device-notify-iot-hub-of-a-completed-file-upload). Then, try [reducing the SAS token TTL for file upload configuration](iot-hub-configure-file-upload.md).
 
-## 404001 DeviceNotFound
+## 404001 Device not found
 
 During a cloud-to-device (C2D) communication, such as C2D message, twin update, or direct method, you may see that the operation fails with error **404001 DeviceNotFound**.
 
@@ -108,7 +108,7 @@ The operation failed because the device cannot be found by IoT Hub. The device e
 
 To resolve this error, register the device ID that you used, then try again.
 
-## 404103 DeviceNotOnline
+## 404103 Device not online
 
 You may see that a direct method to a device fails with the error **404103 DeviceNotOnline** even if the device is online.
 
@@ -116,7 +116,7 @@ If you know that the device is online and still get the error, then the error li
 
 To configure your device properly for direct method callbacks, see [Handle a direct method on a device](iot-hub-devguide-direct-methods.md#handle-a-direct-method-on-a-device).
 
-## 404104 DeviceConnectionClosedRemotely
+## 404104 Device connection closed remotely
 
 You may see that devices disconnect at a regular interval (every 65 minutes, for example) and you see **404104 DeviceConnectionClosedRemotely** in IoT Hub resource logs. Sometimes, you also see **401003 IoTHubUnauthorized** and a successful device connection event less than a minute later.
 
@@ -143,7 +143,7 @@ To resolve this error:
 
 We recommend using Azure IoT device SDKs to manage connections reliably. To learn more, see [Manage connectivity and reliable messaging by using Azure IoT Hub device SDKs](../iot-develop/concepts-manage-device-reconnections.md)
 
-## 409001 DeviceAlreadyExists
+## 409001 Device already exists
 
 When trying to register a device in IoT Hub, you may see that the request fails with the error **409001 DeviceAlreadyExists**.
 
@@ -151,7 +151,7 @@ This error occurs because there's already a device with the same device ID in th
 
 To resolve this error, use a different device ID and try again.
 
-## 409002 LinkCreationConflict
+## 409002 Link creation conflict
 
 You may see the error **409002 LinkCreationConflict** in logs along with device disconnection or cloud-to-device message failure.
 
@@ -165,7 +165,7 @@ Or, faulty device-side logic causes the device to establish the connection when 
 
 To resolve this error, look for other errors in the logs that you can troubleshoot because this error usually appears as a side effect of a different, transient issue. Otherwise, make sure to issue a new connection request only if the connection drops.
 
-## 412002 DeviceMessageLockLost
+## 412002 Device message lock lost
 
 When trying to send a cloud-to-device message, you may see that the request fails with the error **412002 DeviceMessageLockLost**.
 
@@ -173,7 +173,7 @@ This error occurs because when a device receives a cloud-to-device message from 
 
 If IoT Hub doesn't get the notification within the one-minute lock timeout duration, it sets the message back to *Enqueued* state. The device can attempt to receive the message again. To prevent the error from happening in the future, implement device side logic to complete the message within one minute of receiving the message. This one-minute time-out can't be changed.
 
-## 429001 ThrottlingException
+## 429001 Throttling exception
 
 You may see that your requests to IoT Hub fail with the error **429001 ThrottlingException**.
 
@@ -205,7 +205,7 @@ If the problem persists, check [Resource Health](iot-hub-azure-service-health-in
 
 If there are no known problems and the issue continues, [contact support](https://azure.microsoft.com/support/options/) for further investigation.
 
-## 503003 PartitionNotFound
+## 503003 Partition not found
 
 You may see that requests to IoT Hub fail with the error **503003 PartitionNotFound**.
 
@@ -213,7 +213,7 @@ This error is internal to IoT Hub and is likely transient. See [IoT Hub internal
 
 To resolve this error, see [IoT Hub internal server errors](#500xxx-internal-errors).
 
-## 504101 GatewayTimeout
+## 504101 Gateway timeout
 
 When trying to invoke a direct method from IoT Hub to a device, you may see that the request fails with the error **504101 GatewayTimeout**.
 
