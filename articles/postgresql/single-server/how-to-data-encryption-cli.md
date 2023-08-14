@@ -144,13 +144,6 @@ az postgres server key delete -g <resource_group> --kid <key url>
 
 Apart from Azure portal, you can also enable data encryption on your Azure Database for PostgreSQL single server using Azure Resource Manager templates for new and existing server.
 
-### For a new server
-
-Use one of the pre-created Azure Resource Manager templates to provision the server with data encryption enabled:
-[Example with Data encryption](https://github.com/Azure/azure-postgresql/tree/master/arm-templates/ExampleWithDataEncryption)
-
-This Azure Resource Manager template creates an Azure Database for PostgreSQL Single server and uses the **KeyVault** and **Key** passed as parameters to enable data encryption on the server.
-
 ### For an existing server
 
 Additionally, you can use Azure Resource Manager templates to enable data encryption on your existing Azure Database for PostgreSQL Single servers.
