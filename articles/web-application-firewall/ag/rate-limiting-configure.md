@@ -53,8 +53,10 @@ $ratelimitrule = New-AzApplicationGatewayFirewallCustomRule -Name ClientIPRateLi
 ```
 #### [CLI](#tab/cli)
 
-The Azure CLI commands to enable and configure Rate Limit rules are coming soon.  
+The Azure CLI commands to enable and configure Rate Limit rules are coming soon.
+
 ---
+
 **Scenario Two** - Create Rate Limit Custom Rule to match all traffic except for traffic originating from the United States.  Traffic will be grouped, counted and rate limited based on the GeoLocation of the Client Source IP address 
 
 #### [Portal](#tab/browser)
@@ -83,11 +85,11 @@ $condition = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable 
 $groupByVariable = New-AzApplicationGatewayFirewallCustomRuleGroupByVariablde -VariableName GeoLocation 
 $groupByUserSession = New-AzApplicationGatewayFirewallCustomRuleGroupByUserSession -GroupByVariable $groupByVariable 
 $ratelimitrule = New-AzApplicationGatewayFirewallCustomRule -Name GeoRateLimitRule -Priority 95 -RateLimitDuration OneMin -RateLimitThreshold 500 -RuleType RateLimitRule -MatchCondition $condition -GroupByUserSession $groupByUserSession -Action Block -State Enabled  
-Set-AzApplicationGatewayFirewallPolicy -Name Joe_AppGW -ResourceGroupName 'JoeO_Test' -CustomRule $ratelimitrule 
 ```
 #### [CLI](#tab/cli)
 
 The Azure CLI commands to enable and configure Rate Limit rules are coming soon.
+
 ---
 **Scenario Three** - Create Rate Limit Custom Rule matching all traffic for the login page, and using the GroupBy None variable.  This will group and count all traffic which matches the rule as one, and apply the action across all traffic matching the rule (/login).
 
@@ -121,8 +123,10 @@ $ratelimitrule = New-AzApplicationGatewayFirewallCustomRule -Name LoginRateLimit
 ```
 #### [CLI](#tab/cli)
 
-The Azure CLI commands to enable and configure Rate Limit rules are coming soon.  
+The Azure CLI commands to enable and configure Rate Limit rules are coming soon.
+
 ---
+
 ## Next steps
 
 [Customize web application firewall rules](application-gateway-customize-waf-rules-portal.md)
