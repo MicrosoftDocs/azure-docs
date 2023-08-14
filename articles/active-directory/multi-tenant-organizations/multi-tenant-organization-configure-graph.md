@@ -1,6 +1,6 @@
 ---
-title: Configure a multi-tenant organization using Microsoft Graph API (Preview)
-description: Learn how to configure a multi-tenant organization in Azure Active Directory using Microsoft Graph API.
+title: Configure a multi-tenant organization using the Microsoft Graph API (Preview)
+description: Learn how to configure a multi-tenant organization in Azure Active Directory using the Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -21,9 +21,9 @@ ms.custom: it-pro
 > Multi-tenant organization is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article describes the key steps to configure a multi-tenant organization using Microsoft Graph API.
+This article describes the key steps to configure a multi-tenant organization using the Microsoft Graph API. This article uses an example owner tenant named *Cairo* and two member tenants named *Berlin* and *Athens*.
 
-This article uses an example owner tenant named *Cairo* and two member tenants named *Berlin* and *Athens*.
+If you instead want to use the Microsoft 365 admin center to configure a multi-tenant organization, see [Set up a multi-tenant org in Microsoft 365 (Preview)](/microsoft-365/enterprise/set-up-multi-tenant-org?branch=mikeplum-mto) and [Join or leave a multi-tenant organization in Microsoft 365 (Preview)](/microsoft-365/enterprise/join-leave-multi-tenant-org?branch=mikeplum-mto).
 
 ## Prerequisites
 
@@ -464,5 +464,6 @@ You delete a multi-tenant organization by removing all tenants. The process for 
 
 ## Next steps
 
+- [Set up a multi-tenant org in Microsoft 365 (Preview)](/microsoft-365/enterprise/set-up-multi-tenant-org?branch=mikeplum-mto)
+- [Synchronize users in multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/sync-users-multi-tenant-orgs?branch=mikeplum-mto)
 - [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md)
-
