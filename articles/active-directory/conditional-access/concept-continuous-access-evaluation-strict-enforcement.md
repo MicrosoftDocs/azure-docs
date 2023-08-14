@@ -24,9 +24,6 @@ Strictly enforce location policies is a new enforcement mode for continuous acce
 | Standard (Default) | Suitable for all topologies | A short-lived token is issued only if Azure AD detects an allowed IP address. Otherwise, access is blocked | Falls back to the pre-CAE location detection mode in split tunnel network deployments where CAE enforcement would affect productivity. CAE still enforces other events and policies. | None (Default Setting) |
 | Strictly enforced location policies | Egress IP addresses are dedicated and enumerable for both Azure AD and all resource provider traffic | Access blocked | Most secure, but requires well understood network paths | 1. Test IP address assumptions with a small population <br><br> 2. Enable “Strictly enforce” under Session controls |
 
-> [!NOTE] 
-> The **IP address (seen by resource)** is blank when that IP matches the IP address.
-
 ## Configure strictly enforced location policies
 
 ### Step 1 - Configure a Conditional Access location based policy for your target users
@@ -77,7 +74,7 @@ Administrators can investigate the Sign-in logs to find cases with **IP address 
 1. Sign in to the **Azure portal** as at least a Global Reader.
 1. Browse to **Azure Active Directory** > **Sign-ins**.
 1. Find events to review by adding filters and columns to filter out unnecessary information.
-   1. Add the **IP address (seen by resource)** column and filter out any blank items to narrow the scope.
+   1. Add the **IP address (seen by resource)** column and filter out any blank items to narrow the scope. The **IP address (seen by resource)** is blank when that IP seen by Azure AD matches the IP address seen by the resource.
 
       [ ![Screenshot showing an example of how to find more information in the sign-in logs.](./media/concept-continuous-access-evaluation-strict-enforcement/sign-in-logs-ip-address-seen-by-resource.png) ](./media/concept-continuous-access-evaluation-strict-enforcement/sign-in-logs-ip-address-seen-by-resource.png#lightbox)
 

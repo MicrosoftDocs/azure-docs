@@ -101,7 +101,7 @@ Both policies can enforce the same or different requirements depending on your n
 
 Another option is to scope Conditional Access policies that enforce certain requirements to eligible users directly. For example, you can require users who are eligible for certain roles to always use Intune-compliant devices.
 
-To learn more about Conditional Access authentication context, see [Conditional access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context).
+To learn more about Conditional Access authentication context, see [Conditional Access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context).
 
 ### Require justification on activation
 

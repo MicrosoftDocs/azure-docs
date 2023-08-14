@@ -116,7 +116,7 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
    >[!NOTE]
    >In this configuration, the SAML flow operates in IdP mode: Azure AD issues the user a SAML assertion before being redirected to the BIG-IP service endpoint for the application. The BIG-IP APM supports IdP and SP modes.
 
-9. For **Logout URI** enter the BIG-IP APM Single Logout (SLO) endpoint, prepended by the service host header. The SLO URI ensures user BIG-IP APM sessions end after Azure AD sign out. For example, `https://mytravel.contoso.com/saml/sp/profile/redirect/slr`
+9. For **Logout URI** enter the BIG-IP APM Single Logout (SLO) endpoint, prepended by the service host header. The SLO URI ensures user BIG-IP APM sessions end after Azure AD sign-out. For example, `https://mytravel.contoso.com/saml/sp/profile/redirect/slr`
 
    ![Screenshot of Basic SAML Configuration input for Identifier, Reply URL, Sign on URL, etc.](./media/f5-big-ip-header-advanced/basic-saml-configuration.png)
 

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.custom: devx-track-azurecli, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: quickstart
-ms.date: 7/18/2023
+ms.date: 08/02/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-portal-cli-sdk
 ---
@@ -25,7 +25,7 @@ You can access Azure AI services through two different resources: A multi-servic
     * Consolidates billing from the services you use.
 * Single-service resource:
     * Access a single Azure AI service with a unique key and endpoint for each service created. 
-    * Most Azure AI servives offer a free tier to try it out.
+    * Most Azure AI services offer a free tier to try it out.
 
 Azure AI services are represented by Azure [resources](../azure-resource-manager/management/manage-resources-portal.md) that you create under your Azure subscription. After you create a resource, you can use the keys and endpoint generated to authenticate your applications.
 
@@ -67,4 +67,12 @@ Azure AI services are represented by Azure [resources](../azure-resource-manager
 
 ## Next steps
 
-* Explore [Azure AI services](./what-are-ai-services.md) and choose a service to get started.
+* Now that you have a resource, you can authenticate your API requests to the following Azure AI services. Use these links to find quickstart articles, samples and more to start using your resource.
+    * [Content Moderator](./content-moderator/index.yml) (retired) 
+    * [Custom Vision](./custom-vision-service/index.yml) 
+    * [Document Intelligence](./document-intelligence/index.yml)
+    * [Face](./computer-vision/overview-identity.md) 
+    * [Language](./language-service/index.yml)
+    * [Speech](./speech-service/index.yml) 
+    * [Translator](./translator/index.yml)
+    * [Vision](./computer-vision/index.yml) 

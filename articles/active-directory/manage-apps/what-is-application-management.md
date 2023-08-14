@@ -109,7 +109,7 @@ It's important to periodically review and, if necessary, [manage the permissions
 
 Azure AD MFA helps safeguard access to data and applications, providing another layer of security by using a second form of authentication. There are many methods that can be used for a second-factor authentication. Before you start, [plan the deployment of MFA for your application](../authentication/howto-mfa-getstarted.md) in your organization.
 
-Organizations can enable MFA with [Conditional Access](../conditional-access/overview.md) to make the solution fit their specific needs. Conditional access policies allow administrators to assign controls to specific [applications, actions, or authentication context](../conditional-access/concept-conditional-access-cloud-apps.md).
+Organizations can enable MFA with [Conditional Access](../conditional-access/overview.md) to make the solution fit their specific needs. Conditional Access policies allow administrators to assign controls to specific [applications, actions, or authentication context](../conditional-access/concept-conditional-access-cloud-apps.md).
 
 ### Tokens and certificates
 

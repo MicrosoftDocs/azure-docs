@@ -31,7 +31,7 @@ For downlevel devices, see the article [Troubleshooting hybrid Azure Active Dire
 ## Using the Azure portal
 
 1. Go to the devices page using a [direct link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
-2. Information on how to locate a device can be found in [How to manage device identities using the Azure portal](./device-management-azure-portal.md).
+2. Information on how to locate a device can be found in [How to manage device identities using the Azure portal](./manage-device-identities.md).
 3. If the **Registered** column says **Pending**, then hybrid Azure AD join hasn't completed. In federated environments, this state happens only if it failed to register and Azure AD Connect is configured to sync the devices. Wait for Azure AD Connect to complete a sync cycle.
 4. If the **Registered** column contains a **date/time**, then hybrid Azure AD join has completed.
 

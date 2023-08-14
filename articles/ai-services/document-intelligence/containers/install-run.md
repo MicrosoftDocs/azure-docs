@@ -1,5 +1,5 @@
 ---
-title: Install and run Docker containers for Document Intelligence
+title: Install and run Docker containers for Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Use the Docker containers for Document Intelligence on-premises to identify and extract key-value pairs, selection marks, tables, and structure from forms and documents.
 author: laujan
@@ -196,7 +196,7 @@ The following host machine requirements are applicable to **train and analyze** 
 
 * Replace the {ENDPOINT_URI} and {API_KEY} values with your resource Endpoint URI and the key from the Azure resource page.
 
-   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
+   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot of Azure portal keys and endpoint page.":::
 
 * Ensure that the EULA value is set to *accept*.
 
@@ -252,7 +252,7 @@ services:
         - apiKey={FORM_RECOGNIZER_KEY}
         - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
   azure-cognitive-service-layout:
      container_name: azure-cognitive-service-layout
      image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
@@ -315,7 +315,7 @@ services:
         - apiKey={FORM_RECOGNIZER_KEY}
         - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
   azure-cognitive-service-layout:
     container_name: azure-cognitive-service-layout
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
@@ -347,7 +347,7 @@ services:
         - apiKey={FORM_RECOGNIZER_KEY}
         - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
-          - "5000:5000"
+          - "5000:5050"
     azure-cognitive-service-read:
       container_name: azure-cognitive-service-read
       image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0
@@ -379,7 +379,7 @@ services:
           - apiKey={FORM_RECOGNIZER_KEY}
           - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
       ports:
-          - "5000:5000"
+          - "5000:5050"
   azure-cognitive-service-read:
       container_name: azure-cognitive-service-read
       image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0
@@ -409,7 +409,7 @@ services:
         - apiKey={FORM_RECOGNIZER_KEY}
         - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
   azure-cognitive-service-layout:
     container_name: azure-cognitive-service-layout
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
@@ -782,7 +782,7 @@ services:
       - apiKey={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
     networks:
       - ocrvnet
   azure-cognitive-service-layout:
@@ -822,7 +822,7 @@ services:
       - apiKey={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
     networks:
       - ocrvnet
   azure-cognitive-service-read:
@@ -862,7 +862,7 @@ services:
       - apiKey={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
     networks:
       - ocrvnet
   azure-cognitive-service-read:
@@ -902,7 +902,7 @@ services:
       - apiKey={FORM_RECOGNIZER_KEY}
       - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
     ports:
-      - "5000:5000"
+      - "5000:5050"
     networks:
       - ocrvnet
   azure-cognitive-service-read:
@@ -1059,7 +1059,7 @@ services:
   volumes:
     - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf
   ports:
-    - "5000:5000"
+    - "5000:5050"
  rabbitmq:
   container_name: ${RABBITMQ_HOSTNAME}
   image: rabbitmq:3
@@ -1189,7 +1189,7 @@ There are several ways to validate that the container is running:
   |**http://<span></span>localhost:5000/swagger** | The container provides a full set of documentation for the endpoints and a Try it out feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format that's required.
   |
 
-:::image type="content" source="../media/containers/container-webpage.png" alt-text="Screenshot: Azure containers welcome page.":::
+:::image type="content" source="../media/containers/container-webpage.png" alt-text="Screenshot of Azure containers welcome page.":::
 
 ## Stop the containers
 
