@@ -3,7 +3,7 @@ title: Trino cluster configuration
 description: How to perform service configuration for Trino clusters for HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 08/14/2023
 ---
 
 # Trino configuration management
@@ -98,11 +98,11 @@ There are several components that control different configuration aspects:
 
 |Component name|Required/allowed properties for each file spec|Description|
 |---|---|---|
-|common|filename, values|Contains config files for both coordinator and worker.|
-|coordinator|filename, values|Contains config files for coordinator only, overrides common if present.|
-|worker|filename, values|Contains config files for workers only, overrides common if present.|
-|miscfiles|filename, content|Contains miscellaneous configuration files supplied by user for entire cluster.|
-|catalogs|filename, either content or values|Contains catalog files for entire cluster.|
+|common|`filename`, `values`|Contains config files for both coordinator and worker.|
+|coordinator|`filename`, `values`|Contains config files for coordinator only, overrides common if present.|
+|worker|`filename`, `values`|Contains config files for workers only, overrides common if present.|
+|`miscfiles`|`filename`, `content`|Contains miscellaneous configuration files supplied by user for entire cluster.|
+|catalogs|`filename`, either content or values|Contains catalog files for entire cluster.|
 
 The following example demonstrates:
 * Override default node.environment for cluster (displayed in Trino UI).
