@@ -60,17 +60,17 @@
       - name: View diagnostic logs in Log Analytics workspace
         href: ddos-view-diagnostic-logs.md  
   - name: Deploy Route Server with DDoS Protection
-    href: /route-server/tutorial-protect-route-server-ddos.md?toc=/azure/ddos-protection/TOC.json
+    href: ../route-server/tutorial-protect-route-server-ddos.md?toc=/azure/ddos-protection/TOC.json
   - name: Deploy Firewall with DDoS Protection
-    href: /firewall/tutorial-protect-firewall-ddos.md?toc=/azure/ddos-protection/TOC.json
+    href: ../firewall/tutorial-protect-firewall-ddos.md?toc=/azure/ddos-protection/TOC.json
   - name: Deploy Application Gateway with DDoS Protection
-    href: /application-gateway/tutorial-protect-application-gateway-ddos.md?toc=/azure/ddos-protection/TOC.json
+    href: ../application-gateway/tutorial-protect-application-gateway-ddos.md?toc=/azure/ddos-protection/TOC.json
   - name: Deploy Load Balancer with DDoS Protection
-    href: ./azure/load-balancer/tutorial-protect-load-balancer-ddos.md?toc=/azure/ddos-protection/TOC.json
+    href: ../load-balancer/tutorial-protect-load-balancer-ddos.md?toc=/azure/ddos-protection/TOC.json
   - name: Deploy VPN Gateway with DDoS Protection
-    href: azure/articles/vpn-gateway/tutorial-protect-vpn-gateway.md?toc=/azure/ddos-protection/TOC.json
+    href: ../vpn-gateway/tutorial-protect-vpn-gateway.md?toc=/azure/ddos-protection/TOC.json
   - name: Deploy Bastion with DDoS Protection
-    href: ../azure/articles/bastion/tutorial-protect-bastion-host-ddos.md?toc=/azure/ddos-protection/TOC.json
+    href: ../bastion/tutorial-protect-bastion-host-ddos.md?toc=/azure/ddos-protection/TOC.json
     
 
 - name: Concepts
@@ -100,7 +100,7 @@
   - name: Manage permissions and restrictions
     href: manage-permissions.md   
   - name: DDoS Protection on Front Door
-    href: /front-door/front-door-ddos.md?toc=/azure/ddos-protection/TOC.json
+    href: ../front-door/front-door-ddos.md?toc=/azure/ddos-protection/TOC.json
 - name: How-to guides
   items:
     - name: Switch tiers
