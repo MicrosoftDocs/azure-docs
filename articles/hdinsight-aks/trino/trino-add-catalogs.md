@@ -8,7 +8,7 @@ ms.date: 07/25/2023
 
 # Configure catalogs
 
-Every Trino cluster comes by default with few catalogs - system, tpcds, tpch. You can add your own catalogs same way you would do with OSS Trino. 
+Every Trino cluster comes by default with few catalogs - system, `tpcds`, tpch. You can add your own catalogs same way you would do with OSS Trino. 
 In addition, HDInsight on AKS Trino allows storing secrets in Key Vault so you don’t have to specify them explicitly in ARM template. 
 
 You can add a new catalog by updating your cluster ARM template except the hive catalog, which you can add during [Trino cluster creation](./trino-create-cluster-portal.md) in the Azure portal.
