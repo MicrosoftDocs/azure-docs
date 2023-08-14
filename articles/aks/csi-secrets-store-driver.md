@@ -162,7 +162,7 @@ A key vault certificate also contains public x509 certificate metadata. The key 
 ## Disable the Azure Key Vault Provider for Secrets Store CSI Driver on an existing AKS cluster
 
 > [!NOTE]
-> Before you disable the add-on, ensure that `SecretProviderClass` is in use. Trying to disable the add-on while `SecretProviderClass` exists results in an error.
+> Before you disable the add-on, ensure that *no* `SecretProviderClass` is in use. Trying to disable the add-on while a `SecretProviderClass` exists results in an error.
 
 * Disable the Azure Key Vault Provider for Secrets Store CSI Driver capability in an existing cluster using the [`az aks disable-addons`][az-aks-disable-addons] command with the `azure-keyvault-secrets-provider` add-on.
 
