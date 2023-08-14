@@ -53,7 +53,7 @@ items:
       - name: MQTT clients life cycle events
         href: mqtt-client-life-cycle-events.md
       - name: RBAC roles to authorize clients with Azure AD identity
-        href: mqtt-client-authorization-using-rbac.md
+        href: mqtt-client-authorization-use-rbac.md
       - name: Use cases
         items:
         - name: Automotive Messaging
