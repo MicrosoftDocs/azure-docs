@@ -137,7 +137,7 @@ GO
 ```
 ##### Maven source code on IdeaJ
 
-In the below snippet, we're using HDInsight Kafka 2.4.1. Based on you're usage, update the version of Kafka on `<kafka.version>`. 
+In the below snippet, we're using HDInsight Kafka 2.4.1. Based on your usage, update the version of Kafka on `<kafka.version>`. 
 
 **maven pom.xml**
 
