@@ -254,7 +254,7 @@ If you use Conditional Access to determine when users are prompted for MFA, you 
 
 If your federated domain(s) have SupportsMfa set to false, analyze your claims rules on the Azure AD relying party trust and create Conditional Access policies that support the same security goals.
 
-After creating conditional access policies to enforce the same controls as AD FS, you can back up and remove your claim rules customizations on the Azure AD Relying Party.
+After creating Conditional Access policies to enforce the same controls as AD FS, you can back up and remove your claim rules customizations on the Azure AD Relying Party.
 
 For more information, see the following resources:
 
@@ -286,7 +286,7 @@ You can synchronize phone numbers, hardware tokens, and device registrations suc
 
 ### Add users to the appropriate groups
 
-* If you created new conditional access policies, add the appropriate users to those groups. 
+* If you created new Conditional Access policies, add the appropriate users to those groups. 
 
 * If you created on-premises security groups for claims rules, add the appropriate users to those groups.
 

@@ -64,7 +64,7 @@ You and your team might feel compelled to change your current employee provision
 
 Client workstations are traditionally joined to Active Directory and managed via Group Policy objects (GPOs) or device management solutions such as Microsoft Configuration Manager. Your teams will establish a new policy and process to prevent newly deployed workstations from being domain joined. Key points include:
 
-* Mandate [Azure AD join](../devices/concept-azure-ad-join.md) for new Windows client workstations to achieve "no more domain join."
+* Mandate [Azure AD join](../devices/concept-directory-join.md) for new Windows client workstations to achieve "no more domain join."
 
 * Manage workstations from the cloud by using unified endpoint management (UEM) solutions such as [Intune](/mem/intune/fundamentals/what-is-intune).
 

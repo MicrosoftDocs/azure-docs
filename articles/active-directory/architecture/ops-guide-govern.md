@@ -38,7 +38,7 @@ Managing Azure Active Directory requires the continuous execution of key operati
 | Design Catalogs and Access Packages for applications and resources based for employees in the organization | App Owners |
 | Define Security Policies to assign users to access packages | InfoSec team + App Owners |
 | If policies include approval workflows, regularly review workflow approvals | App Owners |
-| Review exceptions in security policies, such as conditional access policies, using access reviews | InfoSec Operations Team |
+| Review exceptions in security policies, such as Conditional Access policies, using access reviews | InfoSec Operations Team |
 
 As you review your list, you may find you need to either assign an owner for tasks that are missing an owner or adjust ownership for tasks with owners that aren't aligned with the recommendations above.
 
@@ -53,7 +53,7 @@ There are changes that require special considerations when testing, from simple 
 | Scenario| Recommendation |
 |-|-|
 |Changing the authentication type from federated to PHS/PTA or vice-versa| Use [staged rollout](../hybrid/how-to-connect-staged-rollout.md) to test the impact of changing the authentication type.|
-|Rolling out a new conditional access (CA) policy or Identity Protection Policy|Create a new Conditional Access policy and assign to test users.|
+|Rolling out a new Conditional Access policy or Identity Protection Policy|Create a new Conditional Access policy and assign to test users.|
 |Onboarding a test environment of an application|Add the application to a production environment, hide it from the MyApps panel, and assign it to test users during the quality assurance (QA) phase.|
 |Changing of sync rules|Perform the changes in a test Azure AD Connect with the same configuration that is currently in production, also known as staging mode, and analyze CSExport Results. If satisfied, swap to production when ready.|
 |Changing of branding|Test in a separate test tenant.|

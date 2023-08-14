@@ -30,7 +30,7 @@ This article explains how you can configure Conditional Access policies that blo
 
 While rolling out legacy authentication blocking protection, we recommend a phased approach, rather than disabling it for all users all at once. Customers may choose to first begin disabling basic authentication on a per-protocol basis, by applying Exchange Online authentication policies, then (optionally) also blocking legacy authentication via Conditional Access policies when ready.
 
-Customers without licenses that include Conditional Access can make use of [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) to block legacy authentication.
+Customers without licenses that include Conditional Access can make use of [security defaults](../fundamentals/security-defaults.md) to block legacy authentication.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ This article assumes that you're familiar with the [basic concepts](overview.md)
 
 ## Scenario description
 
-Azure AD supports the most widely used authentication and authorization protocols including legacy authentication. Legacy authentication can't prompt users for second factor authentication or other authentication requirements needed to satisfy conditional access policies, directly. This authentication pattern includes basic authentication, a widely used industry-standard method for collecting user name and password information.  Examples of applications that commonly or only use legacy authentication are:
+Azure AD supports the most widely used authentication and authorization protocols including legacy authentication. Legacy authentication can't prompt users for second factor authentication or other authentication requirements needed to satisfy Conditional Access policies, directly. This authentication pattern includes basic authentication, a widely used industry-standard method for collecting user name and password information.  Examples of applications that commonly or only use legacy authentication are:
 
 - Microsoft Office 2013 or older.
 - Apps using mail protocols like POP, IMAP, and SMTP AUTH.

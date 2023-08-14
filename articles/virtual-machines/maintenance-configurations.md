@@ -65,6 +65,9 @@ This scope is integrated with [update management center](../update-center/overvi
 
 To learn more about this topic, checkout [update management center and scheduled patching](../update-center/scheduled-patching.md)
 
+> [!NOTE]
+> In rare cases if platform catchup host update window happens to coincide with the guest (VM) patching window and if the guest patching window don't get sufficient time to execute after host update then the system would show **Schedule timeout, waiting for an ongoing update to complete the resource** error since only a single update is allowed by the platform at a time. 
+
 ## Shut Down Machines
 
 We are unable to apply maintenance updates to any shut down machines. You need to ensure that your machine is turned on at least 15 minutes before a scheduled update or your update may not be applied. If your machine is in a shutdown state at the time of your scheduled update, it may appear that the maintenance configuration has been disassociated on the Azure portal, and this is only a display issue that the team is currently working to fix it. The maintenance configuration has not been completely disassociated and you can check it via CLI using [check configuration](maintenance-configurations-cli.md#check-configuration).

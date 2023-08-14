@@ -129,7 +129,7 @@ Azure ABAC builds on Azure RBAC by adding role assignment conditions based on at
 
 ## Conditional Access
 
-Azure AD [Conditional Access](../../role-based-access-control/conditional-access-azure-management.md) (CA) can be used to manage access to Azure management endpoints. CA policies can be applied to the Microsoft Azure Management cloud app to protect the Azure resource management endpoints such as:
+Azure AD [Conditional Access](../../role-based-access-control/conditional-access-azure-management.md) can be used to manage access to Azure management endpoints. Conditional Access policies can be applied to the Microsoft Azure Management cloud app to protect the Azure resource management endpoints such as:
 
 * Azure Resource Manager Provider (services)
 

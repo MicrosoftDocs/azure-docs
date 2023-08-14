@@ -21,7 +21,7 @@ Many separation scenarios can be achieved within a single tenant. If possible, w
 
 ## Outcomes
 
-**Resource separation** - With Azure AD directory roles, security groups, conditional access policies, Azure resource groups, Azure management groups, administrative units (AU's), and other controls, you can restrict resource access to specific users, groups, and service principals. Resources can be managed by separate administrators, and have separate users, permissions, and access requirements.
+**Resource separation** - With Azure AD directory roles, security groups, Conditional Access policies, Azure resource groups, Azure management groups, administrative units (AU's), and other controls, you can restrict resource access to specific users, groups, and service principals. Resources can be managed by separate administrators, and have separate users, permissions, and access requirements.
 
 If a set of resources require unique tenant-wide settings, or there's minimal risk tolerance for unauthorized access by tenant members, or critical impact could be caused by configuration changes, you must achieve isolation in multiple tenants.
 
@@ -29,7 +29,7 @@ If a set of resources require unique tenant-wide settings, or there's minimal ri
 
 If a set of resources require unique tenant-wide settings, or the tenant's settings must be administered by a different entity, you must achieve isolation with multiple tenants.
 
-**Administrative separation** - With Azure AD delegated administration, you can segregate the administration of resources such as applications and APIs, users and groups, resource groups, and conditional access policies.
+**Administrative separation** - With Azure AD delegated administration, you can segregate the administration of resources such as applications and APIs, users and groups, resource groups, and Conditional Access policies.
 
 Global administrators can discover and obtain full access to any trusting resources. You can set up auditing and alerts to know when an administrator changes a resource if they're authenticated.
 
@@ -61,7 +61,7 @@ In this diagram, there are nonproduction Azure resources and nonproduction insta
 
 Another scenario for isolation within a single tenant could be separation between locations, subsidiary or implementation of tiered administration (according to the "[Enterprise Access Model](/security/compass/privileged-access-access-model)").
 
-Azure RBAC role assignments allow scoped administration of Azure resources. Similarly, Azure AD allows granular management of Azure AD trusting applications through multiple capabilities such as conditional access, user and group filtering, administrative unit assignments and application assignments.
+Azure RBAC role assignments allow scoped administration of Azure resources. Similarly, Azure AD allows granular management of Azure AD trusting applications through multiple capabilities such as Conditional Access, user and group filtering, administrative unit assignments and application assignments.
 
 If you must ensure full isolation (including staging of organization-level configuration) of Microsoft 365 services, you need to choose a [multiple tenant isolation](../../backup/multi-user-authorization.md).
 

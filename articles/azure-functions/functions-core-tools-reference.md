@@ -2,7 +2,7 @@
 title: Azure Functions Core Tools reference 
 description: Reference documentation that supports the Azure Functions Core Tools (func.exe).
 ms.topic: reference
-ms.date: 07/13/2021
+ms.date: 07/30/2023
 ---
 
 # Azure Functions Core Tools reference
@@ -15,6 +15,7 @@ Core Tools commands are organized into the following contexts, each providing a 
 | ----- | ----- |
 | [`func`](#func-init) | Commands used to create and run functions on your local computer. |
 | [`func azure`](#func-azure-functionapp-fetch-app-settings) | Commands for working with Azure resources, including publishing. |
+| [`func azurecontainerapps`](#func-azurecontainerapps-deploy) | Deploy containerized function app to Azure Container Apps. |
 | [`func durable`](#func-durable-delete-task-hub)    | Commands for working with [Durable Functions](./durable/durable-functions-overview.md). |
 | [`func extensions`](#func-extensions-install) | Commands for installing and managing extensions. |
 | [`func kubernetes`](#func-kubernetes-deploy) | Commands for working with Kubernetes and Azure Functions. |
@@ -163,7 +164,7 @@ func host start
 | **`--timeout`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
 
-In version 1.x, you can also use the [`func run` command](#func-run) to run a specific function and pass test data to it. 
+In version 1.x, you can also use the [`func run`](#func-run) command to run a specific function and pass test data to it. 
 
 ---
 
@@ -209,7 +210,7 @@ To learn more, see [Enable streaming logs](functions-run-local.md#enable-streami
 Deploys a Functions project to an existing function app resource in Azure. 
 
 ```command
-func azure functionapp publish <FunctionAppName>
+func azure functionapp publish <APP_NAME>
 ```
 
 For more information, see [Deploy project files](functions-run-local.md#project-file-deployment).
@@ -220,20 +221,25 @@ The following publish options apply, based on version:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
+| **`--access-token`** | Let's you use a specific access token when performing authenticated azure actions. |
+| **`--access-token-stdin `** | Reads a specific access token from a standard input. Use this when reading the token directly from a previous command such as [`az account get-access-token`](/cli/azure/account#az-account-get-access-token). |
 | **`--additional-packages`** | List of packages to install when building native dependencies. For example: `python3-dev libevent-dev`. |
 | **`--build`**, **`-b`** | Performs build action when deploying to a Linux function app. Accepts: `remote` and `local`. |
 | **`--build-native-deps`** | Skips generating the `.wheels` folder when publishing Python function apps. |
 | **`--csx`** | Publish a C# script (.csx) project. |
+| **`--dotnet-cli-params`** | When publishing compiled C# (.csproj) functions, the core tools calls `dotnet build --output bin/publish`. Any parameters passed to this are appended to the command line. |
 | **`--force`** | Ignore prepublishing verification in certain scenarios. |
-| **`--dotnet-cli-params`** | When publishing compiled C# (.csproj) functions, the core tools calls `dotnet build --output bin/publish`. Any parameters passed to this will be appended to the command line. |
 |**`--list-ignored-files`** | Displays a list of files that are ignored during publishing, which is based on the `.funcignore` file. |
 | **`--list-included-files`** | Displays a list of files that are published, which is based on the `.funcignore` file. |
+| **`--management-url`** | Sets the management URL for your cloud. Use this when running in a sovereign cloud. |
 | **`--no-build`** | Project isn't built during publishing. For Python, `pip install` isn't performed. |
 | **`--nozip`** | Turns the default `Run-From-Package` mode off. |
 | **`--overwrite-settings -y`** | Suppress the prompt to overwrite app settings when `--publish-local-settings -i` is used.|
 | **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you're using a [local storage emulator](functions-develop-local.md#local-storage-emulator), first change the app setting to an [actual storage connection](functions-run-local.md#get-your-storage-connection-strings). |
 | **`--publish-settings-only`**, **`-o`** |  Only publish settings and skip the content. Default is prompt. |
 | **`--slot`** | Optional name of a specific slot to which to publish. |
+| **`--subscription`** | Sets the default subscription to use. |
+
 
 # [v1.x](#tab/v1)
 
@@ -251,6 +257,39 @@ Gets the connection string for the specified Azure Storage account.
 ```command
 func azure storage fetch-connection-string <STORAGE_ACCOUNT_NAME>
 ```
+
+## func azurecontainerapps deploy    
+
+Deploys a containerized function app to an Azure Container Apps environment. Both the storage account used by the function app and the environment must already exist. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). 
+
+```command
+func azurecontainerapps deploy --name <APP_NAME> --environment <ENVIRONMENT_NAME> --storage-account <STORAGE_CONNECTION> --resource-group <RESOURCE_GROUP> --image-name <IMAGE_NAME> --registry-server <REGISTRY_SERVER> --registry-username <USERNAME> --registry-password <PASSWORD>
+
+```
+
+The following deployment options apply:
+
+| Option     | Description                            |
+| ------------ | -------------------------------------- |
+| **`--access-token`** | Let's you use a specific access token when performing authenticated azure actions. |
+| **`--access-token-stdin `** | Reads a specific access token from a standard input. Use this when reading the token directly from a previous command such as [`az account get-access-token`](/cli/azure/account#az-account-get-access-token). |
+| **`--environment`** | The name of an existing Container Apps environment.| 
+| **`--image-build`** | When set to `true`, skips the local Docker build. |
+| **`--image-name`** | The image name of an existing container in a container registry. The image name includes the tag name. |
+| **`--location `** | Region for the deployment. Ideally, this is the same region as the environment and storage account resources. |
+| **`--management-url`** | Sets the management URL for your cloud. Use this when running in sovereign cloud. |
+| **`--name`** | The name used for the function app deployment in the Container Apps environment. This same name is also used when managing the function app in the portal. The name should be unique in the environment. | 
+| **`--registry`** | When set, a Docker build is run and the image is pushed to the registry set in `--registry`. You can't use `--registry` with `--image-name`. For Docker Hub, also use `--registry-username`.|
+| **`--registry-password`** | The password or token used to retrieve the image from a private registry.|
+| **`--registry-username`** | The username used to retrieve the image from a private registry.|
+| **`--resource-group`** | The resource group in which to create the functions-related resources.|
+| **`--storage-account`** | The connection string for the storage account to be used by the function app.|
+| **`--subscription`** | Sets the default subscription to use. |
+| **`--worker-runtime`** | Sets the runtime language of the function app. This parameter is only used with `--image-name` and `--image-build`, otherwise the language is determined during the local build. Supported values are: `dotnet`, `dotnetIsolated`, `node`, `python`, `powershell`, and `custom` (for customer handlers). |
+
+
+> [!IMPORTANT]
+> Storage connection strings and other service credentials are important secrets. Make sure to securely store any script files using `func azurecontainerapps deploy` and don't store them in any publicly accessible source control. 
 
 ## func deploy
 
@@ -475,7 +514,7 @@ Deploys a Functions project as a custom docker container to a Kubernetes cluster
 func kubernetes deploy 
 ```
 
-This command builds your project as a custom container and publishes it to a Kubernetes cluster. Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the `--dockerfile` option with the [`func init` command](#func-init). 
+This command builds your project as a custom container and publishes it to a Kubernetes cluster. Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the `--dockerfile` option with the [`func init`](#func-init) command. 
 
 The following Kubernetes deployment options are available:
 
@@ -502,9 +541,7 @@ The following Kubernetes deployment options are available:
 | **`--service-type`** | Sets the type of Kubernetes Service. Supported values are: `ClusterIP`, `NodePort`, and `LoadBalancer` (default). |
 | **`--use-config-map`** | Use a `ConfigMap` object (v1) instead of a `Secret` object (v1) to configure [function app settings](functions-how-to-use-azure-function-app-settings.md#settings). The map name is set using `--config-map-name`.|
 
-Core Tools uses the local Docker CLI to build and publish the image. 
-
-Make sure your Docker is already installed locally. Run the `docker login` command to connect to your account.
+Core Tools uses the local Docker CLI to build and publish the image. Make sure your Docker is already installed locally. Run the `docker login` command to connect to your account.
 
 To learn more, see [Deploying a function app to Kubernetes](functions-kubernetes-keda.md#deploying-a-function-app-to-kubernetes).
 

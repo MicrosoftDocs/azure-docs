@@ -98,7 +98,7 @@ If your organization provisions accounts in Active Directory or other on-premise
 
 ### Move non-Windows workstations
 
-You can integrate non-Windows workstations with Azure AD to enhance the user experience and to benefit from cloud-based security features such as conditional access.
+You can integrate non-Windows workstations with Azure AD to enhance the user experience and to benefit from cloud-based security features such as Conditional Access.
 
 * For macOS:
 

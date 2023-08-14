@@ -3,7 +3,7 @@ title: Migrate your Azure Kubernetes Service (AKS) pod to use workload identity
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with workload identity.
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-linux
-ms.date: 07/26/2023
+ms.date: 07/31/2023
 ---
 
 # Migrate from pod managed-identity to workload identity
@@ -37,7 +37,7 @@ If your cluster is already using the latest version of the Azure Identity SDK, p
 
 If your cluster isn't using the latest version of the Azure Identity SDK, you have two options:
 
-- You can use a migration sidecar that we provide within your Linux applications, which proxies the IMDS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). The migration sidecar isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity.  Perform the following steps to:
+- You can use a migration sidecar that we provide within your Linux applications, which proxies the IMDS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). The migration sidecar isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity. Perform the following steps to:
 
     - [Deploy the workload with migration sidecar](#deploy-the-workload-with-migration-sidecar) to proxy the application IMDS transactions.
     - Verify the authentication transactions are completing successfully.
@@ -45,8 +45,8 @@ If your cluster isn't using the latest version of the Azure Identity SDK, you ha
     - Once the SDK's are updated to the supported version, you can remove the proxy sidecar and redeploy the application.
 
    > [!NOTE]
-   > The migration sidecar is **not supported for production use**.  This feature is meant to give you time to migrate your application SDK's to a supported version, and not meant or intended to be a long-term solution.
-   > The migration sidecar is only for Linux containers as pod-managed identities was available on Linux node pools only. 
+   > The migration sidecar is **not supported for production use**. This feature is meant to give you time to migrate your application SDK's to a supported version, and not meant or intended to be a long-term solution.
+   > The migration sidecar is only available for Linux containers, due to only providing pod-managed identities with Linux node pools.
 
 - Rewrite your application to support the latest version of the [Azure Identity][azure-identity-supported-versions] client library. Afterwards, perform the following steps:
 

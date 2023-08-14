@@ -29,7 +29,7 @@ With [Azure AD Application Proxy](application-proxy.md), you can address this is
 :::image type="content" source="./media/application-proxy-configure-complex-application/complex-app-flow-1.png" alt-text="Diagram of a Complex application with multiple application segments definition.":::
 
 A complex app has multiple app segments, with each app segment being a pair of an internal & external URL.
-There is one conditional access policy associated with the app and access to any of the external URLs work with pre-authentication with the same set of policies that are enforced for all.
+There is one Conditional Access policy associated with the app and access to any of the external URLs work with pre-authentication with the same set of policies that are enforced for all.
 
 This solution that allows user to:
 

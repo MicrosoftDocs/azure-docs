@@ -132,7 +132,7 @@ Check this example to [create service principals with self-signed certificate](.
 
 ### Access policies
 
-In the following sections are recommendations for Azure solutions. For general guidance on Conditional Access policies for individual environments, check the [CA Best practices](../conditional-access/overview.md), [Azure AD Operations Guide](../fundamentals/ops-guide-auth.md), and [Conditional Access for Zero Trust](/azure/architecture/guide/security/conditional-access-zero-trust):
+In the following sections are recommendations for Azure solutions. For general guidance on Conditional Access policies for individual environments, check the [Conditional Access Best practices](../conditional-access/overview.md), [Azure AD Operations Guide](../fundamentals/ops-guide-auth.md), and [Conditional Access for Zero Trust](/azure/architecture/guide/security/conditional-access-zero-trust):
 
 * Define [Conditional Access policies](../conditional-access/workload-identity.md) for the [Microsoft Azure Management](../authentication/howto-password-smart-lockout.md) cloud app to enforce identity security posture when accessing Azure Resource Manager. This should include controls on MFA and device-based controls to enable access only through secure workstations (more on this in the Privileged Roles section under Identity Governance). Additionally, use [Conditional Access to filter for devices](../conditional-access/concept-condition-filters-for-devices.md).
 
@@ -140,7 +140,7 @@ In the following sections are recommendations for Azure solutions. For general g
 
 * Define Conditional Access policies for [security information registration](../conditional-access/howto-conditional-access-policy-registration.md) that reflects a secure root of trust process on-premises (for example, for workstations in physical locations, identifiable by IP addresses, that employees must visit in person for verification).
 
-* Consider managing Conditional Access policies at scale with automation using [MS Graph CA API](../conditional-access/howto-conditional-access-apis.md)). For example, you can use the API to configure, manage, and monitor CA policies consistently across tenants.
+* Consider managing Conditional Access policies at scale with automation using [MS Graph Conditional Access API](../conditional-access/howto-conditional-access-apis.md)). For example, you can use the API to configure, manage, and monitor Conditional Access policies consistently across tenants.
 
 * Consider using Conditional Access to restrict workload identities. Create a policy to limit or better control access based on location or other relevant circumstances.
 
@@ -200,7 +200,7 @@ Some approaches you can use for [using secure devices as part of your privileged
 
 * Monitoring IAM assignments outside Azure AD PIM isn't automated through Azure Policies. The mitigation is to not grant Subscription Owner or User Access Administrator roles to engineering teams. Instead create groups assigned to least privileged roles such as Contributor and delegate the management of those groups to engineering teams.
 
-* Privileged roles in Azure AD B2C tenants aren't integrated with Azure AD PIM. The mitigation is to create dedicated accounts in the organization's Azure AD tenant, onboard them in the Azure AD B2C tenant and apply conditional access policies to these dedicated administration accounts.
+* Privileged roles in Azure AD B2C tenants aren't integrated with Azure AD PIM. The mitigation is to create dedicated accounts in the organization's Azure AD tenant, onboard them in the Azure AD B2C tenant and apply Conditional Access policies to these dedicated administration accounts.
 
 * Azure AD B2C tenant privileged roles aren't integrated with Azure AD Access Reviews. The mitigation is to create dedicated accounts in the organization's Azure AD tenant, add these accounts to a group and perform regular access reviews on this group.
 

@@ -326,7 +326,7 @@ The number of features and capabilities that we're adding to Microsoft Authentic
 - Support for Azure AD B2C accounts 
 - Handling throttling 
 - Proactive token refresh and token revocation based on policy or critical events for Microsoft Graph and other APIs that support [Continuous Access Evaluation (CAE)](../develop/app-resilience-continuous-access-evaluation.md)
-- Auth broker support with device-based conditional access policies 
+- Auth broker support with device-based Conditional Access policies 
 - Azure AD hardware-based certificate authentication (CBA) on mobile  
 - System browsers on mobile devices 
 And more. For an up-to-date list, refer to our [migration guide](../develop/msal-migration.md#how-to-migrate-to-msal). 
@@ -560,7 +560,7 @@ In the Azure portal, the required permissions list is under API Permissions with
 
 ---
 
-### Public Preview - Conditional access Authentication strengths 
+### Public Preview - Conditional Access Authentication strengths 
 
 
 
@@ -568,11 +568,11 @@ In the Azure portal, the required permissions list is under API Permissions with
 **Service category:** Conditional Access   
 **Product capability:** User Authentication  
 
-We're announcing Public preview of Authentication strength, a Conditional Access control that allows administrators to specify which authentication methods can be used to access a resource.  For more information, see: [Conditional Access authentication strength (preview)](../authentication/concept-authentication-strengths.md). You can use custom authentication strengths to restrict access by requiring specific FIDO2 keys using the Authenticator Attestation GUIDs (AAGUIDs), and apply this through conditional access policies. For more information, see: [FIDO2 security key advanced options](../authentication/concept-authentication-strengths.md#fido2-security-key-advanced-options).
+We're announcing Public preview of Authentication strength, a Conditional Access control that allows administrators to specify which authentication methods can be used to access a resource.  For more information, see: [Conditional Access authentication strength (preview)](../authentication/concept-authentication-strengths.md). You can use custom authentication strengths to restrict access by requiring specific FIDO2 keys using the Authenticator Attestation GUIDs (AAGUIDs), and apply this through Conditional Access policies. For more information, see: [FIDO2 security key advanced options](../authentication/concept-authentication-strengths.md#fido2-security-key-advanced-options).
 
 ---
 
-### Public Preview - Conditional access authentication strengths for external identities
+### Public Preview - Conditional Access authentication strengths for external identities
 
 
 **Type:** New feature  
@@ -596,7 +596,7 @@ We're excited to announce the general availability of hybrid cloud Kerberos trus
 
 ---
 
-### General Availability - Device-based conditional access on Linux Desktops
+### General Availability - Device-based Conditional Access on Linux Desktops
 
 
 
@@ -607,12 +607,12 @@ We're excited to announce the general availability of hybrid cloud Kerberos trus
 This feature empowers users on Linux clients to register their devices with Azure AD, enroll into Intune management, and satisfy device-based Conditional Access policies when accessing their corporate resources.
 
 - Users can register their Linux devices with Azure AD
-- Users can enroll in Mobile Device Management (Intune), which can be used to provide compliance decisions based upon policy definitions to allow device based conditional access on Linux Desktops 
+- Users can enroll in Mobile Device Management (Intune), which can be used to provide compliance decisions based upon policy definitions to allow device based Conditional Access on Linux Desktops 
 - If compliant, users can use Microsoft Edge Browser to enable Single-Sign on to M365/Azure resources and satisfy device-based Conditional Access policies.
 
 
 For more information, see: 
-[Azure AD registered devices](../devices/concept-azure-ad-register.md).
+[Azure AD registered devices](../devices/concept-device-registration.md).
 [Plan your Azure Active Directory device deployment](../devices/plan-device-deployment.md)
 
 ---
@@ -763,7 +763,7 @@ Azure AD Connect Cloud Sync Password writeback now provides customers the abilit
 
 ---
 
-### General Availability - Device-based conditional access on Linux Desktops
+### General Availability - Device-based Conditional Access on Linux Desktops
 
 
 
@@ -776,12 +776,12 @@ Azure AD Connect Cloud Sync Password writeback now provides customers the abilit
 This feature empowers users on Linux clients to register their devices with Azure AD, enroll into Intune management, and satisfy device-based Conditional Access policies when accessing their corporate resources.
 
 - Users can register their Linux devices with Azure AD.
-- Users can enroll in Mobile Device Management (Intune), which can be used to provide compliance decisions based upon policy definitions to allow device based conditional access on Linux Desktops.
+- Users can enroll in Mobile Device Management (Intune), which can be used to provide compliance decisions based upon policy definitions to allow device based Conditional Access on Linux Desktops.
 - If compliant, users can use Microsoft Edge Browser to enable Single-Sign on to M365/Azure resources and satisfy device-based Conditional Access policies.
 
 For more information, see:
 
-- [Azure AD registered devices](../devices/concept-azure-ad-register.md)
+- [Azure AD registered devices](../devices/concept-device-registration.md)
 - [Plan your Azure Active Directory device deployment](../devices/plan-device-deployment.md)
 
 ---
@@ -917,7 +917,7 @@ A new policy API is available for the administrators to control tenant wide poli
 
 In some situations, you may want to restrict the ability for end users to self-service BitLocker keys. With this new functionality, you can now turn off self-service of BitLocker keys, so that only specific individuals with right privileges can recover a BitLocker key.
 
-For more information, see: [Block users from viewing their BitLocker keys (preview)](../devices/device-management-azure-portal.md#configure-device-settings)
+For more information, see: [Block users from viewing their BitLocker keys (preview)](../devices/manage-device-identities.md#configure-device-settings)
 
 
 ---
@@ -1249,7 +1249,7 @@ All Devices List:
 - Columns can be reordered via drag and drop
 - Select all devices
 
-For more information, see: [Manage devices in Azure AD using the Azure portal](../devices/device-management-azure-portal.md#view-and-filter-your-devices-preview).
+For more information, see: [Manage devices in Azure AD using the Azure portal](../devices/manage-device-identities.md#view-and-filter-your-devices-preview).
 
 
  
@@ -1536,7 +1536,7 @@ The sign-ins Microsoft Graph API now supports confirming safe and compromised on
 Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
 
 -Microsoft Azure global cloud and Microsoft Azure Government
--Microsoft Azure global cloud and Microsoft Azure China 21Vianet
+-Microsoft Azure global cloud and Microsoft Azure operated by 21Vianet
 
 To learn more about Microsoft cloud settings for B2B collaboration, see: [Cross-tenant access overview - Azure AD](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
  

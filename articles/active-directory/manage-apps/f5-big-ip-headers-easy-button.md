@@ -311,7 +311,7 @@ Learn more: see, [My Apps](https://myapplications.microsoft.com/)
 
 The SAML federation metadata for the published application is imported from your tenant. The import provides the APM with the SAML sign out endpoint for Azure AD. This action ensures SP-initiated sign out terminates client and Azure AD sessions. Ensure the APM knows when user sign out occurs.
 
-If the BIG-IP webtop portal accesses published applications, then th eAPM processes the sign out to call the Azure AD sign out endpoint. If the BIG-IP webtop portal isn’t used, users can't instruct the APM to sign out. If users sign out of the application, the BIG-IP is oblivious. Thus, ensure SP-initiated sign out securely terminates sessions. You can add an SLO function to an application **Sign out** button, Then, clients are redirected to the Azure AD SAML or BIG-IP sign out endpoint. To locate the SAML sign out endpoint URL for your tenant, go to **App Registrations > Endpoints**.
+If the BIG-IP webtop portal accesses published applications, then th eAPM processes the sign out to call the Azure AD sign-out endpoint. If the BIG-IP webtop portal isn’t used, users can't instruct the APM to sign out. If users sign out of the application, the BIG-IP is oblivious. Thus, ensure SP-initiated sign out securely terminates sessions. You can add an SLO function to an application **Sign out** button, Then, clients are redirected to the Azure AD SAML or BIG-IP sign out endpoint. To locate the SAML sign out endpoint URL for your tenant, go to **App Registrations > Endpoints**.
 
 If you can't change the app, enable the BIG-IP to listen for the application sign out call and trigger SLO. 
 

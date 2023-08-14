@@ -22,7 +22,7 @@ In this article, you learn how to move your desktop app that calls web APIs to p
 
 ## Handle errors in desktop applications
 
-In the different flows, you've learned how to handle the errors for the silent flows, as shown in the code snippets. You've also seen that there are cases where interaction is needed, as in incremental consent and conditional access.
+In the different flows, you've learned how to handle the errors for the silent flows, as shown in the code snippets. You've also seen that there are cases where interaction is needed, as in incremental consent and Conditional Access.
 
 ## Have the user consent upfront for several resources
 

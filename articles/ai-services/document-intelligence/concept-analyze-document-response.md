@@ -1,5 +1,5 @@
 ---
-title: Document Intelligence APIs analyze document response
+title: Document Intelligence (formerly Form Recognizer) APIs analyze document response
 titleSuffix: Azure AI services
 description: Description of the different objects returned as part of the analyze document response and how to use the document analysis response in your applications.
 author: laujan
@@ -10,12 +10,14 @@ ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: vikurpad
 ms.custom: references_regions
-monikerRange: 'doc-intel-3.0.0'
+monikerRange: '>=doc-intel-3.0.0'
 ---
 
 
 
 # Analyze document API response
+
+[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
 
 In this article, let's examine the different objects returned as part of the analyze document response and how to use the document analysis API response in your applications.
 

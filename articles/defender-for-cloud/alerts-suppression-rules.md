@@ -16,7 +16,7 @@ This page explains how you can use alerts suppression rules to suppress false po
 |----|:----|
 |Release state:|General availability (GA)|
 |Required roles and permissions:|**Security admin** and **Owner** can create/delete rules.<br>**Security reader** and **Reader** can view rules.|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)|
 
 ## What are suppression rules?
 

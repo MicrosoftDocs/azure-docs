@@ -113,31 +113,31 @@ A mail contact object can't convert to a user object. Therefore, properties asso
 - **Azure AD Identity Governance, Access Reviews.** You can use the access reviews feature to review and attest to membership of Office 365 group. Access reviews are based on user objects. Members represented by mail contact objects are out of scope for access reviews.
 - **Azure AD Identity Governance, Entitlement Management (EM).** When you use EM to enable self-service access requests for external users in the company's EM portal, it creates a user object the time of request. It doesn't support mail contact objects.
 
-## Azure AD conditional access considerations
+## Azure AD Conditional Access considerations
 
-The state of the user, device, or network in the user's home tenant doesn't convey to the resource tenant. Therefore, an external user might not satisfy conditional access (CA) policies that use the following controls.
+The state of the user, device, or network in the user's home tenant doesn't convey to the resource tenant. Therefore, an external user might not satisfy Conditional Access policies that use the following controls.
 
 Where allowed, you can override this behavior with [Cross-Tenant Access Settings (CTAS)](../external-identities/cross-tenant-access-overview.md) that honor MFA and device compliance from the home tenant.
 
 - **Require multi-factor authentication.** Without CTAS configured, an external user must register/respond to MFA in the resource tenant (even if MFA was satisfied in the home tenant), which results in multiple MFA challenges. If they need to reset their MFA proofs, they might not be aware of the multiple MFA proof registrations across tenants. The lack of awareness might require the user to contact an administrator in the home tenant, resource tenant, or both.
 - **Require device to be marked as compliant.** Without CTAS configured, device identity isn't registered in the resource tenant, so the external user can't access resources that require this control.
 - **Require Hybrid Azure AD Joined device.** Without CTAS configured, device identity isn't registered in the resource tenant (or on-premises Active Directory connected to resource tenant), so the external user can't access resources that require this control.
-- **Require approved client app or Require app protection policy.** Without CTAS configured, external users can't apply the resource tenant Intune Mobile App Management (MAM) policy because it also requires device registration. Resource tenant Conditional Access (CA) policy, using this control, doesn't allow home tenant MAM protection to satisfy the policy. Exclude external users from every MAM-based CA policy.
+- **Require approved client app or Require app protection policy.** Without CTAS configured, external users can't apply the resource tenant Intune Mobile App Management (MAM) policy because it also requires device registration. Resource tenant Conditional Access policy, using this control, doesn't allow home tenant MAM protection to satisfy the policy. Exclude external users from every MAM-based Conditional Access policy.
 
-Additionally, while you can use the following CA conditions, be aware of the possible ramifications.
+Additionally, while you can use the following Conditional Access conditions, be aware of the possible ramifications.
 
 - **Sign-in risk and user risk.** User behavior in their home tenant determines, in part, the sign-in risk and user risk. The home tenant stores the data and risk score. If resource tenant policies block an external user, a resource tenant admin might not be able to enable access. [Identity Protection and B2B users](../identity-protection/concept-identity-protection-b2b.md) explains how Identity Protection detects compromised credentials for Azure AD users.
-- **Locations.** The named location definitions in the resource tenant determine the scope of the policy. The scope of the policy doesn't evaluate trusted locations managed in the home tenant. If your organization wants to share trusted locations across tenants, define the locations in each tenant where you define the resources and conditional access policies.
+- **Locations.** The named location definitions in the resource tenant determine the scope of the policy. The scope of the policy doesn't evaluate trusted locations managed in the home tenant. If your organization wants to share trusted locations across tenants, define the locations in each tenant where you define the resources and Conditional Access policies.
 
 ## Other access control considerations
 
 The following are considerations for configuring access control.
 
 - Define [access control policies](../external-identities/authentication-conditional-access.md) to control access to resources.
-- Design CA policies with external users in mind.
+- Design Conditional Access policies with external users in mind.
 - Create policies specifically for external users.
-- If your organization is using the [**all users** dynamic group](../external-identities/use-dynamic-groups.md) condition in your existing CA policy, this policy affects external users because they are in scope of **all users**.
-- Create dedicated CA policies for external accounts.
+- If your organization is using the [**all users** dynamic group](../external-identities/use-dynamic-groups.md) condition in your existing Conditional Access policy, this policy affects external users because they are in scope of **all users**.
+- Create dedicated Conditional Access policies for external accounts.
 
 ### Require user assignment
 
