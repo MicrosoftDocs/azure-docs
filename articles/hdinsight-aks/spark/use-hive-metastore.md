@@ -21,11 +21,11 @@ While you create the cluster, HDInsight service needs to connect to the external
 
 ## Create Azure SQL database
 
-1. Create or have an existing Azure SQL Database before setting up a custom Hive metastore for an HDInsight cluster. For more information, see [Quickstart: Create a single database in Azure SQL Database](https://learn.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?view=azuresql&tabs=azure-portal).
+1. Create or have an existing Azure SQL Database before setting up a custom Hive metastore for an HDInsight cluster. 
 
-    > [!NOTE]
-    > Currently, we support only Azure SQL Database for HIVE metastore.
-    > Due to Hive limitation, "-" (hyphen) character in metastore database name is not supported.
+   > [!NOTE]
+   > Currently, we support only Azure SQL Database for HIVE metastore.
+   > Due to Hive limitation, "-" (hyphen) character in metastore database name is not supported.
     
 ## Create a key vault for storing the credentials
 
