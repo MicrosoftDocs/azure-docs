@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 07/18/2023
+ms.date: 08/15/2023
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -26,6 +26,14 @@ Make sure to check back here often to keep up with new updates.
 ## July 2023
 
 Here's what changed in July 2023:
+
+### Watermarking is now generally available in Azure Virtual Desktop
+
+[Watermarking](watermarking.md), when used with [screen capture protection](#screen-capture-protection), helps protect your sensitive information from capture on client endpoints. When you enable watermarking, QR code watermarks appear as part of remote desktops. The QR code contains the connection ID of a remote session that admins can use to trace the session. You can configure watermarking on session hosts and enforce it with the Remote Desktop client.
+
+### Tamper protection support for Windows on Azure Virtual Desktop
+
+Intune now supports using endpoint security antivirus policy to manage [tamper protection](/mem/intune/protect/endpoint-security-antivirus-policy#prerequisites-for-tamper-protection) for Windows on Azure Virtual Desktop multi-session devices. Any devices you plan to use tamper protection on must onboard to Microsoft Defender for Endpoint before you apply the policy that enables tamper protection for Azure Virtual Desktop.
 
 ### Autoscale for personal host pools is currently in preview
 
