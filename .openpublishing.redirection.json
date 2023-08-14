@@ -24137,6 +24137,11 @@
             "source_path_from_root": "/articles/flexible-server/concepts-high-availability.md",
             "redirect_url": "/azure/reliability/reliability-postgre-flexible",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/azure-cache-for-redis/cache-how-to-functions.md",
+          "redirect_url": "/azure/azure-functions/functions-bindings-cache",
+          "redirect_document_id": false
         }
 
 
