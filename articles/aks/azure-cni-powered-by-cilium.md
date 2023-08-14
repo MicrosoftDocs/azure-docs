@@ -110,6 +110,41 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
   --network-dataplane cilium
 ```
 
+## Upgrade an existing cluster to Azure CNI Powered by Cilium
+
+> [!NOTE]
+> You can update an existing cluster to Azure CNI Powered by Cilium if the cluster meets the following criteria:
+>
+> - The cluster uses either [Azure CNI Overlay](./azure-cni-overlay.md) or [Azure CNI with dynamic IP allocation](./configure-azure-cni-dynamic-ip-allocation.md).
+> - The cluster does not have Azure NPM or Calico enabled.
+> - The cluster does not have any Windows node pools.
+
+The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or Kubernetes version upgrade where each node in a node pool is re-imaged.
+
+Cilium will begin enforcing network policies only after all nodes have been re-imaged.
+
+To perform the upgrade, you will need Azure CLI with *aks-preview* extension version 0.5.150 or later.
+
+1. Install the *aks-preview* extension:
+
+   ```azurecli-interactive
+   az extension add --name aks-preview
+   ```
+
+1. Update to the latest version of the extension:
+
+   ```azurecli-interactive
+   az extension update --name aks-preview
+   ```
+
+Use the following command to upgrade an existing cluster to Azure CNI Powered by Cilium. Replace the values for `<clusterName>`, `<resourceGroupName>`, and `<location>`:
+
+```azurecli-interactive
+az aks update -n <clusterName> -g <resourceGroupName> -l <location> \
+  --network-dataplane cilium
+```
+
+
 ## Frequently asked questions
 
 - **Can I customize Cilium configuration?**
