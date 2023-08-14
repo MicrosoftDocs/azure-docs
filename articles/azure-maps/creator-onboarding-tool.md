@@ -17,6 +17,7 @@ This article demonstrates how to create an indoor map using the Azure Maps Creat
 
 ## Prerequisites
 
+- A basic understanding of Creator. For an overview, see [What is Azure Maps Creator?]
 - A drawing package. For more information, see [Drawing package requirements].
 
 > [!NOTE]
@@ -41,7 +42,7 @@ The following steps demonstrate how to create an indoor map in your Azure Maps a
 
     :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/package-upload.png" alt-text="Screenshot showing the package upload screen of the Azure Maps Creator onboarding tool.":::
 
-1. Once the package is uploaded, the onboarding tool uses the [Conversion service] to validate the data then convert the geometry and data from drawing package into a digital indoor map. For more information about the conversion process, see [Convert a drawing package] in the Creator concepts article.
+1. Once the package is uploaded, the onboarding tool uses the [Conversion service] to validate the data then convert the geometry and data from the drawing package into a digital indoor map. For more information about the conversion process, see [Convert a drawing package] in the Creator concepts article.
 
     :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/package-conversion.png" alt-text="Screenshot showing the package conversion screen of the Azure Maps Creator onboarding tool, including the Conversion ID value.":::
 
