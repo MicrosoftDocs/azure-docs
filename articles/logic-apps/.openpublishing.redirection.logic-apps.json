@@ -348,12 +348,12 @@
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-schema-2015-08-01.md",
             "redirect_url": "/azure/logic-apps/update-workflow-definition-language-schema",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-schema-2016-04-01.md",
             "redirect_url": "/azure/logic-apps/update-workflow-definition-language-schema",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-securing-a-logic-app.md",
