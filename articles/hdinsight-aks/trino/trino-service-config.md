@@ -35,23 +35,23 @@ Follow the steps to modify the configurations:
   
 2. In the Azure portal search bar, type "HDInsight on AKS cluster" and select "Azure HDInsight on AKS clusters" from the drop-down list.
   
-   :::image type="content" source="../media/Manage-Cluster/Getstarted-PortalSearch-Step1.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster":::
+   :::image type="content" source="./media/trino-service-config/portal-search.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster":::
   
 3. Select your cluster name from the list page.
   
-   :::image type="content" source="../media/Manage-Cluster/Getstarted-Portallistview-Step2.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list":::
+   :::image type="content" source="./media/trino-service-config/portal-search-result.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list":::
 
 4. Navigate to "Configuration Management" blade.
 
-   :::image type="content" source="./media/trino-configure-caching/azure-portal-config-management.png" alt-text="Screenshot showing Azure portal configuration management.":::
+   :::image type="content" source="./media/trino-service-config/azure-portal-config-management.png" alt-text="Screenshot showing Azure portal configuration management.":::
 
 6. Add new or update the existing key value pairs for the configurations you want to modify. For example, config.properties -> Custom configurations and then click "Add" to add new configuration setting.
 
-   :::image type="content" source="./media/trino-configure-caching/config-properties.png" alt-text="Screenshot showing custom configuration.":::
+   :::image type="content" source="./media/trino-service-config/config-properties.png" alt-text="Screenshot showing custom configuration.":::
    
 8. Select OK and then click Save.
 
-   :::image type="content" source="./media/trino-configure-caching/save-configuration.png" alt-text="Screenshot showing how to save the configuration.":::
+   :::image type="content" source="./media/trino-service-config/save-configuration.png" alt-text="Screenshot showing how to save the configuration.":::
    
 ## Using ARM template
 
