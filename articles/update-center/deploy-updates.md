@@ -23,6 +23,10 @@ See the following sections for detailed information:
 
 Update management center (preview) is available in all [Azure public regions](support-matrix.md#supported-regions). 
 
+## Configure reboot settings
+
+The registry keys listed in [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) and [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) can cause your machines to reboot, even if you specify **Never Reboot** in the **schedule** settings. Configure these registry keys to best suit your environment.
+
 
 ## Install updates on single VM
 

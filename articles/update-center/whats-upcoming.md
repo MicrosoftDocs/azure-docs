@@ -22,9 +22,7 @@ Update management center will be declared GA soon.
 
 ## Pre-script and post-script 
 
-The pre-script and post-script is available by CY Q4 2023.
-
-The pre/post
+The pre-script and post-script will be available by CY Q4 2023.
 
 ## Next steps
 

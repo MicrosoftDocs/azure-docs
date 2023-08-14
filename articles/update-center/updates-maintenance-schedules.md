@@ -47,10 +47,6 @@ In **Update management center** home page, go to **Update Settings** blade, sele
 ## Windows automatic updates
 This mode of patching allows operating system to automatically install updates as soon as they are available. It uses the VM property that is enabled by setting the patch orchestration to OS orchestrated/Automatic by OS. 
 
-## Configure reboot settings
-
-The registry keys listed in [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) and [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) can cause your machines to reboot, even if you specify **Never Reboot** in the **Update Deployment** settings. Configure these registry keys to best suit your environment.
-
 ## Hotpatching
 
 Hotpatching allows you to install updates on supported Windows Server Azure Edition virtual machines without requiring a reboot after installation. It reduces the number of reboots required on your mission critical application workloads running on Windows Server. For more information, see [Hotpatch for new virtual machines](../automanage/automanage-hotpatch.md)
