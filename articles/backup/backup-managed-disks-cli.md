@@ -1,9 +1,9 @@
 ---
 title: Back up Azure Managed Disks using Azure CLI
 description: Learn how to back up Azure Managed Disks using Azure CLI.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 09/17/2021
+ms.date: 08/14/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
