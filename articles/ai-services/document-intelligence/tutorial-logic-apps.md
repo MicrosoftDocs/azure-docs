@@ -1,5 +1,5 @@
 ---
-title: Use Document intelligence with Azure Logic Apps
+title: Use Document intelligence (formerly Form Recognizer) with Azure Logic Apps
 titleSuffix: Azure AI services
 description: A tutorial introducing how to use Document intelligence with Logic Apps.
 author: laujan

@@ -1,8 +1,8 @@
 ---
 title: Connect with redirection - Azure Database for MySQL
 description: This article describes how you can configure your application to connect to Azure Database for MySQL with redirection.
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 05/03/2023
 ms.service: mysql

@@ -1,5 +1,5 @@
 ---
-title: "Get started: Document Intelligence client library for .NET v2.1"
+title: "Get started: Document Intelligence (formerly Form Recognizer) client library for .NET v2.1"
 description: Use the Document Intelligence SDK for .NET to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 author: laujan
 manager: nitinme
