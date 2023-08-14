@@ -49,9 +49,9 @@ To use Application Proxy, you need a Windows server running Windows Server 2012 
 For high availability in your production environment, we recommend having more than one Windows server. For this tutorial, one Windows server is sufficient.
 
 > [!IMPORTANT]
-> **.Net Framework**
+> **.NET Framework**
 >
-> You need to have .NET version 4.7.1 or higher (4.x) to install (upgrade) the version 1.5.3437.0 or later. Some older operating systems (Windows Server 2012 R2, Windows Server 2016) may not have this by default.
+> You must have .NET version 4.7.1 or higher to install, or upgrade, Application Proxy version 1.5.3437.0 or later. Windows Server 2012 R2 and Windows Server 2016 may not have this by default.
 >
 > See [How to: Determine which .NET Framework versions are installed](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) for more information.
 > 
