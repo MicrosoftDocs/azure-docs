@@ -23,9 +23,9 @@ You can add the configurations for using miscellaneous files in your cluster usi
 Each file specification in `miscfiles` component under `clusterProfile.serviceConfigsProfiles` in the ARM template requires:
 
 * `fileName`: Symbolic name of the file to use as a reference in other configurations. This name isn't a physical file name. To use given miscellaneous file in other configurations, specify `${MISC:\<fileName\>}` and HDInsight on AKS Trino substitutes this tag with actual file path at runtime provided value must satisfy the following conditions:
-     * Contain no more than 253 characters.
-     * Contain only lowercase alphanumeric characters, "- or ."
-     * Start and end with an alphanumeric character.
+     * Contain no more than 253 characters
+     * Contain only lowercase alphanumeric characters, `-` or `.`
+     * Start and end with an alphanumeric character
 
 * `path`: Relative file path including file name and extension if applicable. HDInsight on AKS Trino only guarantees location of each given miscellaneous file relative to other miscellaneous files that is, base directory may change. You can't assume anything about absolute path of miscellaneous files, except that it ends with value specified in “path” property.
 
