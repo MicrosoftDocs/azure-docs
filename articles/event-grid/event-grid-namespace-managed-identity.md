@@ -25,13 +25,13 @@ This section shows you how to enable a managed identity for an existing system t
 1. Turn **on** the switch to enable the identity.
 1. Select **Save** on the toolbar to save the setting.
 
-:::image type="content" source="./media/event-grid-namespace-managed-identity/event-grid-enable-managed-identity.png" alt-text="System-assigned identity page for an Event Grid namespace.":::
+    :::image type="content" source="./media/event-grid-namespace-managed-identity/event-grid-enable-managed-identity.png" alt-text="System-assigned identity page for an Event Grid namespace.":::
 
 1. Select **Yes** on the confirmation message.
 
 1. Confirm that you see the object ID of the system-assigned managed identity and see a link to assign roles.
 
-:::image type="content" source="./media/event-grid-namespace-managed-identity/event-grid-enable-managed-identity-confirmation.png" alt-text="Assigning identity to a namespace is completed.":::
+    :::image type="content" source="./media/event-grid-namespace-managed-identity/event-grid-enable-managed-identity-confirmation.png" alt-text="Assigning identity to a namespace is completed.":::
 
 ### Enable user-assigned identity
 
@@ -39,7 +39,7 @@ This section shows you how to enable a managed identity for an existing system t
 
 1. On the **Identity** page, switch to the **User assigned** tab in the right pane, and then select **+ Add** on the toolbar.
 
-:::image type="content" source="./media/event-grid-namespace-managed-identity/event-grid-enable-user-assigned-managed-identity.png" alt-text="Image showing the Add button selected in the User assigned tab of the Identity page.":::
+    :::image type="content" source="./media/event-grid-namespace-managed-identity/event-grid-enable-user-assigned-managed-identity.png" alt-text="Image showing the Add button selected in the User assigned tab of the Identity page.":::
 
 1. In the **Add user managed identity** window, follow these steps:
     1. Select the **Azure subscription** that has the user-assigned identity.
@@ -63,7 +63,7 @@ This section shows you how to enable a managed identity for an existing system t
                 1. Select the **user-assigned identity**.
                 1. Select **Add**.
 
-:::image type="content" source="./media/event-grid-namespace-managed-identity/event-grid-enable-managed-identity-create-flow.png" alt-text="Image showing the screenshot of namespace creation wizard with system assigned identity and user assigned identity options selected.":::
+        :::image type="content" source="./media/event-grid-namespace-managed-identity/event-grid-enable-managed-identity-create-flow.png" alt-text="Image showing the screenshot of namespace creation wizard with system assigned identity and user assigned identity options selected.":::
 
 ## Next steps
-- [Publish and subscribe to MQTT message using Event Grid](mqtt-publish-and-subscribe-portal.md)
+See [Publish and subscribe to MQTT message using Event Grid](mqtt-publish-and-subscribe-portal.md)
