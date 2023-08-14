@@ -93,7 +93,7 @@ This method restores the content and metadata of a soft-deleted blob and any ass
 
 3. The following snippet restores a soft-deleted file named `my-file`.
 
-   This method assumes that you've created a **DataLakeServiceClient** instance. To learn how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-java.md#connect-to-the-account).
+   This method assumes that you've created a **DataLakeServiceClient** instance. To learn how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-java.md#authorize-access-and-connect-to-data-resources).
 
    ```java
 

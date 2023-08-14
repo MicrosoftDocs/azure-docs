@@ -38,6 +38,7 @@ The script also grants the app `Contributor` permissions to:
 ## PowerShell script
 
 
+
 ```powershell
 #------------------------------------------------------------------------------------------------------------
 # Prerequisite functions
@@ -120,7 +121,7 @@ $VerbosePreference                     = "SilentlyContinue"  # "Continue"
                     "Directory.AccessAsUser.All",
                     "RoleManagement.ReadWrite.Directory"
                 )
-    Connect-MgGraph -TenantId $TenantId -ForceRefresh -Scopes $MgScope
+    Connect-MgGraph -TenantId $TenantId -Scopes $MgScope
 
 #-------------------------------------------------------------------------------------------
 # (3) Prerequisites - deployment of environment (if missing)
@@ -528,8 +529,9 @@ $VerbosePreference                     = "SilentlyContinue"  # "Continue"
         Write-Output ""
         Write-Output "-------------------------------------------------"
 ```
-  
+
 ## Next steps
 
 - [Learn more about data collection rules](../essentials/data-collection-rule-overview.md)
 - [Learn more about writing transformation queries](../essentials//data-collection-transformations.md)
+

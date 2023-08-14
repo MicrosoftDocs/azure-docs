@@ -43,4 +43,4 @@ This article explains how agentless scanning works and how it helps you collect 
 
 - Learn more about how to [enable agentless scanning for VMs](enable-vulnerability-assessment-agentless.md).
 
-- Check out common questions about agentless scanning and [how it affects the subscription/account](faq-cspm.yml#how-does-scanning-affect-the-account-subscription-), [agentless data collection](faq-data-collection-agents.yml#agentless), and [permissions used by agentless](faq-permissions.yml#which-permissions-are-used-by-agentless-scanning-).
+- Check out common questions about agentless scanning and [how it affects the subscription/account](faq-cspm.yml#how-does-scanning-affect-the-account-subscription-), [agentless data collection](faq-data-collection-agents.yml#agentless), and [permissions used by agentless scanning](faq-permissions.yml#which-permissions-are-used-by-agentless-scanning-).
