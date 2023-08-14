@@ -1,6 +1,6 @@
 ---
 title: Simulate remote network connectivity in Azure
-description: Configure Azure resources to simulate branch office connectivity to Microsoft's Security Edge Solutions, Microsoft Entra Internet Access and Microsoft Entra Private Access.
+description: Configure Azure resources to simulate remote network connectivity to Microsoft's Security Edge Solutions, Microsoft Entra Internet Access and Microsoft Entra Private Access.
 ms.service: network-access
 ms.topic: how-to
 ms.date: 08/04/2023
@@ -9,7 +9,7 @@ author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: absinh
 ---
-# Simulate remote network connectivity
+# Create a remote network using Azure virtual network gateway
 
 ## Prerequisites
 
@@ -48,6 +48,8 @@ When the virtual network is created, select **Go to resource** or browse to it a
 
 ### Virtual network gateway
 
+VNG represents customer premise equipment (CPE), so enter your details here like your public IP, your ASN etc.
+
 Next we need to create a virtual network gateway inside of our resource group. For assistance creating a virtual network gateway, see the article [Create and manage a VPN gateway using the Azure portal](/azure/vpn-gateway/tutorial-create-gateway-portal).
 
 1. From the Azure portal, select **Create a resource**.
@@ -59,7 +61,7 @@ Next we need to create a virtual network gateway inside of our resource group. F
    1. Set their **Availability zone** to **Zone-redundant**.
 1. Set **Configure BGP** to **Enabled**
    1. Set the **Autonomous system number (ASN)** to the appropriate value. 
-      1. Don't use any reserved ASN numbers or your ASN provided for Microsoft Entra Internet Access
+      1. Don't use any reserved ASN numbers or your ASN provided for Microsoft Entra Internet Access. For more information, see the article [Global Secure Access remote network configurations](reference-remote-network-configurations.md#valid-autonomous-system-number-asn).
 1. Leave all other settings their defaults or blank.
 1. Select **Review + create**, confirm your settings.
 1. Select **Create**.
@@ -71,6 +73,8 @@ https://learn.microsoft.com/en-us/azure/vpn-gateway/tutorial-create-gateway-port
 ### Local network gateway
 
 You need to create two local network gateways. One for your primary and one for the secondary endpoints.
+
+LNG represents Global Secure Access service. So, enter values provided by Microsoft here.
 
 1. From the Azure portal, select **Create a resource**.
 1. Select **Networking** > **Local network gateway**.
@@ -107,7 +111,7 @@ You need to create two local network gateways. One for your primary and one for 
 
 You may choose to lock down remote access to only a specific network.
 
-### Create Site-to-Site VPN connection
+### Create Site-to-site VPN connection
 
 You create two connections one for your primary and secondary gateways.
 
@@ -126,11 +130,18 @@ You create two connections one for your primary and secondary gateways.
 
 :::image type="content" source="media/how-to-simulate-remote-network/create-site-to-site-connection.png" alt-text="Screenshot.":::
 
-## Enable branch connectivity in Microsoft Entra
+## Enable remote connectivity in Microsoft Entra
 
-### Create a branch office
+### Create a remote network
 
 You need the public IP addresses of your virtual network gateway. These IP addresses can be found by browsing to the Configuration page of your virtual network gateway. You complete the following steps twice and create a link for both your primary and secondary connections.
+
+VNG represents customer premise equipment (CPE). LNG represents Global Secure Access edge.
+
+- Local BGP IP - Private IP address to be used for BGP service on the GSA gateway. The control here is given to the customer so they can choose the IP on GSA side which doesn’t overlap with their on-premise network. When connecting Azure gateway to GSA, use the local network gateway’s (LNG) BGP IP address as Local BGP IP in Entra portal.
+- Peer BGP IP – Private IP address to be used for BGP service on customer’s on-premise device. When connecting Azure gateway to GSA, use the virtual network gateway’s (VNG) BGP IP address as Peer BGP IP in Entra portal.
+- Link ASN is the local ASN i.e. ASN of customer premise equipment (CPE). Since VNG represents CPE, so enter the ASN of VNG here.
+
 
 :::image type="content" source="media/how-to-simulate-remote-network/virtual-network-gateway-public-ip-addresses.png" alt-text="Screenshot.":::
 
@@ -151,13 +162,15 @@ You need the public IP addresses of your virtual network gateway. These IP addre
       1. Leave the defaults selected unless you made a different selection previously.
       1. Select Next to continue to the **Security** tab.
    1. On the **Security** tab:
-      1. Enter the **Pre-shared key (PSK)** set in the previous section.
+      1. Enter the **Pre-shared key (PSK)** set in the [previous section when creating the site to site connection](#create-site-to-site-vpn-connection).
    1. Select **Add link**.
    1. Select **Next: Traffic profiles**.
 1. On the **Traffic profiles** tab:
    1. Check the box for the **Microsoft 365 traffic profile**.
    1. Select **Next: Review + create**.
 1. Confirm your settings and select **Create remote network**.
+
+For more information about remote networks, see the article [How to create a remote network](how-to-create-remote-networks.md)
 
 ## Verify connectivity
 
@@ -177,4 +190,4 @@ Azure reserved ASNs - 12076, 65517,65518, 65519, 65520, 8076, 8075
 
 IANA reserved ASNs - 23456, >= 64496 && <= 64511, >= 65535 && <= 65551, 4294967295
 		
-Don't use the Azure default 65515 ASN value. 65515 causes an error while creating a branch. 
+Don't use the Azure default 65515 ASN value. 65515 causes an error while creating a remote network. 
