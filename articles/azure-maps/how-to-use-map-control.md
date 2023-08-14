@@ -235,6 +235,8 @@ For a list of supported languages and regional views, see [Localization support 
 
 Beginning with Azure Maps Web SDK 3.0, the Web SDK includes full compatibility with [WebGL 2], a powerful graphics technology that enables hardware-accelerated rendering in modern web browsers. By using WebGL 2, developers can harness the capabilities of modern GPUs to render complex maps and visualizations more efficiently, resulting in improved performance and visual quality.
 
+![Map image showing WebGL 2 Compatibility](./media/how-to-use-map-control/WebGL2-Compat.png)
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -329,8 +331,6 @@ Beginning with Azure Maps Web SDK 3.0, the Web SDK includes full compatibility w
 
 Beginning with Azure Maps Web SDK 3.0, developers can take advantage of 3D terrain visualizations. This feature allows you to incorporate elevation data into your maps, creating a more immersive experience for your users. Whether it's visualizing mountain ranges, valleys, or other geographical features, the 3D terrain support brings a new level of realism to your mapping applications.
 
-![Map image showing rendered result](./media/how-to-use-map-control/3d-map.png)
-
 The following code example demonstrates how to impement 3D terrain tiles.
 
 ```html
@@ -340,8 +340,8 @@ The following code example demonstrates how to impement 3D terrain tiles.
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Elevation - Azure Maps Web SDK Samples</title>
-        <link href=https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css rel="stylesheet" />
-        <script src=https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js></script>
+        <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css rel="stylesheet" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js></script>
         <style>
             html,
             body {
