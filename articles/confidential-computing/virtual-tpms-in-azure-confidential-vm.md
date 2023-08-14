@@ -14,7 +14,7 @@ ms.custom: template-concept
 
 A [Trust Platform Module (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-overview) is designed to provide hardware based security functions. These functions include secret storage for cryptographic keys, storage for measurements of the boot process and an external hardware root-of-trust. 
 
-Azure confidential VMs each have their own dedicated virtual TPM (vTPM). The vTPM is a virtualized version of a hardware TPM, and complies with the [TPM2.0 spec](/windows/security/information-protection/tpm/tpm-recommendations#why-tpm-20). In a confidential VM, the vTPM runs inside the VM in a hardware-based protected memory region. This design isolates the vTPM from the VM operating system, and the hosting environment. 
+Azure confidential VMs each have their own dedicated virtual TPM (vTPM). The vTPM is a virtualized version of a hardware TPM, and complies with the [TPM2.0 spec](/windows/security/information-protection/tpm/tpm-recommendations#why-tpm-20). In a confidential VM, the vTPM runs inside the VM in a hardware-based protected memory region. With this architecture, each confidential VM has its own unique vTPM instance that is isolated and encrypted by AMD SEV-SNP. Thus, an Azure confidential VM's vTPM instance is isolated from the hosting environment and all other VMs on the system.
 
 :::image type="content" source="media/vtpm-docs/vtpm-in-confidential-vm-diagram.png" alt-text="Diagram of a confidential VM showing where the vTPM runs, how it's measured and how it's isolated.":::
 

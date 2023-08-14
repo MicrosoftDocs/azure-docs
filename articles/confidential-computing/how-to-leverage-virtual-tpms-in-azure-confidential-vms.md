@@ -23,12 +23,12 @@ To see how vTPMs work in confidential VMs, read the [concept page](virtual-tpms-
 
 Some of the steps mentioned use the tpm2-tools library that is source repository for the [Trusted Platform Module (TPM2.0)](https://github.com/tpm2-software/tpm2-tools). Follow the steps [here](https://github.com/tpm2-software/tpm2-tss/blob/master/INSTALL.md) to build and install the library.
 
-## How to get the direct AMD SEV-SNP hardware report?
+## How to get the direct AMD SEV-SNP hardware report
 
 The guest attestation feature helps you to confirm that a confidential VM runs on a hardware-based trusted execution environment (TEE) with security features enabled for isolation and integrity. When a confidential VM boots it generates a SEV-SNP hardware report containing a signed report issued by AMD SEV-SNP, platform boot settings, and platform measurements. This report is stored in a predefined nonvolatile index (NVIndex) of the vTPM, where data can be securely and persistently stored. Today our [guest attestation library](https://github.com/Azure/confidential-computing-cvm-guest-attestation) can be used to access and retrieve the SEV-SNP hardware report.  Customers can use Microsoft Azure Attestation to verify the reports or verify the raw AMD SEV-SNP report on their own by following steps here: 
 https://github.com/Azure/confidential-computing-cvm-guest-attestation/blob/main/cvm-guest-attestation.md#linux
 
-## How to extend a measurement to a PCR and validate it through the vTPM?
+## How to extend a measurement to a PCR and validate it through the vTPM
 
 Currently confidential VMs generate a SEV-SNP report at boot that is accessible through the virtual trusted platform module (vTPM). This report also includes the vTPM’s public attestation key (AKPub). The AKPub can be used to generate an attestation of the vTPM runtime state including the platform configuration register (PCR) state. Therefore, the AKPub can be used to link the vTPM PCR measurements that are signed by the private attestation key (AKPri), to SEV-SNP attestation.
 
