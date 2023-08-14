@@ -3,7 +3,7 @@
  description: include file
  services: storage
  author: khdownie
- ms.service: storage
+ ms.service: azure-storage
  ms.topic: include
  ms.date: 6/2/2020
  ms.author: kendownie
