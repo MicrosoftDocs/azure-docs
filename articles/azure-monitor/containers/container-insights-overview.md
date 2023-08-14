@@ -11,9 +11,6 @@ ms.reviewer: viviandiec
 
 Container insights is a feature of Azure Monitor that monitors the performance and health of container workloads deployed to [Azure](../../aks/intro-kubernetes.md) or that are managed by [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md). It collects memory and processor metrics from controllers, nodes, and containers in addition to gathering container logs. You can analyze the collected data for the different components in your cluster with a collection of views and pre-built workbooks.
 
-:::image type="content" source="media/container-insights-overview/container-insights-overview.png" lightbox="media/container-insights-overview/container-insights-overview.png" alt-text="Screenshot of Container insights containers view" :::
-
-
 The following video provides an intermediate-level deep dive to help you learn about monitoring your AKS cluster with Container insights. The video refers to *Azure Monitor for Containers*, which is the previous name for *Container insights*.
 
 > [!VIDEO https://www.youtube.com/embed/XEdwGvS2AwA]
@@ -38,7 +35,7 @@ Access Container insights in the Azure portal from **Containers** in the **Monit
 :::image type="content" source="media/container-insights-overview/azmon-containers-experience.png" lightbox="media/container-insights-overview/azmon-containers-experience.png" alt-text="Screenshot that shows an overview of methods to access Container insights.":::
 
 ## Data collected
-Container insights sends data to Azure Monitor Metrics and Azure Monitor Logs where you can analyze it using different features of Azure Monitor. It works with other Azure services such as [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) and [Managed Grafana](../../managed-grafana/overview.md) for complete monitoring of your Kubernetes cluster and your container workloads. For more information on these other services, see [Monitoring data](../../aks/monitor-aks.md#monitoring-data).
+Container insights sends data to [Logs](../logs/data-platform-logs.md) and [Metrics](../essentials/data-platform-metrics.md) where you can analyze it using different features of Azure Monitor. It works with other Azure services such as [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) and [Managed Grafana](../../managed-grafana/overview.md) for complete monitoring of your Kubernetes cluster and your container workloads. For more information on these other services, see [Monitoring data](../../aks/monitor-aks.md#monitoring-data).
 
 :::image type="content" source="../../aks/media/monitor-aks/aks-monitor-data.png" lightbox="../../aks/media/monitor-aks/aks-monitor-data.png" alt-text="Diagram of collection of monitoring data from Kubernetes cluster using Container insights and related services.":::
 
