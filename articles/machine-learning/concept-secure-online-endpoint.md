@@ -117,15 +117,30 @@ For example, say your workspace's managed VNet contains two deployments of a man
 
 To learn more about configurations for the workspace managed VNet, see [Managed virtual network architecture](how-to-managed-network.md#managed-virtual-network-architecture).
 
+## Scenarios for network isolation configuration
 
-The following table lists the supported configurations for inbound and outbound communications for a managed online endpoint when using a workspace managed VNet:
+Suppose you have an application that is deployed to an endpoint, you can decide what network isolation configuration to use as follows:
+
+**For inbound communication**
+
+If you want your application to receive inbound scoring requests from the internet, then you should **enable** `public_network_access` for the endpoint.
+
+On the other hand, say the application is private and should be accessed only within your organization. In this scenario, you'd want to prevent access from the internet, so you should **disable** the endpoint's `public_network_access`. Once the public network access is disabled, the application can receive inbound scoring requests only through your workspace's private endpoint.
+
+**For outbound communication (deployment)**
+
+Now, suppose your deployed application doesn't need to access your workspace's private Azure resources (such as the Azure Storage blob, ACR, and Azure Key Vault), but you want your application to send outbound communication to the public internet. In this case, you should **disable** the _workspace's managed VNet_, as you won't need to use private endpoints for outbound communication.
+
+However, if your application needs to access private resources, you'll need to use private endpoints. Therefore, you should **enable** the _workspace's managed VNet_. You can configure your managed VNet to _allow internet outbound_ if you're fine with having your application access the public internet. This mode will not prevent data exfiltration. On the other hand, if you're concerned about data exfiltration and want to prevent it by allowing outbound communication to only approved servers, you can configure your managed VNet to _allow only approved outbound_.
+
+<!-- The following table lists the supported configurations for inbound and outbound communications for a managed online endpoint when using a workspace managed VNet:
 
 | Configuration | Inbound </br> (Endpoint property) | Outbound </br> (Workspace managed VNet property) | Supported? |
 | -------- | -------------------------------- | --------------------------------- | --------- |
 | secure inbound with secure outbound | `public_network_access` is disabled |- Allow only approved outbound</br>- Access workspace's default Azure resources</br>- Access MCR  | Yes |
 | secure inbound with public outbound | `public_network_access` is disabled | - Allow internet</br>- Access workspace's default Azure resources</br>- Access MCR  | Yes |
 | public inbound with secure outbound | `public_network_access` is enabled | - Allow only approved outbound</br>- Access workspace's default Azure resources</br>- Access MCR  | Yes |
-| public inbound with public outbound | `public_network_access` is enabled | - Allow internet</br>- Access workspace's default Azure resources</br>- Access MCR  | Yes |
+| public inbound with public outbound | `public_network_access` is enabled | - Allow internet</br>- Access workspace's default Azure resources</br>- Access MCR  | Yes | -->
 
 ## Appendix
 
