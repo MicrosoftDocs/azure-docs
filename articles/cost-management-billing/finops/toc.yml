@@ -36,7 +36,7 @@
     - name: Managing anomalies
       href: capabilities-anomalies.md
     - name: Establishing a decision and accountability structure
-      href: capabilities-commitment-discounts.md
+      href: capabilities-structure.md
   - name: Cloud usage optimization
     items:
     - name: Resource utilization and efficiency
