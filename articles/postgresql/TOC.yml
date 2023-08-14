@@ -132,14 +132,14 @@
       href: flexible-server/concepts-server-parameters.md
     - name: Troubleshooting guides
       href: flexible-server/concepts-troubleshooting-guides.md
-    - name: Business continuity
+    - name: Reliability
       items:
+      - name: High Availability
+        href: ../reliability/reliability-postgre-flexible.md?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
       - name: Business continuity overview
         href: flexible-server/concepts-business-continuity.md
       - name: Back up and restore
         href: flexible-server/concepts-backup-restore.md
-      - name: High availability
-        href: flexible-server/concepts-high-availability.md
     - name: Monitor and tune
       items:
       - name: Monitor and tune overview
