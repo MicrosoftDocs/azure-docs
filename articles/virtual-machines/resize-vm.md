@@ -258,5 +258,7 @@ For a work-around, see [How do I migrate from a VM size with local temp disk to 
 ## Next steps
 
 - For more scalability, run multiple VM instances and scale out.
+- For more SKU selection information, see [Sizes for virtual machines in Azure](sizes.md).
+- To find VM sizes by workload type, OS and software, or deployment region, see [Azure VM Selector](https://azure.microsoft.com/en-us/pricing/vm-selector/).
 - For more information, see [Automatically scale machines in a Virtual Machine Scale Set](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).
 - For more cost management planning information, see the [Plan and manage your Azure costs](https://learn.microsoft.com/en-us/training/modules/plan-manage-azure-costs/1-introduction) module.
