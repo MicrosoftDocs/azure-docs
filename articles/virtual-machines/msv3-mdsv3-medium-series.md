@@ -4,7 +4,7 @@
 # For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
 
 title:       Overview of Msv3 and Mdsv3 Medium Memory Series
-description: Overview of Msv3 and Mdsv3 Medium Memory virtual machines. These are the next generation of M-series medium memory (MM) virtual machine sizes with faster performance and lower TCO.
+description: Overview of Msv3 and Mdsv3 Medium Memory virtual machines. These virtual machines provide faster performance and lower TCO.
 author:      ayshakeen # GitHub alias
 ms.author:   ayshak # Microsoft alias
 ms.service:  virtual-machines
