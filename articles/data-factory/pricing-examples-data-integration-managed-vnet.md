@@ -14,9 +14,9 @@ ms.date: 06/12/2023
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this scenario, you want to delete original files on Azure Blob Storage and copy data from Azure SQL Database to Azure Blob Storage on an hourly schedule for 8 hours per day.  We'll calculate the price for 30 days. You'll do this execution twice on different pipelines for each run. The execution time of these two pipelines is overlapping.
+In this scenario, you want to delete original files on Azure Blob Storage and copy data from Azure SQL Database to Azure Blob Storage on an hourly schedule for 8 hours per day.  We calculate the price for 30 days. You do this execution twice on different pipelines for each run. The execution time of these two pipelines is overlapping.
 
-The prices used in this example below are hypothetical and aren't intended to imply exact actual pricing.  Read/write and monitoring costs aren't shown since they're typically negligible and won't impact overall costs significantly.  Activity runs are also rounded to the nearest 1000 in pricing calculator estimates.
+The prices used in this example are hypothetical and aren't intended to imply exact actual pricing.  Read/write and monitoring costs aren't shown since they're typically negligible and won't impact overall costs significantly.  Activity runs are also rounded to the nearest 1000 in pricing calculator estimates.
 
 Refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for more specific scenarios and to estimate your future costs to use the service.
 
