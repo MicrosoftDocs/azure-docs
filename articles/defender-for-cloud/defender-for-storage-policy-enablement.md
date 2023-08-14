@@ -5,7 +5,7 @@ ms.topic: install-set-up-deploy
 ms.date: 08/08/2023
 ---
 
-# Enable and Configure at scale with an Azure built-in policy
+# Enable and configure at scale with an Azure built-in policy
 
 Enabling Defender for Storage via a policy is recommended because it facilitates enablement at scale and ensures that a consistent security policy is applied across all existing and future storage accounts within the defined scope (such as entire management groups). This keeps the storage accounts protected with Defender for Storage according to the organization's defined configuration.
 
