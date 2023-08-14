@@ -119,7 +119,7 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
 > - The cluster does not have Azure NPM or Calico enabled.
 > - The cluster does not have any Windows node pools.
 
-The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or Kubernetes version upgrade where each node in a node pool is re-imaged.
+The upgrade process triggers each node pool to be re-imaged simultaneously. Upgrading each node pool separately isn't supported. Any disruptions to cluster networking are similar to a node image upgrade or [Kubernetes version upgrade](./upgrade-cluster) where each node in a node pool is re-imaged.
 
 Cilium will begin enforcing network policies only after all nodes have been re-imaged.
 
