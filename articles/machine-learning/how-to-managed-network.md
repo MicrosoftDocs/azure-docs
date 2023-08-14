@@ -58,7 +58,22 @@ The following diagram shows a managed virtual network configured to __allow only
 
 Private endpoints are currently supported for the following Azure services:
 
-TBD: List of services
+* Azure Machine Learning
+* Azure Machine Learning registries
+* Azure Storage (all group IDs)
+* Azure Container Registry
+* Azure Key Vault
+* Azure AI services
+* Azure SQL Server
+* Azure Data Factory
+* Azure CosmosDB (all sub resource types)
+* Azure Event Hub
+* Azure Redis Cache
+* Azure Databricks
+* Azure Database for MariaDB
+* Azure Database for PostgreSQL
+* Azure Database for MySQL
+* Azure SQL Managed Instance
 
 ## Prerequisites
 
@@ -760,6 +775,13 @@ __Inbound__ service tag rules:
 ## List of recommended outbound rules
 
 [!INCLUDE [recommended outbound](includes/recommended-network-outbound.md)]
+
+## Pricing
+
+The Azure Machine Learning managed virtual network feature is free. However, you will be charged for the following resources that are used by the managed virtual network:
+
+* Azure Private Link - Private endpoints used to secure communications between the managed virtual network and Azure resources relies on Azure Private Link. For more information on pricing, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
+* FQDN outbound rules - FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, you will see charges for Azure Firewall on your billing. For more information on pricing, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
 ## Limitations
 
