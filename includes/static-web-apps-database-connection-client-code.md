@@ -12,9 +12,9 @@ Replace the markup between the `body` tags in the *index.html* file with the fol
 
 ```html
 <h1>Static Web Apps Database Connections</h1>
-
+<blockquote>
     Open the console in the browser developer tools to see the API responses.
-
+</blockquote>
 <div>
     <button id="list" onclick="list()">List</button>
     <button id="get" onclick="get()">Get</button>
