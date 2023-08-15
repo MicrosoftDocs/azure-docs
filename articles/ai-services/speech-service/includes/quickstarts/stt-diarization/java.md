@@ -82,7 +82,7 @@ Follow these steps to create a new console application for conversation transcri
             
             SpeechConfig speechConfig = SpeechConfig.fromSubscription(speechKey, speechRegion);
             speechConfig.setSpeechRecognitionLanguage("en-US");
-            AudioConfig audioInput = AudioConfig.fromWavFileInput("katiesteve.wav");
+            AudioConfig audioInput = AudioConfig.fromWavFileInput("katiesteve_mono.wav");
             
             Semaphore stopRecognitionSemaphore = new Semaphore(0);
     
@@ -139,7 +139,7 @@ Follow these steps to create a new console application for conversation transcri
     }
     ```
 
-1. Replace `katiesteve.wav` with the filepath and filename of your `.wav` file. The intent of this quickstart is to recognize speech from multiple participants in the conversation. Your audio file should contain multiple speakers. For example, you can use the [sample audio file](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/katiesteve.wav) provided in the Speech SDK samples repository on GitHub.
+1. Replace `katiesteve_mono.wav` with the filepath and filename of your `.wav` file. The intent of this quickstart is to recognize speech from multiple participants in the conversation. Your audio file should contain multiple speakers. For example, you can use the [sample audio file](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/katiesteve_mono.wav) provided in the Speech SDK samples repository on GitHub.
     > [!NOTE]
     > The service performs best with at least 7 seconds of continuous audio from a single speaker. This allows the system to differentiate the speakers properly. Otherwise the Speaker ID is returned as `Unknown`.
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
