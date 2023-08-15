@@ -138,7 +138,7 @@ sections:
       - question: |
             How can I customize my published web app?
         answer:
-          You can customize your published web app in the Azure portal. The source code for the published web app is [available on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main), where you can find information on changing the app frontend, as well as instructions for building and deploying the app.
+          You can customize your published web app in the Azure portal. The source code for the published web app is [available on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395), where you can find information on changing the app frontend, as well as instructions for building and deploying the app.
       - question: |
           Will my web app be overwritten when I deploy the app again from the Azure AI Studio?
         answer:
@@ -164,7 +164,7 @@ sections:
       - question: |
           How can I customize or automate the index creation process?
         answer:
-          You can prepare the index yourself using a [script provided on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts#readme). Using this script will create an Azure Cognitive Search index with all the information needed to better leverage your data, with your documents broken down into manageable chunks. Please see the [README file](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts#readme) with the data preparation code for details on how to run it.
+          You can prepare the index yourself using a [script provided on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395). Using this script will create an Azure Cognitive Search index with all the information needed to better leverage your data, with your documents broken down into manageable chunks. Please see the README file with the data preparation code for details on how to run it.
       - question: | 
           How can I update my index?
         answer:
