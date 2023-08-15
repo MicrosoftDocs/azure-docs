@@ -15,14 +15,14 @@ ms.custom: language-service-clu
 
 # When to use conversational language understanding or orchestration workflow apps
 
-When you create large applications, you should consider whether your use-case would be best served by a single conversational app (flat architecture), or multiple apps that are  orchestrated.
+When you create large applications, you should consider whether your use-case would be best served by a single conversational app (flat architecture), or multiple apps that are orchestrated.
 
 
 ## Orchestration overview 
 
 Orchestration workflow is a feature that allows you to connect different projects from [LUIS](../../../LUIS/what-is-luis.md) [conversational language understanding](../overview.md), and [custom question answering](../../question-answering/overview.md) in one project. You can then use this project for predictions using one endpoint. The orchestration project makes a prediction on which child project should be called, automatically routes the request, and returns with its response.
 
-The key point here is that orchestration involves 2 steps:
+The key point is that orchestration involves 2 steps:
 
 1.	Predicting which child project to call. <!--The model that performs this classification can be trained either with a standard or an advanced recipe. (Please see footnotes on instructions for training with advanced recipe).-->
 2.	Routing the utterance to the destination child app, and returning the child app's response.
