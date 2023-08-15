@@ -92,7 +92,6 @@ Next we need to create a virtual network gateway inside of our resource group.
    1. You can continue to the following sections while the gateway is created.
 
 :::image type="content" source="media/how-to-simulate-remote-network/create-virtual-network-gateway.png" alt-text="Screenshot of the Azure portal showing configuration settings for a virtual network gateway." lightbox="media/how-to-simulate-remote-network/create-virtual-network-gateway.png":::
-https://learn.microsoft.com/en-us/azure/vpn-gateway/tutorial-create-gateway-portal
 
 ### Local network gateway
 
@@ -113,7 +112,7 @@ You use the BGP IP addresses, Public IP addresses, and ASN values provided by Mi
 1. Select **Review + create**, confirm your settings.
 1. Select **Create**.
 
-:::image type="content" source="media/how-to-simulate-remote-network/create-local-network-gateway.png" alt-text="Screenshot.":::
+:::image type="content" source="media/how-to-simulate-remote-network/create-local-network-gateway.png" alt-text="Screenshot of the Azure portal showing configuration settings for a local network gateway.":::
 
 ### Virtual machine
 
@@ -152,7 +151,7 @@ You create two connections one for your primary and secondary gateways.
 1. Select **Review + create**, confirm your settings.
 1. Select **Create**.
 
-:::image type="content" source="media/how-to-simulate-remote-network/create-site-to-site-connection.png" alt-text="Screenshot.":::
+:::image type="content" source="media/how-to-simulate-remote-network/create-site-to-site-connection.png" alt-text="Screenshot of the Azure portal showing configuration settings for a site-to-site connection.":::
 
 ## Enable remote connectivity in Microsoft Entra
 
@@ -160,7 +159,7 @@ You create two connections one for your primary and secondary gateways.
 
 You need the public IP addresses of your virtual network gateway. These IP addresses can be found by browsing to the Configuration page of your virtual and local network gateways. You complete the **Add a link** sections twice to create a link for your primary and secondary connections.
 
-:::image type="content" source="media/how-to-simulate-remote-network/virtual-network-gateway-public-ip-addresses.png" alt-text="Screenshot.":::
+:::image type="content" source="media/how-to-simulate-remote-network/virtual-network-gateway-public-ip-addresses.png" alt-text="Screenshot showing how to find the public IP addresses of a virtual network gateway.":::
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md#global-secure-access-administrator).
 1. Browse to **Global Secure Access Preview** > **Remote network** > **Create remote network**.
@@ -197,7 +196,7 @@ After you create the remote networks in the previous steps, it may take a few mi
 1. Each of the connections should show a **Status** of **Connected** once the configuration is applied and successful.
 1. Browsing to **BGP peers** under the **Monitoring** section allows you to confirm that BGP peering is successful. Look for the peer addresses provided by Microsoft. Once configuration is applied and successful, the **Status** should show **Connected**.
 
-:::image type="content" source="media/how-to-simulate-remote-network/verify-connectivity.png" alt-text="Screenshot.":::
+:::image type="content" source="media/how-to-simulate-remote-network/verify-connectivity.png" alt-text="Screenshot showing how to find the connection status for your virtual network gateway.":::
 
 You can also use the virtual machine you created to validate that traffic is flowing to Microsoft 365 locations like SharePoint Online. Browsing to resources in SharePoint or Exchange Online should result in traffic on your virtual network gateway. This traffic can be seen by browsing to [Metrics on the virtual network gateway](/azure/vpn-gateway/monitor-vpn-gateway#analyzing-metrics) or by [Configuring packet capture for VPN gateways](/azure/vpn-gateway/packet-capture).
 
