@@ -33,7 +33,7 @@ SCSI-3 PR has a pivotal role in maintaining data consistency and integrity withi
 
 The following diagram illustrates a sample 2-node clustered database application that uses SCSI-3 PR to enable failover from one node to the other.
 
-:::image type="content" source="media/elastic-san-shared-volumes/elastic-san-shared-volume-cluster.png" alt-text="Clustered application diagram." lightbox="media/elastic-san-shared-volumes/elastic-san-shared-volume-cluster.png":::
+:::image type="content" source="media/elastic-san-shared-volumes/elastic-san-shared-volume-cluster.png" alt-text="Diagram that shows clustered application." lightbox="media/elastic-san-shared-volumes/elastic-san-shared-volume-cluster.png":::
 
 The flow is as follows:
 
@@ -46,7 +46,7 @@ The flow is as follows:
 
 The following diagram illustrates another common clustered workload consisting of multiple nodes reading data from an elastic SAN volume for running parallel processes, such as training of machine learning models.
 
-:::image type="content" source="media/elastic-san-shared-volumes/elastic-san-shared-volume-machine-learning.png" alt-text="Machine learning cluster diagram." lightbox="media/elastic-san-shared-volumes/elastic-san-shared-volume-machine-learning.png":::
+:::image type="content" source="media/elastic-san-shared-volumes/elastic-san-shared-volume-machine-learning.png" alt-text="Diagram that shows a machine learning cluster." lightbox="media/elastic-san-shared-volumes/elastic-san-shared-volume-machine-learning.png":::
 
 The flow is as follows:
 1. The clustered application running on all VMs registers its intent to read or write to the elastic SAN volume.
