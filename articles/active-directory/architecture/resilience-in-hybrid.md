@@ -93,7 +93,7 @@ If you're implementing a federated authentication strategy or want to make it mo
 * [Build resilience with device states](resilience-with-device-states.md)
 * [Build resilience by using Continuous Access Evaluation (CAE)](resilience-with-continuous-access-evaluation.md)
 * [Build resilience in external user authentication](resilience-b2b-authentication.md)
-* [Build resilience in application access with Application Proxy](resilience-on premises-access.md)
+* [Build resilience in application access with Application Proxy](resilience-on-premises-access.md)
 
 ### Resilience resources for developers
 
