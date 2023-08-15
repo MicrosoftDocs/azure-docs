@@ -348,7 +348,7 @@ Selecting this option forces a resynchronization of all users while the provisio
 - The attribute `IsSoftDeleted` is often part of the default mappings for an application. `IsSoftdeleted` can be true in one of four scenarios: 1) The user is out of scope due to being unassigned from the application. 2) The user is out of scope due to not meeting a scoping filter. 3) The user has been soft deleted in Azure AD. 4) The property `AccountEnabled` is set to false on the user. It's not recommended to remove the `IsSoftDeleted` attribute from your attribute mappings.
 - The Azure AD provisioning service doesn't support provisioning null values.
 - They primary key, typically "ID", shouldn't be included as a target attribute in your attribute mappings. 
-- The role attribute typically needs to be mapped using an expression, rather than a direct mapping. For more information about role mapping, see [Provisioning a role to a SCIM app](#Provisioning a role to a SCIM app). 
+- The role attribute typically needs to be mapped using an expression, rather than a direct mapping. For more information about role mapping, see [Provisioning a role to a SCIM app](#provisioning-a-role-to-a-scim-app). 
 - While you can disable groups from your mappings, disabling users isn't supported. 
 
 ## Next steps

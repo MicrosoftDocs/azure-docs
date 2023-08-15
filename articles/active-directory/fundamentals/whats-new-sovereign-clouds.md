@@ -289,7 +289,7 @@ For more information, see: [Protect user accounts from attacks with Azure Active
 **Service category:** Enterprise Apps             
 **Product capability:** SSO          
 
-Filter and transform group names in token claims configuration using regular expression. Many application configurations on ADFS and other IdPs rely on the ability to create authorization claims based on the content of Group Names using regular expression functions in the claim rules.  Azure AD now has the capability to use a regular expression match and replace function to create claim content based on Group **onpremisesSAMAccount** names. This functionality allows those applications to be moved to Azure AD for authentication using the same group management patterns. For more information, see: [Configure group claims for applications by using Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md).
+Filter and transform group names in token claims configuration using regular expression. Many application configurations on ADFS and other IdPs rely on the ability to create authorization claims based on the content of Group Names using regular expression functions in the claim rules.  Azure AD now has the capability to use a regular expression match and replace function to create claim content based on Group **onpremisesSAMAccount** names. This functionality allows those applications to be moved to Azure AD for authentication using the same group management patterns. For more information, see: [Configure group claims for applications by using Azure Active Directory](../hybrid/connect/how-to-connect-fed-group-claims.md).
 
 ---
 
@@ -303,7 +303,7 @@ Azure AD now has the capability to filter the groups included in the token using
 
 For more information, see: 
 - [Group Filter](../develop/reference-claims-mapping-policy-type.md#group-filter).
-- [Configure group claims for applications by using Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md).
+- [Configure group claims for applications by using Azure Active Directory](../hybrid/connect/how-to-connect-fed-group-claims.md).
 
 
 
@@ -352,7 +352,7 @@ For more information about Microsoft cloud settings for B2B collaboration, see: 
 
 Hybrid IT Admins now can sync both Active Directory and Azure AD Directory Extensions using Azure AD Cloud Sync. This new capability adds the ability to dynamically discover the schema for both Active Directory and Azure AD, allowing customers to map the needed attributes using Cloud Sync's attribute mapping experience. 
 
-For more information on how to enable this feature, see: [Cloud Sync directory extensions and custom attribute mapping](../cloud-sync/custom-attribute-mapping.md)
+For more information on how to enable this feature, see: [Cloud Sync directory extensions and custom attribute mapping](../hybrid/cloud-sync/custom-attribute-mapping.md)
 
 
 ---
