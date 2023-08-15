@@ -120,7 +120,7 @@ You can input all the settings on this page before selecting **Apply** at the bo
 
     You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. For example, you can use the names **N2**, **N3** and up to ten **N6-DNX** (where **X** is the DN number 1-10 in a multiple DN deployment; just **N6** for a single DN deployment). You can optionally configure each virtual network with a virtual local area network identifier (VLAN ID) to enable layer 2 traffic separation. The following example is for a 5G multi-DN deployment without VLANs.
 :::zone pivot="ase-pro-2"
-3. Carry out the following procedure up to ten times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
+3. Carry out the following procedure three times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
     1. Select **Add virtual network** and fill in the side panel:
           - **Virtual switch**: select **vswitch-port3** for N2, N3 and up to four DNs, and select **vswitch-port4** for up to six DNs.
           - **Name**: *N2*, *N3*, or *N6-DNX* (where *X* is the DN number 1-10).
@@ -137,7 +137,7 @@ You can input all the settings on this page before selecting **Apply** at the bo
 :::zone-end
 :::zone pivot="ase-pro-gpu"
 
-3. Carry out the following procedure up to ten times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
+3. Carry out the following procedure three times, plus once for each of the supplementary data networks (twelve times in total if you have the maximum ten data networks):
     1. Select **Add virtual network** and fill in the side panel:
         - **Virtual switch**: select **vswitch-port5** for N2, N3 and up to four DNs, and select **vswitch-port6** for up to six DNs.
         - **Name**: *N2*, *N3*, or *N6-DNX* (where *X* is the DN number 1-10).
