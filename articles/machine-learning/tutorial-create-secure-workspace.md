@@ -14,7 +14,7 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 # Tutorial: How to create a secure workspace with a managed virtual network
 
-In this article, learn how to create and connect to a secure Azure Machine Learning workspace. The steps in this article use an Azure machine learning managed virtual network to create a security boundary around resources used by Azure Machine Learning.
+In this article, learn how to create and connect to a secure Azure Machine Learning workspace. The steps in this article use an Azure Machine Learning managed virtual network to create a security boundary around resources used by Azure Machine Learning.
 
 In this tutorial, you accomplish the following tasks:
 
@@ -38,7 +38,7 @@ After completing this tutorial, you'll have the following architecture:
 
 1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Azure Machine Learning__. Select the __Azure Machine Learning__ entry, and then select __Create__.
 
-1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ to create the service in. If you don't have an existing resource group, select __Create new__ to create one. Enter a unique name for the __Workspace name__. Leave the rest of the fields at the default values; new instances of the required services will be created for the workspace.
+1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ to create the service in. If you don't have an existing resource group, select __Create new__ to create one. Enter a unique name for the __Workspace name__. Leave the rest of the fields at the default values; new instances of the required services are created for the workspace.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-workspace.png" alt-text="Screenshot of the workspace creation form.":::
 
@@ -65,11 +65,11 @@ From the __Overview__ page for your workspace, select __Launch studio__.
 
 1. From studio, select __Compute__, __Compute instances__, and then __+ New__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-new-compute-instance.png" alt-text="Screenshot of the create new compute option in studio.":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-new-compute-instance.png" alt-text="Screenshot of the new compute option in studio.":::
     
 1. From the __Configure required settings__ dialog, enter a unique value as the __Compute name__. Leave the rest of the selections at the default value.
 
-1. Select __Create__. The compute instance will take a few minutes to create. The compute instance will be created within the managed network.
+1. Select __Create__. The compute instance takes a few minutes to create. The compute instance is created within the managed network.
 
     > [!TIP]
     > It may take several minutes to create the first compute resource. This delay occurs because the managed virtual network is also being created. The managed virtual network isn't created until the first compute resource is created. Subsequent managed compute resources will be created much faster.
@@ -80,7 +80,7 @@ At this point, you can use the studio to interactively work with notebooks on th
 
 ## Stop compute instance
 
-While it is running (started), the compute instance will continue charging your subscription. To avoid excess cost, __stop__ it when not in use.
+While it's running (started), the compute instance continues charging your subscription. To avoid excess cost, __stop__ it when not in use.
 
 From studio, select __Compute__, __Compute instances__, and then select the compute instance. Finally, select __Stop__ from the top of the page.
 

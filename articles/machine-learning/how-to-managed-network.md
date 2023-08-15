@@ -31,7 +31,7 @@ There are two different configuration modes for outbound traffic from the manage
 | Outbound mode | Description | Scenarios |
 | ----- | ----- | ----- |
 | Allow internet outbound | Allow all internet outbound traffic from the managed VNet. | Recommended if you need access to machine learning artifacts on the Internet, such as python packages or pretrained models. |
-| Allow only approved outbound | Outbound traffic is allowed by specifying service tags. | Recommended if you want to minimize the risk of data exfiltration but you will need to prepare all required machine learning artifacts in your private locations. |
+| Allow only approved outbound | Outbound traffic is allowed by specifying service tags. | Recommended if you want to minimize the risk of data exfiltration but you'll need to prepare all required machine learning artifacts in your private locations. |
 
 The managed virtual network is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your workspace default storage, container registry and key vault __if they're configured as private__. After choosing the isolation mode, you only need to consider other outbound requirements you may need to add.
 
@@ -735,8 +735,8 @@ ml_client._workspace_outbound_rules.begin_remove(resource_group, ws_name, rule_n
 > These  rules are automatically added to the managed VNet.
 
 __Private endpoints__:
-* When the isolation mode for the managed network is `Allow internet outbound`, private endpoint outbound rules will be automatically created as required rules from the managed network for the workspace and associated resources __with public network access disabled__ (Key Vault, Storage Account, Container Registry, Azure ML Workspace).
-* When the isolation mode for the managed network is `Allow only approved outbound`, private endpoint outbound rules will be automatically created as required rules from the managed network for the workspace and associated resources __regardless of public network access mode for those resources__ (Key Vault, Storage Account, Container Registry, Azure ML Workspace).
+* When the isolation mode for the managed network is `Allow internet outbound`, private endpoint outbound rules are automatically created as required rules from the managed network for the workspace and associated resources __with public network access disabled__ (Key Vault, Storage Account, Container Registry, Azure Machine Learning workspace).
+* When the isolation mode for the managed network is `Allow only approved outbound`, private endpoint outbound rules are automatically created as required rules from the managed network for the workspace and associated resources __regardless of public network access mode for those resources__ (Key Vault, Storage Account, Container Registry, Azure Machine Learning workspace).
 
 __Outbound__ service tag rules:
 
@@ -767,8 +767,8 @@ Private endpoints are currently supported for the following Azure services:
 * Azure AI services
 * Azure SQL Server
 * Azure Data Factory
-* Azure CosmosDB (all sub resource types)
-* Azure Event Hub
+* Azure Cosmos DB (all sub resource types)
+* Azure Event Hubs
 * Azure Redis Cache
 * Azure Databricks
 * Azure Database for MariaDB
@@ -778,22 +778,22 @@ Private endpoints are currently supported for the following Azure services:
 
 ## Pricing
 
-The Azure Machine Learning managed virtual network feature is free. However, you will be charged for the following resources that are used by the managed virtual network:
+The Azure Machine Learning managed virtual network feature is free. However, you're charged for the following resources that are used by the managed virtual network:
 
 * Azure Private Link - Private endpoints used to secure communications between the managed virtual network and Azure resources relies on Azure Private Link. For more information on pricing, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
-* FQDN outbound rules - FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, you will see charges for Azure Firewall on your billing. For more information on pricing, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
+* FQDN outbound rules - FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information on pricing, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
 ## Limitations
 
 * Once you enable managed virtual network isolation of your workspace, you can't disable it.
 * Managed virtual network uses private endpoint connection to access your private resources. You can't have a private endpoint and a service endpoint at the same time for your Azure resources, such as a storage account. We recommend using private endpoints in all scenarios.
-* The managed network will be deleted and cleaned up when the workspace is deleted. 
-* Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add additional outbounds, such as to FQDNs, Microsoft can't guarantee that you are protected from data exfiltration to those outbound destinations.
+* The managed network is deleted when the workspace is deleted. 
+* Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add other outbound rules, such as to FQDNs, Microsoft can't guarantee that you're protected from data exfiltration to those outbound destinations.
 * Creating a compute cluster in a different region than the workspace isn't supported when using a managed virtual network.
 
 ### Migration of compute resources
 
-If you have an existing workspace and want to enable managed virtual network for it, there is currently no supported migration path for existing manged compute resources. You will need to delete all existing managed compute resources and recreate them after enabling the managed virtual network. This includes the following compute types:
+If you have an existing workspace and want to enable managed virtual network for it, there's currently no supported migration path for existing manged compute resources. You'll need to delete all existing managed compute resources and recreate them after enabling the managed virtual network. The following list contains the compute resources that must be deleted and recreated:
 
 * Compute cluster
 * Compute instance
