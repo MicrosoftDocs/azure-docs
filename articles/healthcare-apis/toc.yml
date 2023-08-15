@@ -3,7 +3,7 @@
 - name: Overview
   expanded: true
   items:
-    - name: Azure Health Data Services overview
+    - name: What is Azure Health Data Services?
       href: healthcare-apis-overview.md
     - name: Health data and PHI
       displayName: FHIR service
@@ -14,13 +14,15 @@
     - name: Device data
       displayName: MedTech service
       href: ./iot/overview.md
-    - name: Events overview
+    - name: Events
       href: ./events/events-overview.md
-    - name: Workspace provisioning
-      href: workspace-overview.md
+    - name: Azure API for FHIR
+      href: ./azure-api-for-fhir/overview.md
 - name: Quickstarts
   expanded: false
   items: 
+    - name: Workspace provisioning
+      href: workspace-overview.md
     - name: Set up a workspace
       href: get-started-with-health-data-services.md
     - name: Deploy services via Azure portal

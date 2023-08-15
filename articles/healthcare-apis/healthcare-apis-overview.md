@@ -19,7 +19,7 @@ Azure Health Data Services enables you to:
 - Discover new insights from health data using machine learning, analytics, and AI tools.
 - Build on a trusted cloud that protects your health data and meets privacy and compliance requirements.
 
-Azure Health Data Services isn't only a powerful and flexible solution for your current health data needs, the platform is ready for the future. Microsoft engineers are continuously improving and updating the platform to support new and emerging health data standards so you don't have to worry about changing your data formats or systems in the future.
+Designed to meet your current health data needs and built to adapt to future developments, Azure Health Data Services is a powerful and flexible solution that is always evolving. Microsoft engineers are continuously improving and updating the platform to support new and emerging health data standards so you don't have to worry about changing your data formats or systems in the future.
 
 ## Differences between Azure Health Data Services and Azure API for FHIR
 
