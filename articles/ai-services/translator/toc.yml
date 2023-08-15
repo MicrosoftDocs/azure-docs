@@ -103,7 +103,7 @@ items:
         href: containers/translator-disconnected-containers.md
       - name: Deploy user-managed glossary
         displayName: dynamic, glossary, dictionary, case-sensitive, match
-        href: containers/translator-user-managed-glossary.md
+        href: containers/deploy-user-managed-glossary.md
       - name: "Container: Translate"
         displayName: textType,text type,preview,POST,parameters,request,
         href: containers/translator-container-supported-parameters.md
