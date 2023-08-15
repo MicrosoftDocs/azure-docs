@@ -56,7 +56,7 @@ There are multiple dependencies expected to be available during execution. Revie
 
 The `setup.sh` script is provided to aid with installing the listed dependencies. It installs any dependencies that aren't available in PATH. It doesn't upgrade any dependencies that don't meet the minimum required versions.
 
-> [NOTE]
+> [!NOTE]
 > `setup.sh` assumes a nonroot user and attempts to use `sudo`
 
 ### All in one setup
@@ -64,7 +64,7 @@ The `setup.sh` script is provided to aid with installing the listed dependencies
 `all-in-one-setup.sh` is provided to create all of the Azure resources required to run IRT. This process includes creating a managed identity, a service principal, a security group, isolation domains, and a storage account to archive the test results. These resources can be created during the all in one script, or they can be created step by step per the instructions in this document. Each of the script, individually and via the all in one script, writes updates to your `irt-input.yml` file with the key value pairs needed to utilize the resources you created. Review the `irt-input.example.yml` file for the required inputs needed for one or more of the scripts, regardless of the methodology you pursue. All of the scripts are idempotent, and also allow you to use existing resources if desired.
 ### Step-by-Step setup
 
-> [NOTE]
+> [!NOTE]
 > Only use this section if you're NOT using `all-in-one.sh`
 
 If your workflow is incompatible with `all-in-one.sh`, each resource needed for IRT can be created manually with each supplemental script. Like `all-in-one.sh`, running these scripts  writes key/value pairs to your `irt-input.yml` for you to use during your run. These four scripts make up the `all-in-one.sh`.
@@ -99,7 +99,7 @@ MANAGED_IDENTITY:
 ./create-managed-identity.sh irt-input.yml
 ```
 
-> [NOTE]
+> [!NOTE]
 > if `MANAGED_IDENTITY_ID` is set in the input yaml or as an environment variable the script won't create anything.
 
 **RESULT:** This script prints a value for `MANAGED_IDENTITY_ID` and sets it to the input.yml.
@@ -138,7 +138,7 @@ SERVICE_PRINCIPAL:
 ./create-service-principal.sh irt-input.yml
 ```
 
-> [NOTE]
+> [!NOTE]
 > if all `SP_ID`,`SP_PASSWORD`,`SP_TENANT_ID`,`AAD_GROUP_ID` are set in the yaml or as an environment variable the script skips creating them.
 
 **RESULT:** This script prints values for `AAD_GROUP_ID`, `SP_ID`, `SP_PASSWORD`, and `SP_TENANT` and sets the values back to the input yaml.
@@ -194,7 +194,7 @@ ARCHIVE_STORAGE:
 * `SUBSCRIPTION` - The subscription where the resource group is created in.
 * `LOCATION` - The location where the resource group is created in.
 
-> [NOTE]
+> [!NOTE]
 > if `PUBLISH_RESULTS_TO` is set in the input yaml or as an environment variable the script skips creating a new one.
 
 ```bash
