@@ -22,7 +22,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
 ## Prerequisites
 
-[!INCLUDE [active-directory-p2-governance-either-license.md](../../../includes/active-directory-p2-governance-either-license.md)]
+[!INCLUDE [entra-id-license-pim.md](../../../includes/entra-id-license-pim.md)]
 
 For more information about licenses for PIM, refer to [License requirements to use Privileged Identity Management](subscription-requirements.md).
 

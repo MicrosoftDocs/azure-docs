@@ -7,14 +7,14 @@ ms.author: cwerner
 manager: celestedg
 ms.service: active-directory
 ms.subservice: ciam
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 05/23/2023
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET web app with Azure Active Directory (Azure AD) for customers tenant.
 ---
 
 # Tutorial: Add sign-in and sign-out to an ASP.NET web application for a customer tenant
 
-In the [previous article](./how-to-web-app-dotnet-sign-in-prepare-app.md), you created an ASP.NET project in Visual Studio Code and configured it for authentication.
+In the [previous article](./tutorial-web-app-dotnet-sign-in-prepare-app.md), you created an ASP.NET project in Visual Studio Code and configured it for authentication.
 
 In this tutorial you'll:
 
@@ -25,7 +25,7 @@ In this tutorial you'll:
 
 ## Prerequisites
 
-- Completion of the prerequisites and steps in [Prepare an ASP.NET web app for authentication in a customer tenant](./how-to-web-app-dotnet-sign-in-prepare-app.md).
+- Completion of the prerequisites and steps in [Prepare an ASP.NET web app for authentication in a customer tenant](./tutorial-web-app-dotnet-sign-in-prepare-app.md).
 
 ## Add the sign-in and sign out experience
 
@@ -128,7 +128,7 @@ The web app is now configured to sign in users with the Microsoft identity platf
     1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
 1. The ASP.NET Welcome page appears in your browser as depicted in the following screenshot:
 
-    :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-aspnet-welcome.png" alt-text="Screenshot of sign in into an ASP.NET web app.":::
+    :::image type="content" source="media/tutorial-web-app-dotnet-sign-in-sign-in-out/display-aspnet-welcome.png" alt-text="Screenshot of sign in into an ASP.NET web app.":::
 
 ## Sign out of the application
 
