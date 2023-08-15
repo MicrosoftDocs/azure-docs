@@ -21,23 +21,23 @@ Komprise makes it easy to move your data to Azure storage services like Azure Fi
 Learn more about other ISV NAS in the [verified partner solutions article](https://docs.microsoft.com/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview)
 
 This article reviews where to get started, considerations and recommendations when moving data to Azure. Use the following links to connect to what is important.
-- [Know First, Move Smarter Analyze, Tier, Move What Matters](#Know-First,-Move-Smarter-Analyze,-Tier,-Move-What-Matters)
-- [Assessing Network and Storage Performance](#Assessing-Network-and-Storage-Performance)
-- [Intelligent Data Management Architecture](#Intelligent-Data-Management-Architecture)
-- [Getting Started with Komprise](#Getting-Started-with-Komprise) 
-- [Getting Started with Azure](#Getting-Started-with-Azure)
-- [Migration Guide](#Migration-Guide)
-- [Deployment Instructions for Migrating Object Data](#Deployment-Instructions-for-Migrating-Object-Data)
-- [Migration API](#Migration-API)
-- [Next Steps](#Next-Steps)
+- [Know First, Move Smarter Analyze, Tier, Move What Matters](##know-kirst,-move-smarter-analyze,-tier,-move-what-matters)
+- [Assessing Network and Storage Performance](##assessing-setwork-and-storage-performance)
+- [Intelligent Data Management Architecture](##intelligent-data-management-architecture)
+- [Getting Started with Komprise](##getting-started-with-komprise) 
+- [Getting Started with Azure](##getting-started-with-azure)
+- [Migration Guide](##migration-guide)
+- [Deployment Instructions for Migrating Object Data](##deployment-instructions-for-migrating-object-data)
+- [Migration API](##migration-api)
+- [Next Steps](##next-steps)
 
-# Where to Start
+## Where to Start
 
 Visit [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.azure_data_migration_program?tab=PlansAndPrice) to learn more about Komprise and Azure together. Learn how you can get an introduction, reach out to ask questions, arrange to meet your local Komprise field team or sign up for a trial.
 
 [Visit Komprise directly](https://www.komprise.com/azure-migration) for more information about our solution, including white papers and reference architectures!
 
-# Know First, Move Smarter (Analyze, Tier, Move What Matters)
+## Know First, Move Smarter (Analyze, Tier, Move What Matters)
 
 Komprise provides quick insights into your unstructured data across all storage platforms with Plan Analysis and Deep Analytics capabilities. Plan Analysis immediately gives summary results with usage graphs and the Analysis Activities page surfaces important file system issues discovered. Deep Analytics allows customers to dig deeper in to understanding their data with custom querying capabilities and graphs to find select data sets, orphaned files and more. 
 
@@ -80,7 +80,7 @@ Use all this information when selecting the appropriate Azure storage service. K
     - [Azure NetApp Files Documentation Site](https://docs.microsoft.com/azure/azure-netapp-files/)
     - [Service Levels for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)
 
-# Assessing Network and Storage Performance
+## Assessing Network and Storage Performance
 
 Migrations move only as fast as the infrastructure allows. It’s vital to know the combined performance abilities of the network and storage systems together. Measuring networks and storage performance individually may not reveal hidden limitations in port configurations, routing, file system overloading and more.  
 
@@ -104,7 +104,7 @@ Other performance items to investigate with secure networks:
 - Existing Azure ExpressRoute customers, review [circuit usage](https://docs.microsoft.com/azure/expressroute/expressroute-monitoring-metrics-alerts#circuits-metrics) in the Azure portal
 - Work with your ISP and request reports showing existing daily and monthly utilization
 
-# Intelligent Data Management Architecture
+## Intelligent Data Management Architecture
 
 Komprise provides a highly scalable infrastructure to meet every need. Begin assessing your environment with one data Observer then rapidly scale up and out to move terabytes to petabytes of data with more data movers.
 Example Komprise architecture overview
@@ -117,7 +117,7 @@ Komprise software is easy to set up in virtual environments for complete resourc
 - Proxies –These scalable data movers simplify and accelerate SMB/CIFS data flow. Proxy data movers can easily scale to meet the performance requirements of a growing environment or tight timeline.
 
 
-# Getting Started with Komprise
+## Getting Started with Komprise
 1. Contact Komprise, and meet the local team who will set up your own Komprise Director console and assist with a preinstallation call and installation. With preparation, installation should be ~30 minutes from power up to see the first analysis results. 
     Sign up at [https://www.komprise.com/azure-migration](https://www.komprise.com/azure-migration)
 2. After logging in with the Director, the wizard Install page will provide links to Download the Komprise Observer virtual appliance. Power up the Observer VM and configure it with static IP, general network and domain information. The last step in the setup script is to sign-in to the director to establish communication. 
@@ -133,14 +133,14 @@ Komprise software is easy to set up in virtual environments for complete resourc
 
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-enter-credentials.png" alt-text="Screenshot of the dialog box to enter credentials":::
 
-    - Repeat these steps to add other source and destination systems. From Menu choose Shares > Sources > Add File Server
-    - Once a File Server is added, drill down to the share level and Enable share to start an analysis. See the Plan page for analysis results
+- Repeat these steps to add other source and destination systems. From Menu choose Shares > Sources > Add File Server
+- Once a File Server is added, drill down to the share level and Enable share to start an analysis. See the Plan page for analysis results
 
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-plan-page.png" alt-text="Screenshot of the Komprise Plan page":::
 
-    - Pause to Analyze the newly added shares reviewing the Plan page, Usage graphs and Analysis Activities results to uncover any issues to address, size and select appropriate Azure Storage Services. See next section, Getting Started with Azure, to create the destination Azure storage services.
-    - Use the Komprise ACE tool to identify and resolve any infrastructure network and storage performance issues before engaging Komprise migration engines. Once everything looks good continue to the next step with adding Azure Storage Services as destination sources for Komprise Migration.
-    - Add Azure Files as a migration destination and configure it on the Sources Tab, not the Targets tab. Target systems are for Komprise Plan operations like seamless tiering with Komprise Transparent Movement Technology™ (TMT) and Deep Analytics Actions. 
+- Pause to Analyze the newly added shares reviewing the Plan page, Usage graphs and Analysis Activities results to uncover any issues to address, size and select appropriate Azure Storage Services. See next section, Getting Started with Azure, to create the destination Azure storage services.
+- Use the Komprise ACE tool to identify and resolve any infrastructure network and storage performance issues before engaging Komprise migration engines. Once everything looks good continue to the next step with adding Azure Storage Services as destination sources for Komprise Migration.
+- Add Azure Files as a migration destination and configure it on the Sources Tab, not the Targets tab. Target systems are for Komprise Plan operations like seamless tiering with Komprise Transparent Movement Technology™ (TMT) and Deep Analytics Actions. 
 
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-add-server-analysis.png" alt-text="Screenshot of the Add Server to Sources page":::
 
@@ -148,7 +148,7 @@ Example of adding Azure Files as a migration destination on the Sources tab:
 
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-add-server-destination.png" alt-text="Screenshot of the Add Destination to Sources page":::
 
-# Getting Started with Azure
+## Getting Started with Azure
 Microsoft offers a framework to get you started with Azure. The [Cloud Adoption Framework](https://docs.microsoft.com/azure/architecture/cloud-adoption/) (CAF) is a detailed approach to enterprise digital transformation and a comprehensive guide to planning a production-grade cloud adoption. The CAF includes a step-by-step [Azure setup guide](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-setup-guide/) to help you get up and run quickly and securely. You can find an interactive version in the [Azure portal](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade). You'll find sample architectures, specific best practices for deploying applications and free training resources to put you on the path to Azure expertise.
 
 Before starting your project, the target service must be deployed. You can learn more here:
@@ -161,7 +161,7 @@ The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) fo
 
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-portal-search.png" alt-text="Screenshot of the Azure Portal Search Dialog":::
 
-    You can also click on the default Storage accounts icon
+You can also click on the default Storage accounts icon
 
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-storage-accounts.png" alt-text="Screenshot of the Azure Storage Account Dialog":::
 
@@ -205,7 +205,7 @@ c. Set a [delete lock](https://docs.microsoft.com/azure/azure-resource-manager/m
 d. Review this document for other [security best practices](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)
 
 
-# Migration Guide
+## Migration Guide
 ### Organizing the Migration
 Simplify migration planning tasks by organizing them into a few operational classes. Review the number of files, capacity per file size, file ages and the time required to complete the initial analysis to identify where to begin. Starting with the easy and building to the complex helps with building experience and confidence and confirm the cutover processes before tackling the harder migrations. These steps can be summarized as:
 - Tiering type: data that can move at any time, since the data is typically cold data no one is accessing it could be sent to Azure Blog Archive for long-term storage. Data included could be an entire share, or part of a share. With Transparent Tiering, Komprise leaves a symbolic link so end users never lose access to their files and data.
@@ -256,7 +256,7 @@ Once the final migration finishes, transition all users and applications to the 
 
 
 
-# Deployment Instructions for Migrating Object Data
+## Deployment Instructions for Migrating Object Data
 Migrating Object storage systems to Azure Blob is an easy process as well. The Director and Observer are provisioned by Komprise as cloud services. Similar to on-premises deployment, you can analyze and understand the data on the sources system, identify any issues and then efficiently move data to Azure Blob Storage. 
 The flexibility of the Komprise architecture allows deploying the Observers where they provide the highest performance while keeping data movement costs/charges low.
 To get started, sign-in to the director and do the following:
@@ -288,14 +288,14 @@ The container name represents the destination container for the migration and ne
 5. Migrating Object Data Stores uses the same iterative process to move data as the NAS migration steps described previously. 
 
 
-# Migration API
+## Migration API
 Komprise has full migration API support so everything described in the document can be controlled via scripts. Komprise has an example script our customers use to move large numbers of shares effectively. Review with your Komprise team if you require the API.
 
 ### Maximize Your Data Value with Azure and Komprise
 Komprise helps you plan and execute your file and object data migrations to Azure.  Once your migrations are complete, you can use the full Komprise Intelligent Data Management service to manage data lifecycle, seamlessly tier data from on-premises to Azure and to search, find and execute new data workflows.  
 
 
-# Next Steps
+## Next Steps
 
 ### Marketplace
 
