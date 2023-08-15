@@ -48,7 +48,7 @@ Locate `index.js` in the server-side code.
 >[!IMPORTANT]
 > `useAzureSocketIO` is an asynchronous method. Here we `await`. So you need to wrap it and related code in an asynchronous function.
 
-5. If you use the following server APIs, add `async` before using them as they're asynchronous with Web PubSub for Socket.IO.
+4. If you use the following server APIs, add `async` before using them as they're asynchronous with Web PubSub for Socket.IO.
 - [server.socketsJoin](https://socket.io/docs/v4/server-api/#serversocketsjoinrooms)
 - [server.socketsLeave](https://socket.io/docs/v4/server-api/#serversocketsleaverooms)
 - [socket.join](https://socket.io/docs/v4/server-api/#socketjoinroom)
