@@ -10,7 +10,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Develop Azure Functions locally using Core Tools
 
-Azure Functions Core Tools lets you develop and test your functions on your local computer. Core Tools includes a version of the same runtime that powers Azure Functions. This runtime means your local functions run as they would in Azure and can connect to live Azure services during local development and debugging. When you are ready, you can even use Core Tools to deploy your code project or container to Azure.
+Azure Functions Core Tools lets you develop and test your functions on your local computer. Core Tools includes a version of the same runtime that powers Azure Functions. This runtime means your local functions run as they would in Azure and can connect to live Azure services during local development and debugging. When you're ready, you can even use Core Tools to deploy your code project or container to Azure.
 
 Core Tools can be used with all [supported languages](supported-languages.md). Select your language at the top of the article.
 
@@ -37,7 +37,7 @@ Core Tools enables the integrated local development and debugging experience for
 
 [!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
-When upgrading to the latest version of Core Tools, you should use the same package manager as the original installation to perform the upgrade. For more information, see [Core Tools versions](#core-tools-versions). 
+When upgrading to the latest version of Core Tools, you should use the same package manager as the original installation to perform the upgrade. For more information, see [Core Tools versions](#v2). 
 
 ## Create a local Functions project
 ::: zone pivot="programming-language-python"  
@@ -63,7 +63,7 @@ func init --worker-runtime dotnet
 
 ---
 
-This command creates a project that runs on the current Long-Term Support (LTS) version of .NET Core in the choosen [process mode](./dotnet-isolated-in-process-differences.md).
+This command creates a project that runs on the current Long-Term Support (LTS) version of .NET Core in the chosen [process mode](./dotnet-isolated-in-process-differences.md).
 ::: zone-end
 ::: zone pivot="programming-language-java"
 Java uses a Maven archetype to create the local Functions project, along with your first HTTP triggered function. Instead of using `func init` and `func new`, you should follow the steps in the [Command line quickstart](./create-first-function-cli-java.md).  
@@ -125,7 +125,7 @@ For more information, see the [`func init`](functions-core-tools-reference.md#fu
 
 If you plan to deploy your project as a function app running in a Linux container, use the `--docker` option to make sure that a Dockerfile is generated for your project. To learn more, see [Create a function app in a local container](functions-create-container-registry.md#create-and-test-the-local-functions-project). 
 
-If you forget to create a Dockfile for your project or want to add one later on, you can generate a Dockerfile for the project at any time by using the `func init --docker-only` command. For more information, see the [`func init`](functions-core-tools-reference.md#func-init) reference.
+If you forget to create a Dockerfile for your project or want to add one later on, you can generate a Dockerfile for the project at any time by using the `func init --docker-only` command. For more information, see the [`func init`](functions-core-tools-reference.md#func-init) reference.
 
 
 ## <a name="create-func"></a>Create a function
@@ -152,7 +152,7 @@ func new --template "Azure Queue Storage Trigger" --name MyQueueTrigger
 
 To learn more, see the [`func new`](functions-core-tools-reference.md#func-new) command.
 
-When you add a trigger that requires a connection string or managed identity, you also need to add an app setting that references that connection string or identity to the local.settings.json file. Using app settings in this way prevents you from having to embed credentials in your code. For more information, see [Work with app settings locally](#local-settings). 
+When you add a trigger that connects to a service, you also need to add an app setting that references a connection string or a managed identity to the local.settings.json file. Using app settings in this way prevents you from having to embed credentials in your code. For more information, see [Work with app settings locally](#local-settings). 
 ::: zone pivot="programming-language-csharp"  
 Core Tools also adds a reference to the specific binding extension to your C# project.
 ::: zone-end
@@ -178,7 +178,7 @@ For more information, including links to example binding code that you can use i
 ::: zone pivot="programming-language-typescript"
 For more information, including links to example binding code that you can use in your functions, see [Add bindings to a function](add-bindings-existing-function.md?tabs=javascript#manually-add-bindings-based-on-examples).   
 ::: zone-end
-When you add bindings that requires a connection string or managed identity, you also need to add an app setting that references that connection string or identity to the local.settings.json file. For more information, see [Work with app settings locally](#local-settings). 
+When you add bindings that connect to a service, you must also add an app setting that references a connection string or managed identity to the local.settings.json file. For more information, see [Work with app settings locally](#local-settings). 
 ::: zone pivot="programming-language-csharp"  
 When you add a binding that requires a new binding extension, you must also add a reference to that specific binding extension in your C# project. 
 ::: zone-end  
@@ -285,7 +285,7 @@ You can make GET requests from a browser passing data in the query string. For a
 
 For all functions other than HTTP and Event Grid triggers, you can test your functions locally using REST by calling a special endpoint called an _administration endpoint_. Calling this endpoint with an HTTP POST request on the local server triggers the function. You can call the `functions` administrator endpoint (`http://localhost:{port}/admin/functions/`) to get URLs for all available functions, both HTTP triggered and non-HTTP triggered.
 
-When running your functions in Core Tools, authentication and authorization is bypassed. However, when you try to call the same administrator endpoints on your function app in Azure, you must provide an access key. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). 
+When you run your functions locally using Core Tools, authentication and authorization is bypassed. However, when you try to call the same administrator endpoints on your function app in Azure, you must provide an access key. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). 
 
 >[!IMPORTANT]
 >Access keys are valuable shared secrets. When used locally, they must be securely stored outside of source control. Because authentication and authorization isn't required by Functions when running locally, you should avoid using and storing access keys unless your scenarios require it.
@@ -369,7 +369,7 @@ The following considerations apply to this kind of deployment:
 
 + A [remote build](functions-deployment-technologies.md#remote-build) is performed on compiled projects. This can be controlled by using the [`--no-build` option][func azure functionapp publish].  
 
-+ Use the [`--publish-local-settings` option][func azure functionapp publish] to automatically create app settings in your function app based on values in the local.settings.json file.  
++ Use the [`--publish-local-settings`][func azure functionapp publish] option to automatically create app settings in your function app based on values in the local.settings.json file.  
 
 + To publish to a specific named slot in your function app, use the [`--slot` option](functions-core-tools-reference.md#func-azure-functionapp-publish). 
 ::: zone-end
@@ -383,7 +383,7 @@ func azurecontainerapps deploy --name <APP_NAME> --environment <ENVIRONMENT_NAME
 
 ```
 
-When deploying to an Azure Container Apps environment, the environment and storage account must already exist. You don't need to create a separate function app resource.  The storage account connection string you provide is used by the deployed function app. 
+When you deploy to an Azure Container Apps environment, the environment and storage account must already exist. You don't need to create a separate function app resource.  The storage account connection string you provide is used by the deployed function app. 
 
 > [!IMPORTANT]
 > Storage connection strings and other service credentials are important secrets. Make sure to securely store any script files using `func azurecontainerapps deploy` and don't store them in any publicly accessible source control systems.
@@ -397,6 +397,83 @@ func kubernetes deploy --name <DEPLOYMENT_NAME> --registry <REGISTRY_USERNAME>
 ```
 
 Azure Functions on Kubernetes using KEDA is an open-source effort that you can use free of cost. Best-effort support is provided by contributors and from the community. To learn more, see [Deploying a function app to Kubernetes](functions-kubernetes-keda.md#deploying-a-function-app-to-kubernetes). 
+
+[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
+
+The following considerations apply when working with the local settings file:
+
++ Because the local.settings.json may contain secrets, such as connection strings, you should never store it in a remote repository. Core Tools helps you encrypt this local settings file for improved security. For more information, see [Local settings file](functions-develop-local.md#local-settings-file). You can also [encrypt the local.settings.json file](#encrypt-the-local-settings-file) for added security. 
+
++ By default, local settings aren't migrated automatically when the project is published to Azure. Use the [`--publish-local-settings`][func azure functionapp publish] option when you publish to make sure these settings are added to the function app in Azure. Values in the `ConnectionStrings` section are never published. You can also upload[ settings from the local.settings.json file](#upload-local-settings-to-azure) at any time. 
+
++ You can download and overwrite settings in your local.settings.json file with settings from your function app in Azure. For more information, see [Download application settings](#download-application-settings).   
+::: zone pivot="programming-language-csharp"
++ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-dotnet-class-library.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-java"
++ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-java.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
++ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-node.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-powershell"
++ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-powershell.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-python"
++ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-python.md#environment-variables).
+::: zone-end
+
++ When no valid storage connection string is set for [`AzureWebJobsStorage`] and a local storage emulator isn't being used, an error is shown. You can use Core Tools to [download a specific connection string](#download-a-storage-connection-string) from any of your Azure Storage accounts.
+
+### Download application settings
+
+From the project root, use the following command to download all application settings from the `myfunctionapp12345` app in Azure:
+
+```command
+func azure functionapp fetch-app-settings myfunctionapp12345
+```
+
+This command overwrites any existing settings in the local.settings.json file with values from Azure. When not already present, new items are added to the collection. For more information, see the [`func azure functionapp fetch-app-settings`](functions-core-tools-reference.md#func-azure-functionapp-fetch-app-settings) command.
+
+### Download a storage connection string
+
+Core Tools also makes it easy to get the connection string of any storage account to which you have access. From the project root, use the following command to download the connection string from a storage account named `mystorage12345`.   
+
+```command
+func azure storage fetch-connection-string mystorage12345
+```
+
+This command adds a setting named `mystorage12345_STORAGE` to the local.settings.json file, which contains the connection string for the `mystorage12345` account. For more information, see the [`func azure storage fetch-connection-string`](functions-core-tools-reference.md#func-azure-storage-fetch-connection-string) command. 
+
+For improved security during development, consider [encrypting the local.settings.json file](#encrypt-the-local-settings-file). 
+
+### Upload local settings to Azure
+
+When you publish your project files to Azure without using the `--publish-local-settings` option, settings in the local.settings.json file aren't set in your function app. You can always rerun the `func azure functionapp publish` with the `--publish-settings-only` option to upload just the settings without republishing the project files. 
+
+The following example uploads just settings from the `Values` collection in the local.settings.json file to the function app in Azure named `myfunctionapp12345`:
+
+```command
+func azure functionapp publish myfunctionapp12345 --publish-settings-only
+```
+
+### Encrypt the local settings file
+
+To improve security of connection strings and other valuable data in your local settings, Core Tools lets you encrypt the local.settings.json file. When this file is encrypted, the runtime automatically decrypts the settings when needed the same way it does with application setting in Azure. You can also decrypt a locally encrypted file to work with the settings.
+
+Use the following command to encrypt the local settings file for the project:
+
+```command
+func settings encrypt
+```
+
+Use the following command to decrypt an encrypted local setting, so that you can work with it:
+
+```command
+func settings decrypt
+``` 
+
+When the settings file is encrypted and decrypted, the file's `IsEncrypted` setting also gets updated.
 
 ## Binding extensions
 
@@ -415,75 +492,6 @@ Functions provides _extension bundles_ to make is easy to work with binding exte
 If you must use a binding extension or an extension version not in a supported bundle, you need to manually install extensions. For such rare scenarios, see the [`func extensions install`](./functions-core-tools-reference.md#func-extensions-install) command.
 ::: zone-end
 
-[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
-
-The following considerations apply when working with the local settings file:
-
-+ By default, local settings aren't migrated automatically when the project is published to Azure. Use the [`--publish-local-settings` option][func azure functionapp publish] when you publish to make sure these settings are added to the function app in Azure. Values in the `ConnectionStrings` section are never published.
-::: zone pivot="programming-language-csharp"
-+ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-dotnet-class-library.md#environment-variables).
-::: zone-end
-::: zone pivot="programming-language-java"
-+ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-java.md#environment-variables).
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-node.md#environment-variables).
-::: zone-end
-::: zone pivot="programming-language-powershell"
-+ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-powershell.md#environment-variables).
-::: zone-end
-::: zone pivot="programming-language-python"
-+ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-python.md#environment-variables).
-::: zone-end
-
-+ When no valid storage connection string is set for [`AzureWebJobsStorage`] and a local storage emulator isn't being used, the following error message is shown:
-
-    > Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings \<functionAppName\>' or specify a connection string in local.settings.json.
-
-### Get your storage connection strings
-
-Even when using the [Azurite storage emulator](functions-develop-local.md#local-storage-emulator) for development, you may want to run locally with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-account-create.md), you can get a valid storage connection string in one of several ways:
-
-#### [Portal](#tab/portal)
-
-1. From the [Azure portal], search for and select **Storage accounts**. 
-
-    ![Select Storage accounts from Azure portal](./media/functions-run-local/select-storage-accounts.png)
-  
-1.  Select your storage account, select **Access keys** in **Settings**, then copy one of the **Connection string** values.
-
-    ![Copy connection string from Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
-
-#### [Core Tools](#tab/azurecli)
-
-From the project root, use one of the following commands to download the connection string from Azure:
-
-  + Download all settings from an existing function app:
-
-    ```
-    func azure functionapp fetch-app-settings <FunctionAppName>
-    ```
-
-  + Get the Connection string for a specific storage account:
-
-    ```
-    func azure storage fetch-connection-string <StorageAccountName>
-    ```
-
-    When you aren't already signed in to Azure, you're prompted to do so. These commands overwrite any existing settings in the local.settings.json file. To learn more, see the [`func azure functionapp fetch-app-settings`](functions-core-tools-reference.md#func-azure-functionapp-fetch-app-settings) and [`func azure storage fetch-connection-string`](functions-core-tools-reference.md#func-azure-storage-fetch-connection-string) commands.
-
-#### [Storage Explorer](#tab/storageexplorer)
-
-1. Run [Azure Storage Explorer](https://storageexplorer.com/). 
-
-1. In the **Explorer**, expand your subscription, then expand **Storage Accounts**.
-
-1. Select your storage account and copy the primary or secondary connection string.
-
-    ![Copy connection string from Storage Explorer](./media/functions-run-local/storage-explorer.png)
-
----
-
 ## Monitoring functions
 
 The recommended way to monitor the execution of your functions is by integrating with Azure Application Insights. You can also stream execution logs to your local computer. To learn more, see [Monitor Azure Functions](functions-monitoring.md).
@@ -494,7 +502,7 @@ Application Insights integration should be enabled when you create your function
 
 ### Enable streaming logs
 
-You can view a stream of log files being generated by your functions in a command-line session on your local computer. 
+In a command-line session on your local computer, you can view a stream of the logs generated by your local function executions. 
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 

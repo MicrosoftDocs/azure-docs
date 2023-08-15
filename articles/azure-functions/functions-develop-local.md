@@ -34,8 +34,8 @@ A Functions project directory contains the following files in the project root f
 | File name | Description |
 | --- | --- |
 | host.json | To learn more, see the [host.json reference](functions-host-json.md). |
-| local.settings.json | Settings used by Core Tools when running locally, including app settings. To learn more, see [local settings](#local-settings-file). |
-| .gitignore | Prevents the local.settings.json file from being accidentally published to a Git repository. To learn more, see [local settings](#local-settings)|
+| local.settings.json | Settings used by Core Tools when running locally, including app settings. To learn more, see [local settings file](#local-settings-file). |
+| .gitignore | Prevents the local.settings.json file from being accidentally published to a Git repository. To learn more, see [local settings file](#local-settings-file).|
 | .vscode\extensions.json | Settings file used when opening the project folder in Visual Studio Code.  |
 
 Other files in the project depend on your language and specific functions. For more information, see the developer guide for your language.   

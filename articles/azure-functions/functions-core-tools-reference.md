@@ -174,7 +174,7 @@ In version 1.x, you can also use the [`func run`](#func-run) command to run a sp
 Gets settings from a specific function app.
 
 ```command
-func azure functionapp fetch-app-settings <APP_NAME>
+func azure functionapp fetch-app-settings <APP_NAME> 
 ```
 
 For an example, see [Get your storage connection strings](functions-run-local.md#get-your-storage-connection-strings).
@@ -475,14 +475,9 @@ To learn more, see the [Durable Functions documentation](./durable/durable-funct
 
 Manually installs Functions extensions in a non-.NET project or in a C# script project. 
 
-> [!TIP] 
-> When possible, you should instead use extension bundles. To learn more, see [Extension bundles](functions-bindings-register.md#extension-bundles).
-
-The following are some reasons why you might need to install extensions manually:
-
-* You need to access a specific version of an extension not available in a bundle.
-* You need to access a custom extension not available in a bundle.
-* You need to access a specific combination of extensions not available in a single bundle.
+```command
+func extensions install --package Microsoft.Azure.WebJobs.Extensions.<EXTENSION> --version <VERSION>
+```
 
 The `install` action supports the following options:
 
@@ -496,11 +491,23 @@ The `install` action supports the following options:
 | **`--source`** |  NuGet feed source when not using NuGet.org.|
 | **`--version`** |  Extension package version. |
 
+The following example installs version 5.0.1 of the Event Hubs extension in the local project:
+
+```command
+func extensions install --package Microsoft.Azure.WebJobs.Extensions.EventHubs --version 5.0.1
+```
+
 The following considerations apply when using `func extensions install`:
 
 + For compiled C# projects (both in-process and isolated worker process), instead use standard NuGet package installation methods, such as `dotnet add package`.
 
 + To manually install extensions using Core Tools, you must have the [.NET 6.0 SDK](https://dotnet.microsoft.com/download) installed.
+
++ When possible, you should instead use [extension bundles](functions-bindings-register.md#extension-bundles). The following are some reasons why you might need to install extensions manually:
+
+    + You need to access a specific version of an extension not available in a bundle.
+    + You need to access a custom extension not available in a bundle.
+    + You need to access a specific combination of extensions not available in a single bundle.
 
 + Before you can manually install extensions, you must first remove the [`extensionBundle`](functions-host-json.md#extensionbundle) object from the host.json file that defines the bundle. No action is taken when an extension bundle is already set in your [host.json file](functions-host-json.md#extensionbundle).
 
