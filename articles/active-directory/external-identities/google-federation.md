@@ -18,6 +18,9 @@ ms.collection: M365-identity-device-management
 
 # Add Google as an identity provider for B2B guest users
 
+> [!TIP]
+> This article describes adding Google as an identity provider for B2B collaboration. If your tenant is configured for customer identity and access management, see [Add Google as an identity provider](customers/how-to-google-federation-customers.md) for customers.
+
 By setting up federation with Google, you can allow invited users to sign in to your shared apps and resources with their own Gmail accounts, without having to create Microsoft accounts. After you've added Google as one of your application's sign-in options, on the **Sign in** page, a user can simply enter the Gmail address they use to sign in to Google.
 
 ![Sign in options for Google users](media/google-federation/sign-in-with-google-overview.png)

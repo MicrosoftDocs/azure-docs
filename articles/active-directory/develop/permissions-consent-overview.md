@@ -17,6 +17,13 @@ ms.reviewer: jawoods, ludwignick, phsignor
 ---
 # Introduction to permissions and consent
 
+<a id ='requesting-consent-for-an-entire-tenant'></a>
+<a id ='using-the-admin-consent-endpoint'></a>
+<a id ='openid-connect-scopes'></a>
+<a id ='admin-restricted-permissions'></a>
+<a id ='the-default-scope'></a>
+<a id ='scopes-and-permissions'></a>
+
 To *access* a protected resource like email or calendar data, your application needs the resource owner's *authorization*. The resource owner can *consent* to or deny your app's request. Understanding these foundational concepts will help you build more secure and trustworthy applications that request only the access they need, when they need it, from users and administrators.
 
 ## Access scenarios
@@ -38,6 +45,8 @@ For the user, the authorization relies on the privileges that the user has been 
 In this access scenario, the application acts on its own with no user signed in. Application access is used in scenarios such as automation, and backup. This scenario includes apps that run as background services or daemons. It's appropriate when it's undesirable to have a specific user signed in, or when the data required can't be scoped to a single user. For more information about the app-only access scenario, see [App-only-access](app-only-access-primer.md).
 
 App-only access uses app roles instead of delegated scopes. When granted through consent, app roles may also be called applications permissions. For app-only access, the client app must be granted appropriate app roles of the resource app it's calling in order to access the requested data. For more information about assigning app roles to client applications, see [Assigning app roles to applications](howto-add-app-roles-in-azure-ad-apps.md#assign-app-roles-to-applications).
+
+<a id='permission-types'></a>
 
 ## Types of permissions
 
@@ -69,6 +78,8 @@ One way that applications are granted permissions is through consent. Consent is
 - When the application uses dynamic consent to ask for new permissions as needed at run time. 
 
 The key details of a consent prompt are the list of permissions the application requires and the publisher information. For more information about the consent prompt and the consent experience for both admins and end-users, see [application consent experience](application-consent-experience.md).
+
+<a id='requesting-individual-user-consent'></a>
 
 ### User consent
 
