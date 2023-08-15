@@ -29,7 +29,7 @@ To troubleshoot other Windows clients, see [Troubleshoot hybrid Azure AD-joined 
 This article assumes that you have [configured hybrid Azure AD-joined devices](hybrid-join-plan.md) to support the following scenarios:
 
 - Device-based Conditional Access
-- [Enterprise state roaming](./enterprise-state-roaming-overview.md)
+- [Enterprise state roaming](./enterprise-state-roaming-enable.md)
 - [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
 
 
@@ -149,7 +149,7 @@ Possible reasons for failure:
 
 -  The service connection point object is misconfigured or can't be read from the domain controller.
    - A valid service connection point object is required in the AD forest, to which the device belongs, that points to a verified domain name in Azure AD.
-   - For more information, see the "Configure a service connection point" section of [Tutorial: Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
+   - For more information, see the "Configure a service connection point" section of [Tutorial: Configure hybrid Azure Active Directory join for federated domains](./how-to-hybrid-join.md#configure-hybrid-azure-ad-join).
 - Failure to connect to and fetch the discovery metadata from the discovery endpoint.
    - The device should be able to access `https://enterpriseregistration.windows.net`, in the system context, to discover the registration and authorization endpoints.
    - If the on-premises environment requires an outbound proxy, the IT admin must ensure that the computer account of the device can discover and silently authenticate to the outbound proxy.
@@ -163,7 +163,7 @@ Possible reasons for failure:
 | --- | --- | --- |
 | **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611) | Unable to read the service connection point (SCP) object and get the Azure AD tenant information. | Refer to the [Configure a service connection point](hybrid-join-manual.md#configure-a-service-connection-point) section. |
 | **DSREG_AUTOJOIN_DISC_FAILED** (0x801c0021/-2145648607) | Generic discovery failure. Failed to get the discovery metadata from the data replication service (DRS). | To investigate further, find the sub-error in the next sections. |
-| **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT**  (0x801c001f/-2145648609) | Operation timed out while performing discovery. | Ensure that `https://enterpriseregistration.windows.net` is accessible in the system context. For more information, see the [Network connectivity requirements](hybrid-azuread-join-managed-domains.md#prerequisites) section. |
+| **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT**  (0x801c001f/-2145648609) | Operation timed out while performing discovery. | Ensure that `https://enterpriseregistration.windows.net` is accessible in the system context. For more information, see the [Network connectivity requirements](./how-to-hybrid-join.md#prerequisites) section. |
 | **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c003d/-2145648579) | Generic realm discovery failure. Failed to determine domain type (managed/federated) from STS. | To investigate further, find the sub-error in the next sections. |
 | | |
 
@@ -206,8 +206,8 @@ Use Event Viewer logs to look for the phase and error code for the join failures
 
 | Error code | Reason | Resolution |
 | --- | --- | --- |
-| **WININET_E_CANNOT_CONNECT** (0x80072efd/-2147012867) | Connection with the server couldn't be established. | Ensure network connectivity to the required Microsoft resources. For more information, see [Network connectivity requirements](hybrid-azuread-join-managed-domains.md#prerequisites). |
-| **WININET_E_TIMEOUT** (0x80072ee2/-2147012894) | General network timeout. | Ensure network connectivity to the required Microsoft resources. For more information, see [Network connectivity requirements](hybrid-azuread-join-managed-domains.md#prerequisites). |
+| **WININET_E_CANNOT_CONNECT** (0x80072efd/-2147012867) | Connection with the server couldn't be established. | Ensure network connectivity to the required Microsoft resources. For more information, see [Network connectivity requirements](./how-to-hybrid-join.md#prerequisites). |
+| **WININET_E_TIMEOUT** (0x80072ee2/-2147012894) | General network timeout. | Ensure network connectivity to the required Microsoft resources. For more information, see [Network connectivity requirements](./how-to-hybrid-join.md#prerequisites). |
 | **WININET_E_DECODING_FAILED** (0x80072f8f/-2147012721) | Network stack was unable to decode the response from the server. | Ensure that the network proxy isn't interfering and modifying the server response. |
 | | |
 
@@ -261,7 +261,7 @@ Use Event Viewer logs to locate the error code, sub-error code, server error cod
 
 | Error code | Reason | Resolution |
 | --- | --- | --- |
-| **ERROR_ADAL_INTERNET_TIMEOUT** (0xcaa82ee2/-894947614) | General network timeout. | Ensure that `https://login.microsoftonline.com` is accessible in the system context. Ensure that the on-premises identity provider is accessible in the system context. For more information, see [Network connectivity requirements](hybrid-azuread-join-managed-domains.md#prerequisites). |
+| **ERROR_ADAL_INTERNET_TIMEOUT** (0xcaa82ee2/-894947614) | General network timeout. | Ensure that `https://login.microsoftonline.com` is accessible in the system context. Ensure that the on-premises identity provider is accessible in the system context. For more information, see [Network connectivity requirements](./how-to-hybrid-join.md#prerequisites). |
 | **ERROR_ADAL_INTERNET_CONNECTION_ABORTED** (0xcaa82efe/-894947586) | Connection with the authorization endpoint was aborted. | Retry the join after a while, or try joining from another stable network location. |
 | **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441) | The Transport Layer Security (TLS) certificate (previously known as the Secure Sockets Layer [SSL] certificate) sent by the server couldn't be validated. | Check the client time skew. Retry the join after a while, or try joining from another stable network location. |
 | **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587) | The attempt to connect to `https://login.microsoftonline.com` failed. | Check the network connection to `https://login.microsoftonline.com`. |
