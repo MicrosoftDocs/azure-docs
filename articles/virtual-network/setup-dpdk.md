@@ -5,6 +5,7 @@ description: Learn the benefits of the Data Plane Development Kit (DPDK) and how
 services: virtual-network
 author: steveesp
 ms.service: virtual-network
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 04/24/2023
 ms.author: steveesp

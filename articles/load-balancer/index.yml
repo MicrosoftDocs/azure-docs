@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Load Balancer documentation
-summary: Learn how to use Azure Load Balancer. Quickstarts, tutorials, samples, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
+summary: Learn how to use Azure Load Balancer. Quickstarts, tutorials, how-to's, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
 
 metadata:
   title: Load Balancer
-  description: Learn how to use Azure Load Balancer. Quickstarts, tutorials, samples, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
+  description: Learn how to use Azure Load Balancer. Quickstarts, tutorials, how-to's, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
   services: load-balancer
   ms.service: load-balancer
   ms.topic: landing-page

@@ -413,7 +413,7 @@
         {
             "source_path_from_root": "/articles/security-center/defender-for-dns-introduction.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-dns-introduction",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/defender-for-key-vault-introduction.md",
@@ -479,6 +479,11 @@
             "source_path_from_root": "/articles/security-center/enable-enhanced-security.md",
             "redirect_url": "/azure/defender-for-cloud/enable-enhanced-security",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/enable-enhanced-security.md",
+            "redirect_url": "/azure/defender-for-cloud/connect-azure-subscription",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/enhanced-security-features-overview.md",
@@ -741,6 +746,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/defender-for-cloud/devops-faq.md",
+            "redirect_url": "/azure/defender-for-cloud/faq-defender-for-devops",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/defender-for-cloud/detect-credential-leaks.md",
             "redirect_url": "/azure/defender-for-cloud/detect-exposed-secrets",
             "redirect_document_id": true
@@ -808,6 +818,31 @@
         {
             "source_path_from_root": "/articles/defender-for-cloud/faq-azure-monitor-logs.yml",
             "redirect_url": "/azure/defender-for-cloud/faq-data-collection-agents",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/quickstart-enable-database-protections.md",
+            "redirect_url": "/azure/defender-for-cloud/tutorial-enable-databases-plan",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/enable-all-plans.md",
+            "redirect_url": "/azure/defender-for-cloud/connect-azure-subscription",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/get-started.md",
+            "redirect_url": "/azure/defender-for-cloud/connect-azure-subscription",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/enable-vulnerability-assessment-agentless.md",
+            "redirect_url": "/azure/defender-for-cloud/enable-agentless-scanning-vms",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-dns-plan.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-dns-introduction",
             "redirect_document_id": true
         },
         {

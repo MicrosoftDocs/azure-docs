@@ -1,5 +1,5 @@
 ---
-title: Select a Defender for Servers plan in Microsoft Defender for Cloud
+title: Select a Defender for Servers plan
 description: Select a Microsoft Defender for Servers plan in Microsoft Defender for Cloud to protect Azure, AWS, and GCP servers and on-premises machines.
 ms.topic: conceptual
 ms.author: dacurwin
@@ -49,8 +49,8 @@ You can choose from two Defender for Servers paid plans:
 | **Licensing** | Defender for Servers covers licensing for Defender for Endpoint. Licensing is charged per hour instead of per seat, lowering costs by protecting virtual machines only when they're in use.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Defender for Endpoint provisioning** | Defender for Servers automatically provisions the Defender for Endpoint sensor on every supported machine that's connected to Defender for Cloud.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Unified view** | Defender for Endpoint alerts appear in the Defender for Cloud portal. You can get detailed information in the Defender for Endpoint portal.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Threat detection for OS-level (agent-based)** | Defender for Servers and Defender for Endpoint detect threats at the OS level, including virtual machine behavioral detections and *fileless attack detection*, which generates detailed security alerts that accelerate alert triage, correlation, and downstream response time.<br>[Learn more](alerts-reference.md#alerts-windows) | :::image type="icon" source="./media/icons/yes-icon.png":::</br>[Provided by MDE](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response) | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Threat detection for network-level (agentless)** | Defender for Servers detects threats that are directed at the control plane on the network, including network-based detections for Azure virtual machines. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Threat detection for OS-level (agent-based)** | Defender for Servers and Defender for Endpoint detect threats at the OS level, including virtual machine behavioral detections and *fileless attack detection*, which generates detailed security alerts that accelerate alert triage, correlation, and downstream response time.<br><br />[Learn more about alerts for Windows machines](alerts-reference.md#alerts-windows)<br /><br />[Learn more about alerts for Linux machines](alerts-reference.md#alerts-linux)<br /><br /><br />[Learn more about alerts for DNS](alerts-reference.md#alerts-dns) | :::image type="icon" source="./media/icons/yes-icon.png":::</br>[Provided by MDE](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response) | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Threat detection for network-level (agentless security alerts)** | Defender for Servers detects threats that are directed at the control plane on the network, including network-based security alerts for Azure virtual machines. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Microsoft Defender Vulnerability Management (MDVM) Add-on** | Enhance your vulnerability management program consolidated asset inventories, security baselines assessments, application block feature, and more. [Learn more](deploy-vulnerability-assessment-defender-vulnerability-management.md). | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Security Policy and Regulatory Compliance** | Customize a security policy for your subscription and also compare the configuration of your resources with requirements in industry standards, regulations, and benchmarks. Learn more about [regulatory compliance](regulatory-compliance-dashboard.md) and [security policies](security-policy-concept.md) | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png":::|
 | **[Qualys vulnerability assessment](deploy-vulnerability-assessment-vm.md)** | As an alternative to Defender Vulnerability Management, Defender for Cloud can deploy a Qualys scanner and display the findings. You don't need a Qualys license or account. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png":::|
@@ -62,6 +62,10 @@ You can choose from two Defender for Servers paid plans:
 | **[Docker host hardening](harden-docker-hosts.md)** | Assesses containers hosted on Linux machines running Docker containers, and then compares them with the Center for Internet Security (CIS) Docker Benchmark. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 |[Network map](protect-network-resources.md) | Provides a geographical view of recommendations for hardening your network resources. | Not supported in Plan 1| :::image type="icon" source="./media/icons/yes-icon.png"::: |
 |[Agentless scanning](concept-agentless-data-collection.md) | Scans Azure virtual machines by using cloud APIs to collect data. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png":::|
+
+>[!Note]
+>Once a plan is enabled, a 30-day trial period begins. There is no way to stop, pause, or extend this trial period.
+>To enjoy the full 30-day trial, make sure to plan ahead to meet your evaluation purposes.
 
 ## Select a vulnerability assessment solution
 

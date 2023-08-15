@@ -54,3 +54,9 @@ To configure FSLogix profile container, do the following on each session host re
    |---------------------|--------------------|-----------------------------------|
    | Enabled             | DWORD              | 1                                 |
    | VHDLocations        | Multi-String Value | \\\\hostname\\share                |
+
+8. If you're using OneDrive Files on Demand, you also need to use the volume type VHDX by creating the following value:
+
+   | Name                | Type               | Data/Value                        |
+   |---------------------|--------------------|-----------------------------------|
+   | VolumeType          | String Value       | VHDX                              |

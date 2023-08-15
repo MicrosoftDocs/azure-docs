@@ -48,6 +48,8 @@
           href: learn/quick-windows-container-deploy-cli.md
         - name: Use Azure PowerShell
           href: learn/quick-windows-container-deploy-powershell.md
+        - name: Use the Azure portal
+          href: learn/quick-windows-container-deploy-portal.md
     - name: Develop applications
       expanded: true
       items:
@@ -103,10 +105,14 @@
               href: cis-kubernetes.md
             - name: CIS Ubuntu benchmark
               href: cis-ubuntu.md
+            - name: CIS Azure Linux benchmark
+              href: cis-azure-linux.md
     - name: Access and identity
       href: concepts-identity.md
     - name: Networking
       href: concepts-network.md
+    - Name: Network observability
+      href: network-observability-overview.md
     - name: Storage
       href: concepts-storage.md
     - name: Scaling
@@ -229,8 +235,6 @@
           href: start-stop-cluster.md
         - name: Use planned maintenance to schedule and control upgrades
           href: planned-maintenance.md
-        - name: Planned Maintenance for AKS weekly releases
-          href: aks-planned-maintenance-weekly-releases.md
         - name: Cloud Controller Manager
           href: out-of-tree.md
         - name: Upgrade an AKS cluster
@@ -273,8 +277,10 @@
           items:
             - name: Node pool snapshot
               href: node-pool-snapshot.md
-            - name: Use multiple node pools
-              href: use-multiple-node-pools.md
+            - name: Create node pools
+              href: create-node-pools.md
+            - name: Manage node pools
+              href: manage-node-pools.md
             - name: Use spot node pools
               href: spot-node-pool.md
             - name: Use system node pools
@@ -295,7 +301,6 @@
           href: use-tags.md
         - name: Use labels
           href: use-labels.md
-        - name: Enforce best practices with Guardrails
     - name: Security and authentication
       items:
         - name: Overview of Defender for Containers
@@ -445,8 +450,12 @@
               href: http-proxy.md
         - name: Ingress
           items:
-            - name: Use Web Application Routing add-on
-              href: web-app-routing.md
+            - name: Use application routing add-on 
+              items:
+              - name: Application routing add-on overview
+                href: app-routing.md
+              - name: Monitor using Prometheus and Grafana
+                href: app-routing-nginx-prometheus.md
             - name: Use Application Gateway Ingress Controller add-on
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
               maintainContext: true
@@ -470,6 +479,12 @@
               href: load-balancer-standard.md
             - name: Use kube-proxy configuration (IPVS)
               href: configure-kube-proxy.md
+        - name: Network Observability
+          items:
+          - name: Setup of Network Observability - BYO
+            href: network-observability-byo-cli.md
+          - name: Setup of Network Observability - Azure Managed
+            href: network-observability-managed-cli.md
         - name: Security
           items:
             - name: Use API Server VNet Integration
@@ -542,8 +557,6 @@
       items:
         - name: Monitor AKS
           href: monitor-aks.md
-        - name: Monitor kube-audit events
-          href: monitor-apiserver.md
         - name: Monitor reference
           href: monitor-aks-reference.md
         - name: View the kubelet logs
@@ -553,6 +566,8 @@
           maintainContext: true
     - name: Use Windows Server containers
       items:
+        - name: Windows AKS Partner Solutions
+          href: windows-aks-partner-solutions.md
         - name: Connect remotely
           href: rdp.md
         - name: Use HostProcess containers
@@ -581,6 +596,10 @@
           href: ../postgresql/flexible-server/tutorial-django-aks-database.md
         - name: Build Java app with WebSphere Liberty or Open Liberty
           href: howto-deploy-java-liberty-app.md
+        - name: Build Java app with WebLogic Server
+          href: howto-deploy-java-wls-app.md
+        - name: Build Java app with Quarkus
+          href: howto-deploy-java-quarkus-app.md
         - name: Build WordPress app with MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
@@ -609,6 +628,10 @@
               href: deploy-application-template.md
             - name: Deploy Kubernetes applications with Azure CLI
               href: deploy-application-az-cli.md
+    - name: Deploy Intelligent Apps on AKS
+      items:
+        - name: Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 
+          href: open-ai-quickstart.md
     - name: Deploy the Open Service Mesh AKS add-on
       items:
         - name: About Open Service Mesh

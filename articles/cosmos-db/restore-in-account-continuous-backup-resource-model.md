@@ -6,7 +6,7 @@ author: kanshiG
 ms.author: govindk
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.custom: build-2023
+ms.custom: build-2023, devx-track-arm-template
 ms.topic: conceptual
 ms.date: 05/08/2023
 ---

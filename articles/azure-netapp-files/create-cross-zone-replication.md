@@ -29,9 +29,6 @@ Before you begin, you should review the [requirements and considerations for cro
 
 ## Register the feature 
 
->[!IMPORTANT]
-> Cross-zone replication uses the [availability zone volume placement feature](use-availability-zones.md). The availability zone volume placement feature is currently in preview. You must [register the feature](manage-availability-zone-volume-placement.md#register-the-feature) before you can register the cross-zone replication feature.
-
 Cross-zone replication is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
 
 1. Register the feature: 

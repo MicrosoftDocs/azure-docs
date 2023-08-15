@@ -39,9 +39,11 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 ## Limitations for images shared to the community
 
 There are some limitations for sharing your gallery to the community:
+
 - Image resources need to be created in the same region as the gallery. For example, if you create a gallery in West US, the image definitions and image versions should be created in West US if you want to make them available.
 - You can't share [VM Applications](vm-applications.md) to the community.
 - The image version region in the gallery should be same as the region home region, creating of cross-region version where the home region is different than the gallery isn't supported, however once the image is in the home region it can be replicated to other regions
+
 
 
 ## How sharing with the community works
@@ -58,7 +60,7 @@ When creating a community gallery, you will need to provide contact information 
 - Community gallery prefix
 - Publisher support email
 - Publisher URL
-- Legal agreement URL
+- Legal agreement URL (Do not put secrets, passwords, SASURI etc. in legal agreement URL field)
 
 Information from your image definitions will also be publicly available, like what you provide for **Publisher**, **Offer**, and **SKU**.
 
@@ -105,12 +107,13 @@ The easiest way to report issues with a community gallery is to use the portal, 
 - If an image version contains malicious code or there are other issues with a specific version of an image, select **Report** under the **Report version** column in the table of image versions.
 
 You can also use the following links to report issues, but the forms won't be pre-filled:
+
 - Malicious images: Contact [Abuse Report](https://msrc.microsoft.com/report/abuse).
 - Intellectual Property violations: Contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
  
 ## Best practices
 
-- Images published to the community gallery should be [generalized](generalize.md) images, that have had sensitive or machine specific information removed. For more information about preparing an image, see the OS specific information for [Linux](./linux/create-upload-generic.md) or [Windows](./windows/prepare-for-upload-vhd-image.md).
+- Images published to the community gallery should be [generalized](generalize.md) images that have had sensitive or machine specific information removed. For more information about preparing an image, see the OS specific information for [Linux](./linux/create-upload-generic.md) or [Windows](./windows/prepare-for-upload-vhd-image.md).
 ## FAQ
 
 **Q: What are the charges for using a gallery that is shared to the community?**
@@ -118,6 +121,8 @@ You can also use the following links to report issues, but the forms won't be pr
 **A**: There are no charges for using the service itself. However, content publishers would be charged for the following:
 - Storage charges for application versions and replicas in each of the regions (source and target). These charges are based on the storage account type chosen. 
 - Network egress charges for replication across regions.
+
+Consumers of the image may have to pay additional software cost if the base image is using an Azure marketplace image with software charges.
 
 **Q: Is it safe to use images shared to the community?**
 

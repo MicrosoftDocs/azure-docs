@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.date: 10/21/2021
 ms.topic: troubleshooting
-ms.custom: devx-track-python, automl, references_regions, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, automl, references_regions, sdkv1, event-tier1-build-2022
 monikerRange: 'azureml-api-1'
 ---
 
 # Troubleshoot automated ML experiments in Python
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this guide, learn how to identify and resolve known issues in your automated machine learning experiments with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro).
 

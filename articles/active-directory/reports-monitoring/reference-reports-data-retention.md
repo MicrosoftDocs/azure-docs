@@ -14,6 +14,7 @@ ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
 ---
+
 # Azure Active Directory data retention
 
 In this article, you learn about the data retention policies for the different activity reports in Azure Active Directory (Azure AD). 
@@ -22,7 +23,7 @@ In this article, you learn about the data retention policies for the different a
 
 | Azure AD Edition | Collection Start |
 | :--              | :--   |
-| Azure AD Premium P1 <br /> Azure AD Premium P2 | When you sign up for a subscription |
+| Azure AD Premium P1 <br /> Azure AD Premium P2 <br /> Entra Workload Identities Premium | When you sign up for a subscription |
 | Azure AD Free| The first time you open [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](./overview-reports.md)  |
 
 If you already have activities data with your free license, then you can see it immediately on upgrade. If you don’t have any data, then it will take up to three days for the data to show up in the reports after you upgrade to a premium license. For security signals, the collection process starts when you opt-in to use the **Identity Protection Center**. 
@@ -47,9 +48,8 @@ You can retain the audit and sign-in activity data for longer than the default r
 | Risky sign-ins | 7 days        | 30 days             | 90 days             |
 
 > [!NOTE]
-> Risky users are not deleted until the risk has been remediated.
-
-## Can I see last month's data after getting an Azure AD premium license?
+> Risky users and workload identities are not deleted until the risk has been remediated.
+## Can I see last month's data after getting a premium license?
 
 **No**, you can't. Azure stores up to seven days of activity data for a free version. When you switch from a free to a premium version, you can only see up to 7 days of data.
 
@@ -57,3 +57,4 @@ You can retain the audit and sign-in activity data for longer than the default r
 
 - [Stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
 - [Learn how to download Azure AD logs](howto-download-logs.md)
+

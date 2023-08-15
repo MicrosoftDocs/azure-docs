@@ -14,6 +14,16 @@ services: azure-maps
 
 This document contains information about new features and other changes to the Azure Maps Indoor Module.
 
+## [0.2.2]
+
+### Changes (0.2.2)
+
+- Performance improvements in dynamic styling updates.
+
+### Bug fixes (0.2.2)
+
+- Fix incorrect feature IDs usage in dynamic styling for [drawing package 2.0] derived tilesets.   
+
 ## [0.2.1]
 
 ### New features (0.2.1)
@@ -102,6 +112,7 @@ Stay up to date on Azure Maps:
 > [Azure Maps Blog]
 
 [drawing package 2.0]: ./drawing-package-guide.md
+[0.2.2]: https://www.npmjs.com/package/azure-maps-indoor/v/0.2.2
 [0.2.1]: https://www.npmjs.com/package/azure-maps-indoor/v/0.2.1
 [0.2.0]: https://www.npmjs.com/package/azure-maps-indoor/v/0.2.0
 [Azure Maps Creator Samples]: https://samples.azuremaps.com/?search=creator

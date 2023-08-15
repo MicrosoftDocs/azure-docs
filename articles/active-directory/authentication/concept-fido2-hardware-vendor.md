@@ -33,7 +33,7 @@ The following table lists partners who are Microsoft-compatible FIDO2 security k
 | Provider | Biometric | USB | NFC | BLE | FIPS Certified |
 |:-|:-:|:-:|:-:|:-:|:-:|
 | [AuthenTrend](https://authentrend.com/about-us/#pg-35-3) | ![y] | ![y]| ![y]| ![y]| ![n] |
-| [ACS](https://www.acs.com.hk/en/products/553/pocketkey-fido%C2%AE-certified-usb-security-key/) | ![n] | ![y]| ![n]| ![n]| ![n] |
+| [ACS](https://www.acs.com.hk/) | ![n] | ![y]| ![n]| ![n]| ![n] |
 | [ATOS](https://atos.net/en/solutions/cyber-security/iot-and-ot-security/smart-card-solution-cardos-for-iot) | ![n] | ![y]| ![y]| ![n]| ![n] |
 | [Ciright](https://www.cyberonecard.com/) | ![n] | ![n]| ![y]| ![n]| ![n] |
 | [Crayonic](https://www.crayonic.com/keyvault) | ![y] | ![n]| ![y]| ![y]| ![n] |
@@ -52,7 +52,6 @@ The following table lists partners who are Microsoft-compatible FIDO2 security k
 | [IDmelon Technologies Inc.](https://www.idmelon.com/#idmelon) | ![y] | ![y]| ![y]| ![y]| ![n] |
 | [Kensington](https://www.kensington.com/solutions/product-category/why-biometrics/) | ![y] | ![y]| ![n]| ![n]| ![n] |
 | [KONA I](https://konai.com/business/security/fido) | ![y] | ![n]| ![y]| ![y]| ![n] |
-| [Movenda](https://www.movenda.com/en/authentication/fido2/overview) | ![y] | ![n]| ![y]| ![y]| ![n] |
 | [NeoWave](https://neowave.fr/en/products/fido-range/) | ![n] | ![y]| ![y]| ![n]| ![n] |
 | [Nymi](https://www.nymi.com/nymi-band) | ![y] | ![n]| ![y]| ![n]| ![n] |
 | [Octatco](https://octatco.com/) | ![y] | ![y]| ![n]| ![n]| ![n] |

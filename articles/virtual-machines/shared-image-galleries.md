@@ -70,7 +70,7 @@ Image definitions contain metadata for the image to allow grouping of images tha
    | Features | Accepted Values | Definition | Supported in |
    |--|--|--|--|
    | IsHibernateSupported | True, False | Create VMs with support for hibernation. | Private, direct shared, community |
-   | IsAcceleratedNetworkSupported | True, False | Create VM's with accelerated networking enabled. When set to `True` on Image definition, capturing VMs that don't support accelerated networking is not supported. | Private, direct shared, community |
+   | IsAcceleratedNetworkSupported | True, False | Create VMs with accelerated networking enabled. When set to `True` on Image definition, capturing VMs that don't support accelerated networking is not supported. | Private, direct shared, community |
    | DiskControllerType | ["SCSI", "NVMe"], ["SCSI"] | Set this to use either SCSI or NVMe disk type. NVMe VMs and disks can only be captured in image definitions that are tagged to be supporting NVMe. | Private, direct shared, community |
  
    When you specify a SecurityType using the `features` parameter, it limits the security features that are enabled on the VM. Some types limited, based on the type of gallery that they are stored in:
@@ -85,8 +85,7 @@ Image definitions contain metadata for the image to allow grouping of images tha
 
    For more information, see the CLI examples for adding [image definition features and SecurityType](/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create) or the [PowerShell examples](/powershell/module/az.compute/new-azgalleryimagedefinition#example-4-create-an-image-definition-for-generalized-windows-images-and-set-features).
    
-   **ConfidentialVM is only supported in the regions where it's available, You can find the supported regions [here](https://learn.microsoft.com/azure/confidential-computing/confidential-vm-overview#regions)
-
+   **ConfidentialVM is only supported in the regions where it's available, You can find the supported regions [here](/azure/confidential-computing/confidential-vm-overview#regions).
 ## Image versions
 
 An **image version** is what you use to create a VM. You can have multiple versions of an image as needed for your environment. When you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
@@ -95,7 +94,6 @@ The properties of an image version are:
 
 - Version number. This is used as the name of the image version. It is always in the format: MajorVersion.MinorVersion.Patch. When you specify to use **latest** when creating a VM, the latest image is chosen based on the highest MajorVersion, then MinorVersion, then Patch. 
 - Source. The source can be a VM, managed disk, snapshot, managed image, or another image version. 
-- Exclude from latest. You can keep a version from being used as the latest image version. 
 - End of life date. Indicate the end-of-life date for the image version. End-of-life dates are informational; users will still be able to create VMs from versions past the end-of-life date.
 
 
@@ -173,7 +171,7 @@ You can create Azure Compute Gallery resource using templates. There are several
 * [Can I move my existing image to an Azure Compute Gallery?](#can-i-move-my-existing-image-to-an-azure-compute-gallery)
 * [Can I create an image version from a specialized disk?](#can-i-create-an-image-version-from-a-specialized-disk)
 * [Can I move the Azure Compute Gallery resource to a different subscription after it has been created?](#can-i-move-the-azure-compute-gallery-resource-to-a-different-subscription-after-it-has-been-created)
-* [Can I replicate my image versions across clouds such as Azure China 21Vianet, Azure Germany, or Azure Government Cloud?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud)
+* [Can I replicate my image versions across clouds such as Microsoft Azure operated by 21Vianet, Azure Germany, or Azure Government Cloud?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-operated-by-21vianet-or-azure-germany-or-azure-government-cloud)
 * [Can I replicate my image versions across subscriptions?](#can-i-replicate-my-image-versions-across-subscriptions)
 * [Can I share image versions across Azure AD tenants?](#can-i-share-image-versions-across-azure-ad-tenants)
 * [How long does it take to replicate image versions across the target regions?](#how-long-does-it-take-to-replicate-image-versions-across-the-target-regions)
@@ -243,7 +241,7 @@ Yes, can create a VM from a [specialized image](windows/create-vm-specialized.md
 No, you can't move the gallery image resource to a different subscription. You can replicate the image versions in the gallery to other regions or copy an [image from another gallery](image-version.md).
 
 
-### Can I replicate my image versions across clouds such as Azure China 21Vianet or Azure Germany or Azure Government Cloud?
+### Can I replicate my image versions across clouds such as Azure operated by 21Vianet or Azure Germany or Azure Government Cloud?
 
 No, you can't replicate image versions across clouds.
 

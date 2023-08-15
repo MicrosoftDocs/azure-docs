@@ -1,13 +1,16 @@
 ---
 title: "Azure Arc-enabled Kubernetes validation"
-ms.date: 12/07/2022
+ms.date: 07/21/2023
 ms.topic: how-to
 description: "Describes Arc validation program for Kubernetes distributions"
 ---
 
 # Azure Arc-enabled Kubernetes validation
 
-Azure Arc-enabled Kubernetes works with any Kubernetes clusters that are certified by the Cloud Native Computing Foundation (CNCF). The Azure Arc team has also worked with key industry Kubernetes offering providers to validate Azure Arc-enabled Kubernetes with their Kubernetes distributions. Future major and minor versions of Kubernetes distributions released by these providers will be validated for compatibility with Azure Arc-enabled Kubernetes.
+The Azure Arc team works with key industry Kubernetes offering providers to validate Azure Arc-enabled Kubernetes with their Kubernetes distributions. Future major and minor versions of Kubernetes distributions released by these providers will be validated for compatibility with Azure Arc-enabled Kubernetes.
+
+> [!IMPORTANT]
+> Azure Arc-enabled Kubernetes works with any Kubernetes clusters that are certified by the Cloud Native Computing Foundation (CNCF), even if they haven't been validated through conformance tests and are not listed on this page.
 
 ## Validated distributions
 
@@ -24,14 +27,14 @@ The following providers and their corresponding Kubernetes distributions have su
 
 | Provider name | Distribution name | Version |
 | ------------ | ----------------- | ------- |
-| RedHat       | [OpenShift Container Platform](https://www.openshift.com/products/container-platform) | [4.9.43](https://docs.openshift.com/container-platform/4.9/release_notes/ocp-4-9-release-notes.html), [4.10.23](https://docs.openshift.com/container-platform/4.10/release_notes/ocp-4-10-release-notes.html), 4.11.0-rc.6 |
-| VMware       | [Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid) | TKGm 2.2; upstream K8s v1.25.7+vmware.2 <br> TKGm 2.1.0; upstream K8s v1.24.9+vmware.1 <br> TKGm 1.6.0; upstream K8s v1.23.8+vmware.2 <br>TKGm 1.5.3; upstream K8s v1.22.8+vmware.1 <br>TKGm 1.4.0; upstream K8s v1.21.2+vmware.1 <br>TKGm 1.3.1; upstream K8s v1.20.5+vmware.2 <br>TKGm 1.2.1; upstream K8s v1.19.3+vmware.1 |
+| RedHat       | [OpenShift Container Platform](https://www.openshift.com/products/container-platform) | [4.9.43](https://docs.openshift.com/container-platform/4.9/release_notes/ocp-4-9-release-notes.html), [4.10.23](https://docs.openshift.com/container-platform/4.10/release_notes/ocp-4-10-release-notes.html), 4.11.0-rc.6, [4.13.4](https://docs.openshift.com/container-platform/4.13/release_notes/ocp-4-13-release-notes.html) |
+| VMware       | [Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid) |TKGm 2.2; upstream K8s v1.25.7+vmware.2 <br>TKGm 2.1.0; upstream K8s v1.24.9+vmware.1 <br>TKGm 1.6.0; upstream K8s v1.23.8+vmware.2 <br>TKGm 1.5.3; upstream K8s v1.22.8+vmware.1 <br>TKGm 1.4.0; upstream K8s v1.21.2+vmware.1 <br>TKGm 1.3.1; upstream K8s v1.20.5+vmware.2 <br>TKGm 1.2.1; upstream K8s v1.19.3+vmware.1 |
 | Canonical    | [Charmed Kubernetes](https://ubuntu.com/kubernetes) | [1.24](https://ubuntu.com/kubernetes/docs/1.24/components) |
 | SUSE Rancher      | [Rancher Kubernetes Engine](https://rancher.com/products/rke/) | RKE CLI version: [v1.3.13](https://github.com/rancher/rke/releases/tag/v1.3.13); Kubernetes versions: 1.24.2, 1.23.8  |
 | Nutanix      | [Nutanix Kubernetes Engine](https://www.nutanix.com/products/kubernetes-engine)    | Version [2.5](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Kubernetes-Engine-v2_5:Nutanix-Kubernetes-Engine-v2_5); upstream K8s v1.23.11 |
-| Kublr	| [Kublr Managed K8s](https://kublr.com/managed-kubernetes/) Distribution | Upstream K8s Version: 1.22.10 <br> Upstream K8s Version: 1.21.3 |
+| Kublr	| [Kublr Managed K8s](https://kublr.com/managed-kubernetes/) Distribution |[Kublr 1.26.0](https://docs.kublr.com/releasenotes/1.26/release-1.26.0/); Upstream K8s Versions: 1.21.3, 1.22.10, 1.22.17, 1.23.17, 1.24.13, 1.25.6, 1.26.4 |
 | Mirantis | [Mirantis Kubernetes Engine](https://www.mirantis.com/software/mirantis-kubernetes-engine/) | MKE Version [3.6.0](https://docs.mirantis.com/mke/3.6/release-notes/3-6-0.html) <br> MKE Version [3.5.5](https://docs.mirantis.com/mke/3.5/release-notes/3-5-5.html) <br> MKE Version [3.4.7](https://docs.mirantis.com/mke/3.4/release-notes/3-4-7.html) |
-| Wind River | [Wind River Cloud Platform](https://www.windriver.com/studio/operator/cloud-platform) | Wind River Cloud Platform 22.12; Upstream K8s version: 1.24.4 <br>Wind River Cloud Platform 22.06; Upstream K8s version: 1.23.1 <br>Wind River Cloud Platform 21.12; Upstream K8s version: 1.21.8 <br>Wind River Cloud Platform 21.05; Upstream K8s version: 1.18.1 |
+| Wind River | [Wind River Cloud Platform](https://www.windriver.com/studio/operator/cloud-platform) |Wind River Cloud Platform 22.12; Upstream K8s version: 1.24.4 <br>Wind River Cloud Platform 22.06; Upstream K8s version: 1.23.1 <br>Wind River Cloud Platform 21.12; Upstream K8s version: 1.21.8 <br>Wind River Cloud Platform 21.05; Upstream K8s version: 1.18.1 |
 
 The Azure Arc team also ran the conformance tests and validated Azure Arc-enabled Kubernetes scenarios on the following public cloud providers:
 
@@ -50,10 +53,11 @@ The conformance tests run as part of the Azure Arc-enabled Kubernetes validation
 
 2. Configuration:
     * Create configuration on top of Azure Arc-enabled Kubernetes resource.
-    * [Flux](https://docs.fluxcd.io/), needed for setting up GitOps workflow, is deployed on the cluster.
+    * [Flux](https://docs.fluxcd.io/), needed for setting up [GitOps workflow](tutorial-use-gitops-flux2.md), is deployed on the cluster.
     * Flux pulls manifests and Helm charts from demo Git repo and deploys to cluster.
 
 ## Next steps
 
 * [Learn how to connect an existing Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md)
 * Learn about the [Azure Arc agents](conceptual-agent-overview.md) deployed on Kubernetes clusters when connecting them to Azure Arc.
+

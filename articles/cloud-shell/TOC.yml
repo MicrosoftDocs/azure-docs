@@ -19,6 +19,8 @@ items:
             href: /azure/developer/terraform/quickstart-configure?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcloud-shell%2ftoc.json
   - name: Concepts
     items:
+      - name: Cloud Shell in an Azure virtual network
+        href: private-vnet.md
       - name: Security baseline
         href: /security/benchmark/azure/baselines/cloud-shell-security-baseline?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcloud-shell%2ftoc.json
   - name: How-to guides
@@ -31,12 +33,12 @@ items:
         href: msi-authorization.md
       - name: Embed Cloud Shell
         href: embed-cloud-shell.md
-      - name: Cloud Shell in an Azure virtual network
-        href: private-vnet.md
       - name: Predictive IntelliSense in Cloud Shell
         href: cloud-shell-predictive-intellisense.md
       - name: Use the Cloud Shell editor
         href: using-cloud-shell-editor.md
+      - name: Deploy Azure Cloud Shell in a VNET with quickstart templates
+        href: quickstart-deploy-vnet.md
       - name: Troubleshooting
         href: troubleshooting.md
       - name: Limitations

@@ -6,22 +6,26 @@ author: normesta
 
 ms.topic: how-to
 ms.author: normesta
-ms.date: 03/14/2023
-ms.service: storage
-ms.subservice: data-lake-storage-gen2
+ms.date: 06/20/2023
+ms.service: azure-data-lake-storage
 ---
 
 # Migrate Azure Data Lake Storage from Gen1 to Gen2 by using the Azure portal
 
-On **Feb. 29, 2024** Azure Data Lake Storage Gen1 will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you use Azure Data Lake Storage Gen1, make sure to migrate to Azure Data Lake Storage Gen2 prior to that date.
+This article shows you how to simplify the migration by using the Azure portal.
 
-This article shows you how to simplify the migration by using the Azure portal. You can provide your consent in the Azure portal and then migrate your data and metadata (such as timestamps and ACLs) automatically from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2. 
+> [!NOTE]
+> On **Feb. 29, 2024** Azure Data Lake Storage Gen1 will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you use Azure Data Lake Storage Gen1, make sure to migrate to Azure Data Lake Storage Gen2 prior to that date.
+>
+> Since **April 1, 2023** Microsoft has been freezing Data Lake Storage Gen1 accounts that have zero read or write transactions in the last 180 days. If any of your accounts match that profile, please identify which ones you intend to migrate so that they won't be frozen. Contact your Microsoft account team or send a message to [ADLSGen1toGen2MigrationQA@service.microsoft.com](mailto:ADLSGen1toGen2MigrationQA@service.microsoft.com).
+
+ You can provide your consent in the Azure portal and then migrate your data and metadata (such as timestamps and ACLs) automatically from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2.
 
 Here's a video that tells you more about it.
 
 :::row:::
    :::column span="2":::
-      > [!VIDEO https://learn-video.azurefd.net/vod/player?show=inside-azure-for-it&ep=migrate-azure-data-lake-storage-adls-from-gen1-to-gen2-by-using-the-azure-portal] 
+      > [!VIDEO https://learn-video.azurefd.net/vod/player?show=inside-azure-for-it&ep=migrate-azure-data-lake-storage-adls-from-gen1-to-gen2-by-using-the-azure-portal]
    :::column-end:::
    :::column span="":::
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Chapters**:
@@ -41,8 +45,6 @@ Here's a video that tells you more about it.
 <br>
    :::column-end:::
 :::row-end:::
-
-
 
 Before you start, be sure to read the general guidance on how to migrate from Gen1 to Gen2 in [Azure Data Lake Storage migration guidelines and patterns](data-lake-storage-migrate-gen1-to-gen2.md).
 
@@ -86,16 +88,11 @@ For more information, see [Manage Azure Data Lake Analytics using the Azure port
 
 ## Step 4: Prepare the Gen1 account
 
-File or directory names with only spaces or tabs, ending with a `.`, containing a `:`, or with multiple consecutive forward slashes (`//`) aren't compatible with Gen2. You need to rename these files or directories before you migrate. 
+File or directory names with only spaces or tabs, ending with a `.`, containing a `:`, or with multiple consecutive forward slashes (`//`) aren't compatible with Gen2. You need to rename these files or directories before you migrate.
 
 ## Step 5: Perform the migration
 
 Before you begin, review the two migration options below, and decide whether to only copy data from Gen1 to Gen2 (recommended) or perform a complete migration.
-
-> [!NOTE]
-> No matter which option you select, a container named **gen1** will be created in the Gen2-enabled account, and all data from the Gen1 account will be copied to this new **gen1** container. When the migration is complete, in order to find the data on a path that existed on Gen1, you must add the prefix **gen1/** to the same path to access it on Gen2. For example, a path that was named 'FolderRoot/FolderChild/FileName.csv' on Gen1 will be available at 'gen1/FolderRoot/FolderChild/FileName.csv' on Gen2. Container names can't be renamed on Gen2, so this **gen1** container on Gen2 can't be renamed post migration. However, the data can be copied to a new container in Gen2 if needed.
-
-## Step 6: Choose a migration option
 
 **Option 1: Copy data only (recommended).** In this option, data is copied from Gen1 to Gen2. As the data is being copied, the Gen1 account becomes read-only. After the data is copied, both the Gen1 and Gen2 accounts will be accessible. However, you must update the applications and compute workloads to use the new Gen2 endpoint.
 
@@ -124,7 +121,12 @@ Whichever option you choose, after you've migrated and verified that all your wo
    > [!div class="mx-imgBorder"]
    > ![Checkbox to provide consent](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
-   > [!IMPORTANT] 
+   A progress bar appears along with a sub status message. You can use these indicators to gauge the progress of the migration.  
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of progress bar when migrating data.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-progress.png)
+
+   > [!IMPORTANT]
    > While your data is being migrated, your Gen1 account becomes read-only and your Gen2-enabled account is disabled. When the migration is finished, you can read and write to both accounts.
 
    You can stop the migration at any time by selecting the **Stop migration** button.
@@ -153,6 +155,11 @@ Whichever option you choose, after you've migrated and verified that all your wo
    > [!div class="mx-imgBorder"]
    > ![Consent checkbox](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
+   A progress bar appears along with a sub status message. You can use these indicators to gauge the progress of the migration.
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of progress bar when performing a complete migration.](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-progress.png)
+
    > [!IMPORTANT]
    > While your data is being migrated, your Gen1 account becomes read-only and the Gen2-enabled account is disabled.
    > 
@@ -164,6 +171,14 @@ Whichever option you choose, after you've migrated and verified that all your wo
 
    > [!div class="mx-imgBorder"]
    > ![Migration stop button](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-stop.png)
+
+## Step 6: Verify that the migration completed
+
+If the migration completes successfully, then a container named **gen1** will be created in the Gen2-enabled account, and all data from the Gen1 account will be copied to this new **gen1** container. In order to find the data on a path that existed on Gen1, you must add the prefix **gen1/** to the same path to access it on Gen2. For example, a path that was named 'FolderRoot/FolderChild/FileName.csv' on Gen1 will be available at 'gen1/FolderRoot/FolderChild/FileName.csv' on Gen2. Container names can't be renamed on Gen2, so this **gen1** container on Gen2 can't be renamed post migration. However, the data can be copied to a new container in Gen2 if needed.
+
+If the migration doesn't complete successfully, a message appears which states that the migration is stalled due to incompatibilities. If you would like assistance with the next step, then please contact [Microsoft Support](https://go.microsoft.com/fwlink/?linkid=2228816). This message can appear if the Gen2-enabled account was previously used or when files and directories in the Gen1 account use incompatible naming conventions. 
+
+Before contacting support, ensure that you're using a fresh, newly created storage account that has no history of use. Avoid migrating to a previously used account or an account in which containers have been deleted to make the account empty. In your Gen1 account, ensure that you rename any file or directory names that contain only spaces or tabs, end with a `.`, contain a `:`, or contain multiple forward slashes (`//`). 
 
 ## Step 7: Migrate workloads and applications
 

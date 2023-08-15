@@ -140,7 +140,7 @@ OpenID Connect is an authentication method that uses short-lived tokens. Setting
     ("credential.json" contains the following content)
     {
         "name": "<CREDENTIAL-NAME>",
-        "issuer": "https://token.actions.githubusercontent.com/",
+        "issuer": "https://token.actions.githubusercontent.com",
         "subject": "repo:organization/repository:ref:refs/heads/main",
         "description": "Testing",
         "audiences": [

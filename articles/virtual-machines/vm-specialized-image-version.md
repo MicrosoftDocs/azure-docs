@@ -400,6 +400,7 @@ The easiest way to report issues with a community gallery is to use the portal, 
 - If an image version contains malicious code or there are other issues with a specific version of an image, select **Report** under the **Report version** column in the table of image versions.
 
 You can also use the following links to report issues, but the forms won't be pre-filled:
+
 - Malicious images: Contact [Abuse Report](https://msrc.microsoft.com/report/abuse).
 - Intellectual Property violations: Contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
 

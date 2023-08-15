@@ -45,6 +45,8 @@ Clone the repository and prepare the execution environment by using the followin
 
 Ensure the Virtual Machine has the following prerequisites installed:
  - git
+ - jq
+ - unzip
  
 Ensure that the virtual machine is using either a system assigned or user assigned identity with permissions on the subscription to create resources.
 
@@ -78,7 +80,7 @@ The ~/Azure_SAP_Automated_Deployment/samples folder contains a set of sample con
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -Rp samples/Terraform/WORKSPACES config/WORKSPACES
+cp -Rp samples/Terraform/WORKSPACES config
 ```
 
 

@@ -39,6 +39,10 @@ Backup is a long running operation but will immediately return a Job ID. You can
 
 While the backup is in progress, the HSM may not operate at full throughput as some HSM partitions will be busy performing the backup operation.
 
+> [!IMPORTANT]
+> Public internet access must **not** be blocked from the storage accounts being used to backup or restore resources.
+
+
 ```azurecli-interactive
 # time for 500 minutes later for SAS token expiry
 

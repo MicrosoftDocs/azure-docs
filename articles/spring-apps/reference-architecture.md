@@ -1,7 +1,7 @@
 ---
 ms.date: 05/31/2022
 ms.topic: reference-architecture
-author: karlerickson
+author: KarlErickson
 title: Azure Spring Apps reference architecture
 ms.author: akaleshian
 ms.service: spring-apps

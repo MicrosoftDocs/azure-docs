@@ -1,8 +1,8 @@
-- name: Azure Virtual Desktop remote app streaming
+- name: Azure Virtual Desktop RemoteApp streaming
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Virtual Desktop remote app streaming?
+  - name: What is Azure Virtual Desktop RemoteApp streaming?
     href: overview.md
   - name: What is Azure Virtual Desktop?
     href: ../overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
@@ -22,7 +22,7 @@
     href: ../getting-started-feature.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: How-to guides
   items:
-  - name: Essentials for remote app streaming
+  - name: Essentials for RemoteApp streaming
     items:
     - name: Create user accounts
       href: identities.md
@@ -134,7 +134,7 @@
       href: ../drain-mode.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: Concepts
   items:
-  - name: Essentials for remote app streaming
+  - name: Essentials for RemoteApp streaming
     items: 
     - name: Architecture recommendations 
       href: architecture-recs.md
@@ -190,8 +190,6 @@
       items:
         - name: What is MSIX app attach?
           href: ../what-is-app-attach.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-        - name: Glossary
-          href: ../app-attach-glossary.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: FAQ
           href: ../app-attach-faq.yml?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Data locations

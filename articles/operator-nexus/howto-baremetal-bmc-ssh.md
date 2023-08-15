@@ -6,7 +6,7 @@ ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 05/05/2023
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Manage emergency access to a bare metal machine using the `az networkcloud cluster bmckeyset`
@@ -16,7 +16,7 @@ ms.custom: template-how-to
 
 There are rare situations where a user needs to investigate & resolve issues with a bare metal machine and all other ways using Azure have been exhausted. Operator Nexus provides the `az networkcloud cluster bmckeyset` command so users can manage SSH access to the baseboard management controller (BMC) on these bare metal machines.
 
-When the command runs, it executes on each bare metal machine in the Cluster. If a bare metal machine is unavailable or powered off at the time of command execution, the status of the command reflects which bare metal machines couldn't have the command executed. There's a reconciliation process that runs periodically that retries the command on any bare metal machine that wasn't available at the time of the original command. Multiple commands execute in the order received.
+When the command runs, it executes on each bare metal machine in the Cluster with an active Kubernetes node. There's a reconciliation process that runs periodically that retries the command on any bare metal machine that wasn't available at the time of the original command. Also, any bare metal machine that returns to the cluster via an `az networkcloud baremetalmachine actionreimage` or `az networkcloud baremetalmachine actionreplace` command (see [BareMetal functions](./howto-baremetal-functions.md)) sends a signal causing any active keysets to be sent to the machine as soon as it returns to the cluster. Multiple commands execute in the order received.
 
 The BMCs support a maximum number of 12 users. Users are defined on a per Cluster basis and applied to each bare metal machine. Attempts to add more than 12 users results in an error. Delete a user before adding another one when 12 already exists.
 

@@ -296,24 +296,24 @@ In this task, create the notebook, load the libraries, and set up your clients.
     search_text="what hotel stands out for its gastronomic excellence", 
     select='HotelName,Description,Category', query_caption='extractive', query_answer="extractive",)
 
-    semantic_answers = results.get_answers()
-    for answer in semantic_answers:
-        if answer.highlights:
-            print(f"Semantic Answer: {answer.highlights}")
-        else:
-            print(f"Semantic Answer: {answer.text}")
-        print(f"Semantic Answer Score: {answer.score}\n")
+   semantic_answers = results.get_answers()
+   for answer in semantic_answers:
+       if answer.highlights:
+           print(f"Semantic Answer: {answer.highlights}")
+       else:
+           print(f"Semantic Answer: {answer.text}")
+       print(f"Semantic Answer Score: {answer.score}\n")
     
-    for result in results:
-        print(result["@search.reranker_score"])
-        print(result["HotelName"])
-        print(f"Description: {result['Description']}")
-        
-        captions = result["@search.captions"]
-        if captions:
-            caption = captions[0]
-            if caption.highlights:
-                print(f"Caption: {caption.highlights}\n")
-            else:
-                print(f"Caption: {caption.text}\n")
+   for result in results:
+       print(result["@search.reranker_score"])
+       print(result["HotelName"])
+       print(f"Description: {result['Description']}")
+       
+       captions = result["@search.captions"]
+       if captions:
+           caption = captions[0]
+           if caption.highlights:
+               print(f"Caption: {caption.highlights}\n")
+           else:
+               print(f"Caption: {caption.text}\n")
    ```

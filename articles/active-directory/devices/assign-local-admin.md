@@ -38,9 +38,11 @@ By adding Azure AD roles to the local administrators group, you can update the u
 To view and update the membership of the Global Administrator role, see:
 
 - [View all members of an administrator role in Azure Active Directory](../roles/manage-roles-portal.md)
-- [Assign a user to administrator roles in Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md)
+- [Assign a user to administrator roles in Azure Active Directory](../fundamentals/how-subscriptions-associated-directory.md)
 
 ## Manage the device administrator role 
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 In the Azure portal, you can manage the device administrator role from **Device settings**. 
 
@@ -109,5 +111,5 @@ Additionally, you can also add users using the command prompt:
 
 ## Next steps
 
-- To get an overview of how to manage device in the Azure portal, see [managing devices using the Azure portal](device-management-azure-portal.md).
+- To get an overview of how to manage device in the Azure portal, see [managing devices using the Azure portal](manage-device-identities.md).
 - To learn more about device-based Conditional Access, see [Conditional Access: Require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md).

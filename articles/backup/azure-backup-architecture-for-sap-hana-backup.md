@@ -2,11 +2,11 @@
 title: Azure Backup Architecture for SAP HANA Backup
 description: Learn about Azure Backup architecture for SAP HANA backup.
 ms.topic: conceptual
-ms.date: 09/07/2022
+ms.date: 06/20/2023
 ms.service: backup
 ms.custom: ignite-2022
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Azure Backup architecture for SAP HANA backup
 
@@ -65,7 +65,7 @@ See the [high-level architecture of Azure Backup for SAP HANA databases](./sap-h
 
 ### Backup flow
 
-This section provides you an understanding about the backup process of an HANA database running on an Azure VM.
+This section provides you with an understanding about the backup process of an HANA database running on an Azure VM.
 
 1. The scheduled backups are managed by crontab entries created on the HANA VM, while the on-demand backups are directly triggered by the Azure Backup service.
 
@@ -100,7 +100,7 @@ In the following sections you'll learn about different SAP HANA setups and their
 
 :::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/azure-network-with-udr-and-nva-or-azure-firewall-and-private-endpoint-or-service-endpoint.png" alt-text="Diagram showing the SAP HANA setup if Azure network with UDR + NVA / Azure Firewall + Private Endpoint or Service Endpoint.":::
 
-### Backup architecture for database with HANA System Replication (preview)
+### Backup architecture for database with HANA System Replication
 
 The backup service resides in both the physical nodes of the HSR setup. Once you confirm that these nodes are in a replication group (using the [pre-registration script](sap-hana-database-with-hana-system-replication-backup.md#run-the-preregistration-script)), Azure Backup groups the nodes logically, and creates a single backup item during protection configuration. 
 
@@ -119,7 +119,7 @@ In the following sections, you'll learn about the backup flow for new/existing m
 
 ##### New machines
 
-This section provides you an understanding about the backup process of an HANA database with HANA System replication enabled running on a new Azure VM.
+This section provides you with an understanding about the backup process of an HANA database with HANA System replication enabled running on a new Azure VM.
 
 1. Create a custom user and `hdbuserstore` key on all the nodes. 
 1. Run the pre-registration script on both the nodes with the custom user as the backup user to implement an ID, which indicates that both the nodes belong to a unique/common group. 
@@ -128,7 +128,7 @@ This section provides you an understanding about the backup process of an HANA d
 
 ##### Existing machines
 
-This section provides you an understanding about the backup process of an HANA database with HANA System replication enabled running on an existing Azure VM.
+This section provides you with an understanding about the backup process of an HANA database with HANA System replication enabled running on an existing Azure VM.
 
 1. Stop protection and retain data for both the nodes. 
 1. Run the pre-registration script on both the nodes with the custom user as the backup user to mention an ID, which indicates that both the nodes belong to a unique/common group.
@@ -147,4 +147,4 @@ This section provides you an understanding about the backup process of an HANA d
 - Learn about the supported configurations and scenarios in the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
 - Learn about how to [backup SAP HANA databases in Azure VMs](backup-azure-sap-hana-database.md).
 - Learn about how to [backup SAP HANA System Replication databases in Azure VMs](sap-hana-database-with-hana-system-replication-backup.md).
-- Learn about how to [backup SAP HANA databases' snapshot instances in Azure VMs](sap-hana-database-instances-backup.md).
+- Learn about how to [backup SAP HANA databases' snapshot instances in Azure VMs (preview)](sap-hana-database-instances-backup.md).

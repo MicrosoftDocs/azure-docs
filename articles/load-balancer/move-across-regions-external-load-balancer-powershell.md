@@ -4,9 +4,9 @@ description: Use Azure Resource Manager template to move Azure external Load Bal
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 09/17/2019
+ms.date: 06/27/2023
 ms.author: mbender 
-ms.custom: devx-track-azurepowershell, template-how-to, devx-track-arm-template
+ms.custom: devx-track-azurepowershell, template-how-to, devx-track-arm-template, engagment-fy23
 ---
 
 # Move Azure external Load Balancer to another region using Azure PowerShell
@@ -20,9 +20,9 @@ Azure external load balancers can't be moved from one region to another. You can
 
 - Make sure that the Azure external load balancer is in the Azure region from which you want to move.
 
-- Azure external load balancers can't be moved between regions.  You'll have to associate the new load balancer to resources in the target region.
+- Azure external load balancers can't be moved between regions.  You have to associate the new load balancer to resources in the target region.
 
-- To export an external load balancer configuration and deploy a template to create an external load balancer in another region, you'll need the Network Contributor role or higher.
+- To export an external load balancer configuration and deploy a template to create an external load balancer in another region, you need the Network Contributor role or higher.
    
 - Identify the source networking layout and all the resources that you're currently using. This layout includes but isn't limited to load balancers, network security groups,  public IPs, and virtual networks.
 
@@ -129,7 +129,7 @@ The following steps show how to prepare the external load balancer for the move 
 
          For more information on the differences between basic and standard sku public ips, see [Create, change, or delete a public IP address](../virtual-network/ip-services/virtual-network-public-ip-address.md).
 
-    * **Availability zone**. You can change the zone(s) of the public IP by changing the **zone** property. If the zone property isn't specified, the public IP will be created as no-zone. You can specify a single zone to create a zonal public IP or all 3 zones for a zone-redundant public IP.
+    * **Availability zone**. You can change the zone(s) of the public IP by changing the **zone** property. If the zone property isn't specified, the public IP is created as no-zone. You can specify a single zone to create a zonal public IP or all three zones for a zone-redundant public IP.
          ```json
           "resources": [
          {
@@ -276,7 +276,7 @@ The following steps show how to prepare the external load balancer for the move 
 
     ```
 
-8.  If you have configured outbound NAT and outbound rules for the load balancer, a third entry will be present in this file for the external ID for the outbound public IP.  Repeat the steps above in the **target region** to obtain the ID for the outbound public iP and paste that entry into the **\<resource-group-name>.json** file:
+8.  If you have configured outbound NAT and outbound rules for the load balancer, a third entry is present in this file for the external ID for the outbound public IP.  Repeat the steps above in the **target region** to obtain the ID for the outbound public iP and paste that entry into the **\<resource-group-name>.json** file:
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

@@ -27,7 +27,7 @@ When a user grants consent for themselves, the following events occur more often
 
 1. For each API to which the application requires access, a delegated permission grant to that API is created for the permissions that are needed by the application, for access on behalf of the user. A delegated permission grant authorizes an application to access an API on behalf of a user, when that user has signed in.
 
-1. The user is assigned the client application. Assigning the application to the user ensures that the application is listed in the [My Apps](my-apps-deployment-plan.md) portal for that user, which allows them to review and revoke the access that has been granted on their behalf.
+1. The user is assigned the client application. Assigning the application to the user ensures that the application is listed in the [My Apps](./myapps-overview.md) portal for that user, which allows them to review and revoke the access that has been granted on their behalf.
 
 ## Prerequisites
 
@@ -138,7 +138,7 @@ In the example, the resource enterprise application is Microsoft Graph of object
 
 1. Grant the delegated permissions to the client enterprise application on behalf of the user by running the following request.
    
-   ```http   
+   ```http
    POST https://graph.microsoft.com/v1.0/oauth2PermissionGrants
    
    Request body
@@ -153,7 +153,7 @@ In the example, the resource enterprise application is Microsoft Graph of object
 1. Confirm that you've granted consent to the user by running the following request.
 
    ```http
-   GET https://graph.microsoft.com/v1.0/oauth2PermissionGrants?$filter=clientId eq 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' and consentType eq 'principal'
+   GET https://graph.microsoft.com/v1.0/oauth2PermissionGrants?$filter=clientId eq 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' and consentType eq 'Principal'
    ```
 
 1. Assign the app to the user. This ensures that the user can sign in if assignment is required, and ensures that app is available through the user's My Apps portal. In the following example, `resourceId`represents the client app to which the user is being assigned. The user will be assigned the default app role which is `00000000-0000-0000-0000-000000000000`.
@@ -174,4 +174,4 @@ In the example, the resource enterprise application is Microsoft Graph of object
 
 - [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 - [Configure how users consent to applications](configure-user-consent.md)
-- [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
+- [Permissions and consent in the Microsoft identity platform](../develop/permissions-consent-overview.md)

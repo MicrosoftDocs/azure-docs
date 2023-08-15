@@ -12,7 +12,7 @@ Use the **Device inventory** page from a sensor console to manage all OT and IT 
 For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
 > [!TIP]
-> Alternately, view your device inventory from a [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
+> Alternately, view your device inventory from [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
 >
 
 ## View the device inventory
@@ -81,6 +81,10 @@ To export device inventory data, on the **Device inventory** page, select **Expo
 
 The device inventory is exported with any filters currently applied, and you can save the file locally.
 
+> [!NOTE]
+> In the exported file, date values are based on the region settings for the machine you're using to access the OT sensor. We recommend exporting data only from a machine with the same region settings as your sensor. For more information, see [Synchronize time zones on an OT sensor](how-to-manage-individual-sensors.md#synchronize-time-zones-on-an-ot-sensor).
+> 
+
 ## Merge devices
 
 You may need to merge duplicate devices if the sensor has discovered separate network entities that are associated with a single, unique device.
@@ -139,7 +143,7 @@ The device or devices are deleted, and a confirmation message appears at the top
 
 **To delete all inactive devices**:
 
-This procedure is supported for the *cyberx* and admin users only.
+This procedure is supported for the admin users only, including the *support* user. 
 
 1. Select the **Last Activity** filter icon in the Inventory.
 1. Select a filter option.

@@ -37,7 +37,7 @@ Use the following checklist to ensure that your application is effectively integ
 
 ## Branding
 
-![checkbox](./media/integration-checklist/checkbox-two.svg) Adhere to the [Branding guidelines for applications](howto-add-branding-in-azure-ad-apps.md).
+![checkbox](./media/integration-checklist/checkbox-two.svg) Adhere to the [Branding guidelines for applications](/azure/active-directory/develop/howto-add-branding-in-apps).
 
 ![checkbox](./media/integration-checklist/checkbox-two.svg) Provide a meaningful name and logo for your application. This information appears on your [application’s consent prompt](application-consent-experience.md). Make sure your name and logo are representative of your company/product so that users can make informed decisions. Ensure that you're not violating any trademarks.
 
@@ -55,9 +55,9 @@ Use the following checklist to ensure that your application is effectively integ
 
 ![checkbox](./media/integration-checklist/checkbox-two.svg) Move beyond username/password. Don't use [resource owner password credential flow (ROPC)](v2-oauth-ropc.md), which directly handles users’ passwords. This flow requires a high degree of trust and user exposure and should only be used when other, more secure, flows can't be used. This flow is still needed in some scenarios (like DevOps), but beware that using it will impose constraints on your application.  For more modern approaches, read [Authentication flows and application scenarios](authentication-flows-app-scenarios.md).
 
-![checkbox](./media/integration-checklist/checkbox-two.svg) Protect and manage your confidential app credentials for web apps, web APIs and daemon apps. Use [certificate credentials](active-directory-certificate-credentials.md), not password credentials (client secrets). If you must use a password credential, don't set it manually. Don't store credentials in code or config, and never allow them to be handled by humans. If possible, use [managed identities for Azure resources](../managed-identities-azure-resources/overview.md) or [Azure Key Vault](../../key-vault/general/basic-concepts.md) to store and regularly rotate your credentials.
+![checkbox](./media/integration-checklist/checkbox-two.svg) Protect and manage your confidential app credentials for web apps, web APIs and daemon apps. Use [certificate credentials](./certificate-credentials.md), not password credentials (client secrets). If you must use a password credential, don't set it manually. Don't store credentials in code or config, and never allow them to be handled by humans. If possible, use [managed identities for Azure resources](../managed-identities-azure-resources/overview.md) or [Azure Key Vault](../../key-vault/general/basic-concepts.md) to store and regularly rotate your credentials.
 
-![checkbox](./media/integration-checklist/checkbox-two.svg) Make sure your application requests the least privilege permissions. Only ask for permissions that your application absolutely needs, and only when you need them. Understand the different [types of permissions](v2-permissions-and-consent.md#permission-types). Only use application permissions if necessary; use delegated permissions where possible. For a full list of Microsoft Graph permissions, see this [permissions reference](/graph/permissions-reference).
+![checkbox](./media/integration-checklist/checkbox-two.svg) Make sure your application requests the least privilege permissions. Only ask for permissions that your application absolutely needs, and only when you need them. Understand the different [types of permissions](./permissions-consent-overview.md#permission-types). Only use application permissions if necessary; use delegated permissions where possible. For a full list of Microsoft Graph permissions, see this [permissions reference](/graph/permissions-reference).
 
 ![checkbox](./media/integration-checklist/checkbox-two.svg) If you're securing an API using the Microsoft identity platform, carefully think through the permissions it should expose. Consider what's the right granularity for your solution and which permission(s) require admin consent. Check for expected permissions in the incoming tokens before making any authorization decisions.
 
@@ -67,7 +67,7 @@ Use the following checklist to ensure that your application is effectively integ
 
 ![checkbox](./media/integration-checklist/checkbox-two.svg) Don't program directly against protocols such as OAuth 2.0 and Open ID. Instead, leverage the [Microsoft Authentication Library (MSAL)](msal-overview.md). The MSAL libraries securely wrap security protocols in an easy-to-use library, and you get built-in support for [Conditional Access](../conditional-access/overview.md) scenarios, device-wide [single sign-on (SSO)](../manage-apps/what-is-single-sign-on.md), and built-in token caching support. For more info, see the list of Microsoft-supported [client libraries](reference-v2-libraries.md). If you must hand-code for the authentication protocols, you should follow the [Microsoft SDL](https://www.microsoft.com/sdl/default.aspx) or similar development methodology. Pay close attention to the security considerations in the standards specifications for each protocol.
 
-![checkbox](./media/integration-checklist/checkbox-two.svg) Migrate existing apps from Azure Active Directory Authentication Library (ADAL) to the [Microsoft Authentication Library](msal-overview.md). MSAL is Microsoft’s latest identity platform solution and is preferred to ADAL. It is available on .NET, JavaScript, Android, iOS, macOS and is also in public preview for Python and Java. Read more about migrating [ADAL.NET](msal-net-migration.md), [ADAL.js](msal-compare-msal-js-and-adal-js.md), and [ADAL.NET and iOS broker](msal-net-migration-ios-broker.md) apps.
+![checkbox](./media/integration-checklist/checkbox-two.svg) Migrate existing apps from Azure Active Directory Authentication Library (ADAL) to the [Microsoft Authentication Library](/entra/msal). MSAL is Microsoft’s latest identity platform solution and is available on .NET, JavaScript, Android, iOS, macOS, Python, and Java. Read more about migrating [ADAL.NET](msal-net-migration.md), [ADAL.js](msal-compare-msal-js-and-adal-js.md), and [ADAL.NET and iOS broker](msal-net-migration-ios-broker.md) apps.
 
 ![checkbox](./media/integration-checklist/checkbox-two.svg) For mobile apps, configure each platform using the application registration experience. In order for your application to take advantage of the Microsoft Authenticator or Microsoft Company Portal for single sign-in, your app needs a “broker redirect URI” configured. This allows Microsoft to return control to your application after authentication. When configuring each platform, the app registration experience will guide you through the process. Use the quickstart to download a working example. On iOS, use brokers and system webview whenever possible.
 
@@ -102,9 +102,9 @@ Use the following checklist to ensure that your application is effectively integ
 Explore in-depth information about v2.0:
 
 * [Microsoft identity platform (overview)](v2-overview.md)
-* [Microsoft identity platform protocols reference](active-directory-v2-protocols.md)
+* [Microsoft identity platform protocols reference](./v2-protocols.md)
 * [Access tokens reference](access-tokens.md)
 * [ID tokens reference](id-tokens.md)
 * [Authentication libraries reference](reference-v2-libraries.md)
-* [Permissions and consent in the Microsoft identity platform](v2-permissions-and-consent.md)
+* [Permissions and consent in the Microsoft identity platform](./permissions-consent-overview.md)
 * [Microsoft Graph API](https://developer.microsoft.com/graph)

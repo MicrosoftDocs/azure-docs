@@ -3,7 +3,7 @@ title: Linter rule - no hardcoded environment URL
 description: Linter rule - no hardcoded environment URL
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/18/2021
+ms.date: 06/23/2023
 ---
 
 # Linter rule - no hardcoded environment URL
@@ -43,10 +43,11 @@ In some cases, you can fix it by getting a property from a resource you've deplo
 
 ```bicep
 param storageAccountName string
+param location string = resourceGroup().location
 
-resource sa 'Microsoft.Storage/storageAccounts@2021-04-01' = {
+resource sa 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: storageAccountName
-  location: 'westus'
+  location: location
   sku: {
     name: 'Standard_LRS'
   }
@@ -61,7 +62,7 @@ output endpoint string = sa.properties.primaryEndpoints.web
 
 ## Configuration
 
-By default, this rule uses the following settings for determining which URLs are disallowed. 
+By default, this rule uses the following settings for determining which URLs are disallowed.
 
 ```json
 "analyzers": {

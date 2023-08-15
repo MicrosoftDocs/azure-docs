@@ -3,7 +3,7 @@ title: Enable Cache ACR with authentication - Azure CLI
 description: Learn how to enable Cache ACR with authentication using Azure CLI.
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 04/19/2022
+ms.date: 06/17/2022
 ms.author: tejaswikolli
 ---
 
@@ -15,7 +15,7 @@ This article walks you through the steps of enabling Cache ACR with authenticati
 
 ## Prerequisites
 
-* You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.0.74 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
+* You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.46.0 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
 * You have an existing Key Vault to store credentials. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials]
 * You can set and retrieve secrets from your Key Vault. Learn more about [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret]
 

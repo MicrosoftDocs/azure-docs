@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/31/2023
+ms.date: 08/04/2023
 
 ms.author: mimart
 author: msmimart
@@ -29,8 +29,11 @@ Use External Identities cross-tenant access settings to manage how you collabora
 - Identify any Azure AD organizations that will need customized settings so you can configure **Organizational settings** for them.
 - If you want to apply access settings to specific users, groups, or applications in an external organization, you'll need to contact the organization for information before configuring your settings. Obtain their user object IDs, group object IDs, or application IDs (*client app IDs* or *resource app IDs*) so you can target your settings correctly.
 - If you want to set up B2B collaboration with a partner organization in an external Microsoft Azure cloud, follow the steps in [Configure Microsoft cloud settings](cross-cloud-settings.md). An admin in the partner organization will need to do the same for your tenant.
+- Both allow/block list and cross-tenant access settings are checked at the time of invitation. If a user's domain is on the allow list, they can be invited, unless the domain is explicitly blocked in the cross-tenant access settings. If a user's domain is on the deny list, they can't be invited regardless of the cross-tenant access settings. If a user is not on either list, we check the cross-tenant access settings to determine whether they can be invited. 
 
 ## Configure default settings
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
  Default cross-tenant access settings apply to all external tenants for which you haven't created organization-specific customized settings.  If you want to modify the Azure AD-provided default settings, follow these steps.
 

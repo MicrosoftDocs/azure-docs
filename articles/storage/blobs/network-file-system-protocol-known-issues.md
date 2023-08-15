@@ -4,10 +4,9 @@ titleSuffix: Azure Storage
 description: Learn about limitations and known issues of Network File System (NFS) 3.0 protocol support for Azure Blob Storage.
 author: normesta
 
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 06/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ---
@@ -63,6 +62,10 @@ To see how each Blob Storage feature is supported in accounts that have NFS 3.0 
 The names of NFS operations don't appear in resource logs or in responses returned by the Event Grid. Only block blob operations appear. When your application makes a request by using the NFS 3.0 protocol, that request is translated into combination of block blob operations. For example, NFS 3.0 read Remote Procedure Call (RPC) requests are translated into Get Blob operation. NFS 3.0 write RPC requests are translated into a combination of Get Block List, Put Block, and Put Block List.
 
 Storage Events aren't supported for NFS specific operations. However, if you are performing blob or data lake storage operations on NFS enabled account, then the events shall get created based on the API being called.
+
+## Group membership in an NFS share
+
+Files and directories that you create in an NFS share always inherit the group ID of the parent directory regardless of whether the Set Group Identification (SGID) is set on the parent directory.
 
 ## See also
 

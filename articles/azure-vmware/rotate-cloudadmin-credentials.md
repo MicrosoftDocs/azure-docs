@@ -3,10 +3,9 @@ title: Rotate the cloudadmin credentials for Azure VMware Solution
 description: Learn how to rotate the vCenter Server credentials for your Azure VMware Solution private cloud. 
 ms.topic: how-to
 ms.service: azure-vmware
+ms.custom: devx-track-azurecli
 ms.date: 12/22/2022
-
 #Customer intent: As an Azure service administrator, I want to rotate my cloudadmin credentials so that the HCX Connector has the latest vCenter Server CloudAdmin credentials.
-
 ---
 
 # Rotate the cloudadmin credentials for Azure VMware Solution
@@ -31,12 +30,8 @@ Instead of using the cloudadmin user to connect services to vCenter Server, we r
 
 ### [Portal](#tab/azure-portal)
  
-1. In your Azure VMware Solution private cloud, select **Identity**.
-
+1. In your Azure VMware Solution private cloud, select **VMWare credentials**.
 1. Select **Generate new password**.
-
-   :::image type="content" source="media/rotate-cloudadmin-credentials/reset-vcenter-credentials-1.png" alt-text="Screenshot showing the vCenter Server credentials and a way to copy them or generate a new password." lightbox="media/rotate-cloudadmin-credentials/reset-vcenter-credentials-1.png":::
-
 1. Select the confirmation checkbox and then select **Generate password**.
 
 
@@ -54,10 +49,17 @@ To begin using Azure CLI:
    az resource invoke-action --action rotateVcenterPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
    ```
 
+
 ---
 
 
 
+
+ 
+
+
+
+ 
 
  
 ## Update HCX Connector 
@@ -74,10 +76,11 @@ To begin using Azure CLI:
  
 4. Provide the new vCenter Server user credentials and select **Edit**, which saves the credentials. Save should show successful.
 
-
 ## Next steps
 
 Now that you've covered resetting your vCenter Server credentials for Azure VMware Solution, you may want to learn about:
 
 - [Integrating Azure native services in Azure VMware Solution](integrate-azure-native-services.md)
 - [Deploying disaster recovery for Azure VMware Solution workloads using VMware HCX](deploy-disaster-recovery-using-vmware-hcx.md)
+
+

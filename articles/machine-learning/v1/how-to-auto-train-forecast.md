@@ -16,7 +16,7 @@ show_latex: true
 
 # Set up AutoML to train a time-series forecasting model with Python (SDKv1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 
 In this article, you learn how to set up AutoML training for time-series forecasting models with Azure Machine Learning automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
@@ -40,7 +40,7 @@ For this article you need,
 
 * This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [how-to](../how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
-    [!INCLUDE [automl-sdk-version](../../../includes/machine-learning-automl-sdk-version.md)]
+    [!INCLUDE [automl-sdk-version](../includes/machine-learning-automl-sdk-version.md)]
 
 ## Training and validation data
 
@@ -57,7 +57,7 @@ For time series forecasting, only **Rolling Origin Cross Validation (ROCV)** is 
 
 Pass your training and validation data as one dataset to the parameter `training_data`. Set the number of cross validation folds with the parameter `n_cross_validations` and set the number of periods between two consecutive cross-validation folds with `cv_step_size`. You can also leave either or both parameters empty and AutoML will set them automatically. 
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 automl_config = AutoMLConfig(task='forecasting',

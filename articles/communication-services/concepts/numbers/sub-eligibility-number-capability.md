@@ -120,6 +120,8 @@ The following tables summarize current availability:
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
 | France            | Local**     | -        | -        | Public Preview | Public Preview\* |
 | France           | Toll-Free**     | -        | -        | Public Preview | Public Preview\* |
+| Norway           | Local**     | -        | -        | Public Preview | Public Preview\* |
+| Norway           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
 |  France, Germany, Netherlands, United Kingdom, Australia, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \***  | Public Preview      | -        | -  | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
@@ -301,6 +303,8 @@ The following tables summarize current availability:
 | Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
 | Italy   | Toll-Free** | - | - | General Availability | General Availability\* |
 | Italy   | Local**     | - | - | General Availability | General Availability\* |
+| Norway           | Local**     | -        | -        | Public Preview | Public Preview\* |
+| Norway           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
 |  Sweden, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
