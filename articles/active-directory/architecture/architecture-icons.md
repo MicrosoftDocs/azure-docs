@@ -43,7 +43,7 @@ I agree to the above terms.
 </div>
 
  > [!div class="button"]
- > [Download icons](https://aka.ms/AzureADNewName)
+ > [Download icons](https://download.microsoft.com/download/a/4/2/a4289cad-4eaf-4580-87fd-ce999a601516/Microsoft-Entra-architecture-icons.zip?wt.mc_id=microsoftentraicons_downloadmicrosoftentraicons_content_cnl_csasci)
 
 ## More icon sets from Microsoft
 
