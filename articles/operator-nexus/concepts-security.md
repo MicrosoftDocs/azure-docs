@@ -35,7 +35,7 @@ There are enhanced security options that let you protect your on-premises host s
 
 ## BMM host operating system protection via Microsoft Defender for Endpoint
 
-Azure Operator Nexus bare-metal machines (BMMs), which host the on-premises infrastructure compute servers, are protected when you elect to enable the [Microsoft Defender for Endpoint](../microsoft-365/security/defender-endpoint/microsoft-defender-endpoint.md) solution. Microsoft Defender for Endpoint provides preventative antivirus (AV), endpoint detection and response (EDR), and vulnerability management capabilities.
+Azure Operator Nexus bare-metal machines (BMMs), which host the on-premises infrastructure compute servers, are protected when you elect to enable the [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) solution. Microsoft Defender for Endpoint provides preventative antivirus (AV), endpoint detection and response (EDR), and vulnerability management capabilities.
 
 You have the option to enable Microsoft Defender for Endpoint protection once you have selected and activated a [Microsoft Defender for Servers](../defender-for-cloud/tutorial-enable-servers-plan.md) plan, as Defender for Servers plan activation is a pre-requisite for Microsoft Defender for Endpoint. Once enabled, the Microsoft Defender for Endpoint configuration is managed by the platform to ensure optimal security and performance, and to reduce the risk of misconfigurations.
 
