@@ -52,7 +52,8 @@ These asset states are uniquely processed and monitored to ensure that customers
 Your attack surface is constantly changing, which is why Defender EASM continuously analyzes and updates your inventory to ensure accuracy.  Assets are frequently added and removed from inventory, so it's important to track these changes to understand your attack surface and identify key trends.  The inventory changes dashboard provides an overview of these changes, displaying the "added" and "removed" counts for each asset type. You can filter the dashboard by two date ranges: either the last 7 or 30 days. For a more granular view of these inventory changes, refer to the "Changes by date" section. 
 
 
-![Screenshot of Inventory Changes screen.](media/inventory-changes-1.png)
+[ ![Screenshot of Inventory Changes screen.](media/inventory-changes-1.png)](media/inventory-changes-1.png#lightbox)
+
 
 
 

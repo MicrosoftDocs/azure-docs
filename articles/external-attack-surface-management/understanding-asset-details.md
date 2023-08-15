@@ -265,7 +265,8 @@ Many organizations opt to obfuscate their registry information. Sometimes contac
 
 The "Change history" tab displays a list of modifications that have been applied to an asset over time. This information helps you track these changes over time and better understand the lifecycle of the asset.  This tab displays a variety of changes, including but not limited to asset states, labels and external IDs. For each change, we list the user who implemented the change and a timestamp. 
 
-![Screenshot that shows the Change history tab.](media/change-history-1.png)
+[ ![Screenshot that shows the Change history tab.](media/change-history-1.png) ](media/change-history-1.png#lightbox)
+
 
 
 ## Next steps
