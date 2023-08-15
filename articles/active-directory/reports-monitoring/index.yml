@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: shlipsey3
   ms.author: sarahlipsey
-  ms.date: 08/08/2023
+  ms.date: 08/15/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -20,7 +20,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Identity Monitoring and health
+  - title: About Identity monitoring and health
     linkLists:
       - linkListType: overview
         links:

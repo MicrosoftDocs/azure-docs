@@ -1,6 +1,6 @@
 ---
-title: What is Azure Active Directory Monitoring and health?
-description: Provides a general overview of Azure Active Directory Monitoring and health.
+title: What is Azure Active Directory monitoring and health?
+description: Provides a general overview of Azure Active Directory monitoring and health.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.topic: overview
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/10/2023
+ms.date: 08/15/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 
 ---
 
-# What is Azure Active Directory Monitoring and health?
+# What is Azure Active Directory monitoring and health?
 
 The features of Azure Active Directory (Azure AD) Monitoring and health provide a comprehensive view of identity related activity in your environment. This data enables you to:
 
