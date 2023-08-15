@@ -52,7 +52,7 @@ To manage user lifecycle, you'd follow these steps:
 
 ## Manage guest user lifecycle programmatically 
 
-To manage user lifecycle programatically using Microsoft Graph, see: [accessPackageSubject resource type](/graph/api/resources/accesspackagesubject).
+To manage user lifecycle programatically using Microsoft Graph, see: [accessPackageSubject resource type](/graph/api/resources/accesspackagesubject). For bulk conversion, see: [ConvertTo-EmGovernedGuest.ps1](https://github.com/JefTek/EntraIdentitySamples/blob/main/PowerShell/IdentityGovernance/GovernedGuests/ConvertTo-EmGovernedGuest.ps1).
 
 
 

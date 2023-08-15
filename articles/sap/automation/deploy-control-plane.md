@@ -100,11 +100,11 @@ It's currently not possible to perform this action from Azure DevOps.
 
 ## Deploy the control plane
    
-The sample Deployer configuration file `MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE` folder.
+The sample Deployer configuration file `MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/Terraform/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE` folder.
 
-The sample SAP Library configuration file `MGMT-WEEU-SAP_LIBRARY.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY` folder.
+The sample SAP Library configuration file `MGMT-WEEU-SAP_LIBRARY.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/Terraform/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY` folder.
 
-Running the following command creates the Deployer, the SAP Library and adds the Service Principal details to the deployment key vault. If you followed the web app setup in the step above, this command will also create the infrastructure to host the application. 
+Running the following command creates the Deployer, the SAP Library and adds the Service Principal details to the deployment key vault. If you followed the web app setup in the previous step, this command also creates the infrastructure to host the application. 
 
 # [Linux](#tab/linux)
 
@@ -115,35 +115,41 @@ Run the following command to deploy the control plane:
 ```bash
 
 az logout
-az login
-cd ~/Azure_SAP_Automated_Deployment/samples/WORKSPACES
+cd ~/Azure_SAP_Automated_Deployment
+cp -Rp samples/Terraform/WORKSPACES config
+cd config/WORKSPACES
 
-    export subscriptionId="<subscriptionId>"
-    export         spn_id="<appId>"
-    export     spn_secret="<password>"
-    export      tenant_id="<tenantId>"
-    export       env_code="MGMT"
-    export    region_code="WEEU"
+export ARM_SUBSCRIPTION_ID="<subscriptionId>"
+export       ARM_CLIENT_ID="<appId>"
+export   ARM_CLIENT_SECRET="<password>"
+export       ARM_TENANT_ID="<tenantId>"
+export            env_code="MGMT"
+export         region_code="WEEU"
+export           vnet_code="WEEU"
 
-    export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
-    export ARM_SUBSCRIPTION_ID="${subscriptionId}"
-    export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/samples/Terraform/WORKSPACES"
-    export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
 
 
-    ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh                                                                             \
-        --deployer_parameter_file DEPLOYER/${env_code}-${region_code}-DEP00-INFRASTRUCTURE/${env_code}-${region_code}-DEP00-INFRASTRUCTURE.tfvars \
-        --library_parameter_file "LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"                   \
-        --subscription "${subscriptionId}"                                                                                                        \
-        --spn_id "${spn_id}"                                                                                                                      \
-        --spn_secret "${spn_secret}"                                                                                                              \
-        --tenant_id "${tenant_id}"                                                                                                                \
-        --auto-approve
+export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+="${subscriptionId}"
+export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/config/WORKSPACES"
+export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+
+
+sudo ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh                                                                                                            \
+    --deployer_parameter_file "${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars" \
+    --library_parameter_file "${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"                                   \
+    --subscription "${ARM_SUBSCRIPTION_ID}"                                                                                                                                       \
+    --spn_id "${ARM_CLIENT_ID}"                                                                                                                                                   \
+    --spn_secret "${ARM_CLIENT_SECRET}"                                                                                                                                           \
+    --tenant_id "${ARM_TENANT_ID}"                                                                                                                                                \
+    --auto-approve
 ```
+
 
 # [Windows](#tab/windows)
 
-You can't perform this action from Windows
+You can't perform a control plane deployment from Windows.
 # [Azure DevOps](#tab/devops)
 
 Open (https://dev.azure.com) and go to your Azure DevOps project.
