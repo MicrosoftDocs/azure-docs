@@ -116,20 +116,29 @@ To create a flow in Azure Machine Learning, you can go to your workspace, then s
 
 After you have a properly structured flow and are done moving the code to specific tool nodes, you need to replace the original environment variables with the corresponding key in the connection, and configure the input and output of the flow.
 
-For example, if you have a LangChain code that consumes the AzureOpenAI model, you can replace the environment variables with the corresponding key in the Azure OpenAI connection:
+**Configure connection**
+
+To utilize a connection that replace the environment variables you originally defined in LangChain code, you need to import promptflow connection library `promptflow.connections` in the python node. 
+
+For example:
+
+If you have a LangChain code that consumes the AzureOpenAI model, you can replace the environment variables with the corresponding key in the Azure OpenAI connection:
+
+Import library `from promptflow.connections import AzureOpenAIConnection`
 
 :::image type="content" source="./media/how-to-integrate-with-langchain/code-consume-aoai.png" alt-text="Screenshot of LangChain code in Prompt flow. " lightbox = "./media/how-to-integrate-with-langchain/code-consume-aoai.png":::
 
 
+For custom connection, you need to follow the steps:
 
-To utilize a [custom connection](#create-a-custom-connection) that stores all the required keys and credentials, follow these steps:
-
-1. In the python tools, import custom connection library `from promptflow.connections import CustomConnection`, and define an input parameter of type `CustomConnection` in the tool function.
+1. Import library `from promptflow.connections import CustomConnection`, and define an input parameter of type `CustomConnection` in the tool function.
     :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-python-node-1.png" alt-text="Screenshot of doc search chain node highlighting the custom connection. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-python-node-1.png":::
 1. Parse the input to the input section, then select your target custom connection in the value dropdown.
     :::image type="content" source="./media/how-to-integrate-with-langchain/custom-connection-python-node-2.png" alt-text="Screenshot of the chain node highlighting the connection. " lightbox = "./media/how-to-integrate-with-langchain/custom-connection-python-node-2.png":::
 1. Replace the environment variables that originally defined the key and credential with the corresponding key added in the connection.
 1. Save and return to authoring page, and configure the connection parameter in the node input.
+
+**Configure input and output**
 
 Before running the flow, configure the **node input and output**, as well as the overall **flow input and output**. This step is crucial to ensure that all the required data is properly passed through the flow and that the desired results are obtained.
 
