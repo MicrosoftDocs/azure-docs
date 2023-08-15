@@ -52,6 +52,8 @@ items:
         href: mqtt-support.md
       - name: MQTT clients life cycle events
         href: mqtt-client-life-cycle-events.md
+      - name: RBAC roles to authorize clients with Azure AD identity
+        href: mqtt-client-authorization-use-rbac.md
       - name: Use cases
         items:
         - name: Automotive Messaging
@@ -66,6 +68,8 @@ items:
         href: custom-disaster-recovery-client-side.md
       - name: How to configure multiple sessions for an MQTT client
         href: mqtt-establishing-multiple-sessions-per-client.md
+      - name: Enable managed identity for namespace
+        href: event-grid-namespace-managed-identity.md 
       - name: Troubleshoot MQTT runtime issues
         href: mqtt-troubleshoot-errors.md
     - name: Reference
