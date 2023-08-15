@@ -25,7 +25,8 @@ Complete the prerequisites in the following sections:
 Flink clusters can be created once cluster pool deployment has been completed, let us go over the steps in case you're getting started with an existing cluster pool
 
 1. In the Azure portal, type *HDInsight cluster pools/HDInsight/HDInsight on AKS* and select Azure HDInsight on AKS cluster pools to go to the cluster pools page. On the HDInsight on AKS cluster pools page, select the cluster pool in which you want to create a new Flink cluster.
-   :::image type="content" source="../media/create-cluster-pool/search-bar.png" alt-text="Diagram showing search bar in Azure portal.":::
+   
+   :::image type="content" source="./media/create-flink-cluster/search-bar.png" alt-text="Diagram showing search bar in Azure portal.":::
 
 1. On the specific cluster pool page, click [**+ New cluster**](../quickstart-create-cluster.md) and provide the following information:
 
@@ -82,7 +83,7 @@ Flink clusters can be created once cluster pool deployment has been completed, l
 
      > [!NOTE]
      > * History server can be enabled/disabled as required.
-     > * Schedule based autoscale is supported in Flink. You can schedule number of worker nodes as required. For example, it is enabled a schedule based autoscale with default worker node count as 3. And during weekdays from 9:00 UTC to 20:00 UTC, the worker nodes are scheduled          to be 10. Later in the day, it needs to be defaulted to 3 nodes ( between 20:00 UTC to next day 09:00 UTC ). During weekends from 9:00 UTC to 20:00 UTC, worker nodes are 4.
+     > * Schedule based autoscale is supported in Flink. You can schedule number of worker nodes as required. For example, it is enabled a schedule based autoscale with default worker node count as 3. And during weekdays from 9:00 UTC to 20:00 UTC, the worker nodes are scheduled to be 10. Later in the day, it needs to be defaulted to 3 nodes ( between 20:00 UTC to next day 09:00 UTC ). During weekends from 9:00 UTC to 20:00 UTC, worker nodes are 4.
 
 1. On the **Auto Scale & SSH** section, update the following:
 
