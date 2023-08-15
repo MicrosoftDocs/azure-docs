@@ -50,7 +50,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Deploy Azure Firewall
 
+1. In the search box at the top of the portal enter **Firewall**. Select **Firewalls** in the search results.
 
+1. 
 
 
 [!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
