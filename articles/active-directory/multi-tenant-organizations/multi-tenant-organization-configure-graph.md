@@ -30,13 +30,13 @@ If you instead want to use the Microsoft 365 admin center to configure a multi-t
 ![Icon for the owner tenant.](./media/common/icon-tenant-owner.png)<br/>**Owner tenant**
 
 - Azure AD Premium P1 or P2 license. For more information, see [License requirements](./multi-tenant-organization-overview.md#license-requirements).
-- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings and manage the multi-tenant organization.
+- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings and templates for the multi-tenant organization.
 - [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions.
 
 ![Icon for the member tenant.](./media/common/icon-tenant-member.png)<br/>**Member tenant**
 
 - Azure AD Premium P1 or P2 license. For more information, see [License requirements](./multi-tenant-organization-overview.md#license-requirements).
-- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings and join the multi-tenant organization.
+- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings and templates for the multi-tenant organization.
 - [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions.
 
 ## Step 1: Sign in to the owner tenant
