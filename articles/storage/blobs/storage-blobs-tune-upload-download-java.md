@@ -4,9 +4,9 @@ description: Learn how to tune your uploads and downloads for better performance
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/14/2023
+ms.date: 08/15/2023
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-java
 ---
@@ -67,7 +67,7 @@ The following code example shows how to set values for [ParallelTransferOptions]
 ```java
 ParallelTransferOptions parallelTransferOptions = new ParallelTransferOptions()
         .setBlockSizeLong((long) (4 * 1024 * 1024)) // 4 MiB block size
-        .setMaxConcurrency(2)
+        .setMaxConcurrency(1)
         .setMaxSingleUploadSizeLong((long) 8 * 1024 * 1024); // 8 MiB max size for single request upload
 
 BlobUploadFromFileOptions options = new BlobUploadFromFileOptions("<localFilePath>");
@@ -76,7 +76,7 @@ options.setParallelTransferOptions(parallelTransferOptions);
 Response<BlockBlobItem> blockBlob = blobClient.uploadFromFileWithResponse(options, null, null);
 ```
 
-In this example, we set the number of parallel transfer workers to 2 using the `setMaxConcurrency` method. This configuration opens up to two connections simultaneously, allowing the upload to happen in parallel. We also set `maxSingleUploadSize` to 8 MiB using the `setMaxSingleUploadSizeLong` method. If the blob size is smaller than 8 MiB, only a single request is necessary to complete the upload operation. If the blob size is larger than 8 MiB, the blob is uploaded in chunks with a maximum chunk size of 4 MiB, which we set using the `setBlockSizeLong` method.
+In this example, we set the number of parallel transfer workers to 1 using the `setMaxConcurrency` method. We also set `maxSingleUploadSize` to 8 MiB using the `setMaxSingleUploadSizeLong` method. If the blob size is smaller than 8 MiB, only a single request is necessary to complete the upload operation. If the blob size is larger than 8 MiB, the blob is uploaded in chunks with a maximum chunk size of 4 MiB, which we set using the `setBlockSizeLong` method.
 
 ### Performance considerations for uploads
 
@@ -107,7 +107,7 @@ The following code example shows how to set values for [ParallelTransferOptions]
 ```java
 ParallelTransferOptions parallelTransferOptions = new ParallelTransferOptions()
         .setBlockSizeLong((long) (4 * 1024 * 1024)) // 4 MiB block size
-        .setMaxConcurrency(2);
+        .setMaxConcurrency(1);
 
 BlobDownloadToFileOptions options = new BlobDownloadToFileOptions("<localFilePath>");
 options.setParallelTransferOptions(parallelTransferOptions);
