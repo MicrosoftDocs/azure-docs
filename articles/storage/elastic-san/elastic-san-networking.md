@@ -98,6 +98,9 @@ az network vnet subnet update --resource-group $RgName --vnet-name $VnetName --n
 
 ### Configure a private endpoint
 
+> [!IMPORTANT]
+> Before you create a private endpoint connection to a volume group, it must contain at least one volume.
+
 There are two steps involved in configuring a private endpoint connection:
 
 > [!div class="checklist"]
