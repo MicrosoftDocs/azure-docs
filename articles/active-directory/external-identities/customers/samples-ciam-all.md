@@ -43,7 +43,7 @@ These samples and how-to guides demonstrate how to write a web application that 
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
 > | JavaScript, Node.js (Express) | &#8226; [Sign in users](how-to-web-app-node-sample-sign-in.md)<br/> &#8226; [Sign in users and call an API](how-to-web-app-node-sample-sign-in-call-api.md)  |  &#8226; [Sign in users](tutorial-web-app-node-sign-in-prepare-tenant.md)<br/> &#8226; [Sign in users and call an API](how-to-web-app-node-sign-in-call-api-overview.md)  |
-> | ASP.NET Core | &#8226; [Sign in users](how-to-web-app-dotnet-sample-sign-in.md)   | &#8226; [Sign in users](how-to-web-app-dotnet-sign-in-prepare-tenant.md)   |
+> | ASP.NET Core | &#8226; [Sign in users](how-to-web-app-dotnet-sample-sign-in.md)   | &#8226; [Sign in users](tutorial-web-app-dotnet-sign-in-prepare-tenant.md)   |
 
 ### Web API
 

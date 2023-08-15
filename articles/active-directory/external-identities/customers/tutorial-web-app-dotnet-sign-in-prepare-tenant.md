@@ -66,4 +66,4 @@ In this tutorial, you'll;
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Prepare ASP.NET web app](how-to-web-app-dotnet-sign-in-prepare-app.md)
+> [Prepare ASP.NET web app](tutorial-web-app-dotnet-sign-in-prepare-app.md)
