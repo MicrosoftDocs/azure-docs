@@ -54,4 +54,4 @@ You add your organization's privacy information in the **Properties** area of Az
 
 ## Next steps
 - [Azure Active Directory B2B collaboration invitation redemption](../external-identities/redemption-experience.md)
-- [Add or change profile information for a user in Azure Active Directory](active-directory-users-profile-azure-portal.md)
+- [Add or change profile information for a user in Azure Active Directory](./how-to-manage-user-profile-info.md)

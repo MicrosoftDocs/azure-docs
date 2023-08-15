@@ -72,7 +72,7 @@ Although this deployment changes no other relying parties in your AD FS farm, yo
 
 ## Plan the project
 
-When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../../fundamentals/deployment-plans.md) and that stakeholder roles in the project are well understood.
+When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../../architecture/deployment-plans.md) and that stakeholder roles in the project are well understood.
 
 ### Plan communications
 
@@ -110,7 +110,7 @@ You can't customize Azure AD sign-in experience. No matter how your users signed
 
 #### Organization branding
 
-You can [customize the Azure AD sign-in page](../../fundamentals/customize-branding.md). Some visual changes from AD FS on sign-in pages should be expected after the conversion. 
+You can [customize the Azure AD sign-in page](../../fundamentals/how-to-customize-branding.md). Some visual changes from AD FS on sign-in pages should be expected after the conversion. 
 
 >[!NOTE] 
 >Organization branding isn't available in free Azure AD licenses unless you've a Microsoft 365 license.
@@ -172,7 +172,7 @@ This section includes prework before you switch your sign-in method and convert 
 
 Create groups for staged rollout and also for Conditional Access policies if you decide to add them.
 
-We recommend you use a group mastered in Azure AD, also known as a cloud-only group. You can use Azure AD security groups or Microsoft 365 Groups for both moving users to MFA and for Conditional Access policies. For more information, see [creating an Azure AD security group](../../fundamentals/active-directory-groups-create-azure-portal.md), and this [overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups).
+We recommend you use a group mastered in Azure AD, also known as a cloud-only group. You can use Azure AD security groups or Microsoft 365 Groups for both moving users to MFA and for Conditional Access policies. For more information, see [creating an Azure AD security group](../../fundamentals/how-to-manage-groups.md), and this [overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups).
 
 The members in a group are automatically enabled for staged rollout. Nested and dynamic groups aren't supported for staged rollout.
 
@@ -432,7 +432,7 @@ You can move SaaS applications that are currently federated with ADFS to Azure A
 
 For more information, see – 
 
-- [Moving application authentication from Active Directory Federation Services to Azure Active Directory](../../manage-apps/migrate-adfs-apps-to-azure.md) and
+- [Moving application authentication from Active Directory Federation Services to Azure Active Directory](../../manage-apps/migrate-adfs-apps-stages.md) and
 - [AD FS to Azure AD application migration playbook for developers](/samples/azure-samples/ms-identity-adfs-to-aad/ms-identity-dotnet-adfs-to-aad)
 
 ### Remove relying party trust
@@ -448,4 +448,4 @@ For a full list of steps to take to completely remove AD FS from the environment
 ## Next steps
 
 - [Learn about migrating applications](../../manage-apps/migration-resources.md)
-- [Deploy other identity features](../../fundamentals/deployment-plans.md)
+- [Deploy other identity features](../../architecture/deployment-plans.md)

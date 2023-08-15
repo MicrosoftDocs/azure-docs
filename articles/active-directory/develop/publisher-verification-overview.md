@@ -28,7 +28,7 @@ The following video describes the process:
 
 > [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
 
-Publisher verification primarily is for developers who build multitenant apps that use [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md) with the [Microsoft identity platform](v2-overview.md). These types of apps can sign in a user by using OpenID Connect, or they can use OAuth 2.0 to request access to data by using APIs like [Microsoft Graph](https://developer.microsoft.com/graph/).
+Publisher verification primarily is for developers who build multitenant apps that use [OAuth 2.0 and OpenID Connect](./v2-protocols.md) with the [Microsoft identity platform](v2-overview.md). These types of apps can sign in a user by using OpenID Connect, or they can use OAuth 2.0 to request access to data by using APIs like [Microsoft Graph](https://developer.microsoft.com/graph/).
 
 ## Benefits
 
