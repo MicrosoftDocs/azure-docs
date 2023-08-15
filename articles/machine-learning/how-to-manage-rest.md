@@ -7,7 +7,7 @@ ms.author: deeikele
 ms.reviewer: larryfr
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.date: 09/14/2022
 ms.topic: how-to
 ms.custom:
@@ -407,7 +407,7 @@ curl
 
 ### Resource provider errors
 
-[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+[!INCLUDE [machine-learning-resource-provider](includes/machine-learning-resource-provider.md)]
 
 ### Moving the workspace
 
@@ -418,7 +418,7 @@ curl
 
 The Azure Machine Learning workspace uses Azure Container Registry (ACR) for some operations. It will automatically create an ACR instance when it first needs one.
 
-[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
+[!INCLUDE [machine-learning-delete-acr](includes/machine-learning-delete-acr.md)]
 
 ## Next steps
 

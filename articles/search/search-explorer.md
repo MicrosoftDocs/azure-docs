@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/13/2022
+ms.date: 07/11/2023
 ms.custom: mode-ui
 ---
 
@@ -43,7 +43,7 @@ Before you begin, have the following prerequisites in place:
 
 ## Unspecified query
 
-In Search explorer, requests are formulated using the [Search REST API](/rest/api/searchservice/search-documents), with responses returned as verbose JSON documents.
+In Search explorer, POST requests are formulated internally using the [Search REST API](/rest/api/searchservice/search-documents), with responses returned as verbose JSON documents.
 
 For a first look at content, execute an empty search by clicking **Search** with no terms provided. An empty search is useful as a first query because it returns entire documents so that you can review document composition. On an empty search, there's no search rank and documents are returned in arbitrary order (`"@search.score": 1` for all documents). By default, 50 documents are returned in a search request.
 

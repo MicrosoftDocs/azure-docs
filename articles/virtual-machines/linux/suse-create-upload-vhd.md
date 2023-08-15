@@ -6,11 +6,11 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.collection: linux
 ms.workload: infrastructure-services
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 12/14/2022
 ms.author: srijangupta
 ms.reviewer: mattmcinnes
-
 ---
 # Prepare a SLES or openSUSE Leap virtual machine for Azure
 
@@ -66,7 +66,6 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 6. Enable waagent & cloud-init to start on boot
 
     ```bash
-    sudo -i
     sudo chkconfig waagent on
     sudo systemctl enable cloud-init-local.service
     sudo systemctl enable cloud-init.service
@@ -104,7 +103,6 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 10. Modify udev rules to avoid generating static rules for the Ethernet interface(s). These rules can cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
 
     ```bash
-    sudo -i
     sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
     sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
@@ -131,7 +129,6 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     Previously, the Azure Linux Agent was used to automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However this step is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk or create the swap file. Use these commands to modify `/etc/waagent.conf` appropriately:
 
     ```bash
-    sudo -i    
     sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
     sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
     ```
@@ -143,7 +140,6 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     * Use a cloud-init directive baked into the image that configures swap space every time the VM is created:
 
         ```bash
-        sudo -i
         sudo echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
         cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
         #cloud-config
@@ -279,7 +275,6 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
 ```bash
     sudo rm -f ~/.bash_history # Remove current user history
-    sudo -i
     sudo rm -rf /var/lib/waagent/
     sudo rm -f /var/log/waagent.log
     sudo waagent -force -deprovision+user

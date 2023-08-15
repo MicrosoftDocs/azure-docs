@@ -379,6 +379,9 @@ Once you move into a production scenario, or you want to create a gateway device
 
 One option is to provide your own certificates and manage them manually. However, to avoid the risky and error-prone manual certificate management process, use an EST server whenever possible.
 
+> [!CAUTION]
+> The common name (CN) of Edge CA certificate can't match device hostname parameter defined in the device's configuration file *config.toml* or the device ID registered in IoT Hub.
+
 ### Plan for Edge CA renewal
 
 When the Edge CA certificate renews, all the certificates it issued like module server certificates are regenerated. To give the modules new server certificates, IoT Edge restarts all modules when Edge CA certificate renews.

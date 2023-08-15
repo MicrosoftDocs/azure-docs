@@ -175,7 +175,7 @@ ntp:
        ## template:jinja
        driftfile /var/lib/chrony/chrony.drift
        logdir /var/log/chrony
-       maxupdateskey 100.0
+       maxupdateskew 100.0
        refclock PHC /dev/ptp_hyperv poll 3 dpoll -2
        makestep 1.0 -1
 ```

@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.topic: how-to
 ms.date: 12/30/2022
-ms.custom: template-how-to, FY23 content-maintenance, devx-track-azurepowershell, devx-track-azurecli
+ms.custom: template-how-to, FY23 content-maintenance, devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ---
 
 # Create a virtual network peering - Resource Manager, different subscriptions and Azure Active Directory tenants

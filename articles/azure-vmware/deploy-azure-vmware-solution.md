@@ -4,7 +4,7 @@ description: Learn how to use the information gathered in the planning stage to 
 ms.topic: tutorial
 ms.custom: "engagement-fy23, devx-track-azurecli"
 ms.service: azure-vmware
-ms.date: 4/12/2023
+ms.date: 7/13/2023
 
 ---
 
@@ -68,7 +68,7 @@ You should have connectivity between the Azure Virtual Network where the Express
 
 1. If you want to log into both vCenter Server and NSX-T Manager, open a web browser and log into the same virtual machine used for network route validation.  
 
-   You can identify the vCenter Server and NSX-T Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then **Manage** > **Identity**.
+   You can identify the vCenter Server and NSX-T Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then **Manage** > **VMware credentials**.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot showing the private cloud vCenter and NSX Manager URLs and credentials." border="true":::
 

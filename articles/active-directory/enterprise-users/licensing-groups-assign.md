@@ -31,6 +31,8 @@ In this example, the Azure AD organization contains a security group called **HR
 
 ## Step 1: Assign the required licenses
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with a license administrator account. To manage licenses, the account must be a License Administrator, User Administrator, or Global Administrator.
 
 1. Browse to **Azure Active Directory** > **Licenses** to open a page where you can see and manage all licensable products in the organization.
@@ -96,7 +98,7 @@ When assign licenses to a group, Azure AD processes all existing members of that
 
 To learn more about the feature set for license assignment using groups, see the following articles:
 
-- [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
+- [What is group-based licensing in Azure Active Directory?](../fundamentals/licensing-whatis-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 - [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
 - [How to migrate individual licensed users to group-based licensing in Azure Active Directory](licensing-groups-migrate-users.md)
 - [How to migrate users between product licenses using group-based licensing in Azure Active Directory](licensing-groups-change-licenses.md)

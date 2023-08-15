@@ -4,7 +4,7 @@ description: Learn how Application Insights in Azure Monitor provides performanc
 ms.topic: overview
 ms.date: 05/12/2023
 ---
-
+ 
 # Application Insights overview
 
 Application Insights is an extension of [Azure Monitor](../overview.md) and provides application performance monitoring (APM) features. APM tools are useful to monitor applications from development, through test, and into production in the following ways:

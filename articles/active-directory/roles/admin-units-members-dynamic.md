@@ -36,7 +36,7 @@ Although administrative units with members assigned manually support multiple ob
 - Privileged Role Administrator or Global Administrator
 - AzureADPreview module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
-- Global Azure cloud (not available in specialized clouds, such as Azure Government or Azure China)
+- Global Azure cloud (not available in specialized clouds, such as Azure Government or Microsoft Azure operated by 21Vianet)
 
 > [!NOTE]
 > Dynamic membership rules for administrative units requires an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic administrative units. You don't have to assign licenses to users for them to be members of dynamic administrative units, but you must have the minimum number of licenses in the Azure AD organization to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic administrative units in your organization, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement. No license is required for devices that are members of a dynamic device administrative unit.
@@ -48,6 +48,8 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 Follow these steps to create administrative units with dynamic membership rules for users or devices.
 
 ### Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -122,7 +124,7 @@ For steps on how to edit your rule, see the following [Edit dynamic membership r
       "displayName": "Windows Devices",
       "description": "All Contoso devices running Windows",
       "membershipType": "Dynamic",
-      "membershipRule": "(device.deviceOSType -eq \"Windows\")",
+      "membershipRule": "(deviceOSType -eq 'Windows')",
       "membershipRuleProcessingState": "On"
     }
     ```
@@ -234,4 +236,3 @@ Body
 - [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
 - [Add users or groups to an administrative unit](admin-units-members-add.md)
 - [Azure AD administrative units: Troubleshooting and FAQ](admin-units-faq-troubleshoot.yml)
-

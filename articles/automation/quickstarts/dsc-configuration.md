@@ -21,7 +21,7 @@ To complete this quickstart, you need:
 * An Azure Resource Manager virtual machine running Red Hat Enterprise Linux, CentOS, or Oracle Linux. For instructions on creating a VM, see [Create your first Linux virtual machine in the Azure portal](../../virtual-machines/linux/quick-create-portal.md)
 
 ## Sign in to Azure
-Sign in to Azure at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable a virtual machine
 

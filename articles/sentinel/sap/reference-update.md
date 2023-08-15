@@ -1,8 +1,8 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications container update script reference | Microsoft Docs
 description: Description of command line options available with update deployment script
-author: MSFTandrelom
-ms.author: andrelom
+author: yelevin
+ms.author: yelevin
 ms.topic: reference
 ms.date: 05/24/2023
 ---
@@ -90,7 +90,6 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 Troubleshooting:
 
 - [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
-- [Configure SAP Transport Management System](configure-transport.md)
 
 Reference files:
 

@@ -50,7 +50,7 @@ Autoscaling clusters based on the requirements of your workload helps reduce you
 
 AmlCompute clusters are designed to scale dynamically based on your workload. The cluster can be scaled up to the maximum number of nodes you configure. As each job completes, the cluster will release nodes and scale to your configured minimum node count.
 
-[!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
+[!INCLUDE [min-nodes-note](includes/machine-learning-min-nodes.md)]
 
 You can also configure the amount of time the node is idle before scale down. By default, idle time before scale down is set to 120 seconds.
 
@@ -75,7 +75,7 @@ In some cases, you should configure your training runs to limit their duration o
 Here are a few options that you have:
 * Define a parameter called `max_run_duration_seconds` in your RunConfiguration to control the maximum duration a run can extend to on the compute you choose (either local or remote cloud compute).
 * For [hyperparameter tuning](how-to-tune-hyperparameters.md#early-termination), define an early termination policy from a Bandit policy, a Median stopping policy, or a Truncation selection policy. To further control hyperparameter sweeps, use parameters such as `max_total_runs` or `max_duration_minutes`.
-* For [automated machine learning](how-to-configure-auto-train.md#exit), set similar termination policies using the  `enable_early_stopping` flag. Also use properties such as `iteration_timeout_minutes` and `experiment_timeout_minutes` to control the maximum duration of a job or for the entire experiment.
+* For [automated machine learning](how-to-configure-auto-train.md#exit-criteria), set similar termination policies using the  `enable_early_stopping` flag. Also use properties such as `iteration_timeout_minutes` and `experiment_timeout_minutes` to control the maximum duration of a job or for the entire experiment.
 
 ## <a id="low-pri-vm"></a> Use low-priority VMs
 
@@ -88,8 +88,8 @@ Low-Priority VMs have a single quota separate from the dedicated quota value, wh
 ## Schedule compute instances
 
 When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  
-* [Enable idle shutdown (preview)](how-to-create-manage-compute-instance.md#enable-idle-shutdown) to save on cost when the VM has been idle for a specified time period.
-* Or [set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
+* [Enable idle shutdown (preview)](how-to-create-compute-instance.md#configure-idle-shutdown) to save on cost when the VM has been idle for a specified time period.
+* Or [set up a schedule](how-to-create-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
 
 ## Use reserved instances
 

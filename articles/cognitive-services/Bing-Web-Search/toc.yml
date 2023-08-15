@@ -6,7 +6,7 @@
     href: overview.md
     expanded: true
   - name: Compare the Bing Search APIs
-    href: ../Bing-Web-Search/bing-api-comparison.md
+    href: ../bing-web-search/bing-api-comparison.md
 - name: Quickstarts
   items:
   - name: REST APIs

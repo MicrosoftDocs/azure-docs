@@ -28,11 +28,12 @@ For more information, see [Run a workflow on demand](on-demand-workflow.md).
 
 ## Prerequisites
 
-The preview of lifecycle workflows requires Azure Active Directory (Azure AD) Premium P2. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
+[!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
+
 
 ## Before you begin
 
-As part of the prerequisites for completing this tutorial, you need an account that has group and Teams memberships and that can be deleted during the tutorial. For comprehensive instructions on how to complete these prerequisite steps, see [Prepare user accounts for lifecycle workflows](tutorial-prepare-azure-ad-user-accounts.md).
+As part of the prerequisites for completing this tutorial, you need an account that has group and Teams memberships and that can be deleted during the tutorial. For comprehensive instructions on how to complete these prerequisite steps, see [Prepare user accounts for lifecycle workflows](tutorial-prepare-user-accounts.md).
 
 The leaver scenario includes the following steps:
 
@@ -43,6 +44,8 @@ The leaver scenario includes the following steps:
 1. Verify that the workflow was successfully executed.
 
 ## Create a workflow by using the leaver template
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Use the following steps to create a leaver on-demand workflow that will execute a real-time employee termination by using lifecycle workflows in the Azure portal:
 
@@ -129,5 +132,5 @@ At any time, you can monitor the status of workflows and tasks. Three data pivot
 
 ## Next steps
 
-- [Prepare user accounts for lifecycle workflows](tutorial-prepare-azure-ad-user-accounts.md)
+- [Prepare user accounts for lifecycle workflows](tutorial-prepare-user-accounts.md)
 - [Complete tasks in real time on an employee's last day of work by using lifecycle workflow APIs](/graph/tutorial-lifecycle-workflows-offboard-custom-workflow)

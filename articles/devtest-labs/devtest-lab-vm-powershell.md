@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/17/2022
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ---
 
 # Create DevTest Labs VMs by using Azure PowerShell

@@ -9,8 +9,7 @@ editor: ramankum
 tags: azure-service-management
 
 ms.assetid:
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux

@@ -5,12 +5,12 @@ description: Learn how to create an account shared access signature (SAS) using 
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 06/09/2023
 ms.author: pauljewell
 ms.reviewer: dineshm
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 ---

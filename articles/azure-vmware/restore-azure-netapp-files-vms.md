@@ -18,7 +18,7 @@ This article covers how to:
 
 ## Restore VMs from backups
 
-When you restore a VM, you can overwrite the existing content with the backup copy that you select or you can restore to a new VM.
+When you restore a VM, you can overwrite the existing content with the backup copy that you select or you can restore a deleted VM from a backup copy. 
 
 You can restore VMs to the original datastore mounted on the original ESXi host (this overwrites the original VM).
 
@@ -46,7 +46,7 @@ You can restore VMs to the original datastore mounted on the original ESXi host 
 1. On the **Select Scope** page, select **Entire Virtual Machine** in the **Restore scope** field, then select **Restore location**, and then enter the destination ESXi information where the backup should be mounted.
 1. When restoring partial backups, the restore operation skips the Select Scope page.
 1. Enable **Restart VM** checkbox if you want the VM to be powered on after the restore operation.
-1. On the **Select Location** page, select the location for the primary or secondary location.
+1. On the **Select Location** page, select the location for the primary location.
 1. Review the **Summary** page and then select **Finish**.
 1. **Optional:** Monitor the operation progress by selecting Recent Tasks at the bottom of the screen.
 
@@ -54,7 +54,7 @@ Although the VMs are restored, they're not automatically added to their former r
 
 ## Restore deleted VMs from backups
 
-You can restore a deleted VM from a datastore primary or secondary backup to an ESXi host that you select. You can also restore VMs to the original datastore mounted on the original ESXi host, which creates a clone of the VM.
+You can restore a deleted VM from a datastore primary backup to an ESXi host that you select. You can restore VMs to the original datastore mounted on the original ESXi host, which creates a clone of the VM.
 
 ## Prerequisites to restore deleted VMs
 
@@ -103,7 +103,7 @@ You can restore existing VMDKs or deleted or detached VMDKs from either a primar
     * Filter the backup list by selecting the filter icon and a date and time range. Select if you want backups that contain VMware snapshots, if you want mounted backups, and primary location.
     Select **OK** to return to the wizard.
 1. On the **Select Scope** page, select **Particular virtual disk** in the Restore scope field, then select the virtual disk and destination datastore.
-1. On the **Select Location** page, select the snapshot copy that you want to restore.
+1. On the **Select Location** page, select the location that you want to restore to.
 1. Review the **Summary** page and then select **Finish**.
 1. **Optional:** Monitor the operation progress by clicking Recent Tasks at the bottom of the screen.
 

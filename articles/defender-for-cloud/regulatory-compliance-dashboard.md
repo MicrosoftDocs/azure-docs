@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Regulatory compliance checks - Microsoft Defender for Cloud'
+title: Regulatory compliance checks
 description: 'Tutorial: Learn how to Improve your regulatory compliance using Microsoft Defender for Cloud.'
 ms.topic: tutorial
 ms.date: 06/18/2023
@@ -38,7 +38,7 @@ The regulatory compliance dashboard shows your selected compliance standards wit
 
 Use the regulatory compliance dashboard to help focus your attention on the gaps in compliance with your chosen standards and regulations. This focused view also enables you to continuously monitor your compliance over time within dynamic cloud and hybrid environments.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Defender for Cloud** > **Regulatory compliance**.
 
@@ -61,7 +61,7 @@ You can use the information in the regulatory compliance dashboard to investigat
 
 **To investigate your compliance issues**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Defender for Cloud** > **Regulatory compliance**.
 
@@ -92,7 +92,7 @@ The regulatory compliance has both automated and manual assessments that may nee
 
 **To remediate an automated assessment**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Defender for Cloud** > **Regulatory compliance**.
 
@@ -123,7 +123,7 @@ The regulatory compliance has automated and manual assessments that may need to 
 
 **To remediate a manual assessment**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Defender for Cloud** > **Regulatory compliance**.
 
@@ -170,7 +170,7 @@ Transparency provided by the compliance offerings (currently in preview) , allow
 
 **To check the compliance offerings status**:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to **Defender for Cloud** > **Regulatory compliance**.
 

@@ -68,13 +68,13 @@ productDirectory:
         - url: ./qumulo/qumulo-overview.md
           text: Use a multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.
   # Card 8
-    - title: New Relic Preview
+    - title: New Relic
       imageSrc: ./media/index/new-relic.svg
       links:
         - url: ./new-relic/new-relic-overview.md
           text: Get end-to-end cloud observability to analyze and troubleshoot performance of applications, infrastructure, logs, real-user monitoring and more.
   # Card 9
-    - title: Palo Alto Networks Preview
+    - title: Palo Alto Networks
       imageSrc: ./media/index/palo-alto.svg
       links:
         - url: ./palo-alto/palo-alto-overview.md

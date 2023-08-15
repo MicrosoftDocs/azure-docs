@@ -1,13 +1,14 @@
 ---
-title: Harden your Windows and Linux OS with Azure security baseline and Microsoft Defender for Cloud
+title: Review hardening recommendations
 description: Learn how Microsoft Defender for Cloud uses the guest configuration to compare your OS hardening with the guidance from Microsoft cloud security benchmark
 ms.topic: how-to
 ms.custom: ignite-2022
 ms.author: dacurwin
 author: dcurwin
-ms.date: 06/15/2023
+ms.date: 06/27/2023
 ---
-# Apply Azure security baselines to machines
+
+# Review hardening recommendations
 
 To reduce a machine's attack surface and avoid known risks, it's important to configure the operating system (OS) as securely as possible.
 
@@ -26,7 +27,7 @@ Use the security recommendations described in this article to assess the machine
 |Pricing:|Free|
 |Prerequisites:|Machines must (1) be members of a workgroup, (2) have the Guest Configuration extension, (3) have a system-assigned managed-identity, and (4) be running a supported OS:<br>• Windows Server 2012, 2012r2, 2016 or 2019<br>• Ubuntu 14.04, 16.04, 17.04, 18.04 or 20.04<br>• Debian 7, 8, 9, or 10<br>• CentOS 7 or 8<br>• Red Hat Enterprise Linux (RHEL) 7 or 8<br>• Oracle Linux 7 or 8<br>• SUSE Linux Enterprise Server 12|
 |Required roles and permissions:|To install the Guest Configuration extension and its prerequisites, **write** permission is required on the relevant machines.<br>To **view** the recommendations and explore the OS baseline data, **read** permission is required at the subscription level.|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)|
 
 ## What are the hardening recommendations?
 

@@ -14,7 +14,7 @@ ms.date: 05/23/2023
 
 In this article, learn how to troubleshoot common problems you may encounter with the managed feature store in Azure Machine Learning.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [preview disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Issues found when creating and updating a feature store
 

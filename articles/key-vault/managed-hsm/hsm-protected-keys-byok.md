@@ -18,7 +18,7 @@ ms.author: mbaldwin
 Use the information in this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Managed HSM.
 
 > [!NOTE]
-> This functionality is not available for Azure China 21Vianet. This import method is available only for [supported HSMs](#supported-hsms). 
+> This functionality is not available for Microsoft Azure operated by 21Vianet. This import method is available only for [supported HSMs](#supported-hsms). 
 
 For more information, and for a tutorial to get started using Managed HSM, see [What is Managed HSM?](overview.md).
 
@@ -127,7 +127,7 @@ Refer to your HSM vendor's documentation to download and install the BYOK tool. 
 Transfer the BYOK file to your connected computer.
 
 > [!NOTE] 
-> Importing RSA 1,024-bit keys is not supported. Currently, importing an Elliptic Curve (EC) key is not supported.
+> Importing RSA 1,024-bit keys is not supported. Importing EC-HSM P256K keys is supported.
 >
 > **Known issue**: Importing an RSA 4K target key from Luna HSMs is only supported with firmware 7.4.0 or newer.
 

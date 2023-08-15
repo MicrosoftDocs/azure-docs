@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 07/11/2023
 ms.author: jasteppe
 ---
 
@@ -15,7 +15,7 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, learn how to use Events metrics in the Azure portal. 
+In this article, learn how to use Events metrics using the Azure portal. 
 
 > [!TIP]
 > To learn more about Azure Monitor and metrics, see [Azure Monitor Metrics overview](../../azure-monitor/essentials/data-platform-metrics.md).
@@ -42,6 +42,8 @@ In this article, learn how to use Events metrics in the Azure portal.
    :::image type="content" source="media\events-display-metrics\events-metrics-event-hub.png" alt-text="Screenshot of displaying event hubs metrics." lightbox="media\events-display-metrics\events-metrics-event-hub.png"::: 
 
 ## Next steps
+
+In this tutorial, you learned how to use Events metrics using the Azure portal.
 
 To learn how to export Events Azure Event Grid system diagnostic logs and metrics, see
 

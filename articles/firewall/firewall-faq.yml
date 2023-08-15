@@ -142,6 +142,26 @@ sections:
           > [!NOTE]
           > You must reallocate a firewall and public IP to the original resource group and subscription.
 
+
+      - question: How can I configure availability zones after deployment?
+        answer: |
+           The recommendation is to configure availability zones during the initial firewall deployment. However, in some cases it is possible to change availability zones after deployment. The prerequisites are:
+           - The firewall is deployed in a VNet. It is not supported with firewalls deployed in a secured virtual hub.
+           - The firewall's region [supports availability zones](../reliability/availability-zones-service-support.md).
+           - All attached public IP addresses are deployed with availability zones. In the properties page of each public IP address, ensure the **availability zones** field exists and is configured with the same zones you configured for the firewall.
+
+           Reconfiguring availability zones can only be done when you restart the firewall. After you allocate the firewall, and right before starting the firewall with `Set-AzFirewall`, use the following Azure PowerShell to modify the firewall's **Zones** property:
+
+           ```azurepowershell
+           $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+           $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+           $pip= Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "azfwpublicip"
+           $mgmtPip2 = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
+           $azfw.Allocate($vnet, $pip, $mgmtPip2)
+           $azFw.Zones=1,2,3
+           $azfw | Set-AzFirewall
+           ```
+
       - question: What are the known service limits?
         answer: |
           For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).

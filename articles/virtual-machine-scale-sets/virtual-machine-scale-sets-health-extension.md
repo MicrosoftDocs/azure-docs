@@ -100,7 +100,7 @@ Rich Health States reporting contains four Health States, *Initializing*, *Healt
 | -------- | ------------ | ----------- |
 | TCP | Healthy | To send a *Healthy* signal, a successful handshake must be made with the provided application endpoint. |
 | TCP | Unhealthy | The instance will be marked as *Unhealthy* if a failed or incomplete handshake occurred with the provided application endpoint. |
-| TCP | Unhealthy | The instance automatically enters an *Initializing* state at extension start time. For more information, see [Initializing state](#initializing-state). | 
+| TCP | Initializing | The instance automatically enters an *Initializing* state at extension start time. For more information, see [Initializing state](#initializing-state). | 
 
 ## Initializing state
 

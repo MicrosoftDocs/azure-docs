@@ -15,6 +15,9 @@ Azure Container Registry implements Docker's [content trust][docker-content-trus
 > [!NOTE]
 > Content trust is a feature of the [Premium service tier](container-registry-skus.md) of Azure Container Registry.
 
+## Limitations
+- Token with repository-scoped permissions does not currently support docker push and pull of signed images.
+
 ## How content trust works
 
 Important to any distributed system designed with security in mind is verifying both the *source* and the *integrity* of data entering the system. Consumers of the data need to be able to verify both the publisher (source) of the data, as well as ensure it's not been modified after it was published (integrity). 

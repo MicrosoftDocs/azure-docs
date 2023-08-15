@@ -8,7 +8,6 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 05/04/2023
 ms.author: normesta
-ms.subservice: blobs
 ms.custom: engagement-fy23
 ---
 
@@ -43,6 +42,8 @@ Object replication is supported for accounts that are encrypted with either micr
 Object replication isn't supported for blobs in the source account that are encrypted with a customer-provided key. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 
 Customer-managed failover isn't supported for either the source or the destination account in an object replication policy.
+
+Object replication is not supported for blobs that are uploaded to the Data Lake Storage endpoint (`dfs.core.windows.net`) by using [Data Lake Storage Gen2](/rest/api/storageservices/data-lake-storage-gen2) APIs.
 
 ## How object replication works
 

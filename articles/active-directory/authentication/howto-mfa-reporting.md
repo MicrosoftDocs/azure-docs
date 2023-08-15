@@ -24,6 +24,8 @@ This article shows you how to view the Azure AD sign-ins report in the Azure por
 
 ## View the Azure AD sign-ins report
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The sign-ins report provides you with information about the usage of managed applications and user sign-in activities, which includes information about multi-factor authentication (MFA) usage. The MFA data gives you insights into how MFA is working in your organization. It answers questions like:
 
 - Was the sign-in challenged with MFA?
@@ -34,7 +36,7 @@ The sign-ins report provides you with information about the usage of managed app
 - How many users are unable to complete the MFA challenge?
 - What are the common MFA issues end users are running into?
 
-To view the sign-in activity report in the [Azure portal](https://portal.azure.com), complete the following steps. You can also query data using the [reporting API](../reports-monitoring/concept-reporting-api.md).
+To view the sign-in activity report in the [Azure portal](https://portal.azure.com), complete the following steps. You can also query data using the [reporting API](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* permissions.
 1. Search for and select **Azure Active Directory**, then choose **Users** from the menu on the left-hand side.

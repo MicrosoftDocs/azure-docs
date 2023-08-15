@@ -64,10 +64,13 @@ In addition to TLS, when you interact with Azure Data Manager for Energy, all tr
 5.	Select Encryption key as “**Select a key vault and key**.” 
 6.	Then, select “**Select a key vault and key**.”
 7.	Next, select the **key vault** and **key**.
+
+    [![Screenshot showing selection of subscription, key vault, and key in the right pane that opens after choosing 'select a key vault and key'](media/how-to-manage-data-security-and-encryption/customer-managed-key-3aa-enable-cmk.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-3aa-enable-cmk.png#lightbox)
+
 8.	Next, select the user-assigned managed identity that will be used to authorize access to the key vault that contains the key. 
 9.	Select “**Select a user identity**.” Select the user-assigned managed identity that you created in the pre-requisites. 
  
-   [![Screenshot of key vault, key, user assigned identity, and CMK on encryption tab](media/how-to-manage-data-security-and-encryption/customer-managed-key-3-enable-cmk.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-3-enable-cmk.png#lightbox)
+   [![Screenshot of key vault, key, user assigned identity, and CMK on encryption tab](media/how-to-manage-data-security-and-encryption/customer-managed-key-3bb-select-managed-identity.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-3bb-select-managed-identity.png#lightbox)
 
 10.	This user assigned identity must have _get key_, _list key_, _wrap key_, and _unwrap key_ permissions on the key vault. For more information on assigning Azure Key Vault access policies, see [Assign a Key Vault Access Policy](../key-vault/general/assign-access-policy.md). 
  

@@ -5,7 +5,7 @@ author: kromerm
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 08/10/2023
 ms.author: makromer
 ---
 
@@ -70,7 +70,7 @@ The below table lists the properties supported by a delta sink. You can edit the
 | Compression type | The compression type of the delta table | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | Compression level | Choose whether the compression completes as quickly as possible or if the resulting file should be optimally compressed. | required if `compressedType` is specified. | `Optimal` or `Fastest` | compressionLevel |
 | Vacuum | Deletes files older than the specified duration that is no longer relevant to the current table version. When a value of 0 or less is specified, the vacuum operation isn't performed. | yes | Integer | vacuum |
-| Table action | Tells ADF what to do with the target Delta table in your sink. You can leave it as-is and append new rows, overwrite the existing table definition and data with new metadata and data, or keep the existing table structure but first truncate all rows, then insert the new rows. | no | None, Truncate, Overwrite | truncate, overwrite |
+| Table action | Tells ADF what to do with the target Delta table in your sink. You can leave it as-is and append new rows, overwrite the existing table definition and data with new metadata and data, or keep the existing table structure but first truncate all rows, then insert the new rows. | no | None, Truncate, Overwrite | deltaTruncate, overwrite |
 | Update method | When you select "Allow insert" alone or when you write to a new delta table, the target receives all incoming rows regardless of the Row policies set. If your data contains rows of other Row policies, they need to be excluded using a preceding Filter transform. <br><br> When all Update methods are selected a Merge is performed, where rows are inserted/deleted/upserted/updated as per the Row Policies set using a preceding Alter Row transform. | yes | `true` or `false` | insertable <br> deletable <br> upsertable <br> updateable  |
 | Optimized Write | Achieve higher throughput for write operation via optimizing internal shuffle in Spark executors. As a result, you may notice fewer partitions and files that are of a larger size | no | `true` or `false` | optimizedWrite: true |
 | Auto Compact | After any write operation has completed, Spark will automatically execute the ```OPTIMIZE``` command to re-organize the data, resulting in more partitions if necessary, for better reading performance in the future | no | `true` or `false` |    autoCompact: true | 

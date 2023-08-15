@@ -4,6 +4,7 @@ description: Create and use a PostgreSQL service for development
 services: container-apps
 author: ahmelsayed
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 06/06/2023
 ms.author: ahmels

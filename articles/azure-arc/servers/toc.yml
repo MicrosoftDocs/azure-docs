@@ -119,6 +119,8 @@
       href: organize-inventory-servers.md
     - name: Onboard to Microsoft Defender for Cloud
       href: ../../defender-for-cloud/quickstart-onboard-machines.md?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
+    - name: Prepare to deliver Extended Security Updates
+      href: prepare-extended-security-updates.md
     - name: Manage with Windows Admin Center
       href: /windows-server/manage/windows-admin-center/azure/manage-arc-hybrid-machines?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
   - name: Connect via SSH
@@ -162,9 +164,9 @@
   - name: Azure CLI
     href: /cli/azure/connectedmachine
   - name: Azure PowerShell
-    href: /powershell/module/az.connectedmachine/
+    href: /powershell/module/az.connectedmachine/?view=azps-10.1.0
   - name: .NET
-    href: /dotnet/api/overview/azure/hybridcompute/management/management-hybridcompute
+    href: /dotnet/api/microsoft.azure.management.hybridcompute.hybridcomputemanagementclient.apiversion
   - name: Azure Stack HCI REST
     href: /rest/api/stackhci/
   - name: REST
