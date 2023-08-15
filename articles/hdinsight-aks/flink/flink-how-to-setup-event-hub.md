@@ -23,7 +23,7 @@ In this article, we explore how to connect [Azure Event Hubs](/azure/event-hubs/
 
 1. To create Event Hubs namespace and Event Hubs, see [here](/azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs?tabs=connection-string)
 
-   :::image type="content" source="./media/flink-eventhub/flink-setup-event-hub.png" alt-text="Screenshot showing Event Hubs setup.png.":::
+   :::image type="content" source="./media/flink-eventhub/flink-setup-event-hub.png" alt-text="Screenshot showing Event Hubs setup." border="true" lightbox="./media/flink-eventhub/flink-setup-event-hub.png":::
 
 ## Set up Flink Cluster on HDInsight on AKS
 
@@ -102,8 +102,8 @@ In this article, we explore how to connect [Azure Event Hubs](/azure/event-hubs/
  
 1. Add the snippet to run the Flink Producer.
 
-   :::image type="content" source="./media/flink-eventhub/testing-flink.png" alt-text="Screenshot showing how to test Flink in Event Hubs.":::   
+   :::image type="content" source="./media/flink-eventhub/testing-flink.png" alt-text="Screenshot showing how to test Flink in Event Hubs." border="true" lightbox="./media/flink-eventhub/testing-flink.png":::
 
 1. Once the code is executed, the events are stored in the topic **“TEST”**
 
-   :::image type="content" source="./media/flink-eventhub/events-stored-in-topic.png" alt-text="Screenshot showing Event Hubs stored in topic.":::
+   :::image type="content" source="./media/flink-eventhub/events-stored-in-topic.png" alt-text="Screenshot showing Event Hubs stored in topic." border="true" lightbox="./media/flink-eventhub/events-stored-in-topic.png":::
