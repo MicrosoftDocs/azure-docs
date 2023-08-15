@@ -70,6 +70,21 @@ The **X12** connector has one version across workflows in [multi-tenant Azure Lo
 
 ## Encode X12 messages
 
+The **Encode to X12 message** operation performs the following tasks:
+
+* Agreement resolution by matching sender and receiver context properties.
+* Serializes the EDI interchange, converting XML-encoded messages into EDI transaction sets in the interchange.
+* Applies transaction set header and trailer segments.
+* Generates an interchange control number, a group control number, and a transaction set control number for each outgoing interchange.
+* Replaces separators in the payload data.
+* Validates EDI and partner-specific properties.
+  * Schema validation of the transaction-set data elements against the message schema
+  * EDI validation performed on transaction-set data elements
+  * Extended validation performed on transaction-set data elements
+* Requests a Technical and Functional acknowledgment, if configured.
+  * Generates a Technical Acknowledgment as a result of header validation. The technical acknowledgment reports the status of the processing of an interchange header and trailer by the address receiver.
+  * Generates a Functional Acknowledgment generates as a result of body validation. The functional acknowledgment reports each error encountered while processing the received document.
+
 ### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
@@ -93,7 +108,7 @@ The **X12** connector has one version across workflows in [multi-tenant Azure Lo
 
    For example:
 
-   ![Screenshot showing the "Encode to X12 message by agreement name" connection pane.](./media/logic-apps-enterprise-integration-x12/create-x12-encode-connection-consumption.png)
+   ![Screenshot showing Consumption workflow and connection information for action named Encode to X12 message by agreement name.](./media/logic-apps-enterprise-integration-x12/create-x12-encode-connection-consumption.png)
 
 1. When you're done, select **Create**.
 
@@ -103,13 +118,52 @@ The **X12** connector has one version across workflows in [multi-tenant Azure Lo
    |----------|----------|-------------|
    | **Name of X12 agreement** | Yes | The X12 agreement to use. |
    | **XML message to encode** | Yes | The business identifier for the message sender as specified by your X12 agreement |
-   | Other parameters | No | This operation includes the following other parameters: <p>- **Data element separator** <br>- **Release indicator** <br>- **Component separator** <br>- **Repetition separator** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Decimal indicator** <p>For more information, review [X12 message settings](logic-apps-enterprise-integration-x12-message-settings.md). |
+   | Other parameters | No | This operation includes the following other parameters: <br><br>- **Data element separator** <br>- **Component separator** <br>- **Replacement character** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Control Version Number** <br>- **Application Sender Identifier/Code GS02** <br>- **Application Receiver Identifier/Code GS03** <br><br>For more information, review [X12 message settings](logic-apps-enterprise-integration-x12-message-settings.md). |
 
    For example, the XML message payload can be the **Body** content output from the Request trigger:
 
-   ![Screenshot showing the "Encode to X12 message by agreement name" operation with the message encoding properties.](./media/logic-apps-enterprise-integration-x12/encode-x12-message-agreement-consumption.png)
+   ![Screenshot showing Consumption workflow, action named Encode to X12 message by agreement name, and action properties.](./media/logic-apps-enterprise-integration-x12/encode-x12-message-agreement-consumption.png)
 
 ### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+
+1. In the designer, [follow these general steps to add the **X12** action named **Encode to X12 message by agreement name** to your workflow](create-workflow-with-trigger-or-action?tabs=standard#add-action).
+
+   > [!NOTE]
+   >
+   > If you want to use **Encode to X12 message by identities** action instead, 
+   > you later have to provide different values, such as the **Sender identifier** 
+   > and **Receiver identifier** that's specified by your X12 agreement. 
+   > You also have to specify the **XML message to encode**, which can be the output 
+   > from the trigger or a preceding action.
+
+1. When prompted, provide the following connection information for your integration account:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection Name** | Yes | A name for the connection |
+   | **Integration Account ID** | Yes | The resource ID for your integration account, which has the following format: <br><br>**`/subscriptions/<Azure-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Logic/integrationAccounts/<integration-account-name>`** <br><br>For example: <br>`/subscriptions/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/resourceGroups/integrationAccount-RG/providers/Microsoft.Logic/integrationAccounts/myIntegrationAccount` <br><br>To find this resource ID, follow these steps:  <br><br>1. In the Azure portal, open your integration account. <br>2. On the integration account menu, select **Overview**. <br>3. On the **Overview** page, select **JSON View**. <br>4. From the **Resource ID** property, copy the value. |
+   | **Integration Account SAS URL** | Yes | The request endpoint URL that uses shared access signature (SAS) authentication to provide access to your integration account. This callback URL has the following format: <br><br>**`https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`** <br><br>For example: <br>`https://prod-04.west-us.logic-azure.com:443/integrationAccounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX?api-version=2015-08-1-preview&sp=XXXXXXXXX&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZZZZ` <br><br>To find this URL, follow these steps: <br><br>1. In the Azure portal, open your integration account. <br>2. On the integration account menu, under **Settings**, select **Callback URL**. <br>3. From the **Generated Callback URL** property, copy the value. |
+   | **Size of Control Number Block** | No | The block size of control numbers to reserve from an agreement for high throughput scenarios |
+
+   For example:
+
+   ![Screenshot showing Standard workflow and connection information for action named Encode to X12 message by agreement name.](./media/logic-apps-enterprise-integration-x12/create-x12-encode-connection-standard.png)
+
+1. When you're done, select **Create**.
+
+1. In the X12 action information box, provide the following property values:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Name Of X12 Agreement** | Yes | The X12 agreement to use. |
+   | **XML Message To Encode** | Yes | The business identifier for the message sender as specified by your X12 agreement |
+   | **Advanced parameters** | No | This operation includes the following other parameters: <br><br>- **Data element separator** <br>- **Component separator** <br>- **Replacement character** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Control Version Number** <br>- **Application Sender Identifier/Code GS02** <br>- **Application Receiver Identifier/Code GS03** <br><br>For more information, review [X12 message settings](logic-apps-enterprise-integration-x12-message-settings.md). |
+
+   For example, the XML message payload can be the **Body** content output from the Request trigger:
+
+   ![Screenshot showing Standard workflow, action named Encode to X12 message by agreement name, and action properties.](./media/logic-apps-enterprise-integration-x12/encode-x12-message-agreement-standard.png)
 
 ---
 
