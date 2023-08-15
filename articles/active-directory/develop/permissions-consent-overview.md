@@ -39,6 +39,8 @@ In this access scenario, the application acts on its own with no user signed in.
 
 App-only access uses app roles instead of delegated scopes. When granted through consent, app roles may also be called applications permissions. For app-only access, the client app must be granted appropriate app roles of the resource app it's calling in order to access the requested data. For more information about assigning app roles to client applications, see [Assigning app roles to applications](howto-add-app-roles-in-azure-ad-apps.md#assign-app-roles-to-applications).
 
+<a id='permission-types'></a>
+
 ## Types of permissions
 
 **Delegated permissions** are used in the delegated access scenario. They're permissions that allow the application to act on a user's behalf. The application will never be able to access anything the signed in user themselves couldn't access.
@@ -69,6 +71,8 @@ One way that applications are granted permissions is through consent. Consent is
 - When the application uses dynamic consent to ask for new permissions as needed at run time. 
 
 The key details of a consent prompt are the list of permissions the application requires and the publisher information. For more information about the consent prompt and the consent experience for both admins and end-users, see [application consent experience](application-consent-experience.md).
+
+<a id='requesting-individual-user-consent'></a>
 
 ### User consent
 
