@@ -17,10 +17,10 @@ ms.author: jasteppe
 
 Events are a notification and subscription feature in the Azure Health Data Services. Events enable customers to utilize and enhance the analysis and workflows of structured and unstructured data like vitals and clinical or progress notes, operations data, health data, and medical imaging data. 
 
-When FHIR resource changes or Digital Imaging and Communications in Medicine (DICOM) image changes are successfully written to the Azure Health Data Services, the Events feature sends notification messages to Events subscribers. These event notification occurrences can be sent to multiple endpoints to trigger automation ranging from starting workflows to sending email and text messages to support the changes occurring from the health data it originated from. The events feature integrates with the [Azure Event Grid service](../../event-grid/overview.md) and creates a system topic for the Azure Health Data Services workspace.
+When FHIR resource changes or Digital Imaging and Communications in Medicine (DICOM) image changes are successfully written to the Azure Health Data Services, the events feature sends notification messages to events subscribers. These event notification occurrences can be sent to multiple endpoints to trigger automation ranging from starting workflows to sending email and text messages to support the changes occurring from the health data it originated from. The events feature integrates with the [Azure Event Grid service](../../event-grid/overview.md) and creates a system topic for the Azure Health Data Services workspace.
 
 > [!IMPORTANT]
-> FHIR resource and DICOM image change data is only written and event messages are sent when the Events feature is turned on. The Event feature doesn't send messages on past resource changes or when the feature is turned off.
+> FHIR resource and DICOM image change data is only written and event messages are sent when the events feature is turned on. The event feature doesn't send messages on past resource changes or when the feature is turned off.
 
 > [!TIP]
 > For more information about the features, configurations, and to learn about the use cases of the Azure Event Grid service, see [Azure Event Grid](../../event-grid/overview.md)
@@ -50,7 +50,7 @@ Events are designed to support growth and changes in healthcare technology needs
 
 ## Configurable
 
-Choose the FHIR and DICOM event types that you want to receive messages about. Use the advanced features like filters, dead-lettering, and retry policies to tune Events message delivery options. 
+Choose the FHIR and DICOM event types that you want to receive messages about. Use the advanced features like filters, dead-lettering, and retry policies to tune events message delivery options. 
 
 > [!NOTE]
 > The advanced features come as part of the Event Grid service. 
@@ -63,7 +63,7 @@ Use events to send FHIR resource and DICOM image change messages to services lik
 
 Events are built on a platform that supports protected health information compliance with privacy, safety, and security in mind.
 
-Use [Azure Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to provide secure access from your Event Grid system topic to the Events message receiving endpoints of your choice. 
+Use [Azure Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to provide secure access from your Event Grid system topic to the events message receiving endpoints of your choice. 
 
 ## Next steps
 

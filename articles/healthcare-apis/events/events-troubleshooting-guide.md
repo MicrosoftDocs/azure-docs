@@ -42,7 +42,7 @@ This article provides resources for troubleshooting events.
 
 ### Events message structures
 
-Use this resource to learn about the Events message structures, required and nonrequired elements, and see sample Events messages: 
+Use this resource to learn about the events message structures, required and nonrequired elements, and see sample Events messages: 
 * [Events message structures](events-message-structure.md)
 
 ### How to's

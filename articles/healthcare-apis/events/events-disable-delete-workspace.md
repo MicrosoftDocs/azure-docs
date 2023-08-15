@@ -21,7 +21,7 @@ In this article, learn how to disable the events feature and delete Azure Health
 
 To disable events from sending event messages for a single **Event Subscription**, the **Event Subscription** must be deleted.
 
-1. Select the **Event Subscription** to be deleted. In this example, we select an Event Subscription named **fhir-events**.
+1. Select the **Event Subscription** to be deleted. In this example, we select an Event Subscription named "fhir-events".
 
    :::image type="content" source="media/disable-delete-workspaces/events-select-subscription.png" alt-text="Screenshot of Events subscriptions and select event subscription to be deleted." lightbox="media/disable-delete-workspaces/events-select-subscription.png":::
 

@@ -58,7 +58,7 @@ Events are generated from the following DICOM service types:
 
 ## What is the payload of an events message? 
 
-For a detailed description of the events message structure and both required and nonrequired elements, see [Events troubleshooting guide](events-troubleshooting-guide.md). 
+For a detailed description of the events message structure and both required and nonrequired elements, see [Events message structures](events-message-structure.md). 
 
 ## What is the throughput for the events messages?
 
@@ -66,7 +66,7 @@ The throughput of the FHIR or DICOM service and the Event Grid govern the throug
 
 ## How am I charged for using events?
 
-There are no extra charges for using [Azure Health Data Services Events](https://azure.microsoft.com/pricing/details/health-data-services/). However, applicable charges for the [Event Grid](https://azure.microsoft.com/pricing/details/event-grid/) are assessed against your Azure subscription.
+There are no extra charges for using [Azure Health Data Services events](https://azure.microsoft.com/pricing/details/health-data-services/). However, applicable charges for the [Event Grid](https://azure.microsoft.com/pricing/details/event-grid/) are assessed against your Azure subscription.
 
 ## How do I subscribe to multiple FHIR and/or DICOM services in the same workspace separately?
 

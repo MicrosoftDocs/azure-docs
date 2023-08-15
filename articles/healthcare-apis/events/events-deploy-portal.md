@@ -27,7 +27,7 @@ It's important that you have the following prerequisites completed before you be
 * [FHIR service deployed in the workspace](../fhir/fhir-portal-quickstart.md) or [DICOM service deployed in the workspace](../dicom/deploy-dicom-services-in-azure.md)
 
 > [!IMPORTANT]
-> You will also need to make sure that the Microsoft.EventGrid resource provider has been successfully registered with your Azure subscription to deploy the Events feature. For more information, see [Azure resource providers and types - Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+> You will also need to make sure that the Microsoft.EventGrid resource provider has been successfully registered with your Azure subscription to deploy the events feature. For more information, see [Azure resource providers and types - Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 > [!NOTE]
 > For the purposes of this quickstart, we'll be using a basic events set up and an event hub as the endpoint for events messages. To learn how to deploy Azure Event Hubs, see [Quickstart: Create an event hub using Azure portal](../../event-hubs/event-hubs-create.md).
@@ -44,14 +44,14 @@ It's important that you have the following prerequisites completed before you be
  
 3. In the **Create Event Subscription** box, enter the following subscription information. 
 
-    * **Name**: Provide a name for your Events subscription.
-    * **System Topic Name**: Provide a name for your System Topic.
+    * **Name**: Provide a name for your events subscription.
+    * **System Topic Name**: Provide a name for your system topic.
    
    > [!NOTE]
    > The first time you set up the events feature, you will be required to enter a new **System Topic Name**. Once the system topic for the workspace is created, the **System Topic Name** will be used for any additional events subscriptions that you create within the workspace.
 
     * **Event types**: Type of FHIR or DICOM events to send messages for (for example: create, updated, and deleted).
-    * **Endpoint Details**: Endpoint to send Events messages to (for example: an Azure Event Hubs namespace + an event hub).
+    * **Endpoint Details**: Endpoint to send events messages to (for example: an Azure Event Hubs namespace + an event hub).
 
    >[!NOTE]
    > For the purposes of this quickstart, we'll use the **Event Schema** and the **Managed Identity Type** settings at their default values.
