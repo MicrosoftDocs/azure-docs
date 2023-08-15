@@ -94,6 +94,8 @@ If a secret is found on your resource, that resource triggers an affiliated reco
 
 - **AWS resources**: `EC2 instances should have secret findings resolved`
 
+- **GCP resources**: `VM instances should have secret findings resolved`
+
 **To remediate secrets from the recommendations page**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
