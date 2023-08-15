@@ -33,7 +33,7 @@ Below claims are required to be included in the JWT token.
 
 Claim Type | Is Required | Description
 ---|---|---
-`aud` | true | Should be the **SAME** as your HTTP request url, trailing slash and query parameters not included. For example, a broadcast request's audience looks like: `https://example.webpubsub.azure.com/api/hubs/myhub`.
+`aud` | true | Should be the **SAME** as your HTTP request url. For example, a broadcast request's audience looks like: `https://example.webpubsub.azure.com/api/hubs/myhub/:send?api-version=2022-11-01`.
 `exp` | true | Epoch time when this token will be expired.
 
 A pseudo code in JS:
