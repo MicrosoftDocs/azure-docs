@@ -4,7 +4,7 @@ description: How to configure networking for Azure Elastic SAN Preview, a servic
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 08/15/2023
 ms.author: rogarana
 ms.custom: ignite-2022, devx-track-azurepowershell
 ---
@@ -239,14 +239,14 @@ id=$(az elastic-san show \
 
 # Create private endpoint
 az network private-endpoint create \
-    --connection-name $PLConnName
+    --connection-name $PLConnName \
     --name $EndpointName \
     --private-connection-resource-id $id \
     --resource-group $RgName \
     --vnet-name $VnetName \
     --subnet $SubnetName \
     --group-id $EsanVgName \
-    --type Microsoft.ElasticSan/elasticSans \ # --manual-request
+    --type Microsoft.ElasticSan/elasticSans # --manual-request
 ```
 
 Use this sample code to approve the private link service connection if you are using the two-step process. Use the same variables from the previous code sample:
@@ -267,7 +267,7 @@ id=$(az elastic-san show \
 
 # Create private endpoint
 az network private-endpoint create \
-    --connection-name $PLConnName
+    --connection-name $PLConnName \
     --name $EndpointName \
     --private-connection-resource-id $id \
     --resource-group $RgName \
