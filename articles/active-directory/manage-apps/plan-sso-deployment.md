@@ -77,6 +77,8 @@ From the sign-in perspective, applications with shared accounts aren't different
 - Reset the shared credentials. After the application is deployed in Azure AD, individuals don't need the password of the shared account. Azure AD stores the password and you should consider setting it to be long and complex.
 - Configure automatic rollover of the password if the application supports it. That way, not even the administrator who did the initial setup knows the password of the shared account.
 
+<a id='choosing-a-single-sign-on-method'></a>
+
 ## Single sign-on options
 
 There are several ways you can configure an application for SSO. Choosing an SSO method depends on how the application is configured for authentication.
