@@ -69,7 +69,7 @@ To configure an on-premises app to use a custom domain, you need a verified Azur
 
 ## I need to update the token signing certificate on the application side. Where can I get it on Azure AD side?
 
-You can renew a SAML X.509 Certificate, see [SAML Signing certificate](../develop/single-sign-on-saml-protocol.md#saml-signing-certificate).
+You can renew a SAML X.509 Certificate, see [SAML Signing certificate](../develop/single-sign-on-saml-protocol.md).
 
 ## What is Azure AD signing key rollover?
 
