@@ -25,7 +25,7 @@ This article shows you how to install the Azure Active Directory (Azure AD) Conn
 
 ## Prerequisites
 
-The Windows server on which you intend to install the Azure AD Cloud Sync agent must have TLS 1.2 enabled. To enable TLS 1.2, follow the steps in [Prerequisites for Azure AD Connect cloud sync](../how-to-prerequisites.md#tls-requirements).
+The Windows server on which you intend to install the Azure AD cloud sync agent must have TLS 1.2 enabled. To enable TLS 1.2, follow the steps in [Prerequisites for Azure AD Connect cloud sync](../how-to-prerequisites.md#tls-requirements).
 
 >[!IMPORTANT]
 >The following installation instructions assume that all the [prerequisites](../how-to-prerequisites.md) have been met.
