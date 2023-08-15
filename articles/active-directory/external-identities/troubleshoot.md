@@ -206,5 +206,5 @@ You might see this message: "This invitation is blocked by cross-tenant access s
 
 ## Next steps
 
-- [Get support for B2B collaboration](../fundamentals/active-directory-troubleshooting-support-howto.md)
+- [Get support for B2B collaboration](../fundamentals/how-to-get-support.md)
 - [Use audit logs and access reviews](auditing-and-reporting.md)
