@@ -243,7 +243,7 @@ It's recommended to install the micro agent with the Edge agent to enable securi
 
 # [Red Hat Enterprise Linux](#tab/rhel)
 
-IoT Edge version 1.1 isn't supported on Red Hat Enterprise Linux 8.
+IoT Edge version 1.1 isn't supported on Red Hat Enterprise Linux.
 
 # [Linux on Windows](#tab/linuxonwindows)
 

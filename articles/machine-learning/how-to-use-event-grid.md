@@ -26,7 +26,7 @@ When to use Event Grid for event driven actions:
 * Streaming events from Azure Machine Learning to various of endpoints
 * Trigger an ML pipeline when drift is detected
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -134,7 +134,7 @@ You can either install the latest [Azure CLI](/cli/azure/install-azure-cli), or 
 To install the Event Grid extension, use the following command from the CLI:
 
 ```azurecli-interactive
-az add extension --name eventgrid
+az extension add --name eventgrid
 ```
 
 The following example demonstrates how to select an Azure subscription and creates e a new event subscription for Azure Machine Learning:

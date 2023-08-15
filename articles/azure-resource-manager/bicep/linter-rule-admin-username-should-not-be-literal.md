@@ -2,7 +2,8 @@
 title: Linter rule - admin user name should not be literal
 description: Linter rule - admin user name should not be a literal
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.custom: devx-track-bicep
+ms.date: 06/23/2023
 ---
 
 # Linter rule - admin user name should not be literal
@@ -22,7 +23,7 @@ Don't use a literal value or an expression that evaluates to a literal value. In
 The following example fails this test because the user name is a literal value.
 
 ```bicep
-resource vm 'Microsoft.Compute/virtualMachines@2020-12-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2023-03-01' = {
   name: 'name'
   location: location
   properties: {
@@ -37,7 +38,7 @@ The next example fails this test because the expression evaluates to a literal v
 
 ```bicep
 var defaultAdmin = 'administrator'
-resource vm 'Microsoft.Compute/virtualMachines@2020-12-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2023-03-01' = {
   name: 'name'
   location: location
   properties: {
@@ -54,7 +55,7 @@ This example passes this test.
 @secure()
 param adminUsername string
 param location string
-resource vm 'Microsoft.Compute/virtualMachines@2020-12-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2023-03-01' = {
   name: 'name'
   location: location
   properties: {

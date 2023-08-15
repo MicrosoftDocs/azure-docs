@@ -155,7 +155,7 @@ Restore the dump file to the server created in the Azure Database for MySQL - Fl
    SOURCE_HOST='<master_host>',
    SOURCE_USER='<master_user>',
    SOURCE_PASSWORD='<master_password>',
-   SOURCE_LOG_FILE='<master_log_file>,
+   SOURCE_LOG_FILE='<master_log_file>',
    SOURCE_LOG_POS=<master_log_pos>
    ```
 

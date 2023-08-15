@@ -2,6 +2,7 @@
 title: Parameters in templates
 description: Describes how to define parameters in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 09/28/2022
 ---
 

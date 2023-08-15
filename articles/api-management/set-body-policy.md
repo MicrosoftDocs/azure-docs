@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Set body
 
-Use the `set-body` policy to set the message body for incoming and outgoing requests. To access the message body you can use the `context.Request.Body` property or the `context.Response.Body`, depending on whether the policy is in the inbound or outbound section.
+Use the `set-body` policy to set the message body for a request or response. To access the message body you can use the `context.Request.Body` property or the `context.Response.Body`, depending on whether the policy is in the inbound or outbound section.
 
 > [!IMPORTANT]
 >  By default when you access the message body using `context.Request.Body` or `context.Response.Body`, the original message body is lost and must be set by returning the body back in the expression. To preserve the body content, set the `preserveContent` parameter to `true` when accessing the message. If `preserveContent` is set to `true` and a different body is returned by the expression, the returned body is used.
@@ -74,10 +74,11 @@ OriginalUrl.
 </pre>
 
 
+
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ### Usage notes
@@ -100,6 +101,9 @@ The `set-body` policy can be configured to use the [Liquid](https://shopify.gith
 > [!IMPORTANT]
 > In order to correctly bind to an XML body using the Liquid template, use a `set-header` policy to set Content-Type to either application/xml, text/xml (or any type ending with +xml); for a JSON body, it must be application/json, text/json (or any type ending with +json).
 
+> [!IMPORTANT]
+> Liquid templates use the request/response body in the current execution pipeline as their input. For this reason, liquid templates do not work when used inside a return-response policy. A return-response policy cancels the current execution pipeline and removes the request/response body. As a result, any liquid template used inside the return-response will receive an empty string as its input and will not produced the expected output. 
+
 ### Supported Liquid filters
 
 The following Liquid filters are supported in the `set-body` policy. For filter examples, see the [Liquid documentation](https://shopify.github.io/liquid/). 
@@ -107,6 +111,7 @@ The following Liquid filters are supported in the `set-body` policy. For filter 
 > [!NOTE]
 > The policy requires Pascal casing for Liquid filter names (for example, "AtLeast" instead of "at_least").
 > 
+
 * Abs
 * Append
 * AtLeast
@@ -150,7 +155,6 @@ The following Liquid filters are supported in the `set-body` policy. For filter 
 * Upcase
 * UrlDecode
 * UrlEncode
-
 
 ## Examples
 
@@ -269,3 +273,4 @@ The following example uses the `AsFormUrlEncodedContent()` expression to access 
 * [API Management transformation policies](api-management-transformation-policies.md)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
+

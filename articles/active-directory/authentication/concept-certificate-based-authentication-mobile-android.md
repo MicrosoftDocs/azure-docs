@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 06/02/2023
 
 ms.author: justinha
 author: justinha
@@ -61,7 +61,7 @@ Certain Exchange ActiveSync applications on Android 5.0 (Lollipop) or later are 
 
 To determine if your email application supports Azure AD CBA, contact your application developer.
 
-## Support for certificates on hardware security key (preview)
+## Support for certificates on hardware security key
 
 Certificates can be provisioned in external devices like hardware security keys along with a PIN to protect private key access. Azure AD supports CBA with YubiKey.  
 
@@ -77,11 +77,11 @@ Security keys with certificates:
 
 ### Azure AD CBA on Android mobile 
 
-Android needs a middleware application to be able to support smartcard or security keys with certificates. To support YubiKeys with Azure AD CBA, YubiKey Android SDK has been integrated into the Microsoft broker code which can be leveraged through the latest MSAL 
+Android needs a middleware application to be able to support smartcard or security keys with certificates. To support YubiKeys with Azure AD CBA, YubiKey Android SDK has been integrated into the Microsoft broker code which can be leveraged through the latest Microsoft Authentication Library (MSAL). 
 
 ### Azure AD CBA on Android mobile with YubiKey 
 
-Since Azure AD CBA with YubiKey on Android mobile is enabled via the latest MSAL, YubiKey Authenticator app is not a requirement for Android support. 
+Because Azure AD CBA with YubiKey on Android mobile is enabled by using the latest MSAL, YubiKey Authenticator app isn't required for Android support. 
 
 Steps to test YubiKey on Microsoft apps on Android: 
 
@@ -116,7 +116,7 @@ Before installing Microsoft Authenticator, uninstall Company Portal and install 
 
 #### Does Azure AD CBA support YubiKey via NFC? 
 
-This feature currently only supports using YubiKey with USB and not NFC. We are working to add support for NFC. 
+This feature supports using YubiKey with USB and NFC.
 
 #### Once CBA fails, clicking on the CBA option again in the ‘Other ways to signin’ link on the error page fails. 
 
@@ -154,6 +154,9 @@ This issue happens because of certificate caching. We are working to add a fix t
 |Operating system | Chrome certificate on-device | Chrome smart card | Safari certificate on-device | Safari smart card | Edge certificate on-device | Edge smart card |
 |:----------------|:---------------------------------:|:---------------------:|:---------------------------------:|:---------------------:|:---------------------------------:|:---------------------:|
 | Android             |  &#x2705;                          | &#10060;|N/A                          | N/A |  &#10060;                          | &#10060;|
+
+>[!NOTE]
+>Although Edge as a browser is not supported, Edge as a profile (for account login) is an MSAL app that supports CBA on Android.
 
 ### Security key providers
 

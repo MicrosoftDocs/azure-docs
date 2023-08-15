@@ -4,7 +4,7 @@ description: Use Azure CLI to manage your resource groups through Azure Resource
 author: mumian
 ms.topic: conceptual
 ms.date: 03/31/2023
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ---
 
 # Manage Azure Resource Groups by using Azure CLI
@@ -15,7 +15,7 @@ Learn how to use Azure CLI with [Azure Resource Manager](overview.md) to manage 
 
 * Azure CLI. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-* After installing, sign in for the first time. For more information, see [How to sign into the Azure CLI](/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli).
+* After installing, sign in for the first time. For more information, see [How to sign in to the Azure CLI](/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli).
 
 ## What is a resource group
 
@@ -127,7 +127,7 @@ For more information, see [Lock resources with Azure Resource Manager](lock-reso
 
 ## Tag resource groups
 
-You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](tag-resources.md#azure-cli).
+You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](tag-resources-cli.md).
 
 ## Export resource groups to templates
 

@@ -68,6 +68,9 @@ grant_type=client_credentials
 
 [ ![Get access token](media/rest-config.png) ](media/rest-config.png#lightbox)
 
+> [!NOTE] 
+> In the scenarios where the FHIR service audience parameter is not mapped to the FHIR service endpoint url. The resource parameter value should be mapped to Audience value under FHIR Service Authentication blade.
+
 ## `GET` FHIR Patient data
 
 You can now get a list of patients or a specific patient with the `GET` request. The line with `Authorization` is the header info for the `GET` request. You can also send `PUT` or `POST` requests to create/update FHIR resources.

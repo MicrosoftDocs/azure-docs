@@ -3,7 +3,7 @@ title: Application Insights SDK support guidance
 description: Support guidance for Application Insights legacy and preview SDKs
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 04/24/2023
 ms.reviewer: vgorbenko
 ---
 
@@ -35,7 +35,7 @@ Support engineers are expected to provide SDK update guidance according to the f
 > * Preview refers to beta versions.
 
 > [!TIP]
-> Switching to [auto-instrumentation](codeless-overview.md) eliminates the need for manual SDK updates.
+> Switching to [autoinstrumentation](codeless-overview.md) eliminates the need for manual SDK updates.
 
 > [!WARNING]
 > Only commercially reasonable support is provided for Preview versions of the SDK. If a support incident requires escalation to development for further guidance, customers will be asked to use a fully supported SDK version to continue support. Commercially reasonable support does not include an option to engage Microsoft product development resources; technical workarounds may be limited or not possible.

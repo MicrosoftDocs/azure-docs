@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/26/2023
+ms.date: 04/24/2023
 ms.author: jeedes
 
 ---
@@ -25,7 +25,7 @@ In this article, you learn how to integrate Sauce Labs with Azure Active Directo
 You configure and test Azure AD single sign-on for Sauce Labs in a test environment. Sauce Labs supports both **SP** and **IDP** initiated single sign-on and **Just In Time** user provisioning.
 
 > [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant. If your company has more than one organization at Sauce Labs to be integrated with SAML SSO within a single Azure tenant, please refer to the following [documentation](https://docs.saucelabs.com/basics/sso/setting-up-sso-special-cases/#single-identity-provider-and-multiple-organizations-at-sauce-labs).
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Sauce Labs SSO
 
-To configure single sign-on on **Sauce Labs** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Sauce Labs support team](mailto:support@saucelabs.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on Sauce Labs side, please refer this [documentation](https://docs.saucelabs.com/basics/sso/setting-up-sso/#integrating-with-sauce-labs-service-provider) to set up SAML SSO connection properly on both sides. For any help or queries, please contact [Sauce Labs support team](mailto:support@saucelabs.com).
 
 ### Create Sauce Labs test user
 

@@ -37,6 +37,9 @@ For more information on the Azure AD automatic user provisioning service, see [A
 - A [ServiceNow Express instance](https://www.servicenow.com) of Helsinki or higher.
 - A user account in ServiceNow with the admin role.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Step 1: Plan your provisioning deployment
 
 - Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).

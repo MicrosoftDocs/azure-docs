@@ -56,7 +56,7 @@ You're ready to deploy your Azure Stream Analytics job using the Azure Resource 
 
 In a PowerShell window, run the following command. Be sure to replace the *ResourceGroupName*, *TemplateFile*, and *TemplateParameterFile* with your actual resource group name, and the complete file paths to the *JobTemplate.json* and *JobTemplate.parameters.json* files in the **Deploy Folder** of your job workspace.
 
-If you don't have Azure PowerShell configured, follow the steps in [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+If you don't have Azure PowerShell configured, follow the steps in [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName "<your resource group>" -TemplateFile "<path to JobTemplate.json>" -TemplateParameterFile "<path to JobTemplate.parameters.json>"

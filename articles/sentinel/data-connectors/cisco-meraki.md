@@ -3,7 +3,7 @@ title: "Cisco Meraki connector for Microsoft Sentinel"
 description: "Learn how to install the connector Cisco Meraki to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 07/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -65,7 +65,7 @@ Typically, you should install the agent on a different computer from the one on 
 
 2. Configure the logs to be collected
 
-Follow the configuration steps below to get Cisco Meraki device logs into Microsoft Sentinel. Refer to the [Azure Monitor Documentation](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-json) for more details on these steps.
+Follow the configuration steps below to get Cisco Meraki device logs into Microsoft Sentinel. Refer to the [Azure Monitor Documentation](/azure/azure-monitor/agents/data-sources-json) for more details on these steps.
  For Cisco Meraki logs, we have issues while parsing the data by OMS agent data using default settings. 
 So we advice to capture the logs into custom table **meraki_CL** using below instructions. 
 1. Login to the server where you have installed OMS agent.
@@ -77,7 +77,7 @@ So we advice to capture the logs into custom table **meraki_CL** using below ins
 
 	 a. meraki.conf uses the port **22033** by default. Ensure this port is not being used by any other source on your server
 
-	 b. If you would like to change the default port for **meraki.conf** make sure that you dont use default Azure monotoring /log analytic agent ports I.e.(For example CEF uses TCP port **25226** or **25224**) 
+	 b. If you would like to change the default port for **meraki.conf** make sure that you dont use default Azure monitoring /log analytic agent ports I.e.(For example CEF uses TCP port **25226** or **25224**) 
 
 	 c. replace **workspace_id** with real value of your Workspace ID (lines 14,15,16,19)
 5. Save changes and restart the Azure Log Analytics agent for Linux service with the following command:

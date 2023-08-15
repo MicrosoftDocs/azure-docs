@@ -4,8 +4,8 @@ description: In this article, discover solutions for issues that you might encou
 ms.topic: troubleshooting
 ms.date: 10/21/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot System Center Data Protection Manager

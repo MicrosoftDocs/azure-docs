@@ -65,6 +65,8 @@ This list will be updated as more regions become available. The following region
 
 * North Central US
 * West Central US
+* East US
+* West US
 
 ## Supported SKUs
 

@@ -27,7 +27,7 @@ To learn how to install Azure CLI and Azure PowerShell across all supported plat
 
 - Azure CLI: [How to install the Azure CLI](/cli/azure/install-azure-cli)
 
-- Azure PowerShell: [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps)
+- Azure PowerShell: [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell)
 
 ## Example commands
 
@@ -135,4 +135,4 @@ Some PowerShell cmdlets require you to provide the object ID of Azure Virtual De
 Now that you know how to use Azure CLI and Azure PowerShell with Azure Virtual Desktop, here are some articles that use them:
 
 - [Create an Azure Virtual Desktop host pool with PowerShell or the Azure CLI](create-host-pools-powershell.md)
-- [Manage app groups using PowerShell or the Azure CLI](manage-app-groups-powershell.md)
+- [Manage application groups using PowerShell or the Azure CLI](manage-app-groups-powershell.md)

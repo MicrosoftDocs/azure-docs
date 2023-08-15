@@ -69,12 +69,12 @@ For more information about Secret encryption at rest, see the following table.
 |---|---|
 |Password hash sync</br>Cloud account passwords|Hash: Password Key Derivation Function 2 (PBKDF2), using HMAC-SHA256 @ 1000 iterations |
 |Directory in transit between data centers|AES-256-CTS-HMAC-SHA1-96</br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 |
-|Pass-through authentication user credential flow|RSA 2048-Public/Private key pair </br> Learn more: [Azure Active Directory Pass-through Authentication security deep dive](../hybrid/how-to-connect-pta-security-deep-dive.md)|
+|Pass-through authentication user credential flow|RSA 2048-Public/Private key pair </br> Learn more: [Azure Active Directory Pass-through Authentication security deep dive](../hybrid/connect/how-to-connect-pta-security-deep-dive.md)|
 |Self-service password reset password writeback with Azure AD Connect: Cloud to on-premises communication |RSA 2048 Private/Public key pair</br>AES_GCM (256-bits key, 96-bits IV size)|
 |Self-service password reset: Answers to security questions|SHA256|
 |SSL certificates for Azure AD application</br>Proxy published applications |AES-GCM 256-bit |
 |Disk-level encryption|XTS-AES 128|
-|[Seamless single sign-on (SSO)](../../active-directory/hybrid/how-to-connect-sso-how-it-works.md) service account password</br>SaaS application provisioning credentials|AES-CBC 128-bit |
+|[Seamless single sign-on (SSO)](../hybrid/connect/how-to-connect-sso-how-it-works.md) service account password</br>SaaS application provisioning credentials|AES-CBC 128-bit |
 |Azure AD Managed Identities|AES-GCM 256-bit|
 |Microsoft Authenticator app: Passwordless sign-in to Azure AD |Asymmetric RSA Key 2048-bit|
 |Microsoft Authenticator app: Backup and restore of enterprise account metadata |AES-256  |
@@ -83,11 +83,11 @@ For more information about Secret encryption at rest, see the following table.
 
 * [Microsoft Service Trust Documents](https://servicetrust.microsoft.com/Documents/TrustDocuments)
 * [Microsoft Azure Trust Center](https://azure.microsoft.com/overview/trusted-cloud/)
-* [Recover from deletions in Azure Active Directory](recover-from-deletions.md)
+* [Recover from deletions in Azure Active Directory](../architecture/recover-from-deletions.md)
 
 ## Next steps
 
-* [Azure Active Directory and data residency](azure-ad-data-residency.md) 
+* [Azure Active Directory and data residency](data-residency.md) 
 
 * [Data operational considerations](data-operational-considerations.md)
 * [Data protection considerations](data-protection-considerations.md) (You're here)

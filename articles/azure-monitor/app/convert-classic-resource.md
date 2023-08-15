@@ -2,7 +2,7 @@
 title: Migrate an Application Insights classic resource to a workspace-based resource - Azure Monitor | Microsoft Docs
 description: Learn how to upgrade your Application Insights classic resource to the new workspace-based model. 
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 08/11/2023
 ms.reviewer: cawa
 ---
 
@@ -47,7 +47,7 @@ Workspace-based Application Insights resources allow you to take advantage of th
 
 When you migrate to a workspace-based resource, no data is transferred from your classic resource's storage to the new workspace-based storage. Choosing to migrate changes the location where new data is written to a Log Analytics workspace while preserving access to your classic resource data.
 
-Your classic resource data persists and is subject to the retention settings on your classic Application Insights resource. All new data ingested post migration is subject to the [retention settings](../logs/data-retention-archive.md) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table).
+Your classic resource data persists and is subject to the retention settings on your classic Application Insights resource. All new data ingested post migration is subject to the [retention settings](../logs/data-retention-archive.md) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/data-retention-archive.md#configure-retention-and-archive-at-the-table-level).
 
 *The migration process is permanent and can't be reversed.* After you migrate a resource to workspace-based Application Insights, it will always be a workspace-based resource. After you migrate, you can change the target workspace as often as needed.
 
@@ -69,7 +69,7 @@ If you don't need to migrate an existing resource, and instead want to create a 
 - Check your current retention settings under **Settings** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting affects how long any new ingested data is stored after you migrate your Application Insights resource.
 
     > [!NOTE]
-    > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this longer retention period after migration, adjust your [workspace retention settings](../logs/data-retention-archive.md?tabs=portal-1%2cportal-2#set-retention-and-archive-policy-by-table).
+    > -  If you currently store Application Insights data for longer than the default 90 days and want to retain this longer retention period after migration, adjust your [workspace retention settings](../logs/data-retention-archive.md?tabs=portal-1%2cportal-2#configure-retention-and-archive-at-the-table-level).
     > - If you've selected data retention longer than 90 days on data ingested into the classic Application Insights resource prior to migration, data retention continues to be billed through that Application Insights resource until the data exceeds the retention period.
     > - If the retention setting for your Application Insights instance under **Configure** > **Usage and estimated costs** > **Data Retention** is enabled, use that setting to control the retention days for the telemetry data still saved in your classic resource's storage.
 
@@ -81,22 +81,22 @@ To migrate a classic Application Insights resource to a workspace-based resource
 
 1. From your Application Insights resource, select **Properties** under the **Configure** heading in the menu on the left.
 
-   ![Screenshot that shows Properties under the Configure heading.](./media/convert-classic-resource/properties.png)
+   :::image type="content" source="./media/convert-classic-resource/properties.png" lightbox="./media/convert-classic-resource/properties.png" alt-text="Screenshot that shows Properties under the Configure heading.":::
 
 1. Select **Migrate to Workspace-based**.
 
-   ![Screenshot that shows the Migrate to Workspace-based button.](./media/convert-classic-resource/migrate.png)
+   :::image type="content" source="./media/convert-classic-resource/migrate.png" lightbox="./media/convert-classic-resource/migrate.png" alt-text="Screenshot that shows the Migrate to Workspace-based button.":::
 
 1. Select the Log Analytics workspace where you want all future ingested Application Insights telemetry to be stored. It can either be a Log Analytics workspace in the same subscription or a different subscription that shares the same Azure Active Directory tenant. The Log Analytics workspace doesn't have to be in the same resource group as the Application Insights resource.
 
    > [!NOTE]
    > Migrating to a workspace-based resource can take up to 24 hours, but the process is usually faster. Rely on accessing data through your Application Insights resource while you wait for the migration process to finish. After it's finished, you'll see new data stored in the Log Analytics workspace tables.
 
-   ![Screenshot that shows the Migration wizard UI with the option to select target workspace.](./media/convert-classic-resource/migration.png)
+   :::image type="content" source="./media/convert-classic-resource/migration.png" lightbox="./media/convert-classic-resource/migration.png" alt-text="Screenshot that shows the Migration wizard UI with the option to select target workspace.":::
 
    After your resource is migrated, you'll see the corresponding workspace information in the **Overview** pane.
 
-   ![Screenshot that shows the Workspace name.](./media/create-workspace-resource/workspace-name.png)
+   :::image type="content" source="./media/create-workspace-resource/workspace-name.png" lightbox="./media/create-workspace-resource/workspace-name.png" alt-text="Screenshot that shows the Workspace name.":::
 
    Selecting the blue link text takes you to the associated Log Analytics workspace where you can take advantage of the new unified workspace query environment.
 
@@ -157,7 +157,19 @@ For the full Azure CLI documentation for this command, see the [Azure CLI docume
 
 ### Azure PowerShell
 
-The `Update-AzApplicationInsights` PowerShell command doesn't currently support migrating a classic Application Insights resource to workspace based. To create a workspace-based resource with PowerShell, use the following Azure Resource Manager templates and deploy them with PowerShell.
+Starting with version 8.0 or higher of [Azure PowerShell](/powershell/azure/what-is-azure-powershell), you can use the  `Update-AzApplicationInsights` PowerShell command to migrate a classic Application Insights resource to workspace based.
+
+To use this cmdlet, you need to specify the name and resource group of the Application Insights resource that you want to update. Use the `IngestionMode` and `WorkspaceResoruceId` parameters to migrate your classic instance to workspace-based. For more information on the parameters and syntax of this cmdlet, see [Update-AzApplicationInsights](/powershell/module/az.applicationinsights/update-azapplicationinsights).
+
+#### Example
+
+```powershell
+# Get the resource ID of the Log Analytics workspace
+$workspaceResourceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName "rgName" -Name "laName").ResourceId
+
+# Update the Application Insights resource with the workspace parameter
+Update-AzApplicationInsights -Name "aiName" -ResourceGroupName "rgName" -IngestionMode LogAnalytics -WorkspaceResourceId $workspaceResourceId
+```
 
 ### Azure Resource Manager templates
 
@@ -281,7 +293,7 @@ Yes, they continue to work.
 
 No. Migration doesn't affect existing API access to data. After migration, you can access data directly from a workspace by using a [slightly different schema](#workspace-based-resource-changes).
 
-### Is there be any impact on Live Metrics or other monitoring experiences?
+### Is there any impact on Live Metrics or other monitoring experiences?
 
 No. There's no impact to [Live Metrics](live-stream.md#live-metrics-monitor-and-diagnose-with-1-second-latency) or other monitoring experiences.
 
@@ -311,11 +323,11 @@ The legacy **Continuous export** functionality isn't supported for workspace-bas
 
 1. From your Application Insights resource view, under the **Configure** heading, select **Continuous export**.
 
-    ![Screenshot that shows the Continuous export menu item.](./media/convert-classic-resource/continuous-export.png)
+    :::image type="content" source="./media/convert-classic-resource/continuous-export.png" lightbox="./media/convert-classic-resource/continuous-export.png" alt-text="Screenshot that shows the Continuous export menu item.":::
 
 1. Select **Disable**.
 
-    ![Screenshot that shows the Continuous export Disable button.](./media/convert-classic-resource/disable.png)
+    :::image type="content" source="./media/convert-classic-resource/disable.png" lightbox="./media/convert-classic-resource/disable.png" alt-text="Screenshot that shows the Continuous export Disable button.":::
 
    - After you select **Disable**, you can go back to the migration UI. If the **Edit continuous export** page prompts you that your settings aren't saved, select **OK**. This prompt doesn't pertain to disabling or enabling continuous export.
 
@@ -340,7 +352,7 @@ The structure of a Log Analytics workspace is described in [Log Analytics worksp
 > [!NOTE]
 > The classic Application Insights experience includes backward compatibility for your resource queries, workbooks, and log-based alerts. To query or view against the [new workspace-based table structure or schema](#table-structure), first go to your Log Analytics workspace. During the preview, selecting **Logs** in the Application Insights pane gives you access to the classic Application Insights query experience. For more information, see [Query scope](../logs/scope.md).
 
-[![Diagram that shows the Azure Monitor Logs structure for Application Insights.](../logs/media/data-platform-logs/logs-structure-ai.png)](../logs/media/data-platform-logs/logs-structure-ai.png#lightbox)
+[:::image type="content" source="../logs/media/data-platform-logs/logs-structure-ai.png" lightbox="../logs/media/data-platform-logs/logs-structure-ai.png" alt-text="Diagram that shows the Azure Monitor Logs structure for Application Insights.":::
 
 ### Table structure
 
@@ -398,7 +410,7 @@ Legacy table: availabilityResults
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |sdkVersion|string|SDKVersion|string|
@@ -439,7 +451,7 @@ Legacy table: browserTimings
 |networkDuration|real|NetworkDurationMs|real|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |processingDuration|real|ProcessingDurationMs|real|
@@ -485,7 +497,7 @@ Legacy table: dependencies
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |resultCode|string|ResultCode|string|
@@ -527,7 +539,7 @@ Legacy table: customEvents
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
@@ -562,7 +574,7 @@ Legacy table: customMetrics
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
@@ -609,7 +621,7 @@ Legacy table: pageViews
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |sdkVersion|string|SDKVersion|string|
@@ -649,7 +661,7 @@ Legacy table: performanceCounters
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
@@ -689,7 +701,7 @@ Legacy table: requests
 |name|string|Name|String|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|String|
 |resultCode|string|ResultCode|String|
@@ -739,7 +751,7 @@ Legacy table: exceptions
 |method|string|Method|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
-|operation_ParentId|string|OperationParentId|string|
+|operation_ParentId|string|ParentId|string|
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |outerAssembly|string|OuterAssembly|string|
 |outerMessage|string|OuterMessage|string|

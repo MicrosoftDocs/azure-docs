@@ -7,7 +7,7 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Accessing user information in Azure Static Web Apps
@@ -59,7 +59,9 @@ async function getUserInfo() {
   return clientPrincipal;
 }
 
+(async () => {
 console.log(await getUserInfo());
+})();
 ```
 
 ## API functions

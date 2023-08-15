@@ -24,5 +24,4 @@ We recommend using **Azure AD** authentication in Managed Airflow environments. 
 ## Next steps
 
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
-- [Refresh a Power BI dataset with Managed Airflow](tutorial-refresh-power-bi-dataset-with-airflow.md)
 - [Managed Airflow pricing](airflow-pricing.md)

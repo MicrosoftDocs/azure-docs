@@ -8,27 +8,21 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 03/21/2023
+ms.date: 07/20/2023
 ms.author: banders
 ---
 
 # Self-service trade-in for Azure savings plans
 
-If you find that your [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/), [Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/), or [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) reservations, don't provide the necessary flexibility you require, you can trade these reservations for a savings plan. When you trade-in a reservation and purchase a savings plan, you can select a savings plan term of either one-year to three-year.
+If your [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/), [Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/), or [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) reservations, don't provide the necessary flexibility you need, you can trade them for a savings plan. When you trade-in a reservation and purchase a savings plan, you can select a savings plan term of either one-year to three-year.
 
-Although you can return the above offerings for a savings plan, you can't exchange a savings plan for them or for another savings plan. You can trade in up to 100 reservations as part of a savings plan purchase.
+Although you can return the above offerings for a savings plan, you can't exchange a savings plan for them or for another savings plan. Due to technical limitations, you can only trade in up to 100 reservations at a time as part of a savings plan purchase.
 
-The following reservations aren't eligible to be traded in for savings plans:
+Apart from [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/), [Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/), or [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) reservations, no other reservations or prepurchase plans are eligible for trade-in.
 
-- Azure Databricks reserved capacity
-- Synapse Analytics Pre-purchase plan
-- Azure VMware solution by CloudSimple
-- Azure Red Hat Open Shift
-- Red Hat plans
-- SUSE Linux plans
 
 > [!NOTE]
-> Exchanges will be unavailable for all compute reservations - Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations - purchased on or after **January 1, 2024**. Compute reservations purchased **prior to January 1, 2024** will reserve the right to **exchange one more time** after the policy change goes into effect. Azure savings plan for compute is designed to help you save broadly on predictable compute usage. The savings plan provides more flexibility needed to accommodate changes such as virtual machine series and regions. With savings plan providing the flexibility automatically, we’re adjusting our reservations exchange policy. You can continue to exchange VM sizes (with instance size flexibility) but we'll no longer support exchanging instance series or regions for Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations. 
+> Exchanges will be unavailable for all compute reservations - Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations - purchased on or after **January 1, 2024**. Compute reservations purchased **prior to January 1, 2024** will reserve the right to **exchange one more time** after the policy change goes into effect. Azure savings plan for compute is designed to help you save broadly on predictable compute usage. The savings plan provides more flexibility needed to accommodate changes such as virtual machine series and regions. With savings plan providing the flexibility automatically, we’re adjusting our reservations exchange policy. You can continue to use instance size flexibility for VM sizes, but we'll no longer support exchanging instance series or regions for Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations. 
 >
 > You may trade-in your Azure compute reservations for a savings plan. Or, you may continue to use and purchase reservations for those predictable, stable workloads where you know the specific configuration you’ll need and want additional savings. For more information, see [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).
 

@@ -3,7 +3,7 @@ title: Use TLS with an ingress controller on Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an ingress controller that uses TLS in an Azure Kubernetes Service (AKS) cluster.
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-linux
 author: asudbring
 ms.author: allensu
 ms.topic: how-to
@@ -130,7 +130,8 @@ When you upgrade your ingress controller, you must pass a parameter to the Helm 
     helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
       --namespace $NAMESPACE \
       --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL \
-      --set controller.service.loadBalancerIP=$STATIC_IP
+      --set controller.service.loadBalancerIP=$STATIC_IP \
+      --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
     ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -165,7 +166,8 @@ When you upgrade your ingress controller, you must pass a parameter to the Helm 
     helm upgrade ingress-nginx ingress-nginx/ingress-nginx `
       --namespace $Namespace `
       --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel `
-      --set controller.service.loadBalancerIP=$StaticIP
+      --set controller.service.loadBalancerIP=$StaticIP `
+      --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
     ```
 
 ---
@@ -292,7 +294,8 @@ NAMESPACE="ingress-basic"
 
 helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
   --namespace $NAMESPACE \
-  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNSLABEL
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNSLABEL \
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -303,7 +306,8 @@ $Namespace = "ingress-basic"
 
 helm upgrade ingress-nginx ingress-nginx/ingress-nginx `
   --namespace $Namespace `
-  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DnsLabel `
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
 ```
 
 ---
@@ -643,8 +647,7 @@ You can also:
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-supported versions]: supported-kubernetes-versions.md
-[aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
-[aks-integrated-acr-ps]: cluster-container-registry-integration.md?tabs=azure-powershell#create-a-new-aks-cluster-with-acr-integration
+[aks-integrated-acr]: cluster-container-registry-integration.md#create-a-new-acr
 [azure-powershell-install]: /powershell/azure/install-az-ps
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
 [get-az-aks-cluster]: /powershell/module/az.aks/get-azakscluster

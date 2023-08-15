@@ -3,6 +3,7 @@ title: Troubleshoot Azure Database for MySQL - Flexible Server CLI errors
 description: This topic gives guidance on troubleshooting common issues with Azure CLI when using MySQL Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: devx-track-azurecli
 ms.topic: troubleshooting
 ms.author: sumuth
 author: mksuni
@@ -26,32 +27,34 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 
 >[!NOTE]
 >
-> - Replace ```examplegroup``` and ```exampledeployment``` with the correct resource group and deployment name for your database server. 
+> - Replace ```examplegroup``` and ```exampledeployment``` with the correct resource group and deployment name for your database server.
 > - You can see the Deployment name in the deployments page in your resource group. See [how to find the deployment name](../../azure-resource-manager/templates/deployment-history.md?tabs=azure-portal).
 
-1. List the deployments in resource group to identify the MySQL Server deployment 
-	```azurecli
+1. List the deployments in resource group to identify the MySQL Server deployment.
 
-		az deployment operation group list \
-		  --resource-group examplegroup \
-		  --name exampledeployment
-	```
+    ```azurecli
+    az deployment operation group list \
+      --resource-group examplegroup \
+      --name exampledeployment
+    ```
 
-2. Get the request content of the MySQL Server deployment 
-	```azurecli
+2. Get the request content of the MySQL Server deployment.
 
-		az deployment operation group list \
-		  --name exampledeployment \
-		  -g examplegroup \
-		  --query [].properties.request
-	```
-3. Examine the response content 
-	```azurecli
-	az deployment operation group list \
-	  --name exampledeployment \
-	  -g examplegroup \
-	  --query [].properties.response
-	```
+    ```azurecli
+    az deployment operation group list \
+      --name exampledeployment \
+      -g examplegroup \
+      --query [].properties.request
+    ```
+
+3. Examine the response content.
+
+    ```azurecli
+    az deployment operation group list \
+      --name exampledeployment \
+      -g examplegroup \
+      --query [].properties.response
+    ```
 
 ## Error codes
 

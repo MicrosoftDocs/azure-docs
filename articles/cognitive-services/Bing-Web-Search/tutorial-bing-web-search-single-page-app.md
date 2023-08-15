@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Create a single-page web app - Bing Web Search API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This single-page app demonstrates how the Bing Web Search API can be used to retrieve, parse, and display relevant search results in a single-page app.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Tutorial: Create a single-page app using the Bing Web Search API
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 This single-page app demonstrates how to retrieve, parse, and display search results from the Bing Web Search API. The tutorial uses boilerplate HTML and CSS, and focuses on the JavaScript code. HTML, CSS, and JS files are available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) with quickstart instructions.
 
@@ -28,14 +28,14 @@ This sample app can:
 > * Manage subscription keys
 > * Handle errors
 
-To use this app, an [Azure Cognitive Services account](../cognitive-services-apis-create-account.md) with Bing Search APIs is required.
+To use this app, an [Azure AI services account](../cognitive-services-apis-create-account.md) with Bing Search APIs is required.
 
 ## Prerequisites
 
 Here are a few things that you'll need to run the app:
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.BingSearch"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
 
 * Node.js 8 or later
 
@@ -48,7 +48,7 @@ git clone https://github.com/Azure-Samples/cognitive-services-REST-api-samples.g
 Then run `npm install`. For this tutorial, Express.js is the only dependency.
 
 ```console
-cd <path-to-repo>/cognitive-services-REST-api-samples/Tutorials/Bing-Web-Search
+cd <path-to-repo>/cognitive-services-REST-api-samples/Tutorials/bing-web-search
 npm install
 ```
 

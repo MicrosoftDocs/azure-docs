@@ -165,4 +165,4 @@ The following types of updates generate new records in the **SecurityAlert** tab
 The [Microsoft Defender for IoT](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-unifiedmicrosoftsocforot?tab=Overview) solution is a set of bundled, out-of-the-box content that's configured specifically for Defender for IoT data, and includes analytics rules, workbooks, and playbooks.
 
 > [!div class="nextstepaction"]
-> [Install the **Microsoft Defender for IoT** solution](iot-advanced-threat-monitoring.md)
+> [Install the Microsoft Defender for IoT solution](iot-advanced-threat-monitoring.md)

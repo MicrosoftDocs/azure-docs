@@ -44,7 +44,7 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 Custom skill deployment creates an Azure Function app and an Azure Storage account. Since these resources are created for you, they aren't listed as a prerequisite. When you're finished with this tutorial, remember to clean up the resources so that you aren't billed for services you're not using.
 
 > [!NOTE]
-> Skillsets often require [attaching a Cognitive Services resource](cognitive-search-attach-cognitive-services.md). As written, this skillset has no dependency on Cognitive Services and thus no key is required. If you later add enrichments that invoke built-in skills, remember to update your skillset accordingly.
+> Skillsets often require [attaching an Azure AI multi-service resource](cognitive-search-attach-cognitive-services.md). As written, this skillset has no dependency on Azure AI services and thus no key is required. If you later add enrichments that invoke built-in skills, remember to update your skillset accordingly.
 
 ## 1 - Create services and collect credentials
 
@@ -100,7 +100,7 @@ You should have an Azure Function app that contains the decryption logic and an 
 
 ### Get an admin api-key and URL for Azure Cognitive Search
 
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL were `https://mydemo.search.windows.net`, your service name would be `mydemo`.
+1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL were `https://mydemo.search.windows.net`, your service name would be `mydemo`.
 
 2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 

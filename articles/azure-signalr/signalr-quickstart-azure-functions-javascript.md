@@ -60,173 +60,176 @@ When you run the `func new` command from the root directory of the project, the 
 
 1. Run the following command to create the `index` function.
 
-  ```bash
-  func new -n index -t HttpTrigger
-  ```
+    ```bash
+    func new -n index -t HttpTrigger
+    ```
 
 1. Edit *index/function.json* and replace the contents with the following json code:
 
-  ```json
-  {
-    "bindings": [
-      {
-        "authLevel": "anonymous",
-        "type": "httpTrigger",
-        "direction": "in",
-        "name": "req",
-        "methods": [
-          "get",
-          "post"
-        ]
-      },
-      {
-        "type": "http",
-        "direction": "out",
-        "name": "res"
-      }
-    ]
-  }
-  ```
+    ```json
+    {
+      "bindings": [
+        {
+          "authLevel": "anonymous",
+          "type": "httpTrigger",
+          "direction": "in",
+          "name": "req",
+          "methods": [
+            "get",
+            "post"
+          ]
+        },
+        {
+          "type": "http",
+          "direction": "out",
+          "name": "res"
+        }
+      ]
+    }
+    ```
 
-1. Edit *index/\__init\__.py* and replace the contents with the following code:
+1. Edit *index/index.js* and replace the contents with the following code:
 
-  ```javascript
-  var fs = require('fs').promises
+    ```javascript
+    var fs = require('fs').promises
 
-  module.exports = async function (context, req) {
-      const path = context.executionContext.functionDirectory + '/../content/index.html'
-      try {
-          var data = await fs.readFile(path);
-          context.res = {
-              headers: {
-                  'Content-Type': 'text/html'
-              },
-              body: data
-          }
-          context.done()
-      } catch (err) {
-          context.log.error(err);
-          context.done(err);
-      }
-  }
-  ```
+    module.exports = async function (context, req) {
+        const path = context.executionContext.functionDirectory + '/../content/index.html'
+        try {
+            var data = await fs.readFile(path);
+            context.res = {
+                headers: {
+                    'Content-Type': 'text/html'
+                },
+                body: data
+            }
+            context.done()
+        } catch (err) {
+            context.log.error(err);
+            context.done(err);
+        }
+    }
+    ```
 
 ### Create the negotiate function
 
 1. Run the following command to create the `negotiate` function.
 
-  ```bash
-  func new -n negotiate -t HttpTrigger
-  ```
+    ```bash
+    func new -n negotiate -t HttpTrigger
+    ```
 
 1. Edit *negotiate/function.json* and replace the contents with the following json code:
-
-  ```json
-  {
-    "disabled": false,
-    "bindings": [
-      {
-        "authLevel": "anonymous",
-        "type": "httpTrigger",
-        "direction": "in",
-        "methods": [
-          "post"
-        ],
-        "name": "req",
-        "route": "negotiate"
-      },
-      {
-        "type": "http",
-        "direction": "out",
-        "name": "res"
-      },
-      {
-        "type": "signalRConnectionInfo",
-        "name": "connectionInfo",
-        "hubName": "serverless",
-        "connectionStringSetting": "AzureSignalRConnectionString",
-        "direction": "in"
-      }
-    ]
-  }
-  ```
-
+    ```json
+    {
+      "disabled": false,
+      "bindings": [
+        {
+          "authLevel": "anonymous",
+          "type": "httpTrigger",
+          "direction": "in",
+          "methods": [
+            "post"
+          ],
+          "name": "req",
+          "route": "negotiate"
+        },
+        {
+          "type": "http",
+          "direction": "out",
+          "name": "res"
+        },
+        {
+          "type": "signalRConnectionInfo",
+          "name": "connectionInfo",
+          "hubName": "serverless",
+          "connectionStringSetting": "AzureSignalRConnectionString",
+          "direction": "in"
+        }
+      ]
+    }
+    ```
+1. Edit *negotiate/index.js* and replace the content with the following JavaScript code:
+    ```js
+    module.exports = async function (context, req, connectionInfo) {
+        context.res.body = connectionInfo;
+    };
+    ```
 ### Create a broadcast function.
 
 1. Run the following command to create the `broadcast` function.
 
-  ```bash
-  func new -n broadcast -t TimerTrigger
-  ```
+    ```bash
+    func new -n broadcast -t TimerTrigger
+    ```
 
 1. Edit *broadcast/function.json* and replace the contents with the following code:
 
-
-  ```json
-  {
-    "bindings": [
-      {
-        "name": "myTimer",
-        "type": "timerTrigger",
-        "direction": "in",
-        "schedule": "*/5 * * * * *"
-      },
-      {
-        "type": "signalR",
-        "name": "signalRMessages",
-        "hubName": "serverless",
-        "connectionStringSetting": "AzureSignalRConnectionString",
-        "direction": "out"
-      }
-    ]
-  }
-  ```
+    ```json
+    {
+      "bindings": [
+        {
+          "name": "myTimer",
+          "type": "timerTrigger",
+          "direction": "in",
+          "schedule": "*/5 * * * * *"
+        },
+        {
+          "type": "signalR",
+          "name": "signalRMessages",
+          "hubName": "serverless",
+          "connectionStringSetting": "AzureSignalRConnectionString",
+          "direction": "out"
+        }
+      ]
+    }
+    ```
 
 1. Edit *broadcast/index.js* and replace the contents with the following code:
-  
-  ```javascript
-  var https = require('https');
-  
-  var etag = '';
-  var star = 0;
-  
-  module.exports = function (context) {
-      var req = https.request("https://api.github.com/repos/azure/azure-signalr", {
-          method: 'GET',
-          headers: {'User-Agent': 'serverless', 'If-None-Match': etag}
-      }, res => {
-          if (res.headers['etag']) {
-              etag = res.headers['etag']
-          }
-  
-          var body = "";
-  
-          res.on('data', data => {
-              body += data;
-          });
-          res.on("end", () => {
-              if (res.statusCode === 200) {
-                  var jbody = JSON.parse(body);
-                  star = jbody['stargazers_count'];
-              }
-              
-              context.bindings.signalRMessages = [{
-                  "target": "newMessage",
-                  "arguments": [ `Current star count of https://github.com/Azure/azure-signalr is: ${star}` ]
-              }]
-              context.done();
-          });
-      }).on("error", (error) => {
-          context.log(error);
-          context.res = {
-            status: 500,
-            body: error
-          };
-          context.done();
-      });
-      req.end();
-  }
-  ```
+    
+    ```javascript
+    var https = require('https');
+    
+    var etag = '';
+    var star = 0;
+    
+    module.exports = function (context) {
+        var req = https.request("https://api.github.com/repos/azure/azure-signalr", {
+            method: 'GET',
+            headers: {'User-Agent': 'serverless', 'If-None-Match': etag}
+        }, res => {
+            if (res.headers['etag']) {
+                etag = res.headers['etag']
+            }
+    
+            var body = "";
+    
+            res.on('data', data => {
+                body += data;
+            });
+            res.on("end", () => {
+                if (res.statusCode === 200) {
+                    var jbody = JSON.parse(body);
+                    star = jbody['stargazers_count'];
+                }
+                
+                context.bindings.signalRMessages = [{
+                    "target": "newMessage",
+                    "arguments": [ `Current star count of https://github.com/Azure/azure-signalr is: ${star}` ]
+                }]
+                context.done();
+            });
+        }).on("error", (error) => {
+            context.log(error);
+            context.res = {
+              status: 500,
+              body: error
+            };
+            context.done();
+        });
+        req.end();
+    }
+    ```
 
 ### Create the index.html file
 
@@ -265,16 +268,13 @@ The client interface for this app is a web page. The `index` function reads HTML
 
 
 ### Add the SignalR Service connection string to the function app settings
-=======
-1. Azure Functions requires a storage account to work. You can install and run the [Azure Storage Emulator](../storage/common/storage-use-azurite.md). **Or** you can update the setting to use your real storage account with the following command:
+
+Azure Functions requires a storage account to work. You can install and run the [Azure Storage Emulator](../storage/common/storage-use-azurite.md). **Or** you can update the setting to use your real storage account with the following command:
     ```bash
     func settings add AzureWebJobsStorage "<storage-connection-string>"
     ```
 
-4. You're almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
-
-
-The last step is to set the SignalR Service connection string in Azure Function app settings.
+You're almost done now. The last step is to set the SignalR Service connection string in Azure Function app settings.
 
 1. In the Azure portal, go to the SignalR instance you deployed earlier.
 1. Select **Keys** to view the connection strings for the SignalR Service instance.
@@ -288,7 +288,6 @@ The last step is to set the SignalR Service connection string in Azure Function 
   ```
   
 ### Run the Azure Function app locally
-
 
 Start the Azurite storage emulator:
 

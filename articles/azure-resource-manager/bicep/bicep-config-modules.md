@@ -2,6 +2,7 @@
 title: Module setting for Bicep config
 description: Describes how to customize configuration values for modules in Bicep deployments.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 01/18/2023
 ---
 

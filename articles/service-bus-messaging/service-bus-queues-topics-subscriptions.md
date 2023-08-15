@@ -2,6 +2,7 @@
 title: Azure Service Bus messaging - queues, topics, and subscriptions
 description: This article provides an overview of Azure Service Bus messaging entities (queue, topics, and subscriptions).
 ms.topic: conceptual
+ms.custom: devx-track-extended-java
 ms.date: 10/11/2022
 ---
 

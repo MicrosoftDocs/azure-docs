@@ -17,6 +17,11 @@ Authorizing requests against SignalR with Azure AD provides superior security an
 <a id="security-principal"></a>
 *[1] security principal: a user/resource group, an application, or a service principal such as system-assigned identities and user-assigned identities.*
 
+> [!IMPORTANT]
+> Disabling local authentication can have following influences.
+> - The current set of access keys will be permanently deleted. 
+> - Tokens signed with access keys will no longer be available. 
+
 ## Overview of Azure AD for SignalR
 
 When a security principal attempts to access a SignalR resource, the request must be authorized. With Azure AD, access to a resource requires 2 steps. 
@@ -83,3 +88,6 @@ To learn more about roles and role assignments, see:
 To learn how to create custom roles, see:
 
 - [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)
+
+To learn how to use only Azure AD authentication, see
+- [Disable local authentication](./howto-disable-local-auth.md)

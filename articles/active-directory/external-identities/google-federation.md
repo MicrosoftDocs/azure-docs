@@ -18,6 +18,9 @@ ms.collection: M365-identity-device-management
 
 # Add Google as an identity provider for B2B guest users
 
+> [!TIP]
+> This article describes adding Google as an identity provider for B2B collaboration. If your tenant is configured for customer identity and access management, see [Add Google as an identity provider](customers/how-to-google-federation-customers.md) for customers.
+
 By setting up federation with Google, you can allow invited users to sign in to your shared apps and resources with their own Gmail accounts, without having to create Microsoft accounts. After you've added Google as one of your application's sign-in options, on the **Sign in** page, a user can simply enter the Gmail address they use to sign in to Google.
 
 ![Sign in options for Google users](media/google-federation/sign-in-with-google-overview.png)
@@ -43,7 +46,7 @@ Guest users who see a "header too long" error can clear their cookies or open a 
 
 ## Sign-in endpoints
 
-Google guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using their Google credentials.
+Google guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-process-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using their Google credentials.
 
 Google guest users can also use application endpoints that include your tenant information, for example:
 
@@ -62,7 +65,7 @@ The following are known scenarios that will impact Gmail users:
 - Windows apps that use the [WebView](/windows/communitytoolkit/controls/wpf-winforms/webview) control, [WebView2](/microsoft-edge/webview2/), or the older WebBrowser control, for authentication. These apps should migrate to using the Web Account Manager (WAM) flow.
 - Android applications using the WebView UI element 
 - iOS applications using UIWebView/WKWebview 
-- [Apps using ADAL](../develop/howto-get-list-of-all-active-directory-auth-library-apps.md)
+- [Apps using ADAL](../develop/howto-get-list-of-all-auth-library-apps.md)
 
 This change does not affect:
 - Web apps
@@ -175,7 +178,7 @@ First, create a new project in the Google Developers Console to obtain a client 
     - `https://login.microsoftonline.com/te/<tenant name>.onmicrosoft.com/oauth2/authresp` <br>(where `<tenant name>` is your tenant name)
    
     > [!NOTE]
-    > To find your tenant ID, go to the [Azure portal](https://portal.azure.com). Under **Azure Active Directory**, select **Properties** and copy the **Tenant ID**.
+    > To find your tenant ID, sign in to the [Azure portal](https://portal.azure.com). Under **Azure Active Directory**, select **Properties** and copy the **Tenant ID**.
 
 1. Select **Create**. Copy your client ID and client secret. You'll use them when you add the identity provider in the Azure portal.
 
@@ -216,7 +219,7 @@ You'll now set the Google client ID and client secret. You can use the Azure por
 You can delete your Google federation setup. If you do so, Google guest users who have already redeemed their invitation won't be able to sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md).
  
 **To delete Google federation in the Azure portal**
-1. Go to the [Azure portal](https://portal.azure.com). On the left pane, select **Azure Active Directory**. 
+1. Sign in to the [Azure portal](https://portal.azure.com). On the left pane, select **Azure Active Directory**.
 2. Select **External Identities**.
 3. Select **All identity providers**.
 4. On the **Google** line, select the ellipsis button (**...**) and then select **Delete**. 

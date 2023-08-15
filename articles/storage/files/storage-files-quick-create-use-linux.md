@@ -2,11 +2,11 @@
 title: Tutorial - Create an NFS Azure file share and mount it on a Linux VM using the Azure portal
 description: This tutorial covers how to use the Azure portal to deploy a Linux virtual machine, create an Azure file share using the NFS protocol, and mount the file share so that it's ready to store files.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
+ms.custom: devx-track-linux
 ms.topic: tutorial
 ms.date: 10/21/2022
 ms.author: kendownie
-ms.subservice: files
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
 ---
 
@@ -63,7 +63,7 @@ Next, create an Azure VM running Linux to represent the on-premises server. When
 
 1. Select **+ Create** and then **+ Azure virtual machine**.
 
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription and resource group are selected. Under **Instance details**, type *myVM* for the **Virtual machine name**, and select the same region as your storage account. Choose the default Ubuntu Server version for your **Image**. Leave the other defaults. The default size and pricing is only shown as an example. Size availability and pricing are dependent on your region and subscription.
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription and resource group are selected. Under **Instance details**, type *myVM* for the **Virtual machine name**, and select the same region as your storage account. Choose your Linux distribution for your **Image**. Leave the other defaults. The default size and pricing is only shown as an example. Size availability and pricing are dependent on your region and subscription.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-vm-project-instance-details.png" alt-text="Screenshot showing how to enter the project and instance details to create a new V M." lightbox="media/storage-files-quick-create-use-linux/create-vm-project-instance-details.png" border="true":::
 
@@ -104,9 +104,9 @@ Now you're ready to create an NFS file share and provide network-level security 
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-nfs-share.png" alt-text="Screenshot showing how to name the file share and provision capacity to create a new N F S file share." lightbox="media/storage-files-quick-create-use-linux/create-nfs-share.png" border="true":::
 
-### Set up a private endpoint
+### Set up a private endpoint or service endpoint
 
-Next, you'll need to set up a private endpoint for your storage account. This gives your storage account a private IP address from within the address space of your virtual network.
+Next, set up a private endpoint for your storage account. This gives your storage account a private IP address from within the address space of your virtual network. Standard [data processing rates](https://azure.microsoft.com/pricing/details/private-link/) for private endpoints apply. If you don't require a static IP address, you can use a service endpoint instead. There's no extra charge for using service endpoints.
 
 1. Select the file share *qsfileshare*. You should see a dialog that says *Connect to this NFS share from Linux*. Under **Network configuration**, select **Review options**
 
@@ -200,7 +200,7 @@ Now that you've created an NFS share, to use it you have to mount it on your Lin
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/mount-nfs-share.png" alt-text="Screenshot showing how to connect to an N F S file share from Linux using a provided mounting script." lightbox="media/storage-files-quick-create-use-linux/mount-nfs-share.png" border="true":::
 
-1. Select your Linux distribution (Ubuntu).
+1. Select your Linux distribution.
 
 1. Using the ssh connection you created to your VM, enter the sample commands to use NFS and mount the file share.
 

@@ -2,11 +2,10 @@
 title: Delete an Azure Elastic SAN Preview
 description: Learn how to delete an Azure Elastic SAN Preview with the Azure portal, Azure PowerShell module, or the Azure CLI.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 02/22/2023
 ms.author: rogarana
-ms.subservice: elastic-san
 ms.custom: ignite-2022, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -37,7 +36,7 @@ In your compute client, retrieve the sessionID for the Elastic SAN volumes you'd
 Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to disconnect an Elastic SAN volume.
 
 ```
-iscsicli RemovePersistentTarget $yourStorageTargetIQN $yourStorageTargetPortalPort $yourStorageTargetPortalHostName
+iscsicli RemovePersistentTarget ROOT\ISCSIPRT\0000_0 $yourStorageTargetIQN -1 $yourStorageTargetPortalPort $yourStorageTargetPortalHostName
 
 iscsicli LogoutTarget <sessionID>
 

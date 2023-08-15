@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.date: 02/16/2023
 ms.author: zityang
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom:
 ---
 # Tutorial: Azure SignalR Service authentication with Azure Functions
 

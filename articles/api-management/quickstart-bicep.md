@@ -5,6 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: api-management
 tags: azure-resource-manager, bicep
+ms.custom: devx-track-bicep
 ms.topic: quickstart
 ms.author: jgao
 ms.date: 03/10/2022

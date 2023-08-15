@@ -89,12 +89,13 @@ The `cors` policy adds cross-origin resource sharing (CORS) support to an operat
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ### Usage notes
  * You may configure the `cors` policy at more than one scope (for example, at the product scope and the global scope). Ensure that the `base` element is configured at the operation, API, and product scopes to inherit needed policies at the parent scopes. 
 * Only the `cors` policy is evaluated on the `OPTIONS` request during preflight. Remaining configured policies are evaluated on the approved request. 
+- This policy can only be used once in a policy section.
 
 ## About CORS
 

@@ -4,8 +4,8 @@ description: Learn how Azure Policy uses Rego and Open Policy Agent to manage cl
 ms.date: 06/17/2022
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Understand Azure Policy for Kubernetes clusters
 
@@ -49,7 +49,7 @@ To enable and use Azure Policy with your Kubernetes cluster, take the following 
 
 The following general limitations apply to the Azure Policy Add-on for Kubernetes clusters:
 
-- Azure Policy Add-on for Kubernetes is supported on Kubernetes version **1.14** or higher.
+- Azure Policy Add-on for Kubernetes is supported on [supported Kubernetes versions in Azure Kubernetes Service (AKS)](../../../aks/supported-kubernetes-versions.md).
 - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.
 - Maximum number of pods supported by the Azure Policy Add-on: **10,000**
 - Maximum number of Non-compliant records per policy per cluster: **500**
@@ -137,7 +137,7 @@ must enable the **Microsoft.PolicyInsights** resource providers.
 1. If limited preview policy definitions were installed, remove the add-on with the **Disable**
    button on your AKS cluster under the **Policies** page.
 
-1. The AKS cluster must be version _1.14_ or higher. Use the following script to validate your AKS
+1. The AKS cluster must be a [supported AKS cluster version](https://learn.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli). Use the following script to validate your AKS
    cluster version:
 
    ```azurecli-interactive
@@ -488,7 +488,7 @@ messages, see
 ## Logging
 
 As a Kubernetes controller/container, both the _azure-policy_ and _gatekeeper_ pods keep logs in the
-Kubernetes cluster. The logs can be exposed in the **Insights** page of the Kubernetes cluster. For
+Kubernetes cluster. In general, _azure-policy_ logs can be used to troubleshoot issues with policy ingestion onto the cluster and compliance reporting. The _gatekeeper-controller-manager_ pod logs can be used to troubleshoot runtime denies. The _gatekeeper-audit_ pod logs can be used to troubleshoot audits of existing resources. The logs can be exposed in the **Insights** page of the Kubernetes cluster. For
 more information, see
 [Monitor your Kubernetes cluster performance with Azure Monitor for containers](../../../azure-monitor/containers/container-insights-analyze.md).
 

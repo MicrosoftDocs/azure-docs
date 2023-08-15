@@ -105,7 +105,7 @@ Sign in to the [Azure portal - Azure Orbital Preview](https://aka.ms/orbital/por
 
 1. [Create a virtual network](../virtual-network/quick-create-portal.md) to host your data endpoint VM.
 2. [Create a virtual machine](../virtual-network/quick-create-portal.md#create-virtual-machines) within the virtual network that you created. Ensure that this VM has the following specifications:
-   - The operating system is Linux (Ubuntu 18.04 or later).
+   - The operating system is Linux (Ubuntu 20.04 or later).
    - The size is at least 32 GiB of RAM.
    - The VM has internet access for downloading tools by having one standard public IP address.
 

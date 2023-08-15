@@ -3,7 +3,8 @@ title: Enable Azure resources to access Azure Kubernetes Service (AKS) clusters 
 description: Learn how to use the Trusted Access feature to enable Azure resources to access Azure Kubernetes Service (AKS) clusters.
 author: schaffererin
 ms.topic: article
-ms.date: 03/20/2023
+ms.custom: devx-track-azurecli
+ms.date: 05/23/2023
 ms.author: schaffererin
 ---
 
@@ -27,7 +28,7 @@ This article shows you how to enable secure access from your Azure services to y
 
 ## Trusted Access feature overview
 
-Trusted Access enables you to give explicit consent to your system-assigned MSI of allowed resources to access your AKS clusters using an Azure resource *RoleBinding*. Your Azure resources access AKS clusters through the AKS regional gateway via system-assigned managed identity authentication with the appropriate Kubernetes permissions via an Azure resource *Role*. The Trusted Access feature allows you to access AKS clusters with different configurations, including but not limited to [private clusters](private-clusters.md), [clusters with local accounts disabled](managed-aad.md#disable-local-accounts), [Azure AD clusters](azure-ad-integration-cli.md), and [authorized IP range clusters](api-server-authorized-ip-ranges.md).
+Trusted Access enables you to give explicit consent to your system-assigned MSI of allowed resources to access your AKS clusters using an Azure resource *RoleBinding*. Your Azure resources access AKS clusters through the AKS regional gateway via system-assigned managed identity authentication with the appropriate Kubernetes permissions via an Azure resource *Role*. The Trusted Access feature allows you to access AKS clusters with different configurations, including but not limited to [private clusters](private-clusters.md), [clusters with local accounts disabled](manage-local-accounts-managed-azure-ad.md#disable-local-accounts), [Azure AD clusters](azure-ad-integration-cli.md), and [authorized IP range clusters](api-server-authorized-ip-ranges.md).
 
 ## Prerequisites
 
@@ -36,7 +37,8 @@ Trusted Access enables you to give explicit consent to your system-assigned MSI 
 * * If you're using Azure CLI, the **aks-preview** extension version **0.5.74 or later** is required.
 * To learn about what Roles to use in various scenarios, see:
   *  [AzureML access to AKS clusters with special configurations](https://github.com/Azure/AML-Kubernetes/blob/master/docs/azureml-aks-ta-support.md).
-  *  [AKS backup using Azure Backup][aks-azure-backup]
+  *  [Using Azure Backup][aks-azure-backup]
+  *  [Enable Agentless Container Posture](../defender-for-cloud/concept-agentless-containers.md)
 
 
 First, install the aks-preview extension by running the following command:
@@ -156,6 +158,8 @@ For more information on AKS, see:
 
 * [Deploy and manage cluster extensions for AKS](cluster-extensions.md)
 * [Deploy AzureML extension on AKS or Arc Kubernetes cluster](../machine-learning/how-to-deploy-kubernetes-extension.md)
+* [Deploy Azure Backup on AKS cluster](../backup/azure-kubernetes-service-backup-overview.md)
+* [Enable Agentless Container Posture on AKS cluster](../defender-for-cloud/concept-agentless-containers.md)
 
 <!-- LINKS -->
 

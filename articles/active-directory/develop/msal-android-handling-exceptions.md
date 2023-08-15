@@ -18,7 +18,7 @@ ms.reviewer: negoe
 
 Exceptions in the Microsoft Authentication Library (MSAL) are intended to help app developers troubleshoot their application. Exception messages aren't localized.
 
-When processing exceptions and errors, you can use the exception type itself and the error code to distinguish between exceptions. For a list of error codes, see [Authentication and authorization error codes](reference-aadsts-error-codes.md).
+When processing exceptions and errors, you can use the exception type itself and the error code to distinguish between exceptions. For a list of error codes, see [Authentication and authorization error codes](reference-error-codes.md).
 
 During the sign-in experience, you may encounter errors about consents, Conditional Access (MFA, Device Management, Location-based restrictions), token issuance and redemption, and user properties.
 

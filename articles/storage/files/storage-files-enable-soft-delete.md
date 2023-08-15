@@ -2,11 +2,10 @@
 title: Enable soft delete - Azure file shares
 description: Learn how to enable soft delete on Azure file shares for data recovery and preventing accidental deletion.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 04/05/2021
 ms.author: kendownie
-ms.subservice: files 
 ms.custom: devx-track-azurepowershell
 services: storage
 ---
@@ -22,7 +21,7 @@ Azure Files offers soft delete for file shares so that you can more easily recov
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Prerequisites
-- If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-az-ps).
+- If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-azure-powershell).
 - If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
 
 ## Getting started
@@ -30,7 +29,7 @@ The following sections show how to enable and use soft delete for Azure file sha
 
 # [Portal](#tab/azure-portal)
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your storage account and select **File shares** under **Data storage**.
 1. Select **Enabled** next to **Soft delete**.
 1. Select **Enabled** for **Soft delete for all file shares**.

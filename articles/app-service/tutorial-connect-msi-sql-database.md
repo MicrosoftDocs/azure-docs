@@ -5,7 +5,7 @@ description: Secure Azure SQL Database connectivity with managed identity from a
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/01/2023
-ms.custom: "devx-track-csharp, mvc, cli-validate, devx-track-azurecli"
+ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli, devx-track-dotnet
 ---
 # Tutorial: Connect to SQL Database from .NET App Service without secrets using a managed identity
 
@@ -63,7 +63,7 @@ First, enable Azure Active Directory authentication to SQL Database by assigning
 1. Find the object ID of the Azure AD user using the [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) and replace *\<user-principal-name>*. The result is saved to a variable.
 
     ```azurecli-interactive
-    azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query '[].id' --output tsv)
+    $azureaduser=(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query '[].id' --output tsv)
     ```
 
     > [!TIP]
@@ -116,7 +116,7 @@ For more information on adding an Active Directory admin, see [Provision an Azur
 
 # [Azure PowerShell](#tab/ps)
 
-1. The Azure Identity client library that you'll use later can use tokens from Azure PowerShell. To enable command-line based development, [install Azure PowerShell](/powershell/azure/install-az-ps) on your local machine.
+1. The Azure Identity client library that you'll use later can use tokens from Azure PowerShell. To enable command-line based development, [install Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine.
 
 1. Sign in to Azure CLI with the following cmdlet using your Azure AD user:
 
@@ -223,8 +223,8 @@ Here's an example of the output:
 > If you want, you can add the identity to an [Azure AD group](../active-directory/fundamentals/active-directory-manage-groups.md), then grant SQL Database access to the Azure AD group instead of the identity. For example, the following commands add the managed identity from the previous step to a new group called _myAzureSQLDBAccessGroup_:
 > 
 > ```azurecli-interactive
-> groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
-> msiobjectid=$(az webapp identity show --resource-group myResourceGroup --name <app-name> --query principalId --output tsv)
+> $groupid=(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
+> $msiobjectid=(az webapp identity show --resource-group myResourceGroup --name <app-name> --query principalId --output tsv)
 > az ad group member add --group $groupid --member-id $msiobjectid
 > az ad group member list -g $groupid
 > ```

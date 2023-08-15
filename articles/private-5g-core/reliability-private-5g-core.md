@@ -13,13 +13,13 @@ ms.date: 01/31/2022
 
 This article describes reliability support in Azure Private 5G Core. It covers both regional resiliency with availability zones and cross-region resiliency with disaster recovery. For an overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
+See [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=private-5g-core) for the Azure regions where Azure Private 5G Core is available.
+
 ## Availability zone support
 
 The Azure Private 5G Core service is automatically deployed as zone-redundant in Azure regions that support availability zones, as listed in [Availability zone service and regional support](../reliability/availability-zones-service-support.md). If a region supports availability zones then all Azure Private 5G Core resources created in a region can be managed from any of the availability zones.
 
 No further work is required to configure or manage availability zones. Failover between availability zones is automatic.
-
-Azure Private 5G Core is currently available in the EastUS and WestEurope regions.
 
 ### Zone down experience
 
@@ -32,8 +32,6 @@ The application ensures that all cloud state is replicated between availability 
 ## Disaster recovery: cross-region failover
 
 Azure Private 5G Core is only available in multi-region (3+N) geographies. The service automatically replicates SIM credentials to a backup region in the same geography. This means that there's no loss of data in the event of region failure. Within four hours of the failure, all resources in the failed region are available to view through the Azure portal and ARM tools but will be read-only until the failed region is recovered. the packet running at the Edge continues to operate without interruption and network connectivity will be maintained.
-
-To view all regions that support Azure Private 5G Core, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
 ### Cross-region disaster recovery in multi-region geography
 

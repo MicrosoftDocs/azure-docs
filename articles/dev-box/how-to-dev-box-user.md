@@ -6,13 +6,13 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/12/2022
+ms.date: 04/25/2023
 ms.topic: how-to
 ---
 
 # Provide user-level access to projects for developers
 
-Team members must have access to a specific Microsoft Dev Box Preview project before they can create dev boxes. By using the built-in DevCenter Dev Box User role, you can assign permissions to Active Directory users or groups at the project level.
+Team members must have access to a specific Microsoft Dev Box project before they can create dev boxes. By using the built-in DevCenter Dev Box User role, you can assign permissions to Active Directory users or groups at the project level.
 
 [!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
 

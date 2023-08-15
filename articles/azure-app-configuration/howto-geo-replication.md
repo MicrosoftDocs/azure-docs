@@ -28,6 +28,9 @@ To learn more about the concept of geo-replication, see [Geo-replication in Azur
 
 To create a replica of your configuration store in the portal, follow the steps below.
 
+> [!NOTE]
+> Creating a replica for an App Configuration store with private endpoints configured with Static IP is not supported. If you prefer a private endpoint with Static IP configuration, replicas must be created before any private endpoint is added to a store.
+
 <!-- ### [Portal](#tab/azure-portal) -->
 
 1. In your App Configuration store, under **Settings**, select **Geo-replication**.
@@ -147,9 +150,15 @@ spring.cloud.azure.appconfiguration.stores[0].endpoints[0]="<first-replica-endpo
 spring.cloud.azure.appconfiguration.stores[0].endpoints[1]="<second-replica-endpoint>"
 ```
 
+**Connect with Connection String**
+
+```properties
+spring.cloud.azure.appconfiguration.stores[0].connection-strings[0]="${FIRST_REPLICA_CONNECTION_STRING}"
+spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]="${SECOND_REPLICA_CONNECTION_STRING}"
+```
 
 > [!NOTE]
-> The failover support is available if you use version of **4.0.0-beta.1** or later of any of the following packages.
+> The failover support is available if you use version of **4.7.0** or later of any of the following packages.
 > - `spring-cloud-azure-appconfiguration-config`
 > - `spring-cloud-azure-appconfiguration-config-web`
 > - `spring-cloud-azure-starter-appconfiguration-config`

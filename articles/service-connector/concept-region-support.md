@@ -1,8 +1,8 @@
 ---
 title: Service Connector Region Support
 description: Service Connector region availability and region support list
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: service-connector
 ms.topic: conceptual
 ms.date: 09/19/2022

@@ -12,7 +12,7 @@ ms.date: 01/10/2022
 
 # Ransomware protection in Azure
 
-Ransomware and extortion are a high profit, low-cost business, which has a debilitating impact on targeted organizations, national security, economic security, and public health and safety. What started as simple, single-PC ransomware has grown to include a variety of extortion techniques directed at all types of corporate networks and cloud platforms.
+Ransomware and extortion are a high profit, low-cost business, which has a debilitating impact on targeted organizations, national/regional security, economic security, and public health and safety. What started as simple, single-PC ransomware has grown to include a variety of extortion techniques directed at all types of corporate networks and cloud platforms.
 
 To ensure customers running on Azure are protected against ransomware attacks, Microsoft has invested heavily on the security of our cloud platforms, and provides security controls you need to protect your Azure cloud workloads
 

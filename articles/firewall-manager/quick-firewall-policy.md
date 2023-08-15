@@ -7,7 +7,7 @@ ms.author: victorh
 ms.date: 02/17/2021
 ms.topic: quickstart
 ms.service: firewall-manager
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create an Azure Firewall and a firewall policy - ARM template

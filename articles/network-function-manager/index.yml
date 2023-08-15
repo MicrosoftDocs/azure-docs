@@ -4,12 +4,12 @@ title: Network Function Manager documentation # < 60 chars
 summary: Azure Network Function Manager offers an Azure Marketplace experience for deploying network functions to your Azure Stack Edge device. # < 160 chars
 
 metadata:
-  title: Network Function Manager documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn about Network Function Manager.  # Required; article description that is displayed in search results. < 160 chars.
-  ms.service: network-function-manager #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
-  author: prmitt #Required; your GitHub user alias, with correct capitalization.
-  ms.author: prmitt #Required; microsoft alias of author; optional team alias.
+  title: Network Function Manager documentation
+  description: Learn about Network Function Manager.
+  ms.service: network-function-manager
+  ms.topic: landing-page
+  author: prmitt
+  ms.author: prmitt
   ms.date: 06/09/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a key vault
 
@@ -94,7 +94,6 @@ After importing the certificate, you can view the certificate using the Azure CL
 ```azurecli
 az keyvault certificate show --vault-name "<your-key-vault-name>" --name "ExampleCertificate"
 ```
-
 
 # [Azure PowerShell](#tab/azure-powershell)
 

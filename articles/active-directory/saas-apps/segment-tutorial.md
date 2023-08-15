@@ -150,7 +150,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **SAML 2.0 Endpoint URL** box, paste the **Login URL** value that you copied from the Azure portal.
 
-1. Open the downloaded **Cerificate(Base64)** from the Azure portal into Notepad and paste the content into the **Public Certificate** textbox.
+1. Open the downloaded **Certificate(Base64)** from the Azure portal into Notepad and paste the content into the **Public Certificate** textbox.
 
 1. Click on **Configure Connection**.
 

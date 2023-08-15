@@ -1,7 +1,7 @@
 ---
 title: Security controls for Azure Spring Apps Service
 description: Use security controls built in into Azure Spring Apps Service.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: conceptual
@@ -14,11 +14,9 @@ ms.custom: devx-track-java, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
-
-Security controls are built in into Azure Spring Apps Service.
+Security controls are built into Azure Spring Apps Service.
 
 A security control is a quality or feature of an Azure service that contributes to the service's ability to prevent, detect, and respond to security vulnerabilities.  For each control, we use *Yes* or *No* to indicate whether it is currently in place for the service.  We use *N/A* for a control that is not applicable to the service.
 

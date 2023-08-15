@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
-ms.date: 09/26/2022
+ms.date: 08/10/2023
 ---
 
 # Tutorial: Copy data from a SQL Server database to Azure Blob storage
@@ -109,7 +109,7 @@ In this section, you create a blob container named **adftutorial** in your Azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Install the latest version of Azure PowerShell if you don't already have it on your machine. For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+Install the latest version of Azure PowerShell if you don't already have it on your machine. For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 #### Log in to PowerShell
 

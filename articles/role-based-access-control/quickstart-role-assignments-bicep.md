@@ -6,7 +6,7 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.workload: identity
 ms.date: 06/30/2022
 ms.author: rolyon

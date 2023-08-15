@@ -5,6 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, sneshaf, pinath, azla
 ms.topic: how-to
+ms.custom: devx-track-arm-template
 ms.date: 01/23/2023
 ---
 

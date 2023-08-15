@@ -4,11 +4,11 @@ description: With this sample, use Azure PowerShell to deploy and configure Azur
 services: traffic-manager
 documentationcenter: traffic-manager
 author: greg-lindsay
-manager: twooley
+manager: kumud
 ms.service: traffic-manager
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 10/23/2018
+ms.date: 04/27/2023
 ms.author: greglin
 ms.custom: template-concept, devx-track-azurepowershell
 ---

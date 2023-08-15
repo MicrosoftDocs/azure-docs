@@ -8,6 +8,7 @@ ms.date: 07/19/2022
 ms.custom: template-overview 
 ms.reviewer: harelbr
 ---
+
 # What are Azure Monitor alerts?
 
 Alerts help you detect and address issues before users notice them by proactively notifying you when Azure Monitor data indicates there might be a problem with your infrastructure or application.
@@ -18,17 +19,15 @@ This diagram shows you how alerts work.
 
 :::image type="content" source="media/alerts-overview/alerts.png"  alt-text="Diagram that explains Azure Monitor alerts." lightbox="media/alerts-overview/alerts.png":::
 
-An *alert rule* monitors your telemetry and captures a signal that indicates something is happening on the specified resource. The alert rule captures the signal and checks to see if the signal meets the criteria of the condition. If the conditions are met, an alert is triggered, which initiates the associated action group and updates the state of the alert.
+An *alert rule* monitors your data and captures a signal that indicates something is happening on the specified resource. The alert rule captures the signal and checks to see if the signal meets the criteria of the condition. If the conditions are met, an alert is triggered, which initiates the associated action group and updates the state of the alert.
 
 An alert rule combines:
  - The resources to be monitored.
- - The signal or telemetry from the resource.
+ - The signal or data from the resource.
  - Conditions.
 
 If you're monitoring more than one resource, the condition is evaluated separately for each of the resources. Alerts are fired for each resource separately.
 
-After an alert is triggered, the alert is made up of:
- - **Alert processing rules**: You can use these rules to apply processing on fired alerts. Alert processing rules modify the fired alerts as they're being fired. You can use alert processing rules to add or suppress action groups, apply filters, or have the rule processed on a predefined schedule.
  - **Action groups**: These groups can trigger notifications or an automated workflow to let users know that an alert has been triggered. Action groups can include:
      - Notification methods, such as email, SMS, and push notifications.
      - Automation runbooks.
@@ -40,9 +39,9 @@ After an alert is triggered, the alert is made up of:
      - Event hubs.
 - **Alert conditions**: These conditions are set by the system. When an alert fires, the alert's monitor condition is set to **fired**. After the underlying condition that caused the alert to fire clears, the monitor condition is set to **resolved**.
 - **User response**: The response is set by the user and doesn't change until the user changes it.
+- **Alert processing rules**: You can use alert processing rules to make modifications to triggered alerts as they're being fired. You can use alert processing rules to add or suppress action groups, apply filters, or have the rule processed on a predefined schedule.
 
 You can see all alert instances in all your Azure resources generated in the last 30 days on the [Alerts page](alerts-page.md) in the Azure portal.
-
 ## Types of alerts
 
 This table provides a brief description of each alert type. For more information about each alert type and how to choose which alert type best suits your needs, see [Types of Azure Monitor alerts](alerts-types.md).
@@ -53,7 +52,7 @@ This table provides a brief description of each alert type. For more information
 |[Log alerts](alerts-types.md#log-alerts)|Log alerts allow users to use a Log Analytics query to evaluate resource logs at a predefined frequency.|
 |[Activity log alerts](alerts-types.md#activity-log-alerts)|Activity log alerts are triggered when a new activity log event occurs that matches defined conditions. Resource Health alerts and Service Health alerts are activity log alerts that report on your service and resource health.|
 |[Smart detection alerts](alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
-|[Prometheus alerts (preview)](alerts-types.md#prometheus-alerts-preview)|Prometheus alerts are used for alerting on the performance and health of Kubernetes clusters, including Azure Kubernetes Service (AKS). The alert rules are based on PromQL, which is an open-source query language.|
+|[Prometheus alerts](alerts-types.md#prometheus-alerts)|Prometheus alerts are used for alerting on Prometheus metrics stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). The alert rules are based on the PromQL open-source query language.|
 
 ## Recommended alert rules
 
@@ -62,7 +61,7 @@ If you don't have alert rules defined for the selected resource, you can [enable
 The system compiles a list of recommended alert rules based on:
 
 - The resource provider’s knowledge of important signals and thresholds for monitoring the resource.
-- Telemetry that tells us what customers commonly alert on for this resource.
+- Data that tells us what customers commonly alert on for this resource.
 
 > [!NOTE]
 > Recommended alert rules is enabled for:
@@ -102,7 +101,6 @@ You can configure whether log or metric alerts are stateful or stateless. Activi
     |Log alerts| The alert condition isn't met for a specific time range. The time range differs based on the frequency of the alert:<ul> <li>**1 minute**: The alert condition isn't met for 10 minutes.</li> <li>**5 to 15 minutes**: The alert condition isn't met for three frequency periods.</li> <li>**15 minutes to 11 hours**: The alert condition isn't met for two frequency periods.</li> <li>**11 to 12 hours**: The alert condition isn't met for one frequency period.</li></ul>|
 
 When an alert is considered resolved, the alert rule sends out a resolved notification by using webhooks or email. The monitor state in the Azure portal is set to **resolved**.
-
 ## Pricing
 For information about pricing, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -113,3 +111,4 @@ For information about pricing, see [Azure Monitor pricing](https://azure.microso
 - [Learn about action groups](../alerts/action-groups.md)
 - [Learn about alert processing rules](alerts-action-rules.md)
 - [Manage your alerts programmatically](alerts-manage-alert-instances.md#manage-your-alerts-programmatically)
+
