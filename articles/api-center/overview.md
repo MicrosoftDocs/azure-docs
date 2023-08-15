@@ -43,10 +43,10 @@ For more information about the information assets and capabilities in API Center
 
 * In preview, API Center is available in the following Azure regions:
    * Australia East
-      * Central India
-         * East US
-            * UK South
-               * West Europe 
+   * Central India
+   * East US
+   * UK South
+   * West Europe 
                
 ## Frequently asked questions
 
