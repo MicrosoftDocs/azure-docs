@@ -132,7 +132,7 @@ Use the following steps to connect your service instances:
 
 1. From the navigation pane, open the **Apps** pane and select **Create App**.
 
-1. On the **Create App** page, fill in the app name *simple-todo-api* and select *Java 17* as the runtime platform.
+1. On the **Create App** page, fill in the app name *simple-todo-api* and select *Java artifacts* as the deployment type.
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-consumption-app.png" alt-text="Screenshot of the Azure portal showing the consumption app creation." lightbox="../../media/quickstart-deploy-restful-api-app/create-consumption-app.png":::
 
