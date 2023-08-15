@@ -25,7 +25,7 @@ To complete the scenario in this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure AD Premium P1 or P2 - Azure AD Conditional Access is an Azure AD Premium capability. You can sign up for a trial in the Azure portal.
-- A test account to sign-in with - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+- A test account to sign-in with - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users.md#add-a-new-user).
 
 ## Sign-in without terms of use
 
@@ -97,7 +97,7 @@ To test your policy, try to sign in to the [Azure portal](https://portal.azure.c
 
 When no longer needed, delete the test user and the Conditional Access policy:
 
-- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
+- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users.md#delete-a-user).
 - To delete your policy, select the ellipsis (`...`) next to your policies name, then select **Delete**.
 - To delete your terms of use, select it, and then select **Delete terms**.
 

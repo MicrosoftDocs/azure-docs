@@ -349,7 +349,7 @@ Example of usage within the workflow:
 ### Add user to groups
 
 
-Allows users to be added to Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and role-assignable groups aren't supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
+Allows users to be added to Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and role-assignable groups aren't supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/connect/how-to-connect-group-writeback-v2.md). 
 
 
 You're able to customize the task name and description for this task.
@@ -528,7 +528,7 @@ For Microsoft Graph, the parameters for the **Disable user account** task are as
 
 ### Remove user from selected groups
 
-Allows users to be removed from Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and role-assignable groups aren't supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md). 
+Allows users to be removed from Microsoft 365 and cloud-only security groups. Mail-enabled, distribution, dynamic and role-assignable groups aren't supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/connect/how-to-connect-group-writeback-v2.md). 
 
 
 You're able to customize the task name and description for this task in the Azure portal.
@@ -568,7 +568,7 @@ For Microsoft Graph, the parameters for the **Remove user from selected groups**
 
 ### Remove users from all groups
 
-Allows users to be removed from every Microsoft 365 and cloud-only security group they're a member of. Mail-enabled, distribution, dynamic and role-assignable groups aren't supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/how-to-connect-group-writeback-v2.md).
+Allows users to be removed from every Microsoft 365 and cloud-only security group they're a member of. Mail-enabled, distribution, dynamic and role-assignable groups aren't supported. To control access to on-premises applications and resources, you need to enable group writeback. For more information, see [Azure AD Connect group writeback](../hybrid/connect/how-to-connect-group-writeback-v2.md).
 
 
 
@@ -982,4 +982,3 @@ Example of usage within the workflow:
 
 - [Manage lifecycle workflows properties](manage-workflow-properties.md)
 - [Manage lifecycle workflow versions](manage-workflow-tasks.md)
-
