@@ -66,7 +66,7 @@ The template defines multiple Azure resources:
    | **Instance Details** |  |
    | Resource Group Name | Use the default of **rg-avnm-sample** |
    | Region | Select the region to deploy the resources. |
-   | Location | Enter the location to deploy the resources. This is used in the resource naming convention</br> The location matches the **Region** you've chosen, and is written with no spaces. For example, **East US** is written as **EastUS**. |
+   | Location | Enter the location to deploy the resources. The location value is used in the resource naming convention</br> The location matches the **Region** you've chosen, and is written with no spaces. For example, **East US** is written as **EastUS**. |
    | Connectivity Topology | Select the connectivity topology to deploy. The options include **mesh**, **hubAndSpoke**, and **meshWithHubAndSpoke**. |
    | Network Group Membership Type | Select the network group membership type. The options include **static** and **dynamic**. |
 
