@@ -49,7 +49,7 @@ The **X12** connector has one version across workflows in [multi-tenant Azure Lo
 
     > [!IMPORTANT]
     >
-    > If you're working with Health Insurance Portability and Accountability Act (HIPAA) schemas, make sure to review [HIPAA schemas and message types](#hipaa-schemas).
+    > If you're working with Health Insurance Portability and Accountability Act (HIPAA) schemas, make sure to review [HIPAA schemas and message types](logic-apps-enterprise-integration-x12-message-settings.md#hipaa-schemas).
 
 * Based on whether you're working on a Consumption or Standard logic app workflow, your logic app resource might require a link to your integration account:
 
