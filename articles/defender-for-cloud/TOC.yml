@@ -691,7 +691,7 @@
       - name: Setup response to malware scanning
         href: defender-for-storage-configure-malware-scan.md
       - name: Test and run a proof of concept
-      href: defender-for-storage-test.md
+        href: defender-for-storage-test.md
     - name: List of security threats and security alerts
       href: defender-for-storage-threats-alerts.md
     - name: Common questions about Defender for Storage
