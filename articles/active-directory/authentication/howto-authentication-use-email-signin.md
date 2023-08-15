@@ -101,7 +101,7 @@ A different approach is to synchronize the Azure AD and on-premises UPNs to the 
 | Option | Description |
 |---|---|
 | [Alternate Login ID for AD FS](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) | Enable sign-in with an alternate attribute (such as Mail) for AD FS users. |
-| [Alternate Login ID in Azure AD Connect](../hybrid/plan-connect-userprincipalname.md#alternate-login-id) | Synchronize an alternate attribute (such as Mail) as the Azure AD UPN. |
+| [Alternate Login ID in Azure AD Connect](../hybrid/connect/plan-connect-userprincipalname.md#alternate-login-id) | Synchronize an alternate attribute (such as Mail) as the Azure AD UPN. |
 | Email as an Alternate Login ID | Enable sign-in with verified domain *ProxyAddresses* for Azure AD users. |
 
 ## Synchronize sign-in email addresses to Azure AD
@@ -447,11 +447,11 @@ For more information on hybrid identity operations, see [how password hash sync]
 
 <!-- INTERNAL LINKS -->
 [verify-domain]: ../fundamentals/add-custom-domain.md
-[hybrid-auth-methods]: ../hybrid/choose-ad-authn.md
-[azure-ad-connect]: ../hybrid/whatis-azure-ad-connect.md
-[hybrid-overview]: ../hybrid/cloud-governed-management-for-on-premises.md
-[phs-overview]: ../hybrid/how-to-connect-password-hash-synchronization.md
-[pta-overview]: ../hybrid/how-to-connect-pta-how-it-works.md
+[hybrid-auth-methods]: ../hybrid/connect/choose-ad-authn.md
+[azure-ad-connect]: ../hybrid/connect/whatis-azure-ad-connect.md
+[hybrid-overview]: ../hybrid/connect/cloud-governed-management-for-on-premises.md
+[phs-overview]: ../hybrid/connect/how-to-connect-password-hash-synchronization.md
+[pta-overview]: ../hybrid/connect/how-to-connect-pta-how-it-works.md
 [sign-in-logs]: ../reports-monitoring/concept-sign-ins.md
 
 <!-- EXTERNAL LINKS -->
