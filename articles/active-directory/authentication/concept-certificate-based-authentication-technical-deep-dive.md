@@ -392,4 +392,4 @@ For more information about how to enable **Trust multi-factor authentication fro
 - [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
 - [FAQ](certificate-based-authentication-faq.yml)
-- [Troubleshoot Azure AD CBA](./certificate-based-authentication-faq.md)
+- [Troubleshoot Azure AD CBA](./certificate-based-authentication-faq.yml)
