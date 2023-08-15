@@ -103,12 +103,12 @@ You use the BGP IP addresses, Public IP addresses, and ASN values provided by Mi
 1. Select **Networking** > **Local network gateway**.
 1. Select the **Resource group** created previously.
 1. Select the appropriate region.
-1. Provide your virtual network gateway with a **Name**.
-1. For **Endpoint**, select **IP address**, then provide the IP address provided by Microsoft.
+1. Provide your local network gateway with a **Name**.
+1. For **Endpoint**, select **IP address**, then provide the IP address provided in the Microsft Entra admin center.
 1. Select **Next: Advanced**.
 1. Set **Configure BGP** to **Yes**
-   1. Set the **Autonomous system number (ASN)** to the appropriate value. 
-   1. Set the **BGP peer IP address** to the appropriate value. 
+   1. Set the **Autonomous system number (ASN)** to the appropriate value provided in the Microsft Entra admin center. 
+   1. Set the **BGP peer IP address** to the appropriate value provided in the Microsft Entra admin center. 
 1. Select **Review + create**, confirm your settings.
 1. Select **Create**.
 
