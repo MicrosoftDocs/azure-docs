@@ -69,8 +69,6 @@ To begin using Azure CLI:
 
 ## Reset your NSX-T manager credentials
 
-### [Portal](#tab/azure-portal)
- 
 1. In your Azure VMware Solution private cloud, select **VMWare credentials**.
 1. Select **Generate new password** under NSX-T Manager credentials.
 1. Select the confirmation checkbox and then select **Generate password**.
