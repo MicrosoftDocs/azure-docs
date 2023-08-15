@@ -71,10 +71,10 @@ To use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD)
 
 ### Valid licenses for PIM
 
-You'll need either Microsoft Entra ID Governance licenses or Azure AD Premium P2 licenses to use PIM and all of its settings. Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles with a Microsoft Entra Premuim P2 or Microsoft Entra ID Governance edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required. 
+You'll need either Microsoft Entra ID Governance licenses or Azure AD Premium P2 licenses to use PIM and all of its settings. Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles with a Microsoft Entra Premium P2 or Microsoft Entra ID Governance edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required. 
 
 ### Licenses you must have for PIM
-Ensure that your directory has Microsoft Entra Premuim P2 or Microsoft Entra ID Governance licenses for the following categories of users:
+Ensure that your directory has Microsoft Entra Premium P2 or Microsoft Entra ID Governance licenses for the following categories of users:
 
 - Users with eligible and/or time-bound assignments to Azure AD or Azure roles managed using PIM
 - Users with eligible and/or time-bound assignments as members or owners of PIM for Groups
@@ -95,7 +95,7 @@ Here are some example license scenarios to help you determine the number of lice
 
 ### When a license expires for PIM
 
-If a Microsoft Azure AD Premuim P2, Microsoft Entra ID Governance, or trial license expires, Privileged Identity Management features will no longer be available in your directory:
+If a Microsoft Azure AD Premium P2, Microsoft Entra ID Governance, or trial license expires, Privileged Identity Management features will no longer be available in your directory:
 
 - Permanent role assignments to Azure AD roles will be unaffected.
 - The Privileged Identity Management service in the Azure portal, as well as the Graph API cmdlets and PowerShell interfaces of Privileged Identity Management, will no longer be available for users to activate privileged roles, manage privileged access, or perform access reviews of privileged roles.
