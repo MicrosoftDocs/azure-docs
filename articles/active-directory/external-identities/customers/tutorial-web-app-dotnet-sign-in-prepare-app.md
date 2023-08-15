@@ -16,7 +16,7 @@ ms.date: 05/23/2023
 
 # Tutorial: Prepare an ASP.NET web app for authentication in a customer tenant
 
-In the [previous article](./how-to-web-app-dotnet-sign-in-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (Azure AD) for customers tenant.
+In the [previous article](./tutorial-web-app-dotnet-sign-in-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (Azure AD) for customers tenant.
 
 In this tutorial you'll;
 
@@ -28,7 +28,7 @@ In this tutorial you'll;
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Prepare your customer tenant for building an ASP.NET web app](./how-to-web-app-dotnet-sign-in-prepare-tenant.md).
+* Completion of the prerequisites and steps in [Prepare your customer tenant for building an ASP.NET web app](./tutorial-web-app-dotnet-sign-in-prepare-tenant.md).
 * Although any integrated development environment (IDE) that supports ASP.NET applications can be used, this tutorial uses **Visual Studio Code**. You can download it [here](https://visualstudio.microsoft.com/downloads/).
 * [.NET 7.0 SDK](https://dotnet.microsoft.com/download/dotnet).
 
@@ -83,7 +83,7 @@ Identity related NuGet packages must be installed in the project to authenticate
 
     * `Authority` - The identity provider instance and sign-in audience for the app. Replace `Enter_the_Tenant_Subdomain_Here` with the sub-domain of your customer tenant. To find this, select **Overview** in the sidebar menu, then switch to the **Overview tab**. Find the **Primary domain**, in the form *caseyjensen.onmicrosoft.com*. The sub-domain is *caseyjensen*.
     * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
-    * `ClientSecret` - The value of the client secret you created in [Prepare your tenant](./how-to-web-app-dotnet-sign-in-prepare-tenant.md). Replace the text in quotes with the client secret **value** in the Microsoft Entra admin center.
+    * `ClientSecret` - The value of the client secret you created in [Prepare your tenant](./tutorial-web-app-dotnet-sign-in-prepare-tenant.md). Replace the text in quotes with the client secret **value** in the Microsoft Entra admin center.
     * `CallbackPath` - Is an identifier to help the server redirect a response to the appropriate application.
     
 1. Save changes to the file.
@@ -181,4 +181,4 @@ The *Program.cs* needs to be modified to add authentication and authorization to
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign in and sign out](how-to-web-app-dotnet-sign-in-sign-out.md)
+> [Sign in and sign out](tutorial-web-app-dotnet-sign-in-sign-out.md)
