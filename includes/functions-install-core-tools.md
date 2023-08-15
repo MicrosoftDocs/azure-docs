@@ -6,7 +6,7 @@ ms.date: 08/02/2023
 ms.author: glenga
 ---
 
-## <a name="v2"></a>Install the Azure Functions Core Tools
+## Install the Azure Functions Core Tools
 
 The recommended way to install Core Tools depends on the operating system of your local development computer.
 
