@@ -1,6 +1,6 @@
 ---
 title: "Available extensions for Azure Arc-enabled Kubernetes clusters"
-ms.date: 04/17/2023
+ms.date: 08/15/2023
 ms.topic: how-to
 description: "See which extensions are currently available for Azure Arc-enabled Kubernetes clusters and view release notes."
 ---
@@ -118,6 +118,22 @@ For more information, see [Tutorial: Deploy applications using GitOps with Flux 
 
 The currently supported versions of the `microsoft.flux` extension are described below. The most recent version of the Flux v2 extension and the two previous versions (N-2) are supported. We generally recommend that you use the most recent version of the extension.
 
+### 1.7.4 (July 2023)
+
+Flux version: [Release v0.41.2](https://github.com/fluxcd/flux2/releases/tag/v0.41.2)
+
+- source-controller: v0.36.1
+- kustomize-controller: v0.35.1
+- helm-controller: v0.31.2
+- notification-controller: v0.33.0
+- image-automation-controller: v0.31.0
+- image-reflector-controller: v0.26.1
+
+Changes made for this version:
+
+- Adds support for [`wait`](https://fluxcd.io/flux/components/kustomize/kustomization/#wait) and [`postBuild`](https://fluxcd.io/flux/components/kustomize/kustomization/#post-build-variable-substitution) properties as optional parameters for kustomization. By default, `wait` will be set to `true` for all Flux configurations, and `postBuild` will be null. ([Example](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/examples/CreateFluxConfiguration.json#L55))
+- Adds support for optional properties [`waitForReconciliation`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/fluxconfiguration.json#L1299C14-L1299C35) and [`reconciliationWaitDuration`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/fluxconfiguration.json#L1304). Setting these properties means that success will not be returned until all configuration objects that are part of the Flux configuration have been successfully deployed. ([Example](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/examples/CreateFluxConfiguration.json#L72))
+
 ### 1.7.3 (April 2023)
 
 Flux version: [Release v0.41.2](https://github.com/fluxcd/flux2/releases/tag/v0.41.2)
@@ -150,29 +166,6 @@ Changes made for this version:
 
 - Upgrades Flux to [v0.39.0](https://github.com/fluxcd/flux2/releases/tag/v0.39.0)
 - Flux extension is now supported on ARM64-based clusters
-
-### 1.6.4 (February 2023)
-
-Changes made for this version:
-
-- Disabled extension reconciler (which attempts to restore the Flux extension if it fails). This resolves a potential bug where, if the reconciler is unable to recover a failed Flux extension and `prune` is set to `true`, the extension and deployed objects may be deleted.
-
-### 1.6.3 (December 2022)
-
-Flux version: [Release v0.37.0](https://github.com/fluxcd/flux2/releases/tag/v0.37.0)
-
-- source-controller: v0.32.1
-- kustomize-controller: v0.31.0
-- helm-controller: v0.27.0
-- notification-controller: v0.29.0
-- image-automation-controller: v0.27.0
-- image-reflector-controller: v0.23.0
-
-Changes made for this version:
-
-- Upgrades Flux to [v0.37.0](https://github.com/fluxcd/flux2/releases/tag/v0.37.0)
-- Adds exception for [aad-pod-identity in flux extension](troubleshooting.md#flux-v2---installing-the-microsoftflux-extension-in-a-cluster-with-azure-ad-pod-identity-enabled)
-- Enables reconciler for flux extension
 
 ## Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 
