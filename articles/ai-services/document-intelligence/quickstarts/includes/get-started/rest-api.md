@@ -1,5 +1,5 @@
 ---
-title: "Get started: Azure AI Document Intelligence REST API v2.1"
+title: "Get started: Azure AI Document Intelligence (formerly Form Recognizer) REST API v2.1"
 description: Use the Document Intelligence REST API v2.1 to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 author: laujan
 manager: nitinme
@@ -37,7 +37,7 @@ In this quickstart, you use the following APIs to extract structured data from f
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. You paste your key and endpoint into the code later in the quickstart:
 
-  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 ### Select a code sample to copy and paste into your application:
 
@@ -102,7 +102,7 @@ You receive a `200 (success)` response with JSON content.
 See the following invoice image and its corresponding JSON output.
 
 * The `"readResults"` node contains every line of text with its respective bounding box placement on the page.
-* The `selectionMarks` node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
+* The `selectionMarks` node shows every selection mark (checkbox, radio mark) and whether its status is `selected` or `unselected`.
 * The `"pageResults"` section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
 
 :::image type="content" source="../../../media/contoso-invoice.png" alt-text="Contoso project statement document with a table.":::

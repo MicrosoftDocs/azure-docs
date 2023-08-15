@@ -33,7 +33,7 @@ For more information, see [Run a workflow on demand](on-demand-workflow.md).
 
 ## Before you begin
 
-As part of the prerequisites for completing this tutorial, you need an account that has group and Teams memberships and that can be deleted during the tutorial. For comprehensive instructions on how to complete these prerequisite steps, see [Prepare user accounts for lifecycle workflows](tutorial-prepare-azure-ad-user-accounts.md).
+As part of the prerequisites for completing this tutorial, you need an account that has group and Teams memberships and that can be deleted during the tutorial. For comprehensive instructions on how to complete these prerequisite steps, see [Prepare user accounts for lifecycle workflows](tutorial-prepare-user-accounts.md).
 
 The leaver scenario includes the following steps:
 
@@ -132,5 +132,5 @@ At any time, you can monitor the status of workflows and tasks. Three data pivot
 
 ## Next steps
 
-- [Prepare user accounts for lifecycle workflows](tutorial-prepare-azure-ad-user-accounts.md)
+- [Prepare user accounts for lifecycle workflows](tutorial-prepare-user-accounts.md)
 - [Complete tasks in real time on an employee's last day of work by using lifecycle workflow APIs](/graph/tutorial-lifecycle-workflows-offboard-custom-workflow)

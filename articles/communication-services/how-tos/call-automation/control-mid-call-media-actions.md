@@ -6,17 +6,15 @@ author: kunaal
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.date: 05/14/2023
+ms.date: 08/09/2023
 ms.author: kpunjabi
-ms.custom: private_priview
+ms.custom: public_preview
 services: azure-communication-services
 ---
 
 # How to control mid-call media actions with Call Automation
 
->[!IMPORTANT]
->Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
->Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/acs-tap-invite).
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 Call Automation uses a REST API interface to receive requests for actions and provide responses to notify whether the request was successfully submitted or not. Due to the asynchronous nature of calling, most actions have corresponding events that are triggered when the action completes successfully or fails. This guide covers the actions available to developers during calls, like Send DTMF and Continuous DTMF Recognition. Actions are accompanied with sample code on how to invoke the said action.
 
@@ -33,11 +31,21 @@ As a prerequisite, we recommend you to read the below articles to make the most 
 For all the code samples, `client` is CallAutomationClient object that can be created as shown and `callConnection` is the CallConnection object obtained from Answer or CreateCall response. You can also obtain it from callback events received by your application. 
 ### [csharp](#tab/csharp)
 ```csharp
-var client = new CallAutomationClient("<resource_connection_string>"); 
+var callAutomationClient = new CallAutomationClient("<Azure Communication Services connection string>");
 ```
 ### [Java](#tab/java)
 ```java
- CallAutomationClient client = new CallAutomationClientBuilder().connectionString("<resource_connection_string>").buildClient();
+CallAutomationClient callAutomationClient = new CallAutomationClientBuilder() 
+    .connectionString("<Azure Communication Services connection string>") 
+    .buildClient();
+```
+### [JavaScript](#tab/javascript)
+```javascript
+callAutomationClient = new CallAutomationClient(("<Azure Communication Services connection string>"); 
+```
+### [Python](#tab/python)
+```python
+call_automation_client = CallAutomationClient.from_connection_string((("<Azure Communication Services connection string>") 
 ```
 -----
 
@@ -53,91 +61,178 @@ Send a list of DTMF tones to an external participant.
 ```csharp
 var tones = new DtmfTone[] { DtmfTone.One, DtmfTone.Two, DtmfTone.Three, DtmfTone.Pound };
 
-await callAutomationClient.GetCallConnection(callConnectionId)
-	.GetCallMedia()
-	.SendDtmfAsync(targetParticipant: tones: tones, new PhoneNumberIdentifier(c2Target), operationContext: "dtmfs-to-ivr");
+await callAutomationClient.GetCallConnection(callConnectionId) 
+    .GetCallMedia() 
+    .SendDtmfTonesAsync(tones, new PhoneNumberIdentifier(c2Target), "dtmfs-to-ivr"); 
 ```
 ### [Java](#tab/java)
 ```java
-List<DtmfTone> tones = new ArrayList<DtmfTone>();
-tones.add(DtmfTone.ZERO);
-
-callAutomationClient.getCallConnectionAsync(callConnectionId)
-	.getCallMediaAsync()
-	.sendDtmfWithResponse(tones, new PhoneNumberIdentifier(c2Target), "dtmfs-to-ivr").block();;
+List<DtmfTone> tones = Arrays.asList(DtmfTone.ONE, DtmfTone.TWO, DtmfTone.THREE, DtmfTone.POUND); 
+callAutomationClient.getCallConnectionAsync(callConnectionId) 
+    .getCallMediaAsync() 
+    .sendDtmfTonesWithResponse(tones, new PhoneNumberIdentifier(c2Target), "dtmfs-to-ivr") 
+    .block(); 
+```
+### [JavaScript](#tab/javascript)
+```javascript
+const tones = [DtmfTone.One, DtmfTone.Two, DtmfTone.Three];
+const sendDtmfTonesOptions: SendDtmfTonesOptions = {
+	operationContext: "dtmfs-to-ivr"
+};
+const result: SendDtmfTonesResult = await callAutomationClient.getCallConnection(callConnectionId)
+	.getCallMedia()
+	.sendDtmfTones(tones, {
+		phoneNumber: c2Target
+	}, sendDtmfTonesOptions);
+console.log("sendDtmfTones, result=%s", result);
+```
+### [Python](#tab/python)
+```python
+tones = [DtmfTone.ONE, DtmfTone.TWO, DtmfTone.THREE]
+result = call_automation_client.get_call_connection(call_connection_id).send_dtmf_tones(
+	tones = tones,
+	target_participant = PhoneNumberIdentifier(c2_target),
+	operation_context = "dtmfs-to-ivr")
+app.logger.info("Send dtmf, result=%s", result)
 ```
 -----
-When your application sends these DTMF tones, you'll receive event updates. You can use the `SendDtmfCompleted` and `SendDtmfFailed` events to create business logic in your application to determine the next steps. 
+When your application sends these DTMF tones, you receive event updates. You can use the `SendDtmfTonesCompleted` and `SendDtmfTonesFailed` events to create business logic in your application to determine the next steps. 
 
-Example of *SendDtmfCompleted* event
+Example of *SendDtmfTonesCompleted* event
 ### [csharp](#tab/csharp)
 ``` csharp
-if (@event is SendDtmfCompleted completed)
-{
-    logger.LogInformation("Send dtmf succeeded: context={context}",
-        completed.OperationContext);
-}
+if (acsEvent is SendDtmfTonesCompleted sendDtmfCompleted) 
+{ 
+    logger.LogInformation("Send DTMF succeeded, context={context}", sendDtmfCompleted.OperationContext); 
+} 
 ```
 ### [Java](#tab/java)
 ``` java
-if (acsEvent instanceof SendDtmfCompleted toneReceived) {
-    SendDtmfCompleted event = (SendDtmfCompleted) acsEvent;
-    logger.log(Level.INFO, "Send dtmf succeeded: context=" + event.getOperationContext());
+if (acsEvent instanceof SendDtmfTonesCompleted) { 
+    SendDtmfTonesCompleted event = (SendDtmfTonesCompleted) acsEvent; 
+    log.info("Send dtmf succeeded: context=" + event.getOperationContext()); 
+} 
+```
+### [JavaScript](#tab/javascript)
+```javascript
+if (event.type === "Microsoft.Communication.SendDtmfTonesCompleted") {
+	console.log("Send dtmf succeeded: context=%s", eventData.operationContext);
 }
 ```
+### [Python](#tab/python)
+```python
+if event.type == "Microsoft.Communication.SendDtmfTonesCompleted":
+	app.logger.info("Send dtmf succeeded: context=%s", event.data['operationContext']);
+```
 -----
-Example of *SendDtmfFailed*
+Example of *SendDtmfTonesFailed*
 ### [csharp](#tab/csharp)
 ```csharp
-if (@event is SendDtmfFailed failed)
-{
-    logger.LogInformation("Send dtmf failed: resultInfo={info}, context={context}",
-        failed.ResultInformation,
-        failed.OperationContext);
-}
+if (acsEvent is SendDtmfTonesFailed sendDtmfFailed) 
+{ 
+    logger.LogInformation("Send dtmf failed: result={result}, context={context}", 
+        sendDtmfFailed.ResultInformation?.Message, sendDtmfFailed.OperationContext); 
+} 
 ```
 ### [Java](#tab/java)
 ```java
-if (acsEvent instanceof SendDtmfFailed toneReceived) {
-    SendDtmfFailed event = (SendDtmfFailed) acsEvent;
-    logger.log(Level.INFO, "Send dtmf failed: context=" + event.getOperationContext());
+if (acsEvent instanceof SendDtmfTonesFailed) { 
+    SendDtmfTonesFailed event = (SendDtmfTonesFailed) acsEvent; 
+    log.info("Send dtmf failed: result=" + event.getResultInformation().getMessage() + ", context=" 
+        + event.getOperationContext()); 
+} 
+```
+### [JavaScript](#tab/javascript)
+```javascript
+if (event.type === "Microsoft.Communication.SendDtmfTonesFailed") {
+	console.log("sendDtmfTones failed: result=%s, context=%s",
+		eventData.resultInformation.message,
+		eventData.operationContext);
 }
+```
+### [Python](#tab/python)
+```python
+if event.type == "Microsoft.Communication.SendDtmfTonesFailed": 
+    app.logger.info("Send dtmf failed: result=%s, context=%s", event.data['resultInformation']['message'], event.data['operationContext']) 
 ```
 -----
 ## Continuous DTMF Recognition
-You can subscribe to receive continuous DTMF tones throughout the call, your application receives DTMF tones as soon as the targeted participant presses on a key on their keypad. These tones will be sent to you one by one as the participant is pressing them.
+You can subscribe to receive continuous DTMF tones throughout the call. Your application receives DTMF tones as the targeted participant presses on a key on their keypad. These tones are sent to your application one by one as the participant is pressing them.
 
 ### StartContinuousDtmfRecognitionAsync Method
 Start detecting DTMF tones sent by a participant.
 ### [csharp](#tab/csharp)
 ```csharp
-await callAutomationClient.GetCallConnection(callConnectionId)
-    .GetCallMedia()
-    .StartContinuousDtmfRecognitionAsync(targetParticipant: new PhoneNumberIdentifier(c2Target), operationContext: "dtmf-reco-on-c2");
+await callAutomationClient.GetCallConnection(callConnectionId) 
+    .GetCallMedia() 
+    .StartContinuousDtmfRecognitionAsync(new PhoneNumberIdentifier(c2Target), "dtmf-reco-on-c2"); 
 ```
 ### [Java](#tab/java)
 ```java
-callAutomationClient.getCallConnectionAsync(callConnectionId)
-	.getCallMediaAsync()
-	.startContinuousDtmfRecognitionWithResponse(new PhoneNumberIdentifier(c2Target), "dtmf-reco-on-c2").block();
+callAutomationClient.getCallConnectionAsync(callConnectionId) 
+        .getCallMediaAsync() 
+        .startContinuousDtmfRecognitionWithResponse(new PhoneNumberIdentifier(c2Target), "dtmf-reco-on-c2") 
+        .block(); 
+```
+### [JavaScript](#tab/javascript)
+```javascript
+const continuousDtmfRecognitionOptions: ContinuousDtmfRecognitionOptions = {
+	operationContext: "dtmf-reco-on-c2"
+};
+
+await callAutomationclient.getCallConnection(callConnectionId)
+	.getCallMedia()
+	.startContinuousDtmfRecognition({
+		phoneNumber: c2Target
+	}, continuousDtmfRecognitionOptions);
+```
+### [Python](#tab/python)
+```python
+call_automation_client.get_call_connection(
+    call_connection_id
+).start_continuous_dtmf_recognition(
+    target_participant=PhoneNumberIdentifier(c2_target),
+    operation_context="dtmf-reco-on-c2",
+)
+app.logger.info("Started continuous DTMF recognition")
 ```
 -----
 
-When your application no longer wishes to receive DTMF tones from the participant anymore you can use the `StopContinuousDtmfRecognitionAsync` method to let ACS know to stop detecting DTMF tones.
+When your application no longer wishes to receive DTMF tones from the participant anymore, you can use the `StopContinuousDtmfRecognitionAsync` method to let ACS know to stop detecting DTMF tones.
 
 ### StopContinuousDtmfRecognitionAsync
 Stop detecting DTMF tones sent by participant.
 ### [csharp](#tab/csharp)
 ```csharp
-await callAutomationClient.GetCallConnection(callConnectionId)
-	.GetCallMedia()
-	.StopContinuousDtmfRecognitionAsync(targetParticipant: new PhoneNumberIdentifier(c2Target), operationContext: "dtmf-reco-on-c2");
+await callAutomationClient.GetCallConnection(callConnectionId) 
+    .GetCallMedia() 
+    .StopContinuousDtmfRecognitionAsync(new PhoneNumberIdentifier(c2Target), "dtmf-reco-on-c2"); 
 ```
 ### [Java](#tab/java)
 ```java
-callAutomationClient.getCallConnectionAsync(callConnectionId)
-	.getCallMediaAsync()
-	.stopContinuousDtmfRecognitionWithResponse(new PhoneNumberIdentifier(c2Target), "dtmf-reco-on-c2").block();
+callAutomationClient.getCallConnectionAsync(callConnectionId) 
+        .getCallMediaAsync() 
+        .stopContinuousDtmfRecognitionWithResponse(new PhoneNumberIdentifier(c2Target), "dtmf-reco-on-c2") 
+        .block(); 
+```
+### [JavaScript](#tab/javascript)
+```javascript
+const continuousDtmfRecognitionOptions: ContinuousDtmfRecognitionOptions = {
+	operationContext: "dtmf-reco-on-c2"
+};
+
+await callAutomationclient.getCallConnection(callConnectionId)
+	.getCallMedia()
+	.stopContinuousDtmfRecognition({
+		phoneNumber: c2Target
+	}, continuousDtmfRecognitionOptions);
+```
+### [Python](#tab/python)
+```python
+call_automation_client.get_call_connection(call_connection_id).stop_continuous_dtmf_recognition( 
+    target_participant=PhoneNumberIdentifier(c2_target), 
+    operation_context="dtmf-reco-on-c2") 
+app.logger.info("Stopped continuous DTMF recognition") 
 ```
 -----
 
@@ -147,22 +242,40 @@ Your application receives event updates when these actions either succeed or fai
 Example of how you can handle a DTMF tone successfully detected.
 ### [csharp](#tab/csharp)
 ``` csharp
-if (@event is ContinuousDtmfRecognitionToneReceived toneReceived)
-{
-    logger.LogInformation("Tone detected: sequenceId={sequenceId}, tone={tone}, context={context}",
-        toneReceived.ToneInfo.SequenceId,
-        toneReceived.ToneInfo.Tone,
-        toneReceived.OperationContext);
-}
+if (acsEvent is ContinuousDtmfRecognitionToneReceived continuousDtmfRecognitionToneReceived) 
+{ 
+    logger.LogInformation("Tone detected: sequenceId={sequenceId}, tone={tone}, context={context}", 
+        continuousDtmfRecognitionToneReceived.ToneInfo.SequenceId, 
+        continuousDtmfRecognitionToneReceived.ToneInfo.Tone, 
+        continuousDtmfRecognitionToneReceived.OperationContext); 
+} 
 ```
 ### [Java](#tab/java)
 ``` java
-if (acsEvent instanceof ContinuousDtmfRecognitionToneReceived) {
-    ContinuousDtmfRecognitionToneReceived event = (ContinuousDtmfRecognitionToneReceived) acsEvent;
-    logger.log(Level.INFO, "Tone detected: sequenceId=" + event.getToneInfo().getSequenceId()
-+ ", tone=" + event. getToneInfo().getTone()
-+ ", context=" + event.getOperationContext();
+if (acsEvent instanceof ContinuousDtmfRecognitionToneReceived) { 
+    ContinuousDtmfRecognitionToneReceived event = (ContinuousDtmfRecognitionToneReceived) acsEvent; 
+    log.info("Tone detected: sequenceId=" + event.getToneInfo().getSequenceId() 
+        + ", tone=" + event.getToneInfo().getTone().convertToString() 
+        + ", context=" + event.getOperationContext()); 
+} 
+```
+### [JavaScript](#tab/javascript)
+```javascript
+if (event.type === "Microsoft.Communication.ContinuousDtmfRecognitionToneReceived") {
+	console.log("Tone detected: sequenceId=%s, tone=%s, context=%s",
+		eventData.toneInfo.sequenceId,
+		eventData.toneInfo.tone,
+		eventData.operationContext);
+
 }
+```
+### [Python](#tab/python)
+```python
+if event.type == "Microsoft.Communication.ContinuousDtmfRecognitionToneReceived": 
+    app.logger.info("Tone detected: sequenceId=%s, tone=%s, context=%s", 
+                    event.data['toneInfo']['sequenceId'], 
+                    event.data['toneInfo']['tone'], 
+                    event.data['operationContext']) 
 ```
 -----
 
@@ -172,19 +285,35 @@ ACS provides you with a `SequenceId` as part of the `ContinuousDtmfRecognitionTo
 Example of how you can handle when DTMF tone detection fails.
 ### [csharp](#tab/csharp)
 ``` csharp
-if (@event is ContinuousDtmfRecognitionToneFailed toneFailed)
-{
-    logger.LogInformation("Tone detection failed: resultInfo={info}, context={context}",
-        toneFailed.ResultInformation,
-        toneFailed.OperationContext);
-}
+if (acsEvent is ContinuousDtmfRecognitionToneFailed continuousDtmfRecognitionToneFailed) 
+{ 
+    logger.LogInformation("Start continuous DTMF recognition failed, result={result}, context={context}", 
+        continuousDtmfRecognitionToneFailed.ResultInformation?.Message, 
+        continuousDtmfRecognitionToneFailed.OperationContext); 
+} 
 ```
 ### [Java](#tab/java)
 ``` java
-if (acsEvent instanceof ContinuousDtmfRecognitionToneFailed) {
-    ContinuousDtmfRecognitionToneFailed event = (ContinuousDtmfRecognitionToneFailed) acsEvent;
-    logger.log(Level.INFO, "Tone failed: context=" + event.getOperationContext());
+if (acsEvent instanceof ContinuousDtmfRecognitionToneFailed) { 
+    ContinuousDtmfRecognitionToneFailed event = (ContinuousDtmfRecognitionToneFailed) acsEvent; 
+    log.info("Tone failed: result="+ event.getResultInformation().getMessage() 
+        + ", context=" + event.getOperationContext()); 
+} 
+```
+### [JavaScript](#tab/javascript)
+```javascript
+if (event.type === "Microsoft.Communication.ContinuousDtmfRecognitionToneFailed") {
+	console.log("Tone failed: result=%s, context=%s", eventData.resultInformation.message, eventData.operationContext);
 }
+```
+### [Python](#tab/python)
+```python
+if event.type == "Microsoft.Communication.ContinuousDtmfRecognitionToneFailed":
+    app.logger.info(
+        "Tone failed: result=%s, context=%s",
+        event.data["resultInformation"]["message"],
+        event.data["operationContext"],
+    )
 ```
 -----
 
@@ -192,17 +321,27 @@ if (acsEvent instanceof ContinuousDtmfRecognitionToneFailed) {
 Example of how to handle when continuous DTMF recognition has stopped, this could be because your application invoked the `StopContinuousDtmfRecognitionAsync` event or because the call has ended.
 ### [csharp](#tab/csharp)
 ``` csharp
-if (@event is ContinuousDtmfRecognitionStopped stopped)
-{
-    logger.LogInformation("Tone detection stopped: context={context}",
-        stopped.OperationContext);
-}
+if (acsEvent is ContinuousDtmfRecognitionStopped continuousDtmfRecognitionStopped) 
+{ 
+    logger.LogInformation("Continuous DTMF recognition stopped, context={context}", continuousDtmfRecognitionStopped.OperationContext); 
+} 
 ```
 ### [Java](#tab/java)
 ``` java
-if (acsEvent instanceof ContinuousDtmfRecognitionStopped) {
-    ContinuousDtmfRecognitionStopped event = (ContinuousDtmfRecognitionStopped) acsEvent;
-    logger.log(Level.INFO, "Tone failed: context=" + event.getOperationContext());
+if (acsEvent instanceof ContinuousDtmfRecognitionStopped) { 
+    ContinuousDtmfRecognitionStopped event = (ContinuousDtmfRecognitionStopped) acsEvent; 
+    log.info("Tone stopped, context=" + event.getOperationContext()); 
+} 
+```
+### [JavaScript](#tab/javascript)
+```javascript
+if (event.type === "Microsoft.Communication.ContinuousDtmfRecognitionStopped") {
+	console.log("Tone stopped: context=%s", eventData.operationContext);
 }
+```
+### [Python](#tab/python)
+```python
+if event.type == "Microsoft.Communication.ContinuousDtmfRecognitionStopped":
+    app.logger.info("Tone stoped: context=%s", event.data["operationContext"])
 ```
 -----
