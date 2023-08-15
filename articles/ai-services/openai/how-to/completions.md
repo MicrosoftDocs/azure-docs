@@ -17,7 +17,7 @@ keywords:
 
 # Learn how to generate or manipulate text
 
-Azure OpenAI Service generates a **completion endpoint** that can be used for a wide variety of tasks. The endpoint supplies a simple yet powerful text-in, text-out interface to any [Azure OpenAI model](../concepts/models.md). To trigger the completion, you input some text as a prompt. The model generates the completion and attempts to match your context or pattern. Suppose you provide the prompt "As Descartes said, I think, therefore" to the API. For this prompt, Azure OpenAI returns the completion endpoint " I am" with high probability.
+Azure OpenAI Service provides a **completion endpoint** that can be used for a wide variety of tasks. The endpoint supplies a simple yet powerful text-in, text-out interface to any [Azure OpenAI model](../concepts/models.md). To trigger the completion, you input some text as a prompt. The model generates the completion and attempts to match your context or pattern. Suppose you provide the prompt "As Descartes said, I think, therefore" to the API. For this prompt, Azure OpenAI returns the completion endpoint " I am" with high probability.
 
 The best way to start exploring completions is through the playground in [Azure OpenAI Studio](https://oai.azure.com). It's a simple text box where you enter a prompt to generate a completion. You can start with a simple prompt like this one:
 
@@ -36,7 +36,7 @@ The completion results that you see can differ because the Azure OpenAI API prod
 The simple text-in, text-out interface means you can "program" the Azure OpenAI model by providing instructions or just a few examples of what you'd like it to do. The output success generally depends on the complexity of the task and quality of your prompt. A general rule is to think about how you would write a word problem for a pre-teenage student to solve. A well-written prompt provides enough information for the model to know what you want and how it should respond.
 
 > [!NOTE]
-> The model training data currently extends through October 2019 only. Depending on your prompt, the model might not have knowledge of related current events.
+> The model training data can be different for each model type. The [latest model's training data currently extends through September 2021 only](/azure/ai-services/openai/concepts/models). Depending on your prompt, the model might not have knowledge of related current events.
 
 ## Design prompts
 
@@ -182,6 +182,8 @@ Although this demonstration uses a simple prompt, it highlights several guidelin
 
 ## Conduct conversations
 
+Starting with the release of [gpt-35-turbo and gpt-4](/azure/ai-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions), we recommend that you create conversational generation and chatbots by using models that support the _chat completion endpoint_. The chat completion models and endpoint require a different input structure than the completion endpoint.
+
 The API is adept at carrying on conversations with humans and even with itself. With just a few lines of instruction, the API can perform as a customer service chatbot that intelligently answers questions without getting flustered, or a wise-cracking conversation partner that makes jokes and puns. The key is to tell the API how it should behave and then provide a few examples.
 
 In this demonstration, the API supplies the role of an AI answering questions:
@@ -309,8 +311,8 @@ Here are some helpful guidelines for using the API to generate text and code com
 
 - **Raise the Temperature to allow the API to tangent**. Set higher values for the `Temperature` setting to allow the API to respond in a manner that's tangential to the intent described in your prompt.
 
-- **Use Azure OpenAI models from the Codex series**. For tasks that involve understanding or generating code, Microsoft recommends Azure OpenAI models from the Codex series. Currently, Azure OpenAI supports two Codex models: `code-davinci-002` and `code-cushman-001`. For more information about Codex models, see the [Codex models](../concepts/legacy-models.md#codex-models) section in [Azure OpenAI Service models](../concepts/models.md).
-
+- **Use the gpt-35-turbo and gpt-4 Azure OpenAI models**. For tasks that involve understanding or generating code, Microsoft recommends using the `gpt-35-turbo` and `gpt-4` Azure OpenAI models. These models use the new [chat completions format](/azure/ai-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions).  
+ 
 ## Generate factual responses
 
 The API has learned knowledge that's built on actual data reviewed during its training. It uses this learned data to form its responses. However, the API also has the ability to respond in a way that sounds true, but is in fact, fabricated.
@@ -376,5 +378,5 @@ For more information about generating code completions, see [Codex models and Az
 
 ## Next steps
 
-- Learn how to work with [Codex models and Azure OpenAI Service](./work-with-code.md).
+- Learn how to work with the [gpt-35-turbo and gpt-4 models](/azure/ai-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions).
 - Learn more about the [Azure OpenAI Service models](../concepts/models.md).
