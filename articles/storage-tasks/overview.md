@@ -72,6 +72,12 @@ See these articles to learn how to monitor task runs:
 - [Monitor Azure Storage Tasks](monitor-storage-tasks.md)
 - [Azure Storage Task monitoring data reference](storage-tasks-monitor-data-reference.md)
 
+### Handle task events
+
+Task runs generate `Task Started` and `Task Completed` events which other applications can subscribe through Event Grid.
+
+Link to the schema for these events and any other information about how to subscribe to events.
+
 ## Supported Regions
 
 List supported regions here.

@@ -1,23 +1,17 @@
 ---
-title: Storage task runs
+title: Analyze Azure Storage Task runs
 titleSuffix: Azure Storage Tasks
-description: Description of how to article
+description: Learn how to view lists of runs and review run reports.
 author: normesta
 ms.service: storage-tasks
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: normesta
 ms.date: 05/10/2023
 ---
 
-# Storage task runs
+# Analyze Azure Storage Task runs
 
 View task runs and use Azure Monitor metrics to access success.
-
-## Events
-
-Task runs generate `Task Started` and `Task Completed` events which other applications can subscribe through Event Grid.
-
-Link to the schema for these events and any other information about how to subscribe to events.
 
 ## Execution reports
 

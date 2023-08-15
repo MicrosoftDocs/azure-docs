@@ -19,8 +19,6 @@ items:
     href: storage-task-conditions-operations.md
   - name: Storage task assignments
     href: storage-task-assignment.md
-  - name: Storage task runs
-    href: storage-task-runs.md
   expanded: true
 - name: How-To
   items: 
@@ -32,6 +30,8 @@ items:
     href: storage-task-assignment-create.md
   - name: Monitor Azure Storage Tasks
     href: monitor-storage-tasks.md
+  - name: Analyze Storage Task runs
+    href: storage-task-runs.md
   expanded: true
 - name: Reference
   items:
