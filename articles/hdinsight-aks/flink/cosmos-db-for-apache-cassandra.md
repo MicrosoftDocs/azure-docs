@@ -540,7 +540,7 @@ sshuser@hn0-flinkd:~$ python user.py | /usr/hdp/current/kafka-broker/bin/kafka-c
 
 :::image type="content" source="./media/cosmos-db-for-apache-cassandra/check-tables-on-cosmos-db.png" alt-text="Screenshot showing Cosmos DB for Apache Cassandra on Azure portal." lightbox="./media/cosmos-db-for-apache-cassandra/check-tables-on-cosmos-db.png":::
 
-### Preferences:
+### Preferences
 * [Azure Cosmos DB for Apache Cassandra](https://learn.microsoft.com/azure/cosmos-db/cassandra/introduction).
 * [Create a API for Cassandra account in Azure Cosmos DB](https://learn.microsoft.com/azure/cosmos-db/cassandra/create-account-java)
 * [Azure Samples ](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started)
