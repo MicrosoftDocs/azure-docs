@@ -20,6 +20,7 @@ Organizations may want to extend the capabilities of Microsoft Entra Internet Ac
 In order to complete the following steps, you must have these prerequisites in place.
 
 - An Azure subscription and permission to create resources in the [Azure portal](https://portal.azure.com).
+   - A basic understanding of [site-to-site VPN connections](/azure/vpn-gateway/tutorial-site-to-site-portal)
 - A Microsoft Entra ID tenant with the [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference#global-secure-access-administrator) role assigned.
    - Completed the [remote network onboarding steps](how-to-create-remote-networks.md#onboard-your-tenant-for-remote-networks).
 
@@ -27,11 +28,11 @@ In order to complete the following steps, you must have these prerequisites in p
 
 Building this functionality out in Azure provides organizations the ability to understand how Microsoft Entra Internet Access works in a more broad implementation. The resources we create in Azure correspond to on-premises concepts in the following ways:
 
-- The **virtual network** corresponds to your on-premises IP address space.
-- The **virtual network gateway** corresponds to an on-premises virtual private network (VPN) router. This device is sometimes referred to as customer premises equipment (CPE).
-- The **local network gateway** corresponds to the Microsoft side of the connection where traffic would flow to from your on-premises VPN router.
-- The **connection** links the two network gateways and contains the settings required to establish and maintain connectivity.
-- The **virtual machine** corresponds to client devices on your on-premises network.
+- The **[virtual network](#virtual-network)** corresponds to your on-premises IP address space.
+- The **[virtual network gateway](#virtual-network-gateway)** corresponds to an on-premises virtual private network (VPN) router. This device is sometimes referred to as customer premises equipment (CPE).
+- The **[local network gateway](#local-network-gateway)** corresponds to the Microsoft side of the connection where traffic would flow to from your on-premises VPN router. The information provided by Microsoft as part of the [remote network onboarding steps](how-to-create-remote-networks.md#onboard-your-tenant-for-remote-networks) is used here.
+- The **[connection](#create-site-to-site-vpn-connection)** links the two network gateways and contains the settings required to establish and maintain connectivity.
+- The **[virtual machine](#virtual-machine)** corresponds to client devices on your on-premises network.
 
 In this document, we use the following default values. Feel free to configure these settings according to your own requirements.
 
@@ -53,8 +54,6 @@ Create a resource group to contain all of the necessary resources.
 > [!TIP]
 > If you're using this article for testing Microsoft Entra Internet Access, you may clean up all related Azure resources by deleting the resource group you create after you're done.
 
-For more information about creating resource groups, see the article [Manage Azure resource groups by using the Azure portal](/azure/azure-resource-manager/management/manage-resource-groups-portal).
-
 ### Virtual network
 
 Next we need to create a virtual network inside of our resource group, then add a gateway subnet that we'll use in a future step.
@@ -73,8 +72,6 @@ When the virtual network is created, select **Go to resource** or browse to it a
 1. Select **+ Gateway subnet**.
 1. Leave the defaults and select **Save**.
 
-For more information about creating a virtual network, see the article [Create, change, or delete a virtual network](/azure/virtual-network/manage-virtual-network).
-
 ### Virtual network gateway
 
 Next we need to create a virtual network gateway inside of our resource group. 
@@ -87,8 +84,8 @@ Next we need to create a virtual network gateway inside of our resource group.
 1. Create a **Public IP address** and **SECOND PUBLIC IP ADDRESS** and provide them with descriptive names.
    1. Set their **Availability zone** to **Zone-redundant**.
 1. Set **Configure BGP** to **Enabled**
-   1. Set the **Autonomous system number (ASN)** to the appropriate value. 
-      1. Don't use any reserved ASN numbers or your ASN provided for Microsoft Entra Internet Access. For more information, see the article [Global Secure Access remote network configurations](reference-remote-network-configurations.md#valid-autonomous-system-number-asn).
+   1. Set the **Autonomous system number (ASN)** to an appropriate value. 
+      1. Don't use any reserved ASN numbers or the ASN provided as part of [onboarding to Microsoft Entra Internet Access](how-to-create-remote-networks.md#onboard-your-tenant-for-remote-networks). For more information, see the article [Global Secure Access remote network configurations](reference-remote-network-configurations.md#valid-autonomous-system-number-asn).
 1. Leave all other settings their defaults or blank.
 1. Select **Review + create**, confirm your settings.
 1. Select **Create**.
@@ -97,13 +94,9 @@ Next we need to create a virtual network gateway inside of our resource group.
 :::image type="content" source="media/how-to-simulate-remote-network/create-virtual-network-gateway.png" alt-text="Screenshot of the Azure portal showing configuration settings for a virtual network gateway." lightbox="media/how-to-simulate-remote-network/create-virtual-network-gateway.png":::
 https://learn.microsoft.com/en-us/azure/vpn-gateway/tutorial-create-gateway-portal
 
-For more information about creating a virtual network gateway, see the article [Create and manage a VPN gateway using the Azure portal](/azure/vpn-gateway/tutorial-create-gateway-portal).
-
 ### Local network gateway
 
-You need to create two local network gateways. One for your primary and one for the secondary endpoints.
-
-LNG represents Global Secure Access service. So, enter values provided by Microsoft here.
+You need to create two local network gateways. One for your primary and one for the secondary endpoints. You will use the values provided by Microsoft when you [onboard to Microsoft Entra Internet Access](how-to-create-remote-networks.md#onboard-your-tenant-for-remote-networks).
 
 1. From the Azure portal, select **Create a resource**.
 1. Select **Networking** > **Local network gateway**.
@@ -212,14 +205,6 @@ After you create the remote networks in the previous steps, it may take a few mi
 :::image type="content" source="media/how-to-simulate-remote-network/verify-connectivity.png" alt-text="Screenshot.":::
 
 You can also use the virtual machine you created to validate that traffic is flowing to Microsoft 365 locations like SharePoint Online. Browsing to resources in SharePoint or Exchange Online should result in traffic on your virtual network gateway. This traffic can be seen by browsing to [Metrics on the virtual network gateway](/azure/vpn-gateway/monitor-vpn-gateway#analyzing-metrics) or by [Configuring packet capture for VPN gateways](/azure/vpn-gateway/packet-capture).
-
-## Reserved ASN numbers
-
-Azure reserved ASNs - 12076, 65517,65518, 65519, 65520, 8076, 8075
-
-IANA reserved ASNs - 23456, >= 64496 && <= 64511, >= 65535 && <= 65551, 4294967295
-		
-Don't use the Azure default 65515 ASN value. 65515 causes an error while creating a remote network. 
 
 ## Next steps
 
