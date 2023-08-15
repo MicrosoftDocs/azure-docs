@@ -11,12 +11,12 @@ ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
 ms.custom: devplatv2
-ms.date: 08/02/2023
+ms.date: 08/15/2023
 ---
 
 # Network isolation with managed online endpoints
 
-[!INCLUDE [SDK/CLI v2](includes/machine-learning-dev-v2.md)]
+[!INCLUDE [machine-learning-dev-v2](includes/machine-learning-dev-v2.md)]
 
 When deploying a machine learning model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](../private-link/private-endpoint-overview.md). In this article, you'll learn how a private endpoint can be used to secure inbound communication to a managed online endpoint. You'll also learn how a workspace managed virtual network can be used to provide secure communication between deployments and resources.
 
@@ -30,19 +30,7 @@ The following architecture diagram shows how communications flow through private
 
 ## Limitations
 
-- The `v1_legacy_mode` flag must be disabled (false) on your Azure Machine Learning workspace. If this flag is enabled, you won't be able to create a managed online endpoint. For more information, see [Network isolation with v2 API](how-to-configure-network-isolation-with-v2.md).
-
-- If your Azure Machine Learning workspace has a private endpoint that was created before May 24, 2022, you must recreate the workspace's private endpoint before configuring your online endpoints to use a private endpoint. For more information on creating a private endpoint for your workspace, see [How to configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
-
-    > [!TIP]
-    > To confirm when a workspace is created, you can check the workspace properties. In Studio, click `View all properties in Azure Portal` from `Directory + Subscription + Workspace` section (top right of the Studio), Click JSON View from top right of the Overview page, and choose the latest API Version. You can check the value of `properties.creationTime`. You can do the same by using `az ml workspace show` with [CLI](how-to-manage-workspace-cli.md#get-workspace-information), or `my_ml_client.workspace.get("my-workspace-name")` with [SDK](how-to-manage-workspace.md?tabs=python#find-a-workspace), or `curl` on workspace with [REST API](how-to-manage-rest.md#drill-down-into-workspaces-and-their-resources).
-
-- When you use network isolation with a deployment, you can use resources (Azure Container Registry (ACR), Storage account, Key Vault, and Application Insights) from a different resource group or subscription than that of your workspace. However, these resources must belong to the same tenant as your workspace.
-
-- Access from online deployments to Microsoft Container Registry (MCR) is allowed. However, because the _*.data.mcr.microsoft.com_ domain name is not included in the MCR service tag, you may have to add an FQDN outbound rule to _*.data.mcr.microsoft.com_ for certain Docker images. For more information on how to enable access to servers and services on the internet, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
-
-> [!NOTE]
-> Requests to create, update, or retrieve the authentication keys are sent to the Azure Resource Manager over the public network.
+[!INCLUDE [machine-learning-managed-vnet-online-endpoint-limitations](includes/machine-learning-managed-vnet-online-endpoint-limitations.md)]
 
 ## Secure inbound scoring requests
 
@@ -98,7 +86,7 @@ For outbound communication with a workspace managed VNet, Azure Machine Learning
 
 - Creates private endpoints for the managed VNet to use for communication with Azure resources that are used by the workspace, such as Azure Storage, Azure Key Vault, and Azure Container Registry.
 - Allows deployments to access the Microsoft Container Registry (MCR), which can be useful when you want to use curated environments or MLflow no-code deployment.
-- Allows users to configure private endpoint outbound rules to private resources and configure outbound rules for service tags and FQDNs for public resources.
+- Allows users to configure private endpoint outbound rules to private resources and configure outbound rules for service tags and FQDNs for public resources. For more information on how to manage outbound rules, see [Manage outbound rules](how-to-managed-network.md#manage-outbound-rules).
 
 Furthermore, you have two configuration modes for outbound traffic from the managed VNet, namely:
 
