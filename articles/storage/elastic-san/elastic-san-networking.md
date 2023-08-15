@@ -86,7 +86,7 @@ Use this sample code to create a storage service endpoint for your Elastic SAN v
 
 ```azurecli
 # Define some variables
-$RgName="<ResourceGroupName>"
+RgName="<ResourceGroupName>"
 VnetName="<VnetName>"
 SubnetName="<SubnetName>"
 
@@ -136,6 +136,7 @@ Use this sample code to create a private endpoint for your Elastic SAN volume gr
 | `<PrivateLinkSvcConnectionName>` | The name of the new private link service connection to the volume group. |
 | `<PrivateEndpointName>`          | The name of the new private endpoint. |
 | `<Location>`                     | The region where the new private endpoint will be created. |
+| `<ApprovalDesc>`                 | The description provided for the approval of the private endpoint connection. |
 
 ```powershell
 # Set the resource group name.
@@ -160,7 +161,7 @@ $EsanPlSvcConn = New-AzPrivateLinkServiceConnection -Name $PLSvcConnectionName -
 
 # Create the private endpoint.
 $EndpointName       = '<PrivateEndpointName>'
-$EndpointLocation   = '<Location>'
+$Location           = '<Location>'
 $PeArguments        = @{
     Name                         = $EndpointName
     ResourceGroupName            = $RgName
@@ -185,7 +186,8 @@ $EndpointConnection = Get-AzPrivateEndpointConnection @PeConnArguments |
 Where-Object {($_.PrivateEndpoint.Id -eq $PrivateEndpoint.Id)}
 
 # Approve the private link service connection.
-Approve-AzPrivateEndpointConnection @PeConnArguments -Name $EndpointConnection.Name 
+$ApprovalDesc="<ApprovalDesc>"
+Approve-AzPrivateEndpointConnection @PeConnArguments -Name $EndpointConnection.Name -Description $ApprovalDesc
 
 # Get the private endpoint connection anew and verify the connection status.
 $EndpointConnection = Get-AzPrivateEndpointConnection @PeConnArguments | 
@@ -218,16 +220,17 @@ Use this sample code to create a private endpoint for your Elastic SAN volume gr
 | `<PrivateLinkSvcConnectionName>` | The name of the new private link service connection to the volume group. |
 | `<PrivateEndpointName>`          | The name of the new private endpoint. |
 | `<Location>`                     | The region where the new private endpoint will be created. |
+| `<ApprovalDesc>`                 | The description provided for the approval of the private endpoint connection. |
 
 ```azurecli
 # Define some variables
 RgName="<ResourceGroupName>"
 VnetName="<VnetName>"
-SnetName="<SubnetName>"
+SubnetName="<SubnetName>"
 EsanName="<ElasticSanName>"
 EsanVgName="<ElasticSanVolumeGroupName>"
 PeName="<PrivateEndpointName>"
-PLConnName="<PrivateLinkSvcConnectionName>"
+PLSvcConnectionName="<PrivateLinkSvcConnectionName>"
 Location="<Location>"
 ApprovalDesc="<ApprovalDesc>"
 
