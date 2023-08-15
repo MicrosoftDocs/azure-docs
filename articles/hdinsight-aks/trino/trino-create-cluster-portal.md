@@ -27,7 +27,7 @@ Once the cluster pool deployment completes, continue to use the Azure portal to 
 
 1. In the Azure portal, type *HDInsight cluster pools*/*HDInsight* and select **Azure HDInsight on AKS cluster pools** to go to the cluster pools page. On the HDInsight on AKS cluster pools page, select the cluster pool in which you want to add a new Trino cluster.
 
-   :::image type="content" source="../media/create-cluster-pool/search-bar.png" alt-text="Diagram showing search bar in Azure portal.":::
+   :::image type="content" source="./media/trino-create-cluster/search-bar.png" alt-text="Diagram showing search bar in Azure portal.":::
 
 1. On the specific cluster pool page, click **+ New cluster** at the top left and then provide the following information:
   
@@ -41,7 +41,7 @@ Once the cluster pool deployment completes, continue to use the Azure portal to 
      |Region|This field is autopopulated and shows the region selected on the cluster pool.|
      |Cluster pool|This field is autopopulated and shows the cluster pool name in which the cluster is now getting created. To create a cluster in a different pool, find that cluster pool in the portal and click **+ New cluster**.|
      |Cluster pool version|This field is autopopulated and shows the cluster pool version on which the cluster is now getting created.|
-     |HDInsight on AKS Version | Select the minor or patch version of the HDInsight on AKS of the new cluster. For more information, see [versioning](../versioning.md).|
+     |HDInsight on AKS Version | Select the minor or patch version of the HDInsight on AKS of the new cluster. For more information, see [versions](../versions.md).|
      |Cluster type | From the drop-down list, select the cluster type as Trino.|
      |Cluster name |Enter the name of the new cluster.|
      |User-assigned managed identity | From the drop-down list, select the managed identity to use with the cluster. If you're the owner of the Managed Service Identity (MSI), and the MSI doesn't have Managed Identity Operator role on the cluster, click the link below the box to assign the permission needed from the AKS agent pool MSI. If the MSI already has the correct permissions, no link is shown. See the [prerequisites](#prerequisites) for other role assignments required for the MSI.|
@@ -65,8 +65,8 @@ Once the cluster pool deployment completes, continue to use the Azure portal to 
 
    > [!NOTE]
    >
-   > 1. Currently, we support Azure SQL Database as in-built metastore.
-   > 1. Due to Hive limitation, "-" (hyphen) character in the metastore database name is not supported.
+   > * Currently, we support Azure SQL Database as in-built metastore.
+   > * Due to Hive limitation, "-" (hyphen) character in the metastore database name is not supported.
 
    For more information, see [hive metastore](./trino-connect-to-metastore.md).
 
@@ -135,13 +135,13 @@ Once the cluster pool deployment completes, continue to use the Azure portal to 
 
 1. On the **Review + create** page, look for the **Validation succeeded** message at the top of the page and then click **Create**.
 
-   :::image type="content" source="../media/create-cluster-pool/create-cluster-review-create-page.png" alt-text="Screenshot showing cluster review and create tab." ::: 
+   :::image type="content" source="./media/trino-create-cluster/create-cluster-review-create-page.png" alt-text="Screenshot showing cluster review and create tab." ::: 
 
      The **Deployment is in process** page is displayed which the cluster is created. It takes 5-10 minutes to create the cluster. Once the cluster is created the **"Your deployment is complete"** message is displayed. 
 
-   :::image type="content" source="../media/one-click-deployment/custom-deployment-complete.png" alt-text="Screenshot showing custom deployment complete.":::
+   :::image type="content" source="./media/trino-create-cluster/custom-deployment-complete.png" alt-text="Screenshot showing custom deployment complete.":::
 
-   If you navigate away from the page, you can check the status of the deployment by clicking Notifications icon ![Notifications icon shown in the Azure portal](../media/portal-elements/notifications.png) in the Azure portal.
+   If you navigate away from the page, you can check the status of the deployment by clicking Notifications icon ![Notifications icon shown in the Azure portal](./media/portal-elements/notifications.png) in the Azure portal.
 
    > [!TIP]
    > For troubleshooting any deployment errors, you can refer to this [page](../create-cluster-error-dictionary.md).
