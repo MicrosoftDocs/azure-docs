@@ -147,9 +147,6 @@ CLOSING on SessionEventArgs(session_id=92a0abb68636471dac07041b335d9be3)
 
 Speakers are identified as Guest-1, Guest-2, and so on, depending on the number of speakers in the conversation.
 
-> [!NOTE]
-> The service performs best with at least 7 seconds of continuous audio from a single speaker. This allows the system to differentiate the speakers properly. Otherwise the Speaker ID is returned as `Unknown`.
-
 ## Clean up resources
 
 [!INCLUDE [Delete resource](../../common/delete-resource.md)]
