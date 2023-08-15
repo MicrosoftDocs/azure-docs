@@ -11,7 +11,7 @@ ms.subservice: pim
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 6/7/2023
+ms.date: 8/15/2023
 ms.author: billmath
 ms.custom: pim 
 ms.collection: M365-identity-device-management
