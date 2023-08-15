@@ -78,6 +78,7 @@ From the sign-in perspective, applications with shared accounts aren't different
 - Configure automatic rollover of the password if the application supports it. That way, not even the administrator who did the initial setup knows the password of the shared account.
 
 <a id='choosing-a-single-sign-on-method'></a>
+<a id='password-based-sso'></a>
 
 ## Single sign-on options
 
