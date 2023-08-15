@@ -6,7 +6,7 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/14/2023
+ms.date: 08/15/2023
 
 ---
 # Tutorial: Inspect private endpoint traffic with Azure Firewall
