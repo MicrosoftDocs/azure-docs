@@ -5,7 +5,7 @@ author: vhorne
 ms.author: victorh
 ms.service: web-application-firewall
 ms.topic: how-to
-ms.date: 06/13/2023
+ms.date: 08/15/2023
 ---
 
 # How to mask sensitive data on Azure Web Application Firewall
@@ -16,7 +16,7 @@ The following table shows examples of log scrubbing rules that can be used to pr
 
 | Match Variable | Operator | Selector | What gets scrubbed |
 | --- | --- | --- | --- |
-| Request Header Names | Equals | X-Forwarded-For | REQUEST_HEADERS:x-forwarded-for.","data":"******" |
+| Request Header Names | Equals | X-Forwarded-For | REQUEST_HEADERS: x-forwarded-for.","data":"******" |
 | Request Cookie Names | Equals | cookie1 | "Matched Data: ****** found within REQUEST_COOKIES:cookie1: ******" |
 | Request Arg Names | Equals | arg1 | "requestUri":"\/?arg1=******" |
 | Request Post Arg Names | Equals | Post1 | "data":"Matched Data: ****** found within ARGS:post1: ******" |
@@ -62,8 +62,19 @@ $logScrubbingRuleConfig = New-AzApplicationGatewayFirewallPolicyLogScrubbingConf
 ```
 #### [CLI](#tab/cli)
 
-The Azure CLI commands to enable and configure Sensitive Data Protection are coming soon.
+Use the following Command Line Interface commands to [create and configure](articles\web-application-firewall\ag\waf-sensitive-data-protection.md) Log Scrubbing rules for Sensitive Data Protection:
 
+```CLI
+az network application-gateway waf-policy policy-setting update 
+  -g <MyResourceGroup>
+  --policy-name <MyPolicySetting>
+  --log-scrubbing-state <Enabled/Disabled>
+  --scrubbing-rules
+    "[{state:<Enabled/Disabled>,
+    match-variable:<MatchVariable>,
+    selector-match-operator:<Operator>,
+    selector:<Selector>}]"
+```
 
 
 ---
