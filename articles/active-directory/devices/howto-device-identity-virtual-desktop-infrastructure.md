@@ -67,7 +67,7 @@ Before configuring device identities in Azure AD for your VDI environment, famil
 
 <sup>3</sup> A **Federated** identity infrastructure environment represents an environment with an identity provider such as AD FS or other third-party IDP. In a federated identity infrastructure environment, computers follow the [managed device registration flow](device-registration-how-it-works.md#hybrid-azure-ad-joined-in-managed-environments) based on the [AD Service Connection Point (SCP) settings](hybrid-join-manual.md#configure-a-service-connection-point).
 
-<sup>4</sup> A **Managed** identity infrastructure environment represents an environment with Azure AD as the identity provider deployed with either [password hash sync (PHS)](../hybrid/whatis-phs.md) or [pass-through authentication (PTA)](../hybrid/how-to-connect-pta.md) with [seamless single sign-on](../hybrid/how-to-connect-sso.md).
+<sup>4</sup> A **Managed** identity infrastructure environment represents an environment with Azure AD as the identity provider deployed with either [password hash sync (PHS)](../hybrid/connect/whatis-phs.md) or [pass-through authentication (PTA)](../hybrid/connect/how-to-connect-pta.md) with [seamless single sign-on](../hybrid/connect/how-to-connect-sso.md).
 
 <sup>5</sup> **Non-Persistence support for Windows current** requires other consideration as documented below in guidance section. This scenario requires Windows 10 1803 or newer, Windows Server 2019, or Windows Server (Semi-annual channel) starting version 1803
 
@@ -79,8 +79,8 @@ Before configuring device identities in Azure AD for your VDI environment, famil
 
 Administrators should reference the following articles, based on their identity infrastructure, to learn how to configure hybrid Azure AD join.
 
-- [Configure hybrid Azure Active Directory join for federated environment](hybrid-azuread-join-federated-domains.md)
-- [Configure hybrid Azure Active Directory join for managed environment](hybrid-azuread-join-managed-domains.md)
+- [Configure hybrid Azure Active Directory join for federated environment](./how-to-hybrid-join.md)
+- [Configure hybrid Azure Active Directory join for managed environment](./how-to-hybrid-join.md)
 
 ### Non-persistent VDI
 
@@ -129,4 +129,4 @@ We recommend you to implement process for [managing stale devices](manage-stale-
  
 ## Next steps
 
-[Configuring hybrid Azure Active Directory join for federated environment](hybrid-azuread-join-federated-domains.md)
+[Configuring hybrid Azure Active Directory join for federated environment](./how-to-hybrid-join.md)
