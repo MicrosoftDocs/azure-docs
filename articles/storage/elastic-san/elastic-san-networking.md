@@ -165,7 +165,7 @@ $Location           = '<Location>'
 $PeArguments        = @{
     Name                         = $EndpointName
     ResourceGroupName            = $RgName
-    Location                     = $EndpointLocation
+    Location                     = $Location
     Subnet                       = $Subnet
     PrivateLinkServiceConnection = $EsanPlSvcConn
 }
@@ -237,7 +237,7 @@ ApprovalDesc="<ApprovalDesc>"
 id=$(az elastic-san show \
     --elastic-san-name $EsanName \
     --resource-group $RgName \
-    --query '[].[id]' \
+    --query 'id' \
     --output tsv)
 
 # Create private endpoint
@@ -248,8 +248,12 @@ az network private-endpoint create \
     --resource-group $RgName \
     --vnet-name $VnetName \
     --subnet $SubnetName \
-    --group-id $EsanVgName \
-    --type Microsoft.ElasticSan/elasticSans # --manual-request
+    --group-id $EsanVgName # --manual-request
+
+# Verify the status of the private endpoint
+az network private-endpoint show \
+    --name $EndpointName \
+    --resource-group $RgName
 ```
 
 Use this sample code to approve the private link service connection if you are using the two-step process. Use the same variables from the previous code sample:
@@ -259,13 +263,13 @@ az network private-endpoint-connection approve \
     --resource-name $EsanName \
     --resource-group $RgName \
     --name $PLSvcConnectionName \
-    --type {resource_type} \
+    --type Microsoft.ElasticSan/elasticSans \
     --description $ApprovalDesc
 
 id=$(az elastic-san show \
     --elastic-san-name $EsanName \
     --resource-group $RgName \
-    --query '[].[id]' \
+    --query id' \
     --output tsv)
 ```
 ---
