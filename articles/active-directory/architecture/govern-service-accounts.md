@@ -62,7 +62,7 @@ We recommend the following practices for service account privileges.
 >`Get-AzureADDirectoryRoleMember`, and filter for objectType "Service Principal", or use</br>
 >`Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
 
-* See, [Introduction to permissions and consent](../develop/v2-permissions-and-consent.md) to limit the functionality a service account can access on a resource
+* See, [Introduction to permissions and consent](../develop/permissions-consent-overview.md) to limit the functionality a service account can access on a resource
 * Service principals and managed identities can use OAuth 2.0 scopes in a delegated context impersonating a signed-on user, or as service account in the application context. In the application context, no one is signed in.
 * Confirm the scopes service accounts request for resources
   * If an account requests Files.ReadWrite.All, evaluate if it needs File.Read.All

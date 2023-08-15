@@ -98,10 +98,10 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | [Add or delete services](../hybrid/how-to-connect-health-operations.md) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |  |
+> | [Add or delete services](../hybrid/connect/how-to-connect-health-operations.md) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |  |
 > | Apply fixes to sync error | [Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
 > | Configure notifications | [Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
-> | [Configure settings](../hybrid/how-to-connect-health-operations.md) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |  |
+> | [Configure settings](../hybrid/connect/how-to-connect-health-operations.md) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |  |
 > | Configure sync notifications | [Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
 > | Read ADFS security reports | [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) | [Contributor](../../role-based-access-control/built-in-roles.md#contributor)<br/>[Owner](../../role-based-access-control/built-in-roles.md#owner)
 > | Read all configuration | [Reader](../../role-based-access-control/built-in-roles.md#reader) | [Contributor](../../role-based-access-control/built-in-roles.md#contributor)<br/>[Owner](../../role-based-access-control/built-in-roles.md#owner) |
