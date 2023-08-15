@@ -48,7 +48,7 @@ There are two types of managed identities:
     - You authorize the managed identity to have access to one or more services.
     - The name of the system-assigned service principal is always the same as the name of the Azure resource it is created for. For a deployment slot, the name of its system-assigned identity is ```<app-name>/slots/<slot-name>```.
 
-- **User-assigned**. You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](how-to-manage-ua-identity-portal.md) and assign it to one or more Azure Resources. When you enable a user-assigned managed identity:      
+- **User-assigned**. You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](./how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp.md) and assign it to one or more Azure Resources. When you enable a user-assigned managed identity:      
     - A service principal of a special type is created in Azure AD for the identity. The service principal is managed separately from the resources that use it. 
     - User-assigned identities can be used by multiple resources.
     - You authorize the managed identity to have access to one or more services.
@@ -75,7 +75,7 @@ You can use managed identities by following the steps below:
 
 ## What Azure services support the feature?<a name="which-azure-services-support-managed-identity"></a>
 
-Managed identities for Azure resources can be used to authenticate to services that support Azure AD authentication. For a list of supported Azure services, see [services that support managed identities for Azure resources](./services-support-managed-identities.md).
+Managed identities for Azure resources can be used to authenticate to services that support Azure AD authentication. For a list of supported Azure services, see [services that support managed identities for Azure resources](./managed-identities-status.md).
 
 ## Which operations can I perform using managed identities?
 
@@ -88,7 +88,7 @@ Resources that support system assigned managed identities allow you to:
 
 If you choose a user assigned managed identity instead:
 
-- You can [create, read, update, and delete](how-to-manage-ua-identity-portal.md) the identities.
+- You can [create, read, update, and delete](./how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp.md) the identities.
 - You can use RBAC role assignments to [grant permissions](howto-assign-access-portal.md).
 - User assigned managed identities can be used on more than one resource.
 - CRUD operations are available for review in [Azure Activity logs](../../azure-monitor/essentials/activity-log.md).
@@ -104,4 +104,4 @@ Operations on managed identities can be performed by using an Azure Resource Man
 * [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md)
 * [How to use managed identities with Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Implementing managed identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing)
-* Use [workload identity federation for managed identities](../develop/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets
+* Use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets
