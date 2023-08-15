@@ -16,7 +16,7 @@ The following table shows examples of log scrubbing rules that can be used to pr
 
 | Match Variable | Operator | Selector | What gets scrubbed |
 | --- | --- | --- | --- |
-| Request Header Names | Equals | X-Forwarded-For | REQUEST_HEADERS: x-forwarded-for.","data":"******" |
+| Request Header Names | Equals | X-Forwarded-For | REQUEST_HEADERS:x-forwarded-for.","data":"******" |
 | Request Cookie Names | Equals | cookie1 | "Matched Data: ****** found within REQUEST_COOKIES:cookie1: ******" |
 | Request Arg Names | Equals | arg1 | "requestUri":"\/?arg1=******" |
 | Request Post Arg Names | Equals | Post1 | "data":"Matched Data: ****** found within ARGS:post1: ******" |
