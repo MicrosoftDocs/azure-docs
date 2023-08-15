@@ -29,7 +29,7 @@ The UserInfo endpoint is typically called automatically by [OIDC-compliant libra
 
 The information in an ID token is a superset of the information available on UserInfo endpoint. Because you can get an ID token at the same time you get a token to call the UserInfo endpoint, we suggest getting the user's information from the token instead of calling the UserInfo endpoint. Using the ID token instead of calling the UserInfo endpoint eliminates up to two network requests, reducing latency in your application.
 
-If you require more details about the user like manager or job title, call the [Microsoft Graph `/user` API](/graph/api/user-get). You can also use [optional claims](active-directory-optional-claims.md) to include additional user information in your ID and access tokens.
+If you require more details about the user like manager or job title, call the [Microsoft Graph `/user` API](/graph/api/user-get). You can also use [optional claims](./optional-claims.md) to include additional user information in your ID and access tokens.
 
 ## Calling the UserInfo endpoint
 
@@ -37,7 +37,7 @@ UserInfo is a standard OAuth bearer token API hosted by Microsoft Graph. Call th
 
 ### Permissions
 
-Use the following [OIDC permissions](v2-permissions-and-consent.md#openid-connect-scopes) to call the UserInfo API. The `openid` claim is required, and the `profile` and `email` scopes ensure that additional information is provided in the response.
+Use the following [OIDC permissions](./permissions-consent-overview.md#openid-connect-scopes) to call the UserInfo API. The `openid` claim is required, and the `profile` and `email` scopes ensure that additional information is provided in the response.
 
 | Permission type                        | Permissions                       |
 |:---------------------------------------|:----------------------------------|
@@ -88,5 +88,5 @@ To customize the information returned by the identity platform during authentica
 ## Next steps
 
 * [Review the contents of ID tokens](id-tokens.md).
-* [Customize the contents of an ID token using optional claims](active-directory-optional-claims.md).
+* [Customize the contents of an ID token using optional claims](./optional-claims.md).
 * [Request an access token and ID token using the OAuth 2 protocol](v2-protocols-oidc.md).
