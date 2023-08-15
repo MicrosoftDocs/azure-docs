@@ -37,7 +37,7 @@ For the user, the authorization relies on the privileges that the user has been 
 
 In this access scenario, the application acts on its own with no user signed in. Application access is used in scenarios such as automation, and backup. This scenario includes apps that run as background services or daemons. It's appropriate when it's undesirable to have a specific user signed in, or when the data required can't be scoped to a single user. For more information about the app-only access scenario, see [App-only-access](app-only-access-primer.md).
 
-App-only access uses app roles instead of delegated scopes. When granted through consent, app roles may also be called applications permissions. For app-only access, the client app must be granted appropriate app roles of the resource app it's calling in order to access the requested data. For more information about assigning app roles to client applications, see [Assigning app roles to applications](howto-add-app-roles-in-azure-ad-apps.md#assign-app-roles-to-applications).
+App-only access uses app roles instead of delegated scopes. When granted through consent, app roles may also be called applications permissions. For app-only access, the client app must be granted appropriate app roles of the resource app it's calling in order to access the requested data. For more information about assigning app roles to client applications, see [Assigning app roles to applications](./howto-add-app-roles-in-apps.md#assign-app-roles-to-applications).
 
 ## Types of permissions
 
@@ -76,7 +76,7 @@ User consent happens when a user attempts to sign into an application. The user 
 
 ### Administrator consent
 
-Depending on the permissions they require, some applications might require an administrator to be the one who grants consent. For example, application permissions and many high-privilege delegated permissions can only be consented to by an administrator. Administrators can grant consent for themselves or for the entire organization. For more information about user and admin consent, see [user and admin consent overview](../manage-apps/consent-and-permissions-overview.md).
+Depending on the permissions they require, some applications might require an administrator to be the one who grants consent. For example, application permissions and many high-privilege delegated permissions can only be consented to by an administrator. Administrators can grant consent for themselves or for the entire organization. For more information about user and admin consent, see [user and admin consent overview](../manage-apps/user-admin-consent-overview.md).
 
 ### Preauthorization
 
@@ -85,5 +85,5 @@ Preauthorization allows a resource application owner to grant permissions withou
 ## Next steps
 
 - [Delegated access scenario](delegated-access-primer.md)
-- [User and admin consent overview](../manage-apps/consent-and-permissions-overview.md)
+- [User and admin consent overview](../manage-apps/user-admin-consent-overview.md)
 - [OpenID connect scopes](scopes-oidc.md)
