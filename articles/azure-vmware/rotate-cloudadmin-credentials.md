@@ -4,7 +4,7 @@ description: Learn how to rotate the vCenter Server credentials for your Azure V
 ms.topic: how-to
 ms.service: azure-vmware
 ms.custom: devx-track-azurecli
-ms.date: 18/15/2023
+ms.date: 8/15/2023
 #Customer intent: As an Azure service administrator, I want to rotate my cloudadmin credentials so that the HCX Connector has the latest vCenter Server CloudAdmin credentials.
 ---
 
