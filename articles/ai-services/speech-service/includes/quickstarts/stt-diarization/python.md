@@ -64,7 +64,7 @@ Follow these steps to create a new console application.
         speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
         speech_config.speech_recognition_language="en-US"
 
-        audio_config = speechsdk.audio.AudioConfig(filename="katiesteve_mono.wav")
+        audio_config = speechsdk.audio.AudioConfig(filename="katiesteve.wav")
         conversation_transcriber = speechsdk.transcription.ConversationTranscriber(speech_config=speech_config, audio_config=audio_config)
 
         transcribing_stop = False
@@ -100,7 +100,7 @@ Follow these steps to create a new console application.
         print("Encountered exception. {}".format(err))
     ```
 
-1. Replace `katiesteve_mono.wav` with the filepath and filename of your `.wav` file. The intent of this quickstart is to recognize speech from multiple participants in the conversation. Your audio file should contain multiple speakers. For example, you can use the [sample audio file](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/katiesteve_mono.wav) provided in the Speech SDK samples repository on GitHub.
+1. Replace `katiesteve.wav` with the filepath and filename of your `.wav` file. The intent of this quickstart is to recognize speech from multiple participants in the conversation. Your audio file should contain multiple speakers. For example, you can use the [sample audio file](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/sampledata/audiofiles/katiesteve.wav) provided in the Speech SDK samples repository on GitHub.
     > [!NOTE]
     > The service performs best with at least 7 seconds of continuous audio from a single speaker. This allows the system to differentiate the speakers properly. Otherwise the Speaker ID is returned as `Unknown`.
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
@@ -140,9 +140,9 @@ TRANSCRIBED:
         Text=That's exciting. Let me try it right now.
         Speaker ID=Guest-2
 Canceled event
-CLOSING on ConversationTranscriptionCanceledEventArgs(session_id=606e8b5e65b94419b824d224127d9f92, result=ConversationTranscriptionResult(result_id=21d17c5738b442f8a7d428d0d5363fa8, speaker_id=, text=, reason=ResultReason.Canceled))  
+CLOSING on ConversationTranscriptionCanceledEventArgs(session_id=92a0abb68636471dac07041b335d9be3, result=ConversationTranscriptionResult(result_id=ad1b1d83b5c742fcacca0692baa8df74, speaker_id=, text=, reason=ResultReason.Canceled))
 SessionStopped event
-CLOSING on SessionEventArgs(session_id=606e8b5e65b94419b824d224127d9f92)
+CLOSING on SessionEventArgs(session_id=92a0abb68636471dac07041b335d9be3)
 ```
 
 Speakers are identified as Guest-1, Guest-2, and so on, depending on the number of speakers in the conversation.

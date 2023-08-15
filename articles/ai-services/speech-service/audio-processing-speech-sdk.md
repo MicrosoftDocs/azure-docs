@@ -123,7 +123,7 @@ MicrophoneCoordinates[] microphoneCoordinates = new MicrophoneCoordinates[7]
 };
 var microphoneArrayGeometry = new MicrophoneArrayGeometry(MicrophoneArrayType.Planar, microphoneCoordinates);
 var audioProcessingOptions = AudioProcessingOptions.Create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, microphoneArrayGeometry, SpeakerReferenceChannel.LastChannel);
-var audioInput = AudioConfig.FromWavFileInput("katiesteve_mono.wav", audioProcessingOptions);
+var audioInput = AudioConfig.FromWavFileInput("katiesteve.wav", audioProcessingOptions);
 
 var recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
@@ -139,7 +139,7 @@ MicrophoneArrayGeometry microphoneArrayGeometry
     { { 0, 0, 0 }, { 40, 0, 0 }, { 20, -35, 0 }, { -20, -35, 0 }, { -40, 0, 0 }, { -20, 35, 0 }, { 20, 35, 0 } }
 };
 auto audioProcessingOptions = AudioProcessingOptions::Create(AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, microphoneArrayGeometry, SpeakerReferenceChannel::LastChannel);
-auto audioInput = AudioConfig::FromWavFileInput("katiesteve_mono.wav", audioProcessingOptions);
+auto audioInput = AudioConfig::FromWavFileInput("katiesteve.wav", audioProcessingOptions);
 
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioInput);
 ```
@@ -159,7 +159,7 @@ microphoneCoordinates[5] = new MicrophoneCoordinates(-20, 35, 0);
 microphoneCoordinates[6] = new MicrophoneCoordinates(20, 35, 0);
 MicrophoneArrayGeometry microphoneArrayGeometry = new MicrophoneArrayGeometry(MicrophoneArrayType.Planar, microphoneCoordinates);
 AudioProcessingOptions audioProcessingOptions = AudioProcessingOptions.create(AudioProcessingConstants.AUDIO_INPUT_PROCESSING_ENABLE_DEFAULT, microphoneArrayGeometry, SpeakerReferenceChannel.LastChannel);
-AudioConfig audioInput = AudioConfig.fromWavFileInput("katiesteve_mono.wav", audioProcessingOptions);
+AudioConfig audioInput = AudioConfig.fromWavFileInput("katiesteve.wav", audioProcessingOptions);
 
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioInput);
 ```
