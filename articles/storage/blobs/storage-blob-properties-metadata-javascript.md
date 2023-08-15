@@ -16,6 +16,15 @@ ms.custom: devx-track-js, devguide-js
 
 In addition to the data they contain, blobs support system properties and user-defined metadata. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
+## Prerequisites
+
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with blob properties or metadata. To learn more, see the authorization guidance for the following REST API operations:
+    - [Set Blob Properties](/rest/api/storageservices/set-blob-properties#authorization)
+    - [Get Blob Properties](/rest/api/storageservices/get-blob-properties#authorization)
+    - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata#authorization)
+    - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata#authorization)
+
 ## About properties and metadata
 
 - **System properties**: System properties exist on each Blob storage resource. Some of them can be read or set, while others are read-only. Under the covers, some system properties correspond to certain standard HTTP headers. The Azure Storage client library for JavaScript maintains these properties for you.

@@ -53,4 +53,4 @@ While one of most important use cases that SAML addresses is SSO, especially by 
 
 * [Configuring SAML based single sign-on for non-gallery applications](../manage-apps/add-application-portal.md) 
 
-* [How Azure AD uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md)
+* [How Azure AD uses the SAML protocol](../develop/saml-protocol-reference.md)

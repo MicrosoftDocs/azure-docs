@@ -1,5 +1,5 @@
 ---
-title: Harden the Linux image to remove sudo users
+title: Harden a Linux image to remove sudo users
 description: Learn how to use the Azure CLI to harden the linux image to remove sudo users.
 author: vvenug
 ms.service: virtual-machines
@@ -11,7 +11,7 @@ ms.author: vvenugopal
 ms.custom: devx-track-azurecli
 ---
 
-# Harden the Linux image to remove sudo users
+# Harden a Linux image to remove sudo users
 
 **Applies to:** :heavy_check_mark: Linux Images
 

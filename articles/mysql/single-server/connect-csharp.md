@@ -5,8 +5,8 @@ ms.service: mysql
 ms.subservice: single-server
 ms.topic: quickstart
 ms.devlang: csharp
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
 ms.date: 06/20/2022
 ---
