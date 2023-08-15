@@ -37,9 +37,7 @@ These terms and conditions (hereinafter referred to as "terms") govern the limit
 
 The offer provides them with a discount up to 50% compared to pay-as-you-go pricing. The savings doesn't include operating system costs. Actual savings may vary based on instance type or usage.
 
-## Eligibility
-
-The Offer is open to individuals who meet the following criteria:
+**Eligibility** - The Offer is open to individuals who meet the following criteria:
 
 - To buy a reservation, you must have the owner role or reservation purchaser role on an Azure subscription that's one of the following types:
   - Enterprise (MS-AZR-0017P or MS-AZR-0148P)
@@ -48,17 +46,13 @@ The Offer is open to individuals who meet the following criteria:
 - Cloud solution providers can use the Azure portal or [Partner Center](/partner-center/azure-reservations?source=azlto1) to purchase Azure Reservations. You won't be able to purchase a reservation if you have a custom role that mimics owner role or reservation purchaser role on an Azure subscription. You must use the built-in owner or built-in reservation purchaser role.
 - For more information about who can purchase a reservation visit, see [Buy an Azure reservation](prepare-buy-reservation.md?source=azlto2).
 
-## Offer details
-
-Upon successful purchase and payment for the one-year Azure Reserved VM Instance in US West for one or more of the qualified VMs during the specified period, the discount applies automatically to the number of running virtual machines in US West that match the reservation scope and attributes. You don't need to assign a reservation to a virtual machine to get the discounts. A reserved instance purchase covers only the compute part of your VM usage. For more information about how to pay and save with an Azure Reserved VM Instance, see [Prepay for Azure virtual machines to save money](../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json?source=azlto3).
+**Offer details** - Upon successful purchase and payment for the one-year Azure Reserved VM Instance in US West for one or more of the qualified VMs during the specified period, the discount applies automatically to the number of running virtual machines in US West that match the reservation scope and attributes. You don't need to assign a reservation to a virtual machine to get the discounts. A reserved instance purchase covers only the compute part of your VM usage. For more information about how to pay and save with an Azure Reserved VM Instance, see [Prepay for Azure virtual machines to save money](../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json?source=azlto3).
 
 - Additional taxes may apply.
 - Payment will be processed using the payment method on file for the selected subscriptions.
 - Estimated savings are calculated based on your current on-demand rate.
 
-## Qualifying purchase
-
-To be eligible for the 50% discount, customers must make a purchase of the one-year Azure Reserved Virtual Machine Instances. The purchase must be for one of the following qualified VMs in US West between September 1, 2023, and November 30, 2023:
+**Qualifying purchase** - To be eligible for the 50% discount, customers must make a purchase of the one-year Azure Reserved Virtual Machine Instances. The purchase must be for one of the following qualified VMs in US West between September 1, 2023, and November 30, 2023:
 
 - D2v3
 - D4v3
@@ -68,7 +62,7 @@ To be eligible for the 50% discount, customers must make a purchase of the one-y
 - D48v3
 - D64v3
 
-## Discount limitations
+**Discount limitations**
 
 - The discount automatically applies to the number of running virtual machines in US West that match the reservation scope and attributes.
 - The discount applies for one year after the date of purchase.
@@ -78,18 +72,14 @@ To be eligible for the 50% discount, customers must make a purchase of the one-y
 - Stopped VMs are billed and continue to use reservation hours. Deallocate or delete VM resources or scale-in other VMs to use your available reservation hours with other workloads.
 - For more information about how Azure Reserved VM Instance discounts are applied, see [Understand Azure Reserved VM Instances discount](../manage/understand-vm-reservation-charges.md?source=azlto4).
 
-## Exchanges and refunds
+**Exchanges and refunds** - The offer follows standard exchange and refund policies for reservations. For more information about exchanges and refunds, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md?source=azlto6).
 
-- The offer follows standard exchange and refund policies for reservations. For more information about exchanges and refunds, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md?source=azlto6).
-
-## Renewals
+**Renewals**
 
 - The renewal price **will not be** the limited time offer price, but the price available at time of renewal.
 - For more information about renewals, see [Automatically renew Azure reservations](reservation-renew.md?source=azlto5).
 
-## Termination or modification
-
-Microsoft reserves the right to modify, suspend, or terminate the offer at any time without prior notice.
+**Termination or modification** - Microsoft reserves the right to modify, suspend, or terminate the offer at any time without prior notice.
 
 If you have purchased the one-year Azure Reserved Virtual Machine Instances for the qualified VMs in US West between September 1, 2023, and November 30, 2023, you'll continue to get the discount throughout the one-year term, even if the offer is canceled.
 
