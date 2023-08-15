@@ -1,6 +1,6 @@
 ---
-title: Use Events metrics -  Azure Health Data Services
-description: Learn how use Events metrics.
+title: Use events metrics -  Azure Health Data Services
+description: Learn how use events metrics.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -10,18 +10,18 @@ ms.date: 07/11/2023
 ms.author: jasteppe
 ---
 
-# How to use Events metrics
+# How to use events metrics
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-In this article, learn how to use Events metrics using the Azure portal. 
+In this article, learn how to use events metrics using the Azure portal. 
 
 > [!TIP]
 > To learn more about Azure Monitor and metrics, see [Azure Monitor Metrics overview](../../azure-monitor/essentials/data-platform-metrics.md).
 
 > [!NOTE]
-> For the purposes of this article, an [Azure Event Hubs](../../event-hubs/event-hubs-about.md) was used as the Events message endpoint. 
+> For the purposes of this article, an [Azure Event Hubs](../../event-hubs/event-hubs-about.md) was used as the events message endpoint. 
 
 ## Use metrics
 
@@ -43,11 +43,11 @@ In this article, learn how to use Events metrics using the Azure portal.
 
 ## Next steps
 
-In this tutorial, you learned how to use Events metrics using the Azure portal.
+In this tutorial, you learned how to use events metrics using the Azure portal.
 
-To learn how to export Events Azure Event Grid system diagnostic logs and metrics, see
+To learn how to enable events diagnostic settings, see
 
 > [!div class="nextstepaction"]
-> [Enable diagnostic settings for Events](events-enable-diagnostic-settings.md)
+> [Enable diagnostic settings for events](events-enable-diagnostic-settings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

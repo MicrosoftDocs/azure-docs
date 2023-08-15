@@ -33,7 +33,7 @@ Follow these steps to create a Logic App workflow to consume FHIR events:
 
 ## Prerequisites
 
-Before you begin this tutorial, you need to have deployed a FHIR service and enabled events. For more information about deploying events, see [Deploy Events in the Azure portal](events-deploy-portal.md).
+Before you begin this tutorial, you need to have deployed a FHIR service and enabled events. For more information about deploying events, see [Deploy events in the Azure portal](events-deploy-portal.md).
 
 ## Creating a Logic App
 
@@ -247,7 +247,7 @@ Fill in the details for subscription, resource type, and resource name. Then you
 - Resource deleted
 - Resource updated
 
-For more information about event types, see [What FHIR resource events does Events support?](events-faqs.md#what-fhir-resource-events-does-events-support).
+For more information about supported event types, see [Frequently asked questions about events](events-faqs.md).
 
 ### Adding an HTTP action
 
@@ -347,11 +347,11 @@ In this tutorial, you learned how to use Logic Apps to process FHIR events.
 To learn about Events, see
 
 > [!div class="nextstepaction"]
-> [What are Events?](events-overview.md)
+> [What are events?](events-overview.md)
 
 To learn about the Events frequently asked questions (FAQs), see
 
 > [!div class="nextstepaction"]
-> [Frequently asked questions about Events](events-faqs.md)
+> [Frequently asked questions about events](events-faqs.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
