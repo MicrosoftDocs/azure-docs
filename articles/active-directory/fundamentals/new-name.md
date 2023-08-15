@@ -169,6 +169,7 @@ Products or features that are being deprecated aren't being renamed. These produ
 - Azure AD Authentication Library (ADAL), replaced by [Microsoft Authentication Library (MSAL)](../develop/msal-overview.md)
 - Azure AD Graph, replaced by [Microsoft Graph](/graph)
 - Azure Active Directory PowerShell for Graph (Azure AD PowerShell), replaced by [Microsoft Graph PowerShell](/powershell/microsoftgraph)
+- [Azure AD B2C](https://aka.ms/aadb2c) will not be renamed
 
 Names that don't have "Azure AD" also aren't changing. These products or features include Active Directory Federation Services (AD FS), Microsoft identity platform, and Windows Server Active Directory Domain Services (AD DS).
 
