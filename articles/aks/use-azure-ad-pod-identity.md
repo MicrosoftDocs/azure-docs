@@ -3,7 +3,7 @@ title: Use Azure Active Directory pod-managed identities in Azure Kubernetes Ser
 description: Learn how to use Azure AD pod-managed identities in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 08/15/2024
+ms.date: 08/15/2023
 ---
 
 # Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)
