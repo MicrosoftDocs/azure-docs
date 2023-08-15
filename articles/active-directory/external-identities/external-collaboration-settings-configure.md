@@ -65,7 +65,7 @@ For B2B collaboration with other Azure AD organizations, you should also review 
    - **No**: Users can't leave your organization themselves. They'll see a message guiding them to contact your admin or privacy contact to request removal from your organization.
 
    > [!IMPORTANT]
-   > You can configure **External user leave settings** only if you have [added your privacy information](../fundamentals/active-directory-properties-area.md) to your Azure AD tenant. Otherwise, this setting will be unavailable.
+   > You can configure **External user leave settings** only if you have [added your privacy information](../fundamentals/properties-area.md) to your Azure AD tenant. Otherwise, this setting will be unavailable.
 
    ![Screenshot showing External user leave settings in the portal.](media/external-collaboration-settings-configure/external-user-leave-settings.png)
 

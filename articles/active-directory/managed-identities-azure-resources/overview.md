@@ -75,7 +75,7 @@ You can use managed identities by following the steps below:
 
 ## What Azure services support the feature?<a name="which-azure-services-support-managed-identity"></a>
 
-Managed identities for Azure resources can be used to authenticate to services that support Azure AD authentication. For a list of supported Azure services, see [services that support managed identities for Azure resources](./services-support-managed-identities.md).
+Managed identities for Azure resources can be used to authenticate to services that support Azure AD authentication. For a list of supported Azure services, see [services that support managed identities for Azure resources](./managed-identities-status.md).
 
 ## Which operations can I perform using managed identities?
 
@@ -104,4 +104,4 @@ Operations on managed identities can be performed by using an Azure Resource Man
 * [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md)
 * [How to use managed identities with Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Implementing managed identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing)
-* Use [workload identity federation for managed identities](../develop/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets
+* Use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets
