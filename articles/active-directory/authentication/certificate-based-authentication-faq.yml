@@ -103,7 +103,7 @@ sections:
       - question: |
           How do I instantly revoke a certificate?
         answer: |
-          Follow the steps to [manually revoke a certificate](active-directory-certificate-based-authentication-get-started.md#step-3-configure-revocation). 
+          Follow the steps to [manually revoke a certificate](./certificate-based-authentication-federation-get-started.md#step-3-configure-revocation). 
 
       - question: |
           Will the changes to the Authentication methods policy take effect immediately?
