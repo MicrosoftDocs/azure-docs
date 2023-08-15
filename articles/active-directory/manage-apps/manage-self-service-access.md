@@ -21,7 +21,7 @@ ms.custom: enterprise-apps
 
 In this article, you learn how to enable self-service application access using the Azure portal.
 
-Before your users can self-discover applications from the [My Apps portal](my-apps-deployment-plan.md), you need to enable **Self-service application access** for the applications. This functionality is available for applications that were added from the Azure AD Gallery, [Azure AD Application Proxy](../app-proxy/application-proxy.md), or were added using [user or admin consent](../develop/application-consent-experience.md).
+Before your users can self-discover applications from the [My Apps portal](./myapps-overview.md), you need to enable **Self-service application access** for the applications. This functionality is available for applications that were added from the Azure AD Gallery, [Azure AD Application Proxy](../app-proxy/application-proxy.md), or were added using [user or admin consent](../develop/application-consent-experience.md).
 
 Using this feature, you can:
 
