@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 ---
 # What is enterprise user management?
 
-This article introduces and administrator for Azure Active Directory (Azure AD), part of Microsoft Entra, to the relationship between top [identity management](../fundamentals/active-directory-whatis.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) tasks for users in terms of their groups, licenses, deployed enterprise apps, and administrator roles. As your organization grows, you can use Azure AD groups and administrator roles to:
+This article introduces and administrator for Azure Active Directory (Azure AD), part of Microsoft Entra, to the relationship between top [identity management](../fundamentals/whatis.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) tasks for users in terms of their groups, licenses, deployed enterprise apps, and administrator roles. As your organization grows, you can use Azure AD groups and administrator roles to:
 
 * Assign licenses to groups instead of assigning licenses to individual users.
 * Grant permissions to delegate Azure AD management work to personnel in less-privileged roles.
@@ -67,4 +67,4 @@ Azure AD also gives you granular control of the data that flows between the app 
 
 If you're a beginning Azure AD administrator, get the basics down in [Azure Active Directory Fundamentals](../fundamentals/index.yml).
 
-Or you can start [creating groups](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [assigning licenses](../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [assigning app access](../manage-apps/assign-user-or-group-access-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) or [assigning administrator roles](../roles/permissions-reference.md).
+Or you can start [creating groups](../fundamentals/how-to-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [assigning licenses](../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [assigning app access](../manage-apps/assign-user-or-group-access-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) or [assigning administrator roles](../roles/permissions-reference.md).

@@ -9,7 +9,7 @@
 - name: Quickstarts
   items:
   - name: Add users to Azure AD
-    href: ../fundamentals/add-users-azure-active-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    href: ../fundamentals/add-users.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
   - name: Assign licenses to users    
     href: ../fundamentals/license-users-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
   - name: Set groups expiration    
@@ -26,20 +26,20 @@
   - name: Compare default user permissions    
     href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
   - name: Group-based licensing basics    
-    href: ../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    href: ../fundamentals/licensing-whatis-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
   - name: Manage access with groups    
-    href: ../fundamentals/active-directory-manage-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    href: ../fundamentals/concept-learn-about-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
 - name: How-to guides
   expanded: true
   items:
   - name: Users
     items: 
     - name: Create a user 
-      href: ../fundamentals/add-users-azure-active-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/add-users.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Create users in bulk
       href: users-bulk-add.md    
     - name: Manage user profiles
-      href: ../fundamentals/active-directory-users-profile-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/how-to-manage-user-profile-info.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Add custom data using extensions - Microsoft Graph
       href: /graph/extensibility-overview?toc=/azure/active-directory/enterprise-users/toc.json&bc=/azure/active-directory/enterprise-users/breadcrumb/toc.json
     - name: Assign custom security attributes
@@ -49,13 +49,13 @@
     - name: Share user accounts
       href: users-sharing-accounts.md
     - name: Assign users to admin roles    
-      href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/how-subscriptions-associated-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: User management enhancements
       href: users-search-enhanced.md
     - name: Delete users in bulk
       href: users-bulk-delete.md
     - name: Restore a deleted user    
-      href: ../fundamentals/active-directory-users-restore.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/users-restore.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Restore users in bulk
       href: users-bulk-restore.md
     - name: Revoke a user's access
@@ -75,7 +75,7 @@
   - name: Organization (tenant)
     items:
     - name: Azure AD tenant organizations    
-      href: ../fundamentals/active-directory-whatis.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+      href: ../fundamentals/whatis.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Delete a tenant    
       href: directory-delete-howto.md
     - name: Multiple tenants    

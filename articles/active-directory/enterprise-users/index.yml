@@ -34,7 +34,7 @@ landingContent:
           - text: Azure AD organizational independence
             url: licensing-directory-independence.md
           - text: Manage access using groups
-            url: ../fundamentals/active-directory-manage-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+            url: ../fundamentals/concept-learn-about-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
 
   # Card
   - title: Get started
@@ -42,7 +42,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Add a user
-            url: ../fundamentals/add-users-azure-active-directory.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+            url: ../fundamentals/add-users.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
           - text: Set expiration policy for groups
             url: groups-quickstart-expiration.md
           - text: Assign licenses to users
