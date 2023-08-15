@@ -253,10 +253,6 @@ Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-00
 
 If you need to export to a storage account behind the firewall for security and compliance requirements, ensure that you have all [prerequisites](#prerequisites) met.
 
-Enable **Allow trusted Azure services access** on the storage account from the Exports page. Here's a screenshot showing the page.
-
-:::image type="content" source="./media/tutorial-export-acm-data/allow-trusted-access.png" alt-text="Screenshot showing the Allow trusted Azure services access option." lightbox="./media/tutorial-export-acm-data/allow-trusted-access.png" :::
-
 A system-assigned managed identity is created for a new job export when it's created or modified. You must have permissions because Cost Management uses the privilege to assign the *StorageBlobDataContributor* role to the managed identity. The permission is restricted to the storage account container scope. After the export job is created or updated, the user doesn't require Owner permissions for regular runtime operations.
 
 > [!NOTE]
