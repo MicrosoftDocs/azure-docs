@@ -158,7 +158,7 @@ To learn more about making API calls to Azure AD and Microsoft 365 services like
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:./authentication-vs-authorization.md
 [AAD-Consent-Overview]:./application-consent-experience.md
-[AAD-Dev-Guide]:../develop.md
+[AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Integrating-Apps]:./quickstart-register-app.md
 [AAD-Samples-MT]: /samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./how-to-integrate.md
