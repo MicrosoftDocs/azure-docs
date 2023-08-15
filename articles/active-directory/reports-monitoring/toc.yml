@@ -135,7 +135,7 @@ items:
       - name: Cross-tenant access activity 
         href: workbook-cross-tenant-access-activity.md
       - name: Sign-ins using legacy authentication  
-        href: ../develop/configure-app-multi-instancing.md authentication.md
+        href: workbook-legacy-authentication.md
       - name: Risk analysis
         href: workbook-risk-analysis.md
       - name: Sensitive Operations Report 
