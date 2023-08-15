@@ -12,7 +12,7 @@ ms.author: mirequa
 
 ::: moniker range=">=cyclecloud-8"
 > [!WARNING]
-> Installing Jetpack directly onto a custom image is no longer supported in CycleCloud 8. The Jetpack installation process in CycleCloud 8 takes only a few seconds on average without requiring external internet access so there is no need to pre-install Jetpack on custom images. Documentation on how to install Jetpack remains for historical purposes.
+> Installing Jetpack directly onto a custom image is no longer recommended in CycleCloud 8. The Jetpack installation process in CycleCloud 8 takes only a few seconds on average and requires only network access to your storage account so there is typically no reason to pre-install Jetpack on custom images. 
 
 ::: moniker-end
 
@@ -159,11 +159,11 @@ To use the image with a CycleCloud cluster you can specify the `ImageName` in yo
 ```ini
 [[node custom]]
   ImageName = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/images/MyCustomImage
-  InstallJetpack = False
+  DownloadJetpack = false
 ```
 
 > [!NOTE]
-> Specifying `InstallJetpack=False` is completely optional. If not specified, CycleCloud will attempt to download and install Jetpack at runtime and see that Jetpack as already been installed on your image and take no action. By specifying `InstallJetpack=False`a small amount of time is saved that would have been used attempting to automatically install Jetpack.
+> Specifying `DownloadJetpack=false` is not needed, but can save a small amount of time by not downloading Jetpack on boot. If `DownloadJetpack` is not specified, CycleCloud will attempt to download and install Jetpack at runtime and see that Jetpack has already been installed on your image. 
 
 ## Further Reading
 

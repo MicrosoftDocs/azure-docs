@@ -2,8 +2,11 @@
 title: Cluster Template Reference Overview
 description: View reference information on cluster templates in Azure CycleCloud. See cluster template file hierarchy, object attributes, parameters, and template objects.
 author: mvrequa
-ms.date: 03/9/2020
+ms.date: 06/20/2023
 ms.author: mirequa
+ms.topic: conceptual
+ms.service: cyclecloud
+ms.custom: compute-evergreen
 ---
 
 # CycleCloud Cluster Template File
