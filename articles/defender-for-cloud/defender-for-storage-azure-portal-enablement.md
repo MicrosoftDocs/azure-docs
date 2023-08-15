@@ -2,8 +2,9 @@
 title: Enable and configure the Defender for Storage plan at scale using the Azure portal
 description: Learn how to enable the Defender for Storage on your Azure subscription for Microsoft Defender for Cloud using the Azure portal.
 ms.topic: install-set-up-deploy
-ms.author: AlizaBernstein
-ms.date: 08/14/2023
+author: AlizaBernstein
+ms.author: v-bernsteina
+ms.date: 08/15/2023
 ---
 
 # Enable and configure with the Azure portal
@@ -32,8 +33,6 @@ Microsoft Defender for Storage is now enabled for this subscription, and is full
 If you want to turn off the on-upload malware scanning or sensitive data threat detection, you can select **Settings** and change the status of the relevant feature to **Off** and save the changes.
 
 If you want to change the malware scanning size capping per storage account per month for malware, change the settings in **Edit configuration** and save the changes.
-
-:::image type="content" source="media/defender-for-storage-malware-scan/capping-subscription-level.gif" alt-text="GIF that shows where to change the malware scanning size capping per storage account." lightbox="media/defender-for-storage-malware-scan/capping-subscription-level.gif":::
 
 If you want to disable the plan, turn status button to **Off** for the Storage plan on the Defender plans page and save the changes.
 
