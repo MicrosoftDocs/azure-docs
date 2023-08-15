@@ -86,7 +86,7 @@ items:
     - name: Flagged sign-ins
       href: overview-flagged-sign-ins.md
     - name: Sign-in diagnostic
-      href: overview-sign-in-diagnostics.md
+      href: ./howto-use-sign-in-diagnostics.md
     - name: Sign-in diagnostics scenarios
       href: concept-sign-in-diagnostics-scenarios.md
     - name: Troubleshoot sign-in errors for a user
@@ -135,7 +135,7 @@ items:
       - name: Cross-tenant access activity 
         href: workbook-cross-tenant-access-activity.md
       - name: Sign-ins using legacy authentication  
-        href: workbook-legacy authentication.md
+        href: workbook-legacy-authentication.md
       - name: Risk analysis
         href: workbook-risk-analysis.md
       - name: Sensitive Operations Report 
@@ -169,4 +169,3 @@ items:
           href: recommendation-renew-expiring-application-credential.md
         - name: Renew expiring service principal credentials (preview)
           href: recommendation-renew-expiring-service-principal-credential.md
-
