@@ -126,7 +126,7 @@ Steps to install the Scala plugin:
 
 ## Connect to your HDInsight cluster
 
-User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscription), or [link a HDInsight cluster](#link-a-cluster). Use the Ambari username/password or domain joined credential to connect to your HDInsight cluster.
+User can either [sign in to your Azure subscription](#sign-in-to-your-azure-subscription), or [link a HDInsight cluster](#link-a-cluster). Use the Ambari username/password or domain joined credential to connect to your HDInsight cluster.
 
 ### Sign in to your Azure subscription
 
@@ -458,7 +458,7 @@ You can convert the existing Spark Scala applications that you created in Intell
 
 If you're not going to continue to use this application, delete the cluster that you created with the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the **Search** box at the top, type **HDInsight**.
 

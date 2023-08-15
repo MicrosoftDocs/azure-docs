@@ -259,6 +259,7 @@ D16          16       64           GeneralPurpose
 E4           4        32           MemoryOptimized
 E8           8        64           MemoryOptimized
 E16          16       128          MemoryOptimized
+E32          32       256          MemoryOptimized
 Consumption  4        8            Consumption
 ```
 

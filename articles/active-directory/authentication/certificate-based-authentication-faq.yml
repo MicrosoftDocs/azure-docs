@@ -103,7 +103,7 @@ sections:
       - question: |
           How do I instantly revoke a certificate?
         answer: |
-          Follow the steps to [manually revoke a certificate](active-directory-certificate-based-authentication-get-started.md#step-3-configure-revocation). 
+          Follow the steps to [manually revoke a certificate](./certificate-based-authentication-federation-get-started.md#step-3-configure-revocation). 
 
       - question: |
           Will the changes to the Authentication methods policy take effect immediately?
@@ -133,14 +133,9 @@ sections:
           [MFA with single factor certificates](../authentication/concept-certificate-based-authentication-technical-deep-dive.md#mfa-authentication-flow-using-single-factor-certificates-and-passwordless-sign-in) 
           
       - question: |
-          Will the changes to the Authentication methods policy take effect immediately?
-        answer: |
-          The policy is cached. After a policy update, it may take up to an hour for the changes to take effect.
-          
-      - question: |
           CertificateUserIds update fails with value already there. How can an admin query all the user objects with the same value?
         answer: |
-          Tenant admins can run MS Graph queries to find all the users with a given certificateUserId value. More information can be found at [CertificateUserIds graph queries](concept-certificate-based-authentication-certificateuserids.md#look-up-certificateuserids-using-microsoft-graph-queries)
+          Tenant admins can run MS Graph queries to find all the users with a given certificateUserId value. More information can be found at [CertificateUserIds graph queries](concept-certificate-based-authentication-certificateuserids.md#update-certificateuserids-using-microsoft-graph-queries)
           
           GET all user objects that have the value 'bob@contoso.com' value in certificateUserIds:
 

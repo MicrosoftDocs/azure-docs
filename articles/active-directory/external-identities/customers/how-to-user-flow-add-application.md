@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 07/24/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -43,11 +43,11 @@ If you already registered your application in your customer tenant, you can add 
 
 1. Choose **Select**.
 
-## Update the application code with your tenant information
+## Extension app 
 
-Now you need to update your application code configuration with the application ID from the application registration, your customer tenant name, and a client secret value.
-
-We have several samples and how-to guides that can help you update your application to integrate with a user flow, based on app type, platform, and language. See [Samples for customer identity and access management (CIAM) in Azure Active Directory](samples-ciam-all.md).
+You might find an app named **b2c-extensions-app** in the application list. This app is created automatically inside the new directory, and it contains all extension attributes for your customer tenant.
+If you want to collect information beyond the built-in attributes, you can create [custom user attributes](how-to-define-custom-attributes.md) and add them to your sign-up user flow. Custom attributes are also known as directory extension attributes, as they extend the user profile information stored in your customer directory. All extension attributes for your customer tenant are stored in the **b2c-extensions-app**. Do not delete this app.
+You can learn more about this app [here](/azure/active-directory-b2c/extensions-app). 
 
 ## Next steps
 

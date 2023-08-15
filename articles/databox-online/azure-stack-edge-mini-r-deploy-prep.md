@@ -6,10 +6,11 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/23/2022
 ms.author: alkohli
-# Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure. 
+# Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
 ---
 
 # Tutorial: Prepare to deploy Azure Stack Edge Mini R

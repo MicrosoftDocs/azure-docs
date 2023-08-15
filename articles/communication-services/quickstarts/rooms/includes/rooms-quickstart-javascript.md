@@ -7,7 +7,7 @@ manager: alexokun
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 04/28/2023
+ms.date: 06/23/2023
 ms.topic: include
 ms.custom: include file
 ms.author: orwatson
@@ -42,7 +42,7 @@ Create a new file `index.js` where the code for this quickstart will be added.
 
 ### Install the packages
 
-You'll need to use the Azure Communication Rooms client library for JavaScript [version 1.0.0-beta.2](https://www.npmjs.com/package/@azure/communication-rooms) or above.
+You'll need to use the Azure Communication Rooms client library for JavaScript [version 1.0.0](https://www.npmjs.com/package/@azure/communication-rooms) or above.
 
 Use the `npm install` command to install the below Communication Services SDKs for JavaScript.
 
@@ -131,18 +131,16 @@ const participants = [
 Create a new `room` using the `participants` defined in the code snippet above:
 
 ```javascript
-//Create a room
-var validFrom = new Date();
-var validUntil = new Date(validFrom.getTime() + 60 * 60 * 1000);  
+// Create a room
+var validFrom = new Date(Date.now());
+var validUntil = new Date(validFrom.getTime() + 60 * 60 * 1000);
 
-// options payload to create a room
 const createRoomOptions = {
   validFrom,
   validUntil,
   participants
 };
-  
-// create a room with the request payload
+
 const createRoom = await roomsClient.createRoom(createRoomOptions);
 const roomId = createRoom.id;
 console.log("\nCreated a room with id: ", roomId);
@@ -165,17 +163,15 @@ console.log("\nRetrieved room with id: ", getRoom.id);
 The lifetime of a `room` can be modified by issuing an update request for the `validFrom` and `validUntil` parameters. A room can be valid for a maximum of six months.
 
 ```javascript
-//Update room lifetime
+// Update room lifetime
 validFrom.setTime(validUntil.getTime());
 validUntil.setTime(validFrom.getTime() + 5 * 60 * 1000);
 
-// request payload to update a room
 const updateRoomOptions = {
   validFrom,
   validUntil
 };
 
-// updates the specified room with the request payload
 const updateRoom = await roomsClient.updateRoom(roomId, updateRoomOptions);
 console.log("\nUpdated room with validFrom: ", updateRoom.validFrom, " and validUntil: ", updateRoom.validUntil);
 ```
@@ -246,7 +242,7 @@ console.log("\nRemoved participants from room");
 ```
 
 ## Delete room
-If you wish to disband an existing `room`, you may issue an explicit delete request. All `rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period. 
+If you wish to disband an existing `room`, you may issue an explicit delete request. All `rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period.
 
 ```javascript
 // Deletes the specified room
@@ -256,7 +252,7 @@ console.log("\nDeleted room with id: ", roomId)
 
 ## Run the code
 
-To run the code, make sure you are on the directory where your `index.js` file is. 
+To run the code, make sure you are on the directory where your `index.js` file is.
 
 ```console
 node index.js
@@ -282,7 +278,7 @@ Retrieved list of rooms; printing first room:
   validUntil: "2023-05-11T22:16:46.784Z"
 }
 
-Added participants to room
+Added and updated participants in the room
 
 Retrieved participants for room:
 {
@@ -307,4 +303,4 @@ Deleted room with id:  99445276259151407
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services rooms from the [JavaScript SDK reference](/javascript/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms).
+Read about the full set of capabilities of Azure Communication Services rooms from the [JavaScript SDK reference](/javascript/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms/rooms).

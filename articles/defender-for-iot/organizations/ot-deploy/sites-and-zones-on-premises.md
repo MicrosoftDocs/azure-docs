@@ -4,7 +4,7 @@ description: Learn how to create OT networking sites and zones on an on-premises
 ms.date: 01/08/2023
 ms.topic: install-set-up-deploy
 ms.collection:
-  -       zerotrust-services
+  -       zerotrust-extra
 ---
 
 # Create OT sites and zones on an on-premises management console

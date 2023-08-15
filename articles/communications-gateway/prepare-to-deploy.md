@@ -18,14 +18,16 @@ The following sections describe the information you need to collect and the deci
 
 You must be a Telecommunications Service Provider who has signed an Operator Connect agreement with Microsoft. For more information, see [Operator Connect](https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/connect).
 
-You need an onboarding partner for integrating with Microsoft Phone System. If you're not eligible for onboarding to Microsoft Teams through Azure Communications Gateway's [Basic Integration Included Benefit](onboarding.md) or you haven't arranged alternative onboarding with Microsoft through a separate arrangement, you need to arrange an onboarding partner yourself.
+You need an onboarding partner for integrating with Microsoft Phone System. If you're not eligible for onboarding to Microsoft Teams through Azure Communications Gateway's [Included Benefits](onboarding.md) or you haven't arranged alternative onboarding with Microsoft through a separate arrangement, you need to arrange an onboarding partner yourself.
 
 You must own globally routable numbers that you can use for testing, as follows.
 
 |Type of testing|Numbers required |
 |---------|---------|
-|Automated validation testing by Microsoft Teams test suites|Minimum: 3. Recommended: 6 (to run tests simultaneously).|
+|Automated validation testing by Microsoft Teams test suites|Minimum: 6. Recommended: 9 (to run tests simultaneously).|
 |Manual test calls made by you and/or Microsoft staff during integration testing |Minimum: 1|
+
+After deployment, the automated validation testing numbers use synthetic traffic to continuously check the health of your deployment.
 
 We strongly recommend that you have a support plan that includes technical support, such as [Microsoft Unified Support](https://www.microsoft.com/en-us/unifiedsupport/overview) or [Premier Support](https://www.microsoft.com/en-us/unifiedsupport/premier).
 
@@ -133,7 +135,7 @@ Collect all of the values in the following table for all the test lines that you
  |The purpose of the test line: **Manual** (for manual test calls by you and/or Microsoft staff during integration testing) or **Automated** (for automated validation with Microsoft Teams test suites).|**Testing purpose**|
 
 > [!IMPORTANT]
-> You must configure at least three automated test lines. We recommend six automated test lines (to allow simultaneous tests).
+> You must configure at least six automated test lines. We recommend nine automated test lines (to allow simultaneous tests).
 
 ## 7. Decide if you want tags
 

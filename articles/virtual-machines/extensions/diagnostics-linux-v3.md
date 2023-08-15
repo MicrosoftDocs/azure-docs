@@ -8,9 +8,8 @@ ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
 ms.date: 12/13/2018  
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ms.devlang: azurecli
-
 ---
 # Use Linux diagnostic extension 3.0 to monitor metrics and logs
 
@@ -49,22 +48,6 @@ These installation instructions and a [downloadable sample configuration](https:
 * Enable the Azure portal experience for charting and alerting on VM metrics.
 
 The downloadable configuration is just an example. Modify it to suit your needs.
-
-### Supported Linux distributions
-
-LAD supports the following distributions and versions. The list of distributions and versions applies only to Azure-endorsed Linux vendor images. The extension generally doesn't support third-party BYOL and BYOS images, like appliances.
-
-A distribution that lists only major versions, like Debian 7, is also supported for all minor versions. If a minor version is specified, only that version is supported. If a plus sign (+) is appended, minor versions equal to or later than the specified version are supported.
-
-Supported distributions and versions:
-
-- Ubuntu 20.04, 18.04, 16.04, 14.04
-- CentOS 7, 6.5+
-- Oracle Linux 7, 6.4+
-- OpenSUSE 13.1+
-- SUSE Linux Enterprise Server 12
-- Debian 9, 8, 7
-- Red Hat Enterprise Linux (RHEL) 7, 6.7+
 
 ### Prerequisites
 
@@ -231,7 +214,7 @@ This set of configuration information contains sensitive information that should
 Name | Value
 ---- | -----
 storageAccountName | The name of the storage account in which data is written by the extension.
-storageAccountEndPoint | (Optional) The endpoint that identifies the cloud in which the storage account exists. If this setting is absent, the LAD default is the Azure public cloud, `https://core.windows.net`. To use a storage account in Azure Germany, Azure Government, or Azure China 21Vianet, set this value as required.
+storageAccountEndPoint | (Optional) The endpoint that identifies the cloud in which the storage account exists. If this setting is absent, the LAD default is the Azure public cloud, `https://core.windows.net`. To use a storage account in Azure Germany, Azure Government, or Microsoft Azure operated by 21Vianet, set this value as required.
 storageAccountSasToken | An [Account SAS token](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) for blob and table services (`ss='bt'`). It applies to containers and objects (`srt='co'`). It grants add, create, list, update, and write permissions (`sp='acluw'`). Do *not* include the leading question-mark (?).
 mdsdHttpProxy | (Optional) HTTP proxy information that the extension needs to connect to the specified storage account and endpoint.
 sinksConfig | (Optional) Details of alternative destinations to which metrics and events can be delivered. The following sections address details about each data sink supported by the extension.

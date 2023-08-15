@@ -3,6 +3,7 @@ title: Create and upload a CentOS-based Linux VHD
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a CentOS-based Linux operating system.
 author: srijang
 ms.service: virtual-machines
+ms.custom: devx-track-linux
 ms.collection: linux
 ms.topic: how-to
 ms.date: 12/14/2022
@@ -141,21 +142,21 @@ This article assumes that you've already installed a CentOS (or similar derivati
 
 9. Add the following line to /etc/yum.conf:
 
-	```config
-	http_caching=packages
-	```
+    ```config
+    http_caching=packages
+    ```
 
 10. Run the following command to clear the current yum metadata and update the system with the latest packages:
 
-	```bash
-	sudo yum clean all
-	```
+    ```bash
+    sudo yum clean all
+    ```
 
     Unless you're creating an image for an older version of CentOS, it's recommended to update all the packages to the latest:
 
-	```bash
-	sudo yum -y update
-	```
+    ```bash
+    sudo yum -y update
+    ```
 
     A reboot may be required after running this command.
 
@@ -173,28 +174,28 @@ This article assumes that you've already installed a CentOS (or similar derivati
 
 12. Install the Azure Linux Agent and dependencies. Start and enable waagent service:
 
-	```bash
-	sudo yum install python-pyasn1 WALinuxAgent
-	sudo service waagent start
-	sudo chkconfig waagent on
-	```
+    ```bash
+    sudo yum install python-pyasn1 WALinuxAgent
+    sudo service waagent start
+    sudo chkconfig waagent on
+    ```
 
 
     The WALinuxAgent package removes the NetworkManager and NetworkManager-gnome packages if they were not already removed as described in step 3.
 
 13. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open `/boot/grub/menu.lst` in a text editor and ensure that the default kernel includes the following parameters:
 
-	```config
-	console=ttyS0 earlyprintk=ttyS0 rootdelay=300
-	```
+    ```config
+    console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+    ```
 
     This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
 
     In addition to the above, it's recommended to *remove* the following parameters:
 
-	```config
-	rhgb quiet crashkernel=auto
-	```
+    ```config
+    rhgb quiet crashkernel=auto
+    ```
 
     Graphical and `quiet boot` aren't useful in a cloud environment where we want all the logs to be sent to the serial port.  The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128 MB or more, which may be problematic on the smaller VM sizes.
 
@@ -207,13 +208,13 @@ This article assumes that you've already installed a CentOS (or similar derivati
 
     The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. The local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
 
-	```config
-	ResourceDisk.Format=y
-	ResourceDisk.Filesystem=ext4
-	ResourceDisk.MountPoint=/mnt/resource
-	ResourceDisk.EnableSwap=y
-	ResourceDisk.SwapSizeMB=2048 ## NOTE: set this to whatever you need it to be.
-	```
+    ```config
+    ResourceDisk.Format=y
+    ResourceDisk.Filesystem=ext4
+    ResourceDisk.MountPoint=/mnt/resource
+    ResourceDisk.EnableSwap=y
+    ResourceDisk.SwapSizeMB=2048 ## NOTE: set this to whatever you need it to be.
+    ```
 
 16. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
@@ -239,10 +240,10 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
 * XFS is now the default file system. The ext4 file system can still be used if desired.
 * Since CentOS 8 Stream and newer no longer include `network.service` by default, you need to install it manually:
 
-	```bash
-	sudo yum install network-scripts
-	sudo systemctl enable network.service
-	```
+    ```bash
+    sudo yum install network-scripts
+    sudo systemctl enable network.service
+    ```
 
 **Configuration Steps**
 
@@ -252,29 +253,29 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
 
 3. Create or edit the file `/etc/sysconfig/network` and add the following text:
 
-	```config
-	NETWORKING=yes
-	HOSTNAME=localhost.localdomain
-	```
+    ```config
+    NETWORKING=yes
+    HOSTNAME=localhost.localdomain
+    ```
 
 4. Create or edit the file `/etc/sysconfig/network-scripts/ifcfg-eth0` and add the following text:
 
-	```config
-	DEVICE=eth0
-	ONBOOT=yes
-	BOOTPROTO=dhcp
-	TYPE=Ethernet
-	USERCTL=no
-	PEERDNS=yes
-	IPV6INIT=no
-	NM_CONTROLLED=no
-	```
+    ```config
+    DEVICE=eth0
+    ONBOOT=yes
+    BOOTPROTO=dhcp
+    TYPE=Ethernet
+    USERCTL=no
+    PEERDNS=yes
+    IPV6INIT=no
+    NM_CONTROLLED=no
+    ```
 
 5. Modify udev rules to avoid generating static rules for the Ethernet interface(s). These rules can cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
 
-	```bash
-	sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
-	```
+    ```bash
+    sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+    ```
 
 6. If you would like to use the OpenLogic mirrors that are hosted within the Azure datacenters, then replace the `/etc/yum.repos.d/CentOS-Base.repo` file with the following repositories.  This will also add the **[openlogic]** repository that includes packages for the Azure Linux agent:
 
@@ -284,14 +285,14 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
    baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
    enabled=1
    gpgcheck=0
-	
+    
    [base]
    name=CentOS-$releasever - Base
    #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
    baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
    gpgcheck=1
    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-	
+    
    #released updates
    [updates]
    name=CentOS-$releasever - Updates
@@ -299,7 +300,7 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
    baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
    gpgcheck=1
    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-	
+    
    #additional packages that may be useful
    [extras]
    name=CentOS-$releasever - Extras
@@ -307,7 +308,7 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
    baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
    gpgcheck=1
    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-	
+    
    #additional packages that extend functionality of existing packages
    [centosplus]
    name=CentOS-$releasever - Plus
@@ -317,43 +318,43 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
    enabled=0
    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
    ```
-	
+    
    > [!Note]
    > The rest of this guide will assume you're using at least the `[openlogic]` repo, which will be used to install the Azure Linux agent below.
 
 7. Run the following command to clear the current yum metadata and install any updates:
 
-	```bash
-	sudo yum clean all
-	```
+    ```bash
+    sudo yum clean all
+    ```
 
     Unless you're creating an image for an older version of CentOS, it's recommended to update all the packages to the latest:
 
-	```bash
-	sudo yum -y update
-	```
+    ```bash
+    sudo yum -y update
+    ```
 
     A reboot maybe required after running this command.
 
 8. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open `/etc/default/grub` in a text editor and edit the `GRUB_CMDLINE_LINUX` parameter, for example:
 
-	```config
-	GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
-	```
+    ```config
+    GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+    ```
 
    This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new CentOS 7 naming conventions for NICs. In addition to the above, it's recommended to *remove* the following parameters:
 
-	```config
-	rhgb quiet crashkernel=auto
-	```
+    ```config
+    rhgb quiet crashkernel=auto
+    ```
 
     Graphical and quiet boot isn't useful in a cloud environment where we want all the logs to be sent to the serial port. The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128 MB or more, which may be problematic on the smaller VM sizes.
 
 9. Once you're done editing `/etc/default/grub` per above, run the following command to rebuild the grub configuration:
 
-	```bash
-	sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-	```
+    ```bash
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```
 
 > [!NOTE]
 > If uploading an UEFI enabled VM, the command to update grub is `grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg`.  Also, the vfat kernel module must be enabled in the kernel otherwise provisioning will fail.
@@ -365,22 +366,22 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
 
     Edit `/etc/dracut.conf`, add content:
 
-	```config
-	add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
-	```
+    ```config
+    add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
+    ```
 
     Rebuild the initramfs:
 
-	```bash
-	sudo dracut -f -v
-	```
+    ```bash
+    sudo dracut -f -v
+    ```
 
 11. Install the Azure Linux Agent and dependencies for Azure VM Extensions:
 
-	```bash
-	sudo yum install python-pyasn1 WALinuxAgent
-	sudo systemctl enable waagent
-	```
+    ```bash
+    sudo yum install python-pyasn1 WALinuxAgent
+    sudo systemctl enable waagent
+    ```
 
 12. Install cloud-init to handle the provisioning
 
@@ -442,7 +443,7 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
     * Use a cloud-init directive baked into the image that will do this every time the VM is created:
 
         ```bash
-        sudo echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf	
+        sudo echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
         sudo cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
         #cloud-config
         # Generated by Azure cloud image build
@@ -467,13 +468,13 @@ Preparing a CentOS 7 virtual machine for Azure is similar to CentOS 6, however t
     > [!NOTE]
     > If you are migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step.    
 
-	```bash
-	sudo rm -f /var/log/waagent.log
-	sudo cloud-init clean
-	sudo waagent -force -deprovision+user
-	sudo rm -f ~/.bash_history
-	sudo export HISTSIZE=0
-	```
+    ```bash
+    sudo rm -f /var/log/waagent.log
+    sudo cloud-init clean
+    sudo waagent -force -deprovision+user
+    sudo rm -f ~/.bash_history
+    sudo export HISTSIZE=0
+    ```
 
 15. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [uploaded to Azure](./upload-vhd.md#option-1-upload-a-vhd).
 

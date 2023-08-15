@@ -21,8 +21,8 @@
       href:  common-scenarios.md
     - name:  Tools for synchronization
       href:  sync-tools.md
-    - name:  Choosing the right sync tool
-      href:  https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad
+    - name:  Choosing the right sync client
+      href:  https://aka.ms/EvaluateSyncOptions
     - name:  Steps to start
       href:  get-started.md
     - name:  Prerequisites
@@ -39,6 +39,8 @@
       href:  connect/how-to-connect-health-operations.md
     - name:  Migrate your sync tool
       href:  cloud-sync/migrate-azure-ad-connect-to-cloud-sync.md
+    - name:  Exchange hybrid writeback
+      href:  exchange-hybrid-writeback.md
     - name:  Decommission connect sync V1
       href:  decommission-connect-sync-v1.md
   - name: Managing users and groups
@@ -53,7 +55,7 @@
     items: 
     - name:  What is password hash sync?
       href:  connect/whatis-phs.md
-    - name:  What is pass-through authenticaion?
+    - name:  What is pass-through authentication?
       href:  connect/how-to-connect-pta.md
     - name:  What is federation?
       href:  connect/whatis-fed.md
@@ -124,6 +126,8 @@
         href: cloud-sync/how-to-sso.md
       - name: Directory extensions and custom attributes
         href: cloud-sync/custom-attribute-mapping.md
+      - name: Exchange hybrid
+        href: cloud-sync/exchange-hybrid.md
     - name: Plan and design
       items:
       - name: Topologies and scenarios for cloud sync
@@ -515,8 +519,6 @@
       href: connect/reference-connect-user-privacy.md
     - name: Azure AD Connect Health user privacy
       href: connect/reference-connect-health-user-privacy.md
-    - name: Azure AD Connect in Germany
-      href: connect/reference-connect-germany.md
     - name: DirSync Deprecation
       href: connect/reference-connect-dirsync-deprecated.md
     - name: Attributes synchronized

@@ -6,8 +6,8 @@ author: dukicn
 ms.author: nikoduki
 ms.date: 04/05/2022
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Tiger Bridge archiving with continuous data protection and disaster recovery

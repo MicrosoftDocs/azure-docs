@@ -14,10 +14,14 @@
     - name: Basics of the identity platform
       displayName: introduction, basics, overview
       items:
+        - name: Identity fundamentals
+          href: ../fundamentals/identity-fundamental-concepts.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+        - name: Introduction to identity and access management
+          href: ../fundamentals/introduction-identity-access-management.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Authentication vs. authorization
           href: authentication-vs-authorization.md
         - name: OAuth 2.0 and OpenID Connect
-          href: active-directory-v2-protocols.md
+          href: v2-protocols.md
         - name: App types and authentication flows
           displayName: Auth flows
           href: authentication-flows-app-scenarios.md
@@ -85,7 +89,7 @@
         - name: Custom claims provider
           href: custom-claims-provider-overview.md
     - name: Security
-      displayName: least privilege, secure app configuration, conditional access
+      displayName: least privilege, secure app configuration, Conditional Access
       items:
         - name: Application security
           href: security-best-practices-for-app-registration.md
@@ -118,7 +122,13 @@
     - name: SPA authentication
       href: index-spa.yml
     - name: Quickstart
-      href: single-page-app-quickstart.md
+      items: 
+        - name: React
+          href: quickstart-single-page-app-react-sign-in.md
+        - name: Angular
+          href: quickstart-single-page-app-angular-sign-in.md
+        - name: JavaScript
+          href: quickstart-single-page-app-javascript-sign-in.md
     - name: Tutorials
       items:
         - name: React
@@ -163,7 +173,17 @@
     - name: Web app authentication
       href: index-web-app.yml
     - name: Quickstart
-      href: web-app-quickstart.md
+      items: 
+        - name: ASP.NET 
+          href: quickstart-web-app-aspnet-sign-in.md
+        - name: ASP.NET Core
+          href: quickstart-web-app-aspnet-core-sign-in.md
+        - name: Node.js - MSAL
+          href: quickstart-web-app-nodejs-msal-sign-in.md
+        - name: Java
+          href: quickstart-web-app-java-sign-in.md
+        - name: Python
+          href: quickstart-web-app-python-sign-in.md
     - name: Tutorials
       items:
         - name: ASP.NET
@@ -227,12 +247,18 @@
               href: scenario-web-app-call-api-call-api.md
             - name: Move to production
               href: scenario-web-app-call-api-production.md
+        - name: Deploy and setup App Service auth in a pipeline
+          href: deploy-web-app-authentication-pipeline.md
 - name: Web API
   items:
     - name: Web API authentication
       href: index-web-api.yml
     - name: Quickstart
-      href: web-api-quickstart.md
+      items:
+        - name: ASP.NET
+          href: quickstart-web-api-aspnet-protect-api.md
+        - name: ASP.NET Core
+          href: quickstart-web-api-aspnet-core-protect-api.md
     - name: Tutorials
       items:
         - name: ASP.NET
@@ -283,7 +309,13 @@
     - name: Desktop app authentication
       href: index-desktop.yml
     - name: Quickstart
-      href: desktop-app-quickstart.md
+      items:
+        - name: Node.js Electron
+          href: quickstart-desktop-app-nodejs-electron-sign-in.md
+        - name: Universal Windows Platform
+          href: quickstart-desktop-app-uwp-sign-in.md
+        - name: Windows Presentation Foundation
+          href: quickstart-desktop-app-wpf-sign-in.md
     - name: Tutorials
       items:
         - name: Universal Windows Platform (UWP)
@@ -329,7 +361,11 @@
     - name: Mobile app authentication
       href: index-mobile.yml
     - name: Quickstart
-      href: mobile-app-quickstart.md
+      items: 
+        - name: Android
+          href: quickstart-mobile-app-android-sign-in.md
+        - name: iOS and macOS
+          href: quickstart-mobile-app-ios-sign-in.md
     - name: Tutorials
       items:
         - name: Android
@@ -387,7 +423,15 @@
     - name: Service/daemon authentication
       href: index-service.yml
     - name: Quickstart
-      href: console-app-quickstart.md
+      items:
+        - name: .NET Core
+          href: quickstart-console-app-netcore-acquire-token.md
+        - name: Java
+          href: quickstart-daemon-app-java-acquire-token.md
+        - name: Node.js
+          href: quickstart-console-app-nodejs-acquire-token.md
+        - name: Python
+          href: quickstart-daemon-app-python-acquire-token.md
     - name: Tutorials
       items:
         - name: ASP.NET
@@ -445,7 +489,7 @@
             - name: Restrict your app to a set of users
               href: howto-restrict-your-app-to-a-set-of-users.md
             - name: Add app roles in your application
-              href: howto-add-app-roles-in-azure-ad-apps.md
+              href: howto-add-app-roles-in-apps.md
             - name: Implement RBAC in your application
               href: howto-implement-rbac-for-apps.md
             - name: Support FIDO2 authentication
@@ -462,9 +506,8 @@
               href: saml-claims-customization.md
             - name: Set an access token lifetime policy
               href: configure-token-lifetimes.md    
-            - name: SAML app multi-instancing
-              displayName: Configure SAML app multi-instancing for an application
-              href: reference-app-multi-instancing.md
+            - name: Configure app multi-instancing
+              href: configure-app-multi-instancing.md
         - name: Custom claims provider
           items:
             - name: Token issuance start event
@@ -493,7 +536,7 @@
             - name: Common provisioning scenarios
               href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
             - name: Automate configuration using MS Graph
-              href: ../app-provisioning/application-provisioning-configuration-api.md?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
+              href: ../app-provisioning/application-provisioning-configuration-api.md?bc=/azure/active-directory/develop/breadcrumb/toc.json&toc=/azure/active-directory/develop/toc.json
             - name: Develop and integrate a SCIM endpoint
               href: ../app-provisioning/use-scim-to-provision-users-and-groups.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Secure
@@ -501,11 +544,11 @@
         - name: Build for resilience
           items:
             - name: Development Overview
-              href: ../fundamentals/resilience-app-development-overview.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+              href: ../architecture/resilience-app-development-overview.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
             - name: Client applications
-              href: ../fundamentals/resilience-client-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+              href: ../architecture/resilience-client-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
             - name: Daemon applications
-              href: ../fundamentals/resilience-daemon-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+              href: ../architecture/resilience-daemon-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
             - name: OpenID Connect metadata refresh
               href: howto-build-services-resilient-to-metadata-refresh.md
         - name: Use Continuous Access Evaluation APIs
@@ -568,6 +611,8 @@
           href: msal-migration.md
         - name: List all apps using ADAL
           href: howto-get-list-of-all-auth-library-apps.md
+        - name: Migrate off email-based authorization
+          href: migrate-off-email-claim-authorization.md
     - name: Deprecate
       items:
         - name: Remove an app registration
@@ -757,7 +802,7 @@
                 - name: Integrate with AD FS
                   href: msal-net-adfs-support.md
                 - name: Integrate with Azure AD B2C
-                  href: msal-net-aad-b2c-considerations.md
+                  href: msal-net-b2c-considerations.md
             - name: Logging and error handling
               displayName: MSAL.NET
               items:
@@ -823,7 +868,7 @@
               displayName: App types, OAuth
               href: v2-app-types.md
             - name: Certificate credentials
-              href: active-directory-certificate-credentials.md
+              href: certificate-credentials.md
             - name: Signing key rollover
               href: signing-key-rollover.md
             - name: UserInfo endpoint (OIDC)
@@ -831,7 +876,7 @@
         - name: SAML 2.0
           items:
             - name: How Azure AD uses the SAML protocol
-              href: active-directory-saml-protocol-reference.md
+              href: saml-protocol-reference.md
             - name: SAML single sign-on (SSO)
               displayName: SSO
               href: single-sign-on-saml-protocol.md

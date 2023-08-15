@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Configuring Azure AD to provision users into a SQL database
 
-[!INCLUDE [active-directory-app-provisioning-sql.md](../../../includes/active-directory-app-provisioning-sql.md)]
+[!INCLUDE [app-provisioning-sql.md](../../../includes/app-provisioning-sql.md)]
 
 
 ## Next steps

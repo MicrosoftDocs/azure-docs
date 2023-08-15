@@ -4,8 +4,8 @@ description: In this article, learn how to track and manage backup and restore j
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Track backup and restore jobs using REST API

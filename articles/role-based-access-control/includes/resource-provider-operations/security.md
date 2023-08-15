@@ -6,10 +6,47 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/01/2023
+ms.date: 06/11/2023
 ms.author: rolyon
 ms.custom: generated
 ---
+
+### Microsoft.AppComplianceAutomation
+
+Azure service: [App Compliance Automation Tool for Microsoft 365](/microsoft-365-app-certification/docs/acat-overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.AppComplianceAutomation/onboard/action | Onboard given subscriptions to Microsoft.AppComplianceAutomation provider. |
+> | Microsoft.AppComplianceAutomation/triggerEvaluation/action | Trigger evaluation for given resourceIds to get quick compliance result. |
+> | Microsoft.AppComplianceAutomation/listInUseStorageAccounts/action | List the storage accounts which are in use by related reports |
+> | Microsoft.AppComplianceAutomation/checkNameAvailability/action | action checkNameAvailability |
+> | Microsoft.AppComplianceAutomation/register/action | Register the subscription for Microsoft.AppComplianceAutomation |
+> | Microsoft.AppComplianceAutomation/unregister/action | Unregister the subscription for Microsoft.AppComplianceAutomation |
+> | Microsoft.AppComplianceAutomation/locations/operationStatuses/read | read operationStatuses |
+> | Microsoft.AppComplianceAutomation/locations/operationStatuses/write | write operationStatuses |
+> | Microsoft.AppComplianceAutomation/operations/read | read operations |
+> | Microsoft.AppComplianceAutomation/reports/read | Get the AppComplianceAutomation report list for the tenant. |
+> | Microsoft.AppComplianceAutomation/reports/read | Get the AppComplianceAutomation report and its properties. |
+> | Microsoft.AppComplianceAutomation/reports/write | Create a new AppComplianceAutomation report or update an exiting AppComplianceAutomation report. |
+> | Microsoft.AppComplianceAutomation/reports/delete | Delete an AppComplianceAutomation report. |
+> | Microsoft.AppComplianceAutomation/reports/write | Update an exiting AppComplianceAutomation report. |
+> | Microsoft.AppComplianceAutomation/reports/syncCertRecord/action | Synchronize attestation record from app compliance. |
+> | Microsoft.AppComplianceAutomation/reports/checkNameAvailability/action | Checks the report's nested resource name availability, e.g: Webhooks, Evidences, Snapshots. |
+> | Microsoft.AppComplianceAutomation/reports/evidences/read | Returns a paginated list of evidences for a specified report. |
+> | Microsoft.AppComplianceAutomation/reports/evidences/read | Get the evidence metadata |
+> | Microsoft.AppComplianceAutomation/reports/evidences/write | Create or Update an evidence a specified report |
+> | Microsoft.AppComplianceAutomation/reports/evidences/delete | Delete an existent evidence from a specified report |
+> | Microsoft.AppComplianceAutomation/reports/evidences/download/action | Download evidence file. |
+> | Microsoft.AppComplianceAutomation/reports/snapshots/read | Get the AppComplianceAutomation snapshot list. |
+> | Microsoft.AppComplianceAutomation/reports/snapshots/read | Get the AppComplianceAutomation snapshot and its properties. |
+> | Microsoft.AppComplianceAutomation/reports/snapshots/download/action | Download compliance needs from snapshot, like: Compliance Report, Resource List. |
+> | Microsoft.AppComplianceAutomation/reports/webhooks/read | Get the AppComplianceAutomation webhook list. |
+> | Microsoft.AppComplianceAutomation/reports/webhooks/read | Get the AppComplianceAutomation webhook and its properties. |
+> | Microsoft.AppComplianceAutomation/reports/webhooks/write | Create a new AppComplianceAutomation webhook or update an exiting AppComplianceAutomation webhook. |
+> | Microsoft.AppComplianceAutomation/reports/webhooks/delete | Delete an AppComplianceAutomation webhook. |
+> | Microsoft.AppComplianceAutomation/reports/webhooks/write | Update an exiting AppComplianceAutomation webhook. |
 
 ### Microsoft.KeyVault
 

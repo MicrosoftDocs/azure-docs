@@ -47,7 +47,7 @@ items:
     href: concept-provisioning-logs.md
   - name: Usage and Insights report
     href: concept-usage-insights-report.md
-  - name: Azure AD logs in Azure Monitor
+  - name: Azure AD log integrations
     href: concept-activity-logs-azure-monitor.md
   - name: Plan a reporting and monitoring deployment
     href: plan-monitoring-and-reporting.md
@@ -65,7 +65,7 @@ items:
       href: howto-download-logs.md
     - name: Manage inactive user accounts in Azure AD
       href: howto-manage-inactive-user-accounts.md
-    - name: View applied conditional access policies
+    - name: View applied Conditional Access policies
       href: how-to-view-applied-conditional-access-policies.md
 
   - name: Monitoring
@@ -86,7 +86,7 @@ items:
     - name: Flagged sign-ins
       href: overview-flagged-sign-ins.md
     - name: Sign-in diagnostic
-      href: overview-sign-in-diagnostics.md
+      href: ./howto-use-sign-in-diagnostics.md
     - name: Sign-in diagnostics scenarios
       href: concept-sign-in-diagnostics-scenarios.md
     - name: Troubleshoot sign-in errors for a user
@@ -105,6 +105,10 @@ items:
     href: /graph/api/resources/directoryaudit
   - name: Azure AD recommendations API reference
     href: /graph/api/resources/recommendations-api-overview
+  - name: Application credential activity API reference
+    href: /graph/api/resources/appcredentialsigninactivity
+  - name: Application sign-in activity API reference
+    href: /graph/api/resources/serviceprincipalsigninactivity
   - name: Sign-in logs API reference
     href: /graph/api/resources/signin
   - name: Audit activities
@@ -126,12 +130,12 @@ items:
       items:
       - name: Authentication prompts analysis
         href: workbook-authentication-prompts-analysis.md
-      - name: Conditional access gap analyzer
+      - name: Conditional Access gap analyzer
         href: workbook-conditional-access-gap-analyzer.md
       - name: Cross-tenant access activity 
         href: workbook-cross-tenant-access-activity.md
       - name: Sign-ins using legacy authentication  
-        href: workbook-legacy authentication.md
+        href: workbook-legacy-authentication.md
       - name: Risk analysis
         href: workbook-risk-analysis.md
       - name: Sensitive Operations Report 
@@ -165,4 +169,3 @@ items:
           href: recommendation-renew-expiring-application-credential.md
         - name: Renew expiring service principal credentials (preview)
           href: recommendation-renew-expiring-service-principal-credential.md
-

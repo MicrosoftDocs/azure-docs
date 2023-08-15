@@ -32,7 +32,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* A user account in Funnel Leasing with Admin permissions.
+* A live community in Funnel or at least a confirmation that all the required configuration is done on the Funnel side in preparation for a go-live date.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -40,7 +40,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Funnel Leasing](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Funnel Leasing to support provisioning with Azure AD
-Contact Funnel Leasing support to configure Funnel Leasing to support provisioning with Azure AD.
+Contact your Funnel Account Manager and let them know you want to enable Azure AD user provisioning, they will provide an authentication Bearer token.
 
 ## Step 3. Add Funnel Leasing from the Azure AD application gallery
 
@@ -57,7 +57,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 ## Step 5. Configure automatic user provisioning to Funnel Leasing 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in TestApp based on user assignments in Azure AD.
+This section guides you through connecting your Azure AD to Funnel's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Funnel based on user assignment in Azure AD.
 
 ### To configure automatic user provisioning for Funnel Leasing in Azure AD:
 
@@ -65,7 +65,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 
-1. In the applications list, select **Funnel Leasing**.
+1. In the applications list, select **Funnel**.
 
 	![Screenshot of the Funnel Leasing link in the Applications list.](common/all-applications.png)
 
@@ -77,7 +77,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your Funnel Leasing Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Funnel Leasing. If the connection fails, ensure your Funnel Leasing account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input `https://nestiolistings.com/scim/v2` as the **Tenant URL** and the **Secret Token** retrieved earlier from your Funnel Account Manager (the authentication Bearer token). Click **Test Connection** to ensure Azure AD can connect to Funnel. If the connection fails, ensure you have a valid authentication token with your Funnel Account Manager.
 
  	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -125,6 +125,32 @@ Once you've configured provisioning, use the following resources to monitor your
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it's to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application goes into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## Role and Group Mappings
+To associate an Azure user to a Funnel role, or an Azure user to a Funnel employee group, Funnel uses a custom mapping functionality.
+
+- Which Azure fields are used?
+    
+    For role mappings, Funnel looks at the SCIM `title` attribute by default. This SCIM attribute is mapped to the `jobTitle` Azure user attribute by default.
+    
+    For group mappings, Funnel looks at the SCIM `userType` attribute by default. This SCIM attribute is mapped to the `department` Azure user attribute by default.
+    
+    If you want to change which fields are used, you can edit the **Attribute Mappings** section and map your desired fields to `title` and `userType`.
+
+- Which values are used?
+    
+    For initial setup, determine every value that you want to use for role and group mappings. Provide these values to your Funnel Account Manager to set up the configuration in Funnel.
+    
+    For example, if you want to set the `jobTitle` field with an `agent` value, you will need to tell your Funnel Account Manager which Funnel role this value should be mapped. 
+    
+    If you need to update or add new values in the future, you will need to notify your Funnel Account Manager.
+
+- How do I associate a user to several roles and groups?
+    
+    It is not possible to associate a user to several Funnel roles, but it is possible to associate a user to several Funnel employee groups.
+    
+    To associate a user to several Funnel employee groups, you will need to specify multiple values in the `department` user attribute (or whichever attribute you mapped to `userType`).
+    Each value will need to be separated by a delimiter. By default the `-` character is used as the delimiter. To use another delimiter, you will need to notify your Funnel account manager.
 
 ## More resources
 

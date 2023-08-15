@@ -2,7 +2,7 @@
 title: Deploy updates and track results in update management center (preview).
 description: The article details how to use update management center (preview) in the Azure portal to deploy updates and view results for supported machines.
 ms.service: update-management-center
-ms.date: 12/27/2022
+ms.date: 08/08/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -33,7 +33,7 @@ Update management center (preview) is available in all [Azure public regions](su
 
 To install one time updates on a single VM, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In **Update management center (preview)**, **Overview**, choose your **Subscription** and select **One-time update** to install updates.
 
@@ -102,7 +102,7 @@ To install one time updates on a single VM, follow these steps:
 ---
 
 ## Install updates at scale
- 
+
 To create a new update deployment for multiple machines, follow these steps:
 
 >[!NOTE]
@@ -113,7 +113,7 @@ You can schedule updates
 # [From Overview blade](#tab/install-scale-overview) 
 
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In **Update management center (Preview)**, **Overview**, choose your **Subscription**, select **One-time update**, and **Install now** to install updates.
 
@@ -128,7 +128,7 @@ The **Machines** displays a list of machines for which you can deploy one-time u
 
 # [From Machines blade](#tab/install-scale-machines) 
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Go to **Machines**, select your subscription and choose your machines. You can choose **Select all** to select  all the machines. 
 
@@ -153,7 +153,10 @@ After your scheduled deployment starts, you can see it's status on the **History
 
 :::image type="content" source="./media/deploy-updates/updates-history-inline.png" alt-text="Screenshot showing updates history." lightbox="./media/deploy-updates/updates-history-expanded.png":::
 
-A list of the deployments created are show in the update deployment grid and include relevant information about the deployment. Every update deployment has a unique GUID, represented as **Operation ID**, which is listed along with **Status**, **Updates Installed** and **Time** details. You can filter the results listed in the grid.
+> [!NOTE]
+> The **Windows update history** currently doesn't show the updates summary that are installed from Azure Update Management. To view a summary of the updates applied on your machines, go to **Update management center (preview)** > **Manage** > **History**. 
+ 
+A list of the deployments created are shown in the update deployment grid and include relevant information about the deployment. Every update deployment has a unique GUID, represented as **Operation ID**, which is listed along with **Status**, **Updates Installed** and **Time** details. You can filter the results listed in the grid.
 
 Select any one of the update deployments from the list to open the **Update deployment run** page. Here, it shows a detailed breakdown of the updates and the installation results for the Azure VM or Arc-enabled server. 
 

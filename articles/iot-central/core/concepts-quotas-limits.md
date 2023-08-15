@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Central quotas and limits
-description: This article lists the key quotas and limits that apply to an IoT Central application including those from the underlying DPS and IoT Hub services.
+description: This article lists the key quotas and limits that apply to an IoT Central application including from the underlying DPS and IoT Hub services.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/07/2022
+ms.date: 06/12/2023
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -29,21 +29,21 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
 | Number of telemetry messages per second per device| 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
-| Maximum size of a device-to-cloud message | 256 KB | This value is set by the IoT Hub service. |
-| Maximum size of a cloud-to-device message | 64 KB | This value is set by the IoT Hub service. |
+| Maximum size of a device-to-cloud message | 256 KB | The IoT Hub service sets this value. |
+| Maximum size of a cloud-to-device message | 64 KB | The IoT Hub service sets this value. |
 
 ## Property updates
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
-| Number of property updates per second | 100 | This is a soft limit. IoT Central autoscales the application as needed<sup>1</sup>. |
-| Properties | Maximum size of desired properties and reported properties sections are 32 KB each. Maximum size of tags section is 8 KB. Maximum size of each individual property in every section is 4 KB. | These values are set by the IoT Hub service. |
+| Number of property updates per second | 100 | This limit is a soft limit. IoT Central autoscales the application as needed<sup>1</sup>. |
+| Properties | Maximum size of desired properties and reported properties sections are 32 KB each. Maximum size of tags section is 8 KB. Maximum size of each individual property in every section is 4 KB. | The IoT Hub service sets these values. |
 
 ## Commands
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
-| Number of command executions per second | 20 | This is a soft limit. IoT Central autoscales the application as needed<sup>1</sup>. |
+| Number of command executions per second | 20 | This limit is a soft limit. IoT Central autoscales the application as needed<sup>1</sup>. |
 
 ## REST API calls
 
@@ -85,7 +85,7 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
-| Number of devices registrations per minute | 200 | This quota is set by the underlying DPS instance. Contact support to discuss increasing this quota for your application. |
+| Number of devices registrations per minute | 200 | The underlying DPS instance sets this quota. Contact support to discuss increasing this quota for your application. |
 
 ## Rules
 
@@ -109,8 +109,8 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
-| Maximum user role assignments per application | 200 | This isn't the same as the number of users per application. |
-| Maximum roles per application | 50 | This includes the default application and organization roles. |
+| Maximum user role assignments per application | 200 | This limit isn't the same as the number of users per application. |
+| Maximum roles per application | 50 | This limit includes the default application and organization roles. |
 | Maximum organizations per application| 200 | |
 | Maximum organization hierarchy depth | 5 | |
 

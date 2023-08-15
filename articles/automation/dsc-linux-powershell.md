@@ -4,7 +4,7 @@ description: This article tells you how to configure a Linux virtual machine to 
 ms.topic: conceptual
 services: automation
 ms.subservice: dsc
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-linux
 ms.date: 08/31/2021
 ---
 

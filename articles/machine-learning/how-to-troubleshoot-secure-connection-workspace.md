@@ -48,7 +48,7 @@ Use the following steps to verify if your custom DNS solution is correctly resol
     | Azure region | URL |
     | ----- | ----- |
     | Azure Government | https://portal.azure.us/?feature.privateendpointmanagedns=false |
-    | Azure China 21Vianet | https://portal.azure.cn/?feature.privateendpointmanagedns=false |
+    | Microsoft Azure operated by 21Vianet | https://portal.azure.cn/?feature.privateendpointmanagedns=false |
     | All other regions | https://portal.azure.com/?feature.privateendpointmanagedns=false |
 
 1. In the portal, select the private endpoint for the workspace. Make a list of FQDNs listed for the private endpoint.

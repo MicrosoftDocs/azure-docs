@@ -3,28 +3,25 @@ title: Incoming call concepts
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Azure Communication Services IncomingCall notification
 author: jasonshave
-
 ms.service: azure-communication-services
-ms.topic: include
+ms.subservice: call-automation
+ms.topic: conceptual
 ms.date: 09/26/2022
 ms.author: jassha
-ms.custom: public_preview
 ---
 
 # Incoming call concepts
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Azure Communication Services Call Automation provides developers the ability to build applications, which can make and receive calls. Azure Communication Services relies on Event Grid subscriptions to deliver each `IncomingCall` event, so setting up your environment to receive these notifications is critical to your application being able to redirect or answer a call.
 
 ## Calling scenarios
 
-First, we need to define which scenarios can trigger an `IncomingCall` event. The primary concept to remember is that a call to an Azure Communication Services identity or Public Switched Telephone Network (PSTN) number will trigger an `IncomingCall` event. The following are examples of these resources:
+First, we need to define which scenarios can trigger an `IncomingCall` event. The primary concept to remember is that a call to an Azure Communication Services identity or Public Switched Telephone Network (PSTN) number triggers an `IncomingCall` event. The following are examples of these resources:
 
 1. An Azure Communication Services identity
 2. A PSTN phone number owned by your Azure Communication Services resource
 
-Given the above examples, the following scenarios will trigger an `IncomingCall` event sent to Event Grid:
+Given these examples, the following scenarios trigger an `IncomingCall` event sent to Event Grid:
 
 | Source | Destination | Scenario(s) |
 | ------ | ----------- | -------- |
@@ -54,11 +51,11 @@ This architecture has the following benefits:
 
 - Using Event Grid subscription filters, you can route the `IncomingCall` notification to specific applications.
 - PSTN number assignment and routing logic can exist in your application versus being statically configured online.
-- As identified in the above [calling scenarios](#calling-scenarios) section, your application can be notified even when users make calls between each other. You can then combine this scenario together with the [Call Recording APIs](../voice-video-calling/call-recording.md) to meet compliance needs.
+- As identified in the [calling scenarios](#calling-scenarios) section, your application can be notified even when users make calls between each other. You can then combine this scenario together with the [Call Recording APIs](../voice-video-calling/call-recording.md) to meet compliance needs.
 
 To check out a sample payload for the event and to learn about other calling events published to Event Grid, check out this [guide](../../../event-grid/communication-services-voice-video-events.md#microsoftcommunicationincomingcall).
 
-Below is an example of an Event Grid Webhook subscription where the event type filter is listening only to the `IncomingCall` event.
+Here is an example of an Event Grid Webhook subscription where the event type filter is listening only to the `IncomingCall` event.
 
 ![Image showing IncomingCall subscription.](./media/subscribe-incoming-call-event-grid.png)
 
@@ -69,14 +66,25 @@ You can use [advanced filters](../../../event-grid/event-filtering.md) in your E
 > [!NOTE]
 > In many cases you will want to configure filtering in Event Grid due to the scenarios described above generating an `IncomingCall` event so that your application only receives events it should be responding to. For example, if you want to redirect an inbound PSTN call to an ACS endpoint and you don't use a filter, your Event Grid subscription will receive two `IncomingCall` events; one for the PSTN call and one for the ACS user even though you had not intended to receive the second notification. Failure to handle these scenarios using filters or some other mechanism in your application can cause infinite loops and/or other undesired behavior.
 
-Below is an example of an advanced filter on an Event Grid subscription watching for the `data.to.PhoneNumber.Value` string starting with a PSTN phone number of `+18005551212.
+Here is an example of an advanced filter on an Event Grid subscription watching for the `data.to.PhoneNumber.Value` string starting with a PSTN phone number of `+18005551212.
 
 ![Image showing Event Grid advanced filter.](./media/event-grid-advanced-filter.png)
 
 ## Number assignment
 
-Since the `IncomingCall` notification doesn't have a specific destination other than the Event Grid subscription you've created, you're free to associate any particular number to any endpoint in Azure Communication Services. For example, if you acquired a PSTN phone number of `+14255551212` and want to assign it to a user with an identity of `375f0e2f-e8db-4449-9bf7-2054b02e42b4` in your application, you'll maintain a mapping of that number to the identity. When an `IncomingCall` notification is sent matching the phone number in the **to** field, you'll invoke the `Redirect` API and supply the identity of the user. In other words, you maintain the number assignment within your application and route or answer calls at runtime.
+Since the `IncomingCall` notification doesn't have a specific destination other than the Event Grid subscription you've created, you're free to associate any particular number to any endpoint in Azure Communication Services. For example, if you acquired a PSTN phone number of `+14255551212` and want to assign it to a user with an identity of `375f0e2f-e8db-4449-9bf7-2054b02e42b4` in your application, you can maintain a mapping of that number to the identity. When an `IncomingCall` notification is sent matching the phone number in the **to** field, invoke the `Redirect` API and supply the identity of the user. In other words, you maintain the number assignment within your application and route or answer calls at runtime.
+
+## Best Practices
+1. Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint. This requirement prevents a malicious user from flooding your endpoint with events. If you're facing issues with receiving events, ensure the webhook configured is verified by handling `SubscriptionValidationEvent`. For more information, see this [guide](../../../event-grid/webhook-event-delivery.md).  
+2. Upon the receipt of an incoming call event, if your application doesn't respond back with 200Ok to Event Grid in time, Event Grid uses exponential backoff retry to send the again. However, an incoming call only rings for 30 seconds, and acting on a call after that won't work. To avoid retries for expired or stale calls, we recommend setting the retry policy as - Max Event Delivery Attempts to 2 and Event Time to Live to 1 minute. These settings can be found under Additional Features tab of the event subscription. Learn more about retries [here](../../../event-grid/delivery-and-retry.md).
+
+3. We recommend you to enable logging for your Event Grid resource to monitor events that failed to deliver. Navigate to the system topic under Events tab of your Communication resource and enable logging from the Diagnostic settings. Failure logs can be found in 'AegDeliveryFailureLogs' table.
+
+    ```sql 
+    AegDeliveryFailureLogs
+    | limit 10 
+    | where Message has "incomingCall"
+    ```
 
 ## Next steps
-- [Build a Call Automation application](../../quickstarts/call-automation/callflows-for-customer-interactions.md) to simulate a customer interaction.
-- [Redirect an inbound PSTN call](../../quickstarts/call-automation/redirect-inbound-telephony-calls.md) to your resource.
+- Try out the quickstart to [place an outbound call](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).

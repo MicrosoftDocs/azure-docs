@@ -33,7 +33,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* A user account in OpenForms with Admin permissions.
+* A user account in OpenForms with Account Owner permissions.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -41,7 +41,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and OpenForms](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure OpenForms to support provisioning with Azure AD
-Contact OpenForms support to configure OpenForms to support provisioning with Azure AD.
+This procedure is detailed in the [OpenForms help center](https://help.openforms.com/Developers/Set-up-Azure-AD-to-work-with-OpenForms).
 
 ## Step 3. Add OpenForms from the Azure AD application gallery
 

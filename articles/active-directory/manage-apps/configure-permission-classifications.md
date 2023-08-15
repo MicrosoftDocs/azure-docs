@@ -34,6 +34,8 @@ To configure permission classifications, you need:
 
 ## Manage permission classifications
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 :::zone pivot="portal"
 
 Follow these steps to classify permissions using the Azure portal:
@@ -239,4 +241,4 @@ DELETE https://graph.microsoft.com/v1.0/servicePrincipals(appId='00000003-0000-0
 ## Next steps
 
 - [Manage app consent policies](manage-app-consent-policies.md)
-- [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
+- [Permissions and consent in the Microsoft identity platform](../develop/permissions-consent-overview.md)

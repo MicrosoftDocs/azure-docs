@@ -75,7 +75,7 @@ You need the following components:
   * F5 BIG-IP Access Policy Manager™ (APM) add-on license on a BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
   * 90-day BIG-IP full feature trial. See [Free Trials](https://www.f5.com/trial/big-ip-trial.php)
 * User identities synchronized from an on-premises directory to Azure AD
-  * See [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
+  * See [Azure AD Connect sync: Understand and customize synchronization](../hybrid/connect/how-to-connect-sync-whatis.md)
 * An SSL certificate to publish services over HTTPS, or use default certificates while testing
   * See [SSL profile](./f5-bigip-deployment-guide.md#ssl-profile)
 * A form-based authentication application, or set up an IIS FBA app for testing
@@ -89,6 +89,8 @@ The configuration in this article is a flexible SHA implementation: manual creat
    >Replace example strings or values with those from your environment.
 
 ## Register F5 BIG-IP in Azure AD
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 BIG-IP registration is the first step for SSO between entities. The app you create from the F5 BIG-IP gallery template is the relying party, representing the SAML SP for the BIG-IP published application.
 
@@ -260,7 +262,7 @@ An access profile binds the APM elements that manage access to BIG-IP virtual se
 14. On **SAML authentication SP**, change the **Name** to **Azure AD Auth**.
 15. In the **AAA Server** dropdown, enter the SAML service provider object you created.
 
-   ![Screenshot showing the Azure AD Authentication server settings.](./media/f5-big-ip-forms-advanced/azure-ad-auth-server.png)
+   ![Screenshot showing the Azure AD Authentication server settings.](./media/f5-big-ip-forms-advanced/auth-server.png)
 
 16. On the **Successful** branch, select the **+** sign.
 17. In the pop-up, select **Authentication**.

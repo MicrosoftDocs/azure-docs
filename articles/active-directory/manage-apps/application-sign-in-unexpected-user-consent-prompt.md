@@ -44,13 +44,15 @@ Further prompts can be expected in various scenarios:
    > [!NOTE]
    > Following Microsoft's recommendations and best practices, many organizations have disabled or limited users' permission to grant consent to apps. If an application forces users to grant consent every time they sign in, most users will be blocked from using these applications even if an administrator grants tenant-wide admin consent. If you encounter an application which is requiring user consent even after admin consent has been granted, check with the app publisher to see if they have a setting or option to stop forcing user consent on every sign in.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Troubleshooting steps
 
 ### Compare permissions requested and granted for the applications
 
 To ensure the permissions granted for the application are up-to-date, you can compare the permissions that are being requested by the application with the permissions already granted in the tenant. 
 
-1. Sign-in to the Azure portal with an administrator account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an administrator account.
 2. Navigate to **Enterprise applications**.
 3. Select the application in question from the list.
 4. Under Security in the left-hand navigation, choose **Permissions**
@@ -62,7 +64,7 @@ To ensure the permissions granted for the application are up-to-date, you can co
 
 If the application requires assignment, individual users can't consent for themselves. To check if assignment is required for the application, do the following:
 
-1. Sign-in to the Azure portal with an administrator account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an administrator account.
 2. Navigate to **Enterprise applications**.
 3. Select the application in question from the list.
 4. Under Manage in the left-hand navigation, choose **Properties**.
@@ -73,7 +75,7 @@ If the application requires assignment, individual users can't consent for thems
 
 Determining whether an individual user can consent to an application can be configured by every organization, and may differ from directory to directory. Even if every permission doesn't require admin consent by default, your organization may have disabled user consent entirely, preventing an individual user to consent for themselves for an application. To view your organization's user consent settings, do the following:
 
-1. Sign-in to the Azure portal with an administrator account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an administrator account.
 2. Navigate to **Enterprise applications**.
 3. Under Security in the left-hand navigation, choose **Consent and permissions**.
 4. View the user consent settings. If set to *Do not allow user consent*, users will never be able to consent on behalf of themselves for an application.
@@ -82,6 +84,6 @@ Determining whether an individual user can consent to an application can be conf
 
 * [Apps, permissions, and consent in Azure Active Directory (v1.0 endpoint)](../develop/quickstart-register-app.md)
 
-* [Scopes, permissions, and consent in the Azure Active Directory (v2.0 endpoint)](../develop/v2-permissions-and-consent.md)
+* [Scopes, permissions, and consent in the Azure Active Directory (v2.0 endpoint)](../develop/permissions-consent-overview.md)
 
 * [Unexpected error when performing consent to an application](application-sign-in-unexpected-user-consent-error.md)

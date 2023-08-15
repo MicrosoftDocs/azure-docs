@@ -4,7 +4,7 @@ description: Provides a summary of supported regions and operating system settin
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 05/31/2023
+ms.date: 07/11/2023
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -41,6 +41,15 @@ Use one of the following options to perform the settings change at scale:
     $ServiceManager.AddService2($ServiceId,7,"")
     ```
 - For servers running Server 2016 or later which are not using Update management center scheduled patching (that has the VM PatchSettings set to AutomaticByOS = Azure-Orchestrated) you can use Group Policy to control this by downloading and using the latest Group Policy [Administrative template files](https://learn.microsoft.com/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
+
+> [!NOTE]
+> Run the following PowerShell script on the server to disable first party updates.
+> ```powershell
+> $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")  
+> $ServiceManager.Services 
+> $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
+> $ServiceManager.RemoveService($ServiceId)
+> ```
 
 ### Third-party updates
 
@@ -128,7 +137,7 @@ The table lists the operating systems supported on [Azure Arc-enabled servers](.
    |-------------|
    | Windows Server 2012 R2 and higher (including Server Core) |
    | Windows Server 2008 R2 SP1 with PowerShell enabled and .NET Framework 4.0+ |
-   | Ubuntu 16.04, 18.04, and 20.04 LTS (x64) |
+   | Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS |
    | CentOS Linux 7 and 8 (x64) |   
    | SUSE Linux Enterprise Server (SLES) 12 and 15 (x64) |
    | Red Hat Enterprise Linux (RHEL) 7, 8, 9 (x64) |    

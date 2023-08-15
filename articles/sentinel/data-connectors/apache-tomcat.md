@@ -3,21 +3,19 @@ title: "Apache Tomcat connector for Microsoft Sentinel"
 description: "Learn how to install the connector Apache Tomcat to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 06/22/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Apache Tomcat connector for Microsoft Sentinel
 
-The Apache Tomcat data connector provides the capability to ingest [Apache Tomcat](http://tomcat.apache.org/) events into Microsoft Sentinel. Refer to [Apache Tomcat documentation](http://tomcat.apache.org/tomcat-10.0-doc/logging.html) for more information.
+The Apache Tomcat solution provides the capability to ingest [Apache Tomcat](http://tomcat.apache.org/) events into Microsoft Sentinel. Refer to [Apache Tomcat documentation](http://tomcat.apache.org/tomcat-10.0-doc/logging.html) for more information.
 
 ## Connector attributes
 
 | Connector attribute | Description |
 | --- | --- |
-| **Kusto function alias** | TomcatEvent |
-| **Kusto function url** | https://aka.ms/sentinel-ApacheTomcat-parser |
 | **Log Analytics table(s)** | Tomcat_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -38,8 +36,7 @@ TomcatEvent
 ## Vendor installation instructions
 
 
-> [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinel-ApacheTomcat-parser) to create the Kusto Functions alias, **TomcatEvent**
+**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias TomcatEvent and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Tomcat/Parsers/TomcatEvent.txt).The function usually takes 10-15 minutes to activate after solution installation/update.
 
 
 > [!NOTE]

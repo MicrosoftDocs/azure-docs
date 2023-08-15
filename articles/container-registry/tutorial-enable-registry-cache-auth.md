@@ -44,7 +44,7 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
 
 5. Enter the **Rule name**.
 
-6. Select **Source** Registry from the dropdown menu. Currently, Cache ACR only supports **Docker Hub** and **Microsoft Artifact Registry**. 
+6. Select **Source** Registry from the dropdown menu. 
 
 7. Enter the **Repository Path** to the artifacts you want to cache.
 

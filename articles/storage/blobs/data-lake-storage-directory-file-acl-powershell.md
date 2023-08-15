@@ -4,8 +4,7 @@ titleSuffix: Azure Storage
 description: Use PowerShell cmdlets to manage directories and files in storage accounts that have a hierarchical namespace enabled.
 author: normesta
 
-ms.service: storage
-ms.subservice: data-lake-storage-gen2
+ms.service: azure-data-lake-storage
 ms.topic: how-to
 ms.date: 03/09/2023
 ms.author: normesta

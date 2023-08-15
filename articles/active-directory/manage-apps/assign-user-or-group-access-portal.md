@@ -29,6 +29,8 @@ For greater control, certain types of enterprise applications can be configured 
 
 ## Prerequisites
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To assign users to an enterprise application, you need:
 
 - An Azure AD account with an active subscription. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -40,7 +42,7 @@ To assign users to an enterprise application, you need:
 
 To assign a user or group account to an enterprise application:
 
-1. In the [Azure portal](https://portal.azure.com), select **Enterprise applications**, and then search for and select the application to which you want to assign the user or group account.
+1. Sign in to the [Azure portal](https://portal.azure.com), then select **Enterprise applications**, and then search for and select the application to which you want to assign the user or group account.
 1. Browse to **Azure Active Directory** > **Users and groups**, and then select **Add user/group**.
 
     :::image type="content" source="media/add-application-portal-assign-users/assign-user.png" alt-text="Assign user account to an application in your Azure AD tenant.":::

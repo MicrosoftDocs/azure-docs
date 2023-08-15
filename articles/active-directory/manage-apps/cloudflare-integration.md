@@ -23,7 +23,7 @@ In this tutorial, learn to integrate Azure Active Directory (Azure AD) with Clou
 * An Azure AD subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An Azure AD tenant linked to the Azure AD subscription
-  * See, [Quickstart: Create a new tenant in Azure AD](../fundamentals/active-directory-access-create-new-tenant.md)
+  * See, [Quickstart: Create a new tenant in Azure AD](../fundamentals/create-new-tenant.md)
 * A Cloudflare Zero Trust account
   * If you don't have one, go to [Get started with Cloudflare's Zero Trust platform](https://dash.cloudflare.com/sign-up/teams)
 
@@ -61,9 +61,11 @@ Integrate Cloudflare Zero Trust account with an instance of Azure AD.
 
 ## Register Cloudflare with Azure AD
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Use the instructions in the following three sections to register Cloudflare with Azure AD.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Under **Azure Services**, select **Azure Active Directory**.
 3. In the left menu, under **Manage**, select **App registrations**.
 4. Select the **+ New registration** tab.

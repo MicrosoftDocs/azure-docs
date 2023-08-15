@@ -3,7 +3,7 @@ title: "include file"
 description: "include file"
 services: storage
 author: pauljewellmsft
-ms.service: storage
+ms.service: azure-storage
 ms.topic: include
 ms.date: 06/05/2023
 ms.author: pauljewell
@@ -53,7 +53,7 @@ account_url = "https://<storage-account-name>.blob.core.windows.net"
 blob_service_client = BlobServiceClient(account_url, credential=DefaultAzureCredential())
 ```
 
-To learn more about authorizing access to Blob Storage from your applications with the Python SDK, see [How to authenticate .NET applications with Azure services](/azure/developer/python/sdk/authentication-overview).
+To learn more about authorizing access to Blob Storage from your applications with the Python SDK, see [Authenticate Python apps to Azure services](/azure/developer/python/sdk/authentication-overview).
 
 ## Get the user delegation key
 

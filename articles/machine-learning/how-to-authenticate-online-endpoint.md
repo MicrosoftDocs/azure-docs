@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn to authenticate clients to an Azure Machine Learning online endpoint
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande

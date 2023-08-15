@@ -3,6 +3,7 @@ title: Quickstart - Start and stop SAP systems from Azure Center for SAP solutio
 description: Learn how to start or stop an SAP system through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions through Azure CLI.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 05/04/2023
 ms.author: kanamudu

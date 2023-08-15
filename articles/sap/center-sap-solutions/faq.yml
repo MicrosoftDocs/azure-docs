@@ -5,6 +5,7 @@ metadata:
   ms.topic: faq 
   ms.service: sap-on-azure
   ms.subservice: center-sap-solutions
+  ms.custom: references_regions
   ms.date: 10/19/2022
   ms.author: ladolan
   author: lauradolan
@@ -73,6 +74,13 @@ sections:
                 The following feature is still in preview: 
 
                 - *Architecture Visualization* - The feature helps customers visualize the architecture of the SAP S/4/HANA system being deployed and can be downloaded for documentation purposes.  
+
+      - question:  Which regions support Azure Virtual Instance for SAP solutions as part of Azure Center for SAP solutions?
+        answer: | 
+                Azure Virtual Instance for SAP solutions is available in the following regions:  
+
+                - West Europe, North Europe, East US, East US 2, West US 2, West US 3, Central US, South Central US, India Central, East Asia, Southeast Asia, Australia East, and Australia Central.  
+                - You can also see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=all#:~:text=Azure%20Center%20for%20SAP%20solutions) page for information about availability of Azure Center for SAP solutions in different Azure regions. 
 
   - name: Registering Existing SAP System Questions 
     questions: 
