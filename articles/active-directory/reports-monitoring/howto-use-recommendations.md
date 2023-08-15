@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/14/2023
+ms.date: 08/10/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 ---
 
-# How to: Use Azure AD recommendations
+# How to use Azure Active Directory Recommendations
 
 The Azure Active Directory (Azure AD) recommendations feature provides you with personalized insights with actionable guidance to:
 

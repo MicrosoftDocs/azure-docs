@@ -30,10 +30,10 @@ Using Azure AD gives you granular per-application access controls to secure acce
 
 ## Action plan
 
-1. [Install Azure AD Connect Health](../hybrid/how-to-connect-install-roadmap.md) on your AD FS server. 
+1. [Install Azure AD Connect Health](../hybrid/connect/how-to-connect-install-roadmap.md) on your AD FS server. 
 1. [Review the AD FS application activity report](../manage-apps/migrate-adfs-application-activity.md) to get insights about your AD FS applications. 
-1. Read the solution guide for [migrating applications to Azure AD](../manage-apps/migrate-adfs-apps-to-azure.md). 
-1. Migrate applications to Azure AD. For more information, see the article [Migrate from federation to cloud authentication](../hybrid/migrate-from-federation-to-cloud-authentication.md).
+1. Read the solution guide for [migrating applications to Azure AD](../manage-apps/migrate-adfs-apps-stages.md). 
+1. Migrate applications to Azure AD. For more information, see the article [Migrate from federation to cloud authentication](../hybrid/connect/migrate-from-federation-to-cloud-authentication.md).
 
 ### Guided walkthrough
 
