@@ -154,14 +154,14 @@ To learn more about making API calls to Azure AD and Microsoft 365 services like
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
 [AAD-App-Branding]:howto-add-branding-in-apps.md
-[AAD-App-Manifest]:reference-azure-ad-app-manifest.md
+[AAD-App-Manifest]:./reference-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
-[AAD-Auth-Scenarios]:authentication-scenarios.md
-[AAD-Consent-Overview]:consent-framework.md
+[AAD-Auth-Scenarios]:./authentication-vs-authorization.md
+[AAD-Consent-Overview]:./application-consent-experience.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
+[AAD-Integrating-Apps]:./quickstart-register-app.md
 [AAD-Samples-MT]: /samples/browse/?products=azure-active-directory
-[AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
+[AAD-Why-To-Integrate]: ./how-to-integrate.md
 [MSFT-Graph-overview]: /graph/
 [MSFT-Graph-permission-scopes]: /graph/permissions-reference
 
@@ -172,13 +172,13 @@ To learn more about making API calls to Azure AD and Microsoft 365 services like
 [Consent-Multi-Tier-Multi-Party]: ./media/howto-convert-app-to-be-multi-tenant/consent-flow-multi-tier-multi-party.svg
 
 <!--Reference style links -->
-[AAD-App-Manifest]:reference-azure-ad-app-manifest.md
+[AAD-App-Manifest]:./reference-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
-[AAD-Auth-Scenarios]:authentication-scenarios.md
-[AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
-[AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
-[AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
+[AAD-Auth-Scenarios]:./authentication-vs-authorization.md
+[AAD-Integrating-Apps]:./quickstart-register-app.md
+[AAD-Dev-Guide]:../develop.md
+[AAD-How-To-Integrate]: ./how-to-integrate.md
+[AAD-Security-Token-Claims]: ./authentication-vs-authorization.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:access-tokens.md
 [AAD-V2-Dev-Guide]: v2-overview.md
 [Azure portal]: https://portal.azure.com

@@ -74,7 +74,7 @@ With [Azure AD Identity Governance access reviews](../governance/manage-user-acc
 
 ## Account provisioning
 
-Each time an account is provisioned in your Azure AD tenant, a log for that account is captured. Automated provisioning, such as with [Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md), will be found in this log. The Account provisioning service only has one audit category in the logs.
+Each time an account is provisioned in your Azure AD tenant, a log for that account is captured. Automated provisioning, such as with [Azure AD Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md), will be found in this log. The Account provisioning service only has one audit category in the logs.
 
 |Audit Category|Activity|
 |---|---|
@@ -1167,4 +1167,4 @@ The Self-service password management logs provide insight into changes made to p
 
 - [Azure AD reports overview](overview-reports.md).
 - [Audit logs report](concept-audit-logs.md). 
-- [Programmatic access to Azure AD reports](concept-reporting-api.md)
+- [Programmatic access to Azure AD reports](./howto-configure-prerequisites-for-reporting-api.md)

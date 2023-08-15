@@ -1,7 +1,7 @@
 ---
 author: tamram
-ms.service: storage
-ms.custom:
+ms.service: azure-storage
+ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 06/23/2022
 ms.author: tamram

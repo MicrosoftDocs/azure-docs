@@ -31,7 +31,7 @@ The off-boarding tutorials only require one account that has group and Teams mem
 
 ## Before you begin
 
-In most cases, users are going to be provisioned to Azure AD either from an on-premises solution (such as Azure AD Connect or Cloud sync) or with an HR solution. These users have the attributes and values populated at the time of creation. Setting up the infrastructure to provision users is outside the scope of this tutorial. For information, see [Tutorial: Basic Active Directory environment](../cloud-sync/tutorial-basic-ad-azure.md) and [Tutorial: Integrate a single forest with a single Azure AD tenant](../cloud-sync/tutorial-single-forest.md)
+In most cases, users are going to be provisioned to Azure AD either from an on-premises solution (such as Azure AD Connect or Cloud sync) or with an HR solution. These users have the attributes and values populated at the time of creation. Setting up the infrastructure to provision users is outside the scope of this tutorial. For information, see [Tutorial: Basic Active Directory environment](../hybrid/cloud-sync/tutorial-basic-ad-azure.md) and [Tutorial: Integrate a single forest with a single Azure AD tenant](../hybrid/cloud-sync/tutorial-single-forest.md)
 
 ## Create users in Azure AD
 
@@ -233,7 +233,7 @@ The manager attribute is used for email notification tasks.  It's used by the li
 
     :::image type="content" source="media/tutorial-lifecycle-workflows/graph-get-manager.png" alt-text="Screenshot of getting a manager in Graph explorer." lightbox="media/tutorial-lifecycle-workflows/graph-get-manager.png":::
 
-For more information about updating manager information for a user in Graph API, see [assign manager](/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http&preserve-view=true) documentation. You can also set this attribute in the Azure Admin center. For more information, see [add or change profile information](../fundamentals/active-directory-users-profile-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context).
+For more information about updating manager information for a user in Graph API, see [assign manager](/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http&preserve-view=true) documentation. You can also set this attribute in the Azure Admin center. For more information, see [add or change profile information](../fundamentals/how-to-manage-user-profile-info.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context).
 
 ### Enabling the Temporary Access Pass (TAP)
 

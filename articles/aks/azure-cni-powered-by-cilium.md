@@ -49,7 +49,7 @@ Azure CNI powered by Cilium currently has the following limitations:
 
 * Hubble is disabled.
 
-* Not compatible with Istio or other sidecar-based service meshes ([Istio issue #27619](https://github.com/istio/istio/issues/27619)).
+* Network policies cannot use `ipBlock` to allow access to node or pod IPs ([Cilium issue #9209](https://github.com/cilium/cilium/issues/9209) and [#12277](https://github.com/cilium/cilium/issues/12277)).
 
 * Kubernetes services with `internalTrafficPolicy=Local` aren't supported ([Cilium issue #17796](https://github.com/cilium/cilium/issues/17796)).
 
