@@ -26,7 +26,7 @@ ms.collection: M365-identity-device-management
 In Azure AD, you can use role models to manage access at scale through identity governance.
 
  * You can use access packages to represent [organizational roles](identity-governance-organizational-roles.md) in your organization, such as "sales representative". An access package representing that organizational role would include all the access rights that a sales representative might typically need, across multiple resources.
- * Applications [can define their own roles](../develop/howto-add-app-roles-in-azure-ad-apps.md). For example, if you had a sales application, and that application included the app role "salesperson", you could then [include that role in an access package](entitlement-management-access-package-resources.md).
+ * Applications [can define their own roles](../develop/howto-add-app-roles-in-apps.md). For example, if you had a sales application, and that application included the app role "salesperson", you could then [include that role in an access package](entitlement-management-access-package-resources.md).
  * You can use roles for delegating administrative access.  If you have a catalog for all the access packages needed by sales, you could assign someone to be responsible for that catalog, by assigning them a catalog-specific role.
 
 This article discusses how to use roles to manage aspects within Microsoft Entra entitlement management, for controlling access to the entitlement management resources.
@@ -138,6 +138,7 @@ For a user who isn't a global administrator, to add groups, applications, or Sha
 | Azure AD directory role | Entitlement management role | Can add security group | Can add Microsoft 365 Group | Can add app | Can add SharePoint Online site |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Global administrator](../roles/permissions-reference.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Identity Governance administrator](../roles/permissions-reference.md) | n/a | :heavy_check_mark:  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [User administrator](../roles/permissions-reference.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Intune administrator](../roles/permissions-reference.md) | Catalog owner | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Exchange administrator](../roles/permissions-reference.md) | Catalog owner |  | :heavy_check_mark: |  |  |

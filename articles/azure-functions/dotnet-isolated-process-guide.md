@@ -340,7 +340,7 @@ This section shows how to work with the underlying HTTP request and response obj
 > [!NOTE]
 > Not all features of ASP.NET Core are exposed by this model. Specifically, the ASP.NET Core middleware pipeline and routing capabilities are not available.
 
-1. Add a reference to the [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore NuGet package, version 1.0.0-preview2 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/1.0.0-preview2) to your project.
+1. Add a reference to the [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore NuGet package, version 1.0.0-preview4 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/1.0.0-preview4) to your project.
 
   You must also update your project to use [version 1.11.0 or later of Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.11.0) and [version 1.16.0 or later of Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.16.0).
 
@@ -432,7 +432,7 @@ var host = new HostBuilder()
 
 ### Application Insights
 
-You can configure your isolated process application to emit logs directly [Application Insights](../azure-monitor/app/app-insights-overview.md?tabs=net), giving you control over how those logs are emitted. This replaces the default behavior of [relaying custom logs through the host](./configure-monitoring.md#custom-application-logs). To work with Application Insights directly, you will need to add a reference to [Microsoft.Azure.Functions.Worker.ApplicationInsights, version 1.0.0-preview5 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights/). You will also need to reference [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService). Add these packages to your isolated process project:
+You can configure your isolated process application to emit logs directly [Application Insights](../azure-monitor/app/app-insights-overview.md?tabs=net), giving you control over how those logs are emitted. This replaces the default behavior of [relaying custom logs through the host](./configure-monitoring.md#custom-application-logs). To work with Application Insights directly, you will need to add a reference to [Microsoft.Azure.Functions.Worker.ApplicationInsights, version 1.0.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights/). You will also need to reference [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService). Add these packages to your isolated process project:
 
 ```dotnetcli
 dotnet add package Microsoft.ApplicationInsights.WorkerService
