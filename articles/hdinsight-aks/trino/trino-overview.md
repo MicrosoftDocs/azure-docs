@@ -3,7 +3,7 @@ title: What is Trino?
 description: An introduction to Trino.
 ms.service: hdinsight-aks
 ms.topic: overview
-ms.date: 08/07/2023
+ms.date: 08/14/2023
 ---
 
 # What is Trino?
@@ -14,10 +14,10 @@ Trino is used for a wide range of analytical use cases and is an excellent choic
 
 Some of the key features that Trino offers -
 
-1. 	An adaptive multi-tenant system capable of concurrently running hundreds of memory, I/O, and CPU-intensive queries, and scaling to thousands of worker nodes while efficiently utilizing cluster resources.
-2. 	Extensible and federated design to reduce the complexity of integrating multiple systems.
-3. 	High performance, with several key related features and optimizations.
-4. 	Fully compatible with Hadoop ecosystem. 
+* An adaptive multi-tenant system capable of concurrently running hundreds of memory, I/O, and CPU-intensive queries, and scaling to thousands of worker nodes while efficiently utilizing cluster resources.
+* Extensible and federated design to reduce the complexity of integrating multiple systems.
+* High performance, with several key related features and optimizations.
+* Fully compatible with Hadoop ecosystem. 
 
 There are two types of Trino servers: coordinators and workers. 
 
@@ -29,4 +29,4 @@ The Trino coordinator is the server that is responsible for parsing statements, 
 
 A Trino worker is a server in a Trino installation, which is responsible for executing tasks and processing data. Worker nodes fetch data from connectors and exchange intermediate data with each other. The coordinator is responsible for fetching results from the workers and returning the final results to the client.
 
-:::image type="content" source="./media/trino-overview/trino-architecture.png" alt-text="Trino architecture":::
+:::image type="content" source="./media/trino-overview/trino-architecture.png" alt-text="Screenshot showing Trino architecture":::
