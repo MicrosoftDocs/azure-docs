@@ -106,7 +106,7 @@ Integrating Azure AD logs with Azure Monitor logs provides a centralized locatio
 ### Quick steps
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using one of the required roles.
-1. [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md).
+1. [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
 1. Go to **Azure AD** > **Diagnostic settings**.
 1. Choose the logs you want to stream, select the **Send to Log Analytics workspace** option, and complete the fields.
 1. Go to **Azure AD** > **Log Analytics** and begin querying the data.
@@ -221,4 +221,3 @@ Use the following basic steps to archive or download your activity logs.
 - [Stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md)
 - [Archive logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md)
 - [Integrate logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md)
-

@@ -119,7 +119,7 @@ Manually or automatically applying results doesn't have an effect on a group tha
  
 On review creation, the creator can choose between two options for denied guest users in an access review. 
  - Denied guest users can have their access to the resource removed. This is the default.
- - The denied guest user can be blocked from signing in for 30 days, then deleted from the tenant. During the 30-day period the guest user is able to be restored access to the tenant by an administrator. After the 30-day period is completed, if the guest user hasn't had access to the resource granted to them again, they'll be removed from the tenant permanently. In addition, using the Azure portal, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/active-directory-users-restore.md) before that time period is reached. Once a user has been permanently deleted, the data about that guest user will be removed from active access reviews. Audit information about deleted users remains in the audit log.
+ - The denied guest user can be blocked from signing in for 30 days, then deleted from the tenant. During the 30-day period the guest user is able to be restored access to the tenant by an administrator. After the 30-day period is completed, if the guest user hasn't had access to the resource granted to them again, they'll be removed from the tenant permanently. In addition, using the Azure portal, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/users-restore.md) before that time period is reached. Once a user has been permanently deleted, the data about that guest user will be removed from active access reviews. Audit information about deleted users remains in the audit log.
  
 ### Actions taken on denied B2B direct connect users
 
@@ -129,4 +129,4 @@ Denied B2B direct connect users and teams lose access to all shared channels in 
  
 - [Manage access reviews](manage-access-review.md) 
 - [Create an access review of groups or applications](create-access-review.md)
-- [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)
+- [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md)
