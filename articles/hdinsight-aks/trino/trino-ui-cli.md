@@ -3,7 +3,7 @@ title: Trino CLI
 description: Using Trino via CLI
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/25/2022
+ms.date: 08/14/2023
 ---
 
 # Trino CLI
@@ -15,9 +15,9 @@ For Windows, the Trino CLI is installed via an MSI, which gives you access to th
 
 **Requirements**
 
-1. [Java 8 or 11](/java/openjdk/install).
+* [Java 8 or 11](/java/openjdk/install).
 
-2. Add java.exe to PATH or define JAVA_HOME environment variable pointing to JRE installation directory, such that `%JAVA_HOME%\bin\java.exe` exists.
+* Add java.exe to PATH or define JAVA_HOME environment variable pointing to JRE installation directory, such that `%JAVA_HOME%\bin\java.exe` exists.
 
 **Install or update**
 
@@ -68,9 +68,9 @@ The Trino CLI provides a terminal-based, interactive shell for running queries. 
 
 **Requirements**
 
-1. [Java 8 or 11](/java/openjdk/install).
+* [Java 8 or 11](/java/openjdk/install).
 
-2. Add java to PATH or define JAVA_HOME environment variable pointing to JRE installation directory, such that $JAVA_HOME/bin/java exists.
+* Add java to PATH or define JAVA_HOME environment variable pointing to JRE installation directory, such that $JAVA_HOME/bin/java exists.
 
 **Install or update**
 
