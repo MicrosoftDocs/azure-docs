@@ -79,4 +79,4 @@ The following image shows an example for this command.
 
 - [Azure AD reports overview](overview-reports.md).
 - [Audit logs report](concept-audit-logs.md). 
-- [Programmatic access to Azure AD reports](concept-reporting-api.md)
+- [Programmatic access to Azure AD reports](./howto-configure-prerequisites-for-reporting-api.md)

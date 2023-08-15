@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual
-ms.date: 07/19/2023
+ms.date: 08/14/2023
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -315,6 +315,9 @@ curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/exten
 -d \
 '
 {
+    "temperature": 0,
+    "max_tokens": 1000,
+    "top_p": 1.0,
     "dataSources": [
         {
             "type": "AzureCognitiveSearch",

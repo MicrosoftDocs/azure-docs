@@ -5,9 +5,9 @@
 # NOTE: The people you choose as code owners must have _write_ permissions for the repository. When the code owner is a team, that team must be _visible_ and it must have _write_ permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
 
 # Azure Policy: Samples and Compliance Controls
-/articles/**/policy-reference.md @timwarner-msft
-/articles/**/security-controls-policy.md @timwarner-msft
-/includes/policy/ @timwarner-msft
+/articles/**/policy-reference.md @davidsmatlak
+/articles/**/security-controls-policy.md @davidsmatlak
+/includes/policy/ @davidsmatlak
 
 # Azure Monitor
 articles/azure-monitor/* @bwren
@@ -57,7 +57,8 @@ articles/service-health @rboucher
 /articles/container-registry/ @dlepow @mimckitt
 
 # Governance
-/articles/governance/ @timwarner-msft
+/articles/governance/policy @davidsmatlak
+/articles/governance/resource-graph @davidsmatlak
 
 # Security
 /articles/security/fundamentals/feature-availability.md @msmbaldwin @terrylanfear
