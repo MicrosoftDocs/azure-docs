@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 08/10/2023
+ms.date: 08/15/2023
 #CustomerIntent: As a developer, I want a practical example of using Azure Cache for Redis triggers with Azure Functions so that I can write applications that tie together a Redis cache and a database like Azure SQL.
 
 ---
@@ -22,6 +22,7 @@ Every new item or new price written to the cache is then reflected in a SQL tabl
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > - Configure a database, trigger, and connection strings.
 > - Validate that triggers are working.
 > - Deploy code to a function app.
@@ -39,7 +40,7 @@ In this tutorial, you learn how to:
 
 The SQL database is the backing database for this example. You can create a SQL database through the Azure portal or through your preferred method of automation.
 
-For more information on creating a SQL database, see 
+For more information on creating a SQL database, see [Quickstart: Create a single database - Azure SQL Databas](/azure/azure-sql/database/single-database-create-quickstart.md).
 
 This example uses the portal:
 
@@ -89,8 +90,8 @@ To configure the trigger:
 
 1. Import the `System.Data.SqlClient` NuGet package to enable communication with the SQL database. Go to the VS Code terminal and use the following command:
 
-   ```dos
-   dotnet add package System.Data.SqlClient
+   ```terminal
+     dotnet add package System.Data.SqlClient
    ```
 
 1. Copy and paste the following code in _redisfunction.cs_ to replace the existing code:

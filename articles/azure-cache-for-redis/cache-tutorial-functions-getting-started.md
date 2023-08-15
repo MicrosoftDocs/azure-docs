@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 07/19/2023
+ms.date: 08/15/2023
 #CustomerIntent: As a developer, I want a introcutory example of using Azure Cache for Redis triggers with Azure Functions so that I can understand how to use the functions with a Redis cache.
 
 ---
