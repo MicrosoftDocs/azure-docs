@@ -43,7 +43,7 @@ The **X12** connector has one version across workflows in [multi-tenant Azure Lo
     > [!IMPORTANT]
     >
     > If you're working with Health Insurance Portability and Accountability Act (HIPAA) schemas, you have to add a 
-    > `schemaReferences` section to your agreement. For more information, review [HIPAA schemas and message types](#hipaa-schemas).
+    > `schemaReferences` section to your agreement. For more information, see [HIPAA schemas and message types](logic-apps-enterprise-integration-x12-message-settings.md#hipaa-schemas).
 
   * Defines the [schemas](logic-apps-enterprise-integration-schemas.md) to use for XML validation.
 
@@ -89,7 +89,7 @@ The **Encode to X12 message** operation performs the following tasks:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **X12** action named **Encode to X12 message by agreement name** to your workflow](create-workflow-with-trigger-or-action?tabs=consumption#add-action).
+1. In the designer, [follow these general steps to add the **X12** action named **Encode to X12 message by agreement name** to your workflow](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
    > [!NOTE]
    >
@@ -128,7 +128,7 @@ The **Encode to X12 message** operation performs the following tasks:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **X12** action named **Encode to X12 message by agreement name** to your workflow](create-workflow-with-trigger-or-action?tabs=standard#add-action).
+1. In the designer, [follow these general steps to add the **X12** action named **Encode to X12 message by agreement name** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
    > [!NOTE]
    >
@@ -208,7 +208,7 @@ The **Decode X12 message** operation performs the following tasks:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **X12** action named **Decode X12 message** to your workflow](create-workflow-with-trigger-or-action?tabs=consumption#add-action).
+1. In the designer, [follow these general steps to add the **X12** action named **Decode X12 message** to your workflow](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
 1. When prompted, provide the following connection information for your integration account:
 
@@ -238,7 +238,7 @@ The **Decode X12 message** operation performs the following tasks:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **X12** action named **Decode X12 message** to your workflow](create-workflow-with-trigger-or-action?tabs=standard#add-action).
+1. In the designer, [follow these general steps to add the **X12** action named **Decode X12 message** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
 1. When prompted, provide the following connection information for your integration account:
 
@@ -251,7 +251,7 @@ The **Decode X12 message** operation performs the following tasks:
 
    For example:
 
-   ![Screenshot showing Standard workflow and connection information for action named Encode to X12 message by agreement name.](./media/logic-apps-enterprise-integration-x12/create-x12-decode-connection-standard.png)
+   ![Screenshot showing Standard workflow and connection information for action named Decode X12 message.](./media/logic-apps-enterprise-integration-x12/create-x12-decode-connection-standard.png)
 
 1. When you're done, select **Create**.
 

@@ -84,7 +84,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **AS2 (v2)** action named **AS2 Encode** to your workflow](create-workflow-with-trigger-or-action?tabs=consumption#add-action).
+1. In the designer, [follow these general steps to add the **AS2 (v2)** action named **AS2 Encode** to your workflow](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
 1. In the action information box, provide the following information:
 
@@ -100,7 +100,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **AS2** action named **Encode to AS2 message** to your workflow](create-workflow-with-trigger-or-action?tabs=consumption#add-action).
+1. In the designer, [follow these general steps to add the **AS2** action named **Encode to AS2 message** to your workflow](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
 1. When prompted to create a connection to your integration account, provide the following information:
 
@@ -131,7 +131,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **AS2 (v2)** action named **AS2 Encode** to your workflow](create-workflow-with-trigger-or-action?tabs=standard#add-action).
+1. In the designer, [follow these general steps to add the **AS2 (v2)** action named **AS2 Encode** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
 1. In the action information pane, provide the following information:
 
@@ -149,7 +149,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **AS2** action named **Encode to AS2 message** to your workflow](create-workflow-with-trigger-or-action?tabs=standard#add-action).
+1. In the designer, [follow these general steps to add the **AS2** action named **Encode to AS2 message** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
 1. When prompted to create a connection to your integration account, provide the following information:
 
@@ -188,7 +188,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **AS2 (v2)** action named **AS2 Decode** to your workflow](create-workflow-with-trigger-or-action?tabs=consumption#add-action).
+1. In the designer, [follow these general steps to add the **AS2 (v2)** action named **AS2 Decode** to your workflow](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
 1. In the action information box, provide the following information:
 
@@ -205,7 +205,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **AS2** action named **Decode AS2 message** to your workflow](create-workflow-with-trigger-or-action?tabs=consumption#add-action).
+1. In the designer, [follow these general steps to add the **AS2** action named **Decode AS2 message** to your workflow](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
 1. When prompted to create a connection to your integration account, provide the following information:
 
@@ -235,7 +235,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **AS2 (v2)** action named **AS2 Decode** to your workflow](create-workflow-with-trigger-or-action?tabs=standard#add-action).
+1. In the designer, [follow these general steps to add the **AS2 (v2)** action named **AS2 Decode** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
 1. In the action information pane, provide the following information:
 
@@ -252,7 +252,7 @@ Select the tab for either Consumption or Standard logic app workflows:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **AS2** action named **Decode AS2 message** to your workflow](create-workflow-with-trigger-or-action?tabs=consumption#add-action).
+1. In the designer, [follow these general steps to add the **AS2** action named **Decode AS2 message** to your workflow](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
 1. When prompted to create a connection to your integration account, provide the following information:
 

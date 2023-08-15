@@ -134,7 +134,7 @@ The following sections provide more information about the tasks that you can com
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **EDIFACT** action named **Encode to EDIFACT message by agreement name** to your workflow](create-workflow-with-trigger-or-action?tabs=consumption#add-action).
+1. In the designer, [follow these general steps to add the **EDIFACT** action named **Encode to EDIFACT message by agreement name** to your workflow](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
    > [!NOTE]
    >
@@ -173,7 +173,7 @@ The following sections provide more information about the tasks that you can com
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **EDIFACT** action named **Encode to EDIFACT message by agreement name** to your workflow](create-workflow-with-trigger-or-action?tabs=standard#add-action).
+1. In the designer, [follow these general steps to add the **EDIFACT** action named **Encode to EDIFACT message by agreement name** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
    > [!NOTE]
    >
@@ -218,7 +218,7 @@ The following sections provide more information about the tasks that you can com
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **EDIFACT** action named **Decode EDIFACT message** to your workflow](create-workflow-with-trigger-or-action?tabs=consumption#add-action).
+1. In the designer, [follow these general steps to add the **EDIFACT** action named **Decode EDIFACT message** to your workflow](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
 1. When prompted, provide the following connection information for your integration account:
 
@@ -248,7 +248,7 @@ The following sections provide more information about the tasks that you can com
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **EDIFACT** action named **Decode EDIFACT message** to your workflow](create-workflow-with-trigger-or-action?tabs=standard#add-action).
+1. In the designer, [follow these general steps to add the **EDIFACT** action named **Decode EDIFACT message** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
 1. When prompted, provide the following connection information for your integration account:
 

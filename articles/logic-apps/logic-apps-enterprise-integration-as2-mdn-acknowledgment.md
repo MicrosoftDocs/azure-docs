@@ -3,8 +3,6 @@ title: AS2 MDN acknowledgments
 description: Learn about Message Disposition Notification (MDN) acknowledgments for AS2 messages in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: S-Jindal
-ms.author: shivamjindal
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 08/15/2023
