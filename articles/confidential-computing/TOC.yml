@@ -78,8 +78,8 @@
                   href: guest-attestation-confidential-vms.md
                 - name: Microsoft Defender for Cloud integration
                   href: guest-attestation-defender-for-cloud.md
-    - name: Virtual TPMs in Azure confidential VMs
-      href: virtual-tpms-in-azure-confidential-vm.md
+                - name: Virtual TPMs in Azure confidential VMs
+                  href: virtual-tpms-in-azure-confidential-vm.md
             - name: Virtual Machines with App Enclaves
               items:
               - name: App enclaves overview
