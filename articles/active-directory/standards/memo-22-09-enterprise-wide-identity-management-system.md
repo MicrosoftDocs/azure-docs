@@ -32,7 +32,7 @@ Use Azure Active Directory (Azure AD) to implement recommendations from memorand
 
 ## Single sign-on requirements
 
-The memo requires users sign in once and then access applications. With Microsoft single sign-on (SSO) users sign in once and then access cloud services and applications. See, [Azure Active Directory Seamless single sign-on](../hybrid/how-to-connect-sso.md).
+The memo requires users sign in once and then access applications. With Microsoft single sign-on (SSO) users sign in once and then access cloud services and applications. See, [Azure Active Directory Seamless single sign-on](../hybrid/connect/how-to-connect-sso.md).
 
 ## Integration across agencies
 
@@ -76,7 +76,7 @@ For your application inventory, determine applications that use cloud-ready prot
   * LDAP
   * Basic authentication
 
-Learn more [Azure AD integrations with authentication protocols](../fundamentals/auth-sync-overview.md
+Learn more [Azure AD integrations with authentication protocols](../architecture/auth-sync-overview.md
 
 #### Application and service discovery tools
 
@@ -84,7 +84,7 @@ Microsoft offers the following tools to support application and service discover
 
 | Tool| Usage |
 | - | - |
-|Usage Analytics for Active Directory Federation Services (AD FS)| Analyzes federated server authentication traffic. See, [Monitor AD FS using Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md)|
+|Usage Analytics for Active Directory Federation Services (AD FS)| Analyzes federated server authentication traffic. See, [Monitor AD FS using Azure AD Connect Health](../hybrid/connect/how-to-connect-health-adfs.md)|
 | Microsoft Defender for Cloud Apps| Scans firewall logs to detect cloud apps, infrastructure as a service (IaaS) services, and platform as a service (PaaS) services. Integrate Defender for Cloud Apps with Defender for Endpoint to discovery data analyzed from Windows client devices. See, [Microsoft Defender for Cloud Apps overview](/defender-cloud-apps/what-is-defender-for-cloud-apps)|
 | Application Discovery worksheet| Document the current states of your applications. See, [Application Discovery worksheet](https://download.microsoft.com/download/2/8/3/283F995C-5169-43A0-B81D-B0ED539FB3DD/Application%20Discovery%20worksheet.xlsx)|
 
@@ -113,7 +113,7 @@ For apps that use legacy authentication protocols:
 
 Learn more
 
-* [Azure AD integrations with authentication protocols](../fundamentals/auth-sync-overview.md)
+* [Azure AD integrations with authentication protocols](../architecture/auth-sync-overview.md)
 * [What is the Microsoft identity platform?](../develop/v2-overview.md)
 * [Secure hybrid access: Protect legacy apps with Azure AD](../manage-apps/secure-hybrid-access.md)
 

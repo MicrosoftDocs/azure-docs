@@ -56,4 +56,4 @@ These settings are located in Group Policy under: **Computer Configuration** > *
 
 ## Next steps
 
-For an overview, see [enterprise State Roaming overview](enterprise-state-roaming-overview.md).
+For an overview, see [enterprise State Roaming overview](./enterprise-state-roaming-enable.md).
