@@ -37,7 +37,7 @@ Here are some scenarios where security admin rules can be used:
 With Azure Virtual Network Manager, you have a centralized location to manage security admin rules. Centralization allows you to define security policies at scale and apply them to multiple virtual networks at once.
 
 > [!NOTE]
-> Currently, security admin rules do not apply to private endpoints that fall under the scope of a managed virtual network. This is a known limitation that may be addressed in a future release.
+> Currently, security admin rules do not apply to private endpoints that fall under the scope of a managed virtual network.
 
 ## How do security admin rules work?
 
