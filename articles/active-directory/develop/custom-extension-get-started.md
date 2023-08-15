@@ -19,7 +19,7 @@ ms.reviewer: JasSuri
 
 # Configure a custom claim provider token issuance event (preview)
 
-This article describes how to configure and setup a custom claims provider with the [token issuance start event](custom-claims-provider-overview.md#token-issuance-start-event-listener) type. This event is triggered right before the token is issued, and allows you to call a REST API to add claims to the token. 
+This article describes how to configure and set up a custom claims provider with the [token issuance start event](custom-claims-provider-overview.md#token-issuance-start-event-listener) type. This event is triggered right before the token is issued, and allows you to call a REST API to add claims to the token. 
 
 This how-to guide demonstrates the token issuance start event with a REST API running in Azure Functions and a sample OpenID Connect application. Before you start, take a look at following video, which demonstrates how to configure Azure AD custom claims provider with Function App:
 
@@ -196,44 +196,44 @@ Register an application to authenticate your custom authentication extension to 
 1. Sign in to [Graph Explorer](https://aka.ms/ge) using an account whose home tenant is the tenant you wish to manage your custom authentication extension in. The account must have the privileges to create and manage an application registration in the tenant.
 2. Run the following request.
 
-   # [HTTP](#tab/http)
+    # [HTTP](#tab/http)
     ```http
     POST https://graph.microsoft.com/v1.0/applications
     Content-type: application/json
     
     {
-      "displayName": "authenticationeventsAPI"
+        "displayName": "authenticationeventsAPI"
     }
     ```
 
-   # [C#](#tab/csharp)
-   [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/csharp/v1/tutorial-application-basics-create-app-csharp-snippets.md)]
-   
-   # [Go](#tab/go)
-   [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/go/v1/tutorial-application-basics-create-app-go-snippets.md)]
-   
-   # [Java](#tab/java)
-   [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/java/v1/tutorial-application-basics-create-app-java-snippets.md)]
-   
-   # [JavaScript](#tab/javascript)
-   [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/javascript/v1/tutorial-application-basics-create-app-javascript-snippets.md)]
+    # [C#](#tab/csharp)
+    [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/csharp/v1/tutorial-application-basics-create-app-csharp-snippets.md)]
     
-   # [PHP](#tab/php)
-   Snippet not available.
-   
-   # [PowerShell](#tab/powershell)
-   [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/powershell/v1/tutorial-application-basics-create-app-powershell-snippets.md)]
-   
-   # [Python](#tab/python)
-   [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/python/v1/tutorial-application-basics-create-app-python-snippets.md)]
+    # [Go](#tab/go)
+    [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/go/v1/tutorial-application-basics-create-app-go-snippets.md)]
+    
+    # [Java](#tab/java)
+    [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/java/v1/tutorial-application-basics-create-app-java-snippets.md)]
+    
+    # [JavaScript](#tab/javascript)
+    [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/javascript/v1/tutorial-application-basics-create-app-javascript-snippets.md)]
+    
+    # [PHP](#tab/php)
+    Snippet not available.
+    
+    # [PowerShell](#tab/powershell)
+    [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/powershell/v1/tutorial-application-basics-create-app-powershell-snippets.md)]
+    
+    # [Python](#tab/python)
+    [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/python/v1/tutorial-application-basics-create-app-python-snippets.md)]
+    
+    ---
 
-   ---
-
-3. From the response, record the value of **id** and **appId** of the newly created app registration. These values will be referenced in this article as `{authenticationeventsAPI_ObjectId}` and `{authenticationeventsAPI_AppId}` respectively.]
+3. From the response, record the value of **id** and **appId** of the newly created app registration. These values will be referenced in this article as `{authenticationeventsAPI_ObjectId}` and `{authenticationeventsAPI_AppId}` respectively.
 
 Create a service principal in the tenant for the authenticationeventsAPI app registration.
 
-1. Still in Graph Explorer, run the following request. Replace `{authenticationeventsAPI_AppId}` with the value of **appId** that you recorded from the previous step.
+Still in Graph Explorer, run the following request. Replace `{authenticationeventsAPI_AppId}` with the value of **appId** that you recorded from the previous step.
 
     ```http
     POST https://graph.microsoft.com/v1.0/servicePrincipals
@@ -248,7 +248,7 @@ Create a service principal in the tenant for the authenticationeventsAPI app reg
 
 Update the newly created application to set the application ID URI value, the access token version, and the required resource access.
 
-1. In Graph Explorer, run the following request. 
+In Graph Explorer, run the following request. 
    - Set the application ID URI value in the *identifierUris* property. Replace `{Function_Url_Hostname}` with the hostname of the `{Function_Url}` you recorded earlier.
    - Set the `{authenticationeventsAPI_AppId}` value with the **appId** that you recorded earlier.
    - An example value is `api://authenticationeventsAPI.azurewebsites.net/f4a70782-3191-45b4-b7e5-dd415885dd80`. Take note of this value as you'll use it later in this article in place of `{functionApp_IdentifierUri}`.
@@ -337,7 +337,6 @@ Next, you register the custom authentication extension. You register the custom 
     # [Python](#tab/python)
     [!INCLUDE [sample-code](~/microsoft-graph/api-reference/beta/includes/snippets/python/create-customauthenticationextension-from--python-snippets.md)]
 
-    
     ---
 
 1. Record the **id** value of the created custom claims provider object. You'll use the value later in this tutorial in place of `{customExtensionObjectId}`.
