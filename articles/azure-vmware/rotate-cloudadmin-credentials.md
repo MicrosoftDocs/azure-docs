@@ -53,16 +53,6 @@ To begin using Azure CLI:
 
 ---
 
-
-
-
- 
-
-
-
- 
-
- 
 ### Update HCX Connector 
 
 1. Go to the on-premises HCX Connector at https://{ip of the HCX connector appliance}:443 and sign in using the new credentials.
@@ -91,60 +81,3 @@ Now that you've covered resetting your vCenter Server credentials for Azure VMwa
 
 - [Integrating Azure native services in Azure VMware Solution](integrate-azure-native-services.md)
 - [Deploying disaster recovery for Azure VMware Solution workloads using VMware HCX](deploy-disaster-recovery-using-vmware-hcx.md)
-
-
- 
-
- 
-
-
-
- 
-
-
-
- 
-
- 
-
- 
-
-
-
- 
-
- 
-
-
-
- 
-
- 
-
- 
-
- 
-
- 
-## Update HCX Connector 
-
-1. Go to the on-premises HCX Connector at https://{ip of the HCX connector appliance}:443 and sign in using the new credentials.
-
-   Be sure to use port **443**. 
-
-2. On the VMware HCX Dashboard, select **Site Pairing**.
-    
-   :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Screenshot of VMware HCX Dashboard with Site Pairing highlighted.":::
- 
-3. Select the correct connection to Azure VMware Solution and select **Edit Connection**.
- 
-4. Provide the new vCenter Server user credentials and select **Edit**, which saves the credentials. Save should show successful.
-
-## Next steps
-
-Now that you've covered resetting your vCenter Server credentials for Azure VMware Solution, you may want to learn about:
-
-- [Integrating Azure native services in Azure VMware Solution](integrate-azure-native-services.md)
-- [Deploying disaster recovery for Azure VMware Solution workloads using VMware HCX](deploy-disaster-recovery-using-vmware-hcx.md)
-
-
