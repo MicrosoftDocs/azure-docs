@@ -60,8 +60,6 @@ By default, a listing operation returns blobs in a flat listing. In a flat listi
 
 The following example lists the blobs in the specified container using a flat listing, with an optional segment size specified, and writes the blob name to a console window.
 
-If you've enabled the hierarchical namespace feature on your account, directories are not virtual. Instead, they are concrete, independent objects. Therefore, directories appear in the list as zero-length blobs.
-
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
 The sample output is similar to:
@@ -77,6 +75,9 @@ Blob name: FolderA/FolderB/FolderC/blob1.txt
 Blob name: FolderA/FolderB/FolderC/blob2.txt
 Blob name: FolderA/FolderB/FolderC/blob3.txt
 ```
+
+> [!NOTE]
+> The sample output shown assumes a storage account with a flat namespace. If you've enabled the hierarchical namespace feature on your storage account, directories are not virtual. Instead, they are concrete, independent objects. This means that directories appear in the list as zero-length blobs.</br>For alternative hierarchical namespace listing options, see [List directory contents (Azure Data Lake Storage Gen2)](data-lake-storage-directory-file-acl-dotnet.md#list-directory-contents)..
 
 ## Use a hierarchical listing
 
