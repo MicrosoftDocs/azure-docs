@@ -189,7 +189,7 @@ This option is a premium edition capability available through products like Azur
 
 - **Restrict non-admin users from recovering the BitLocker key(s) for their owned devices**: Admins can block self-service BitLocker key access to the registered owner of the device. Default users without the BitLocker read permission will be unable to view or copy their BitLocker key(s) for their owned devices. You must be a Global Administrator or Privileged Role Administrator to update this setting. 
 
-- **Enterprise State Roaming**: For information about this setting, see [the overview article](enterprise-state-roaming-overview.md).
+- **Enterprise State Roaming**: For information about this setting, see [the overview article](./enterprise-state-roaming-enable.md).
 
 ## Audit logs
 

@@ -489,4 +489,4 @@ Another way to verify it is via Graph PowerShell:
 
 ## Next steps
 
-For more information about Azure AD, see [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
+For more information about Azure AD, see [What is Azure Active Directory?](../fundamentals/whatis.md).
