@@ -81,7 +81,7 @@ To enable Controller mode **On** for any projects, add these roles to the specif
 - Role Administrators
 - Security Admin 
 
-The required commands to run in Google Cloud Shell are listed in the Manage Authorization screen for each scope of a project, folder or organization. This is also configured in the GPC console.
+The required commands to run in Google Cloud Shell are listed in the Manage Authorization screen for each scope of a project, folder or organization. This is also configured in the GCP console.
 
 3. Select **Next**.
 
@@ -109,7 +109,7 @@ To enable Controller mode **On** for any projects, add these roles to the specif
 - Role Administrators
 - Security Admin 
 
-The required commands to run in Google Cloud Shell are listed in the Manage Authorization screen for each scope of a project, folder or organization. This is also configured in the GPC console.
+The required commands to run in Google Cloud Shell are listed in the Manage Authorization screen for each scope of a project, folder or organization. This is also configured in the GCP console.
 
 3. Select **Next**.
 
