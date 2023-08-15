@@ -52,7 +52,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Deploy Azure Firewall
 
-1. In the search box at the top of the portal enter **Firewall**. Select **Firewalls** in the search results.
+1. In the search box at the top of the portal, enter **Firewall**. Select **Firewalls** in the search results.
 
 1. In **Firewalls**, select **+ Create**.
 
@@ -85,12 +85,12 @@ Wait for the firewall deployment to complete before you continue.
 
 ## Enable firewall logs
 
-In this section, you'll enable the firewall logs and send them to the log analytics workspace.
+In this section, you enable the firewall logs and send them to the log analytics workspace.
 
 > [!NOTE]
 > You must have a log analytics workspace in your subscription before you can enable firewall logs. For more information, see [#prerequisites](#prerequisites).
 
-1. In the search box at the top of the portal enter **Firewall**. Select **Firewalls** in the search results.
+1. In the search box at the top of the portal, enter **Firewall**. Select **Firewalls** in the search results.
 
 1. Select **firewall**.
 
@@ -112,9 +112,9 @@ In this section, you'll enable the firewall logs and send them to the log analyt
 
 1. Select **Save**.
 
-## Create a Azure SQL database
+## Create an Azure SQL database
 
-1. In the search box at the top of the portal enter **SQL**. Select **SQL databases** in the search results.
+1. In the search box at the top of the portal, enter **SQL**. Select **SQL databases** in the search results.
 
 1. In **SQL databases**, select **+ Create**.
 
@@ -127,9 +127,9 @@ In this section, you'll enable the firewall logs and send them to the log analyt
     | Resource group | Select **test-rg**. |
     | **Database details** |  |
     | Database name | Enter **sql-db**. |
-    | Server | Select **Create new**. </br> Enter **sql-server-1** in **Server name** (Server names must be unique, replace **sql-server-1** with a unique value). </br> Select **(US) East US 2** in **Location**. </br> Select **Use SQL authentication**. </br> Enter a server admin login and password. </br> Select **OK**. |
+    | Server | Select **Create new**. </br> Enter **sql-server-1** in **Server name** (Server names must be unique, replace **sql-server-1** with a unique value). </br> Select **(US) East US 2** in **Location**. </br> Select **Use SQL authentication**. </br> Enter a server admin sign-in and password. </br> Select **OK**. |
     | Want to use SQL elastic pool? | Select **No**. |
-    | Workload enviornment | Select **Development**. |
+    | Workload environment | Select **Development**. |
     | **Backup storage redundancy** |  |
     | Backup storage redundancy | Select **Locally redundant backup storage**. |
 
@@ -148,7 +148,7 @@ In this section, you'll enable the firewall logs and send them to the log analyt
     | Resource group | Select **test-rg**. |
     | Location | Select **East US 2**. |
     | Name | Enter **private-endpoint-sql**. |
-    | Target sub-resource | Select **SqlServer**. |
+    | Target subresource | Select **SqlServer**. |
     | **Networking** |  |
     | Virtual network | Select **vnet-private-endpoint**. |
     | Subnet | Select **subnet-private-endpoint**. |
@@ -164,9 +164,9 @@ In this section, you'll enable the firewall logs and send them to the log analyt
 
 ## Connect virtual networks with virtual network peering
 
-In this section, you'll connect the virtual networks with virtual network peering. The networks **vnet-1** and **vnet-private-endpoint** are connected to **vnet-firewall**. There isn't direct connectivity between **vnet-1** and **vnet-private-endpoint**.
+In this section, you connect the virtual networks with virtual network peering. The networks **vnet-1** and **vnet-private-endpoint** are connected to **vnet-firewall**. There isn't direct connectivity between **vnet-1** and **vnet-private-endpoint**.
 
-1. In the search box at the top of the portal enter **Virtual networks**. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter **Virtual networks**. Select **Virtual networks** in the search results.
 
 1. Select **vnet-firewall**.
 
@@ -222,7 +222,7 @@ In this section, you'll connect the virtual networks with virtual network peerin
 
 The private DNS zone created during the private endpoint creation in the previous section must be linked to the **vnet-1** and **vnet-firewall** virtual networks.
 
-1. In the search box at the top of the portal enter **Private DNS zone**. Select **Private DNS zones** in the search results.
+1. In the search box at the top of the portal, enter **Private DNS zone**. Select **Private DNS zones** in the search results.
 
 1. Select **privatelink.database.windows.net**.
 
@@ -262,7 +262,7 @@ A network link between **vnet-1** and **vnet-private-endpoint** doesn't exist. Y
 
 The route sends traffic from **vnet-1** to the address space of virtual network **vnet-private-endpoint**, through the Azure Firewall.
 
-1. In the search box at the top of the portal enter **Route tables**. Select **Route tables** in the search results.
+1. In the search box at the top of the portal, enter **Route tables**. Select **Route tables** in the search results.
 
 1. Select **+ Create**.
 
@@ -282,7 +282,7 @@ The route sends traffic from **vnet-1** to the address space of virtual network 
 
 1. Select **Create**.
 
-1. In the search box at the top of the portal enter **Route tables**. Select **Route tables** in the search results.
+1. In the search box at the top of the portal, enter **Route tables**. Select **Route tables** in the search results.
 
 1. Select **vnet-1-to-vnet-firewall**.
 
@@ -319,7 +319,7 @@ The route sends traffic from **vnet-1** to the address space of virtual network 
 
 Create an application rule to allow communication from **vnet-1** to the private endpoint of the Azure SQL server **sql-server-1.database.windows.net**. Replace **sql-server-1** with the name of your Azure SQL server.
   
-1. In the search box at the top of the portal enter **Firewall**. Select **Firewall Policies** in the search results.
+1. In the search box at the top of the portal, enter **Firewall**. Select **Firewall Policies** in the search results.
 
 1. In **Firewall Policies**, select **firewall-policy**.
 
@@ -349,7 +349,7 @@ Create an application rule to allow communication from **vnet-1** to the private
 
 ## Test connection to Azure SQL from virtual machine
 
-1. In the search box at the top of the portal enter **Virtual machine**. Select **Virtual machines** in the search results.
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
 1. Select **vm-1**.
 
@@ -376,7 +376,7 @@ Create an application rule to allow communication from **vnet-1** to the private
     Name:sql-server-8675.privatelink.database.windows.net
     ```
 
-1. Install the SQL server command line tools from [Install the SQL Server command-line tools sqlcmd and bcp on Linux](/sql/linux/sql-server-linux-setup-tools?view=sql-server-ver16&tabs=ubuntu-install). Proceed with the next steps after the installation is complete.
+1. Install the SQL server command line tools from [Install the SQL Server command-line tools sqlcmd and bcp on Linux](/sql/linux/sql-server-linux-setup-tools). Proceed with the next steps after the installation is complete.
 
 1. Use the following commands to connect to the SQL server you created in the previous steps.
 
@@ -394,11 +394,11 @@ Create an application rule to allow communication from **vnet-1** to the private
 
 ## Validate traffic in the Azure Firewall logs
 
-1. In the search box at the top of the portal enter **Log Analytics**. Select **Log Analytics** in the search results.
+1. In the search box at the top of the portal, enter **Log Analytics**. Select **Log Analytics** in the search results.
 
 1. Select your log analytics workspace. In this example, the workspace is named **log-analytics-workspace**.
 
-1. In the **General** settings select **Logs**.
+1. In the General settings, select **Logs**.
 
 1. In the example **Queries** in the search box, enter **Application rule**. In the returned results in **Network**, select the **Run** button for **Application rule log data**.
 
@@ -408,6 +408,4 @@ Create an application rule to allow communication from **vnet-1** to the private
 
 ## Next steps
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
+
