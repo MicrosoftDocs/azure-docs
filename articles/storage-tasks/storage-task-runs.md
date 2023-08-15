@@ -13,21 +13,21 @@ ms.date: 05/10/2023
 
 You can view a list of task runs.
 
-## View task runs
+## View the task runs of a storage task
 
 1. Steps to open the list from the Azure portal.
 2. Steps to use the report time filter
 3. Steps to select tiles to filter list.
    Description of each column in the list table.
 
-## View task runs for a specific storage account
+## View task runs of a specific storage account
 
 1. Steps to open the list from the Azure portal.
 2. Steps to use the report time filter
 3. Steps to select tiles to filter list.
    Description of each column in the list table.
 
-## View execution reports
+## Drill into execution reports
 
 After a task runs, an execution report is generated and then stored in the container that you specified when you created the assignment.
 
