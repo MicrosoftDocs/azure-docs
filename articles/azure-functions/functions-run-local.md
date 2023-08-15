@@ -40,126 +40,93 @@ Core Tools enables the integrated local development and debugging experience for
 When upgrading to the latest version of Core Tools, you should use the same package manager as the original installation to perform the upgrade. For more information, see [Core Tools versions](#core-tools-versions). 
 
 ## Create a local Functions project
+::: zone pivot="programming-language-python"  
+> [!IMPORTANT]
+> For Python, you must run Core Tools commands in a virtual environment. For more information, see [Quickstart: Create a Python function in Azure from the command line](create-first-function-cli-python.md#create-venv).
+::: zone-end
+In the terminal window or from a command prompt, run the following command to create a Functions project in the current folder:
 
-In the terminal window or from a command prompt, run the following command to create the project and local Git repository:
+::: zone pivot="programming-language-csharp"
+### [Isolated process](#tab/isolated-process)
 
+```console
+func init --worker-runtime dotnet-isolated 
 ```
-func init MyFunctionProj
+
+You can use the `--target-framework` option to target a specific version of .NET. For for information, see the [`func init`](functions-core-tools-reference.md#func-init) reference.
+
+### [In-process](#tab/in-process)
+
+```console
+func init --worker-runtime dotnet 
 ```
 
-This example creates a Functions project in a new `MyFunctionProj` folder. You're prompted to choose a default language for your project. 
+---
+
+This command creates a project that runs on the current Long-Term Support (LTS) version of .NET Core in the choosen [process mode](./dotnet-isolated-in-process-differences.md).
+::: zone-end
+::: zone pivot="programming-language-java"
+Java uses a Maven archetype to create the local Functions project, along with your first HTTP triggered function. Instead of using `func init` and `func new`, you should follow the steps in the [Command line quickstart](./create-first-function-cli-java.md).  
+::: zone-end
+::: zone pivot="programming-language-javascript"  
+### [v4](#tab/node-v4)
+```console
+func init --worker-runtime javascript --model V4
+```
+### [v3](#tab/node-v3)
+```console
+func init --worker-runtime javascript --model V3
+```
+---
+
+This command creates a TypeScript project that uses the desired programming model. For more information, see the [Node.js developer guide](functions-reference-node.md).
+::: zone-end  
+::: zone pivot="programming-language-typescript"   
+### [v4](#tab/node-v4)
+```console
+func init --worker-runtime typescript --model V4
+```
+### [v3](#tab/node-v3)
+```console
+func init --worker-runtime typescript --model V3
+```
+---
+
+This command creates a TypeScript project that uses the desired programming model. For more information, see the [Node.js developer guide](functions-reference-node.md).
+::: zone-end  
+::: zone pivot="programming-language-powershell"
+```console
+func init --worker-runtime powershell
+```
+::: zone-end
+::: zone pivot="programming-language-python"
+### [v2](#tab/python-v2)
+```console
+func init --worker-runtime python --model V2
+```
+### [v1](#tab/python-v1)
+```console
+func init --worker-runtime python --model V1
+```
+---
+
+This command creates a Python project that uses the desired programming model. For more information, see the [Python developer guide](functions-reference-python.md#programming-model).
+::: zone-end
 
 The following considerations apply to project initialization:
 
-+ If you don't provide the `--worker-runtime` option in the command, you're prompted to choose your language. For more information, see the [func init reference](functions-core-tools-reference.md#func-init).
++ If you don't provide the `--worker-runtime` option in the command, you're prompted to choose your language. 
 
-+ When you don't provide a project name, the current folder is initialized. 
++ The command `func init MyProjFolder` creates the project in a subfolder named `MyProjFolder`. The folder is created when it doesn't already exist. 
 
-+ If you plan to deploy your project as a function app running in a Linux container, use the `--docker` option to make sure that a Dockerfile is generated for your project. To learn more, see [Create a function app in a local container](functions-create-container-registry.md#create-and-test-the-local-functions-project). If you forget to do this, you can always generate the Dockerfile for the project later by using the `func init --docker-only` command.
+For more information, see the [`func init`](functions-core-tools-reference.md#func-init) reference.
 
-::: zone pivot="programming-language-csharp"
-+ Core Tools lets you create function app projects for the .NET runtime as either [in-process](functions-dotnet-class-library.md) or [isolated worker process](dotnet-isolated-process-guide.md) C# class library projects (.csproj). These projects, which can be used with Visual Studio or Visual Studio Code, are compiled during debugging and when publishing to Azure. 
+## Create a containerized function app
 
-+ Use the `--csx` parameter if you want to work locally with C# script (.csx) files. These files are the same ones you get when you create functions in the Azure portal and when using version 1.x of Core Tools. To learn more, see the [func init reference](functions-core-tools-reference.md#func-init).
-::: zone-end
-::: zone pivot="programming-language-java"
-+ Java uses a Maven archetype to create the local Functions project, along with your first HTTP triggered function. Instead of using `func init` and `func new`, you should follow the steps in the [Command line quickstart](./create-first-function-cli-java.md).  
-::: zone-end
-::: zone pivot="programming-language-javascript"
-+ To use a `--worker-runtime` value of `node`, specify the `--language` as `javascript`. 
-::: zone-end
-::: zone pivot="programming-language-python"
-+ You should run all commands, including `func init`, from inside a virtual environment. To learn more, see [Create and activate a virtual environment](create-first-function-cli-python.md#create-venv).
-::: zone-end
-::: zone pivot="programming-language-typescript"
-+ To use a `--worker-runtime` value of `node`, specify the `--language` as `typescript`.
-::: zone-end
+If you plan to deploy your project as a function app running in a Linux container, use the `--docker` option to make sure that a Dockerfile is generated for your project. To learn more, see [Create a function app in a local container](functions-create-container-registry.md#create-and-test-the-local-functions-project). 
 
-## Binding extensions
+If you forget to create a Dockfile for your project or want to add one later on, you can generate a Dockerfile for the project at any time by using the `func init --docker-only` command. For more information, see the [`func init`](functions-core-tools-reference.md#func-init) reference.
 
-[Functions triggers and bindings](functions-triggers-bindings.md) are implemented as .NET extension (NuGet) packages. To be able to use a specific binding extension, that extension must be installed in the project.
-
-::: zone pivot="programming-language-javascript,programming-language-csharp"
-This section doesn't apply to version 1.x of the Functions runtime. In version 1.x, supported binding were included in the core product extension.
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-For compiled C# project, add references to the specific NuGet packages for the binding extensions required by your functions. C# script (.csx) project should use [extension bundles](functions-bindings-register.md#extension-bundles).
-::: zone-end
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
-Functions provides _extension bundles_ to make is easy to work with binding extensions in your project. Extension bundles, which are versioned and defined in the host.json file, install a complete set of compatible binding extension packages for your app. Your host.json should already have extension bundles enabled. If for some reason you need to add or update the extension bundle in the host.json file, see [Extension bundles](functions-bindings-register.md#extension-bundles).
-
-If you must use a binding extension or an extension version not in a supported bundle, you need to manually install extensions. For such rare scenarios, see [Install extensions](#install-extensions).
-::: zone-end
-
-[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
-
-The following considerations apply when working with the local settings file:
-
-+ By default, local settings aren't migrated automatically when the project is published to Azure. Use the [`--publish-local-settings` option][func azure functionapp publish] when you publish to make sure these settings are added to the function app in Azure. Values in the `ConnectionStrings` section are never published.
-::: zone pivot="programming-language-csharp"
-+ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-dotnet-class-library.md#environment-variables).
-::: zone-end
-::: zone pivot="programming-language-java"
-+ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-java.md#environment-variables).
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-node.md#environment-variables).
-::: zone-end
-::: zone pivot="programming-language-powershell"
-+ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-powershell.md#environment-variables).
-::: zone-end
-::: zone pivot="programming-language-python"
-+ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-python.md#environment-variables).
-::: zone-end
-
-+ When no valid storage connection string is set for [`AzureWebJobsStorage`] and a local storage emulator isn't being used, the following error message is shown:
-
-    > Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings \<functionAppName\>' or specify a connection string in local.settings.json.
-
-### Get your storage connection strings
-
-Even when using the [Azurite storage emulator](functions-develop-local.md#local-storage-emulator) for development, you may want to run locally with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-account-create.md), you can get a valid storage connection string in one of several ways:
-
-#### [Portal](#tab/portal)
-
-1. From the [Azure portal], search for and select **Storage accounts**. 
-
-    ![Select Storage accounts from Azure portal](./media/functions-run-local/select-storage-accounts.png)
-  
-1.  Select your storage account, select **Access keys** in **Settings**, then copy one of the **Connection string** values.
-
-    ![Copy connection string from Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
-
-#### [Core Tools](#tab/azurecli)
-
-From the project root, use one of the following commands to download the connection string from Azure:
-
-  + Download all settings from an existing function app:
-
-    ```
-    func azure functionapp fetch-app-settings <FunctionAppName>
-    ```
-
-  + Get the Connection string for a specific storage account:
-
-    ```
-    func azure storage fetch-connection-string <StorageAccountName>
-    ```
-
-    When you aren't already signed in to Azure, you're prompted to do so. These commands overwrite any existing settings in the local.settings.json file. To learn more, see the [`func azure functionapp fetch-app-settings`](functions-core-tools-reference.md#func-azure-functionapp-fetch-app-settings) and [`func azure storage fetch-connection-string`](functions-core-tools-reference.md#func-azure-storage-fetch-connection-string) commands.
-
-#### [Storage Explorer](#tab/storageexplorer)
-
-1. Run [Azure Storage Explorer](https://storageexplorer.com/). 
-
-1. In the **Explorer**, expand your subscription, then expand **Storage Accounts**.
-
-1. Select your storage account and copy the primary or secondary connection string.
-
-    ![Copy connection string from Storage Explorer](./media/functions-run-local/storage-explorer.png)
-
----
 
 ## <a name="create-func"></a>Create a function
 
@@ -171,7 +138,7 @@ func new
 
 When you run `func new`, you're prompted to choose a template in the default language of your function app. Next, you're prompted to choose a name for your function. In version 1.x, you're also required to choose the language. 
 
-You can also specify the function name and template in the `func new` command. The following example uses the `--template` option to create an HTTP trigger named `MyHttpTrigger`:
+You can bypass the prompts by specifying the function name and template in the `func new` command. The following example uses the `--template` option to create an HTTP trigger named `MyHttpTrigger`:
 
 ```
 func new --template "Http Trigger" --name MyHttpTrigger
@@ -184,6 +151,37 @@ func new --template "Azure Queue Storage Trigger" --name MyQueueTrigger
 ```
 
 To learn more, see the [`func new`](functions-core-tools-reference.md#func-new) command.
+
+When you add a trigger that requires a connection string or managed identity, you also need to add an app setting that references that connection string or identity to the local.settings.json file. Using app settings in this way prevents you from having to embed credentials in your code. For more information, see [Work with app settings locally](#local-settings). 
+::: zone pivot="programming-language-csharp"  
+Core Tools also adds a reference to the specific binding extension to your C# project.
+::: zone-end
+
+## Add bindings to an existing function
+
+While Functions provides templates that make it easy to create functions, adding input or output bindings to an existing function requires you to manually update the function definition. The way that you add bindings depends on your programming language and the specific binding you want to add. 
+::: zone pivot="programming-language-csharp"  
+For more information, including links to example binding code that you can use in your functions, see [Add bindings to a function](add-bindings-existing-function.md?tabs=csharp#manually-add-bindings-based-on-examples).  
+::: zone-end  
+::: zone pivot="programming-language-java"  
+For more information, including links to example binding code that you can use in your functions, see [Add bindings to a function](add-bindings-existing-function.md?tabs=java#manually-add-bindings-based-on-examples).  
+::: zone-end  
+::: zone pivot="programming-language-javascript"
+For more information, including links to example binding code that you can use in your functions, see [Add bindings to a function](add-bindings-existing-function.md?tabs=javascript#manually-add-bindings-based-on-examples).   
+::: zone-end
+::: zone pivot="programming-language-powershell"
+For more information, including links to example binding code that you can use in your functions, see [Add bindings to a function](add-bindings-existing-function.md?tabs=powershell#manually-add-bindings-based-on-examples).   
+::: zone-end
+::: zone pivot="programming-language-python"
+For more information, including links to example binding code that you can use in your functions, see [Add bindings to a function](add-bindings-existing-function.md?tabs=python#manually-add-bindings-based-on-examples).   
+::: zone-end
+::: zone pivot="programming-language-typescript"
+For more information, including links to example binding code that you can use in your functions, see [Add bindings to a function](add-bindings-existing-function.md?tabs=javascript#manually-add-bindings-based-on-examples).   
+::: zone-end
+When you add bindings that requires a connection string or managed identity, you also need to add an app setting that references that connection string or identity to the local.settings.json file. For more information, see [Work with app settings locally](#local-settings). 
+::: zone pivot="programming-language-csharp"  
+When you add a binding that requires a new binding extension, you must also add a reference to that specific binding extension in your C# project. 
+::: zone-end  
 
 ## <a name="start"></a>Run functions locally
 
@@ -400,34 +398,91 @@ func kubernetes deploy --name <DEPLOYMENT_NAME> --registry <REGISTRY_USERNAME>
 
 Azure Functions on Kubernetes using KEDA is an open-source effort that you can use free of cost. Best-effort support is provided by contributors and from the community. To learn more, see [Deploying a function app to Kubernetes](functions-kubernetes-keda.md#deploying-a-function-app-to-kubernetes). 
 
-## Install extensions
+## Binding extensions
 
-::: zone pivot="programming-language-csharp"
-> [!NOTE]
-> This section only applies to C# script (.csx) projects, which also rely on extension bundles. Compiled C# projects use NuGet extension packages in the regular way. 
+[Functions triggers and bindings](functions-triggers-bindings.md) are implemented as .NET extension (NuGet) packages. To be able to use a specific binding extension, that extension must be installed in the project.
+
+::: zone pivot="programming-language-javascript,programming-language-csharp"
+This section doesn't apply to version 1.x of the Functions runtime. In version 1.x, supported binding were included in the core product extension.
 ::: zone-end
 
-In the rare event you aren't able to use [extension bundles](functions-bindings-register.md#extension-bundles), you can use Core Tools to install the specific extension packages required by your project. The following are some reasons why you might need to install extensions manually:
+::: zone pivot="programming-language-csharp"
+For compiled C# project, add references to the specific NuGet packages for the binding extensions required by your functions. C# script (.csx) project should use [extension bundles](functions-bindings-register.md#extension-bundles).
+::: zone-end
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
+Functions provides _extension bundles_ to make is easy to work with binding extensions in your project. Extension bundles, which are versioned and defined in the host.json file, install a complete set of compatible binding extension packages for your app. Your host.json should already have extension bundles enabled. If for some reason you need to add or update the extension bundle in the host.json file, see [Extension bundles](functions-bindings-register.md#extension-bundles).
 
-* You need to access a specific version of an extension not available in a bundle.
-* You need to access a custom extension not available in a bundle.
-* You need to access a specific combination of extensions not available in a single bundle.
+If you must use a binding extension or an extension version not in a supported bundle, you need to manually install extensions. For such rare scenarios, see the [`func extensions install`](./functions-core-tools-reference.md#func-extensions-install) command.
+::: zone-end
 
-The following considerations apply when manually installing extensions:
+[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-+ To manually install extensions by using Core Tools, you must have the [.NET 6.0 SDK](https://dotnet.microsoft.com/download) installed. 
+The following considerations apply when working with the local settings file:
 
-+ You can't explicitly install extensions in a function app with extension bundles enabled. First, remove the `extensionBundle` section in *host.json* before explicitly installing extensions.
++ By default, local settings aren't migrated automatically when the project is published to Azure. Use the [`--publish-local-settings` option][func azure functionapp publish] when you publish to make sure these settings are added to the function app in Azure. Values in the `ConnectionStrings` section are never published.
+::: zone pivot="programming-language-csharp"
++ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-dotnet-class-library.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-java"
++ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-java.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
++ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-node.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-powershell"
++ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-powershell.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-python"
++ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-python.md#environment-variables).
+::: zone-end
 
-+ The first time you explicitly install an extension, a .NET project file named extensions.csproj is added to the root of your app project. This file defines the set of NuGet packages required by your functions. While you can work with the [NuGet package references](/nuget/consume-packages/package-references-in-project-files) in this file, Core Tools lets you install extensions without having to manually edit this C# project file.
++ When no valid storage connection string is set for [`AzureWebJobsStorage`] and a local storage emulator isn't being used, the following error message is shown:
 
-Use the following command to install a specific extension package at a specific version, in this case the Storage extension:
+    > Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings \<functionAppName\>' or specify a connection string in local.settings.json.
 
-```command
-func extensions install --package Microsoft.Azure.WebJobs.Extensions.Storage --version 5.0.0
-```
+### Get your storage connection strings
 
-You can use this command to install any compatible NuGet package. To learn more, see the [`func extensions install`](functions-core-tools-reference.md#func-extensions-install) command.
+Even when using the [Azurite storage emulator](functions-develop-local.md#local-storage-emulator) for development, you may want to run locally with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-account-create.md), you can get a valid storage connection string in one of several ways:
+
+#### [Portal](#tab/portal)
+
+1. From the [Azure portal], search for and select **Storage accounts**. 
+
+    ![Select Storage accounts from Azure portal](./media/functions-run-local/select-storage-accounts.png)
+  
+1.  Select your storage account, select **Access keys** in **Settings**, then copy one of the **Connection string** values.
+
+    ![Copy connection string from Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
+
+#### [Core Tools](#tab/azurecli)
+
+From the project root, use one of the following commands to download the connection string from Azure:
+
+  + Download all settings from an existing function app:
+
+    ```
+    func azure functionapp fetch-app-settings <FunctionAppName>
+    ```
+
+  + Get the Connection string for a specific storage account:
+
+    ```
+    func azure storage fetch-connection-string <StorageAccountName>
+    ```
+
+    When you aren't already signed in to Azure, you're prompted to do so. These commands overwrite any existing settings in the local.settings.json file. To learn more, see the [`func azure functionapp fetch-app-settings`](functions-core-tools-reference.md#func-azure-functionapp-fetch-app-settings) and [`func azure storage fetch-connection-string`](functions-core-tools-reference.md#func-azure-storage-fetch-connection-string) commands.
+
+#### [Storage Explorer](#tab/storageexplorer)
+
+1. Run [Azure Storage Explorer](https://storageexplorer.com/). 
+
+1. In the **Explorer**, expand your subscription, then expand **Storage Accounts**.
+
+1. Select your storage account and copy the primary or secondary connection string.
+
+    ![Copy connection string from Storage Explorer](./media/functions-run-local/storage-explorer.png)
+
+---
 
 ## Monitoring functions
 
