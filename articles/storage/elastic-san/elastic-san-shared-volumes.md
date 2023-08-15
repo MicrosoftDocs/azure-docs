@@ -4,22 +4,24 @@ description: Learn more about sharing an elastic SAN volume and using it for clu
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 08/15/2023
 ms.author: rogarana
 ---
 
-# Shared volumes
+# Share Elastic SAN volumes between clients
 
 Azure Elastic SAN volumes can be simultaneously attached to multiple compute clients, allowing you to deploy or migrate cluster applications to Azure. You need to use a cluster manager to share an Elastic SAN volume, like Windows Server Failover Cluster (WSFC), or Pacemaker. The cluster manager handles cluster node communications and write locking. Elastic SAN doesn't natively offer a fully managed filesystem that can be accessed over SMB or NFS.
 
-When used as a shared volume, elastic SAN volumes can be expanded without downtime, and can also be shared across availability zones or regions. If you share a volume across availability zones, you should select zone-redundant storage (ZRS) when deploying your SAN. Sharing a volume in a local-redundant storage SAN across zones reduces your performance due to increased latency between the volume and clients.
+When used as a shared volume, elastic SAN volumes can be shared across availability zones or regions. If you share a volume across availability zones, you should select [zone-redundant storage (ZRS)](elastic-san-planning.md#redundancy) when deploying your SAN. Sharing a volume in a local-redundant storage SAN across zones reduces your performance due to increased latency between the volume and clients.
 
 ## Limitations
 
-- Shared volumes can be attached to individual Virtual Machine Scale Sets but can't be defined in the Virtual Machine Scale Set models or automatically deployed.
-- Azure Backup isn't currently supported.
+- Volumes in an Elastic SAN using [ZRS](elastic-san-planning.md#redundancy) can't be used as shared volumes.
+- Elastic SAN connection scripts can be used to attach shared volumes to virtual machines in Virtual Machine Scale Sets or virtual machines in Availability Sets. Fault domain alignment isn't supported.
 - The maximum number of sessions a shared volume supports is 128.
     - An individual client can create multiple sessions to an individual volume for increased performance. For example, if you create 32 sessions on each of your clients, only four clients could connect to a single volume.
+
+See [Support for Azure Storage features](elastic-san-introduction.md#support-for-azure-storage-features) for other limitations of Elastic SAN.
 
 ## How it works
 
