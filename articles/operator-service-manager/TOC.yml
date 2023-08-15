@@ -5,3 +5,8 @@
   items:
   - name: About Azure Operator Service Manager
     href: ./overview.md
+- name: Resources
+  expanded: false
+  items:
+  - name: Glossary
+    href: ./Glossary.md
