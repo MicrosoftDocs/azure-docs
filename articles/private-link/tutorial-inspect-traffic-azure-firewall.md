@@ -48,7 +48,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [virtual-network-create-private-endpoint.md](../../includes/virtual-network-create-private-endpoint.md)]
 
-[!INCLUDE [create-test-virtual-machine.md](../../includes/create-test-virtual-machine.md)]
+[!INCLUDE [create-test-virtual-machine-linux.md](../../includes/create-test-virtual-machine-linux.md)]
 
 ## Deploy Azure Firewall
 
@@ -349,14 +349,60 @@ Create an application rule to allow communication from **vnet-1** to the private
 
 ## Test connection to Azure SQL from virtual machine
 
+1. In the search box at the top of the portal enter **Virtual machine**. Select **Virtual machines** in the search results.
 
+1. Select **vm-1**.
 
+1. In **Operations** select **Bastion**.
 
+1. Enter the username and password for the virtual machine.
 
+1. Select **Connect**.
 
+1. To verify name resolution of the private endpoint, enter the following command in the terminal window:
 
+    ```bash
+    nslookup sql-server-1.database.windows.net
+    ```
 
+    You receive a message similar to the following example. The IP address returned is the private IP address of the private endpoint.
 
+    ```output
+    Server:    127.0.0.53
+    Address:   127.0.0.53#53
+
+    Non-authoritative answer:
+    sql-server-8675.database.windows.netcanonical name = sql-server-8675.privatelink.database.windows.net.
+    Name:sql-server-8675.privatelink.database.windows.net
+    ```
+
+1. Install the SQL server command line tools from [Install the SQL Server command-line tools sqlcmd and bcp on Linux](/sql/linux/sql-server-linux-setup-tools?view=sql-server-ver16&tabs=ubuntu-install). Proceed with the next steps after the installation is complete.
+
+1. Use the following commands to connect to the SQL server you created in the previous steps.
+
+    * Replace **\<server-admin>** with the admin username you entered during the SQL server creation.
+
+    * Replace **\<admin-password>** with the admin password you entered during SQL server creation.
+
+    * Replace **sql-server-1** with the name of your SQL server.
+
+    ```bash
+    sqlcmd -S sql-server-1.database.windows.net -U '<server-admin>' -P '<admin-password>'
+    ```
+
+1. A SQL command prompt is displayed on successful sign in. Enter **exit** to exit the **sqlcmd** tool.
+
+## Validate traffic in the Azure Firewall logs
+
+1. In the search box at the top of the portal enter **Log Analytics**. Select **Log Analytics** in the search results.
+
+1. Select your log analytics workspace. In this example, the workspace is named **log-analytics-workspace**.
+
+1. In the **General** settings select **Logs**.
+
+1. In the example **Queries** in the search box, enter **Application rule**. In the returned results in **Network**, select the **Run** button for **Application rule log data**.
+
+1. 
 
 [!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
 
