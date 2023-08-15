@@ -133,6 +133,8 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 {
     // Select an existing snapshot by name and add it to your configuration
     options.SelectSnapshot("SnapshotName");
+
+    // Other changes to options
 });
 ```
 
