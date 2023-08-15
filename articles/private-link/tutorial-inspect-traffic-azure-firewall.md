@@ -38,6 +38,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - An Azure account with an active subscription.
 
+- A Log Analytics workspace. For more information about the creation of a log analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com).
@@ -52,7 +54,308 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search box at the top of the portal enter **Firewall**. Select **Firewalls** in the search results.
 
-1. 
+1. In **Firewalls**, select **+ Create**.
+
+1. Enter or select the following information in the **Basics** tab of **Create a firewall**:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Name | Enter **firewall**. |
+    | Region | Select **East US 2**. |
+    | Availability zone | Select **None**. |
+    | Firewall SKU | Select **Basic**. |
+    | Firewall policy | Select **Add new**. </br> Enter **firewall-policy** in **Policy name**. </br> Select **East US 2** in region. </br> Select **OK**. |
+    | Choose a virtual network | Select **Create new**. |
+    | Virtual network name | Enter **vnet-firewall**. |
+    | Address space | Enter **10.2.0.0/16**. |
+    | Subnet address space | Enter **10.2.1.0/26**. |
+    | Public IP address | Select **Add new**. </br> Enter **public-ip-firewall** in **Name**. </br> Select **OK**. |
+    | Subnet address space | Enter **10.2.2.0/26**. |
+    | Management public IP address | Select **Add new**. </br> Enter **public-ip-firewall-mgmt** in **Name**. </br> Select **OK**. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
+Wait for the firewall deployment to complete before you continue.
+
+## Enable firewall logs
+
+In this section, you'll enable the firewall logs and send them to the log analytics workspace.
+
+> [!NOTE]
+> You must have a log analytics workspace in your subscription before you can enable firewall logs. For more information, see [#prerequisites](#prerequisites).
+
+1. In the search box at the top of the portal enter **Firewall**. Select **Firewalls** in the search results.
+
+1. Select **firewall**.
+
+1. In **Monitoring** select **Diagnostic settings**.
+
+1. Select **+ Add diagnostic setting**.
+
+1. In **Diagnostic setting** enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | Diagnostic setting name | Enter **diagnostic-setting-firewall**. |
+    | **Logs** |  |
+    | Categories | Select **Azure Firewall Application Rule** and **Azure Firewall Network Rule**. |
+    | **Destination details** |  |
+    | Destination | Select **Send to Log Analytics workspace**. |
+    | Subscription | Select your subscription. |
+    | Log Analytics workspace | Select your log analytics workspace. |
+
+1. Select **Save**.
+
+## Create a Azure SQL database
+
+1. In the search box at the top of the portal enter **SQL**. Select **SQL databases** in the search results.
+
+1. In **SQL databases**, select **+ Create**.
+
+1. In the **Basics** tab of **Create SQL Database**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Database details** |  |
+    | Database name | Enter **sql-db**. |
+    | Server | Select **Create new**. </br> Enter **sql-server-1** in **Server name** (Server names must be unique, replace **sql-server-1** with a unique value). </br> Select **(US) East US 2** in **Location**. </br> Select **Use SQL authentication**. </br> Enter a server admin login and password. </br> Select **OK**. |
+    | Want to use SQL elastic pool? | Select **No**. |
+    | Workload enviornment | Select **Development**. |
+    | **Backup storage redundancy** |  |
+    | Backup storage redundancy | Select **Locally redundant backup storage**. |
+
+1. Select **Next: Networking**.
+
+1. In the **Networking** tab of **Create SQL Database**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Network connectivity** |  |
+    | Connectivity method | Select **Private endpoint**. |
+    | **Private endpoints** |  |
+    | Select **+Add private endpoint**. |   |
+    | **Create private endpoint** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | Location | Select **East US 2**. |
+    | Name | Enter **private-endpoint-sql**. |
+    | Target sub-resource | Select **SqlServer**. |
+    | **Networking** |  |
+    | Virtual network | Select **vnet-private-endpoint**. |
+    | Subnet | Select **subnet-private-endpoint**. |
+    | **Private DNS integration** |  |
+    | Integrate with private DNS zone | Select **Yes**. |
+    | Private DNS zone | Leave the default of **privatelink.database.windows.net**. |
+
+1. Select **OK**.
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
+## Connect virtual networks with virtual network peering
+
+In this section, you'll connect the virtual networks with virtual network peering. The networks **vnet-1** and **vnet-private-endpoint** are connected to **vnet-firewall**. There isn't direct connectivity between **vnet-1** and **vnet-private-endpoint**.
+
+1. In the search box at the top of the portal enter **Virtual networks**. Select **Virtual networks** in the search results.
+
+1. Select **vnet-firewall**.
+
+1. In **Settings** select **Peerings**.
+
+1. In **Peerings** select **+ Add**.
+
+1. In **Add peering**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **This virtual network** |  |
+    | Peering link name | Enter **vnet-firewall-to-vnet-1**. |
+    | Traffic to remote virtual network | Select **Allow (default)**. |
+    | Traffic forwarded from remote virtual network | Select **Allow (default)**. |
+    | Virtual network gateway or Route Server | Select **None (default)**. |
+    | **Remote virtual network** |  |
+    | Peering link name | Enter **vnet-1-to-vnet-firewall**. |
+    | Virtual network deployment model | Select **Resource manager**. |
+    | Subscription | Select your subscription. |
+    | Virtual network | Select **vnet-1**. |
+    | Traffic to remote virtual network | Select **Allow (default)**. |
+    | Traffic forwarded from remote virtual network | Select **Allow (default)**. |
+    | Virtual network gateway or Route Server | Select **None (default)**. |
+
+1. Select **Add**.
+
+1. In **Peerings** select **+ Add**.
+
+1. In **Add peering**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **This virtual network** |  |
+    | Peering link name | Enter **vnet-firewall-to-vnet-private-endpoint**. |
+    | Traffic to remote virtual network | Select **Allow (default)**. |
+    | Traffic forwarded from remote virtual network | Select **Allow (default)**. |
+    | Virtual network gateway or Route Server | Select **None (default)**. |
+    | **Remote virtual network** |  |
+    | Peering link name | Enter **vnet-private-endpoint-to-vnet-firewall**. |
+    | Virtual network deployment model | Select **Resource manager**. |
+    | Subscription | Select your subscription. |
+    | Virtual network | Select **vnet-private-endpoint**. |
+    | Traffic to remote virtual network | Select **Allow (default)**. |
+    | Traffic forwarded from remote virtual network | Select **Allow (default)**. |
+    | Virtual network gateway or Route Server | Select **None (default)**. |
+
+1. Select **Add**.
+
+1. Verify the **Peering status** displays **Connected** for both network peers.
+
+## Link the virtual networks to the private DNS zone
+
+The private DNS zone created during the private endpoint creation in the previous section must be linked to the **vnet-1** and **vnet-firewall** virtual networks.
+
+1. In the search box at the top of the portal enter **Private DNS zone**. Select **Private DNS zones** in the search results.
+
+1. Select **privatelink.database.windows.net**.
+
+1. In **Settings** select **Virtual network links**.
+
+1. Select **+ Add**.
+
+1. In **Add virtual network link**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Virtual network link** |  |
+    | Virtual network link name | Enter **link-to-vnet-1**. |
+    | Subscription | Select your subscription. |
+    | Virtual network | Select **vnet-1 (test-rg)**. |
+    | Configuration | Leave the default of unchecked for **Enable auto registration**. |
+
+1. Select **OK**.
+
+1. Select **+ Add**.
+
+1. In **Add virtual network link**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Virtual network link** |  |
+    | Virtual network link name | Enter **link-to-vnet-firewall**. |
+    | Subscription | Select your subscription. |
+    | Virtual network | Select **vnet-firewall (test-rg)**. |
+    | Configuration | Leave the default of unchecked for **Enable auto registration**. |
+
+1. Select **OK**.
+
+## Create route between vnet-1 and vnet-private-endpoint
+
+A network link between **vnet-1** and **vnet-private-endpoint** doesn't exist. You must create a route to allow traffic to flow between the virtual networks through Azure Firewall.
+
+The route sends traffic from **vnet-1** to the address space of virtual network **vnet-private-endpoint**, through the Azure Firewall.
+
+1. In the search box at the top of the portal enter **Route tables**. Select **Route tables** in the search results.
+
+1. Select **+ Create**.
+
+1. In the **Basics** tab of **Create Route table**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Region | Select **East US 2**. |
+    | Name | Enter **vnet-1-to-vnet-firewall**. |
+    | Propagate gateway routes | Leave the default of **Yes**. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
+1. In the search box at the top of the portal enter **Route tables**. Select **Route tables** in the search results.
+
+1. Select **vnet-1-to-vnet-firewall**.
+
+1. In **Settings** select **Routes**.
+
+1. Select **+ Add**.
+
+1. In **Add route**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | Route name | Enter **subnet-1-to-subnet-private-endpoint**. |
+    | Destination type | Select **IP Addresses**. |
+    | Destination IP addresses/CIDR ranges | Enter **10.1.0.0/16**. |
+    | Next hop type | Select **Virtual appliance**. |
+    | Next hop address | Enter **10.2.1.4**. |
+
+1. Select **Add**.
+
+1. In **Settings**, select **Subnets**.
+
+1. Select **+ Associate**.
+
+1. In **Associate subnet**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | Virtual network | Select **vnet-1(test-rg)**. |
+    | Subnet | Select **subnet-1**. |
+
+1. Select **OK**.
+
+## Configure an application rule in Azure Firewall
+
+Create an application rule to allow communication from **vnet-1** to the private endpoint of the Azure SQL server **sql-server-1.database.windows.net**. Replace **sql-server-1** with the name of your Azure SQL server.
+  
+1. In the search box at the top of the portal enter **Firewall**. Select **Firewall Policies** in the search results.
+
+1. In **Firewall Policies**, select **firewall-policy**.
+
+1. In **Settings** select **Application rules**.
+
+1. Select **+ Add a rule collection**.
+
+1. In **Add a rule collection**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | Name | Enter **rule-collection-sql**. |
+    | Rule collection type | Leave the selection of **Application**. |
+    | Priority | Enter **100**. |
+    | Rule collection action | Select **Allow**. |
+    | Rule collection group | Leave the default of **DefaultApplicationRuleCollectionGroup**. |
+    | **Rules** |  |
+    | **Rule 1** |  |
+    | Name | Enter **SQLPrivateEndpoint**. |
+    | Source type | Select **IP Address**. |
+    | Source | Enter **10.0.0.0/16** |
+    | Protocol | Enter **mssql:1433** |
+    | Destination type | Select **FQDN**. |
+    | Destination | Enter **sql-server-1.database.windows.net**. |
+
+1. Select **Add**.
+
+## Test connection to Azure SQL from virtual machine
+
+
+
+
+
+
+
+
 
 
 [!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
