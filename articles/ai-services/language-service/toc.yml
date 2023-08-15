@@ -192,6 +192,8 @@ items:
     items:
       - name: Best practices
         href: conversational-language-understanding/concepts/best-practices.md
+      - name: Choosing between conversational apps
+        href: conversational-language-understanding/concepts/app-architecture.md
       - name: Multilingual projects
         href: conversational-language-understanding/concepts/multiple-languages.md
       - name: Entity components
@@ -681,6 +683,8 @@ items:
         href: conversational-language-understanding/how-to/fail-over.md
   - name: Concepts
     items: 
+      - name: Choosing between conversational apps
+        href: conversational-language-understanding/concepts/app-architecture.md
       - name: Evaluation metrics
         href: orchestration-workflow/concepts/evaluation-metrics.md
       - name: Back up and recover your models
@@ -866,6 +870,8 @@ items:
     items:
     - name: Development lifecycle
       href: question-answering/concepts/project-development-lifecycle.md
+    - name: Choosing between conversational apps
+      href: conversational-language-understanding/concepts/app-architecture.md
     - name: Resource planning
       href: question-answering/concepts/azure-resources.md
     - name: App planning
