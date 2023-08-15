@@ -46,7 +46,7 @@ To complete the steps in this article, you need:
 * An Azure AD tenant linked to the Azure subscription.
 * An account with Azure AD Application Administrator permissions. For more information, see [Azure AD built-in roles](../roles/permissions-reference.md).
 * Docker and Docker Compose, to run DAP. For more information, see [Get Docker](https://docs.docker.com/get-docker/) and [Docker Compose Overview](https://docs.docker.com/compose/install/).
-* User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to your on-premises directory. For more information, see [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md).
+* User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to your on-premises directory. For more information, see [Azure AD Connect sync: Understand and customize synchronization](../hybrid/connect/how-to-connect-sync-whatis.md).
 * An Oracle EBS environment.
 
 ## Configure the Oracle EBS environment for SSO and create the DBC file
@@ -164,6 +164,6 @@ To provide more security for sign-ins, you can enable Multi-Factor Authenticatio
 ## Next steps
 
 - [Video: Enable SSO and MFA for Oracle JD Edwards with Azure AD via Datawiza](https://www.youtube.com/watch?v=_gUGWHT5m90)
-- [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](./datawiza-with-azure-ad.md)
+- [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](./datawiza-configure-sha.md)
 - [Tutorial: Configure Azure AD B2C with Datawiza to provide secure hybrid access](../../active-directory-b2c/partner-datawiza.md)
 - [Datawiza user guides](https://docs.datawiza.com/)

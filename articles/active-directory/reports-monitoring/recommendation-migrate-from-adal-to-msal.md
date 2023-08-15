@@ -41,10 +41,10 @@ The first step to migrating your apps from ADAL to MSAL is to identify all appli
 
 ### [Azure portal](#tab/Azure-portal)
 
-There are four steps to identifying and updating your apps in the Azure portal. The following steps are covered in detail in the [List all apps using ADAL](../develop/howto-get-list-of-all-active-directory-auth-library-apps.md) article. 
+There are four steps to identifying and updating your apps in the Azure portal. The following steps are covered in detail in the [List all apps using ADAL](../develop/howto-get-list-of-all-auth-library-apps.md) article. 
 
 1. Send Azure AD sign-in event to Azure Monitor.
-1. [Access the sign-ins workbook in Azure AD.](../develop/howto-get-list-of-all-active-directory-auth-library-apps.md)
+1. [Access the sign-ins workbook in Azure AD.](../develop/howto-get-list-of-all-auth-library-apps.md)
 1. Identify the apps that use ADAL.
 1. Update your code.
     - The steps to update your code vary depending on the type of application.
