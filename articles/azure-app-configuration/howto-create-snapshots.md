@@ -122,6 +122,26 @@ In the **Archived snapshots** tab, select the ellipsis **...** on the right of a
 
    :::image type="content" source="./media/howto-create-snapshots/recover-snapshots.png" alt-text="Screenshot of the recover option in the archived snapshots.":::
 
+### [.NET](#tab/dotnet)
+
+Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
+
+**Add snapshots to your configuration**
+
+```csharp
+configurationBuilder.AddAzureAppConfiguration(options =>
+{
+    // Select an existing snapshot by name and add it to your configuration
+    options.SelectSnapshot("SnapshotName");
+});
+```
+
+> [!NOTE]
+> The snapshot support is available if you use version **7.0.0-preview** or later of any of the following packages.
+> - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
+> - `Microsoft.Azure.AppConfiguration.AspNetCore`
+> - `Microsoft.Azure.AppConfiguration.Functions.Worker`
+
 ## Next steps
 
 > [!div class="nextstepaction"]
