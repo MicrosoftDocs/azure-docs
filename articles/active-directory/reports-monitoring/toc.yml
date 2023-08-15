@@ -134,7 +134,7 @@ items:
   - name: Flagged sign-ins
     href: overview-flagged-sign-ins.md
   - name: Sign-in diagnostic
-    href: overview-sign-in-diagnostics.md
+    href: howto-use-sign-in-diagnostics.md
   - name: Sign-in diagnostics scenarios
     href: concept-sign-in-diagnostics-scenarios.md
   - name: Troubleshoot sign-in errors for a user

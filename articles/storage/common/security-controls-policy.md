@@ -5,7 +5,7 @@ ms.date: 08/03/2023
 ms.topic: sample
 author: tamram
 ms.author: tamram
-ms.service: storage
+ms.service: azure-storage
 ms.custom: subject-policy-compliancecontrols
 ---
 

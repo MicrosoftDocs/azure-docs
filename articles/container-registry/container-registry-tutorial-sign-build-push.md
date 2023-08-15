@@ -246,7 +246,3 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
     notation verify $IMAGE
     ```
    Upon successful verification of the image using the trust policy, the sha256 digest of the verified image is returned in a successful output message.
-
-## Next steps
-
-See [Ratify on Azure: Allow only signed images to be deployed on AKS with Notation and Ratify](https://github.com/deislabs/ratify/blob/main/docs/examples/ratify-verify-azure-cmd.md).

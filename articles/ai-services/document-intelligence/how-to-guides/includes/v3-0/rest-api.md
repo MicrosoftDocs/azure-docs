@@ -77,10 +77,10 @@ curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/{modelID}:analyze?ap
 
    **Enable add-on capabilities
 
-   To enable add-on capabilities, use the `features` query parameter in the POST request. There are four add-on capabilities available for the 2023-02-28-preview: *ocr.highResolution*, *ocr.formula*, *ocr.font*, and *queryFields.premium*. To learn more about each of the capabilities, visit the [Add-On Capabilities concept page](../../../concept-accuracy-confidence.md). You can only call the highResolution, formula and font capabilities for the Read and Layout model, and the queryFields capability for the General Documents model. The following example shows how to call the highResolution, formula and font capabilities for the Layout model.
+   To enable add-on capabilities, use the `features` query parameter in the POST request. There are four add-on capabilities available with the 2023-07-31 (GA) release: *ocr.highResolution*, *ocr.formula*, *ocr.font*, and *queryFields.premium*. To learn more about each of the capabilities, visit the [Add-On Capabilities concept page](../../../concept-accuracy-confidence.md). You can only call the highResolution, formula and font capabilities for the Read and Layout model, and the queryFields capability for the General Documents model. The following example shows how to call the highResolution, formula and font capabilities for the Layout model.
 
    ```bash
-   curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/prebuilt-layout:analyze?features=ocr.highResolution,ocr.formula,ocr.font?api-version=2023-02-28-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" --data-ascii "{'urlSource': '{document-url}'}"
+   curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/prebuilt-layout:analyze?features=ocr.highResolution,ocr.formula,ocr.font?api-version=2023-07-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" --data-ascii "{'urlSource': '{document-url}'}"
    ```
 
 ### POST response
@@ -106,7 +106,7 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 
 * Use the NodeJS **json tool** as a JSON formatter for curl.
 
-* If you don't have [Node.js](https://nodejs.org/about/releases/) installed, download and install the latest version.
+* If you don't have [Node.js](https://nodejs.org/) installed, download and install the latest version.
 
 * Open a new command prompt and install the **json tool** with the following command:
 

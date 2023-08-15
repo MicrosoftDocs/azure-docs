@@ -169,6 +169,7 @@ This section provides references to SAP on Azure solutions.
 * [Disaster Recovery with Azure NetApp Files, JetStream DR and AVS (Azure VMware Solution)](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/) - Jetstream
 * [Enable App Volume Replication for Horizon VDI on Azure VMware Solution using Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-migration-and/enable-app-volume-replication-for-horizon-vdi-on-azure-vmware/ba-p/3798178)
 * [Disaster Recovery using cross-region replication with Azure NetApp Files datastores for AVS](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-recovery-using-cross-region-replication-with-azure/ba-p/3870682)
+* [Protecting Azure VMware Solution VMs and datastores on Azure NetApp Files with Cloud Backup for VMs](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-azure-vmware-solution-vms-and-datastores-on-azure/ba-p/3894887)
 
 ## Virtual Desktop Infrastructure solutions
 

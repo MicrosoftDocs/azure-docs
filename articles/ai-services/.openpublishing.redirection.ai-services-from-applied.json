@@ -544,7 +544,17 @@
       "source_path_from_root": "/articles/ai-services/document-intelligence/v3-migration-guide.md",
       "redirect_url": "/azure/ai-services/document-intelligence/v3-1-migration-guide",
       "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/ai-services/document-intelligence/sdk-overview.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/sdk-overview-v3-0",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/ai-services/document-intelligence/sdk-preview.md",
+      "redirect_url": "/azure/ai-services/document-intelligence/sdk-overview-v3-1",
+      "redirect_document_id": true
     }
-    
   ]
 }

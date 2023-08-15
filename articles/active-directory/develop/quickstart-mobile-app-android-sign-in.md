@@ -6,7 +6,7 @@ author: henrymbuguakiarie
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: include
+ms.topic: quickstart
 ms.workload: identity
 ms.date: 05/24/2023
 ms.author: henrymbugua

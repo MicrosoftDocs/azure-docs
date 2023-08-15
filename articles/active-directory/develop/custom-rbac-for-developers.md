@@ -17,7 +17,7 @@ ms.reviewer: john.garland, maggie.marxen, ian.bennett
 
 # Role-based access control for application developers
 
-Role-based access control (RBAC) allows certain users or groups to have specific permissions to access and manage resources. Application RBAC differs from [Azure role-based access control](../../role-based-access-control/overview.md) and [Azure AD role-based access control](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Azure custom roles and built-in roles are both part of Azure RBAC, which is used to help manage Azure resources. Azure AD RBAC is used to manage Azure AD resources. This article explains application-specific RBAC. For information about implementing application-specific RBAC, see [How to add app roles to your application and receive them in the token](./howto-add-app-roles-in-azure-ad-apps.md).
+Role-based access control (RBAC) allows certain users or groups to have specific permissions to access and manage resources. Application RBAC differs from [Azure role-based access control](../../role-based-access-control/overview.md) and [Azure AD role-based access control](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Azure custom roles and built-in roles are both part of Azure RBAC, which is used to help manage Azure resources. Azure AD RBAC is used to manage Azure AD resources. This article explains application-specific RBAC. For information about implementing application-specific RBAC, see [How to add app roles to your application and receive them in the token](./howto-add-app-roles-in-apps.md).
 
 ## Roles definitions
 
@@ -41,13 +41,13 @@ Developers have the flexibility to provide their own implementation for how role
 
 ### App roles
 
-Azure AD allows you to [define app roles](./howto-add-app-roles-in-azure-ad-apps.md) for your application and assign those roles to users and other applications. The roles you assign to a user or application define their level of access to the resources and operations in your application.
+Azure AD allows you to [define app roles](./howto-add-app-roles-in-apps.md) for your application and assign those roles to users and other applications. The roles you assign to a user or application define their level of access to the resources and operations in your application.
 
 When Azure AD issues an access token for an authenticated user or application, it includes the names of the roles you've assigned the entity (the user or application) in the access token's [`roles`](./access-token-claims-reference.md#payload-claims) claim. An application like a web API that receives that access token in a request can then make authorization decisions based on the values in the `roles` claim.
 
 ### Groups
 
-Developers can also use [Azure AD groups](../fundamentals/active-directory-manage-groups.md) to implement RBAC in their applications, where the memberships of the user in specific groups are interpreted as their role memberships. When an organization uses groups, the token includes a [groups claim](./access-token-claims-reference.md#payload-claims). The group claim specifies the identifiers of all of the assigned groups of the user within the tenant.
+Developers can also use [Azure AD groups](../fundamentals/concept-learn-about-groups.md) to implement RBAC in their applications, where the memberships of the user in specific groups are interpreted as their role memberships. When an organization uses groups, the token includes a [groups claim](./access-token-claims-reference.md#payload-claims). The group claim specifies the identifiers of all of the assigned groups of the user within the tenant.
 
 > [!IMPORTANT]
 > When working with groups, developers need to be aware of the concept of an [overage claim](./access-token-claims-reference.md#payload-claims). By default, if a user is a member of more than the overage limit (150 for SAML tokens, 200 for JWT tokens, 6 if using the implicit flow), Azure AD doesn't emit a groups claim in the token. Instead, it includes an "overage claim" in the token that indicates the consumer of the token needs to query the Microsoft Graph API to retrieve the group memberships of the user. For more information about working with overage claims, see [Claims in access tokens](./access-token-claims-reference.md). It's possible to only emit groups that are assigned to an application, though [group-based assignment](../manage-apps/assign-user-or-group-access-portal.md) does require Azure Active Directory Premium P1 or P2 edition.

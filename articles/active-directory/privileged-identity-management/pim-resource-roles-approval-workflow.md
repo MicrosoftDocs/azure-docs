@@ -76,4 +76,4 @@ Here's some information about workflow notifications:
 ## Next steps
 
 - [Email notifications in Privileged Identity Management](pim-email-notifications.md)
-- [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md)
+- [Approve or deny requests for Azure AD roles in Privileged Identity Management](./pim-approval-workflow.md)
