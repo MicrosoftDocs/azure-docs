@@ -378,5 +378,5 @@ For more information about generating code completions, see [Codex models and Az
 
 ## Next steps
 
-- Learn how to work with the [GPT-35-Turbo and GPT-4 models](/azure/ai-services/openai/how-to/chatGPT-4?pivots=programming-language-chat-completions).
+- Learn how to work with the [GPT-35-Turbo and GPT-4 models](/azure/ai-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions)
 - Learn more about the [Azure OpenAI Service models](../concepts/models.md).
