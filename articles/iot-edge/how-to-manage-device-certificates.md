@@ -1,5 +1,6 @@
 ---
 title: Manage IoT Edge certificates
+titleSuffix: Azure IoT Edge
 description: How to install and manage certificates on an Azure IoT Edge device to prepare for production deployment. 
 author: PatAltimore
 
@@ -16,7 +17,7 @@ services: iot-edge
 All IoT Edge devices use certificates to create secure connections between the runtime and any modules running on the device. IoT Edge devices functioning as gateways use these same certificates to connect to their downstream devices, too. 
 
 > [!NOTE]
-> The term *root CA* used throughout this article refers to the topmost authority's certificate in the certificate chain for your IoT solution. You do not need to use the certificate root of a syndicated certificate authority, or the root of your organization's certificate authority. In many cases, it's actually an intermediate CA certificate.
+> The term *root CA* used throughout this article refers to the topmost authority's certificate in the certificate chain for your IoT solution. You don't need to use the certificate root of a syndicated certificate authority, or the root of your organization's certificate authority. Often, it's actually an intermediate CA certificate.
 
 ## Prerequisites
 
@@ -621,6 +622,13 @@ Edge Daemon issues module server and identity certificates for use by Edge modul
 ### Renewal
 
 Server certificates may be issued off the Edge CA certificate or through a DPS-configured CA. Regardless of the issuance method, these certificates must be renewed by the module.
+
+You can configure the *EdgeHub* server certificate renewal using the following environment variables:
+
+* **ServerCertificateRenewAfterInMs**: Sets the duration in milliseconds when the *EdgeHub* server certificate is renewed regardless certificate expiry time.
+* **MaxCheckCertExpiryInMs**: Sets the duration in milliseconds when *EdgeHub* service checks the *EdgeHub* server certificate expiration. If the variable is set, the check happens irrespective of certificate expiry time.
+
+For more information about the environment variables, see [EdgeHub and EdgeAgent environment variables](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md).
 
 ## Changes in 1.2 and later
 
