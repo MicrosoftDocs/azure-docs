@@ -93,7 +93,7 @@ After you enable agentless scanning, software inventory and vulnerability inform
 
 1. In the settings pane, turn on  **Agentless scanning**.
 
-    :::image type="content" source="media/enable-agentless-scanning-vms/gcp-select-agentless.png" alt-text="Screenshot that shows where to select the plan for GCP projects." lightbox="media/enable-agentless-scanning-vms/gcp-select-agentless.png":::
+    :::image type="content" source="media/enable-agentless-scanning-vms/gcp-select-agentless.png" alt-text="Screenshot that shows where to select agentless scanning." lightbox="media/enable-agentless-scanning-vms/gcp-select-agentless.png":::
 
 1. Select **Save and Next: Configure Access**. 
 1. Copy the onboarding script.
