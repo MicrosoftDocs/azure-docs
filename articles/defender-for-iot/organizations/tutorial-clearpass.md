@@ -8,62 +8,68 @@ ms.custom: how-to
 
 # Integrate ClearPass with Microsoft Defender for IoT (on-premises integration)
 
+
+This article describes how to integrate Aruba ClearPass with Microsoft Defender for IoT, in order to view both ClearPass and Defender for IoT information in a single place.
+
+Viewing both Defender for IoT and ClearPass information together provides SOC analysts with multidimensional visibility into the specialized OT protocols and devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior.
+
+## Cloud integration (recommended)
+
+If you're integrating a cloud-connected OT sensor with Aruba ClearPass, we recommend that you connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview).
+
+Microsoft Sentinel is a scalable cloud service for security information event management (SIEM) security orchestration automated response (SOAR).  SOC teams can use the integration between Microsoft Defender for Iot and Microsoft Sentinel to collect data across networks, detect and investigate threats, and respond to incidents.
+
+In Microsoft Sentinel, the Defender for IoT data connector and solution brings out-of-the-box security content to SOC teams, helping them to view, analyze and respond to OT security alerts, and understand the generated incidents in the broader organizational threat contents.
+
+For more information, see:
+
+- [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](iot-solution.md)
+- [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md)
+- [Microsoft Sentinel documentation](/azure/sentinel/data-connectors/aruba-clearpass).
+
+## On-premises integration (recommended)
+
+If you're working with an air-gapped, locally managed OT sensor, you'll need an on-premises solution to view Defender for IoT and ClearPass information in the same place.
+
+In such cases, we recommend that you configure your OT sensor to send syslog files directly to ClearPass.
+
+When creating your forwarding rule:
+
+1. In the **Actions** area, select **ClearPass**.
+
+1. Enter the ClearPass server IP address and port.
+
+1. Select to forward specific alert details. We recommend selecting one of more of the following:
+
+    - **Block illegal function codes**:	Protocol violations - Illegal field value violating ICS protocol specification (potential exploit)
+    - **Block unauthorized PLC programming / firmware updates**:	Unauthorized PLC changes
+    - **Block unauthorized PLC stop**	PLC stop (downtime)
+    - **Block malware related alerts**: Blocking of the industrial malware attempts, such as TRITON or NotPetya
+    - **Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance) |
+
+> [!NOTE]
+> Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
+>
+
+For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
+
+## On-premises integration (legacy)
+
 > [!IMPORTANT]
-> In line with our focus on cloud integrations, Defender for IoT plans to end support for the legacy, on-premises Aruba ClearPass integration with an upcoming patch version of 23.1.x.
->
-> We recommend that you connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview) instead. For more information, see [Microsoft Sentinel documentation](/azure/sentinel/data-connectors/aruba-clearpass).
->
-> Note that after integration support ends, you can continue to send syslog files to ClearPass. For more information, see [Configure alert forwarding rule actions](how-to-forward-alert-information-to-partners.md#configure-alert-forwarding-rule-actions).
+> Defender for IoT plans to end support for the legacy, on-premises Splunk integration with an upcoming 23.x version. We recommend that you transition any uses of the legacy integration to a recommended integration method instead.
 
+This section describes how to integrate Defender for IoT and ClearPass Policy Manager (CPPM) using the legacy, on-premises integration.
 
-This article helps you learn how to integrate ClearPass Policy Manager (CPPM) with Microsoft Defender for IoT via the on-premises, legacy integration.
-
-The Defender for IoT platform delivers continuous ICS threat monitoring and device discovery, combining a deep embedded understanding of industrial protocols, devices, and applications with ICS-specific behavioral anomaly detection, threat intelligence, risk analytics, and automated threat modeling.
-
-Defender for IoT detects, discovers, and classifies OT and ICS endpoints, and share information directly with ClearPass using the ClearPass Security Exchange framework and the OpenAPI.
-
-Defender for IoT automatically updates the ClearPass Policy Manager Endpoint Database with endpoint classification data and several custom security attributes.
-
-The integration allows for the following:
-
-- Viewing ICS and SCADA security threats identified by Defender for IoT security engines.
-
-- Viewing device inventory information discovered by the Defender for IoT sensor. The sensor delivers centralized visibility of all network devices and endpoints across the IT and OT infrastructure. From here, a centralized endpoint and edge security policy can be defined and administered in the ClearPass system.
-
-In this article, you learn how to:
-
-> [!div class="checklist"]
->
-> - Create a ClearPass API user
-> - Create a ClearPass operator profile
-> - Create a ClearPass OAuth API client
-> - Configure Defender for IoT to integrate with ClearPass
-> - Define the ClearPass forwarding rule
-> - Monitor ClearPass and Defender for IoT communication
-
-## Prerequisites
+### Prerequisites
 
 Before you begin, make sure that you have the following prerequisites:
 
-### Aruba ClearPass requirements
+|Prerequisite  |Description  |
+|---------|---------|
+|**Aruba ClearPass requirements**     |  CPPM runs on hardware appliances with pre-installed software or as a Virtual Machine under the following hypervisors. <br>- VMware ESXi 5.5, 6.0, 6.5, 6.6 or higher. <br>- Microsoft Hyper-V Server 2012 R2 or 2016 R2. <br>- Hyper-V on Microsoft Windows Server 2012 R2 or 2016 R2. <br>- KVM on CentOS 7.5 or later.  <br><br>Hypervisors that run on a client computer such as VMware Player aren't supported.      |
+|**Defender for IoT requirements**     |   - Defender for IoT version 2.5.1 or higher. <br>- Access to a Defender for IoT OT sensor as an [Admin user](roles-on-premises.md).     |
 
-CPPM runs on hardware appliances with pre-installed software or as a Virtual Machine under the following hypervisors. Hypervisors that run on a client computer such as VMware Player aren't supported.
-
-- VMware ESXi 5.5, 6.0, 6.5, 6.6 or higher.
-
-- Microsoft Hyper-V Server 2012 R2 or 2016 R2.
-
-- Hyper-V on Microsoft Windows Server 2012 R2 or 2016 R2.
-
-- KVM on CentOS 7.5 or later.
-
-### Defender for IoT requirements
-
-- Defender for IoT version 2.5.1 or higher.
-
-- Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
-
-## Create a ClearPass API user
+### Create a ClearPass API user
 
 As part of the communications channel between the two products, Defender for IoT uses many APIs (both TIPS, and REST). Access to the TIPS APIs is validated via username and password combination credentials. This user ID needs to have minimum levels of access. Don't use a Super Administrator profile, but instead use API Administrator as shown below.
 
@@ -83,7 +89,7 @@ As part of the communications channel between the two products, Defender for IoT
 
 1. Select **Add**.
 
-## Create a ClearPass operator profile
+### Create a ClearPass operator profile
 
 Defender for IoT uses the REST API as part of the integration. REST APIs are authenticated under an OAuth framework. To sync with Defender for IoT, you need to create an API Client.
 
@@ -100,7 +106,7 @@ In order to secure access to the REST API for the API Client, create a restricte
     | **API Services** | Set to **Allow Access** |
     | **Policy Manager** | Set the following: <br />- **Dictionaries**: **Attributes** set to **Read, Write, Delete**<br />- **Dictionaries**: **Fingerprints** set to **Read, Write, Delete**<br />- **Identity**: **Endpoints** set to **Read, Write, Delete** |
 
-## Create a ClearPass OAuth API client
+### Create a ClearPass OAuth API client
 
 1. In the main window, select **Administrator** > **API Services** > **API Clients**.
 
@@ -124,7 +130,7 @@ In order to secure access to the REST API for the API Client, create a restricte
 
     - CPPM OAuth2 API Client Secret
 
-## Configure Defender for IoT to integrate with ClearPass
+### Configure Defender for IoT to integrate with ClearPass
 
 To enable viewing the device inventory in ClearPass, you need to set up Defender for IoT-ClearPass sync. When the sync configuration is complete, the Defender for IoT platform updates the ClearPass Policy Manager EndpointDb as it discovers new endpoints.
 
@@ -146,15 +152,13 @@ To enable viewing the device inventory in ClearPass, you need to set up Defender
 
 1. Select **Save**.
 
-## Define a ClearPass forwarding rule
+### Define a ClearPass forwarding rule
 
 To enable viewing the alerts discovered by Defender for IoT in Aruba, you need to set the forwarding rule. This rule defines which information about the ICS, and SCADA security threats identified by Defender for IoT security engines is sent to ClearPass.
 
-Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
+For more information, see [On-premises integration (recommended)](#on-premises-integration-recommended).
 
-For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
-
-## Monitor ClearPass and Defender for IoT communication
+### Monitor ClearPass and Defender for IoT communication
 
 Once the sync has started, endpoint data is populated directly into the Policy Manager EndpointDb, you can view the last update time from the integration configuration screen.
 
@@ -166,7 +170,7 @@ Once the sync has started, endpoint data is populated directly into the Policy M
 
     :::image type="content" source="media/tutorial-clearpass/last-sync.png" alt-text="Screenshot of the view the time and date of your last sync." lightbox="media/tutorial-clearpass/last-sync.png":::
 
-If Sync isn't working, or shows an error, then it’s likely you’ve missed capturing some of the information. Recheck the data recorded.
+If the sync isn't working, or shows an error, then it’s likely you’ve missed capturing some of the information. Recheck the data recorded.
 
 Additionally, you can view the API calls between Defender for IoT and ClearPass from **Guest** > **Administration** > **Support** > **Application Log**.
 

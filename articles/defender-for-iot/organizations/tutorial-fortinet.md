@@ -99,6 +99,24 @@ The FortiGate firewall can be used to block suspicious traffic.
 
 Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
 
+When creating your forwarding rule:
+
+1. In the **Actions** area, select **FortiGate**.
+
+1. Define the server IP address where you want to send the data.
+
+1. Enter an API key created in FortiGate.
+
+1. Enter the incoming and outgoing firewall interface ports.
+
+1. Select to forward specific alert details. We recommend selecting one of more of the following:
+
+    - **Block illegal function codes**:	Protocol violations - Illegal field value violating ICS protocol specification (potential exploit)
+    - **Block unauthorized PLC programming / firmware updates**:	Unauthorized PLC changes 
+    - **Block unauthorized PLC stop**	PLC stop (downtime)
+    - **Block malware related alerts**: Blocking of the industrial malware attempts, such as TRITON or NotPetya
+    - **Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance)  
+
 For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
 
 ## Block the source of suspicious alerts
