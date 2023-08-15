@@ -1716,6 +1716,21 @@
       "redirect_document_id": false 
     },
     {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-dotnet-sign-in-prepare-tenant.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-web-app-dotnet-sign-in-prepare-tenant",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-dotnet-sign-in-prepare-app.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-web-app-dotnet-sign-in-prepare-app",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-dotnet-sign-in-sign-out.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-web-app-dotnet-sign-in-sign-out",
+      "redirect_document_id": false 
+    },
+    {
       "source_path_from_root": "/articles/active-directory/external-identities/conditional-access.md",
       "redirect_url": "/azure/active-directory/external-identities/authentication-conditional-access",
       "redirect_document_id": true
