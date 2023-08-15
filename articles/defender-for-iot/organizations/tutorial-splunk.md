@@ -30,10 +30,6 @@ In such cases, we recommend that you configure your OT sensor to send syslog fil
 
 1. Enter the server, host, username, and password details for the Splunk server, and port **8089**.
 
-> [!NOTE]
-> Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
->
-
 For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
 
 ## On-premises integration (legacy)
@@ -71,30 +67,6 @@ To access the Defender for IoT application within Splunk, you need to download t
 1. Select the CyberX ICS Threat Monitoring for Splunk application.
 
 1. Select the **LOGIN TO DOWNLOAD BUTTON**.
-
-### Send Defender for IoT alerts to Splunk
-
-The Defender for IoT alerts provide information about an extensive range of security events. These events include:
-
-- Deviations from the learned baseline network activity.
-
-- Malware detections.
-
-- Detections based on suspicious operational changes.
-
-- Network anomalies.
-
-- Protocol deviations from protocol specifications.
-
-You can also configure Defender for IoT to send alerts to the Splunk server, where alert information is displayed in the Splunk Enterprise dashboard.
-
-:::image type="content" source="media/tutorial-splunk/alerts-and-details.png" alt-text="View all of the alerts and their details." lightbox="media/tutorial-splunk/alerts-and-details-expanded.png":::
-
-To send alert information to the Splunk servers from Defender for IoT, you need to create a Forwarding Rule.
-
-Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
-
-For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
 
 ## Next steps
 
