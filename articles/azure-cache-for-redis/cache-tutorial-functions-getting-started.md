@@ -267,7 +267,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
-## Next step
+## Related content
 
-> [!div class="nextstepaction"]
-> [Create serverless event-based architectures by using Azure Cache for Redis and Azure Functions (preview)](cache-how-to-functions.md)
+- [Overview of Azure functions for Azure Cache for Redis](/azure/azure-functions/functions-bindings-cache?tabs=in-process&pivots=programming-language-csharp)
+- [Build a write-behind cache by using Azure Functions](cache-tutorial-write-behind.md)

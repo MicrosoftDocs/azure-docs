@@ -45,11 +45,15 @@ This example uses the portal:
 
 1. Enter a database name and select **Create new** to create a new server to hold the database.
 
+   :::image type="content" source="media/cache-tutorial-write-behind/cache-create-sql.png" alt-text="Screenshot of creating an Azure SQL resource.":::
+
 1. Select **Use SQL authentication** and enter an admin sign-in and password. Be sure to remember these credentials or write them down. When you're deploying a server in production, use Azure Active Directory (Azure AD) authentication instead.
-<!-- screenshot -->
+
+   :::image type="content" source="media/cache-tutorial-write-behind/cache-sql-authentication.png" alt-text="Screenshot of the authentication information for a Azure SQL resource.":::
 
 1. Go to the **Networking** tab and choose **Public endpoint** as a connection method. Select **Yes** for both firewall rules that appear. This endpoint allows access from your Azure function app.
-<!-- screenshot -->
+
+   :::image type="content" source="media/cache-tutorial-write-behind/cache-sql-networking.png" alt-text="Screenshot of the networking setting for an Azure SQL resource.":::
 
 1. After validation finishes, select **Review + create** and then **Create**. The SQL database starts to deploy.
 
@@ -64,6 +68,8 @@ This example uses the portal:
        Price decimal(18,2)
        );
    ```
+
+    :::image type="content" source="media/cache-tutorial-write-behind/cache-sql-query-result.png" alt-text="Screenshot showing the creation of a table in Query Editor of a Azure SQL resource.":::
 
 1. After the command finishes running, expand the *Tables* folder and verify that the new table was created.
 
@@ -216,7 +222,11 @@ You need to manually enter the password for your SQL database connection string,
 
       Confirm that the items written to your Azure Cache for Redis instance appear here.
 
+   :::image type="content" source="media/cache-tutorial-write-behind/cache-sql-query-result.png" alt-text="Screenshot showing the information has been copied to SQL from the cache instance.":::
+
 ## Deploy the code to your function app
+
+This tutorial builds on the previous tutorial. For more information, see [Deploy code to an Azure function](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started#deploy-code-to-an-azure-function).
 
 1. In VS Code, go to the **Azure** tab.
 
@@ -225,6 +235,8 @@ You need to manually enter the password for your SQL database connection string,
 1. Select and hold (or right-click) your function app, and then select **Deploy to Function App**.
 
 ## Add connection string information
+
+This tutorial builds on the previous tutorial. For more information on the `redisConnectionString`, see [Add connection string information](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started#add-connection-string-information).
 
 1. Go to your function app in the Azure portal. On the resource menu, select **Configuration**.
 
@@ -254,5 +266,5 @@ This tutorial and [Get started with Azure Functions triggers in Azure Cache for 
 
 ## Related content
 
-- [Create serverless event-based architectures by using Azure Cache for Redis and Azure Functions (preview)](cache-how-to-functions.md)
-- [Build a write-behind cache by using Azure Functions](cache-tutorial-write-behind.md)
+- [Overview of Azure functions for Azure Cache for Redis](/azure/azure-functions/functions-bindings-cache?tabs=in-process&pivots=programming-language-csharp)
+- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md)
