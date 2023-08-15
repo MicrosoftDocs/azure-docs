@@ -28,7 +28,7 @@ Group-based licensing in Azure Active Directory (Azure AD), part of Microsoft En
 
 ## Assign licenses to a group
 
-[Group based licensing](../fundamentals/active-directory-licensing-whatis-azure-portal.md) provides a convenient way to manage license assignment. You can assign one or more product licenses to a group and those licenses are assigned to all members of the group.
+[Group based licensing](../fundamentals/licensing-whatis-azure-portal.md) provides a convenient way to manage license assignment. You can assign one or more product licenses to a group and those licenses are assigned to all members of the group.
 
 ```powershell
 # Import the Microsoft.Graph.Groups module
@@ -310,6 +310,6 @@ foreach ($user in $users) {
 
 To learn more about the feature set for license management through groups, see the following articles:
 
-* [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [What is group-based licensing in Azure Active Directory?](../fundamentals/licensing-whatis-azure-portal.md)
 * [Assigning licenses to a group in Azure Active Directory](./licensing-groups-assign.md)
 * [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
