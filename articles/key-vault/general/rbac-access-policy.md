@@ -12,11 +12,11 @@ ms.custom:
 ---
 # Azure role-based access control (Azure RBAC) vs. access policies (legacy)
 
-Azure Key Vault offers two authorization systems: **Azure role-based access control (Azure RBAC)**, which operates on the management plane, and the **access policy model**, which operates on both the management plane and the data plane.
+Azure Key Vault offers two authorization systems: **Azure role-based access control (Azure RBAC)**, which operates on the management plane and data plane, and the legacy **access policy model**, which operates on the data plane only.
 
-Azure RBAC is built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) and provides fine-grained access management of Azure resources. With Azure RBAC you control access to resources by creating role assignments, which consist of three elements: a security principal, a role definition (predefined set of permissions), and a scope (group of resources or individual resource). For more information, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
+Azure RBAC is built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) and provides fine-grained access management of Azure resources with Priviliged Identity Management (PIM) integration. With Azure RBAC you control access to resources by creating role assignments, which consist of three elements: a security principal, a role definition (predefined set of permissions), and a scope (group of resources or individual resource). For more information, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
-The access policy model, on the other hand, is an existing authorization system built in Key Vault to provide access to keys, secrets, and certificates. You can control access by assigning individual permissions to security principals (user, group, service principal, managed identity) at Key Vault scope.
+The access policy model, on the other hand, is an legacy authorization system built in Key Vault to provide access to keys, secrets, and certificates. You can control access by assigning individual permissions to security principals (user, group, service principal, managed identity) at Key Vault scope.
 
 ## Data plane access control recommendation
 

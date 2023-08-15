@@ -42,7 +42,7 @@ You can use this library in your app server side to manage the WebSocket client 
 
 #### Currently supported environments
 
-- [LTS versions of Node.js](https://nodejs.org/about/releases/)
+- [LTS versions of Node.js](https://nodejs.dev/)
 
 #### Prerequisites
 
@@ -231,7 +231,7 @@ When a WebSocket connection connects, the Web PubSub service transforms the conn
 
 #### Currently supported environments
 
-- [LTS versions of Node.js](https://nodejs.org/about/releases/)
+- [LTS versions of Node.js](https://nodejs.dev/)
 - [Express](https://expressjs.com/) version 4.x.x or higher
 
 #### Prerequisites
@@ -318,7 +318,7 @@ const express = require("express");
 
 const { WebPubSubEventHandler } = require("@azure/web-pubsub-express");
 const handler = new WebPubSubEventHandler("chat", {
-  path: "customPath1"
+  path: "/customPath1"
 });
 
 const app = express();

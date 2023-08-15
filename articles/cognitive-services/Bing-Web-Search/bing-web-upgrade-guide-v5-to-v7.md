@@ -1,6 +1,6 @@
 ---
 title: Upgrade from API v5 to v7 - Bing Web Search API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Determine which parts of your application require updates to use the Bing Web Search v7 APIs.
 services: cognitive-services
 

@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 07/25/2023
+ms.date: 08/14/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -24,14 +24,32 @@ If you're looking for the latest release notes, you can find them in the [What's
 | Planned change | Estimated date for change |
 |--|--|
 | [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) | June 2023|
-| [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) | July 2023 |
-| [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | July 2023 |
-| [General availability release of agentless container posture in Defender CSPM](#general-availability-ga-release-of-agentless-container-posture-in-defender-cspm) | July 2023 |
+| [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) | August 2023 |
+| [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | August 2023 |
 | [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) | August 2023 |
 | [Update naming format of Azure Center for Internet Security standards in regulatory compliance](#update-naming-format-of-azure-center-for-internet-security-standards-in-regulatory-compliance) | August 2023 |
 | [Preview alerts for DNS servers to be deprecated](#preview-alerts-for-dns-servers-to-be-deprecated) | August 2023 |
+| [Deprecate and replace recommendations App Service Client Certificates](#deprecate-and-replace-recommendations-app-service-client-certificates) | August 2023 |
+| [Classic connectors for multicloud will be retired](#classic-connectors-for-multicloud-will-be-retired) | September 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) | September 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) | August 2024 |
+
+### Classic connectors for multicloud will be retired
+
+**Estimated date for change: September 15, 2023**
+
+The classic multicloud connectors will be retiring on September 15, 2023 and no data will be streamed to them after this date. These classic connectors were used to connect AWS Security Hub and GCP Security Command Center recommendations to Defender for Cloud and onboard AWS EC2s to Defender for Servers.
+
+The full value of these connectors has been replaced with the native multicloud security connectors experience, which has been Generally Available for AWS and GCP since March 2022 at no additional cost.
+
+The new native connectors are included in your plan and offer an automated onboarding experience with options to onboard single accounts, multiple accounts (with Terraform), and organizational onboarding with auto provisioning for the following Defender plans: free foundational CSPM capabilities, Defender Cloud Security Posture Management (CSPM), Defender for Servers, Defender for SQL, and Defender for Containers.
+
+If you're currently using the classic multicloud connectors, we strongly recommend that you begin your migration to the native security connectors before September 15, 2023.
+
+How to migrate to the native security connectors:
+
+- [Connect your AWS account to Defender for Cloud](quickstart-onboard-aws.md)
+- [Connect your GCP project to Defender for Cloud](quickstart-onboard-gcp.md)
 
 ### Defender for Cloud plan and strategy for the Log Analytics agent deprecation
 
@@ -72,6 +90,9 @@ The following table explains how each capability will be provided after the Log 
 
 To ensure the security of your servers and receive all the security updates from Defender for Servers, make sure to have [Defender for Endpoint integration](integration-defender-for-endpoint.md) and [agentless disk scanning](concept-agentless-data-collection.md) enabled on your subscriptions. This will also keep your servers up-to-date with the alternative deliverables.
 
+> [!IMPORTANT]
+> For more information about how to plan for this change, see [Microsoft Defender for Cloud - strategy and plan towards Log Analytics Agent (MMA) deprecation](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341).
+
 #### Defender for SQL Server on machines
 
 The Defender for SQL Server on machines plan relies on the Log Analytics agent (MMA) / Azure monitoring agent (AMA) to provide Vulnerability Assessment and Advanced Threat Protection to IaaS SQL Server instances. The plan supports Log Analytics agent autoprovisioning in GA, and Azure Monitoring agent autoprovisioning in Public Preview.
@@ -98,7 +119,7 @@ See the [full index of Azure Policy built-in policy definitions for Key Vault](.
 
 ### Changes to the Defender for DevOps recommendations environment source and resource ID
 
-**Estimated date for change: July 2023**
+**Estimated date for change: August 2023**
 
 The Security DevOps recommendations will be updated to align with the overall Microsoft Defender for Cloud features and experience.  Affected recommendations will point to a new recommendation source environment and have an updated resource ID.
 
@@ -146,21 +167,13 @@ The recommendations page's experience will have minimal impact and deprecated as
 
 ### DevOps Resource Deduplication for Defender for DevOps
 
-**Estimated date for change: July 2023**
+**Estimated date for change: August 2023**
 
 To improve the Defender for DevOps user experience and enable further integration with Defender for Cloud's rich set of capabilities, Defender for DevOps will no longer support duplicate instances of a DevOps organization to be onboarded to an Azure tenant.
 
 If you don't have an instance of a DevOps organization onboarded more than once to your organization, no further action is required. If you do have more than one instance of a DevOps organization onboarded to your tenant, the subscription owner will be notified and will need to delete the DevOps Connector(s) they don't want to keep by navigating to Defender for Cloud Environment Settings.
 
 Customers will have until July 31, 2023 to resolve this issue. After this date, only the most recent DevOps Connector created where an instance of the DevOps organization exists will remain onboarded to Defender for DevOps. For example, if Organization Contoso exists in both connectorA and connectorB, and connectorB was created after connectorA, then connectorA will be removed from Defender for DevOps.
-
-### General Availability (GA) release of Agentless Container Posture in Defender CSPM
-
-**Estimated date for change: July 2023**
-
-The new Agentless Container Posture capabilities are set for General Availability (GA) as part of the Defender CSPM (Cloud Security Posture Management) plan.
-
-Learn more about [Agentless Containers Posture in Defender CSPM](concept-agentless-containers.md).
 
 ### Business model and pricing updates for Defender for Cloud plans
 
@@ -232,6 +245,21 @@ The following table lists the alerts to be deprecated:
 | Possible data download via DNS tunnel (Preview) | DNS_DataInfiltration |
 | Anonymity network activity (Preview) | DNS_DarkWeb |
 | Anonymity network activity using web proxy (Preview) | DNS_DarkWebProxy |
+
+### Deprecate and replace recommendations App Service Client Certificates
+
+**Estimated date for change: August 2023**
+
+App Service policies are set to be deprecated and replaced so that they only monitor apps using HTTP 1.1 since HTTP 2.0 on App Service doesn't support client certificates. The existing policies that enforce client certificates require an additional check to determine if Http 2.0 is being used by the app. Adding this additional check requires a change to the policy "effect" from Audit to AuditIfNotExists. Policy "effect" changes require deprecation of the old version of the policy and the creation of a replacement.
+
+Policies in this scope:
+
+- App Service apps should have Client Certificates (Incoming client certificates) enabled
+- App Service app slots should have Client Certificates (Incoming client certificates) enabled
+- Function apps should have Client Certificates (Incoming client certificates) enabled
+- Function app slots should have Client Certificates (Incoming client certificates) enabled
+
+Customers who are currently using this policy will need to ensure they have the new policies with similar names enabled and assigned to their intended scope.
 
 ### Change to the Log Analytics daily cap
 

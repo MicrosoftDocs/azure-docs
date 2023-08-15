@@ -77,8 +77,8 @@ Permissions Management offers the following reports for management associated wi
 - **Permissions Analytics Report**
     - **Summary of report**: Provides information about the violation of key security best practices.
     - **Applies to**: AWS, Azure, and GCP
-    - **Report output type**: CSV, PDF
-    - **Ability to collate report**: Yes
+    - **Report output type**: XSLX, PDF
+    - **Ability to collate report**: Yes (XSLX only)
     - **Type of report**: **Detailed**
     - **Use cases**:
          - This report lists the different key findings in the selected auth systems. The key findings include super identities, inactive identities, over provisioned active identities, storage bucket hygiene, and access key age (for AWS only). The report helps administrators to visualize the findings across the organization.
