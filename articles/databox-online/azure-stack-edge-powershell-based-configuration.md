@@ -310,16 +310,16 @@ Run the following cmdlets in PowerShell:
    Here's sample output:
 
    ```output
-   PS C:\> Set-login "https://10.126.76.140/" "Password1" "Password1"
-PS C:\> Get-DeviceConfiguration | To-json
-    {
-    "device":  {
+      PS C:\> Set-login "https://10.126.76.140/" "Password1" "Password1"
+      PS C:\> Get-DeviceConfiguration | To-json
+      {
+      "device":  {
                    "deviceInfo":  {
-                                      "model":  "Azure Stack Edge",
-                                      "softwareVersion":  "3.2.2380.1548",
-                                      "serialNumber":  "1HXG613",
-                                      "isActivated":  true,
-                                      "nodes":  [
+                                            "model":  "Azure Stack Edge",
+                                            "softwareVersion":  "3.2.2380.1548",
+                                            "serialNumber":  "1HXG613",
+                                            "isActivated":  true,
+                                            "nodes":  [
                                                     {
                                                         "id":  "9b1817b9-67f5-4631-8466-447b89b829f3",
                                                         "name":  "HW6C1T2"
@@ -636,9 +636,9 @@ PS C:\> Get-DeviceConfiguration | To-json
                                     "password":  null
                                 }
                }
-    }
-    PS C:\> 
-    ```
+      }
+      PS C:\> 
+      ```
 
 ## Activate a device
 
