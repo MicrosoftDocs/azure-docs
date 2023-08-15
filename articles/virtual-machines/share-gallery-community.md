@@ -87,7 +87,7 @@ There are a variety of reasons why you might want to use an Azure Marketplace im
 
 Why use a marketplace mage?
 - Microsoft certified images
-- Can be use for production workloads
+- Can be used for production workloads
 - First party and third party images
 - Paid images with additional software offerings
 - Supported by Microsoft
