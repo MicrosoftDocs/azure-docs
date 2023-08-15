@@ -83,7 +83,7 @@ GET https://guestnotificationservice.azure.us/urls/allowlist?api-version=2020-01
 |`https://<region>.obo.arc.azure.cn:8084/` | Required when [Cluster Connect](../cluster-connect.md) is configured. |
 ---
 
-To translate the `*.servicebus.usgovcloudapi.net` wildcard into specific endpoints, use the command:
+To translate the `*.servicebus.chinacloudapi.cn` wildcard into specific endpoints, use the command:
 
 ```rest
 GET https://guestnotificationservice.azure.cn/urls/allowlist?api-version=2020-01-01&location=region
