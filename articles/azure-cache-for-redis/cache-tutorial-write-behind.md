@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 The SQL database is the backing database for this example. You can create a SQL database through the Azure portal or through your preferred method of automation.
 
-For more information on creating a SQL database, see [Quickstart: Create a single database - Azure SQL Databas](/azure/azure-sql/database/single-database-create-quickstart.md).
+For more information on creating a SQL database, see [Quickstart: Create a single database - Azure SQL Databas](../azure/azure-sql/database/single-database-create-quickstart.md).
 
 This example uses the portal:
 
