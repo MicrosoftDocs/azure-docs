@@ -8,16 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 08/04/2023
+ms.date: 08/15/2023
 ms.author: lajanuar
 recommendations: false
-keywords: on-premises, Docker, container, identify, hotfix, phrasefix, sentfix, format
 ---
 
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD046 -->
 
-# Container hotfix for sentence and phrase files
+# Deploy user-managed glossary
 
 Microsoft Translator containers enable you to run several features of the Translator service in your own environment and are great for specific security and data governance requirements.
 There may be times when you're running a container with a multi-layered ingestion process when you discover that you need to implement an update to sentence and/or phrase files. Since the standard phrase and sentence files are encrypted and read directly in memory at runtime, you need to implement a quick-fix engineering solution to implement a dynamic update. This update can be implemented using our hotfix folder feature:
@@ -55,20 +54,22 @@ There may be times when you're running a container with a multi-layered ingestio
 1. Next, to dynamically reload hotfix entry changes, create a `version.json` file within the `customhotfix` folder. The `version.json` file should contain the following parameters:
 
     * **VersionId**. An integer value.
-    * **HotfixReloadInterval**. Default value is 5 minutes.
-    * **HotfixReloadEnabled**. Default value is true.
-
       ***Sample version.json file***
 
         ```json
         {
 
-            "VersionId": 5,
-            "HotfixReloadInterval": 5,
-            "HotfixReloadEnabled": true
+            "VersionId": 5
 
         }
         ```
+
+    > [!TIP]
+    >
+    > Reload can be controlled by setting the following environmental variables when starting the container:
+    >
+    > * **HotfixReloadInterval=**. Default value is 5 minutes.
+    > * **HotfixReloadEnabled=**. Default value is true.
 
 1. Run the container using the **docker run** command
 
@@ -105,8 +106,8 @@ There may be times when you're running a container with a multi-layered ingestio
 
    ```
 
-## Next steps
+## Learn more
 
-[Install and run containers in connected environments](translator-how-to-install-container.md)
+[Dynamic dictionary](../dynamic-dictionary.md)
 
-[Install and run containers in disconnected environments](translator-disconnected-containers.md)
+[Custom dictionary](../custom-translator/concepts/dictionaries.md)
