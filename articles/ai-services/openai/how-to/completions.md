@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
-ms.date: 08/11/2023
+ms.date: 08/15/2023
 author: ChrisHMSFT
 ms.author: chrhoder
 recommendations: false
@@ -182,7 +182,7 @@ Although this demonstration uses a simple prompt, it highlights several guidelin
 
 ## Conduct conversations
 
-Starting with the release of [gpt-35-turbo and gpt-4](/azure/ai-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions), we recommend that you create conversational generation and chatbots by using models that support the _chat completion endpoint_. The chat completion models and endpoint require a different input structure than the completion endpoint.
+Starting with the release of [GPT-35-Turbo and GPT-4](/azure/ai-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions), we recommend that you create conversational generation and chatbots by using models that support the _chat completion endpoint_. The chat completion models and endpoint require a different input structure than the completion endpoint.
 
 The API is adept at carrying on conversations with humans and even with itself. With just a few lines of instruction, the API can perform as a customer service chatbot that intelligently answers questions without getting flustered, or a wise-cracking conversation partner that makes jokes and puns. The key is to tell the API how it should behave and then provide a few examples.
 
@@ -311,7 +311,7 @@ Here are some helpful guidelines for using the API to generate text and code com
 
 - **Raise the Temperature to allow the API to tangent**. Set higher values for the `Temperature` setting to allow the API to respond in a manner that's tangential to the intent described in your prompt.
 
-- **Use the gpt-35-turbo and gpt-4 Azure OpenAI models**. For tasks that involve understanding or generating code, Microsoft recommends using the `gpt-35-turbo` and `gpt-4` Azure OpenAI models. These models use the new [chat completions format](/azure/ai-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions).  
+- **Use the GPT-35-Turbo and GPT-4 Azure OpenAI models**. For tasks that involve understanding or generating code, Microsoft recommends using the `GPT-35-Turbo` and `GPT-4` Azure OpenAI models. These models use the new [chat completions format](/azure/ai-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions).  
  
 ## Generate factual responses
 
@@ -378,5 +378,5 @@ For more information about generating code completions, see [Codex models and Az
 
 ## Next steps
 
-- Learn how to work with the [gpt-35-turbo and gpt-4 models](/azure/ai-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions).
+- Learn how to work with the [GPT-35-Turbo and GPT-4 models](/azure/ai-services/openai/how-to/chatGPT-4?pivots=programming-language-chat-completions).
 - Learn more about the [Azure OpenAI Service models](../concepts/models.md).
