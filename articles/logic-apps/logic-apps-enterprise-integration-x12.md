@@ -66,6 +66,54 @@ The **X12** connector has one version across workflows in [multi-tenant Azure Lo
 
   * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
 
+<a name="encode"></a>
+
+## Encode X12 messages
+
+### [Consumption](#tab/consumption)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+
+1. In the designer, [follow these general steps to add the **X12** action named **Encode to X12 message by agreement name** to your workflow](create-workflow-with-trigger-or-action?tabs=consumption#add-action).
+
+   > [!NOTE]
+   >
+   > If you want to use **Encode to X12 message by identities** action instead, 
+   > you later have to provide different values, such as the **Sender identifier** 
+   > and **Receiver identifier** that's specified by your X12 agreement. 
+   > You also have to specify the **XML message to encode**, which can be the output 
+   > from the trigger or a preceding action.
+
+1. When prompted, provide the following connection information for your integration account:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for the connection |
+   | **Integration Account** | Yes | From the list of available integration accounts, select the account to use. |
+
+   For example:
+
+   ![Screenshot showing the "Encode to X12 message by agreement name" connection pane.](./media/logic-apps-enterprise-integration-x12/create-x12-encode-connection-consumption.png)
+
+1. When you're done, select **Create**.
+
+1. In the X12 action information box, provide the following property values:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Name of X12 agreement** | Yes | The X12 agreement to use. |
+   | **XML message to encode** | Yes | The business identifier for the message sender as specified by your X12 agreement |
+   | Other parameters | No | This operation includes the following other parameters: <p>- **Data element separator** <br>- **Release indicator** <br>- **Component separator** <br>- **Repetition separator** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Decimal indicator** <p>For more information, review [X12 message settings](logic-apps-enterprise-integration-x12-message-settings.md). |
+
+   For example, the XML message payload can be the **Body** content output from the Request trigger:
+
+   ![Screenshot showing the "Encode to X12 message by agreement name" operation with the message encoding properties.](./media/logic-apps-enterprise-integration-x12/encode-x12-message-agreement-consumption.png)
+
+### [Standard](#tab/standard)
+
+---
+
+
 
 ## Next steps
 
