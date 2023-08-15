@@ -35,7 +35,7 @@ $subsciption = <subscription id>
 $system_assigned_principal = <principal id for system assigned identity>
 $readOnlyRoleDefinitionId = "00000000-0000-0000-0000-000000000001"
 $scope=$(az cosmosdb show --name $cosmosdbname --resource-group $resourcegroup --query id --output tsv)
-``````
+```
     Role assignment for system-assigned identity:
 
 ```azurepowershell
