@@ -14,7 +14,7 @@ ms.date: 08/11/2023
 
 # Create a Translator resource
 
-In this article, you learn how to create a Translator resource in the Azure portal. [Azure AI Translator](translator-overview.md) is a cloud-based machine translation service that is part of the [Azure AI services](../what-are-ai-services.md) family. Azure resources are instances of services that you create. All API requests to Azure AI services require an **endpoint** URL and a read-only **key** for authenticating access.
+In this article, you learn how to create a Translator resource in the Azure portal. [Azure AI Translator](translator-overview.md) is a cloud-based machine translation service that is part of the [Azure AI services](../what-are-ai-services.md) family. Azure resources are instances of services that you create. All API requests to Azure AI services require an *endpoint* URL and a read-only *key* for authenticating access.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ To get started, you need an active [**Azure account**](https://azure.microsoft.c
 
 ## Create your resource
 
-You can access the Translator service through two different resource types:
+With your Azure account, you can access the Translator service through two different resource types:
 
 * [**Single-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource types enable access to a single service API key and endpoint.
 
@@ -47,10 +47,10 @@ After you decide which resource type you want use to access the Translator servi
 
    * Each subscription has a free tier.
    * The free tier has the same features and functionality as the paid plans and doesn't expire.
-   * Only one free tier is available per subscription.
+   * Only one free tier resource is available per subscription.
    * Document Translation is supported in paid tiers. The Language Studio only supports the S1 or D3 instance tiers. If you just want to try Document Translation, select the Standard S1 instance tier. 
 
-1. If you've created a multi-service resource, you need to confirm more usage details via the check boxes.
+1. If you've created a multi-service resource, the links at the bottom of the **Basics** tab provides technical documentation regarding the appropriate operation of the service.
 
 1. Select **Review + Create**.
 
@@ -68,19 +68,21 @@ All Azure AI services API requests require an endpoint URL and a read-only key f
 
 ## Get your authentication keys and endpoint
 
+To authenitcate your connection to your Translator resource, you'll need to find its keys and endpoint.
+
 1. After your new resource deploys, select **Go to resource** or go to your resource page.
 1. In the left navigation pane, under **Resource Management**, select **Keys and Endpoint**.
 1. Copy and paste your keys and endpoint URL in a convenient location, such as Notepad.
 
 :::image type="content" source="media/keys-and-endpoint-resource.png" alt-text="Screenshot of the Azure portal showing the Keys and Endpoint page of a Translator resource. The keys and endpoints are highlighted.":::
 
-## How to delete a  resource or resource group
+## Delete a  resource or resource group
+
+To remove an Azure AI multi-service or Translator resource, you can delete the resource or delete the resource group.
 
 > [!WARNING]
 >
 > Deleting a resource group also deletes all resources contained in the group.
-
-To remove an Azure AI multi-service or Translator resource, you can delete the resource or delete the resource group.
 
 To delete the resource:
 
@@ -96,14 +98,14 @@ To delete the resource group:
 1. Select **Delete resource group** from the top menu bar.
 1. Confirm the deletion request by entering the resource group name and selecting **Delete**.
 
-## How to get started with Translator
+## How to get started with Azure AI Translator REST APIs
 
 In our quickstart, you learn how to use the Translator service with REST APIs.
 
 > [!div class="nextstepaction"]
 > [Get Started with Translator](quickstart-text-rest-api.md)
 
-## More resources
+## Next Steps
 
 * [Microsoft Translator code samples](https://github.com/MicrosoftTranslator). Multi-language Translator code samples are available on GitHub.
 * [Microsoft Translator Support Forum](https://www.aka.ms/TranslatorForum)
