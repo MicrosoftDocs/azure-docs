@@ -36,7 +36,7 @@ The goal of this step is to create a record of a failed sign-in in the Azure AD 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as Isabella Simonsen using an incorrect password.
 
-2. Wait for 5 minutes to ensure that you can find a record of the sign-in in the sign-ins log. For more information, see [Activity reports](./reference-azure-ad-sla-performance.md#activity-reports).
+2. Wait for 5 minutes to ensure that you can find a record of the sign-in in the sign-ins log. For more information, see [Activity reports](./overview-reports.md#activity-reports).
 
 
 
