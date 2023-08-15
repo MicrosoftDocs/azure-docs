@@ -169,7 +169,7 @@ Augment standard token claims with optional claims, such as groups. The **Applic
 Learn more: 
 
 * [Provide optional claims to your app](../develop/optional-claims.md)
-* [Configuring groups optional claims](../develop/optional-claims.md#configuring-groups-optional-claims)
+* [Configuring groups optional claims](../develop/optional-claims.md#configure-groups-optional-claims)
 
 We recommend you use and include app roles, which customers manage by using the portal or APIs. Assign roles to users and groups to control access. When a token is issued, the assigned roles are in the token roles claim. Information derived from a token prevents more APIs calls.
 
