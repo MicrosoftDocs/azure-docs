@@ -18,7 +18,7 @@ To send and receive AS2 messages in workflows that you create using Azure Logic 
 
 Except for tracking capabilities, the **AS2 (v2)** connector provides the same capabilities as the original **AS2** connector, runs natively with the Azure Logic Apps runtime, and offers significant performance improvements in message size, throughput, and latency. Unlike the original **AS2** connector, the **AS2 (v2)** connector doesn't require that you create a connection to your integration account. Instead, as described in the prerequisites, make sure that you link your integration account to the logic app resource where you plan to use the connector.
 
-This article shows how to add the AS2 encoding and decoding actions to an existing logic app workflow. The **AS2 (v2)** connector doesn't include any triggers, so you can use any trigger to start your workflow. The examples in this article use the [Request](../connectors/connectors-native-reqres.md) trigger.
+This how-to guide shows how to add the AS2 encoding and decoding actions to an existing logic app workflow. The **AS2 (v2)** connector doesn't include any triggers, so you can use any trigger to start your workflow. The examples in this article use the [Request trigger](../connectors/connectors-native-reqres.md).
 
 ## Connector technical reference
 
@@ -49,13 +49,11 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
 
 * An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) to define and store artifacts for use in enterprise integration and B2B workflows.
 
-  > [!IMPORTANT]
-  >
-  > To work together, both your integration account and logic app resource must exist in the same Azure subscription and Azure region.
+  * Both your integration account and logic app resource must exist in the same Azure subscription and Azure region.
 
-* At least two [trading partners](logic-apps-enterprise-integration-partners.md) in your integration account. The definitions for both partners must use the same *business identity* qualifier, which is **AS2Identity** for this scenario.
+  * Defines at least two [trading partners](logic-apps-enterprise-integration-partners.md) that participate in the AS2 operation used in your workflow. The definitions for both partners must use the same *business identity* qualifier, which is **AS2Identity** for this scenario.
 
-* An [AS2 agreement](logic-apps-enterprise-integration-agreements.md) in your integration account between the trading partners that participate in your workflow. Each agreement requires a host partner and a guest partner. The content in the messages between you and the other partner must match the agreement type.
+  * Defines an [AS2 agreement](logic-apps-enterprise-integration-agreements.md) between the trading partners that participate in your workflow. Each agreement requires a host partner and a guest partner. The content in the messages between you and the other partner must match the agreement type.
 
 * Based on whether you're working on a Consumption or Standard logic app workflow, your logic app resource might require a link to your integration account:
 
