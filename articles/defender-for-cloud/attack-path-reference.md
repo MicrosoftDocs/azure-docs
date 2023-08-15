@@ -3,7 +3,7 @@ title: Reference list of attack paths and cloud security graph components
 description: This article lists Microsoft Defender for Cloud's list of attack paths based on resource.
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 08/14/2023
+ms.date: 08/15/2023
 ---
 
 # Reference list of attack paths and cloud security graph components
@@ -63,18 +63,18 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 
 | Attack path display name | Attack path description |
 |--|--|
-| Internet exposed VM instance has high severity vulnerabilities | GCP VM instance '[VMInstanceName]' is reachable from the internet and has high severity vulnerabilities[Remote Code Execution]. |
+| Internet exposed VM instance has high severity vulnerabilities | GCP VM instance '[VMInstanceName]' is reachable from the internet and has high severity vulnerabilities [Remote Code Execution]. |
 | Internet exposed VM instance with high severity vulnerabilities has read permissions to a data store | GCP VM instance '[VMInstanceName]' is reachable from the internet, has high severity vulnerabilities[Remote Code Execution] and has read permissions to a data store. | 
 | Internet exposed VM instance with high severity vulnerabilities has read permissions to a data store with sensitive data | GCP VM instance '[VMInstanceName]' is reachable from the internet, has high severity vulnerabilities allowing remote code execution on the machine and assigned with Service Account with read permission to GCP Storage bucket '[BucketName]' containing sensitive data. | 
 | Internet exposed VM instance has high severity vulnerabilities and high permission to a project | GCP VM instance '[VMInstanceName]' is reachable from the internet, has high severity vulnerabilities[Remote Code Execution] and has '[Permissions]' permission to project '[ProjectName]'. | 
 | Internet exposed VM instance with high severity vulnerabilities has read permissions to a Secret Manager | GCP VM instance '[VMInstanceName]' is reachable from the internet, has high severity vulnerabilities[Remote Code Execution] and has read permissions through IAM policy to GCP Secret Manager's secret '[SecretName]'. | 
-| Internet exposed VM instance has high severity vulnerabilities and a hosted database installed | GCP VM instance '[VMName]' with a hosted [DatabaseType] database is reachable from the internet and has high severity vulnerabilities. |
+| Internet exposed VM instance has high severity vulnerabilities and a hosted database installed | GCP VM instance '[VMInstanceName]' with a hosted [DatabaseType] database is reachable from the internet and has high severity vulnerabilities. |
 | Internet exposed VM with high severity vulnerabilities has plaintext SSH private key | GCP VM instance '[MachineName]' is reachable from the internet, has high severity vulnerabilities [Remote Code Execution] and has plaintext SSH private key [SSHPrivateKey]. |
 | VM instance with high severity vulnerabilities has read permissions to a data store | GCP VM instance '[VMInstanceName]' has high severity vulnerabilities[Remote Code Execution] and has read permissions to a data store. | 
 | VM instance with high severity vulnerabilities has read permissions to a data store with sensitive data | GCP VM instance '[VMInstanceName]' has high severity vulnerabilities [Remote Code Execution] and has read permissions to GCP Storage bucket '[BucketName]' containing sensitive data. |
 | VM instance has high severity vulnerabilities and high permission to a project | GCP VM instance '[VMInstanceName]' has high severity vulnerabilities[Remote Code Execution] and has '[Permissions]' permission to project '[ProjectName]'.|  
 | VM instance with high severity vulnerabilities has read permissions to a Secret Manager | GCP VM instance '[VMInstanceName]' has high severity vulnerabilities[Remote Code Execution] and has read permissions through IAM policy to GCP Secret Manager's secret '[SecretName]'. |
-| VM instance with high severity vulnerabilities has plaintext SSH private key | Virtual machine '[MachineName]' has high severity vulnerabilities [Remote Code Execution] and has plaintext SSH private key [SSHPrivateKey]. |
+| VM instance with high severity vulnerabilities has plaintext SSH private key | GCP VM instance to align with all other attack paths. Virtual machine '[MachineName]' has high severity vulnerabilities [Remote Code Execution] and has plaintext SSH private key [SSHPrivateKey]. |
 
 ### Azure data
 
@@ -147,7 +147,7 @@ This section lists all of the cloud security graph components (connections and i
 | Contains sensitive data <br/> <br/> Prerequisite: [Enable data-aware security for storage accounts in Defender CSPM](data-security-posture-enable.md), or [leverage Microsoft Purview Data Catalog to protect sensitive data](information-protection.md). | Indicates that a resource contains sensitive data. | Azure Storage Account, Azure Storage Account Container, AWS S3 bucket, Azure SQL Server, Azure SQL Database, Azure Data Lake Storage Gen2, Azure Database for PostgreSQL, Azure Database for MySQL, Azure Synapse Analytics, Azure Cosmos DB accounts, GCP cloud storage bucket |
 | Moves data to (Preview) | Indicates that a resource transfers its data to another resource | Storage account container, AWS S3, AWS RDS instance, AWS RDS cluster |
 | Gets data from (Preview) | Indicates that a resource gets its data from another resource | Storage account container, AWS S3, AWS RDS instance, AWS RDS cluster |
-| Has tags | Lists the resource tags of the cloud resource | All Azure and AWS resources, All GCP resources |
+| Has tags | Lists the resource tags of the cloud resource | All Azure, AWS, and GCP resources |
 | Installed software | Lists all software installed on the machine. This insight is applicable only for VMs that have threat and vulnerability management integration with Defender for Cloud enabled and are connected to Defender for Cloud. | Azure virtual machine, AWS EC2 |
 | Allows public access | Indicates that a public read access is allowed to the resource with no authorization required. [Learn more](concept-data-security-posture-prepare.md#exposed-to-the-internetallows-public-access) | Azure storage account, AWS S3 bucket, GitHub repository, GCP cloud storage bucket |
 | Doesn't have MFA enabled | Indicates that the user account does not have a multi-factor authentication solution enabled | Azure AD User account, IAM user |
@@ -170,7 +170,7 @@ This section lists all of the cloud security graph components (connections and i
 |--|--|--|--|
 | Can authenticate as | Indicates that an Azure resource can authenticate to an identity and use its privileges | Azure VM, Azure VMSS, Azure Storage Account, Azure App Services, SQL Servers | Azure AD managed identity |
 | Has permission to | Indicates that an identity has permissions to a resource or a group of resources | Azure AD user account, Managed Identity, IAM user, EC2 instance | All Azure & AWS resources|
-| Contains | Indicates that the source entity contains the target entity | Azure subscription, Azure resource group, AWS account, Kubernetes namespace, Kubernetes pod, Kubernetes cluster, GitHub owner, Azure DevOps project, Azure DevOps organization, Azure SQL server, GCP project, GCP Folder, GCP Organization | All Azure & AWS resources, All Kubernetes entities, All DevOps entities, Azure SQL database, All GCP resources |
+| Contains | Indicates that the source entity contains the target entity | Azure subscription, Azure resource group, AWS account, Kubernetes namespace, Kubernetes pod, Kubernetes cluster, GitHub owner, Azure DevOps project, Azure DevOps organization, Azure SQL server, GCP project, GCP Folder, GCP Organization | All Azure, AWS, and GCP resources, All Kubernetes entities, All DevOps entities, Azure SQL database |
 | Routes traffic to | Indicates that the source entity can route network traffic to the target entity | Public IP, Load Balancer, VNET, Subnet, VPC, Internet Gateway, Kubernetes service, Kubernetes pod| Azure VM, Azure VMSS, AWS EC2, Subnet, Load Balancer, Internet gateway, Kubernetes pod, Kubernetes service, GCP VM instance, GCP instance group |
 | Is running | Indicates that the source entity is running the target entity as a process | Azure VM, EC2, Kubernetes container | SQL, Arc-Enabled SQL, Hosted MongoDB, Hosted MySQL, Hosted Oracle, Hosted PostgreSQL, Hosted SQL Server, Container image, Kubernetes pod |
 | Member of | Indicates that the source identity is a member of the target identities group | Azure AD group, Azure AD user | Azure AD group |
