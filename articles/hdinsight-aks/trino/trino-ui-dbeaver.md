@@ -12,8 +12,8 @@ It's possible to use JDBC driver with many available database tools. This articl
 
 ## Prerequisites
 
-1. [Download and install DBeaver](https://dbeaver.io/download/).
-2. [Install HDInsight on AKS Trino CLI with JDBC driver](./trino-ui-cli.md#install-on-windows).
+* [Download and install DBeaver](https://dbeaver.io/download/).
+* [Install HDInsight on AKS Trino CLI with JDBC driver](./trino-ui-cli.md#install-on-windows).
 
 
 ## Configure DBeaver to use HDInsight Trino JDBC driver
@@ -28,40 +28,41 @@ Open DBeaver and from the main menu, select Database -> Driver Manager.
       * Update **Driver Name**, for example, "Azure Trino."
       * Make sure **Default Port** is 443.
         
-      ![Create new Azure Trino driver.](media/trino-ui-dbeaver/dbeaver-new-driver.png)
-  
-   5. Select **Libraries** tab.
+      :::image type="content" source="./media/trino-ui-dbeaver/dbeaver-new-driver.png" alt-text="Diagram showing Create new Azure Trino driver."
+        
+   1. Select **Libraries** tab.
       
-   7. Delete all libraries currently registered.
+   1. Delete all libraries currently registered.
       
-   9. Click **Add File** and select [installed](./trino-ui-cli.md#install-on-windows) Azure Trino JDBC jar file from your local disk.
+   1. Click **Add File** and select [installed](./trino-ui-cli.md#install-on-windows) Azure Trino JDBC jar file from your local disk.
        
-   11. Click **Find Class** and select ```io.trino.jdbc.TrinoDriver```.
+   1. Click **Find Class** and select ```io.trino.jdbc.TrinoDriver```.
        
-       ![Select Azure Trino JDBC driver file.](media/trino-ui-dbeaver/dbeaver-new-driver-lib.png)
+       :::image type="content" source="./media/trino-ui-dbeaver/dbeaver-new-driver-libr.png" alt-text="Diagram showing Select Azure Trino JDBC driver file."
        
-   15. Click OK and close Driver Manager, the driver is configured to use.
+   1. Click OK and close Driver Manager, the driver is configured to use.
 
 ## Query and browse HDInsight Trino cluster with DBeaver
 
 1. Connect to your Trino cluster by clicking **New Database Connection** in toolbar.
    
-3. Select newly registered driver. In this example, "Azure Trino."
+1. Select newly registered driver. In this example, "Azure Trino."
   
-   ![Create new connection.](media/trino-ui-dbeaver/dbeaver-new-connection.png)
+   :::image type="content" source="./media/trino-ui-dbeaver/dbeaver-new-connection.png" alt-text="Diagram showing Create new connection."
   
-7. Click "Next." On the **Main** tab update **Host** with Trino cluster endpoint, which you can find in portal on cluster overview page.
+1. Click "Next." On the **Main** tab update **Host** with Trino cluster endpoint, which you can find in portal on cluster overview page.
   
-   ![Create new connection - main.](media/trino-ui-dbeaver/dbeaver-new-connection-main.png)
+  :::image type="content" source="./media/trino-ui-dbeaver/dbeaver-new-connection-main.png" alt-text="Diagram showing Create new connection main."
    
-11. Optionally, select **Driver properties** tab and set ```azureUseTokenCache=true```. This parameter would reduce number of authentication actions user needs to perform if interactive browser authentication is required. DBeaver initializes several connections for different tool windows in UI, each requiring authentication, and possibly user action.
+1. Optionally, select **Driver properties** tab and set ```azureUseTokenCache=true```. This parameter would reduce number of authentication actions user needs to perform if interactive browser authentication is required. DBeaver initializes several connections for different tool windows in UI, each requiring authentication, and possibly user action.
    
-    ![Create new connection - properties.](media/trino-ui-dbeaver/dbeaver-new-connection-properties.png)
+   :::image type="content" source="./media/trino-ui-dbeaver/dbeaver-new-driver.png" alt-text="Diagram showing Create new connection - properties."
    
-15. Click OK, connection is ready. You can click **Test Connection** or close the window.
+1. Click OK, connection is ready. You can click **Test Connection** or close the window.
    
-17. Expand connection in **Database Navigator** on the left to browse catalogs. Browser may open with authentication prompt.
+1. Expand connection in **Database Navigator** on the left to browse catalogs. Browser may open with authentication prompt.
     
-19. In main menu, click **SQL Editor** -> **New SQL Script** and type any Trino query to get started.
+1. In main menu, click **SQL Editor** -> **New SQL Script** and type any Trino query to get started.
    
-    ![Query Trino in DBeaver.](media/trino-ui-dbeaver/dbeaver-query.png)
+   :::image type="content" source="./media/trino-ui-dbeaver/dbeaver-query.png" alt-text="Diagram showing Query Trino in DBeaver."
+    
