@@ -14,7 +14,7 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-This article provides resources for troubleshooting events.
+This article provides resources to troubleshoot events.
 
 > [!IMPORTANT]
 > FHIR resource and DICOM image change data is only written and event messages are sent when the Events feature is turned on. The event feature doesn't send messages on past FHIR resource or DICOM image changes or when the feature is turned off.

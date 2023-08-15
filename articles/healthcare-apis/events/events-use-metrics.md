@@ -37,7 +37,7 @@ In this article, learn how to use events metrics using the Azure portal.
 
    :::image type="content" source="media\events-display-metrics\events-metrics-subscription.png" alt-text="Screenshot of select the metrics button." lightbox="media\events-display-metrics\events-metrics-subscription.png"::: 
 
-4. From this page, notice that the Event Hubs received the incoming message presented in the previous Events subscription metrics pages.
+4. From this page, notice that the Event Hubs received the incoming message presented in the previous Events Subscription metrics pages.
 
    :::image type="content" source="media\events-display-metrics\events-metrics-event-hub.png" alt-text="Screenshot of displaying event hubs metrics." lightbox="media\events-display-metrics\events-metrics-event-hub.png"::: 
 

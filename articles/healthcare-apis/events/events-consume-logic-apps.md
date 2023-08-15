@@ -56,11 +56,11 @@ You now need to fill out the details of your Logic App. Specify information for 
 
 :::image type="content" source="media/events-logic-apps/events-logic-tabs.png" alt-text="Screenshot of the five tabs for specifying your Logic App." lightbox="media/events-logic-apps/events-logic-tabs.png":::
 
-- Tab 1 - Basics
-- Tab 2 - Hosting
-- Tab 3 - Monitoring
-- Tab 4 - Tags
-- Tab 5 - Review + Create
+- Tab 1 - **Basics**
+- Tab 2 - **Hosting**
+- Tab 3 - **Monitoring**
+- Tab 4 - **Tags**
+- Tab 5 - **Review + Create**
 
 ### Basics - Tab 1
 
@@ -108,7 +108,7 @@ Choose the type of storage you want to use and the storage account. You can use 
 
 ### Monitoring - Tab 3
 
-Continue specifying your Logic App by clicking "Next: Monitoring".
+Continue specifying your Logic App by selecting **Next: Monitoring**.
 
 #### Monitoring with Application Insights
 
@@ -214,7 +214,7 @@ To set up a new workflow, fill in these details:
 
 Specify a new name for your workflow. Indicate whether you want the workflow to be stateful or stateless. Stateful is for business processes and stateless is for processing IoT events.
 
-When you've specified the details, select "Create" to begin designing your workflow.
+When you've specified the details, select **Create** to begin designing your workflow.
 
 ### Designing the workflow
 
