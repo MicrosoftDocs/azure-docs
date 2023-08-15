@@ -17,7 +17,7 @@ ms.custom: developer, devx-track-dotnet
 
 # Sign in users for a sample ASP.NET web app in an Azure AD for customers tenant
 
-This how-to guide uses a sample ASP.NET web application to show the fundamentals of modern authentication using the [Microsoft Authentication Library for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) and [Microsoft Identity Web](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for ASP.NET to handle authentication.
+This how-to guide uses a sample ASP.NET web application to show the fundamentals of modern authentication using the [Microsoft Authentication Library for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) and [Microsoft Identity Web](https://github.com/AzureAD/microsoft-identity-web/) for ASP.NET to handle authentication.
 
 In this article, you'll register a web application in the Microsoft Entra admin center and create a sign in and sign out user flow. You'll associate your web application with the user flow, download and update a sample ASP.NET web application using your own Azure Active Directory (Azure AD) for customers tenant details. Finally, you'll run and test the sample web application.
 
