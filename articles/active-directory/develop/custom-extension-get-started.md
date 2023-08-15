@@ -194,7 +194,7 @@ In this step, you configure a custom authentication extension, which will be use
 Register an application to authenticate your custom authentication extension to your Azure Function.
 
 1. Sign in to [Graph Explorer](https://aka.ms/ge) using an account whose home tenant is the tenant you wish to manage your custom authentication extension in. The account must have the privileges to create and manage an application registration in the tenant.
-1. Run the following request
+1. Run the following request.
 
     ```http
     POST https://graph.microsoft.com/v1.0/applications
@@ -207,7 +207,7 @@ Register an application to authenticate your custom authentication extension to 
 
 1. From the response, record the value of **id** and **appId** of the newly created app registration. These values will be referenced in this article as `{authenticationeventsAPI_ObjectId}` and `{authenticationeventsAPI_AppId}` respectively.]
 
-Create a service principal in the tenant for the authenticationeventsAPI app registration:
+Create a service principal in the tenant for the authenticationeventsAPI app registration.
 
 1. Still in Graph Explorer, run the following request. Replace `{authenticationeventsAPI_AppId}` with the value of **appId** that you recorded from the previous step.
 
@@ -400,6 +400,7 @@ First create an event listener to trigger a custom authentication extension for 
 
 1. Sign in to [Graph Explorer](https://aka.ms/ge) using an account whose home tenant is the tenant you wish to manage your custom authentication extension in.
 1. Run the following request. Replace `{App_to_enrich_ID}` with the app ID of *My Test application* recorded earlier. Replace `{customExtensionObjectId}` with the custom authentication extension ID recorded earlier.
+    - You'll need the *EventListener.ReadWrite.All* delegated permission. 
 
     ```http
     POST https://graph.microsoft.com/beta/identity/authenticationEventListeners
@@ -429,7 +430,7 @@ First create an event listener to trigger a custom authentication extension for 
 
 Next, create the claims mapping policy, which describes which claims can be issued to an application from a custom claims provider.
 
-1. Still in Graph Explorer, run the following request
+1. Still in Graph Explorer, run the following request. You'll need the *Policy.ReadWrite.ApplicationConfiguration* delegated permission.
 
 
     ```http
@@ -459,7 +460,7 @@ Record the value of **id**.
 
 Assign the claims mapping policy to the service principal of *My Test Application*.
 
-1. Run the following request in Graph Explorer. 
+1. Run the following request in Graph Explorer. You'll need the *Policy.ReadWrite.ApplicationConfiguration* and *Application.ReadWrite.All* delegated permission.
 
     ```http
     POST https://graph.microsoft.com/v1.0/servicePrincipals/{test_App_Service_Principal_ObjectId}/claimsMappingPolicies/$ref
