@@ -24,7 +24,7 @@ sections:
       - question: |
           How do I get a premium license?
         answer: |
-          See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition.
+          See [Getting started with Azure Active Directory Premium](../fundamentals/get-started-premium.md) to upgrade your Azure Active Directory edition.
           
       - question: |
           How soon should I see activities data after getting a premium license?
@@ -220,7 +220,7 @@ sections:
       - question: |
           I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Azure AD audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?
         answer: |
-          Look up the [API reference](https://developer.microsoft.com/graph/) to see how you can [use the APIs to access activity logs](concept-reporting-api.md). This endpoint has two reports (**Audit** and **Sign-ins**) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Azure AD Premium license that you can use to get app usage, device usage, and user sign-in information.
+          Look up the [API reference](https://developer.microsoft.com/graph/) to see how you can [use the APIs to access activity logs](./howto-configure-prerequisites-for-reporting-api.md). This endpoint has two reports (**Audit** and **Sign-ins**) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Azure AD Premium license that you can use to get app usage, device usage, and user sign-in information.
           
       - question: |
           I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Azure AD security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?
