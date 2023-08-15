@@ -58,7 +58,7 @@ This example uses the portal:
 
 1. After validation finishes, select **Review + create** and then **Create**. The SQL database starts to deploy.
 
-1. After deployment finishes, go to the resource in the Azure portal and select the **Query editor** tab. Create a new table called *inventory* that holds the data you'll write to it. Use the following SQL command to make a new table with two fields:
+1. After deployment finishes, go to the resource in the Azure portal and select the **Query editor** tab. Create a new table called _inventory_ that holds the data you'll write to it. Use the following SQL command to make a new table with two fields:
 
    - `ItemName` lists the name of each item.
    - `Price` stores the price of the item.
@@ -70,9 +70,9 @@ This example uses the portal:
        );
    ```
 
-    :::image type="content" source="media/cache-tutorial-write-behind/cache-sql-query-result.png" alt-text="Screenshot showing the creation of a table in Query Editor of a Azure SQL resource.":::
+    :::image type="content" source="media/cache-tutorial-write-behind/cache-sql-query-table.png" alt-text="Screenshot showing the creation of a table in Query Editor of a Azure SQL resource.":::
 
-1. After the command finishes running, expand the *Tables* folder and verify that the new table was created.
+1. After the command finishes running, expand the _Tables_ folder and verify that the new table was created.
 
 ## Configure the Redis trigger
 
@@ -192,7 +192,7 @@ You need to update the _local.settings.json_ file to include the connection stri
 
 To find the Redis connection string, go to the resource menu in the Azure Cache for Redis resource. The string is in the **Access Keys** area of **Settings**.
 
-To find the SQL database connection string, go to the resource menu in the SQL database resource. Under **Settings**, select **Connection strings**, and then select the **ADO.NET** tab. 
+To find the SQL database connection string, go to the resource menu in the SQL database resource. Under **Settings**, select **Connection strings**, and then select the **ADO.NET** tab.
 The string is in the **ADO.NET (SQL authentication)** area.
 
 You need to manually enter the password for your SQL database connection string, because the password isn't pasted automatically.
