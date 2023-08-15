@@ -14,14 +14,14 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Install the Azure AD Connect provisioning agent by using a CLI and PowerShell
+# Install the Azure AD Connect cloud sync provisioning agent by using a CLI and PowerShell
 This article shows you how to install the Azure Active Directory (Azure AD) Connect provisioning agent by using PowerShell cmdlets.
  
 >[!NOTE]
 >This article deals with installing the provisioning agent by using the command-line interface (CLI). For information on how to install the Azure AD Connect provisioning agent by using the wizard, see [Install the Azure AD Connect provisioning agent](how-to-install.md).
 
 >[!IMPORTANT]
->If you're running these commands from a headless PowerShell session (e.g., via PSRemoting) and your Entra ID administrator account requires Modern Authentication, these instructions will not work for you. 
+>If you're running these commands from a headless PowerShell session (e.g., via PSRemoting) and your Entra ID administrator account requires MFA, these instructions will not work for you. 
 
 ## Prerequisites
 
