@@ -4,7 +4,7 @@ description: Learn how to tune your uploads and downloads for better performance
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 07/07/2023
 ms.devlang: python
