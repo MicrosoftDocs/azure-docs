@@ -13576,6 +13576,11 @@
       "source_path_from_root": "/articles/active-directory/fundamentals/add-users-azure-active-directory.md",
       "redirect_url": "/azure/active-directory/fundamentals/add-users",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/subscription-requirements.md",
+      "redirect_url": "/azure/active-directory/governance/licensing-fundamentals",
+      "redirect_document_id": false
     }
    
   ]
