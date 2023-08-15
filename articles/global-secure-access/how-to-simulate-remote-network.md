@@ -11,7 +11,7 @@ ms.reviewer: absinh
 ---
 # Create a remote network using Azure virtual networks
 
-Organizations may want to extend the capabilities of Microsoft Entra Internet Access to entire networks not just devices they can [install the Global Secure Access Client](how-to-install-windows-client.md) on. This article shows how to extend these capabilities to an Azure virtual network hosted in the cloud. Similar principles may be applied to a customer's on-premises network equipment.
+Organizations may want to extend the capabilities of Microsoft Entra Internet Access to entire networks not just individual devices they can [install the Global Secure Access Client](how-to-install-windows-client.md) on. This article shows how to extend these capabilities to an Azure virtual network hosted in the cloud. Similar principles may be applied to a customer's on-premises network equipment.
 
 :::image type="content" source="media/how-to-simulate-remote-network/simulate-remote-network.png" alt-text="Diagram showing a virtual network in Azure connected to Microsoft Entra Internet Access simulating a customer's network." lightbox="media/how-to-simulate-remote-network/simulate-remote-network.png":::
 
@@ -20,9 +20,9 @@ Organizations may want to extend the capabilities of Microsoft Entra Internet Ac
 In order to complete the following steps, you must have these prerequisites in place.
 
 - An Azure subscription and permission to create resources in the [Azure portal](https://portal.azure.com).
-   - A basic understanding of [site-to-site VPN connections](/azure/vpn-gateway/tutorial-site-to-site-portal)
+   - A basic understanding of [site-to-site VPN connections](/azure/vpn-gateway/tutorial-site-to-site-portal).
 - A Microsoft Entra ID tenant with the [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference#global-secure-access-administrator) role assigned.
-   - Completed the [remote network onboarding steps](how-to-create-remote-networks.md#onboard-your-tenant-for-remote-networks).
+- Completed the [remote network onboarding steps](how-to-create-remote-networks.md#onboard-your-tenant-for-remote-networks).
 
 ## Infrastructure creation
 
@@ -66,7 +66,7 @@ Next we need to create a virtual network inside of our resource group, then add 
 1. Select **Review + create**.
 1. Select **Create**.
 
-When the virtual network is created, select **Go to resource** or browse to it and complete the following steps:
+When the virtual network is created, select **Go to resource** or browse to it inside of the resource group and complete the following steps:
 
 1. Select **Subnets**.
 1. Select **+ Gateway subnet**.
@@ -96,14 +96,16 @@ https://learn.microsoft.com/en-us/azure/vpn-gateway/tutorial-create-gateway-port
 
 ### Local network gateway
 
-You need to create two local network gateways. One for your primary and one for the secondary endpoints. You will use the values provided by Microsoft when you [onboard to Microsoft Entra Internet Access](how-to-create-remote-networks.md#onboard-your-tenant-for-remote-networks).
+You need to create two local network gateways. One for your primary and one for the secondary endpoints. 
+
+You use the BGP IP addresses, Public IP addresses, and ASN values provided by Microsoft when you [onboard to Microsoft Entra Internet Access](how-to-create-remote-networks.md#onboard-your-tenant-for-remote-networks) in this section. 
 
 1. From the Azure portal, select **Create a resource**.
 1. Select **Networking** > **Local network gateway**.
 1. Select the **Resource group** created previously.
 1. Select the appropriate region.
 1. Provide your virtual network gateway with a **Name**.
-1. For **Endpoint**, select **IP address**, then provide the IP address found in Microsoft Entra.
+1. For **Endpoint**, select **IP address**, then provide the IP address provided by Microsoft.
 1. Select **Next: Advanced**.
 1. Set **Configure BGP** to **Yes**
    1. Set the **Autonomous system number (ASN)** to the appropriate value. 
@@ -156,14 +158,7 @@ You create two connections one for your primary and secondary gateways.
 
 ### Create a remote network
 
-You'll need the public IP addresses of your virtual network gateway. These IP addresses can be found by browsing to the Configuration page of your virtual network gateway. You complete the following steps twice and create a link for both your primary and secondary connections.
-
-VNG represents customer premise equipment (CPE). LNG represents Global Secure Access edge.
-
-- Local BGP IP - Private IP address to be used for BGP service on the GSA gateway. The control here is given to the customer so they can choose the IP on GSA side that doesn’t overlap with their on-premises network. When connecting Azure gateway to GSA, use the local network gateway’s (LNG) BGP IP address as Local BGP IP in Entra portal.
-- Peer BGP IP – Private IP address to be used for BGP service on customer’s on-premises device. When connecting Azure gateway to GSA, use the virtual network gateway’s (VNG) BGP IP address as Peer BGP IP in Entra portal.
-- Link ASN is the local ASN i.e. ASN of customer premise equipment (CPE). Since VNG represents CPE, so enter the ASN of VNG here.
-
+You need the public IP addresses of your virtual network gateway. These IP addresses can be found by browsing to the Configuration page of your virtual and local network gateways. You complete the **Add a link** sections twice to create a link for your primary and secondary connections.
 
 :::image type="content" source="media/how-to-simulate-remote-network/virtual-network-gateway-public-ip-addresses.png" alt-text="Screenshot.":::
 
@@ -173,10 +168,10 @@ VNG represents customer premise equipment (CPE). LNG represents Global Secure Ac
 1. On the **Connectivity** tab, select **Add a link**.
    1. On the **General** tab:
       1. Provide a **Link name** and set **Device type** to **Other**.
-      1. Set the IP address to the primary IP address of your virtual network gateway.
-      1. Set the Local BGP address to the primary BGP address of your virtual network gateway.
-      1. Set the Peer BGP address to the address provided by Microsoft in your setup instructions.
-      1. Set the Link ASN to the ASN provided by Microsoft in your setup instructions.
+      1. Set the **IP address** to the primary IP address of your virtual network gateway.
+      1. Set the **Local BGP address** to the primary private BGP IP address of your local network gateway.
+      1. Set the **Peer BGP address** to the BGP IP address of your virtual network gateway.
+      1. Set the **Link ASN** to the ASN of your virtual network gateway.
       1. Leave **Redundancy** set to **No redundancy**.
       1. Set **Bandwidth capacity (Mbps)** to the appropriate setting.
       1. Select Next to continue to the **Details** tab.
@@ -208,5 +203,4 @@ You can also use the virtual machine you created to validate that traffic is flo
 
 ## Next steps
 
-- 
 - [Tutorial: Create a site-to-site VPN connection in the Azure portal](/azure/vpn-gateway/tutorial-site-to-site-portal)
