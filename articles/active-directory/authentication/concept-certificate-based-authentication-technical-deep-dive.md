@@ -230,7 +230,7 @@ Having both PrincipalName and SKI values from the user's certificate mapped to t
 
 ## Understanding the certificate revocation process
 
-The certificate revocation process allows the admin to revoke a previously issued certificate from being used for future authentication. The certificate revocation won't revoke already issued tokens of the user. Follow the steps to manually revoke tokens at [Configure revocation](active-directory-certificate-based-authentication-get-started.md#step-3-configure-revocation).
+The certificate revocation process allows the admin to revoke a previously issued certificate from being used for future authentication. The certificate revocation won't revoke already issued tokens of the user. Follow the steps to manually revoke tokens at [Configure revocation](./certificate-based-authentication-federation-get-started.md#step-3-configure-revocation).
 
 Azure AD downloads and caches the customers certificate revocation list (CRL) from their certificate authority to check if certificates are revoked during the authentication of the user.
 
@@ -392,4 +392,4 @@ For more information about how to enable **Trust multi-factor authentication fro
 - [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
 - [FAQ](certificate-based-authentication-faq.yml)
-- [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
+- [Troubleshoot Azure AD CBA](./certificate-based-authentication-faq.md)
