@@ -131,7 +131,7 @@ To learn more:
 * [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 * [Learn how to manage consent to applications and evaluate consent requests](manage-consent-requests.md)
 * [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
-* [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
+* [Permissions and consent in the Microsoft identity platform](../develop/permissions-consent-overview.md)
 
 To get help or find answers to your questions:
 

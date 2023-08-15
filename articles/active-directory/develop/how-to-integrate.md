@@ -76,7 +76,7 @@ Integration with the Microsoft identity platform comes with benefits that do not
 
 ### Easy development
 
-**Industry standard protocols.**  Microsoft is committed to supporting industry standards. The Microsoft identity platform supports the industry-standard OAuth 2.0 and OpenID Connect 1.0 protocols. Learn more about the [Microsoft identity platform authentication protocols](active-directory-v2-protocols.md).
+**Industry standard protocols.**  Microsoft is committed to supporting industry standards. The Microsoft identity platform supports the industry-standard OAuth 2.0 and OpenID Connect 1.0 protocols. Learn more about the [Microsoft identity platform authentication protocols](./v2-protocols.md).
 
 **Open source libraries.**  Microsoft provides fully supported open source libraries for popular languages and platforms to speed development. The source code is licensed under Apache 2.0, and you are free to fork and contribute back to the projects. Learn more about the [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md).
 
