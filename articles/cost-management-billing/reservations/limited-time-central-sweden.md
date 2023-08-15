@@ -21,7 +21,7 @@ To take advantage of this limited-time offer, [purchase](https://aka.ms/azure/pr
 
 ## Charge back limited time offer costs
 
-Enterprise Agreement and Microsoft Customer Agreement billing readers can view amortized cost data for reservations. They can use the cost data to charge back the monetary value for a subscription, resource group, resource, or a tag to their partners. In amortized data, the effective price is the prorated hourly reservation cost. The cost is the total cost of reservation usage by the resource on that day. Users with an individual subscription can get the amortized cost data from their usage file. For more information, see [Charge back Azure Reservation costs](charge-back-usage.md)
+Enterprise Agreement and Microsoft Customer Agreement billing readers can view amortized cost data for reservations. They can use the cost data to charge back the monetary value for a subscription, resource group, resource, or a tag to their partners. In amortized data, the effective price is the prorated hourly reservation cost. The cost is the total cost of reservation usage by the resource on that day. Users with an individual subscription can get the amortized cost data from their usage file. For more information, see [Charge back Azure Reservation costs](charge-back-usage.md).
 
 ## Terms and conditions of the limited time offer
 
@@ -63,7 +63,7 @@ Upon successful purchase and payment for the one-year Azure Reserved VM Instance
 
 - Additional taxes may apply.
 - Payment will be processed using the payment method on file for the selected subscriptions.
-- Estimated savings are calculated based on your current on-demand rate
+- Estimated savings are calculated based on your current on-demand rate.
 
 ## Qualifying purchase
 
