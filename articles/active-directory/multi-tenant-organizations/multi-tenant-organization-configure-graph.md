@@ -15,7 +15,7 @@ ms.custom: it-pro
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
-# Configure a multi-tenant organization using Microsoft Graph API (Preview)
+# Configure a multi-tenant organization using the Microsoft Graph API (Preview)
 
 > [!IMPORTANT]
 > Multi-tenant organization is currently in PREVIEW.
@@ -29,13 +29,13 @@ If you instead want to use the Microsoft 365 admin center to configure a multi-t
 
 ![Icon for the owner tenant.](./media/common/icon-tenant-owner.png)<br/>**Owner tenant**
 
-- Azure AD Premium P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
+- Azure AD Premium P1 or P2 license. For more information, see [License requirements](./multi-tenant-organization-overview.md#license-requirements).
 - [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings and manage the multi-tenant organization.
 - [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions.
 
 ![Icon for the member tenant.](./media/common/icon-tenant-member.png)<br/>**Member tenant**
 
-- Azure AD Premium P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
+- Azure AD Premium P1 or P2 license. For more information, see [License requirements](./multi-tenant-organization-overview.md#license-requirements).
 - [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings and join the multi-tenant organization.
 - [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions.
 
@@ -464,4 +464,4 @@ You delete a multi-tenant organization by removing all tenants. The process for 
 
 - [Set up a multi-tenant org in Microsoft 365 (Preview)](/microsoft-365/enterprise/set-up-multi-tenant-org?branch=mikeplum-mto)
 - [Synchronize users in multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/sync-users-multi-tenant-orgs?branch=mikeplum-mto)
-- [Configure cross-tenant synchronization](cross-tenant-synchronization-configure.md)
+- [Configure multi-tenant organization templates using the Microsoft Graph API (Preview)](./multi-tenant-organization-configure-templates.md)
