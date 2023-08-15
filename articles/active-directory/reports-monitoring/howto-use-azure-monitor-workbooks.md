@@ -25,7 +25,7 @@ When using workbooks, you can either start with an empty workbook, or use an exi
 
 To use Azure Workbooks for Azure AD, you need:
 
-- An Azure AD tenant with a [Premium P1 license](../fundamentals/active-directory-get-started-premium.md)
+- An Azure AD tenant with a [Premium P1 license](../fundamentals/get-started-premium.md)
 - A Log Analytics workspace *and* access to that workspace
 - The appropriate roles for Azure Monitor *and* Azure AD
 
