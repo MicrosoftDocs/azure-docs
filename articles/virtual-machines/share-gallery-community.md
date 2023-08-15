@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 05/24/2023
+ms.date: 08/15/2023
 ms.author: saraic
 ms.reviewer: cynthn, mattmcinnes
 ms.custom: template-how-to
