@@ -1,7 +1,7 @@
 ---
-title: Deploy hotfix in Translator container
+title: Deploy user-managed glossary in Translator container
 titleSuffix: Azure AI services
-description: How to deploy a hotfix in the Translator container environment.
+description: How to deploy a user-managed glossary in the Translator container environment.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -20,26 +20,26 @@ recommendations: false
 
 Microsoft Translator containers enable you to run several features of the Translator service in your own environment and are great for specific security and data governance requirements.
 
-There may be times when you're running a container with a multi-layered ingestion process when you discover that you need to implement an update to sentence and/or phrase files. Since the standard phrase and sentence files are encrypted and read directly into memory at runtime, you need to implement a quick-fix engineering solution to implement a dynamic update. This update can be implemented using our hotfix folder feature:
+There may be times when you're running a container with a multi-layered ingestion process when you discover that you need to implement an update to sentence and/or phrase files. Since the standard phrase and sentence files are encrypted and read directly into memory at runtime, you need to implement a quick-fix engineering solution to implement a dynamic update. This update can be implemented using our user-managed glossary feature:
 
-* To deploy the **phrase&#8203;fix** hotfix solution, you need to create a **phrase&#8203;fix** glossary file to specify that a listed phrase is translated in a specified way.
+* To deploy the **phrase&#8203;fix** solution, you need to create a **phrase&#8203;fix** glossary file to specify that a listed phrase is translated in a specified way.
 
-* To deploy the **sent&#8203;fix** hotfix solution, you need to create a **sent&#8203;fix** glossary file to specify an exact target translation for a source sentence.
+* To deploy the **sent&#8203;fix** solution, you need to create a **sent&#8203;fix** glossary file to specify an exact target translation for a source sentence.
 
 * The **phrase&#8203;fix** and **sent&#8203;fix** files are then included with your translation request and read directly into memory at runtime.
 
-## Hotfix feature workflow
+## Managed glossary workflow
 
 > [!TIP]
-> You can generate template hotfix files using the following command in your container environment:
+> You can generate template files using the following command in your container environment:
 > **GenerateHotfixTemplate=true**
 
   > [!IMPORTANT]
-  > **UTF-16 LE** is the only accepted file format for the hotfix folders. For more information about encoding your files, *see* [Encoding](/powershell/module/microsoft.powershell.management/set-content?view=powershell-7.2#-encoding&preserve-view=true)
+  > **UTF-16 LE** is the only accepted file format for the managed-glossary folders. For more information about encoding your files, *see* [Encoding](/powershell/module/microsoft.powershell.management/set-content?view=powershell-7.2#-encoding&preserve-view=true)
 
-1. To get started manually creating the folder structure, you need to create and name your hotfix folder. The hotfix folder is encoded in **UTF-16 LE BOM** format and nests **phrase&#8203;fix** or **sent&#8203;fix** source and target language files. Let's name our folder `customhotfix`. Each folder can have **phrase&#8203;fix** and **sent&#8203;fix** files. You provide the source (`src`) and target (`tgt`) language codes with the following naming convention:
+1. To get started manually creating the folder structure, you need to create and name your  folder. The managed-glossary folder is encoded in **UTF-16 LE BOM** format and nests **phrase&#8203;fix** or **sent&#8203;fix** source and target language files. Let's name our folder `customhotfix`. Each folder can have **phrase&#8203;fix** and **sent&#8203;fix** files. You provide the source (`src`) and target (`tgt`) language codes with the following naming convention:
 
-    |Hotfix folder file name format|Example file name |
+    |Glossary file name format|Example file name |
     |-----|-----|
     |{`src`}.{`tgt`}.{container-glossary}.{phrase&#8203;fix}.src.snt|en.es.container-glossary.phrasefix.src.snt|
     |{`src`}.{`tgt`}.{container-glossary}.{phrase&#8203;fix}.tgt.snt|en.es.container-glossary.phrasefix.tgt.snt|
@@ -52,7 +52,7 @@ There may be times when you're running a container with a multi-layered ingestio
    > * The **sent&#8203;fix** solution is more precise and allows you to specify an exact target translation for a source sentence. For a sentence match to occur, the entire submitted sentence must match the **sent&#8203;fix** entry. If only a portion of the sentence matches, the entry won't match.
    > * If you're hesitant about making sweeping find-and-replace changes, we recommend, at the outset, solely using the **sent&#8203;fix** solution.
 
-1. Next, to dynamically reload hotfix entry changes, create a `version.json` file within the `customhotfix` folder. The `version.json` file should contain the following parameters:
+1. Next, to dynamically reload glossary entry updates, create a `version.json` file within the `customhotfix` folder. The `version.json` file should contain the following parameters:
 
     * **VersionId**. An integer value.
       ***Sample version.json file***
@@ -87,7 +87,7 @@ There may be times when you're running a container with a multi-layered ingestio
 
     -e Languages={LANGUAGES_LIST} \
 
-    -e HotfixDataFolder={path to hotfix folder}
+    -e HotfixDataFolder={path to glossary folder}
 
     {image}
     ```
