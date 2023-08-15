@@ -24,8 +24,8 @@ There are two methods to query data that's stored in multiple workspaces and app
 
 ## Permissions required
 
-To query
-To save, you need xxx permisisons to the query pack where you want to save the query, as provided by the 
+- You must have `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
+- To save a query, you must have `microsoft.operationalinsights/querypacks/queries/action` permisisons to the query pack where you want to save the query, as provided by the [Log Analytics Contributor built-in role](../articles/azure-monitor/logs/manage-access.md#log-analytics-contributor), for example.
 
 ## Cross-resource query limits
 
