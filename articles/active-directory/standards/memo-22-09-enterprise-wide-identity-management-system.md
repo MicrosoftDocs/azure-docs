@@ -76,7 +76,7 @@ For your application inventory, determine applications that use cloud-ready prot
   * LDAP
   * Basic authentication
 
-Learn more [Azure AD integrations with authentication protocols](../architecture/auth-sync-overview.md
+Learn more [Azure AD integrations with authentication protocols](../architecture/auth-sync-overview.md).
 
 #### Application and service discovery tools
 
