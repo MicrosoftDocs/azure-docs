@@ -37,7 +37,7 @@ Azure confidential computing can help you:
 
 ## Azure offerings
 
-Confidential computing support is expanding across Azure based on customer demand from foundational virtual machine, GPU container offerings up to database, virtual desktop and managed HSM services.
+Confidential computing support is expanding from foundational virtual machine, GPU and container offerings up to data, virtual desktop and managed HSM services with many more being planned based on customer demand.
 
 :::image type="content" source="media/overview-azure-products/acc-product-line.jpg" alt-text="Graphic showing confidential computing enabled VMs, containers and data services":::
 
