@@ -94,8 +94,6 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     }
     ```
 
-1. To allow for asynchronous processing, wait a **minimum of 2 hours** before adding tenants to your multi-tenant organization.
-
 ## Step 3: Add tenants
 
 ![Icon for the owner tenant.](./media/common/icon-tenant-owner.png)<br/>**Owner tenant**
@@ -303,7 +301,7 @@ You can remove any member tenant, including your own. You can't remove owner ten
 
 ![Icon for the member tenant.](./media/common/icon-tenant-member.png)<br/>**Member tenant**
 
-- To allow for asynchronous processing, wait a **minimum of 2 hours** before any subsequently added pending tenants can submit their join requests.
+- To allow for asynchronous processing, wait a **minimum of 2 hours** between creation and joining a multi-tenant organization.
 
 ## Step 7: Sign in to a member tenant
 
