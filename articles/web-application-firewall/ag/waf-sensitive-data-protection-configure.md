@@ -65,15 +65,7 @@ $logScrubbingRuleConfig = New-AzApplicationGatewayFirewallPolicyLogScrubbingConf
 Use the following Command Line Interface commands to [create and configure](articles\web-application-firewall\ag\waf-sensitive-data-protection.md) Log Scrubbing rules for Sensitive Data Protection:
 
 ```CLI
-az network application-gateway waf-policy policy-setting update 
-  -g <MyResourceGroup>
-  --policy-name <MyPolicySetting>
-  --log-scrubbing-state <Enabled/Disabled>
-  --scrubbing-rules
-    "[{state:<Enabled/Disabled>,
-    match-variable:<MatchVariable>,
-    selector-match-operator:<Operator>,
-    selector:<Selector>}]"
+az network application-gateway waf-policy policy-setting update -g <MyResourceGroup> --policy-name <MyPolicySetting> --log-scrubbing-state <Enabled/Disabled> --scrubbing-rules "[{state:<Enabled/Disabled>,match-variable:<MatchVariable>,selector-match-operator:<Operator>,selector:<Selector>}]"
 ```
 
 
