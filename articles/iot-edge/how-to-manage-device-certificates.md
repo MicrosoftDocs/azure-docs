@@ -621,12 +621,12 @@ Edge Daemon issues module server and identity certificates for use by Edge modul
 
 ### Renewal
 
-Server certificates may be issued off the Edge CA certificate. Regardless of the issuance method, these certificates must be renewed by the module.
+Server certificates may be issued off the Edge CA certificate. Regardless of the issuance method, these certificates must be renewed by the module. If you develop a custom module, you must implement the renewal logic in your module.
 
-You can configure the *EdgeHub* module server certificate renewal using the following environment variables:
+The *edgeHub* module supports a certificate renewal feature. You can configure the *edgeHub* module server certificate renewal using the following environment variables:
 
-* **ServerCertificateRenewAfterInMs**: Sets the duration in milliseconds when the *EdgeHub* server certificate is renewed irrespective of certificate expiry time.
-* **MaxCheckCertExpiryInMs**: Sets the duration in milliseconds when *EdgeHub* service checks the *EdgeHub* server certificate expiration. If the variable is set, the check happens irrespective of certificate expiry time.
+* **ServerCertificateRenewAfterInMs**: Sets the duration in milliseconds when the *edgeHub* server certificate is renewed irrespective of certificate expiry time.
+* **MaxCheckCertExpiryInMs**: Sets the duration in milliseconds when *edgeHub* service checks the *edgeHub* server certificate expiration. If the variable is set, the check happens irrespective of certificate expiry time.
 
 For more information about the environment variables, see [EdgeHub and EdgeAgent environment variables](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md).
 
