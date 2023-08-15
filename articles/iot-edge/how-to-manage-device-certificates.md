@@ -621,7 +621,7 @@ Edge Daemon issues module server and identity certificates for use by Edge modul
 
 ### Renewal
 
-Server certificates may be issued off the Edge CA certificate or through a DPS-configured CA. Regardless of the issuance method, these certificates must be renewed by the module.
+Server certificates may be issued off the Edge CA certificate. Regardless of the issuance method, these certificates must be renewed by the module.
 
 You can configure the *EdgeHub* module server certificate renewal using the following environment variables:
 
