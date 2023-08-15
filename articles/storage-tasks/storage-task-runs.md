@@ -11,11 +11,27 @@ ms.date: 05/10/2023
 
 # Analyze Azure Storage Task runs
 
-View task runs and use Azure Monitor metrics to access success.
+You can view a list of task runs.
 
-## Execution reports
+## View task runs
 
-When a run completes, an execution report is generated. Explain how to access this report.
+1. Steps to open the list from the Azure portal.
+2. Steps to use the report time filter
+3. Steps to select tiles to filter list.
+   Description of each column in the list table.
+
+## View task runs for a specific storage account
+
+1. Steps to open the list from the Azure portal.
+2. Steps to use the report time filter
+3. Steps to select tiles to filter list.
+   Description of each column in the list table.
+
+## View execution reports
+
+After a task runs, an execution report is generated and then stored in the container that you specified when you created the assignment.
+
+1. Steps to open the execution report - click link, open CSV file etc.
 
 The report is formatted as a CSV file. Each row of the report contains the details about the execution of the operation on each object that is targeted by the task. The completion report is stored at the path specified by the report element of the task definition and follows the naming convention of `<taskId>-<completionTimestamp>.csv`.
 
@@ -34,38 +50,7 @@ The following example shows an execution report:
 
 `Put example here`
 
-### Metrics
-
-Each task execution produces the following metrics that users can view:
-
-- Count of objects targeted
-
-- Count of operations attempted
-
-- Count of operations succeeded
-
-Link to information about how to view these metrics
-
-## View task runs
-
-Each task execution produces the following metrics that users can view:
-
-- Count of objects targeted
-
-- Count of operations attempted
-
-- Count of operations succeeded
-
-## View metrics in storage tasks view
-
-For more information about the task report see [Storage Task Monitoring](monitor-storage-tasks.md).
-
-## View metrics in Storage Accounts view
-
-For more information about the task report see [Storage Task Monitoring](monitor-storage-tasks.md).
-
 ## See also
 
+- [Monitor Azure Storage Tasks](monitor-storage-tasks)
 - [Storage Tasks Overview](overview.md)
-- [Define conditions and operations](storage-task-conditions-operations-edit.md)
-- [Create and manage an assignment](storage-task-assignment-create.md)

@@ -97,10 +97,10 @@ The assignment is disabled by default. To enable the assignment so that it will 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Enable button in the Assignments page.](./media/storage-task-assignment-create/assignment-enable.png)
 
-After the task runs, an execution report is generated and then stored in the container that you specified when you created the assignment. For more information about that report as well as how to view metrics that capture the number of objects targeted, the number of operations attempted, and the number of operations that succeeded, see [Storage task runs](storage-task-runs.md).
+After the task runs, an execution report is generated and then stored in the container that you specified when you created the assignment. For more information about that report as well as how to view metrics that capture the number of objects targeted, the number of operations attempted, and the number of operations that succeeded, see [Analyze Storage Task Runs](storage-task-runs.md).
 
 ## See also
 
 - [Azure Storage Tasks Overview](overview.md)
 - [Storage task assignments](storage-task-assignment.md)
-- [Storage task runs](storage-task-runs.md)
+- [Analyze Storage Task Runs](storage-task-runs.md)
