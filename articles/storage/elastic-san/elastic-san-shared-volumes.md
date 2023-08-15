@@ -1,6 +1,6 @@
 ---
-title: Share Elastic SAN volumes between compute clients
-description: Learn more about sharing an elastic SAN volume and using it for clustered applications.
+title: Use clustered applications on Azure Elastic SAN
+description: Learn more about using clustered applications on an Elastic SAN volume and sharing volumes between compute clients.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 08/15/2023
 ms.author: rogarana
 ---
 
-# Share Elastic SAN volumes between clients
+# Use clustered applications on Azure Elastic SAN
 
 Azure Elastic SAN volumes can be simultaneously attached to multiple compute clients, allowing you to deploy or migrate cluster applications to Azure. You need to use a cluster manager to share an Elastic SAN volume, like Windows Server Failover Cluster (WSFC), or Pacemaker. The cluster manager handles cluster node communications and write locking. Elastic SAN doesn't natively offer a fully managed filesystem that can be accessed over SMB or NFS.
 
@@ -59,25 +59,24 @@ The flow is as follows:
 The following commands are supported with Elastic SAN volumes:
 
 To interact with the volume, start with the appropriate persistent reservation action:
-PR_REGISTER_KEY
-PR_REGISTER_AND_IGNORE
-PR_GET_CONFIGURATION
-PR_RESERVE
-PR_PREEMPT_RESERVATION
-PR_CLEAR_RESERVATION
-PR_RELEASE_RESERVATION
+- PR_REGISTER_KEY
+- PR_REGISTER_AND_IGNORE
+- PR_GET_CONFIGURATION
+- PR_RESERVE
+- PR_PREEMPT_RESERVATION
+- PR_CLEAR_RESERVATION
+- PR_RELEASE_RESERVATION
 
 When using PR_RESERVE, PR_PREEMPT_RESERVATION, or PR_RELEASE_RESERVATION, provide one of the following persistent reservation type:
-PR_NONE
-PR_WRITE_EXCLUSIVE
-PR_EXCLUSIVE_ACCESS
-PR_WRITE_EXCLUSIVE_REGISTRANTS_ONLY
-PR_EXCLUSIVE_ACCESS_REGISTRANTS_ONLY
-PR_WRITE_EXCLUSIVE_ALL_REGISTRANTS
-PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS
+- PR_NONE
+- PR_WRITE_EXCLUSIVE
+- PR_EXCLUSIVE_ACCESS
+- PR_WRITE_EXCLUSIVE_REGISTRANTS_ONLY
+- PR_EXCLUSIVE_ACCESS_REGISTRANTS_ONLY
+- PR_WRITE_EXCLUSIVE_ALL_REGISTRANTS
+- PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS
 
 Persistent reservation type determines access to the volume from each node in the cluster.
-
 
 |Persistent Reservation Type  |Reservation Holder  |Registered  |Others  |
 |---------|---------|---------|---------|
@@ -89,4 +88,10 @@ Persistent reservation type determines access to the volume from each node in th
 |WRITE EXCLUSIVE - ALL REGISTRANTS     |Read-Write         |Read-Write         |Read-Only         |
 |EXCLUSIVE ACCESS - ALL REGISTRANTS     |Read-Write         |Read-Write         |No Access         |
 
-You also need to provide a persistent-reservation-key when using PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION, or PR_RELEASE-RESERVATION.
+You also need to provide a persistent-reservation-key when using:
+- PR_RESERVE
+- PR_REGISTER_AND_IGNORE 
+- PR_REGISTER_KEY 
+- PR_PREEMPT_RESERVATION 
+- PR_CLEAR_RESERVATION 
+- PR_RELEASE-RESERVATION.
