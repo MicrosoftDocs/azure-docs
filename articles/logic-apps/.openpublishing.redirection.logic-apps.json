@@ -6,7 +6,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-x12-encode.md",
+            "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-x12-decode.md",
             "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-x12",
             "redirect_document_id": false
         },

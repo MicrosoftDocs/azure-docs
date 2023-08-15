@@ -268,18 +268,6 @@ The **Decode X12 message** operation performs the following tasks:
 
 ---
 
-   > [!NOTE]
-   > 
-   > The XML message payload or content for the message array, good or bad, is base64 encoded. 
-   > So, you must enter an expression that processes this content. The following example processes 
-   > the content as XML that you can enter in code view or by using expression builder in the designer.
-   >
-   > ``` json
-   > "content": "@xml(base64ToBinary(item()?['Payload']))"
-   > ```
-   > ![Content example](media/logic-apps-enterprise-integration-x12-decode/content-example.png)
-   >
-
 ## Next steps
 
 * [X12 TA1 technical acknowledgments and error codes](logic-apps-enterprise-integration-x12-ta1-acknowledgment.md)
