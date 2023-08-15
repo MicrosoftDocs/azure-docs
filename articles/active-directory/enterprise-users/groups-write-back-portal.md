@@ -81,9 +81,11 @@ Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-expl
 Replace the Group_ID with a cloud group ID, and then select on Run query.
 In the **Response Preview**, scroll to the end to see the part of the JSON file.
 
-```JSON
+```json
 "writebackConfiguration": {
-        "isEnabled": true,
+    "isEnabled": true,
+    ...
+}
 ```
 
 ## Next steps
