@@ -53,7 +53,7 @@ items:
     - name: Learn about groups
       href: concept-learn-about-groups.md
     - name: Create a group and add members
-      href: active-directory-groups-view-azure-portal.md
+      href: ./groups-view-azure-portal.md
     - name: Manage groups
       href: how-to-manage-groups.md
   - name: Manage licenses
@@ -126,7 +126,7 @@ items:
     - name: Data protection considerations
       href: data-protection-considerations.md
     - name: Customer data storage and processing for Europe
-      href: active-directory-data-storage-eu.md
+      href: ./data-storage-eu.md
     - name: Customer data storage for Australia and New Zealand
       href: data-storage-australia.md
     - name: Identity data storage for Australia and New Zealand

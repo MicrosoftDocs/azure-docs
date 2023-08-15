@@ -76,6 +76,8 @@ landingContent:
             url: guest-attestation-confidential-vms.md
           - text: Microsoft Defender for Cloud integration
             url: guest-attestation-defender-for-cloud.md
+          - text: Virtual TPMs in Azure confidential VMs
+            url: virtual-tpms-in-azure-confidential-vm.md
       - linkListType: quickstart
         links:
           - text: Create an AMD confidential VM in the Azure portal
@@ -88,6 +90,8 @@ landingContent:
         links:
           - text: Use sample app for guest attestation
             url: guest-attestation-example.md
+          - text: How to leverage virtual TPMs in Azure confidential VMs
+            url: how-to-leverage-virtual-tpms-in-azure-confidential-vms.md
           - text: Create a custom image for a confidential VM
             url: how-to-create-custom-image-confidential-vm.md
           - text: Harden a Linux image to remove sudo users

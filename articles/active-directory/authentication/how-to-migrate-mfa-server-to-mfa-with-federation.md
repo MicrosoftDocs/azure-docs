@@ -357,6 +357,6 @@ Possible considerations when decommissions the MFA Servers include:
 
 ## Next Steps
 
-- [Deploy password hash synchronization](../hybrid/whatis-phs.md)
+- [Deploy password hash synchronization](../hybrid/connect/whatis-phs.md)
 - [Learn more about Conditional Access](../conditional-access/overview.md)
-- [Migrate applications to Azure AD](../manage-apps/migrate-application-authentication-to-azure-active-directory.md)
+- [Migrate applications to Azure AD](../manage-apps/migrate-adfs-apps-phases-overview.md)

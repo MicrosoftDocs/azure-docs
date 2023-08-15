@@ -55,9 +55,9 @@ Use the following checklist to ensure that your application is effectively integ
 
 ![checkbox](./media/integration-checklist/checkbox-two.svg) Move beyond username/password. Don't use [resource owner password credential flow (ROPC)](v2-oauth-ropc.md), which directly handles users’ passwords. This flow requires a high degree of trust and user exposure and should only be used when other, more secure, flows can't be used. This flow is still needed in some scenarios (like DevOps), but beware that using it will impose constraints on your application.  For more modern approaches, read [Authentication flows and application scenarios](authentication-flows-app-scenarios.md).
 
-![checkbox](./media/integration-checklist/checkbox-two.svg) Protect and manage your confidential app credentials for web apps, web APIs and daemon apps. Use [certificate credentials](active-directory-certificate-credentials.md), not password credentials (client secrets). If you must use a password credential, don't set it manually. Don't store credentials in code or config, and never allow them to be handled by humans. If possible, use [managed identities for Azure resources](../managed-identities-azure-resources/overview.md) or [Azure Key Vault](../../key-vault/general/basic-concepts.md) to store and regularly rotate your credentials.
+![checkbox](./media/integration-checklist/checkbox-two.svg) Protect and manage your confidential app credentials for web apps, web APIs and daemon apps. Use [certificate credentials](./certificate-credentials.md), not password credentials (client secrets). If you must use a password credential, don't set it manually. Don't store credentials in code or config, and never allow them to be handled by humans. If possible, use [managed identities for Azure resources](../managed-identities-azure-resources/overview.md) or [Azure Key Vault](../../key-vault/general/basic-concepts.md) to store and regularly rotate your credentials.
 
-![checkbox](./media/integration-checklist/checkbox-two.svg) Make sure your application requests the least privilege permissions. Only ask for permissions that your application absolutely needs, and only when you need them. Understand the different [types of permissions](v2-permissions-and-consent.md#permission-types). Only use application permissions if necessary; use delegated permissions where possible. For a full list of Microsoft Graph permissions, see this [permissions reference](/graph/permissions-reference).
+![checkbox](./media/integration-checklist/checkbox-two.svg) Make sure your application requests the least privilege permissions. Only ask for permissions that your application absolutely needs, and only when you need them. Understand the different [types of permissions](./permissions-consent-overview.md#permission-types). Only use application permissions if necessary; use delegated permissions where possible. For a full list of Microsoft Graph permissions, see this [permissions reference](/graph/permissions-reference).
 
 ![checkbox](./media/integration-checklist/checkbox-two.svg) If you're securing an API using the Microsoft identity platform, carefully think through the permissions it should expose. Consider what's the right granularity for your solution and which permission(s) require admin consent. Check for expected permissions in the incoming tokens before making any authorization decisions.
 
@@ -102,9 +102,9 @@ Use the following checklist to ensure that your application is effectively integ
 Explore in-depth information about v2.0:
 
 * [Microsoft identity platform (overview)](v2-overview.md)
-* [Microsoft identity platform protocols reference](active-directory-v2-protocols.md)
+* [Microsoft identity platform protocols reference](./v2-protocols.md)
 * [Access tokens reference](access-tokens.md)
 * [ID tokens reference](id-tokens.md)
 * [Authentication libraries reference](reference-v2-libraries.md)
-* [Permissions and consent in the Microsoft identity platform](v2-permissions-and-consent.md)
+* [Permissions and consent in the Microsoft identity platform](./permissions-consent-overview.md)
 * [Microsoft Graph API](https://developer.microsoft.com/graph)
