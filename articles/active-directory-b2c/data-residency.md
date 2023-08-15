@@ -51,11 +51,11 @@ Data resides in **Europe** for the following locations:
 
 Data resides in **Asia Pacific** for the following locations:
 
-> Afghanistan (AF), Hong Kong SAR (HK), India (IN), Indonesia (ID), Japan (JP), Korea (KR), Malaysia (MY), Philippines (PH), Singapore (SG), Sri Lanka (LK), Taiwan (TW), and Thailand (TH)
+> Afghanistan (AF), Hong Kong SAR (HK), India (IN), Indonesia (ID), Korea (KR), Malaysia (MY), Philippines (PH), Singapore (SG), Sri Lanka (LK), Taiwan (TW), and Thailand (TH)
 
 Data resides in **Australia** for the following locations:
 
-> Australia (AU) and New Zealand (NZ)
+>  New Zealand (NZ)
 
 The following locations are in the process of being added to the list. For now, you can still use Azure AD B2C by picking any of the locations previously listed.
 
@@ -63,6 +63,9 @@ The following locations are in the process of being added to the list. For now, 
 
 To find the exact location where your data is located per country/country, refer to [where Azure Active Directory data is located](https://aka.ms/aaddatamap)service.   
 
+Data resides **globally** for the following locations:
+
+> Australia (AU) and Japan (JP)
 
 ### Go-Local add-on
 
