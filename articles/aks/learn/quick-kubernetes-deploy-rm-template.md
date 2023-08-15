@@ -369,7 +369,6 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [install-azure-powershell]: /powershell/azure/install-az-ps
 [connect-azaccount]: /powershell/module/az.accounts/Connect-AzAccount
 [sp-delete]: ../kubernetes-service-principal.md#additional-considerations
-[azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: ../concepts-network.md#services
 [ssh-keys]: ../../virtual-machines/linux/create-ssh-keys-detailed.md

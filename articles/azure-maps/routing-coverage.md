@@ -16,27 +16,27 @@ This article provides coverage information for Azure Maps routing. Upon a search
 
 ## Routing information supported
 
-In the [Azure Maps routing coverage tables](#azure-maps-routing-coverage-tables), the following information is available.
+In the [Azure Maps routing coverage tables], the following information is available.
 
 ### Calculate Route
 
-The Calculate Route service calculates a route between an origin and a destination, passing through waypoints if they're specified. For more information, see [Get Route Directions](/rest/api/maps/route/get-route-directions) in the REST API documentation.
+The Calculate Route service calculates a route between an origin and a destination, passing through waypoints if they're specified. For more information, see [Get Route Directions] in the REST API documentation.
 
 ### Calculate Reachable Range
 
-The Calculate Reachable Range service calculates a set of locations that can be reached from the origin point. For more information, see [Get Route Range](/rest/api/maps/route/get-route-range) in the REST API documentation.
+The Calculate Reachable Range service calculates a set of locations that can be reached from the origin point. For more information, see [Get Route Range] in the REST API documentation.
 
 ### Matrix Routing
 
-The Matrix Routing service calculates travel time and distance between all possible pairs in a list of origins and destinations. It does not provide any detailed information about the routes. You can get one-to-many, many-to-one, or many-to-many route options simply by varying the number of origins and/or destinations. For more information, see [Matrix Routing service](/rest/api/maps/route/post-route-matrix) in the REST API documentation.
+The Matrix Routing service calculates travel time and distance between all possible pairs in a list of origins and destinations. It doesn't provide any detailed information about the routes. You can get one-to-many, many-to-one, or many-to-many route options simply by varying the number of origins and/or destinations. For more information, see [Matrix Routing service] in the REST API documentation.
 
 ### Real-time Traffic
 
-Delivers real-time information about traffic jams, road closures, and a detailed view of the current speed and travel times across the entire road network. For more information, see [Traffic](/rest/api/maps/traffic) in the REST API documentation.
+Delivers real-time information about traffic jams, road closures, and a detailed view of the current speed and travel times across the entire road network. For more information, see [Traffic service] in the REST API documentation.
 
 ### Truck routes
 
-The Azure Maps Truck Routing API provides travel routes which take truck attributes into consideration. Truck attributes include things such as width, height, weight, turning radius and type of cargo. This is important as not all trucks can travel the same routes as other vehicles. Here are some examples:
+The Azure Maps Truck Routing API provides travel routes that take truck attributes into consideration. Truck attributes include things such as width, height, weight, turning radius and type of cargo. This is important as not all trucks can travel the same routes as other vehicles. Here are some examples:
 
 - Bridges have heights and weight limits.
 - Tunnels often have restrictions on flammable or hazardous materials.
@@ -44,7 +44,7 @@ The Azure Maps Truck Routing API provides travel routes which take truck attribu
 - Highways often have a separate speed limit for trucks.
 - Certain trucks may want to avoid roads that have steep gradients.
 
-Azure Maps supports truck routing in the countries/regions indicated in the tables below.
+Azure Maps supports truck routing in the countries/regions indicated in the following tables.
 
 <!------------------------------------------------------------------
 ### Legend
@@ -319,10 +319,20 @@ The following tables provide coverage information for Azure Maps routing.
 
 ## Next steps
 
-For more information about Azure Maps routing, see the [Routing](/rest/api/maps/route) reference pages.
+For more information about Azure Maps routing, see the [Routing service] documentation.
 
 For more coverage tables, see:
 
-- Check out coverage for [**Geocoding**](geocoding-coverage.md).
-- Check out coverage for [**Traffic**](traffic-coverage.md).  
-- Check out coverage for [**Render**](render-coverage.md).
+- Check out coverage for [Geocoding].
+- Check out coverage for [Traffic].  
+- Check out coverage for [Render].
+
+[Azure Maps routing coverage tables]: #azure-maps-routing-coverage-tables
+[Geocoding]: geocoding-coverage.md
+[Get Route Directions]: /rest/api/maps/route/get-route-directions
+[Get Route Range]: /rest/api/maps/route/get-route-range
+[Matrix Routing service]: /rest/api/maps/route/post-route-matrix
+[Render]: render-coverage.md
+[Routing service]: /rest/api/maps/route
+[Traffic service]: /rest/api/maps/traffic
+[Traffic]: traffic-coverage.md

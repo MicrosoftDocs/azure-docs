@@ -2,7 +2,6 @@
 title: Performance tips
 titleSuffix: Azure Cognitive Search
 description: Learn about tips and best practices for maximizing performance on a search service.
-
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search

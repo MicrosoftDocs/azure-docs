@@ -26,13 +26,16 @@ You can customize the role claim in the access token that is received after an a
 - A user account that is assigned to the role. For more information, see [Quickstart: Create and assign a user account](../manage-apps/add-application-portal-assign-users.md).
 
 > [!NOTE]
-> This article explains how to create, update, or delete application roles on the service principal using APIs. To use the new user interface for App Roles, see [Add app roles to your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md).
+> This article explains how to create, update, or delete application roles on the service principal using APIs. To use the new user interface for App Roles, see [Add app roles to your application and receive them in the token](./howto-add-app-roles-in-apps.md).
 
 ## Locate the enterprise application
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Use the following steps to locate the enterprise application:
 
-1. In the [Azure portal](https://portal.azure.com/), in the left pane, select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the left pane, select **Azure Active Directory**.
 1. Select **Enterprise applications**, and then select **All applications**.
 1. Enter the name of the existing application in the search box, and then select the application from the search results.
 1. After the application is selected, copy the object ID from the overview pane.

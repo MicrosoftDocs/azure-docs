@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 07/20/2023
 ms.custom: query-reference
 ---
 
@@ -33,30 +33,18 @@ IntBitOr(<int_expr_1>, <int_expr_2>)
 
 ## Return types
 
-Returns a 64-bit integer. For more information, see [__int64](/cpp/cpp/int8-int16-int32-int64).
+Returns a 64-bit integer.
+
+> [!NOTE]
+> For more information, see [__int64](/cpp/cpp/int8-int16-int32-int64).
 
 ## Examples
 
 This example tests the function with various static values.
 
-```sql
-SELECT VALUE {
-    inclusiveOr: IntBitOr(56, 100),
-    inclusiveOrSame: IntBitOr(56, 56),
-    inclusiveOrZero: IntBitOr(56, 0),
-    inclusiveOrDecimal: IntBitOr(56, 0.1)
-}
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/intbitor/query.novalidate.sql" highlight="2-5":::
 
-```json
-[
-  {
-    "inclusiveOr": 124,
-    "inclusiveOrSame": 56,
-    "inclusiveOrZero": 56
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/intbitor/result.novalidate.json":::
 
 ## Remarks
 

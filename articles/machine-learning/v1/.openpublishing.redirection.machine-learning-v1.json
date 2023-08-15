@@ -64,7 +64,8 @@
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-configure-auto-train-v1.md",
         "redirect_url": "/azure/machine-learning/how-to-configure-auto-train",
         "redirect_document_id": false
-    },{
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-configure-auto-train.md",
         "redirect_url": "/azure/machine-learning/how-to-configure-auto-train",
         "redirect_document_id": false

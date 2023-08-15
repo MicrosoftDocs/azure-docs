@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: hangwan
 ms.service: spring-apps
 ms.topic: conceptual
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.custom: devx-track-java
 ms.date: 05/23/2023
 ---
 
@@ -20,11 +20,9 @@ This article is updated quarterly, so revisit it regularly. You can also visit [
 
 ## June 2023
 
-The following updates offer two new plans:
+The following update announces a new plan:
 
-- **Azure Spring Apps consumption plan**: This plan provides a new way to pay for Azure Spring Apps. With super-efficient pricing and serverless capabilities, you can deploy apps that scale based on usage, paying only for resources consumed. For more information, see [Start from zero and scale to zero – Azure Spring Apps consumption plan](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/start-from-zero-and-scale-to-zero-azure-spring-apps-consumption/ba-p/3774825).
-
-- **Azure Spring Apps Consumption and Dedicated plans**: The Standard Dedicated plan provides a fully managed, dedicated environment for running Spring applications on Azure. This plan offers you customizable compute options (including memory optimization), single tenancy, and high availability to help you achieve price predictability, cost savings, and performance for running Spring applications at scale. For more information, see [Unleash Spring apps in a flex environment with Azure Spring Apps Consumption and Dedicated plans](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/unleash-spring-apps-in-a-flex-environment-with-azure-spring-apps/ba-p/3828232).
+- **Azure Spring Apps Consumption and Dedicated plan**: This plan offers you customizable compute options (including memory optimization), single tenancy, and high availability to help you achieve price predictability, cost savings, and performance for running Spring applications at scale. For more information, see [Unleash Spring apps in a flex environment with Azure Spring Apps Consumption and Dedicated plans](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/unleash-spring-apps-in-a-flex-environment-with-azure-spring-apps/ba-p/3828232).
 
 The following update is now available in all plans:
 
@@ -45,7 +43,7 @@ The following updates are now available in the Enterprise plan:
 
 - **High Availability support for App Accelerator and App Live View**: App Accelerator and App Live View now support multiple replicas to offer high availability. For more information, see [Configure Tanzu Dev Tools in the Azure Spring Apps Enterprise plan](how-to-use-dev-tool-portal.md).
 
-- **Spring Cloud Gateway auto scaling**: Spring Cloud Gateway now supports auto scaling to better serve the elastic traffic without the hassle of manual scaling. For more information, see the [Set up autoscale settings for VMware Spring Cloud Gateway in Azure CLI](how-to-configure-enterprise-spring-cloud-gateway.md?tabs=Azure-portal#set-up-autoscale-settings-for-vmware-spring-cloud-gateway-in-azure-cli) section of [Configure VMware Spring Cloud Gateway](how-to-configure-enterprise-spring-cloud-gateway.md).
+- **Spring Cloud Gateway auto scaling**: Spring Cloud Gateway now supports auto scaling to better serve the elastic traffic without the hassle of manual scaling. For more information, see the [Set up autoscale settings](how-to-configure-enterprise-spring-cloud-gateway.md?tabs=Azure-portal#set-up-autoscale-settings) section of [Configure VMware Spring Cloud Gateway](how-to-configure-enterprise-spring-cloud-gateway.md).
 
 - **Application Configuration Service – polyglot support**: This update enables you to use Application Configuration Service to manage external configurations for any polyglot app, such as .NET, Go, and so on. For more information, see the [Polyglot support](how-to-enterprise-application-configuration-service.md#polyglot-support) section of [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
 

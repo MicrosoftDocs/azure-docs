@@ -13,6 +13,8 @@
       href: concepts-compute.md
     - name: Storage overview
       href: concepts-storage.md
+    - name: Network Fabric overview
+      href: concepts-network-fabric.md
     - name: Nexus Kubernetes
       href: concepts-nexus-kubernetes-cluster.md
     - name: Observability
@@ -104,6 +106,10 @@
       items:
         - name: Create virtual machine image
           href: howto-virtual-machine-image.md
+        - name: Virtual machine console service
+          href: howto-use-vm-console-service.md
+        - name: Virtual machine placement hints
+          href: howto-virtual-machine-placement-hints.md
     - name: Observability
       expanded: false
       items:
@@ -115,8 +121,6 @@
           href: howto-cluster-metrics-configuration-management.md
         - name: Tracking asynchronous operations
           href: howto-track-async-operations-cli.md
-    - name: Precertification
-      href: howto-precertification.md
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
 - name: Troubleshooting

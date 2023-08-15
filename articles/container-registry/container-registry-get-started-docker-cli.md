@@ -25,7 +25,7 @@ There are [several ways to authenticate](container-registry-authentication.md) t
 
 ### [Azure CLI](#tab/azure-cli)
 
-The recommended method when working in a command line is with the Azure CLI command [az acr login](/cli/azure/acr#az-acr-login). For example, to log in to a registry named *myregistry*, log into the Azure CLI and then authenticate to your registry:
+The recommended method when working in a command line is with the Azure CLI command [az acr login](/cli/azure/acr#az-acr-login). For example, to access a registry named `myregistry`, sign in the Azure CLI and then authenticate to your registry:
 
 ```azurecli
 az login

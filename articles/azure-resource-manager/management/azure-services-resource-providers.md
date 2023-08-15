@@ -2,7 +2,7 @@
 title: Resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 07/14/2023
+ms.date: 08/02/2023
 ms.custom: ignite-2022, devx-track-arm-template
 content_well_notification: 
   - AI-contribution
@@ -55,8 +55,9 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.ClassicNetwork | Classic deployment model virtual network |
 | Microsoft.ClassicStorage | Classic deployment model storage |
 | Microsoft.ClassicSubscription - [registered](#registration) | Classic deployment model |
-| Microsoft.CognitiveServices | [Cognitive Services](../../cognitive-services/index.yml) |
+| Microsoft.CognitiveServices | [Cognitive Services](../../ai-services/index.yml) |
 | Microsoft.Commerce - [registered](#registration) | core |
+| Microsoft.Communication | [Azure Communication Services](../../communication-services/overview.md) |
 | Microsoft.Compute | [Virtual Machines](../../virtual-machines/index.yml)<br />[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) |
 | Microsoft.Consumption - [registered](#registration) | [Cost Management](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Container Instances](../../container-instances/index.yml) |
@@ -89,6 +90,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
 | Microsoft.DomainRegistration | [App Service](../../app-service/index.yml) |
 | Microsoft.DynamicsLcs | [Lifecycle Services](https://lcs.dynamics.com/Logon/Index ) |
+| Microsoft.ElasticSan | [Elastic SAN Preview](../../storage/elastic-san/index.yml) |
 | Microsoft.EnterpriseKnowledgeGraph | Enterprise Knowledge Graph |
 | Microsoft.EventGrid | [Event Grid](../../event-grid/index.yml) |
 | Microsoft.EventHub | [Event Hubs](../../event-hubs/index.yml) |

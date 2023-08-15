@@ -108,22 +108,27 @@ To transfer files between your local device and your remote session:
 
 1. For the prompt **Access local resources**, check the box for **File transfer**, then select **Allow**.
 
-1. Once you're remote session has started, an extra icon will appear in the Remote Desktop Web client taskbar for **Upload new file** (the upwards arrow icon). Selecting this will open a file explorer window on your local device.
+1. Once you're remote session has started, open **File Explorer**, then select **This PC**.
 
-1. Browse to and select files you want to upload to the remote session. You can select multiple files by holding down the <kbd>CTRL</kbd> key on your keyboard for Windows, or the <kbd>Command</kbd> key for macOS, then select **Open**. There is a file size limit of 255MB.
+1. You'll see a redirected drive called **Remote Desktop Virtual Drive on RDWebClient**. Inside this drive are two folders: **Uploads** and **Downloads**
 
-1. In your remote session, open **File Explorer**, then select **This PC**.
+   - **Downloads** prompts your local browser to download any files you copy to this folder.
+   - **Uploads** contains the files you uploaded through the Remote Desktop Web client.
 
-1. You'll see a redirected drive called **Remote Desktop Virtual Drive on RDWebClient**. Inside this drive are two folders: **Uploads** and **Downloads**. **Uploads** contains the files you uploaded through the Remote Desktop Web client.
-
-1. To transfer files from your remote session to your local device, copy and paste files to the **Downloads** folder. Before the paste can complete, the Remote Desktop Web client will prompt you **Are you sure you want to download *N* file(s)?**. Select **Confirm**. Your browser will download the files in its normal way.
+1. To download from your remote session to your local device, copy and paste files to the **Downloads** folder. Before the paste can complete, the Remote Desktop Web client will prompt you **Are you sure you want to download *N* file(s)?**. Select **Confirm**. Your browser will download the files in its normal way.
 
    If you don't want to see this prompt every time you download files from the current browser, check the box for **Don’t ask me again on this browser** before confirming.
+
+1. To upload files from your local device to your remote session, use the button in the Remote Desktop Web client taskbar for **Upload new file** (the upwards arrow icon). Selecting this will open a file explorer window on your local device.
+
+   Browse to and select files you want to upload to the remote session. You can select multiple files by holding down the <kbd>CTRL</kbd> key on your keyboard for Windows, or the <kbd>Command</kbd> key for macOS, then select **Open**. There is a file size limit of 255MB.
 
 > [!IMPORTANT]
 > - We recommend using *Copy* rather than *Cut* when transferring files from your remote session to your local device as an issue with the network connection can cause the files to be lost.
 >
 > - Uploaded files are available in a remote session until you sign out of the Remote Desktop Web client.
+>
+> - Don't download files directly from your browser in a remote session to the **Remote Desktop Virtual Drive on RDWebClient\Downloads** folder as it triggers your local browser to download the file before it is ready. Download files in a remote session to a different folder, then copy and paste them to the **Remote Desktop Virtual Drive on RDWebClient\Downloads** folder.
 
 ### Clipboard
 

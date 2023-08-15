@@ -42,7 +42,7 @@ Each document is now represented by a single long string.
 The string is composed of tokens, not characters or words. The maximum token count is 128 unique tokens. For estimation purposes, you can assume that 128 tokens are roughly equivalent to a string that is 128 words in length. 
 
 > [!NOTE]
-> Tokenization is determined in part by the analyzer assignment on searchable fields. If you are using specialized analyzer, such as nGram or EdgeNGram, you might want to exclude that field from searchFields. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).
+> Tokenization is determined in part by the analyzer assignment on searchable fields. If you are using specialized analyzer, such as nGram or EdgeNGram, you might want to exclude that field from "searchFields". For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).
 
 ## Extraction
 
@@ -69,7 +69,7 @@ A [semantic answer](semantic-answers.md) will also be returned if you specified 
 
 ## Next steps
 
-Semantic ranking is offered on Standard tiers, in specific regions. For more information about availability and sign-up, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing). A new query type enables the ranking and response structures of semantic search. To get started, [Configure semantic ranking](semantic-how-to-query-request.md).
+Semantic ranking is offered on Basic tiers and higher, in specific regions. For more information about availability and sign-up, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing). A new query type enables the ranking and response structures of semantic search. To get started, [Configure semantic ranking](semantic-how-to-query-request.md).
 
 Alternatively, review the following articles about default ranking. Semantic ranking depends on the similarity ranker to return the initial results. Knowing about query execution and ranking will give you a broad understanding of how the entire process works.
 

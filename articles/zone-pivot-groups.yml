@@ -100,15 +100,15 @@ groups:
     title: "JavaScript: Node.js"
   - id: programming-language-python
     title: Python
-- id: programming-languages-document-sdk
+- id: cloud-location
   # Owner: lajanuar
-  title: Programming languages
-  prompt: Choose a programming language
+  title: Workflow
+  prompt: Choose a workflow
   pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-python
-    title: Python
+  - id: workflow-onedrive
+    title: OneDrive
+  - id: workflow-sharepoint
+    title: SharePoint
 - id: programming-languages-set-two
 # Owner: erhopf
   title: Programming languages
@@ -457,6 +457,20 @@ groups:
     title: Azure Container Apps (preview)
   - id: azure-arc
     title: Azure Arc (preview)
+- id: df-languages
+  title: Durable Functions programming languages
+  prompt: Choose a programming language or runtime
+  pivots:
+  - id: csharp
+    title: C#
+  - id: javascript
+    title: JavaScript
+  - id: python
+    title: Python
+  - id: powershell
+    title: PowerShell
+  - id: java
+    title: Java
 ### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
@@ -828,6 +842,23 @@ groups:
     title: Swift
   - id: programming-language-cli
     title: CLI
+- id: programming-languages-portal-cli-sdk
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: azportal
+    title: Azure portal
+  - id: azcli
+    title: Azure CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-speech-services
 # Owner: eur
   title: Programming languages
@@ -909,6 +940,18 @@ groups:
     title: C#
   - id: programming-language-java
     title: Java
+- id: programming-languages-set-twenty-two
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-spark-all-minus-sql
 # Owner: midesa
   title: Programming languages
@@ -2521,7 +2564,7 @@ groups:
   - id: ms-graph
     title: Microsoft Graph
 # Owner:
-- id: deploy-python-web-app-postgressql
+- id: deploy-python-web-app-postgresql
   title: Workflows
   prompt: Choose your path
   pivots:
@@ -2534,10 +2577,18 @@ groups:
   title: Azure Virtual Desktop host pool management type
   prompt: Choose a host pool management type
   pivots:
-  - id: host-pool-automated
-    title: Automated host pool
   - id: host-pool-standard
     title: Standard host pool
+  - id: host-pool-automated
+    title: Automated host pool (preview)
+- id: azure-virtual-desktop-app-attach
+  title: Azure Virtual Desktop app attach version
+  prompt: Choose an app attach version
+  pivots:
+  - id: msix-app-attach
+    title: MSIX app attach
+  - id: app-attach
+    title: App attach (preview)
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods

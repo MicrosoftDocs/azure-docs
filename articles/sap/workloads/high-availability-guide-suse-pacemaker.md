@@ -9,9 +9,9 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurepowershell
 ms.date: 06/23/2023
 ms.author: radeltch
-
 ---
 
 # Set up Pacemaker on SUSE Linux Enterprise Server in Azure

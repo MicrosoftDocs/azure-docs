@@ -101,9 +101,7 @@ After the scale set has been created, enable the Network Watcher extension in th
 
 1. Under **Settings**, select **Extensions**. 
 
-1. Select **Add extension**, and then select **Network Watcher Agent for Windows**, as shown in the following image:
-
-   :::image type="content" source="./media/connection-monitor/nw-agent-extension.png" alt-text="Screenshot that shows the Network Watcher extension addition.":::
+1. Select **Add extension**, and then select **Network Watcher Agent for Windows**.
 
 1. Under **Network Watcher Agent for Windows**, select **Create**.
 1. Under **Install extension**, select **OK**.
@@ -196,8 +194,6 @@ In the Azure portal, to create a test group in a connection monitor, do the foll
      :::image type="content" source="./media/connection-monitor-2-preview/add-sources-1.png" alt-text="Screenshot that shows the 'Add Sources' pane and the Azure endpoints, including the 'virtual machine scale set' pane, in Connection monitor.":::
 
    * To choose on-premises agents, select the **Non–Azure endpoints** tab. By default, agents are grouped into workspaces by region. All these workspaces have the Network Performance Monitor configured. 
- 
- 1. If you need to add Network Performance Monitor to your workspace, get it from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). For information about how to add Network Performance Monitor, see [Monitoring solutions in Azure Monitor](/previous-versions/azure/azure-monitor/insights/solutions). For information about how to configure agents for on-premises machines, see [Agents for on-premises machines](connection-monitor-overview.md#agents-for-on-premises-machines).
  
  1. Under **Create Connection Monitor**, on the **Basics** pane, the default region is selected. If you change the region, you can choose agents from workspaces in the new region. You can select one or more agents or subnets. In the **Subnet** view, you can select specific IPs for monitoring. If you add multiple subnets, a custom on-premises network named **OnPremises_Network_1** will be created. You can also change the **Group by** selector to group by agents.
 
