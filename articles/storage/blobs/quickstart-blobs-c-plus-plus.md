@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.date: 08/08/2023
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: cpp
 ms.custom: mode-api
