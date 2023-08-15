@@ -503,7 +503,7 @@ First create an event listener to trigger a custom authentication extension for 
 
 Next, create the claims mapping policy, which describes which claims can be issued to an application from a custom claims provider.
 
-1. Still in Graph Explorer, run the following request. You'll need the *Policy.ReadWrite.ApplicationConfiguration` delegated permission.
+1. Still in Graph Explorer, run the following request. You'll need the *Policy.ReadWrite.ApplicationConfiguration* delegated permission.
 
 
     # [HTTP](#tab/http)
