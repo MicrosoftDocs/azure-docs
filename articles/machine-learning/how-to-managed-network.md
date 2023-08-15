@@ -759,9 +759,6 @@ __Inbound__ service tag rules:
 
 Private endpoints are currently supported for the following Azure services:
 
-> [!TIP]
-> Private endpoints can be used to connect your managed network to resources in other Azure subscriptions, as long as the subscription is in the same tenant as the workspace.
-
 * Azure Machine Learning
 * Azure Machine Learning registries
 * Azure Storage (all sub resource types)
@@ -778,6 +775,8 @@ Private endpoints are currently supported for the following Azure services:
 * Azure Database for PostgreSQL
 * Azure Database for MySQL
 * Azure SQL Managed Instance
+
+When creating a private endpoint for Azure Machine Learning dependency resources, such as Azure Storage, Azure Container Registry, and Azure Key Vault, the resource can be in a different Azure subscription. However, the resource must be in the same tenant as the Azure Machine Learning workspace.
 
 ## Pricing
 
