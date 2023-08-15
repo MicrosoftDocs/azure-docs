@@ -43,7 +43,7 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 
 * Policy-based (scheduled) Azure NetApp Files backup is independent from [snapshot policy configuration](azure-netapp-files-manage-snapshots.md).
 
-* In a cross-region replication (CRR) or cross-zone replication (CZR) setting, Azure NetApp Files backup can be configured on a source volume only. Azure NetApp Files backup isn't supported on a CRR or CZR *destination* volume.
+* In a [cross-region replication](cross-region-replication-introduction.md) (CRR) or [cross-zone replication](cross-zone-replication-introduction.md) (CZR) setting, Azure NetApp Files backup can be configured on a source volume only. Azure NetApp Files backup isn't supported on a CRR or CZR *destination* volume.
 
 * See [Restore a backup to a new volume](backup-restore-new-volume.md) for additional considerations related to restoring backups.
 
