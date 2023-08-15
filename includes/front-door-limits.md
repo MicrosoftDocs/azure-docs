@@ -55,6 +55,7 @@
 | Maximum custom domain per profile	| 100 | 500 |
 | Maximum origin groups per profile | 100 | 200 |
 | Maximum origins per origin group* | 50 | 50 |
+| Maximum origins per profile | 100 | 200 |
 | Maximum origin timeout | 16 - 240 secs | 16 - 240 secs |
 | Maximum routes per profile | 100 | 200 | 
 | Maximum rule set per profile | 100 | 200 |

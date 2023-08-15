@@ -17,12 +17,7 @@ recommendations: false
 
 Azure OpenAI on your data enables you to run supported chat models such as GPT-35-Turbo and GPT-4 on your data without needing to train or fine-tune models. Running models on your data enables you to chat on top of, and analyze your data with greater accuracy and speed. By doing so, you can unlock valuable insights that can help you make better business decisions, identify trends and patterns, and optimize your operations. One of the key benefits of Azure OpenAI on your data is its ability to tailor the content of conversational AI. 
 
-To get started, [connect your data source](../use-your-data-quickstart.md) using [Azure OpenAI Studio](https://oai.azure.com/) and start asking questions and chatting on your data.
-
 Because the model has access to, and can reference specific sources to support its responses, answers are not only based on its pretrained knowledge but also on the latest information available in the designated data source. This grounding data also helps the model avoid generating responses based on outdated or incorrect information.
-
-> [!NOTE]
-> To get started, you need to already have been approved for [Azure OpenAI access](../overview.md#how-do-i-get-access-to-azure-openai) and have an [Azure OpenAI Service resource](../how-to/create-resource.md) with either the gpt-35-turbo or the gpt-4 models deployed.
 
 ## What is Azure OpenAI on your data
 
@@ -30,13 +25,20 @@ Azure OpenAI on your data works with OpenAI's powerful GPT-35-Turbo and GPT-4 la
 
 One of the key features of Azure OpenAI on your data is its ability to retrieve and utilize data in a way that enhances the model's output.  Azure OpenAI on your data, together with Azure Cognitive Search, determines what data to retrieve from the designated data source based on the user input and provided conversation history. This data is then augmented and resubmitted as a prompt to the OpenAI model, with retrieved  information being appended to the original prompt. Although retrieved data is being appended to the prompt, the resulting input is still processed by the model like any other prompt. Once the data has been retrieved and the prompt has been submitted to the model, the model uses this information to provide a completion. See the [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context) article for more information. 
 
+## Get started
+
+To get started, [connect your data source](../use-your-data-quickstart.md) using Azure OpenAI Studio and start asking questions and chatting on your data.
+
+> [!NOTE]
+> To get started, you need to already have been approved for [Azure OpenAI access](../overview.md#how-do-i-get-access-to-azure-openai) and have an [Azure OpenAI Service resource](../how-to/create-resource.md) with either the gpt-35-turbo or the gpt-4 models deployed.
+
 ## Data source options
 
 Azure OpenAI on your data uses an [Azure Cognitive Search](/azure/search/search-what-is-azure-search) index to determine what data to retrieve based on  user inputs and provided conversation history. We recommend using Azure OpenAI Studio to create your index from a blob storage or local files. See the [quickstart article](../use-your-data-quickstart.md?pivots=programming-language-studio) for more information.
 
 ## Ingesting your data into Azure Cognitive Search
 
-For documents and datasets with long text, you should use the available [data preparation script](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts) to ingest the data into cognitive search. The script chunks the data so that your response with the service will be more accurate. This script also supports scanned PDF file and images and ingests the data using [Document Intelligence](../../../ai-services/document-intelligence/overview.md).
+For documents and datasets with long text, you should use the available [data preparation script](https://go.microsoft.com/fwlink/?linkid=2244395) to ingest the data into cognitive search. The script chunks the data so that your response with the service will be more accurate. This script also supports scanned PDF file and images and ingests the data using [Document Intelligence](../../../ai-services/document-intelligence/overview.md).
 
 
 ## Data formats and file types
@@ -189,7 +191,7 @@ When customizing the app, we recommend:
 
 - Publishing creates an Azure App Service in your subscription. It may incur costs depending on the 
 [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
-- You can [customize](../concepts/use-your-data.md#using-the-web-app) the frontend and backend logic of the web app.
+- You can customize the frontend and backend logic of the web app.
 - By default, the app will only be accessible to you. To add authentication (for example, restrict access to the app to members of your Azure tenant):
 
     1. Go to the [Azure portal](https://portal.azure.com/#home) and search for the app name you specified during publishing. Select the web app, and go to the **Authentication** tab on the left navigation menu. Then select **Add an identity provider**. 

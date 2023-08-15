@@ -29,7 +29,7 @@ from scipy.io.wavfile import read
 import json
 
 speech_key, service_region = "your-subscription-key", "your-region"
-endpoint = "https://signature.{service_region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray"
+endpoint = f"https://signature.{service_region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray"
 
 #Enrollment audio for each speaker. In this example, two speaker enrollment audio files are added.
 enrollment_audio_speaker1 = "enrollment-audio-speaker1.wav"
