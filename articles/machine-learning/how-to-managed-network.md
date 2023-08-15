@@ -31,7 +31,7 @@ There are two different configuration modes for outbound traffic from the manage
 | Outbound mode | Description | Scenarios |
 | ----- | ----- | ----- |
 | Allow internet outbound | Allow all internet outbound traffic from the managed VNet. | Recommended if you need access to machine learning artifacts on the Internet, such as python packages or pretrained models. |
-| Allow only approved outbound | Outbound traffic is allowed by specifying service tags. | Recommended if you want to minimize the risk of data exfiltration but you'll need to prepare all required machine learning artifacts in your private locations. |
+| Allow only approved outbound | Outbound traffic is allowed by specifying service tags. | Recommended if you want to minimize the risk of data exfiltration but you need to prepare all required machine learning artifacts in your private locations. |
 
 The managed virtual network is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your workspace default storage, container registry and key vault __if they're configured as private__. After choosing the isolation mode, you only need to consider other outbound requirements you may need to add.
 
@@ -758,6 +758,9 @@ __Inbound__ service tag rules:
 ## Private endpoints
 
 Private endpoints are currently supported for the following Azure services:
+
+> [!TIP]
+> Private endpoints can be used to connect your managed network to resources in other Azure subscriptions, as long as the subscription is in the same tenant as the workspace.
 
 * Azure Machine Learning
 * Azure Machine Learning registries
