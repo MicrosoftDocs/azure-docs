@@ -112,7 +112,8 @@ In order to make Kibana accessible from output, need to set network.host to 0.0.
 
 configure /etc/kibana/kibana.yml  on Ubuntu VM
 
-**Note**: 10.0.0.7 is a local private IP, that we have used which can be accessed in maven project develop Windows VM. You're required to make modifications according to your network security requirements. We use the same IP later to demo for performing analytics on Kibana
+> [!NOTE]
+> 10.0.0.7 is a local private IP, that we have used which can be accessed in maven project develop Windows VM. You're required to make modifications according to your network security requirements. We use the same IP later to demo for performing analytics on Kibana.
 
 ```
 server.host: "0.0.0.0"
@@ -120,7 +121,7 @@ server.name: "elasticsearch"
 server.port: 5601
 elasticsearch.hosts: ["http://10.0.1.4:9200"]
 ```
-:::image type="content" source="./media/kafka-flink-kibana/kibana-test-setup.png" alt-text="Screenshot showing Kibana UI test successful" lightbox="./media/kafka-flink-kibana/kibana-test-setup.png":::
+:::image type="content" source="./media/kafka-flink-kibana/kibana-test-setup.png" alt-text="Screenshot showing Kibana UI test successful." lightbox="./media/kafka-flink-kibana/kibana-test-setup.png":::
 
 
 ## Prepare Click Events on HDInsight Kafka
@@ -299,25 +300,28 @@ Job has been submitted with JobID e0eba72d5143cea53bcf072335a4b1cb
 
 - Access Kibana at IP, which you have set earlier.
 - Configure an index pattern by clicking **Stack Management** in the left-side toolbar and find **Index Patterns**, then click **Create Index Pattern** and enter the full index name kafka_user_clicks to create the index pattern. 
-:::image type="content" source="./media/kafka-flink-kibana/kibana-index-pattern-setup.png" alt-text="Screenshot showing Kibana index pattern set up" lightbox="./media/kafka-flink-kibana/kibana-index-pattern-setup.png":::
+
+:::image type="content" source="./media/kafka-flink-kibana/kibana-index-pattern-setup.png" alt-text="Screenshot showing Kibana index pattern set up." lightbox="./media/kafka-flink-kibana/kibana-index-pattern-setup.png":::
+
 - Once the index pattern is set up, you can explore the data in Kibana
     - Click "Discover" in the left-side toolbar.
       
-      :::image type="content" source="./media/kafka-flink-kibana/kibana-discover.png" alt-text="Screenshot showing how to navigate to discover button" lightbox="./media/kafka-flink-kibana/kibana-discover.png":::    
+      :::image type="content" source="./media/kafka-flink-kibana/kibana-discover.png" alt-text="Screenshot showing how to navigate to discover button." lightbox="./media/kafka-flink-kibana/kibana-discover.png":::
+          
     - Kibana lists the content of the created index with kafka-click-events
       
-      :::image type="content" source="./media/kafka-flink-kibana/elastic-discover-kafka-click-events.png" alt-text="Screenshot showing elastic with the created index with the kafka-click-events" lightbox="./media/kafka-flink-kibana/elastic-discover-kafka-click-events.png" :::
+      :::image type="content" source="./media/kafka-flink-kibana/elastic-discover-kafka-click-events.png" alt-text="Screenshot showing elastic with the created index with the kafka-click-events." lightbox="./media/kafka-flink-kibana/elastic-discover-kafka-click-events.png" :::
         
 - Let us create a dashboard to display various views.
   
 :::image type="content" source="./media/kafka-flink-kibana/elastic-dashboard-selection.png" alt-text="Screenshot showing elastic to select dashboard and start creating views" lightbox="./media/kafka-flink-kibana/elastic-dashboard-selection.png" :::
 - Let's use a simple **Area**(area graph), then select the **kafka_click_events** index and edit the Horizontal axis and Vertical axis to illustrate the events
   
-:::image type="content" source="./media/kafka-flink-kibana/elastic-dashboard.png" alt-text="Screenshot showing elastic plot with the Kafka click event" lightbox="./media/kafka-flink-kibana/elastic-dashboard.png" :::
+:::image type="content" source="./media/kafka-flink-kibana/elastic-dashboard.png" alt-text="Screenshot showing elastic plot with the Kafka click event." lightbox="./media/kafka-flink-kibana/elastic-dashboard.png" :::
 
 - If we set an auto refresh or click **Refresh**, the plot is updating real time as we have created a Flink Streaming job
 
-:::image type="content" source="./media/kafka-flink-kibana/elastic-dashboard-2.png" alt-text="Screenshot showing elastic plot with the Kafka click event after refresh" lightbox="./media/kafka-flink-kibana/elastic-dashboard-2.png" :::
+:::image type="content" source="./media/kafka-flink-kibana/elastic-dashboard-2.png" alt-text="Screenshot showing elastic plot with the Kafka click event after refresh." lightbox="./media/kafka-flink-kibana/elastic-dashboard-2.png" :::
 
 
 ## Validation on Flink Job UI
