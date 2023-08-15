@@ -45,6 +45,8 @@ Locate `index.js` in the server-side code.
         connectionString: process.argv[2]
     });
     ```
+    >[!IMPORTANT]
+    > `useAzureSocketIO` is an asynchronous method and it does initialization steps to connect to Web PubSub. You can `await useAzureSocketIO(...)` or use `useAzureSocketIO(...).then(...)` to make sure your app server starts to serve requests after the initialization succeeds.
 
 4. If you use the following server APIs, add `async` before using them as they're asynchronous with Web PubSub for Socket.IO.
 - [server.socketsJoin](https://socket.io/docs/v4/server-api/#serversocketsjoinrooms)
