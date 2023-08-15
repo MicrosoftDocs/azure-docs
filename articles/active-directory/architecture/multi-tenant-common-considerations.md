@@ -197,7 +197,7 @@ One of the most useful features of **Set-MailUser** is the ability to manipulate
 
 ### Microsoft SharePoint Online
 
-SharePoint Online has its own service-specific permissions depending on whether the user (internal or external) is of type member or guest in the Azure Active Directory tenant. [Office 365 external sharing and Azure Active Directory B2B collaboration](../external-identities/o365-external-user.md) describes how you can enable integration with SharePoint and OneDrive to share files, folders, list items, document libraries, and sites with people outside your organization, while using Azure B2B for authentication and management.
+SharePoint Online has its own service-specific permissions depending on whether the user (internal or external) is of type member or guest in the Azure Active Directory tenant. [Office 365 external sharing and Azure Active Directory B2B collaboration](../external-identities/what-is-b2b.md) describes how you can enable integration with SharePoint and OneDrive to share files, folders, list items, document libraries, and sites with people outside your organization, while using Azure B2B for authentication and management.
 
 After you enable external sharing in SharePoint Online, the ability to search for guest users in the SharePoint Online people picker is **OFF** by default. This setting prohibits guest users from being discoverable when they're hidden from the Exchange Online GAL. You can enable guest users to become visible in two ways (not mutually exclusive):
 
