@@ -52,7 +52,7 @@ To help you decide when to use each type of endpoint in your environment, see [C
 To secure your storage account and build a secure network boundary for your applications:
 
 1. Start by disabling all public network access for the storage account under the **Public network access** setting in the storage account firewall.
-1. Where possible, configure private links to your storage account from private endpoints on virtual network subnets where the clients reside that will require access to your data.
+1. Where possible, configure private links to your storage account from private endpoints on virtual network subnets where the clients reside that require access to your data.
 1. If client applications require access over the public endpoints, change the **Public network access** setting to **Enabled from selected virtual networks and IP addresses**. Then, as needed:
 
     1. Specify the virtual network subnets from which you want to allow access.
