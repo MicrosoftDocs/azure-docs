@@ -283,6 +283,10 @@
               href: node-access.md
         - name: Node pools
           items:
+            - name: Create node pools
+              href: create-node-pools.md
+            - name: Manage node pools
+              href: manage-node-pools.md
             - name: Multi-instance GPU Node pool
               href: gpu-multi-instance.md
             - name: Node pool snapshot
