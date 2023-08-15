@@ -70,7 +70,10 @@ Inspect the registry properties in the template JSON file you downloaded, and ma
             "apiVersion": "2020-11-01-preview",
             "name": "[parameters('myregistry_name')]",
             "location": "centralus",
-[...]
+        ...
+        }
+    ]
+}
 ```
 
 For more information, see [Use exported template from the Azure portal](../azure-resource-manager/templates/template-tutorial-export-template.md) and the [template reference](/azure/templates/microsoft.containerregistry/registries).
