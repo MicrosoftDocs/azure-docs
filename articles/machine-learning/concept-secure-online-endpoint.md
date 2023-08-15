@@ -37,8 +37,6 @@ The following architecture diagram shows how communications flow through private
     > [!TIP]
     > To confirm when a workspace is created, you can check the workspace properties. In Studio, click `View all properties in Azure Portal` from `Directory + Subscription + Workspace` section (top right of the Studio), Click JSON View from top right of the Overview page, and choose the latest API Version. You can check the value of `properties.creationTime`. You can do the same by using `az ml workspace show` with [CLI](how-to-manage-workspace-cli.md#get-workspace-information), or `my_ml_client.workspace.get("my-workspace-name")` with [SDK](how-to-manage-workspace.md?tabs=python#find-a-workspace), or `curl` on workspace with [REST API](how-to-manage-rest.md#drill-down-into-workspaces-and-their-resources).
 
-<!-- - When you use network isolation with a deployment, Azure Log Analytics is partially supported. All metrics and the `AMLOnlineEndpointTrafficLog` table are supported via Azure Log Analytics. `AMLOnlineEndpointConsoleLog` and `AMLOnlineEndpointEventLog` tables are currently not supported. As a workaround, you can use the [az ml online-deployment get_logs](/cli/azure/ml/online-deployment#az-ml-online-deployment-get-logs) CLI command, the [OnlineDeploymentOperations.get_logs()](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations#azure-ai-ml-operations-onlinedeploymentoperations-get-logs) Python SDK, or the Deployment log tab in the Azure Machine Learning studio instead. For more information, see [Monitoring online endpoints](how-to-monitor-online-endpoints.md). -->
-
 - When you use network isolation with a deployment, you can use resources (Azure Container Registry (ACR), Storage account, Key Vault, and Application Insights) from a different resource group or subscription than that of your workspace. However, these resources must belong to the same tenant as your workspace.
 
 - Access from online deployments to Microsoft Container Registry (MCR) is allowed. However, because the _*.data.mcr.microsoft.com_ domain name is not included in the MCR service tag, you may have to add an FQDN outbound rule to _*.data.mcr.microsoft.com_ for certain Docker images. For more information on how to enable access to servers and services on the internet, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
@@ -119,19 +117,22 @@ To learn more about configurations for the workspace managed VNet, see [Managed 
 
 ## Scenarios for network isolation configuration
 
-Suppose you have an application that is deployed to an endpoint, you can decide what network isolation configuration to use as follows:
+Let's say you have an application that is deployed to an endpoint, you can decide what network isolation configuration to use as follows:
 
-**For inbound communication**
+**For inbound communication**:
 
 If you want your application to receive inbound scoring requests from the internet, then you should **enable** `public_network_access` for the endpoint.
 
 On the other hand, say the application is private and should be accessed only within your organization. In this scenario, you'd want to prevent access from the internet, so you should **disable** the endpoint's `public_network_access`. Once the public network access is disabled, the application can receive inbound scoring requests only through your workspace's private endpoint.
 
-**For outbound communication (deployment)**
+**For outbound communication (deployment)**:
 
-Now, suppose your deployed application doesn't need to access your workspace's private Azure resources (such as the Azure Storage blob, ACR, and Azure Key Vault), but you want your application to send outbound communication to the public internet. In this case, you should **disable** the _workspace's managed VNet_, as you won't need to use private endpoints for outbound communication.
+Now, suppose your deployed application doesn't need to access your workspace's private Azure resources (such as the Azure Storage blob, ACR, and Azure Key Vault), and you want your application to send outbound communication to the public internet. In this case, you should **disable** the _workspace's managed VNet_, as you won't need to use private endpoints for outbound communication.
 
-However, if your application needs to access private resources, you'll need to use private endpoints. Therefore, you should **enable** the _workspace's managed VNet_. You can configure your managed VNet to _allow internet outbound_ if you're fine with having your application access the public internet. This mode will not prevent data exfiltration. On the other hand, if you're concerned about data exfiltration and want to prevent it by allowing outbound communication to only approved servers, you can configure your managed VNet to _allow only approved outbound_.
+However, if your application needs to access private resources, you'll need to use private endpoints. Therefore, you should **enable** the _workspace's managed VNet_.
+
+When you **enable** the _workspace managed VNet_, you can configure it to **allow internet outbound** if you're fine with having your application access the public internet. This mode will not prevent data exfiltration.
+On the other hand, if you're concerned about data exfiltration and want to prevent the unauthorized transfer of data or resources to non-approved destinations, you can configure your managed VNet to **allow only approved outbound**.
 
 <!-- The following table lists the supported configurations for inbound and outbound communications for a managed online endpoint when using a workspace managed VNet:
 
