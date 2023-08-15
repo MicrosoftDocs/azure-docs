@@ -88,7 +88,7 @@ Wait for the firewall deployment to complete before you continue.
 In this section, you enable the firewall logs and send them to the log analytics workspace.
 
 > [!NOTE]
-> You must have a log analytics workspace in your subscription before you can enable firewall logs. For more information, see [#prerequisites](#prerequisites).
+> You must have a log analytics workspace in your subscription before you can enable firewall logs. For more information, see [Prerequisites](#prerequisites).
 
 1. In the search box at the top of the portal, enter **Firewall**. Select **Firewalls** in the search results.
 
@@ -374,6 +374,7 @@ Create an application rule to allow communication from **vnet-1** to the private
     Non-authoritative answer:
     sql-server-8675.database.windows.netcanonical name = sql-server-8675.privatelink.database.windows.net.
     Name:sql-server-8675.privatelink.database.windows.net
+    Address: 10.1.0.4
     ```
 
 1. Install the SQL server command line tools from [Install the SQL Server command-line tools sqlcmd and bcp on Linux](/sql/linux/sql-server-linux-setup-tools). Proceed with the next steps after the installation is complete.
@@ -402,10 +403,12 @@ Create an application rule to allow communication from **vnet-1** to the private
 
 1. In the example **Queries** in the search box, enter **Application rule**. In the returned results in **Network**, select the **Run** button for **Application rule log data**.
 
-1. 
+1. In the log query output, verify **sql-server-1.database.windows.net** is listed under **FQDN** and **SQLPrivateEndpoint** is listed under **RuleCollection**.
 
 [!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
 
 ## Next steps
 
-
+Advance to the next article to learn how to use a private endpoint with Azure Private Resolver:
+> [!div class="nextstepaction"]
+> [Create a private endpoint DNS infrastructure with Azure Private Resolver for an on-premises workload](tutorial-dns-on-premises-private-resolver.md)
