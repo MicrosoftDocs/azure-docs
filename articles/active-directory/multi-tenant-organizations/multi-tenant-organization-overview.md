@@ -29,7 +29,6 @@ Here are the primary goals of multi-tenant organization:
 
 - Define a group of tenants belonging to your organization
 - Collaborate across your tenants in new Microsoft Teams
-- Connect with colleagues across your tenants in Viva Engage
 - Enable search and discovery of user profiles across your tenants through Microsoft 365 people search
 
 ## Who should use it?
