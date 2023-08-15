@@ -62,11 +62,11 @@
             - name: Confidential Virtual Machine (CVM)
               expanded: true
               items: # following files are the proposed new format, deploy, prove, explain - need to agree on naming convention: 'quickstart-($product)-(deploy|prove|explain).md'?
-                - name: 1. Deploy it (Quickstart) # Will likely need a fork here for AMD vs. Intel
+                - name: Deploy it (Quickstart) # Will likely need a fork here for AMD vs. Intel
                   href: TODO.md
-                - name: 2. Prove it (Attestation)
+                - name: Prove it (Attestation)
                   href: TODO.md
-                - name: 3. Explain it
+                - name: Explain it
                   href: TODO.md
                 - name: About confidential VMs #moved from original
                   href: confidential-vm-overview.md
@@ -81,6 +81,7 @@
                 - name: Virtual TPMs in Azure confidential VMs
                   href: virtual-tpms-in-azure-confidential-vm.md
             - name: Virtual Machines with App Enclaves
+              expanded: true
               items:
               - name: App enclaves overview
                 href: application-development.md
