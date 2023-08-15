@@ -12,8 +12,6 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Multi-tenant organization capabilities
-    href: multi-tenant-organization-capabilities.md
   - name: Multi-tenant organizations and Microsoft 365
     href: multi-tenant-organization-microsoft-365.md
   - name: Multi-tenant organization templates
