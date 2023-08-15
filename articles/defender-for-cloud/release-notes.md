@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 08/10/2023
+ms.date: 08/15/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
