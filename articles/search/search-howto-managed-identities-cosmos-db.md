@@ -36,11 +36,12 @@ $system_assigned_principal = <principal id for system assigned identity>
 $readOnlyRoleDefinitionId = "00000000-0000-0000-0000-000000000001"
 $scope=$(az cosmosdb show --name $cosmosdbname --resource-group $resourcegroup --query id --output tsv)
 ```
-    Role assignment for system-assigned identity:
+
+Role assignment for system-assigned identity:
 
 ```azurepowershell
 az cosmosdb sql role assignment create --account-name $cosmosdbname --resource-group $resourcegroup --role-definition-id $readOnlyRoleDefinitionId --principal-id $sys_principal --scope $scope
-``````
+```
 * For Cosmos DB for NoSQL, you can optionally [Enforcing RBAC as the only authentication method](../cosmos-db/how-to-setup-rbac.md#disable-local-auth)
 for data connections by setting `disableLocalAuth` to `true` for your Cosmos DB account.
 
