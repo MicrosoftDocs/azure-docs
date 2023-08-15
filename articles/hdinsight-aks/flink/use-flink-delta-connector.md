@@ -34,16 +34,16 @@ We are using the following connector, to match with the HDInsight on AKS Flink v
 
 ## Prerequisites
 
-1. [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md) 
-1. ADLS Gen2 storage account
-1. [Power BI desktop](https://www.microsoft.com/download/details.aspx?id=58494)
+* [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md) 
+* ADLS Gen2 storage account
+* [Power BI desktop](https://www.microsoft.com/download/details.aspx?id=58494)
 
 ## Read data from delta table
 
 There are two types of delta sources, when it comes to reading data from delta table.
 
-1. Bounded: Batch processing
-1. Continuous: Streaming processing
+* Bounded: Batch processing
+* Continuous: Streaming processing
 
 In this example, we're using a bounded state of delta source.
 
@@ -357,10 +357,10 @@ In this example, we're using a bounded state of delta source.
 	</build>
 </project>
 ```
-1. You're required to build the jar with required libraries and dependencies.
-1. Specify the ADLS gen2 location in our java class to reference the source data.
+* You're required to build the jar with required libraries and dependencies.
+* Specify the ADLS gen2 location in our java class to reference the source data.
 
-:::image type="content" source="./media/use-flink-delta-connector/specify-the-adls-gen-2.png" alt-text="Screenshot showing how ro specify the ADLS Gen2." lightbox="./media/use-flink-delta-connector/specify-the-adls-gen-2.png":::
+:::image type="content" source="./media/use-flink-delta-connector/specify-the-adls-gen-2.png" alt-text="Screenshot showing how to specify the ADLS Gen2." lightbox="./media/use-flink-delta-connector/specify-the-adls-gen-2.png":::
    
    ```java
        public StreamExecutionEnvironment createPipeline(
