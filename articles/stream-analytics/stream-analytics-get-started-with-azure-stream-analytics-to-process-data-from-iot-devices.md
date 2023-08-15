@@ -109,46 +109,52 @@ Let's update the query to filter the results based on a condition. For example, 
 
 Let's make our query more detailed. For every type of sensor, we want to monitor average temperature per 30-second window and display results only if the average temperature is above 100 degrees.
 
-```sql
-SELECT 
-    System.Timestamp AS OutputTime,
-    dspl AS SensorName,
-    Avg(temp) AS AvgTemperature
-INTO
-   youroutputalias
-FROM
-    yourinputalias TIMESTAMP BY time
-GROUP BY TumblingWindow(second,30),dspl
-HAVING Avg(temp)>100
-```
+1. Update the query to: 
 
-:::image type="content" source="./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png" alt-text="Screenshot that shows the query with a tumbling window.":::
+    ```sql
+    SELECT 
+        System.Timestamp AS OutputTime,
+        dspl AS SensorName,
+        Avg(temp) AS AvgTemperature
+    INTO
+       youroutputalias
+    FROM
+        yourinputalias TIMESTAMP BY time
+    GROUP BY TumblingWindow(second,30),dspl
+    HAVING Avg(temp)>100
+    ```
+1. Select **Test query** to see the results of the query. 
 
-You should see results that contain only 245 rows and names of sensors where the average temperate is greater than 100. This query groups the stream of events by **dspl**, which is the sensor name, over a **Tumbling Window** of 30 seconds. Temporal queries must state how you want time to progress. By using the **TIMESTAMP BY** clause, you have specified the **OUTPUTTIME** column to associate times with all temporal calculations. For detailed information, read about [Time Management](/stream-analytics-query/time-management-azure-stream-analytics) and [Windowing functions](/stream-analytics-query/windowing-azure-stream-analytics).
+    :::image type="content" source="./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png" alt-text="Screenshot that shows the query with a tumbling window.":::
+
+    You should see results that contain only 245 rows and names of sensors where the average temperate is greater than 100. This query groups the stream of events by **dspl**, which is the sensor name, over a **Tumbling Window** of 30 seconds. Temporal queries must state how you want time to progress. By using the **TIMESTAMP BY** clause, you have specified the **OUTPUTTIME** column to associate times with all temporal calculations. For detailed information, read about [Time Management](/stream-analytics-query/time-management-azure-stream-analytics) and [Windowing functions](/stream-analytics-query/windowing-azure-stream-analytics).
 
 ### Query: Detect absence of events
 
 How can we write a query to find a lack of input events? Let's find the last time that a sensor sent data and then didn't send events for the next 5 seconds.
 
-```sql
-SELECT 
-    t1.time,
-    t1.dspl AS SensorName
-INTO
-   youroutputalias
-FROM
-    yourinputalias t1 TIMESTAMP BY time
-LEFT OUTER JOIN yourinputalias t2 TIMESTAMP BY time
-ON
-    t1.dspl=t2.dspl AND
-    DATEDIFF(second,t1,t2) BETWEEN 1 and 5
-WHERE t2.dspl IS NULL
-```
+1. Update the query to: 
 
-:::image type="content" source="./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png" alt-text="Screenshot that shows the query that detects absence of events.":::
+    ```sql
+    SELECT 
+        t1.time,
+        t1.dspl AS SensorName
+    INTO
+       youroutputalias
+    FROM
+        yourinputalias t1 TIMESTAMP BY time
+    LEFT OUTER JOIN yourinputalias t2 TIMESTAMP BY time
+    ON
+        t1.dspl=t2.dspl AND
+        DATEDIFF(second,t1,t2) BETWEEN 1 and 5
+    WHERE t2.dspl IS NULL
+    ```
+2. Select **Test query** to see the results of the query. 
+
+    :::image type="content" source="./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png" alt-text="Screenshot that shows the query that detects absence of events.":::
 
 
-Here we use a **LEFT OUTER** join to the same data stream (self-join). For an **INNER** join, a result is returned only when a match is found.  For a **LEFT OUTER** join, if an event from the left side of the join is unmatched, a row that has NULL for all the columns of the right side is returned. This technique is useful to find an absence of events. For more information, see [JOIN](/stream-analytics-query/join-azure-stream-analytics).
+    Here we use a **LEFT OUTER** join to the same data stream (self-join). For an **INNER** join, a result is returned only when a match is found.  For a **LEFT OUTER** join, if an event from the left side of the join is unmatched, a row that has NULL for all the columns of the right side is returned. This technique is useful to find an absence of events. For more information, see [JOIN](/stream-analytics-query/join-azure-stream-analytics).
 
 ## Conclusion
 
