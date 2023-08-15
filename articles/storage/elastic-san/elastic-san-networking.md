@@ -229,7 +229,7 @@ VnetName="<VnetName>"
 SubnetName="<SubnetName>"
 EsanName="<ElasticSanName>"
 EsanVgName="<ElasticSanVolumeGroupName>"
-PeName="<PrivateEndpointName>"
+EndpointName="<PrivateEndpointName>"
 PLSvcConnectionName="<PrivateLinkSvcConnectionName>"
 Location="<Location>"
 ApprovalDesc="<ApprovalDesc>"
@@ -242,7 +242,7 @@ id=$(az elastic-san show \
 
 # Create private endpoint
 az network private-endpoint create \
-    --connection-name $PLConnName \
+    --connection-name $PLSvcConnectionName \
     --name $EndpointName \
     --private-connection-resource-id $id \
     --resource-group $RgName \
@@ -258,7 +258,7 @@ Use this sample code to approve the private link service connection if you are u
 az network private-endpoint-connection approve \
     --resource-name $EsanName \
     --resource-group $RgName \
-    --name $PLConnName \
+    --name $PLSvcConnectionName \
     --type {resource_type} \
     --description $ApprovalDesc
 
@@ -267,16 +267,6 @@ id=$(az elastic-san show \
     --resource-group $RgName \
     --query '[].[id]' \
     --output tsv)
-
-# Create private endpoint
-az network private-endpoint create \
-    --connection-name $PLConnName \
-    --name $EndpointName \
-    --private-connection-resource-id $id \
-    --resource-group $RgName \
-    --subnet $SubnetName \
-    --group-id $EsanVgName \
-    --vnet-name $VnetName # --manual-request
 ```
 ---
 
