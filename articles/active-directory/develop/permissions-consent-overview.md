@@ -17,6 +17,13 @@ ms.reviewer: jawoods, ludwignick, phsignor
 ---
 # Introduction to permissions and consent
 
+<a id ='requesting-consent-for-an-entire-tenant'></a>
+<a id ='using-the-admin-consent-endpoint'></a>
+<a id ='openid-connect-scopes'></a>
+<a id ='admin-restricted-permissions'></a>
+<a id ='the-default-scope'></a>
+<a id ='scopes-and-permissions'></a>
+
 To *access* a protected resource like email or calendar data, your application needs the resource owner's *authorization*. The resource owner can *consent* to or deny your app's request. Understanding these foundational concepts will help you build more secure and trustworthy applications that request only the access they need, when they need it, from users and administrators.
 
 ## Access scenarios
