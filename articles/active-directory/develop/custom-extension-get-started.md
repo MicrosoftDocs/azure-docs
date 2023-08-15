@@ -209,13 +209,13 @@ Register an application to authenticate your custom authentication extension to 
    # [C#](#tab/csharp)
    [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/csharp/v1/tutorial-application-basics-create-app-csharp-snippets.md)]
    
-  # [CLI](#tab/cli)
+   # [CLI](#tab/cli)
    [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/cli/v1/tutorial-application-basics-create-app-cli-snippets.md)]
    
    # [Go](#tab/go)
    [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/go/v1/tutorial-application-basics-create-app-go-snippets.md)]
    
-   ## [Java](#tab/java)
+   # [Java](#tab/java)
    [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/java/v1/tutorial-application-basics-create-app-java-snippets.md)]
    
    # [JavaScript](#tab/javascript)
@@ -226,6 +226,8 @@ Register an application to authenticate your custom authentication extension to 
    
    # [Python](#tab/python)
    [!INCLUDE [sample-code](~/microsoft-graph/includes/snippets/python/v1/tutorial-application-basics-create-app-python-snippets.md)]
+
+   ---
 
 1. From the response, record the value of **id** and **appId** of the newly created app registration. These values will be referenced in this article as `{authenticationeventsAPI_ObjectId}` and `{authenticationeventsAPI_AppId}` respectively.]
 
