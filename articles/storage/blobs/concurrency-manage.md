@@ -5,7 +5,7 @@ description: Learn how to manage multiple writers to a blob by implementing eith
 services: storage
 author: pauljewellmsft
 
-ms.service: azure-blob-storage
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 04/05/2023
 ms.author: pauljewell
