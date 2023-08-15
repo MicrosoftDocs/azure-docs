@@ -30,8 +30,6 @@ landingContent:
             url: multi-tenant-organization-overview.md
           - text: What is cross-tenant synchronization?
             url: cross-tenant-synchronization-overview.md
-          - text: Plan for multi-tenant organizations in Microsoft 365
-            url: /microsoft-365/enterprise/plan-multi-tenant-org-overview?branch=mikeplum-mto
   
   # Card
   - title: Compare capabilities
@@ -42,6 +40,18 @@ landingContent:
             url: overview.md#compare-multi-tenant-capabilities
           - text: Topologies for cross-tenant synchronization
             url: cross-tenant-synchronization-topology.md
+
+  # Card
+  - title: Collaborate in Microsoft 365
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Multi-tenant organizations and Microsoft 365
+            url: multi-tenant-organization-microsoft-365.md
+          - text: Plan for multi-tenant organizations in Microsoft 365
+            url: /microsoft-365/enterprise/plan-multi-tenant-org-overview?branch=mikeplum-mto
+          - text: Microsoft 365 multi-tenant organization people search
+            url: /microsoft-365/enterprise/multi-tenant-people-search
 
   # Card
   - title: Configure a multi-tenant organization
@@ -68,11 +78,3 @@ landingContent:
             url: ../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md?toc=/azure/active-directory/multi-tenant-organizations/toc.json&pivots=cross-tenant-synchronization
           - text: Synchronize users in multi-tenant organizations in Microsoft 365
             url: /microsoft-365/enterprise/sync-users-multi-tenant-orgs?branch=mikeplum-mto
-
-  # Card
-  - title: Collaborate in Microsoft 365
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Microsoft 365 Multi-Tenant Organization People Search
-            url: /microsoft-365/enterprise/multi-tenant-people-search

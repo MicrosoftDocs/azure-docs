@@ -52,7 +52,7 @@ Here are the primary benefits of a multi-tenant organization:
 
 - Improved people search experience across tenants
 
-    Across Microsoft 365 services, the multi-tenant organization people search experience is a collaboration feature that enables search and discovery of people across multiple tenants. Once enabled, users are able to search and discover synced user profiles in a tenant's global address list and view their corresponding people cards. For more information, see [Microsoft 365 Multi-Tenant Organization People Search (public preview)](/microsoft-365/enterprise/multi-tenant-people-search).
+    Across Microsoft 365 services, the multi-tenant organization people search experience is a collaboration feature that enables search and discovery of people across multiple tenants. Once enabled, users are able to search and discover synced user profiles in a tenant's global address list and view their corresponding people cards. For more information, see [Microsoft 365 multi-tenant organization people search (public preview)](/microsoft-365/enterprise/multi-tenant-people-search).
 
 ## How does a multi-tenant organization work?
 
