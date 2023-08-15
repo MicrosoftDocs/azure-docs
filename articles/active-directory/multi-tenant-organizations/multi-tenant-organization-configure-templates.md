@@ -59,17 +59,18 @@ This step is performed automatically when you create or join a multi-tenant orga
 
     ```http
     PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/templates/multiTenantOrganizationPartnerConfiguration
+
     {
         "inboundTrust": {
             "isMfaAccepted": true,
             "isCompliantDeviceAccepted": true,
             "isHybridAzureADJoinedDeviceAccepted": true
-    },
-    "automaticUserConsentSettings": {
-        "inboundAllowed": true,
-        "outboundAllowed": true
-    },
-    "templateApplicationLevel": "newPartners,existingPartners"
+        },
+        "automaticUserConsentSettings": {
+            "inboundAllowed": true,
+            "outboundAllowed": true
+        },
+        "templateApplicationLevel": "newPartners,existingPartners"
     }
     ```
 
@@ -126,6 +127,7 @@ This step is performed automatically when you create or join a multi-tenant orga
 
     ```http
     PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/templates/multiTenantOrganizationIdentitySynchronization
+
     {
         "templateApplicationLevel": "newPartners,existingPartners",
         "userSyncInbound": {
@@ -138,11 +140,11 @@ This step is performed automatically when you create or join a multi-tenant orga
 
 To reset the template to its default state, use the [multiTenantOrganizationIdentitySyncPolicyTemplate: resetToDefaultSettings](/graph/api/multitenantorganizationidentitysyncpolicytemplate-resettodefaultsettings?branch=pr-en-us-21123) API.
 
-    **Request**
+**Request**
 
-    ```http
-    POST https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/templates/multiTenantOrganizationIdentitySynchronization/resetToDefaultSettings
-    ```
+```http
+POST https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/templates/multiTenantOrganizationIdentitySynchronization/resetToDefaultSettings
+```
     
 ## Next steps
 
