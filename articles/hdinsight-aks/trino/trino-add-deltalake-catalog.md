@@ -15,7 +15,7 @@ This article provides an overview of how to configure Delta Lake catalog in your
 * [Understanding of Trino cluster configuration](./trino-service-config.md).
 * [Add catalogs to existing cluster](./trino-add-catalogs.md).
 
-### Steps to configure Delta Lake catalog
+## Steps to configure Delta Lake catalog
 
 1. Update your cluster ARM template to add a new Delta Lake catalog config file. This configuration needs to be defined in `serviceConfigsProfiles` under `clusterProfile` property of the ARM template.
 
@@ -49,7 +49,7 @@ This article provides an overview of how to configure Delta Lake catalog in your
 
 1. Configure a Hive metastore for table definitions and locations if you don't have a metastore already configured.
 
-    1. Configure the Hive metastore for the Delta catalog.
+    * Configure the Hive metastore for the Delta catalog.
         
         The `catalogOptions` section of the ARM template defines the Hive metastore connection details and it can set up
         * Metastore config.
@@ -79,7 +79,7 @@ This article provides an overview of how to configure Delta Lake catalog in your
 
 1. Assign the `Storage Blob Data Owner` role to your cluster user-assigned MSI in the storage account containing the delta tables. Learn how to [assign a role](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page).
 
-   1. User-assigned MSI name is listed in the `msiResourceId` property in the cluster's resource JSON.
+   * User-assigned MSI name is listed in the `msiResourceId` property in the cluster's resource JSON.
 
 Deploy the updated ARM template to reflect the changes in your cluster. Learn how to [deploy an ARM template](/azure/azure-resource-manager/templates/deploy-portal). 
 <br>Once successfully deployed, you can see the "delta" catalog in your Trino cluster.
