@@ -44,39 +44,11 @@ Supported authentication and clients for App Service, Container Apps, and Azure 
 
 ## Default environment variable names or application properties and sample codes
 
-Use the connection details below to connect compute services to Azure Database for MySQL. For each example below, replace the placeholder texts `<MySQL-DB-name>`, `<MySQL-DB-username>`, `<MySQL-DB-password>`, `<server-host>`, and `<port>` with your Azure Database for MySQL name, Azure Database for MySQL username, Azure Database for MySQL password, server host, and port.
+Use the connection details and sample codes in following tables to connect compute services to Azure Database for MySQL. 
 
 ### [Connection String](#secret)
 
-### [java](#tab/java)
-java env var tables.
-
-### [spring](#tab/spring)
-spring env var tables.
-
-### [.NET](#tab/dotnet)
-.NET env var tables.
-
-### [Go](#tab/go)
-.NET env var tables.
-
-### [Others](#tab/others)
-others.
-
-### [Python](#tab/python)
-python.
-
-### [nodejs](#tab/node)
-node.
-
----
-
-here're sample codes for each client type.
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
-
----
-
-#### [.NET(MySqlConnector)](#tab/secret-dotnet)
+#### [.NET](#tab/secret-dotnet)
 
 | Default environment variable name | Description                     | Example value                                                                                                                                                  |
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -97,7 +69,7 @@ using (MySqlConnection connection = new MySqlConnection(connectionString))
 }
 ```
 
-#### [Java(JDBC)](#tab/secret-java)
+#### [Java](#tab/secret-java)
 
 | Default environment variable name | Description                  | Example value                                                                                                                                                              |
 |-----------------------------------|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -119,7 +91,7 @@ try (Connection connection = DriverManager.getConnection(connectionString)) {
 
 ```
 
-#### [Spring Boot(JDBC)](#tab/secret-spring)
+#### [SpringBoot](#tab/secret-spring)
 
 | Application properties       | Description                   | Example value                                                                                 |
 |------------------------------|-------------------------------|-----------------------------------------------------------------------------------------------|
@@ -127,9 +99,96 @@ try (Connection connection = DriverManager.getConnection(connectionString)) {
 | `spring.datasource.username` | Database username             | `<MySQL-DB-username>`  |
 | `spring.datasource.password` | Database password             | `MySQL-DB-password`    |
 
+After created a springboot client type connection, Service Connector service will automatically add properties `spring.datasource.url`, `spring.datasource.username`, `spring.datasource.password`. So Spring boot application could add beans automatically.
+
+1. Install dependencies. Add following dependencies to your `pom.xml` file.
+```xml
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>spring-cloud-azure-dependencies</artifactId>
+      <version>4.10.0</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>spring-cloud-azure-starter-jdbc-mysql</artifactId>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+```
+
+1. Setup normal Spring App application, more detail in this [section](/azure/developers/java/spring-framework/configure-spring-data-jpa-with-azure-mysql/#tabs=password).
+
+#### [Python](#tab/secret-python)
+
+| Default environment variable name   | Description       | Example value                              |
+|-------------------------------------|-------------------|--------------------------------------------|
+| `AZURE_MYSQL_NAME`                  | Database name     | `MySQL-DB-name`                            |
+| `AZURE_MYSQL_HOST`                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
+| `AZURE_MYSQL_USER`                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
+| `AZURE_MYSQL_PASSWORD`              | Database password | `MySQL-DB-password`                        |
 
 
-#### [Go(go-sql-driver)](#tab/secret-go)
+1. Install dependencies. Follow the guidance to [install Connector/Python](https://dev.mysql.com/doc/connector-python/en/connector-python-installation.html) by following the guidance.
+1. In code, get MySQL connection information from environment variables added by Service Connector service.
+```python
+import os
+import mysql.connector
+
+host = os.getenv('AZURE_MYSQL_HOST')
+user = os.getenv('AZURE_MYSQL_USER')
+password = os.getenv('AZURE_MYSQL_PASSWORD')
+database = os.getenv('Azure_MYSQL_NAME')
+port = os.getenv('AZURE_MYSQL_PORT')
+
+cnx = mysql.connector.connect(user=user, password=password,
+                              host=host,
+                              database=database,
+                              port=port)
+
+cnx.close()
+```
+
+
+#### [Django](#tab/secret-django)
+
+| Default environment variable name   | Description       | Example value                              |
+|-------------------------------------|-------------------|--------------------------------------------|
+| `AZURE_MYSQL_NAME`                  | Database name     | `MySQL-DB-name`                            |
+| `AZURE_MYSQL_HOST`                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
+| `AZURE_MYSQL_USER`                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
+| `AZURE_MYSQL_PASSWORD`              | Database password | `MySQL-DB-password`                        |
+
+1. Install dependencies.
+```bash
+pip install django==3.2
+```
+
+1. In setting file, get MySQL database information from environment variables added by Service Connector service.
+```python
+# in your setting file, eg. settings.py
+host = os.getenv('AZURE_MYSQL_HOST')
+user = os.getenv('AZURE_MYSQL_USER')
+password = os.getenv('AZURE_MYSQL_PASSWORD')
+database = os.getenv('AZURE_MYSQL_NAME')
+port = os.getenv('AZURE_MYSQL_PORT')
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': database,
+        'USER': user,
+        'PASSWORD': password,
+        'HOST': host,
+        'PORT': port
+    }
+}
+```
+
+#### [Go](#tab/secret-go)
 
 | Default environment variable name | Description                     | Example value                                                                                                |
 |-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
@@ -140,7 +199,7 @@ try (Connection connection = DriverManager.getConnection(connectionString)) {
 go get -u github.com/go-sql-driver/mysql
 ```
 
-2. In code, get MySQL connection string from environment variables added by Service Connector service.
+1. In code, get MySQL connection string from environment variables added by Service Connector service.
 ```go
 import (
     "database/sql"
@@ -154,7 +213,7 @@ connectionString := os.Getenv("AZURE_MYSQL_CONNECTIONSTRING")
 db, err := sql.Open("mysql", connectionString)
 ```
 
-#### [Node.js](#tab/secret-nodejs)
+#### [NodeJS](#tab/secret-nodejs)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -166,27 +225,35 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_SSL`                   | SSL option        | `true`                                     |
 
 
-#### [Python(mysql-connector-python)](#tab/secret-python)
+1. Install dependencies.
+```bash
+npm install mysql
+```
 
-| Default environment variable name   | Description       | Example value                              |
-|-------------------------------------|-------------------|--------------------------------------------|
-| `AZURE_MYSQL_NAME`                  | Database name     | `MySQL-DB-name`                            |
-| `AZURE_MYSQL_HOST`                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
-| `AZURE_MYSQL_USER`                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
-| `AZURE_MYSQL_PASSWORD`              | Database password | `MySQL-DB-password`                        |
+1. In code, get MySQL connection information from environment variables added by Service Connector service.
+```javascript
+const mysql = require('mysql')
+
+const connection = mysql.createConnection({
+  host: process.env.AZURE_MYSQL_HOST,
+  user: process.env.AZURE_MYSQL_USER,
+  password: process.env.AZURE_MYSQL_PASSWORD,
+  database: process.env.AZURE_MYSQL_DATABASE,
+  port: process.env.AZURE_MYSQL_PORT,
+  ssl: process.env.AZURE_MYSQL_SSL
+});
+
+connection.connect((err) => {
+  if (err) {
+    console.error('Error connecting to MySQL database: ' + err.stack);
+    return;
+  }
+  console.log('Connected to MySQL database.');
+});
+```
 
 
-#### [Python-Django](#tab/secret-django)
-
-| Default environment variable name   | Description       | Example value                              |
-|-------------------------------------|-------------------|--------------------------------------------|
-| `AZURE_MYSQL_NAME`                  | Database name     | `MySQL-DB-name`                            |
-| `AZURE_MYSQL_HOST`                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
-| `AZURE_MYSQL_USER`                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
-| `AZURE_MYSQL_PASSWORD`              | Database password | `MySQL-DB-password`                        |
-
-
-#### [PHP(MySQLi)](#tab/secret-php)
+#### [PHP](#tab/secret-php)
 
 | Default environment variable name   | Description        | Example value                              |
 |-------------------------------------|--------------------|--------------------------------------------|
@@ -198,7 +265,32 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_PASSWORD`              | Database password  | `<MySQL-DB-password>`                      |
 
 
-#### [Ruby(mysql2)](#tab/secret-ruby)
+1. Install dependencies. Follow the guide to [install MySQLi](https://www.php.net/manual/en/mysqli.installation.php).
+1. In code, get MySQL connection information from environment variables added by Service Connector service.
+```php
+<?php
+$host = getenv('AZURE_MYSQL_HOST');
+$username = getenv('AZURE_MYSQL_USER');
+$password = getenv('AZURE_MYSQL_PASSWORD');
+$database = getenv('Azure_MYSQL_DBNAME');
+$port = getenv('AZURE_MYSQL_PORT');
+$flag = getenv('AZURE_MYSQL_FLAG');
+
+$conn = mysqli_init();
+mysqli_ssl_set($conn,NULL,NULL,NULL,NULL,NULL);
+mysqli_real_connect($conn, $host, $username, $password, $database, $port, NULL, $flag);
+
+if (mysqli_connect_errno($conn)) {
+    die('Failed to connect to MySQL: ' . mysqli_connect_error());
+}
+
+echo 'Connected successfully to MySQL database!';
+mysqli_close($conn);
+?>
+```
+
+
+#### [Ruby](#tab/secret-ruby)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -207,6 +299,27 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_USERNAME`              | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | `AZURE_MYSQL_PASSWORD`              | Database password | `<MySQL-DB-password>`                      |
 | `AZURE_MYSQL_SSLMODE`               | SSL option        | `required`                                 |
+
+1. Install dependencies.
+```bash
+gem install mysql2
+```
+
+1. In code, get MySQL connection information from environment variables added by Service Connector service.
+```ruby
+require 'mysql2'
+require 'dotenv/load'
+
+client = Mysql2::Client.new(
+  host: ENV['AZURE_MYSQL_HOST'],
+  username: ENV['AZURE_MYSQL_USER'],
+  password: ENV['AZURE_MYSQL_PASSWORD'],
+  database: ENV['AZURE_MYSQL_DATABASE'],
+  sslca: ENV['AZURE_MYSQL_SSLMODE']
+)
+
+client.close
+```
 
 ---
 
@@ -217,7 +330,6 @@ db, err := sql.Open("mysql", connectionString)
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `AZURE_MYSQL_CONNECTIONSTRING `     | ADO.NET MySQL connection string | `Server=<MySQL-DB-name>.mysql.database.azure.com;Database=<MySQL-DB-name>;Port=3306;User Id=<MySQL-DBusername>;SSL Mode=Required;` |
 
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
 
 
 #### [Java](#tab/systemmi-java)
@@ -226,10 +338,9 @@ db, err := sql.Open("mysql", connectionString)
 |-----------------------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | `AZURE_MYSQL_CONNECTIONSTRING`      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>` |
 
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
 
 
-#### [Spring Boot](#tab/systemmi-spring)
+#### [SpringBoot](#tab/systemmi-spring)
 
 | Application properties                   | Description                           | Example value                                                                                 |
 |------------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------|
@@ -237,7 +348,6 @@ db, err := sql.Open("mysql", connectionString)
 | `spring.datasource.url`                  | Spring Boot JDBC database URL         | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required` |
 | `spring.datasource.username`             | Database username        | `<MySQL-DB-username>`  |
 
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md?tab=spring)]
 
 #### [Go](#tab/systemmi-go)
 
@@ -245,9 +355,9 @@ db, err := sql.Open("mysql", connectionString)
 |-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
 | `AZURE_MYSQL_CONNECTIONSTRING`      | Go-sql-driver connection string | `<MySQL-DB-username>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
 
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md#go)]
 
-#### [Node.js](#tab/systemmi-nodejs)
+
+#### [NodeJS](#tab/systemmi-nodejs)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -266,7 +376,7 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_USER`                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 
 
-#### [Python-Django](#tab/systemmi-django)
+#### [Django](#tab/systemmi-django)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -293,6 +403,9 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_USERNAME`              | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | `AZURE_MYSQL_SSLMODE`               | SSL option        | `required`                                 |
 
+
+[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
+
 ---
 
 ### [User assigned Managed Identity](#usermi)
@@ -303,18 +416,17 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_CLIENTID`              | Your client ID                  | `<identity-client-ID>` |
 | `AZURE_MYSQL_CONNECTIONSTRING`     | ADO.NET MySQL connection string | `Server=<MySQL-DB-name>.mysql.database.azure.com;Database=<MySQL-DB-name>;Port=3306;User Id=<MySQL-DBusername>;SSL Mode=Required;` |
 
-[!INCLUDE [code sample for mysql aad connection](./includes/code-mysql-aad.md#dotnet)]
 
-#### [Java(JDBC)](#tab/usermi-java)
+#### [Java](#tab/usermi-java)
 
 | Default environment variable name | Description                  | Example value                                                                                                          |
 |-----------------------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | `AZURE_MYSQL_CLIENTID`              | Your client ID               | `<identity-client-ID>` |
 | `AZURE_MYSQL_CONNECTIONSTRING`      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>` |
 
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md#java)]
 
-#### [Spring Boot(JDBC)](#tab/usermi-spring)
+
+#### [SpringBoot](#tab/usermi-spring)
 
 | Application properties                                          | Description                       | Example value                                                                                                 |
 |-----------------------------------------------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------|
@@ -324,18 +436,17 @@ db, err := sql.Open("mysql", connectionString)
 | `spring.datasource.url`                                         | Database URL                      | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required`                 |
 | `spring.datasource.username`                                    | Database username                 | `username` |
 
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md#spring)]
 
-#### [Go(go-sql-driver for mysql)](#tab/usermi-go)
+#### [Go](#tab/usermi-go)
 
 | Default environment variable name | Description                     | Example value                                                                                                |
 |-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
 | `AZURE_MYSQL_CLIENTID`              | Your client ID               | `<identity-client-ID>` |
 | `AZURE_MYSQL_CONNECTIONSTRING`      | Go-sql-driver connection string | `<MySQL-DB-username>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
 
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md#go)]
 
-#### [Node.js](#tab/usermi-nodejs)
+
+#### [NodeJS](#tab/usermi-nodejs)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -346,7 +457,7 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_SSL`                   | SSL option        | `true`                                     |
 | `AZURE_MYSQL_CLIENTID`              | Your client ID    | `<identity-client-ID>`                     |
 
-#### [Python(mysql-connector-python)](#tab/usermi-python)
+#### [Python](#tab/usermi-python)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -355,7 +466,7 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_USER`                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | `AZURE_MYSQL_CLIENTID`              | Your client ID    | `identity-client-ID`                       |
 
-#### [Python-Django](#tab/usermi-django)
+#### [Django](#tab/usermi-django)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -364,7 +475,7 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_USER `                 | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | `AZURE_MYSQL_CLIENTID`              | Your client ID    | `<identity-client-ID>`                     |
 
-#### [PHP(MySQLi)](#tab/usermi-php)
+#### [PHP](#tab/usermi-php)
 
 | Default environment variable name   | Description        | Example value                              |
 |-------------------------------------|--------------------|--------------------------------------------|
@@ -375,7 +486,7 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_USERNAME`              | Database Username  | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | `AZURE_MYSQL_CLIENTID`              | Your client ID     | `<identity-client-ID>`                     |
 
-#### [Ruby(mysql2)](#tab/usermi-ruby)
+#### [Ruby](#tab/usermi-ruby)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -385,11 +496,13 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_SSLMODE`               | SSL option        | `required`                                 |
 | `AZURE_MYSQL_CLIENTID`              | Your client ID    | `<identity-client-ID>`                     |
 
+[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
+
 ---
 
 ### [Service Principal](#sp)
 
-#### [.NET(MySqlConnector)](#tab/sp-dotnet)
+#### [.NET](#tab/sp-dotnet)
 
 | Default environment variable name | Description                     | Example value                                                                                                                                                  |
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -398,9 +511,8 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_TENANTID`              | Your tenant ID                  | `<tenant-ID>`     |
 | `AZURE_MYSQL_CONNECTIONSTRING`      | ADO.NET MySQL connection string | `Server=<MySQL-DB-name>.mysql.database.azure.com;Database=<MySQL-DB-name>;Port=3306;User Id=<MySQL-DBusername>;SSL Mode=Required` |
 
-[!INCLUDE [code sample for mysql aad connection](./includes/code-mysql-aad.md#dotnet)]
 
-#### [Java(JDBC)](#tab/sp-java)
+#### [Java](#tab/sp-java)
 
 | Default environment variable name   | Description                  | Example value                                           |
 |-------------------------------------|------------------------------|---------------------------------------------------------|
@@ -409,9 +521,8 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_TENANTID`              | Your tenant ID               | `<tenant-ID>`                                           |
 | `AZURE_MYSQL_CONNECTIONSTRING`      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>` |
 
-[!INCLUDE [code sample for mysql aad connection](./includes/code-mysql-aad.md#java)]
 
-#### [Spring Boot(JDBC)](#sp-spring)
+#### [SpringBoot](#sp-spring)
 
 | Application properties                                          | Description                       | Example value                                                                                                 |
 |-----------------------------------------------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------|
@@ -422,9 +533,8 @@ db, err := sql.Open("mysql", connectionString)
 | `spring.datasource.url`                                         | Database URL                      | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required`                 |
 | `spring.datasource.username`                                    | Database username                 | `username`        |
 
-[!INCLUDE [code sample for mysql aad connection](./includes/code-mysql-aad.md#spring)]
 
-#### [Go(go-sql-driver for mysql)](#tab/sp-go)
+#### [Go](#tab/sp-go)
 
 | Default environment variable name | Description                     | Example value                                                                                                |
 |-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
@@ -433,9 +543,8 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_TENANTID`              | Your tenant ID                  | `<tenant-ID>` 
 | `AZURE_MYSQL_CONNECTIONSTRING`      | Go-sql-driver connection string | `<MySQL-DB-username>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
 
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md#go)]
 
-#### [Node.js](#tab/sp-nodejs)
+#### [NodeJS](#tab/sp-nodejs)
 
 | Default environment variable name   | Description           | Example value                                          |
 |-------------------------------------|-----------------------|--------------------------------------------------------|
@@ -448,7 +557,7 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_CLIENTSECRET`          | Your client secret    | `<client-secret>`                                      |
 | `AZURE_MYSQL_TENANTID`              | Your tenant ID        | `<tenant-ID>`                                          |
 
-#### [Python(mysql-connector-python)](#tab/sp-python)
+#### [Python](#tab/sp-python)
 
 | Default environment variable name   | Description        | Example value                              |
 |-------------------------------------|--------------------|--------------------------------------------|
@@ -460,7 +569,7 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_TENANTID`              | Your tenant ID     | `<tenant-ID>`                              |
 
 
-#### [Python-Django](#tab/sp-django)
+#### [Django](#tab/sp-django)
 
 | Default environment variable name   | Description        | Example value                              |
 |-------------------------------------|--------------------|--------------------------------------------|
@@ -472,7 +581,7 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_TENANTID`              | Your tenant ID     | `<tenant-ID>`                              |
 
 
-#### [PHP(MySQLi)](#tab/sp-php)
+#### [PHP](#tab/sp-php)
 
 | Default environment variable name   | Description        | Example value                              |
 |-------------------------------------|--------------------|--------------------------------------------|
@@ -485,7 +594,7 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_CLIENTSECRET`          | Your client secret | `<client-secret>`                          |
 | `AZURE_MYSQL_TENANTID`              | Your tenant ID     | `<tenant-ID>`                              |
 
-#### [Ruby(mysql2)](#tab/sp-ruby)
+#### [Ruby](#tab/sp-ruby)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -496,6 +605,9 @@ db, err := sql.Open("mysql", connectionString)
 | `AZURE_MYSQL_CLIENTID`              | Your client ID    | `<client-ID>`                              |
 | `AZURE_MYSQL_CLIENTSECRET`          | Your client secret| `<client-secret>`                          |
 | `AZURE_MYSQL_TENANTID`              | Your tenant ID    | `<tenant-ID>`                              |
+
+
+[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
 
 ---
 
