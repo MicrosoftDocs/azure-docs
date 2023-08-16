@@ -40,12 +40,9 @@ After configuring endpoints, you can configure network rules to further control 
 ## Private endpoints
 
 > [!IMPORTANT]
-> Private endpoints for Elastic SAN are currently only supported in France Central.
+> Private endpoints for Elastic SAN Preview are currently only supported in France Central.
 
-Azure [Private Link](../../private-link/private-link-overview.md) enables you to access an Elastic SAN volume group securely over a [private endpoint](../../private-link/private-endpoint-overview.md) from a virtual network subnet. Private endpoints use a separate set of IP addresses from the subnet address space for each volume group. Traffic between your virtual network and the service traverses the Microsoft backbone network, eliminating the risk of exposing your service to the public internet.
-
-> [!NOTE]
-> An Elastic SAN private endpoint uses multiple IP addresses from the private address space of the subnet. The maximum number used per endpoint is 20.
+Azure [Private Link](../../private-link/private-link-overview.md) enables you to access an Elastic SAN volume group securely over a [private endpoint](../../private-link/private-endpoint-overview.md) from a virtual network subnet. Traffic between your virtual network and the service traverses the Microsoft backbone network, eliminating the risk of exposing your service to the public internet. An Elastic SAN private endpoint uses a set of IP addresses from the subnet address space for each volume group. The maximum number used per endpoint is 20.
 
 Private endpoints have several advantages over service endpoints. For a complete comparison of private endpoints to service endpoints, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
 
