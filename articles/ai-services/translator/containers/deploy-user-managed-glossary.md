@@ -49,15 +49,16 @@ There may be times when you're running a container with a multi-layered ingestio
    > * If you're hesitant about making sweeping find-and-replace changes, we recommend, at the outset, solely using the **sent&#8203;fix** solution.
 
 1. Next, to dynamically reload glossary entry updates, create a `version.json` file within the `customhotfix` folder. The `version.json` file should contain the following parameters: **VersionId**. An integer value.
-      ***Sample version.json file***
 
-        ```json
-        {
+***Sample version.json file***
 
-            "VersionId": 5
+  ```json
+  {
 
-        }
-        ```
+  "VersionId": 5
+
+  }
+ ```
 
     > [!TIP]
     >
