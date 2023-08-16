@@ -43,7 +43,7 @@ For documents and datasets with long text, you should use the available [data pr
 
 ## Data formats and file types
 
-Azure OpenAI on your data supports the following filetypes:
+Azure OpenAI on your data supports the following filetypes (16 MB or less per file):
 
 * `.txt`
 * `.md`
