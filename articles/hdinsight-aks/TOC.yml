@@ -42,15 +42,15 @@ items:
   - name: Export ARM templates
     items:
     - name: Manual export
-      href: ./create-cluster-using-arm-template.md
+      href: ./create-cluster-use-arm-template.md
     - name: Script based export
-      href: ./create-cluster-using-arm-template-script.md
+      href: ./create-cluster-use-arm-template-script.md
   - name: Secure Network Traffic  
     items:
     - name: Use firewall with Azure CLI
       href: ./secure-traffic-by-firewall.md
     - name: Use firewall with Azure portal
-      href: ./secure-traffic-fw-portal.md
+      href: ./secure-traffic-firewall-portal.md
     - name: Use NSG to restrict traffic
       href: ./secure-traffic-by-nsg.md
 - name: Manage
