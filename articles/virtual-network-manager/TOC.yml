@@ -16,6 +16,8 @@
     href: create-virtual-network-manager-cli.md
   - name: Create Virtual Network Manager - Terraform
     href: create-virtual-network-manager-terraform.md
+  - name: Create Virtual Network Manager - ARM
+    href: create-virtual-network-manager-template.md
   - name: Create Virtual Network Manager - Bicep
     href: create-virtual-network-manager-bicep.md
   expanded: true

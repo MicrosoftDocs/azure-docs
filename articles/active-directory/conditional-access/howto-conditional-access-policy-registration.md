@@ -62,7 +62,7 @@ After administrators confirm the settings using [report-only mode](howto-conditi
 
 Administrators will now have to issue Temporary Access Pass credentials to new users so they can satisfy the requirements for multifactor authentication to register. Steps to accomplish this task, are found in the section [Create a Temporary Access Pass in the Azure AD Portal](../authentication/howto-authentication-temporary-access-pass.md#create-a-temporary-access-pass).
 
-Organizations may choose to require other grant controls with or in place of **Require multifactor authentication** at step 7a. When selecting multiple controls, be sure to select the appropriate radio button toggle to require **all** or **one** of the selected controls when making this change.
+Organizations may choose to require other grant controls with or in place of **Require multifactor authentication** at step 8a. When selecting multiple controls, be sure to select the appropriate radio button toggle to require **all** or **one** of the selected controls when making this change.
 
 ### Guest user registration
 

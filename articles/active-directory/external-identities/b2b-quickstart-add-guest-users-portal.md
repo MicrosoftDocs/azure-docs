@@ -24,7 +24,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Instructions for the legacy create user process can be found in the [Add or delete users](../fundamentals/add-users-azure-active-directory.md) article.
+Instructions for the legacy create user process can be found in the [Add or delete users](../fundamentals/add-users.md) article.
 
 ## Prerequisites
 
