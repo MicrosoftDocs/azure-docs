@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 08/07/2023
+ms.date: 08/15/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -26,7 +26,23 @@ Updates in August include:
 
 |Date |Update  |
 |----------|----------|
+| August 15 | [Preview release of GCP support in Defender CSPM](#preview-release-of-gcp-support-in-defender-cspm)|
 | August 7 | [New security alerts in Defender for Servers Plan 2: Detecting potential attacks abusing Azure virtual machine extensions](#new-security-alerts-in-defender-for-servers-plan-2-detecting-potential-attacks-abusing-azure-virtual-machine-extensions)
+
+### Preview release of GCP support in Defender CSPM
+
+August 15, 2023
+
+We are announcing the preview release of the Defender CSPM contextual cloud security graph and attack path analysis with support for GCP resources. You can leverage the power of Defender CSPM for comprehensive visibility and intelligent cloud security across GCP resources. 
+
+ Key features of our GCP support include: 
+
+- **Attack path analysis** - Understand the potential routes attackers might take. 
+- **Cloud security explorer** - Proactively identify security risks by running graph-based queries on the security graph. 
+- **Agentless scanning** - Scan servers and identify secrets and vulnerabilities without installing an agent. 
+- **Data-aware security posture** - Discover and remediate risks to sensitive data in Google Cloud Storage buckets. 
+
+Learn more about [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
 
 ### New security alerts in Defender for Servers Plan 2: Detecting potential attacks abusing Azure virtual machine extensions
 

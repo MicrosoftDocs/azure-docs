@@ -1,6 +1,6 @@
 ---
 title: Build a real-time code-streaming app by using Socket.IO and host it on Azure
-description: Learn how to build an app that allows coders to share coding activities with their audience in real time by using Web PubSub for Socket.IO. 
+description: Learn how to build an app that allows coders to share coding activities with their audience in real time by using Azure Web PubSub for Socket.IO. 
 author: xingsy97
 ms.author: siyuanxing
 ms.date: 08/01/2023
@@ -19,7 +19,6 @@ Through its easy-to-use APIs, [Socket.IO](https://socket.io/) has proven itself 
 This article shows how to build an app that allows a coder to stream coding activities to an audience. You build this application by using:
 
 >[!div class="checklist"]
-> * The Azure CLI
 > * Monaco Editor, the code editor that powers Visual Studio Code.
 > * [Express](https://expressjs.com/), a Node.js web framework.
 > * APIs that the Socket.IO library provides for real-time communication.
@@ -51,8 +50,8 @@ To follow all the steps in this article, you need:
 
 > [!div class="checklist"]
 > * An [Azure](https://portal.azure.com/) account. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-> * [Azure CLI](/cli/azure/install-azure-cli) (version 2.29.0 or later) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources
-> * Basic familiarity with [Socket.IO's APIs](https://socket.io/docs/v4/)
+> * [Azure CLI](/cli/azure/install-azure-cli) (version 2.29.0 or later) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources.
+> * Basic familiarity with [Socket.IO's APIs](https://socket.io/docs/v4/).
 
 ## Create a Web PubSub for Socket.IO resource
 
@@ -70,7 +69,7 @@ az webpubsub create -n <resource-name> \
 
 A connection string allows you to connect with Web PubSub for Socket.IO.
 
-Run the following commands. Keep the returned connection string somewhere, because you'll need it when you run the application at the end of the article.
+Run the following commands. Keep the returned connection string somewhere, because you'll need it when you run the application later in this article.
 
 ```bash
 az webpubsub key show -n <resource-name> \ 
@@ -116,7 +115,7 @@ Start writing your application's code by working on the server side.
     app.use(express.static(path.join(__dirname, 'public')));
     ```
 
-4. Define an endpoint called `/negotiate`. A *writer* client hits this endpoint first. This endpoint returns an HTTP response. The response contains an endpoint that the client should establish a persistent connection with. It also returns a `room` value that the client is assigned to.
+4. Define an endpoint called `/negotiate`. A *writer* client hits this endpoint first. This endpoint returns an HTTP response. The response contains an endpoint that the client should use to establish a persistent connection. It also returns a `room` value that the client is assigned to.
 
     ```javascript
     /* server.js*/
@@ -225,7 +224,7 @@ Now that the server-side procedures are finished, you can work on the client sid
 
 ### Initial setup
 
-On the client side, you need to create an Socket.IO client to communicate with the server. The question is which server the client should establish a persistent connection with. Because you're using Web PubSub for Socket.IO, the server is an Azure service. Recall that you defined a [`/negotiate`](#build-an-http-server) route to serve clients an endpoint to Web PubSub for Socket.IO.
+You need to create an Socket.IO client to communicate with the server. The question is which server the client should establish a persistent connection with. Because you're using Web PubSub for Socket.IO, the server is an Azure service. Recall that you defined a [`/negotiate`](#build-an-http-server) route to serve clients an endpoint to Web PubSub for Socket.IO.
 
 ```javascript
 /*client.js*/
@@ -245,7 +244,7 @@ async function initialize(url) {
 }
 ```
 
-The `initialize(url)` organizes a few setup operations together:
+The `initialize(url)` function organizes a few setup operations together:
 
 * Fetches the endpoint to an Azure service from your HTTP server
 * Creates a Monaco Editor instance
@@ -263,7 +262,7 @@ The `initialize(url)` organizes a few setup operations together:
     let [socket, editor, room_id] = await initialize('/negotiate');
     ```
 
-2. When the writer client is connected with the server, the server sends a `login` event to the writer. The writer can respond by asking the server to join itself to a specified room. Every 200 milliseconds, the writer sends its latest editor state to the room. A function named `flush` organizes the sending logic.
+2. When the writer client is connected with the server, the server sends a `login` event to the writer. The writer can respond by asking the server to join itself to a specified room. Every 200 milliseconds, the writer client sends the latest editor state to the room. A function named `flush` organizes the sending logic.
 
     ```javascript
     /*client.js*/
@@ -330,7 +329,7 @@ The `initialize(url)` organizes a few setup operations together:
     });
     ```
 
-2. When a viewer client receives a `message` event from server and the data type is `ackJoinRoom`, the viewer client asks the writer client in the room to send over the complete editor state.
+2. When a viewer client receives a `message` event from the server and the data type is `ackJoinRoom`, the viewer client asks the writer client in the room to send the complete editor state.
 
     ```javascript
     /*client.js*/
@@ -366,7 +365,7 @@ The `initialize(url)` organizes a few setup operations together:
     });
     ```
 
-4. Implement `joinRoom()` and `sendToRoom()` by using functions from Socket.IO's API:
+4. Implement `joinRoom()` and `sendToRoom()` by using Socket.IO's APIs:
 
     ```javascript
     /*client.js*/
@@ -401,7 +400,7 @@ You can clone the repo and run `npm install` to install project dependencies.
 node index.js <web-pubsub-connection-string>
 ```
 
-This is the connection string that you received in [a previous step](#get-connection-string).
+This is the connection string that you received in [an earlier step](#get-a-connection-string).
 
 ### Play with the real-time code editor
 

@@ -10,50 +10,46 @@ ms.topic: how-to
 
 # Migrate a self-hosted Socket.IO app to be fully managed on Azure
 
+In this article, you migrate a Socket.IO chat app to Azure by using Azure Web PubSub for Socket.IO.
+
 >[!NOTE]
-> Web PubSub for Socket.IO is in "Private Preview" and is available to selected customers only. To register your interest, please write to us awps@microsoft.com.
+> Web PubSub for Socket.IO is in private preview and is available to selected customers only. To register your interest, [send email to the product team](mailto:awps@microsoft.com).
 
 ## Prerequisites
 
 > [!div class="checklist"]
-> * An Azure account with an active subscription. If you don't have one, you can [create a free accout](https://azure.microsoft.com/free/). 
-> * Some familiarity with Socket.IO library.
+> * An Azure account with an active subscription. If you don't have one, you can [create a free account](https://azure.microsoft.com/free/). 
+> * Some familiarity with the Socket.IO library.
 
 ## Create a Web PubSub for Socket.IO resource
 
-Head over to Azure portal and search for `socket.io`.
-:::image type="content" source="./media/socketio-migrate-from-self-hosted/create-resource.png" alt-text="Screenshot of Web PubSub for Socket.IO service.":::
+1. Go to the [Azure portal](https://portal.azure.com/).
+1. Search for **socket.io**, and then select **Web PubSub for Socket.IO**.
+1. Select a plan, and then select **Create**.
 
-## Migrate an official Socket.IO sample app
+   :::image type="content" source="./media/socketio-migrate-from-self-hosted/create-resource.png" alt-text="Screenshot of the Web PubSub for Socket.IO service in the Azure portal.":::
 
-To focus this guide to the migration process, we're going to use a sample chat app provided on [Socket.IO's website](https://github.com/socketio/socket.io/tree/4.6.2/examples/chat). We need to make some minor changes to both the **server-side** and **client-side** code to complete the migration.
+## Migrate the app
+
+For the migration process in this guide, you use a sample chat app provided on [Socket.IO's website](https://github.com/socketio/socket.io/tree/4.6.2/examples/chat). You need to make some minor changes to both the server-side and client-side code to complete the migration.
 
 ### Server side
 
-Locate `index.js` in the server-side code.
+1. Locate `index.js` in the server-side code.
 
-1. Add package `@azure/web-pubsub-socket.io`
+2. Add the `@azure/web-pubsub-socket.io` package:
 
     ```bash
     npm install @azure/web-pubsub-socket.io
     ```
 
-2. Import package in server code `index.js`
+3. Import the package:
 
     ```javascript
     const { useAzureSocketIO } = require("@azure/web-pubsub-socket.io");
     ```
 
-3. Add configuration so that the server can connect with your Web PubSub for Socket.IO resource.
-
-    ```javascript
-    const wpsOptions = {
-        hub: "eio_hub", // The hub name can be any valid string.
-        connectionString: process.argv[2]
-    };
-    ```
-
-4. Locate in your server-side code where Socket.IO server is created and append `.useAzureSocketIO(wpsOptions)`:
+4. Locate in your server-side code where you created the Socket.IO server, and append `useAzureSocketIO(wpsOptions)`:
 
     ```javascript
     const io = require("socket.io")();
@@ -62,36 +58,38 @@ Locate `index.js` in the server-side code.
     ```
 
    >[!IMPORTANT]
-   > `useAzureSocketIO` is an asynchronous method. Here we `await`. So you need to wrap it and related code in an asynchronous function.
+   > The `useAzureSocketIO` method is asynchronous, and it does initialization steps to connect to Web PubSub. You can use `await useAzureSocketIO(...)` or use `useAzureSocketIO(...).then(...)` to make sure your app server starts to serve requests after the initialization succeeds.
 
-5. If you use the following server APIs, add `async` before using them as they're asynchronous with Web PubSub for Socket.IO.
+5. If you use the following server APIs, add `async` before using them, because they're asynchronous with Web PubSub for Socket.IO:
 
    * [server.socketsJoin](https://socket.io/docs/v4/server-api/#serversocketsjoinrooms)
    * [server.socketsLeave](https://socket.io/docs/v4/server-api/#serversocketsleaverooms)
    * [socket.join](https://socket.io/docs/v4/server-api/#socketjoinroom)
    * [socket.leave](https://socket.io/docs/v4/server-api/#socketleaveroom)
 
-    For example, if there's code like:
+    For example, if there's code like this:
 
     ```javascript
     io.on("connection", (socket) => { socket.join("room abc"); });
     ```
 
-    you should update it to:
+    Update it to:
 
     ```javascript
     io.on("connection", async (socket) => { await socket.join("room abc"); });
     ```
 
-    In this chat example, none of them are used. So no changes are needed.
+    In this chat example, none of them are used. So you don't need to make any changes.
 
 ### Client side
 
-In client-side code found in `./public/main.js`
+1. Find the endpoint to your resource on the Azure portal.
 
-:::image type="content" source="./media/socketio-migrate-from-self-hosted/get-resource-endpoint.png" alt-text="Screenshot of getting the endpoint to Web PubSub for Socket.IO resource.":::
+   :::image type="content" source="./media/socketio-migrate-from-self-hosted/get-resource-endpoint.png" alt-text="Screenshot of getting the endpoint to a Web PubSub for Socket.IO resource.":::
 
-Find where Socket.IO client is created, then replace its endpoint with Azure Socket.IO endpoint and add an `path` option. You can find the endpoint to your resource on Azure portal.
+1. Go to `./public/main.js` in the client-side code.
+
+1. Find where the Socket.IO client is created. Replace its endpoint with the Azure Socket.IO endpoint, and add a `path` option:
 
 ```javascript
 const socket = io("<web-pubsub-for-socketio-endpoint>", {

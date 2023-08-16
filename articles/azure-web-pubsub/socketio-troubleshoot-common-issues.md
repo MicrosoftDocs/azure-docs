@@ -1,77 +1,69 @@
 ---
-title: Troubleshoot Socket.IO common issues
-description: Learn how to troubleshoot Socket.IO common issues.
+title: Troubleshoot Socket.IO common problems
+description: Learn how to troubleshoot common problems with the Socket.IO library and the Azure Web PubSub service.
 author: xingsy97
 ms.author: siyuanxing
 ms.date: 08/01/2023
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
-# Troubleshoot Socket.IO common issues
+# Troubleshoot Socket.IO common problems
 
-Azure Web PubSub for Socket.IO builds on Socket.IO library. When you use this Azure service, issues may lie with Socket.IO library itself or the service.
+Azure Web PubSub for Socket.IO builds on the Socket.IO library. When you're using the Azure service, you might encounter problems that lie with the library or with the service.
 
-## Issues with Socket.IO library
+To determine if the problems are with Socket.IO library, you can isolate it by temporarily removing Web PubSub for Socket.IO from your application. If the application works as expected after the removal, the root cause is probably with the Azure service.
 
-To determine if the issues are with Socket.IO library, you can isolate it by temporarily removing Web PubSub for Socket.IO from your application. If the application works as expected after the removal, the root cause is probably with the Azure service.
+If you suspect that the problems are with Socket.IO library, refer to [Socket.IO library's documentation](https://socket.io/docs/v4/troubleshooting-connection-issues/).
 
-If you suspect the issues are with Socket.IO library, refer to [Socket.IO library's documentation](https://socket.io/docs/v4/troubleshooting-connection-issues/) for common connection issues.
+If you suspect that the problems are with the Azure service after investigation, use this article to find solutions to common problems.
 
-## Issues with Web PubSub for Socket.IO 
+Additionally, you can [enable logging on the server side](./socketio-troubleshoot-logging.md#server-side) to examine closely the behavior of your Socket.IO app, if none of the listed solutions help.
 
-If you suspect that the issues are with the Azure service after investigation, take a look at the list of common issues. 
+## Server side: Improper package import
 
-Additionally, you can [enable logging on the server side](./socketio-troubleshoot-logging.md#server-side) to examine closely the behavior of your Socket.IO app, if none of the listed issues helps.
+### Possible error
 
-### Server side
+`TypeError: (intermediate value).useAzureSocketIO is not a function`
 
-#### `useAzureSocketIO is not a function`
+### Root cause
 
-##### Possible error
-
-- `TypeError: (intermediate value).useAzureSocketIO is not a function`
-
-##### Root cause
-
-If you use TypeScript in your project, you may observe this error. It's due to the improper package import. 
+If you use TypeScript in your project, you might observe this error. It's due to improper package import.
 
 ```typescript
 // Bad example
 import * as wpsExt from "@azure/web-pubsub-socket.io"
 ```
 
-If a package isn't used or referenced after importing, the default behavior of TypeScript compiler is not to emit the package in the compiled `.js` file.
+If a package isn't used or referenced after importing, the default behavior of the TypeScript compiler is not to emit the package in the compiled *.js* file.
 
-##### Solution
+### Solution
 
-Use `import "@azure/web-pubsub-socket.io"`, instead. This import statement forces TypeScript compiler to include a package in the compiled `.js` file even if the package isn't referenced anywhere in the source code. [Read more](https://github.com/Microsoft/TypeScript/wiki/FAQ#why-are-imports-being-elided-in-my-emit)about this frequently asked question from the TypeScript community.
+Use `import "@azure/web-pubsub-socket.io"` instead. This import statement forces the TypeScript compiler to include a package in the compiled *.js* file, even if the package isn't referenced anywhere in the source code. [Read more](https://github.com/Microsoft/TypeScript/wiki/FAQ#why-are-imports-being-elided-in-my-emit) about this frequently asked question from the TypeScript community.
 
 ```typescript
 // Good example. 
-// It forces TypeScript to include the package in compiled `.js` file.
+// It forces TypeScript to include the package in compiled .js file.
 import "@azure/web-pubsub-socket.io"
 ```
 
-### Client side
+## Client side: Incorrect path option
 
-#### `404 Not Found in client side with AWPS endpoint`
-
-##### Possible error
+### Possible error
 
 `GET <web-pubsub-endpoint>/socket.io/?EIO=4&transport=polling&t=OcmE4Ni` 404 Not Found
 
-##### Root cause
+### Root cause
 
-Socket.IO client is created without a correct `path` option.
+The Socket.IO client was created without a correct `path` option.
 
 ```javascript
 // Bad example
 const socket = io(endpoint)
 ```
 
-##### Solution 
+### Solution 
 
-Add the correct `path` option with value `/clients/socketio/hubs/eio_hub`
+Add the correct `path` option with the value `/clients/socketio/hubs/eio_hub`.
 
 ```javascript
 // Good example
@@ -80,15 +72,15 @@ const socket = io(endpoint, {
 });
 ```
 
-#### `404 Not Found in client side with non-AWPS endpoint`
+## Client side: Missing Web PubSub for Socket.IO endpoint
 
-##### Possible Error
+### Possible error
 
 `GET <non-web-pubsub-endpoint>/socket.io/?EIO=4&transport=polling&t=OcmE4Ni` 404 Not Found
 
-##### Root cause
+### Root cause
 
-Socket.IO client is created without correct Web PubSub for Socket.IO endpoint. For example:
+The Socket.IO client was created without a correct Web PubSub for Socket.IO endpoint. For example:
 
 ```javascript
 // Bad example. 
@@ -99,11 +91,11 @@ const socket = io(endpoint, {
 });
 ```
 
-When you use Web PubSub for Socket.IO, your clients establish connections with an Azure service. When creating a Socket.IO client, you need use the endpoint to your Web PubSub for Socket.IO resource.  
+When you use Web PubSub for Socket.IO, your clients establish connections with an Azure service. When you create a Socket.IO client, you need to use the endpoint for your Web PubSub for Socket.IO resource.  
 
-##### Solution
+### Solution
 
-Let Socket.IO client use the endpoint of your Web PubSub for Socket.IO resource.
+Let Socket.IO client use the endpoint for your Web PubSub for Socket.IO resource.
 
 ```javascript
 // Good example.
