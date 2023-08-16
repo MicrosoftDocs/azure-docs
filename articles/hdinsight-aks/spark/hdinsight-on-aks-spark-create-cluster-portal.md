@@ -47,8 +47,8 @@ You can use the Azure portal to create an Apache Spark cluster in cluster pool. 
     |Subnet|Subnet is pre populated|
    
     > [!NOTE]
-    > 1. Currently HDInsight support only MS SQL Server databases.
-    > 1. Due to Hive limitation, "-" (hyphen) character in metastore database name is not supported.
+    > * Currently HDInsight support only MS SQL Server databases.
+    > * Due to Hive limitation, "-" (hyphen) character in metastore database name is not supported.
     
 1. Select **Next: Configuration + pricing** to continue.
 
