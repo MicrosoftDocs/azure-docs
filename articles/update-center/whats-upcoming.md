@@ -20,9 +20,9 @@ Expanded support for [specialized images](../virtual-machines/linux/imaging.md#s
 
 Update management center will be declared GA soon.
 
-## Pre-script and post-script 
+## Prescript and postscript 
 
-The pre-script and post-script will be available by CY Q4 2023.
+The prescript and post-script will be available soon.
 
 ## Next steps
 
