@@ -210,7 +210,7 @@ Deploying a private endpoint for an Elastic SAN Volume group using the Azure CLI
     1. Subnet name
     1. Vnet name
 
-Use this sample code to create a private endpoint for your Elastic SAN volume group with the Azure CLI. Uncomment the `--manual-request` parameter if you are using the two-step process. Replace all placeholder text with your own values:
+Use this sample code to create a private endpoint for your Elastic SAN volume group with the Azure CLI. Replace all placeholder text with your own values:
 
 | Placeholder                      | Description |
 |----------------------------------|-------------|
