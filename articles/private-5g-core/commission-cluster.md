@@ -72,6 +72,8 @@ Run the following commands at the PowerShell prompt, specifying the object ID yo
 
 ```powershell
 Invoke-Command -Session $minishellSession -ScriptBlock {Set-HcsKubeClusterArcInfo -CustomLocationsObjectId *object ID*}
+
+Invoke-Command -Session $minishellSession -ScriptBlock {Enable-HcsAzureKubernetesService -f} 
 ```
 
 Once you've run this command, you should see an updated option in the local UI – **Kubernetes** becomes **Kubernetes (Preview)** as shown in the following image.
