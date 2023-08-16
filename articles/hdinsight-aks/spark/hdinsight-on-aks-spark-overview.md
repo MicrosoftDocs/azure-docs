@@ -24,7 +24,7 @@ The Apache Spark framework for HDInsight on AKS enables fast data analytics and 
 
 Spark on AKS in HDInsight composed of multiple components as pods. The component diagram is as follows.
 
-:::image type="content" source="./media/spark-overview/spark-pod-components.png" alt-text="Diagram showing HDInsight on AKS spark pod components."border="true":::
+:::image type="content" source="./media/spark-overview/spark-pod-components.png" alt-text="Diagram showing HDInsight on AKS spark pod components." border="true" lightbox="./media/spark-overview/spark-pod-components.png":::
 
 ## Cluster Controllers
 
