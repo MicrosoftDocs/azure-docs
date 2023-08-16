@@ -9,6 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 08/16/2023
 ms.author: lajanuar
+monikerRange: '>=doc-intel-3.0.0'
 ---
 
 <!-- markdownlint-disable MD025 -->
