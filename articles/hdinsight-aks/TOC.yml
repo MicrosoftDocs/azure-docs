@@ -212,8 +212,8 @@ items:
         href: ./flink/fabric-lakehouse-flink-datastreamapi.md
     - name: Use cases
       items:
-      - name: Fraud Detection using DataStream API
-        href: ./flink/flink-fraud-detection-using-data-stream-api.md      
+      - name: Fraud Detection with the Flink DataStream API
+        href: ./flink/fraud-detection-with-flink-datastream-api.md    
 - name: Apache Spark
   items:
   - name: What is Apache Spark in HDInsight on AKS?
