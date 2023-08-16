@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/09/2023
+ms.date: 08/16/2023
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -442,26 +442,29 @@ After the cluster is formed and configured, you can now create new virtual switc
 1. In the  local UI, go to **Advanced networking** page. 
 1. In the **Virtual switch** section, add or delete virtual switches. Select **Add virtual switch** to create a new switch.
 
-     a. Specify a **Name** for the virtual switch, select a **Network interface** from the dropdown menu, and specify an **MTU** (Maximum Transmission Unit) value (optional).
+   ![The Add a virtual switch option on the Advanced networking page in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-advanced-networking-add-virtual-switch.png)
+
+1. In the **Network settings** be, if using a new virtual switch, provide the following:
+
+     a. Provide a **Name** for the virtual switch.
+     b. Choose the **Network interface** onto which the virtual switch should be created.
+     c. Set the **MTU** (Maximum Transmission Unit) parameter for the virtual switch (Optional).
+     d. Select **Modify** and **Apply** to save your changes.
      
     The MTU value determines the maximum packet size that can be transmitted over a network. Azure Stack Edge supports MTU values in the following table. If a device on the network path has an MTU setting lower than 1500, IP packets with the “do not fragment” flag (DF) with packet size 1500 will be dropped.
 
-    | Azure Stack Edge SKU | Network interface | Supported MYU values |
+    | Azure Stack Edge SKU | Network interface | Supported MTU values |
     |-------|--------|------------|
     | Pro-GPU | Ports 1, 2, 3, and 4 | 1400 - 1500 |
+    | Pro-GPU | Ports 5 and 6 | Not configurable, set to default. |
     | Pro 2 | Ports 1 and 2 | 1400 - 1500 |
-    | Pro 2 | Ports 3 and 4 | Not configurable, set to default |
-    | All | Ports 5 and 6 | Not configurable, set to default |
+    | Pro 2 | Ports 3 and 4 | Not configurable, set to default. |
 
     The host virtual switch will use the specified MTU setting.
 
-    If the virtual switch is used as a compute virtual switch for a Microsoft Kubernetes cluster, the Microsoft Kubernetes node VM’s virtual networks and common network information services (CNIs) will use the specified MTU setting.
+    If a virtual network interface is created on the virtual switch, the interface will use the specified MTU setting. If this virtual switch is enabled for compute, the Azure Kubernetes Service VMs and container network interfaces (CNIs) will use the specified MTU as well.
 
-     b. If deploying 5G workloads, set **Supports accelerated networking** to **Yes**.
-
-     c. Select **Modify** and **Apply** to save your changes.
-
-    ![MTU settings on Advanced networking page in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-mtu-configuration-1.png)
+   ![The Add a virtual switch settings on the Advanced networking page in local UI](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-advanced-networking-add-virtual-switch-settings.png)
 
    When you create a virtual switch, the MTU column is populated with its MTU value.
 
@@ -469,13 +472,13 @@ After the cluster is formed and configured, you can now create new virtual switc
 
 1. The configuration will take a few minutes to apply and once the virtual switch is created, the list of virtual switches updates to reflect the newly created switch. You can see that the specified virtual switch is created and enabled for compute.
 
-    ![Configure compute page in Advanced networking in local UI 3](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
+   ![Configure compute page in Advanced networking in local UI 3](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
 
 1. You can create more than one switch by following the steps described earlier.
 
 1. To delete a virtual switch, under the **Virtual switch** section, select **Delete virtual switch**. When a virtual switch is deleted, the associated virtual networks will also be deleted.
 
-You can next create and associate virtual networks with your virtual switches.
+Next, you can create and associate virtual networks with your virtual switches.
 
 ### Configure virtual network
 
