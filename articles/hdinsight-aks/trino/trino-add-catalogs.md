@@ -1,6 +1,6 @@
 ---
-title: Configure catalogs
-description: Add catalogs to an existing Trino cluster in HDInsight ok AKS
+title: Configure catalogsin Azure HDInsight on AKS
+description: Add catalogs to an existing Trino cluster in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to 
 ms.date: 07/25/2023
@@ -54,8 +54,8 @@ This article demonstrates how you can add a new catalog to your cluster using AR
    In this step, you need to add Trino specific catalog configuration to the cluster.
    The following example configures two catalogs using Memory and SQL server connectors. Catalog configuration may be specified in two different ways:
    
-     1. Key-value pairs in values section.
-     2. Single string in content property.
+     * Key-value pairs in values section.
+     * Single string in content property.
    
    Memory catalog is defined using key-value pair and SQL server catalog is defined using single string option. 
        
