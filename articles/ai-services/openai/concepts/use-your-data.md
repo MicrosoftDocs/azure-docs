@@ -255,7 +255,7 @@ You can send a streaming request using the `stream` parameter, allowing data to 
 
 #### Conversation history for better results
 
-When chatting with a model, providing a history of the chat will help the model return higher quality results. 
+When you chat with a model, providing a history of the chat will help the model return higher quality results. 
 
 ```json
 {
