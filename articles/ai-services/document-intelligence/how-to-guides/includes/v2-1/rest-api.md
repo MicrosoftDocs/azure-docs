@@ -1,5 +1,5 @@
 ---
-title: "Use Azure AI Document Intelligence REST API v2.1"
+title: "Use Azure AI Document Intelligence (formerly Form Recognizer) REST API v2.1"
 description: Use the Document Intelligence REST API v2.1 to create a forms processing app that extracts key data from documents.
 author: laujan
 manager: nitinme

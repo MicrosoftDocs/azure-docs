@@ -34,7 +34,7 @@ Use the information below to make a decision between using the AWS Single Sign-O
 
 | Feature | AWS Single Sign-On | AWS Single-Account Access |
 |:--- |:---:|:---:|
-|Conditional access| Supports a single conditional access policy for all AWS accounts. | Supports a single conditional access policy for all accounts or custom policies per account|
+|Conditional Access| Supports a single Conditional Access policy for all AWS accounts. | Supports a single Conditional Access policy for all accounts or custom policies per account|
 | CLI access | Supported | Supported|
 | Privileged  Identity Management | Not yet supported | Not yet supported |
 | Centralize account management | Centralize account management in AWS. | Centralize account management in Azure AD (will likely require an Azure AD enterprise application per account). |

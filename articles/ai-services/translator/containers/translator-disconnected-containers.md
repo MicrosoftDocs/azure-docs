@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 07/28/2023
 ms.author: lajanuar
 ---
 
@@ -204,6 +204,20 @@ When run in a disconnected environment, an output mount must be available to the
 ```docker
 docker run -v /host/output:{OUTPUT_PATH} ... <image> ... Mounts:Output={OUTPUT_PATH}
 ```
+#### Environment variable names in Kubernetes deployments
+
+Some Azure AI Containers, for example Translator, require users to pass environmental variable names that include colons (`:`) when running the container. This will work fine when using Docker, but Kubernetes does not accept colons in environmental variable names.
+To resolve this, you can replace colons with two underscore characters (`__`) when deploying to Kubernetes. See the following example of an acceptable format for environmental variable names:
+
+```Kubernetes
+        env:  
+        - name: Mounts__License
+          value: "/license"
+        - name: Mounts__Output
+          value: "/output"
+```
+
+This example replaces the default format for the `Mounts:License` and `Mounts:Output` environment variable names in the docker run command.
 
 #### Get records using the container endpoints
 

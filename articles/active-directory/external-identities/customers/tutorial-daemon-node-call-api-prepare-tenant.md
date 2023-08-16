@@ -39,7 +39,7 @@ If you've already registered a client daemon application and a web API in the Mi
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-app-role.md)]
 
-## Configure optional claims
+## Configure idtyp token claim
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-optional-claims-access.md)]
 
@@ -55,7 +55,7 @@ If you've already registered a client daemon application and a web API in the Mi
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/grant-api-permissions-app-permissions.md)]
 
-## Record your app registration details 
+## Collect your app registration details 
 
 In the next step, you prepare your daemon app application. Make sure you've the following details:
 

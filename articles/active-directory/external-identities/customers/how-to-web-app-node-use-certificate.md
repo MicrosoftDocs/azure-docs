@@ -168,7 +168,7 @@ Once you associate your app registration with the certificate, you need to updat
     });
     //...
     ```
-1. Use the steps in [Run and test the web app](how-to-web-app-node-sign-in-sign-in-out.md#run-and-test-the-web-app) to test your app.
+1. Use the steps in [Run and test the web app](tutorial-web-app-node-sign-in-sign-out.md#run-and-test-the-web-app) to test your app.
 
 ## Use a self-signed certificate directly from Azure Key Vault
 
@@ -261,7 +261,7 @@ You can use your existing certificate directly from Azure Key Vault:
     }
     ``` 
 
-1. Use the steps in [Run and test the web app](how-to-web-app-node-sign-in-sign-in-out.md#run-and-test-the-web-app) to test your app.
+1. Use the steps in [Run and test the web app](tutorial-web-app-node-sign-in-sign-out.md#run-and-test-the-web-app) to test your app.
 
 ## Next steps
 

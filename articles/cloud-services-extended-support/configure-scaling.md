@@ -17,7 +17,7 @@ Conditions can be configured to enable Cloud Services (extended support) deploym
 
 Consider the following information when configuring scaling of your Cloud Service deployments:
 - Scaling impacts core usage. Larger role instances consume more cores and you can only scale within the core limit of your subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Scaling based on queue messaging threshold is supported. For more information, see [Get started with Azure Queue storage](../storage/queues/storage-dotnet-how-to-use-queues.md).
+- Scaling based on queue messaging threshold is supported. For more information, see [Get started with Azure Queue storage](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli).
 - To ensure high availability of your Cloud Service (extended support) applications, ensure to deploy with two or more role instances.
 - Custom autoscale can only occur when all roles are in a **Ready** state.
 

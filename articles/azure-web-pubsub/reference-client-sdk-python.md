@@ -4,7 +4,7 @@ description: This reference describes the Python client-side SDK for Azure Web P
 author: kevinguo-ed
 ms.author: kevinguo
 ms.service: azure-web-pubsub
-ms.custom: devx-track-js
+ms.custom: devx-track-python
 ms.topic: conceptual 
 ms.date: 07/17/2023
 ---

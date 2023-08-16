@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/04/2023
+ms.date: 08/02/2023
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-python
 ---
@@ -232,7 +232,6 @@ Following are the limitations of Python runbooks
 **Limitations**
 
 - For Python 3.10 (preview) modules, currently, only the wheel files targeting cp310 Linux OS are supported. [Learn more](./python-3-packages.md)
-- Currently, only cloud jobs are supported for Python 3.10 (preview) runtime versions.
 - Custom packages for Python 3.10 (preview) are only validated during job runtime. Job is expected to fail if the package is not compatible in the runtime or if required dependencies of packages aren't imported into automation account.
 - Currently, Python 3.10 (preview) runbooks are only supported from Azure portal. Rest API and PowerShell aren't supported.
 

@@ -38,7 +38,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 Replace `<REGION_IDENTIFIER>` with the identifier that matches the [region](regions.md) of your Speech resource.
 
 > [!NOTE]
-> For Azure Government and Azure China endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
+> For Azure Government and Microsoft Azure operated by 21Vianet endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
 
 ## Audio formats
 
