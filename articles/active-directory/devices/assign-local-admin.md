@@ -27,36 +27,36 @@ This article explains how the local administrators membership update works and h
 
 When you connect a Windows device with Azure AD using an Azure AD join, Azure AD adds the following security principals to the local administrators group on the device:
 
-- The Azure AD Global Administrator role
-- The Azure AD joined device local administrator role 
-- The user performing the Azure AD join   
+- The "Global Administrator" Azure AD role
+- The "Azure AD Joined Device Local Administrator" Azure AD role 
+- The user who performed the Azure AD join   
 
-By adding Azure AD roles to the local administrators group, you can update the users that can manage a device anytime in Azure AD without modifying anything on the device. Azure AD also adds the Azure AD joined device local administrator role to the local administrators group to support the principle of least privilege (PoLP). In addition to the global administrators, you can also enable users that have been *only* assigned the device administrator role to manage a device. 
+By adding Azure AD roles to the local administrators group, you can update the users that can manage a device anytime in Azure AD without modifying anything on the device. Azure AD also adds the "Azure AD Joined Device Local Administrator" role to the local administrators group to support the principle of least privilege (PoLP). In addition to the "Global Administrator" users, you can also enable users that have been *only* assigned the "Azure AD Joined Device Local Administrator" role to manage a device. 
 
-## Manage the global administrators role
+## Manage the "Global Administrator" role
 
 To view and update the membership of the Global Administrator role, see:
 
 - [View all members of an administrator role in Azure Active Directory](../roles/manage-roles-portal.md)
 - [Assign a user to administrator roles in Azure Active Directory](../fundamentals/how-subscriptions-associated-directory.md)
 
-## Manage the device administrator role 
+## Manage the "Azure AD Joined Device Local Administrator" role 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-In the Azure portal, you can manage the device administrator role from **Device settings**. 
+In the Azure portal, you can manage the "Azure AD Joined Device Local Administrator" role from **Device settings**. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 1. Browse to **Azure Active Directory** > **Devices** > **Device settings**.
 1. Select **Manage Additional local administrators on all Azure AD joined devices**.
 1. Select **Add assignments** then choose the other administrators you want to add and select **Add**.
 
-To modify the device administrator role, configure **Additional local administrators on all Azure AD joined devices**.  
+To modify the "Azure AD Joined Device Local Administrator" role, configure **Additional local administrators on all Azure AD joined devices**.  
 
 > [!NOTE]
 > This option requires Azure AD Premium licenses. 
 
-Device administrators are assigned to all Azure AD joined devices. You can’t scope device administrators to a specific set of devices. Updating the device administrator role doesn't necessarily have an immediate impact on the affected users. On devices where a user is already signed into, the privilege elevation takes place when *both* the below actions happen:
+Device administrators are assigned to all Azure AD joined devices. You can’t scope device administrators to a specific set of devices. Updating the "Azure AD Joined Device Local Administrator" role doesn't necessarily have an immediate impact on the affected users. On devices where a user is already signed into, the privilege elevation takes place when *both* the below actions happen:
 
 - Upto 4 hours have passed for Azure AD to issue a new Primary Refresh Token with the appropriate privileges. 
 - User signs out and signs back in, not lock/unlock, to refresh their profile.
@@ -104,10 +104,10 @@ Additionally, you can also add users using the command prompt:
 
 ## Considerations 
 
-- You can only assign role based groups to the device administrator role.
+- You can only assign role based groups to the "Azure AD Joined Device Local Administrator" role.
 - Device administrators are assigned to all Azure AD Joined devices. They can't be scoped to a specific set of devices.
 - Local administrator rights on Windows devices aren't applicable to [Azure AD B2B guest users](../external-identities/what-is-b2b.md).
-- When you remove users from the device administrator role, changes aren't instant. Users still have local administrator privilege on a device as long as they're signed in to it. The privilege is revoked during their next sign-in when a new primary refresh token is issued. This revocation, similar to the privilege elevation, could take upto 4 hours.
+- When you remove users from the "Azure AD Joined Device Local Administrator" role, changes aren't instant. Users still have local administrator privilege on a device as long as they're signed in to it. The privilege is revoked during their next sign-in when a new primary refresh token is issued. This revocation, similar to the privilege elevation, could take upto 4 hours.
 
 ## Next steps
 
