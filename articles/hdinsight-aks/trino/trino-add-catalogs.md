@@ -1,5 +1,5 @@
 ---
-title: Configure catalogsin Azure HDInsight on AKS
+title: Configure catalogs in Azure HDInsight on AKS
 description: Add catalogs to an existing Trino cluster in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to 
