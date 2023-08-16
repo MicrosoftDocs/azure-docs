@@ -48,7 +48,10 @@ For more information, see [Supported FHIR features](fhir-features-supported.md).
 FHIR service is our implementation of the FHIR specification that sits in the Azure Health Data Services, which allows you to have a FHIR service and a DICOM service within a single workspace. Azure API for FHIR was our initial GA product and is still available as a stand-alone product. The main feature differences are:
 
 * FHIR service has a limit of 4 TB, and Azure API for FHIR supports more than 4 TB.
-* FHIR service support [transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
+* FHIR service support additional capabilties as 
+** [Transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
+** [Incremental Import](configure-import-data).
+** [Autoscaling](fhir-service-autoscale) is enabled by default.
 * Azure API for FHIR has more platform features (such as customer managed keys, and cross region DR) that aren't yet available in FHIR service in Azure Health Data Services.
 
 ### What's the difference between the FHIR service in Azure Health Data Services and the open-source FHIR server?
@@ -89,7 +92,8 @@ SMART (Substitutable Medical Applications and Reusable Technology) on FHIR is a 
 
 ### Does the FHIR service support SMART on FHIR?
 
-We have a basic SMART on FHIR proxy as part of the managed service. If this doesn’t meet your needs, you can use the open-source FHIR proxy for more advanced SMART scenarios. 
+Yes, SMART on FHIR capability is supported using [AHDS samples](https://aka.ms/azure-health-data-services-smart-on-fhir-sample). This is referred to SMART on FHIR(Enhanced). SMART on FHIR(Enhanced) can be considered to meet requirements with [SMART on FHIR Implementation Guide (v 1.0.0)](https://hl7.org/fhir/smart-app-launch/1.0.0/) and [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg). For more information, visit [SMART on FHIR(Enhanced) Documentation](smart-on-fhir.md).
+
 
 ### Can I create a custom FHIR resource?
 
