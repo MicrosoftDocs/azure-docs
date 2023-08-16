@@ -14,7 +14,7 @@ This article describes how to integrate Aruba ClearPass with Microsoft Defender 
 Viewing both Defender for IoT and ClearPass information together provides SOC analysts with multidimensional visibility into the specialized OT protocols and devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior.
 
 > [!IMPORTANT]
-> Defender for IoT plans to end support for the [legacy ClearPass integration](#on-premises-integration-legacy) in an upcoming 23.x version. 
+> Defender for IoT plans to end support for the [legacy ClearPass integration](#on-premises-integration-legacy) in an upcoming 23.x version.
 >
 > We recommend transitioning to newly recommended methods instead, such using a [Microsoft Sentinel connector](concept-sentinel-integration.md), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), or using [Defender for IoT's API](references-work-with-defender-for-iot-apis.md).
 
@@ -36,7 +36,7 @@ For more information, see:
 
 If you're working with an air-gapped, locally managed OT sensor, you'll need an on-premises solution to view Defender for IoT and ClearPass information in the same place.
 
-In such cases, we recommend that you configure your OT sensor to send syslog files directly to ClearPass.
+In such cases, we recommend that you configure your OT sensor to send syslog files directly to ClearPass, or use [Defender for IoT's built-in API](references-work-with-defender-for-iot-apis.md).
 
 When creating your forwarding rule:
 
