@@ -159,7 +159,7 @@ items:
     - name: Configuration Management
       href: ./flink/flink-configuration-management.md
     - name: Table API & SQL
-      href: ./flink/flink-tableapi-and-sql.md
+      href: ./flink/flink-table-api-and-sql.md
   - name: How-to guides
     items:
     - name: General
@@ -167,7 +167,7 @@ items:
       - name: Using Flink Command Line Interface (CLI)
         href: ./flink/use-flink-cli-to-submit-jobs.md
       - name: Access CLI using Azure portal
-        href: ./flink/flink-webssh-on-portal-to-flink-sql.md
+        href: ./flink/flink-web-ssh-on-portal-to-flink-sql.md
       - name: Using Azure Cosmos DB (Apache Cassandra)
         href: ./flink/cosmos-db-for-apache-cassandra.md
       - name: Using Azure Event Hubs
