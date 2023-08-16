@@ -14,19 +14,36 @@ When you create a function, language-specific trigger code is added in your proj
 
 ## Local development       
 
-When you develop functions locally, you need to update the function code to add bindings. Using Visual Studio Code can make it easier to add bindings to a function.  
+When you develop functions locally, you need to update the function code to add bindings. For languages that use function.json, [using Visual Studio Code](#visual-studio-code) can make it easier to add bindings to a function.  
+
+### Manually add bindings based on examples
+
+::: zone pivot="programming-language-csharp"  
+When adding a binding to an existing function, you need to add binding-specific attributes to the function definition in code. 
+::: zone-end  
+::: zone pivot="programming-language-java"  
+When adding a binding to an existing function, you need to add binding-specific annotations to the function definition in code.
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell"
+When adding a binding to an existing function, you need to update the function code and add a definition to the function.json configuration file. 
+::: zone-end  
+::: zone pivot="programming-language-python"
+When adding a binding to an existing function, you need update the function definition, depending on your model:
+
+#### [v2](#tabs/python-v2)
+You need to add binding-specific annotations to the function definition in code.
+#### [v1](#tabs/python-v1)
+You need to update the function code and add a definition to the function.json configuration file.
+
+---
+::: zone-end
+Use the following table to find examples of specific binding types that you can use to guide you in updating an existing function. First, choose the language tab that corresponds to your project. 
+
+[!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
 
 ### Visual Studio Code
 
 When you use Visual Studio Code to develop your function and your function uses a function.json file, the Azure Functions extension can automatically add a binding to an existing function.json file. To learn more, see [Add input and output bindings](functions-develop-vs-code.md#add-input-and-output-bindings).   
-
-### Manually add bindings based on examples
-
-When adding a binding to an existing function, you'll need update both the function code and the function.json configuration file, if used by your language. Both .NET class library and Java functions use attributes instead of function.json, so you'll need to update that instead.
-
-Use the following table to find examples of specific binding types that you can use to guide you in updating an existing function. First, choose the language tab that corresponds to your project. 
-
-[!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
 
 ## Azure portal
 
