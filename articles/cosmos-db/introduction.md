@@ -20,7 +20,7 @@ Today's applications are required to be highly responsive and always online. To 
 
 Azure Cosmos DB is a fully managed NoSQL and relational database for modern app development. Azure Cosmos DB offers single-digit millisecond response times, automatic and instant scalability, along with guaranteed speed at any scale. Business continuity is assured with [SLA-backed](https://azure.microsoft.com/support/legal/sla/cosmos-db) availability and enterprise-grade security.
 
-With Azure Cosmos DB you can use [Retrieval Augmented Generation (RAG) with Azure Cosmos DB](how-to-azure-openai.md) to bring the most semantically relevant data to enrich your AI-powered applications built with Azure OpenAI models like GPT-3.5 and GPT-4. 
+Use Retrieval Augmented Generation (RAG) to bring the most semantically relevant data to enrich your AI-powered applications built with Azure OpenAI models like GPT-3.5 and GPT-4. For more information, see [Retrieval Augmented Generation (RAG) with Azure Cosmos DB](rag-data-openai.md).
 
 App development is faster and more productive thanks to:
 
@@ -93,7 +93,7 @@ End-to-end database management, with serverless and automatic scaling matching y
 
 ## Solutions that benefit from Azure Cosmos DB
 
-[Web, mobile, gaming, and IoT application](use-cases.md) that handle massive amounts of data, reads, and writes at a [global scale](distribute-data-globally.md) with near-real response times for various data will benefit from Azure Cosmos DB. Azure Cosmos DB's [guaranteed high availability](https://azure.microsoft.com/support/legal/sla/cosmos-db/), high throughput, low latency, and tunable consistency are huge advantages when building these types of applications. Learn about how Azure Cosmos DB can be used to build [IoT and telematics](use-cases.md#iot-and-telematics), [retail and marketing](use-cases.md#retail-and-marketing), [gaming](use-cases.md#gaming) and [web and mobile applications](use-cases.md#web-and-mobile-applications).
+[Web, mobile, gaming, and IoT applications](use-cases.md) that handle massive amounts of data, reads, and writes at a [global scale](distribute-data-globally.md) with near-real response times benefit from Azure Cosmos DB. Azure Cosmos DB's [guaranteed high availability](https://azure.microsoft.com/support/legal/sla/cosmos-db/), high throughput, low latency, and tunable consistency are huge advantages when building these types of applications. Learn about how Azure Cosmos DB can be used to build [IoT and telematics](use-cases.md#iot-and-telematics), [retail and marketing](use-cases.md#retail-and-marketing), [gaming](use-cases.md#gaming) and [web and mobile applications](use-cases.md#web-and-mobile-applications).
 
 ## Next steps
 

@@ -31,8 +31,8 @@ highlightedContent:
       itemType: reference
       url: /answers/tags/187/azure-cosmos-db
     - title: Use Azure Cosmos DB with Azure OpenAI
-      itemType: how-to-guide
-      url: how-to-azure-openai.md
+      itemType: concept
+      url: rag-data-openai.md
     - title: Choose an API in Azure Cosmos DB
       itemType: concept
       url: choose-api.md
