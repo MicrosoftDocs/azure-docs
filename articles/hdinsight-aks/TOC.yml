@@ -194,25 +194,25 @@ items:
         href: ./flink/flink-catalog-delta-hive.md
     - name: Flink Streaming
       items:
-      - name: Using ADLSGen2 - Write with DStream API
+      - name: Using ADLSGen2 - Write with DataStream API
         href: ./flink/assign-kafka-topic-event-message-to-adslgen2.md
-      - name: Using Apache NiFi with DStream API
+      - name: Using Apache NiFi with DataStream API
         href: ./flink/using-apache-nifi-with-dstream-api.md
-      - name: Using CDC - SQL Server & DStream API
+      - name: Using CDC - SQL Server & DataStream API
         href: ./flink/cdc-connectors-for-apache-flink.md
       - name: Using Hivemetastore with Flink DataStream
         href: ./flink/using-hms-dstream.md
-      - name: Using HBase - Write with DStream API
+      - name: Using HBase - Write with DataStream API
         href: ./flink/use-flink-to-sink-kafka-message-into-hbase.md
-      - name: Using MongoDB as a source and Sink with DStream API
+      - name: Using MongoDB as a source and Sink with DataStream API
         href: ./flink/datastream-api-mongodb.md
       - name: Join stream from Kafka with Table on ADLSGen2
         href: ./flink/join-stream-from-kafka-with-table-from-filesystem.md
-      - name: Using Microsoft Fabric with DStream API
-        href: ./flink/fabric-flink-dstreamapi.md
+      - name: Using Microsoft Fabric with DataStream API
+        href: ./flink/fabric-lakehouse-flink-datastreamapi.md
     - name: Use cases
       items:
-      - name: Fraud Detection using DStream API
+      - name: Fraud Detection using DataStream API
         href: ./flink/flink-fraud-detection-using-data-stream-api.md      
 - name: Apache Spark
   items:
