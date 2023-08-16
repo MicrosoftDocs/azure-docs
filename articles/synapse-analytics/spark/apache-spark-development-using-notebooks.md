@@ -52,6 +52,11 @@ We provide rich operations to develop notebooks:
 + [Collapse a cell output](#collapse-a-cell-output)
 + [Notebook outline](#notebook-outline)
 
+> [!NOTE]
+> 
+> In the notebook, the user does not need to create the spark session by himself, and do not change the variable values of spark and sc.
+
+
 <h3 id="add-a-cell">Add a cell</h3>
 
 There are multiple ways to add a new cell to your notebook.
