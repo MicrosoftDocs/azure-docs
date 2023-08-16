@@ -11,11 +11,11 @@ ms.date: 05/10/2023
 
 # Analyze Azure Storage Task runs
 
-You can view a list of task runs. Each item in that list shows metrics which describe the run along with a link to a detailed execution report. That report provides information about each object that was targeted by the task run.
+You can view a list of task runs. For each completed run, you can open a report that lists each object that met the conditions of the task and the outcome of the operation against that object.
 
 ## View a list of task runs
 
-After a task run completes, metrics that describe that run appear in a list that you can open and review.
+After a task run completes, it appears in a list that you can open and review.
 
 ### Storage task view
 
