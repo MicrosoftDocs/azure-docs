@@ -11,7 +11,7 @@ ms.author: ounyman
 
 # Disaster recovery for Azure API for FHIR
 
-Azure API for FHIR is a fully managed service, based on Fast Healthcare Interoperability Resources (FHIR®). To meet business and compliance requirements you can use the disaster recovery (DR) feature for Azure API for FHIR.
+Azure API for FHIR is a fully managed service, based on Fast Healthcare Interoperability Resources (FHIR®). To meet business and compliance requirements you can use the disaster recovery (DR) feature for Azure API for FHIR. 
 
 The DR feature provides a Recovery Point Objective (RPO) of 15 minutes and a Recovery Time Objective (RTO) of 60 minutes.
 
