@@ -30,6 +30,8 @@ The following sections provide more information about the tasks that you can com
 
 ### Encode to EDIFACT message action
 
+This action performs the following tasks:
+
 * Resolve the agreement by matching the sender qualifier & identifier and receiver qualifier and identifier.
 
 * Serialize the Electronic Data Interchange (EDI), which converts XML-encoded messages into EDI transaction sets in the interchange.
@@ -51,6 +53,8 @@ The following sections provide more information about the tasks that you can com
   * As a functional acknowledgment, the CONTRL message indicates the acceptance or rejection for the received interchange, group, or message, including a list of errors or unsupported functionality.
 
 ### Decode EDIFACT message action
+
+This action performs the following tasks:
 
 * Validate the envelope against the trading partner agreement.
 
@@ -279,7 +283,7 @@ The following sections provide more information about the tasks that you can com
 
 ## Handle UNH2.5 segments in EDIFACT documents
 
-In an EDIFACT document, the [UNH2.5 segment](logic-apps-enterprise-integration-edifact-message-settings.md#receive-settings-schemas) is used for used for schema lookup. For example, in this sample EDIFACT message, the UNH field is `EAN008`:
+In an EDIFACT document, the [UNH2.5 segment](logic-apps-enterprise-integration-edifact-message-settings.md#receive-settings-schemas) is used for schema lookup. For example, in this sample EDIFACT message, the UNH field is `EAN008`:
 
 `UNH+SSDD1+ORDERS:D:03B:UN:EAN008`
 

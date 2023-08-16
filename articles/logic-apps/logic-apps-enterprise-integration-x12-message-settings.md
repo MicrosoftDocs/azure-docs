@@ -28,19 +28,19 @@ This reference describes the properties that you can set in an X12 agreement for
 
 | Property | Description |
 |----------|-------------|
-| **ISA1 (Authorization Qualifier)** | The Authorization Qualifier value that you want to use. The default value is **00 - No Authorization Information Present**. <p>**Note**: If you select other values, specify a value for the **ISA2** property. |
+| **ISA1 (Authorization Qualifier)** | The Authorization Qualifier value that you want to use. The default value is **00 - No Authorization Information Present**. <br><br>**Note**: If you select other values, specify a value for the **ISA2** property. |
 | **ISA2** | The Authorization Information value to use when the **ISA1** property is not **00 - No Authorization Information Present**. This property value must have a minimum of one alphanumeric character and a maximum of 10. |
-| **ISA3 (Security Qualifier)** | The Security Qualifier value that you want to use. The default value is **00 - No Security Information Present**. <p>**Note**: If you select other values, specify a value for the **ISA4** property. |
+| **ISA3 (Security Qualifier)** | The Security Qualifier value that you want to use. The default value is **00 - No Security Information Present**. <br><br>**Note**: If you select other values, specify a value for the **ISA4** property. |
 | **ISA4** | The Security Information value to use when the **ISA3** property is not **00 - No Security Information Present**. This property value must have a minimum of one alphanumeric character and a maximum of 10. |
 
-<a name="inbound-acknowledgement"></a>
+<a name="inbound-acknowledgment"></a>
 
-### Acknowledgement
+### Acknowledgment
 
 | Property | Description |
 |----------|-------------|
 | **TA1 Expected** | Return a technical acknowledgment (TA1) to the interchange sender. |
-| **FA Expected** | Return a functional acknowledgment (FA) to the interchange sender. <p>For the **FA Version** property, based on the schema version, select the 997 or 999 acknowledgments. <p>To enable generation of AK2 loops in functional acknowledgments for accepted transaction sets, select **Include AK2 / IK2 Loop**. |
+| **FA Expected** | Return a functional acknowledgment (FA) to the interchange sender. <br><br>For the **FA Version** property, based on the schema version, select the 997 or 999 acknowledgments. <br><br>To enable generation of AK2 loops in functional acknowledgments for accepted transaction sets, select **Include AK2 / IK2 Loop**. |
 
 <a name="inbound-schemas"></a>
 
@@ -61,7 +61,7 @@ For this section, select a [schema](logic-apps-enterprise-integration-schemas.md
 
 | Property | Description |
 |----------|-------------|
-| **ISA11 Usage** | The separator to use in a transaction set: <p>- **Standard Identifier**: Use a period (.) for decimal notation, rather than the decimal notation of the incoming document in the EDI Receive Pipeline. <p>- **Repetition Separator**: Specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
+| **ISA11 Usage** | The separator to use in a transaction set: <br><br>- **Standard Identifier**: Use a period (.) for decimal notation, rather than the decimal notation of the incoming document in the EDI Receive Pipeline. <br><br>- **Repetition Separator**: Specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
 
 <a name="inbound-control-numbers"></a>
 
@@ -69,7 +69,7 @@ For this section, select a [schema](logic-apps-enterprise-integration-schemas.md
 
 | Property | Description |
 |----------|-------------|
-| **Disallow Interchange control number duplicates** | Block duplicate interchanges. Check the interchange control number (ISA13) for the received interchange control number. If a match is detected, the EDI Receive Pipeline doesn't process the interchange. <p><p>To specify the number of days to perform the check, enter a value for the **Check for duplicate ISA13 every (days)** property. |
+| **Disallow Interchange control number duplicates** | Block duplicate interchanges. Check the interchange control number (ISA13) for the received interchange control number. If a match is detected, the EDI Receive Pipeline doesn't process the interchange. <br><br><br><br>To specify the number of days to perform the check, enter a value for the **Check for duplicate ISA13 every (days)** property. |
 | **Disallow Group control number duplicates** | Block interchanges that have duplicate group control numbers. |
 | **Disallow Transaction set control number duplicates** | Block interchanges that have duplicate transaction set control numbers. |
 
@@ -86,7 +86,7 @@ The **Default** row shows the validation rules that are used for an EDI message 
 | **Extended Validation** | If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min or max). |
 | **Allow Leading/Trailing Zeroes** | Keep any additional leading or trailing zero and space characters. Don't remove these characters. |
 | **Trim Leading/Trailing Zeroes** | Remove any leading or trailing zero and space characters. |
-| **Trailing Separator Policy** | Generate trailing separators. <p>- **Not Allowed**: Prohibit trailing delimiters and separators in the inbound interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>- **Optional**: Accept interchanges with or without trailing delimiters and separators. <p>- **Mandatory**: The inbound interchange must have trailing delimiters and separators. |
+| **Trailing Separator Policy** | Generate trailing separators. <br><br>- **Not Allowed**: Prohibit trailing delimiters and separators in the inbound interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <br><br>- **Optional**: Accept interchanges with or without trailing delimiters and separators. <br><br>- **Mandatory**: The inbound interchange must have trailing delimiters and separators. |
 
 <a name="inbound-internal-settings"></a>
 
@@ -113,19 +113,19 @@ The **Default** row shows the validation rules that are used for an EDI message 
 
 | Property | Description |
 |----------|-------------|
-| **ISA1 (Authorization Qualifier)** | The Authorization Qualifier value that you want to use. The default value is **00 - No Authorization Information Present**. <p>**Note**: If you select other values, specify a value for the **ISA2** property. |
+| **ISA1 (Authorization Qualifier)** | The Authorization Qualifier value that you want to use. The default value is **00 - No Authorization Information Present**. <br><br>**Note**: If you select other values, specify a value for the **ISA2** property. |
 | **ISA2** | The Authorization Information value to use when the **ISA1** property is not **00 - No Authorization Information Present**. This property value must have a minimum of one alphanumeric character and a maximum of 10. |
-| **ISA3 (Security Qualifier)** | The Security Qualifier value that you want to use. The default value is **00 - No Security Information Present**. <p>**Note**: If you select other values, specify a value for the **ISA4** property. |
+| **ISA3 (Security Qualifier)** | The Security Qualifier value that you want to use. The default value is **00 - No Security Information Present**. <br><br>**Note**: If you select other values, specify a value for the **ISA4** property. |
 | **ISA4** | The Security Information value to use when the **ISA3** property is not **00 - No Security Information Present**. This property value must have a minimum of one alphanumeric character and a maximum of 10. |
 
-<a name="outbound-acknowledgement"></a>
+<a name="outbound-acknowledgment"></a>
 
-### Acknowledgement
+### Acknowledgment
 
 | Property | Description |
 |----------|-------------|
-| **TA1 Expected** | Return a technical acknowledgment (TA1) to the interchange sender. <p>This setting specifies that the host partner, who is sending the message, requests an acknowledgment from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the agreement's Receive Settings. |
-| **FA Expected** | Return a functional acknowledgment (FA) to the interchange sender. For the **FA Version** property, based on the schema version, select the 997 or 999 acknowledgements. <p>This setting specifies that the host partner, who is sending the message, requests an acknowledgement from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the agreement's Receive Settings. |
+| **TA1 Expected** | Return a technical acknowledgment (TA1) to the interchange sender. <br><br>This setting specifies that the host partner, who is sending the message, requests an acknowledgment from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the agreement's Receive Settings. |
+| **FA Expected** | Return a functional acknowledgment (FA) to the interchange sender. For the **FA Version** property, based on the schema version, select the 997 or 999 acknowledgments. <br><br>This setting specifies that the host partner, who is sending the message, requests an acknowledgment from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the agreement's Receive Settings. |
 
 <a name="outbound-schemas"></a>
 
@@ -145,7 +145,7 @@ For this section, select a [schema](../logic-apps/logic-apps-enterprise-integrat
 
 | Property | Description |
 |----------|-------------|
-| **ISA11 Usage** | The separator to use in a transaction set: <p>- **Standard Identifier**: Use a period (.) for decimal notation, rather than the decimal notation of the outbound document in the EDI Send Pipeline. <p>- **Repetition Separator**: Specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
+| **ISA11 Usage** | The separator to use in a transaction set: <br><br>- **Standard Identifier**: Use a period (.) for decimal notation, rather than the decimal notation of the outbound document in the EDI Send Pipeline. <br><br>- **Repetition Separator**: Specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
 
 <a name="outbound-control-version-number"></a>
 
@@ -174,7 +174,7 @@ For this section, select a [schema](../logic-apps/logic-apps-enterprise-integrat
 |----------|-------------|
 | **Interchange Control Number (ISA13)** | The range of values for the interchange control number, which can have a minimum of value 1 and a maximum value of 999999999 |
 | **Group Control Number (GS06)** | The range of values for the group control number, which can have a minimum value of 1 and a maximum value of 999999999 |
-| **Transaction Set Control Number (ST02)** | The range of values for the transaction set control number, which can have a minimum value of 1 and a maximum value of 999999999 <p>- **Prefix**: Optional, an alphanumeric value <br>- **Suffix**: Optional, an alphanumeric value |
+| **Transaction Set Control Number (ST02)** | The range of values for the transaction set control number, which can have a minimum value of 1 and a maximum value of 999999999 <br><br>- **Prefix**: Optional, an alphanumeric value <br>- **Suffix**: Optional, an alphanumeric value |
 
 <a name="outbound-character-sets-separators"></a>
 
@@ -193,7 +193,7 @@ The **Default** row shows the character set that's used as delimiters for a mess
 | **Input Type** | The input type for the character set |
 | **Component Separator** | A single character that separates composite data elements |
 | **Data Element Separator** | A single character that separates simple data elements within composite data |
-| **replacement Character Separator** | A replacement character that replaces all separator characters in the payload data when generating the outbound X12 message |
+| **Replacement Character Separator** | A replacement character that replaces all separator characters in the payload data when generating the outbound X12 message |
 | **Segment Terminator** | A single character that indicates the end of an EDI segment |
 | **Suffix** | The character to use with the segment identifier. If you specify a suffix, the segment terminator data element can be empty. If the segment terminator is left empty, you must designate a suffix. |
 
@@ -210,7 +210,7 @@ The **Default** row shows the validation rules that are used for an EDI message 
 | **Extended Validation** | If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min or max). |
 | **Allow Leading/Trailing Zeroes** | Keep any additional leading or trailing zero and space characters. Don't remove these characters. |
 | **Trim Leading/Trailing Zeroes** | Remove any leading or trailing zero and space characters. |
-| **Trailing Separator Policy** | Generate trailing separators. <p>- **Not Allowed**: Prohibit trailing delimiters and separators in the outbound interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>- **Optional**: Send interchanges with or without trailing delimiters and separators. <p>- **Mandatory**: The outbound interchange must have trailing delimiters and separators. |
+| **Trailing Separator Policy** | Generate trailing separators. <br><br>- **Not Allowed**: Prohibit trailing delimiters and separators in the outbound interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <br><br>- **Optional**: Send interchanges with or without trailing delimiters and separators. <br><br>- **Mandatory**: The outbound interchange must have trailing delimiters and separators. |
 
 <a name="hipaa-schemas"></a>
 

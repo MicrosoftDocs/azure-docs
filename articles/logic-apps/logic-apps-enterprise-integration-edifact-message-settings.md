@@ -18,7 +18,7 @@ This reference describes the properties that you can set in an EDIFACT agreement
 
 <a name="edifact-inbound-messages"></a>
 
-## EDIFACT Receive Settings
+## EDIFACT Receive settings
 
 ![Screenshot showing Azure portal and EDIFACT agreement settings for inbound messages.](./media/logic-apps-enterprise-integration-edifact-message-settings/edifact-receive-settings.png)
 
@@ -34,7 +34,7 @@ This reference describes the properties that you can set in an EDIFACT agreement
 | Property | Description |
 |----------|-------------|
 | **Receipt of Message (CONTRL)** | Return a technical (CONTRL) acknowledgment to the interchange sender, based on the agreement's Send Settings. |
-| **Acknowledgement (CONTRL)** | Return a functional (CONTRL) acknowledgment to the interchange sender, based on the agreement's Send settings. |
+| **Acknowledgment (CONTRL)** | Return a functional (CONTRL) acknowledgment to the interchange sender, based on the agreement's Send settings. |
 
 <a name="receive-settings-schemas"></a>
 
@@ -58,7 +58,7 @@ This reference describes the properties that you can set in an EDIFACT agreement
 | **Check for duplicate UNB5 every (days)** | If you chose to disallow duplicate interchange control numbers, you can specify the number of days between running the check. |
 | **Disallow Group control number duplicates** | Block interchanges that have duplicate group control numbers (UNG5). |
 | **Disallow Transaction set control number duplicates** | Block interchanges that have duplicate transaction set control numbers (UNH1). |
-| **EDIFACT Acknowledgement Control Number** | Assign the transaction set reference numbers to use in an acknowledgment by entering a value for the prefix, a range of reference numbers, and a suffix. |
+| **EDIFACT Acknowledgment Control Number** | Assign the transaction set reference numbers to use in an acknowledgment by entering a value for the prefix, a range of reference numbers, and a suffix. |
 
 ### Validation
 
@@ -85,7 +85,7 @@ After you finish setting up a validation row, the next row automatically appears
 
 <a name="edifact-outbound-messages"></a>
 
-## EDIFACT Send Settings
+## EDIFACT Send settings
 
 ![Screenshot showing Azure portal and EDIFACT agreement settings for outbound messages.](./media/logic-apps-enterprise-integration-edifact-message-settings/edifact-send-settings.png)
 
@@ -105,7 +105,7 @@ After you finish setting up a validation row, the next row automatically appears
 | Property | Description |
 |----------|-------------|
 | **Receipt of Message (CONTRL)** | The host partner that sends the message requests a technical (CONTRL) acknowledgment from the guest partner. |
-| **Acknowledgement (CONTRL)** | The host partner that sends the message expects requests a functional (CONTRL) acknowledgment from the guest partner. |
+| **Acknowledgment (CONTRL)** | The host partner that sends the message expects requests a functional (CONTRL) acknowledgment from the guest partner. |
 | **Generate SG1/SG4 loop for accepted transaction sets** | If you chose to request a functional acknowledgment, this setting forces the generation of SG1/SG4 loops in the functional acknowledgments for accepted transaction sets. |
 
 ### Schemas
