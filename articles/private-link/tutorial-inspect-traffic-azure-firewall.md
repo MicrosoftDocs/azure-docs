@@ -67,15 +67,14 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Name | Enter **firewall**. |
     | Region | Select **East US 2**. |
     | Availability zone | Select **None**. |
-    | Firewall SKU | Select **Basic**. |
+    | Firewall SKU | Select **Standard**. |
+    | Firewall management | Select **Use a Firewall Policy to manage this firewall**. |
     | Firewall policy | Select **Add new**. </br> Enter **firewall-policy** in **Policy name**. </br> Select **East US 2** in region. </br> Select **OK**. |
     | Choose a virtual network | Select **Create new**. |
     | Virtual network name | Enter **vnet-firewall**. |
     | Address space | Enter **10.2.0.0/16**. |
     | Subnet address space | Enter **10.2.1.0/26**. |
     | Public IP address | Select **Add new**. </br> Enter **public-ip-firewall** in **Name**. </br> Select **OK**. |
-    | Subnet address space | Enter **10.2.2.0/26**. |
-    | Management public IP address | Select **Add new**. </br> Enter **public-ip-firewall-mgmt** in **Name**. </br> Select **OK**. |
 
 1. Select **Review + create**.
 
@@ -104,7 +103,7 @@ In this section, you enable the firewall logs and send them to the log analytics
     |---|---|
     | Diagnostic setting name | Enter **diagnostic-setting-firewall**. |
     | **Logs** |  |
-    | Categories | Select **Azure Firewall Application Rule** and **Azure Firewall Network Rule**. |
+    | Categories | Select **Azure Firewall Application Rule (Legacy Azure Diagnostics)** and **Azure Firewall Network Rule (Legacy Azure Diagnostics)**. |
     | **Destination details** |  |
     | Destination | Select **Send to Log Analytics workspace**. |
     | Subscription | Select your subscription. |
@@ -129,7 +128,7 @@ In this section, you enable the firewall logs and send them to the log analytics
     | Database name | Enter **sql-db**. |
     | Server | Select **Create new**. </br> Enter **sql-server-1** in **Server name** (Server names must be unique, replace **sql-server-1** with a unique value). </br> Select **(US) East US 2** in **Location**. </br> Select **Use SQL authentication**. </br> Enter a server admin sign-in and password. </br> Select **OK**. |
     | Want to use SQL elastic pool? | Select **No**. |
-    | Workload environment | Select **Development**. |
+    | Workload environment | Leave the default of **Production**. |
     | **Backup storage redundancy** |  |
     | Backup storage redundancy | Select **Locally redundant backup storage**. |
 
@@ -403,7 +402,7 @@ Create an application rule to allow communication from **vnet-1** to the private
 
 1. In the example **Queries** in the search box, enter **Application rule**. In the returned results in **Network**, select the **Run** button for **Application rule log data**.
 
-1. In the log query output, verify **sql-server-1.database.windows.net** is listed under **FQDN** and **SQLPrivateEndpoint** is listed under **RuleCollection**.
+1. In the log query output, verify **sql-server-1.database.windows.net** is listed under **FQDN** and **SQLPrivateEndpoint** is listed under **Rule**.
 
 [!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
 
