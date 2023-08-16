@@ -139,7 +139,7 @@ Changes made for this version:
   >
   > For more information about the new API versions (breaking changes) and how to update your manifests, see the [Flux v2 release notes](https://github.com/fluxcd/flux2/releases/tag/v2.0.0).
 
-- Adds support for Helm drift detection and OOM watch.
+- Adds support for [Helm drift detection](tutorial-use-gitops-flux2.md#helm-drift-detection) and [OOM watch](tutorial-use-gitops-flux2.md#helm-oom-watch).
 
 ### 1.7.4 (June 2023)
 
