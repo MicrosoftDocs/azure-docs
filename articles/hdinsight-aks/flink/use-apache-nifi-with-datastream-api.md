@@ -21,12 +21,12 @@ By combining the low latency streaming features of Apache Flink and the dataflow
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md) 
 * [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
     *  You're required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
-* For this demonstration, we are using a Window VM as maven project develop env in the same VNET as HDInsight on AKS
-* For this demonstration, we are using an Ubuntu VM in the same VNET as HDInsight on AKS, install Apache NiFi 1.22.0 on this VM
+* For this demonstration, we're using a Window VM as maven project develop env in the same VNET as HDInsight on AKS
+* For this demonstration, we're using an Ubuntu VM in the same VNET as HDInsight on AKS, install Apache NiFi 1.22.0 on this VM
 
 ## Prepare HDInsight Kafka topic
 
-For purposes of this demonstration, we are using a HDInsight Kafka Cluster, let us prepare HDInsight Kafka topic for the demo.
+For purposes of this demonstration, we're using a HDInsight Kafka Cluster, let us prepare HDInsight Kafka topic for the demo.
 
 > [!NOTE]
 > Setup a HDInsight [Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started) Cluster and Replace broker list with your own list before you get started for both Kafka 2.4 and 3.2.
@@ -300,7 +300,7 @@ root@hn0-contos:/home/sshuser# /usr/hdp/current/kafka-broker/bin/kafka-console-c
 
 In this demonstration, we have used Apache NiFi instance installed on an Ubuntu VM. We're accessing the NiFi web interface from a Windows VM. The Ubuntu VM needs to have a managed identity assigned to it and network security group (NSG) rules configured.
 
-To use Managed Identity authentication with the PutAzureDataLakeStorage processor in NiFi, make sure that the Ubuntu VM on which NiFi is installed has a managed identity assigned to it, or assign a managed identity to the Ubuntu VM.
+To use Managed Identity authentication with the PutAzureDataLakeStorage processor in NiFi. You're required to ensure Ubuntu VM on which NiFi is installed has a managed identity assigned to it, or assign a managed identity to the Ubuntu VM.
 
 :::image type="content" source="./media/using-apache-nifi-with-dstream-api/step6-nifiui-kafkaconsumption.png" alt-text="Screenshot showing how to create a flow in Apache NiFi - Step 1." border="true" lightbox="./media/using-apache-nifi-with-dstream-api/step6-nifiui-kafkaconsumption.png":::
 
