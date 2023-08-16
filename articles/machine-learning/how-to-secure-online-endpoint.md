@@ -17,10 +17,10 @@ ms.custom: event-tier1-build-2022, devx-track-azurecli
 
 [!INCLUDE [machine-learning-dev-v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you'll implement network isolation for a managed online endpoint by working with a workspace configured for network isolation. The workspace uses a **managed virtual network** that **allows internet outbound**. You'll create a managed online endpoint that uses the workspace's private endpoint for secure inbound communication. You'll also create a deployment that uses the private endpoints of the managed virtual network (VNet) for outbound communication.
+In this article, you'll secure a managed online endpoint, using a workspace configured for network isolation. The workspace uses a **managed virtual network** that **allows internet outbound** communication. You'll create a managed online endpoint that uses the workspace's private endpoint for secure inbound communication. You'll also create a deployment that uses the private endpoints of the managed virtual network (VNet) for outbound communication.
 
 > [!NOTE]
-> This article uses the recommended [network isolation method](concept-secure-online-endpoint.md) that is based on the workspace managed VNet. For an example that uses the legacy method for network isolation, you can see the deployment files [deploy-moe-vnet.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet.sh) and [deploy-moe-vnet-mlflow.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-mlflow.sh) (for deployment using a generic model or an MLflow model) in the azureml-examples GitHub repo.
+> This article uses the recommended [network isolation method](concept-secure-online-endpoint.md) that is based on the workspace managed VNet. For an example that uses the legacy method for network isolation, see the deployment files [deploy-moe-vnet.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet.sh) (for deployment using a generic model) and [deploy-moe-vnet-mlflow.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-mlflow.sh) ( for deployment using an MLflow model) in the azureml-examples GitHub repo.
 
 ## Prerequisites
 
@@ -98,17 +98,15 @@ Any deployments of the endpoint will use the private endpoints of the managed VN
     az ml online-endpoint invoke --name $ENDPOINT_NAME --request-file $SAMPLE_REQUEST_PATH
     ```
 
-### Cleanup
+1. Deleting the endpoint if you no longer need it.
 
-To delete the endpoint, use the following command:
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-vnet.sh" id="delete_endpoint":::
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-vnet.sh" id="delete_endpoint":::
+1. Delete all the resources created in this article. Replace `<resource-group-name>` with the name of the resource group used in this example:
 
-To delete all the resources created in this article, use the following command. Replace `<resource-group-name>` with the name of the resource group used in this example:
-
-```azurecli
-az group delete --resource-group <resource-group-name>
-```
+    ```azurecli
+    az group delete --resource-group <resource-group-name>
+    ```
 
 ## Troubleshooting
 
