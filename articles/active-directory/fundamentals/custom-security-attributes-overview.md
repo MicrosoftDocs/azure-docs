@@ -23,7 +23,7 @@ Custom security attributes in Azure Active Directory (Azure AD) are business-spe
 
 ## Why use custom security attributes?
 
-- Extend user profiles, such as add Employee Hire Date and Hourly Salary to all my employees.
+- Extend user profiles, such as add Hourly Salary to all my employees.
 - Ensure only administrators can see the Hourly Salary attribute in my employees' profiles.
 - Categorize hundreds or thousands of applications to easily create a filterable inventory for auditing.
 - Grant users access to the Azure Storage blobs belonging to a project.

@@ -15,7 +15,7 @@ Use a device map to retrieve, analyze, and manage device information, either all
 
 To perform the procedures in this article, make sure that you have:
 
-- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [activated, and configured](ot-deploy/activate-deploy-sensor.md), with network traffic ingested 
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md), with network traffic ingested 
 
 - Access to your OT sensor or on-premises management console. Users with the **Viewer** role can view data on the map. To import or export data or edit the map view, you need access as a **Security Analyst** or **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -75,7 +75,7 @@ To see device details, select a device and expand the device details pane on the
 
 ### View IT subnets from an OT sensor device map
 
-By default, IT devices are automatically aggregated by [subnet](how-to-control-what-traffic-is-monitored.md#define-ot-and-iot-subnets), so that the map focuses on your local OT and IoT networks.
+By default, IT devices are automatically aggregated by [subnet](../how-to-control-what-traffic-is-monitored.md#define-ot-and-iot-subnets), so that the map focuses on your local OT and IoT networks.
 
 **To expand an IT subnet**:
 
@@ -211,7 +211,7 @@ The following table lists available responses for each notification, and when we
 | Type | Description | Available responses | Auto-resolve|
 |--|--|--|--|
 | **New IP detected** | A new IP address is associated with the device. This may occur in the following scenarios: <br><br>- A new or additional IP address was associated with a device already detected, with an existing MAC address.<br><br> - A new IP address was detected for a device that's using a NetBIOS name. <br /><br /> - An IP address was detected as the management interface for a device associated with a MAC address. <br /><br /> - A new IP address was detected for a device that's using a virtual IP address. | - **Set Additional IP to Device**: Merge the devices <br />- **Replace Existing IP**: Replaces any existing IP address with the new address <br /> - **Dismiss**: Remove the notification. |**Dismiss** |
-| **No subnets configured** | No subnets are currently configured in your network. <br /><br /> We recommend configuring subnets for the ability to differentiate between OT and IT devices on the map. | - **Open Subnet Configuration** and [configure subnets](how-to-control-what-traffic-is-monitored.md#define-ot-and-iot-subnets). <br />- **Dismiss**: Remove the notification. |**Dismiss** |
+| **No subnets configured** | No subnets are currently configured in your network. <br /><br /> We recommend configuring subnets for the ability to differentiate between OT and IT devices on the map. | - **Open Subnet Configuration** and [configure subnets](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration). <br />- **Dismiss**: Remove the notification. |**Dismiss** |
 | **Operating system changes** | One or more new operating systems have been associated with the device. | - Select the name of the new OS that you want to associate with the device.<br /> - **Dismiss**:  Remove the notification. | Set with new operating system only if not already configured manually. <br><br>If the operating system has already been configured: **Dismiss**. |
 | **New subnets** | New subnets were discovered. |-  **Learn**: Automatically add the subnet.<br />- **Open Subnet Configuration**: Add all missing subnet information.<br />- **Dismiss**: <br />Remove the notification. |**Dismiss** |
 | **Device type changes** | A new device type has been associated with the device. | - **Set as {…}**: Associate the new type with the device.<br />- **Dismiss**: Remove the notification. |No automatic handling|

@@ -30,15 +30,15 @@ There are three ways to access the Sign-in Diagnostics tool: from the Diagnose a
 
 Conditional Access policies are used to apply the right access controls when needed to keep your organization secure. Because Conditional Access policies can be used to grant or block access to resources, they often show up in the sign-in diagnostic.
 
-- [Blocked by Conditional access](../conditional-access/concept-conditional-access-grant.md#block-access)
+- [Blocked by Conditional Access](../conditional-access/concept-conditional-access-grant.md#block-access)
     - Your Conditional Access policies prevented the user from signing in.
 
-- [Failed Conditional access](../conditional-access/troubleshoot-conditional-access.md#select-all-consequences):
+- [Failed Conditional Access](../conditional-access/troubleshoot-conditional-access.md#select-all-consequences):
     - It's possible your Conditional Access policies are too strict. 
     - Review your configurations for complete sets of users, groups, and apps.
     - Make sure you understand the implications of restricting access from certain types of devices.
 
-- [Multi-factor authentication (MFA) from Conditional access](../conditional-access/concept-conditional-access-grant.md#require-multifactor-authentication):
+- [Multi-factor authentication (MFA) from Conditional Access](../conditional-access/concept-conditional-access-grant.md#require-multifactor-authentication):
     - Your Conditional Access policies triggered the MFA process for the user.
 
 - [B2B blocked sign-in due to Conditional Access](../external-identities/authentication-conditional-access.md#conditional-access-for-external-users):
@@ -93,7 +93,7 @@ Sign-in can fail due to an application configuration issue for the Azure AD side
 
 Sign-in events can be interrupted due to security defaults settings. Security defaults enforce best practice security for your organization. One best practice is to require MFA to be configured and used to prevent password sprays, replay attacks, and phishing attempts from being successful. 
 
-For more information, see [What are security defaults?](../fundamentals/concept-fundamentals-security-defaults.md) 
+For more information, see [What are security defaults?](../fundamentals/security-defaults.md) 
 
 ### Error code insights 
 
@@ -107,7 +107,7 @@ Preventing legacy authentication sign-in is recommended as the best practice for
 
 For more information, see [How to block legacy authentication to Azure AD with Conditional Access](../conditional-access/block-legacy-authentication.md). 
 
-### B2B blocked sign-in due to Conditional access 
+### B2B blocked sign-in due to Conditional Access 
 
 This diagnostic scenario detects a blocked or interrupted sign-in due to the user being from another organization. For example, a B2B sign-in, where a Conditional Access policy requires that the client's device is joined to the resource tenant. 
 
@@ -126,13 +126,13 @@ Because pass trough authentication is an integration of on premises and cloud au
 
 This diagnostic scenario identifies user specific sign-in issues when the authentication method being used is pass through authentication (PTA) and there's a PTA specific error. Errors due to other problems-even when PTA authentication is being used-will still be diagnosed correctly. 
 
-The diagnostic results show contextual information about the failure and the user signing in. The results could show other reasons why the sign-in failed, and recommended actions the admin can take to resolve the problem. For more information, see [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/tshoot-connect-pass-through-authentication.md). 
+The diagnostic results show contextual information about the failure and the user signing in. The results could show other reasons why the sign-in failed, and recommended actions the admin can take to resolve the problem. For more information, see [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/connect/tshoot-connect-pass-through-authentication.md). 
 
 ### Seamless single sign-on
 
 Seamless single sign-on integrates Kerberos authentication with cloud authentication. Because this scenario involves two authentication protocols, it can be difficult to understand where a failure point lies when sign-in problems occur. This diagnostic is intended to make these scenarios easier to diagnose and resolve.
  
-This diagnostic scenario examines the context of the sign-in failure and specific failure cause. The diagnostic results could include contextual information on the sign-in attempt, and suggested actions the admin can take. For more information, see [Troubleshoot Azure Active Directory Seamless single sign-on](../hybrid/tshoot-connect-sso.md).
+This diagnostic scenario examines the context of the sign-in failure and specific failure cause. The diagnostic results could include contextual information on the sign-in attempt, and suggested actions the admin can take. For more information, see [Troubleshoot Azure Active Directory Seamless single sign-on](../hybrid/connect/tshoot-connect-sso.md).
 
 ## Next steps
 

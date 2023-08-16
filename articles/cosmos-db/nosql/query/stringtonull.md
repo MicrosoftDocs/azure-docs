@@ -52,5 +52,5 @@ The following example illustrates how this function works with various data type
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`StringToBoolean`](stringtoboolean.md)

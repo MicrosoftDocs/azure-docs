@@ -75,5 +75,5 @@ This example uses a regular expression match as a filter to return a subset of i
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`IS_STRING`](is-string.md)

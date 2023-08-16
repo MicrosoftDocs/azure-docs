@@ -48,5 +48,5 @@ This example converts multiple scalar and object values to a string.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`IS_OBJECT`](is-object.md)

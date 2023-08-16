@@ -1,9 +1,9 @@
 items:
-- name: Cloud NGFW by Palo Alto Networks Preview - Azure Native ISV Service documentation
+- name: Cloud NGFW by Palo Alto Networks - Azure Native ISV Service documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Cloud NGFW by Palo Alto Networks Preview?
+  - name: What is Cloud NGFW by Palo Alto Networks?
     href: palo-alto-overview.md
 - name: Quickstarts
   expanded: true

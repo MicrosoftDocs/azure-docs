@@ -50,5 +50,5 @@ The following example shows how to use this function to replace static values.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`SUBSTRING`](substring.md)

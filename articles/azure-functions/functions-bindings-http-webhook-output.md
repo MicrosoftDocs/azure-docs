@@ -19,7 +19,7 @@ The default return value for an HTTP-triggered function is:
 ::: zone pivot="programming-language-csharp"
 ## Attribute
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries don't require an attribute. C# script uses a function.json configuration file. 
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries don't require an attribute. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#http-output).
 
 # [In-process](#tab/in-process)
 
@@ -28,16 +28,6 @@ A return value attribute isn't required. To learn more, see [Usage](#usage).
 # [Isolated process](#tab/isolated-process)
 
 A return value attribute isn't required. To learn more, see [Usage](#usage).
-
-# [C# Script](#tab/csharp-script)
-
-The following table explains the binding configuration properties that you set in the *function.json* file.
-
-|Property  |Description  |
-|---------|---------|
-| **type** |Must be set to `http`. |
-| **direction** | Must be set to `out`. |
-| **name** | The variable name used in function code for the response, or `$return` to use the return value. |
 
 ---
 
@@ -78,10 +68,6 @@ The HTTP triggered function returns a type of [IActionResult] or `Task<IActionRe
 # [Isolated process](#tab/isolated-process)
 
 The HTTP triggered function returns an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object or a `Task<HttpResponseData>`. If the app uses [ASP.NET Core integration in .NET Isolated](./dotnet-isolated-process-guide.md#aspnet-core-integration-preview), it could also use [IActionResult], `Task<IActionResult>`, [HttpResponse], or `Task<HttpResponse>`.
-
-# [C# Script](#tab/csharp-script)
-
-The HTTP triggered function returns a type of [IActionResult] or `Task<IActionResult>`.
 
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
 [HttpResponse]: /dotnet/api/microsoft.aspnetcore.http.httpresponse

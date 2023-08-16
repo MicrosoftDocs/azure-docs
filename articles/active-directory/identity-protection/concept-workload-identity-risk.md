@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 Azure AD Identity Protection has historically protected users in detecting, investigating, and remediating identity-based risks. We're now extending these capabilities to workload identities to protect applications and service principals.
 
-A [workload identity](../develop/workload-identities-overview.md) is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
+A [workload identity](../workload-identities/workload-identities-overview.md) is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
 
 - Can’t perform multifactor authentication.
 - Often have no formal lifecycle process.
@@ -98,7 +98,7 @@ Some of the key questions to answer during your investigation include:
 - Have there been suspicious configuration changes to accounts?
 - Did the account acquire unauthorized application roles?
 
-The [Azure Active Directory security operations guide for Applications](../fundamentals/security-operations-applications.md) provides detailed guidance on the above investigation areas.
+The [Azure Active Directory security operations guide for Applications](../architecture/security-operations-applications.md) provides detailed guidance on the above investigation areas.
 
 Once you determine if the workload identity was compromised, dismiss the account’s risk, or confirm the account as compromised in the Risky workload identities report. You can also select “Disable service principal” if you want to block the account from further sign-ins.
 
@@ -106,10 +106,10 @@ Once you determine if the workload identity was compromised, dismiss the account
 
 ## Remediate risky workload identities
 
-1.	Inventory credentials assigned to the risky workload identity, whether for the service principal or application objects.
+1. Inventory credentials assigned to the risky workload identity, whether for the service principal or application objects.
 1. Add a new credential. Microsoft recommends using x509 certificates.
 1. Remove the compromised credentials. If you believe the account is at risk, we recommend removing all existing credentials.
-1.	Remediate any Azure KeyVault secrets that the Service Principal has access to by rotating them. 
+1. Remediate any Azure KeyVault secrets that the Service Principal has access to by rotating them. 
 
 The [Azure AD Toolkit](https://github.com/microsoft/AzureADToolkit) is a PowerShell module that can help you perform some of these actions.
 

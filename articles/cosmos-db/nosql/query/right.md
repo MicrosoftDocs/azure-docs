@@ -49,5 +49,5 @@ The following example returns the right part of the string `Microsoft` for vario
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`LEFT`](left.md)

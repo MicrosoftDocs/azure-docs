@@ -6,7 +6,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
-ms.date: 07/24/2023
+ms.date: 07/25/2023
 ms.author: greglin
 ---
 
@@ -56,6 +56,9 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
   $log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup allLogs -RetentionPolicyDay 30 -RetentionPolicyEnabled $true
   New-AzDiagnosticSetting -Name 'AppGWForContainersLogs' -ResourceId "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/acctest5097/providers/Microsoft.ServiceNetworking/trafficControllers/myagfc" -StorageAccountId $storageAccount.Id -Log $log -Metric $metric
   ```
+
+---
+
 > [!Note]
 > After initially enabling diagnostic logs, it may take up to one hour before logs are available at your selected destination.
 

@@ -24,9 +24,12 @@ In this article, you learn how to:
 
 ### Export your provisioning configuration
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To export your configuration:
 
-1. In the [Azure portal](https://portal.azure.com/), on the left navigation panel, select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the left navigation panel, select **Azure Active Directory**.
 1. In the **Azure Active Directory** pane, select **Enterprise applications** and choose your application.
 1. In the left navigation pane, select **provisioning**. From the provisioning configuration page, click on **attribute mappings**, then **show advanced options**, and finally **review your schema**. The schema editor opens.
 1. Click on download in the command bar at the top of the page to download your schema.
@@ -46,7 +49,7 @@ You can use the Microsoft Graph API and the Microsoft Graph Explorer to export y
 
 ### Step 1: Retrieve your Provisioning App Service Principal ID (Object ID)
 
-1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For example, if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app.
+1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For example, if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app.
 1. In the Properties section of your provisioning app, copy the GUID value associated with the *Object ID* field. This value is also called the **ServicePrincipalId** of your App and it's used in Microsoft Graph Explorer operations.
 
    ![Workday App Service Principal ID](./media/export-import-provisioning-configuration/wd_export_01.png)
