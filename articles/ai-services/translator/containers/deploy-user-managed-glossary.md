@@ -50,22 +50,23 @@ There may be times when you're running a container with a multi-layered ingestio
 
 1. Next, to dynamically reload glossary entry updates, create a `version.json` file within the `customhotfix` folder. The `version.json` file should contain the following parameters: **VersionId**. An integer value.
 
-***Sample version.json file***
+    ***Sample version.json file***
 
-  ```json
-  {
+    ```json
+       {
 
-  "VersionId": 5
+        "VersionId": 5
 
-  }
- ```
+        }
 
-    > [!TIP]
-    >
-    > Reload can be controlled by setting the following environmental variables when starting the container:
-    >
-    > * **HotfixReloadInterval=**. Default value is 5 minutes.
-    > * **HotfixReloadEnabled=**. Default value is true.
+    ```
+
+      > [!TIP]
+      >
+      > Reload can be controlled by setting the following environmental variables when starting the container:
+      >
+      > * **HotfixReloadInterval=**. Default value is 5 minutes.
+      > * **HotfixReloadEnabled=**. Default value is true.
 
 1. Use the **docker run** command
 
