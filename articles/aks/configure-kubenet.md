@@ -137,7 +137,6 @@ For more information to help you decide which network model to use, see [Compare
         --service-cidr 10.0.0.0/16 \
         --dns-service-ip 10.0.0.10 \
         --pod-cidr 10.244.0.0/16 \
-        --docker-bridge-address 172.17.0.1/16 \
         --vnet-subnet-id $SUBNET_ID    
     ```
 
