@@ -1,8 +1,8 @@
-- name: Update management center documentation
+- name: Update manager documentation
   href: index.yml
 - name: Overview
   items:
-  - name: About Update management center
+  - name: About Azure Update manager(preview)
     href: overview.md
   - name: What's New 
     href: whats-new.md
