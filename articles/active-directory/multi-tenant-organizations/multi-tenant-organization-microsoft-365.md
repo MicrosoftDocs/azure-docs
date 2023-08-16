@@ -61,35 +61,26 @@ Alternatively, pair-wise configuration of inbound and outbound cross-tenant sync
 
 ## Inviting users
 
-Instead of sharing users from a source to a target tenant, users may also be invited into the resource tenant, resulting in creation of the corresponding B2B collaboration users, see invitation manager in Microsoft Graph and Add B2B collaboration users in the Azure portal.
-
-This mechanism of creating a collaborating user set includes invitation and synchronization of users via custom-scripted or alternative synchronization engines.
+Instead of sharing users from a source to a target tenant, you might invite users into the resource tenant, which creates corresponding B2B collaboration users. This mechanism of creating a collaborating user set includes invitation and synchronization of users by using custom-scripted or alternative synchronization engines. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../external-identities/add-users-administrator.md) and [invitation manager in Microsoft Graph API](/graph/api/resources/invitation).
 
 ## B2B member users
 
-To ensure a seamless collaboration experience across the multi-tenant organization in new Microsoft Teams, the B2B identities shall be provisioned as B2B users of <userType> **Member**, see Properties of a B2B guest user.
+To ensure a seamless collaboration experience across the multi-tenant organization in new Microsoft Teams, B2B identities are provisioned as B2B users of [Member userType](../external-identities/user-properties.md#user-type). 
 
-From a security perspective, admins may wish to review the default permissions granted to B2B member users, see Default user permissions.
+| User synchronization method | Default userType property |
+| --- | --- |
+| [Synchronize users in multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/sync-users-multi-tenant-orgs?branch=mikeplum-mto) | **Member**<br/> Remains Guest, if the B2B identity already existed as Guest |
+| [Cross-tenant synchronization in Azure AD](./cross-tenant-synchronization-overview.md) | **Member**<br/> Remains Guest, if the B2B identity already existed as Guest |
 
-For B2B identities in scope of synchronization via
+From a security perspective, you should review the default permissions granted to B2B member users. For more information, see [Compare member and guest default permissions](../fundamentals/users-default-permissions.md#compare-member-and-guest-default-permissions).
 
-- Synchronize users in multi-tenant organizations in Microsoft 365, or
-- Cross-tenant synchronization in Azure AD
+To change the userType from **Guest** to **Member** (or vice versa), a source tenant administrator can amend the [attribute mappings](cross-tenant-synchronization-configure.md#step-9-review-attribute-mappings), or a target tenant administrator can [change the userType](../fundamentals/how-to-manage-user-profile-info.md#add-or-change-profile-information) if the property is not recurringly synchronized.
 
-the <userType> property
-
-- defaults to **Member**, but
-- remains **Guest**, if the B2B identity already existed as **Guest**.
-
-To change the <userType> from **Guest** to **Member** (or vice versa), a source tenant admin may amend the attribute mappings, or a target tenant admin may change the userType if the property is not recurringly synchronized.
-
-For B2B identities not in scope of synchronization, the resource tenant admin may simply change the userType. Note that B2B identities shall have been redeemed to be recognized by new Microsoft Teams for seamless collaboration.
+For B2B identities not in scope of synchronization, the resource tenant administrator can simply [change the userType](../fundamentals/how-to-manage-user-profile-info.md#add-or-change-profile-information). Note that B2B identities must be [redeemed](../external-identities/redemption-experience.md) to be recognized by new Microsoft Teams for seamless collaboration.
 
 ## Unsharing your users
 
-Currently, there are no additional user deprovisioning capabilities provided other than capabilities intrinsic to Azure AD cross-tenant synchronization, see Deprovisioning.
-
-By default, when synchronization scope is reduced while a synchronization job is running, users falling out of scope will be soft deleted, unless Target Object Actions for Delete is disabled, see Define who is in scope for provisioning.
+To unshare users, you deprovision users by using the user deprovisioning capabilities available in Azure AD cross-tenant synchronization. By default, when provisioning scope is reduced while a synchronization job is running, users fall out of scope and are soft deleted, unless Target Object Actions for Delete is disabled. For more information, see [Deprovisioning](cross-tenant-synchronization-overview.md#deprovisioning) and [Define who is in scope for provisioning](cross-tenant-synchronization-configure.md#step-8-optional-define-who-is-in-scope-for-provisioning-with-scoping-filters).
 
 ## Next steps
 
