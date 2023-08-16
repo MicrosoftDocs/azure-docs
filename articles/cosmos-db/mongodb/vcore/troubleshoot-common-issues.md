@@ -26,7 +26,19 @@ This issue might occur when the cluster does not have the correct firewall rule(
 
 ### Application Unable to Connect with DNSClient.DnsResponseException Error
 #### Debugging Connectivity Issues: 
+Windows User: <br>
 Psping doesn't work. The use of nslookup confirms cluster reachability and discoverability, indicating network issues are unlikely.
+
+Unix Users: <br>
+For Socket/Network-related exceptions, potential network connectivity issues might be hindering the application from establishing a connection with the Azure Cosmos DB Mongo API endpoint.
+
+To check connectivity, follow these steps:
+```
+nc -v <accountName>.documents.azure.com 10250
+```
+If TCP connect to port 10250/10255 fails, a environment firewall may be blocking the Azure Cosmos DB connection. Kindly scroll down to the page's bottom to submit a support ticket.
+
+
 
 #### Verify your connection string: 
 Only use the connection string provided in the portal. Avoid using any variations. Particularly, the connection string using mongodb+srv:// protocol and the c. prefixes aren't recommended. If the issue persists, share application/client-side driver logs for debugging connectivity issues with the team by submitting a support ticket.
