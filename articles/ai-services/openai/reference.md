@@ -310,8 +310,6 @@ POST {your-resource-name}/openai/deployments/{deployment-id}/extensions/chat/com
 curl -i -X POST YOUR_RESOURCE_NAME/openai/deployments/YOUR_DEPLOYMENT_NAME/extensions/chat/completions?api-version=2023-06-01-preview \
 -H "Content-Type: application/json" \
 -H "api-key: YOUR_API_KEY" \
--H "chatgpt_url: YOUR_RESOURCE_URL" \
--H "chatgpt_key: YOUR_API_KEY" \
 -d \
 '
 {
