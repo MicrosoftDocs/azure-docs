@@ -1,6 +1,6 @@
 ---
 title: What is Apache Spark in HDInsight on AKS
-description: An introduction to Apache Spark in HDInsight on AKS.
+description: An introduction to Apache Spark in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: conceptual
 ms.date: 08/14/2023
@@ -18,7 +18,7 @@ Spark provides primitives for in-memory cluster computing. A Spark job can load 
 ## HDInsight Spark in AKS
 Azure HDInsight is a managed, full-spectrum, open-source analytics service for enterprises.
 
-Apache Spark in Azure HDInsight is the managed spark service in Microsoft Azure. With Apache Spark on AKS in Azure HDInsight, you can store and process your data all within Azure. Spark clusters in HDInsight are compatible with or [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction), allows you to apply Spark processing on your existing data stores.
+Apache Spark in Azure HDInsight is the managed spark service in Microsoft Azure. With Apache Spark on AKS in Azure HDInsight, you can store and process your data all within Azure. Spark clusters in HDInsight are compatible with or [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md), allows you to apply Spark processing on your existing data stores.
 
 The Apache Spark framework for HDInsight on AKS enables fast data analytics and cluster computing using in-memory processing. Jupyter Notebook lets you interact with your data, combine code with markdown text, and do simple visualizations.
 
