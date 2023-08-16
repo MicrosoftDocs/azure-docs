@@ -84,6 +84,6 @@ Determining whether an individual user can consent to an application can be conf
 
 * [Apps, permissions, and consent in Azure Active Directory (v1.0 endpoint)](../develop/quickstart-register-app.md)
 
-* [Scopes, permissions, and consent in the Azure Active Directory (v2.0 endpoint)](../develop/v2-permissions-and-consent.md)
+* [Scopes, permissions, and consent in the Azure Active Directory (v2.0 endpoint)](../develop/permissions-consent-overview.md)
 
 * [Unexpected error when performing consent to an application](application-sign-in-unexpected-user-consent-error.md)

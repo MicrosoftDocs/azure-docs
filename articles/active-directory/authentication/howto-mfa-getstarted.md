@@ -90,7 +90,7 @@ Common use cases to require Azure AD Multi-Factor Authentication include:
 - To [specific applications](tutorial-enable-azure-mfa.md)
 - For [all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 - For [Azure management](../conditional-access/howto-conditional-access-policy-azure-management.md)
-- From [network locations you don't trust](../conditional-access/untrusted-networks.md)
+- From [network locations you don't trust](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 
 ### Named locations
 
@@ -255,4 +255,4 @@ For a guided walkthrough of many of the recommendations in this article, see the
 
 ## Next steps
 
-[Deploy other identity features](../fundamentals/deployment-plans.md)
+[Deploy other identity features](../architecture/deployment-plans.md)
