@@ -1034,6 +1034,19 @@ No functionalities are removed. The new PDF viewer adds functionality and the li
 
 ---
 
+### My Apps Portal Improvements  
+**Type:** Plan for Change  
+**Service category:** My Apps
+**Product capability:** End User Experiences
+
+If your organization uses myapps.microsoft.com to discover and launch apps, and has set up an allow-list for only specific certificates and/or domains, you’ll need to update your allow-list in order for app launching to continue working as expected. We’ve introduced a new endpoint to launch apps for better performance and resilience. App launch requests will go to a new domain: launcher.myapps.microsoft.com. 
+
+If you use myapps.microsoft.com/signin or account.activedirectory.windowsazure.com/applications/signin deep links and have allow-listed only certain certificates, you will need to update your allow-list to include certificates from myapplications.microsoft.com. If you have allow-listed only specific domains or IPs, you will need to update the allow-list to include launcher.myapps.microsoft.com. Please ensure to update your allow-list latest by June 30, 2023 for My Apps portal to continue working as expected. 
+
+To easily check if you need to update your certificate allow-list, go to https://myapplications.microsoft.com. If it loads as expected, no update is needed. If you encounter an issue, you’ll need to make an update.  
+
+Whichever method you used to allow-list the My Apps certificate in the past, you should use the same method to allow-list the new one coming from My Apps. Retrieving the My Apps certificate that you need to allow-list will vary depending on the browser you’re using. On Edge, select the lock icon in the URL bar, to the left of the URL. Then select the option that says “Connection is secure” from the dropdown. In the “Connection is secure” details, select the certificate icon which will open the Certificate viewer containing the details of the certificate. For additional information visit: Office 365 URLs and IP address ranges - Microsoft 365 Enterprise | Microsoft Learn 
+---
 ## February 2023
 
 ### General Availability - Expanding Privileged Identity Management Role Activation across the Azure portal
