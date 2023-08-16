@@ -36,11 +36,14 @@ The Windows server on which you intend to install the Azure AD cloud sync agent 
 
  1. Sign in to the [Entra admin center](https://entra.microsoft.com).
  2. In the menu on the left, expand **Identity**, click **Show more**, expand **Hybrid management**, and select **Azure AD Connect**.
+    </br>
     [![Screenshot showing Azure AD Connect menu option in Entra admin center sidebar](media/how-to-install/azure-ad-cloud-connect-cli-0.png)](media/how-to-install/azure-ad-cloud-connect-cli-0.png)
- 3. Select **Cloud Sync**.
+ 4. Select **Cloud Sync**.
+    </br>
     [![Screenshot showing AAD Connect sidebar menu with Cloud Sync highlighted](media/how-to-install/azure-ad-cloud-connect-cli-1.png)](media/how-to-install/azure-ad-cloud-connect-cli-1.png#lightbox)</br>
- 4. Select **Agents** under *Monitor*.
+ 5. Select **Agents** under *Monitor*.
  7. Click **Download on-premises agent**.
+    </br>
     [![Screenshot showing Download on-premises agent button](media/how-to-install/azure-ad-cloud-connect-cli-2.png)](media/how-to-install/azure-ad-cloud-connect-cli-2.png)
  9. On the right, click **Accept terms & download**.
 
