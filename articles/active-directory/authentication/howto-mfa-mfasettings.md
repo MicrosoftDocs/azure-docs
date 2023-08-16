@@ -6,12 +6,12 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/17/2023
+ms.date: 08/16/2023
 
 ms.author: justinha
 author: justinha
 manager: amycolannino
-ms.reviewer: michmcla
+ms.reviewer: jupetter
 
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
@@ -92,6 +92,9 @@ To enable **Report suspicious activity** from the Authentication Methods Setting
 1. In the Azure portal, click **Azure Active Directory** > **Security** > **Authentication Methods** > **Settings**. 
 1. Set **Report suspicious activity** to **Enabled**. 
 1. Select **All users** or a specific group. 
+
+>[!NOTE]
+>If you enable **Report suspicious activity** and specify a custom voice reporting value while the tenant still has **Fraud Alert** enabled in parallel with a custom voice reporting number configured, the **Report suspicious activity** value will be used instead of **Fraud Alert**.
 
 ### View suspicious activity events 
 
