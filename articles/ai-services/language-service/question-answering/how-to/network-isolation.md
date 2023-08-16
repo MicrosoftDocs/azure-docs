@@ -62,5 +62,5 @@ After restricting access to an Azure AI services resource based on VNet, To brow
 - Grant access to your [local browser/machine](../../../cognitive-services-virtual-networks.md?tabs=portal#managing-ip-network-rules).
 - Add the **public IP address of the machine  under the Firewall** section of the **Networking** tab. By default `portal.azure.com` shows the current browsing machine's public IP (select this entry) and then select **Save**.
 
-     > [!div class="mx-imgBorder"]
-     > [ ![Screenshot of firewall and virtual networks configuration UI]( ../../../qnamaker/media/network-isolation/firewall.png) ](  ../../../qnamaker/media/network-isolation/firewall.png#lightbox)
+  > [!div class="mx-imgBorder"]
+  > [![Screenshot of firewall and virtual networks configuration UI](../../../qnamaker/media/network-isolation/firewall.png)](../../../qnamaker/media/network-isolation/firewall.png#lightbox)

@@ -32,12 +32,12 @@ Add-AzWebAppAccessRestrictionRule -ResourceGroupName "<resource group name>" -We
 3.  Verify the added access rule is present in the **Access Restrictions** section of the **Networking** tab:  
 
     > [!div class="mx-imgBorder"]
-    > [ ![Screenshot of access restriction rule]( ../media/network-isolation/access-restrictions.png) ](  ../media/network-isolation/access-restrictions.png#lightbox)
+    > [ ![Screenshot of access restriction rule](../media/network-isolation/access-restrictions.png) ](../media/network-isolation/access-restrictions.png#lightbox)
 
 4. To access the **Test pane** on the https://qnamaker.ai portal, add the **Public IP address of the machine** from where you want to access the portal. From the **Access Restrictions** page select **Add Rule**, and allow access to your client IP. 
 
     > [!div class="mx-imgBorder"]
-    > [ ![Screenshot of access restriction rule with the addition of public IP address]( ../media/network-isolation/public-address.png) ](  ../media/network-isolation/public-address.png#lightbox)
+    > [ ![Screenshot of access restriction rule with the addition of public IP address](../media/network-isolation/public-address.png) ](../media/network-isolation/public-address.png#lightbox)
 
 ### Outbound access from App Service
 
@@ -69,7 +69,7 @@ The App Service Environment (ASE) can be used to host the QnA Maker App Service 
 4. Add CORS origin "*" on the App Service to allow access to https://qnamaker.ai portal Test pane. **CORS** is located under the API header in the App Service pane.
 
     > [!div class="mx-imgBorder"]
-    > [ ![Screenshot of CORS interface within App Service UI]( ../media/network-isolation/cross-orgin-resource-sharing.png) ](  ../media/network-isolation/cross-orgin-resource-sharing.png#lightbox)
+    > [ ![Screenshot of CORS interface within App Service UI](../media/network-isolation/cross-orgin-resource-sharing.png) ](../media/network-isolation/cross-orgin-resource-sharing.png#lightbox)
 
 5. Create a QnA Maker Azure AI services instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager. The QnA Maker endpoint should be set to the App Service Endpoint created above (`https:// mywebsite.myase.p.azurewebsite.net`). Here is a [sample Azure Resource Manager template you can use for reference](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/QnAMakerASEArmTemplate).
 
@@ -89,31 +89,31 @@ The Cognitive Search instance can be isolated via a private endpoint after the Q
 2. Open the VNet resource, then under the **Subnets** tab create two subnets. One for the App Service **(appservicesubnet)** and another subnet **(searchservicesubnet)** for the Cognitive Search resource without delegation. 
 
     > [!div class="mx-imgBorder"]
-    > [ ![Screenshot of virtual networks subnets UI interface]( ../media/network-isolation/subnets.png) ](  ../media/network-isolation/subnets.png#lightbox)
+    > [ ![Screenshot of virtual networks subnets UI interface](../media/network-isolation/subnets.png) ](../media/network-isolation/subnets.png#lightbox)
 
 3. In the **Networking** tab in the Cognitive Search service instance switch endpoint connectivity data from public to private. This operation is a long running process and **can take up to 30 minutes** to complete.
 
     > [!div class="mx-imgBorder"]
-    > [ ![Screenshot of networking UI with public/private toggle button]( ../media/network-isolation/private.png) ](  ../media/network-isolation/private.png#lightbox)
+    > [ ![Screenshot of networking UI with public/private toggle button](../media/network-isolation/private.png) ](../media/network-isolation/private.png#lightbox)
 
 4. Once the Search resource is switched to private, select add **private endpoint**.
     - **Basics tab**: make sure you are creating your endpoint in the same region as search resource.
     - **Resource tab**: select the required search resource of type `Microsoft.Search/searchServices`.
 
     > [!div class="mx-imgBorder"]
-    > [ ![Screenshot of create a private endpoint UI window]( ../media/network-isolation/private-endpoint.png) ](  ../media/network-isolation/private-endpoint.png#lightbox)
+    > [ ![Screenshot of create a private endpoint UI window](../media/network-isolation/private-endpoint.png) ](../media/network-isolation/private-endpoint.png#lightbox)
 
     - **Configuration tab**:  use the VNet, subnet (searchservicesubnet) created in step 2. After that, in section **Private DNS integration** select the corresponding subscription and create a new private DNS zone called **privatelink.search.windows.net**.
 
      > [!div class="mx-imgBorder"]
-     > [ ![Screenshot of create private endpoint UI window with subnet field populated]( ../media/network-isolation/subnet.png) ](  ../media/network-isolation/subnet.png#lightbox)
+     > [ ![Screenshot of create private endpoint UI window with subnet field populated](../media/network-isolation/subnet.png) ](../media/network-isolation/subnet.png#lightbox)
 
 5. Enable VNET integration for the regular App Service. You can skip this step for ASE, as that already has access to the VNET.
 	- Go to App Service **Networking** section, and open **VNet Integration**.
 	- Link to the dedicated App Service VNet, Subnet (appservicevnet) created in step 2.
     
      > [!div class="mx-imgBorder"]
-     > [ ![Screenshot of VNET integration UI]( ../media/network-isolation/integration.png) ](  ../media/network-isolation/integration.png#lightbox)
+     > [ ![Screenshot of VNET integration UI](../media/network-isolation/integration.png) ](../media/network-isolation/integration.png#lightbox)
 
 [Create Private endpoints](../reference-private-endpoint.md) to the Azure Search resource.
 

@@ -254,7 +254,7 @@ To connect to other linked services, you can make a direct call to the TokenLibr
 %%spark
 // retrieve connectionstring from mssparkutils
 
-mssparkutils.getFullConnectionString("<LINKED SERVICE NAME>")
+mssparkutils.credentials.getFullConnectionString("<LINKED SERVICE NAME>")
 ```
 
 ::: zone-end
@@ -265,7 +265,7 @@ mssparkutils.getFullConnectionString("<LINKED SERVICE NAME>")
 %%pyspark
 # retrieve connectionstring from mssparkutils
 
-mssparkutils.getFullConnectionString("<LINKED SERVICE NAME>")
+mssparkutils.credentials.getFullConnectionString("<LINKED SERVICE NAME>")
 ```
 
 ::: zone-end
