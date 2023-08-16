@@ -200,7 +200,7 @@ Using Device Provisioning Service allows you to automatically issue and renew ce
     
     The other settings aren't relevant to the tutorial. You can accept the default settings.
 
-1. Select **Save**.
+1. Select **Review + create**.
 
 Now that an enrollment exists for the device, the IoT Edge runtime can automatically manage device certificates for the linked IoT Hub.
 
