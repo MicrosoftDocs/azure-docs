@@ -4,7 +4,7 @@ description: How to configure networking for Azure Elastic SAN Preview, a servic
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 08/16/2023
 ms.author: rogarana
 ms.custom: ignite-2022, devx-track-azurepowershell
 ---
@@ -127,7 +127,7 @@ Deploying a private endpoint for an Elastic SAN Volume group using PowerShell in
 1. Create the private endpoint using the subnet and the private link service connection as input.
 1. **(Optional** *if you are using the two-step process (creation, then approval))*: The Elastic SAN Network Admin approves the connection.
 
-Use this sample code to create a private endpoint for your Elastic SAN volume group with PowerShell. Uncomment the `-ByManualRequest` parameter if you are using the two-step process. Replace all placeholder text with your own values:
+Use this sample code to create a private endpoint for your Elastic SAN volume group with PowerShell. Replace all placeholder text with your own values:
 
 | Placeholder                      | Description |
 |----------------------------------|-------------|
