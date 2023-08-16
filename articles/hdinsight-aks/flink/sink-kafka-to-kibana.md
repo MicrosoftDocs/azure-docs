@@ -301,9 +301,9 @@ Job has been submitted with JobID e0eba72d5143cea53bcf072335a4b1cb
 - Access Kibana at IP, which you have set earlier.
 - Configure an index pattern by clicking **Stack Management** in the left-side toolbar and find **Index Patterns**, then click **Create Index Pattern** and enter the full index name kafka_user_clicks to create the index pattern. 
 
-:::image type="content" source="./media/kafka-flink-kibana/kibana-index-pattern-setup.png" alt-text="Screenshot showing Kibana index pattern set up." lightbox="./media/kafka-flink-kibana/kibana-index-pattern-setup.png":::
+:::image type="content" source="./media/kafka-flink-kibana/kibana-index-pattern-setup.png" alt-text="Screenshot showing Kibana index pattern setup." lightbox="./media/kafka-flink-kibana/kibana-index-pattern-setup.png":::
 
-- Once the index pattern is set up, you can explore the data in Kibana
+- Once the index pattern is setup, you can explore the data in Kibana
     - Click "Discover" in the left-side toolbar.
       
       :::image type="content" source="./media/kafka-flink-kibana/kibana-discover.png" alt-text="Screenshot showing how to navigate to discover button." lightbox="./media/kafka-flink-kibana/kibana-discover.png":::
@@ -315,7 +315,7 @@ Job has been submitted with JobID e0eba72d5143cea53bcf072335a4b1cb
 - Let us create a dashboard to display various views.
   
 :::image type="content" source="./media/kafka-flink-kibana/elastic-dashboard-selection.png" alt-text="Screenshot showing elastic to select dashboard and start creating views" lightbox="./media/kafka-flink-kibana/elastic-dashboard-selection.png" :::
-- Let's use a simple **Area**(area graph), then select the **kafka_click_events** index and edit the Horizontal axis and Vertical axis to illustrate the events
+- Let's use a  **Area** (area graph), then select the **kafka_click_events** index and edit the Horizontal axis and Vertical axis to illustrate the events
   
 :::image type="content" source="./media/kafka-flink-kibana/elastic-dashboard.png" alt-text="Screenshot showing elastic plot with the Kafka click event." lightbox="./media/kafka-flink-kibana/elastic-dashboard.png" :::
 
