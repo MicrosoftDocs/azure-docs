@@ -1,13 +1,9 @@
 ---
 title: Test private and localhost endpoints
-titleSuffix: Microsoft Playwright Testing
 description: Learn how to configure Microsoft Playwright Testing to test application endpoints that aren't publicly hosted, or run on development servers hosted on localhost.
-services: playwright-testing
-ms.service: playwright-testing
 ms.topic: how-to
-ms.author: nicktrog
-author: ntrogh
 ms.date: 08/01/2022
+ms.custom: playwright-testing-preview
 ---
 
 # Test private endpoints with Microsoft Playwright Testing Preview
@@ -76,5 +72,5 @@ To enable testing privately hosted endpoints, update the Playwright configuratio
 ## Next steps
 
 - Learn more about [running cross-platform tests](./how-to-cross-platform-tests.md).
-- Learn more about [automating end-to-end tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).
+- Learn more about [automating end-to-end tests with GitHub Actions](./quickstart-automate-end-to-end-testing.md).
 - Learn more about [managing workspaces in the Azure portal](./how-to-manage-workspace-in-azure-portal.md).

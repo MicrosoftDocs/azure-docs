@@ -1,12 +1,9 @@
 ---
 title: What is Microsoft Playwright Testing?
 description: 'Microsoft Playwright Testing is a fully managed service for end-to-end testing built on top of Playwright. Run Playwright tests across multiple operating systems and browser configurations at scale.'
-services: playwright-testing
-ms.service: playwright-testing
 ms.topic: overview
-ms.author: nicktrog
-author: ntrogh
 ms.date: 08/23/2022
+ms.custom: playwright-testing-preview
 ---
 
 # What is Microsoft Playwright Testing Preview?
@@ -30,7 +27,7 @@ The service enables you to run all tests on a specific operating system version,
 
 Microsoft Playwright Testing lets you scale your test run across parallel *workers*, without being limited by the processing power of your local infrastructure. These workers let you achieve a high degree of parallelism across the different test cases, browser configurations, and operating systems. This parallelization helps you shorten the overall test duration.
 
-By reducing the test duration, you can also enable [continuous end-to-end testing](./tutorial-automate-end-to-end-testing-with-github-actions.md) and get feedback with every application build. You can integrate Microsoft Playwright Testing in any CI/CD solution by using the Playwright command-line interface (CLI).
+By reducing the test duration, you can also enable [continuous end-to-end testing](./quickstart-automate-end-to-end-testing.md) and get feedback with every application build. You can integrate Microsoft Playwright Testing in any CI/CD solution by using the Playwright command-line interface (CLI).
 
 You can use the cloud-based infrastructure to test both publicly and privately accessible applications without allowing inbound connections on your firewall. During the development phase, you can also use Microsoft Playwright Testing to run tests against a localhost development server.
 
@@ -74,4 +71,4 @@ Start using Microsoft Playwright Testing.
 
 - [Quickstart: Run end-to-end tests at scale](./quickstart-run-end-to-end-tests.md).
 - [Tutorial: Identify issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-tests.md).
-- [Tutorial: Automate end-to-end testing with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).
+- [Tutorial: Automate end-to-end testing with GitHub Actions](./quickstart-automate-end-to-end-testing.md).

@@ -6,13 +6,13 @@ summary: Learn how to run end-to-end tests for your web apps at scale with Micro
 metadata:
   title: Microsoft Playwright Testing documentation
   description: Learn how to run end-to-end tests for your web apps at scale with Microsoft Playwright Testing. Run tests cross-platform and cross-browser and gain actionable insights for troubleshooting. Tutorials, code examples, GitHub Actions, Azure Pipelines, and more.
-  services: playwright-testing
-  ms.service: playwright-testing
+  ms.service: load-testing
   ms.topic: landing-page
   ms.collection: collection
   ms.author: nicktrog
   author: ntrogh
   ms.date: 06/13/2022
+  ms.custom: playwright-testing-preview
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -32,12 +32,8 @@ landingContent:
         links:
           - text: Run end-to-end web tests at scale
             url: quickstart-run-end-to-end-tests.md
-      - linkListType: tutorial
-        links:
-          - text: Identify app issues with end-to-end tests
-            url: tutorial-identify-issues-with-end-to-end-tests.md
-          - text: Set up continuous testing with GitHub Actions
-            url: tutorial-automate-end-to-end-testing-with-github-actions.md
+          - text: Set up continuous end-to-end testing
+            url: quickstart-automate-end-to-end-testing.md
 
   - title: Run tests
     linkLists:

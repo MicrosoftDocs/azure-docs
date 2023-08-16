@@ -1,20 +1,16 @@
 ---
 title: Set up continuous tests with Azure Pipelines
-titleSuffix: Microsoft Playwright Testing
 description: Learn how to set up continuous end-to-end testing with Azure Pipelines and Microsoft Playwright Testing. Run Playwright tests with every code change from your CI/CD pipeline.
-services: playwright-testing
-ms.service: playwright-testing
 ms.topic: how-to
-ms.author: nicktrog
-author: ntrogh
 ms.date: 09/28/2022
+ms.custom: playwright-testing-preview
 ---
 
 # Set up continuous end-to-end testing with Azure Pipelines
 
 In this article, you learn how to set up continuous end-to-end testing with Azure Pipelines and Microsoft Playwright Testing Preview. Run your Playwright tests with every code change from your CI/CD pipeline. View the test summary results and failed tests directly within the CI/CD output.
 
-If you're using GitHub Actions for your CI/CD pipelines, see the tutorial [Automate end-to-end Playwright tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).
+If you're using GitHub Actions for your CI/CD pipelines, see the tutorial [Automate end-to-end Playwright tests with GitHub Actions](./quickstart-automate-end-to-end-testing.md).
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

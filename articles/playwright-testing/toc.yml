@@ -5,21 +5,17 @@ items:
   expanded: true
   items: 
     - name: What is Microsoft Playwright Testing?
-      displayName: Playwright, MPT
+      displayName: Playwright, MPT, overview
       href: overview-what-is-microsoft-playwright-testing.md
 - name: Quickstarts
   expanded: true
   items: 
     - name: Run end-to-end tests at scale
+      displayName: getting started, quickstart, cli, command-line
       href: quickstart-run-end-to-end-tests.md
-- name: Tutorials
-  expanded: true
-  items: 
-    - name: Identify app issues with end-to-end tests
-      href: tutorial-identify-issues-with-end-to-end-tests.md
-    - name: Set up continuous testing with GitHub Actions
-      href: tutorial-automate-end-to-end-testing-with-github-actions.md
-      displayName: CI/CD, GitHub
+    - name: Set up continuous end-to-end testing
+      displayName: getting started, quickstart, github actions, azure pipelines, azure devops, ci/cd, CICD, continuous integration, continuous delivery
+      href: quickstart-automate-end-to-end-testing.md
 - name: How-to guides
   expanded: true
   items:
@@ -31,14 +27,12 @@ items:
       href: how-to-run-with-playwright-testing.md
     - name: Run tests across multiple operating systems
       href: how-to-cross-platform-tests.md
-    - name: Set up continuous testing with Azure Pipelines
-      href: how-to-setup-continuous-testing-with-azure-pipelines.md
-      displayName: CI/CD, Azure Pipelines, automate, continuous
     - name: Test private endpoints
       href: how-to-test-private-endpoints.md
     - name: Authenticate requests
       href: how-to-manage-access-keys.md
-    - name: Manage users and roles
+    - name: Manage workspace access
+      displayName: RBAC, permissions, access, manage, role-based access control, users, roles
       href: how-to-assign-roles.md
 - name: Resources
   items: 

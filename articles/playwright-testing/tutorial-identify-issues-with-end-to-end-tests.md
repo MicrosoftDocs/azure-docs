@@ -1,13 +1,9 @@
 ---
 title: 'Tutorial: Identify app issues with end-to-end tests'
-titleSuffix: Microsoft Playwright Testing
 description: In this tutorial, you learn how to identify issues in your web app with cross-platform, cross-browser end-to-end tests in Microsoft Playwright Testing. Troubleshoot problems by using rich traces, screenshots, and test result artifacts.
-services: playwright-testing
-ms.service: playwright-testing
-ms.author: nicktrog
-author: ntrogh
 ms.date: 09/15/2022
 ms.topic: tutorial
+ms.custom: playwright-testing-preview
 ---
 
 # Tutorial: Identify app issues with end-to-end tests in Microsoft Playwright Testing Preview
@@ -173,7 +169,7 @@ To diagnose the failing tests in the Microsoft Playwright Testing dashboard, per
 
 1. Hover over the timeline at the top to evaluate the application state over time.
 
-    The trace viewer uses the Playwright trace log to enable you to interactively step through the test run timeline and view how the application state changes over time.
+    The trace viewer uses the Playwright Tracelog to enable you to interactively step through the test run timeline and view how the application state changes over time.
 
     :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-tests/dashboard-web-trace-viewer.png" alt-text="Screenshot that shows the web-based Playwright Trace Viewer in the Microsoft Playwright Testing dashboard.":::
 
@@ -237,4 +233,4 @@ You've successfully ran Playwright tests with Microsoft Playwright Testing at hi
 Advance to the next tutorial to learn how to set up continuous end-to-end testing.
 
 > [!div class="nextstepaction"]
-> [Set up continuous end-to-end testing with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md)
+> [Set up continuous end-to-end testing with GitHub Actions](./quickstart-automate-end-to-end-testing.md)
