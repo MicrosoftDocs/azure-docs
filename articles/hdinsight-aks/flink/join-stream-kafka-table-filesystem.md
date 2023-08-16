@@ -263,19 +263,19 @@ We're submitting the pacakged jar to Flink
 
 ### Producing real-time `user_events` topic on Kafka
 
-:::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step5.png" alt-text="Screenshot showing Produce a real-time user behavior event on Kafka 3.2" border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step5_kafka32.png":::
+:::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step5.png" alt-text="Screenshot showing Produce a real-time user behavior event on Kafka 3.2." border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step5_kafka32.png":::
 
 ### Consume the `itemAttributes`joining with `user_events` on Kafka
 
-:::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step6.png" alt-text="Screenshot showing Consume the item attributes-joined user activity events on Kafka 3.2" border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step6_kafka32.png":::
+:::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step6.png" alt-text="Screenshot showing Consume the item attributes-joined user activity events on Kafka 3.2." border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step6_kafka32.png":::
 
 ### Producing real-time `user_events` on Kafka
 
-:::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step7.png" alt-text="Screenshot showing Continue to produce a real-time user behavior event on Kafka 3.2" border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step7_kafka32.png":::
+:::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step7.png" alt-text="Screenshot showing Continue to produce a real-time user behavior event on Kafka 3.2." border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step7_kafka32.png":::
 
 ### Consuming the `itemAttributes`joining with `user_events` on Kafka
 
-:::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step8.png" alt-text="Screenshot showing Continue to consumer the item attributes-joined user activity events on Kafka" border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step8_kafka32.png":::
+:::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step8.png" alt-text="Screenshot showing Continue to consumer the item attributes-joined user activity events on Kafka." border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step8_kafka32.png":::
 
 ## Reference
 
