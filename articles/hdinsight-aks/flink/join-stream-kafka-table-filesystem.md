@@ -263,8 +263,7 @@ We're submitting the pacakged jar to Flink
 
 ### Producing real-time `user_events` topic on Kafka
 
-:::image type="content" source="./media/join-stream-kafka-table-filesystem/step-5-kafka-3-2.png" alt-text="Screenshot showing Produce a real-time user behavior event on Kafka 3.2." border="true" lightbox="./media/join-stream-kafka-table-filesystem/step-5-kafka-3-2.png
-":::
+:::image type="content" source="./media/join-stream-kafka-table-filesystem/step-5-kafka-3-2.png" alt-text="Screenshot showing Produce a real-time user behavior event on Kafka 3.2." border="true" lightbox="./media/join-stream-kafka-table-filesystem/step-5-kafka-3-2.png":::
 
 ### Consume the `itemAttributes`joining with `user_events` on Kafka
 
