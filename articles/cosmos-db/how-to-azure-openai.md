@@ -4,7 +4,7 @@ description: Get started using Retrieval Augmented Generation and vector search 
 author: jacodel
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.subservice: nosql, postgresql, mongodb
+ms.subservice: nosql
 ms.topic: how-to
 ms.date: 07/25/2023
 ms.custom: OpenAI, CosmosDB, RAG, LLM
