@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 # Azure Active Directory version 2 cmdlets for group management
 
 > [!div class="op_single_selector"]
-> - [Azure portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+> - [Azure portal](../fundamentals/how-to-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 > - [PowerShell](../enterprise-users/groups-settings-v2-cmdlets.md)
 >
 >
@@ -352,7 +352,7 @@ Today, many groups are still managed in on-premises Active Directory. To answer 
 
 Microsoft 365 groups are created and managed in the cloud. The writeback capability allows you to write back Microsoft 365 groups as distribution groups to an Active Directory forest with Exchange installed. Users with on-premises Exchange mailboxes can then send and receive emails from these groups. The group writeback feature doesn't support Azure AD security groups or distribution groups.
 
-For more details, please refer to documentation for the [Azure AD Connect sync service](../hybrid/how-to-connect-syncservice-features.md).
+For more details, please refer to documentation for the [Azure AD Connect sync service](../hybrid/connect/how-to-connect-syncservice-features.md).
 
 Microsoft 365 group writeback is a public preview feature of Azure Active Directory (Azure AD) and is available with any paid Azure AD license plan. For some legal information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -360,5 +360,5 @@ Microsoft 365 group writeback is a public preview feature of Azure Active Direct
 
 You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](/powershell/azure/active-directory/install-adv2).
 
-* [Managing access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+* [Managing access to resources with Azure Active Directory groups](../fundamentals/concept-learn-about-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
