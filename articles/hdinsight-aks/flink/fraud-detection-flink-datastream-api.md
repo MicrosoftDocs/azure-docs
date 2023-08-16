@@ -22,7 +22,7 @@ In this article, learn how to run Fraud Detection usecase with the Flink DataStr
 1. Once the IDE is opened, go to **File** -> **New** -> **Project** -> **Maven Archetype**.
 1. Enter the details as shown in the image.
 
-   :::image type="content" source="./media/flink-fraud-detection-using-data-stream-api/maven-archetype.png" alt-text="Screenshot showing Maven Archetype." border="true" lightbox="./media/flink-fraud-detection-using-data-stream-api/maven-archetype.png":::
+   :::image type="content" source="./media/fraud-detection-flink-datastream-api/maven-archetype.png" alt-text="Screenshot showing Maven Archetype." border="true" lightbox="./media/fraud-detection-flink-datastream-api/maven-archetype.png":::
 
 1. After you create the Maven Archetype, it generates 2 java classes FraudDetectionJob and FraudDetector.
 1. Update the `FraudDetector` with the following code.
@@ -132,27 +132,27 @@ After making the code changes, create the jar using the following steps in Intel
 1. Click **Apply** and then **OK**.
 1. The following step sets the "skeleton" to where the jar will be saved to. 
 
-   :::image type="content" source="./media/flink-fraud-detection-using-data-stream-api/extract-target-jar.png" alt-text="Screenshot showing how to extract target Jar." border="true" lightbox="./media/flink-fraud-detection-using-data-stream-api/extract-target-jar.png":::
+   :::image type="content" source="./media/fraud-detection-flink-datastream-api/extract-target-jar.png" alt-text="Screenshot showing how to extract target Jar." border="true" lightbox="./media/fraud-detection-flink-datastream-api/extract-target-jar.png":::
 
 1. To  build and save
 
    1. Go to  **Build -> Build Artifact -> Build**
 
-      :::image type="content" source="./media/flink-fraud-detection-using-data-stream-api/build-artifact.png" alt-text="Screenshot showing how to build Artifact.":::
+      :::image type="content" source="./media/fraud-detection-flink-datastream-api/build-artifact.png" alt-text="Screenshot showing how to build Artifact.":::
    
-      :::image type="content" source="./media/flink-fraud-detection-using-data-stream-api/extract-target-jar-1.png" alt-text="Screenshot showing how to build Artifacts.":::
+      :::image type="content" source="./media/fraud-detection-flink-datastream-api/extract-target-jar-1.png" alt-text="Screenshot showing how to build Artifacts.":::
 
 ## Running the job in Flink environment
 
 1. Once the jar is generated, it can be used to submit the job from Flink UI using submit job section.
 
-   :::image type="content" source="./media/flink-fraud-detection-using-data-stream-api/submit-job-from-flink-ui.png" alt-text="Screenshot showing how to submit job from Flink UI." border="true" lightbox="./media/flink-fraud-detection-using-data-stream-api/submit-job-from-flink-ui.png":::
+   :::image type="content" source="./media/fraud-detection-flink-datastream-api/submit-job-from-flink-ui.png" alt-text="Screenshot showing how to submit job from Flink UI." border="true" lightbox="./media/fraud-detection-flink-datastream-api/submit-job-from-flink-ui.png":::
    
 1. After the job is submitted, it's moved to running state, and the Task manager logs will be generated.
 
-   :::image type="content" source="./media/flink-fraud-detection-using-data-stream-api/task-manager.png" alt-text="Screenshot showing task manager." border="true" lightbox="./media/flink-fraud-detection-using-data-stream-api/task-manager.png":::
+   :::image type="content" source="./media/fraud-detection-flink-datastream-api/task-manager.png" alt-text="Screenshot showing task manager." border="true" lightbox="./media/fraud-detection-flink-datastream-api/task-manager.png":::
 
-   :::image type="content" source="./media/flink-fraud-detection-using-data-stream-api/task-manager-logs.png" alt-text="Screenshot showing task manager logs." border="true" lightbox="./media/flink-fraud-detection-using-data-stream-api/task-manager-logs.png":::
+   :::image type="content" source="./media/fraud-detection-flink-datastream-api/task-manager-logs.png" alt-text="Screenshot showing task manager logs." border="true" lightbox="./media/fraud-detection-flink-datastream-api/task-manager-logs.png":::
 
  1. From the logs, view the alert is generated for Account ID 3.
 
