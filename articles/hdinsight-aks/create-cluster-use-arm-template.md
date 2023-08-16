@@ -21,11 +21,11 @@ This article describes how to generate an ARM template from resource JSON of you
    
 1. In the Azure portal search bar, type "HDInsight on AKS cluster" and select "Azure HDInsight on AKS clusters" from the drop-down list.
   
-   :::image type="content" source="./media/Manage-Cluster/Getstarted-PortalSearch-Step1.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster" border="true" lightbox="./media/Manage-Cluster/Getstarted-PortalSearch-Step1.png":::
+   :::image type="content" source="./media/Manage-Cluster/Getstarted-PortalSearch-Step1.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster." border="true" lightbox="./media/Manage-Cluster/Getstarted-PortalSearch-Step1.png":::
    
 1. Select your cluster name from the list page.
 
-   :::image type="content" source="./media/Manage-Cluster/Getstarted-Portallistview-Step2.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list" border="true" lightbox="./media/Manage-Cluster/Getstarted-Portallistview-Step2.png":::
+   :::image type="content" source="./media/Manage-Cluster/Getstarted-Portallistview-Step2.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list." border="true" lightbox="./media/Manage-Cluster/Getstarted-Portallistview-Step2.png":::
    
 1. Go to the overview blade of your cluster and click on *JSON View* at the top right.
 
