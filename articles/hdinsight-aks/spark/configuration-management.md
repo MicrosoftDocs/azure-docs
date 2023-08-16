@@ -59,7 +59,7 @@ When user updates a configuration in the management portal the corresponding ser
      :::image type="content" source="./media/configuration-management/save-changes.png" alt-text="Screenshot showing how to save  configuration changes.":::
       
     > [!NOTE]
-    > Click on **save** will restart the clusters.
+    > Selecting **Save** will restart the clusters.
     > It is advisable not to have any active jobs while making configuration changes, since restarting the cluster may impact the active jobs.
 
 ## Next steps
