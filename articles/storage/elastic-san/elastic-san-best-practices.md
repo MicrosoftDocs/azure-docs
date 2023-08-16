@@ -17,7 +17,7 @@ ms.custom: ignite-2022, devx-track-azurepowershell
 
 Keeping your Azure virtual machine (VM) and Elastic SAN in the same zone and same region minimizes latency and helps ensure you get the best performance.
 
-When deploying an elastic SAN, ensure you allocate enough base capacity so that all your applications and workloads can meet their performance needs. 
+When deploying an elastic SAN, ensure you allocate enough base capacity so that all your applications and workloads can meet their performance needs.
 
 Elastic SAN uses VM network bandwidth, disk throughput limits on a VM do not apply. Choose a VM that can provide sufficient bandwidth for both production/VM-to-VM traffic and iSCSI traffic to attached Elastic SAN volume(s). 
 
