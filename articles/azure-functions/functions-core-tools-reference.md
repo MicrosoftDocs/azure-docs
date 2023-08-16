@@ -177,9 +177,9 @@ Gets settings from a specific function app.
 func azure functionapp fetch-app-settings <APP_NAME> 
 ```
 
-For an example, see [Get your storage connection strings](functions-run-local.md#get-your-storage-connection-strings).
+For more information, see [Download application settings](functions-run-local.md#download-application-settings).
 
-Settings are downloaded into the local.settings.json file for the project. On-screen values are masked for security. You can protect settings in the local.settings.json file by [enabling local encryption](#func-settings-encrypt). 
+Settings are downloaded into the local.settings.json file for the project. On-screen values are masked for security. You can protect settings in the local.settings.json file by [enabling local encryption](functions-run-local.md#encrypt-the-local-settings-file). 
 
 ## func azure functionapp list-functions
 
@@ -236,7 +236,7 @@ The following publish options apply, based on version:
 | **`--no-build`** | Project isn't built during publishing. For Python, `pip install` isn't performed. |
 | **`--nozip`** | Turns the default `Run-From-Package` mode off. |
 | **`--overwrite-settings -y`** | Suppress the prompt to overwrite app settings when `--publish-local-settings -i` is used.|
-| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you're using a [local storage emulator](functions-develop-local.md#local-storage-emulator), first change the app setting to an [actual storage connection](functions-run-local.md#get-your-storage-connection-strings). |
+| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you're using a [local storage emulator](functions-develop-local.md#local-storage-emulator), first change the app setting to an [actual storage connection](#func-azure-storage-fetch-connection-string). |
 | **`--publish-settings-only`**, **`-o`** |  Only publish settings and skip the content. Default is prompt. |
 | **`--slot`** | Optional name of a specific slot to which to publish. |
 | **`--subscription`** | Sets the default subscription to use. |
@@ -247,7 +247,7 @@ The following publish options apply, based on version:
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--overwrite-settings -y`** | Suppress the prompt to overwrite app settings when `--publish-local-settings -i` is used.|
-| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you're using the Microsoft Azure Storage Emulator, first change the app setting to an [actual storage connection](functions-run-local.md#get-your-storage-connection-strings). |
+| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you're using the Microsoft Azure Storage Emulator, first change the app setting to an [actual storage connection](#func-azure-storage-fetch-connection-string). |
 
 ---
 
@@ -258,6 +258,8 @@ Gets the connection string for the specified Azure Storage account.
 ```command
 func azure storage fetch-connection-string <STORAGE_ACCOUNT_NAME>
 ```
+
+For more information, see [Download a storage connection string](functions-run-local.md#download-a-storage-connection-string).
 
 ## func azurecontainerapps deploy    
 
