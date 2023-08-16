@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Enterprise State Roaming FAQ - Azure Active Directory
+  title: Enterprise State Roaming FAQ
   description: Frequently asked questions about ESR
   
   services: active-directory
@@ -119,4 +119,4 @@ sections:
 additionalContent: |
 
   ## Next steps 
-  For an overview, see [enterprise state roaming overview](enterprise-state-roaming-overview.md)
+  For an overview, see [enterprise state roaming overview](./enterprise-state-roaming-enable.md)

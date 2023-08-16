@@ -17,7 +17,7 @@ This topic shows you how to work with configuration data in your App Service or 
 
 To get started with using App Configuration references in App Service, you'll first need  an App Configuration store, and provide your app permission to access the configuration key-values in the store.
 
-1. Create an App Configuration store by following the [App Configuration quickstart](../azure-app-configuration/quickstart-dotnet-core-app.md#create-an-app-configuration-store).
+1. Create an App Configuration store by following the [App Configuration quickstart](../azure-app-configuration/quickstart-azure-app-configuration-create.md).
 
     > [!NOTE]
     > App Configuration references do not yet support network-restricted configuration stores.

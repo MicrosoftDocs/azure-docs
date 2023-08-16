@@ -3,7 +3,7 @@ title: Kubernetes Event-driven Autoscaling (KEDA) (Preview)
 description: Simplified application autoscaling with Kubernetes Event-driven Autoscaling (KEDA) add-on.
 author: tomkerkhove
 ms.topic: article
-ms.date: 05/24/2022
+ms.date: 06/06/2023
 ms.author: tomkerkhove
 ---
 
@@ -30,14 +30,9 @@ Learn more about how KEDA works in the [official KEDA documentation][keda-archit
 
 ## Installation and version
 
->[!WARNING]
-> The managed KEDA addon will not be supported in K8s version 1.26 at GA. Please follow the [release notes](https://github.com/Azure/AKS/releases) to be notified when it will be supported.
-
 KEDA can be added to your Azure Kubernetes Service (AKS) cluster by enabling the KEDA add-on using an [ARM template][keda-arm] or [Azure CLI][keda-cli].
 
 The KEDA add-on provides a fully supported installation of KEDA that is integrated with AKS.
-
-[!INCLUDE [Current version callout](./includes/keda/current-version-callout.md)]
 
 ## Capabilities and features
 

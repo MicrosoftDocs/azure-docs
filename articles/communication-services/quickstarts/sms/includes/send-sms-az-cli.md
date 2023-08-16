@@ -112,7 +112,7 @@ Make these replacements in the code:
 - Replace `<yourConnectionString>` with your connection string.
 
 > [!WARNING]
-> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<fromPhoneNumber>` can also be a short code, for example, 23456.
+> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<fromPhoneNumber>` can also be a short code, for example, 23456 or an alphanumeric sender ID, for example, CONTOSO.
 
 ## Send a 1:N SMS message
 
@@ -129,4 +129,4 @@ Make these replacements in the code:
 - Replace `<yourConnectionString>` with your connection string.
 
 > [!WARNING]
-> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<fromPhoneNumber>` can also be a short code, for example, 23456.
+> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<fromPhoneNumber>` can also be a short code, for example, 23456 or an alphanumeric sender ID, for example, CONTOSO.

@@ -12,8 +12,9 @@ ms.date: 05/27/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-
+ms.custom: enterprise-apps
 ---
+
 # Azure Active Directory admin consent workflow frequently asked questions
 
 ## I enabled a workflow, but when testing the functionality, why can’t I see the new “Approval required” prompt that allows me to request access?

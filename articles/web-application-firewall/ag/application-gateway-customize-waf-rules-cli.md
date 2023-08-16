@@ -4,6 +4,7 @@ description: This article provides information on how to customize Web Applicati
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
+ms.custom: devx-track-azurecli
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article

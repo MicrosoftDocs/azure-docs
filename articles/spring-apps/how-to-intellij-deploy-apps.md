@@ -2,7 +2,7 @@
 title:  "Tutorial: Deploy Spring Boot applications using IntelliJ"
 
 description: Use IntelliJ to deploy applications to Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: tutorial
@@ -17,7 +17,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 The IntelliJ plug-in for Azure Spring Apps supports application deployment from IntelliJ IDEA.
 
@@ -25,7 +25,7 @@ Before running this example, you can try the [basic quickstart](./quickstart.md)
 
 ## Prerequisites
 
-* [IntelliJ IDEA, Community/Ultimate Edition, version 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
+* [IntelliJ IDEA, Community/Ultimate Edition, version 2020.x or higher](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## Install the plug-in
 
@@ -60,7 +60,7 @@ The following procedures deploy a Hello World application using IntelliJ IDEA.
 
 ## Deploy to Azure Spring Apps
 
-In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription. For sign-in details, see [Installation and sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription. For sign-in details, see [Install and sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#install-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Apps**.
 

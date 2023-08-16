@@ -1,5 +1,5 @@
 ---
-title: Assign licenses to a group - Azure Active Directory
+title: Assign licenses to a group
 description: How to assign licenses to users by means of Azure Active Directory group licensing
 services: active-directory
 keywords: Azure AD licensing
@@ -30,6 +30,8 @@ In this example, the Azure AD organization contains a security group called **HR
 > For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, we recommend that you always set usage location as part of your user creation flow in Azure AD. For example, configure Azure AD Connect configuration to set usage location. This recommendation makes sure the result of license assignment is always correct and users do not receive services in locations that are not allowed.
 
 ## Step 1: Assign the required licenses
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with a license administrator account. To manage licenses, the account must be a License Administrator, User Administrator, or Global Administrator.
 
@@ -96,7 +98,7 @@ When assign licenses to a group, Azure AD processes all existing members of that
 
 To learn more about the feature set for license assignment using groups, see the following articles:
 
-- [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
+- [What is group-based licensing in Azure Active Directory?](../fundamentals/licensing-whatis-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 - [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
 - [How to migrate individual licensed users to group-based licensing in Azure Active Directory](licensing-groups-migrate-users.md)
 - [How to migrate users between product licenses using group-based licensing in Azure Active Directory](licensing-groups-change-licenses.md)

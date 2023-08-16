@@ -86,13 +86,10 @@ In this section, you create a connection between your virtual hub and your VNet.
 
 [!INCLUDE [Connect virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
-## <a name="viewwan"></a>View a virtual WAN
+## <a name="viewwan"></a>Point to site sessions dashboard
 
-1. Navigate to your **virtual WAN**.
-
-1. On the **Overview** page, each point on the map represents a hub.
-
-1. In the **Hubs and connections** section, you can view hub status, site, region, VPN connection status, and bytes in and out.
+To view your active point to site sessions, click on **Point-to-site Sessions**. This will show you all active point to site users that are connected to your User VPN gateway.
+  :::image type="content" source="../../includes/media/virtual-wan-p2s-sessions-dashboard/point-to-site-sessions-button.png" alt-text="Screenshot shows point to site blade in Virtual WAN." lightbox="../../includes/media/virtual-wan-p2s-sessions-dashboard/point-to-site-sessions-button.png":::
 
 ## Modify settings
 

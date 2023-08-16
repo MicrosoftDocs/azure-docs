@@ -1,0 +1,130 @@
+### YamlMime:Landing
+
+title: QnA Maker documentation
+summary: Learn about the QnA Maker service and how this service's knowledge bases work with your questions and answers.
+
+metadata:
+  ms.topic: landing-page
+  ms.date: 01/11/2022
+  ms.author: jboback
+  author: jboback
+  ms.service: cognitive-services
+  ms.subservice: qna-maker
+  services: cognitive-services
+  title: QnA Maker Documentation
+  description: QnA Maker is a cloud-based API service that creates a conversational, question-and-answer layer over your data. QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals. The QnA Maker service answers your users' natural language questions by matching it with the best possible answer from the QnAs in your Knowledge .
+
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+landingContent:
+  - title: About QnA Maker
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is QnA Maker
+            url: overview/overview.md
+          - text: QnA Maker portal
+            url: https://www.qnamaker.ai
+      - linkListType: whats-new
+        links:
+          - text: What's new
+            url: whats-new.md
+      - linkListType: concept
+        links:
+          - text: Development lifecycle
+            url: concepts/development-lifecycle-knowledge-base.md
+      - linkListType: video
+        links:
+          - text: Build a bot in minutes
+            url: /Shows/AI-Show/Build-a-Bot-in-Minutes-with-QnA-Maker
+  - title: Create and edit knowledge base
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: "Quickstart: Create a new knowledge base"
+            url: quickstarts/create-publish-knowledge-base.md
+          - text: "Quickstart: Add questions and answer"
+            url: quickstarts/add-question-metadata-portal.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use follow-up prompts to create multiple turns of a conversation
+            url: ../language-service/question-answering/tutorials/guided-conversations.md
+          - text: Add chit-chat
+            url: how-to/chit-chat-knowledge-base.md
+          - text: Add a secured SharePoint data source
+            url: how-to/add-sharepoint-datasources.md
+
+  - title: Get answer from knowledge base
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: "Quickstart: With Postman or cURL"
+            url: quickstarts/get-answer-from-knowledge-base-using-url-tool.md
+          - text: "Quickstart: Using SDK and REST API"
+            url: quickstarts/quickstart-sdk.md
+      - linkListType: how-to-guide
+        links:
+          - text: Get an answer with metadata
+            url: how-to/metadata-generateanswer-usage.md
+
+  - title: Test and publish
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Test your knowledge base interactively
+            url: how-to/test-knowledge-base.md
+          - text: Publish a knowledge base
+            url: quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base
+
+
+
+
+
+  - title: Improve knowledge base
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use active learning to improve your knowledge base
+            url: how-to/improve-knowledge-base.md
+          - text: Get analytics on your knowledge base
+            url: how-to/get-analytics-knowledge-base.md
+
+  - title: QnA Maker bots
+    linkLists:
+      - linkListType: get-started
+        links:
+
+          - text: "Portal: Create an Azure AI Bot Service bot"
+            url: ./quickstarts/create-publish-knowledge-base.md#create-a-bot
+          - text: "Power apps: Create a QnA Maker powered bot"
+            url: tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
+          - text: "Bot Framework: Dispatch between LUIS and QnA Maker apps"
+            url: /azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs
+          - text: Other bot samples
+            url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
+
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Limits of knowledge base
+            url: limits.md
+          - text: Authoring APIs
+            url: /rest/api/cognitiveservices/qnamaker/knowledgebase
+          - text: Generate Answer APIs
+            url: /rest/api/cognitiveservices/qnamaker4.0/Runtime
+          - text: .NET SDK reference documentation
+            url: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker
+          - text: Azure PowerShell
+            url: /powershell/module/az.cognitiveservices/#cognitive_services
+          - text: Azure Command-Line Interface (CLI)
+            url: /cli/azure/cognitiveservices#az_cognitiveservices_list
+
+  - title: Help and feedback
+    linkLists:
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/ai-services/qnamaker/context/context
+        - text: Troubleshooting
+          url: troubleshooting.md

@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 02/01/2019
  ms.author: cherylmc
- ms.custom: include file, devx-track-azurepowershell
+ms.custom: include file
 ---
 
  If you are using the Azure Cloud Shell, you sign in to your Azure account automatically after clicking 'Try it'. To sign in locally, open your PowerShell console with elevated privileges and run the cmdlet to connect.

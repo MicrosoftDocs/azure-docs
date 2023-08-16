@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 03/28/2023
 ms.author: ankitadutta
 
 ---
@@ -55,7 +55,7 @@ There are some prerequisites to ensure your recovery plan is fully customized ac
 
 Set up Active Directory in the secondary recovery site for SQL Server to run properly.
 
-* **Small enterprise**: You have a small number of applications and a single domain controller for the on-premises site. If you want to fail over the entire site, use Site Recovery replication. This service replicates the domain controller to the secondary datacenter or to Azure.
+* **Small enterprise**: You have a few applications and a single domain controller for the on-premises site. If you want to fail over the entire site, use Site Recovery replication. This service replicates the domain controller to the secondary datacenter or to Azure.
 * **Medium to large enterprise**: You might need to set up additional domain controllers.
   - If you have a large number of applications, have an Active Directory forest, and want to fail over by application or workload, set up another domain controller in the secondary datacenter or in Azure.
   -  If you're using Always On availability groups to recover to a remote site, set up another domain controller on the secondary site or in Azure. This domain controller is used for the recovered SQL Server instance.
@@ -132,13 +132,13 @@ For a cluster running SQL Server Standard edition or SQL Server 2008 R2, we reco
 
 Site Recovery doesn't provide guest cluster support when replicating to an Azure region. SQL Server Standard edition also doesn't provide a low-cost disaster recovery solution. In this scenario, we recommend you protect the SQL Server cluster to a standalone SQL Server instance in the primary location and recover it in the secondary.
 
-1. Configure an additional standalone SQL Server instance on the primary Azure region or at on-premises site.
+1. Configure another standalone SQL Server instance on the primary Azure region or at on-premises site.
 
 1. Configure the instance to serve as a mirror for the databases you want to help protect. Configure mirroring in high-safety mode.
 
 1. Configure Site Recovery on the primary site for [Azure](azure-to-azure-tutorial-enable-replication.md), [Hyper-V](./hyper-v-azure-tutorial.md), or [VMware VMs and physical servers](./vmware-azure-tutorial.md).
 
-1. Use Site Recovery replication to replicate the new SQL Server instance to the secondary site. As it's a high-safety mirror copy, it will be synchronized with the primary cluster but replicated using Site Recovery replication.
+1. Use Site Recovery replication to replicate the new SQL Server instance to the secondary site. As it's a high-safety mirror copy, it is synchronized with the primary cluster but replicated using Site Recovery replication.
 
    ![Image of a standard cluster that shows the relationship and flow among a primary site, Site Recovery, and Azure](./media/site-recovery-sql/standalone-cluster-local.png)
 
@@ -156,9 +156,14 @@ Site Recovery replication for SQL Server is covered under the Software Assurance
 
 Site Recovery is application agnostic. Site Recovery can help protect any version of SQL Server that is deployed on a supported operating system. For more, see the [support matrix for recovery](vmware-physical-azure-support-matrix.md#replicated-machines) of replicated machines.
 
+### Does ASR Work with SQL Transactional Replication?
+
+Due to ASR using file-level copy, SQL cannot guarantee that the servers in an associated SQL replication topology are in sync at the time of ASR failover. This may cause the logreader and/or distribution agents to fail due to LSN mismatch, which can break replication. If you failover the publisher, distributor, or subscriber in a replication topology, you need to rebuild replication. It is recommended to [reinitialize the subscription to SQL Server](https://learn.microsoft.com/sql/relational-databases/replication/reinitialize-a-subscription?view=sql-server-ver16).
+
+
 ## Next steps
 
-* Learn more about [Site Recovery architecture](./azure-to-azure-architecture.md).
-* For SQL Server in Azure, learn more about [high availability solutions](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview#azure-only-high-availability-solutions) for recovery in a secondary Azure region.
-* For SQL Database, learn more about the [business continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview) and [high availability](/azure/azure-sql/database/high-availability-sla) options for recovery in a secondary Azure region.
-* For SQL Server machines at on-premises, learn more about the [high availability options](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview#hybrid-it-disaster-recovery-solutions) for recovery in Azure Virtual Machines.
+- Learn more about [Site Recovery architecture](./azure-to-azure-architecture.md).
+- For SQL Server in Azure, learn more about [high availability solutions](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview#azure-only-high-availability-solutions) for recovery in a secondary Azure region.
+- For SQL Database, learn more about the [business continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview) and [high availability](/azure/azure-sql/database/high-availability-sla) options for recovery in a secondary Azure region.
+- For SQL Server machines at on-premises, learn more about the [high availability options](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview#hybrid-it-disaster-recovery-solutions) for recovery in Azure Virtual Machines.

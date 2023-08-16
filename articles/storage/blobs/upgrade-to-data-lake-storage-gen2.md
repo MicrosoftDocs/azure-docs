@@ -80,7 +80,7 @@ Renaming a blob is far more efficient because client applications can rename a b
 
 ## Impact on costs
 
-Storage costs aren't impacted, but transactions costs are impacted. Use these pages to assess compare costs. 
+There is no cost to perform the upgrade. After you upgrade, the cost to store your data doesn't change, but the cost of a transaction does change. Use these pages to assess compare costs. 
 
 - [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 

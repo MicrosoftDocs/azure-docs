@@ -86,7 +86,7 @@ new to Data Factory, here's a quick guide on how to get started:
 6. Configure **Sink**.
 
    1. On the **Activities** page, select the **Sink** tab. Select **New** to create a sink dataset.
-   2. In the **New Dataset** dialog box, select **Azure Cosmos DB for PostgreSQL**, and then select **Continue**.
+   2. In the **New Dataset** dialog box, select **Azure Database for PostgreSQL**, and then select **Continue**.
    3. On the **Set properties** page, under **Linked service**, select **New**.
    4. On the **New linked service** page, enter a name for the linked service, and select your cluster from the **Server name** list. Add connection details and test the connection.
 

@@ -2,9 +2,9 @@
 title: Azure Blob storage input binding for Azure Functions
 description: Learn how to provide Azure Blob storage input binding data to an Azure Function.
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 03/02/2023
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -13,6 +13,23 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 The input binding allows you to read blob storage data as input to an Azure Function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md).
+
+::: zone pivot="programming-language-python"
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models.
+
+> [!IMPORTANT]
+> The Python v2 programming model is currently in preview.
+::: zone-end
 
 ## Example
 
@@ -42,52 +59,6 @@ The following example is a [C# function](dotnet-isolated-process-guide.md) that 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-26":::
 
-# [C# Script](#tab/csharp-script)
-
-The following example shows blob input and output bindings in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the bindings. The function makes a copy of a text blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
-
-In the *function.json* file, the `queueTrigger` metadata property is used to specify the blob name in the `path` properties:
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "myInputBlob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "in"
-    },
-    {
-      "name": "myOutputBlob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-The [configuration](#configuration) section explains these properties.
-
-Here's the C# script code:
-
-```cs
-public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, ILogger log)
-{
-    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
-    myOutputBlob = myInputBlob;
-}
-```
 ---
 
 ::: zone-end
@@ -227,7 +198,35 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example shows blob input and output bindings in a *function.json* file and [Python code](functions-reference-python.md) that uses the bindings. The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+The following example shows blob input and output bindings. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
+
+# [v2](#tab/python-v2)
+
+The code creates a copy of a blob.
+
+```python
+import logging
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.function_name(name="BlobOutput1")
+@app.route(route="file")
+@app.blob_input(arg_name="inputblob",
+                path="sample-workitems/test.txt",
+                connection="<BLOB_CONNECTION_SETTING>")
+@app.blob_output(arg_name="outputblob",
+                path="newblob/test.txt",
+                connection="<BLOB_CONNECTION_SETTING>")
+def main(req: func.HttpRequest, inputblob: str, outputblob: func.Out[str]):
+    logging.info(f'Python Queue trigger function processed {len(inputblob)} bytes')
+    outputblob.set(inputblob)
+    return "ok"
+```
+
+# [v1](#tab/python-v1)
+
+The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
 
 In the *function.json* file, the `queueTrigger` metadata property is used to specify the blob name in the `path` properties:
 
@@ -287,11 +286,13 @@ def main(queuemsg: func.QueueMessage, inputblob: bytes) -> bytes:
     return inputblob
 ```
 
+---
+
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#blob-input).
 
 # [In-process](#tab/in-process)
 
@@ -328,26 +329,28 @@ isolated worker process defines an input binding by using a `BlobInputAttribute`
 |**BlobPath** | The path to the blob.|
 |**Connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
 
-# [C# script](#tab/csharp-script)
-
-C# script uses a function.json file for configuration instead of attributes.
-
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
-
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `blob`. |
-|**direction** | Must be set to `in`. Exceptions are noted in the [usage](#usage) section. |
-|**name** | The name of the variable that represents the blob in function code.|
-|**path** | The path to the blob. |
-|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
-|**dataType**| For dynamically typed languages, specifies the underlying data type. Possible values are `string`, `binary`, or `stream`. For more detail, refer to the [triggers and bindings concepts](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
-
 ---
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ::: zone-end  
+::: zone pivot="programming-language-python"
+## Decorators
+
+_Applies only to the Python v2 programming model._
+
+For Python v2 functions defined using decorators, the following properties on the `blob_input` and `blob_output` decorators define the Blob Storage triggers:
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`arg_name` | The name of the variable that represents the blob in function code. |
+|`path`  | The path to the blob  For the `blob_input` decorator, it's the blob read. For the `blob_output` decorator, it's the output or copy of the input blob. |
+|`connection` | The storage account connection string. |
+|`data_type` | For dynamically typed languages, specifies the underlying data type. Possible values are `string`, `binary`, or `stream`. For more detail, refer to the [triggers and bindings concepts](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
+
+For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
+::: zone-end
+
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
@@ -356,6 +359,13 @@ The `@BlobInput` attribute gives you access to the blob that triggered the funct
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
+::: zone-end
+
+::: zone pivot="programming-language-python" 
+_Applies only to the Python v1 programming model._
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 
 The following table explains the binding configuration properties that you set in the *function.json* file. 
 
@@ -376,7 +386,17 @@ See the [Example section](#example) for complete examples.
 
 ::: zone pivot="programming-language-csharp" 
 
-The binding types supported by Blob input depend on the extension package version and the C# modality used in your function app. For more information, see [Binding types](./functions-bindings-storage-blob.md#binding-types).
+The binding types supported by Blob input depend on the extension package version and the C# modality used in your function app. 
+
+# [In-process](#tab/in-process)
+
+See [Binding types](./functions-bindings-storage-blob.md?tabs=in-process#binding-types) for a list of supported types.
+
+# [Isolated process](#tab/isolated-process)
+
+[!INCLUDE [functions-bindings-storage-blob-input-dotnet-isolated-types](../../includes/functions-bindings-storage-blob-input-dotnet-isolated-types.md)]
+
+---
 
 Binding to `string`, or `Byte[]` is only recommended when the blob size is small. This is recommended because the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `BlobClient` type. For more information, see [Concurrency and memory usage](./functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage).
 

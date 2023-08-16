@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: devx-track-dotnet
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -111,6 +112,3 @@ To set a breakpoint and debug, complete the following steps:
 ## Next steps
 
 * Learn how to [develop and debug Java Service Fabric applications with VS Code](./service-fabric-develop-java-applications-with-vs-code.md).
-
-
-

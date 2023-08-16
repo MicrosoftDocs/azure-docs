@@ -6,7 +6,7 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: sample
 ms.date: 02/21/2022
 ---

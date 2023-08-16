@@ -4,10 +4,9 @@ description: Learn how to upload a VHD to an Azure managed disk and copy a manag
 services: "virtual-machines,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 01/03/2023
+ms.date: 08/16/2023
 ms.topic: how-to
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.custom: devx-track-azurecli
 ---
 
@@ -157,7 +156,7 @@ sourceDiskSizeBytes=$(az disk show -g $sourceRG -n $sourceDiskName --query '[dis
 
 az disk create -g $targetRG -n $targetDiskName -l $targetLocation --os-type $targetOS --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
 
-targetSASURI=$(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
+targetSASURI=$(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 --query [accessSas] -o tsv)
 
 sourceSASURI=$(az disk grant-access -n $sourceDiskName -g $sourceRG --duration-in-seconds 86400 --query [accessSas] -o tsv)
 
@@ -171,3 +170,5 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 ## Next steps
 
 Now that you've successfully uploaded a VHD to a managed disk, you can attach the disk as a [data disk to an existing VM](add-disk.md) or [attach the disk to a VM as an OS disk](upload-vhd.md#create-the-vm), to create a new VM.
+
+If you've additional questions, see the [uploading a managed disk](../faq-for-disks.yml#uploading-to-a-managed-disk) section in the FAQ.

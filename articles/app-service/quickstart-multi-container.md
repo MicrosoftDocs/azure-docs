@@ -93,7 +93,7 @@ When the App Service plan has been created, the Azure CLI shows information simi
 ## Create a Docker Compose app
 
 > [!NOTE]
-> Docker Compose on Azure App Services currently has a limit of 4,000 characters at this time.
+> Docker Compose on Azure App Services currently has a limit of 4,000 characters when converted to Base64 at this time.
 
 In your Cloud Shell terminal, create a multi-container [web app](overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#az-webapp-create) command. Don't forget to replace _\<app_name>_ with a unique app name (valid characters are `a-z`, `0-9`, and `-`).
 

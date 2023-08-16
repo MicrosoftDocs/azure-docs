@@ -3,8 +3,7 @@ title: Azure Files and Azure NetApp Files comparison
 description: Comparison of Azure Files and Azure NetApp Files.
 author: khdownie
 services: storage
-ms.service: storage
-ms.subservice: files
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 03/01/2023
 ms.author: kendownie
@@ -41,7 +40,7 @@ Most workloads that require cloud file storage work well on either Azure Files o
 | Minimum Share/Volume Size | Premium<br><ul><li>100 GiB</li></ul><br>Standard<br><ul><li>No minimum (SMB only - NFS requires Premium shares).</li></ul> | All tiers<br><ul><li>100 GiB (Minimum capacity pool size: 4 TiB)</li></ul> |
 | Maximum Share/Volume Size | 100 TiB | All tiers<br><ul><li>Up to 100 TiB (regular volume)</li><li>100 TiB - 500 TiB (large volume)</li><li>500 TiB capacity pool size limit</li></ul><br>Up to 12.5 PiB per Azure NetApp account. |
 | Maximum Share/Volume IOPS | Premium<br><ul><li>Up to 100k</li></ul><br>Standard<br><ul><li>Up to 20k</li></ul> | Ultra and Premium<br><ul><li>Up to 450k </li></ul><br>Standard<br><ul><li>Up to 320k</li></ul> |
-| Maximum Share/Volume Throughput | Premium<br><ul><li>Up to 10 GiB/s</li></ul><br>Standard<br><ul><li>Up to 300 MiB/s</li></ul> | Ultra<br><ul><li>4.5 GiB/s (regular volume)</li><li>10 GiB/s (large volume)</li></ul><br>Premium<br><ul><li>Up to 4.5 GiB/s (regular volume)</li><li>Up to 6.4 GiB/s (large volume)</li></ul><br>Standard<br><ul><li>Up to 1.6 GiB/s (regular and large volume)</li><ul> |
+| Maximum Share/Volume Throughput | Premium<br><ul><li>Up to 10 GiB/s</li></ul><br>Standard<br><ul><li>Up to [storage account limits](./storage-files-scale-targets.md#storage-account-scale-targets).</li></ul> | Ultra<br><ul><li>4.5 GiB/s (regular volume)</li><li>10 GiB/s (large volume)</li></ul><br>Premium<br><ul><li>Up to 4.5 GiB/s (regular volume)</li><li>Up to 6.4 GiB/s (large volume)</li></ul><br>Standard<br><ul><li>Up to 1.6 GiB/s (regular and large volume)</li><ul> |
 | Maximum File Size | 4 TiB | 16 TiB |
 | Maximum IOPS Per File | Premium<br><ul><li>Up to 8,000</li></ul><br>Standard<br><ul><li>1,000</li></ul> | All tiers<br><ul><li>Up to volume limit</li></ul> |
 | Maximum Throughput Per File | Premium<br><ul><li>300 MiB/s (Up to 1 GiB/s with SMB multichannel)</li></ul><br>Standard<br><ul><li>60 MiB/s</li></ul> | All tiers<br><ul><li>Up to volume limit</li></ul> |

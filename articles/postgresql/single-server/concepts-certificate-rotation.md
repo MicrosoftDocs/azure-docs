@@ -1,6 +1,6 @@
 ---
 title: Certificate rotation for Azure Database for PostgreSQL Single server
-description: Learn about the upcoming changes of root certificate changes that will affect Azure Database for PostgreSQL Single server
+description: Learn about the upcoming changes of root certificate changes that affect Azure Database for PostgreSQL Single server
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: conceptual
@@ -14,6 +14,8 @@ ms.date: 09/20/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 Azure Database for PostgreSQL Single Server planning the root certificate change starting  **December 2022 (12/2022)** as part of standard maintenance and security best practices. This article gives you more details about the changes, the resources affected, and the steps needed to ensure that your application maintains connectivity to your database server.
 
 ## Why root certificate update is required?
@@ -24,24 +26,24 @@ As per the industry's compliance requirements, CA vendors began revoking CA cert
 
 The new certificate is rolled out and in effect starting December, 2022 (12/2022). 
 
-## What change will be performed starting December 2022 (12/2022)?
+## What change was scheduled to be performed starting December 2022 (12/2022)?
 
-Starting December 2022, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) will be  replaced with a **compliant version** known as [DigiCertGlobalRootG2 root certificate ](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). If your applications take advantage of **verify-ca** or **verify-full** as value of [**sslmode** parameter](https://www.postgresql.org/docs/current/libpq-ssl.html) in the database client connectivity will need to follow directions below to add new certificates to certificate store to maintain connectivity.
+Starting December 2022, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) is  replaced with a **compliant version** known as [DigiCertGlobalRootG2 root certificate ](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). If your applications take advantage of **verify-ca** or **verify-full** as value of [**sslmode** parameter](https://www.postgresql.org/docs/current/libpq-ssl.html) in the database client connectivity need to follow directions to add new certificates to certificate store to maintain connectivity.
 
 ## Do I need to make any changes on my client to maintain connectivity?
 
-There are no code or application  changes required on client side. if you follow our certificate update recommendation below, you will still be able to continue to connect as long as **BaltimoreCyberTrustRoot certificate isn't removed** from the combined CA certificate. **We recommend to not remove the BaltimoreCyberTrustRoot from your combined CA certificate until further notice to maintain connectivity.**
+There are no code or application  changes required on client side. if you follow our certificate update recommendation below, you'll still be able to continue to connect as long as **BaltimoreCyberTrustRoot certificate isn't removed** from the combined CA certificate. **We recommend to not remove the BaltimoreCyberTrustRoot from your combined CA certificate until further notice to maintain connectivity.**
 
 ## Do I need to make any changes to client certificates
 
-By default, PostgreSQL will not perform any verification of the server certificate. This means that it is still theoretically possible to spoof the server identity (for example by modifying a DNS record or by taking over the server IP address) without the client knowing. In order to prevent any possibility spoofing, SSL certificate verification on the client must be used. Such verification can be set via application client connection string [**ssl mode**](https://www.postgresql.org/docs/13/libpq-ssl.html) value - **verify-ca** or **verify-full**.  If these ssl-mode values are chosen you should follow directions in next section. 
+By default, PostgreSQL doesn't perform any verification of the server certificate. This means that it's still theoretically possible to spoof the server identity (for example by modifying a DNS record or by taking over the server IP address) without the client knowing. In order to prevent any possibility spoofing, SSL certificate verification on the client must be used. Such verification can be set via application client connection string [**ssl mode**](https://www.postgresql.org/docs/13/libpq-ssl.html) value - **verify-ca** or **verify-full**.  If these ssl-mode values are chosen,  you should follow directions in next section. 
 
 ### Client Certificate Update Recommendation
 
 *   Download BaltimoreCyberTrustRoot & DigiCertGlobalRootG2 Root CA from links below:
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
     *   https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem
-*   Optionally, to prevent future disruption, it is also recommended to add the following roots to the trusted store:
+*   Optionally, to prevent future disruption, it's also recommended to add the following roots to the trusted store:
     * [DigiCert Global Root G3](https://www.digicert.com/kb/digicert-root-certificates.htm) (thumbprint: 7e04de896a3e666d00e687d33ffad93be83d349e)
     * [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) (thumbprint: 73a5e64a3bff8316ff0edccc618a906e4eae4d74)
     * [Microsoft ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt) (thumbprint: 999a64c37ff47d9fab95f14769891460eec4c3c5)
@@ -80,11 +82,11 @@ By default, PostgreSQL will not perform any verification of the server certifica
 *    In future, after the new certificate deployed on the server side, you can change your CA pem file to DigiCertGlobalRootG2.crt.pem.
 
 > [!NOTE]
-> Please don't drop or alter **Baltimore certificate** until the cert change is made. We will send a communication once the change is done, after which it is safe for them to drop the Baltimore certificate.
+> Please don't drop or alter **Baltimore certificate** until the cert change is made. We will send a communication once the change is done, after which it's safe for them to drop the Baltimore certificate.
 
 ## What if we removed the BaltimoreCyberTrustRoot certificate?
 
-You will start to connectivity errors while connecting to your Azure Database for PostgreSQL server. You will need to configure SSL with [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) certificate again to maintain connectivity.
+You may start receiving connectivity errors while connecting to your Azure Database for PostgreSQL server. You  need to configure SSL with [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) certificate again to maintain connectivity.
 
 ## Frequently asked questions
 
@@ -103,7 +105,7 @@ You can identify whether your connections verify the root certificate by reviewi
 -  If your connection string includes `sslmode=disable`, `sslmode=allow`, `sslmode=prefer`, or `sslmode=require`, you do not need to update certificates.
 -  If your connection string doesn't specify sslmode, you don't need to update certificates.
 
-If you are using a client that abstracts the connection string away, review the client's documentation to understand whether it verifies certificates. To understand PostgreSQL sslmode review the [SSL mode descriptions](https://www.postgresql.org/docs/11/libpq-ssl.html#ssl-mode-descriptions) in PostgreSQL documentation.
+If you are using a client that abstracts the connection string away, review the client's documentation to understand whether it verifies certificates.  To understand PostgreSQL sslmode, review the [SSL mode descriptions](https://www.postgresql.org/docs/11/libpq-ssl.html#ssl-mode-descriptions) in PostgreSQL documentation.
 
 ### 4. What is the impact if using App Service with Azure Database for PostgreSQL?
 
@@ -113,28 +115,28 @@ For Azure app services, connecting to Azure Database for PostgreSQL, we can have
 
 ### 5. What is the impact if using Azure Kubernetes Services (AKS) with Azure Database for PostgreSQL?
 
-If you are trying to connect to the Azure Database for PostgreSQL using Azure Kubernetes Services (AKS), it is similar to access from a dedicated customers host environment. Refer to the steps [here](../../aks/ingress-own-tls.md).
+If you are trying to connect to the Azure Database for PostgreSQL using Azure Kubernetes Services (AKS), it's similar to access from a dedicated customers host environment. Refer to the steps [here](../../aks/ingress-own-tls.md).
 
 ### 6. What is the impact if using Azure Data Factory to connect to Azure Database for PostgreSQL?
 
 For connector using Azure Integration Runtime, the connector leverage certificates in the Windows Certificate Store in the Azure-hosted environment. These certificates are already compatible to the newly applied certificates and therefore no action is needed.
 
-For connector using Self-hosted Integration Runtime where you explicitly include the path to SSL cert file in your connection string, you will need to download the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and update the connection string to use it.
+For connector using Self-hosted Integration Runtime where you explicitly include the path to SSL cert file in your connection string, you  need to download the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and update the connection string to use it.
 
 ### 7. Do I need to plan a database server maintenance downtime for this change?
 
 No. Since the change here is only on the client side to connect to the database server, there's no maintenance downtime needed for the database server for this change.
 
 ### 8. If I create a new server after November 30, 2022, will I be impacted?
-For servers created after November 30, 2022, you will continue to use the [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem)  together with new [DigiCertGlobalRootG2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) root certificates in your database client SSL certificate store for your applications to connect using SSL.
+For servers created after November 30, 2022, you'll continue to use the [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem)  together with new [DigiCertGlobalRootG2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) root certificates in your database client SSL certificate store for your applications to connect using SSL.
 
 ### 9. How often does Microsoft update their certificates or what is the expiry policy?
 
-These certificates used by Azure Database for PostgreSQL are provided by trusted Certificate Authorities (CA). So the support of these certificates is tied to the support of these certificates by CA. The [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) certificate is scheduled to expire in 2025 so Microsoft will need to perform a certificate change before the expiry. Also in case if there are unforeseen bugs in these predefined certificates, Microsoft will need to make the certificate rotation at the earliest similar to the change performed on February 15, 2021 to ensure the service is secure and compliant at all times.
+These certificates used by Azure Database for PostgreSQL are provided by trusted Certificate Authorities (CA). So the support of these certificates is tied to the support of these certificates by CA. The [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) certificate is scheduled to expire in 2025 so Microsoft  need to perform a certificate change before the expiry. Also in case if there are unforeseen bugs in these predefined certificates, Microsoft  needs to make the certificate rotation at the earliest similar to the change performed on February 15, 2021 to ensure the service is secure and compliant always.
 
-### 10. If I am using read replicas, do I need to perform this update only on the primary server or the read replicas?
+### 10. If I am using read replicas, do I need to perform this update only on the primary server , or the read replicas?
 
-Since this update is a client-side change, if the client used to read data from the replica server, you will need to apply the changes for those clients as well.
+Since this update is a client-side change, if the client used to read data from the replica server, you need to apply the changes for those clients as well.
 
 ### 11. Do we have server-side query to verify if SSL is being used?
 
@@ -147,14 +149,14 @@ No. There's no action needed if your certificate file already has the **DigiCert
 
 ### 13. How can I check the certificate that is sent by the server?
 
-There are many tools that you can use. For example, DigiCert has a handy [tool](https://www.digicert.com/help/) that will show you the certificate chain of any server name. (This tool will only work with publicly accessible server; it cannot connect to server that is contained in a virtual network (VNET)). 
-Another tool you can use is OpenSSL in the command line, you can use the syntax below:
+There are many tools that you can use. For example, DigiCert has a handy [tool](https://www.digicert.com/help/) that  shows you the certificate chain of any server name. (This tool works with publicly accessible server; it cannot connect to server that is contained in a virtual network (VNET)). 
+Another tool you can use is OpenSSL in the command line, you can use this syntax to check certificates:
 ```bash
 openssl s_client -showcerts -connect <your-postgresql-server-name>:443
 ```
 
 ### 14. What if I have further questions?
-If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). If you have a support plan and you need technical help please create a [support request](../../azure-portal/supportability/how-to-create-azure-support-request.md):
+If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). If you have a support plan and you need technical help,  please create a [support request](../../azure-portal/supportability/how-to-create-azure-support-request.md):
 * For *Issue type*, select *Technical*.  
 * For *Subscription*, select your *subscription*.  
 * For *Service*, select *My Services*, then select *Azure Database for PostgreSQL – Single Server*.

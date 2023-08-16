@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/29/2023
+ms.date: 03/23/2023
 ms.author: justinha
 
 ms.custom: contperf-fy21q1
@@ -82,7 +82,7 @@ The following features of Azure AD DS simplify deployment and management operati
 Some key aspects of a managed domain include the following:
 
 * The managed domain is a stand-alone domain. It isn't an extension of an on-premises domain.
-    * If needed, you can create one-way outbound forest trusts from Azure AD DS to an on-premises AD DS environment. For more information, see [Resource forest concepts and features for Azure AD DS][ forest-trusts].
+    * If needed, you can create one-way outbound forest trusts from Azure AD DS to an on-premises AD DS environment. For more information, see [Forest concepts and features for Azure AD DS][forest-trusts].
 * Your IT team doesn't need to manage, patch, or monitor domain controllers for this managed domain.
 
 For hybrid environments that run AD DS on-premises, you don't need to manage AD replication to the managed domain. User accounts, group memberships, and credentials from your on-premises directory are synchronized to Azure AD via [Azure AD Connect][azure-ad-connect]. These user accounts, group memberships, and credentials are automatically available within the managed domain.

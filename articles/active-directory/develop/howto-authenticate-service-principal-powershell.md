@@ -27,7 +27,7 @@ When you have an app or script that needs to access resources, you can set up an
 
 This article shows you how to create a service principal that authenticates with a certificate. To set up a service principal with password, see [Create an Azure service principal with Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 
-You must have the [latest version](/powershell/azure/install-az-ps) of PowerShell for this article.
+You must have the [latest version](/powershell/azure/install-azure-powershell) of PowerShell for this article.
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 

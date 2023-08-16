@@ -29,7 +29,7 @@ Key vaults define security boundaries for stored secrets. Grouping secrets into 
 Encryption keys and secrets like certificates, connection strings, and passwords are sensitive and business critical. You need to secure access to your key vaults by allowing only authorized applications and users. [Azure Key Vault security features](security-features.md) provides an overview of the Key Vault access model. It explains authentication and authorization. It also describes how to secure access to your key vaults.
 
 Suggestions for controlling access to your vault are as follows:
-- Lock down access to your subscription, resource group, and key vaults (role-based access control (RBAC)).
+- Lock down access to your subscription, resource group, and key vaults using role-based access control (RBAC).
 - Create access policies for every vault.
 - Use the principle of least privilege access to grant access.
 - Turn on firewall and [virtual network service endpoints](overview-vnet-service-endpoints.md).

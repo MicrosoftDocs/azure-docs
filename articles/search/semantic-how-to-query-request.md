@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 8/15/2023
 ---
 
 # Configure semantic ranking and return captions in search results
@@ -25,9 +25,9 @@ There are two main activities to perform:
 
 ## Prerequisites
 
-+ A search service on Standard tier (S1, S2, S3) or Storage Optimized tier (L1, L2), in these regions: Australia East, East US, East US 2, North Central US, South Central US, West US, West US 2, North Europe, UK South, West Europe.
++ A search service on Basic, Standard tier (S1, S2, S3), or Storage Optimized tier (L1, L2), subject to [region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search).
 
-  If you have an existing S1 or greater service in one of these regions, you can enable semantic search without having to create a new service.
+  If you have an existing Basic or greater service in a supported region, you can enable semantic search without having to create a new service.
 
 + Semantic search [enabled on your search service](semantic-search-overview.md#enable-semantic-search).
 
@@ -44,7 +44,7 @@ You'll need a search client that supports preview APIs on the query request. Her
 
 + [Search explorer](search-explorer.md) in Azure portal, recommended for initial exploration.
 
-+ [Postman Desktop App](https://www.postman.com/downloads/) using the [2021-04-30-Preview REST APIs](/rest/api/searchservice/preview-api/search-documents). See this [Quickstart](search-get-started-rest.md) for help with setting up your requests.
++ [Postman app](https://www.postman.com/downloads/) using the [2021-04-30-Preview REST APIs](/rest/api/searchservice/preview-api/search-documents). See this [Quickstart](search-get-started-rest.md) for help with setting up your requests.
 
 + [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5) in the Azure SDK for .NET Preview.
 
@@ -84,7 +84,7 @@ You can add or update a semantic configuration at any time without rebuilding yo
 
 ### [**Azure portal**](#tab/portal)
 
-1. [Sign in to Azure portal](https://portal.azure.com) and navigate to a search service that has [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to a search service that has [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
 
 1. Open an index.
 
@@ -210,11 +210,11 @@ If you happen to include an invalid field, there's no error, but those fields wo
 
 ## 3 - Avoid features that bypass relevance scoring
 
-Several query capabilities in Cognitive Search don't undergo relevance scoring, and some bypass the full text search engine altogether. If your query logic includes the following features, you won't get relevance scores or semantic ranking on your results:
+Several query capabilities in Cognitive Search bypass relevance scoring. If your query logic includes the following features, you won't get relevance scores or semantic ranking on your results:
 
-+ Filters, fuzzy search queries, and regular expressions iterate over untokenized text, scanning for verbatim matches in the content. Search scores for all of the above query forms are a uniform 1.0, and won't provide meaningful input for semantic ranking.
++ Filters, fuzzy search queries, and regular expressions iterate over untokenized text, scanning for verbatim matches in the content. Search scores for all of the above query forms are a uniform 1.0, and won't provide meaningful input for semantic ranking because there's no way to select the top 50 matches.
 
-+ Sorting (orderBy clauses) on specific fields will also override search scores and semantic score. Given that semantic score is used to order results, including explicit sort logic will cause an HTTP 400 error to be returned.
++ Sorting (orderBy clauses) on specific fields will also override search scores and semantic score. Given that semantic score is used to order results, including explicit sort logic will cause an HTTP 400 error to be returned if you run a semantic query over ordered results.
 
 ## 4 - Set up the query
 
@@ -224,7 +224,7 @@ Your next step is adding parameters to the query request. To be successful, your
 
 [Search explorer](search-explorer.md) has been updated to include options for semantic queries. To configure semantic ranking in the portal, follow the steps below:
 
-1. Open the [Azure portal](https://portal.azure.com) and navigate to a search service that has semantic search [enabled](semantic-search-overview.md#enable-semantic-search).
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to a search service that has semantic search [enabled](semantic-search-overview.md#enable-semantic-search).
 
 1. Select **Search explorer** at the top of the overview page.
 
@@ -290,7 +290,9 @@ The following example in this section uses the [hotels-sample-index](search-get-
 
 1. Set "captions" to specify whether semantic captions are included in the result. If you're using a semantic configuration, you should set this parameter. While the ["searchFields" approach](#2b---use-searchfields-for-field-prioritization) automatically included captions, "semanticConfiguration" doesn't. 
 
-   Currently, the only valid value for this parameter is "extractive". Captions can be configured to return results with or without highlights. The default is for highlights to be returned. This example returns captions without highlights: `extractive|highlight-false`. 
+   Currently, the only valid value for this parameter is "extractive". Captions can be configured to return results with or without highlights. The default is for highlights to be returned. This example returns captions without highlights: `extractive|highlight-false`.
+
+   For semantic captions, the fields referenced in the "semanticConfiguration" must have a word limit in the range of 2000-3000 words (or equivalent to 10000 tokens), otherwise, it will miss important caption results. If you anticipate that the fields used by the "semanticConfiguration" word count could be higher than the exposed limit and you need to use captions, consider [Text split cognitive skill]cognitive-search-skill-textsplit.md) as part of your [AI enrichment pipeline](cognitive-search-concept-intro.md) while indexing your data with [built-in pull indexers](search-indexer-overview.md).
 
 1. Set "highlightPreTag" and "highlightPostTag" if you want to override the default highlight formatting that's applied to captions.
 
@@ -351,7 +353,12 @@ The response for the above example query returns the following match as the top 
         "Description": "New Luxury Hotel. Be the first to stay. Bay views from every room, location near the pier, rooftop pool, waterfront dining & more.",
         "Category": "Luxury"
     },
+  ...
+]
 ```
+
+> [!NOTE]
+> Starting from July 14, 2023, if the initial search results display matches in multiple languages, the semantic ranker will include these results as a part of the semantic response. This is in contrast to the previous behavior, where the semantic ranker would deprioritize results differing from the language specified by the field analyzer.
 
 ## Next steps
 

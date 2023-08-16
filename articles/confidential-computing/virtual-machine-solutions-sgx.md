@@ -8,7 +8,7 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 12/20/2021
 ms.author: mamccrea
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-arm-template
 ---
 
 # Solutions on Azure for Intel SGX

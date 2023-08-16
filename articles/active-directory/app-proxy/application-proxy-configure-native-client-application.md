@@ -1,5 +1,5 @@
 ---
-title: Publish native client apps - Azure Active Directory
+title: Publish native client apps
 description: Covers how to enable native client apps to communicate with Azure Active Directory Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
 author: kenwith
@@ -7,6 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
+ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 11/17/2022
 ms.author: kenwith
@@ -30,6 +31,8 @@ This article walks you through the four steps to publish a native application wi
 Publish your proxy application as you would any other application and assign users to access your application. For more information, see [Publish applications with Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md).
 
 ## Step 2: Register your native application
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 You now need to register your application in Azure AD, as follows:
 
@@ -113,4 +116,4 @@ After you edit the MSAL code with these parameters, your users can authenticate 
 
 For more information about the native application flow, see [mobile](../develop/authentication-flows-app-scenarios.md#mobile-app-that-calls-a-web-api-on-behalf-of-an-interactive-user) and [desktop](../develop/authentication-flows-app-scenarios.md#desktop-app-that-calls-a-web-api-on-behalf-of-a-signed-in-user) apps in Azure Active Directory.
 
-Learn about setting up [Single sign-on to applications in Azure Active Directory](../manage-apps/sso-options.md#choosing-a-single-sign-on-method).
+Learn about setting up [Single sign-on to applications in Azure Active Directory](../manage-apps/plan-sso-deployment.md#choosing-a-single-sign-on-method).

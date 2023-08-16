@@ -3,7 +3,7 @@ title: Operator Nexus Operator PE configuration
 description: Interconnectivity parameters to configure PE for PE-CE connectivity in Operator Nexus
 author: osamazia
 ms.author: osamaz
-ms.service: azure
+ms.service: azure-operator-nexus
 ms.topic: reference #Required. A value that depends on the article but is usually "how-to," "tutorial," or "conceptual."
 ms.date: 02/02/2023 #Required. The publish date in mm/dd/yyyy format.
 ---
@@ -53,7 +53,7 @@ You can use standard BGP (option A). You can also use MP-BGP with inter-as Optio
 For MP-BGP make sure you configure matching route targets on both PE and CE.
 
 ```azurecli
-az nf fabric create \
+az networkfabric fabric create \
 --resource-group "example-rg" \
 --location "eastus" \
 --resource-name "example-nf" \

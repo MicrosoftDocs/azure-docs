@@ -8,12 +8,21 @@ ms.subservice: mongodb
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp, mode-api, ignite-2022, devguide-csharp, cosmos-db-dev-journey
+ms.custom: devx-track-csharp, mode-api, ignite-2022, devguide-csharp, cosmos-db-dev-journey, devx-track-azurecli, devx-track-dotnet
 ---
 
 # Quickstart: Azure Cosmos DB for MongoDB for .NET with the MongoDB driver
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+
+> [!div class="op_single_selector"]
+>
+> * [.NET](quickstart-dotnet.md)
+> * [Python](quickstart-python.md)
+> * [Java](quickstart-java.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Go](quickstart-go.md)
+>
 
 Get started with MongoDB to create databases, collections, and docs within your Azure Cosmos DB resource. Follow these steps to  install the package and try out example code for basic tasks.
 
@@ -26,7 +35,7 @@ Get started with MongoDB to create databases, collections, and docs within your 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - [.NET 6.0](https://dotnet.microsoft.com/download)
-- [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
+- [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ### Prerequisite check
 

@@ -2,10 +2,10 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 07/14/2023
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # What's new in Azure Backup
@@ -16,7 +16,14 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- July 2023
+  - [SAP HANA System Replication database backup support is now generally available](#sap-hana-system-replication-database-backup-support-is-now-generally-available)
+  - [Cross Region Restore for PostgreSQL (preview)](#cross-region-restore-for-postgresql-preview)
+- April 2023
+  - [Microsoft Azure Backup Server v4 is now generally available](#microsoft-azure-backup-server-v4-is-now-generally-available)
 - March 2023
+  - [Multiple backups per day for Azure VMs is now generally available](#multiple-backups-per-day-for-azure-vms-is-now-generally-available)
+  - [Immutable vault for Azure Backup is now generally available](#immutable-vault-for-azure-backup-is-now-generally-available)
   - [Support for selective disk backup with enhanced policy for Azure VM (preview)](#support-for-selective-disk-backup-with-enhanced-policy-for-azure-vm-preview)
   - [Azure Kubernetes Service backup (preview)](#azure-kubernetes-service-backup-preview)
   - [Azure Blob vaulted backups (preview)](#azure-blob-vaulted-backups-preview)
@@ -53,6 +60,41 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+
+## SAP HANA System Replication database backup support is now generally available
+
+Azure Backup now supports backup of HANA database with HANA System Replication. Now, the log backups from the new primary node are accepted immediately; thus provides continuous database automatic protection,
+
+This eliminates the need of manual intervention to continue backups on the new primary node during a failover. With the elimination of the need to trigger full backups for every failover, you can save costs and reduce time for continue protection.
+
+For more information, see [Back up a HANA system with replication enabled](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled).
+
+## Cross Region Restore for PostgreSQL (preview)
+
+Azure Backup allows you to replicate your backups to an additional Azure paired region by using Geo-redundant Storage (GRS) to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region.
+
+For more information, see [Cross Region Restore support for PostgreSQL using Azure Backup](backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup-preview).
+
+## Microsoft Azure Backup Server v4 is now generally available
+
+Azure Backup now provides Microsoft Azure Backup Server (MABS) v4, the latest edition of on-premises backup solution.
+
+- It can *protect* and *run on* Windows Server 2022, Azure Stack HCI 22H2, vSphere 8.0, and SQL Server 2022.
+- It contains stability improvements and bug fixes on *MABS v3 UR2*. 
+
+For more information, see [What's new in MABS](backup-mabs-whats-new-mabs.md).
+## Multiple backups per day for Azure VMs is now generally available
+
+Azure Backup now enables you to create a backup policy to take multiple backups a day. With this capability, you can also define the duration in which your backup jobs would trigger and align your backup schedule with the working hours when there are frequent updates to Azure Virtual Machines.
+
+For more information, see [Back up an Azure VM using Enhanced policy](backup-azure-vms-enhanced-policy.md).
+
+## Immutable vault for Azure Backup is now generally available
+
+Azure Backup now supports immutable vaults that help you ensure that recovery points once created can't be deleted before their expiry as per the backup policy (expiry at the time at which the recovery point was created). You can also choose to make the immutability irreversible to offer maximum protection to your backup data, thus helping you protect your data better against various threats, including ransomware attacks and malicious actors.
+
+For more information, see the [concept of Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md).
 
 ## Support for selective disk backup with enhanced policy for Azure VM (preview)
 
@@ -117,9 +159,9 @@ For more information, see [Back up databases' instance snapshots (preview)](sap-
 
 Azure Backup now supports backup of HANA database with HANA System Replication. Now, the log backups from the new primary node are accepted immediately; thus provides continuous database automatic protection,
 
-This eliminates the need of manual intervention to continue backups on the new primary node during a failover. With the elimination of the need to trigger full backups for every failover, you can save costs and reduce time for continue protection
+This eliminates the need of manual intervention to continue backups on the new primary node during a failover. With the elimination of the need to trigger full backups for every failover, you can save costs and reduce time for continue protection.
 
-For more information, see [Back up a HANA system with replication enabled (preview)](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled-preview).
+For more information, see [Back up a HANA system with replication enabled (preview)](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled).
 
 ## Built-in Azure Monitor alerting for Azure Backup is now generally available
 

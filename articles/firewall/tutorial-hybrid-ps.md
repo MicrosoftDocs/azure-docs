@@ -43,7 +43,7 @@ If you want to use Azure portal instead to complete this tutorial, see [Tutorial
 
 ## Prerequisites
 
-This article requires that you run PowerShell locally. You must have the Azure PowerShell module installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
+This article requires that you run PowerShell locally. You must have the Azure PowerShell module installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
 
 There are three key requirements for this scenario to work correctly:
 

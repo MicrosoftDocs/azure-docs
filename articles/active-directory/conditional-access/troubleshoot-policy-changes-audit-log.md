@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Conditional Access policy changes - Azure Active Directory
+title: Troubleshoot Conditional Access policy changes
 description: Diagnose changes to Conditional Access policy with the Azure AD audit logs.
 
 services: active-directory
@@ -51,7 +51,7 @@ Once enabled find access to Log Analytics in the **Azure portal** > **Azure AD**
 
 ```kusto
 AuditLogs 
-| where OperationName == "Update conditional access policy"
+| where OperationName == "Update Conditional Access policy"
 ```
 
 Changes can be found under **TargetResources** > **modifiedProperties**.
@@ -194,5 +194,5 @@ For more information about programmatically updating your Conditional Access pol
 ## Next steps
 
 - [What is Azure Active Directory monitoring?](../reports-monitoring/overview-monitoring.md)
-- [Install and use the log analytics views for Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
+- [Install and use the log analytics views for Azure Active Directory](../../azure-monitor/visualize/workbooks-view-designer-conversion-overview.md)
 - [Conditional Access: Programmatic access](howto-conditional-access-apis.md)

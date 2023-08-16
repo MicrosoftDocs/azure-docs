@@ -1,5 +1,5 @@
 ---
-title: What is identity secure score? - Azure Active Directory
+title: What is identity secure score?
 description: Learn how to use the identity secure score to improve the security posture of your directory.
 
 services: active-directory
@@ -103,6 +103,12 @@ Controls can be scored in two ways. Some are scored in a binary fashion - you ge
 ### What does [Not Scored] mean?
 
 Actions labeled as [Not Scored] are ones you can perform in your organization but won't be scored because they aren't hooked up in the tool (yet!). So, you can still improve your security, but you won't get credit for those actions right now.
+
+In addition, the recommended actions:
+* Protect all users with a user risk policy
+* Protect all users with a sign-in risk policy
+
+Also won't give you credits when configured using Conditional Access Policies, yet, for the same reason as above. For now, these actions give credits only when configured through Identity Protection policies.
 
 ### How often is my score updated?
 

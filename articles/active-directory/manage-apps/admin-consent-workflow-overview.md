@@ -12,6 +12,7 @@ ms.date: 11/02/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 
 #customer intent: As an admin, I want to learn about the admin consent workflow and how it affects end-user and admin consent experience
 ---

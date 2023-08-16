@@ -293,6 +293,8 @@
       items:
       - name: Update the Mobility Service for Azure VMs
         href: azure-to-azure-autoupdate.md
+      - name: Migrate from a Run As account to Managed Identities
+        href: how-to-migrate-run-as-accounts-managed-identity.md
       - name: Manage Site Recovery updates
         href: service-updates-how-to.md
       - name: Remove servers and disable protection

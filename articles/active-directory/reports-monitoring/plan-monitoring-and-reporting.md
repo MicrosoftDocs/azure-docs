@@ -1,6 +1,6 @@
 ---
 
-title: Plan reports & monitoring deployment - Azure AD
+title: Plan reports & monitoring deployment
 description: Describes how to plan and execute implementation of reporting and monitoring.
 services: active-directory
 author: gargi-sinha
@@ -48,7 +48,7 @@ For detailed feature and licensing information, see the [Azure Active Directory 
 To deploy Azure AD monitoring and reporting you'll need a user who is a Global Administrator or Security Administrator for the Azure AD tenant.
 
 * [Azure Monitor data platform](../../azure-monitor/data-platform.md)
-* [Azure Monitor naming and terminology changes](../../azure-monitor/terminology.md)
+* [Azure Monitor naming and terminology changes](../../azure-monitor/overview.md)
 * [How long does Azure AD store reporting data?](./reference-reports-data-retention.md)
 * An Azure storage account that you have `ListKeys` permissions for. We recommend that you use a general storage account and not a Blob storage account. For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage).
 * An Azure Event Hubs namespace to integrate with third-party SIEM solutions.
@@ -60,7 +60,7 @@ Reporting and monitoring are used to meet your business requirements, gain insig
 
 ## Stakeholders, communications, and documentation
 
-When technology projects fail, they typically do so due to mismatched expectations on effect, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md). Also ensure that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and responsibilities.
+When technology projects fail, they typically do so due to mismatched expectations on effect, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../architecture/deployment-plans.md). Also ensure that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and responsibilities.
 
 Stakeholders need to access Azure AD logs to gain operational insights. Likely users include security team members, internal or external auditors, and the identity and access management operations team.
 
@@ -77,7 +77,7 @@ Learn More About [Azure AD Administrative Roles](../roles/permissions-reference.
 
 ### Engage stakeholders
 
-Successful projects align expectations, outcomes, and responsibilities. See, [Azure Active Directory deployment plans](../fundamentals/active-directory-deployment-plans.md). Document and communicate stakeholder roles that require input and accountability.
+Successful projects align expectations, outcomes, and responsibilities. See, [Azure Active Directory deployment plans](../architecture/deployment-plans.md). Document and communicate stakeholder roles that require input and accountability.
 
 ### Communications plan
 
@@ -131,4 +131,3 @@ Learn more:
 - Consider implementing [Azure role-based access control](../../role-based-access-control/overview.md)
 - [Learn more about report retention policies](./reference-reports-data-retention.md).
 - [Analyze Azure AD activity logs with Azure Monitor logs](./howto-analyze-activity-logs-log-analytics.md)
-

@@ -16,9 +16,6 @@ This article shows you how to install the Kubernetes Event-driven Autoscaling (K
 
 ## Prerequisites
 
->[!WARNING]
-> The managed KEDA addon will not be supported in K8s version 1.26 at GA. Please follow the [release notes](https://github.com/Azure/AKS/releases) to be notified when it will be supported.
-
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli).
 - Firewall rules are configured to allow access to the Kubernetes API server. ([learn more][aks-firewall-requirements])
@@ -185,7 +182,7 @@ You can troubleshoot KEDA add-on problems in [this article][keda-troubleshoot].
 [az aks update]: /cli/azure/aks#az-aks-update
 [az-group-delete]: /cli/azure/group#az-group-delete
 [keda-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
-[aks-firewall-requirements]: limit-egress-traffic.md#azure-global-required-network-rules
+[aks-firewall-requirements]: outbound-rules-control-egress.md#azure-global-required-network-rules
 
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl
 [keda]: https://keda.sh/

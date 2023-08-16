@@ -6,7 +6,7 @@ manager: evansma
 ms.service: resource-mover
 ms.custom: ignite-2022, engagement-fy23, UpdateFrequency.5
 ms.topic: conceptual
-ms.date: 12/23/2022
+ms.date: 04/28/2023
 ms.author: ankitadutta
 ---
 
@@ -29,7 +29,7 @@ Azure Resource Mover is currently available as follows:
 | Support | Details|
 |-------- | -------|
 |Move support | Azure resources that are supported for a move with Resource Mover can be moved from any public region to another public region and within regions in China. Moving resources within Azure Gov is also supported (US DoD Central, US DoD East, US Gov Arizona, US Gov Texas, US Gov Virginia).  US Sec East/West/West Central are not currently supported.|
-|Metadata support |  Supported regions for storing metadata about machines to be moved include East US2, North Europe, Southeast Asia, Japan East, UK South, and Australia East as metadata regions. <br/><br/> Moving resources within the Azure China region is also supported with the metadata region China North2.|
+|Metadata support |  Supported regions for storing metadata about machines to be moved include East US2, North Europe, Southeast Asia, Japan East, UK South, and Australia East as metadata regions. <br/><br/> Moving resources within the Microsoft Azure operated by 21Vianet region is also supported with the metadata region China North2.|
 
 ### What resources can I move across regions using Resource Mover?
 
@@ -47,6 +47,17 @@ Using Resource Mover, you can currently move the following resources across regi
 ### Can I move disks across regions?
 
 You can't select disks as resources to the moved across regions. However, disks are moved as part of a VM move.
+
+### How can I move my resources across subscription?
+
+Currently, Azure Resource Mover only supports move across regions within the same subscription. Move across subscriptions is not supported. 
+
+However, on the Azure Portal, Azure Resource mover has an entry point to enable the move across subscriptions. The capability to move across subscriptions is supported by Azure Resource Manager (ARM). [Learn more](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+
+Moving across regions and across subscriptions is a two-step process:
+
+1. Move resources across regions using Azure Resource Mover.
+1. Use Azure Resource Manager (ARM) to move across subscriptions once resources are in the desired target region.
 
 ### What does it mean to move a resource group?
 

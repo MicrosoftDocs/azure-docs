@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Access Azure Storage using a SAS credential - Linux - Azure AD'
+title: 'Tutorial: Access Azure Storage using a SAS credential - Linux'
 description: Tutorial showing how to use a Linux VM system-assigned managed identity to access Azure Storage using a SAS credential instead of a storage account access key.
 services: active-directory
 documentationcenter: ''
 author: barclayn
 manager: amycolannino
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, devx-track-arm-template
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: tutorial
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](../../storage/common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to obtain a storage Shared Access Signature (SAS) credential. Specifically, a [Service SAS credential](../../storage/common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json#types-of-shared-access-signatures). 
 
 > [!NOTE]
 > The SAS key generated in this tutorial will not be restricted/bound to the VM.  

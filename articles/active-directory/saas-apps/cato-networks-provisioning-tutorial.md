@@ -3,7 +3,7 @@ title: 'Tutorial: Configure Cato Networks for automatic user provisioning with A
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Cato Networks.
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: bdaa6863-c0fe-40b0-8989-3632900464ef
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

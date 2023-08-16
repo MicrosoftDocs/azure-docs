@@ -1,11 +1,10 @@
 ---
  title: include file
  description: include file
- services: virtual-machines
  author: roygara
- ms.service: virtual-machines
+ ms.service: azure-disk-storage
  ms.topic: include
- ms.date: 02/22/2023
+ ms.date: 03/16/2023
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -24,4 +23,4 @@
 
 \*Applies only to disks with on-demand bursting enabled.
 
-\** Only applies to disks with performance plus enabled.
+\** Only applies to disks with performance plus (preview) enabled.

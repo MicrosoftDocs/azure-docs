@@ -1,5 +1,5 @@
 ---
-title: Azure AD B2B in government and national clouds - Azure Active Directory
+title: Azure AD B2B in government and national clouds
 description: Learn what features are available in Azure Active Directory B2B collaboration in US Government and national clouds 
 
 services: active-directory
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 Microsoft Azure [national clouds](../develop/authentication-national-cloud.md) are physically isolated instances of Azure. B2B collaboration isn't enabled by default across national cloud boundaries, but you can use Microsoft cloud settings to establish mutual B2B collaboration between the following Microsoft Azure clouds:
 
 - Microsoft Azure global cloud and Microsoft Azure Government
-- Microsoft Azure global cloud and Microsoft Azure China 21Vianet
+- Microsoft Azure global cloud and Microsoft Azure operated by 21Vianet
 
 ## B2B collaboration across Microsoft clouds
 

@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 02/28/2023
 ms.author: jomondi
 ms.reviewer: phsignor, yuhko
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q2, enterprise-apps
 zone_pivot_groups: enterprise-apps-minus-portal-aad
 
 #customer intent: As an admin, I want to manage app consent policies for enterprise applications in Azure AD
@@ -233,7 +233,7 @@ To learn more:
 * [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 * [Learn how to manage consent to applications and evaluate consent requests](manage-consent-requests.md)
 * [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
-* [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
+* [Permissions and consent in the Microsoft identity platform](../develop/permissions-consent-overview.md)
 
 To get help or find answers to your questions:
 

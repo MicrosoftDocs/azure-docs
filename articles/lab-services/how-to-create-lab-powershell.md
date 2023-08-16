@@ -14,7 +14,10 @@ In this article, you learn how to create a lab using PowerShell and the Azure mo
 
 ## Prerequisites
 
-- Azure subscription.  If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Create and manage labs](./includes/lab-services-prerequisite-create-lab.md)]
+[!INCLUDE [Existing lab plan](./includes/lab-services-prerequisite-lab-plan.md)]
+
 - [Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
 - [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az). Must be version 7.2 or higher.
 

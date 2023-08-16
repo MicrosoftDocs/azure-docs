@@ -1,5 +1,5 @@
 ---
-title: List Azure AD role definitions - Azure AD
+title: List Azure AD role definitions
 description: Learn how to list Azure built-in and custom roles.
 services: active-directory
 author: rolyon
@@ -29,6 +29,8 @@ This article describes how to list the Azure AD built-in and custom roles along 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
 ## Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

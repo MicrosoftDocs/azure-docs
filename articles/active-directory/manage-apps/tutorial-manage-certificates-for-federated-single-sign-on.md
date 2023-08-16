@@ -12,6 +12,7 @@ ms.date: 02/02/2023
 ms.author: jomondi
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 
 #customer intent: As an admin of an application, I want to learn how to manage federated SAML certificates by customizing expiration dates and renewing certificates.
 ---
@@ -58,6 +59,8 @@ By default, Azure configures a certificate to expire after three years when it's
 The following two sections help you perform these steps.
 
 ### Create a new certificate
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 First, create and save new certificate with a different expiration date:
 

@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 10/19/2022
+ms.date: 05/18/2023
 ms.author: spelluru
 ms.custom: "include file","fasttrack-edit","iot","event-hubs"
 
@@ -29,6 +29,7 @@ The following table shows limits that may be different for basic, standard, prem
 | Number of namespaces per subscription | 1000 | 1000 | 1000 | 1000 (50 per CU) |
 | Number of event hubs per namespace | 10 | 10 | 100 per PU | 1000 |
 | Capture | N/A | Pay per hour | Included | Included |
+| Size of compacted event hub  | N/A | 1 GB per partition | 250 GB per partition | 250 GB per partition |
 | Size of the schema registry (namespace) in mega bytes | N/A | 25 | 100 | 1024 |
 | Number of schema groups in a schema registry or namespace | N/A | 1 - excluding the default group | 100 <br/>1 MB per schema | 1000<br/>1 MB per schema |
 | Number of schema versions across all schema groups | N/A | 25 | 1000 | 10000 |

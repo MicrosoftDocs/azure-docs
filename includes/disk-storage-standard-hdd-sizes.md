@@ -1,11 +1,10 @@
 ---
  title: include file
  description: include file
- services: virtual-machines
  author: roygara
- ms.service: virtual-machines
+ ms.service: azure-disk-storage
  ms.topic: include
- ms.date: 02/22/2023
+ ms.date: 03/16/2023
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -18,4 +17,4 @@
 | Base throughput per disk | Up to 60 MB/s | Up to 60 MB/s | Up to 60 MB/s | Up to 60 MB/s | Up to 60 MB/s | Up to 60 MB/s | Up to 60 MB/s | Up to 60 MB/s| Up to 300 MB/s | Up to 500 MB/s | Up to 500 MB/s |
 | *Expanded throughput per disk | N/A | N/A | N/A | N/A | N/A | Up to 150 MB/s | Up to 300 MB/s | Up to 500 MB/s| Up to 500 MB/s | Up to 500 MB/s | Up to 500 MB/s |
 
-\* Only applies to disks with performance plus enabled.
+\* Only applies to disks with performance plus (preview) enabled.

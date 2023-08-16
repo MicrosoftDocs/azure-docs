@@ -127,15 +127,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure ADP SSO
 
-1. To automate the configuration within ADP, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up ADP** will direct you to the ADP application. From there, provide the admin credentials to sign in to ADP. The browser extension will automatically configure the application for you and automate steps 3-7.
 
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to set up ADP manually, open a new web browser window and sign in to your ADP company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your up ADP company site as an administrator
 
 1. Click **Federation Setup** and go to **Identity Provider** then, select the **Microsoft Azure**.
 
@@ -221,7 +216,10 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 ### Configure ADP to support multiple instances in the same tenant
 
-1. Go to **Basic SAML Configuration** section and configure another test value in **Identifier (Entity ID)** textbox.
+1. Go to **Basic SAML Configuration** section and enter any instance specific URL in the **Identifier (Entity ID)** textbox. 
+
+    > [!NOTE]
+    > Please note that this can be any random value which you feel relevant for your instance.
 
     ![Screenshot shows how to configure another test instance value.](./media/adpfederatedsso-tutorial/append.png "Test")
 
@@ -235,7 +233,7 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
     1. Enable **Override audience claim** checkbox.
 
-    1. In the **Audience claim value** textbox, enter **Identifier (Entity ID)** value, which you've copied from **Basic SAML Configuration** section and click **Save**.
+    1. In the **Audience claim value** textbox, enter `https://fed.adp.com` and click **Save**.
 
 1. Navigate to **Properties** tab under Manage section and copy **Application ID** from the Azure portal.
 

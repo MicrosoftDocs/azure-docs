@@ -14,15 +14,15 @@ ms.custom: devx-track-java
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
 This article describes how to troubleshoot build issues with your Azure Spring Apps deployment.
 
 ## Build exit codes
 
-Azure Spring Apps Enterprise tier uses Tanzu Buildpacks to transform your application source code into images. For more information, see [Tanzu Buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/index.html).
+The Azure Spring Apps Enterprise plan uses Tanzu Buildpacks to transform your application source code into images. For more information, see [Tanzu Buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/index.html).
 
-When you deploy your app in Azure Spring Apps using the [Azure CLI](/cli/azure/install-azure-cli), you'll see a build log in the Azure CLI console. If the build fails, Azure Spring Apps displays an exit code and error message in the CLI console indicating why the buildpack execution failed during different phases of the buildpack [lifecycle](https://buildpacks.io/docs/concepts/components/lifecycle/).
+When you deploy your app in Azure Spring Apps using the [Azure CLI](/cli/azure/install-azure-cli), you see a build log in the Azure CLI console. If the build fails, Azure Spring Apps displays an exit code and error message in the CLI console indicating why the buildpack execution failed during different phases of the buildpack [lifecycle](https://buildpacks.io/docs/concepts/components/lifecycle/).
 
 The following list describes some common exit codes:
 
@@ -32,7 +32,7 @@ The following list describes some common exit codes:
 
   - The builder you're using doesn't support the language your project used.
 
-    If you're using the default builder, check the language the default builder supports. For more information, see the [Use the default builder to deploy an app](how-to-enterprise-build-service.md#use-the-default-builder-to-deploy-an-app) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
+    If you're using the default builder, check the language the default builder supports. For more information, see the [Supported APM types](how-to-enterprise-configure-apm-integration-and-ca-certificates.md#supported-apm-types) section of [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
 
     If you're using the custom builder, check whether your custom builder's buildpack supports the language your project used.
 
@@ -63,6 +63,8 @@ The following list describes some common exit codes:
     Check the build log to find the root cause.
 
   - The build failed because of a download dependency error; for example, a network issue caused the Maven dependency download to fail.
+
+  - The build failed because of an unsupported JDK version. For example, the JAR file has been compiled using non-Java LTS versions, which are not supported by the buildpack. For supported versions, see the [Deploy Java applications](how-to-enterprise-deploy-polyglot-apps.md#deploy-java-applications) section of [How to deploy polyglot apps in the Azure Spring Apps Enterprise plan](how-to-enterprise-deploy-polyglot-apps.md).
 
 - **62** - Failed to write image to Azure Container Registry.
   

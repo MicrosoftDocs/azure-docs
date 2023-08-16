@@ -34,7 +34,7 @@ Within each of these five stages, there are several device operator requirements
 * **Plan**: Enable operators to create a device metadata scheme that enables them to easily and accurately query for, and target a group of devices for bulk management operations. You can use the device twin to store this device metadata in the form of tags and properties.
   
     *Further reading*: 
-  * [Get started with device twins](iot-hub-node-node-twin-getstarted.md)
+  * [Get started with device twins](device-twins-node.md)
   * [Understand device twins](iot-hub-devguide-device-twins.md)
   * [How to use device twin properties](tutorial-device-twins.md)
   * [Best practices for device configuration within an IoT solution](iot-hub-configuration-best-practices.md)
@@ -103,7 +103,7 @@ Device Update for IoT Hub offers optimized update deployment and streamlined ope
 * At-a-glance update compliance and status views across heterogenous device fleets
 * Support for resilient device updates (A/B) to deliver seamless rollback
 * Content caching and disconnected device support, including those devices that are in nested configurations, through built-in Microsoft Connected Cache and integration with Azure IoT Edge
-* Subscription and role-based access controls available through the Azure.com portal
+* Subscription and role-based access controls available via the [Azure portal](https://portal.azure.com)
 * Comprehensive cloud-to-edge security features and privacy controls
 
 For more information, see [Device Update for IoT Hub](../iot-hub-device-update/index.yml).

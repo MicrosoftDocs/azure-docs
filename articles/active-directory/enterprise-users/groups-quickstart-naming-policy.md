@@ -1,5 +1,5 @@
 ---
-title: Group naming policy quickstart - Azure Active Directory
+title: Group naming policy quickstart
 description: Explains how to add new users or delete existing users in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -28,6 +28,8 @@ In this quickstart, in Azure Active Directory (Azure AD), part of Microsoft Entr
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Configure the group naming policy in the Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with a User Administrator account.
 1. Browse to **Azure Active Directory** > **Groups**, then select **Naming policy** to open the Naming policy page.

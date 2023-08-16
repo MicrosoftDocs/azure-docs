@@ -2,8 +2,8 @@
 title: Tutorial - Configure policy control
 titleSuffix: Azure Private 5G Core
 description: In this tutorial, you'll create an example policy control configuration set with traffic handling for common scenarios. 
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: tutorial 
 ms.date: 01/16/2022
@@ -484,6 +484,7 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 
     :::image type="content" source="media/provision-sims-azure-portal/create-new-sim.png" alt-text="Screenshot of the Azure portal showing the Create button and its options - Upload JSON from file and Add manually.":::
 
+1. Select **Plaintext** as the file type.
 1. Select **Browse** and then select the JSON file you created at the start of this step.
 1. Under **SIM group name**, select **Create new** and then enter **SIMGroup1** into the field that appears.
 1. Select **Add**.

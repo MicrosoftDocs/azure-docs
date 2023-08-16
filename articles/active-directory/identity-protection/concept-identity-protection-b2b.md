@@ -1,5 +1,5 @@
 ---
-title: Identity Protection and B2B users - Azure Active Directory
+title: Identity Protection and B2B users
 description: Using Identity Protection with B2B users
 
 services: active-directory
@@ -11,7 +11,7 @@ ms.date: 08/22/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: sahandle
+ms.reviewer: chuqiaoshi
 
 ms.collection: M365-identity-device-management
 ---

@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 12/28/2022
+ms.date: 07/13/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -63,8 +63,8 @@ Before going into the details, we're presenting the summary and recommendations 
 | Usage scenario | Standard HDD | Standard SSD | Premium Storage | Premium SSD v2 | Ultra disk | Azure NetApp Files | Azure Premium Files |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | OS disk | Not suitable |  Restricted suitable (non-prod) | Recommended | Not possible | Not possible | Not possible | Not possible |
-| Global transport Directory | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended | Recommended |
-| /sapmnt | Not suitable | Restricted suitable (non-prod) | Recommended | Recommended | Recommended | Recommended | Recommended |
+| Global transport Directory | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended | Highly Recommended |
+| /sapmnt | Not suitable | Restricted suitable (non-prod) | Recommended | Recommended | Recommended | Recommended | Highly Recommended |
 | DBMS Data volume SAP HANA M/Mv2 VM families | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended<sup>2</sup> | Not supported |
 | DBMS log volume SAP HANA M/Mv2 VM families | Not supported | Not supported | Recommended<sup>1</sup> | Recommended | Recommended | Recommended<sup>2</sup> | Not supported |
 | DBMS Data volume SAP HANA Esv3/Edsv4 VM families | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended<sup>2</sup> | Not supported |
@@ -92,7 +92,8 @@ Characteristics you can expect from the different storage types list like:
 | Disk snapshots possible | Yes | Yes | Yes | No | No | Yes | No |
 | Allocation of disks on different storage clusters when using availability sets | Through managed disks | Through managed disks | Through managed disks | Disk type not supported with VMs deployed through availability sets | Disk type not supported with VMs deployed through availability sets | No<sup>3</sup> | No |
 | Aligned with Availability Zones | Yes | Yes | Yes | Yes | Yes | In public preview | No |
-| Zonal redundancy | Not for managed disks | Not for managed disks | Not supported for DBMS | No | No | No | Yes |
+| Synchronous Zonal redundancy | Not for managed disks | Not for managed disks | Not supported for DBMS | No | No | No | Yes |
+| Asynchronous Zonal redundancy | Not for managed disks | Not for managed disks | Not supported for DBMS | No | No | In preview | No |
 | Geo redundancy | Not for managed disks | Not for managed disks | No | No | No | Possible | No |
 
 
@@ -315,7 +316,10 @@ Other built-in functionality of ANF storage:
 > [!IMPORTANT]
 > Specifically for database deployments you want to achieve low latencies for at least your redo logs. Especially for SAP HANA, SAP requires a latency of less than than 1 millisecond for HANA redo log writes of smaller sizes. To get to such latencies, see the possibilities below.
 
-- You can use a public preview functionality that allows you to create the NFS share in the same Azure Availability Zones as you placed your VM that should mount the NFS shares into. This functionality is documented in the article [Manage availability zone volume placement for Azure NetApp Files](../../azure-netapp-files/manage-availability-zone-volume-placement.md). For most of the deployment cases, the colocationof the NFS volume in the same zone as the virtual machine should be able to deliver a latency of less than 1 millisecond for smaller writes. Advantage of this method is that you don't need to go through a manual pinning process as this is the case today, and that you're flexible with change VM sizes and families within all the VM types and families offered in the Availability Zone you deployed. So, that you can react flexible on changing conditions or move faster to more cost efficient VM sizes or families.
+> [!IMPORTANT]
+> Even for non-DBMS usage, you should use the preview functionality that allows you to create the NFS share in the same Azure Availability Zones as you placed your VM(s) that should mount the NFS shares into. This functionality is documented in the article [Manage availability zone volume placement for Azure NetApp Files](../../azure-netapp-files/manage-availability-zone-volume-placement.md). The motivation to have this type of Availability Zone alignment is the reduction of risk surface by having the NFS shares yet in another AvZone where you don't run VMs in. 
+
+
 - You go for the closest proximity between VM and NFS share that can be arranged by using [Application Volume Groups](../../azure-netapp-files/application-volume-group-introduction.md). The advantage of Application Volume Groups, besides allocating best proximity and with that creating lowest latency, is that your different NFS shares for SAP HANA deployments are distributed across different controllers in the Azure NetApp Files backend clusters. Disadvantage of this method is that you need to go through a pinning process again. A process that will end restricting your VM deployment to a single datacenter. Instead of an Availability Zones as the first method introduced. This means less flexibility in changing VM sizes and VM families of the VMs that have the NFS volumes mounted.
 - Current process of not using Availability Placement Groups. Which so far are available for SAP HANA only. This process also uses the same manual pinning process as this is the case with Availability Volume groups. This method is the method used for the last three years. It has the same flexibility restrictions as the process has with Availability Volume Groups.
 

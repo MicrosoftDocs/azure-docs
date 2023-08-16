@@ -1,5 +1,5 @@
 ---
-title: Restrict guest user access permissions - Azure Active Directory
+title: Restrict guest user access permissions
 description: Restrict guest user access permissions using the Azure portal, PowerShell, or Microsoft Graph in Azure Active Directory
 services: active-directory 
 author: barclayn
@@ -32,6 +32,8 @@ When guest access is restricted, guests can view only their own user profile. Pe
 You must be in the Global Administrator role to configure guest user access. There are no additional licensing requirements to restrict guest access.
 
 ## Update in the Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 We’ve made changes to the existing Azure portal controls for guest user permissions.
 

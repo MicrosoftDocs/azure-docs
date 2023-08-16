@@ -136,7 +136,7 @@ mind there are helper libraries for several popular application frameworks that
 make it easier. Here are instructions:
 
 * [Ruby on Rails](https://docs.citusdata.com/en/stable/develop/migration_mt_ror.html),
-* [Django](https://docs.citusdata.com/en/stable/develop/migration_mt_django.html),
+* [Django](https://django-multitenant.readthedocs.io/en/latest/migration_mt_django.html),
 * [ASP.NET](https://docs.citusdata.com/en/stable/develop/migration_mt_asp.html),
 * [Java Hibernate](https://www.citusdata.com/blog/2018/02/13/using-hibernate-and-spring-to-build-multitenant-java-apps/).
 

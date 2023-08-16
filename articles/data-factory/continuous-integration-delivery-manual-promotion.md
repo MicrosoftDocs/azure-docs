@@ -7,8 +7,8 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/20/2022 
-ms.custom: devx-track-azurepowershell
+ms.date: 08/10/2023 
+ms.custom:
 ---
 
 # Manually promote a Resource Manager template to each environment

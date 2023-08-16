@@ -1,10 +1,11 @@
 ---
 title: Design your Azure Private Link setup
-description: This article shows how to design your Azure Private Link setup.
-author: noakup
-ms.author: noakuper
+description: This article shows how to design your Azure Private Link setup
+ms.author: guywild
+author: guywi-ms
+ms.reviewer: noakuper
 ms.topic: conceptual
-ms.date: 12/14/2022
+ms.date: 05/07/2023
 ---
 
 # Design your Azure Private Link setup
@@ -157,12 +158,12 @@ If your private link setup was created before April 19, 2021, it won't reach the
     |:--|:--|:--|:--|
     |Azure Public     | scadvisorcontent.blob.core.windows.net         | 443 | Outbound
     |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Outbound
-    |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
+    |Microsoft Azure operated by 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
 
 ### Collect custom logs and IIS log over a private link
 Storage accounts are used in the ingestion process of custom logs. By default, service-managed storage accounts are used. To ingest custom logs on private links, you must use your own storage accounts and associate them with Log Analytics workspaces.
 
-For more information on how to connect your own storage account, see [Customer-owned storage accounts for log ingestion](private-storage.md) and specifically [Use private links](private-storage.md#use-private-links) and [Link storage accounts to your Log Analytics workspace](private-storage.md#link-storage-accounts-to-your-log-analytics-workspace).
+For more information on how to connect your own storage account, see [Customer-owned storage accounts for log ingestion](private-storage.md) and specifically [Use private links](private-storage.md#private-links) and [Link storage accounts to your Log Analytics workspace](private-storage.md#link-storage-accounts-to-your-log-analytics-workspace).
 
 ### Automation
 If you use Log Analytics solutions that require an Azure Automation account (such as Update Management, Change Tracking, or Inventory), you should also create a private link for your Automation account. For more information, see [Use Azure Private Link to securely connect networks to Azure Automation](../../automation/how-to/private-link-security.md).
@@ -176,6 +177,10 @@ We've identified the following products and experiences query workspaces through
 > * The **Workspace Summary (deprecated)** pane in the portal (that shows the solutions dashboard)
 > * VM Insights
 > * Container Insights
+
+## Managed Prometheus considerations
+* Private Link ingestion settings are made using AMPLS and settings on the Data Collection Endpoints (DCEs) that reference the Azure Monitor workspace used to store your Prometheus metrics.
+* Private Link query settings are made directly on the Azure Monitor workspace used to store your Prometheus metrics and aren't handled via AMPLS.
 
 ## Requirements
 
@@ -221,7 +226,8 @@ Bundle the JavaScript code in your script so that the browser doesn't attempt to
 If you're connecting to your Azure Monitor resources over a private link, traffic to these resources must go through the private endpoint that's configured on your network. To enable the private endpoint, update your DNS settings as explained in [Connect to a private endpoint](./private-link-configure.md#connect-to-a-private-endpoint). Some browsers use their own DNS settings instead of the ones you set. The browser might attempt to connect to Azure Monitor public endpoints and bypass the private link entirely. Verify that your browser settings don't override or cache old DNS settings.
 
 ### Querying limitation: externaldata operator
-The [`externaldata` operator](/azure/data-explorer/kusto/query/externaldata-operator?pivots=azuremonitor) isn't supported over a private link because it reads data from storage accounts but doesn't guarantee the storage is accessed privately.
+* The [`externaldata` operator](/azure/data-explorer/kusto/query/externaldata-operator?pivots=azuremonitor) isn't supported over a private link because it reads data from storage accounts but doesn't guarantee the storage is accessed privately.
+* The [Azure Data Explorer proxy (ADX proxy)](azure-monitor-data-explorer-proxy.md) allows log queries to query Azure Data Explorer. The ADX proxy isn't supported over a private link because it doesn't guarantee the targeted resource is accessed privately. 
 
 ## Next steps
 - Learn how to [configure your private link](private-link-configure.md).

@@ -177,7 +177,7 @@ The decentralized nature of verifiable credentials enables this scenario without
 
    * **Authentication**: In this scenario, a user must have possession of VC to prove employment or relationship to a particular organization(s). In this case, the RP should be configured to accept VCs issued by the target organizations. 
 
-   * **Authorization**: Based on the application requirements, the applications might consume the VC attributes for fine-grained authorization decisions and auditing. For example, if an e-commerce website offers discounts to employees of the organizations in a particular location, they can validate this based on the country claim in the VC (if present).
+   * **Authorization**: Based on the application requirements, the applications might consume the VC attributes for fine-grained authorization decisions and auditing. For example, if an e-commerce website offers discounts to employees of the organizations in a particular location, they can validate this based on the country/region claim in the VC (if present).
 
 * **Check Revocation**: When using VCs to access sensitive resources, it is common to check the status of the VC with the original issuer and deny access for revoked VCs. When working with the issuers, ensure that revocation is explicitly discussed as part of the design of your scenario. 
 
@@ -272,8 +272,6 @@ The following provides areas to consider when planning for performance:
 
    * Each verification of a VC requires one Key Vault signature operation.
 
-   * Maximum signing performance of a Key Vault is 2000 signings/~10 seconds. This means your solution can support up to 12,000 VC validation requests per minute.
-
    * You can't control throttling; however, we recommend you read [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md) so that you understand how throttling might impact performance. 
 
 ## Plan for reliability
@@ -344,6 +342,6 @@ Implement Verifiable Credentials
 
    * [Introduction to Microsoft Entra Verified ID](decentralized-identifier-overview.md) 
 
-   * [Get started with Verifiable Credentials](get-started-verifiable-credentials.md)
+   * [Get started with Verifiable Credentials](./verifiable-credentials-configure-tenant.md)
 
 [FAQs](verifiable-credentials-faq.md)

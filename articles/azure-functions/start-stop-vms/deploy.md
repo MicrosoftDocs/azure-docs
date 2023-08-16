@@ -171,12 +171,16 @@ For each scenario, you can target the action against one or more subscriptions, 
       "Action": "start",
       "EnableClassic": false,
       "RequestScopes": {
+        "Subscriptions": [
+          "/subscriptions/12345678-1234-5678-1234-123456781234/",
+          "/subscriptions/11111111-0000-1111-2222-444444444444/"
+         ],
         "ResourceGroups": [
           "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/",
           "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/"
         ],
         "ExcludedVMLists": [
-         "/subscriptions/12345678-1111-2222-3333-1234567891234/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
+         "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
         ]
       }
     }
@@ -231,7 +235,7 @@ In an environment that includes two or more components on multiple Azure Resourc
 
     :::image type="content" source="media/deploy/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
 
-1. In the designer pane, select **Function-Try** to configure the target settings. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
+1. In the designer pane, select **Function-Try** to configure the target settings and then select the **</> Code view** button in the top menu to edit the code for the **Function-Try** element. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
 
     ```json
     {
@@ -265,12 +269,16 @@ In an environment that includes two or more components on multiple Azure Resourc
       "Action": "start",
       "EnableClassic": false,
       "RequestScopes": {
+        "Subscriptions":[
+          "/subscriptions/12345678-1234-5678-1234-123456781234/",
+          "/subscriptions/11111111-0000-1111-2222-444444444444/"
+        ],
         "ResourceGroups": [
           "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/",
           "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/"
         ],
         "ExcludedVMLists": [
-         "/subscriptions/12345678-1111-2222-3333-1234567891234/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
+         "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
         ]
       },
        "Sequenced": true

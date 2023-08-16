@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/03/2022
+ms.date: 03/28/2023
 
 ---
 
@@ -36,10 +36,10 @@ Use a search client that supports preview APIs on the query request. For REST, y
 | Client library | Versions |
 |----------|----------|
 | REST API | [2021-04-30-Preview](/rest/api/searchservice/index-preview) or 2020-06-30-Preview |
-| Azure SDK for .NET | [version 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2) | 
-| Azure SDK for Java |  [version 11.4.0-beta.2](https://search.maven.org/artifact/com.azure/azure-search-documents/11.4.0-beta.2/jar) |
-| Azure SDK for JavaScript | [version 11.2.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/11.2.0-beta.2) |
-| Azure SDK for Python | [version 11.2.0b3](https://pypi.org/project/azure-search-documents/11.2.0b3/) |
+| Azure SDK for .NET | [version 11.5.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.5.0-beta.2) | 
+| Azure SDK for Java |  [version 11.6.0-beta.5](https://repo1.maven.org/maven2/com/azure/azure-search-documents/11.6.0-beta.5/azure-search-documents-11.6.0-beta.5.jar) 
+| Azure SDK for JavaScript | [version 11.3.0-beta.8](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.8) |
+| Azure SDK for Python | [version 11.4.0b3](https://pypi.org/project/azure-search-documents/11.4.0b3/) |
 
 ## Spell correction with simple search
 

@@ -1,19 +1,18 @@
 ---
-title: How to manage a dev box project
-titleSuffix: Microsoft Dev Box Preview
-description: This article describes how to create, and delete Microsoft Dev Box Preview dev box projects.
+title: Manage a dev box project
+titleSuffix: Microsoft Dev Box
+description: Microsoft Dev Box projects give developers access to create their dev boxes. Learn how to create and delete dev box projects.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/26/2022
+ms.date: 04/25/2023
 ms.topic: how-to
+#Customer intent: As a platform engineer, I want to be able to manage dev box projects so that I can provide appropriate dev boxes to my users. -->
 ---
 
-<!-- Intent: As a dev infrastructure manager, I want to be able to manage dev box projects so that I can provide appropriate dev boxes to my users. -->
-
 # Manage a dev box project
-A project is the point of access to Microsoft Dev Box Preview for the development team members. A project contains dev box pools, which specify the dev box definitions and network connections used when dev boxes are created. Dev managers can configure the project with dev box pools that specify dev box definitions appropriate for their team's workloads. Dev box users create dev boxes from the dev box pools they have access to through their project memberships.
+A project is the point of access to Microsoft Dev Box for the development team members. A project contains dev box pools, which specify the dev box definitions and network connections used when dev boxes are created. Dev managers can configure the project with dev box pools that specify dev box definitions appropriate for their team's workloads. Dev box users create dev boxes from the dev box pools they have access to through their project memberships.
 
 Each project is associated with a single dev center. When you associate a project with a dev center, all the settings at the dev center level will be applied to the project automatically. 
 
@@ -115,5 +114,5 @@ To assign administrative access to a project, select the DevCenter Project Admin
 ## Next steps
 
 - [Manage dev box pools](./how-to-manage-dev-box-pools.md)
-- [Create dev box definitions](./quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
+- [3. Create a dev box definition](quickstart-configure-dev-box-service.md#3-create-a-dev-box-definition)
 - [Configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)

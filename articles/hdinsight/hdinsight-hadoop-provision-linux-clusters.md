@@ -3,7 +3,7 @@ title: Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kaf
 description: Set up Hadoop, Kafka, Spark, or HBase clusters for HDInsight from a browser, the Azure classic CLI, Azure PowerShell, REST, or SDK.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive, hdiseo17may2017, seodec18
+ms.custom: hdinsightactive, hdiseo17may2017, seodec18, devx-track-azurepowershell
 ms.date: 03/16/2023
 ---
 

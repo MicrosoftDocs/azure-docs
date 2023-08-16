@@ -2,12 +2,11 @@
 title: Azure IoT Hub scaling
 description: How to choose the correct IoT hub tier and size to support your anticipated message throughput and desired features.
 author: kgremban
-manager: lizross
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 02/09/2023
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: concept-article
+ms.date: 02/09/2023
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: Operations']
 ---
 
@@ -53,24 +52,23 @@ The difference in supported capabilities between the basic and standard tiers of
 | --- | ---------- | ------------- |
 | [Create or update device](/rest/api/iothub/service/devices/create-or-update-identity), [Get device](/rest/api/iothub/service/devices/get-identity), [Delete device](/rest/api/iothub/service/devices/delete-identity) | Yes | Yes |
 | [Create or update module](/rest/api/iothub/service/modules/create-or-update-identity), [Get module](/rest/api/iothub/service/modules/get-identity), [Delete module](/rest/api/iothub/service/modules/delete-identity) | Yes | Yes |
-| [Get registry statistics](/javascript/api/azure-iot-digitaltwins-service/registrymanager#azure-iot-digitaltwins-service-registrymanager-getdevicestatistics) | Yes | Yes |
-| [Get services statistics](/javascript/api/azure-iot-digitaltwins-service/registrymanager#azure-iot-digitaltwins-service-registrymanager-getservicestatistics) | Yes | Yes |
-| [Query IoT Hub](/dotnet/api/microsoft.azure.devices.registrymanager) | Yes | Yes |
+| [Get registry statistics](/rest/api/iothub/service/statistics/get-device-statistics) | Yes | Yes |
+| [Get services statistics](/rest/api/iothub/service/statistics/get-service-statistics) | Yes | Yes |
+| [Query IoT Hub](/rest/api/iothub/iot-hub-resource/get) | Yes | Yes |
 | [Create file upload SAS URI](/rest/api/iothub/device/createfileuploadsasuri) | Yes | Yes |
 | [Receive device bound notification](/rest/api/iothub/device/receivedeviceboundnotification) | Yes | Yes |
 | [Send device event](/rest/api/iothub/device/senddeviceevent) | Yes | Yes |
 | Send module event | AMQP and MQTT only | AMQP and MQTT only |
 | [Update file upload status](/rest/api/iothub/device/updatefileuploadstatus) | Yes | Yes |
-| [Bulk device operation](/javascript/api/azure-iot-digitaltwins-service/registrymanager#azure-iot-digitaltwins-service-registrymanager-bulkdevicecrud) | Yes, except for IoT Edge capabilities | Yes |
+| [Bulk device operation](/rest/api/iothub/service/bulk-registry/update-registry) | Yes, except for IoT Edge capabilities | Yes |
 | [Create import export job](/rest/api/iothub/service/jobs/createimportexportjob), [Get import export job](/rest/api/iothub/service/jobs/getimportexportjob), [Cancel import export job](/rest/api/iothub/service/jobs/cancelimportexportjob) | Yes | Yes |
-| [Purge command queue](/javascript/api/azure-iot-digitaltwins-service/registrymanager#azure-iot-digitaltwins-service-registrymanager-purgecommandqueue) |   | Yes |
 | [Get device twin](/rest/api/iothub/service/devices/get-twin), [Update device twin](/rest/api/iothub/service/devices/update-twin) |   | Yes |
 | [Get module twin](/rest/api/iothub/service/modules/get-twin), [Update module twin](/rest/api/iothub/service/modules/update-twin) |   | Yes |
-| [Invoke device method](./iot-hub-devguide-direct-methods.md) |   | Yes |
+| [Invoke device method](/rest/api/iothub/service/devices/invoke-method) |   | Yes |
 | [Abandon device bound notification](/rest/api/iothub/device/abandondeviceboundnotification) |   | Yes |
 | [Complete device bound notification](/rest/api/iothub/device/completedeviceboundnotification) |   | Yes |
-| [Create job](/rest/api/media/jobs/create), [Get job](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient.getjob), [Cancel job](/rest/api/media/jobs/canceljob) |   | Yes |
-| [Query jobs](/javascript/api/azure-iot-digitaltwins-service/jobclient#azure-iot-digitaltwins-service-jobclient-queryjobs-2) |   | Yes |
+| [Create job](/rest/api/iothub/service/jobs/create-scheduled-job), [Get job](/rest/api/iothub/service/jobs/get-scheduled-job), [Cancel job](/rest/api/iothub/service/jobs/cancel-scheduled-job) |   | Yes |
+| [Query jobs](/rest/api/iothub/service/jobs/query-scheduled-jobs) |   | Yes |
 
 ### Partitions
 

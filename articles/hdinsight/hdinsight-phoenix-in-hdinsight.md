@@ -4,7 +4,7 @@ description: Overview of Apache Phoenix
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/08/2022
+ms.date: 04/26/2023
 ---
 
 # Apache Phoenix in Azure HDInsight
@@ -66,7 +66,7 @@ A skip scan uses the `SEEK_NEXT_USING_HINT` enumeration of the HBase filter. Usi
 
 ### Transactions
 
-While HBase provides row-level transactions, Phoenix integrates with [Tephra](https://tephra.io/) to add cross-row and cross-table transaction support with full [ACID](https://en.wikipedia.org/wiki/ACID) semantics.
+While HBase provides row-level transactions, Phoenix integrates with [Tephra](https://tephra.apache.org/) to add cross-row and cross-table transaction support with full [ACID](https://en.wikipedia.org/wiki/ACID) semantics.
 
 As with traditional SQL transactions, transactions provided through the Phoenix transaction manager allow you to ensure an atomic unit of data is successfully upserted, rolling back the transaction if the upsert operation fails on any transaction-enabled table.
 

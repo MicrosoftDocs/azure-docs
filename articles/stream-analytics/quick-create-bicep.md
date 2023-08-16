@@ -4,7 +4,7 @@ description: This quickstart shows how to use Bicep to create an Azure Stream An
 ms.service: stream-analytics
 ms.workload: big-data
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, mode-arm
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep
 ms.date: 05/17/2022
 ---
 

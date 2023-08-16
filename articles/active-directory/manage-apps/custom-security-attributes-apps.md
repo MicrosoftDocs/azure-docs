@@ -1,5 +1,5 @@
 ---
-title: Manage custom security attributes for an application (Preview) - Azure Active Directory
+title: Manage custom security attributes for an application (Preview)
 description: Assign, update, list, or remove custom security attributes for an application that has been registered with your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: omondiatieno
@@ -11,6 +11,7 @@ ms.date: 02/28/2023
 ms.author: jomondi
 ms.reviewer: rolyon
 zone_pivot_groups: enterprise-apps-all
+ms.custom: not-enterprise-apps
 
 ---
 
@@ -38,6 +39,8 @@ To assign or remove custom security attributes for an application in your Azure 
 
 Learn how to work with custom attributes for applications in Azure AD.
 ### Assign custom security attributes to an application
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 
 :::zone pivot="portal"
@@ -265,7 +268,7 @@ Update-MgServicePrincipal -ServicePrincipalId $ServicePrincipal -BodyParameter $
 
 To manage custom security attribute assignments for applications in your Azure AD organization, you can use the Microsoft Graph API. Make the following API calls to manage assignments.
 
-For other similar Microsoft Graph API examples for users, see [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md#microsoft-graph-api) and [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples).
+For other similar Microsoft Graph API examples for users, see [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md#powershell-or-microsoft-graph-api) and [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples).
 
 ### Assign a custom security attribute with a multi-string value to an application (service principal)
 

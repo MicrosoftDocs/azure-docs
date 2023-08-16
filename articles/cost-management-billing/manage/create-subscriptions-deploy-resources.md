@@ -8,7 +8,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 03/06/2023
+ms.date: 05/04/2023
 ms.author: banders
 ---
 
@@ -16,7 +16,7 @@ ms.author: banders
 
 When you try to create multiple Azure subscriptions in a short period of time, you might receive a message stating:
 
-`You can deploy resources onto your recently created subscriptions`
+`Subscription not created. Please try again later.`
 
 The message is normal and expected.
 
@@ -27,6 +27,7 @@ The message can appear for customers with the following Azure subscription agree
 
 - [Microsoft Customer Agreement purchased directly through Azure.com](create-subscription.md)
     - You can have a maximum of five subscriptions in a Microsoft Customer Agreement purchased directly through Azure.com.
+    - You can create one subscription per 24 hour period.
     - The ability to create other subscriptions is determined on an individual basis according to your history with Azure.
 - [Microsoft Online Services Program](https://signup.azure.com/signup?offer=ms-azr-0003p)
     - A new billing account for a Microsoft Online Services Program can have a maximum of five subscriptions. However, subscriptions transferred to the new billing account don't count against the limit.

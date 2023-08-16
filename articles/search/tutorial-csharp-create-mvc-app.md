@@ -63,16 +63,20 @@ For the connection, the app presents a query API key to your fully qualified sea
 
 Modify `appsettings.json` to specify your search service and [query API key](search-security-api-keys.md).
 
-   ```json
-   {
-      "SearchServiceName": "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net",
-      "SearchServiceQueryApiKey": "<YOUR-SEARCH-SERVICE-QUERY-API-KEY>"
-   }
-   ```
+```json
+{
+    "SearchServiceUri": "<YOUR-SEARCH-SERVICE-URL>",
+    "SearchServiceQueryApiKey": "<YOUR-SEARCH-SERVICE-QUERY-API-KEY>"
+}
+```
+
+You can get the service URL and API key from the portal. Because this code is querying an index and not creating one, you can use a query key instead of an admin key.
+
+Make sure to specify the search service that has the hotels-sample-index.
 
 ## Add models
 
-In this step, create models that represent the schema of the hotels-search-index.
+In this step, create models that represent the schema of the hotels-sample-index.
 
 1. In Solution explorer, right-select **Models** and add a new class named "Hotel" for the following code:
 
@@ -481,7 +485,7 @@ Use the Azure portal to add a scoring profile to the existing hotels-sample-inde
 
 In this tutorial, you created an ASP.NET Core (MVC) project that connected to a search service and called Search APIs for server-side filtering and sorting.
 
-If you want to explore client-side code that respond to user actions, consider adding a React template to your solution:
+If you want to explore client-side code that responds to user actions, consider adding a React template to your solution:
 
 > [!div class="nextstepaction"]
 > [C# Tutorial: Add search to a website with .NET](tutorial-csharp-overview.md)

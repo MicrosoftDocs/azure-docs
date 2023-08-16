@@ -4,8 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob Storage for
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 10/28/2022
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api, passwordless-js

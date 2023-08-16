@@ -4,16 +4,21 @@ description: Learn how to configure Azure DDoS Protection diagnostic logs.
 services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: how-to
+ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 03/14/2023
+ms.date: 08/07/2023
 ms.author: abell
 ---
 
 # Configure Azure DDoS Protection diagnostic logging through portal
 
-In this guide, you'll learn how to configure Azure DDoS Protection diagnostic logs, including notifications, mitigation reports and mitigation flow logs. 
+Configure diagnostic logging for Azure DDoS Protection to gain visibility into DDoS attacks. 
 
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Configure diagnostic logs.
+> * Query logs in log analytics workspace.
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -50,6 +55,36 @@ In this guide, you'll learn how to configure Azure DDoS Protection diagnostic lo
     | Log Analytics Workspace | Select **myLogAnalyticsWorkspace**. | 
 
 
+### Query Azure DDOS Protection logs in log analytics workspace
+
+For more information on log schemas, see [View diagnostic logs](ddos-view-diagnostic-logs.md#example-log-queries).
+#### DDoSProtectionNotifications logs
+
+1. Under the **Log analytics workspaces** blade, select your log analytics workspace.
+
+1. Under **General**, select on **Logs**
+
+1. In Query explorer, type in the following Kusto Query and change the time range to Custom and change the time range to last three months. Then hit Run.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSProtectionNotifications"
+    ```
+
+1. To view **DDoSMitigationFlowLogs** change the query to the following and keep the same time range and hit Run.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSMitigationFlowLogs"
+    ```
+
+1. To view **DDoSMitigationReports** change the query to the following and keep the same time range and hit Run.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSMitigationReports"
+    ```
+
 ## Validate
 
 1. In the search box at the top of the portal, enter **Monitor**. Select **Monitor** in the search results.
@@ -66,9 +101,9 @@ In this guide, you'll learn how to configure Azure DDoS Protection diagnostic lo
 
 ## Next steps
 
-In this guide, you learned how to configure Azure DDoS Protection diagnostic logs, including notifications, mitigation reports and mitigation flow logs.
-
-To learn how to configure attack alerts, continue to the next guide.
+In this tutorial you learned how to configure diagnostic logging for DDoS Protection. To learn how to configure diagnostic logging alerts, continue to the next article.
 
 > [!div class="nextstepaction"]
-> [Configure DDoS protection alerts](alerts.md)
+> [Configure diagnostic logging alerts](ddos-diagnostic-alert-templates.md)
+> [Test through simulations](test-through-simulations.md)
+> [View logs in Log Analytics workspace](ddos-view-diagnostic-logs.md)

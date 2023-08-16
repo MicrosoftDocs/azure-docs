@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Box system requirements| Microsoft Docs
-description: Learn about important system requirements for your Azure Data Box and for clients that connect to the Data Box.
+description: Learn about important system requirements for your Azure Data Box and for clients that connect to the Data Box. 
 services: databox
 author: alkohli
 
@@ -36,6 +36,9 @@ The software requirements include supported operating systems, file transfer pro
 > Connection to Data Box shares is not supported via REST for export orders.
 
 ### Supported storage accounts
+
+> [!Note]
+> Classic storage accounts will not be supported starting **August 1, 2023**.
 
 [!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
 

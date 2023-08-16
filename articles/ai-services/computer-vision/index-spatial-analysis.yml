@@ -1,0 +1,63 @@
+### YamlMime:Landing
+
+title: Spatial Analysis documentation # < 60 chars
+summary: The Spatial Analysis service helps organizations maximize the value of their physical spaces by understanding people's movements and presence within a given area. It allows you to ingest video from CCTV or surveillance cameras, run AI operations to extract insights from the video streams, and generate events to be used by other systems. # < 160 chars
+
+metadata:
+  title: Spatial Analysis documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs
+  description: The Spatial Analysis service helps organizations maximize the value of their physical spaces by understanding people's movements and presence within a given area. It allows you to ingest video from CCTV or surveillance cameras, run AI operations to extract insights from the video streams, and generate events to be used by other systems.
+  services: cognitive-services
+  ms.service: cognitive-services
+  ms.subservice: computer-vision
+  ms.topic: landing-page
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 30/31/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  - title: About Spatial Analysis
+    linkLists:
+    - linkListType: overview
+      links:
+        - text: Spatial Analysis overview
+          url: intro-to-spatial-analysis-public-preview.md
+    - linkListType: quickstart
+      links:
+        - text: Set up the host machine and run the container
+          url: spatial-analysis-container.md
+  - title: Develop with Spatial Analysis
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Configure operations
+          url: spatial-analysis-operations.md
+    - linkListType: concept
+      links:
+        - text: Zone and line placement
+          url: spatial-analysis-zone-line-placement.md
+        - text: Camera placement
+          url: spatial-analysis-camera-placement.md
+        - text: Logging and troubleshooting
+          url: spatial-analysis-logging.md
+  - title: Responsible use of AI
+    linkLists:
+    - linkListType: overview
+      links:
+        - text: Transparency note for Spatial Analysis
+          url: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+    - linkListType: concept
+      links:
+        - text: Responsible use in AI deployment
+          url: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+        - text: Disclosure design guidelines
+          url: /legal/cognitive-services/computer-vision/disclosure-design?context=/azure/ai-services/computer-vision/context/context
+        - text: Data, privacy, and security
+          url: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+  - title: Help and feedback
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Support and help options
+            url: ../cognitive-services-support-options.md?context=/azure/ai-services/computer-vision/context/context

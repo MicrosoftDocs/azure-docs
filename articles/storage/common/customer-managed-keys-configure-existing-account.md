@@ -1,31 +1,31 @@
 ---
-title: Configure customer-managed keys for an existing storage account
+title: Configure customer-managed keys in the same tenant for an existing storage account
 titleSuffix: Azure Storage
 description: Learn how to configure Azure Storage encryption with customer-managed keys for an existing storage account by using the Azure portal, PowerShell, or Azure CLI. Customer-managed keys are stored in an Azure key vault.
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 06/07/2023
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
 
-# Configure customer-managed keys in an Azure key vault for an existing storage account
+# Configure customer-managed keys in the same tenant for an existing storage account
 
 Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can manage your own keys. Customer-managed keys must be stored in Azure Key Vault or Key Vault Managed Hardware Security Model (HSM).
 
-This article shows how to configure encryption with customer-managed keys for an existing storage account. The customer-managed keys are stored in a key vault.
+This article shows how to configure encryption with customer-managed keys for an existing storage account when the storage account and key vault are in the same tenant. The customer-managed keys are stored in a key vault.
 
 To learn how to configure customer-managed keys for a new storage account, see [Configure customer-managed keys in an Azure key vault for an new storage account](customer-managed-keys-configure-new-account.md).
 
 To learn how to configure encryption with customer-managed keys stored in a managed HSM, see [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](customer-managed-keys-configure-key-vault-hsm.md).
 
 > [!NOTE]
-> Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration.
+> Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration of customer-managed keys. Any action that is supported for Azure Key Vault is also supported for Azure Key Vault Managed HSM.
 
 [!INCLUDE [storage-customer-managed-keys-key-vault-configure-include](../../../includes/storage-customer-managed-keys-key-vault-configure-include.md)]
 
@@ -162,6 +162,18 @@ Next, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageacc
 ```azurepowershell
 $accountName = "<storage-account>"
 
+# Use this form of the command with a user-assigned managed identity.
+Set-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
+    -IdentityType SystemAssignedUserAssigned `
+    -UserAssignedIdentityId $userIdentity.Id `
+    -KeyvaultEncryption `
+    -KeyVaultUri $keyVault.VaultUri `
+    -KeyName $key.Name `
+    -KeyVersion "" `
+    -KeyVaultUserAssignedIdentityId $userIdentity.Id
+
+# Use this form of the command with a system-assigned managed identity.
 Set-AzStorageAccount -ResourceGroupName $rgName `
     -AccountName $accountName `
     -KeyvaultEncryption `
@@ -185,6 +197,19 @@ keyVaultUri=$(az keyvault show \
     --query properties.vaultUri \
     --output tsv)
 
+# Use this form of the command with a user-assigned managed identity.
+az storage account update \
+    --name $accountName \
+    --resource-group $rgName \
+    --identity-type SystemAssigned,UserAssigned \
+    --user-identity-id $identityResourceId \
+    --encryption-key-name $keyName \
+    --encryption-key-version "" \
+    --encryption-key-source Microsoft.Keyvault \
+    --encryption-key-vault $keyVaultUri \
+    --key-vault-user-identity-id $identityResourceId
+
+# Use this form of the command with a system-assigned managed identity.
 az storage account update \
     --name $accountName \
     --resource-group $rgName \
@@ -227,12 +252,24 @@ Remember to replace the placeholder values in brackets with your own values and 
 ```azurepowershell
 $accountName = "<storage-account>"
 
+# Use this form of the command with a user-assigned managed identity.
+Set-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
+    -IdentityType SystemAssignedUserAssigned `
+    -UserAssignedIdentityId $userIdentity.Id `
+    -KeyvaultEncryption `
+    -KeyVaultUri $keyVault.VaultUri `
+    -KeyName $key.Name `
+    -KeyVersion $key.Version `
+    -KeyVaultUserAssignedIdentityId $userIdentity.Id
+
+# Use this form of the command with a system-assigned managed identity.
 Set-AzStorageAccount -ResourceGroupName $rgName `
     -AccountName $accountName `
     -KeyvaultEncryption `
+    -KeyVaultUri $keyVault.VaultUri `
     -KeyName $key.Name `
-    -KeyVersion $key.Version `
-    -KeyVaultUri $keyVault.VaultUri
+    -KeyVersion $key.Version
 ```
 
 When you manually update the key version, you'll need to update the storage account's encryption settings to use the new version. First, call [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) to get the latest version of the key. Then call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings to use the new version of the key, as shown in the previous example.
@@ -258,6 +295,19 @@ keyVersion=$(az keyvault key list-versions \
     --query [-1].kid \
     --output tsv | cut -d '/' -f 6)
 
+# Use this form of the command with a user-assigned managed identity
+az storage account update \
+    --name $accountName \
+    --resource-group $rgName \
+    --identity-type SystemAssigned,UserAssigned \
+    --user-identity-id $identityResourceId \
+    --encryption-key-name $keyName \
+    --encryption-key-version $keyVersion \
+    --encryption-key-source Microsoft.Keyvault \
+    --encryption-key-vault $keyVaultUri \
+    --key-vault-user-identity-id $identityResourceId
+
+# Use this form of the command with a system-assigned managed identity
 az storage account update \
     --name $accountName \
     --resource-group $rgName \
@@ -271,17 +321,11 @@ When you manually update the key version, you'll need to update the storage acco
 
 ---
 
-## The impact of changing customer-managed keys
-
-When customer-managed keys are enabled or disabled, or the key or key version is changed, the protection of the root encryption key changes, but the data in your Azure Storage account remains encrypted at all times. There is no additional action required on your part to ensure that your data is protected. Rotating the key version doesn't impact performance. There is no downtime associated with rotating the key version.
-
 [!INCLUDE [storage-customer-managed-keys-change-include](../../../includes/storage-customer-managed-keys-change-include.md)]
 
-If the new key is in a different key vault, you must [grant the managed identity access to the key in the new vault](#choose-a-managed-identity-to-authorize-access-to-the-key-vault). If you choose manual updating of the key version, you will also need to [update the key vault URI](#configure-encryption-for-manual-updating-of-key-versions).
+If the new key is in a different key vault, you must [grant the managed identity access to the key in the new vault](#choose-a-managed-identity-to-authorize-access-to-the-key-vault). If you opt for manual updating of the key version, you will also need to [update the key vault URI](#configure-encryption-for-manual-updating-of-key-versions).
 
 [!INCLUDE [storage-customer-managed-keys-revoke-include](../../../includes/storage-customer-managed-keys-revoke-include.md)]
-
-Disabling the key will cause attempts to access data in the storage account to fail with error code 403 (Forbidden). For a list of storage account operations that will be affected by disabling the key, see [Revoke access to a storage account that uses customer-managed keys](customer-managed-keys-overview.md#revoke-access-to-a-storage-account-that-uses-customer-managed-keys).
 
 [!INCLUDE [storage-customer-managed-keys-disable-include](../../../includes/storage-customer-managed-keys-disable-include.md)]
 

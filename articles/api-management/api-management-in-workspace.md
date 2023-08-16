@@ -17,7 +17,6 @@ This article is an introduction to managing APIs, products, subscriptions, and o
 
 > [!NOTE]
 > * Workspaces are a preview feature of API Management and subject to certain [limitations](workspaces-overview.md#preview-limitations).
-> * This feature is being released during March and April 2023.
 > * Workspaces are supported in API Management REST API version 2022-09-01-preview or later.
 > * For pricing considerations, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
@@ -25,7 +24,7 @@ This article is an introduction to managing APIs, products, subscriptions, and o
 
 * An API Management instance. If needed, ask an administrator to [create one](get-started-create-service-instance.md).
 * A workspace. If needed, ask an administrator of your API Management instance to [create one](how-to-create-workspace.md).
-* Permissions to collaborate in the workspace. If needed, ask a workspace owner to assign you appropriate [roles](api-management-role-based-access-control.md#built-in-workspace-roles) in the workspace.
+* Permissions to collaborate in the workspace. If needed, ask an administrator of your API Management instance to assign you appropriate [roles](api-management-role-based-access-control.md#built-in-workspace-roles) in the service and the workspace.
 
 ## Go to the workspace - portal
 
