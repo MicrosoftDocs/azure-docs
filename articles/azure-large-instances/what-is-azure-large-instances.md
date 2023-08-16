@@ -104,13 +104,20 @@ Microsoft is responsible for:
 
 The Azure Large instance stamp itself combines the following components:
 
-* **Computing**
+- Computing
+- Network
+- Storage
+
+### Computing
+
 Servers based on the generation of Intel Xeon processors that provide the necessary computing capability and are certified for the specialized workload.
 
-* **Network**
+### Network
+
 A unified high-speed network fabric interconnects computing, storage, and LAN components.
 
-* **Storage**
+### Storage
+
 An infrastructure accessed through a unified network fabric.
 
 Within the multi-tenant infrastructure of the Azure Large instance stamp, customers are deployed in isolated tenants.
