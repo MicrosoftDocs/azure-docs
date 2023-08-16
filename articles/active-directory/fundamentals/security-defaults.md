@@ -5,6 +5,7 @@ description: Get protected from common identity threats using Azure AD security 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
+ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
 ms.date: 07/31/2023
 

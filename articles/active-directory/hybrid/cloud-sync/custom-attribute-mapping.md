@@ -6,7 +6,7 @@ author: billmath
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
-ms.custom: ignite-2022
+ms.custom: ignite-2022, has-azure-ad-ps-ref
 ms.topic: conceptual
 ms.date: 01/12/2023
 ms.subservice: hybrid

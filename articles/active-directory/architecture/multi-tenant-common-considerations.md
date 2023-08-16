@@ -10,7 +10,7 @@ ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 04/19/2023
 ms.author: jricketts
-ms.custom: "it-pro, seodec18"
+ms.custom: it-pro, seodec18, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 # Common considerations for multi-tenant user management

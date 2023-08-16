@@ -12,8 +12,8 @@ ms.author: chenyl
 
 This article shows you how to create a managed identity for Azure Web PubSub Service and how to use it.
 
-> [!Important] 
-> Azure Web PubSub Service can support only one managed identity. That means you can add either a system-assigned identity or a user-assigned identity. 
+> [!Important]
+> Azure Web PubSub Service can support only one managed identity. That means you can add either a system-assigned identity or a user-assigned identity.
 
 ## Add a system-assigned identity
 
@@ -23,9 +23,9 @@ To set up a managed identity in the Azure portal, you'll first create an Azure W
 
 2. Select **Identity**.
 
-4. On the **System assigned** tab, switch **Status** to **On**. Select **Save**.
+3. On the **System assigned** tab, switch **Status** to **On**. Select **Save**.
 
-    :::image type="content" source="media/howto-use-managed-identity/system-identity-portal.png" alt-text="Add a system-assigned identity in the portal":::
+   :::image type="content" source="media/howto-use-managed-identity/system-identity-portal.png" alt-text="Screenshot showing Add a system-assigned identity in the portal.":::
 
 ## Add a user-assigned identity
 
@@ -41,7 +41,7 @@ Creating an Azure Web PubSub Service instance with a user-assigned identity requ
 
 5. Search for the identity that you created earlier and selects it. Select **Add**.
 
-    :::image type="content" source="media/howto-use-managed-identity/user-identity-portal.png" alt-text="Add a user-assigned identity in the portal":::
+   :::image type="content" source="media/howto-use-managed-identity/user-identity-portal.png" alt-text="Screenshot showing Add a user-assigned identity in the portal.":::
 
 ## Use a managed identity in client events scenarios
 
@@ -53,15 +53,16 @@ Azure Web PubSub Service is a fully managed service, so you can't use a managed 
 
 2. Navigate to the rule and switch on the **Authentication**.
 
-    :::image type="content" source="media/howto-use-managed-identity/msi-settings.png" alt-text="msi-setting":::
+   :::image type="content" source="media/howto-use-managed-identity/msi-settings.png" alt-text="Screenshot showing the msi-setting.":::
 
 3. Select application. The application ID will become the `aud` claim in the obtained access token, which can be used as a part of validation in your event handler. You can choose one of the following:
-    - Use default AAD application.
-    - Select from existing AAD applications. The application ID of the one you choose will be used.
-    - Specify an AAD application. The value should be [Resource ID of an Azure service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
-    > [!NOTE]
-    > If you validate an access token by yourself in your service, you can choose any one of the resource formats. If you use Azure role-based access control (Azure RBAC) for a data plane, you must use the resource that the service provider requests.
+   - Use default AAD application.
+   - Select from existing AAD applications. The application ID of the one you choose will be used.
+   - Specify an AAD application. The value should be [Resource ID of an Azure service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
+
+   > [!NOTE]
+   > If you validate an access token by yourself in your service, you can choose any one of the resource formats. If you use Azure role-based access control (Azure RBAC) for a data plane, you must use the resource that the service provider requests.
 
 ### Validate access tokens
 
