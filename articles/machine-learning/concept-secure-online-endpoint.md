@@ -111,23 +111,15 @@ Suppose a managed online endpoint has a deployment that uses an AI model, and yo
 
 If the app is publicly available on the internet, then you need to **enable** `public_network_access` for the endpoint so that it can receive inbound scoring requests from the app.
 
-On the other hand, say the app is private—an internal app within your organization. In this scenario, you want the AI model to be used only within your organization rather than have it exposed to the internet. Therefore, you need to **disable** the endpoint's `public_network_access` so that it can receive inbound scoring requests only through its workspace's private endpoint.
+However, say the app is private—an internal app within your organization. In this scenario, you want the AI model to be used only within your organization rather than expose it to the internet. Therefore, you need to **disable** the endpoint's `public_network_access` so that it can receive inbound scoring requests only through its workspace's private endpoint.
 
 **For outbound communication (deployment)**:
 
 Suppose your deployment doesn't need to access private Azure resources (such as the Azure Storage blob, ACR, and Azure Key Vault), then you don't need to use a workspace managed VNet.
 
-However, if the deployment needs to access private Azure resources, it will have to use private endpoints; therefore, you should **enable** the _workspace's managed VNet_. Furthermore, you can configure the managed VNet to **allow internet outbound** if you're fine with your deployment accessing the public internet. Alternatively, you can configure the VNet to **allow only approved outbound** to allow outbound communication from the deployment to approved destinations only, thereby protecting against data exfiltration.
-
-
-<!-- The following table lists the supported configurations for inbound and outbound communications for a managed online endpoint when using a workspace managed VNet:
-
-| Configuration | Inbound </br> (Endpoint property) | Outbound </br> (Workspace managed VNet property) | Supported? |
-| -------- | -------------------------------- | --------------------------------- | --------- |
-| secure inbound with secure outbound | `public_network_access` is disabled |- Allow only approved outbound</br>- Access workspace's default Azure resources</br>- Access MCR  | Yes |
-| secure inbound with public outbound | `public_network_access` is disabled | - Allow internet</br>- Access workspace's default Azure resources</br>- Access MCR  | Yes |
-| public inbound with secure outbound | `public_network_access` is enabled | - Allow only approved outbound</br>- Access workspace's default Azure resources</br>- Access MCR  | Yes |
-| public inbound with public outbound | `public_network_access` is enabled | - Allow internet</br>- Access workspace's default Azure resources</br>- Access MCR  | Yes | -->
+However, if the deployment needs to access private Azure resources, you need to **enable** the _workspace's managed VNet_ so that the deployment can use the managed VNet's private endpoints to communicate with those resources.
+Furthermore, you can configure the managed VNet to **allow internet outbound** so that your deployment can also access the public internet.
+Alternatively, you can configure the VNet to **allow only approved outbound**, so that outbound communication from the deployment is to approved destinations only, thereby protecting against data exfiltration.
 
 ## Appendix
 
