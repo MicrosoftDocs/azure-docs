@@ -3,7 +3,7 @@ title: Change Data Capture (CDC) of SQL Server using Flink SQL
 description: Learn how to perform CDC of SQL Server using Flink SQL
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/04/2023
+ms.date: 08/16/2023
 ---
 
 # Change Data Capture (CDC) of SQL Server using Flink SQL
@@ -59,8 +59,8 @@ EXEC sys.sp_cdc_help_change_data_capture
 GO
 ``` 
 
-**Note:**
-The query returns configuration information for each table in the database (enabled for CDC). If the result is empty, verify that the user has privileges to access both the capture instance as well as the CDC tables.
+> [!NOTE]
+> The query returns configuration information for each table in the database (enabled for CDC). If the result is empty, verify that the user has privileges to access both the capture instance as well as the CDC tables.
 
 
 **Create and populate our products using a single insert with many rows**
@@ -200,7 +200,7 @@ CREATE TABLE orders (
 select * from orders;
 ``` 
 
-:::image type="content" source="./media/flink-sql-api/flinksqlcdctablecreation.png" alt-text="Screenshot showing Flink CDC Table creation":::
+:::image type="content" source="./media/flink-sql-api/flinksqlcdctablecreation.png" alt-text="Screenshot showing Flink CDC Table creation.":::
 
 ### Perform changes on table from SQLServer side 
 
