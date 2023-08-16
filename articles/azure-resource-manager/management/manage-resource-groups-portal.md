@@ -24,7 +24,7 @@ The resource group stores metadata about the resources. Therefore, when you spec
 1. Select **Resource groups**.
 1. Select **Create**.
 
-    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-add-group.png" alt-text="Screenshot of the Azure portal with 'Resource groups' and 'Add' highlighted.":::
+    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-add-group.png" alt-text="Screenshot of the Azure portal with 'Resource groups' and 'Add' highlighted." lightbox="./media/manage-resource-groups-portal/manage-resource-groups-add-group.png":::
 
 1. Enter the following values:
 
@@ -32,12 +32,12 @@ The resource group stores metadata about the resources. Therefore, when you spec
    - **Resource group**: Enter a new resource group name.
    - **Region**: Select an Azure location, such as **Central US**.
 
-     :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-create-group.png" alt-text="Screenshot of the Create Resource Group form in the Azure portal with fields for Subscription, Resource group, and Region.":::
+     :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-create-group.png" alt-text="Screenshot of the Create Resource Group form in the Azure portal with fields for Subscription, Resource group, and Region." lightbox="./media/manage-resource-groups-portal/manage-resource-groups-create-group.png":::
 1. Select **Review + Create**
 1. Select **Create**. It takes a few seconds to create a resource group.
 1. Select **Refresh** from the top menu to refresh the resource group list, and then select the newly created resource group to open it. Or select **Notification**(the bell icon) from the top, and then select **Go to resource group** to open the newly created resource group
 
-    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png" alt-text="Screenshot of the Azure portal with the 'Go to resource group' button in the Notifications panel.":::
+    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png" alt-text="Screenshot of the Azure portal with the 'Go to resource group' button in the Notifications panel." lightbox="./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png":::
 
 ## List resource groups
 
@@ -45,7 +45,7 @@ The resource group stores metadata about the resources. Therefore, when you spec
 1. To list the resource groups, select **Resource groups**
 1. To customize the information displayed for the resource groups, configure the filters. The following screenshot shows the additional columns you could add to the display:
 
-    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png" alt-text="Screenshot of the Azure portal displaying a list of resource groups.":::
+    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png" alt-text="Screenshot of the Azure portal displaying a list of resource groups." lightbox="./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png":::
 
 ## Open resource groups
 
@@ -58,7 +58,7 @@ The resource group stores metadata about the resources. Therefore, when you spec
 1. Open the resource group you want to delete.  See [Open resource groups](#open-resource-groups).
 1. Select **Delete resource group**.
 
-    :::image type="content" source="./media/manage-resource-groups-portal/delete-group.png" alt-text="Screenshot of the Azure portal with the Delete resource group button highlighted in a specific resource group.":::
+    :::image type="content" source="./media/manage-resource-groups-portal/delete-group.png" alt-text="Screenshot of the Azure portal with the Delete resource group button highlighted in a specific resource group." lightbox="./media/manage-resource-groups-portal/delete-group.png":::
 
 For more information about how Azure Resource Manager orders the deletion of resources, see [Azure Resource Manager resource group deletion](delete-resource-group.md).
 
@@ -79,7 +79,7 @@ Locking prevents other users in your organization from accidentally deleting or 
 1. To add a lock to the resource group, select **Add**.
 1. Enter **Lock name**, **Lock type**, and **Notes**. The lock types include **Read-only**, and **Delete**.
 
-    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png" alt-text="Screenshot of the Add Lock form in the Azure portal with fields for Lock name, Lock type, and Notes.":::
+    :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png" alt-text="Screenshot of the Add Lock form in the Azure portal with fields for Lock name, Lock type, and Notes."  lightbox="./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png":::
 
 For more information, see [Lock resources to prevent unexpected changes](lock-resources.md).
 
