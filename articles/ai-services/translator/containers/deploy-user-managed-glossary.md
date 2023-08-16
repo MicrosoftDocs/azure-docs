@@ -1,5 +1,5 @@
 ---
-title: Deploy user-managed glossary in Translator container
+title: Deploy a user-managed glossary in Translator container
 titleSuffix: Azure AI services
 description: How to deploy a user-managed glossary in the Translator container environment.
 services: cognitive-services
@@ -16,7 +16,7 @@ recommendations: false
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD046 -->
 
-# Deploy user-managed glossary
+# Deploy a user-managed glossary
 
 Microsoft Translator containers enable you to run several features of the Translator service in your own environment and are great for specific security and data governance requirements.
 
@@ -110,4 +110,4 @@ There may be times when you're running a container with a multi-layered ingestio
 ## Learn more
 
 > [!div class="nextstepaction"]
-> [Create dynamic dictionary](../dynamic-dictionary.md)   [Use custom dictionary](../custom-translator/concepts/dictionaries.md)
+> [Create a dynamic dictionary](../dynamic-dictionary.md)   [Use a custom dictionary](../custom-translator/concepts/dictionaries.md)
