@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Run Playwright tests at scale'
-description: 'This quickstart shows how to run your Playwright tests at scale with Microsoft Playwright Testing. Provision cloud-hosted browsers with support for multiple operating systems and all modern browsers.'
+description: 'This quickstart shows how to run your Playwright tests with highly parallel cloud browsers using Microsoft Playwright Testing. Provision cloud-hosted browsers with support for multiple operating systems and all modern browsers.'
 ms.topic: quickstart
 ms.date: 08/16/2023
 ms.custom: playwright-testing-preview
@@ -8,9 +8,9 @@ ms.custom: playwright-testing-preview
 
 # Quickstart: Run end-to-end tests at scale with Microsoft Playwright Testing Preview
 
-In this quickstart, you'll set up end-to-end web tests and run them at cloud-scale with Microsoft Playwright Testing Preview. Use cloud infrastructure to validate your application across multiple browsers, devices, and operating systems.
+In this quickstart, you learn how to run your Playwright tests with highly parallel cloud browsers using Microsoft Playwright Testing Preview. Use cloud infrastructure to validate your application across multiple browsers, devices, and operating systems.
 
-You won't be writing Playwright test specifications, and instead use a sample repository of Playwrights tests. After you complete this quickstart, you'll have a test suite and a Microsoft Playwright Testing workspace that you can use for other tutorials.
+After you complete this quickstart, you have a Microsoft Playwright Testing workspace to run your Playwright tests at scale.
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
