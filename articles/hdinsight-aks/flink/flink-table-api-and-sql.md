@@ -3,7 +3,7 @@ title: Table API and SQL - HDInsight on AKS - Apache Flink
 description: Learn about Table API and SQL in HDInsight on AKS - Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/29/2023
+ms.date: 08/16/2023
 ---
 
 # Table API and SQL in HDInsight on AKS - Apache Flink
