@@ -27,19 +27,19 @@ You must have the following prerequisites before you use this feature:
 1. Create a new Stream Analytics job or open an existing job in the Azure portal. 
 1. From the menu bar located on the left side of the screen, select **Managed Identity** located under **Settings**. 
 
-    :::image type="content" source="./media/stream-analytics-powerbi-output-managed-identity/managed-identity-select-button.png" alt-text="Screenshot showing the Managed Identity page with Select identity button selected.":::
+    :::image type="content" source="./media/stream-analytics-powerbi-output-managed-identity/managed-identity-select-button.png" alt-text="Screenshot showing the Managed Identity page with Select identity button selected." lightbox="./media/stream-analytics-powerbi-output-managed-identity/managed-identity-select-button.png":::
 1. On the **Select identity** page, select **System assigned identity*** or **User assigned identity**. If you select the latter option, specify the managed identity you want to use. Then, select **Save**.
 
-    :::image type="content" source="./media/stream-analytics-powerbi-output-managed-identity/system-assigned-identity.png" alt-text="Screenshot showing the Select identity page with System assigned identity selected.":::
+    :::image type="content" source="./media/stream-analytics-powerbi-output-managed-identity/system-assigned-identity.png" alt-text="Screenshot showing the Select identity page with System assigned identity selected." lightbox="./media/stream-analytics-powerbi-output-managed-identity/system-assigned-identity.png":::
 1. On the **Managed identity** page, confirm that you see the **Principal ID** and **Principal name** assigned to your Stream Analytics job. The principal name should be same as your Stream Analytics job name. 
 2. Before configuring the output, give the Stream Analytics job access to your Power BI workspace by following the directions in the [Give the Stream Analytics job access to your Power BI workspace](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) section of this article.
 3. Navigate to the **Outputs** section of your Stream Analytic's job, select **+ Add**, and then choose **Power BI**. Then, select the **Authorize** button and sign in with your Power BI account.
 
-   ![Authorize with Power BI account](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png)
+   [ ![Authorize with Power BI account](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png) ](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png#lightbox)
 
 4. Once authorized, a dropdown list will be populated with all of the workspaces you have access to. Select the workspace that you authorized in the previous step. Then select **Managed Identity** as the "Authentication mode". Finally, select the **Save** button.
 
-    :::image type="content" source="./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-configure-powerbi-with-managed-id.png" alt-text="Screenshot showing the Power BI output configuration with Managed identity authentication mode selected.":::
+    :::image type="content" source="./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-configure-powerbi-with-managed-id.png" alt-text="Screenshot showing the Power BI output configuration with Managed identity authentication mode selected."  lightbox="./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-configure-powerbi-with-managed-id.png":::
 
 ## Azure Resource Manager deployment
 
@@ -166,7 +166,7 @@ Now that the Stream Analytics job has been created, it can be given access to a 
 
 3. Select **Add** and close the pane.
 
-   ![Add Stream Analytics job to Power BI workspace](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-add-job-to-powerbi-workspace.png)
+   [ ![Add Stream Analytics job to Power BI workspace](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-add-job-to-powerbi-workspace.png) ](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-add-job-to-powerbi-workspace.png#lightbox)
 
 ### Use the Power BI PowerShell cmdlets
 
