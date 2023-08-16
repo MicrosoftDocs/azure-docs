@@ -24,7 +24,7 @@ After you complete this quickstart, you have a CI workflow that runs your Playwr
 # [GitHub Actions](#tab/github)
 - A GitHub account. If you don't have a GitHub account, you can [create one for free](https://github.com/).
 - A GitHub repository that contains your Playwright test specifications and GitHub Actions workflow. To create a repository, see [Creating a new repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
-- A GitHub Actions workflow. If you need help getting started with GitHub Actions, see [create your first workflow](https://docs.github.com/en/actions/quickstart)
+- A GitHub Actions workflow. If you need help with getting started with GitHub Actions, see [create your first workflow](https://docs.github.com/en/actions/quickstart)
 
 # [Azure Pipelines](#tab/pipelines)
 - An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/organizations/projects/create-project?view=azure-devops&tabs=browser).
@@ -87,7 +87,7 @@ To generate an access key and store it as a CI workflow secret, perform the foll
 
 ## 2. Get the service region endpoint URL
 
-In the service configuration you have to provide the region-specific service endpoint. The endpoint depends on the Azure region you selected when creating the workspace.
+In the service configuration, you have to provide the region-specific service endpoint. The endpoint depends on the Azure region you selected when creating the workspace.
 
 To get the service endpoint URL and store it as a CI workflow secret, perform the following steps:
 
