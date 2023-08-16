@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 08/16/2023
 ---
 
-# Using Hive Metastore with Flink Datastream
+# Using Hive Metastore with Flink DataStream
 
 Over the years, Hive Metastore has evolved into a de facto metadata center in the Hadoop ecosystem. Many companies have a separate Hive Metastore service instance in their production environments to manage all their metadata (Hive or non-Hive metadata). For users who have both Hive and Flink deployments, HiveCatalog enables them to use Hive Metastore to manage Flink’s metadata.
 
