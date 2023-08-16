@@ -67,7 +67,7 @@ Learn more about [Front Door Profile - SwitchVersionBYOC (Switch Secret version 
 
 By migrating virtual machines to Availability Zones, you can ensure the isolation of your VMs from potential failures in other zones. With this, you can expect enhanced resiliency in your workload by avoiding downtime and business interruptions. 
 
-Learn more about [Availability Zones](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview).
+Learn more about [Availability Zones](../reliability/availability-zones-overview.md).
 
 ### Enable Backups on your Virtual Machines
 
