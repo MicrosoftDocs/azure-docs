@@ -9,7 +9,7 @@ ms.topic: how-to
 ---
 # Collect logs in Azure Web PubSub for Socket.IO
 
-Like when you self-host Socket.IO library, you can collect logs on both the server and client side when you use Azure Web PubSub for Socket.IO.
+Like when you self-host the Socket.IO library, you can collect logs on both the server and client side when you use Azure Web PubSub for Socket.IO.
 
 ## Server side
 
