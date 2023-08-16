@@ -354,6 +354,9 @@ The `customization.log` file includes the following stages:
 - Ensure that Azure Policy and Firewall allow connectivity to remote resources.
 - Output comments to the console by using `Write-Host` or `echo`. Doing so lets you search the *customization.log* file.
 
+
+## Troubleshoot common build errors
+
 ### The template deployment failed because of policy violation
 
 #### Error
@@ -372,13 +375,11 @@ The `customization.log` file includes the following stages:
 
 #### Cause
 
-When using a key vaults with public access disabled. At this time, Azure Image Builder doesn't support this configuration.
+The above policy violation error is a result of using an Azure Key Vault with public access disabled. At this time, Azure Image Builder doesn't support this configuration.
 
 #### Solution
 
-KVs to be created with public access enabled.
-
-## Troubleshoot common build errors
+The Azure Key Vault must be created with public access enabled.
 
 ### Packer build command failure
 
