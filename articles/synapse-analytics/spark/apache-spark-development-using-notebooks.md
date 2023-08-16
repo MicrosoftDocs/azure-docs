@@ -54,7 +54,7 @@ We provide rich operations to develop notebooks:
 
 > [!NOTE]
 > 
-> In the notebook, the users does not need to create the spark session, and do not change the variable values of spark and sc.
+> In the notebooks, there is a SparkSession automatically created for you, stored in a variable called `spark`. Also there is a variable for SparkContext which is called `sc`. Users can access these variables directly and should not change the values of these variables.
 
 
 <h3 id="add-a-cell">Add a cell</h3>
