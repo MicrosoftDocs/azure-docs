@@ -219,7 +219,7 @@ items:
   - name: What is Apache Spark in HDInsight on AKS?
     href: ./spark/hdinsight-on-aks-spark-overview.md
   - name: Create Spark cluster
-    href: ./spark/hdinsight-on-aks-spark-create-cluster-portal.md
+    href: ./spark/create-spark-cluster.md
   - name: How-to guides
     items:
     - name: Submit and Manage Jobs
