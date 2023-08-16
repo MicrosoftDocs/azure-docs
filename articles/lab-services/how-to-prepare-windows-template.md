@@ -3,6 +3,7 @@ title: Prepare Windows lab template
 description: Prepare a Windows-based lab template in Azure Lab Services. Configure commonly used software and OS settings, such as Windows Update, OneDrive, and Microsoft 365.
 services: lab-services
 ms.service: lab-services
+ms.custom: has-azure-ad-ps-ref
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
