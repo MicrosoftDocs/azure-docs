@@ -205,7 +205,7 @@ items:
       - name: Using HBase - Write with DStream API
         href: ./flink/use-flink-to-sink-kafka-message-into-hbase.md
       - name: Using MongoDB as a source and Sink with DStream API
-        href: ./flink/dstream-api-and-mongo-db.md
+        href: ./flink/datastream-api-mongodb.md
       - name: Join stream from Kafka with Table on ADLSGen2
         href: ./flink/join-stream-from-kafka-with-table-from-filesystem.md
       - name: Using Microsoft Fabric with DStream API
