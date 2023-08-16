@@ -776,7 +776,10 @@ Private endpoints are currently supported for the following Azure services:
 * Azure Database for MySQL
 * Azure SQL Managed Instance
 
-When creating a private endpoint for Azure Machine Learning dependency resources, such as Azure Storage, Azure Container Registry, and Azure Key Vault, the resource can be in a different Azure subscription. However, the resource must be in the same tenant as the Azure Machine Learning workspace.
+When you create a private endpoint for Azure Machine Learning dependency resources, such as Azure Storage, Azure Container Registry, and Azure Key Vault, the resource can be in a different Azure subscription. However, the resource must be in the same tenant as the Azure Machine Learning workspace.
+
+> [!IMPORTANT]
+> When creating a workspace that is configured to allow internet outbound, the private endpoints you configure during workspace creation are created when the first _compute_ is created, not when the workspace is created. Private endpoints result in charges on your Azure subscription, so they are not created until they are needed for a compute resource.
 
 ## Pricing
 
