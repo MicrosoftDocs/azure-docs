@@ -6,7 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: conceptual
 ms.date: 08/16/2023
 ms.author: rogarana
-ms.custom: 
+ms.custom: references_regions
 ---
 
 # Elastic SAN Preview networking
@@ -40,7 +40,7 @@ After configuring endpoints, you can configure network rules to further control 
 ## Private endpoints
 
 > [!IMPORTANT]
-> Private endpoints for Elastic SAN are currently only supported in the France Central (Europe) region.
+> Private endpoints for Elastic SAN are currently only supported in France Central.
 
 Azure [Private Link](../../private-link/private-link-overview.md) enables you to access an Elastic SAN volume group securely over a [private endpoint](../../private-link/private-endpoint-overview.md) from a virtual network subnet. Private endpoints use a separate set of IP addresses from the subnet address space for each volume group. Traffic between your virtual network and the service traverses the Microsoft backbone network, eliminating the risk of exposing your service to the public internet.
 
