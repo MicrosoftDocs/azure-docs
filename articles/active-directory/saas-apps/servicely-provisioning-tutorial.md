@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Servicely for automatic user provisioning with Azure Active Directory'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to Servicely.
+description: Learn how to automatically provision and deprovision user accounts from Azure AD to Servicely.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -16,7 +16,7 @@ ms.author: thwimmer
 
 # Tutorial: Configure Servicely for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Servicely and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Servicely](https://servicely.ai/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Servicely and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and deprovisions users and groups to [Servicely](https://servicely.ai/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Supported capabilities
@@ -90,7 +90,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Servicely**.
 
-1. Review the user attributes that are synchronized from Azure AD to Servicely in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Servicely for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Servicely API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to Servicely in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Servicely for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you need to ensure that the Servicely API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for filtering|Required by Servicely|
    |---|---|---|---|

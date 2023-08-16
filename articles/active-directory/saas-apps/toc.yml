@@ -3435,7 +3435,7 @@
       - name: Sentry
         href: sentry-provisioning-tutorial.md
       - name: Servicely
-        href: servicely-provisioning-tutorial
+        href: servicely-provisioning-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
       - name: Segment
