@@ -1,5 +1,5 @@
 ---
-title: Add custom plugins 
+title: Add custom plugins in Azure HDInsight on AKS
 description: Add custom plugins to an existing Trino cluster in HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to 
@@ -30,7 +30,7 @@ A `userPluginsSpec.plugins` configuration authored in resource `[*].properties.c
 
 
 > [!NOTE]
-> Custom plugin deployment uses user-assigned Managed Identity(MSI) tied to the cluster to authenticate against the storage account. Ensure that the storage account holding the plugins has appropriate access granted for the Managed Identity tied to the cluster.
+> Custom plugin deployment uses user-assigned Managed Identity (MSI) tied to the cluster to authenticate against the storage account. Ensure that the storage account holding the plugins has appropriate access granted for the Managed Identity tied to the cluster.
 
 The following example demonstrates how a sample plugin is made available to a Trino cluster. Add this sample json under `[*].properties.clusterProfile` in the ARM template.
 
@@ -51,4 +51,4 @@ The following example demonstrates how a sample plugin is made available to a Tr
 Deploy the updated ARM template to reflect the changes in your cluster. Learn how to [deploy an ARM template](/azure/azure-resource-manager/templates/deploy-portal).
 	
 > [!NOTE]
-> To update the plugins on an existing cluster, it require a deployment so that the new changes are picked up.
+> To update the plugins on an existing cluster, it requires a deployment so that the new changes are picked up.
