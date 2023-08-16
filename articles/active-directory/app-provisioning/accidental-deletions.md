@@ -24,7 +24,7 @@ The Azure AD provisioning service includes a feature to help avoid accidental de
 The Azure AD provisioning service includes a feature to help avoid accidental deletions. This feature ensures that users aren't disabled or deleted in the target tenant unexpectedly.
 ::: zone-end
 
-You use accidental deletions to specify a deletion threshold. Anything above the threshold that you set requires an admin to explicitly allow the processing of the deletions. 
+You use accidental deletions to specify a deletion threshold. Anything above the threshold that you set requires an admin to explicitly allow the processing of the deletions.
 
 ## Configure accidental deletion prevention
 
