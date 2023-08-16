@@ -20,11 +20,14 @@ Today's applications are required to be highly responsive and always online. To 
 
 Azure Cosmos DB is a fully managed NoSQL and relational database for modern app development. Azure Cosmos DB offers single-digit millisecond response times, automatic and instant scalability, along with guaranteed speed at any scale. Business continuity is assured with [SLA-backed](https://azure.microsoft.com/support/legal/sla/cosmos-db) availability and enterprise-grade security.
 
+With Azure Cosmos DB you can use [Retrieval Augmented Generation (RAG) with Azure Cosmos DB](how-to-azure-openai.md) to bring the most semantically relevant data to enrich your AI-powered applications built with Azure OpenAI models like GPT-3.5 and GPT-4. 
+
 App development is faster and more productive thanks to:
 
 - Turnkey multi region data distribution anywhere in the world
 - Open source APIs
 - SDKs for popular languages.
+- Retrieval Augmented Generation that brings your data to Azure OpenAI to
 
 As a fully managed service, Azure Cosmos DB takes database administration off your hands with automatic management, updates and patching. It also handles capacity management with cost-effective serverless and automatic scaling options that respond to application needs to match capacity with demand.
 
