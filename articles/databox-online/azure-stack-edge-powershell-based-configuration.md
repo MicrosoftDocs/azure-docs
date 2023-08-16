@@ -310,7 +310,6 @@ Run the following cmdlets in PowerShell:
    Here's sample output:
 
    ```output
-      PS C:\> Set-login "https://10.126.76.140/" "Password1" "Password1"
       PS C:\> Get-DeviceConfiguration | To-json
       {
       "device":  {
