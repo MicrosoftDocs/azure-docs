@@ -24,55 +24,21 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Updated security stack integration guidance
 
-Defender for IoT now has updated guidance for integrating with your security stack services, increasing robustness, scalability, and ease of maintenance, as detailed in the following sections:
+Defender for IoT now has updated guidance for integrating with your security stack services, increasing robustness, scalability, and ease of maintenance.
 
-- [Aruba ClearPass](#aruba-clearpass)
-- [Palo Alto](#palo-alto)
-- [Splunk](#splunk) 
+We now recommend using cloud connections such as via [Microsoft Sentinel](concept-sentinel-integration.md) or the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151). For on-premises integrations, we recommend that you [configure forwarding alert rules from your sensor](how-to-forward-alert-information-to-partners.md), or use [Defender for IoT's API](references-work-with-defender-for-iot-apis.md).
 
-The legacy [Aruba ClearPass](#aruba-clearpass), [Palo Alto Panorama](#palo-alto), and [Splunk](#splunk) integrations are planned to be deprecated in an upcoming 23.x version. For customers using legacy integration methods, we recommend transitioning to newly recommended methods instead, such using a [Microsoft Sentinel connector](concept-sentinel-integration.md), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), or using [Defender for IoT's API](references-work-with-defender-for-iot-apis.md).
+The legacy Aruba ClearPass, Palo Alto Panorama, and Splunk integrations are planned to be deprecated in an upcoming 23.x version. For customers using legacy integration methods, we recommend transitioning to newly recommended methods instead. For more information, see:
 
-For more information, see [Integrations with Microsoft and partner services](integrate-overview.md).
+- [Integrate ClearPass with Microsoft Defender for IoT (on-premises integration)](tutorial-clearpass.md)
+- [Integrate Palo Alto with Microsoft Defender for IoT](tutorial-palo-alto.md)
+- [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)
 
 > [!NOTE]
+> Microsoft Sentinel is a scalable cloud service for security information event management (SIEM) security orchestration automated response (SOAR).  SOC teams can use the integration between Microsoft Defender for IoT and Microsoft Sentinel to collect data across networks, detect and investigate threats, and respond to incidents.
+>
 > Some features of Microsoft Sentinel might incur a fee. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing).
 >
-
-#### Aruba ClearPass
-
-- **Cloud integration** (recommended): Connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview). For more information, see the [Microsoft Sentinel documentation](/azure/sentinel/data-connectors/aruba-clearpass).
-
-- **On-premises integration** (recommended): Configure your sensor to send syslog files directly to ClearPass. For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
-
-- **On-premises integration** (legacy): [Integrate ClearPass with Microsoft Defender for IoT (legacy)](tutorial-clearpass.md#on-premises-integration-legacy)
-
-For more information, see [Integrate ClearPass with Microsoft Defender for IoT (on-premises integration)](tutorial-clearpass.md).
-
-#### Palo Alto
-
-- **Cloud integration** (recommended): Connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install the one or more of the following solutions:
-
-    |Microsoft Sentinel solution  |Learn more  |
-    |---------|---------|
-    |[Palo Alto PAN-OS Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltopanos?tab=Overview)     |   [Palo Alto Networks (Firewall) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-firewall)      |
-    |[Palo Alto Networks Cortex Data Lake Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltocdl?tab=Overview)     |  [Palo Alto Networks Cortex Data Lake (CDL) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-cortex-data-lake-cdl)       |
-    |[Palo Alto Prisma Cloud CSPM solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltoprisma?tab=Overview)      |   [Palo Alto Prisma Cloud CSPM (using Azure Function) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function)      |
-
-
-- **On-premises integration** (recommended): Configure your sensor to send syslog files directly to Palo Alto Panorama. For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
-
-- **On-premises integration** (legacy): [Integrate Palo Alto with Microsoft Defender for IoT (on-premises integration)](tutorial-palo-alto.md#on-premises-integration-legacy)
-
-#### Splunk
-
-- **Cloud integration** (recommended): Use the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151). For more information, see: 
-
-    - [The Splunk documentation on installing add-ins](https://docs.splunk.com/Documentation/AddOns/released/Overview/Distributedinstall)
-    - [The Splunk documentation on the OT Security Add-on for Splunk](https://splunk.github.io/ot-security-solution/integrationguide/) 
-
-- **On-premises integration** (recommended): Configure your sensor to send syslog files directly to Splunk. For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
-
-- **On-premises integration** (legacy): [Integrate Splunk with Microsoft Defender for IoT (on-premises integration)](tutorial-splunk.md#on-premises-integration-legacy)
 
 ## July 2023
 
