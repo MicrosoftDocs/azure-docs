@@ -418,7 +418,7 @@ Security subassessment on a resource
 | properties.impact          | string                                                       | Description of the impact of this subassessment    |
 | properties.remediation     | string                                                       | Information on how to remediate this subassessment |
 | properties.resourceDetails | ResourceDetails:     [AzureResourceDetails](/rest/api/defenderforcloud/sub-assessments/list#azureresourcedetails) | Details of the resource that was assessed           |
-| properties.status          | [SubAssessmentStatus](/api/defenderforcloud/sub-assessments/list#subassessmentstatus) | Status of the subassessment                        |
+| properties.status          | [SubAssessmentStatus](/rest/api/defenderforcloud/sub-assessments/list#subassessmentstatus) | Status of the subassessment                        |
 | properties.timeGenerated   | string                                                       | The date and time the subassessment was generated  |
 | type                       | string                                                       | Resource type                                       |
 
