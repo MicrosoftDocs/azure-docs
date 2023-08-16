@@ -1,14 +1,14 @@
 ---
 title: Enrich the events from Kafka with the attributes from FileSystem with Apache Flink
-description: Learn how to join stream from Kafka with table from fileSystem using DStreamAPI
+description: Learn how to join stream from Kafka with table from fileSystem using DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 08/16/2023
 ---
 
-# Enrich the events from Kafka with attributes from ADLSGen2 with Apache Flink
+# Enrich the events from Kafka with attributes from ADLS Gen2 with Apache Flink
 
-In this article, you can learn how you can enrich the real time events by joining a stream from Kafka with table on ADLS Gen2 using Flink Streaming. We use Flink Streaming API to join events from HDInsight Kafka with attributes from ADLS gen2, further we use attributes-joined events to sink into another Kafka topic.
+In this article, you can learn how you can enrich the real time events by joining a stream from Kafka with table on ADLS Gen2 using Flink Streaming. We use Flink Streaming API to join events from HDInsight Kafka with attributes from ADLS Gen2, further we use attributes-joined events to sink into another Kafka topic.
 
 ## Prerequisites
 
@@ -41,11 +41,11 @@ We're creating a topic called `user_events`.
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 3 --topic user_events_output --bootstrap-server wn0-contsk:9092
 ```
 
-## Preparing file on ADLS Gen2
+## Preparing file on  Gen2
 
 We are creating a file called `item attributes` in our storage
 
-- The purpose is to read a batch of `item attributes` from a file on ADLSGen2. Each item has the following fields:
+- The purpose is to read a batch of `item attributes` from a file on ADLS Gen2. Each item has the following fields:
   ```
   item_id, 
   brand, 
@@ -58,7 +58,7 @@ We are creating a file called `item attributes` in our storage
 ## Developing the Flink job 
 
 In this step we perform the following activities
-- Enrich the `user_events` topic from Kafka by joining with `item attributes` from a file on ADLSGen2.
+- Enrich the `user_events` topic from Kafka by joining with `item attributes` from a file on ADLS Gen2.
 - We push the outcome of this step, as an enriched user activity of events into a Kafka topic.
 
 Developing a Maven project
@@ -141,7 +141,7 @@ Developing a Maven project
 </project>
 ``` 
 
-**Joining the Kafka topic with ADLSGen2 File**
+**Joining the Kafka topic with ADLS Gen2 File**
 
 **KafkaJoinGen2Demo.java**
 
@@ -254,26 +254,26 @@ public class KafkaJoinGen2Demo {
 
 ## Package Jar and Submit to Flink
 
+We're submitting the pacakged jar to Flink
 
 :::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step4-1.png" alt-text="Screenshot showing Packaging the jar and submit to Flink with Kafka 3.2." border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step4-1_kafka32.png":::
 
 
 :::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step4-2.png" alt-text="Screenshot showing Packaging the jar and submit to Flink as further step with Kafka 3.2." border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step4-2_kafka32.png":::
 
-## Producing a real-time `user_events` topic on Kafka
+### Producing real-time `user_events` topic on Kafka
 
 :::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step5.png" alt-text="Screenshot showing Produce a real-time user behavior event on Kafka 3.2" border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step5_kafka32.png":::
 
-## Consume the `itemAttributes`joining with `user_events` on Kafka
+### Consume the `itemAttributes`joining with `user_events` on Kafka
 
 :::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step6.png" alt-text="Screenshot showing Consume the item attributes-joined user activity events on Kafka 3.2" border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step6_kafka32.png":::
 
-### Producing a real-time `user_events` on Kafka
+### Producing real-time `user_events` on Kafka
 
 :::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step7.png" alt-text="Screenshot showing Continue to produce a real-time user behavior event on Kafka 3.2" border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step7_kafka32.png":::
 
 ### Consuming the `itemAttributes`joining with `user_events` on Kafka
-
 
 :::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step8.png" alt-text="Screenshot showing Continue to consumer the item attributes-joined user activity events on Kafka" border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step8_kafka32.png":::
 
