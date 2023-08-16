@@ -56,7 +56,7 @@ Produce the messages to the Kafka topic.
 :::image type="content" source="./media/use-hive-catalog/produce-messages-to-kafka-topic.png" alt-text="Screenshot showing how to produce messages to Kafka topic." lightbox="./media/use-hive-catalog/produce-messages-to-kafka-topic.png":::
 
 Other commands:
-Note: You're required to replace bootstrap-server with your own kafka brokers host name or IP
+> [!NOTE] You're required to replace bootstrap-server with your own kafka brokers host name or IP
 ```
 --- delete topic
 ./kafka-topics.sh --delete --topic user_orders --bootstrap-server wn0-contsk:9092
@@ -199,7 +199,7 @@ CREATE TABLE kafka_user_orders (
 
 select * from kafka_user_orders;
 ```
-:::image type="content" source="./media/use-hive-catalog/create-kafka-table.png" alt-text="Screenshot showing how to create Kafka table." 
+:::image type="content" source="./media/use-hive-catalog/create-kafka-table.png" alt-text="Screenshot showing how to create Kafka table." lightbox="./media/use-hive-catalog/create-kafka-table.png":::
 
 ### Create MySQL Table on Flink SQL
 
@@ -236,7 +236,7 @@ INSERT INTO mysql_user_orders (order_date, customer_id, customer_name, price, pr
  SELECT order_date, CAST(user_id AS INT), user_name, price, CAST(product_id AS INT), order_status
  FROM kafka_user_orders;
 ```
-:::image type="content" source="./media/use-hive-catalog/sink-user-transaction.png" alt-text="Screenshot showing how to sink user transaction.":::
+:::image type="content" source="./media/use-hive-catalog/sink-user-transaction.png" alt-text="Screenshot showing how to sink user transaction." lightbox="./media/use-hive-catalog/sink-user-transaction.png"::::::
 
 :::image type="content" source="./media/use-hive-catalog/flink-ui.png" alt-text="Screenshot showing Flink UI.":::
 
@@ -259,7 +259,7 @@ sshuser@hn0-contsk:~$ /usr/hdp/current/kafka-broker/bin/kafka-console-producer.s
 Flink SQL> select * from kafka_user_orders;
 ```
 
-:::image type="content" source="./media/use-hive-catalog/check-kafka-table-data.png" alt-text="Screenshot showing how to check Kafka table data.":::
+:::image type="content" source="./media/use-hive-catalog/check-kafka-table-data.png" alt-text="Screenshot showing how to check Kafka table data." lightbox="./media/use-hive-catalog/check-kafka-table-data.png":::
 
 ### Insert `product_id=104` into orders table on MySQL on Flink SQL
 
@@ -268,7 +268,7 @@ INSERT INTO mysql_user_orders (order_date, customer_id, customer_name, price, pr
 SELECT order_date, CAST(user_id AS INT), user_name, price, CAST(product_id AS INT), order_status
 FROM kafka_user_orders where product_id = 104;
 ```
-:::image type="content" source="./media/use-hive-catalog/orders-table.png" alt-text="Screenshot showing how to check orders table.png.":::
+:::image type="content" source="./media/use-hive-catalog/orders-table.png" alt-text="Screenshot showing how to check orders table" lightbox="./media/use-hive-catalog/orders-table.png"
 
 ### Check `product_id = 104` record is added in order table on MySQL on Azure Cloud Shell
 
