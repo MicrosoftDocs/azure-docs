@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 06/24/2022
 ms.author: barclayn
 ms.reviewer: krbain
-ms.custom: it-pro, seo-update-azuread-jan, mode-other
+ms.custom: it-pro, seo-update-azuread-jan, mode-other, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 # Restore a deleted Microsoft 365 group in Azure Active Directory

@@ -6,6 +6,7 @@ description: Enable passwordless sign-in to Azure AD using Microsoft Authenticat
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 05/16/2023
 

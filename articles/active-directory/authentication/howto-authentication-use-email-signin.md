@@ -5,6 +5,7 @@ description: Learn how to enable users to sign in to Azure Active Directory with
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 06/01/2023
 
@@ -12,7 +13,6 @@ ms.author: justinha
 author: calui
 manager: amycolannino
 ms.reviewer: calui
-
 ---
 # Sign-in to Azure AD with email as an alternate login ID (Preview)
 
