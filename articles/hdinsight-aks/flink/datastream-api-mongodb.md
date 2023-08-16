@@ -1,6 +1,6 @@
 ---
 title: DataStream API for MongoDB as a Source and Sink on Flink
-description: Learn how to use DStreamAPI MongoDB as a Source and Sink on Flink
+description: Learn how to use DataStream API MongoDB as a Source and Sink on Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 07/31/2023
@@ -14,7 +14,7 @@ This example demonstrates on how to use HDInsight on AKS Flink 1.16.0 along with
 
 MongoDB is a non-relational document database that provides support for JSON-like storage that helps store complex structures easily.
 
-In this example, you learn how to use MongoDB to source and sink with DStream API.
+In this example, you learn how to use MongoDB to source and sink with DataStream API.
 
 ## Prerequisites
 
