@@ -1,7 +1,7 @@
 - name: Azure Confidential Computing
   href: ./index.yml
 - name: What is confidential computing? # WHAT?
-  expanded: true
+#  expanded: true
   items:
      - name: Real-time Protection of data whilst in-use # what keys are where+protect what #p1
        href: overview.md # DONE #p1
@@ -38,7 +38,7 @@
      - name: Container solutions overview
        href: choose-confidential-containers-offerings.md 
 - name: Why might I need it? # WHY?
-  expanded: true
+ # expanded: true
   items:
      - name: Threat Scenarios and protection goals # make all the sub-headings point to a header in the threat-scenarios.md page
        href: threat-scenarios.md
@@ -54,7 +54,7 @@
        href: confidential-ai.md  
 # -----------------new content that got lost in merge
 - name: How do I get it? # HOW?
-  expanded: true
+#  expanded: true
   items:
      - name: Infrastructure as a Service (IaaS) Quickstarts # clear deliniation for me, IaaS is where you control the OS, PaaS is where you don't
        expanded: true
