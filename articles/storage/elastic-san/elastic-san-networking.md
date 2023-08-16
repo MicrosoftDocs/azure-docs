@@ -222,7 +222,6 @@ Use this sample code to create a private endpoint for your Elastic SAN volume gr
 | `<PrivateLinkSvcConnectionName>` | The name of the new private link service connection to the volume group. |
 | `<PrivateEndpointName>`          | The name of the new private endpoint. |
 | `<Location>`                     | The region where the new private endpoint will be created. |
-| `<ApprovalDesc>`                 | The description provided for the approval of the private endpoint connection. |
 
 ```azurecli
 # Define some variables
@@ -234,7 +233,6 @@ EsanVgName="<ElasticSanVolumeGroupName>"
 EndpointName="<PrivateEndpointName>"
 PLSvcConnectionName="<PrivateLinkSvcConnectionName>"
 Location="<Location>"
-ApprovalDesc="<ApprovalDesc>"
 
 id=$(az elastic-san show \
     --elastic-san-name $EsanName \
