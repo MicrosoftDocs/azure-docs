@@ -38,40 +38,50 @@ Microsoft Playwright Testing uses access keys to authorize users to run Playwrig
 
 To generate an access key and store it as a CI workflow secret, perform the following steps:
 
-[!INCLUDE [Generate an access key](./includes/include-generate-access-key.md)]
+1. Sign in to the [Microsoft Playwright Testing portal](https://aka.ms/mpt/portal) with your Azure account.
 
-Next, store the access key in a CI workflow secret to avoid specifying the key in clear text in the workflow definition:
+1. Select **Generate new access key**.
 
-The following steps describe how to create a workflow secret in GitHub Actions or Azure Pipelines. Follow the specific instructions of your CI platform to create store the access key securely.
+    :::image type="content" source="../media/include-generate-access-key/playwright-testing-generate-new-access-key.png" alt-text="Screenshot that shows Microsoft Playwright Testing portal, highlighting the 'Generate access key' button.":::
+
+1. Select **Generate key** and then copy the access key value.
+
+    :::image type="content" source="../media/include-generate-access-key/playwright-testing-generate-key.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate key' button.":::
+
+    :::image type="content" source="../media/include-generate-access-key/playwright-testing-copy-access-key.png" alt-text="Screenshot that shows how to copy the generated access key in the Playwright Testing portal.":::
+
+1. Store the access key in a CI workflow secret to avoid specifying the key in clear text in the workflow definition:
+
+    The following steps describe how to create a workflow secret in GitHub Actions or Azure Pipelines. Follow the specific instructions of your CI platform to create store the access key securely.
 
 # [GitHub Actions](#tab/github)
 
-1. Go to your GitHub repository, and select **Settings** > **Secrets and variables** > **Actions**.
-1. Select **New repository secret**.
-1. Enter the secret details, and then select **Add secret** to create the CI/CD secret.
+    1. Go to your GitHub repository, and select **Settings** > **Secrets and variables** > **Actions**.
+    1. Select **New repository secret**.
+    1. Enter the secret details, and then select **Add secret** to create the CI/CD secret.
 
-  | Parameter | Value |
-  | ----------- | ------------ |
-  | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |  
-  | **Value** | Paste the workspace access key you copied previously. |
+      | Parameter | Value |
+      | ----------- | ------------ |
+      | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |  
+      | **Value** | Paste the workspace access key you copied previously. |
 
-1. Select **OK** to create the workflow secret.
+    1. Select **OK** to create the workflow secret.
 
 # [Azure Pipelines](#tab/pipelines)
 
-1. Go to your Azure DevOps project.
-1. Go to the **Pipelines** page, select the appropriate pipeline, and then select **Edit**.
-1. Locate the **Variables** for this pipeline.
-1. Add a new variable.
-1. Enter the variable details, and then select **Add secret** to create the CI/CD secret.
+    1. Go to your Azure DevOps project.
+    1. Go to the **Pipelines** page, select the appropriate pipeline, and then select **Edit**.
+    1. Locate the **Variables** for this pipeline.
+    1. Add a new variable.
+    1. Enter the variable details, and then select **Add secret** to create the CI/CD secret.
 
-  | Parameter | Value |
-  | ----------- | ------------ |
-  | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |
-  | **Value** | Paste the workspace access key you copied previously. |
-  | **Keep this value secret** | Check this value |
-
-1. Select **OK**, and then **Save** to create the workflow secret.
+      | Parameter | Value |
+      | ----------- | ------------ |
+      | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |
+      | **Value** | Paste the workspace access key you copied previously. |
+      | **Keep this value secret** | Check this value |
+    
+    1. Select **OK**, and then **Save** to create the workflow secret.
 
 ---
 
@@ -81,13 +91,22 @@ In the service configuration you have to provide the region-specific service end
 
 To get the service endpoint URL and store it as a CI workflow secret, perform the following steps:
 
-[!INCLUDE [Get region endpoint](./includes/include-get-region-endpoint.md)]
+1. Sign in to the [Microsoft Playwright Testing portal](https://aka.ms/mpt/portal) with your Azure account.
 
-Next, store the service endpoint URL in a CI workflow secret:
+1. On the workspace home page, select **View setup guide**.
 
-| Secret name | Value |
-| ----------- | ------------ |
-| *PLAYWRIGHT_SERVICE_URL* | Paste the endpoint URL you copied previously. |
+  > [!TIP]
+  > If you have multiple workspaces, you can switch to another workspace by selecting the workspace name at the top of the page, and then select **Manage all workspaces**.
+
+1. In **Add region endpoint in your setup**, copy the service endpoint URL.
+
+  The endpoint URL matches the Azure region that you selected when creating the workspace.
+
+1. Store the service endpoint URL in a CI workflow secret:
+
+  | Secret name | Value |
+  | ----------- | ------------ |
+  | *PLAYWRIGHT_SERVICE_URL* | Paste the endpoint URL you copied previously. |
 
 ## 3. Add service configuration file
 
