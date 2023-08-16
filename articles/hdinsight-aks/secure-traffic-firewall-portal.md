@@ -29,7 +29,7 @@ The following diagram illustrates the example used in this article to simulate a
       :::image type="content" source="./media/secure-traffic-by-firewall-azure-portal/create-virtual-network-step4.png" alt-text="Diagram showing creating a virtual network and setting IP address using Azure portal in step number four." border= "true" lightbox="./media/secure-traffic-by-firewall-azure-portal/create-virtual-network-step4.png":::
      
       > [!IMPORTANT]
-      > * If you add NSG in subnet , you need to add certain outbound and inbound rules manually. Follow [use NSG to restrict the traffic](/secure-traffic-by-nsg.md).
+      > * If you add NSG in subnet , you need to add certain outbound and inbound rules manually. Follow [use NSG to restrict the traffic](./secure-traffic-by-nsg.md).
       > * Don't associate subnet `hdiaks-egress-subnet` with a route table because HDInsight on AKS creates cluster pool with default outbound type and can't create the cluster pool in a subnet already associated with a route table.
 
 ## Create HDInsight on AKS cluster pool using Azure portal
