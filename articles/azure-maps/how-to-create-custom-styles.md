@@ -56,7 +56,7 @@ Select the **Get map configuration list** button to get a list of every map conf
 > "defaultMapConfigurationId": "68d74ad9-4f84-99ce-06bb-19f487e8e692"
 > ```
 
-Once the map configuration drop-down list is populated with the IDs of all the map configurations in your creator resource, select the desired map configuration, then the drop-down list of style + tileset tuples appears. The *style + tileset* tuples consists of the style alias or ID, followed by the plus (**+**) sign then the `tilesetId`.
+Once the map configuration drop-down list is populated with the IDs of all the map configurations in your creator resource, select the desired map configuration, then the drop-down list of style + tileset tuples appears. The *style + tileset* tuples consists of the `styleId` followed by the plus (**+**) sign then the `tilesetId`.
 
 Once you've selected the desired style, select the **Load selected style** button.
 
@@ -108,7 +108,6 @@ The following table describes the four fields you're presented with.
 | Property                      | Description                                                                                           |
 |-------------------------------|-------------------------------------------------------------------------------------------------------|
 | Style description             | A user-defined description for this style.                                                            |
-| Style alias                   | An alias that can be used to reference this style.<BR>When referencing programmatically, the style is referenced by the style ID if no alias is provided. |
 | Map configuration description | A user-defined description for this map configuration.                                                |
 | Map configuration alias       | An alias used to reference this map configuration.<BR>When referencing programmatically, the map configuration is referenced by the map configuration ID if no alias is provided. |
 
