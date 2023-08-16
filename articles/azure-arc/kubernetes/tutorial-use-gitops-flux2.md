@@ -559,6 +559,15 @@ Starting with [`microsoft.flux` v1.7.5](extensions-release.md#flux-gitops), you 
 
 Be sure to review potential [remediation strategies](https://fluxcd.io/flux/components/helm/helmreleases/#configuring-failure-remediation) and apply them as needed when enabling this feature.
 
+To enable OOM watch, run the following command:
+
+```azurecli
+az k8s-extension update --resource-group <resource-group> --cluster-name <cluster-name> --name flux --cluster-type <cluster-type> --config helm-controller.outOfMemoryWatch.enabled=true helm-controller.outOfMemoryWatch.memoryThreshold=70 helm-controller.outOfMemoryWatch.interval=700ms
+```
+
+If you don't specify values for `memoryThreshold` and `outOfMemoryWatch`, the default memory threshold is set to 95%, with the interval at which to check the memory utilization set to 500 ms.
+
+
 
 ## Delete the Flux configuration and extension
 

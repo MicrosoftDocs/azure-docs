@@ -132,12 +132,9 @@ Flux version: [Release v2.0.1](https://github.com/fluxcd/flux2/releases/tag/v2.0
 Changes made for this version:
 
 - Upgrades Flux to [v2.0.1](https://github.com/fluxcd/flux2/releases/tag/v2.0.1)
-- Promotes some APIs to v1. This change should not affect any existing Flux configurations that have already been deployed. Previous API versions will still be supported in all `microsoft.flux` v.1.x.x releases. However, we recommend that you update the API versions in your manifests as soon as possible. 
+- Promotes some APIs to v1. This change should not affect any existing Flux configurations that have already been deployed. Previous API versions will still be supported in all `microsoft.flux` v.1.x.x releases. However, we recommend that you update the API versions in your manifests as soon as possible. For more information about the new API versions (breaking changes) and how to update your manifests, see the [Flux v2 release notes](https://github.com/fluxcd/flux2/releases/tag/v2.0.0).
 
-  > [!IMPORTANT]
-  > When the next major version (v2.x.x) for the `microsoft.flux` extension is released, clusters won't be auto-upgraded to this version, since [auto-upgrade is only supported for minor version releases](extensions.md#upgrade-extension-instance). If you're still using an older API version when the next major version is released, you'll need to update your manifests to the latest API versions, perform any necessary testing, then upgrade your extension manually.
-  >
-  > For more information about the new API versions (breaking changes) and how to update your manifests, see the [Flux v2 release notes](https://github.com/fluxcd/flux2/releases/tag/v2.0.0).
+  Eventually, we'll release a major version update (v2.x.x) for the `microsoft.flux` extension. When this happens, clusters won't be auto-upgraded to this version, since [auto-upgrade is only supported for minor version releases](extensions.md#upgrade-extension-instance). If you're still using an older API version when the next major version is released, you'll need to update your manifests to the latest API versions, perform any necessary testing, then upgrade your extension manually.
 
 - Adds support for [Helm drift detection](tutorial-use-gitops-flux2.md#helm-drift-detection) and [OOM watch](tutorial-use-gitops-flux2.md#helm-oom-watch).
 
