@@ -1,14 +1,14 @@
 ---
-title: Write messages using DStreamAPI to HBase
-description: Learn how to write messages using DStreamAPI to HBase
+title: Write messages using DataStream API to HBase
+description: Learn how to write messages using DataStream API to HBase
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 08/16/2023
 ---
 
-# Write messages using DStreamAPI to HBase
+# Write messages using DataStream API to HBase
 
-Learn how to write messages using DStreamAPI to HBase.
+Learn how to write messages using DataStream API to HBase.
 
 ## Overview
 
@@ -64,9 +64,9 @@ web_set = [
         'https://hadoop.apache.org',
         'https://stackoverflow.com',
         'https://docs.python.org',
-        'https://azure.microsoft.com/en-us/products/category/storage',
-        'https://learn.microsoft.com/en-us/azure/hdinsight/hdinsight-overview',
-        'https://azure.microsoft.com/en-us/products/category/storage'
+        'https://azure.microsoft.com/products/category/storage',
+        'https://learn.microsoft.com/azure/hdinsight/hdinsight-overview',
+        'https://azure.microsoft.com/products/category/storage'
 ]
 
 def main():
@@ -109,7 +109,7 @@ python weblog.py | /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh -
 
 -- consume topic
 /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server wn0-contsk:9092 --topic click_events --from-beginning
-{"userName": "Luke", "visitURL": "https://azure.microsoft.com/en-us/products/category/storage", "ts": "07/11/2023 06:39:43"}
+{"userName": "Luke", "visitURL": "https://azure.microsoft.com/products/category/storage", "ts": "07/11/2023 06:39:43"}
 {"userName": "Sean", "visitURL": "https://www.bing.com/new", "ts": "07/11/2023 06:39:43"}
 {"userName": "XiaoMing", "visitURL": "https://hbase.apache.org", "ts": "07/11/2023 06:39:43"}
 {"userName": "Machael", "visitURL": "https://www.bing.com/new", "ts": "07/11/2023 06:39:43"}
@@ -377,15 +377,15 @@ ROW                                   COLUMN+CELL
  0000000857                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.714, value=https://flink.apache.org
  0000000858                           column=user_info:ts, timestamp=2023-07-11T06:50:08.767, value=07/11/2023 06:39:45
  0000000858                           column=user_info:userName, timestamp=2023-07-11T06:50:08.767, value=Luke
- 0000000858                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.767, value=https://learn.microsoft.com/en-us/azure/
+ 0000000858                           column=user_info:visitURL, timestamp=2023-07-11T06:50:08.767, value=https://learn.microsoft.com/azure/
                                       hdinsight/hdinsight-overview
 859 row(s)
 Took 0.9531 seconds
 ```
 
 > [!NOTE]
-> 1. FlinkKafkaConsumer is deprecated and removed with Flink 1.17, use KafkaSource instead.
-> 1. FlinkKafkaProducer is deprecated and removed with Flink 1.15, use KafkaSink instead.
+> - FlinkKafkaConsumer is deprecated and removed with Flink 1.17, use KafkaSource instead.
+> - FlinkKafkaProducer is deprecated and removed with Flink 1.15, use KafkaSink instead.
 
 ### References
 * [Apache Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/kafka)
