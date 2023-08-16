@@ -192,7 +192,7 @@ createDirectory(avgMoMKPIChangePath)
     
     `dtAvgKpi.toDF.show(false)`
 
-    :::image type="content" source="./media/azure-hdinsight-spark-on-aks-delta-lake/computed-kpi- from-data-table.png" alt-text="Screenshot showing  last computed KPI from data table.":::
+    :::image type="content" source="./media/azure-hdinsight-spark-on-aks-delta-lake/computed-kpi-from-data-table.png" alt-text="Screenshot showing last computed KPI from data table.":::
 
 ### Display Computed KPI History
 
