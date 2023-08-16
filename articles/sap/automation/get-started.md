@@ -60,13 +60,17 @@ sudo apt-get install -y git jq unzip virtualenv
 
 ```
 
-You can then install the deployer using the following commands:
+You can then install the deployer components using the following commands:
 
 ```bash
 
 wget https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/configure_deployer.sh -O configure_deployer.sh	
 chmod +x ./configure_deployer.sh
 ./configure_deployer.sh
+
+# Source the new variables
+
+. /etc/profile.d/deploy_server.sh
 
 ```
 
@@ -79,7 +83,7 @@ The ~/Azure_SAP_Automated_Deployment/samples folder contains a set of sample con
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -Rp samples/Terraform/WORKSPACES config
+cp -Rp samples/Terraform/WORKSPACES ~/Azure_SAP_Automated_Deployment
 ```
 
 
