@@ -27,20 +27,22 @@ Azure Communications Gateway runs on Azure infrastructure that accrues costs whe
 
 ### How you're charged for Azure Communications Gateway
 
-When you deploy or use Azure Communications Gateway, you'll be charged for your use of the voice features of the product. The charges are based on the number of users assigned to the platform by a series of SBC User meters. The meters include:
+When you deploy Azure Communications Gateway, you're charged for how you use the voice features of the product. The charges are based on the number of users assigned to the platform by a series of Azure Communications Gateway meters. The meters include:
 
-- A "service availability" meter that is charged hourly and includes the use of 1000 users for testing and early adoption.
-- A series of tiered per-user meters that charge based on the number of users that are assigned to the deployment. The per-user fee is based on the maximum number of users during your billing cycle, excluding the 1000 users included in the service availability fee.
+- A "Fixed Network Service Fee" or a "Mobile Network Service Fee" meter.
+    - This meter is charged hourly and includes the use of 999 users for testing and early adoption.
+    - If your deployment includes fixed networks and mobile networks, you're charged the Mobile Network Service Fee.
+- A series of tiered per-user meters that charge based on the number of users that are assigned to the deployment. These per-user fees are based on the maximum number of users during your billing cycle, excluding the 999 users included in the service availability fee.
 
-For example, if you have 28,000 users assigned to the deployment each month you'll pay:
+For example, if you have 28,000 users assigned to the deployment each month, you're charged for:
 * The service availability fee for each hour in the month
-* 24,000 users in the 1001-25000 tier
+* 24,001 users in the 1000-25000 tier
 * 3000 users in the 25001-100000 tier
 
 > [!TIP]
 > If you receive a quote through Microsoft Volume Licensing, pricing may be presented as aggregated so that the values are easily readable (for example showing the per-user meters in groups of 10 or 100 rather than the pricing for individual users). This does not impact the way you will be billed.
 
-If you choose to deploy the Number Management Portal by selecting the API Bridge option, you'll also be charged for the Number Management Portal. Fees work in the same way as the SBC User meters: a service availability meter and a per-user meter. The number of users charged for the Number Management Portal is always the same as the number of users charged on the SBC User meters.
+If you choose to deploy the Number Management Portal by selecting the API Bridge option, you'll also be charged for the Number Management Portal. Fees work in the same way as the other meters: a service fee meter and a per-user meter. The number of users charged for the Number Management Portal is always the same as the number of users charged on the other Azure Communications Gateway meters.
 
 > [!NOTE]
 > A user is any telephone number that meets all the following criteria.
@@ -59,18 +61,18 @@ If your Azure subscription has a spending limit, Azure prevents you from spendin
 
 ### Other costs that might accrue with Azure Communications Gateway
 
-You'll need to pay for Azure networking costs, because these costs aren't included in the Azure Communications Gateway meters.
+You must pay for Azure networking costs, because these costs aren't included in the Azure Communications Gateway meters.
 
 - If you're connecting to the public internet with Microsoft Azure Peering Service (MAPS), you might need to pay a third party for the cross-connect at the exchange location.
-- If you're connecting into Azure as a next hop, you might need to pay vNet peering costs.
+- If you're connecting into Azure as a next hop, you might need to pay virtual network peering costs.
 
 ### Costs if you cancel or change your deployment
 
-If you cancel Azure Communications Gateway, your final bill or invoice will only include charges on service-availability meters for the part of the billing cycle before you cancel. Per-user meters charge for the entire billing cycle. 
+If you cancel Azure Communications Gateway, your final bill or invoice includes charges on service fee meters for the part of the billing cycle before you cancel. Per-user meters charge for the entire billing cycle.
 
-You'll need to remove any networking resources that you set up for Azure Communications Gateway. For example, if you're connecting into Azure as a next hop, you'll need to remove the vNet peering. Otherwise, you'll still be charged for those networking resources.
+You must remove any networking resources that you set up for Azure Communications Gateway. For example, if you're connecting into Azure as a next hop, you must remove the virtual network peering. Otherwise, you'll still be charged for those networking resources.
 
-If you have multiple Azure Communications Gateway deployments and you move users between deployments, these users will count towards meters in both deployments. This double counting only applies to the billing cycle in which you move the subscribers; in the next billing cycle, the users will only count towards meters in their new deployment.
+If you have multiple Azure Communications Gateway deployments and you move users between deployments, these users count towards meters in both deployments. This double counting only applies to the billing cycle in which you move the subscribers; in the next billing cycle, the users only count towards meters in their new deployment.
 
 ### Using Azure Prepayment with Azure Communications Gateway
 
