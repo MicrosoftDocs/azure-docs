@@ -53,7 +53,7 @@ We are creating a file called `item attributes` in our storage
   timestamp, 
   ```
 
-:::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step2.png" alt-text="Screenshot showing Prepare a batch item attributes file on ADLS Gen2." border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step2.png":::
+:::image type="content" source="./media/join-stream-kafka-table-filesystem/step-2.png" alt-text="Screenshot showing Prepare a batch item attributes file on ADLS Gen2." border="true" lightbox="./media/join-stream-kafka-table-filesystem/step-2.png":::
 
 ## Developing the Flink job 
 
@@ -256,26 +256,27 @@ public class KafkaJoinGen2Demo {
 
 We're submitting the pacakged jar to Flink
 
-:::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step4-1.png" alt-text="Screenshot showing Packaging the jar and submit to Flink with Kafka 3.2." border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step4-1_kafka32.png":::
+:::image type="content" source="./media/join-stream-kafka-table-filesystem/step-4-1-kafka-3-2.png" alt-text="Screenshot showing Packaging the jar and submit to Flink with Kafka 3.2." border="true" lightbox="./media/join-stream-kafka-table-filesystem/step-4-1-kafka-3-2.png":::
 
 
-:::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step4-2.png" alt-text="Screenshot showing Packaging the jar and submit to Flink as further step with Kafka 3.2." border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step4-2_kafka32.png":::
+:::image type="content" source="./media/join-stream-kafka-table-filesystem/step-4-2-kafka-3-2.png" alt-text="Screenshot showing Packaging the jar and submit to Flink as further step with Kafka 3.2." border="true" lightbox="./media/join-stream-kafka-table-filesystem/step-4-2-kafka-3-2.png":::
 
 ### Producing real-time `user_events` topic on Kafka
 
-:::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step5.png" alt-text="Screenshot showing Produce a real-time user behavior event on Kafka 3.2." border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step5_kafka32.png":::
+:::image type="content" source="./media/join-stream-kafka-table-filesystem/step-5-kafka-3-2.png" alt-text="Screenshot showing Produce a real-time user behavior event on Kafka 3.2." border="true" lightbox="./media/join-stream-kafka-table-filesystem/step-5-kafka-3-2.png
+":::
 
 ### Consume the `itemAttributes`joining with `user_events` on Kafka
 
-:::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step6.png" alt-text="Screenshot showing Consume the item attributes-joined user activity events on Kafka 3.2." border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step6_kafka32.png":::
+:::image type="content" source="./media/join-stream-kafka-table-filesystem/step-6-kafka-3-2.png" alt-text="Screenshot showing Consume the item attributes-joined user activity events on Kafka 3.2." border="true" lightbox="./media/join-stream-kafka-table-filesystem/step-6-kafka-3-2.png":::
 
 ### Producing real-time `user_events` on Kafka
 
-:::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step7.png" alt-text="Screenshot showing Continue to produce a real-time user behavior event on Kafka 3.2." border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step7_kafka32.png":::
+:::image type="content" source="./media/join-stream-kafka-table-filesystem/step-7-kafka-3-2.png" alt-text="Screenshot showing Continue to produce a real-time user behavior event on Kafka 3.2." border="true" lightbox="./media/join-stream-kafka-table-filesystem/step-7-kafka-3-2.png":::
 
 ### Consuming the `itemAttributes`joining with `user_events` on Kafka
 
-:::image type="content" source="./media/join-stream-from-kafka-with-table-from-filesystem/step8.png" alt-text="Screenshot showing Continue to consumer the item attributes-joined user activity events on Kafka." border="true" lightbox="./media/join-stream-from-kafka-with-table-from-filesystem/step8_kafka32.png":::
+:::image type="content" source="./media/join-stream-kafka-table-filesystem/step-8-kafka-3-2.png" alt-text="Screenshot showing Continue to consumer the item attributes-joined user activity events on Kafka." border="true" lightbox="./media/join-stream-kafka-table-filesystem/step-8-kafka-3-2.png":::
 
 ## Reference
 
