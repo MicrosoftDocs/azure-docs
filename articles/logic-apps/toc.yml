@@ -262,10 +262,8 @@
       items:
       - name: Exchange X12 messages
         href: logic-apps-enterprise-integration-x12.md
-      - name: X12 encoding
-        href: logic-apps-enterprise-integration-x12-encode.md
-      - name: X12 decoding
-        href: logic-apps-enterprise-integration-x12-decode.md
+      - name: X12 message settings
+        href: logic-apps-enterprise-integration-x12-message-settings.md
       - name: X12 TA1 acknowledgment
         href: logic-apps-enterprise-integration-x12-ta1-acknowledgment.md
       - name: X12 997 acknowledgment

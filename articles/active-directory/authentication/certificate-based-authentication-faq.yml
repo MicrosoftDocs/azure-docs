@@ -6,6 +6,7 @@ metadata:
   services: multi-factor-authentication
   ms.service: active-directory
   ms.subservice: authentication
+  ms.custom: has-azure-ad-ps-ref
   ms.topic: faq
   ms.date: 02/21/2023
   ms.author: justinha

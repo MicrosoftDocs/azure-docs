@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 02/08/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
-ms.custom: "it-pro, seodec18"
+ms.custom: it-pro, seodec18, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
