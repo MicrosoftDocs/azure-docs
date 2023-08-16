@@ -201,7 +201,7 @@ items:
       - name: Using CDC - SQL Server & DStream API
         href: ./flink/change-data-capture-connectors-for-apache-flink.md
       - name: Using Hivemetastore with Flink DataStream
-        href: ./flink/using-hms-dstream.md
+        href: ./flink/use-hive-metastore-datastream.md
       - name: Using HBase - Write with DStream API
         href: ./flink/use-flink-to-sink-kafka-message-into-hbase.md
       - name: Using MongoDB as a source and Sink with DStream API
