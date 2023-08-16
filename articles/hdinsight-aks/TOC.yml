@@ -195,7 +195,7 @@ items:
     - name: Flink Streaming
       items:
       - name: Using ADLSGen2 - Write with DStream API
-        href: ./flink/assign-kafka-topic-event-message-to-adslgen2.md
+        href: ./flink/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md
       - name: Using Apache NiFi with DStream API
         href: ./flink/using-apache-nifi-with-dstream-api.md
       - name: Using CDC - SQL Server & DStream API
