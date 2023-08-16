@@ -3,7 +3,7 @@ title: Using Apache NiFi with HDInsight on AKS Flink to publish into ADLS Gen2
 description: Learn how to use  Apache NiFi to consume Processed Kafka topic from HDInsight Flink on AKS and publish into ADLS Gen2
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 08/16/2023
 ---
 
 # Using Apache NiFi to consume processed Kafka topic from HDInsight Flink on AKS and publish into ADLS Gen2
@@ -295,8 +295,8 @@ root@hn0-contos:/home/sshuser# /usr/hdp/current/kafka-broker/bin/kafka-console-c
 
 ## Create flow on NiFi UI
 
-**Note:**
-In this example, we use Azure User Managed Identity to credentials for ADLSgen2.
+> [!NOTE]
+> In this example, we use Azure User Managed Identity to credentials for ADLS Gen2.
 
 In this demonstration, we have used Apache NiFi instance installed on an Ubuntu VM. We're accessing the NiFi web interface from a Windows VM. The Ubuntu VM needs to have a managed identity assigned to it and network security group (NSG) rules configured.
 
@@ -326,9 +326,9 @@ Once you have assigned a managed identity to the Azure VM, you need to make sure
 
 :::image type="content" source="./media/using-apache-nifi-with-dstream-api/step6-7-nifiui-kafkaconsumption-nififlow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step7." border="true" lightbox="./media/using-apache-nifi-with-dstream-api/step6-7-nifiui-kafkaconsumption-nififlow.png":::
 
-### Lets check output in ADSL gen2
+### Lets check output in ADLS gen2
 
-:::image type="content" source="./media/using-apache-nifi-with-dstream-api/step7-resultadlg2.png" alt-text="Validating the output in ADLSGen2." border="true" lightbox="./media/using-apache-nifi-with-dstream-api/step7-resultadlg2.png":::
+:::image type="content" source="./media/using-apache-nifi-with-dstream-api/step7-resultadlg2.png" alt-text="Validating the output in ADLS Gen2." border="true" lightbox="./media/using-apache-nifi-with-dstream-api/step7-resultadlg2.png":::
 
 ## Reference
 
