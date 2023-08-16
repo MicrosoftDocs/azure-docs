@@ -65,7 +65,8 @@ We use arrival data of flights from a sample data, you can choose a table of you
 ```sql
     CREATE TABLE flightsintervaldata1 (arrivalAirportCandidatesCount INT, estArrivalHour INT) PARTITIONED BY (estArrivalHour) WITH ('connector' = 'delta', 'table-path' = 'abfs://container@storage_account.dfs.core.windows.net'/delta-output);
 ```
-**Note** : In the above step, the container and storage account should be **same** as specified during the cluster creation
+> [!NOTE]
+> In the above step, the container and storage account should be **same** as specified during the cluster creation
 
 #### Insert Data into the Delta Table
 
