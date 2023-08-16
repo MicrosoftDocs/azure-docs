@@ -33,17 +33,17 @@ Set up the sign-in method:
 * **Password hash synchronization** - an extension of the directory synchronization feature implemented by Azure AD Connect server or cloud-provisioning agents
   * Use this feature to sign in to Azure AD services like Microsoft 365
   * Sign in to the service with the password to sign in to the on-premises Active Directory instance
-  * See, [What is password hash synchronization with Azure AD?](../hybrid/whatis-phs.md)
+  * See, [What is password hash synchronization with Azure AD?](../hybrid/connect/whatis-phs.md)
 * **Pass-through authentication** - sign in to on-premises and cloud applications with the same passwords 
   * When users sign in through Azure AD, the pass-through authentication agent validates passwords against the on-premises AD
-  * See, [User sign-in with Azure Active Directory Pass-through Authentication](../hybrid/how-to-connect-pta.md)
+  * See, [User sign-in with Azure Active Directory Pass-through Authentication](../hybrid/connect/how-to-connect-pta.md)
 * **Seamless SSO** - signs in users on corporate desktops connected to the corporate network
   * Users have access to cloud applications without other on-premises components
-  * See, [Azure AD seamless SSO](../hybrid/how-to-connect-sso.md)
+  * See, [Azure AD seamless SSO](../hybrid/connect/how-to-connect-sso.md)
 
 To create a seamless authentication user experience in Azure AD, deploy seamless SSO to password hash synchronization or pass-through authentication.
 
-For prerequisites of seamless SSO see, [Quickstart: Azure Active Directory Seamless single sign-on](../hybrid/how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites).
+For prerequisites of seamless SSO see, [Quickstart: Azure Active Directory Seamless single sign-on](../hybrid/connect/how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites).
 
 For this tutorial, you configure password hash synchronization and seamless SSO.
 
@@ -85,7 +85,7 @@ For this tutorial, you configure password hash synchronization and seamless SSO.
 
 Before you test defederating a domain, in Azure AD use a cloud authentication staged rollout to test defederating users. 
 
-Learn more: [Migrate to cloud authentication using Staged Rollout](../hybrid/how-to-connect-staged-rollout.md)
+Learn more: [Migrate to cloud authentication using Staged Rollout](../hybrid/connect/how-to-connect-staged-rollout.md)
 
 After you enable password hash sync and seamless SSO on the Azure AD Connect server, configure a staged rollout:
 
@@ -256,7 +256,7 @@ After you configure the Okta app in Azure AD and configure the IDP in the Okta p
 
 After you configure the Okta reverse-federation app, ask users to conduct testing on the managed authentication experience. We recommend you configure company branding to help users recognize the tenant.
 
-Learn more: [Configure your company branding](../fundamentals/customize-branding.md).
+Learn more: [Configure your company branding](../fundamentals/how-to-customize-branding.md).
 
   >[!IMPORTANT]
   >Before you defederate the domains from Okta, identify needed Conditional Access policies. You can secure your environment before cut-off. See, [Tutorial: Migrate Okta sign-on policies to Azure AD Conditional Access](migrate-okta-sign-on-policies-conditional-access.md).
