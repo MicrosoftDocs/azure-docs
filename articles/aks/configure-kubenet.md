@@ -157,7 +157,8 @@ For more information to help you decide which network model to use, see [Compare
 >     --resource-group myResourceGroup \
 >     --name myAKSCluster \
 >     --node-count 3 \
->     --network-plugin kubenet --network-policy calico \
+>     --network-plugin kubenet \
+>     --network-policy calico \
 >     --vnet-subnet-id $SUBNET_ID 
 > ```
 
