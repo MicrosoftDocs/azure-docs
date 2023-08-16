@@ -31,7 +31,7 @@ To get started with running your Playwright tests at scale on cloud browsers, yo
     > [!TIP]
     > If you have multiple workspaces, you can switch to another workspace by selecting the workspace name at the top of the page, and then select **Manage all workspaces**.
 
-1. If don't have a workspace yet, select **+ New workspace**, and then provide the following information:
+1. If you don't have a workspace yet, select **+ New workspace**, and then provide the following information:
 
     |Field  |Description  |
     |---------|---------|
@@ -128,7 +128,7 @@ To generate the access key, perform the following steps:
 
 ## 4. Configure the service region endpoint
 
-In the service configuration you have to provide the region-specific service endpoint. The endpoint depends on the Azure region you selected when creating the workspace.
+In the service configuration, you have to provide the region-specific service endpoint. The endpoint depends on the Azure region you selected when creating the workspace.
 
 To get the service endpoint URL, perform the following steps:
 
@@ -171,13 +171,13 @@ Perform the following steps to run your Playwright tests:
 
 1. You can view the list of test runs in the Azure portal.
 
-    The activity log shows for each test run, the total test completion time, the number of parallel workers, and the number of test minutes.
+    The activity log lists for each test run the following details: the total test completion time, the number of parallel workers, and the number of test minutes.
 
     :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-activity-log.png" alt-text="Screenshot that shows the activity log for a workspace in the Playwright Testing portal.":::
 
 ## Optimize parallel worker configuration
 
-Once your tests are running smoothly with the service, experiment with varying the number of parallel workers to determine the optimal configuration that minimizes test completion time. With Microsoft Playwright Testing, you can run with up to 50 parallel workers, but several factors come into play that will determine the best configuration for your project, such as the CPU, memory, and network resources of your client machine, the target application's load-handling capacity, and the type of actions carried out in your tests.
+Once your tests are running smoothly with the service, experiment with varying the number of parallel workers to determine the optimal configuration that minimizes test completion time. With Microsoft Playwright Testing, you can run with up to 50 parallel workers. Several factors influence the best configuration for your project, such as the CPU, memory, and network resources of your client machine, the target application's load-handling capacity, and the type of actions carried out in your tests.
 
 ## Next steps
 
