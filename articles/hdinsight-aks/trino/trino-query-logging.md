@@ -3,7 +3,7 @@ title: Query logging
 description: Log Query lifecycle events in Trino Cluster
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 07/27/2023
+ms.date: 08/16/2023
 ---
 
 # Query logging 
@@ -12,9 +12,9 @@ Trino supports custom [event listeners](https://trino.io/docs/current/develop/ev
 
 You can enable built-in query logging in two ways:
 
-1. You can enable built-in query logging during [Trino cluster creation](./trino-create-cluster-portal.md) by enabling hive catalog.
+* You can enable built-in query logging during [Trino cluster creation](./trino-create-cluster-portal.md) by enabling hive catalog.
 
-2. You can enable built-in query logging in your cluster using ARM template.
+* You can enable built-in query logging in your cluster using ARM template.
 
 This article covers addition of query logging to your cluster using ARM template.
 
@@ -37,7 +37,7 @@ To enable the built-in query logging plugin in your Trino cluster, add/update `c
 |`hivecatalogSchema`|Query logging plugin uses this schema to mount the external table for the logs, plugin creates this schema if it doesn't exist already. Default value - `trinologs`|
 |`partitionRetentionInDays`|Query logging plugin prunes the partitions in the log tables, which are older than the specified configuration. Default value - `365`|
 
-The following example demonstrates how a querry logging is enabled in a Trino cluster. Add this sample json under `[*].properties.clusterProfile` in the ARM template.
+The following example demonstrates how a query logging is enabled in a Trino cluster. Add this sample json under `[*].properties.clusterProfile` in the ARM template.
 
   ```json
          "trinoProfile": { 
@@ -57,15 +57,15 @@ Deploy the updated ARM template to reflect the changes in your cluster. Learn ho
 
 > [!NOTE]
 > 
-> * Plugin uses user-assigned managed identity(MSI) tied to the cluster to authenticate against the storage, please add `Contributor` and `Storage Blob Data Owner` access to the MSI to ensure plugin can write logs to the storage account. <br>User-assigned MSI name is listed in the `msiResourceId` property in the cluster's resource JSON. Learn how to [assign a role](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page).
+> * Plugin uses user-assigned managed identity (MSI) tied to the cluster to authenticate against the storage, please add `Contributor` and `Storage Blob Data Owner` access to the MSI to ensure plugin can write logs to the storage account. <br>User-assigned MSI name is listed in the `msiResourceId` property in the cluster's resource JSON. Learn how to [assign a role](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page).
 >
-> * PartitionRetentionInDays only remove the metadata partition from the mounted table, it doesn't delete the data. Please clean up the data as per your requirements if not needed anymore.
+> * PartitionRetentionInDays only removes the metadata partition from the mounted table, it doesn't delete the data. Please clean up the data as per your requirements if not needed anymore.
  
  ## Metadata Management ##
 
 If the user specifies a catalog name in `hiveCatalogName` property, plugin mounts the logs files written in storage account as external tables and views, which can be queried through Trino.
 
-The plugin creates three tables and three views, which can be used to query the lifecycle events( `QueryCompletedEvent`, `QueryCreatedEvent`, and `SplitCompletedEVent`). These tables & views are created under the catalog and schema provided as user input.
+The plugin creates three tables and three views, which can be used to query the lifecycle events ( `QueryCompletedEvent`, `QueryCreatedEvent`, and `SplitCompletedEVent`). These tables & views are created under the catalog and schema provided as user input.
 
 **Name of tables:**
 - **`querycompleted`**: Contains `QueryCompleted` events fired by Trino.
@@ -79,7 +79,7 @@ The plugin creates three tables and three views, which can be used to query the 
  
  > [!NOTE]
  > 
- > Users are encouraged to use the views as they are immune to underlying schema changes and account for table arhicval described as follows.
+ > Users are encouraged to use the views as they are immune to underlying schema changes and account for table described as follows.
  
 ## Table Archival ##
 The plugin supports archiving (N-1)th table in the scenario where user decides to the change the `path` or external location of the logs. 
