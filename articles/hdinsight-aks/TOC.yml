@@ -207,13 +207,13 @@ items:
       - name: Using MongoDB as a source and Sink with DataStream API
         href: ./flink/datastream-api-mongodb.md
       - name: Join stream from Kafka with Table on ADLSGen2
-        href: ./flink/join-stream-from-kafka-with-table-from-filesystem.md
+        href: ./flink/join-stream-kafka-table-filesystem.md
       - name: Using Microsoft Fabric with DataStream API
         href: ./flink/fabric-lakehouse-flink-datastreamapi.md
     - name: Use cases
       items:
       - name: Fraud Detection with the Flink DataStream API
-        href: ./flink/fraud-detection-with-flink-datastream-api.md    
+        href: ./flink/fraud-detection-flink-datastream-api.md   
 - name: Apache Spark
   items:
   - name: What is Apache Spark in HDInsight on AKS?
