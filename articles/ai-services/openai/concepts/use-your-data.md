@@ -81,7 +81,7 @@ You can protect Azure OpenAI resource in [private networks](/azure/ai-services/c
 
 ### Storage accounts in private networks
 
-Storage accounts in private networks is currently not supported by Azure OpenAI on your data.
+Storage accounts in private networks are currently not supported by Azure OpenAI on your data.
 
 ## Azure Role-based access controls (Azure RBAC)
 
