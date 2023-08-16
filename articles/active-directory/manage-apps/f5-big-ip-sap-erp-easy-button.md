@@ -68,7 +68,7 @@ SHA supports SP and IdP initiated flows. The following image illustrates the SP-
     * F5 BIG-IP APM add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
     * 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php)
 * User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to the on-premises directory
-  * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
+  * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/connect/how-to-connect-sync-whatis.md)
 * An account with Azure AD Application Admin permissions
   * See, [Azure AD built-in roles](../roles/permissions-reference.md)
 * An SSL Web certificate to publish services over HTTPS, or use default BIG-IP certs for testing

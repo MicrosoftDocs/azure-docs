@@ -64,14 +64,14 @@ A resource directory has one or more resources to share. In this step, you creat
 
 1. In the left navigation, select **Azure Active Directory**.
 
-1. [Create two users](../fundamentals/add-users-azure-active-directory.md). Use the following names or different names.
+1. [Create two users](../fundamentals/add-users.md). Use the following names or different names.
 
     | Name | Directory role |
     | --- | --- |
     | **Admin1** | Global administrator, or User administrator. This user can be the user you're currently signed in. |
     | **Requestor1** | User |
 
-4. [Create an Azure AD security group](../fundamentals/active-directory-groups-create-azure-portal.md) named **Marketing resources** with a membership type of **Assigned**. This group is the target resource for entitlement management. The group should be empty of members to start.
+4. [Create an Azure AD security group](../fundamentals/how-to-manage-groups.md) named **Marketing resources** with a membership type of **Assigned**. This group is the target resource for entitlement management. The group should be empty of members to start.
 
 
 ## Step 2: Create an access package
