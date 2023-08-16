@@ -12,9 +12,9 @@ ms.date: 08/04/2023
 
 In this article, we learn how to use Iceberg Table managed in Hive catalog, with HDInsight on AKS - Flink
 
-### Prerequisites
+## Prerequisites
 - You're required to have an operational Flink cluster with secure shell, learn how to [create a cluster](../flink/flink-create-cluster-portal.md)
-   - Refer this article on how to use CLI from [Secure Shell](../flink/flink-webssh-on-portal-to-flink-sql.md) on Azure Portal.
+   - Refer this article on how to use CLI from [Secure Shell](../flink/flink-webssh-on-portal-to-flink-sql.md) on Azure portal.
 
 ### Adding dependencies
 
@@ -28,12 +28,12 @@ Once you launch the Secure Shell (SSH), let us start downloading the dependencie
   ```
   export HADOOP_CONF_DIR=/etc/hadoop/conf
   ```
-### Start the Flink SQL Client
-A detailed explanation is given on how to get started with Flink SQL Client using [Secure Shell](../flink/flink-webssh-on-portal-to-flink-sql.md) on Azure Portal. You're required to start the SQL Client as described on the article by running the following command. 
+## Start the Flink SQL Client
+A detailed explanation is given on how to get started with Flink SQL Client using [Secure Shell](../flink/flink-webssh-on-portal-to-flink-sql.md) on Azure portal. You're required to start the SQL Client as described on the article by running the following command. 
 ```
 ./bin/sql-client.sh
 ```
-#### Creating Iceberg Table managed in Hive catalog
+### Creating Iceberg Table managed in Hive catalog
 
 With the following steps, we illustrate how you can create Flink-Iceberg Catalog using Hive catalog
 
@@ -46,7 +46,7 @@ With the following steps, we illustrate how you can create Flink-Iceberg Catalog
   'property-version'='1',
   'warehouse'='abfs://container@storage_account.dfs.core.windows.net/ieberg-output’;
 ```
-**Note** : In the above step, the container and storage account should be **same** as specified during the cluster creation
+> [!NOTE] In the above step, the container and storage account should be **same** as specified during the cluster creation
 
 ```sql
   USE CATALOG hive_catalog;
