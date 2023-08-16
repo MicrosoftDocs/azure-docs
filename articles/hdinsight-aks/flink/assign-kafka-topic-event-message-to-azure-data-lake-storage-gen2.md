@@ -1,14 +1,14 @@
 ---
-title: Writing event messages into ADLSGen2 with DStreamAPI - Azure portal
-description: Learn how to write event messages into ADLSGen2 with DStreamAPI
+title: Writing event messages into Azure Data Lake Storage Gen2 with DStreamAPI
+description: Learn how to write event messages into Azure Data Lake Storage Gen2 with DStreamAPI
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 07/31/2023
 ---
 
-# Writing event messages into ADLSGen2 with DataStreamAPI
+# Writing event messages into Azure Data Lake Storage Gen2 with DataStreamAPI
 
-Apache Flink uses file systems to consume and persistently store data, both for the results of applications and for fault tolerance and recovery. In this article, learn how to write event messages into ADLSGen2 with DataStreamAPI. 
+Apache Flink uses file systems to consume and persistently store data, both for the results of applications and for fault tolerance and recovery. In this article, learn how to write event messages into ADLS Gen2 with DataStreamAPI. 
 
 ## Prerequisites
 
@@ -96,7 +96,7 @@ Flink provides an Apache Kafka connector for reading data from and writing data 
 </project>
 ```
 
-**Program for ADLSGen2 Sink**
+**Program for ADLS Gen2 Sink**
 
 *abfsGen2.java*
 
@@ -161,7 +161,7 @@ public class KafkaSinkToGen2 {
 
 **Submit the job on Flink Dashboard UI**
 
-We are using Maven to package a jar onto local and submitting to Flink, and using Kafka to sink into ADLSGen2
+We are using Maven to package a jar onto local and submitting to Flink, and using Kafka to sink into ADLS Gen2
 
 :::image type="content" source="./media/flink-adslgen2/submit-the-job-flinkui.png" alt-text="Screenshot showing jar submission to Flink dashboard.":::
 :::image type="content" source="./media/flink-adslgen2/submit-the-job-flinkui-2.png" alt-text="Screenshot showing job running on Flink dashboard.":::
