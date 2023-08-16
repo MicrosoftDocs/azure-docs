@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 05/13/2022
 ms.author: rolyon
 ms.reviewer: anandy
-ms.custom: oldportal;it-pro;
+ms.custom: oldportal, it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
