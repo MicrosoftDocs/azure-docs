@@ -60,10 +60,10 @@ To generate an access key and store it as a CI workflow secret, perform the foll
     1. Select **New repository secret**.
     1. Enter the secret details, and then select **Add secret** to create the CI/CD secret.
 
-      | Parameter | Value |
-      | ----------- | ------------ |
-      | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |  
-      | **Value** | Paste the workspace access key you copied previously. |
+        | Parameter | Value |
+        | ----------- | ------------ |
+        | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |  
+        | **Value** | Paste the workspace access key you copied previously. |
 
     1. Select **OK** to create the workflow secret.
 
@@ -75,12 +75,12 @@ To generate an access key and store it as a CI workflow secret, perform the foll
     1. Add a new variable.
     1. Enter the variable details, and then select **Add secret** to create the CI/CD secret.
 
-      | Parameter | Value |
-      | ----------- | ------------ |
-      | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |
-      | **Value** | Paste the workspace access key you copied previously. |
-      | **Keep this value secret** | Check this value |
-    
+        | Parameter | Value |
+        | ----------- | ------------ |
+        | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |
+        | **Value** | Paste the workspace access key you copied previously. |
+        | **Keep this value secret** | Check this value |
+
     1. Select **OK**, and then **Save** to create the workflow secret.
 
 ---
@@ -95,18 +95,18 @@ To get the service endpoint URL and store it as a CI workflow secret, perform th
 
 1. On the workspace home page, select **View setup guide**.
 
-  > [!TIP]
-  > If you have multiple workspaces, you can switch to another workspace by selecting the workspace name at the top of the page, and then select **Manage all workspaces**.
+    > [!TIP]
+    > If you have multiple workspaces, you can switch to another workspace by selecting the workspace name at the top of the page, and then select **Manage all workspaces**.
 
 1. In **Add region endpoint in your setup**, copy the service endpoint URL.
 
-  The endpoint URL matches the Azure region that you selected when creating the workspace.
+    The endpoint URL matches the Azure region that you selected when creating the workspace.
 
 1. Store the service endpoint URL in a CI workflow secret:
 
-  | Secret name | Value |
-  | ----------- | ------------ |
-  | *PLAYWRIGHT_SERVICE_URL* | Paste the endpoint URL you copied previously. |
+    | Secret name | Value |
+    | ----------- | ------------ |
+    | *PLAYWRIGHT_SERVICE_URL* | Paste the endpoint URL you copied previously. |
 
 ## 3. Add service configuration file
 
