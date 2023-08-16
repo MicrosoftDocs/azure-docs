@@ -8,7 +8,7 @@ ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 08/11/2023
+ms.date: 08/16/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -168,7 +168,7 @@ After you create the polygons for an image, select **Submit** to save your work,
 
 ## Tag images and draw masks for semantic segmentation
 
-If your project is of type "Semantic segmentation (Polygon)," use the paintbrush to paint a mask over the area you wish to tag.
+If your project is of type "Semantic segmentation (Preview)," use the paintbrush to paint a mask over the area you wish to tag.
 
 1. Select a tag for the area you will paint over.
 1. Select the **paintbrush** tool ![Paintbrush tool](./media/how-to-label-data/paintbrush-tool.png).

@@ -8,7 +8,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 02/08/2023
+ms.date: 08/16/2023
 ms.custom: data4ml, ignite-fall-2021, ignite-2022
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
@@ -161,7 +161,7 @@ For bounding boxes, important questions include:
 
 ## Use ML-assisted data labeling
 
-To accelerate labeling tasks, on the **ML assisted labeling** page, you can trigger automatic machine learning models. Medical images (files that have a *.dcm* extension) aren't included in assisted labeling.
+To accelerate labeling tasks, on the **ML assisted labeling** page, you can trigger automatic machine learning models. Medical images (files that have a *.dcm* extension) aren't included in assisted labeling.  If the project type is **Semantic Segmentation (Preview)**, ML-assisted labeling isn't available.
 
 At the start of your labeling project, the items are shuffled into a random order to reduce potential bias. However, the trained model reflects any biases that are present in the dataset. For example, if 80 percent of your items are of a single class, then approximately 80 percent of the data used to train the model lands in that class.
 
@@ -282,7 +282,9 @@ If your project was created from [Vision Studio](../ai-services/computer-vision/
 
 To export the labels, on the **Project details** page of your labeling project, select the **Export** button. You can export the label data for Machine Learning experimentation at any time.
 
-You can export an image label as:
+If your project type is Semantic Segmentation (Preview), an Azure MLTable data asset is created.
+
+For all other project types, you can export an image label as:
 
 :::moniker range="azureml-api-1"
 * A CSV file. Azure Machine Learning creates the CSV file in a folder inside *Labeling/export/csv*.
