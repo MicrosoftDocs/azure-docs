@@ -1,12 +1,9 @@
 ---
-title: 'Quickstart: Run an end-to-end test with Microsoft Playwright Testing'
-description: 'This quickstart shows how to run cross-browser, cross-platform end-to-end tests at scale with Microsoft Playwright Testing.'
-services: playwright-testing
-ms.service: playwright-testing
+title: 'Quickstart: Run Playwright tests at scale'
+description: 'This quickstart shows how to run your Playwright tests at scale with Microsoft Playwright Testing. Provision cloud-hosted browsers with support for multiple operating systems and all modern browsers.'
 ms.topic: quickstart
-author: ntrogh
-ms.author: nicktrog
-ms.date: 08/19/2022
+ms.date: 08/16/2023
+ms.custom: playwright-testing-preview
 ---
 
 # Quickstart: Run end-to-end tests at scale with Microsoft Playwright Testing Preview
