@@ -363,6 +363,6 @@ After you have enabled the desired endpoints and granted access in your network 
 
 ## Next steps
 
-[Connect Azure Elastic SAN Preview volumes to an Azure Kubernetes Service cluster](elastic-san-connect-aks.md)
-[Connect to Elastic SAN Preview volumes - Linux](elastic-san-connect-linux.md)
-[Connect to Elastic SAN Preview volumes - Windows](elastic-san-connect-windows.md)
+- [Connect Azure Elastic SAN Preview volumes to an Azure Kubernetes Service cluster](elastic-san-connect-aks.md)
+- [Connect to Elastic SAN Preview volumes - Linux](elastic-san-connect-linux.md)
+- [Connect to Elastic SAN Preview volumes - Windows](elastic-san-connect-windows.md)
