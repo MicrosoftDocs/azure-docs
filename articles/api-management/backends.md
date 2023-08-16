@@ -8,7 +8,7 @@ editor: ''
 
 ms.service: api-management
 ms.topic: article
-ms.date: 07/24/2023
+ms.date: 08/16/2023
 ms.author: danlep 
 ms.custom:
 ---
@@ -38,7 +38,7 @@ A custom backend has several benefits, including:
 * Easily used by configuring a transformation policy on an existing API.
 * Takes advantage of API Management functionality to maintain secrets in Azure Key Vault if [named values](api-management-howto-properties.md) are configured for header or query parameter authentication.
 
-## Circuit breaker property (preview)
+## Circuit breaker (preview)
 
 Starting in API version 2023-03-01 preview, API Management exposes a [circuit breaker](/rest/api/apimanagement/current-preview/backend/create-or-update?tabs=HTTP#backendcircuitbreaker) property in the backend resource to protect a backend service from being overwhelmed by too many requests.
 
@@ -50,7 +50,7 @@ The backend circuit breaker is an implementation of the [circuit breaker pattern
 
 ### Example
 
-Use the API Management REST API or a Bicep or ARM template to configure a circuit breaker in a backend. In the following example, the circuit breaker trips when there are three or more 5xx status codes indicating server errors in a day. The circuit breaker resets after one hour.
+Use the API Management REST API or a Bicep or ARM template to configure a circuit breaker in a backend. In the following example, the circuit breaker trips when there are three or more `5xx`` status codes indicating server errors in a day. The circuit breaker resets after one hour.
 
 #### [Bicep](#tab/bicep)
 
