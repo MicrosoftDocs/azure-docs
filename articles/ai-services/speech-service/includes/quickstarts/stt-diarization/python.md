@@ -75,7 +75,7 @@ Follow these steps to create a new console application.
             nonlocal transcribing_stop
             transcribing_stop = True
 
-        # Connect callbacks to the events fired by the convesation transcriber
+        # Connect callbacks to the events fired by the conversation transcriber
         conversation_transcriber.transcribed.connect(conversation_transcriber_transcribed_cb)
         conversation_transcriber.session_started.connect(conversation_transcriber_session_started_cb)
         conversation_transcriber.session_stopped.connect(conversation_transcriber_session_stopped_cb)
