@@ -3,7 +3,7 @@ title: Trino cluster configuration
 description: How to perform service configuration for Trino clusters for HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/14/2023
+ms.date: 08/16/2023
 ---
 
 # Trino configuration management
@@ -12,14 +12,14 @@ HDInsight on AKS Trino cluster comes with most of the default configurations of 
 
 You can add/update the configurations in two ways:
 
-1. [Using Azure portal](#using-azure-portal)
-2. [Using ARM template](#using-arm-template)
+* [Using Azure portal](#using-azure-portal)
+* [Using ARM template](#using-arm-template)
 
 > [!NOTE]
-> HDInsight on AKS Trino enforces certain configurations and prohibits modification of some of files and/or properties. This is done to ensure proper security/connectivity via configuration. Example of prohibited files/properties include, but not limited to: 
-> * jvm.config file with the exception of Heap zize settings.
+> HDInsight on AKS Trino enforces certain configurations and prohibits modification of some files and/or properties. This is done to ensure proper security/connectivity via configuration. Example of prohibited files/properties includes, but is not limited to: 
+> * jvm.config file with the exception of Heap size settings.
 > * Node.properties: node.id, node.data-dir, log.path etc.
-> * Config.properties: http-server.authentication.*, http-server.https.* etc.<br>
+> * `Config.properties: http-server.authentication.*, http-server.https.* etc.`
 
 
 ## Using Azure portal
@@ -35,11 +35,11 @@ Follow the steps to modify the configurations:
   
 2. In the Azure portal search bar, type "HDInsight on AKS cluster" and select "Azure HDInsight on AKS clusters" from the drop-down list.
   
-   :::image type="content" source="./media/trino-service-config/portal-search.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster":::
+   :::image type="content" source="./media/trino-service-config/portal-search.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster.":::
   
 3. Select your cluster name from the list page.
   
-   :::image type="content" source="./media/trino-service-config/portal-search-result.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list":::
+   :::image type="content" source="./media/trino-service-config/portal-search-result.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list.":::
 
 4. Navigate to "Configuration Management" blade.
 
