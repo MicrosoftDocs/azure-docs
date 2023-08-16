@@ -434,8 +434,6 @@ There are several limitations with the virtual hub router upgrade
 
 * If you have already configured BGP peering between your Virtual WAN hub and an NVA in a spoke VNet, then you will have to [delete and then recreate the BGP peer](create-bgp-peering-hub-portal.md). Since the virtual hub router's IP addresses change after the upgrade, you will also have to reconfigure your NVA to peer with the virtual hub router's new IP addresses. These IP addresses are represented as the "virtualRouterIps" field in the Virtual Hub's Resource JSON.
 
-* If your Virtual WAN hub is connected to a combination of spoke virtual networks in the same region as the hub and a separate region than the hub, then you may experience a lack of connectivity to these respective spoke virtual networks. To resolve this and restore connectivity to these virtual networks, you can modify any of the virtual network connection properties (For example, you can modify the connection to propagate to a dummy label). We are actively working on removing this requirement. 
-
 * Your Virtual WAN hub router can not currently be upgraded if you have a network virtual appliance in the virtual hub. We are actively working on removing this limitation. 
 
 * If your Virtual WAN hub is connected to more than 100 spoke virtual networks, then the upgrade may fail. 
