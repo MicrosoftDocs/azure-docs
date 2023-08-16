@@ -31,7 +31,7 @@ In Azure AD, a resource access has three relevant components:
 
 Each component has an associated unique identifier (ID). Below is an example of user using the Microsoft Azure classic deployment model to access the Azure portal.
 
-![Open audit logs](./media/reference-basic-info-sign-in-logs/sign-in-details-basic-info.png)
+
 
 ### Tenant
 

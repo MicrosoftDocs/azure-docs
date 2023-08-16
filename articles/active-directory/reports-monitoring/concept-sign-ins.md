@@ -74,10 +74,6 @@ In addition to the default fields, the interactive sign-in log also shows:
 - The sign-in location
 - Whether Conditional Access has been applied
 
-#### Considerations for MFA sign-ins
-
-When a user signs in with MFA, several separate MFA events are actually taking place. For example, if a user enters the wrong validation code or doesn't respond in time, additional MFA events are sent to reflect the latest status of the sign-in attempt. These sign-in events appear as one line item in the Azure AD sign-in logs. That same sign-in event in Azure Monitor, however, appears as multiple line items. These events all have the same `correlationId`.
-
 ### Non-interactive user sign-ins
 
 Like interactive user sign-ins, non-interactive sign-ins are done on behalf of a user. These sign-ins were performed by a client app or OS components on behalf of a user and don't require the user to provide an authentication factor. Instead, the device or client app uses a token or code to authenticate or access a resource on behalf of a user. In general, the user perceives these sign-ins as happening in the background.

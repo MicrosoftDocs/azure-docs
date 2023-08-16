@@ -97,7 +97,7 @@ You can filter on several details. The following table describes some commonly u
 | Conditional Access | Options are *Not applied*, *Success*, and *Failure* |
 
 
-### Considerations for sign-in log filters
+### Considerations for sign-in logs
 
 - **IP address and location:** There's no definitive connection between an IP address and where the computer with that address is physically located. Mobile providers and VPNs issue IP addresses from central pools that are often far from where the client device is actually used. Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse lookups and other information.
 
@@ -114,15 +114,19 @@ You can filter on several details. The following table describes some commonly u
 
 Now that your sign-in logs table is formatted for your needs, you can more effectively analyze the data. Some common scenarios are described here, but they aren't the only ways to analyze sign-in data. Further analysis and retention of sign-in data can be accomplished by exporting the logs to other tools. 
 
-### Sign-in error codes
+Customizing the columns and adjusting the filter helps to look at logs with similar characteristics. Sometimes you need to look at the details of an individual log. Select a log to open the **Activity Details** panel. There are several tabs in the panel to explore. 
 
-If a sign-in failed, you can get more information about the reason in the **Basic info** section of the related log item. The error code and associated failure reason appear in the details. Because of the complexity of some Azure AD environments, we can't document every possible error code and resolution. Some errors may require [submitting a support request](../fundamentals/how-to-get-support.md) to resolve the issue.
+### Basic info
 
-![Screenshot of a sign-in error code.](./media/concept-sign-ins/error-code.png)
+The Basic info tab contains most of the details that are also displayed in the table. You can launch the Sign-in Diagnostic from the Basic info tab. For more information, see [How to use the Sign-in Diagnostic](howto-use-sign-in-diagnostics.md).
 
-For a list of error codes related to Azure AD authentication and authorization, see the [Azure AD authentication and authorization error codes](../develop/reference-error-codes.md) article. In some cases, the [sign-in error lookup tool](https://login.microsoftonline.com/error) may provide remediation steps. Enter the **Error code** provided in the sign-in log details into the tool and select the **Submit** button. 
+<!--- update the following screenshot to be current and show common details --->
 
-![Screenshot of the error code lookup tool.](./media/concept-sign-ins/error-code-lookup-tool.png)
+![Open audit logs](./media/reference-basic-info-sign-in-logs/sign-in-details-basic-info.png)
+
+### Location and Device info
+
+The location tab displays the location and IP address of the user. The Device info tab provides details on the browser and operating system used to sign in. This tab also provides details on if the device is compliant, managed, or hybrid Azure AD joined.
 
 ### Authentication details
 
@@ -141,8 +145,6 @@ This information allows you to troubleshoot each step in a user’s sign-in. Use
 - Usage of passwordless authentication methods, such as Passwordless Phone Sign-in, FIDO2, and Windows Hello for Business.
 - How frequently authentication requirements are satisfied by token claims, such as when users aren't interactively prompted to enter a password or enter an SMS OTP.
 
-While viewing the sign-ins log, select a sign-in event, and then select the **Authentication Details** tab.
-
 ![Screenshot of the Authentication Details tab](media/concept-sign-ins/authentication-details-tab.png)
 
 When analyzing authentication details, take note of the following details:
@@ -152,6 +154,16 @@ When analyzing authentication details, take note of the following details:
     - A **satisfied by claim in the token** message is incorrectly displayed when sign-in events are initially logged. 
     - The **Primary authentication** row isn't initially logged.
 - If you're unsure of a detail in the logs, gather the **Request ID** and **Correlation ID** to use for further analyzing or troubleshooting.
+
+### Sign-in error codes
+
+If a sign-in failed, you can get more information about the reason in the **Basic info** section of the related log item. The error code and associated failure reason appear in the details. Because of the complexity of some Azure AD environments, we can't document every possible error code and resolution. Some errors may require [submitting a support request](../fundamentals/how-to-get-support.md) to resolve the issue.
+
+![Screenshot of a sign-in error code.](./media/concept-sign-ins/error-code.png)
+
+For a list of error codes related to Azure AD authentication and authorization, see the [Azure AD authentication and authorization error codes](../develop/reference-error-codes.md) article. In some cases, the [sign-in error lookup tool](https://login.microsoftonline.com/error) may provide remediation steps. Enter the **Error code** provided in the sign-in log details into the tool and select the **Submit** button. 
+
+![Screenshot of the error code lookup tool.](./media/concept-sign-ins/error-code-lookup-tool.png)
 
 ## Next steps
 
