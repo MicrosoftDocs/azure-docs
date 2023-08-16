@@ -40,38 +40,38 @@ To generate an access key and store it as a CI workflow secret, perform the foll
 
 [!INCLUDE [Generate an access key](./includes/include-generate-access-key.md)]
 
-1. Store the access key in a CI workflow secret to avoid specifying the key in clear text in the worflow definition:
+Next, store the access key in a CI workflow secret to avoid specifying the key in clear text in the workflow definition:
 
-  The following steps describe how to create a workflow secret in GitHub Actions or Azure Pipelines. Follow the specific instructions of your CI platform to create store the access key securely.
+The following steps describe how to create a workflow secret in GitHub Actions or Azure Pipelines. Follow the specific instructions of your CI platform to create store the access key securely.
 
 # [GitHub Actions](#tab/github)
 
-  1. Go to your GitHub repository, and select **Settings** > **Secrets and variables** > **Actions**.
-  1. Select **New repository secret**.
-  1. Enter the secret details, and then select **Add secret** to create the CI/CD secret.
-  
-    | Parameter | Value |
-    | ----------- | ------------ |
-    | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |  
-    | **Value** | Paste the workspace access key you copied previously. |
+1. Go to your GitHub repository, and select **Settings** > **Secrets and variables** > **Actions**.
+1. Select **New repository secret**.
+1. Enter the secret details, and then select **Add secret** to create the CI/CD secret.
 
-  1. Select **OK** to create the workflow secret.
+  | Parameter | Value |
+  | ----------- | ------------ |
+  | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |  
+  | **Value** | Paste the workspace access key you copied previously. |
+
+1. Select **OK** to create the workflow secret.
 
 # [Azure Pipelines](#tab/pipelines)
 
-  1. Go to your Azure DevOps project.
-  1. Go to the **Pipelines** page, select the appropriate pipeline, and then select **Edit**.
-  1. Locate the **Variables** for this pipeline.
-  1. Add a new variable.
-  1. Enter the variable details, and then select **Add secret** to create the CI/CD secret.
+1. Go to your Azure DevOps project.
+1. Go to the **Pipelines** page, select the appropriate pipeline, and then select **Edit**.
+1. Locate the **Variables** for this pipeline.
+1. Add a new variable.
+1. Enter the variable details, and then select **Add secret** to create the CI/CD secret.
 
-    | Parameter | Value |
-    | ----------- | ------------ |
-    | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |
-    | **Value** | Paste the workspace access key you copied previously. |
-    | **Keep this value secret** | Check this value |
+  | Parameter | Value |
+  | ----------- | ------------ |
+  | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |
+  | **Value** | Paste the workspace access key you copied previously. |
+  | **Keep this value secret** | Check this value |
 
-  1. Select **OK**, and then **Save** to create the workflow secret.
+1. Select **OK**, and then **Save** to create the workflow secret.
 
 ---
 
@@ -83,11 +83,11 @@ To get the service endpoint URL and store it as a CI workflow secret, perform th
 
 [!INCLUDE [Get region endpoint](./includes/include-get-region-endpoint.md)]
 
-1. Store the service endpoint URL in a CI workflow secret:
+Next, store the service endpoint URL in a CI workflow secret:
 
-    | Secret name | Value |
-    | ----------- | ------------ |
-    | *PLAYWRIGHT_SERVICE_URL* | Paste the endpoint URL you copied previously. |
+| Secret name | Value |
+| ----------- | ------------ |
+| *PLAYWRIGHT_SERVICE_URL* | Paste the endpoint URL you copied previously. |
 
 ## 3. Add service configuration file
 
