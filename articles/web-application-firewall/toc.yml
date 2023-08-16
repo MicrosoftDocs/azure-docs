@@ -62,6 +62,8 @@
       href: ./ag/waf-engine.md
     - name: Sensitive Data Protection
       href: ./ag/waf-sensitive-data-protection.md
+    - name: Rate limiting
+      href: ./ag/rate-limiting-overview.md
     - name: Best practices
       href: ./ag/best-practices.md
     - name: FAQ
