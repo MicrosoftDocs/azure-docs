@@ -85,6 +85,12 @@ Don't rename the following features, functionality, or services.
 
 ## Glossary of updated terminology
 
+Features of the identity and network access products are attributed to Microsoft Entra—the product family, not the individual product name.
+
+You're not required to use the Microsoft Entra attribution with features. Only use if needed to clarify whether you're talking about a concept versus the feature in a specific product, or when comparing a Microsoft Entra feature with a competing feature.
+
+Only official product names are capitalized, plus Conditional Access and My * apps.
+
 |  **Category**           | **Old terminology** | **Correct name as of July 2023** |
 |-------------------------|---------------------|----------------------------------|
 | Microsoft Entra product family | Microsoft Azure Active Directory<br/> Azure Active Directory<br/> Azure Active Directory (Azure AD)<br/> Azure AD<br/> AAD | Microsoft Entra ID<br/> (Second use: Microsoft Entra ID is preferred, ID is acceptable in product/UI experiences, ME-ID if abbreviation is necessary) |
@@ -157,12 +163,6 @@ Don't rename the following features, functionality, or services.
 |            | Hybrid Azure AD Join<br/> Hybrid Azure AD Joined | Microsoft Entra hybrid join<br/> Microsoft Entra hybrid joined |
 |            | Managed identities in Azure AD for Azure SQL | Managed identities in Microsoft Entra for Azure SQL |
 | Acronym usage | AAD | ME-ID<br/><br/> ![NOTE] This isn't an official abbreviation for the product but may be used in code or when absolute shortest form is required. |
-
-Features of the identity and network access products are attributed to Microsoft Entra—the product family, not the individual product name.
-
-You're not required to use the Microsoft Entra attribution with features. Only use if needed to clarify whether you're talking about a concept versus the feature in a specific product, or when comparing a Microsoft Entra feature with a competing feature.
-
-Only official product names are capitalized, plus Conditional Access and My * apps.
 
 ## Frequently asked questions
 
