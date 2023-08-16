@@ -116,7 +116,7 @@ For more information, see [Kudu documentation](https://github.com/projectkudu/ku
 
 You can deploy your [WAR](https://wikipedia.org/wiki/WAR_(file_format)), [JAR](https://wikipedia.org/wiki/JAR_(file_format)), or [EAR](https://wikipedia.org/wiki/EAR_(file_format)) package to App Service to run your Java web app using the Azure CLI, PowerShell, or the Kudu publish API.
 
-The deployment process places the package on the shared file drive correctly (see [Kudu publish API reference](#kudu-publish-api-reference)). For that reason, deploying WAR/JAR/EAR packages using [FTP](deploy-ftp.md) or WebDeploy is not recommended.
+The deployment process used by the steps here places the package on the app's content share with the right naming convention and directory structure (see [Kudu publish API reference](#kudu-publish-api-reference)), and it's the recommended approach. If you deploy WAR/JAR/EAR packages using [FTP](deploy-ftp.md) or WebDeploy instead, you may see unkown failures due to mistakes in the naming or structure.
 
 # [Azure CLI](#tab/cli)
 
