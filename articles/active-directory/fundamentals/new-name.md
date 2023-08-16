@@ -252,13 +252,13 @@ Microsoft identity platform encompasses all our identity and access developer as
 
 Naming is also not changing for:
 
-- Microsoft Authentication Library (MSAL) – Acquire security tokens from the Microsoft identity platform to authenticate users and access secured web APIs to provide secure access to Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API.
-- Microsoft Graph – Get programmatic access to organizational, user, and application data stored in Microsoft Entra ID.
-- Microsoft Graph PowerShell – Acts as an API wrapper for the Microsoft Graph APIs; helps administer every Microsoft Entra ID feature that has an API in Microsoft Graph.
-- Windows Server Active Directory, commonly known as “Active Directory”, and all related Windows Server identity services, associated with Active Directory.
-- Active Directory Federation Services (AD FS) nor Active Directory Domain Services (AD DS) nor the product name “Active Directory” or any corresponding features.
-- Azure Active Directory B2C will continue to be available as an Azure service.
-- Any deprecated or retired functionality, feature, or service of Azure Active Directory
+- [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) – Acquire security tokens from the Microsoft identity platform to authenticate users and access secured web APIs to provide secure access to Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API.
+- [Microsoft Graph](/graph) – Get programmatic access to organizational, user, and application data stored in Microsoft Entra ID.
+- [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview) – Acts as an API wrapper for the Microsoft Graph APIs; helps administer every Microsoft Entra ID feature that has an API in Microsoft Graph.
+- [Windows Server Active Directory](/troubleshoot/windows-server/identity/active-directory-overview), commonly known as “Active Directory”, and all related Windows Server identity services, associated with Active Directory.
+- [Active Directory Federation Services (AD FS)](/windows-server/identity/active-directory-federation-services) nor [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/active-directory-domain-services) nor the product name “Active Directory” or any corresponding features.
+- [Azure Active Directory B2C](/azure/active-directory-b2c) will continue to be available as an Azure service.
+- Any deprecated or retired functionality, feature, or service of Azure Active Directory.
 
 ### How and when are customers being notified?
 
