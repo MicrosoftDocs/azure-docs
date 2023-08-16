@@ -2,12 +2,15 @@
 title: Microsoft Entra architecture icons
 description: Learn about the official collection of Microsoft Entra icons that you can use in architectural diagrams, training materials, or documentation.
 author: CelesteDG
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 08/15/2023
 ms.author: celested
 ms.reviewer: nicholepet
+
+# Customer intent: As a new or existing customer, I want to learn how I can use the official Microsoft Entra icons in architectural diagrams, training materials, or documentation.
 ---
 
 # Microsoft Entra architecture icons
