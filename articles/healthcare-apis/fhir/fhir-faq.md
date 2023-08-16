@@ -48,7 +48,7 @@ For more information, see [Supported FHIR features](fhir-features-supported.md).
 FHIR service is our implementation of the FHIR specification that sits in the Azure Health Data Services, which allows you to have a FHIR service and a DICOM service within a single workspace. Azure API for FHIR was our initial GA product and is still available as a stand-alone product. The main feature differences are:
 
 * FHIR service has a limit of 4 TB, and Azure API for FHIR supports more than 4 TB.
-* FHIR service support additional capabilties as 
+* FHIR service support additional capabilities as 
 ** [Transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
 ** [Incremental Import](configure-import-data.md).
 ** [Autoscaling](fhir-service-autoscale.md) is enabled by default.
@@ -140,8 +140,8 @@ There are two basic Delete types supported within the FHIR service. These are [D
 
 ### Can I perform health checks on FHIR service?
 
-To perform health check on FHIR service , enter `{{fhirurl}}/health/check` in the GET request. You should be able to see Status of FHIR service. HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is succesful.
-In case of errors, you will recieve error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in response body in some scenarios.
+To perform health check on FHIR service , enter `{{fhirurl}}/health/check` in the GET request. You should be able to see Status of FHIR service. HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is successful.
+In case of errors, you will receive error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in response body in some scenarios.
 
 ## Next steps
 
