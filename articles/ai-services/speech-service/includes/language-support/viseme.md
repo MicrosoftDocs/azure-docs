@@ -26,7 +26,7 @@ ms.author: Zoubaolian
 | ar-TN           | Arabic (Tunisia)| Viseme ID|
 | ar-YE           | Arabic (Yemen)| Viseme ID|
 | bg-BG           | Bulgarian (Bulgaria) | Viseme ID|
-| ca-ES           | Catalan (Spain)| Viseme ID|
+| ca-ES           | Catalan| Viseme ID|
 | cs-CZ           | Czech (Czechia) | Viseme ID|
 | da-DK           | Danish (Denmark)  | Viseme ID|
 | de-AT           | German (Austria)  |Viseme ID <br> Blend shapes|

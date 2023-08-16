@@ -189,7 +189,7 @@ Total supported language codes: 94
 | Oriya	(new) | `or` | 2022-11-01 | |
 | Oromo	(new) | `om` | 2022-11-01 | |
 | Pashto (new)	 | `ps` | 2022-11-01 | |
-| Persian (Farsi) (new) | `fa` | 2022-11-01 | |
+| Persian (new) | `fa` | 2022-11-01 | |
 | Polish	 | `pl` | 2022-11-01 | |
 | Portuguese (Portugal) | `pt-PT` | 2021-10-01 | `pt` also accepted |
 | Portuguese (Brazil) | `pt-BR` | 2021-10-01 | |

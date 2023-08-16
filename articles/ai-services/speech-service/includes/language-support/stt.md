@@ -33,7 +33,7 @@ ms.author: eur
 | `bg-BG` | Bulgarian (Bulgaria) | Plain text |
 | `bn-IN` | Bengali (India) | Plain text |
 | `bs-BA` | Bosnian (Bosnia and Herzegovina) | Plain text |
-| `ca-ES` | Catalan (Spain) | Plain text<br/><br/>Pronunciation |
+| `ca-ES` | Catalan | Plain text<br/><br/>Pronunciation |
 | `cs-CZ` | Czech (Czechia) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation |
 | `cy-GB` | Welsh (United Kingdom) | Plain text |
 | `da-DK` | Danish (Denmark) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Pronunciation |

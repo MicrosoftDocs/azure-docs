@@ -75,7 +75,7 @@ Conversational language understanding supports utterances in the following langu
 | Spanish | `es` |
 | Estonian | `et` |
 | Basque | `eu` |
-| Persian (Farsi) | `fa` |
+| Persian | `fa` |
 | Finnish | `fi` |
 | French | `fr` |
 | Western Frisian | `fy` |
