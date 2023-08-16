@@ -27,7 +27,7 @@ Make sure to check back here often to keep up with new updates.
 
 Here's what changed in July 2023:
 
-### Watermarking is now generally available in Azure Virtual Desktop
+### Watermarking is now generally available
 
 [Watermarking](watermarking.md), when used with [screen capture protection](#screen-capture-protection), helps protect your sensitive information from capture on client endpoints. When you enable watermarking, QR code watermarks appear as part of remote desktops. The QR code contains the connection ID of a remote session that admins can use to trace the session. You can configure watermarking on session hosts and enforce it with the Remote Desktop client.
 
