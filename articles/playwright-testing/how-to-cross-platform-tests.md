@@ -10,7 +10,7 @@ ms.custom: playwright-testing-preview
 
 In this article, you'll learn how to run cross-platform Playwright tests with Microsoft Playwright Testing Preview. The service abstracts the complexity and infrastructure for running Playwright tests across multiple operating systems and browsers.
 
-Update the Playwright configuration file to set the target operating system (OS) and browser. You can configure a default operating system, or use [Playwright test projects](https://playwright.dev/docs/test-advanced#projects) to specify multiple configurations.
+Update the Playwright configuration file to set the target operating system (OS) and browser. You can configure a default operating system, or use [Playwright test projects](https://playwright.dev/docs/test-projects) to specify multiple configurations.
 
 Learn more about the [operating systems and browsers that Microsoft Playwright Testing supports](./resource-supported-operating-systems-browsers.md).
 
