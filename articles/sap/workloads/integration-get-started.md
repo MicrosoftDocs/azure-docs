@@ -203,7 +203,7 @@ Also see the following SAP resources:
 
 Protect your data, apps, and infrastructure against rapidly evolving cyber threats with cloud security services from Microsoft. Artificial intelligence (AI) and device learning (ML) backed capabilities are required to keep up with the pace.
 
-Use [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) to secure your endpoints surrounding the SAP system including automated responses.
+Use [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) to secure your cloud-infrastructure surrounding the SAP system including automated responses.
 
 Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) solution [Microsoft Sentinel](../../sentinel/sap/sap-solution-security-content.md) to protect your SAP system from within using signals from the SAP Audit Log among others.
 
@@ -211,11 +211,13 @@ Learn more about identity focused integration capabilities that power the analys
 
 #### Microsoft Defender for Cloud
 
-The [Defender product family](../../defender-for-cloud/defender-for-cloud-introduction.md) consist of multiple products tailored to the workload type. Below excerpt serves as entry point to start securing your SAP system.
+The [Defender product family](../../defender-for-cloud/defender-for-cloud-introduction.md) consist of multiple products tailored to provide "cloud security posture management" (CSPM) and "cloud workload protection" (CWPP) for the various workload types. Below excerpt serves as entry point to start securing your SAP system.
 
 - Defender for Servers (SAP hosts)
+    - [Protect your SAP hosts with Defender for Servers including OS specific Endpoint protection with Microsoft Defender for Endpoint (MDE)](../../defender-for-cloud/defender-for-servers-introduction.md)
     - [Microsoft Defender for Endpoint on Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux)
     - [Microsoft Defender for Endpoint on Windows](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint)
+    - [Enable Defender for Servers](../../defender-for-cloud/tutorial-enable-servers-plan.md#enable-the-defender-for-servers-plan)
 - Defender for Storage (SAP SMB file shares on Azure)
     - [Protect your SAP SMB file shares with Defender](../../defender-for-cloud/defender-for-storage-introduction.md)
     - [Enable Defender for Storage](../../defender-for-cloud/tutorial-enable-storage-plan.md)
@@ -223,9 +225,9 @@ The [Defender product family](../../defender-for-cloud/defender-for-cloud-introd
     - [Protect your OpenAPI APIs with Defender for APIs](../../defender-for-cloud/defender-for-apis-introduction.md)
     - [Enable the Defender for APIs](../../defender-for-cloud/defender-for-apis-deploy.md)
 
-See SAP's recommendation to use AntiVirus software for SAP hosts and systems on both Linux and Windows based platforms [here](https://wiki.scn.sap.com/wiki/display/Basis/Protecting+SAP+systems+using+antivirus+softwares).
+See SAP's recommendation to use AntiVirus software for SAP hosts and systems on both Linux and Windows based platforms [here](https://wiki.scn.sap.com/wiki/display/Basis/Protecting+SAP+systems+using+antivirus+softwares). Be aware that the threat landscape has evolved from file-based attacks to file-less attacks. Therefore, the protection approach has to evolve beyond pure AntiVirus capabilities too.
 
-For more information about using Microsoft Defender for Endpoint (MDE) for SAP applications regarding `Next-generation protection` (AntiVirus) and `Endpoint Detection and Response` (EDR) see the following Microsoft resources:
+For more information about using Microsoft Defender for Endpoint (MDE) via Microsoft Defender for Server for SAP applications regarding `Next-generation protection` (AntiVirus) and `Endpoint Detection and Response` (EDR) see the following Microsoft resources:
 
 - [SAP Applications and Microsoft Defender for Linux | Microsoft TechCommunity](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-applications-and-microsoft-defender-for-linux/ba-p/3675480)
 - [Enable the Microsoft Defender for Endpoint integration](../../defender-for-cloud/integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration)
@@ -243,7 +245,8 @@ Also see the following SAP resources:
 > Certification for the SAP Virus Scan Interface (NW-VSI) doesn't apply to MDE, because it operates outside of the SAP system. It complements Microsoft Sentinel for SAP, which interacts with the SAP system directly. See more details and the SAP certification note for Sentinel below.
 
 > [!Tip]
-> MDE was formerly called Microsoft Defender Advanced Threat Protection (ATP). Older articles or SAP notes still refer to that name. 
+> MDE was formerly called Microsoft Defender Advanced Threat Protection (ATP). Older articles or SAP notes still refer to that name.
+> Microsoft Defender for Server includes Endpoint detection and response (EDR) features that are provided by Microsoft Defender for Endpoint Plan 2.
 
 #### Microsoft Sentinel for SAP
 
