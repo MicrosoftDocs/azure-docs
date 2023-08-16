@@ -30,10 +30,6 @@ There may be times when you're running a container with a multi-layered ingestio
 
 ## Managed glossary workflow
 
-> [!TIP]
-> You can generate template files using the following command in your container environment:
-> **GenerateHotfixTemplate=true**
-
   > [!IMPORTANT]
   > **UTF-16 LE** is the only accepted file format for the managed-glossary folders. For more information about encoding your files, *see* [Encoding](/powershell/module/microsoft.powershell.management/set-content?view=powershell-7.2#-encoding&preserve-view=true)
 
