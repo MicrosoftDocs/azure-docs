@@ -49,6 +49,7 @@ Binding code for C# depends on the [specific process model](../articles/azure-fu
 | Table storage| [Input](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=in-process&pivots=programming-language-csharp)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=in-process&pivots=programming-language-csharp) | |
 | Timer | [Trigger](../articles/azure-functions/functions-bindings-timer.md?tabs=in-process&pivots=programming-language-csharp#example) | [Link](https://www.serverlesslibrary.net/?language=C%23&filtertext=timer) |
 | Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=in-process&pivots=programming-language-csharp#example) | [Link](https://www.serverlesslibrary.net/?language=C%23&filtertext=twilio) |
+
 ---
 
 ::: zone-end  
@@ -152,6 +153,7 @@ Binding code for Python depends on the Python model version.
 | Table storage| [Input](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=python-v1&pivots=programming-language-python)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=python-v1&pivots=programming-language-python) | |
 | Timer | [Trigger](../articles/azure-functions/functions-bindings-timer.md?tabs=python-v1&pivots=programming-language-python#example) | [Link](https://www.serverlesslibrary.net/?language=Python&filtertext=timer) |
 | Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=python-v1&pivots=programming-language-python#example) | [Link](https://www.serverlesslibrary.net/?language=Python&filtertext=twilio) |
+
 ---
 ::: zone-end
 
