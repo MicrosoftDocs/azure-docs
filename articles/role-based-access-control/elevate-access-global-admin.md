@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/21/2023
-ms.author: rolyon 
+ms.author: rolyon
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Elevate access to manage all Azure subscriptions and management groups
@@ -62,7 +62,7 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
     > [!NOTE]
     > If you're using [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), deactivating your role assignment does not change the **Access management for Azure resources** toggle to **No**. To maintain least privileged access, we recommend that you set this toggle to **No** before you deactivate your role assignment.
-    
+
 1. Click **Save** to save your setting.
 
    This setting is not a global property and applies only to the currently signed in user. You can't elevate access for all members of the Global Administrator role.
@@ -294,15 +294,15 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2022-04-01&$filter=principalId+eq+'{objectid}'
     ```
-    	
-    >[!NOTE] 
-    >A directory administrator should not have many assignments, if the previous query returns too many assignments, you can also query for all assignments just at directory scope level, then filter the results: 
+
+    >[!NOTE]
+    >A directory administrator should not have many assignments, if the previous query returns too many assignments, you can also query for all assignments just at directory scope level, then filter the results:
     > `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2022-04-01&$filter=atScope()`
-    		
-1. The previous calls return a list of role assignments. Find the role assignment where the scope is `"/"` and the `roleDefinitionId` ends with the role name ID you found in step 1 and `principalId` matches the objectId of the directory administrator. 
-	
+
+1. The previous calls return a list of role assignments. Find the role assignment where the scope is `"/"` and the `roleDefinitionId` ends with the role name ID you found in step 1 and `principalId` matches the objectId of the directory administrator.
+
     Sample role assignment:
-    
+
     ```json
     {
       "value": [
@@ -324,7 +324,7 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
       "nextLink": null
     }
     ```
-    
+
     Again, save the ID from the `name` parameter, in this case 11111111-1111-1111-1111-111111111111.
 
 1. Finally, Use the role assignment ID to remove the assignment added by `elevateAccess`:
@@ -363,7 +363,7 @@ When access is elevated, an entry is added to the logs. As a Global Administrato
     az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2021-09-10T20:00:00Z'" > output.txt
     ```
 
-1.	In the output file, search for `elevateAccess`.
+1. In the output file, search for `elevateAccess`.
 
     The log will resemble the following where you can see the timestamp of when the action occurred and who called it.
 

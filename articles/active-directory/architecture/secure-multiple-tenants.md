@@ -19,14 +19,14 @@ ms.collection: M365-identity-device-management
 
 There are specific scenarios when delegating administration in a single tenant boundary doesn't meet your needs. In this section, there are requirements that may drive you to create a multi-tenant architecture. Multi-tenant organizations might span two or more Azure AD tenants. This can result in unique cross-tenant collaboration and management requirements. Multi-tenant architectures increase management overhead and complexity and should be used with caution. We recommend using a single tenant if your needs can be met with that architecture. For more detailed information, see [Multi-tenant user management](multi-tenant-user-management-introduction.md).
 
-A separate tenant creates a new boundary, and therefore decoupled management of Azure AD directory roles, directory objects, conditional access policies, Azure resource groups, Azure management groups, and other controls as described in previous sections.
+A separate tenant creates a new boundary, and therefore decoupled management of Azure AD directory roles, directory objects, Conditional Access policies, Azure resource groups, Azure management groups, and other controls as described in previous sections.
 
 A separate tenant is useful for an organization's IT department to validate tenant-wide changes in Microsoft services such as, Intune, Azure AD Connect, or a hybrid authentication configuration while protecting an organization's users and resources. This includes testing service configurations that might have tenant-wide effects and can't be scoped to a subset of users in the production tenant.
 
 Deploying a non-production environment in a separate tenant might be necessary during development of custom applications that can change data of production user objects with MS Graph or similar APIs (for example, applications that are granted Directory.ReadWrite.All, or similar wide scope).
 
 >[!Note]
->Azure AD Connect synchronization to multiple tenants, which might be useful when deploying a non-production environment in a separate tenant. For more information, see [Azure AD Connect: Supported topologies](../hybrid/plan-connect-topologies.md).
+>Azure AD Connect synchronization to multiple tenants, which might be useful when deploying a non-production environment in a separate tenant. For more information, see [Azure AD Connect: Supported topologies](../hybrid/connect/plan-connect-topologies.md).
 
 ## Outcomes
 
@@ -177,7 +177,7 @@ Devices: This tenant contains a reduced number of devices; only those that are n
 
 * [Introduction to delegated administration and isolated environments](secure-introduction.md)
 
-* [Azure AD fundamentals](../fundamentals/secure-fundamentals.md)
+* [Azure AD fundamentals](./secure-fundamentals.md)
 
 * [Azure resource management fundamentals](secure-resource-management.md)
 

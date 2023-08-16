@@ -518,6 +518,9 @@
       href: query/toc.yml
     - name: Materialized views (preview)
       href: materialized-views.md
+    - name: Index and query geospatial data
+      displayName: geospatial, geojson, spatial, index, query, geography, geometry
+      href: how-to-geospatial-index-query.md
     - name: Throughput (Request units)
       items:
         - name: Provisioned throughput

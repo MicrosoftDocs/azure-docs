@@ -40,9 +40,9 @@ For an overview of the feature, view this "Azure Active Directory: What is Stage
     
     For both options, we recommend enabling single sign-on (SSO) to achieve a silent sign-in experience. 
     For Windows 7 or 8.1 domain-joined devices, we recommend using seamless SSO. For more information, see [What is seamless SSO](how-to-connect-sso.md). 
-    For Windows 10, Windows Server 2016 and later versions, it’s recommended to use SSO via [Primary Refresh Token (PRT)](../../devices/concept-primary-refresh-token.md) with [Azure AD joined devices](../../devices/concept-azure-ad-join.md), [hybrid Azure AD joined devices](../../devices/concept-hybrid-join.md) or [personal registered devices](../../devices/concept-azure-ad-register.md) via Add Work or School Account.
+    For Windows 10, Windows Server 2016 and later versions, it’s recommended to use SSO via [Primary Refresh Token (PRT)](../../devices/concept-primary-refresh-token.md) with [Azure AD joined devices](../../devices/concept-directory-join.md), [hybrid Azure AD joined devices](../../devices/concept-hybrid-join.md) or [personal registered devices](../../devices/concept-device-registration.md) via Add Work or School Account.
 
--   You have configured all the appropriate tenant-branding and conditional access policies you need for users who are being migrated to cloud authentication.
+-   You have configured all the appropriate tenant-branding and Conditional Access policies you need for users who are being migrated to cloud authentication.
 
 -   If you plan to use Azure AD Multi-Factor Authentication, we recommend that you use [combined registration for self-service password reset (SSPR) and Multi-Factor Authentication](../../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once. Note- when using SSPR to reset password or change password using MyProfile page while in Staged Rollout, Azure AD Connect needs to sync the new password hash which can take up to 2 minutes after reset.
 
@@ -185,7 +185,7 @@ To configure Staged Rollout, follow these steps:
 
 1. On the *Azure AD Connect* page, under the *Staged rollout of cloud authentication*, select the **Enable staged rollout for managed user sign-in** link. 
 
-1. On the *Enable staged rollout feature* page, select the options you want to enable: [Password Hash Sync](./whatis-phs.md), [Pass-through authentication](./how-to-connect-pta.md), [Seamless single sign-on](./how-to-connect-sso.md), or [Certificate-based Authentication](../../authentication/active-directory-certificate-based-authentication-get-started.md). For example, if you want to enable **Password Hash Sync** and **Seamless single sign-on**, slide both controls to **On**.
+1. On the *Enable staged rollout feature* page, select the options you want to enable: [Password Hash Sync](./whatis-phs.md), [Pass-through authentication](./how-to-connect-pta.md), [Seamless single sign-on](./how-to-connect-sso.md), or [Certificate-based Authentication](../../authentication/certificate-based-authentication-federation-get-started.md). For example, if you want to enable **Password Hash Sync** and **Seamless single sign-on**, slide both controls to **On**.
 
 1. Add groups to the features you selected. For example, *pass-through authentication* and *seamless SSO*. To avoid a time-out, ensure that the security groups contain no more than 200 members initially.
 

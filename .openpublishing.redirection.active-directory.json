@@ -11,6 +11,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/governance/tutorial-prepare-azure-ad-user-accounts.md",
+      "redirect_url": "/azure/active-directory/governance/tutorial-prepare-user-accounts",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-schema-extensions.md",
       "redirect_url": "/azure/active-directory/develop/schema-extensions",
       "redirect_document_id": false
@@ -253,6 +258,41 @@
     {
       "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-create-trust.md",
       "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation-create-trust",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/concept-fundamentals-security-defaults.md",
+      "redirect_url": "/azure/active-directory/fundamentals/security-defaults",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/hybrid-azuread-join-control.md",
+      "redirect_url": "/azure/active-directory/devices/hybrid-join-control",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/hybrid-azuread-join-manual.md",
+      "redirect_url": "/azure/active-directory/devices/hybrid-join-manual",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/hybrid-azuread-join-plan.md",
+      "redirect_url": "/azure/active-directory/devices/hybrid-join-plan",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/device-management-azure-portal.md",
+      "redirect_url": "/azure/active-directory/devices/manage-device-identities",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/concept-azure-ad-register.md",
+      "redirect_url": "/azure/active-directory/devices/concept-device-registration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/devices/concept-azure-ad-join.md",
+      "redirect_url": "/azure/active-directory/devices/concept-directory-join",
       "redirect_document_id": true
     },
     {
@@ -1673,6 +1713,21 @@
     {
       "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-daemon-node-call-api-call-api.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-daemon-node-call-api-prepare-tenant",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-dotnet-sign-in-prepare-tenant.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-web-app-dotnet-sign-in-prepare-tenant",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-dotnet-sign-in-prepare-app.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-web-app-dotnet-sign-in-prepare-app",
+      "redirect_document_id": false 
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-web-app-dotnet-sign-in-sign-out.md",
+      "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-web-app-dotnet-sign-in-sign-out",
       "redirect_document_id": false 
     },
     {
@@ -13401,7 +13456,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-single-page-application-angular.md",
+     "source_path_from_root": "/articles/active-directory/external-identities/customers/sample-single-page-application-angular.md",
       "redirect_url": "/azure/active-directory/external-identities/customers/sample-single-page-app-angular-sign-in",
       "redirect_document_id": false
     },
@@ -13430,6 +13485,103 @@
       "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-react-sign-in-sign-out",
       "redirect_document_id": false
     },
-    
+    { "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-whatis.md",
+      "redirect_url": "/azure/active-directory/fundamentals/whatis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/managed-identities-azure-resources/services-azure-active-directory-support.md",
+      "redirect_url": "/azure/active-directory/managed-identities-azure-resources/services-id-authentication-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-accesscontrol-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-business-needs.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-contentmgt-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/aplan-hybrid-identity-design-considerations-data-protection-strategy.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-dataprotection-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-identity-adoption-strategy.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-data-protection-strategy.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-directory-sync-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-incident-response-requirements.md",
+      "redirect_url": "/azure/active-directory/hybrid/connect/index",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-nextsteps.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-overview.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/connect/plan-hybrid-identity-design-considerations-tools-comparison.md",
+      "redirect_url": "/azure/active-directory/hybrid/index",
+      "redirect_document_id": false
+    },
+
+
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/add-users-azure-active-directory.md",
+      "redirect_url": "/azure/active-directory/fundamentals/add-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/subscription-requirements.md",
+      "redirect_url": "/azure/active-directory/governance/licensing-fundamentals",
+      "redirect_document_id": false
+    }
+   
   ]
 }

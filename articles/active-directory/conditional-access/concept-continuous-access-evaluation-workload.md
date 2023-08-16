@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Continuous access evaluation for workload identities (preview)
 
-Continuous access evaluation (CAE) for [workload identities](../develop/workload-identities-overview.md) provides security benefits to your organization. It enables real-time enforcement of Conditional Access location and risk policies along with instant enforcement of token revocation events for workload identities. 
+Continuous access evaluation (CAE) for [workload identities](../workload-identities/workload-identities-overview.md) provides security benefits to your organization. It enables real-time enforcement of Conditional Access location and risk policies along with instant enforcement of token revocation events for workload identities. 
 
 Continuous access evaluation doesn't currently support managed identities.
 
@@ -51,9 +51,9 @@ When a client’s access to a resource is blocked due to CAE being triggered, th
 
 The following steps detail how an admin can verify sign in activity in the sign-in logs: 
 
-1.	Sign into the Azure portal as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1.	Browse to **Azure Active Directory** > **Sign-in logs** > **Service Principal Sign-ins**. You can use filters to ease the debugging process. 
-1.	Select an entry to see activity details. The **Continuous access evaluation** field indicates whether a CAE token was issued in a particular sign-in attempt. 
+1. Sign into the Azure portal as a Conditional Access Administrator, Security Administrator, or Global Administrator.
+1. Browse to **Azure Active Directory** > **Sign-in logs** > **Service Principal Sign-ins**. You can use filters to ease the debugging process. 
+1. Select an entry to see activity details. The **Continuous access evaluation** field indicates whether a CAE token was issued in a particular sign-in attempt. 
 
 ## Next steps
 

@@ -5,13 +5,13 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 07/23/2023
+ms.date: 08/01/2023
 ms.author: greglin
 ---
 
 # Expose a WebSocket server to Application Gateway
 
-As outlined in the Application Gateway v2 documentation - it [provides native support for the WebSocket and HTTP/2 protocols](features.md#websocket-and-http2-traffic). Note that for both Application Gateway and the Kubernetes Ingress - there is no user-configurable setting to selectively enable or disable WebSocket support.
+As outlined in the Application Gateway v2 documentation - it [provides native support for the WebSocket and HTTP/2 protocols](features.md#websocket-and-http2-traffic). Both Application Gateway and the Kubernetes Ingress don't have a user-configurable setting to selectively enable or disable WebSocket support.
 
 > [!TIP]
 > Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
@@ -57,7 +57,7 @@ spec:
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: websocket-repeater
@@ -89,7 +89,7 @@ curl -i -N -H "Connection: Upgrade" \
 ## WebSocket Health Probes
 
 If your deployment doesn't explicitly define health probes, Application Gateway would attempt an  HTTP GET on your WebSocket server endpoint.
-Depending on the server implementation ([here is one we love](https://github.com/gorilla/websocket/blob/master/examples/chat/main.go)) WebSocket specific headers may be required (`Sec-Websocket-Version` for instance).
+Depending on the server implementation ([here's one we love](https://github.com/gorilla/websocket/blob/master/examples/chat/main.go)) WebSocket specific headers may be required (`Sec-Websocket-Version` for instance).
 Since Application Gateway doesn't add WebSocket headers, the Application Gateway's health probe response from your WebSocket server is most likely `400 Bad Request`.
-As a result Application Gateway marks your pods as unhealthy, which eventually results in a `502 Bad Gateway` for the consumers of the WebSocket server.
-To avoid this, you may need to add an HTTP GET handler for a health check to your server (`/health` for instance, which returns `200 OK`).
+As a result, Application Gateway marks your pods as unhealthy. This status eventually results in a `502 Bad Gateway` for the consumers of the WebSocket server.
+To avoid the bad gateway error, you might need to add an HTTP GET handler for a health check to your server (`/health` for instance, which returns `200 OK`).

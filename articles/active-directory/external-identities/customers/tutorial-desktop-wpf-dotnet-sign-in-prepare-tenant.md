@@ -8,6 +8,7 @@ manager: mwongerapk
 ms.author: shermanouko
 ms.service: active-directory
 ms.subservice: ciam
+ms.custom: devx-track-dotnet
 ms.topic: tutorial
 ms.date: 07/26/2023
 ---
