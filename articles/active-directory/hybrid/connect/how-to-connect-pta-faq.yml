@@ -182,7 +182,7 @@ sections:
       - question: |
           Why do I need a cloud-only Global Administrator account to enable Pass-through Authentication?
         answer: |
-          It's recommended that you enable or disable Pass-through Authentication using a cloud-only Global Administrator account. Learn about [adding a cloud-only Global Administrator account](../../fundamentals/add-users-azure-active-directory.md). Doing it this way ensures that you don't get locked out of your tenant.
+          It's recommended that you enable or disable Pass-through Authentication using a cloud-only Global Administrator account. Learn about [adding a cloud-only Global Administrator account](../../fundamentals/add-users.md). Doing it this way ensures that you don't get locked out of your tenant.
           
       - question: |
           How can I disable Pass-through Authentication?
