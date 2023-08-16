@@ -103,7 +103,7 @@ items:
     - name: Catalogs
       href: ./trino/trino-add-catalogs.md
     - name: Configure Delta Lake catalog
-      href: ./trino/trino-add-deltalake-catalog.md
+      href: ./trino/trino-add-delta lake-catalog.md
     - name: Configure Iceberg catalog
       href: ./trino/trino-add-iceberg-catalog.md
   - name: Cluster management
