@@ -33,6 +33,7 @@ The legacy Aruba ClearPass, Palo Alto Panorama, and Splunk integrations are plan
 - [Integrate ClearPass with Microsoft Defender for IoT (on-premises integration)](tutorial-clearpass.md)
 - [Integrate Palo Alto with Microsoft Defender for IoT](tutorial-palo-alto.md)
 - [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)
+- [Integrations with Microsoft and partner services](integrate-overview.md)
 
 > [!NOTE]
 > Microsoft Sentinel is a scalable cloud service for security information event management (SIEM) security orchestration automated response (SOAR).  SOC teams can use the integration between Microsoft Defender for IoT and Microsoft Sentinel to collect data across networks, detect and investigate threats, and respond to incidents.
