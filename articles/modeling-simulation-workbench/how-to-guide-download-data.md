@@ -40,9 +40,9 @@ To export a file, first you need to copy the file to the data out folder in the 
 
 1. Select your Modeling and Simulation Workbench from the resource list.
 
-1. Select **Chamber** in the left side menu. A resource list displays. Select the chamber you want to export data from.
+1. Select **Settings > Chamber** in the left side menu. A resource list displays. Select the chamber you want to export data from.
 
-1. Select **Connector** in the left side menu.  A resource list displays. Select the displayed connector.
+1. Select **Settings > Connector** in the left side menu.  A resource list displays. Select the displayed connector.
 
 1. Select the "Dashboard URL" link that should take you to the ETX dashboard.
 

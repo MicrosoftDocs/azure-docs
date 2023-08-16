@@ -33,7 +33,7 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 1. Select your Modeling and Simulation Workbench from the resource list.
 
-1. Select **Chamber** in the left side menu. A resource list displays. Select the chamber you want to upload the data to.
+1. Select **Settings > Chamber** in the left side menu. A resource list displays. Select the chamber you want to upload the data to.
 
 1. Select the **Upload File** button in the chamber overview section.
 
