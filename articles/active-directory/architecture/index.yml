@@ -24,7 +24,7 @@ landingContent:
       - linkListType: architecture
         links:
           - text: What is Azure Active Directory?
-            url: ../fundamentals/active-directory-whatis.md
+            url: ../fundamentals/whatis.md
           - text: Azure Active Directory architecture
             url: architecture.md
 

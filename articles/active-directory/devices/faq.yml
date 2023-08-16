@@ -49,7 +49,7 @@ sections:
       - question: I see the device record under the USER info in the Azure portal. And I see the state as registered on the device. Am I set up correctly to use Conditional Access?
         answer: |
           The device join state, shown by **deviceID**, must match the state on Azure AD and meet any evaluation criteria for Conditional Access. 
-          For more information, see [Require managed devices for cloud app access with Conditional Access](../conditional-access/require-managed-devices.md).
+          For more information, see [Require managed devices for cloud app access with Conditional Access](../conditional-access/concept-conditional-access-grant.md).
           
           
           
