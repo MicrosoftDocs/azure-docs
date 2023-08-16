@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
