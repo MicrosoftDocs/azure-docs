@@ -1,14 +1,14 @@
 ---
-title: Fraud detection using DataStream API.
-description: Learn how to find fraud detection using DataStream API.
+title: Fraud Detection with the Flink DataStream API
+description: Learn about Fraud Detection with the Flink DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 08/16/2023
 ---
 
-# Fraud detection using Data Stream API
+# Fraud Detection with the Flink DataStream API
 
-Learn how to run Flink Fraud Detection using DataStream API.
+In this article, learn how to run Fraud Detection usecase with the Flink DataStream API.
 
 ## Prerequisites
 
