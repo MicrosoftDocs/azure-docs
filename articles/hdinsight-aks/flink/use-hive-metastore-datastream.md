@@ -3,7 +3,7 @@ title: Using Hive Metastore with Flink DataStream API
 description: Using Hive Metastore with Flink DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/27/2023
+ms.date: 08/16/2023
 ---
 
 # Using Hive Metastore with Flink Datastream
@@ -63,10 +63,6 @@ public static void main(String[] args) throws Exception
 // Create a view in hive catalog
         tableEnv.executeSql("create view MyView as select * from MyTable");
 ```
-
-
-
-
 
 ### References
 [Apache Flink - Hive read & write](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/table/hive/hive_read_write/)
