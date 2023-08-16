@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 07/30/2023
 ---
 
-# Using Hive Catalog with Flink SQL
+# How to use Hive Catalog with Flink SQL
 
 This example uses Hive’s Metastore as a persistent catalog with Flink’s HiveCatalog. We will use this functionality for storing Kafka table and MySQL table metadata on Flink across sessions. Flink uses Kafka table registered in Hive Catalog as a source, perform some lookup and sink result to MySQL database
 
