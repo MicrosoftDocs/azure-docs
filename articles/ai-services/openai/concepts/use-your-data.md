@@ -75,11 +75,13 @@ Learn more about the [manual approval workflow](/azure/private-link/private-endp
 
 After you approve the request in your search service, you can start using the [chat completions extensions API](/azure/ai-services/openai/reference#completions-extensions). Public network access to your Azure OpenAI resource will be disabled for that search service. Private network access for Azure OpenAI Studio support is not currently supported.
 
-### Azure OpenAI resource in private network
-You can protect Azure OpenAI resource in private network as any Azure AI services. See more [details here](https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-virtual-networks).
+### Azure OpenAI resources in private networks
 
-### Storage account in private network
-We don't support using storage account in private network for "Add your data" yet. The support will come soon.
+You can protect Azure OpenAI resource in [private networks](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI services.
+
+### Storage accounts in private networks
+
+Storage accounts in private networks is currently not supported by Azure OpenAI on your data.
 
 ## Azure Role-based access controls (Azure RBAC)
 
