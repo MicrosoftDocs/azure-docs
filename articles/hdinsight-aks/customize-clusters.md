@@ -56,5 +56,5 @@ The following diagram illustrates when script action runs during the creation pr
 > * During cluster creation, you can use many script actions at once.
 > * These scripts are invoked in the order in which they were specified, and not parallelly.
 
-### Next seps
+### Next steps
 * How to [manage script actions](./manage-script-actions.md)
