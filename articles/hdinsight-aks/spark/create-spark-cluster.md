@@ -14,7 +14,7 @@ You can use the Azure portal to create an Apache Spark cluster in cluster pool. 
 1. In the Azure portal, type cluster pools, and select cluster pools to go to the cluster pools page. On the cluster pools page, select the cluster pool in which you can add a new Spark cluster.
 1. On the specific cluster pool page, click **+ New cluster**.
 
-    :::image type="content" source="./media/create-spark-cluster/create-new-spark-cluster.png" alt-text="Screenshot showing how to create new spark cluster." border="true" lightbox="./media/create-spark-cluster/create-new-spark-cluster.png":::
+    :::image type="content" source="./media/create-spark-cluster/create-new-spark-cluster.png" alt-text="Screenshot showing how to create new spark cluster." border="true" lightbox="./media/create-spark-cluster/create-new-spark-cluster":::
     
     This step opens the cluster create page.
     
