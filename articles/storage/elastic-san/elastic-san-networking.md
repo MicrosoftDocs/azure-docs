@@ -6,7 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 08/16/2023
 ms.author: rogarana
-ms.custom: ignite-2022, devx-track-azurepowershell
+ms.custom: ignite-2022, devx-track-azurepowershell, references_regions
 ---
 
 # Configure networking for an Elastic SAN Preview
@@ -99,7 +99,9 @@ az network vnet subnet update --resource-group $RgName --vnet-name $VnetName --n
 ### Configure a private endpoint
 
 > [!IMPORTANT]
-> Before you can create a private endpoint connection to a volume group, it must contain at least one volume.
+> - Private endpoints for Elastic SAN Preview are currently only supported in France Central.
+>
+> - Before you can create a private endpoint connection to a volume group, it must contain at least one volume.
 
 There are two steps involved in configuring a private endpoint connection:
 
