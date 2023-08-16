@@ -15,7 +15,7 @@ Apache Flink uses file systems to consume and persistently store data, both for 
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
 * [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
   * You're  required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
-* Use MSI to access ADSLgen2 
+* Use MSI to access ADLS Gen2 
 * IntelliJ for development on an Azure VM in HDInsight on AKS VNet 
 
 ## Flink FileSystem connector
@@ -166,7 +166,7 @@ We are using Maven to package a jar onto local and submitting to Flink, and usin
 :::image type="content" source="./media/flink-adslgen2/submit-the-job-flinkui.png" alt-text="Screenshot showing jar submission to Flink dashboard.":::
 :::image type="content" source="./media/flink-adslgen2/submit-the-job-flinkui-2.png" alt-text="Screenshot showing job running on Flink dashboard.":::
 
-**Let's Validate streaming data on ADSLgen2**
+**Let's Validate streaming data on ADLS Gen2**
 
 We are seeing the `click_events` streaming into ADLS Gen2
 
