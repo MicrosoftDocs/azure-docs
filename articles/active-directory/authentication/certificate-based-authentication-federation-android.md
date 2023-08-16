@@ -5,6 +5,7 @@ description: Learn about the supported scenarios and the requirements for config
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 09/30/2022
 
