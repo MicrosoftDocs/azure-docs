@@ -25,7 +25,7 @@ There are two methods to query data that's stored in multiple workspaces and app
 ## Permissions required
 
 - You must have `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
-- To save a query, you must have `microsoft.operationalinsights/querypacks/queries/action` permisisons to the query pack where you want to save the query, as provided by the [Log Analytics Contributor built-in role](../articles/azure-monitor/logs/manage-access.md#log-analytics-contributor), for example.
+- To save a query, you must have `microsoft.operationalinsights/querypacks/queries/action` permisisons to the query pack where you want to save the query, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
 
 ## Cross-resource query limits
 
@@ -37,7 +37,7 @@ There are two methods to query data that's stored in multiple workspaces and app
 
 To reference another workspace in your query, use the [workspace](../logs/workspace-expression.md) identifier. For an app from Application Insights, use the [app](./app-expression.md) identifier.
 
-### [Identify workspace resources](#tab/identify-workspace-resources)
+### [Workspace identifier](#tab/workspace-identifier)
 
 You can identify a workspace using one of these IDs:
 
@@ -53,7 +53,7 @@ You can identify a workspace using one of these IDs:
     workspace("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
 
-### [Identify an application](#tab/identify-an-application)
+### [App identifier](#tab/app-identifier)
 The following examples return a summarized count of requests made against an app named *fabrikamapp* in Application Insights.
 
 You can identify an app using one of these IDs:
@@ -72,11 +72,11 @@ You can identify an app using one of these IDs:
 
 ---
 
-## Perform a query 
+## Query across Log Analytics workspaces and from Application Insights
 
-Follow the instructions in this section to perform a query across multiple Log Analytics workspaces and Application Insights apps.
+Follow the instructions in this section to query without using a function or by using a function.
 
-### Query across resources without using a function
+### Query without using a function
 You can query multiple resources from any of your resource instances. These resources can be workspaces and apps combined.
 
 Example for a query across three workspaces:
@@ -93,7 +93,7 @@ union
 
 For more information on the union, where, and summarize operators, see [union operator](/azure/data-explorer/kusto/query/unionoperator), [where operator](/azure/data-explorer/kusto/query/summarizeoperator), and [summarize operator](/azure/data-explorer/kusto/query/summarizeoperator).
 
-### Query across multiple resources by using a function
+### Query by using a function
 When you use cross-resource queries to correlate data from multiple Log Analytics workspaces and Application Insights components, the query can become complex and difficult to maintain. You should make use of [functions in Azure Monitor log queries](./functions.md) to separate the query logic from the scoping of the query resources. This method simplifies the query structure. The following example demonstrates how you can monitor multiple Application Insights components and visualize the count of failed requests by application name.
 
 Create a query like the following example that references the scope of Application Insights components. The `withsource= SourceApp` command adds a column that designates the application name that sent the log. [Save the query as a function](./functions.md#create-a-function) with the alias `applicationsScoping`.
