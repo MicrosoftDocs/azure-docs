@@ -11,10 +11,6 @@ ms.service: azure-operator-service-manager
 # Glossary: Azure Operator Service Manager
 The following article contains terms used throughout the Azure Operator Service Manager documentation.
 
-The following diagram shows the resource relationships amongst the AOSM components.
-
-:::image type="content" source=".\media\resource-relationships.png" alt-text="Screenshot of the resource relationships that show how the Publisher resource interacts with the other resources including Artifact Store and Artifact Manifest.  Site and Site Network Service feed into Network Function Definition Groups and Versions. Configuration Group Values feed into Network Service Design Service Groups and Versions. Lastly,  the Network Function associated with the Configuration Group Schema." border="false":::
-
 ## Publisher
 The Publisher resource enables the onboarding of Network Functions (NFs) to AOSM and the definition of Network Services composed from those NFs. It includes child resources like NFDVersions, NSDVersions, Config Group Schemas and an Artifact Store. You can upload container images and VHDs to the Artifact Store through the Publisher.
 
