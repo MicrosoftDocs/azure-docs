@@ -56,32 +56,32 @@ To generate an access key and store it as a CI workflow secret, perform the foll
 
 # [GitHub Actions](#tab/github)
 
-    1. Go to your GitHub repository, and select **Settings** > **Secrets and variables** > **Actions**.
-    1. Select **New repository secret**.
-    1. Enter the secret details, and then select **Add secret** to create the CI/CD secret.
+1. Go to your GitHub repository, and select **Settings** > **Secrets and variables** > **Actions**.
+1. Select **New repository secret**.
+1. Enter the secret details, and then select **Add secret** to create the CI/CD secret.
 
-        | Parameter | Value |
-        | ----------- | ------------ |
-        | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |  
-        | **Value** | Paste the workspace access key you copied previously. |
+    | Parameter | Value |
+    | ----------- | ------------ |
+    | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |  
+    | **Value** | Paste the workspace access key you copied previously. |
 
-    1. Select **OK** to create the workflow secret.
+1. Select **OK** to create the workflow secret.
 
 # [Azure Pipelines](#tab/pipelines)
 
-    1. Go to your Azure DevOps project.
-    1. Go to the **Pipelines** page, select the appropriate pipeline, and then select **Edit**.
-    1. Locate the **Variables** for this pipeline.
-    1. Add a new variable.
-    1. Enter the variable details, and then select **Add secret** to create the CI/CD secret.
+1. Go to your Azure DevOps project.
+1. Go to the **Pipelines** page, select the appropriate pipeline, and then select **Edit**.
+1. Locate the **Variables** for this pipeline.
+1. Add a new variable.
+1. Enter the variable details, and then select **Add secret** to create the CI/CD secret.
 
-        | Parameter | Value |
-        | ----------- | ------------ |
-        | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |
-        | **Value** | Paste the workspace access key you copied previously. |
-        | **Keep this value secret** | Check this value |
+    | Parameter | Value |
+    | ----------- | ------------ |
+    | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |
+    | **Value** | Paste the workspace access key you copied previously. |
+    | **Keep this value secret** | Check this value |
 
-    1. Select **OK**, and then **Save** to create the workflow secret.
+1. Select **OK**, and then **Save** to create the workflow secret.
 
 ---
 
@@ -177,7 +177,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
 1. Add the following steps to run your Playwright tests in Microsoft Playwright Testing.
 
-  The following steps describe the workflow changes for GitHub Actions or Azure Pipelines. Similarly, you can run your Playwright tests by using the Playwright CLI in other CI platforms.
+    The following steps describe the workflow changes for GitHub Actions or Azure Pipelines. Similarly, you can run your Playwright tests by using the Playwright CLI in other CI platforms.
 
 # [GitHub Actions](#tab/github)
 
