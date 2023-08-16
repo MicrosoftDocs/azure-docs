@@ -448,9 +448,11 @@ See a [simple web app with the Click Analytics Autocollection Plug-in enabled](h
 
 The following examples show which value is fetched as the `parentId` for different configurations.
 
+The examples show how if `parentDataTag` is defined but the plug-in can't find this tag under the DOM tree, the plug-in uses the `id` or `data-*-id` defined within the element that is closest to the clicked element as `parentId`.
+
 ### Example 1
 
-In example 1, the `parentDataTag` isn't declared and `data-parentid` or `data-*-parentid` isn't defined in any element.
+In example 1, the `parentDataTag` isn't declared and `data-parentid` or `data-*-parentid` isn't defined in any element. This example shows a configuration where a value for `parentId` isn't collected.
 
 ```javascript
 export const clickPluginConfigWithUseDefaultContentNameOrId = {
@@ -475,7 +477,7 @@ For clicked element `<Button>`, the value of `parentId` is `“not_specified”`
 
 ### Example 2
 
-In example 2, `parentDataTag` is declared and `data-parentid` is defined.
+In example 2, `parentDataTag` is declared and `data-parentid` is defined. This example shows how a value for `parentId` is collected based on defining `id` or `data-*-id`.
 
 ```javascript
 export const clickPluginConfigWithParentDataTag = {
@@ -497,10 +499,12 @@ export const clickPluginConfigWithParentDataTag = {
 ```
 
 For clicked element `<Button>`, the value of `parentId` is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` definition takes precedence. If the `data-parentid` attribute was defined within the div element with `className=”test2”`, the value for `parentId` would still be `parentid2`.
+
+Declaring `parentDataTag` is useful when you want to use a self-defined `parentId` based on your structure instead of defining `id` or `data-*-id`. 
        
 ### Example 3
 
-In example 3, `parentDataTag` is declared and the `data-parentid` or `data-*-parentid` attribute isn’t defined.
+In example 3, `parentDataTag` is declared and the `data-parentid` or `data-*-parentid` attribute isn’t defined. This example shows how declaring `parentDataTag` can be helpful to collect a value for `parentId` for cases when dynamic elements don't have an `id` or `data-*-id`.
 
 ```javascript
 export const clickPluginConfigWithParentDataTag = {
