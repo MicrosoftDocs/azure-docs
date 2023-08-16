@@ -199,7 +199,7 @@ items:
       - name: Using Apache NiFi with DStream API
         href: ./flink/using-apache-nifi-with-dstream-api.md
       - name: Using CDC - SQL Server & DStream API
-        href: ./flink/cdc-connectors-for-apache-flink.md
+        href: ./flink/change-data-capture-connectors-for-apache-flink.md
       - name: Using Hivemetastore with Flink DataStream
         href: ./flink/using-hms-dstream.md
       - name: Using HBase - Write with DStream API
