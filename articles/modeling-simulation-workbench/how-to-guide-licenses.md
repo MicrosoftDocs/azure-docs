@@ -26,7 +26,7 @@ This section lists the steps associated with uploading a license for a FLEXlm ba
 
 1. Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
 1. Search for *Modeling and Simulation Workbench*. Select the workbench you want to provision from the resource list.
-1. Select **Chamber** in the left side menu. A resource list displays. Select the chamber you want to upload the data to.
+1. Select **Settings > Chamber** in the left side menu. A resource list displays. Select the chamber you want to upload the data to.
 1. Select **License** blade in the Settings section on the left of the screen.
 1. Copy the **FLEXlm host ID or VM UUID** located on the **License Overview** page. You need to provide this value to your license vendor to get a license file from them.
 1. Once you get the vendor license file, Select **Update** on the **License Overview** page. The Update license window displays.
@@ -40,8 +40,8 @@ Complete the following steps to enable remote desktop access via a connector lic
 
 1. Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
 1. Search for *Modeling and Simulation Workbench* and choose the workbench you want to provision from the resource list.
-1. Select **Chamber** in the left side menu. A resource list displays. Select the chamber you want to upload the data to.
-1. Select **Connector** in the left side menu. Select the displayed connector.
+1. Select **Settings > Chamber** in the left side menu. A resource list displays. Select the chamber you want to upload the data to.
+1. Select **Settings > Connector** in the left side menu. Select the displayed connector.
 1. Select **Add License** on the **Connector Overview** page. The Add license window displays.
 1. Enter the License Key URL for the license file using format https://\<keyVaultName\>.vault.azure.net/secrets/\<secretName\>/\<secretGuid\>, and select **Add.**
 1. The Workbench applies the new license key and updates the remote desktop service. This may cause interruptions to active remote desktop sessions.

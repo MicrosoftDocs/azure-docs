@@ -27,12 +27,6 @@ Get started with Azure Modeling and Simulation Workbench (preview) by using the 
   
 - An Azure AD tenant.
 
-- OpenText Exceed TurboX license key.
-
-  > [!IMPORTANT]
-  >
-  > You need to buy the license for production environment.
-
 ## Sign in to Azure portal
 
 Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.

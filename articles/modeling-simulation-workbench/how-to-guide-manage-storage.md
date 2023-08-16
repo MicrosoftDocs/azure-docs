@@ -34,9 +34,9 @@ If you're a Workbench Owner or Chamber Admin, complete the following steps to ac
 
 1. Select your Modeling and Simulation Workbench from the resource list.
 
-1. Select **Chamber** in the left side menu. A resource list displays. Select the chamber where you want to manage the storage for.
+1. Select **Settings > Chamber** in the left side menu. A resource list displays. Select the chamber where you want to manage the storage for.
 
-1. Select **Storage** in the left side menu. A resource list displays. Select the displayed storage.
+1. Select **Settings > Storage** in the left side menu. A resource list displays. Select the displayed storage.
 
 <!---    [!div class="mx-imgBorder"]
    ![Screenshot of the Azure portal chamber storage overview screen](./media/howtoguide-manage-storage/storage-overview.png)
