@@ -34,7 +34,7 @@ landingContent:
           - text: Enable periodic assessment and scheduled patching using Azure policy
             url: tutorial-assessment-deployment-using-policy.md
           - text: Dynamically schedule updates at scale 
-            url: tutorial-dynamic-scoping-for-scheduled-patching.md
+            url: tutorial-dynamic-grouping-for-scheduled-patching.md
   
   - title: Workbooks
     linkLists:
