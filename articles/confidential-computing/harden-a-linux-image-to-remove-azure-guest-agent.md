@@ -81,7 +81,7 @@ Steps to create an image that removes the Azure guest agents are as follows:
 
     The image prepared does not include Azure Linux Agent anymore.
 
-7. Use the prepared image to deploy a CVM. Follow the steps from 4 in this[Create a custom image for Azure confidential VM](/azure/confidential-computing/how-to-create-custom-image-confidential-vm) to deploy the agent-less confidential VM.
+7. Use the prepared image to deploy a confidential VM. Follow the steps from 4 in the[Create a custom image for Azure confidential VM](/azure/confidential-computing/how-to-create-custom-image-confidential-vm) document to deploy the agent-less confidential VM.
 
 ## Next Steps
 
