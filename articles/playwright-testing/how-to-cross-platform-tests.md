@@ -1,20 +1,16 @@
 ---
 title: Run Playwright tests across operating systems
-titleSuffix: Microsoft Playwright Testing
 description: Learn how to run Playwright tests across multiple operating systems with Microsoft Playwright Testing.
-services: playwright-testing
-ms.service: playwright-testing
 ms.topic: how-to
-ms.author: nicktrog
-author: ntrogh
 ms.date: 10/12/2022
+ms.custom: playwright-testing-preview
 ---
 
 # Run tests across multiple operating systems with Microsoft Playwright Testing Preview
 
 In this article, you'll learn how to run cross-platform Playwright tests with Microsoft Playwright Testing Preview. The service abstracts the complexity and infrastructure for running Playwright tests across multiple operating systems and browsers.
 
-Update the Playwright configuration file to set the target operating system (OS) and browser. You can configure a default operating system, or use [Playwright test projects](https://playwright.dev/docs/test-advanced#projects) to specify multiple configurations.
+Update the Playwright configuration file to set the target operating system (OS) and browser. You can configure a default operating system, or use [Playwright test projects](https://playwright.dev/docs/test-projects) to specify multiple configurations.
 
 Learn more about the [operating systems and browsers that Microsoft Playwright Testing supports](./resource-supported-operating-systems-browsers.md).
 
@@ -155,5 +151,5 @@ The following screenshot shows an example of how to filter for tests that ran on
 ## Next steps
 
 - Learn more about [running existing tests with Microsoft Playwright Testing](./how-to-run-with-playwright-testing.md).
-- Learn more about [automating end-to-end tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).
+- Learn more about [automating end-to-end tests with GitHub Actions](./quickstart-automate-end-to-end-testing.md).
 - Learn more about [testing privately hosted application endpoints](./how-to-test-private-endpoints.md).

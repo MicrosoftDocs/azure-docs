@@ -1,13 +1,9 @@
 ---
 title: Authenticate requests
-titleSuffix: Microsoft Playwright Testing
 description: Learn how to create & manage access keys to authenticate requests to Microsoft Playwright Testing. Access keys provide secure access to the Microsoft Playwright Testing API and to run tests in your workspace.
-services: playwright-testing
-ms.service: playwright-testing
 ms.topic: how-to
-ms.author: nicktrog
-author: ntrogh
 ms.date: 08/23/2022
+ms.custom: playwright-testing-preview
 ---
 
 # Authenticate requests to Microsoft Playwright Testing Preview
@@ -113,5 +109,5 @@ To delete an existing workspace access key:
 - Learn more about [managing access to a workspace](./how-to-assign-roles.md).
 - Learn more about [identifying app issues with web UI tests](./tutorial-identify-issues-with-end-to-end-tests.md).
 - Learn more about [running existing tests with Microsoft Playwright Testing](./how-to-run-with-playwright-testing.md).
-- Learn more about [automating end-to-end tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).
+- Learn more about [automating end-to-end tests with GitHub Actions](./quickstart-automate-end-to-end-testing.md).
 - Learn more about [running cross-platform tests](./how-to-cross-platform-tests.md).

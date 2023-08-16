@@ -1,13 +1,9 @@
 ---
 title: Manage workspaces in Playwright dashboard
-titleSuffix: Microsoft Playwright Testing
 description: Learn how to create and manage Microsoft Playwright Testing workspaces in the Playwright dashboard.
-services: playwright-testing
-ms.service: playwright-testing
 ms.topic: how-to
-ms.author: nicktrog
-author: ntrogh
 ms.date: 10/12/2022
+ms.custom: playwright-testing-preview
 ---
 
 # Manage Microsoft Playwright Testing Preview workspaces in the Playwright dashboard
@@ -84,5 +80,5 @@ To remove a workspace, follow these steps to [delete a workspace by using the Az
 ## Next steps
 
 - Learn how to [identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-tests.md)
-- Learn more about [automating end-to-end tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).
+- Learn more about [automating end-to-end tests with GitHub Actions](./quickstart-automate-end-to-end-testing.md).
 - Learn how to [run existing Playwright tests in the cloud](./how-to-run-with-playwright-testing.md).

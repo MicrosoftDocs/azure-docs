@@ -1,13 +1,9 @@
 ---
 title: Run Playwright tests in the cloud
-titleSuffix: Microsoft Playwright Testing
 description: Learn how to run an existing Playwright test suite at cloud scale with Microsoft Playwright Testing.
-services: playwright-testing
-ms.service: playwright-testing
 ms.topic: how-to
-ms.author: nicktrog
-author: ntrogh
 ms.date: 08/11/2022
+ms.custom: playwright-testing-preview
 ---
 
 # Run existing Playwright tests at cloud scale with Microsoft Playwright Testing Preview
@@ -172,5 +168,5 @@ You can increase the number of workers in either of two ways:
 ## Next steps
 
 - Learn more about [running cross-platform tests](./how-to-cross-platform-tests.md).
-- Learn more about [automating end-to-end tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).
+- Learn more about [automating end-to-end tests with GitHub Actions](./quickstart-automate-end-to-end-testing.md).
 - Learn more about [managing workspaces in the Azure portal](./how-to-manage-workspace-in-azure-portal.md).

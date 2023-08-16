@@ -1,13 +1,9 @@
 ---
 title: Manage workspaces in Azure portal
-titleSuffix: Microsoft Playwright Testing
 description: Learn how to create and manage Microsoft Playwright Testing workspaces in the Azure portal.
-services: playwright-testing
-ms.service: playwright-testing
 ms.topic: how-to
-ms.author: nicktrog
-author: ntrogh
 ms.date: 08/18/2022
+ms.custom: playwright-testing-preview
 ---
 
 # Manage Microsoft Playwright Testing Preview workspaces in the Azure portal
@@ -85,5 +81,5 @@ To delete a Playwright workspace in the Azure portal:
 ## Next steps
 
 - Learn how to [Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-tests.md)
-- Learn more about [automating end-to-end tests with GitHub Actions](./tutorial-automate-end-to-end-testing-with-github-actions.md).
+- Learn more about [automating end-to-end tests with GitHub Actions](./quickstart-automate-end-to-end-testing.md).
 - Learn how to [Run existing Playwright tests in the cloud](./how-to-run-with-playwright-testing.md).
