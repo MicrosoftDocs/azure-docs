@@ -1,6 +1,6 @@
 ---
-title: Export ARM template
-description: How to create an ARM template to cluster using script.
+title: Export ARM template in Azure HDInsight on AKS
+description: How to create an ARM template to cluster using script in Azure HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to 
 ms.date: 08/03/2023
