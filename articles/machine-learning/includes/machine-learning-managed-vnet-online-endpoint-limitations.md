@@ -15,7 +15,5 @@ ms.author: mopeakande
 
 - When you use network isolation with a deployment, you can use resources (Azure Container Registry (ACR), Storage account, Key Vault, and Application Insights) from a different resource group or subscription than that of your workspace. However, these resources must belong to the same tenant as your workspace.
 
-- Access from online deployments to Microsoft Container Registry (MCR) is allowed. However, because the _*.data.mcr.microsoft.com_ domain name is not included in the MCR service tag, you may have to add an FQDN outbound rule to _*.data.mcr.microsoft.com_ for certain Docker images. For more information on how to enable access to servers and services on the internet, see [Configure inbound and outbound network traffic](../how-to-access-azureml-behind-firewall.md).
-
 > [!NOTE]
 > Requests to create, update, or retrieve the authentication keys are sent to the Azure Resource Manager over the public network.

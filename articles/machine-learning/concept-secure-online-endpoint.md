@@ -79,7 +79,7 @@ Alternatively, if you set the `public_network_access` to `enabled`, the endpoint
 
 ## Secure outbound access with managed workspace VNet
 
-To secure outbound communication from a deployment to services, you need to enable managed virtual network isolation for your Azure Machine Learning workspace so that Azure Machine Learning can create a managed VNet for the workspace. 
+To secure outbound communication from a deployment to services, you need to enable managed virtual network isolation for your Azure Machine Learning workspace so that Azure Machine Learning can create a managed VNet for the workspace.
 All managed online endpoints in the workspace (and managed compute resources for the workspace, such as compute clusters and compute instances) automatically use this workspace managed VNet, and the deployments in the endpoints share the managed VNet's private endpoints for communication with the workspace's resources.
 
 For outbound communication with a workspace managed VNet, Azure Machine Learning:
@@ -105,22 +105,20 @@ To learn more about configurations for the workspace managed VNet, see [Managed 
 
 ## Scenarios for network isolation configuration
 
-Let's say you have an application that is deployed to an endpoint, you can decide what network isolation configuration to use as follows:
+Suppose a managed online endpoint has a deployment that uses an AI model, and you want to use an app to send scoring requests to the endpoint. You can decide what network isolation configuration to use for the managed online endpoint as follows:
 
 **For inbound communication**:
 
-If you want your application to receive inbound scoring requests from the internet, then you should **enable** `public_network_access` for the endpoint.
+If the app is publicly available on the internet, then you need to **enable** `public_network_access` for the endpoint so that it can receive inbound scoring requests from the app.
 
-On the other hand, say the application is private and should be accessed only within your organization. In this scenario, you'd want to prevent access from the internet, so you should **disable** the endpoint's `public_network_access`. Once the public network access is disabled, the application can receive inbound scoring requests only through your workspace's private endpoint.
+On the other hand, say the app is private—an internal app within your organization. In this scenario, you want the AI model to be used only within your organization rather than have it exposed to the internet. Therefore, you need to **disable** the endpoint's `public_network_access` so that it can receive inbound scoring requests only through its workspace's private endpoint.
 
 **For outbound communication (deployment)**:
 
-Now, suppose your deployed application doesn't need to access your workspace's private Azure resources (such as the Azure Storage blob, ACR, and Azure Key Vault), and you want your application to send outbound communication to the public internet. In this case, you should **disable** the _workspace's managed VNet_, as you won't need to use private endpoints for outbound communication.
+Suppose your deployment doesn't need to access private Azure resources (such as the Azure Storage blob, ACR, and Azure Key Vault), then you don't need to use a workspace managed VNet.
 
-However, if your application needs to access private resources, you'll need to use private endpoints. Therefore, you should **enable** the _workspace's managed VNet_.
+However, if the deployment needs to access private Azure resources, it will have to use private endpoints; therefore, you should **enable** the _workspace's managed VNet_. Furthermore, you can configure the managed VNet to **allow internet outbound** if you're fine with your deployment accessing the public internet. Alternatively, you can configure the VNet to **allow only approved outbound** to allow outbound communication from the deployment to approved destinations only, thereby protecting against data exfiltration.
 
-When you **enable** the _workspace managed VNet_, you can configure it to **allow internet outbound** if you're fine with having your application access the public internet. This mode will not prevent data exfiltration.
-On the other hand, if you're concerned about data exfiltration and want to prevent the unauthorized transfer of data or resources to non-approved destinations, you can configure your managed VNet to **allow only approved outbound**.
 
 <!-- The following table lists the supported configurations for inbound and outbound communications for a managed online endpoint when using a workspace managed VNet:
 
@@ -133,12 +131,12 @@ On the other hand, if you're concerned about data exfiltration and want to preve
 
 ## Appendix
 
-### Secure outbound access with managed online endpoint VNet
+### Secure outbound access with legacy network isolation method
 
 For managed online endpoints, you can also secure outbound communication between deployments and resources by using an Azure Machine Learning VNet for each deployment in the endpoint. The secure outbound communication is also handled by using private endpoints to those service instances.
 
 > [!NOTE]
-> We strongly recommend that you use the approach described in [Secure outbound access with managed workspace VNet](#secure-outbound-access-with-managed-workspace-vnet) instead.
+> We strongly recommend that you use the approach described in [Secure outbound access with managed workspace VNet](#secure-outbound-access-with-managed-workspace-vnet) instead of this legacy method.
 
 To restrict communication between a deployment and external resources, including the Azure resources it uses, you should ensure that:
 
