@@ -1,13 +1,13 @@
 ---
-title: How to use Azure Cosmos DB data with Azure OpenAI
+title: How to use Azure Cosmos DB data for RAG with Azure OpenAI
 description: Get started using Retrieval Augmented Generation and vector search to ground your Azure OpenAI models with your data stored in Azure Cosmos DB. 
 author: jacodel
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.subservice: nosql
+ms.subservice: nosql, postgresql, mongodb
 ms.topic: how-to
 ms.date: 07/25/2023
-ms.custom: OpenAI, vector search, RAG, LLM
+ms.custom: OpenAI, CosmosDB, RAG, LLM
 ---
 
 # Use Cosmos DB data with Azure OpenAI 

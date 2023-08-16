@@ -13,7 +13,7 @@
       href: distributed-nosql.md
     - name: Distributed relational
       href: distributed-relational.md
-    - name: Use Cosmos DB with Azure OpenAI
+    - name: Use Cosmos DB for RAG with Azure OpenAI
       href: how-to-azure-openai.md
 - name: NoSQL
   href: nosql/toc.yml
