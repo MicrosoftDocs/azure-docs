@@ -237,7 +237,7 @@ Now when you select that unit in the map, the pop-up menu has the new layer ID, 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use the Azure Maps Indoor Maps module](how-to-use-indoor-module.md)
+> [Use the Azure Maps Indoor Maps module]
 
 [categories]: https://atlas.microsoft.com/sdk/javascript/indoor/0.2/categories.json
 [Creator concepts]: creator-indoor-maps.md
@@ -252,3 +252,4 @@ Now when you select that unit in the map, the pop-up menu has the new layer ID, 
 [tileset]: /rest/api/maps/v20220901preview/tileset
 [unitProperties]: drawing-requirements.md#unitproperties
 [Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
+[Use the Azure Maps Indoor Maps module]: how-to-use-indoor-module.md
