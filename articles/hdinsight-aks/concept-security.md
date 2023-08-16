@@ -103,7 +103,7 @@ The following table provides links to resources for each type of security soluti
 |-|-|-|
 |Data Access Security	|[Configure access control lists ACLs](../storage/blobs/data-lake-storage-access-control.md) for Azure Data Lake Storage Gen2	|Customer|
 |	|Enable the [Secure transfer required](../storage/common/storage-require-secure-transfer.md) property on storage|Customer|
-| |Configure [Azure Storage firewalls](../storage/common/storage-network-security?tabs=azure-portal.md) and virtual networks|Customer|
+| |Configure [Azure Storage firewalls](../storage/common/storage-network-security.md) and virtual networks|Customer|
 |Operating system security|Create clusters with most recent HDInsight on AKS versions|Customer|
 |Network security| Configure a [virtual network](../hdinsight/hdinsight-plan-virtual-network-deployment.md)||
 | | Configure [Traffic using Firewall rules](./secure-traffic-by-firewall.md)|Customer|
