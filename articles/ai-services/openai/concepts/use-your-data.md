@@ -202,6 +202,24 @@ When customizing the app, we recommend:
     
     Now users will be asked to sign in with their Azure Active Directory account to be able to access your app. You can follow a similar process to add another identity provider if you prefer. The app doesn't use the user's login information in any other way other than verifying they are a member of your tenant.
 
+### Chat history
+
+You can enable chat history for your users of the web app. By enabling the feature, your users will have access to their individual previous queries and responses. 
+
+To enable chat history, deploy or redeploy your model as a web app using [Azure OpenAI Studio](https://oai.azure.com/portal)
+
+:::image type="content" source="../media/use-your-data/enable-chat-history.png" alt-text="A screenshot of the chat history enablement button on Azure OpenAI studio." lightbox="../media/use-your-data/enable-chat-history.png":::
+
+> [!IMPORTANT]
+> Enabling chat history will create a [CosmosDB](/azure/cosmos-db/introduction) instance in your resource group, and incur [additional charges](https://azure.microsoft.com/pricing/details/cosmos-db/autoscale-provisioned/) for the storage used. 
+
+Once you've enabled chat history, your users will be able to show and hide it in the top right corner of the app. When the history is shown, they can rename, or delete conversations. As they're logged into the app, conversations will be automatically ordered from newest to oldest, and named based on the first query in the conversation. 
+
+:::image type="content" source="../media/use-your-data/web-app-chat-history.png" alt-text="A screenshot of the chat history in the web app." lightbox="../media/use-your-data/web-app-chat-history.png":::
+
+#### Deleting your CosmosDB instance
+
+Deleting your web app does not delete your CosmosDB instance automatically. To delete your CosmosDB instance, along with all stored chats, you need to navigate to the associated resource in the [Azure portal](https://portal.azure.com) and delete it. If you delete the Cosmos DB resource but keep the chat history option enabled on the studio, your users will be notified of a connection error, but can continue to use the web app without access to the chat history.
 
 ### Using the API
 
