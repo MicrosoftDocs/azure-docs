@@ -138,6 +138,8 @@
        href: ./ag/application-gateway-waf-metrics.md
      - name: Mask sensitive data
        href: ./ag/waf-sensitive-data-protection-configure.md
+     - name: Create rate limiting rules
+       href: ./ag/rate-limiting-configure.md
      - name: Troubleshoot WAF
        href: ./ag/web-application-firewall-troubleshoot.md
   - name: Front Door
