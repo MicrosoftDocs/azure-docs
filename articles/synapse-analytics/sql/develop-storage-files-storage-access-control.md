@@ -275,7 +275,7 @@ To query a file located in Azure Storage, your serverless SQL pool endpoint need
 
 To grant the ability manage credentials:
 
-- To allow a user to create or drop a server-level credential, an administrator must grant the `ALTER ANY CREDENTIAL` permission to the SQL login in the master database. For example:
+- To allow a user to create or drop a server-level credential, an administrator must grant the `ALTER ANY CREDENTIAL` permission to its login in the master database. For example:
 
     ```sql
     GRANT ALTER ANY CREDENTIAL TO [login_name];
@@ -291,7 +291,7 @@ To grant the ability manage credentials:
 
 Database users who access external storage must have permission to use credentials. To use the credential, a user must have the `REFERENCES` permission on a specific credential. 
 
-To grant the `REFERENCES` permission on a server-level credential for a SQL login, use the following T-SQL query in the master database:
+To grant the `REFERENCES` permission on a server-level credential for a login, use the following T-SQL query in the master database:
 
 ```sql
 GRANT REFERENCES ON CREDENTIAL::[server-level_credential] TO [login_name];
