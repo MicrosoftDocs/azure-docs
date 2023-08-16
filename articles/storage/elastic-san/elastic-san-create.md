@@ -4,14 +4,14 @@ description: Learn how to deploy an Azure Elastic SAN (preview) with the Azure p
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 08/02/2023
+ms.date: 08/14/2023
 ms.author: rogarana
 ms.custom: references_regions, ignite-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Deploy an Elastic SAN (preview)
 
-This article explains how to deploy and configure an elastic storage area network (SAN).
+This article explains how to deploy and configure an elastic storage area network (SAN). If you're interested in Azure Elastic SAN, or have any feedback you'd like to provide, fill out [https://aka.ms/ElasticSANPreviewSignUp](https://aka.ms/ElasticSANPreviewSignUp).
 
 ## Prerequisites
 
@@ -22,45 +22,6 @@ This article explains how to deploy and configure an elastic storage area networ
 ## Limitations
 
 [!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
-
-## Register for the preview
-
-Sign up for the preview at [https://aka.ms/ElasticSANPreviewSignUp](https://aka.ms/ElasticSANPreviewSignUp).
-
-If your request for access to the preview is approved, register your subscription with Microsoft.ElasticSAN resource provider and the preview feature using the following command:
-
-# [Portal](#tab/azure-portal)
-
-Use either the Azure PowerShell module or the Azure CLI to register your subscription for the preview.
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.ElasticSan
-Register-AzProviderFeature -FeatureName ElasticSanPreviewAccess -ProviderNamespace Microsoft.ElasticSan
-```
-
-It may take a few minutes for registration to complete. To confirm that you've registered, use the following command:
-
-```azurepowershell
-Get-AzResourceProvider -ProviderNamespace Microsoft.ElasticSan
-Get-AzProviderFeature -FeatureName "ElasticSanPreviewAccess" -ProviderNamespace "Microsoft.ElasticSan"
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az provider register --namespace Microsoft.ElasticSan
-az feature register --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
-```
-
-It may take a few minutes for registration to complete. To confirm you've registered, use the following command:
-
-```azurecli
-az provider show --namespace Microsoft.ElasticSan
-az feature show --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
-```
----
 
 ## Create the SAN
 
