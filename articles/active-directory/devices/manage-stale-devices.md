@@ -41,7 +41,7 @@ Because a stale device is defined as a registered device that hasn't been used t
 
 The evaluation of the activity timestamp is triggered by an authentication attempt of a device. Azure AD evaluates the activity timestamp when:
 
-- A Conditional Access policies requiring [managed devices](../conditional-access/require-managed-devices.md) or [approved client apps](../conditional-access/app-based-conditional-access.md) has been triggered.
+- A Conditional Access policies requiring [managed devices](../conditional-access/concept-conditional-access-grant.md) or [approved client apps](../conditional-access/howto-policy-approved-app-or-app-protection.md) has been triggered.
 - Windows 10 or newer devices that are either Azure AD joined or hybrid Azure AD joined are active on the network. 
 - Intune managed devices have checked in to the service.
 

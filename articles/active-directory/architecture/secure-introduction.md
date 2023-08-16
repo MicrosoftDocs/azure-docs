@@ -41,7 +41,7 @@ To distinguish between human and non-human identities, different terms are emerg
 
 * **Workload identity** - In Azure Active Directory (Azure AD), workload identities are applications, service principals, and managed identities. The workload identity is used to authenticate and access other services and resources.
 
-For more information on workload identities, see [What are workload identities](../develop/workload-identities-overview.md).
+For more information on workload identities, see [What are workload identities](../workload-identities/workload-identities-overview.md).
 
 The Azure AD tenant is an identity security boundary that is under the control of global administrators. Within this security boundary, administration of subscriptions, management groups, and resource groups can be delegated to segment administrative control of Azure resources. While not directly interacting, these groupings are dependent on tenant-wide configurations of policies and settings. And those settings and configurations are under the control of the Azure AD Global Administrators.
 
@@ -233,7 +233,7 @@ Administrators manage how identity objects can access resources, and under what 
 
   * Applications
 
-In a hybrid environment, identities are typically synchronized from the on-premises Active Directory environment using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md).
+In a hybrid environment, identities are typically synchronized from the on-premises Active Directory environment using [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md).
 
 ### Administration of identity services
 
@@ -273,7 +273,7 @@ Incorporating zero-trust principles into your Azure AD design strategy can help 
 
 ## Next steps
 
-* [Azure AD fundamentals](../fundamentals/secure-fundamentals.md)
+* [Azure AD fundamentals](./secure-fundamentals.md)
 
 * [Azure resource management fundamentals](secure-resource-management.md)
 

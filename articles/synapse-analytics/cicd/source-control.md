@@ -68,6 +68,9 @@ The configuration pane shows the following Azure DevOps git settings:
 
 Your can also use repository link to quickly point to the git repository you want to connect with. 
 
+> [!NOTE]
+> Azure Synapse doesn't support connection to Prem Azure DevOps repository.
+
 ### Use a different Azure Active Directory tenant
 
 The Azure Repos Git repo can be in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using. For more info, see [change subscription administrator](../../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator)
