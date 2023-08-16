@@ -79,7 +79,7 @@ For the migration process in this guide, you use a sample chat app provided on [
     io.on("connection", async (socket) => { await socket.join("room abc"); });
     ```
 
-    In this chat example, none of them are used. So you don't need to make any changes.
+    This chat example doesn't use any of those APIs. So you don't need to make any changes.
 
 ### Client side
 
@@ -89,10 +89,10 @@ For the migration process in this guide, you use a sample chat app provided on [
 
 1. Go to `./public/main.js` in the client-side code.
 
-1. Find where the Socket.IO client is created. Replace its endpoint with the Azure Socket.IO endpoint, and add a `path` option:
+1. Find where the Socket.IO client is created. Replace its endpoint with the Socket.IO endpoint in Azure, and add a `path` option:
 
-```javascript
-const socket = io("<web-pubsub-for-socketio-endpoint>", {
-    path: "/clients/socketio/hubs/eio_hub",
-});
-```
+   ```javascript
+   const socket = io("<web-pubsub-for-socketio-endpoint>", {
+       path: "/clients/socketio/hubs/eio_hub",
+   });
+   ```

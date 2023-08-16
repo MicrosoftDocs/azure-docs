@@ -42,11 +42,11 @@ npm install @azure/web-pubsub-socket.io socket.io-client
 1. Import required packages and create a configuration for Web PubSub:
 
     ```javascript
-    /* server.js */
+    /*server.js*/
     const { Server } = require("socket.io");
     const { useAzureSocketIO } = require("@azure/web-pubsub-socket.io");
 
-    // Add a Web PubSub Option
+    // Add a Web PubSub option
     const wpsOptions = {
         hub: "eio_hub", // The hub name can be any valid string.
         connectionString: process.argv[2] || process.env.WebPubSubConnectionString
@@ -56,7 +56,7 @@ npm install @azure/web-pubsub-socket.io socket.io-client
 2. Create a Socket.IO server that Web PubSub for Socket.IO supports:
 
     ```javascript
-    /* server.js */
+    /*server.js*/
     let io = new Server(3000);
     useAzureSocketIO(io, wpsOptions);
     ```
@@ -64,14 +64,14 @@ npm install @azure/web-pubsub-socket.io socket.io-client
 3. Write server logic:
 
     ```javascript
-    /* server.js */
+    /*server.js*/
     io.on("connection", (socket) => {
-        // send a message to the client
+        // Sends a message to the client
         socket.emit("hello", "world");
 
-        // receive a message from the client
+        // Receives a message from the client
         socket.on("howdy", (arg) => {
-            console.log(arg);   // prints "stranger"
+            console.log(arg);   // Prints "stranger"
         })
     });
     ```
@@ -81,7 +81,7 @@ npm install @azure/web-pubsub-socket.io socket.io-client
 1. Create a Socket.IO client:
 
     ```javascript
-    /* client.js */
+    /*client.js*/
     const io = require("socket.io-client");
 
     const webPubSubEndpoint = process.argv[2] || "<web-pubsub-socketio-endpoint>";
@@ -93,7 +93,7 @@ npm install @azure/web-pubsub-socket.io socket.io-client
 2. Define the client behavior:
 
     ```javascript
-    /* client.js */
+    /*client.js*/
 
     // Receives a message from the server
     socket.on("hello", (arg) => {

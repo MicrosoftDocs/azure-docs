@@ -14,7 +14,7 @@ Azure Web PubSub for Socket.IO is a fully managed cloud service for [Socket.IO](
 
 Managing stateful and persistent connections between clients and a server is often a source of frustration for Socket.IO users. The problem is more acute when multiple Socket.IO instances are spread across servers.
 
-Web PubSub for Socket.IO removes the burden of deploying, hosting, and coordinating Socket.IO instances for developers. Development teams can then focus on building real-time experiences by using their familiar APIs from the Socket.IO library.
+Web PubSub for Socket.IO removes the burden of deploying, hosting, and coordinating Socket.IO instances for developers. Development teams can then focus on building real-time experiences by using familiar APIs from the Socket.IO library.
 
 ## Benefits over hosting a Socket.IO app yourself
 
@@ -31,7 +31,7 @@ The following table shows the benefits of using the fully managed Azure service.
 
 When you host a Socket.IO app yourself, clients establish WebSocket or long-polling connections directly with your server. Maintaining such *stateful* connections places a heavy burden on your Socket.IO server. This burden limits the number of concurrent connections and increases messaging latency.
 
-A common approach to meeting the concurrency and latency challenge is to [scale out to multiple Socket.IO servers](https://socket.io/docs/v4/adapter/). Scaling out requires a server-side component called an *adapter*, like the Redis adapter that the Socket.IO library provides. However, such an adapter introduces an extra component that you need to deploy and manage on top of writing extra code logic to get things to work properly.
+A common approach to meeting the concurrency and latency challenge is to [scale out to multiple Socket.IO servers](https://socket.io/docs/v4/adapter/). Scaling out requires a server-side component called an *adapter*, like the Redis adapter that the Socket.IO library provides. However, such an adapter introduces an extra component that you need to deploy and manage. It also requires you to write extra code logic to get things to work properly.
 
 :::image type="content" source="./media/socketio-overview/typical-architecture-self-hosted-socketio-app.jpg" alt-text="Diagram of a typical architecture of a self-hosted Socket.IO app.":::
 
@@ -44,4 +44,4 @@ To migrate a self-hosted Socket.IO app to Azure, you add only a few lines of cod
 > [!div class="nextstepaction"]
 > [Quickstart for Socket.IO users](./socketio-quickstart.md)
 >
-> [Migrate an self-hosted Socket.IO app to Azure](./socketio-migrate-from-self-hosted.md)
+> [Migrate a self-hosted Socket.IO app to Azure](./socketio-migrate-from-self-hosted.md)

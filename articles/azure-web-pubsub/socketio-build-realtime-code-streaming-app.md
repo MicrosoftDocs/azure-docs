@@ -50,7 +50,7 @@ To follow all the steps in this article, you need:
 
 > [!div class="checklist"]
 > * An [Azure](https://portal.azure.com/) account. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-> * [Azure CLI](/cli/azure/install-azure-cli) (version 2.29.0 or later) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources.
+> * The [Azure CLI](/cli/azure/install-azure-cli) (version 2.29.0 or later) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources.
 > * Basic familiarity with [Socket.IO's APIs](https://socket.io/docs/v4/).
 
 ## Create a Web PubSub for Socket.IO resource
@@ -102,7 +102,7 @@ Start writing your application's code by working on the server side.
 3. Import required packages and create an HTTP server to serve static files:
 
     ```javascript
-    /* server.js*/
+    /*server.js*/
 
     // Import required packages
     const express = require('express');
@@ -115,10 +115,10 @@ Start writing your application's code by working on the server side.
     app.use(express.static(path.join(__dirname, 'public')));
     ```
 
-4. Define an endpoint called `/negotiate`. A *writer* client hits this endpoint first. This endpoint returns an HTTP response. The response contains an endpoint that the client should use to establish a persistent connection. It also returns a `room` value that the client is assigned to.
+4. Define an endpoint called `/negotiate`. A writer client hits this endpoint first. This endpoint returns an HTTP response. The response contains an endpoint that the client should use to establish a persistent connection. It also returns a `room` value that the client is assigned to.
 
     ```javascript
-    /* server.js*/
+    /*server.js*/
     app.get('/negotiate', async (req, res) => {
         res.json({
             url: endpoint
@@ -137,7 +137,7 @@ Start writing your application's code by working on the server side.
 1. Import the Web PubSub for Socket.IO SDK and define options:
 
     ```javascript
-    /* server.js*/
+    /*server.js*/
     const { useAzureSocketIO } = require("@azure/web-pubsub-socket.io");
 
     const wpsOptions = {
@@ -149,7 +149,7 @@ Start writing your application's code by working on the server side.
 2. Create a Web PubSub for Socket.IO server:
 
     ```javascript
-    /* server.js*/
+    /*server.js*/
 
     const io = require("socket.io")();
     useAzureSocketIO(io, wpsOptions);
@@ -164,16 +164,16 @@ Now that you've created a Socket.IO server hosted by Web PubSub, you can define 
 1. After a client is connected, the application server tells the client that it's logged in by sending a custom event named `login`.
 
     ```javascript
-    /* server.js*/
+    /*server.js*/
     io.on('connection', socket => {
         socket.emit("login");
     });
     ```
 
-2. Each client emits two events that the server can respond to: `joinRoom` and `sendToRoom`. After the server gets the `room_id` value that a client wants join, you use `socket.join` from the Socket.IO's API to join the target client to the specified room.
+2. Each client emits two events that the server can respond to: `joinRoom` and `sendToRoom`. After the server gets the `room_id` value that a client wants join, you use `socket.join` from Socket.IO's API to join the target client to the specified room.
 
     ```javascript
-    /* server.js*/
+    /*server.js*/
     socket.on('joinRoom', async (message) => {
         const room_id = message["room_id"];
         await socket.join(room_id);
@@ -183,7 +183,7 @@ Now that you've created a Socket.IO server hosted by Web PubSub, you can define 
 3. After a client is joined, the server informs the client of the successful result by sending a `message` event. When the client receives a `message` event with a type of `ackJoinRoom`, the client can ask the server to send the latest editor state.
 
     ```javascript
-    /* server.js*/
+    /*server.js*/
     socket.on('joinRoom', async (message) => {
         // ...
         socket.emit("message", {
@@ -194,7 +194,7 @@ Now that you've created a Socket.IO server hosted by Web PubSub, you can define 
     ```
 
     ```javascript
-    /* client.js*/
+    /*client.js*/
     socket.on("message", (message) => {
         let data = message;
         if (data.type === 'ackJoinRoom' && data.success) {
@@ -234,7 +234,7 @@ async function initialize(url) {
 
     updateStreamId(data.room_id);
 
-    let editor = createEditor(...); // Create a editor component
+    let editor = createEditor(...); // Create an editor component
 
     var socket = io(data.url, {
         path: "/clients/socketio/hubs/codestream",
@@ -297,7 +297,7 @@ The `initialize(url)` function organizes a few setup operations together:
     }
     ```
 
-4. When a new viewer client is connected, the viewer needs to get the latest *complete state* of the editor. To achieve this, a message that contains `sync` data is sent to the writer client, asking the writer client to send the complete editor state.
+4. When a new viewer client is connected, the viewer needs to get the latest *complete state* of the editor. To achieve this, a message that contains `sync` data is sent to the writer client. The message asks the writer client to send the complete editor state.
 
     ```javascript
     /*client.js*/
@@ -388,7 +388,7 @@ The `initialize(url)` function organizes a few setup operations together:
 
 ### Locate the repo
 
-The preceding sections covered the core logic related to synchronizing editor state between viewers and the writer. You can find the complete code in the [examples repository](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-socketio-extension/examples/codestream).
+The preceding sections covered the core logic related to synchronizing the editor state between viewers and the writer. You can find the complete code in the [examples repository](https://github.com/Azure/azure-webpubsub/tree/main/experimental/sdk/webpubsub-socketio-extension/examples/codestream).
 
 ### Clone the repo
 
