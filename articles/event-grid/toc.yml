@@ -134,6 +134,8 @@ items:
         href: create-view-manage-namespace-topics.md
       - name: Create, view, and manage event subscriptions
         href: create-view-manage-event-subscriptions.md
+      - name: Enable managed identity for namespace
+        href: event-grid-namespace-managed-identity.md        
     - name: Reference
       items:
       - name: SDKs
