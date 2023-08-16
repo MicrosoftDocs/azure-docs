@@ -8,6 +8,7 @@ ms.author: rolyon
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 06/29/2023
 ms.collection: M365-identity-device-management
