@@ -3,7 +3,7 @@ title: Microsoft Fabric with Apache Flink in HDInsight on AKS
 description: An introduction to connecting lakehouse on Microsoft Fabric with Apache Flink over HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 08/07/2023
+ms.date: 08/16/2023
 ---
 # Connect to OneLake in Microsoft Fabric with HDInsight on AKS cluster for Apache Flink
 
@@ -34,13 +34,13 @@ In this example, you learn how to connect to OneLake in Microsoft Fabric with HD
 
 In this step, we provide access to the *user managed identity* to Fabric.
 
- :::image type="content" source="./media/Fabric-Flink-Lakehouse/UAMI-access-to-Fabric.png" alt-text="Screenshot showing how to provide access to the user managed identity to Fabric." border="true" lightbox="./media/Fabric-Flink-Lakehouse/UAMI-access-to-Fabric.png":::
+ :::image type="content" source="./media/fabric-lakehouse-flink-datastreamapi/managed-identity-access-fabric.png" alt-text="Screenshot showing how to provide access to the user managed identity to Fabric." border="true" lightbox="./media/fabric-lakehouse-flink-datastreamapi/managed-identity-access-fabric.png":::
 
 #### Preparing a Delta table under LakeHouse Files folder
 
 In this step, you see how we prepare a Delta table on the lakehouse on Microsoft Fabric; Flink developers can build into broader Lakehouse architecture with this setup.
 
-:::image type="content" source="./media/Fabric-Flink-Lakehouse/delta-table-under-LakeHouse.png" alt-text="Screenshot showing preparing a Delta table on the lakehouse on Microsoft Fabric." border="true" lightbox="./media/Fabric-Flink-Lakehouse/delta-table-under-LakeHouse.png":::
+:::image type="content" source="./media/fabric-lakehouse-flink-datastreamapi/delta-table-under-lakehouse.png" alt-text="Screenshot showing preparing a Delta table on the lakehouse on Microsoft Fabric." border="true" lightbox="./media/fabric-lakehouse-flink-datastreamapi/delta-table-under-lakehouse.png":::
 
 ### Flink DataStream Source code
 
@@ -203,15 +203,15 @@ public class onelakeDemo {
 
 Here, we use the packaged jar and submit to Flink cluster 
 
-:::image type="content" source="./media/Fabric-Flink-Lakehouse/jarsubmittoflink1.png" alt-text="Screenshot showing How to submit packaged jar and submitting to Flink cluster - step 1." border="true" lightbox="./media/Fabric-Flink-Lakehouse/jarsubmittoflink1.png":::
+:::image type="content" source="./media/fabric-lakehouse-flink-datastreamapi/jar-submit-flink-step1.png" alt-text="Screenshot showing How to submit packaged jar and submitting to Flink cluster - step 1." border="true" lightbox="./media/fabric-lakehouse-flink-datastreamapi/jar-submit-flink-step1.png":::
 
-:::image type="content" source="./media/Fabric-Flink-Lakehouse/jarsubmittoflink2.png" alt-text="Screenshot showing How to submit packaged jar and submitting to Flink cluster - step 2." border="true" lightbox="./media/Fabric-Flink-Lakehouse/jarsubmittoflink2.png":::
+:::image type="content" source="./media/fabric-lakehouse-flink-datastreamapi/jar-submit-flink-step2.png" alt-text="Screenshot showing How to submit packaged jar and submitting to Flink cluster - step 2." border="true" lightbox="./media/fabric-lakehouse-flink-datastreamapi/jar-submit-flink-step2.png":::
 
 ### Results on Microsoft Fabric 
 
 Let's check the output on Microsoft Fabric
 
-:::image type="content" source="./media/Fabric-Flink-Lakehouse/Output-on-Fabric.png" alt-text="Screenshot showing the output on Microsoft Fabric." border="true" lightbox="./media/Fabric-Flink-Lakehouse/Output-on-Fabric.png":::
+:::image type="content" source="./media/fabric-lakehouse-flink-datastreamapi/output-on-fabric.png" alt-text="Screenshot showing the output on Microsoft Fabric." border="true" lightbox="./media/fabric-lakehouse-flink-datastreamapi/output-on-fabric.png":::
 
 
 ### References
