@@ -1,5 +1,5 @@
 ---
-title: Configure Caching
+title: Configure caching
 description: Learn how to configure caching in Trino
 ms.service: hdinsight-aks
 ms.topic: how-to 
@@ -19,14 +19,14 @@ HDInsight on AKS Trino has added **final result caching** capability, which prov
 
  Different options for caching:
 
-1. [**Final result caching**](#final-result-caching): When enabled (in coordinator component configuration section), a result for any query for any catalog caches on a coordinator VM.
-2. [**Hive/Iceberg/Delta Lake catalog caching**](#hiveicebergdelta-lake-caching): When enabled (for a specific catalog of corresponding type), a split data for each query caches within cluster on worker VMs.
+* [**Final result caching**](#final-result-caching): When enabled (in coordinator component configuration section), a result for any query for any catalog caches on a coordinator VM.
+* [**Hive/Iceberg/Delta Lake catalog caching**](#hiveicebergdelta-lake-caching): When enabled (for a specific catalog of corresponding type), a split data for each query caches within cluster on worker VMs.
 
 ## Final result caching
 
 Final result caching can be configured in two ways: 
-1. [Using Azure portal](#using-azure-portal)
-2. [Using ARM template](#using-arm-template)
+* [Using Azure portal](#using-azure-portal)
+* [Using ARM template](#using-arm-template)
    
 Available configuration parameters are:
 
@@ -50,7 +50,9 @@ Final result caching can also be controlled through the following session parame
 |`query_cache_forced_refresh`|false|When set to true, forces the result of query execution to be cached that is,  the result replaces existing cached data if it exists).|
 
 > [!NOTE]
-> Session parameters can be set for a session (For example, if Trino CLI is used) or can be set in multi-statement before query text, for example:
+> Session parameters can be set for a session (for example, if Trino CLI is used) or can be set in multi-statement before query text.
+
+For example,
 
 ```
 set session query_cache_enabled=true;
@@ -67,11 +69,11 @@ limit 10;
   
 3. In the Azure portal search bar, type "HDInsight on AKS cluster" and select "Azure HDInsight on AKS clusters" from the drop-down list.
   
-   :::image type="content" source="../media/Manage-Cluster/Getstarted-PortalSearch-Step1.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster":::
+   :::image type="content" source="../media/Manage-Cluster/Getstarted-PortalSearch-Step1.png" alt-text="Screenshot showing search option for getting started with HDInsight on AKS Cluster.":::
   
 7. Select your cluster name from the list page.
   
-   :::image type="content" source="../media/Manage-Cluster/Getstarted-Portallistview-Step2.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list":::
+   :::image type="content" source="../media/Manage-Cluster/Getstarted-Portallistview-Step2.png" alt-text="Screenshot showing selecting the HDInsight on AKS Cluster you require from the list.":::
 
 1. Navigate to **Configuration Management** blade.
 
