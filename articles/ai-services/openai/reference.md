@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual
-ms.date: 08/14/2023
+ms.date: 08/15/2023
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -116,7 +116,7 @@ In the example response, `finish_reason` equals `stop`. If `finish_reason` equal
 Get a vector representation of a given input that can be easily consumed by machine learning models and other algorithms.
 
 > [!NOTE]
-> We currently do not support batching of embeddings into a single API call. If you receive the error `InvalidRequestError: Too many inputs. The max number of inputs is 1.  We hope to increase the number of inputs per request soon.`, this typically occurs when an array of embeddings is attempted to be passed as a batch rather than a single string. The string can be up to 8191 tokens in length when using the text-embedding-ada-002 (Version 2) model.
+> OpenAI currently allows a larger number of array inputs with `text-embedding-ada-002`. Azure OpenAI currently supports input arrays up to 16 for `text-embedding-ada-002 (Version 2)`. Both require the max input token limit per API request to remain under 8191 for this model.
 
 **Create an embedding**
 
@@ -142,8 +142,8 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| ```input```| string | Yes | N/A | Input text to get embeddings for, encoded as a string. The number of input tokens varies depending on what [model you are using](./concepts/models.md). <br> Unless you're embedding code, we suggest replacing newlines (\n) in your input with a single space, as we have observed inferior results when newlines are present.|
-| ```user``` | string | No | Null | A unique identifier representing for your end-user. This will help Azure OpenAI monitor and detect abuse. **Do not pass PII identifiers instead use pseudoanonymized values such as GUIDs** |
+| ```input```| string or array | Yes | N/A | Input text to get embeddings for, encoded as an array or string. The number of input tokens varies depending on what [model you are using](./concepts/models.md). Only `text-embedding-ada-002 (Version 2)` supports array input.|
+| ```user``` | string | No | Null | A unique identifier representing your end-user. This will help Azure OpenAI monitor and detect abuse. **Do not pass PII identifiers instead use pseudoanonymized values such as GUIDs** |
 
 #### Example request
 

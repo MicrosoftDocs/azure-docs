@@ -124,7 +124,7 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |[General](#general-20)|General group|
 |[METHOD-ENFORCEMENT](#drs911-20)|Lock-down methods (PUT, PATCH)|
 |[PROTOCOL-ENFORCEMENT](#drs920-20)|Protect against protocol and encoding issues|
-|[PROTOCOL-ATTACK](#drs921-20|Protect against header injection, request smuggling, and response splitting|
+|[PROTOCOL-ATTACK](#drs921-20)|Protect against header injection, request smuggling, and response splitting|
 |[APPLICATION-ATTACK-LFI](#drs930-20)|Protect against file and path attacks|
 |[APPLICATION-ATTACK-RFI](#drs931-20)|Protect against remote file inclusion (RFI) attacks|
 |[APPLICATION-ATTACK-RCE](#drs932-20)|Protect again remote code execution attacks|

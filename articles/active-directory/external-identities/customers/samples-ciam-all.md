@@ -43,7 +43,7 @@ These samples and how-to guides demonstrate how to write a web application that 
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
 > | JavaScript, Node.js (Express) | &#8226; [Sign in users](./sample-web-app-node-sign-in.md)<br/> &#8226; [Sign in users and call an API](./sample-web-app-node-sign-in-call-api.md)  |  &#8226; [Sign in users](tutorial-web-app-node-sign-in-prepare-tenant.md)<br/> &#8226; [Sign in users and call an API](how-to-web-app-node-sign-in-call-api-overview.md)  |
-> | ASP.NET Core | &#8226; [Sign in users](./sample-web-app-dotnet-sign-in.md)   | &#8226; [Sign in users](how-to-web-app-dotnet-sign-in-prepare-tenant.md)   |
+> | ASP.NET Core | &#8226; [Sign in users](./sample-web-app-dotnet-sign-in.md)   | &#8226; [Sign in users](tutorial-web-app-dotnet-sign-in-prepare-tenant.md)   |
 
 ### Web API
 
@@ -112,7 +112,7 @@ These samples and how-to guides demonstrate how to write a daemon application th
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
 > | Web API| ---  | &#8226; [Secure an ASP.NET web API](tutorial-protect-web-api-dotnet-core-build-app.md)   |
-> | Web app | &#8226; [Sign in users](./sample-web-app-dotnet-sign-in.md)   | &#8226; [Sign in users](how-to-web-app-dotnet-sign-in-prepare-tenant.md)   |
+> | Web app | &#8226; [Sign in users](sample-web-app-dotnet-sign-in.md)   | &#8226; [Sign in users](tutorial-web-app-dotnet-sign-in-prepare-tenant.md)   |
 
 ### .NET (MAUI)
 

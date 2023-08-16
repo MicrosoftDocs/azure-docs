@@ -561,7 +561,9 @@
       - name: View and remediate vulnerabilities for running images
         href: view-and-remediate-vulnerabilities-for-images-running-on-aks.md
       - name: Disable vulnerabilities on images
-        href: disable-vulnerability-findings-containers.md  
+        href: disable-vulnerability-findings-containers.md
+      - name: Subassessment REST API
+        href: subassessment-rest-api.md 
     - name: Vulnerability assessment for AWS
       displayName: AWS, ECR, registry, images, qualys
       href: defender-for-containers-vulnerability-assessment-elastic.md
@@ -676,7 +678,7 @@
         href: tutorial-enable-storage-plan.md
       - name: Required permissions
         href: support-matrix-defender-for-storage.md
-      - name: Enable Defender for Storage
+      - name: Enable options
         items:
         - name: Enable with the Azure policy (recommended)
           href: defender-for-storage-policy-enablement.md
@@ -691,7 +693,7 @@
       - name: Setup response to malware scanning
         href: defender-for-storage-configure-malware-scan.md
       - name: Test and run a proof of concept
-      href: defender-for-storage-test.md
+        href: defender-for-storage-test.md
     - name: List of security threats and security alerts
       href: defender-for-storage-threats-alerts.md
     - name: Common questions about Defender for Storage
