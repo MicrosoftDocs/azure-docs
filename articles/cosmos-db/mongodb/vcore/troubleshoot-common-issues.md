@@ -12,7 +12,7 @@ ms.author: khelanmodi
 # Troubleshoot common issues in Azure Cosmos DB for MongoDB vCore
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
-Welcome to the Azure Cosmos DB for MongoDB vCore Troubleshooting Guide. This resource is tailored to assist you in resolving common issues that may arise while using this integrated database solution. The guide provides solutions for connectivity problems, error scenarios, and optimization challenges, offering practical insights to improve your experience. While these solutions offer a strong foundation, it's recommended to consult [official documentation](introduction.md) and support resources for customized assistance.
+This guide is tailored to assist you in resolving issues you may encounter when using Azure Cosmos DB for MongoDB vCore. The guide provides solutions for connectivity problems, error scenarios, and optimization challenges, offering practical insights to improve your experience. 
 
 >[!Note]
 > Please note that these solutions are general guidelines and may require specific configurations based on individual situations. Always refer to official documentation and support resources for the most accurate and up-to-date information.
