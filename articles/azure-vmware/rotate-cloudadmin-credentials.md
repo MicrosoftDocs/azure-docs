@@ -8,9 +8,6 @@ ms.date: 8/15/2023
 #Customer intent: As an Azure service administrator, I want to rotate my cloudadmin credentials so that the HCX Connector has the latest vCenter Server CloudAdmin credentials.
 ---
 
-
-
-
 # Rotate the cloudadmin credentials for Azure VMware Solution
 
 
@@ -51,6 +48,7 @@ To begin using Azure CLI:
    ```
 
 
+
 ---
 
 ### Update HCX Connector 
@@ -75,7 +73,8 @@ To begin using Azure CLI:
 
 ## Next steps
 
-Now that you've covered resetting your vCenter Server credentials for Azure VMware Solution, you may want to learn about:
+Now that you've covered resetting your vCenter Server and NSX-T credentials for Azure VMware Solution, you may want to learn about:
 
 - [Integrating Azure native services in Azure VMware Solution](integrate-azure-native-services.md)
 - [Deploying disaster recovery for Azure VMware Solution workloads using VMware HCX](deploy-disaster-recovery-using-vmware-hcx.md)
+

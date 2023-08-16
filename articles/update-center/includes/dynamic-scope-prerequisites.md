@@ -21,6 +21,9 @@ ms.date: 08/02/2023
              
 #### [Arc-enabled VMs](#tab/arcvms)
 
-There are no pre-requisities for patch orchestration. However, you must associate a schedule with the VM for Schedule patching. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](../prerequsite-for-schedule-patching.md).
+There are no prerequisites for patch orchestration. However, you must associate a schedule with the VM for Schedule patching. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](../prerequsite-for-schedule-patching.md).
 
 ---
+
+> [!NOTE]
+> You can register for the preview feature *InGuestPatchDynamicScope* through PowerShell and CLI. For more information, see [Register preview features](../../azure-resource-manager/management/preview-features.md). 
