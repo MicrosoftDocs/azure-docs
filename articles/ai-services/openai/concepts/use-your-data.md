@@ -65,7 +65,7 @@ There are some caveats about document structure and how it might affect the qual
 
 ## Virtual network support & private link support
 
-Azure OpenAI on your data does not currently support private endpoints. 
+### Azure zure Cognitive Search resource in private network
 
 If you have Azure Cognitive Search resource protected by private network, and want to allow Azure OpenAI on your data to access your search service, please fill in [this application form](https://aka.ms/applyacsvpnaoaionyourdata). 
 Our team will review your application in 5 business days and contact you about the review result. If you are eligible, we will send private endpoint request to your search service, and you will need to approve our private endpoint connection request. See steps below.
@@ -74,7 +74,14 @@ Our team will review your application in 5 business days and contact you about t
 
 Learn more about the [manual approval workflow](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow).
 
-Upon approval, you can start to use Azure OpenAI on your data to access your search service that is protected by private network.
+After you approve the request in your search service, you can start using the [extensions chat completions API](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#completions-extensions) on Azure OpenAI resource with public network access disabled for that search service.
+The Studio support for Azure search in private network will come soon.
+
+### Azure OpenAI resource in private network
+You can protect Azure OpenAI resource in private network as any Azure AI services. See more [details here](https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-virtual-networks).
+
+### Storage account in private network
+We don't support using storage account in private network for "Add your data" yet. The support will come soon.
 
 ## Azure Role-based access controls (Azure RBAC)
 
