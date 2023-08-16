@@ -31,35 +31,35 @@ This how-to guide shows you how to create a `WebPubSubServiceClient` using Azure
 
 1. Create a `TokenCredential` with Azure Identity SDK.
 
-    ```python
-    from azure.identity import DefaultAzureCredential
+   ```python
+   from azure.identity import DefaultAzureCredential
 
-    credential = DefaultAzureCredential()
-    ```
+   credential = DefaultAzureCredential()
+   ```
 
-    `credential` can be any class that inherits from `TokenCredential` class.
+   `credential` can be any class that inherits from `TokenCredential` class.
 
-    - EnvironmentCredential
-    - ClientSecretCredential
-    - ClientCertificateCredential
-    - ManagedIdentityCredential
-    - VisualStudioCredential
-    - VisualStudioCodeCredential
-    - AzureCliCredential
+   - EnvironmentCredential
+   - ClientSecretCredential
+   - ClientCertificateCredential
+   - ManagedIdentityCredential
+   - VisualStudioCredential
+   - VisualStudioCodeCredential
+   - AzureCliCredential
 
-    To learn more, see [Azure Identity client library for Python](/python/api/overview/azure/identity-readme)
+   To learn more, see [Azure Identity client library for Python](/python/api/overview/azure/identity-readme)
 
-2. Then create a `client` with `endpoint`, `hub`, and `credential`. 
+2. Then create a `client` with `endpoint`, `hub`, and `credential`.
 
-    ```python
-    from azure.identity import DefaultAzureCredential
+   ```python
+   from azure.identity import DefaultAzureCredential
 
-    credential = DefaultAzureCredential()
+   credential = DefaultAzureCredential()
 
-    client = WebPubSubServiceClient(hub="<hub>", endpoint="<endpoint>", credential=credential)
-    ```
+   client = WebPubSubServiceClient(hub="<hub>", endpoint="<endpoint>", credential=credential)
+   ```
 
-    Learn how to use this client, see [Azure Web PubSub service client library for Python](/python/api/overview/azure/messaging-webpubsubservice-readme)
+   Learn how to use this client, see [Azure Web PubSub service client library for Python](/python/api/overview/azure/messaging-webpubsubservice-readme)
 
 ## Complete sample
 
