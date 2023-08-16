@@ -281,6 +281,10 @@ If your session host VMs are stuck in the Unavailable state, your VM didn't pass
 
 ## Error: VMs are stuck in the "Needs Assistance" state
 
+There are several health checks that can cause your session host VMs to be stuck in the **Needs Assistance** state, *UrlsAccessibleCheck*. *MetaDataServiceCheck*, and *MonitoringAgentCheck*.
+
+### UrlsAccessibleCheck
+
 If the session host doesn't pass the *UrlsAccessibleCheck* health check, you'll need to identify which [required URL](safe-url-list.md) your deployment is currently blocking. Once you know which URL is blocked, identify which setting is blocking that URL and remove it.
 
 There are two reasons why the service is blocking a required URL:
@@ -298,6 +302,8 @@ If your local hosts file is blocking the required URLs, make sure none of the re
 
 **Name:** DataBasePath
 
+### MetaDataServiceCheck
+
 If the session host doesn't pass the *MetaDataServiceCheck* health check, then the service can't access the IMDS endpoint. To resolve this issue, you'll need to do the following things:
 
 - Reconfigure your networking, firewall, or proxy settings to unblock the IP address 169.254.169.254.
@@ -308,12 +314,16 @@ If your issue is caused by a web proxy, add an exception for 169.254.169.254 in 
 ```cmd
 netsh winhttp set proxy proxy-server="http=<customerwebproxyhere>" bypass-list="169.254.169.254"
 ```
-If the session host doesn't pass the *MonitoringAgentCheck* health check, this also causes session host to report *Needs Assistance* status on portal, this health check is performed by *Remote Desktop Services Infrastructure Geneva Agent*, you'll need to follow below and validate if this this agent is functioning correctly on the problematic Session Host:
 
-- Verify if "Remote Desktop Services Infrastructure Geneva Agent" is successfully installed on the session host, this can be confirmed from “Program and Features” option, its possible that you may see multiple version of this agent installed on the session host VM, if so, then please uninstall the older version and keep only latest version installed.
-- If you don't find above agent installed on the session host, please review logs located under *C:\Program Files\Microsoft RDInfra\GenevaInstall.txt* and see if agent installation is failing due to some errors. If the agent is installed correctly, please proceed to validate next steps below.
-- Verify if scheduled task *GenevaTask_x_x* (*where x refers to installed agent version*) is created, this scheduled task must be enabled and running.
-- In some situations, you may have to reinstall Geneva Agent manually, this agent installer *Microsoft.RDInfra.Geneva.Installer-x64-x.x.x.msi* is available under *C:\Program Files\Microsoft RDInfra*. You can reinstall this agent manually which should resolve the issue.
+### MonitoringAgentCheck
+
+If the session host doesn't pass the *MonitoringAgentCheck* health check, you'll need to check the *Remote Desktop Services Infrastructure Geneva Agent* and validate if it is functioning correctly on the session host:
+
+1. Verify if the Remote Desktop Services Infrastructure Geneva Agent is installed on the session host. You can verify this in the list of installed programs on the session host. If you see multiple version of this agent installed, uninstall older versions and only keep the latest version installed.
+
+1. If you don't find the Remote Desktop Services Infrastructure Geneva Agent installed on the session host, please review logs located under *C:\Program Files\Microsoft RDInfra\GenevaInstall.txt* and see if installation is failing due to an error.
+
+1. Verify if scheduled task *GenevaTask_<version>* is created. This scheduled task must be enabled and running. If it's not, please reinstall the agent using the `.msi` file named **Microsoft.RDInfra.Geneva.Installer-x64-<version>.msi**, which is available at **C:\Program Files\Microsoft RDInfra**.
 
 ## Error: Connection not found: RDAgent does not have an active connection to the broker
 
