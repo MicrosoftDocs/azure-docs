@@ -197,7 +197,7 @@ items:
       - name: Using ADLSGen2 - Write with DStream API
         href: ./flink/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md
       - name: Using Apache NiFi with DStream API
-        href: ./flink/using-apache-nifi-with-dstream-api.md
+        href: ./flink/use-apache-nifi-with-datastream-api.md
       - name: Using CDC - SQL Server & DStream API
         href: ./flink/change-data-capture-connectors-for-apache-flink.md
       - name: Using Hivemetastore with Flink DataStream
