@@ -1,7 +1,7 @@
 ---
 title: Set up an image labeling project
 titleSuffix: Azure Machine Learning
-description: Learn how to create a project and use the data labeling tool to label images in the project. Enable machine learning-assisted labeling or human-in-the-loop labeling to help with the task.
+description: Learn how to create a project to label images in the project. Enable machine learning-assisted labeling to help with the task.
 author: kvijaykannan 
 ms.author: vkann 
 ms.reviewer: sgilley
@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 08/16/2023
 ms.custom: data4ml, ignite-fall-2021, ignite-2022
 monikerRange: 'azureml-api-1 || azureml-api-2'
+#customer intent: As a project manager, I want to set up a project to label images in the project. I want to enable machine learning-assisted labeling to help with the task.
 ---
 
 # Set up an image labeling project and export labels
