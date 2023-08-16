@@ -104,7 +104,7 @@ Set-AADCloudSyncPasswordWritebackConfiguration -Enable $true -Credential (Get-Cr
   - Log in to your Entra ID tenant as a Global Administrator.
 
 ## Restrict the permissions given to provisioning agent's gMSA
-Now that you've installed the agent, you can apply more granular permissions to the gMSA it uses. For more information and step-by-step instructions on how to configure its permissions, see [Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlets](how-to-gmsa-cmdlets#using-set-aadcloudsyncpermissions).
+Now that you've installed the agent, you can apply more granular permissions to the gMSA it uses. For more information and step-by-step instructions on how to configure its permissions, see [Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlets](how-to-gmsa-cmdlets).
 
 
 ## Next steps 
