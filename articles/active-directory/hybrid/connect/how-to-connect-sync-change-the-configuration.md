@@ -7,6 +7,7 @@ manager: amycolannino
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 01/26/2023
 ms.subservice: hybrid
