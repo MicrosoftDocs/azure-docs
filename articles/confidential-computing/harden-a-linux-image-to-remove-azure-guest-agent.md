@@ -83,6 +83,9 @@ Steps to create an image that removes the Azure guest agents are as follows:
 
 7. Use the prepared image to deploy a confidential VM. Follow the steps from 4 in the [Create a custom image for Azure confidential VM](/azure/confidential-computing/how-to-create-custom-image-confidential-vm) document to deploy the agent-less confidential VM.
 
+> [!NOTE]
+> If you are looking to deploy cvm scaled scale using the custom image, please note that some features related to auto scaling will be restricted. Will manual scaling rules continue to work as expected, the autoscaling ability will be limited due to the agentless custom image. More details on the restrictions can be found here for the [provisioning agent](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disable-provisioning). Alternatively, you can navigate to the metrics tab on the azure portal and confirm the same.
+
 ## Next Steps
 
 We can create an admin-less and agent-less image by removing the sudo users from the linux image [remove sudo users from the Linux Image](/azure/confidential-computing/harden-the-linux-image-to-remove-sudo-users), and then follow the above mentioned steps to remove the agent for the same image.
