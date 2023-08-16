@@ -446,10 +446,10 @@ After the cluster is formed and configured, you can now create new virtual switc
 
 1. In the **Network settings** be, if using a new virtual switch, provide the following:
 
-     a. Provide a **Name** for the virtual switch.
-     b. Choose the **Network interface** onto which the virtual switch should be created.
-     c. Set the **MTU** (Maximum Transmission Unit) parameter for the virtual switch (Optional).
-     d. Select **Modify** and **Apply** to save your changes.
+     1. Provide a **Name** for the virtual switch.
+     1. Choose the **Network interface** onto which the virtual switch should be created.
+     1. Set the **MTU** (Maximum Transmission Unit) parameter for the virtual switch (Optional).
+     1. Select **Modify** and **Apply** to save your changes.
      
     The MTU value determines the maximum packet size that can be transmitted over a network. Azure Stack Edge supports MTU values in the following table. If a device on the network path has an MTU setting lower than 1500, IP packets with the “do not fragment” flag (DF) with packet size 1500 will be dropped.
 
@@ -501,7 +501,7 @@ Select **Next: Kubernetes >** to next configure your compute IPs for Kubernetes.
 
 ## Configure compute IPs
 
-After the virtual switches are created, you can enable these switches for Kubernetes compute traffic.
+After the virtual switches are created, you can enable the switches for Kubernetes compute traffic.
 
 1. In the local UI, go to the **Kubernetes** page.
 1. Specify a workload from the options provided. If prompted, confirm the option you selected and then select **Apply**.
