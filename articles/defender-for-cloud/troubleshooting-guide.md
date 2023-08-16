@@ -38,7 +38,11 @@ Common connector issues:
 - Connector resource should be present in Azure Resource Graph (ARG). Use the following ARG query to check: `resources | where ['type'] =~ "microsoft.security/securityconnectors"`
 - Make sure that sending Kubernetes audit logs is enabled on the AWS or GCP connector so that you can get [threat detection alerts for the control plane](alerts-reference.md#alerts-k8scluster).
 - Make sure that Azure Arc and the Azure Policy Arc extension were installed successfully.
-- Make sure that the agent is installed to your Elastic Kubernetes Service (EKS) clusters. You can install the agent with the **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters** recommendation, or **Azure policy extension for Kubernetes should be installed and enabled on your clusters** recommendations. Download the given script provided in the recommendation and run it on your cluster. The recommendation should disappear within an hour of when the script is run.
+- Make sure that agents are installed to your Elastic Kubernetes Service (EKS) and Google Kubernetes Engine (GKE) clusters. You can verify and install the agent with the following Defender for Cloud recommendations:
+  - **Azure Arc-enabled Kubernetes clusters should have the Azure Policy extension installed**
+  - **GKE clusters should have the Azure Policy extension installed**
+  - **EKS clusters should have Microsoft Defender's extension for Azure Arc installed**
+  - **GKE clusters should have Microsoft Defender's extension for Azure Arc installed**
 - If you’re experiencing issues with deleting the AWS or GCP connector, check if you have a lock (in this case there might be an error in the Azure Activity log, hinting at the presence of a lock).  
 - Check that workloads exist in the AWS account or GCP project.
 
@@ -49,7 +53,7 @@ AWS connector issues:
 - Make sure that EKS clusters are successfully connected to Arc-enabled Kubernetes.
 - If you don't see AWS data in Defender for Cloud, make sure that the AWS resources required to send data to Defender for Cloud exist in the AWS account.
 
-GCP connector issues: 
+GCP connector issues:
 
 - Make sure that the GCP Cloud Shell script completed successfully.
 - Make sure that GKE clusters are successfully connected to Arc-enabled Kubernetes.

@@ -17,6 +17,9 @@ ms.collection: M365-identity-device-management
 
 # Authentication and Conditional Access for External Identities
 
+> [!TIP]
+> This article applies to B2B collaboration and B2B direct connect. If your tenant is configured for customer identity and access management, see [Security and governance in Azure AD for customers](customers/concept-security-customers.md).
+
 When an external user accesses resources in your organization, the authentication flow is determined by the collaboration method (B2B collaboration or B2B direct connect), user's identity provider (an external Azure AD tenant, social identity provider, etc.), Conditional Access policies, and the [cross-tenant access settings](cross-tenant-access-overview.md) configured both in the user's home tenant and the tenant hosting resources.
 
 This article describes the authentication flow for external users who are accessing resources in your organization. Organizations can enforce multiple Conditional Access policies for their external users, which can be enforced at the tenant, app, or individual user level in the same way that they're enabled for full-time employees and members of the organization.

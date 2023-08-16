@@ -102,11 +102,12 @@ $lb | Set-AzLoadBalancer
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-In this example, you create an inbound NAT rule to forward port **500** to backend port **443**.
+In this example, you will create an inbound NAT rule to forward port **500** to backend port **443**. You will then attach the inbound NAT rule to a VM's NIC
 
 Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule#az-network-lb-inbound-nat-rule-create) to create the NAT rule.
 
 Use [az network nic ip-config inbound-nat-rule add](/cli/azure/network/nic/ip-config/inbound-nat-rule) to add the inbound NAT rule to a VM's NIC
+
 
 ```azurecli
     az network lb inbound-nat-rule create \
@@ -124,6 +125,7 @@ Use [az network nic ip-config inbound-nat-rule add](/cli/azure/network/nic/ip-co
         --ip-config-name MyIpConfig \
         --inbound-nat-rule MyNatRule \
         --lb-name myLoadBalancer
+
 ```
 ---
 

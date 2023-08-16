@@ -280,8 +280,8 @@ For some service-specific binding types, binding data can be provided using type
 
 | Dependency | Version requirement |
 |-|-|
-|[Microsoft.Azure.Functions.Worker]| For **Generally Available** extensions in the table below: 1.18.0 or later<br/>For extensions that have **preview support**: 1.15.0-preview1 |
-|[Microsoft.Azure.Functions.Worker.Sdk]|For **Generally Available** extensions in the table below: 1.13.0 or later<br/>For extensions that have **preview support**: 1.11.0-preview1 |
+|[Microsoft.Azure.Functions.Worker]| 1.18.0 or later |
+|[Microsoft.Azure.Functions.Worker.Sdk]| 1.13.0 or later |
 
 When testing SDK types locally on your machine, you will also need to use [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). You can check your current version using the command `func version`.
 
@@ -294,7 +294,7 @@ Each trigger and binding extension also has its own minimum version requirement,
 | [Azure Service Bus][servicebus-sdk-types] | **Generally Available**<sup>2</sup>  | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Event Hubs][eventhub-sdk-types] | **Generally Available** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Cosmos DB][cosmos-sdk-types] | _SDK types not used<sup>3</sup>_ | **Generally Available**  |  _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Tables][tables-sdk-types] | _Trigger does not exist_ | **Preview support**  |  _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Tables][tables-sdk-types] | _Trigger does not exist_ | **Generally Available** |  _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Event Grid][eventgrid-sdk-types] | **Generally Available** | _Input binding does not exist_ |  _SDK types not recommended.<sup>1</sup>_ | 
 
 [blob-sdk-types]: ./functions-bindings-storage-blob.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
@@ -340,7 +340,7 @@ This section shows how to work with the underlying HTTP request and response obj
 > [!NOTE]
 > Not all features of ASP.NET Core are exposed by this model. Specifically, the ASP.NET Core middleware pipeline and routing capabilities are not available.
 
-1. Add a reference to the [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore NuGet package, version 1.0.0-preview2 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/1.0.0-preview2) to your project.
+1. Add a reference to the [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore NuGet package, version 1.0.0-preview4 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/1.0.0-preview4) to your project.
 
   You must also update your project to use [version 1.11.0 or later of Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.11.0) and [version 1.16.0 or later of Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.16.0).
 
@@ -432,7 +432,7 @@ var host = new HostBuilder()
 
 ### Application Insights
 
-You can configure your isolated process application to emit logs directly [Application Insights](../azure-monitor/app/app-insights-overview.md?tabs=net), giving you control over how those logs are emitted. This replaces the default behavior of [relaying custom logs through the host](./configure-monitoring.md#custom-application-logs). To work with Application Insights directly, you will need to add a reference to [Microsoft.Azure.Functions.Worker.ApplicationInsights, version 1.0.0-preview5 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights/). You will also need to reference [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService). Add these packages to your isolated process project:
+You can configure your isolated process application to emit logs directly [Application Insights](../azure-monitor/app/app-insights-overview.md?tabs=net), giving you control over how those logs are emitted. This replaces the default behavior of [relaying custom logs through the host](./configure-monitoring.md#custom-application-logs). To work with Application Insights directly, you will need to add a reference to [Microsoft.Azure.Functions.Worker.ApplicationInsights, version 1.0.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights/). You will also need to reference [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService). Add these packages to your isolated process project:
 
 ```dotnetcli
 dotnet add package Microsoft.ApplicationInsights.WorkerService
