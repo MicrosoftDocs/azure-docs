@@ -35,6 +35,9 @@ Live trace tool is a single web application for capturing and displaying live tr
 
 ### Steps for access key disabled
 
+> [!NOTE]
+> Only available in public cloud for now, national clouds are on going.
+
 #### Assign live trace tool API permission to yourself
 1. Go to the Azure portal and your SignalR Service page.
 1. Select **Access control (IAM)**.
