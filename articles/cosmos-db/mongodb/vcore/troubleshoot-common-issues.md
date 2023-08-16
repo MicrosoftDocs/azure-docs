@@ -28,7 +28,7 @@ This issue might occur when the cluster does not have the correct firewall rule(
 #### Debugging Connectivity Issues: 
 Psping doesn't work. The use of nslookup confirms cluster reachability and discoverability, indicating network issues are unlikely.
 
-#### Connection String: 
+#### Verify your connection string: 
 Only use the connection string provided in the portal. Avoid using any variations. Particularly, the connection string using mongodb+srv:// protocol and the c. prefixes aren't recommended. If the issue persists, share application/client-side driver logs for debugging connectivity issues with the team by submitting a support ticket.
 
 
