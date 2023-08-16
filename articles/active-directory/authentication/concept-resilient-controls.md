@@ -5,6 +5,7 @@ services: active-directory
 author: martincoetzer
 manager: travisgr
 tags: azuread
+ms.custom: has-azure-ad-ps-ref
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
