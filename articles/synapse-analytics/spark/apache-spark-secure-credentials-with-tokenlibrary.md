@@ -254,7 +254,7 @@ To connect to other linked services, you can make a direct call to the TokenLibr
 %%spark
 // retrieve connectionstring from mssparkutils
 
-mssparkutils.getFullConnectionString("<LINKED SERVICE NAME>")
+mssparkutils.credentials.getFullConnectionString("<LINKED SERVICE NAME>")
 ```
 
 ::: zone-end
@@ -265,7 +265,7 @@ mssparkutils.getFullConnectionString("<LINKED SERVICE NAME>")
 %%pyspark
 # retrieve connectionstring from mssparkutils
 
-mssparkutils.getFullConnectionString("<LINKED SERVICE NAME>")
+mssparkutils.credentials.getFullConnectionString("<LINKED SERVICE NAME>")
 ```
 
 ::: zone-end
@@ -351,7 +351,7 @@ Console.WriteLine(connectionString);
 While Azure Synapse Analytics supports a variety of linked service connections (from pipelines and other Azure products), not all of them are supported from the Spark runtime. Here is the list of supported linked services:
 
  - Azure Blob Storage
- - Azure Cognitive Services
+ - Azure AI services
  - Azure Cosmos DB
  - Azure Data Explorer
  - Azure Database for MySQL

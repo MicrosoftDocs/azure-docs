@@ -1,20 +1,20 @@
 ---
-title: Choose a pricing tier
+title: Choose a service tier
 titleSuffix: Azure Cognitive Search
-description: 'Learn about the pricing tiers (or SKUs) for Azure Cognitive Search. A search service can be provisioned at these tiers: Free, Basic, and Standard. Standard is available in various resource configurations and capacity levels.'
+description: 'Learn about the service tiers (or SKUs) for Azure Cognitive Search. A search service can be provisioned at these tiers: Free, Basic, and Standard. Standard is available in various resource configurations and capacity levels.'
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 07/27/2023
 ms.custom: contperf-fy21q2 
 ---
 
-# Choose a pricing tier for Azure Cognitive Search
+# Choose a service tier for Azure Cognitive Search
 
-Part of [creating a search service](search-create-service-portal.md) means choosing a pricing tier (or SKU) that's fixed for the lifetime of the service. In the portal, tier is specified in the **Select Pricing Tier** page when you create the service. If you're provisioning through PowerShell or Azure CLI instead, the tier is specified through the **`-Sku`** parameter
+Part of [creating a search service](search-create-service-portal.md) is choosing a pricing tier (or SKU) that's fixed for the lifetime of the service. In the portal, tier is specified in the **Select Pricing Tier** page when you create the service. If you're provisioning through PowerShell or Azure CLI instead, the tier is specified through the **`-Sku`** parameter
 
 The tier you select determines:
 
@@ -55,7 +55,7 @@ You can find out more about the various tiers on the [pricing page](https://azur
 
 ## Feature availability by tier
 
-Most features are available on all tiers, including the free tier. In a few cases, the tier you choose will impact your ability to implement a feature. The following table describes feature constraints that are related to service tier.
+Most features are available on all tiers, including the free tier. In a few cases, the tier determines the availability of a feature. The following table describes the constraints.
 
 | Feature | Limitations |
 |---------|-------------|
@@ -66,7 +66,7 @@ Most features are available on all tiers, including the free tier. In a few case
 | [IP firewall access](service-configure-firewall.md) | Not available on the Free tier. |
 | [Private endpoint (integration with Azure Private Link)](service-create-private-endpoint.md) | For inbound connections to a search service, not available on the Free tier. For outbound connections by indexers to other Azure resources, not available on Free or S3 HD. For indexers that use skillsets, not available on Free, Basic, S1, or S3 HD.| 
 | [Availability Zones](search-reliability.md) | Not available on the Free or Basic tier. |
-| [Semantic search (preview)](semantic-search-overview.md) | Not available on the Free or Basic tier. |
+| [Semantic search (preview)](semantic-search-overview.md) | Not available on the Free tier. |
 
 Resource-intensive features might not work well unless you give it sufficient capacity. For example, [AI enrichment](cognitive-search-concept-intro.md) has long-running skills that time out on a Free service unless the dataset is small.
 
@@ -89,6 +89,18 @@ Search services are allocated computing resources in the form of *partitions* (f
 The following example provides an illustration. Assume a hypothetical billing rate of $100 per month. If you keep the search service at its initial capacity of one partition and one replica, then $100 is what you can expect to pay at the end of the month. However, if you add two more replicas to achieve high availability, the monthly bill increases to $300 ($100 for the first replica-partition pair, followed by $200 for the two replicas).
 
 This billing model is based on the concept of applying the billing rate to the number *search units* (SU) used by a search service. All services are initially provisioned at one SU, but you can increase the SUs by adding either partitions or replicas to handle larger workloads. For more information, see [How to estimate costs of a search service](search-sku-manage-costs.md).
+
+## Tier upgrade or downgrade
+
+There is no built-in support to upgrade or downgrade tiers. If you want to switch to a different tier, the approach is:
+
++ Create a new search service at the new tier.
+
++ Deploy your search content onto the new service. [Follow this checklist](search-howto-move-across-regions.md#prepare-and-move) to make sure you have all of the content.
+
++ Delete the old search service once you're sure it's no longer needed.
+
+For large indexes that you don't want to rebuild from scratch, consider using the [backup and restore sample](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/index-backup-restore/README.md) to move them.
 
 ## Next steps
 

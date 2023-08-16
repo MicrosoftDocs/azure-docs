@@ -34,7 +34,7 @@ Some Microsoft services aren't available in all locations. For group license ass
 1. Select the **Save** button.
 
 > [!NOTE]
-> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set usage location as part of your user creation flow in Azure AD (for example, via [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) configuration). Following such a process ensures the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
+> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set usage location as part of your user creation flow in Azure AD (for example, via [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md) configuration). Following such a process ensures the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
 
 ## Use group-based licensing with dynamic groups
 
@@ -102,13 +102,13 @@ Here's an example of what this process may look like:
 ## Use PowerShell to see who has inherited and direct licenses
 You can use a PowerShell script to check if users have a license assigned directly or inherited from a group.
 
-1. Run the `connect-msolservice` cmdlet to authenticate and connect to your organization.
+1. Run the `Connect-MgGraph -Scopes "Organization.Read.All"` cmdlet to authenticate and connect to your organization using Microsoft Graph.
 
-2. `Get-MsolAccountSku` can be used to discover all provisioned product licenses in the Azure AD organization.
+2. `Get-MgSubscribedSku -All | Select-Object skuid -ExpandProperty serviceplans | select serviceplanid, serviceplanname` can be used to discover all provisioned product licenses in the Azure AD organization.
 
-   ![Screenshot of the Get-Msolaccountsku cmdlet](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
+   ![Screenshot of the Get-Msolaccountsku cmdlet](./media/licensing-group-advanced/get-mgsubscribedsku-cmdlet.png)
 
-3. Use the *AccountSkuId* value for the license you're interested in with [this PowerShell script](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). A list populates the users who have this license and information about how the license is assigned.
+3. Use the *ServicePlanId* value for the license you're interested in with [this PowerShell script](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). A list populates the users who have this license and information about how the license is assigned.
 
 ## Use Audit logs to monitor group-based licensing activity
 
@@ -208,7 +208,7 @@ If you use group-based licensing, it's a good idea to familiarize yourself with 
 
 To learn more about other scenarios for license management through group-based licensing, see:
 
-* [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [What is group-based licensing in Azure Active Directory?](../fundamentals/licensing-whatis-azure-portal.md)
 * [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
 * [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
 * [How to migrate individual licensed users to group-based licensing in Azure Active Directory](licensing-groups-migrate-users.md)

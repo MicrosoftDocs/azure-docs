@@ -204,7 +204,7 @@ Legend:
 - Non-bold = A supported option
 - Local account = Local user account on the server
 - Domain account = Domain user account
-- sMSA = [standalone managed service account](../../fundamentals/service-accounts-on-premises.md)
+- sMSA = [standalone managed service account](../../architecture/service-accounts-on-premises.md)
 - gMSA = [group managed service account](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
 
 | | Local database<br />Express | Local database/Local SQL Server<br />Custom | Remote SQL Server<br />Custom |
@@ -230,7 +230,7 @@ To use this option, on the [Install required components](how-to-connect-install-
 
 :::image type="content" source="media/reference-connect-accounts-permissions/serviceaccount.png" alt-text="Screenshot that shows selecting Managed Service Account in Windows Server.":::
 
-You also can use an [sMSA](../../fundamentals/service-accounts-on-premises.md) in this scenario. However, you can use an sMSA only on the local computer, and there's no benefit to using an sMSA instead of the default VSA.
+You also can use an [sMSA](../../architecture/service-accounts-on-premises.md) in this scenario. However, you can use an sMSA only on the local computer, and there's no benefit to using an sMSA instead of the default VSA.
 
 The sMSA feature requires Windows Server 2012 or later. If you need to use an earlier version of an operating system and you use remote SQL Server, you must use a [user account](#user-account).
 

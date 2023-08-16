@@ -26,7 +26,7 @@ Organizations who have deployed Microsoft Intune can use the information returne
 
 Policy compliance information is sent to Azure AD where Conditional Access decides to grant or block access to resources. More information about device compliance policies can be found in the article, [Set rules on devices to allow access to resources in your organization using Intune](/intune/protect/device-compliance-get-started)
 
-Requiring a hybrid Azure AD joined device is dependent on your devices already being hybrid Azure AD joined. For more information, see the article [Configure hybrid Azure AD join](../devices/howto-hybrid-azure-ad-join.md).
+Requiring a hybrid Azure AD joined device is dependent on your devices already being hybrid Azure AD joined. For more information, see the article [Configure hybrid Azure AD join](../devices/how-to-hybrid-join.md).
 
 ## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]

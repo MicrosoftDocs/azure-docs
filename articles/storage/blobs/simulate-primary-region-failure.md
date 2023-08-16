@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Simulate an error in reading data from the primary region when the storage account is configured for read-access geo-zone-redundant storage (RA-GZRS).
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 09/06/2022
 ms.author: pauljewell

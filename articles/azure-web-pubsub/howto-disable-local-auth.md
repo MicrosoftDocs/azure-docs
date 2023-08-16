@@ -16,9 +16,10 @@ There are two ways to authenticate to Azure Web PubSub Service resources: Azure 
 
 > [!IMPORTANT]
 > Disabling local authentication can have following influences.
-> - The current set of access keys will be permanently deleted. 
-> - Tokens signed with current set of access keys will become unavailable. 
-> - Signature will **NOT** be attached in the upstream request header. Please visit *[how to validate access token](./howto-use-managed-identity.md#validate-access-tokens)* to learn how to validate requests via Azure AD token.
+>
+> - The current set of access keys will be permanently deleted.
+> - Tokens signed with current set of access keys will become unavailable.
+> - Signature will **NOT** be attached in the upstream request header. Please visit _[how to validate access token](./howto-use-managed-identity.md#validate-access-tokens)_ to learn how to validate requests via Azure AD token.
 
 ## Use Azure portal
 
@@ -40,49 +41,49 @@ You can disable local authentication by setting `disableLocalAuth` property to t
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "resource_name": {
-            "defaultValue": "test-for-disable-aad",
-            "type": "String"
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.SignalRService/WebPubSub",
-            "apiVersion": "2022-08-01-preview",
-            "name": "[parameters('resource_name')]",
-            "location": "eastus",
-            "sku": {
-                "name": "Premium_P1",
-                "tier": "Premium",
-                "size": "P1",
-                "capacity": 1
-            },
-            "properties": {
-                "tls": {
-                    "clientCertEnabled": false
-                },
-                "networkACLs": {
-                    "defaultAction": "Deny",
-                    "publicNetwork": {
-                        "allow": [
-                            "ServerConnection",
-                            "ClientConnection",
-                            "RESTAPI",
-                            "Trace"
-                        ]
-                    },
-                    "privateEndpoints": []
-                },
-                "publicNetworkAccess": "Enabled",
-                "disableLocalAuth": true,
-                "disableAadAuth": false
-            }
-        }
-    ]
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "resource_name": {
+      "defaultValue": "test-for-disable-aad",
+      "type": "String"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.SignalRService/WebPubSub",
+      "apiVersion": "2022-08-01-preview",
+      "name": "[parameters('resource_name')]",
+      "location": "eastus",
+      "sku": {
+        "name": "Premium_P1",
+        "tier": "Premium",
+        "size": "P1",
+        "capacity": 1
+      },
+      "properties": {
+        "tls": {
+          "clientCertEnabled": false
+        },
+        "networkACLs": {
+          "defaultAction": "Deny",
+          "publicNetwork": {
+            "allow": [
+              "ServerConnection",
+              "ClientConnection",
+              "RESTAPI",
+              "Trace"
+            ]
+          },
+          "privateEndpoints": []
+        },
+        "publicNetworkAccess": "Enabled",
+        "disableLocalAuth": true,
+        "disableAadAuth": false
+      }
+    }
+  ]
 }
 ```
 

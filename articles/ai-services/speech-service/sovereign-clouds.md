@@ -107,9 +107,9 @@ Replace `subscriptionKey` with your Speech resource key. Replace `usGovHost` wit
 | Text to speech | `https://usgovvirginia.tts.speech.azure.us` |
 
 
-## Azure China
+## Microsoft Azure operated by 21Vianet
 
-Available to organizations with a business presence in China. See more information about Azure China [here](/azure/china/overview-operations). 
+Available to organizations with a business presence in China. See more information about Microsoft Azure operated by 21Vianet [here](/azure/china/overview-operations). 
 
 - **Azure portal:**
   - [https://portal.azure.cn/](https://portal.azure.cn/)
@@ -140,7 +140,7 @@ This section contains Speech service endpoint information for the usage with [Sp
 
 #### Speech service REST API
 
-Speech service REST API endpoints in Azure China have the following format:
+Speech service REST API endpoints in Azure operated by 21Vianet have the following format:
 
 |  REST API type / operation | Endpoint format |
 |--|--|

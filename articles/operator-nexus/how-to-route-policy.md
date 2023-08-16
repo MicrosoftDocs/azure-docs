@@ -6,7 +6,7 @@ ms.author: jdasari
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 05/20/2023
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Route Policy in Network Fabric
