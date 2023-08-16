@@ -41,36 +41,39 @@ Follow the guidance here [Configure Azure DevOps for SDAF](configure-devops.md) 
 
 You can run the SAP on Azure Deployment Automation Framework from a virtual machine in Azure. The following steps describe how to create the environment.
 
-Clone the repository and prepare the execution environment by using the following steps on a Linux Virtual machine in Azure:
+> [!IMPORTANT]
+> Ensure that the virtual machine is using either a system assigned or user assigned identity with permissions on the subscription to create resources.
+
 
 Ensure the Virtual Machine has the following prerequisites installed:
+
  - git
  - jq
  - unzip
+ - virtualenv (if running on Ubuntu)
  
-Ensure that the virtual machine is using either a system assigned or user assigned identity with permissions on the subscription to create resources.
 
-
-- Create a directory called `Azure_SAP_Automated_Deployment` for your automation framework deployment. 
+You can install the prerequisites on an Ubuntu Virtual Machine by using the following command:
 
 ```bash
-mkdir -p ~/Azure_SAP_Automated_Deployment; cd $_
+sudo apt-get install -y git jq unzip virtualenv
 
-git clone https://github.com/Azure/sap-automation.git sap-automation
-
-git clone https://github.com/Azure/sap-automation-samples.git samples
-
-git clone https://github.com/Azure/sap-automation-bootstrap.git config
-
-cd sap-automation/deploy/scripts
-    
-./configure_deployer.sh
 ```
 
+You can then install the deployer components using the following commands:
 
+```bash
 
-> [!TIP]
-> The deployer already clones the required repositories. 
+wget https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/configure_deployer.sh -O configure_deployer.sh	
+chmod +x ./configure_deployer.sh
+./configure_deployer.sh
+
+# Source the new variables
+
+. /etc/profile.d/deploy_server.sh
+
+```
+
 
 ## Samples
 
@@ -80,7 +83,7 @@ The ~/Azure_SAP_Automated_Deployment/samples folder contains a set of sample con
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -Rp samples/Terraform/WORKSPACES config
+cp -Rp samples/Terraform/WORKSPACES ~/Azure_SAP_Automated_Deployment
 ```
 
 
