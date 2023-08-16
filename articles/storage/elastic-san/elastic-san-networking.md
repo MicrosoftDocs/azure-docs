@@ -99,7 +99,9 @@ az network vnet subnet update --resource-group $RgName --vnet-name $VnetName --n
 ### Configure a private endpoint
 
 > [!IMPORTANT]
-> Before you can create a private endpoint connection to a volume group, it must contain at least one volume.
+> - Private endpoints for Elastic SAN are currently only supported in the France Central (Europe) region.
+>
+> - Before you can create a private endpoint connection to a volume group, it must contain at least one volume.
 
 There are two steps involved in configuring a private endpoint connection:
 
