@@ -10,9 +10,9 @@ ms.date: 07/17/2023
 
 Hive metastore is used as a central repository for storing metadata about the data. This article describes how you can add a Hive metastore database to your HDInsight on AKS Trino cluster. There are two ways:
 
-1. You can add a Hive catalog and link it to an external Hive metastore database during [Trino cluster creation](./trino-create-cluster-portal.md).
+* You can add a Hive catalog and link it to an external Hive metastore database during [Trino cluster creation](./trino-create-cluster-portal.md).
 
-2. You can add a Hive catalog and attach an external Hive metastore database to your cluster using ARM template update.
+* You can add a Hive catalog and attach an external Hive metastore database to your cluster using ARM template update.
 
 The following example covers the addition of Hive catalog and metastore database to your cluster using ARM template.
 
@@ -25,10 +25,9 @@ The following example covers the addition of Hive catalog and metastore database
 
 > [!NOTE]
 >
-> 1. Currently, we support Azure SQL Database as in-built metastore.
-> 1. Due to Hive limitation, "-" (hyphen) character in the metastore database name is not supported.
-> 1. Only single metastore database connection is supported, all catalogs listed in `clusterProfile.trinoProfile.catalogOptions.hive` section will be configured to use one and the same database parameters which are specified first.
-
+> * Currently, we support Azure SQL Database as in-built metastore.
+> * Due to Hive limitation, "-" (hyphen) character in the metastore database name is not supported.
+> * Only single metastore database connection is supported, all catalogs listed in `clusterProfile.trinoProfile.catalogOptions.hive` section will be configured to use one and the same database parameters which are specified first.
 
 ## Add external Hive metastore database
 
