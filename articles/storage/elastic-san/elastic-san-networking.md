@@ -200,7 +200,7 @@ $EndpointConnection.PrivateLinkServiceConnectionState
 
 # [Azure CLI](#tab/azure-cli)
 
-Deploying a private endpoint for an Elastic SAN Volume group using the Azure CLI involves three steps:
+Deploying a private endpoint for an Elastic SAN Volume group using the Azure CLI involves two steps:
 
 1. Get the private connection resource ID of the Elastic SAN.
 1. Create the private endpoint using inputs:
@@ -209,7 +209,6 @@ Deploying a private endpoint for an Elastic SAN Volume group using the Azure CLI
     1. Resource group name
     1. Subnet name
     1. Vnet name
-1. **(Optional** *if you are using the two-step process (creation, then approval))*: The Elastic SAN Network Admin approves the connection.
 
 Use this sample code to create a private endpoint for your Elastic SAN volume group with the Azure CLI. Uncomment the `--manual-request` parameter if you are using the two-step process. Replace all placeholder text with your own values:
 
@@ -251,29 +250,13 @@ az network private-endpoint create \
     --resource-group $RgName \
     --vnet-name $VnetName \
     --subnet $SubnetName \
-    --group-id $EsanVgName # --manual-request
+    --location $Location \
+    --group-id $EsanVgName
 
 # Verify the status of the private endpoint
 az network private-endpoint show \
     --name $EndpointName \
     --resource-group $RgName
-```
-
-Use this sample code to approve the private link service connection if you are using the two-step process. Use the same variables from the previous code sample:
-
-```azurecli
-az network private-endpoint-connection approve \
-    --resource-name $EsanName \
-    --resource-group $RgName \
-    --name $PLSvcConnectionName \
-    --type Microsoft.ElasticSan/elasticSans \
-    --description $ApprovalDesc
-
-id=$(az elastic-san show \
-    --elastic-san-name $EsanName \
-    --resource-group $RgName \
-    --query id' \
-    --output tsv)
 ```
 ---
 
