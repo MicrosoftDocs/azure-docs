@@ -48,7 +48,7 @@ When a resource is non-compliant, there are many possible reasons. To determine 
 1. Select **Compliance**.
 1. Use the filters to display by **Scope**, **Type** or **Compliance state**. Use search list by name or
    ID.
-   [ ![Policy compliance in portal](./media/howto-monitor-azure-policy/azure-policy-compliance.png) ](./media/howto-monitor-azure-policy/azure-policy-compliance.png#lightbox)
+   [ ![Screenshot showing policy compliance in portal.](./media/howto-monitor-azure-policy/azure-policy-compliance.png) ](./media/howto-monitor-azure-policy/azure-policy-compliance.png#lightbox)
 1. Select a policy to review aggregate compliance details and events.
 1. Select a specific Web PubSub for resource compliance.
 

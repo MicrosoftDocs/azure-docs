@@ -25,7 +25,7 @@ To set up a managed identity in the Azure portal, you'll first create an Azure W
 
 3. On the **System assigned** tab, switch **Status** to **On**. Select **Save**.
 
-   :::image type="content" source="media/howto-use-managed-identity/system-identity-portal.png" alt-text="Add a system-assigned identity in the portal":::
+   :::image type="content" source="media/howto-use-managed-identity/system-identity-portal.png" alt-text="Screenshot showing Add a system-assigned identity in the portal.":::
 
 ## Add a user-assigned identity
 
@@ -41,7 +41,7 @@ Creating an Azure Web PubSub Service instance with a user-assigned identity requ
 
 5. Search for the identity that you created earlier and selects it. Select **Add**.
 
-   :::image type="content" source="media/howto-use-managed-identity/user-identity-portal.png" alt-text="Add a user-assigned identity in the portal":::
+   :::image type="content" source="media/howto-use-managed-identity/user-identity-portal.png" alt-text="Screenshot showing Add a user-assigned identity in the portal.":::
 
 ## Use a managed identity in client events scenarios
 
@@ -53,7 +53,7 @@ Azure Web PubSub Service is a fully managed service, so you can't use a managed 
 
 2. Navigate to the rule and switch on the **Authentication**.
 
-   :::image type="content" source="media/howto-use-managed-identity/msi-settings.png" alt-text="msi-setting":::
+   :::image type="content" source="media/howto-use-managed-identity/msi-settings.png" alt-text="Screenshot showing the msi-setting.":::
 
 3. Select application. The application ID will become the `aud` claim in the obtained access token, which can be used as a part of validation in your event handler. You can choose one of the following:
 
