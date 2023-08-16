@@ -1,6 +1,6 @@
 ---
 title: Integrate Splunk with Microsoft Defender for IoT
-description: This article describes how to integrate Splunk with Microsoft Defender for IoT.
+description: This article describes how to integrate Splunk with Microsoft Defender for IoT for multidimensional visibility across OT protocols and IIoT devices. 
 ms.topic: how-to
 ms.date: 08/14/2023
 ms.custom: how-to
@@ -11,6 +11,11 @@ ms.custom: how-to
 This article describes how to integrate Splunk with Microsoft Defender for IoT, in order to view both Splunk and Defender for IoT information in a single place.
 
 Viewing both Defender for IoT and Splunk information together provides SOC analysts with multidimensional visibility into the specialized OT protocols and IIoT devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior.
+
+> [!IMPORTANT]
+> Defender for IoT plans to end support for the [legacy Splunk integration](#on-premises-integration-legacy) in an upcoming 23.x version.
+>
+> We recommend transitioning to newly recommended methods instead, such using the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), or using [Defender for IoT's API](references-work-with-defender-for-iot-apis.md).
 
 ## Cloud integration (recommended)
 
@@ -33,9 +38,6 @@ In such cases, we recommend that you configure your OT sensor to send syslog fil
 For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
 
 ## On-premises integration (legacy)
-
-> [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy, on-premises Splunk integration with an upcoming 23.x version. We recommend that you transition any uses of the legacy integration to a recommended integration method instead.
 
 This section describes how to integrate Defender for IoT and Splunk using the legacy, on-premises integration.
 

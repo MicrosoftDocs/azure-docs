@@ -11,6 +11,11 @@ This article describes how to integrate Palo Alto with Microsoft Defender for Io
 
 Viewing both Defender for IoT and Palo Alto information together provides SOC analysts with multidimensional visibility so that they can block critical threats faster.
 
+> [!IMPORTANT]
+> Defender for IoT plans to end support for the [legacy Palo Alto Panorama integration](#on-premises-integration-legacy) in an upcoming 23.x version. 
+>
+> We recommend transitioning to newly recommended methods instead, such using a [Microsoft Sentinel connector](concept-sentinel-integration.md), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), or using [Defender for IoT's API](references-work-with-defender-for-iot-apis.md).
+
 ## Cloud integration (recommended)
 
 If you're integrating a cloud-connected OT sensor with Palo Alto we recommend that you connect Defender for IoT to [Microsoft Sentinel](concept-sentinel-integration.md).
@@ -23,7 +28,7 @@ Install one or more of the following solutions to view both Palo Alto and Defend
 |[Palo Alto Networks Cortex Data Lake Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltocdl?tab=Overview)     |  [Palo Alto Networks Cortex Data Lake (CDL) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-networks-cortex-data-lake-cdl)       |
 |[Palo Alto Prisma Cloud CSPM solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-paloaltoprisma?tab=Overview)      |   [Palo Alto Prisma Cloud CSPM (using Azure Function) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/palo-alto-prisma-cloud-cspm-using-azure-function)      |
 
-Microsoft Sentinel is a scalable cloud service for security information event management (SIEM) security orchestration automated response (SOAR).  SOC teams can use the integration between Microsoft Defender for Iot and Microsoft Sentinel to collect data across networks, detect and investigate threats, and respond to incidents.
+Microsoft Sentinel is a scalable cloud service for security information event management (SIEM) security orchestration automated response (SOAR).  SOC teams can use the integration between Microsoft Defender for IoT and Microsoft Sentinel to collect data across networks, detect and investigate threats, and respond to incidents.
 
 In Microsoft Sentinel, the Defender for IoT data connector and solution brings out-of-the-box security content to SOC teams, helping them to view, analyze and respond to OT security alerts, and understand the generated incidents in the broader organizational threat contents.
 
@@ -36,16 +41,16 @@ For more information, see:
 
 If you're working with an air-gapped, locally managed OT sensor, you'll need an on-premises solution to view Defender for IoT and Palo Alto information in the same place.
 
-In such cases, we recommend that you configure your OT sensor to send syslog files directly to Palo Alto.
+In such cases, we recommend that you configure your OT sensor to send syslog files directly to Palo Alto, or use Defender for IoT's built-in API.
 
-For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
+For more information, see:
+
+- [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md)
+- [Defender for IoT API reference](references-work-with-defender-for-iot-apis.md)
 
 ## On-premises integration (legacy)
 
 This section describes how to integrate and use Palo Alto with Microsoft Defender for IoT using the legacy, on-premises integration, which automatically creates new policies in the Palo Alto Network's NMS and Panorama.
-
-> [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy, on-premises Palo Alto integration with an upcoming 23.x version. We recommend that you transition any uses of the legacy integration to a recommended integration method instead.
 
 The following table shows which incidents this integration is intended for:
 

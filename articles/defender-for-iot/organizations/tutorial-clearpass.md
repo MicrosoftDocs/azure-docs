@@ -1,5 +1,5 @@
 ---
-title: Integrate ClearPass with Microsoft Defender for IoT (legacy)
+title: Integrate ClearPass with Microsoft Defender for IoT
 description: In this tutorial, you learn how to integrate Microsoft Defender for IoT with ClearPass using Defender for IoT's legacy, on-premises integration.
 ms.topic: how-to
 ms.date: 08/07/2023
@@ -13,11 +13,16 @@ This article describes how to integrate Aruba ClearPass with Microsoft Defender 
 
 Viewing both Defender for IoT and ClearPass information together provides SOC analysts with multidimensional visibility into the specialized OT protocols and devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior.
 
+> [!IMPORTANT]
+> Defender for IoT plans to end support for the [legacy ClearPass integration](#on-premises-integration-legacy) in an upcoming 23.x version. 
+>
+> We recommend transitioning to newly recommended methods instead, such using a [Microsoft Sentinel connector](concept-sentinel-integration.md), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), or using [Defender for IoT's API](references-work-with-defender-for-iot-apis.md).
+
 ## Cloud integration (recommended)
 
 If you're integrating a cloud-connected OT sensor with Aruba ClearPass, we recommend that you connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview).
 
-Microsoft Sentinel is a scalable cloud service for security information event management (SIEM) security orchestration automated response (SOAR).  SOC teams can use the integration between Microsoft Defender for Iot and Microsoft Sentinel to collect data across networks, detect and investigate threats, and respond to incidents.
+Microsoft Sentinel is a scalable cloud service for security information event management (SIEM) security orchestration automated response (SOAR).  SOC teams can use the integration between Microsoft Defender for IoT and Microsoft Sentinel to collect data across networks, detect and investigate threats, and respond to incidents.
 
 In Microsoft Sentinel, the Defender for IoT data connector and solution brings out-of-the-box security content to SOC teams, helping them to view, analyze and respond to OT security alerts, and understand the generated incidents in the broader organizational threat contents.
 

@@ -21,7 +21,7 @@ However, without OT telemetry, context and integration with existing SOC tools a
 
 ## Integrate Defender for IoT and Microsoft Sentinel
 
-Microsoft Sentinel is a scalable cloud service for security information event management (SIEM) security orchestration automated response (SOAR).  SOC teams can use the integration between Microsoft Defender for Iot and Microsoft Sentinel to collect data across networks, detect and investigate threats, and respond to incidents.
+Microsoft Sentinel is a scalable cloud service for security information event management (SIEM) security orchestration automated response (SOAR).  SOC teams can use the integration between Microsoft Defender for IoT and Microsoft Sentinel to collect data across networks, detect and investigate threats, and respond to incidents.
 
 In Microsoft Sentinel, the Defender for IoT data connector and solution brings out-of-the-box security content to SOC teams, helping them to view, analyze and respond to OT security alerts, and understand the generated incidents in the broader organizational threat contents.
 

@@ -1,6 +1,6 @@
 ---
 title: What's new in Microsoft Defender for IoT
-description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
+description: This article describes new features available in Microsoft Defender for IoT, including both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
 ms.date: 08/14/2023
 ms.custom: enterprise-iot
@@ -24,19 +24,19 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Updated security stack integration guidance
 
-Defender for IoT now has updated guidance for integrating with your security stack services, increasing robustness, scalability, and ease of maintenance.
-
-Defender for IoT plans to end support for legacy, on-premises integrations with Splunk, Aruba ClearPass, and Palo Alto Panorama in an an upcoming 23.x version. We recommend that you transition to an updated, recommended method, as described in the following sections:
+Defender for IoT now has updated guidance for integrating with your security stack services, increasing robustness, scalability, and ease of maintenance, as detailed in the following sections:
 
 - [Aruba ClearPass](#aruba-clearpass)
 - [Palo Alto](#palo-alto)
-- [Splunk](#splunk)
+- [Splunk](#splunk) 
+
+The legacy [Aruba ClearPass](#aruba-clearpass), [Palo Alto Panorama](#palo-alto), and [Splunk](#splunk) integrations are planned to be deprecated in an upcoming 23.x version. For customers using legacy integration methods, we recommend transitioning to newly recommended methods instead, such using a [Microsoft Sentinel connector](concept-sentinel-integration.md), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), or using [Defender for IoT's API](references-work-with-defender-for-iot-apis.md).
+
+For more information, see [Integrations with Microsoft and partner services](integrate-overview.md).
 
 > [!NOTE]
 > Some features of Microsoft Sentinel might incur a fee. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing).
 >
-
-For more information, see [Integrations with Microsoft and partner services](integrate-overview.md).
 
 #### Aruba ClearPass
 
@@ -844,7 +844,7 @@ Update your **IoT OT Threat Monitoring with Defender for IoT** solution to use t
 
 For more information, see:
 
-- [Tutorial: Integrate Defender for Iot and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)
+- [Tutorial: Integrate Defender for IoT and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)
 - [View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)
 - [View alerts on your sensor](how-to-view-alerts.md)
 
@@ -1105,7 +1105,7 @@ For more information, see [Create custom alert rules on an OT sensor](how-to-acc
 
 ### CLI command updates
 
-The Defender for Iot sensor software installation is now containerized. With the now-containerized sensor, you can use the *cyberx_host* user to investigate issues with other containers or the operating system, or to send files via FTP.
+The Defender for IoT sensor software installation is now containerized. With the now-containerized sensor, you can use the *cyberx_host* user to investigate issues with other containers or the operating system, or to send files via FTP.
 
 This *cyberx_host* user is available by default and connects to the host machine. If you need to, recover the password for the *cyberx_host* user from the **Sites and sensors** page in Defender for IoT.
 
