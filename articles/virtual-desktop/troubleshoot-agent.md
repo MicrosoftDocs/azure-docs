@@ -323,7 +323,7 @@ If the session host doesn't pass the *MonitoringAgentCheck* health check, you'll
 
 1. If you don't find the Remote Desktop Services Infrastructure Geneva Agent installed on the session host, please review logs located under *C:\Program Files\Microsoft RDInfra\GenevaInstall.txt* and see if installation is failing due to an error.
 
-1. Verify if scheduled task *GenevaTask_<version>* is created. This scheduled task must be enabled and running. If it's not, please reinstall the agent using the `.msi` file named **Microsoft.RDInfra.Geneva.Installer-x64-<version>.msi**, which is available at **C:\Program Files\Microsoft RDInfra**.
+1. Verify if scheduled task *GenevaTask_\<version\>* is created. This scheduled task must be enabled and running. If it's not, please reinstall the agent using the `.msi` file named **Microsoft.RDInfra.Geneva.Installer-x64-\<version\>.msi**, which is available at **C:\Program Files\Microsoft RDInfra**.
 
 ## Error: Connection not found: RDAgent does not have an active connection to the broker
 
