@@ -102,6 +102,6 @@ Follow the steps in this section to secure app-to-app authentication access for 
 
 For more information about roles and security groups, see:
 
-- [How to: Add app roles in your application](./howto-add-app-roles-in-azure-ad-apps.md)
+- [How to: Add app roles in your application](./howto-add-app-roles-in-apps.md)
 - [Using Security Groups and Application Roles in your apps (Video)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Azure Active Directory app manifest](./reference-app-manifest.md)

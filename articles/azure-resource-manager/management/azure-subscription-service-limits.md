@@ -510,6 +510,10 @@ The maximum number of private endpoints per Azure SQL Database logical server is
 
 For more information, see [Virtual machine sizes](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
+[!INCLUDE [azure-storage-limits-vm-apps](../../../includes/azure-storage-limits-vm-apps.md)]
+
+For more information see [VM Applications](../../virtual-machines/vm-applications.md).
+
 #### Disk encryption sets
 
 There's a limitation of 1000 disk encryption sets per region, per subscription. For more

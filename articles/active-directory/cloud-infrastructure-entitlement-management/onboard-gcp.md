@@ -81,12 +81,12 @@ To enable Controller mode **On** for any projects, add these roles to the specif
 - Role Administrators
 - Security Admin 
 
-The required commands to run in Google Cloud Shell are listed in the Manage Authorization screen for each scope of a project, folder or organization. This is also configured in the GPC console.
+The required commands to run in Google Cloud Shell are listed in the Manage Authorization screen for each scope of a project, folder or organization. This is also configured in the GCP console.
 
 3. Select **Next**.
 
 #### Option 2: Enter authorization systems 
-You have the ability to specify only certain GCP member projects to manage and monitor with MEPM (up to 100 per collector). Follow the steps to configure these GCP member projects to be monitored: 
+You have the ability to specify only certain GCP member projects to manage and monitor with Permissions Management (up to 100 per collector). Follow the steps to configure these GCP member projects to be monitored: 
 1. In the **Permissions Management Onboarding - GCP Project Ids** page, enter the **Project IDs**.
 
     You can enter up to comma separated 100 GCP project IDs. 
@@ -109,7 +109,7 @@ To enable Controller mode **On** for any projects, add these roles to the specif
 - Role Administrators
 - Security Admin 
 
-The required commands to run in Google Cloud Shell are listed in the Manage Authorization screen for each scope of a project, folder or organization. This is also configured in the GPC console.
+The required commands to run in Google Cloud Shell are listed in the Manage Authorization screen for each scope of a project, folder or organization. This is also configured in the GCP console.
 
 3. Select **Next**.
 
