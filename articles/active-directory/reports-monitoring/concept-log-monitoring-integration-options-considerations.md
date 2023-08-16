@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory activity log integration options
-description: Introduction to the options for integrating Azure Active Directory activity logs with storage and analysis tools.
+title: Azure Active Directory activity log integration options and considerations
+description: Introduction to the options and considerations for integrating Azure Active Directory activity logs with storage and analysis tools.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,10 +8,9 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/27/2023
+ms.date: 08/09/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
-ms.collection: M365-identity-device-management
 ---
 # Azure AD activity log integrations
 

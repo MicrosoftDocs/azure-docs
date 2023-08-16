@@ -5266,6 +5266,61 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-workbooks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/concept-log-monitoring-integration-options-considerations",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/tutorial-log-analytics-wizard.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/tutorial-configure-log-analytics-workspace",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-archive-logs-to-storage-account",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/overview-monitoring.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/overview-monitoring-health",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/overview-reports.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/overview-monitoring-health",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-integrate-activity-logs-with-sumologic.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-stream-logs-to-event-hub",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-integrate-activity-logs-with-splunk.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-stream-logs-to-event-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-stream-logs-to-event-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-azure-monitor-logs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/overview-service-health-notifications.md",
+      "redirect_url": "/azure/service-health/service-health-portal-update",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-configure-named-locations.md",
       "redirect_url": "/azure/active-directory/conditional-access/location-condition",
       "redirect_document_id": true

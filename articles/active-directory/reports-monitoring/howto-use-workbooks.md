@@ -8,10 +8,11 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/28/2023
+ms.date: 08/10/2023
 ms.author: sarahlipsey
 ms.reviewer: sarbar
 ---
+
 # How to use Azure Active Directory Workbooks
 
 Workbooks are found in Azure AD and in Azure Monitor. The concepts, processes, and best practices are the same for both types of workbooks, however, workbooks for Azure Active Directory (AD) cover only those identity management scenarios that are associated with Azure AD.
