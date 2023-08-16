@@ -349,11 +349,11 @@ public class KafkaSinkToHbase {
 
 We are using [Flink CLI](../flink/flink-webssh-on-portal-to-flink-sql.md) from Azure portal to submit jobs
 
-:::image type="content" source="./media/sink-kafka-messages-to-hbase/submit-job-on-webssh.png" alt-text="Screenshot showing how to submit job on webssh." lightbox="./media/sink-kafka-messages-to-hbase/submit-job-on-webssh.png":::
+:::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/submit-job-on-webssh.png" alt-text="Screenshot showing how to submit job on webssh." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/submit-job-on-webssh.png":::
 
 ### Monitor job on Flink UI
 
-:::image type="content" source="./media/sink-kafka-messages-to-hbase/check-job-on-flink-ui.png" alt-text="Screenshot showing how to check job on Flink UI." lightbox="./media/sink-kafka-messages-to-hbase/check-job-on-flink-ui.png":::
+:::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/check-job-on-flink-ui.png" alt-text="Screenshot showing how to check job on Flink UI." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/check-job-on-flink-ui.png":::
 
 ## Validate HBase table data
 
