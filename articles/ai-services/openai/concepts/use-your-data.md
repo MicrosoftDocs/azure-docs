@@ -73,7 +73,7 @@ If you have Azure OpenAI resource protected by a private network, and want to al
 
 Learn more about the [manual approval workflow](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow).
 
-After you approve the request in your search service, you can start using the [chat completions extensions API](/azure/ai-services/openai/reference#completions-extensions). Public network access to your Azure OpenAI resource will be disabled for that search service. Private network access for Azure OpenAI Studio support is not currently supported.
+After you approve the request in your search service, you can start using the [chat completions extensions API](/azure/ai-services/openai/reference#completions-extensions). Public network access can be disabled for that search service. Private network access for Azure OpenAI Studio support is not currently supported.
 
 ### Azure OpenAI resources in private networks
 
