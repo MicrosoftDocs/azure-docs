@@ -48,9 +48,7 @@ There may be times when you're running a container with a multi-layered ingestio
    > * The **sent&#8203;fix** solution is more precise and allows you to specify an exact target translation for a source sentence. For a sentence match to occur, the entire submitted sentence must match the **sent&#8203;fix** entry. If only a portion of the sentence matches, the entry won't match.
    > * If you're hesitant about making sweeping find-and-replace changes, we recommend, at the outset, solely using the **sent&#8203;fix** solution.
 
-1. Next, to dynamically reload glossary entry updates, create a `version.json` file within the `customhotfix` folder. The `version.json` file should contain the following parameters:
-
-    * **VersionId**. An integer value.
+1. Next, to dynamically reload glossary entry updates, create a `version.json` file within the `customhotfix` folder. The `version.json` file should contain the following parameters: **VersionId**. An integer value.
       ***Sample version.json file***
 
         ```json
