@@ -18,11 +18,11 @@ You can use the Azure portal to create an Apache Spark cluster in cluster pool. 
     
     This step opens the cluster create page.
     
-    :::image type="content" source="./media/create-spark-cluster/create-cluster-basic-page1.png" alt-text="Screenshot showing create cluster basic page 1." border="true" lightbox="./media/create-spark-cluster/create-cluster-basic-page1.png":::
+    :::image type="content" source="./media/create-spark-cluster/create-cluster-basic-page-1.png" alt-text="Screenshot showing create cluster basic page 1." border="true" lightbox="./media/create-spark-cluster/create-cluster-basic-page-1.png":::
     
-    :::image type="content" source="./media/create-spark-cluster/create-cluster-basic-page2.png" alt-text="Screenshot showing create cluster basic page 2." border="true" lightbox="./media/create-spark-cluster/create-cluster-basic-page2.png":::
+    :::image type="content" source="./media/create-spark-cluster/create-cluster-basic-page-2.png" alt-text="Screenshot showing create cluster basic page 2." border="true" lightbox="./media/create-spark-cluster/create-cluster-basic-page-2.png":::
     
-    :::image type="content" source="./media/create-spark-cluster/create-cluster-basic-page3.png" alt-text="Screenshot showing create cluster basic page 3." border="true" lightbox="./media/create-spark-cluster/create-cluster-basic-page3.png":::
+    :::image type="content" source="./media/create-spark-cluster/create-cluster-basic-page-3.png" alt-text="Screenshot showing create cluster basic page 3." border="true" lightbox="./media/create-spark-cluster/create-cluster-basic-page-3.png":::
     
     |Property |	Description |
     |-|-|
@@ -52,9 +52,9 @@ You can use the Azure portal to create an Apache Spark cluster in cluster pool. 
     
 1. Select **Next: Configuration + pricing** to continue.
 
-    :::image type="content" source="./media/create-spark-cluster/create-cluster-pricing-tab1.png" alt-text="Screenshot showing pricing tab 1." border="true" lightbox="./media/create-spark-cluster/create-cluster-pricing-tab1.png":::
+    :::image type="content" source="./media/create-spark-cluster/create-cluster-pricing-tab-1.png" alt-text="Screenshot showing pricing tab 1." border="true" lightbox="./media/create-spark-cluster/create-cluster-pricing-tab-1.png":::
    
-    :::image type="content" source="./media/create-spark-cluster/create-cluster-pricing-tab2.png" alt-text="Screenshot showing pricing tab 2." border="true" lightbox="./media/create-spark-cluster/create-cluster-pricing-tab2.png":::
+    :::image type="content" source="./media/create-spark-cluster/create-cluster-pricing-tab-2.png" alt-text="Screenshot showing pricing tab 2." border="true" lightbox="./media/create-spark-cluster/create-cluster-pricing-tab-2.png":::
     
     :::image type="content" source="./media/create-spark-cluster/create-cluster-ssh-tab.png" alt-text="Screenshot showing ssh tab." border="true" lightbox="./media/create-spark-cluster/create-cluster-ssh-tab.png":::
 
