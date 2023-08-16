@@ -61,7 +61,7 @@ If you don't have a tenant associated with your account, you'll see a GUID under
 
 ### Create a new Azure AD tenant
 
-If you don't already have an Azure AD tenant or if you want to create a new one for development, see [Create a new tenant in Azure AD](../fundamentals/active-directory-access-create-new-tenant.md) or use the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) in the Azure portal. If you want to create a tenant for app testing, see [build a test environment](test-setup-environment.md).
+If you don't already have an Azure AD tenant or if you want to create a new one for development, see [Create a new tenant in Azure AD](../fundamentals/create-new-tenant.md) or use the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) in the Azure portal. If you want to create a tenant for app testing, see [build a test environment](test-setup-environment.md).
 
 You'll provide the following information to create your new tenant:
 
