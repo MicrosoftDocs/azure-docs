@@ -54,7 +54,7 @@ We provide rich operations to develop notebooks:
 
 > [!NOTE]
 > 
-> In the notebook, the user does not need to create the spark session, and do not change the variable values of spark and sc.
+> In the notebook, the users does not need to create the spark session, and do not change the variable values of spark and sc.
 
 
 <h3 id="add-a-cell">Add a cell</h3>
