@@ -11,12 +11,7 @@ This article describes how to integrate Palo Alto with Microsoft Defender for Io
 
 Viewing both Defender for IoT and Palo Alto information together provides SOC analysts with multidimensional visibility so that they can block critical threats faster.
 
-> [!IMPORTANT]
-> Defender for IoT plans to end support for the [legacy Palo Alto Panorama integration](#on-premises-integration-legacy) in an upcoming 23.x version. 
->
-> We recommend transitioning to newly recommended methods instead, such using a [Microsoft Sentinel connector](concept-sentinel-integration.md), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), or using [Defender for IoT's API](references-work-with-defender-for-iot-apis.md).
-
-## Cloud integration (recommended)
+## Cloud integrations (recommended)
 
 If you're integrating a cloud-connected OT sensor with Palo Alto we recommend that you connect Defender for IoT to [Microsoft Sentinel](concept-sentinel-integration.md).
 
@@ -37,7 +32,7 @@ For more information, see:
 - [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](iot-solution.md)
 - [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md)
 
-## On-premises integration (recommended)
+## On-premises integrations (recommended)
 
 If you're working with an air-gapped, locally managed OT sensor, you'll need an on-premises solution to view Defender for IoT and Palo Alto information in the same place.
 
@@ -51,6 +46,11 @@ For more information, see:
 ## On-premises integration (legacy)
 
 This section describes how to integrate and use Palo Alto with Microsoft Defender for IoT using the legacy, on-premises integration, which automatically creates new policies in the Palo Alto Network's NMS and Panorama.
+
+> [!IMPORTANT]
+> Defender for IoT plans to end support for the [legacy Palo Alto Panorama integration](#on-premises-integration-legacy) in an upcoming 23.x version.
+>
+> We recommend transitioning to newly recommended methods instead, such using a Microsoft Sentinel connector, forwarding alert rules, or using Defender for IoT's API. For more information, see [Cloud integrations (recommended)](#cloud-integrations-recommended) and [On-premises integrations (recommended)](#on-premises-integrations-recommended).
 
 The following table shows which incidents this integration is intended for:
 

@@ -12,11 +12,6 @@ This article describes how to integrate Splunk with Microsoft Defender for IoT, 
 
 Viewing both Defender for IoT and Splunk information together provides SOC analysts with multidimensional visibility into the specialized OT protocols and IIoT devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior.
 
-> [!IMPORTANT]
-> Defender for IoT plans to end support for the [legacy Splunk integration](#on-premises-integration-legacy) in an upcoming 23.x version.
->
-> We recommend transitioning to newly recommended methods instead, such using the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), or using [Defender for IoT's API](references-work-with-defender-for-iot-apis.md).
-
 ## Cloud integration (recommended)
 
 If you're integrating a cloud-connected OT sensor with Splunk, we recommend that you use Splunk's own [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151). For more information, see:
@@ -40,6 +35,11 @@ For more information, see [Forward on-premises OT alert information](how-to-forw
 ## On-premises integration (legacy)
 
 This section describes how to integrate Defender for IoT and Splunk using the legacy, on-premises integration.
+
+> [!IMPORTANT]
+> Defender for IoT plans to end support for the [legacy Splunk integration](#on-premises-integration-legacy) in an upcoming 23.x version.
+>
+> We recommend transitioning to newly recommended methods instead, such using the OT Security Add-on for Splunk, forwarding alert rules, or using Defender for IoT's API. For more information, see [Cloud integrations (recommended)](#cloud-integrations-recommended) and [On-premises integrations (recommended)](#on-premises-integrations-recommended).
 
 Microsoft Defender for IoT was formally known as [CyberX](https://blogs.microsoft.com/blog/2020/06/22/microsoft-acquires-cyberx-to-accelerate-and-secure-customers-iot-deployments/). References to CyberX refer to Defender for IoT.
 

@@ -13,11 +13,6 @@ This article describes how to integrate Aruba ClearPass with Microsoft Defender 
 
 Viewing both Defender for IoT and ClearPass information together provides SOC analysts with multidimensional visibility into the specialized OT protocols and devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior.
 
-> [!IMPORTANT]
-> Defender for IoT plans to end support for the [legacy ClearPass integration](#on-premises-integration-legacy) in an upcoming 23.x version.
->
-> We recommend transitioning to newly recommended methods instead, such using a [Microsoft Sentinel connector](concept-sentinel-integration.md), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), or using [Defender for IoT's API](references-work-with-defender-for-iot-apis.md).
-
 ## Cloud integration (recommended)
 
 If you're integrating a cloud-connected OT sensor with Aruba ClearPass, we recommend that you connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview).
@@ -60,10 +55,12 @@ For more information, see [Forward on-premises OT alert information](how-to-forw
 
 ## On-premises integration (legacy)
 
-> [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy, on-premises Splunk integration with an upcoming 23.x version. We recommend that you transition any uses of the legacy integration to a recommended integration method instead.
-
 This section describes how to integrate Defender for IoT and ClearPass Policy Manager (CPPM) using the legacy, on-premises integration.
+
+> [!IMPORTANT]
+> Defender for IoT plans to end support for the [legacy ClearPass integration](#on-premises-integration-legacy) in an upcoming 23.x version.
+>
+> We recommend transitioning to newly recommended methods instead, such using a Microsoft Sentinel connector, forwarding alert rules, or using Defender for IoT's API. For more information, see [Cloud integrations (recommended)](#cloud-integrations-recommended) and [On-premises integrations (recommended)](#on-premises-integrations-recommended).
 
 ### Prerequisites
 
