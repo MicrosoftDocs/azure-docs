@@ -117,7 +117,7 @@ Some important things to know about aliases:
 1. Can be used to reference the underlying object, whether a style or map configuration, in place of that object's ID. This is especially important since the style and map configuration can't be updated, meaning every time any changes are saved, a new ID is generated, but the alias can remain the same, making referencing it less error prone after it has been modified multiple times.
 
 > [!WARNING]
-> Duplicate aliases are not allowed. If the alias of an existing style or map configuration is used, the style or map configuration that alias points to will be overwritten and the existing style or map configuration will be deleted and references to that ID will result in errors. See [map configuration] in the concepts article for more information.
+> Duplicate aliases are not allowed. If the alias of an existing style or map configuration is used, the style or map configuration that alias points to will be overwritten and the existing style or map configuration will be deleted and references to that ID will result in errors. For more information, see [map configuration] in the concepts article.
 
 Once you have entered values into each required field, select the **Upload map configuration** button to save the style and map configuration data to your Creator resource.
 
