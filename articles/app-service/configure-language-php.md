@@ -4,7 +4,7 @@ description: Learn how to configure a PHP app in a pre-built PHP container, in A
 
 ms.devlang: php
 ms.topic: article
-ms.date: 05/09/2023 
+ms.date: 08/31/2023 
 ms.custom: devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 
@@ -374,7 +374,7 @@ Then, go to the Azure portal and add an Application Setting to scan the "ini" di
 
 ::: zone pivot="platform-windows"  
 
-To customize PHP_INI_SYSTEM directives (see [php.ini directives](https://www.php.net/manual/ini.list.php)), you can't use the *.htaccess* approach. App Service provides a separate mechanism using the `PHP_INI_SCAN_DIR` app setting.
+To customize PHP_INI_SYSTEM directives (see [php.ini directives](https://www.php.net/manual/ini.list.php)), use the `PHP_INI_SCAN_DIR` app setting.
 
 First, run the following command in the [Cloud Shell](https://shell.azure.com) to add an app setting called `PHP_INI_SCAN_DIR`:
 
