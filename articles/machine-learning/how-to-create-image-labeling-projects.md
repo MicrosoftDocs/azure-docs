@@ -17,9 +17,11 @@ monikerRange: 'azureml-api-1 || azureml-api-2'
 
 Learn how to create and run data labeling projects to label images in Azure Machine Learning. Use machine learning (ML)-assisted data labeling or human-in-the-loop labeling to help with the task.
 
-Set up labels for classification, object detection (bounding box), or instance segmentation (polygon).
+Set up labels for classification, object detection (bounding box), instance segmentation (polygon), or semantic segmentation (Preview).
 
 You can also use the data labeling tool in Azure Machine Learning to [create a text labeling project](how-to-create-text-labeling-projects.md).
+
+[!INCLUDE [machine-learning-preview-items-disclaimer](includes/machine-learning-preview-items-disclaimer.md)]
 
 ## Image labeling capabilities
 
@@ -282,7 +284,7 @@ If your project was created from [Vision Studio](../ai-services/computer-vision/
 
 To export the labels, on the **Project details** page of your labeling project, select the **Export** button. You can export the label data for Machine Learning experimentation at any time.
 
-If your project type is Semantic Segmentation (Preview), an Azure MLTable data asset is created.
+If your project type is Semantic segmentation (Preview), an Azure MLTable data asset is created.
 
 For all other project types, you can export an image label as:
 
