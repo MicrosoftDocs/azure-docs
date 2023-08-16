@@ -1,5 +1,5 @@
 ---
-title: Monitoring decurity sdmin rules with Virtual Network Flow Logs
+title: Monitoring security admin rules with Virtual Network Flow Logs
 description: This article covers using Network Watcher and Virtual Network Flow Logs to monitor traffic through security admin rules in Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
