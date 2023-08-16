@@ -115,7 +115,7 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
 
 1.	Navigate to the Spark cluster Overview page and select Zeppelin notebook from Cluster dashboards. It prompts to authenticate and open the Zeppelin page.
 
-    :::image type="content" source="./media/submit-and-manage-jobs/select-zeppelin.png" alt-text="Diagram showing how to select Zeppelin":::
+    :::image type="content" source="./media/submit-and-manage-jobs/select-zeppelin.png" alt-text="Diagram showing how to select Zeppelin.":::
 
 1. Create a new notebook. From the header pane, navigate to Notebook > Create new note. Ensure the notebook header shows a connected status. It denotes a green dot in the top-right corner.
 
