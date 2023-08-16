@@ -47,8 +47,8 @@ The following table summarizes agent requirements for CWPP.
 |Microsoft Defender for Endpoint extension |✔|
 |Vulnerability assessment| ✔| |
 |Log Analytics or Azure Monitor Agent (preview) extension|✔| |✔|
-|Defender profile| | ✔| |
-|Azure policy extension | | ✔| |
+|Defender agent| | ✔| |
+|Azure Policy for Kubernetes | | ✔| |
 |Kubernetes audit log data | | ✔| |
 |SQL servers on machines | |  | ✔|
 |Automatic SQL server discovery and registration | | | ✔|
@@ -100,14 +100,14 @@ Enabling Defender for Containers provides GKE and EKS clusters and underlying ho
 
 The required [components](./defender-for-containers-introduction.md) are as follows:
 
-- **Azure Arc Agent**: Connects your GKE and EKS clusters to Azure, and onboards the Defender Profile.
-- **Defender Profile**: Provides host-level runtime threat protection.  
-- **Azure Policy extension**: Extends the Gatekeeper v3 to monitor every request to the Kubernetes API server, and ensures that security best practices are being followed on clusters and workloads.
+- **Azure Arc Agent**: Connects your GKE and EKS clusters to Azure, and onboards the Defender agent.
+- **[Defender agent](defender-for-cloud-glossary.md#defender-agent)**: Provides host-level runtime threat protection.  
+- **Azure Policy for Kubernetes**: Extends the Gatekeeper v3 to monitor every request to the Kubernetes API server, and ensures that security best practices are being followed on clusters and workloads.
 - **Kubernetes audit logs**: Audit logs from the API server allow Defender for Containers to identify suspicious activity within your multicloud servers, and provide deeper insights while investigating alerts. Sending of the “Kubernetes audit logs” needs to be enabled on the connector level.
 
 #### Check networking requirements-Defender for Containers
 
-Make sure to check that your clusters meet network requirements so that the Defender Profile can connect with Defender for Cloud.
+Make sure to check that your clusters meet network requirements so that the Defender agent can connect with Defender for Cloud.
 
 ### Defender for SQL
 

@@ -467,4 +467,4 @@ The following procedure describes how to capture traces by using the [Time Trave
 [server-errors]: #common-server-error-codes-aadsts-prefix
 [view-event-ids]: #method-2-use-event-viewer-to-examine-azure-ad-analytic-and-operational-logs
 [alt-login-id]: /windows-server/identity/ad-fs/operations/configuring-alternate-login-id
-[hybrid-azure-ad-join-plan]: ./hybrid-azuread-join-plan.md
+[hybrid-azure-ad-join-plan]: ./hybrid-join-plan.md

@@ -19,6 +19,9 @@ ms.collection: engagement-fy23, M365-identity-device-management
 
 # Add a self-service sign-up user flow to an app
 
+> [!TIP]
+> This article applies to B2B collaboration user flows. If your tenant is configured for customer identity and access management, see [Create a sign-up and sign-in user flow for customers](customers/how-to-user-flow-sign-up-sign-in-customers.md).
+
 For applications you build, you can create user flows that allow a user to sign up for an app and create a new guest account. A self-service sign-up user flow defines the series of steps the user will follow during sign-up, the [identity providers](identity-providers.md) you'll allow them to use, and the user attributes you want to collect. You can associate one or more applications with a single user flow.
 
 > [!NOTE]
