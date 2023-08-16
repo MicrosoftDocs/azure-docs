@@ -61,3 +61,6 @@ When user updates a configuration in the management portal the corresponding ser
     > [!NOTE]
     > Click on **save** will restart the clusters.
     > It is advisable not to have any active jobs while making configuration changes, since restarting the cluster may impact the active jobs.
+
+## Next steps
+* [Library management in Spark](./library-management.md)
