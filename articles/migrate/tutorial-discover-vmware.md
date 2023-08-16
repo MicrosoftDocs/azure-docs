@@ -348,6 +348,18 @@ To start vCenter Server discovery, select **Start discovery**. After the discove
 
    :::image type="content" source="./media/tutorial-discover-vmware/discovery-assessment-tile.png" alt-text="Screenshot that shows how to refresh data in discovery and assessment tile.":::
 
+Customers have the capability to purchase extended security updates, but these are very expensive.
+operating system license support status and we drill down into database level.
+With this, customers can also see how much time they have left in this extended support status left, which means like how much months are left for the license to be valid and after which it will go end of support.
+
+Select Columns > Support ends in > duration is displayed in months.
+
+For database, “Database instance support status”> right pane with status on clicking each and every support status they have details of what support status is it in how many months is it ending?
+actions do they have to take
+What are the options they have to secure this workload because extended or out of support is that your workload is vulnerable
+
+
+
 ## Next steps
 
 - Learn how to [assess servers to migrate to Azure VMs](./tutorial-assess-vmware-azure-vm.md).
