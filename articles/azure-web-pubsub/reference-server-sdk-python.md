@@ -4,7 +4,7 @@ description: Learn about the Python server SDK for the Azure Web PubSub service.
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: how-to 
+ms.topic: how-to
 ms.custom: kr2b-contr-experiment, devx-track-python
 ms.date: 05/23/2022
 ---
@@ -67,11 +67,11 @@ Or use [Azure Active Directory][aad_doc] (Azure AD):
 2. [Enable Azure AD authentication on your Webpubsub resource][aad_doc].
 3. Update code to use [DefaultAzureCredential][default_azure_credential].
 
-    ```python
-    >>> from azure.messaging.webpubsubservice import WebPubSubServiceClient
-    >>> from azure.identity import DefaultAzureCredential
-    >>> service = WebPubSubServiceClient(endpoint='<endpoint>', hub='hub', credential=DefaultAzureCredential())
-    ```
+   ```python
+   >>> from azure.messaging.webpubsubservice import WebPubSubServiceClient
+   >>> from azure.identity import DefaultAzureCredential
+   >>> service = WebPubSubServiceClient(endpoint='<endpoint>', hub='hub', credential=DefaultAzureCredential())
+   ```
 
 ## Examples
 
@@ -162,6 +162,7 @@ When you submit a pull request, a CLA-bot automatically determines whether you n
 This project has adopted the Microsoft Open Source Code of Conduct. For more information, see [Code of Conduct][code_of_conduct] FAQ or contact [Open Source Conduct Team](mailto:opencode@microsoft.com) with questions or comments.
 
 <!-- LINKS -->
+
 [webpubsubservice_docs]: ./index.yml
 [azure_cli]: /cli/azure
 [azure_sub]: https://azure.microsoft.com/free/
