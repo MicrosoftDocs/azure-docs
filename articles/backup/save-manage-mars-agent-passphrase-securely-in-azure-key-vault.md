@@ -313,7 +313,7 @@ To save the passphrase to Key Vault:
 
    If you change the passphrase in the future for this MARS agent, a new version of the *Secret* will be added with the latest passphrase.
 
-You can automate this step by using the new KeyVaultUri option in [Set-OBMachineSetting](/powershell/module/msonlinebackup/set-obmachinesetting?view=msonlinebackup-ps) cmd.
+You can automate this step by using the new KeyVaultUri option in [Set-OBMachineSetting](/powershell/module/msonlinebackup/set-obmachinesetting?view=msonlinebackup-ps&preserve-view=true) cmdlet.
 
 ## Retrieve passphrase from Azure Key Vault for a machine
 
@@ -366,9 +366,7 @@ This section lists commonly encountered errors when saving the passphrase to Azu
  
    :::image type="content" source="./media/save-manage-mars-agent-passphrase-securely-in-azure-key-vault/check-secret-permissions-is-set.png" alt-text="Screenshot shows the Recovery Services vault name is listed under Key Vault.":::
 
-4.	If not, please configure the permission again by following the steps here <link to section>.
-
-
+   If not listed, [configure the permission again](#assign-permissions-to-save-the-passphrase-in-azure-key-vault).
 
 ### Azure Key Vault URI is incorrect - 100272
 
