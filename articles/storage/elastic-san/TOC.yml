@@ -16,6 +16,8 @@ items:
     href: elastic-san-scale-targets.md
   - name: Performance
     href: elastic-san-performance.md
+  - name: Clustered applications
+    href: elastic-san-shared-volumes.md
 - name: How to
   items:
   - name: Deploy an Elastic SAN

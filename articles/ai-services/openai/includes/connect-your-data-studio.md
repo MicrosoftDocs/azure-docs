@@ -4,7 +4,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
-ms.topic: quickstart
+ms.topic: include
 author: aahill
 ms.author: aahi
 ms.date: 08/11/2023
