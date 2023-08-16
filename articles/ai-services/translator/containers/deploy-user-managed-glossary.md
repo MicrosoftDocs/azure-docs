@@ -109,6 +109,5 @@ There may be times when you're running a container with a multi-layered ingestio
 
 ## Learn more
 
-[Dynamic dictionary](../dynamic-dictionary.md)
-
-[Custom dictionary](../custom-translator/concepts/dictionaries.md)
+> [!div class="nextstepaction"]
+> [Create dynamic dictionary](../dynamic-dictionary.md)   [Use custom dictionary](../custom-translator/concepts/dictionaries.md)
