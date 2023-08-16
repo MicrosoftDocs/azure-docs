@@ -44,7 +44,7 @@ Supported authentication and clients for App Service, Container Apps, and Azure 
 
 ## Default environment variable names or application properties and sample codes
 
-Use the connection details and sample codes in following tables to connect compute services to Azure Database for MySQL. 
+Reference the connection details and sample codes in following tables to connect compute services to Azure Database for MySQL. 
 
 ### [Connection String](#secret)
 
@@ -54,7 +54,7 @@ Use the connection details and sample codes in following tables to connect compu
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `AZURE_MYSQL_CONNECTIONSTRING`      | ADO.NET MySQL connection string | `Server=<MySQL-DB-name>.mysql.database.azure.com;Database=<MySQL-DB-name>;Port=3306;User Id=<MySQL-DBusername>;Password=<MySQL-DB-password>;SSL Mode=Required` |
 
-The following is sample codes to connect to Azure Database for MySQL.
+Follow these steps to connect to Azure Database for MySQL.
 1. Install dependencies. Follow the guidance to [install connector/NET MySQL](https://dev.mysql.com/doc/connector-net/en/connector-net-installation.html)
 1. In code, get MySQL connection string from environment variables added by Service Connector service.
 ```csharp
@@ -166,7 +166,6 @@ cnx.close()
 ```bash
 pip install django==3.2
 ```
-
 1. In setting file, get MySQL database information from environment variables added by Service Connector service.
 ```python
 # in your setting file, eg. settings.py
@@ -198,7 +197,6 @@ DATABASES = {
 ```bash
 go get -u github.com/go-sql-driver/mysql
 ```
-
 1. In code, get MySQL connection string from environment variables added by Service Connector service.
 ```go
 import (
@@ -229,7 +227,6 @@ db, err := sql.Open("mysql", connectionString)
 ```bash
 npm install mysql
 ```
-
 1. In code, get MySQL connection information from environment variables added by Service Connector service.
 ```javascript
 const mysql = require('mysql')
@@ -304,7 +301,6 @@ mysqli_close($conn);
 ```bash
 gem install mysql2
 ```
-
 1. In code, get MySQL connection information from environment variables added by Service Connector service.
 ```ruby
 require 'mysql2'
@@ -404,6 +400,8 @@ client.close
 | `AZURE_MYSQL_SSLMODE`               | SSL option        | `required`                                 |
 
 
+---
+
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
 
 ---
@@ -495,6 +493,8 @@ client.close
 | `AZURE_MYSQL_USERNAME`              | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | `AZURE_MYSQL_SSLMODE`               | SSL option        | `required`                                 |
 | `AZURE_MYSQL_CLIENTID`              | Your client ID    | `<identity-client-ID>`                     |
+
+---
 
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
 
@@ -606,6 +606,7 @@ client.close
 | `AZURE_MYSQL_CLIENTSECRET`          | Your client secret| `<client-secret>`                          |
 | `AZURE_MYSQL_TENANTID`              | Your tenant ID    | `<tenant-ID>`                              |
 
+---
 
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
 

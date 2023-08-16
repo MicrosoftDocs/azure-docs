@@ -91,7 +91,6 @@ pip install azure-identity
 # install Connector/Python https://dev.mysql.com/doc/connector-python/en/connector-python-installation.html
 pip install mysql-connector-python
 ```
-
 1. Authenticate with access token get via `azure-identity` library. Get connection string from the environment variable added by Service Connector.
 ```python
 from azure.identity import ManagedIdentityCredential, ClientSecretCredential
@@ -134,7 +133,7 @@ cnx.close()
 ```bash
 pip install azure-identity
 ```
-1. Get access token via `azure-identity` library.
+2. Get access token via `azure-identity` library.
 ```python
 from azure.identity import ManagedIdentityCredential, ClientSecretCredential
 import os
@@ -155,7 +154,7 @@ cred = ManagedIdentityCredential(client_id=managed_identity_client_id)
 # acquire token
 accessToken = cred.get_token('https://ossrdbms-aad.database.windows.net/.default')
 ```
-1. In setting file, get Azure MySQL database information from environment variables added by Service Connector service. Use `accessToken` acquired in previous step to access the database.
+3. In setting file, get Azure MySQL database information from environment variables added by Service Connector service. Use `accessToken` acquired in previous step to access the database.
 ```python
 # in your setting file, eg. settings.py
 host = os.getenv('AZURE_MYSQL_HOST')
@@ -180,7 +179,7 @@ DATABASES = {
 npm install --save @azure/identity
 npm install --save mysql
 ```
-1. Get Azure MySQL database information from environment variables added by Service Connector service.
+2. Get Azure MySQL database information from environment variables added by Service Connector service.
 ```javascript
 import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
 
@@ -232,8 +231,7 @@ go get "github.com/go-sql-driver/mysql"
 go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 go get "github.com/Azure/azure-sdk-for-go/sdk/azcore"
 ```
-
-1. In code, get access token via `azidentity`, then connect to Azure MySQL with the token.
+2. In code, get access token via `azidentity`, then connect to Azure MySQL with the token.
 ```go
 import (
   "context"
@@ -285,6 +283,8 @@ For other languages, you can use the connection string and username that Service
 
 ### [Ruby](#tab/ruby)
 For other languages, you can use the connection string and username that Service Connector set to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
+
+---
 
 For more code samples, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=mysql#3-modify-your-code).
 
