@@ -332,7 +332,7 @@ The following steps describe enable public IP on your node.
 
     ```json
     {
-        "name": "Secondary Node Type", 
+        "name": "Secondary Node Type Name", 
         "apiVersion": "2023-02-01-preview", 
         "properties": { 
             "isPrimary" : false, 
