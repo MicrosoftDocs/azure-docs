@@ -4,7 +4,7 @@ description: Learn how applications scale in and out in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.topic: conceptual
 ms.date: 12/08/2022
 ms.author: cshoe

@@ -84,7 +84,7 @@ Azure service: [Azure Bot Service](/azure/bot-service/)
 
 ### Microsoft.CognitiveServices
 
-Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
+Azure service: [Cognitive Services](../../../ai-services/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -703,7 +703,7 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/models/load-snapshot/jobs/read | Gets the status for loading a snapshot. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/models/verification/read | Get trained model verification report. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/prebuilts/read | Get list of Supported prebuilts for conversational projects. |
-> | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/resources/assign/action | Assign new Azure resources to a project to allow deploying new deployments to them.<br>This API is available only via AAD authentication and not supported via subscription key authentication.<br>For more details about AAD authentication, check here: [Authenticate with Azure Active Directory](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory) |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/resources/assign/action | Assign new Azure resources to a project to allow deploying new deployments to them.<br>This API is available only via AAD authentication and not supported via subscription key authentication.<br>For more details about AAD authentication, check here: [Authenticate with Azure Active Directory](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory) |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/resources/read | Lists the deployments resources assigned to the project. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/resources/unassign/action | Unassign resources from a project. This disallows deploying new deployments to these resources, and deletes existing deployments assigned to them. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/resources/assign/jobs/read | Gets the status of an existing assign deployment resources job. |
@@ -765,7 +765,7 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/models/evaluation/summary-result/read | Get trained model evaluation summary. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/models/load-snapshot/jobs/read | Gets the status for loading a snapshot. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/models/verification/read | Get trained model verification report. |
-> | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/resources/assign/action | Assign new Azure resources to a project to allow deploying new deployments to them.<br>This API is available only via AAD authentication and not supported via subscription key authentication.<br>For more details about AAD authentication, check here: [Authenticate with Azure Active Directory](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory) |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/resources/assign/action | Assign new Azure resources to a project to allow deploying new deployments to them.<br>This API is available only via AAD authentication and not supported via subscription key authentication.<br>For more details about AAD authentication, check here: [Authenticate with Azure Active Directory](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory) |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/resources/read | Lists the deployments resources assigned to the project. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/resources/unassign/action | Unassign resources from a project. This disallows deploying new deployments to these resources, and deletes existing deployments assigned to them. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/resources/assign/jobs/read | Gets the status of an existing assign deployment resources job. |

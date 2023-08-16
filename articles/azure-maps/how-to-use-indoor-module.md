@@ -83,6 +83,8 @@ To use the globally hosted Azure Content Delivery Network version of the *Azure 
       };
       ```
 
+      To learn more, see [How to use the Azure Maps map control npm package].
+
 ## Set the domain and instantiate the Map object
 
 Set the map domain with a prefix matching the location of your Creator resource, `US` or `EU`, for example:
@@ -211,10 +213,10 @@ Your file should now look similar to the following HTML:
       <meta name="viewport" content="width=device-width, user-scalable=no" />
       <title>Indoor Maps App</title>
       
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
       <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.2/atlas-indoor.min.css" type="text/css"/>
 
-      <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+      <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
       <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.2/atlas-indoor.min.js"></script>
         
       <style>
@@ -329,3 +331,4 @@ Learn more about how to add more data to your map:
 [Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor
 [Webpack]: https://webpack.js.org
+[How to use the Azure Maps map control npm package]: how-to-use-npm-package.md

@@ -35,8 +35,8 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
     * Use the globally hosted CDN version of the Azure Maps Web SDK by adding references to the JavaScript and `stylesheet` in the `<head>` element of the HTML file:
 
       ```html
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
-      <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css">
+      <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
       ```
 
     * Load the Azure Maps Web SDK source code locally using the [azure-maps-control] npm package and host it with your app. This package also includes TypeScript definitions.
@@ -46,7 +46,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
     Then add references to the Azure Maps `stylesheet` to the `<head>` element of the file:
 
     ```html
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css" />
      ```
 
     > [!NOTE]
@@ -153,8 +153,8 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
 
 
         <script type="text/javascript">
@@ -240,14 +240,6 @@ atlas.setDomain('atlas.azure.us');
 
 Be sure to use Azure Maps authentication details from the Azure Government cloud platform when authenticating the map and services.
 
-The domain for the services needs to be set when creating an instance of an API URL endpoint, when using the services module. For example, the following code creates an instance of the `SearchURL` class and points the domain to the Azure Government cloud.
-
-```javascript
-var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
-```
-
-If directly accessing the Azure Maps REST services, change the URL domain to `atlas.azure.us`. For example, if using the search API service, change the URL domain from `https://atlas.microsoft.com/search/` to `https://atlas.azure.us/search/`.
-
 ## JavaScript frameworks
 
 If developing using a JavaScript framework, one of the following open-source projects may be useful:
@@ -286,7 +278,7 @@ For a list of samples showing how to integrate Azure AD with Azure Maps, see:
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Maps & Azure Active Directory Samples]: https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Azure Maps community - Open-source projects]: open-source-projects.md#third-part-map-control-plugins
+[Azure Maps community - Open-source projects]: open-source-projects.md#third-party-map-control-plugins
 [Azure Maps React Component]: https://github.com/WiredSolutions/react-azure-maps
 [AzureMapsControl.Components]: https://github.com/arnaudleclerc/AzureMapsControl.Components
 [azure-maps-control]: https://www.npmjs.com/package/azure-maps-control

@@ -40,8 +40,8 @@ An HTTP trigger function endpoint is created to support the schedule and sequenc
 |VirtualMachineRequestExecutor |Queue |This function performs the actual start and stop operation on the VM.|
 |CreateAutoStopAlertExecutor |Queue |This function gets the payload information from the **AutoStop** function to create the alert on the VM.|
 |HeartBeatAvailabilityTest |Timer |This function monitors the availability of the primary HTTP functions.|
-|CostAnalyticsFunction |Timer |This function calculates the cost to run the Start/Stop V2 solution on a monthly basis.|
-|SavingsAnalyticsFunction |Timer |This function calculates the total savings achieved by the Start/Stop V2 solution on a monthly basis.|
+|CostAnalyticsFunction |Timer |This function is used by Microsoft to estimate aggregate cost of Start/Stop V2 across customers. This function does not impact the functionality of Start/Stop V2.|
+|SavingsAnalyticsFunction |Timer |This function is used by Microsoft to estimate aggregate savings of Start/Stop V2 across customers. This function does not impact the functionality of Start/Stop V2.|
 |VirtualMachineSavingsFunction |Queue |This function performs the actual savings calculation on a VM achieved by the Start/Stop V2 solution.|
 |TriggerAutoUpdate |Timer |This function starts the auto update process based on the application setting "**EnableAutoUpdate=true**".|
 |UpdateStartStopV2 |Queue |This function performs the actual auto update execution, which validates your current version with the available version and decides the final action.|

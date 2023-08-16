@@ -25,6 +25,10 @@
     href: quickstart-create-bicep-use-visual-studio.md
   - name: Create template specs
     href: quickstart-create-template-specs.md
+  - name: Create deployment stacks
+    href: quickstart-create-deployment-stacks.md
+  - name: Create deployment stacks from template specs
+    href: quickstart-create-deployment-stacks-template-specs.md
   - name: Use loops
     displayName: multiple
     href: quickstart-loops.md
@@ -45,16 +49,20 @@
   items:
   - name: Learn modules for Bicep
     href: learn-bicep.md
-  - name: Learn live - Bicep
+  - name: Learn Live - Bicep
     href: /events/learntv/learnlive-iac-and-bicep/
+  - name: Learn Live - Bicep and GitHub Actions
+    href: /events/learn-events/learnlive-automate-azure-deployments-bicep-github-actions/
+  - name: Use deployment stacks
+    href: ./tutorial-use-deployment-stacks.md
 - name: Samples - Azure Services
   items:
   - name: AI + Machine Learning
     items:
     - name: Cognitive Search
       href: ../../search/search-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Cognitive Services
-      href: ../../cognitive-services/create-account-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Azure AI services
+      href: ../../ai-services/create-account-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Data Science Virtual Machine
       href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Machine Learning secure workspace
@@ -367,6 +375,8 @@
       href: deployment-script-bicep.md
     - name: Template specs
       href: template-specs.md
+    - name: Deployment stacks
+      href: deployment-stacks.md
     - name: Bicep extensibility
       items:
       - name: Kubernetes provider

@@ -4,9 +4,9 @@ metadata:
   description: 'Answers to common questions about'
   ms.topic: faq
   ms.service: backup
-  ms.date: 06/29/2023
-  author: jyothisuri
-  ms.author: jsuri
+  ms.date: 07/20/2023
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
 
 title: Azure Backup - Frequently asked questions
 summary: This article answers common questions about the Azure Backup service.
@@ -28,8 +28,8 @@ sections:
       - question: |
           How many datasources/items can be protected in a vault?
         answer: |
-          You can protect up to 2000 datasources/items across all workloads (such as IaaS VM, SQL, AFS) in a vault.
-          For example, if you've already protected 500 VMs and 400 Azure Files shares in the vault, you can only protect up to 1100 SQL databases in it.
+          Protection of up to 2000 datasources/items across all workloads (such as IaaS VM, SQL, AFS) is the recommended limit per vault.
+          For example, if you have already protected 500 VMs and 400 Azure Files shares in the vault, we would recommend protecting up to 1100 SQL databases in it.
           
       - question: |
           How many policies can I create per vault?

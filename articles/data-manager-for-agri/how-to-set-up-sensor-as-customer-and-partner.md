@@ -1,7 +1,7 @@
 ---
 title: Push and consume sensor data in Data Manager for Agriculture 
 description: Learn how to push sensor data as a provider and egress it as a customer
-author: lbethapudi
+author: lbpudi
 ms.author: lbethapudi
 ms.service: data-manager-for-agri
 ms.topic: how-to
@@ -181,7 +181,7 @@ Use [IoT Hub Device SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-dev
 
 For all sensor telemetry events, "timestamp" is a mandatory property and has to be in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ).
 
-You're now all set to start pushing sensor data for all sensors using the respective connection string provided for each sensor. However, sensor data should be sent in a JSON format as defined by Data Manager for Agriculture. Refer to the telemetry schema that follows:
+You're now all set to start pushing sensor data for all sensors using the respective connection string provided for each sensor. However, sensor data should be sent in the format defined in the sensor data model created in Step 3. Refer to an example of the telemetry schema that follows:
 
 ```json
 {

@@ -55,6 +55,8 @@ To use passwordless authentication in Azure AD, first enable the combined regist
 
 ## Enable passwordless phone sign-in authentication methods
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Azure AD lets you choose which authentication methods can be used during the sign-in process. Users then register for the methods they'd like to use. The **Microsoft Authenticator** authentication method policy manages both the traditional push MFA method and the passwordless authentication method. 
 
 > [!NOTE]

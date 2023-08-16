@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.date: 06/20/2023
 ms.service: backup
 ms.custom: ignite-2022
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Azure Backup architecture for SAP HANA backup
 
@@ -100,7 +100,7 @@ In the following sections you'll learn about different SAP HANA setups and their
 
 :::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/azure-network-with-udr-and-nva-or-azure-firewall-and-private-endpoint-or-service-endpoint.png" alt-text="Diagram showing the SAP HANA setup if Azure network with UDR + NVA / Azure Firewall + Private Endpoint or Service Endpoint.":::
 
-### Backup architecture for database with HANA System Replication (preview)
+### Backup architecture for database with HANA System Replication
 
 The backup service resides in both the physical nodes of the HSR setup. Once you confirm that these nodes are in a replication group (using the [pre-registration script](sap-hana-database-with-hana-system-replication-backup.md#run-the-preregistration-script)), Azure Backup groups the nodes logically, and creates a single backup item during protection configuration. 
 
@@ -146,5 +146,5 @@ This section provides you with an understanding about the backup process of an H
 
 - Learn about the supported configurations and scenarios in the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
 - Learn about how to [backup SAP HANA databases in Azure VMs](backup-azure-sap-hana-database.md).
-- Learn about how to [backup SAP HANA System Replication databases in Azure VMs (preview)](sap-hana-database-with-hana-system-replication-backup.md).
+- Learn about how to [backup SAP HANA System Replication databases in Azure VMs](sap-hana-database-with-hana-system-replication-backup.md).
 - Learn about how to [backup SAP HANA databases' snapshot instances in Azure VMs (preview)](sap-hana-database-instances-backup.md).

@@ -2,7 +2,6 @@
 title: Configure relevance scoring
 titleSuffix: Azure Cognitive Search
 description: Enable Okapi BM25 ranking to upgrade the search ranking and relevance behavior on older Azure Search services.
-
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search

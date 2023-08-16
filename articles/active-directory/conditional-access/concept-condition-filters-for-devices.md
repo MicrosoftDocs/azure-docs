@@ -4,7 +4,7 @@ description: Use filter for devices in Conditional Access to enhance security po
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 07/18/2023
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
@@ -41,9 +41,9 @@ The following steps will help create two Conditional Access policies to support 
 
 Policy 1: All users with the directory role of Global Administrator, accessing the Microsoft Azure Management cloud app, and for Access controls, Grant access, but require multifactor authentication and require device to be marked as compliant.
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-1. Select **New policy**.
+1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **Directory roles** and choose **Global Administrator**.
@@ -53,14 +53,14 @@ Policy 1: All users with the directory role of Global Administrator, accessing t
 
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
-1. Under **Cloud apps or actions** > **Include**, select **Select apps**, and select **Microsoft Azure Management**.
+1. Under **Target resources** > **Cloud apps** > **Include** > **Select apps**, choose **Microsoft Azure Management**, and select **Select**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require multifactor authentication**, and **Require device to be marked as compliant**, then select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
 
 Policy 2: All users with the directory role of Global Administrator, accessing the Microsoft Azure Management cloud app, excluding a filter for devices using rule expression device.extensionAttribute1 equals SAW and for Access controls, Block.
 
-1. Select **New policy**.
+1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **Directory roles** and choose **Global Administrator**.
@@ -70,7 +70,7 @@ Policy 2: All users with the directory role of Global Administrator, accessing t
 
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
-1. Under **Cloud apps or actions** > **Include**, select **Select apps**, and select **Microsoft Azure Management**.
+1. Under **Target resources** > **Cloud apps** > **Include** > **Select apps**, choose **Microsoft Azure Management**, and select **Select**.
 1. Under **Conditions**, **Filter for devices**.
    1. Toggle **Configure** to **Yes**.
    1. Set **Devices matching the rule** to **Exclude filtered devices from policy**.
@@ -79,6 +79,9 @@ Policy 2: All users with the directory role of Global Administrator, accessing t
 1. Under **Access controls** > **Grant**, select **Block access**, then select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
+
+> [!WARNING]
+> Policies that require compliant devices may prompt users on Mac, iOS, and Android to select a device certificate during policy evaluation, even though device compliance is not enforced. These prompts may repeat until the device is made compliant.
 
 ### Setting attribute values
 
@@ -120,8 +123,8 @@ The following device attributes can be used with the filter for devices conditio
 | operatingSystem | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | A valid operating system (like Windows, iOS, or Android) | (device.operatingSystem -eq "Windows") |
 | operatingSystemVersion | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | A valid operating system version (like 6.1 for Windows 7, 6.2 for Windows 8, or 10.0 for Windows 10 and Windows 11) | (device.operatingSystemVersion -in ["10.0.18363", "10.0.19041", "10.0.19042", "10.0.22000"]) |
 | physicalIds | Contains, NotContains | As an example all Windows Autopilot devices store ZTDId (a unique value assigned to all imported Windows Autopilot devices) in device physicalIds property. | (device.physicalIds -contains "[ZTDId]:value") |
-| profileType | Equals, NotEquals | A valid profile type set for a device. Supported values are: RegisteredDevice (default), SecureVM (used for Windows VMs in Azure enabled with Azure AD sign in.), Printer (used for printers), Shared (used for shared devices), IoT (used for IoT devices) | (device.profileType -eq "Printer") |
-| systemLabels | Contains, NotContains | List of labels applied to the device by the system. Some of the supported values are: AzureResource (used for Windows VMs in Azure enabled with Azure AD sign in), M365Managed (used for devices managed using Microsoft Managed Desktop), MultiUser (used for shared devices) | (device.systemLabels -contains "M365Managed") |
+| profileType | Equals, NotEquals | A valid profile type set for a device. Supported values are: RegisteredDevice (default), SecureVM (used for Windows VMs in Azure enabled with Azure AD sign-in), Printer (used for printers), Shared (used for shared devices), IoT (used for IoT devices) | (device.profileType -eq "Printer") |
+| systemLabels | Contains, NotContains | List of labels applied to the device by the system. Some of the supported values are: AzureResource (used for Windows VMs in Azure enabled with Azure AD sign-in), M365Managed (used for devices managed using Microsoft Managed Desktop), MultiUser (used for shared devices) | (device.systemLabels -contains "M365Managed") |
 | trustType | Equals, NotEquals | A valid registered state for devices. Supported values are: AzureAD (used for Azure AD joined devices), ServerAD (used for Hybrid Azure AD joined devices), Workplace (used for Azure AD registered devices) | (device.trustType -eq "ServerAD") |
 | extensionAttribute1-15 | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | extensionAttributes1-15 are attributes that customers can use for device objects. Customers can update any of the extensionAttributes1 through 15 with custom values and use them in the filter for devices condition in Conditional Access. Any string value can be used. | (device.extensionAttribute1 -eq "SAW") |
 

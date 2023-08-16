@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 07/18/2023
 ms.custom: query-reference
 ---
 
@@ -40,73 +40,25 @@ Returns an expression, which could be of any type.
 
 The following example uses a static list to demonstrate various return values at different indexes.
 
-```sql
-SELECT VALUE 
-    CHOOSE(1, "abc", 1, true, [1])
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/choose/query.sql" highlight="2":::
 
-```json
-[
-  "abc"
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/choose/result.json":::
 
 This example uses a static list to demonstrate various return values at different indexes.
 
-```sql
-SELECT VALUE {
-    index0: CHOOSE(0, "abc", 1, true, [1]),
-    index1: CHOOSE(1, "abc", 1, true, [1]),
-    index2: CHOOSE(2, "abc", 1, true, [1]),
-    index3: CHOOSE(3, "abc", 1, true, [1]),
-    index4: CHOOSE(4, "abc", 1, true, [1]),
-    index5: CHOOSE(5, "abc", 1, true, [1])
-}
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/choose-indexes/query.sql" highlight="2-7":::
 
-```json
-[
-  {
-    "index1": "abc",
-    "index2": 1,
-    "index3": true,
-    "index4": [
-      1
-    ]
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/choose-indexes/result.json":::
 
-This final example uses an existing item in a container and selects an expression from existing paths in the item.
+This final example uses an existing item in a container with three relevant fields.
 
-```json
-[
-  {
-    "id": "68719519522",
-    "name": "Gremon Fins",
-    "sku": "73311",
-    "tags": [
-      "Science Blue",
-      "Turbo"
-    ]
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/choose-fields/seed.json" range="1-2,4-12" highlight="3-4,9":::
 
-```sql
-SELECT
-    CHOOSE(3, p.id, p.name, p.sku) AS barcode
-FROM
-    products p
-```
+This example selects an expression from existing paths in the item.
 
-```json
-[
-  {
-    "barcode": "73311"
-  }
-]
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/choose-fields/query.sql" highlight="2":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/choose-fields/result.json":::
 
 ## Remarks
 

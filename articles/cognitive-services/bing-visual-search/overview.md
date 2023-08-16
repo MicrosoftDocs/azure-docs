@@ -1,6 +1,6 @@
 ---
 title: What is the Bing Visual Search API?
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Bing Visual Search provides details or insights about an image such as similar images or shopping sources.
 services: cognitive-services
 
@@ -15,7 +15,7 @@ ms.date: 01/24/2023
 
 # What is the Bing Visual Search API?
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing Visual Search API returns insights for an image. You can either upload an image or provide a URL to one. Insights are visually similar images, shopping sources, webpages that include the image, and more. Insights returned by the Bing Visual Search API are similar to ones shown on Bing.com/images. 
 
@@ -45,13 +45,13 @@ Bing Visual Search results also include bounding boxes for regions of interest i
 
 The Bing Visual Search API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON. You can use either the REST API or the SDK for the service.
 
-1. Create a [Cognitive Services account](../cognitive-services-apis-create-account.md) to access the Bing Search APIs. If you don't have an Azure subscription, you can [create an account for free](https://azure.microsoft.com/free/cognitive-services/).
+1. Create an [Azure AI services account](../cognitive-services-apis-create-account.md) to access the Bing Search APIs. If you don't have an Azure subscription, you can [create an account for free](https://azure.microsoft.com/free/cognitive-services/).
 2. Send a request to the API with a valid search query.
 3. Process the API response by parsing the returned JSON message.
 
 ## Next steps
 
-First, try the Bing Visual Search API [interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-visual-search/).
+First, try the Bing Visual Search API [interactive demo](https://azure.microsoft.com/services/cognitive-services/Bing-visual-search/).
 The demo shows how you can quickly customize a search query and scour the web for images.
 
 To get started quickly with your first request, see the quickstarts:

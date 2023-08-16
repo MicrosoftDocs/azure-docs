@@ -1,6 +1,5 @@
-
 {
-    "redirections": [    
+    "redirections": [
         {
             "source_path": "howto-monitoring-aks-h-cluster.md",
             "redirect_url": "howto-monitor-aks-h-cluster.md",

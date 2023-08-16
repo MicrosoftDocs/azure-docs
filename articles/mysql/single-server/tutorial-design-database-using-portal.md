@@ -4,8 +4,8 @@ description: This tutorial explains how to create and manage Azure Database for 
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: tutorial
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.custom: mvc
 ms.date: 06/20/2022
 ---
@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Sign in to the Azure portal
 
-Open your favorite web browser, and visit the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+Open your favorite web browser, and sign in to the [Azure portal](https://portal.azure.com). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ## Create an Azure Database for MySQL server
 
@@ -88,7 +88,7 @@ You can now connect to the server using mysql command-line tool or MySQL Workben
 
 Get the fully qualified **Server name** and **Server admin login name** for your Azure Database for MySQL server from the Azure portal. You use the fully qualified server name to connect to your server using mysql command-line tool.
 
-1. In [Azure portal](https://portal.azure.com/), click **All resources** from the left-hand menu, type the name, and search for your Azure Database for MySQL server. Select the server name to view the details.
+1. In the [Azure portal](https://portal.azure.com), click **All resources** from the left-hand menu, type the name, and search for your Azure Database for MySQL server. Select the server name to view the details.
 
 2. From the **Overview** page, note down **Server Name** and **Server admin login name**. You may click the copy button next to each field to copy to the clipboard.
    :::image type="content" source="./media/tutorial-design-database-using-portal/2-server-properties.png" alt-text="4-2 server properties":::

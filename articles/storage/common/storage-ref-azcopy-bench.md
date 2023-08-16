@@ -2,11 +2,11 @@
 title: azcopy bench
 description: This article provides reference information for the azcopy bench command.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: reference
 ms.date: 05/26/2022
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
 ---
 

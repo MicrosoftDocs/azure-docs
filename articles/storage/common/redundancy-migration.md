@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 03/13/2023
+ms.date: 07/14/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions
@@ -332,9 +332,15 @@ If you performed an [account failover](storage-disaster-recovery-guidance.md) fo
 
 During a [conversion](#perform-a-conversion), you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and there is no data loss associated with a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
 
-If you initiate a conversion from the Azure portal, the conversion process could take up to 72 hours to begin, and possibly longer if requested by opening a support request.
-
 If you choose to perform a manual migration, downtime is required but you have more control over the timing of the migration process.
+
+## Timing and frequency
+
+If you initiate a zone-redundancy [conversion](#customer-initiated-conversion) from the Azure portal, the conversion process could take up to 72 hours to actually begin. It could take longer to start if you [request a conversion by opening a support request](#support-requested-conversion). If a customer-initiated conversion does not enter the "In Progress" status within 96 hours of initiating the request, submit a support request to Microsoft to determine why. To monitor the progress of a customer-initiated conversion, see [Monitoring customer-initiated conversion progress](#monitoring-customer-initiated-conversion-progress).
+
+There is no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.
+
+After a zone-redundancy conversion, you must wait at least 72 hours before changing the redundancy setting of the storage account again. The temporary hold allows background processes to complete before making another change, ensuring the consistency and integrity of the account. For example, going from LRS to GZRS is a 2-step process. You must add zone redundancy in one operation, then add geo-redundancy in a second. After going from LRS to ZRS, you must wait at least 72 hours before going from ZRS to GZRS.
 
 ## Costs associated with changing how data is replicated
 

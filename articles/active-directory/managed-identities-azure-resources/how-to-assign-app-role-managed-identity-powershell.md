@@ -76,7 +76,7 @@ In this article, you learn how to assign a managed identity to an application ro
     > [!NOTE]
     > Display names for applications are not unique, so you should verify that you obtain the correct application's service principal.
 
-1. Add an [app role](../develop/howto-add-app-roles-in-azure-ad-apps.md) to the application you created in step 3. You can create the role using the Azure portal or by using Microsoft Graph. For example, you could add an app role by running the following query on Graph explorer:
+1. Add an [app role](../develop/howto-add-app-roles-in-apps.md) to the application you created in step 3. You can create the role using the Azure portal or by using Microsoft Graph. For example, you could add an app role by running the following query on Graph explorer:
 
     ```http
     PATCH /applications/{id}/

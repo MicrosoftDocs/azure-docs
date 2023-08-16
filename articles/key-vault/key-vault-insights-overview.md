@@ -32,7 +32,7 @@ From Azure Monitor, you can view request, latency, and failure details from mult
 
 To view the utilization and operations of your key vaults across all your subscriptions, perform the following steps:
 
-1. Sign into the [Azure portal](https://portal.azure.com/)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **Monitor** from the left-hand pane in the Azure portal, and under the Insights section, select **Key Vaults**.
 

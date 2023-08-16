@@ -14,12 +14,15 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 
 The following features have been released as public preview features in May 2023:
 
-- Pull delivery (HTTP)
+- Pull.style event consumption using HTTP
 - MQTT v3.1.1 and v5.0 support
+
+[!INCLUDE [mqtt-pull-preview-note](./includes/mqtt-pull-preview-note.md)]
+
 
 Here are the articles that we recommend you read through to learn about these features. 
 
-### Pull delivery (HTTP)
+### Pull delivery using HTTP (preview)
 
 - [Introduction to pull delivery of events](pull-delivery-overview.md#pull-delivery-1)
 - [Publish and subscribe using namespace topics](publish-events-using-namespace-topics.md)
@@ -27,7 +30,7 @@ Here are the articles that we recommend you read through to learn about these fe
 - [Create, view, and manage namespace topics](create-view-manage-namespace-topics.md)
 - [Create, view, and manage event subscriptions](create-view-manage-event-subscriptions.md)
 
-### MQTT messaging
+### MQTT messaging (preview)
 
 - [Introduction to MQTT messaging in Azure Event Grid](mqtt-overview.md)
 - Publish and subscribe to MQTT messages on Event Grid namespace - [Azure portal](mqtt-publish-and-subscribe-portal.md), [CLI](mqtt-publish-and-subscribe-cli.md)

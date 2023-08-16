@@ -61,7 +61,7 @@ The VM deployment process is similar to the standard deployment process, the onl
     :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-encrypt-existing-disk-customer-managed-key.png" alt-text="Screenshot of your example OS disk, the encryption pane is open, encryption at rest with a customer-managed key is selected, as well as your example Azure Key Vault." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-encrypt-existing-disk-customer-managed-key.png":::
 
 1. Repeat this process for any other disks attached to the VM you'd like to encrypt.
-1. When your disks finish switching over to customer-managed keys, if there are no there no other attached disks you'd like to encrypt, start your VM.
+1. When your disks finish switching over to customer-managed keys, if there are no other attached disks you'd like to encrypt, start your VM.
 
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with the managed disks is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).

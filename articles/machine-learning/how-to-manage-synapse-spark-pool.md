@@ -2,8 +2,8 @@
 title: Attach and manage a Synapse Spark pool in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to attach and manage Spark pools with Azure Synapse 
-author: fbsolo-ms1
-ms.author: franksolomon
+author: ynpandey
+ms.author: yogipandey
 ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
@@ -13,6 +13,8 @@ ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Attach and manage a Synapse Spark pool in Azure Machine Learning
+
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you'll learn how to attach a [Synapse Spark Pool](../synapse-analytics/spark/apache-spark-concepts.md#spark-pools) in Azure Machine Learning. You can attach a Synapse Spark Pool in Azure Machine Learning in one of these ways:
 

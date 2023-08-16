@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/12/2022
+ms.date: 07/13/2023
 ---
 
 #  Transform data in Twilio (Preview) using Azure Data Factory or Synapse Analytics

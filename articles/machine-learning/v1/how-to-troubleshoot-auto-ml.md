@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.date: 10/21/2021
 ms.topic: troubleshooting
-ms.custom: devx-track-python, automl, references_regions, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, automl, references_regions, sdkv1, event-tier1-build-2022
 monikerRange: 'azureml-api-1'
 ---
 

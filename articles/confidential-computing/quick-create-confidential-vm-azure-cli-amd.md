@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 11/29/2022
 ms.author: simranparkhe
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
 # Quickstart: Create an AMD-based confidential VM with the Azure CLI
@@ -44,7 +44,7 @@ Create a VM with the [az vm create](/cli/azure/vm) command.
 The following example creates a VM named *myVM* and adds a user account named *azureuser*. The `--generate-ssh-keys` parameter is used to automatically generate an SSH key, and put it in the default key location(*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-values` option.
 For `size`, select a confidential VM size. For more information, see [supported confidential VM families](virtual-machine-solutions-amd.md).
 
-Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key. Enabling secure boot is optional, but recommended. For more information, see [secure boot and vTPM](../virtual-machines/trusted-launch.md). For more information on disk encryption, see [confidential OS disk encryption](confidential-vm-overview.md).
+Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key. Enabling secure boot is optional, but recommended. For more information, see [secure boot and vTPM](../virtual-machines/trusted-launch.md). For more information on disk encryption and encryption at host, see [confidential OS disk encryption](confidential-vm-overview.md) and [encryption at host](/azure/virtual-machines/linux/disks-enable-host-based-encryption-cli).
 
 ```azurecli-interactive
 az vm create \
@@ -60,6 +60,7 @@ az vm create \
   --security-type ConfidentialVM \
   --os-disk-security-encryption-type VMGuestStateOnly \
   --enable-secure-boot true \
+  --encryption-at-host \
 ```
 
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
