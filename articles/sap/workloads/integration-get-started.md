@@ -246,6 +246,7 @@ Also see the following SAP resources:
 
 > [!Tip]
 > MDE was formerly called Microsoft Defender Advanced Threat Protection (ATP). Older articles or SAP notes still refer to that name.
+
 > Microsoft Defender for Server includes Endpoint detection and response (EDR) features that are provided by Microsoft Defender for Endpoint Plan 2.
 
 #### Microsoft Sentinel for SAP
