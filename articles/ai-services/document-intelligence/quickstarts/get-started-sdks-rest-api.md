@@ -159,7 +159,7 @@ To learn more about Document Intelligence features and development options, visi
 ::: zone pivot="programming-language-csharp"
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [C# SDK](includes/get-started/csharp.md)]
+[!INCLUDE [C# SDK](includes/v2-1/csharp.md)]
 ::: moniker-end
 
 ::: zone-end
@@ -167,7 +167,7 @@ To learn more about Document Intelligence features and development options, visi
 ::: zone pivot="programming-language-java"
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [Java SDK](includes/get-started/java.md)]
+[!INCLUDE [Java SDK](includes/v2-1/java.md)]
 ::: moniker-end
 
 ::: zone-end
@@ -175,7 +175,7 @@ To learn more about Document Intelligence features and development options, visi
 ::: zone pivot="programming-language-javascript"
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [NodeJS SDK](includes/get-started/javascript.md)]
+[!INCLUDE [NodeJS SDK](includes/v2-1/javascript.md)]
 ::: moniker-end
 
 ::: zone-end
@@ -183,7 +183,7 @@ To learn more about Document Intelligence features and development options, visi
 ::: zone pivot="programming-language-python"
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [Python SDK](includes/get-started/python.md)]
+[!INCLUDE [Python SDK](includes/v2-1/python.md)]
 ::: moniker-end
 
 ::: zone-end
@@ -191,7 +191,7 @@ To learn more about Document Intelligence features and development options, visi
 ::: zone pivot="programming-language-rest-api"
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [REST API](includes/get-started/rest-api.md)]
+[!INCLUDE [REST API](includes/v2-1/rest-api.md)]
 ::: moniker-end
 
 ::: zone-end

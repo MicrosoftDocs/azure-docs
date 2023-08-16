@@ -57,7 +57,7 @@ In this quickstart, you use the following features to analyze and extract data a
 
     :::image type="content" source="../../media/quickstarts/create-new-project.png" alt-text="Screenshot of Visual Studio's create new project page.":::
 
-1. In the **Configure your new project** dialog window, enter `documentIntelligence_quickstart` in the Project name box. Then choose Next.
+1. In the **Configure your new project** dialog window, enter `doc_intel_quickstart` in the Project name box. Then choose Next.
 
     :::image type="content" source="../../media/quickstarts/configure-new-project.png" alt-text="Screenshot of Visual Studio's configure new project dialog window.":::
 
@@ -72,7 +72,7 @@ In this quickstart, you use the following features to analyze and extract data a
 
 :::moniker range="doc-intel-3.1.0"
 
- 1. Right-click on your **documentIntelligence_quickstart** project and select **Manage NuGet Packages...** .
+ 1. Right-click on your **doc_intel_quickstart** project and select **Manage NuGet Packages...** .
 
     :::image type="content" source="../../media/quickstarts/select-nuget-package.png" alt-text="Screenshot of select NuGet package window in Visual Studio.":::
 
@@ -85,7 +85,7 @@ In this quickstart, you use the following features to analyze and extract data a
 
 :::moniker range="doc-intel-3.0.0"
 
- 1. Right-click on your **formRecognizer_quickstart** project and select **Manage NuGet Packages...** .
+ 1. Right-click on your **doc_intel_quickstart** project and select **Manage NuGet Packages...** .
 
     :::image type="content" source="../../media/quickstarts/select-nuget-package.png" alt-text="Screenshot of select NuGet package window in Visual Studio.":::
 
