@@ -3,7 +3,7 @@ title: Configure Delta Lake catalog
 description: How to configure Delta Lake catalog in a Trino cluster.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 08/16/2023
 ---
 
 # Configure Delta Lake catalog
