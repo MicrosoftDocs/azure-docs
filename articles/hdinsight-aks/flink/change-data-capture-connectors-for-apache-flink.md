@@ -1,16 +1,16 @@
 ---
-title: How to CDC of SQL Server using DStream & DataStream Source.
-description: Learn how to CDC of SQL Server using DStream & DataStream Source.
+title: How to perform Change Data Capture of SQL Server using DStream & DataStream Source.
+description: Learn how to perform Change Data Capture of SQL Server using DStream & DataStream Source.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/04/2023
+ms.date: 08/16/2023
 ---
 
 # Change Data Capture of SQL Server using DStream & DataStream Source
 
 Change Data Capture (CDC) is a technique you can use to track row-level changes in database tables in response to create, update, and delete operations. In this article, we use [CDC Connectors for Apache Flink®](https://github.com/ververica/flink-cdc-connectors), which offer a set of source connectors for Apache Flink. The connectors integrate [Debezium®](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/debezium/#debezium-format) as the engine to capture the data changes. 
 
-In this article, learn how to CDC of SQL Server using Datastream API. The SQLServer CDC connector can also be a DataStream source.
+In this article, learn how to perform Change Data Capture of SQL Server using Datastream API. The SQLServer CDC connector can also be a DataStream source.
 
 ## Prerequisites
 
