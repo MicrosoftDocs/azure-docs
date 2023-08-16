@@ -48,7 +48,7 @@ Reference the connection details and sample codes in following tables to connect
 
 ### [Connection String](#secret)
 
-#### [.NET](#tab/secret-dotnet)
+#### [.NET](#tab/dotnet)
 
 | Default environment variable name | Description                     | Example value                                                                                                                                                  |
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -69,29 +69,29 @@ using (MySqlConnection connection = new MySqlConnection(connectionString))
 }
 ```
 
-#### [Java](#tab/secret-java)
+#### [Java](#tab/java)
 
 | Default environment variable name | Description                  | Example value                                                                                                                                                              |
 |-----------------------------------|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `AZURE_MYSQL_CONNECTIONSTRING`      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>&password=<Uri.EscapeDataString(<MySQL-DB-password>)` |
 
 1. Install dependencies. Follow the guidance to [install Connector/J](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-installing.html).
-2. In code, get MySQL connection string from environment variables added by Service Connector service.
-```java
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+1. In code, get MySQL connection string from environment variables added by Service Connector service.
+    ```java
+    import java.sql.Connection;
+    import java.sql.DriverManager;
+    import java.sql.SQLException;
 
-String connectionString = System.getenv("AZURE_MYSQL_CONNECTIONSTRING");
-try (Connection connection = DriverManager.getConnection(connectionString)) {
-    System.out.println("Connection successful!");
-} catch (SQLException e) {
-    e.printStackTrace();
-}
+    String connectionString = System.getenv("AZURE_MYSQL_CONNECTIONSTRING");
+    try (Connection connection = DriverManager.getConnection(connectionString)) {
+        System.out.println("Connection successful!");
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
 
-```
+    ```
 
-#### [SpringBoot](#tab/secret-spring)
+#### [SpringBoot](#tab/spring)
 
 | Application properties       | Description                   | Example value                                                                                 |
 |------------------------------|-------------------------------|-----------------------------------------------------------------------------------------------|
@@ -119,10 +119,9 @@ After created a springboot client type connection, Service Connector service wil
   </dependencies>
 </dependencyManagement>
 ```
-
 1. Setup normal Spring App application, more detail in this [section](/azure/developers/java/spring-framework/configure-spring-data-jpa-with-azure-mysql/#tabs=password).
 
-#### [Python](#tab/secret-python)
+#### [Python](#tab/python)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -153,7 +152,7 @@ cnx.close()
 ```
 
 
-#### [Django](#tab/secret-django)
+#### [Django](#tab/django)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -166,7 +165,7 @@ cnx.close()
 ```bash
 pip install django==3.2
 ```
-1. In setting file, get MySQL database information from environment variables added by Service Connector service.
+2. In setting file, get MySQL database information from environment variables added by Service Connector service.
 ```python
 # in your setting file, eg. settings.py
 host = os.getenv('AZURE_MYSQL_HOST')
@@ -187,31 +186,31 @@ DATABASES = {
 }
 ```
 
-#### [Go](#tab/secret-go)
+#### [Go](#tab/go)
 
 | Default environment variable name | Description                     | Example value                                                                                                |
 |-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
 | `AZURE_MYSQL_CONNECTIONSTRING`      | Go-sql-driver connection string | `<MySQL-DB-username>:<MySQL-DB-password>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
 
 1. Install dependencies.
-```bash
-go get -u github.com/go-sql-driver/mysql
-```
+    ```bash
+    go get -u github.com/go-sql-driver/mysql
+    ```
 1. In code, get MySQL connection string from environment variables added by Service Connector service.
-```go
-import (
+    ```go
+    import (
     "database/sql"
     "fmt"
     "os"
 
     _ "github.com/go-sql-driver/mysql"
-)
+    s)
 
-connectionString := os.Getenv("AZURE_MYSQL_CONNECTIONSTRING")
-db, err := sql.Open("mysql", connectionString)
-```
+    connectionString := os.Getenv("AZURE_MYSQL_CONNECTIONSTRING")
+    db, err := sql.Open("mysql", connectionString)
+    ```
 
-#### [NodeJS](#tab/secret-nodejs)
+#### [NodeJS](#tab/node)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -224,9 +223,9 @@ db, err := sql.Open("mysql", connectionString)
 
 
 1. Install dependencies.
-```bash
-npm install mysql
-```
+   ```bash
+   npm install mysql
+   ```
 1. In code, get MySQL connection information from environment variables added by Service Connector service.
 ```javascript
 const mysql = require('mysql')
@@ -250,7 +249,7 @@ connection.connect((err) => {
 ```
 
 
-#### [PHP](#tab/secret-php)
+#### [PHP](#tab/php)
 
 | Default environment variable name   | Description        | Example value                              |
 |-------------------------------------|--------------------|--------------------------------------------|
@@ -287,7 +286,7 @@ mysqli_close($conn);
 ```
 
 
-#### [Ruby](#tab/secret-ruby)
+#### [Ruby](#tab/ruby)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -320,7 +319,7 @@ client.close
 ---
 
 ### [System assigned Managed Identity](#systemmi)
-#### [.NET](#tab/systemmi-dotnet)
+#### [.NET](#tab/dotnet)
 
 | Default environment variable name | Description                     | Example value                                                                                                                                                  |
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -328,7 +327,7 @@ client.close
 
 
 
-#### [Java](#tab/systemmi-java)
+#### [Java](#tab/java)
 
 | Default environment variable name | Description                  | Example value                                                                                                          |
 |-----------------------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------|
@@ -336,7 +335,7 @@ client.close
 
 
 
-#### [SpringBoot](#tab/systemmi-spring)
+#### [SpringBoot](#tab/spring)
 
 | Application properties                   | Description                           | Example value                                                                                 |
 |------------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------|
@@ -345,7 +344,7 @@ client.close
 | `spring.datasource.username`             | Database username        | `<MySQL-DB-username>`  |
 
 
-#### [Go](#tab/systemmi-go)
+#### [Go](#tab/go)
 
 | Default environment variable name | Description                     | Example value                                                                                                |
 |-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
@@ -353,7 +352,7 @@ client.close
 
 
 
-#### [NodeJS](#tab/systemmi-nodejs)
+#### [NodeJS](#tab/node)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -363,7 +362,7 @@ client.close
 | `AZURE_MYSQL_PORT`                  | Port number       | `3306`                                     |
 | `AZURE_MYSQL_SSL`                   | SSL option        | `true`                                     |
 
-#### [Python](#tab/systemmi-python)
+#### [Python](#tab/python)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -372,7 +371,7 @@ client.close
 | `AZURE_MYSQL_USER`                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 
 
-#### [Django](#tab/systemmi-django)
+#### [Django](#tab/django)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -380,7 +379,7 @@ client.close
 | `AZURE_MYSQL_HOST`                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
 | `AZURE_MYSQL_USER`                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 
-#### [PHP](#tab/systemmi-php)
+#### [PHP](#tab/php)
 
 | Default environment variable name   | Description        | Example value                              |
 |-------------------------------------|--------------------|--------------------------------------------|
@@ -390,7 +389,7 @@ client.close
 | `AZURE_MYSQL_FLAG`                  | SSL or other flags | `MySQL_CLIENT_SSL`                         |
 | `AZURE_MYSQL_USERNAME`              | Database Username  | `<MySQL-DB-username>`                      |
 
-#### [Ruby](#tab/systemmi-ruby)
+#### [Ruby](#tab/ruby)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -407,7 +406,7 @@ client.close
 ---
 
 ### [User assigned Managed Identity](#usermi)
-#### [.NET](#tab/usermi-dotnet)
+#### [.NET](#tab/dotnet)
 
 | Default environment variable name | Description                     | Example value                                                                                                                                                  |
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -415,7 +414,7 @@ client.close
 | `AZURE_MYSQL_CONNECTIONSTRING`     | ADO.NET MySQL connection string | `Server=<MySQL-DB-name>.mysql.database.azure.com;Database=<MySQL-DB-name>;Port=3306;User Id=<MySQL-DBusername>;SSL Mode=Required;` |
 
 
-#### [Java](#tab/usermi-java)
+#### [Java](#tab/java)
 
 | Default environment variable name | Description                  | Example value                                                                                                          |
 |-----------------------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------|
@@ -424,7 +423,7 @@ client.close
 
 
 
-#### [SpringBoot](#tab/usermi-spring)
+#### [SpringBoot](#tab/spring)
 
 | Application properties                                          | Description                       | Example value                                                                                                 |
 |-----------------------------------------------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------|
@@ -435,7 +434,7 @@ client.close
 | `spring.datasource.username`                                    | Database username                 | `username` |
 
 
-#### [Go](#tab/usermi-go)
+#### [Go](#tab/go)
 
 | Default environment variable name | Description                     | Example value                                                                                                |
 |-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
@@ -444,7 +443,7 @@ client.close
 
 
 
-#### [NodeJS](#tab/usermi-nodejs)
+#### [NodeJS](#tab/node)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -455,7 +454,7 @@ client.close
 | `AZURE_MYSQL_SSL`                   | SSL option        | `true`                                     |
 | `AZURE_MYSQL_CLIENTID`              | Your client ID    | `<identity-client-ID>`                     |
 
-#### [Python](#tab/usermi-python)
+#### [Python](#tab/python)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -464,7 +463,7 @@ client.close
 | `AZURE_MYSQL_USER`                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | `AZURE_MYSQL_CLIENTID`              | Your client ID    | `identity-client-ID`                       |
 
-#### [Django](#tab/usermi-django)
+#### [Django](#tab/django)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -473,7 +472,7 @@ client.close
 | `AZURE_MYSQL_USER `                 | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | `AZURE_MYSQL_CLIENTID`              | Your client ID    | `<identity-client-ID>`                     |
 
-#### [PHP](#tab/usermi-php)
+#### [PHP](#tab/php)
 
 | Default environment variable name   | Description        | Example value                              |
 |-------------------------------------|--------------------|--------------------------------------------|
@@ -484,7 +483,7 @@ client.close
 | `AZURE_MYSQL_USERNAME`              | Database Username  | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | `AZURE_MYSQL_CLIENTID`              | Your client ID     | `<identity-client-ID>`                     |
 
-#### [Ruby](#tab/usermi-ruby)
+#### [Ruby](#tab/ruby)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
@@ -502,7 +501,7 @@ client.close
 
 ### [Service Principal](#sp)
 
-#### [.NET](#tab/sp-dotnet)
+#### [.NET](#tab/dotnet)
 
 | Default environment variable name | Description                     | Example value                                                                                                                                                  |
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -512,7 +511,7 @@ client.close
 | `AZURE_MYSQL_CONNECTIONSTRING`      | ADO.NET MySQL connection string | `Server=<MySQL-DB-name>.mysql.database.azure.com;Database=<MySQL-DB-name>;Port=3306;User Id=<MySQL-DBusername>;SSL Mode=Required` |
 
 
-#### [Java](#tab/sp-java)
+#### [Java](#tab/java)
 
 | Default environment variable name   | Description                  | Example value                                           |
 |-------------------------------------|------------------------------|---------------------------------------------------------|
@@ -534,7 +533,7 @@ client.close
 | `spring.datasource.username`                                    | Database username                 | `username`        |
 
 
-#### [Go](#tab/sp-go)
+#### [Go](#tab/go)
 
 | Default environment variable name | Description                     | Example value                                                                                                |
 |-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
@@ -544,7 +543,7 @@ client.close
 | `AZURE_MYSQL_CONNECTIONSTRING`      | Go-sql-driver connection string | `<MySQL-DB-username>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
 
 
-#### [NodeJS](#tab/sp-nodejs)
+#### [NodeJS](#tab/node)
 
 | Default environment variable name   | Description           | Example value                                          |
 |-------------------------------------|-----------------------|--------------------------------------------------------|
@@ -557,7 +556,7 @@ client.close
 | `AZURE_MYSQL_CLIENTSECRET`          | Your client secret    | `<client-secret>`                                      |
 | `AZURE_MYSQL_TENANTID`              | Your tenant ID        | `<tenant-ID>`                                          |
 
-#### [Python](#tab/sp-python)
+#### [Python](#tab/python)
 
 | Default environment variable name   | Description        | Example value                              |
 |-------------------------------------|--------------------|--------------------------------------------|
@@ -569,7 +568,7 @@ client.close
 | `AZURE_MYSQL_TENANTID`              | Your tenant ID     | `<tenant-ID>`                              |
 
 
-#### [Django](#tab/sp-django)
+#### [Django](#tab/django)
 
 | Default environment variable name   | Description        | Example value                              |
 |-------------------------------------|--------------------|--------------------------------------------|
@@ -581,7 +580,7 @@ client.close
 | `AZURE_MYSQL_TENANTID`              | Your tenant ID     | `<tenant-ID>`                              |
 
 
-#### [PHP](#tab/sp-php)
+#### [PHP](#tab/php)
 
 | Default environment variable name   | Description        | Example value                              |
 |-------------------------------------|--------------------|--------------------------------------------|
@@ -594,7 +593,7 @@ client.close
 | `AZURE_MYSQL_CLIENTSECRET`          | Your client secret | `<client-secret>`                          |
 | `AZURE_MYSQL_TENANTID`              | Your tenant ID     | `<tenant-ID>`                              |
 
-#### [Ruby](#tab/sp-ruby)
+#### [Ruby](#tab/ruby)
 
 | Default environment variable name   | Description       | Example value                              |
 |-------------------------------------|-------------------|--------------------------------------------|
