@@ -14,6 +14,10 @@ ms.date: 06/27/2022
 
 Log Analytics Workspace Insights provides comprehensive monitoring of your workspaces through a unified view of your workspace usage, performance, health, agent, queries, and change log. This article helps you understand how to onboard and use Log Analytics Workspace Insights.
 
+## Permissions required
+
+`Microsoft.OperationalInsights/workspaces/read`
+
 ## Overview of your Log Analytics workspaces
 
 When you access Log Analytics Workspace Insights through Azure Monitor Insights, the **At scale** perspective is shown. Here you can:
