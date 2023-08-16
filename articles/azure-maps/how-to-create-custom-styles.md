@@ -114,15 +114,20 @@ The following table describes the four fields you're presented with.
 Some important things to know about aliases:
 
 1. Can be named using alphanumeric characters (0-9, a-z, A-Z), hyphens (-) and underscores (_).
-1. Can be used to reference the underlying object, whether a style or map configuration, in place of that object's ID. This is especially important since the style and map configuration can't be updated, meaning every time any changes are saved, a new ID is generated, but the alias can remain the same, making referencing it less error prone after it has been modified multiple times.
+1. Can be used to reference the underlying map configuration, in place of that object's ID. This is especially important since the map configuration can't be updated, meaning every time any changes are saved, a new ID is generated, but the alias can remain the same, making referencing it less error prone after it has been modified multiple times.
 
 > [!WARNING]
-> Duplicate aliases are not allowed. If the alias of an existing style or map configuration is used, the style or map configuration that alias points to will be overwritten and the existing style or map configuration will be deleted and references to that ID will result in errors. For more information, see [map configuration] in the concepts article.
+> Duplicate aliases are not allowed. If the alias of an existing map configuration is used, the map configuration that alias points to will be overwritten and the existing map configuration will be deleted and references to that ID will result in errors. For more information, see [map configuration] in the concepts article.
 
 Once you have entered values into each required field, select the **Upload map configuration** button to save the style and map configuration data to your Creator resource.
 
+Once you have successfully uploaded your custom styles you will see the **Upload complete** dialog showing you the values for Style ID, Map configuration ID and the map configuration alias. For more information, see [custom styling] and [map configuration].
+
+:::image type="content" source="./media/creator-indoor-maps/style-editor/upload-complete.png" alt-text="A screenshot of the upload complete dialog box in the visual style editor showing values for the Style ID, Map configuration ID and the map configuration alias.":::
+
 > [!TIP]
-> Make a note of the map configuration `alias` value, it will be required when you [Instantiate the Indoor Manager] of a Map object when developing applications in Azure Maps.
+> Make a note of the map configuration alias value, it will be required when you [Instantiate the Indoor Manager] of a Map object when developing applications in Azure Maps.
+> Also, make a note of the Style ID, it can be reused for other tilesets.
 
 ## Custom categories
 
@@ -234,15 +239,16 @@ Now when you select that unit in the map, the pop-up menu has the new layer ID, 
 > [!div class="nextstepaction"]
 > [Use the Azure Maps Indoor Maps module](how-to-use-indoor-module.md)
 
+[categories]: https://atlas.microsoft.com/sdk/javascript/indoor/0.2/categories.json
 [Creator concepts]: creator-indoor-maps.md
-[tileset]: /rest/api/maps/v20220901preview/tileset
-[tileset get]: /rest/api/maps/v20220901preview/tileset/get
-[Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [Creators Rest API]: /rest/api/maps-creator/
+[custom styling]: creator-indoor-maps.md#custom-styling-preview
+[Instantiate the Indoor Manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager
+[manifest]: drawing-requirements.md#manifest-file-requirements
+[map configuration]: creator-indoor-maps.md#map-configuration
 [style editor]: https://azure.github.io/Azure-Maps-Style-Editor
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[manifest]: drawing-requirements.md#manifest-file-requirements
+[tileset get]: /rest/api/maps/v20220901preview/tileset/get
+[tileset]: /rest/api/maps/v20220901preview/tileset
 [unitProperties]: drawing-requirements.md#unitproperties
-[categories]: https://atlas.microsoft.com/sdk/javascript/indoor/0.2/categories.json
-[Instantiate the Indoor Manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager
-[map configuration]: creator-indoor-maps.md#map-configuration
+[Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
