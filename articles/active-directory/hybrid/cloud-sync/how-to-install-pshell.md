@@ -25,10 +25,10 @@ This article shows you how to install the Azure Active Directory (Azure AD) Conn
 
 ## Prerequisites
 
-The Windows server on which you intend to install the Azure AD cloud sync agent must have TLS 1.2 enabled. To enable TLS 1.2, follow the steps in [Prerequisites for Azure AD Connect cloud sync](../how-to-prerequisites.md#tls-requirements).
+The Windows server on which you intend to install the Azure AD cloud sync agent must have TLS 1.2 enabled. To enable TLS 1.2, follow the steps in [Prerequisites for Azure AD Connect cloud sync](how-to-prerequisites.md#tls-requirements).
 
 >[!IMPORTANT]
->The following installation instructions assume that all the [prerequisites](../how-to-prerequisites.md) have been met.
+>The following installation instructions assume that all the [prerequisites](how-to-prerequisites.md) have been met.
 
 ## Download the provisioning agent
 
@@ -36,12 +36,12 @@ The Windows server on which you intend to install the Azure AD cloud sync agent 
 
  1. Sign in to the [Entra admin center](https://entra.microsoft.com).
  2. In the menu on the left, expand **Identity**, click **Show more**, expand **Hybrid management**, and select **Azure AD Connect**.
-    [![Screenshot showing Azure AD Connect menu option in Entra admin center sidebar](../media/how-to-install/azure-ad-cloud-connect-cli-0.png)](../media/how-to-install/azure-ad-cloud-connect-cli-0.png)
+    [![Screenshot showing Azure AD Connect menu option in Entra admin center sidebar](media/how-to-install/azure-ad-cloud-connect-cli-0.png)](media/how-to-install/azure-ad-cloud-connect-cli-0.png)
  3. Select **Cloud Sync**.
-    [![Screenshot showing AAD Connect sidebar menu with Cloud Sync highlighted](../media/how-to-install/azure-ad-cloud-connect-cli-1.png)](../media/how-to-install/azure-ad-cloud-connect-cli-1.png#lightbox)</br>
+    [![Screenshot showing AAD Connect sidebar menu with Cloud Sync highlighted](media/how-to-install/azure-ad-cloud-connect-cli-1.png)](media/how-to-install/azure-ad-cloud-connect-cli-1.png#lightbox)</br>
  4. Select **Agents** under *Monitor*.
  7. Click **Download on-premises agent**.
-    [![Screenshot showing Download on-premises agent button](../media/how-to-install/azure-ad-cloud-connect-cli-2.png)](../media/how-to-install/azure-ad-cloud-connect-cli-2.png)
+    [![Screenshot showing Download on-premises agent button](media/how-to-install/azure-ad-cloud-connect-cli-2.png)](media/how-to-install/azure-ad-cloud-connect-cli-2.png)
  9. On the right, click **Accept terms & download**.
 
 ## Install the provisioning agent
@@ -101,11 +101,11 @@ Set-AADCloudSyncPasswordWritebackConfiguration -Enable $true -Credential (Get-Cr
   - Log in to your Entra ID tenant as a Global Administrator.
 
 ## Restrict the permissions given to provisioning agent's gMSA
-Now that you've installed the agent, you can apply more granular permissions to the gMSA it uses. For more information and step-by-step instructions on how to configure its permissions, see [Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlets](../how-to-gmsa-cmdlets#using-set-aadcloudsyncpermissions).
+Now that you've installed the agent, you can apply more granular permissions to the gMSA it uses. For more information and step-by-step instructions on how to configure its permissions, see [Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlets](how-to-gmsa-cmdlets#using-set-aadcloudsyncpermissions).
 
 
 ## Next steps 
 
-- [Create a new configuration for Azure AD Connect cloud sync](../how-to-configure.md)
+- [Create a new configuration for Azure AD Connect cloud sync](how-to-configure.md)
 - [Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlets](how-to-gmsa-cmdlets.md)
-- [Using single sign-on with cloud sync](../how-to-sso.md)
+- [Using single sign-on with cloud sync](how-to-sso.md)
