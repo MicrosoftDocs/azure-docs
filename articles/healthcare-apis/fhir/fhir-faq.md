@@ -50,8 +50,8 @@ FHIR service is our implementation of the FHIR specification that sits in the Az
 * FHIR service has a limit of 4 TB, and Azure API for FHIR supports more than 4 TB.
 * FHIR service support additional capabilties as 
 ** [Transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
-** [Incremental Import](configure-import-data).
-** [Autoscaling](fhir-service-autoscale) is enabled by default.
+** [Incremental Import](configure-import-data.md).
+** [Autoscaling](fhir-service-autoscale.md) is enabled by default.
 * Azure API for FHIR has more platform features (such as customer managed keys, and cross region DR) that aren't yet available in FHIR service in Azure Health Data Services.
 
 ### What's the difference between the FHIR service in Azure Health Data Services and the open-source FHIR server?
