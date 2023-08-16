@@ -27,11 +27,11 @@ This article describes the various features that update management center (Previ
 Instead of performing these actions from a selected Azure VM or Arc-enabled server, you can manage all your machines in the Azure subscription.
 
 
-## View update management center (Preview) status 
+## View Update management center status 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. To view update assessment across all machines, including Azure Arc-enabled servers  navigate to **Update management center(Preview)**.
+1. To view update assessment across all machines, including Azure Arc-enabled servers  navigate to **Update management center**.
 
    :::image type="content" source="./media/manage-multiple-machines/overview-page-inline.png" alt-text="Screenshot of update management center overview page in the Azure portal." lightbox="./media/manage-multiple-machines/overview-page-expanded.png":::
    
