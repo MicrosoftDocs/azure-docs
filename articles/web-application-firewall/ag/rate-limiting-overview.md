@@ -43,4 +43,4 @@ The  sliding window algorithm blocks all matching traffic for the first window i
 
 ## Next step
 
-- [What is Azure Web Application Firewall on Azure Application Gateway?](ag-overview.md)
+- [Create rate limiting custom rules for Application Gateway WAF v2 (preview)](rate-limiting-configure.md)
