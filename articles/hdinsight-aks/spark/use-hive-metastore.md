@@ -14,7 +14,7 @@ Azure HDInsight on AKS supports custom meta stores, which are recommended for pr
 
 1. Create Azure SQL database
 1. Create a key vault for storing the credentials
-1. Configure Metastore while creating HDInsight Spark cluster 
+1. Configure Metastore while you create a HDInsight Spark cluster 
 1. Operate on External Metastore (Shows databases and do a select limit 1).
 
 While you create the cluster, HDInsight service needs to connect to the external metastore and verify your credentials.
