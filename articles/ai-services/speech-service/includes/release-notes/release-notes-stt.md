@@ -10,7 +10,7 @@ ms.author: eur
 
 #### New Speech to text-locales:
 
-STT has added 2 new locales support as shown in the following table. Please refer to the the complete language list [here](../../language-support.md?tabs=stt).
+Speech to text supports two new locales as shown in the following table. Refer to the complete language list [here](../../language-support.md?tabs=stt).
 
 | Locale  | Language                          |
 |---------|-----------------------------------|
