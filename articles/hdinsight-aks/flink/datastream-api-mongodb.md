@@ -373,11 +373,11 @@ public class MongoDBSourceDemo {
 
 Package the maven jar, upload it to Storage and then wget it to [Flink CLI](../flink/flink-webssh-on-portal-to-flink-sql.md) or directly upload to Flink UI to run.
 
-:::image type="content" source="./media/dstream-api-and-mongo-db/Step3_1_mavenjaruploadabfs.png" alt-text="Screenshot showing how to upload package to storage." border="true" lightbox="./media/dstream-api-and-mongo-db/Step3_1_mavenjaruploadabfs.png":::
+:::image type="content" source="./media/datastream-api-mongodb/step-3-1-maven-jar-upload-abfs.png" alt-text="Screenshot showing how to upload package to storage." border="true" lightbox="./media/datastream-api-mongodb/step-3-1-maven-jar-upload-abfs.png":::
 
 **Check Flink UI**
 
-:::image type="content" source="./media/dstream-api-and-mongo-db/Step3_2_FlinkWebUIJarUpload.png" alt-text="Screenshot showing how to upload package to the storage." border="true" lightbox="./media/dstream-api-and-mongo-db/Step3_2_FlinkWebUIJarUpload.png":::
+:::image type="content" source="./media/datastream-api-mongodb/step-3-2-flink-webui-jar-upload.png" alt-text="Screenshot showing how to upload package to the storage." border="true" lightbox="./media/datastream-api-mongodb/step-3-2-flink-webui-jar-upload.png.png":::
 
 ### Validating results
 
@@ -405,4 +405,4 @@ test> db.click_events.find()
 ```
 **Use Mongo DB's admin.click_events collection as a source, and sink to ADSL Gen2**
 
-:::image type="content" source="./media/dstream-api-and-mongo-db/step5_mongodbcollectionadlsg2.png" alt-text="Screenshot showing How to create POD and connect to webssh." border="true" lightbox="./media/dstream-api-and-mongo-db/step5_mongodbcollectionadlsg2.png":::
+:::image type="content" source="./media/datastream-api-mongodb/step-5-mongodb-collection-adls-gen2.png" alt-text="Screenshot showing How to create POD and connect to webssh." border="true" lightbox="./media/datastream-api-mongodb/step-5-mongodb-collection-adls-gen2.png":::
