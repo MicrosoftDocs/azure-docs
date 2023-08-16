@@ -118,6 +118,29 @@ For more information, see [Tutorial: Deploy applications using GitOps with Flux 
 
 The currently supported versions of the `microsoft.flux` extension are described below. The most recent version of the Flux v2 extension and the two previous versions (N-2) are supported. We generally recommend that you use the most recent version of the extension.
 
+### 1.7.5 (August 2023)
+
+Flux version: [Release v2.0.1](https://github.com/fluxcd/flux2/releases/tag/v2.0.1)
+
+- source-controller: v1.0.1
+- kustomize-controller: v1.0.1
+- helm-controller: v0.35.0
+- notification-controller: v1.0.0
+- image-automation-controller: v0.35.0
+- image-reflector-controller: v0.29.1
+
+Changes made for this version:
+
+- Upgrades Flux to [v2.0.1](https://github.com/fluxcd/flux2/releases/tag/v2.0.1)
+- Promotes some APIs to v1. This change should not affect any existing Flux configurations that have already been deployed. Previous API versions will still be supported in all `microsoft.flux` v.1.x.x releases. However, we recommend that you update the API versions in your manifests as soon as possible. 
+
+  > [!IMPORTANT]
+  > When the next major version (v2.x.x) for the `microsoft.flux` extension is released, clusters won't be auto-upgraded to this version, since [auto-upgrade is only supported for minor version releases](extensions.md#upgrade-extension-instance). If you're still using an older API version when the next major version is released, you'll need to update your manifests to the latest API versions, perform any necessary testing, then upgrade your extension manually.
+  >
+  > For more information about the new API versions (breaking changes) and how to update your manifests, see the [Flux v2 release notes](https://github.com/fluxcd/flux2/releases/tag/v2.0.0).
+
+- Adds support for Helm drift detection and OOM watch.
+
 ### 1.7.4 (June 2023)
 
 Flux version: [Release v0.41.2](https://github.com/fluxcd/flux2/releases/tag/v0.41.2)
@@ -153,22 +176,6 @@ Changes made for this version:
 - Upgrades Flux to [v0.41.2](https://github.com/fluxcd/flux2/releases/tag/v0.41.2)
 - Fixes issue causing resources that were deployed as part of Flux configuration to persist even when the configuration was deleted with prune flag set to `true`
 - Kubelet identity support for image-reflector-controller by [installing the microsoft.flux extension in a cluster with kubelet identity enabled](troubleshooting.md#flux-v2---installing-the-microsoftflux-extension-in-a-cluster-with-kubelet-identity-enabled) 
-
-### 1.7.0 (March 2023)
-
-Flux version: [Release v0.39.0](https://github.com/fluxcd/flux2/releases/tag/v0.39.0)
-
-- source-controller: v0.34.0
-- kustomize-controller: v0.33.0
-- helm-controller: v0.29.0
-- notification-controller: v0.31.0
-- image-automation-controller: v0.29.0
-- image-reflector-controller: v0.24.0
-
-Changes made for this version:
-
-- Upgrades Flux to [v0.39.0](https://github.com/fluxcd/flux2/releases/tag/v0.39.0)
-- Flux extension is now supported on ARM64-based clusters
 
 ## Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 
