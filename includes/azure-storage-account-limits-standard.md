@@ -31,6 +31,8 @@ Microsoft recommends that you use a GPv2 storage account for most scenarios. You
 | Default maximum egress for general-purpose v2 and Blob storage accounts in the following regions (LRS/GRS):<br /><ul><li>Australia East</li><li>Central US</li><li>East Asia</li><li>East US 2</li><li>Japan East</li><li>Korea Central</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US</li></ul> | 120 Gbps<sup>2</sup> |
 | Default maximum egress for general-purpose v2 and Blob storage accounts in the following regions (ZRS): <ul><li>Australia East</li><li>Central US</li><li>East US</li><li>East US 2</li><li>Japan East</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US 2</li></ul> | 120 Gbps<sup>2</sup> |
 | Default maximum egress for general-purpose v2 and Blob storage accounts in regions that aren't listed in the previous row. | 50 Gbps<sup>2</sup> |
+| Maximum egress for general-purpose v1 storage accounts (US regions) | 20 Gbps if RA-GRS/GRS is enabled, 30 Gbps for LRS/ZRS |
+| Maximum egress for general-purpose v1 storage accounts (non-US regions) | 10 Gbps if RA-GRS/GRS is enabled, 15 Gbps for LRS/ZRS |
 | Maximum number of IP address rules per storage account | 200 |
 | Maximum number of virtual network rules per storage account | 200 |
 | Maximum number of resource instance rules per storage account | 200 |
