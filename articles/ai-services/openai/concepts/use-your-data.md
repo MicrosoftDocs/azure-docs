@@ -69,7 +69,7 @@ There are some caveats about document structure and how it might affect the qual
 
 If you have Azure OpenAI resource protected by a private network, and want to allow Azure OpenAI on your data to access your search service, please complete [an application form](https://aka.ms/applyacsvpnaoaionyourdata). The application will be reviewed in 5 business days and you will be contacted via email about the results. If you are eligible, we will send private endpoint request to your search service, and you will need to approve our private endpoint connection request. See steps below.
 
-   ![Approve private endpoint](../media/use-your-data/approve-private-endpoint.png)
+:::image type="content" source="../media/use-your-data/approve-private-endpoint.png" alt-text="A screenshot showing private endpoint approval screen." lightbox="../media/use-your-data/approve-private-endpoint.png":::
 
 Learn more about the [manual approval workflow](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow).
 
