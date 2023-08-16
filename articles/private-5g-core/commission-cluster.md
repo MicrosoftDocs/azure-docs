@@ -299,7 +299,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 1. Create the Network Function Operator Kubernetes extension:
 
     ```azurecli
-    Add-Content -Path $TEMP_FILE -Value @"
+    cat > $TEMP_FILE <<EOF
     {
       "helm.versions": "v3",
       "Microsoft.CustomLocation.ServiceAccount": "azurehybridnetwork-networkfunction-operator",
@@ -310,7 +310,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
       "helm.release-namespace": "azurehybridnetwork",
       "managed-by": "helm"
     }
-    "@ 
+    EOF 
     ```
 
     ```azurecli
