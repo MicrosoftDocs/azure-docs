@@ -278,13 +278,13 @@ To grant the ability manage credentials:
 - To allow a user to create or drop a server-level credential, an administrator must grant the `ALTER ANY CREDENTIAL` permission to the SQL login in the master database. For example:
 
     ```sql
-    GRANT ALTER ANY CREDENTIAL TO [sql_login_name];
+    GRANT ALTER ANY CREDENTIAL TO [login_name];
     ```
     
 - To allow a user to create or drop a database scoped credential, an administrator must grant the `CONTROL` permission on the database to the database user in the user database. For example:
 
     ```sql
-    GRANT CONTROL ON DATABASE::[database_name] TO [sql_user_name];
+    GRANT CONTROL ON DATABASE::[database_name] TO [user_name];
     ```
 
 ### Grant permissions to use credential
@@ -294,13 +294,13 @@ Database users who access external storage must have permission to use credentia
 To grant the `REFERENCES` permission on a server-level credential for a SQL login, use the following T-SQL query in the master database:
 
 ```sql
-GRANT REFERENCES ON CREDENTIAL::[server-level_credential] TO [sql_login_name];
+GRANT REFERENCES ON CREDENTIAL::[server-level_credential] TO [login_name];
 ```
 
 To grant a `REFERENCES` permission on a database-scoped credential for a database user, use the following T-SQL query in the user database:
 
 ```sql
-GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[database-scoped_credential] TO [sql_user_name];
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[database-scoped_credential] TO [user_name];
 ```
 
 ## Server-level credential
