@@ -25,7 +25,7 @@ Because the Public IP allocation is set to 'Static' before detaching from the VM
 
 The module logs all upgrade activity to a file named `PublicIPUpgrade.log`, created in the same location where the module was executed (by default). 
 
-To see a list of the virtual machines in your environment which have Basic SKU Public IP Addresses attached, use this [Resource Graph query](../../governance/resource-graph/samples/samples-by-category?tabs=azure-cli#show-virtual-machines-with-basic-sku-public-ip-addresses).
+To see a list of the virtual machines in your environment which have Basic SKU Public IP Addresses attached, use this [Resource Graph query](../../governance/includes/resource-graph/query/virtual-machine-basic-sku-public-ip.md).
 
 ## Constraints/ Unsupported Scenarios
 
