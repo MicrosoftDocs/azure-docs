@@ -29,14 +29,8 @@ For a step-by-step walkthrough of customizing the developer portal, see [Tutoria
 
 ### Visual editor
 
-You can customize the content of the portal with the visual editor. 
+[!INCLUDE [api-management-developer-portal-editor](../../includes/api-management-developer-portal-editor.md)]
 
-:::image type="content" source="media/developer-portal-overview/visual-editor.png" alt-text="Screenshot of the visual editor in the developer portal." :::
-
-* Use the menu options on the left to create or modify pages, media, layouts, menus, styles, or website settings. 
-* On the top, switch between viewports (for screens of different sizes), or view the elements of the portal visible to users in different [groups](api-management-howto-create-groups.md). For example, you might want to display certain pages only to groups that are associated with particular products, or to users that can access specific APIs.
-
-    Also, when editing a page, save or undo changes, or publish the website. 
 
 * Add a section to a page by hovering over a blank area then click on a blue icon with a plus sign. 
 
@@ -61,6 +55,13 @@ In the following image, content belonging to the layout is outlined in blue, whi
 
 :::image type="content" source="media/developer-portal-overview/pages-layouts.png" alt-text="Screenshot of layout content in the developer portal." :::
 
+The preprovisioned content in the developer portal showcases pages with commonly used features. You can modify the content of these pages or add new ones to suit your needs.
+
+> [!NOTE]
+> Due to integration considerations, the following pages can't be removed or moved under a different URL: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
+
+
+
 ### Styles
 
 :::image type="content" source="media/developer-portal-overview/styling-guide.png" alt-text="Screenshot of the styling guide in the developer portal.":::
@@ -70,7 +71,8 @@ The Styles panel is created with designers in mind. Use styles to manage and cus
 To edit a variant, select it and select **Edit style** in the options that appear on top of it. After you make the changes in the pop-up window, close it.
 
 
-## Options to extend portal functionality
+## Extend portal functionality
+
 In some cases you might need functionality beyond the customization and styling options provided in the managed developer portal. If you need to implement custom logic, which isn't supported out-of-the-box, you have [several options](developer-portal-extend-custom-functionality.md):
 * [Add custom HTML](developer-portal-extend-custom-functionality.md#use-custom-html-code-widget) directly through a developer portal widget designed for small customizations - for example, add HTML for a form or to embed a video player. The custom code is rendered in an inline frame (IFrame).
 * [Create and upload a custom widget](developer-portal-extend-custom-functionality.md#create-and-upload-custom-widget) to develop and add more complex custom portal features.
@@ -83,7 +85,7 @@ In some cases you might need functionality beyond the customization and styling 
 
 ## API Management content
 
-The developer portal synchronizes with your API Management instance to display content such as your APIs, operations, products, and subscriptions.
+The developer portal synchronizes with your API Management instance to display content such as the APIs, operations, products, subscriptions, and user profiles.
 
 ### Content visibility and access
 
@@ -131,9 +133,11 @@ The test console supports APIs that require no authorization, or that require a 
 
 ## Manage portal access
 
-API Management supports several ways to secure access to the developer portal: 
+By default, the developer portal enables anonymous access. This means that anyone can view the portal and its content without signing in, although functionality such as using the test console is restricted. You can enable a developer setting to require users to sign-in to access the portal. 
 
-*  By default, the developer portal authenticates developers with credentials for API Management [user accounts](api-management-howto-create-or-invite-developers.md). Developers can sign up for an account directly through the portal, or you can create accounts for them.
+The portal supports several options for user sign-up and sign-in:
+
+*  The portal provides a basic authentication mechanism for developers to sign-in with credentials for API Management [user accounts](api-management-howto-create-or-invite-developers.md). Developers can sign-up for an account directly through the portal, or you can create accounts for them.
 
 * Depending on your scenarios, you can also restrict access to the portal by requiring users to sign-up or sign-in with an [Azure Active Directory](api-management-howto-aad.md) (Azure AD) or [Azure AD B2C](api-management-howto-aad-b2c.md) account.
 
