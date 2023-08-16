@@ -14,7 +14,7 @@ manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
-ms.custom: 
+ms.custom: has-azure-ad-ps-ref
 ---
 # Integrate your existing Network Policy Server (NPS) infrastructure with Azure AD Multi-Factor Authentication
 
