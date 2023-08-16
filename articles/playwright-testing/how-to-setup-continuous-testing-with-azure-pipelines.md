@@ -124,7 +124,6 @@ steps:
 
 ## Next steps
 
-- Learn more about [identifying app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-tests.md).
 - Learn more about [running cross-platform tests](./how-to-cross-platform-tests.md).
 - Learn more about [testing privately hosted applications](./how-to-test-private-endpoints.md).
 - Learn more about [managing workspaces and permissions in the Azure portal](./how-to-manage-workspace-in-azure-portal.md).

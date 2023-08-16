@@ -31,16 +31,6 @@ By reducing the test duration, you can also enable [continuous end-to-end testin
 
 You can use the cloud-based infrastructure to test both publicly and privately accessible applications without allowing inbound connections on your firewall. During the development phase, you can also use Microsoft Playwright Testing to run tests against a localhost development server.
 
-## Troubleshoot issues with rich test results
-
-After your tests finish, you can [use the unified Microsoft Playwright dashboard](./tutorial-identify-issues-with-end-to-end-tests.md) to explore the test results and troubleshoot issues. You can share dashboards with people in your organization and allow others to join in for monitoring or troubleshooting.
-
-The dashboard shows rich test results to help diagnose failing tests:
-
-- Use error details to identify where in the test an error occurred, and what the expected and actual state was.
-- Use application screenshots and video recordings for a visual representation of the application during the test run.
-- Use test traces in the web-based Trace Viewer to interactively step through the timeline of the test and inspect the application state at any point during the test.
-
 ## Gain actionable insights
 
 Microsoft Playwright Testing tracks the history of your test runs in the dashboard. You can explore the test run history to analyze application quality and performance trends over time in the dashboard.
@@ -70,5 +60,4 @@ To [test applications that aren't publicly accessible](./how-to-test-private-end
 Start using Microsoft Playwright Testing.
 
 - [Quickstart: Run end-to-end tests at scale](./quickstart-run-end-to-end-tests.md).
-- [Tutorial: Identify issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-tests.md).
-- [Tutorial: Automate end-to-end testing with GitHub Actions](./quickstart-automate-end-to-end-testing.md).
+- [Quickstart: Set up continuous end-to-end testing with CI/CD](./quickstart-automate-end-to-end-testing.md).
