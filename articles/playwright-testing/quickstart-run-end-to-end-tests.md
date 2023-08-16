@@ -186,4 +186,4 @@ You've successfully created a Microsoft Playwright Testing workspace in the Play
 Advance to the next quickstart to set up continuous end-to-end testing by running your Playwright tests in your CI/CD workflow.
 
 > [!div class="nextstepaction"]
-> [Set up continuous end-to-end testing in CI/CD](./tutorial-automate-end-to-end-testing-with-github-actions.md)
+> [Set up continuous end-to-end testing in CI/CD](./quickstart-automate-end-to-end-testing.md)
