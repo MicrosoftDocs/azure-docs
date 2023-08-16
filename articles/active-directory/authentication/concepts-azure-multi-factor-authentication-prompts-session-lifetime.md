@@ -5,6 +5,7 @@ description: Learn about the recommended configuration for reauthentication prom
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
 ms.date: 08/15/2023
 

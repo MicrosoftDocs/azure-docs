@@ -60,4 +60,5 @@ The following steps detail how an admin can verify sign in activity in the sign-
 - [Register an application with Azure AD and create a service principal](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 - [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md)
 - [Sample application using continuous access evaluation](https://github.com/Azure-Samples/ms-identity-dotnetcore-daemon-graph-cae)
+- [Securing workload identities with Azure AD Identity Protection](../identity-protection/concept-workload-identity-risk.md)
 - [What is continuous access evaluation?](../conditional-access/concept-continuous-access-evaluation.md)

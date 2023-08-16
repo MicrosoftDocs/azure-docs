@@ -17,6 +17,8 @@ Private endpoints allow resources access to the private link service deployed in
 
 You may need to inspect or block traffic from clients to the services exposed via private endpoints. Complete this inspection by using [Azure Firewall](../firewall/overview.md) or a third-party network virtual appliance.
 
+For more information and scenarios that involve private endpoints and Azure Firewall, see [Azure Firewall scenarios to inspect traffic destined to a private endpoint](inspect-traffic-with-azure-firewall.md).
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]

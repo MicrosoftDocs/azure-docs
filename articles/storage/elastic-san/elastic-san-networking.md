@@ -6,7 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 08/16/2023
 ms.author: rogarana
-ms.custom: ignite-2022, devx-track-azurepowershell
+ms.custom: ignite-2022, devx-track-azurepowershell, references_regions
 ---
 
 # Configure networking for an Elastic SAN Preview
@@ -99,7 +99,9 @@ az network vnet subnet update --resource-group $RgName --vnet-name $VnetName --n
 ### Configure a private endpoint
 
 > [!IMPORTANT]
-> Before you can create a private endpoint connection to a volume group, it must contain at least one volume.
+> - Private endpoints for Elastic SAN Preview are currently only supported in France Central.
+>
+> - Before you can create a private endpoint connection to a volume group, it must contain at least one volume.
 
 There are two steps involved in configuring a private endpoint connection:
 
@@ -222,7 +224,6 @@ Use this sample code to create a private endpoint for your Elastic SAN volume gr
 | `<PrivateLinkSvcConnectionName>` | The name of the new private link service connection to the volume group. |
 | `<PrivateEndpointName>`          | The name of the new private endpoint. |
 | `<Location>`                     | The region where the new private endpoint will be created. |
-| `<ApprovalDesc>`                 | The description provided for the approval of the private endpoint connection. |
 
 ```azurecli
 # Define some variables
@@ -234,7 +235,6 @@ EsanVgName="<ElasticSanVolumeGroupName>"
 EndpointName="<PrivateEndpointName>"
 PLSvcConnectionName="<PrivateLinkSvcConnectionName>"
 Location="<Location>"
-ApprovalDesc="<ApprovalDesc>"
 
 id=$(az elastic-san show \
     --elastic-san-name $EsanName \
