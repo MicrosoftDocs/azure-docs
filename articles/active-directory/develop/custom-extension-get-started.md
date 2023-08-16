@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/23/2023
+ms.date: 08/16/2023
 ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: JasSuri
@@ -235,14 +235,14 @@ Create a service principal in the tenant for the authenticationeventsAPI app reg
 
 Still in Graph Explorer, run the following request. Replace `{authenticationeventsAPI_AppId}` with the value of **appId** that you recorded from the previous step.
 
-    ```http
-    POST https://graph.microsoft.com/v1.0/servicePrincipals
-    Content-type: application/json
+```http
+POST https://graph.microsoft.com/v1.0/servicePrincipals
+Content-type: application/json
     
-    {
-      "appId": "{authenticationeventsAPI_AppId}"
-    }
-    ```
+{
+    "appId": "{authenticationeventsAPI_AppId}"
+}
+```
 
 ### Set the App ID URI, access token version, and required resource access
 
@@ -253,34 +253,34 @@ In Graph Explorer, run the following request.
    - Set the `{authenticationeventsAPI_AppId}` value with the **appId** that you recorded earlier.
    - An example value is `api://authenticationeventsAPI.azurewebsites.net/f4a70782-3191-45b4-b7e5-dd415885dd80`. Take note of this value as you'll use it later in this article in place of `{functionApp_IdentifierUri}`.
 
-    ```http
-    POST https://graph.microsoft.com/v1.0/applications/{authenticationeventsAPI_ObjectId}
-    Content-type: application/json
-    
+```http
+POST https://graph.microsoft.com/v1.0/applications/{authenticationeventsAPI_ObjectId}
+Content-type: application/json
+
+{
+"identifierUris": [
+    "api://{Function_Url_Hostname}/{authenticationeventsAPI_AppId}"
+],    
+"api": {
+    "requestedAccessTokenVersion": 2,
+    "acceptMappedClaims": null,
+    "knownClientApplications": [],
+    "oauth2PermissionScopes": [],
+    "preAuthorizedApplications": []
+},
+"requiredResourceAccess": [
     {
-        "identifierUris": [
-            "api://{Function_Url_Hostname}/{authenticationeventsAPI_AppId}"
-        ],    
-        "api": {
-            "requestedAccessTokenVersion": 2,
-            "acceptMappedClaims": null,
-            "knownClientApplications": [],
-            "oauth2PermissionScopes": [],
-            "preAuthorizedApplications": []
-        },
-        "requiredResourceAccess": [
+        "resourceAppId": "00000003-0000-0000-c000-000000000000",
+        "resourceAccess": [
             {
-                "resourceAppId": "00000003-0000-0000-c000-000000000000",
-                "resourceAccess": [
-                    {
-                        "id": "214e810f-fda8-4fd7-a475-29461495eb00",
-                        "type": "Role"
-                    }
-                ]
+                "id": "214e810f-fda8-4fd7-a475-29461495eb00",
+                "type": "Role"
             }
         ]
     }
-    ```
+]
+}
+```
 
 ### Register a custom authentication extension
 
