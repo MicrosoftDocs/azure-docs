@@ -21,7 +21,7 @@ The Vision SDK for C# is available as a NuGet package and implements .NET Standa
 
 # [Terminal](#tab/dotnetcli)
 
-The Vision SDK for C# can be installed from the .NET CLI. To add a package reference in your project file, run this command:
+The Vision SDK for C# can be installed from the .NET CLI. To add a package reference in your project file, run this command in the folder where your .csproj` file is located:
 
 ```dotnetcli
 dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
@@ -29,10 +29,16 @@ dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
 
 # [PowerShell](#tab/powershell)
 
-The Vision SDK for C# can be installed with the following `Install-Package` command:
+The Vision SDK for C# can be installed from the .NET CLI. To add a package reference in your project file, run this command in the folder where your .csproj` file is located:
 
 ```powershell
 Install-Package Azure.AI.Vision.ImageAnalysis --prerelease
 ```
+
+# [Visual Studio](#tab/vs)
+
+Open Visual Studio and create a new application project. Then install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.Vision.ImageAnalysis`. Select **Install**.
+
+
 
 ---

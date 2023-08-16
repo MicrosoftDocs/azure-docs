@@ -20,7 +20,7 @@ The Vision SDK for C++ is available as a NuGet package. For more information, se
 
 # [Terminal](#tab/dotnetcli)
 
-The Vision SDK for C# can be installed from the .NET CLI with the following `dotnet add` command:
+The Vision SDK for C# can be installed from the .NET CLI. To add a package reference in your project file, run this command in the folder where your .csproj` file is located:
 
 ```dotnetcli
 dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
@@ -28,7 +28,7 @@ dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
 
 # [PowerShell](#tab/powershell)
 
-The Vision SDK for C# can be installed with the following `Install-Package` command:
+The Vision SDK for C# can be installed from the .NET CLI. To add a package reference in your project file, run this command in the folder where your .csproj` file is located:
 
 ```powershell
 Install-Package Azure.AI.Vision.ImageAnalysis --prerelease

@@ -38,7 +38,7 @@ To upgrade to the latest Vision SDK, run this command in a terminal:
 python -m pip install --upgrade azure-ai-vision
 ```
 
-You can check which Vision SDK for Python version is currently installed by inspecting the `azure-ai-vision.__version__` variable. For example, run this command in a terminal:
+You can check which Vision SDK for Python version is currently installed by running this command in a terminal:
 
 ```console
 pip list
