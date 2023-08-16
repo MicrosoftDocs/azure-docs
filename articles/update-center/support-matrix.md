@@ -57,6 +57,9 @@ Use one of the following options to perform the settings change at scale:
 
 **Linux**: If you include a specific third party software repository in the Linux package manager repository location, it is scanned when it performs software update operations. The package won't be available for assessment and installation if you remove it.
 
+> [!NOTE]
+> Update management center does not support managing the Microsoft Configuration Manager client.
+
 
 ## Supported regions
 
