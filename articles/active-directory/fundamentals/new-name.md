@@ -36,7 +36,7 @@ During 2023, you may see both the current Azure AD name and the new Microsoft En
 
 ## Guide to Azure AD name changes and exceptions
 
-We encourage content creators, organizations with internal documentation for IT or identity security admins, developers of Azure AD-enabled apps, independent software vendors, or partners of Microsoft to update your experiences with the new name by the end of 2023. We recommend changing the name in customer-facing experiences, prioritizing highly visible surfaces.
+We encourage content creators, organizations with internal documentation for IT or identity security admins, developers of Azure AD-enabled apps, independent software vendors, or partners of Microsoft to update your experiences and use the new name by the end of 2023. We recommend changing the name in customer-facing experiences, prioritizing highly visible surfaces.
 
 ### Product name
 
@@ -67,19 +67,19 @@ See the [Glossary of updated terminology](#glossary-of-updated-terminology) late
 
 ### Exceptions and clarifications to the Azure AD name change
 
-Names are not changing for Active Directory, developer tools, Azure AD B2C, nor deprecated or retired functionality, features, or services.
+Names aren't changing for Active Directory, developer tools, Azure AD B2C, nor deprecated or retired functionality, features, or services.
 
-Do not rename the following features, functionality, or services.
+Don't rename the following features, functionality, or services.
 
 #### Azure AD renaming exceptions and clarifications
 
 | **Correct terminology** | **Details** |
 |-------------------------|-------------|
-| Active Directory <br/>&#8226; Windows Server Active Directory <br/>&#8226; Active Directory Federation Services (AD FS) <br/>&#8226; Active Directory Domain Services (AD DS) <br/>&#8226; Active Directory <br/>&#8226; Any Active Directory feature(s) | Windows Server Active Directory, commonly known as Active Directory, and related features and services associated with Active Directory are not branded with Microsoft Entra. |
+| Active Directory <br/>&#8226; Windows Server Active Directory <br/>&#8226; Active Directory Federation Services (AD FS) <br/>&#8226; Active Directory Domain Services (AD DS) <br/>&#8226; Active Directory <br/>&#8226; Any Active Directory feature(s) | Windows Server Active Directory, commonly known as Active Directory, and related features and services associated with Active Directory aren't branded with Microsoft Entra. |
 | Authentication library <br/>&#8226; Azure AD Authentication Library (ADAL) <br/>&#8226; Microsoft Authentication Library (MSAL) |      Azure Active Directory Authentication Library (ADAL) is deprecated. While existing apps that use ADAL will continue to work, Microsoft will no longer release security fixes on ADAL. Migrate applications to the Microsoft Authentication Library (MSAL) to avoid putting your app's security at risk. <br/><br/>[Microsoft Authentication Library (MSAL)](../develop/msal-overview.md) - Provides security tokens from the Microsoft identity platform to authenticate users and access secured web APIs to provide secure access to Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. |
-| B2C <br/>&#8226; Azure Active Directory B2C <br/>&#8226; Azure AD B2C | [Azure Active Directory B2C](../../active-directory-b2c/index.md) is not being renamed. Microsoft Entra External ID for customers is Microsoft's new customer identity and access management (CIAM) solution. |
+| B2C <br/>&#8226; Azure Active Directory B2C <br/>&#8226; Azure AD B2C | [Azure Active Directory B2C](../../active-directory-b2c/index.md) isn't being renamed. Microsoft Entra External ID for customers is Microsoft's new customer identity and access management (CIAM) solution. |
 |  Graph <br/>&#8226; Azure Active Directory Graph <br/>&#8226; Azure AD Graph <br/>&#8226; Microsoft Graph | Azure Active Directory (Azure AD) Graph is deprecated. Going forward, we will make no further investment in Azure AD Graph, and Azure AD Graph APIs have no SLA or maintenance commitment beyond security-related fixes. Investments in new features and functionalities will only be made in Microsoft Graph.<br/><br/>[Microsoft Graph](/graph) - Grants programmatic access to organization, user, and application data stored in Microsoft Entra ID. |
-| PowerShell <br/>&#8226; Azure Active Directory PowerShell <br/>&#8226; Azure AD PowerShell <br/>&#8226; Microsoft Graph PowerShell | Azure AD PowerShell for Graph is planned for deprecation on March 30, 2024. For more details on the deprecation plans, see the deprecation update. We encourage you to migrate to Microsoft Graph PowerShell, which is the recommended module for interacting with Azure AD. <br/><br/>[Microsoft Graph PowerShell](/powershell/microsoftgraph/overview) - Acts as an API wrapper for the Microsoft Graph APIs and helps administer every Microsoft Entra ID feature that has an API in Microsoft Graph. |
+| PowerShell <br/>&#8226; Azure Active Directory PowerShell <br/>&#8226; Azure AD PowerShell <br/>&#8226; Microsoft Graph PowerShell | Azure AD PowerShell for Graph is planned for deprecation on March 30, 2024. For more info on the deprecation plans, see the deprecation update. We encourage you to migrate to Microsoft Graph PowerShell, which is the recommended module for interacting with Azure AD. <br/><br/>[Microsoft Graph PowerShell](/powershell/microsoftgraph/overview) - Acts as an API wrapper for the Microsoft Graph APIs and helps administer every Microsoft Entra ID feature that has an API in Microsoft Graph. |
 | Accounts <br/>&#8226; Microsoft account <br/>&#8226; Work or school account | For end user sign-ins and account experiences, follow guidance for work and school accounts in [Sign in with Microsoft branding guidelines](../develop/howto-add-branding-in-apps.md). |
 | Microsoft identity platform | The Microsoft identity platform encompasses all our identity and access developer assets. It will continue to provide the resources to help you build applications that your users and customers can sign in to using their Microsoft identities or social accounts. |
 
@@ -131,7 +131,7 @@ Do not rename the following features, functionality, or services.
 |            | Azure AD identity protection<br/> Azure Active Directory identity protection | Microsoft Entra ID Protection |
 |            | Azure AD integrated authentication<br/> Azure Active Directory integrated authentication | Microsoft Entra integrated authentication |
 |            | Azure AD join<br/> Azure AD joined<br/> Azure Active Directory join<br/> Azure Active Directory joined | Microsoft Entra join<br/> Microsoft Entra joined  |
-|            | Azure AD login<br/> Azure Active Directory login | MIcrosoft Entra login |
+|            | Azure AD login<br/> Azure Active Directory login | Microsoft Entra login |
 |            | Azure AD managed identities<br/> Azure Active Directory managed identities | Microsoft Entra managed identities |
 |            | Azure AD multifactor authentication (MFA)<br/> Azure Active Directory multifactor authentication (MFA) | Microsoft Entra multifactor authentication (MFA)<br/> (Second use: MFA) |
 |            | Azure AD OAuth and OpenID Connect<br/> Azure Active Directory OAuth and OpenID Connect | Microsoft Entra ID OAuth and OpenID Connect |
@@ -156,7 +156,7 @@ Do not rename the following features, functionality, or services.
 |            | Federated with Azure AD<br/> Federated with Azure Active Directory | Federated with Microsoft Entra |
 |            | Hybrid Azure AD Join<br/> Hybrid Azure AD Joined | Microsoft Entra hybrid join<br/> Microsoft Entra hybrid joined |
 |            | Managed identities in Azure AD for Azure SQL | Managed identities in Microsoft Entra for Azure SQL |
-| Acronym usage | AAD | ME-ID<br/><br/> ![NOTE] This is not an official abbreviation for the product but may be used in code or when absolute shortest form is required. |
+| Acronym usage | AAD | ME-ID<br/><br/> ![NOTE] This isn't an official abbreviation for the product but may be used in code or when absolute shortest form is required. |
 
 Features of the identity and network access products are attributed to Microsoft Entra—the product family, not the individual product name.
 
@@ -244,9 +244,9 @@ In addition to the capabilities they already have, Microsoft 365 E5 customers wi
 
 ### What's changing for identity developer and devops experience?
 
-Identity developer and devops experiences are not being renamed. To make the transition seamless, all existing login URLs, APIs, PowerShell cmdlets, and Microsoft Authentication Libraries (MSAL) stay the same, as do developer experiences and tooling.
+Identity developer and devops experiences aren't being renamed. To make the transition seamless, all existing login URLs, APIs, PowerShell cmdlets, and Microsoft Authentication Libraries (MSAL) stay the same, as do developer experiences and tooling.
 
-Many technical components either have low visibility to customers (e.g., sign-in URLs), or for the most part are not branded, like APIs.
+Many technical components either have low visibility to customers (for example, sign-in URLs), or usually aren't branded, like APIs.
 
 Microsoft identity platform encompasses all our identity and access developer assets. It will continue to provide the resources to help you build applications that your users and customers can sign in to using their Microsoft identities or social accounts.
 
