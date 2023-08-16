@@ -7,7 +7,7 @@ manager: alexokun
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 04/28/2023
+ms.date: 06/23/2023
 ms.topic: include
 ms.custom: include file
 ms.author: orwatson
@@ -131,18 +131,16 @@ const participants = [
 Create a new `room` using the `participants` defined in the code snippet above:
 
 ```javascript
-//Create a room
+// Create a room
 var validFrom = new Date(Date.now());
 var validUntil = new Date(validFrom.getTime() + 60 * 60 * 1000);
 
-// options payload to create a room
 const createRoomOptions = {
   validFrom,
   validUntil,
   participants
 };
 
-// create a room with the request payload
 const createRoom = await roomsClient.createRoom(createRoomOptions);
 const roomId = createRoom.id;
 console.log("\nCreated a room with id: ", roomId);
@@ -165,17 +163,15 @@ console.log("\nRetrieved room with id: ", getRoom.id);
 The lifetime of a `room` can be modified by issuing an update request for the `validFrom` and `validUntil` parameters. A room can be valid for a maximum of six months.
 
 ```javascript
-//Update room lifetime
+// Update room lifetime
 validFrom.setTime(validUntil.getTime());
 validUntil.setTime(validFrom.getTime() + 5 * 60 * 1000);
 
-// request payload to update a room
 const updateRoomOptions = {
   validFrom,
   validUntil
 };
 
-// updates the specified room with the request payload
 const updateRoom = await roomsClient.updateRoom(roomId, updateRoomOptions);
 console.log("\nUpdated room with validFrom: ", updateRoom.validFrom, " and validUntil: ", updateRoom.validUntil);
 ```
@@ -282,7 +278,7 @@ Retrieved list of rooms; printing first room:
   validUntil: "2023-05-11T22:16:46.784Z"
 }
 
-Added participants to room
+Added and updated participants in the room
 
 Retrieved participants for room:
 {

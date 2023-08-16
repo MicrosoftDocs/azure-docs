@@ -4,6 +4,7 @@ description: Learn how to deploy an Azure Kubernetes application programmaticall
 author: maanasagovi
 ms.author: maanasagovi
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 05/15/2023
 ---
 

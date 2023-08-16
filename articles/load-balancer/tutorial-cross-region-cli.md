@@ -6,8 +6,9 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 03/04/2021
-ms.custom: template-tutorial, devx-track-azurecli
+ms.date: 06/27/2023
+ms.custom: template-tutorial, devx-track-azurecli, engagement-fy23
+ROBOTS: NOINDEX
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 
@@ -24,11 +25,6 @@ In this tutorial, you learn how to:
 > * Test the load balancer.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-> [!IMPORTANT]
-> Cross-region Azure Load Balancer is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -47,7 +43,11 @@ Sign in to Azure CLI:
 ```azurecli-interactive
 az login
 ```
+## Set resource variables
 
+```azurecli-interactive
+
+``````
 ## Create cross-region load balancer
 
 In this section, you'll create a cross-region load balancer, public IP address, and load balancing rule.

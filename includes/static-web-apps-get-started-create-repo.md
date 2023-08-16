@@ -2,7 +2,7 @@
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: include
-ms.date: 08/13/2020
+ms.date: 08/10/2023
 ms.author: cshoe
 ---
 
@@ -45,6 +45,6 @@ This article uses a GitHub template repository to make it easy for you to get st
 
 ---
 
-Select **Create repository from template**.
+Select **Create repository**.
 
-:::image type="content" source="../articles/static-web-apps/media/getting-started/create-template.png" alt-text="Create repository from template":::
+:::image type="content" source="../articles/static-web-apps/media/getting-started/create-template.png" alt-text="Screenshot of the Create repository button.":::

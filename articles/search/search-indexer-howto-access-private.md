@@ -1,22 +1,23 @@
 ---
-title: Connect through a private endpoint
+title: Connect through a shared private link
 titleSuffix: Azure Cognitive Search
-description: Configure indexer connections to access content from other Azure resources that are protected through a private endpoint.
+description: Configure indexer connections to access content from other Azure resources that are protected through a shared private link.
 
 manager: nitinme
-author: arv100kri
-ms.author: arjagann
+author: mrcarter8
+ms.author: mcarter
 ms.service: cognitive-search
-ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 07/24/2023
 ---
 
-# Make outbound connections through a private link
+# Make outbound connections through a shared private link
 
-This article explains how to configure private, outbound calls from Azure Cognitive Search to Azure PaaS resources that run within a virtual network.
+This article explains how to configure private, outbound calls from Azure Cognitive Search to an Azure PaaS resource that runs within a virtual network.
 
-Setting up a private connection allows Azure Cognitive Search to connect to Azure PaaS through a virtual network IP address instead of a port that's open to the internet. The object created for the connection is called a *shared private link*. On the connection, Search uses the shared private link internally to reach an Azure PaaS resource inside the network boundary. 
+Setting up a private connection allows a search service to connect to a virtual network IP address instead of a port that's open to the internet. The object created for the connection is called a *shared private link*. On the connection, Search uses the shared private link internally to reach an Azure PaaS resource inside the network boundary.
+
+Shared private link is a premium feature that's billed by usage. When you set up a shared private link, charges for the private endpoint are added to your Azure invoice. As you use the shared private link, data transfer rates for inbound and outbound access are also invoiced. For details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
 > [!NOTE]
 > If you're setting up a private indexer connection to a SQL Managed Instance, see [this article](search-indexer-how-to-access-private-sql.md) instead.
@@ -61,9 +62,6 @@ When evaluating shared private links for your scenario, remember these constrain
 
 + You should have a minimum of Contributor permissions on both Azure Cognitive Search and the Azure PaaS resource for which you're creating the shared private link.
 
-> [!NOTE]
-> Azure Private Link is used internally, at no charge, to set up the shared private link.
-
 <a name="group-ids"></a>
 
 ### Supported resource types
@@ -100,7 +98,7 @@ When you complete the steps in this section, you have a shared private link that
 
 ### [**Azure portal**](#tab/portal-create)
 
-1. [Sign in to Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
+1. Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/).
 
 1. Under **Settings** on the left navigation pane, select **Networking**.
 
@@ -256,7 +254,7 @@ A `202 Accepted` response is returned on success. The process of creating an out
 
 ## 2 - Approve the private endpoint connection
 
-The resource owner must approve the connection request you created. This section assumes the portal for this step, but you can also use the REST APIs of the Azure PaaS resource. [Private Endpoint Connections (Storage Resource Provider)](/rest/api/storagerp/privateendpointconnections) and [Private Endpoint Connections (Cosmos DB Resource Provider)](/rest/api/cosmos-db-resource-provider/2022-11-15/private-endpoint-connections) are two examples.
+The resource owner must approve the connection request you created. This section assumes the portal for this step, but you can also use the REST APIs of the Azure PaaS resource. [Private Endpoint Connections (Storage Resource Provider)](/rest/api/storagerp/privateendpointconnections) and [Private Endpoint Connections (Cosmos DB Resource Provider)](/rest/api/cosmos-db-resource-provider/2023-03-15/private-endpoint-connections) are two examples.
 
 1. In the Azure portal, open the **Networking** page of the Azure PaaS resource.
 

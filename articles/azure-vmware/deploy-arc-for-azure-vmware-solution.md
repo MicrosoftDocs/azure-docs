@@ -30,7 +30,10 @@ The following items are needed to ensure you're set up to begin the onboarding p
 - Verify that your vCenter Server version is 6.7 or higher. 
 - A resource pool with minimum-free capacity of 16 GB of RAM, 4 vCPUs. 
 - A datastore with minimum 100 GB of free disk space that is available through the resource pool. 
-- On the vCenter Server, allow inbound connections on TCP port 443, so that the Arc resource bridge and VMware cluster extension can communicate with the vCenter server. 
+- On the vCenter Server, allow inbound connections on TCP port 443, so that the Arc resource bridge and VMware cluster extension can communicate with the vCenter server.
+- Please validate the regional support before starting the onboarding. Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-premises is supported. For more details, see [Azure Arc-enabled VMware vSphere](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/overview).
+- The firewall and proxy URLs below must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs.
+[Azure Arc resource bridge (preview) network requirements](../azure-arc/resource-bridge/network-requirements.md)
 
 > [!NOTE]
 > Only the default port of 443 is supported. If you use a different port, Appliance VM creation will fail. 
@@ -362,7 +365,7 @@ Use the following steps to uninstall extensions from the portal.
 >**Steps 2-5** must be performed for all the VMs that have VM extensions installed.
 
 1. Log in to your Azure VMware Solution private cloud. 
-1. Select **Virtual machines** in **Private cloud**, found in the left navigation under “Arc-enabled VMware resources”.
+1. Select **Virtual machines** in **Private cloud**, found in the left navigation under “vCenter Server Inventory Page"
 1. Search and select the virtual machine where you have **Guest management** enabled.
 1. Select **Extensions**.
 1. Select the extensions and select **Uninstall**.
@@ -397,7 +400,7 @@ At this point, all of your Arc-enabled VMware vSphere resources have been remove
 
 ## Delete Arc resources from vCenter Server
 
-For the final step, you'll need to delete the resource bridge VM and the VM template that were created during the onboarding process. Once that step is done, Arc won't work on the Azure VMware Solution SDDC. When you delete Arc resources from vCenter, it won't affect the Azure VMware Solution private cloud for the customer. 
+For the final step, you'll need to delete the resource bridge VM and the VM template that were created during the onboarding process. Login to vCenter and delete resource bridge VM and the VM template from inside the arc-folder. Once that step is done, Arc won't work on the Azure VMware Solution SDDC. When you delete Arc resources from vCenter, it won't affect the Azure VMware Solution private cloud for the customer. 
 
 ## Preview FAQ
 
@@ -469,22 +472,8 @@ Use the following tips as a self-help guide.
 
 ## Appendices
 
-Appendix 1 shows proxy URLs required by the Azure Arc-enabled private cloud. The URLs will get pre-fixed when the script runs and can be run from the jumpbox VM to ping them.  
-
-
-| **Azure Arc Service** | **URL** |
-| :-- | :-- |
-| Microsoft container registry | `https://mcr.microsoft.com` |
-| Azure Arc Identity service | `https://*.his.arc.azure.com` |
-| Azure Arc configuration service | `https://*.dp.kubernetesconfiguration.azure.com` |
-| Cluster connect | `https://*.servicebus.windows.net` |
-| Guest Notification service | `https://guestnotificationservice.azure.com` |
-| Resource bridge (appliance) Dataplate service | `https://*.dp.prod.appliances.azure.com` |
-| Resource bridge (appliance) container image download | `https://ecpacr.azurecr.io` |
-| Resource bridge (appliance) image download | `https://.blob.core.windows.net https://*.dl.delivery.mp.microsoft.com https://*.do.dsp.mp.microsoft.com` |
-| Azure Resource Manager | `https://management.azure.com`  |
-| Azure Active Directory | `https://login.mirosoftonline.com`  |
-
+Appendix 1 shows proxy URLs required by the Azure Arc-enabled private cloud. The URLs will get pre-fixed when the script runs and can be run from the jumpbox VM to ping them. The firewall and proxy URLs below must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs.
+[Azure Arc resource bridge (preview) network requirements](../azure-arc/resource-bridge/network-requirements.md)
 
 **Additional URL resources**
 

@@ -3,7 +3,7 @@ title: Use GitHub Actions to make code updates in Azure Functions
 description: Learn how to use GitHub Actions to define a workflow to build and deploy Azure Functions projects in GitHub.
 ms.topic: conceptual
 ms.date: 05/16/2023
-ms.custom: "devx-track-csharp, devx-track-python, github-actions-azure"
+ms.custom: devx-track-csharp, github-actions-azure
 zone_pivot_groups: github-actions-deployment-options
 ---
 

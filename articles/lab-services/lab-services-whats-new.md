@@ -30,7 +30,7 @@ We've made fundamental improvements for the service to boost performance, reliab
 
 **[Updates to lab owner experience](how-to-manage-labs.md)**. Choose to skip the template creation process when creating a new lab if you already have an image ready to use. We've also added the ability to add a non-admin user to lab VMs.
 
-**[Updates to student experience](how-to-manage-vm-pool.md#redeploy-vms)**. Students can now redeploy their VM without losing data. We also updated the registration experience for some scenarios.  A lab VM is assigned to students *automatically* if the lab is set up to use Azure AD group sync, Teams, or Canvas.
+**[Updates to student experience](how-to-manage-vm-pool.md#redeploy-lab-vms)**. Students can now redeploy their VM without losing data. We also updated the registration experience for some scenarios.  A lab VM is assigned to students *automatically* if the lab is set up to use Azure AD group sync, Teams, or Canvas.
 
 **SDKs**. The Azure Lab Services PowerShell is now integrated with the [Az PowerShell module](/powershell/azure/release-notes-azureps). Also, check out the C# SDK.
 

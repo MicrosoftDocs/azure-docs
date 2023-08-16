@@ -66,35 +66,33 @@ When you deploy using an external package URL and the contents of the package ch
 
 ### Remote build
 
-Azure Functions can automatically perform builds on the code it receives after zip deployments. These builds behave slightly differently depending on whether your app is running on Windows or Linux. Remote builds are not performed when an app has previously been set to run in [Run From Package](run-functions-from-deployment-package.md) mode. To learn how to use remote build, navigate to [zip deploy](#zip-deploy).
+Azure Functions can automatically perform builds on the code it receives after zip deployments. These builds behave slightly differently depending on whether your app is running on Windows or Linux. 
 
-> [!NOTE]
-> If you're having issues with remote build, it might be because your app was created before the feature was made available (August 1, 2019). Try creating a new function app, or running `az functionapp update -g <RESOURCE_GROUP_NAME> -n <APP_NAME>` to update your function app. This command might take two tries to succeed.
+# [Windows](#tab/windows)
 
-#### Remote build on Windows
-
-All function apps running on Windows have a small management app, the SCM (or [Kudu](https://github.com/projectkudu/kudu)) site. This site handles much of the deployment and build logic for Azure Functions.
+All function apps running on Windows have a small management app, the SCM site provided by [Kudu](https://github.com/projectkudu/kudu). This site handles much of the deployment and build logic for Azure Functions.
 
 When an app is deployed to Windows, language-specific commands, like `dotnet restore` (C#) or `npm install` (JavaScript) are run.
 
-#### Remote build on Linux
+# [Linux](#tab/linux)
 
-To enable remote build on Linux, the following [application settings](functions-how-to-use-azure-function-app-settings.md#settings) must be set:
+To enable remote build on Linux, you must set the following in your application settings:
 
-+ `ENABLE_ORYX_BUILD=true`
-+ `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
++ [`ENABLE_ORYX_BUILD=true`](functions-app-settings.md#enable_oryx_build)
++ [`SCM_DO_BUILD_DURING_DEPLOYMENT=true`](functions-app-settings.md#scm_do_build_during_deployment)
 
 By default, both [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) perform remote builds when deploying to Linux. Because of this, both tools automatically create these settings for you in Azure.
 
 When apps are built remotely on Linux, they [run from the deployment package](run-functions-from-deployment-package.md).
 
-##### Consumption plan
+---
 
-Linux function apps running in the Consumption plan don't have an SCM/Kudu site, which limits the deployment options. However, function apps on Linux running in the Consumption plan do support remote builds.
+The following considerations apply when using remote builds during deployment:
 
-##### Dedicated and Premium plans
-
-Function apps running on Linux in the [Dedicated (App Service) plan](dedicated-plan.md) and the [Premium plan](functions-premium-plan.md) also have a limited SCM/Kudu site.
++ Remote builds are supported for function apps running on Linux in the Consumption plan, however they don't have an SCM/Kudu site, which limits deployment options. 
++ Function apps running on Linux a [Premium plan](functions-premium-plan.md) or in a [Dedicated (App Service) plan](dedicated-plan.md) do have an SCM/Kudu site, but it's limited compared to Windows.
++ Remote builds aren't performed when an app has previously been set to run in [run-from-package](run-functions-from-deployment-package.md) mode. To learn how to use remote build in these cases, see [Zip deploy](#zip-deploy).
++ You may have issues with remote build when your app was created before the feature was made available (August 1, 2019). For older apps, either create a new function app or run `az functionapp update -resource-group <RESOURCE_GROUP_NAME> -name <APP_NAME>` to update your function app. This command might take two tries to succeed.
 
 ### App content storage
 
@@ -134,14 +132,13 @@ Use zip deploy to push a .zip file that contains your function app to Azure. Opt
 
 You can deploy a function app running in a Linux container.
 
->__How to use it:__ Create your functions in a Linux container then deploy the container to a Premium or Dedicated plan in Azure Functions or another container host. Use the [Azure Functions Core Tools](functions-run-local.md#) to create a Dockerfile for your project that you use to build a containerized function app. You can use the container in the following deployments: 
+>__How to use it:__ [Create your functions in a Linux container](functions-create-container-registry.md) then deploy the container to a Premium or Dedicated plan in Azure Functions or another container host. Use the [Azure Functions Core Tools](functions-run-local.md#) to create a customized Dockerfile for your project that you use to build a containerized function app. You can use the container in the following deployments: 
 >
->+ Deploy to Azure Functions resources you create in the Azure portal. For **Publish**, select **Docker Image**, and then configure the container. Enter the location where the image is hosted. Requires either [Premium plan](functions-premium-plan.md) or [Dedicated (App Service) plan](dedicated-plan.md) hosting. 
+>+ Deploy to Azure Functions resources you create in the Azure portal. For more information, see [Azure portal create using containers](functions-how-to-custom-container.md#azure-portal-create-using-containers). 
 >+ Deploy to Azure Functions resources you create from the command line. Requires either a Premium or Dedicated (App Service) plan. To learn how, see [Create your first containerized Azure Functions](functions-deploy-container.md). 
 >+ Deploy to Azure Container Apps (preview). To learn how, see [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-apps.md).
 >+ Deploy to Azure Arc (preview). To learn how, see [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md).
 >+ Deploy to a Kubernetes cluster. You can deploy to a cluster using [Azure Functions Core Tools](functions-run-local.md). Use the [`func kubernetes deploy`](functions-core-tools-reference.md#func-kubernetes-deploy) command. 
->
 
 >__When to use it:__ Use the Docker container option when you need more control over the Linux environment where your function app runs and where the container is hosted. This deployment mechanism is available only for functions running on Linux.
 

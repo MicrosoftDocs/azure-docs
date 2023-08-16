@@ -25,13 +25,15 @@ To complete the scenario in this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure AD Premium P1 or P2 - Azure AD Conditional Access is an Azure AD Premium capability. You can sign up for a trial in the Azure portal.
-- A test account to sign-in with - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+- A test account to sign-in with - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users.md#add-a-new-user).
 
 ## Sign-in without terms of use
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 The goal of this step is to get an impression of the sign-in experience without a Conditional Access policy.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as your test user.
+1. Sign in to the [Azure portal](https://portal.azure.com) as your test user.
 1. Sign out.
 
 ## Create your terms of use
@@ -87,7 +89,7 @@ The scenario in this quickstart uses:
 
 In the previous section, you created a Conditional Access policy requiring terms of use be accepted. 
 
-To test your policy, try to sign-in to your [Azure portal](https://portal.azure.com) using your test account. You should see a dialog that requires you to accept your terms of use.
+To test your policy, try to sign in to the [Azure portal](https://portal.azure.com) using your test account. You should see a dialog that requires you to accept your terms of use.
 
 :::image type="content" source="./media/require-tou/57.png" alt-text="Screenshot of a dialog box titled Identity Security Protection terms of use, with Decline and Accept buttons and a button labeled My TOU." border="false":::
 
@@ -95,8 +97,8 @@ To test your policy, try to sign-in to your [Azure portal](https://portal.azure.
 
 When no longer needed, delete the test user and the Conditional Access policy:
 
-- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
-- To delete your policy, select the ellipsis (...) next to your policies name, then select **Delete**.
+- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users.md#delete-a-user).
+- To delete your policy, select the ellipsis (`...`) next to your policies name, then select **Delete**.
 - To delete your terms of use, select it, and then select **Delete terms**.
 
     :::image type="content" source="./media/require-tou/29.png" alt-text="Screenshot showing part of a table listing terms of use documents. The My T O U document is visible. In the menu, Delete terms is highlighted." border="false":::

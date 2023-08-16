@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 01/11/2022
-ms.custom: devx-track-azurepowershell, devx-track-arm-template
+ms.custom: devx-track-azurepowershell, devx-track-arm-template, UpdateFrequency2
 ---
 
 # Add an artifact repository to a lab

@@ -51,7 +51,7 @@ To create a manual job using the Azure CLI, use the `az containerapp job create`
 az containerapp job create \
     --name "my-job" --resource-group "my-resource-group"  --environment "my-environment" \
     --trigger-type "Manual" \
-    --replica-timeout 60 --replica-retry-limit 1 --replica-completion-count 1 --parallelism 1 \
+    --replica-timeout 1800 --replica-retry-limit 1 --replica-completion-count 1 --parallelism 1 \
     --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
     --cpu "0.25" --memory "0.5Gi"
 ```
@@ -71,7 +71,7 @@ The following example Azure Resource Manager template creates a manual job named
                 "replicaCompletionCount": 1
             },
             "replicaRetryLimit": 1,
-            "replicaTimeout": 60,
+            "replicaTimeout": 1800,
             "triggerType": "Manual"
         },
         "environmentId": "/subscriptions/<subscription_id>/resourceGroups/my-resource-group/providers/Microsoft.App/managedEnvironments/my-environment",
@@ -120,7 +120,7 @@ To create a scheduled job using the Azure CLI, use the `az containerapp job crea
 az containerapp job create \
     --name "my-job" --resource-group "my-resource-group"  --environment "my-environment" \
     --trigger-type "Schedule" \
-    --replica-timeout 60 --replica-retry-limit 1 --replica-completion-count 1 --parallelism 1 \
+    --replica-timeout 1800 --replica-retry-limit 1 --replica-completion-count 1 --parallelism 1 \
     --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
     --cpu "0.25" --memory "0.5Gi" \
     --cron-expression "0 0 * * *"
@@ -142,7 +142,7 @@ The following example Azure Resource Manager template creates a manual job named
                 "replicaCompletionCount": 1
             },
             "replicaRetryLimit": 1,
-            "replicaTimeout": 60,
+            "replicaTimeout": 1800,
             "triggerType": "Schedule"
         },
         "environmentId": "/subscriptions/<subscription_id>/resourceGroups/my-resource-group/providers/Microsoft.App/managedEnvironments/my-environment",
@@ -191,7 +191,7 @@ To create an event-driven job using the Azure CLI, use the `az containerapp job 
 az containerapp job create \
     --name "my-job" --resource-group "my-resource-group"  --environment "my-environment" \
     --trigger-type "Event" \
-    --replica-timeout 60 --replica-retry-limit 1 --replica-completion-count 1 --parallelism 1 \
+    --replica-timeout 1800 --replica-retry-limit 1 --replica-completion-count 1 --parallelism 1 \
     --image "docker.io/myuser/my-event-driven-job:latest" \
     --cpu "0.25" --memory "0.5Gi" \
     --min-executions "0" \
@@ -234,7 +234,7 @@ The following example Azure Resource Manager template creates an event-driven jo
                 }
             },
             "replicaRetryLimit": 1,
-            "replicaTimeout": 60,
+            "replicaTimeout": 1800,
             "triggerType": "Event",
             "secrets": [
                 {

@@ -107,7 +107,7 @@ bicep generate-params main.bicep --output-format bicepparam --include-params all
 The command creates a Bicep parameters file named _main.bicepparam_. The parameter file contains all parameters in the Bicep file, whether configured with default values or not.
 
 ```azurecli
-bicep generate-params --file main.bicep --outfile main.parameters.json
+bicep generate-params main.bicep --outfile main.parameters.json
 ```
 
 The command creates a parameter file named _main.parameters.json_. The parameter file only contains the parameters without default values configured in the Bicep file.
@@ -209,7 +209,7 @@ To use the restore command, you must have Bicep CLI version **0.4.1008 or later*
 To manually restore the external modules for a file, use:
 
 ```azurecli
-az bicep restore <bicep-file> [--force]
+az bicep restore --file <bicep-file> [--force]
 ```
 
 The Bicep file you provide is the file you wish to deploy. It must contain a module that links to a registry. For example, you can restore the following file:

@@ -272,8 +272,6 @@ The following provides areas to consider when planning for performance:
 
    * Each verification of a VC requires one Key Vault signature operation.
 
-   * Maximum signing performance of a Key Vault is 2000 signings/~10 seconds. This means your solution can support up to 12,000 VC validation requests per minute.
-
    * You can't control throttling; however, we recommend you read [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md) so that you understand how throttling might impact performance. 
 
 ## Plan for reliability
@@ -344,6 +342,6 @@ Implement Verifiable Credentials
 
    * [Introduction to Microsoft Entra Verified ID](decentralized-identifier-overview.md) 
 
-   * [Get started with Verifiable Credentials](get-started-verifiable-credentials.md)
+   * [Get started with Verifiable Credentials](./verifiable-credentials-configure-tenant.md)
 
 [FAQs](verifiable-credentials-faq.md)

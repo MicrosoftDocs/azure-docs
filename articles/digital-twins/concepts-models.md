@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how Azure Digital Twins uses custom models to describe entities in your environment and how to define these models using the Digital Twin Definition Language (DTDL).
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/06/2023
+ms.date: 06/29/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -27,11 +27,29 @@ A model is similar to a *class* in an object-oriented programming language, defi
 
 Models for Azure Digital Twins are defined using the Digital Twins Definition Language (DTDL). 
 
-You can view the full language specs for DTDL in GitHub: [Digital Twins Definition Language (DTDL) - Version 2 Reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). This page includes detailed DTDL reference and examples to help you get started writing your own DTDL models.
+You can view the full language description for DTDL v3 in GitHub: [DTDL Version 3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md). This page includes DTDL reference details and examples to help you get started writing your own DTDL models.
 
-DTDL is based on JSON-LD and is programming-language independent. DTDL isn't exclusive to Azure Digital Twins, but is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md). Azure Digital Twins uses DTDL version 2 (use of DTDL version 1 with Azure Digital Twins has now been deprecated).
+DTDL is based on JSON-LD and is programming-language independent. DTDL isn't exclusive to Azure Digital Twins. It is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md).
 
 The rest of this article summarizes how the language is used in Azure Digital Twins.
+
+### Supported DTDL versions
+
+Azure Digital Twins supports DTDL versions 2 and 3 (shortened in the documentation to v2 and v3, respectively). V3 is the recommended choice for modeling in Azure Digital Twins based on its expanded capabilities, including:
+* [DTMI version](#model-overview) relaxation
+* [Array support for properties](#schema)
+* Increased limits for [model inheritance](#model-inheritance)
+* [Feature extensions](#dtdl-v3-feature-extensions)
+    * The ability to decorate [custom interface schemas](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#interface-schemas) with semantic types (provided with the [QuantitativeTypes extension](#quantitativetypes-extension))
+
+Where these features are discussed in the documentation, they're accompanied by a note that they're only available in DTDL v3. For a complete list of differences between DTDL v2 and v3, see [DTDL v3 Language Description: Changes from Version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#changes-from-version-2).
+
+Azure Digital Twins also supports using a mix of v2 and v3 models within the same instance. When using models of both versions together, keep in mind the following restrictions:
+*	A v2 interface cannot [extend](#model-inheritance) a v3 interface, or have a [component](#components) with a v3 interface as its schema. 
+*	Conversely, a v3 interface **can** extend a v2 interface, and a v3 interface **can** have a component with a v2 interface as its schema.
+*	[Relationships](#relationships) can point in either direction, from a v2 model source to a v3 model target, or vice-versa from a v3 model source to a v2 model target.
+
+You can also migrate existing v2 models to v3. For instructions on how to do this, see [Convert v2 models to v3](how-to-manage-model.md#convert-v2-models-to-v3).
 
 ## Model overview
 
@@ -41,9 +59,9 @@ Here are the fields within a model interface:
 
 | Field | Description |
 | --- | --- |
-| `@id` | A [Digital Twin Model Identifier (DTMI)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#digital-twin-model-identifier) for the model. Must be in the format `dtmi:<domain>:<unique-model-identifier>;<model-version-number>`. |
+| `@id` | A [Digital Twin Model Identifier (DTMI)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#digital-twin-model-identifier) for the model, in the format `dtmi:<domain>:<unique-model-identifier>;<model-version-number>`. In DTDL v3, the version number can be omitted, or structured as a two-part (`<major>.<minor>`) version number. |
 | `@type` | Identifies the kind of information being described. For an interface, the type is `Interface`. |
-| `@context` | Sets the [context](https://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use `dtmi:dtdl:context;2`. |
+| `@context` | Sets the [context](https://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use `dtmi:dtdl:context;2` for DTDL v2, or `dtmi:dtdl:context;3` for DTDL v3. DTDL v3 models can also name additional [feature extensions](#dtdl-v3-feature-extensions) in this field. |
 | `displayName` | [optional] Gives you the option to define a friendly name for the model. If you don't use this field, the model will use its full DTMI value.|
 | `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (`Property`, `Telemetry`, `Relationship`, or `Component`) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute. The next section describes the [model attributes](#model-attributes) in detail. |
 
@@ -67,13 +85,13 @@ The main information about a model is given by its attributes, which are defined
     For more information, see [Components](#components) below.
 
 > [!NOTE]
-> The [spec for DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) also defines *Commands*, which are methods that can be executed on a digital twin (like a reset command, or a command to switch a fan on or off). However, commands are not currently supported in Azure Digital Twins.
+> The [DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md) also defines *Commands*, which are methods that can be executed on a digital twin (like a reset command, or a command to switch a fan on or off). However, commands are not currently supported in Azure Digital Twins.
 
 ## Properties and telemetry
 
 This section goes into more detail about *properties* and *telemetry* in DTDL models.
 
-For comprehensive information about the fields that may appear as part of a property, see [Property in the DTDL V2 Reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#property). For comprehensive information about the fields that may appear as part of telemetry, see [Telemetry in the DTDL V2 Reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#telemetry).
+For comprehensive information about the fields that may appear as part of a property, see [Property in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#property). For comprehensive information about the fields that may appear as part of telemetry, see [Telemetry in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#telemetry).
 
 > [!NOTE]
 > The `writable` DTDL attribute for properties is not currently supported in Azure Digital Twins. It can be added to the model, but Azure Digital Twins will not enforce it. For more information, see [Service-specific DTDL notes](#service-specific-dtdl-notes).
@@ -92,7 +110,7 @@ As a result, when designing a model in Azure Digital Twins, you'll probably use 
 
 Telemetry and properties often work together to handle data ingress from devices. You'll often use an ingress function to read telemetry or property events from devices, and set a property in Azure Digital Twins in response. 
 
-You can also publish a telemetry event from the Azure Digital Twins API. As with other telemetry, that is a short-lived event that requires a listener to handle.
+You can also publish a telemetry event from the Azure Digital Twins API. Telemetry is a short-lived event that requires a listener to handle.
 
 ### Schema
 
@@ -102,9 +120,10 @@ In addition to primitive types, property and telemetry fields can have these [co
 * `Object`
 * `Map`
 * `Enum`
-* (telemetry only) `Array`
+* `Array`, depending on DTDL version
+    - For properties, `Array` type is not supported in DTDL v2, only DTDL v3. For telemetry, `Array` type is supported in both DTDL v2 and v3. 
 
-They can also be [semantic types](#semantic-type-example), which allow you to annotate values with units.
+They can also be semantic types, which allow you to annotate values with units. In [DTDL v2, semantic types](#dtdl-v2-semantic-type-example) are natively supported; in DTDL v3, you can include them with a [feature extension](#dtdl-v3-feature-extensions).
 
 ### Basic property and telemetry examples
 
@@ -116,7 +135,7 @@ Here's a basic example of a telemetry field on a DTDL model. This example shows 
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/ISensor.json" highlight="7-11":::
 
-### Complex (object) type example
+### Complex Object type example
 
 Properties and telemetry can be of complex types, including an `Object` type.
 
@@ -124,13 +143,15 @@ The following example shows another version of the Home model, with a property f
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" highlight="8-31":::
 
-### Semantic type example
+### DTDL v2 semantic type example
 
-Semantic types make it possible to express a value with a unit. Properties and telemetry can be represented with any of the semantic types that are supported by DTDL. For more information on semantic types in DTDL and what values are supported, see [Semantic types in the DTDL V2 Reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#semantic-type).
+Semantic types are for expressing a value with a unit. Properties and telemetry for Azure Digital Twins can use any of the semantic types that are supported by DTDL. 
 
-The following example shows a Sensor model with a semantic-type telemetry for Temperature, and a semantic-type property for Humidity. 
+In DTDL v2, semantic types are natively supported. For more information on semantic types in DTDL v2, see [Semantic types in the DTDL v2 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#semantic-type). To learn about semantic types in DTDL v3, see [the QuantitativeTypes DTDL v3 feature extension](#quantitativetypes-extension).
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/ISensor.json" highlight="7-18":::
+The following example shows a DTDL v2 Sensor model with a semantic type telemetry for Temperature, and a semantic type property for Humidity. 
+
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/ISensor-DTDL-v2.json" highlight="7-18":::
 
 > [!NOTE]
 > *"Property"* or *"Telemetry"* must be the first element of the `@type` array, followed by the semantic type. Otherwise, the field may not be visible in [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md).
@@ -139,7 +160,7 @@ The following example shows a Sensor model with a semantic-type telemetry for Te
 
 This section goes into more detail about *relationships* in DTDL models.
 
-For a comprehensive list of the fields that may appear as part of a relationship, see [Relationship in the DTDL V2 Reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#relationship).
+For a comprehensive list of the fields that may appear as part of a relationship, see [Relationship in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#relationship).
 
 > [!NOTE]
 > The `writable`, `minMultiplicity`, and `maxMultiplicity` DTDL attributes for relationships are not currently supported in Azure Digital Twins. They can be added to the model, but Azure Digital Twins will not enforce them. For more information, see [Service-specific DTDL notes](#service-specific-dtdl-notes).
@@ -165,7 +186,7 @@ Here's an example of a relationship on a DTDL model that doesn't have a target. 
 
 ### Properties of relationships
 
-DTDL also allows for relationships to have properties of their own. When defining a relationship within a DTDL model, the relationship can have its own `properties` field where you can define custom properties to describe relationship-specific state.
+DTDL also allows for relationships to have properties of their own. When you define a relationship within a DTDL model, the relationship can have its own `properties` field where you can define custom properties to describe relationship-specific state.
 
 The following example shows another version of the Home model, where the `rel_has_floors` relationship has a property representing when the related Floor was last occupied.
 
@@ -175,7 +196,7 @@ The following example shows another version of the Home model, where the `rel_ha
 
 This section goes into more detail about *components* in DTDL models.
 
-For a comprehensive list of the fields that may appear as part of a component, see [Component in the DTDL V2 Reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#component).
+For a comprehensive list of the fields that may appear as part of a component, see [Component in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#component).
 
 ### Basic component example
 
@@ -194,6 +215,11 @@ Sometimes, you may want to specialize a model further. For example, it might be 
 
 The `extends` section is an interface name, or an array of interface names (allowing the extending interface to inherit from multiple parent models). A single parent can serve as the base model for multiple extending interfaces.
 
+>[!NOTE]
+>In DTDL v2, each `extends` can have at most two interfaces listed for it. In DTDL v3, there is no limit on the number of immediate values for an `extends`.
+>
+>In both DTDL v2 and v3, the total depth limit for an `extends` hierarchy is 10.
+
 The following example re-imagines the Home model from the earlier DTDL example as a subtype of a larger "core" model. The parent model (Core) is defined first, and then the child model (Home) builds on it by using `extends`.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/ICore.json":::
@@ -207,6 +233,70 @@ In this case, Core contributes an ID and name to Home. Other models can also ext
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 
 The extending interface can't change any of the definitions of the parent interfaces; it can only add to them. It also can't redefine a capability already defined in any of its parent interfaces (even if the capabilities are defined to be the same). For example, if a parent interface defines a `double` property `mass`, the extending interface can't contain a declaration of `mass`, even if it's also a `double`.
+
+## DTDL v3 feature extensions
+
+DTDL v3 enables language extensions that define additional metamodel classes, which you can use to write richer models. This section describes the *feature extension* classes that you can use to add non-core features to your DTDL v3 models.
+
+Each feature extension is identified by its *context specifier*, which is a unique [Digital Twin Model Identifier (DTMI)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#digital-twin-model-identifier) value. To enable a feature extension in a model, add the extension's context specifier to the model's `@context` field (alongside the general DTDL context specifier of `dtmi:dtdl:context;3`). You can add multiple feature extensions to the same model.
+
+Here's an example of what that `@context` field might look like with feature extensions. The following excerpt is from a model that uses both the [QuantitativeTypes extension](#quantitativetypes-extension) and the [Annotation extension](#annotation-extension).
+
+```json
+  "@context": [
+      "dtmi:dtdl:context;3",
+      "dtmi:dtdl:extension:quantitativeTypes;1",
+      "dtmi:dtdl:extension:annotation;1"
+  ]
+```
+
+After you've added a feature extension to a model, you'll have access to that extension's *adjunct types* within the model. You can add adjunct types to the `@type` field of a DTDL element, to give the element additional capabilities. The adjunct type may add additional properties to the element.
+
+For example, here's an excerpt from a model that's using the [Annotation extension](#annotation-extension). This extension has an adjunct type called `ValueAnnotation`, which is added in the example below to a Telemetry element. Adding this adjunct type to the Telemetry element allows the element to have an additional `annotates` field, which is used to indicate another Property or Telemetry that is annotated by this element. 
+
+```json
+{
+  "@type": [ "Telemetry", "ValueAnnotation" ],
+  "name": "currentTempAccuracy",
+  "annotates": "currentTemp",
+  "schema": "double"
+  },
+```
+
+The rest of this section explains the Annotation extension and other DTDL v3 feature extensions in more detail.
+
+### Annotation extension
+
+The *Annotation extension* is used to add custom metadata to a property or telemetry element in a DTDL v3 model. Its context specifier is `dtmi:dtdl:extension:annotation;1`. 
+
+This extension includes the `ValueAnnotation` adjunct type, which can be added to a DTDL Property or Telemetry element. The `ValueAnnotation` type adds one field to the element, `annotates`, which allows you to name another property or telemetry that is annotated by the current element.
+
+For more details and examples of this extension, see [Annotation extension in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.annotation.v1.md).
+
+### Historization extension
+
+The *Historization extension* is used to designate a Property or Telemetry in a DTDL v3 model as something that should be historized (meaning the historical sequence of its values should be recorded, along with times at which the values change). Its context specifier is `dtmi:dtdl:extension:historization;1`.
+
+This extension includes the `Historized` adjunct type, which can be added as a co-type to a DTDL Property or Telemetry element to indicate that the service should persist the element's historical values and make them available for querying and analytics. The `Historized` adjunct type doesn't add any fields to the element. 
+
+For more details and examples of this extension, see [Historization extension in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.historization.v1.md).
+
+### Overriding extension
+
+The *overriding extension* is used to override a property in a DTDL V3 model with an instance value. It's used in combination with the [annotation extension](#annotation-extension), and its context specifier is `dtmi:dtdl:extension:overriding;1`.
+
+This extension includes the `Override` adjunct type, which can be added to a DTDL Property that is *also* co-typed with `ValueAnnotation` (from the annotation extension). The `Override` type adds one field to the element, `overrides`, which allows you to name a field on the annotated element to be overridden by the current element's value.
+
+For more details and examples of this extension, see [Overriding extension in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.overriding.v1.md).
+
+
+### QuantitativeTypes extension
+
+The *QuantitativeTypes extension* is used to enable semantic types, unit types, and units in a DTDL v3 model. Its context specifier is `dtmi:dtdl:extension:quantitativeTypes;1`. 
+
+This extension enables the use of many semantic types as adjunct types, which can be added to a CommandRequest, a Field, a MapValue, a Property, or a Telemetry in DTDL v3. Semantic types add one field to the element, `unit`, which accepts a valid unit that corresponds to the semantic type.
+
+For more details about the extension, including examples and a full list of supported semantic types and units, see [QuantitativeTypes extension in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.quantitativeTypes.v1.md).
 
 ## Service-specific DTDL notes
 
@@ -246,13 +336,15 @@ Once you're finished creating, extending, or selecting your models, you need to 
 
 You can upload many models in a single API call using the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api). The API can simultaneously accept up to the [Azure Digital Twins limit for number of models in an instance](reference-service-limits.md), and it automatically reorders models if needed to resolve dependencies between them. For detailed instructions and examples that use this API, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets-with-the-jobs-api). 
 
-An alternative to the Jobs API is the [Model uploader sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#uploadmodels), which uses the individual model APIs to upload multiple model files at once. The sample also implements automatic reordering to resolve model dependencies.
+An alternative to the Jobs API is the [Model uploader sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#uploadmodels), which uses the individual model APIs to upload multiple model files at once. The sample also implements automatic reordering to resolve model dependencies. It currently only works with [version 2 of DTDL](concepts-models.md#supported-dtdl-versions).
 
-If you need to delete all models in an Azure Digital Twins instance at once, you can use the [Model deleter sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#deletemodels). This is a project that contains recursive logic to handle model dependencies through the deletion process. 
+If you need to delete all models in an Azure Digital Twins instance at once, you can use the [Model Deleter sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#deletemodels). This is a project that contains recursive logic to handle model dependencies through the deletion process. It currently only works with [version 2 of DTDL](concepts-models.md#supported-dtdl-versions).
 
 ### Visualize models
 
 Once you have uploaded models into your Azure Digital Twins instance, you can use [Azure Digital Twins Explorer](https://explorer.digitaltwins.azure.net/) to view them. The explorer contains a list of all models in the instance, as well as a **model graph** that illustrates how they relate to each other, including any inheritance and model relationships.
+
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 Here's an example of what a model graph might look like:
 

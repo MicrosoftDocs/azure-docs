@@ -9,8 +9,9 @@ ms.collection: oracle
 ms.topic: article
 ms.date: 06/13/2023
 ---
+
 # Storage options for Oracle on Azure VMs
-In this article, you learn about the storage choices available to you for Oracle on Azure VMs. The choices of database storage affect how well your Oracle tasks run, how reliable they are, and how much they cost. When exploring the upper limits of performance, it's important to recognize and reduce any constraints that could falsely skew results. Oracle database and applications set the bar high due to the intense demands on storage I/O with a mixed read and write workload driven by a single compute node. Understanding the choices of available storage options and their performance capabilities is the key to successfully migrating  Oracle to Azure VMs. This article describes all the Azure native storage offerings with their capabilities.
+In this article, you learn about the storage choices available to you for Oracle on Azure VMs. The choices of database storage affect how well your Oracle tasks run, how reliable they are, and how much they cost. When exploring the upper limits of performance, it's important to recognize and reduce any constraints that could falsely skew results. Oracle database and applications set the bar high due to the intense demands on storage I/O with a mixed read and write workload driven by a single compute node. Understanding the choices of available storage options and their performance capabilities is the key to successfully migrating Oracle to Azure VMs. This article describes all the Azure native storage offerings with their capabilities.
 
 ## Azure managed disks versus shared files
 The throughput & IOPs are limited by the SKU of the selected disk and the virtual machine –whichever is lower.  Managed disks are less expensive and simpler to manage than shared storage; however, managed disks may offer lower IOPs and throughput than a given virtual machine allows.    
@@ -33,9 +34,13 @@ The [Azure Managed Disk](https://learn.microsoft.com/azure/virtual-machines/mana
 
 The [Azure Elastic SAN](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-introduction) is a cloud-native service that offers a scalable, cost-effective, high-performance, and comprehensive storage solution for a range of compute options. Gain higher resiliency and minimize downtime with rapid provisioning. Can deliver up to 64,000 IOPs & supports Volume groups.
 
-## ANF large volumes for Oracle
+## Azure NetApp Files
 
-The [Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/performance-oracle-multiple-volumes) is able to meet the needs of this highly demanding workload. A cloud-native service that offers scalable & comprehensive storage choice. Can deliver up to 850,000 I/O requests per second and 6,800 MiB/s of storage throughput. Also provides multi host capabilities that are able to drive I/O totaling over 30,000 MiB/s across the three hosts while running in parallel. Azure NetApp also supplied comprehensive [performance bench marking](https://learn.microsoft.com/azure/azure-netapp-files/performance-benchmarks-linux) for Oracle on VM.
+[Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) is an Azure native, first-party, enterprise-class, high-performance file storage service. It provides NAS volumes as a service for which you can create NetApp accounts, create capacity pools, select service and performance levels, create volumes, and manage data protection. It allows you to create and manage high-performance, highly available, and scalable file shares, using NFSv3 or NFSv4.1 protocols for use with Oracle.  
+
+Azure NetApp Files can meet the needs of the highest demanding Oracle workloads. It's a cloud-native service that offers a scalable and comprehensive storage choice. Azure NetApp Files can deliver up to 460,000 I/O requests per second and 4,500 MiB/s of storage throughput *per volume*. [Using multiple volumes](/azure/azure-netapp-files/performance-oracle-multiple-volumes) allows for massive horizontal performance scaling, beyond 10,000 MiB/s (10 GiB/s) depending on available Virtual Machine SKU network bandwidth. Azure NetApp Files offers [multi-host capabilities](/azure/azure-netapp-files/performance-oracle-multiple-volumes#multi-host-architecture), enabling it to achieve a combined I/O totaling more than 30,000 MiB/s when running in parallel in a three-hosts scenario.  
+
+It is highly recommended to use Oracle's [dNFS](/azure/azure-netapp-files/performance-oracle-multiple-volumes#network-concurrency) - with or without [Automatic Storage Management (ASM)](/azure/azure-netapp-files/performance-oracle-multiple-volumes#database) in a multi-volume scenario - for [best concurrency and performance](/azure/azure-netapp-files/performance-oracle-single-volumes#linux-knfs-client-vs-oracle-direct-nfs).  
 
 ## Lightbits on Azure
 

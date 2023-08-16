@@ -14,7 +14,7 @@ ms.custom: data4ml
 ---
 
 # Import data assets (preview)
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you'll learn how to import data into the Azure Machine Learning platform from external sources. A successful import automatically creates and registers an Azure Machine Learning data asset with the name provided during the import. An Azure Machine Learning data asset resembles a web browser bookmark (favorites). You don't need to remember long storage paths (URIs) that point to your most-frequently used data. Instead, you can create a data asset, and then access that asset with a friendly name.
 
@@ -26,7 +26,7 @@ The caching feature involves upfront compute and storage costs. However, it pays
 
 You can import data from Amazon S3, Azure SQL, and Snowflake.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ Not available.
 
 ---
 
-## Import from an external database as a table data asset
+## Import from an external database as a mltable data asset
 
 > [!NOTE]
 > The external databases can have Snowflake, Azure SQL, etc. formats.
@@ -161,59 +161,65 @@ ml_client.data.import_data(data_import=data_import)
    
    A new panel opens, where you can define a **Recurrence** schedule, or a **Cron** schedule. This screenshot shows the panel for a **Recurrence** schedule:
    
-   :::image type="content" source="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" alt-text="A screenshot that shows selection of the Add schedule button.":::
-   
+   :::image type="content" source="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" alt-text="A screenshot that shows selection of the Add recurrence schedule button.":::
 
-  - **Name**: the unique identifier of the schedule within the workspace.
-  - **Description**: the schedule description.
-  - **Trigger**: the recurrence pattern of the schedule, which includes the following properties.
-    - **Time zone**: the trigger time calculation is based on this time zone; (UTC) Coordinated Universal Time by default.
-    - **Recurrence** or **Cron expression**: select recurrence to specify the recurring pattern. Under **Recurrence**, you can specify the recurrence frequency - by minutes, hours, days, weeks, or months.
-    - **Start**: the schedule first becomes active on this date. By default, the creation date of this schedule.
-    - **End**: the schedule will become inactive after this date. By default, it's NONE, which means that the schedule will always be active until you manually disable it.
-    - **Tags**: the selected schedule tags.
+   - **Name**: the unique identifier of the schedule within the workspace.
+   - **Description**: the schedule description.
+   - **Trigger**: the recurrence pattern of the schedule, which includes the following properties.
+     - **Time zone**: the trigger time calculation is based on this time zone; (UTC) Coordinated Universal Time by default.
+     - **Recurrence** or **Cron expression**: select recurrence to specify the recurring pattern. Under **Recurrence**, you can specify the recurrence frequency - by minutes, hours, days, weeks, or months.
+     - **Start**: the schedule first becomes active on this date. By default, the creation date of this schedule.
+     - **End**: the schedule will become inactive after this date. By default, it's NONE, which means that the schedule will always be active until you manually disable it.
+     - **Tags**: the selected schedule tags.
+
+   > [!NOTE]
+   > **Start** specifies the start date and time with the timezone of the schedule. If start is omitted, the start time equals the schedule creation time. For a start time in the past, the first job runs at the next calculated run time.
+
+   The next screenshot shows the last screen of this process. Review your choices, and select Create. At this screen, and the other screens in this process, select Back to move to earlier screens to change your choices of values.
+
+   :::image type="content" source="media/how-to-import-data-assets/create-snowflake-data-import-review-values-and-create.png" lightbox="media/how-to-import-data-assets/create-snowflake-data-import-review-values-and-create.png" alt-text="Screenshot that shows all parameters of the data import.":::
    
    This screenshot shows the panel for a **Cron** schedule:
    
    :::image type="content" source="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" alt-text="Screenshot that shows selection of the Add schedule button.":::
 
----
+   - **Name**: the unique identifier of the schedule within the workspace.
+   - **Description**: the schedule description.
+   - **Trigger**: the recurrence pattern of the schedule, which includes the following properties.
+      - **Time zone**: the trigger time calculation is based on this time zone; (UTC) Coordinated Universal Time by default.
+      - **Recurrence** or **Cron expression**: select cron expression to specify the cron details.
 
-  - **Name**: the unique identifier of the schedule within the workspace.
-  - **Description**: the schedule description.
-  - **Trigger**: the recurrence pattern of the schedule, which includes the following properties.
-    - **Time zone**: the trigger time calculation is based on this time zone; (UTC) Coordinated Universal Time by default.
-    - **Recurrence** or **Cron expression**: select recurrence to specify the recurring pattern. **Cron expression** allows you to specify more flexible and customized recurrence pattern.
-    - **Start**: the schedule first becomes active on this date. By default, the creation date of this schedule.
-    - **End**: the schedule will become inactive after this date. By default, it's NONE, meaning that the schedule will remain active until you manually disable it.
-    - **Tags**: the selected schedule tags.
+      - **(Required)** `expression` uses a standard crontab expression to express a recurring schedule. A single expression is composed of five space-delimited fields:
 
-- **(Required)** `expression` uses a standard crontab expression to express a recurring schedule. A single expression is composed of five space-delimited fields:
+         `MINUTES HOURS DAYS MONTHS DAYS-OF-WEEK`
 
-    `MINUTES HOURS DAYS MONTHS DAYS-OF-WEEK`
-
-    - A single wildcard (`*`), which covers all values for the field. A `*`, in days, means all days of a month (which varies with month and year).
-    - The `expression: "15 16 * * 1"` in the sample above means the 16:15PM on every Monday.
-    - The next table lists the valid values for each field:
+         - A single wildcard (`*`), which covers all values for the field. A `*`, in days, means all days of a month (which varies with month and year).
+         - The `expression: "15 16 * * 1"` in the sample above means the 16:15PM on every Monday.
+         - The next table lists the valid values for each field:
  
-        | Field          |   Range  | Comment                                                   |
-        |----------------|----------|-----------------------------------------------------------|
-        | `MINUTES`      |    0-59  | -                                                         |
-        | `HOURS`        |    0-23  | -                                                         |
-        | `DAYS`         |    -  |    Not supported. The value is ignored and treated as `*`.    |
-        | `MONTHS`       |    -  | Not supported. The value is ignored and treated as `*`.        |
-        | `DAYS-OF-WEEK` |    0-6   | Zero (0) means Sunday. Names of days also accepted. |
+            | Field          |   Range  | Comment                                                   |
+            |----------------|----------|-----------------------------------------------------------|
+            | `MINUTES`      |    0-59  | -                                                         |
+            | `HOURS`        |    0-23  | -                                                         |
+            | `DAYS`         |    -  |    Not supported. The value is ignored and treated as `*`.    |
+            | `MONTHS`       |    -  | Not supported. The value is ignored and treated as `*`.        |
+            | `DAYS-OF-WEEK` |    0-6   | Zero (0) means Sunday. Names of days also accepted. |
 
-    - To learn more about crontab expressions, see [Crontab Expression wiki on GitHub](https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression).
+      - To learn more about crontab expressions, see [Crontab Expression wiki on GitHub](https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression).
 
-    > [!IMPORTANT]
-    > `DAYS` and `MONTH` are not supported. If you pass one of these values, it will be ignored and treated as `*`.
+      > [!IMPORTANT]
+      > `DAYS` and `MONTH` are not supported. If you pass one of these values, it will be ignored and treated as `*`.
 
-- (Optional) `start_time` specifies the start date and time with the timezone of the schedule. For example, `start_time: "2022-05-10T10:15:00-04:00"` means the schedule starts from 10:15:00AM on 2022-05-10 in the UTC-4 timezone. If `start_time` is omitted, the `start_time` equals the schedule creation time. For a start time in the past, the first job runs at the next calculated run time.
+      - **Start**: the schedule first becomes active on this date. By default, the creation date of this schedule.
+      - **End**: the schedule will become inactive after this date. By default, it's NONE, which means that the schedule will always be active until you manually disable it.
+      - **Tags**: the selected schedule tags.
 
-The next screenshot shows the last screen of this process. Review your choices, and select Create. At this screen, and the other screens in this process, select Back to move to earlier screens to change your choices of values.
+   > [!NOTE]
+   > **Start** specifies the start date and time with the timezone of the schedule. If start is omitted, the start time equals the schedule creation time. For a start time in the past, the first job runs at the next calculated run time.
 
-   :::image type="content" source="media/how-to-import-data-assets/create-snowflake-data-import-review-values-and-create.png" lightbox="media/how-to-import-data-assets/create-snowflake-data-import-review-values-and-create.png" alt-text="Screenshot that shows all parameters of the data import.":::
+   The next screenshot shows the last screen of this process. Review your choices, and select Create. At this screen, and the other screens in this process, select Back to move to earlier screens to change your choices of values.
+
+   :::image type="content" source="media/how-to-import-data-assets/create-snowflake-data-import-review-values-and-create.png" lightbox="media/how-to-import-data-assets/create-snowflake-data-import-review-values-and-create.png" alt-text="Screenshot that shows all parameters of the cron data import.":::
 
 ---
 
@@ -304,57 +310,21 @@ ml_client.data.import_data(data_import=data_import)
    
    :::image type="content" source="media/how-to-import-data-assets/create-data-import-add-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-add-schedule.png" alt-text="Screenshot showing selection of the Add schedule button.":::
    
-   A new panel opens, where you can define a **Recurrence** schedule, or a **Cron** schedule. This screenshot shows the panel for a **Recurrence** schedule:
+1. A new panel opens, where you can define a **Recurrence** schedule, or a **Cron** schedule. This screenshot shows the panel for a **Recurrence** schedule:
    
    :::image type="content" source="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-recurrence-schedule.png" alt-text="A screenshot showing selection of the Add schedule button.":::
-   
 
-  - **Name**: the unique identifier of the schedule within the workspace.
-  - **Description**: the schedule description.
-  - **Trigger**: the recurrence pattern of the schedule, which includes the following properties.
-    - **Time zone**: the trigger time calculation is based on this time zone; (UTC) Coordinated Universal Time by default.
-    - **Recurrence** or **Cron expression**: select recurrence to specify the recurring pattern. Under **Recurrence**, you can specify the recurrence frequency - by minutes, hours, days, weeks, or months.
-    - **Start**: the schedule first becomes active on this date. By default, the creation date of this schedule.
-    - **End**: the schedule will become inactive after this date. By default, it's NONE, which means that the schedule will remain active until you manually disable it.
-    - **Tags**: the selected schedule tags.
-   
-   This screenshot shows the panel for a **Cron** schedule:
-   
-   :::image type="content" source="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" alt-text="Screenshot showing the selection of the Add schedule button.":::
+   - **Name**: the unique identifier of the schedule within the workspace.
+   - **Description**: the schedule description.
+   - **Trigger**: the recurrence pattern of the schedule, which includes the following properties.
+     - **Time zone**: the trigger time calculation is based on this time zone; (UTC) Coordinated Universal Time by default.
+     - **Recurrence** or **Cron expression**: select recurrence to specify the recurring pattern. Under **Recurrence**, you can specify the recurrence frequency - by minutes, hours, days, weeks, or months.
+     - **Start**: the schedule first becomes active on this date. By default, the creation date of this schedule.
+     - **End**: the schedule will become inactive after this date. By default, it's NONE, which means that the schedule will always be active until you manually disable it.
+     - **Tags**: the selected schedule tags.
 
----
-
-  - **Name**: the unique identifier of the schedule within the workspace.
-  - **Description**: the schedule description.
-  - **Trigger**: the recurrence pattern of the schedule, which includes the following properties.
-    - **Time zone**: the trigger time calculation is based on this time zone; (UTC) Coordinated Universal Time by default.
-    - **Recurrence** or **Cron expression**: select recurrence to specify the recurring pattern. **Cron expression** allows you to specify more flexible and customized recurrence pattern.
-    - **Start**: the schedule first becomes active on this date. By default, the creation date of this schedule.
-    - **End**: the schedule will become inactive after this date. By default, it's NONE, meaning that the schedule will remain active until you manually disable it.
-    - **Tags**: the selected schedule tags.
-
-- **(Required)** `expression` uses a standard crontab expression to express a recurring schedule. A single expression is composed of five space-delimited fields:
-
-    `MINUTES HOURS DAYS MONTHS DAYS-OF-WEEK`
-
-    - A single wildcard (`*`), which covers all values for the field. A `*`, in days, means all days of a month (which varies with month and year).
-    - The `expression: "15 16 * * 1"` in the sample above means the 16:15PM on every Monday.
-    - The next table lists the valid values for each field:
- 
-        | Field          |   Range  | Comment                                                   |
-        |----------------|----------|-----------------------------------------------------------|
-        | `MINUTES`      |    0-59  | -                                                         |
-        | `HOURS`        |    0-23  | -                                                         |
-        | `DAYS`         |    -  |    Not supported. The value is ignored and treated as `*`.    |
-        | `MONTHS`       |    -  | Not supported. The value is ignored and treated as `*`.        |
-        | `DAYS-OF-WEEK` |    0-6   | Zero (0) means Sunday. Names of days also accepted. |
-
-    - To learn more about crontab expressions, see [Crontab Expression wiki on GitHub](https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression).
-
-    > [!IMPORTANT]
-    > `DAYS` and `MONTH` are not supported. If you pass one of these values, it will be ignored and treated as `*`.
-
-- (Optional) `start_time` specifies the start date and time with the timezone of the schedule. For example, `start_time: "2022-05-10T10:15:00-04:00"` means the schedule starts from 10:15:00AM on 2022-05-10 in the UTC-4 timezone. If `start_time` is omitted, the `start_time` equals the schedule creation time. For a start time in the past, the first job runs at the next calculated run time.
+   > [!NOTE]
+   > **Start** specifies the start date and time with the timezone of the schedule. If start is omitted, the start time equals the schedule creation time. For a start time in the past, the first job runs at the next calculated run time.
 
 1. As shown in the next screenshot, review your choices at the last screen of this process, and select Create. At this screen, and the other screens in this process, select Back to move to earlier screens if you'd like to change your choices of values.
 
@@ -363,6 +333,48 @@ ml_client.data.import_data(data_import=data_import)
 1. The next screenshot shows the last screen of this process. Review your choices, and select Create. At this screen, and the other screens in this process, select Back to move to earlier screens to change your choices of values.
 
    :::image type="content" source="media/how-to-import-data-assets/create-s3-data-import-review-values-and-create.png" lightbox="media/how-to-import-data-assets/create-s3-data-import-review-values-and-create.png" alt-text="Screenshot showing all parameters of the data import.":::
+
+   This screenshot shows the panel for a **Cron** schedule:
+
+   :::image type="content" source="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" lightbox="media/how-to-import-data-assets/create-data-import-cron-expression-schedule.png" alt-text="Screenshot showing the selection of the Add schedule button.":::
+
+   - **Name**: the unique identifier of the schedule within the workspace.
+   - **Description**: the schedule description.
+   - **Trigger**: the recurrence pattern of the schedule, which includes the following properties.
+      - **Time zone**: the trigger time calculation is based on this time zone; (UTC) Coordinated Universal Time by default.
+      - **Recurrence** or **Cron expression**: select cron expression to specify the cron details.
+
+      - **(Required)** `expression` uses a standard crontab expression to express a recurring schedule. A single expression is composed of five space-delimited fields:
+
+         `MINUTES HOURS DAYS MONTHS DAYS-OF-WEEK`
+
+         - A single wildcard (`*`), which covers all values for the field. A `*`, in days, means all days of a month (which varies with month and year).
+         - The `expression: "15 16 * * 1"` in the sample above means the 16:15PM on every Monday.
+         - The next table lists the valid values for each field:
+ 
+            | Field          |   Range  | Comment                                                   |
+            |----------------|----------|-----------------------------------------------------------|
+            | `MINUTES`      |    0-59  | -                                                         |
+            | `HOURS`        |    0-23  | -                                                         |
+            | `DAYS`         |    -  |    Not supported. The value is ignored and treated as `*`.    |
+            | `MONTHS`       |    -  | Not supported. The value is ignored and treated as `*`.        |
+            | `DAYS-OF-WEEK` |    0-6   | Zero (0) means Sunday. Names of days also accepted. |
+
+      - To learn more about crontab expressions, see [Crontab Expression wiki on GitHub](https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression).
+
+      > [!IMPORTANT]
+      > `DAYS` and `MONTH` are not supported. If you pass one of these values, it will be ignored and treated as `*`.
+
+      - **Start**: the schedule first becomes active on this date. By default, the creation date of this schedule.
+      - **End**: the schedule will become inactive after this date. By default, it's NONE, which means that the schedule will always be active until you manually disable it.
+      - **Tags**: the selected schedule tags.
+
+   > [!NOTE]
+   > **Start** specifies the start date and time with the timezone of the schedule. If start is omitted, the start time equals the schedule creation time. For a start time in the past, the first job runs at the next calculated run time.
+
+   The next screenshot shows the last screen of this process. Review your choices, and select Create. At this screen, and the other screens in this process, select Back to move to earlier screens to change your choices of values.
+
+   :::image type="content" source="media/how-to-import-data-assets/create-s3-data-import-review-values-and-create.png" lightbox="media/how-to-import-data-assets/create-s3-data-import-review-values-and-create.png" alt-text="Screenshot showing all parameters of the S3 cron data import.":::
 
 ---
 

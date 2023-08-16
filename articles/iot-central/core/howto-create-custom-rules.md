@@ -206,7 +206,7 @@ To send emails with SendGrid, you need to configure the bindings for your functi
 1. Select **+ Add output**.
 1. Select **SendGrid** as the binding type.
 1. For the **SendGrid API Key App Setting**, select **New**.
-1. Enter the *Name* and *Value* of your SendGrid API key. If you followed the instructions above, the name of your SendGrid API key is **AzureFunctionAccess**.
+1. Enter the *Name* and *Value* of your SendGrid API key. If you followed the previous instructions, the name of your SendGrid API key is **AzureFunctionAccess**.
 1. Add the following information:
 
     | Setting | Value |
@@ -317,7 +317,7 @@ This solution uses a Stream Analytics query to detect when a device stops sendin
 
 ## Configure export in IoT Central
 
-On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application the script created. The name of the app is **In-store analytics - Condition Monitoring (custom rules scenario)**.
+On the [Azure IoT Central My apps](https://apps.azureiotcentral.com/myapps) page, locate the IoT Central application the script created. The name of the app is **In-store analytics - Condition Monitoring (custom rules scenario)**.
 
 To enable the data export to Event Hubs, navigate to the **Data Export** page and enable the **All telemetry** export.
 Wait until the export status is **Running** before you continue.

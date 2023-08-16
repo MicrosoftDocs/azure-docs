@@ -11,7 +11,7 @@ ms.custom: references_regions, event-tier1-build-2022
 
 ---
 
-# QuickStart: Get started with NGINXaaS
+# QuickStart: Get started with NGINXaaS – An Azure Native ISV Service
 
 In this quickstart, you'll use the Azure Marketplace to find and create an instance of  **NGINXaaS**.
 
@@ -84,3 +84,10 @@ You can specify custom tags for the new NGINXaaS resource in Azure by adding cus
 ## Next steps
 
 - [Manage the NGINXaaS resource](nginx-manage.md)
+- Get started with NGINXaaS – An Azure Native ISV Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NGINX.NGINXPLUS%2FnginxDeployments)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-nginx-for-azure?tab=Overview)

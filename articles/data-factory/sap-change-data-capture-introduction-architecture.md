@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 07/20/2023
 ms.author: ulrichchrist
 ---
 
@@ -40,7 +40,7 @@ This article provides a high-level architecture of the SAP CDC capabilities in A
 
 ## How to use the SAP CDC capabilities
 
-At the core of the SAP CDC capabilities is the new SAP CDC connector. It can connect to all SAP systems that support ODP. This includes SAP ECC, SAP S/4HANA, SAP BW, and SAP BW/4HANA. The solution works either directly at the application layer or indirectly via an SAP Landscape Transformation Replication Server (SLT) as a proxy. It doesn't rely on watermarking to extract SAP data either fully or incrementally. The data the SAP CDC connector extracts includes not only physical tables but also logical objects that are created by using the tables. An example of a table-based object is an SAP Advanced Business Application Programming (ABAP) Core Data Services (CDS) view.
+The SAP CDC connector is the core of the SAP CDC capabilities. It can connect to all SAP systems that support ODP, which includes SAP ECC, SAP S/4HANA, SAP BW, and SAP BW/4HANA. The solution works either directly at the application layer or indirectly via an SAP Landscape Transformation Replication Server (SLT) as a proxy. It doesn't rely on watermarking to extract SAP data either fully or incrementally. The data the SAP CDC connector extracts includes not only physical tables but also logical objects that are created by using the tables. An example of a table-based object is an SAP Advanced Business Application Programming (ABAP) Core Data Services (CDS) view.
 
 Use the SAP CDC connector with Data Factory features like mapping data flow activities, and tumbling window triggers for a low-latency SAP CDC replication solution in a self-managed pipeline.
 
@@ -48,11 +48,11 @@ Use the SAP CDC connector with Data Factory features like mapping data flow acti
 
 The SAP CDC solution in Azure Data Factory is a connector between SAP and Azure. The SAP side includes the SAP ODP connector that invokes the ODP API over standard Remote Function Call (RFC) modules to extract full and delta raw SAP data.
 
-The Azure side includes the Data Factory mapping data flow that can transform and load the SAP data into any data sink supported by mapping data flows. This includes storage destinations like Azure Data Lake Storage Gen2 or databases like Azure SQL Database or Azure Synapse Analytics. The Data Factory data flow activity also can load the results in Data Lake Storage Gen2 in delta format. You can use the Delta Lake Time Travel feature to produce snapshots of SAP data for a specific period. You can run your pipeline and mapping data flows frequently by using a Data Factory tumbling window trigger to replicate SAP data in Azure with low latency and without using watermarking.
+The Azure side includes the mapping data flow that can transform and load the SAP data into any data sink supported by mapping data flows. Some of these options are storage destinations like Azure Data Lake Storage Gen2 or databases like Azure SQL Database or Azure Synapse Analytics. The mapping data flow activity also can load the results in Data Lake Storage Gen2 in delta format. You can use the Delta Lake Time Travel feature to produce snapshots of SAP data for a specific period. You can run your pipeline and mapping data flows frequently by using a Data Factory tumbling window trigger to replicate SAP data in Azure with low latency and without using watermarking.
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-architecture-diagram.png" border="false" alt-text="Diagram of the architecture of the SAP CDC solution.":::
 
-To get started, create a Data Factory SAP CDC linked service, an SAP CDC source dataset, and a pipeline with a mapping data flow activity in which you use the SAP CDC source dataset. To extract the data from SAP, a self-hosted integration runtime is required that you install on an on-premises computer or on a virtual machine (VM). An on-premises computer has a line of sight to your SAP source systems and to your SLT server. The Data Factory data flow activity runs on a serverless Azure Databricks or Apache Spark cluster, or on an Azure integration runtime. A staging storage is required to be configured in data flow activity to make your self-hosted integration runtime work seamlessly with Data Flow integration runtime.
+To get started, create an SAP CDC linked service, an SAP CDC source dataset, and a pipeline with a mapping data flow activity in which you use the SAP CDC source dataset. To extract the data from SAP, a self-hosted integration runtime is required that you install on an on-premises computer or on a virtual machine (VM) that has a line of sight to your SAP source systems or your SLT server. The mapping data flow activity runs on a serverless Azure Databricks or Apache Spark cluster, or on an Azure integration runtime. A staging storage is required to be configured in mapping data flow activity to make your self-hosted integration runtime work seamlessly with mapping data flow integration runtime.
 
 The SAP CDC connector uses the SAP ODP framework to extract various data source types, including:
 
@@ -61,7 +61,7 @@ The SAP CDC connector uses the SAP ODP framework to extract various data source 
 - InfoProviders and InfoObjects datasets in SAP BW and SAP BW/4HANA
 - SAP application tables, when you use an SAP LT replication server (SLT) as a proxy
 
-In this process, the SAP data sources are *providers*. The providers run on SAP systems to produce either full or incremental data in an operational delta queue (ODQ). The Data Factory mapping data flow source is a *subscriber* of the ODQ.
+In this process, the SAP data sources are *providers*. The providers run on SAP systems to produce either full or incremental data in an operational delta queue (ODQ). The mapping data flow source is a *subscriber* of the ODQ.
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-shir-architecture-diagram.png" border="false" alt-text="Diagram of the architecture of the SAP ODP framework through a self-hosted integration runtime.":::
 

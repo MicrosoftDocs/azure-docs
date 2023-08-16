@@ -32,7 +32,13 @@ This article describes how to configure the verified ID requirement settings for
 
 Before you begin, you must set up your tenant to use the [Microsoft Entra Verified ID service](../verifiable-credentials/decentralized-identifier-overview.md). You can find detailed instructions on how to do that here: [Configure your tenant for Microsoft Entra Verified ID](../verifiable-credentials/verifiable-credentials-configure-tenant.md). 
 
+
+## License requirements
+
+[!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
+
 ## Create an access package with verified ID requirements
+
 
 To add a verified ID requirement to an access package, you must start from the access package’s requests tab. Follow these steps to add a verified ID requirement to a new access package.
 
@@ -67,7 +73,7 @@ Once an access package is configured with a verified ID requirement, end-users w
 
 The requestor steps are as follows:
 
-1. Go to [myaccess.microsoft.com](HTTPS://myaccess.microsoft.com) and sign in.
+1. Go to [myaccess.microsoft.com](../develop/configure-app-multi-instancing.md) and sign in.
 
 1. Search for the access package you want to request access to (you can browse the listed packages or use the search bar at the top of the page) and select **Request**.
 

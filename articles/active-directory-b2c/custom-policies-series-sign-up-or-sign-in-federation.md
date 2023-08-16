@@ -674,7 +674,7 @@ Use the following steps to add a combined local and social account:
         </UserJourneys>-->
     ```
     
-    In the fist step, we specify the options a user needs to choose from in their journey, local or social authentication. In the steps that follow, we use preconditions to track the option the user picked or the stage of the journey at which the user is. For example, we use the `authenticationSource` claim to differentiate between a local authentication journey and a social authentication journey.  
+    In the first step, we specify the options a user needs to choose from in their journey, local or social authentication. In the steps that follow, we use preconditions to track the option the user picked or the stage of the journey at which the user is. For example, we use the `authenticationSource` claim to differentiate between a local authentication journey and a social authentication journey.  
     
 1. In the `RelyingParty` section, change *DefaultUserJourney's* `ReferenceId` to `LocalAndSocialSignInAndSignUp`  
 

@@ -40,7 +40,7 @@ Here, we walk through the process of creating diagnostic settings for your accou
 
 ### [Azure portal](#tab/azure-portal)
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your Azure Cosmos DB account. Open the **Diagnostic settings** pane under the **Monitoring section**, and then select **Add diagnostic setting** option.
 

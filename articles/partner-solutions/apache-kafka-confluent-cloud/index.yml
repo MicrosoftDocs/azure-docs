@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Apache Kafka for Confluent Cloud integration with Azure
+title: Apache Kafka on Confluent Cloud - Azure Native ISV Service
 summary: Enables using Apache Kafka as a service.
 
 metadata:
@@ -18,11 +18,11 @@ metadata:
 
 landingContent:
   # Card (optional)
-  - title: About Confluent Cloud on Azure
+  - title: About Apache Kafka on Confluent Cloud - Azure Native ISV Service
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Apache Kafka for Confluent Cloud?
+          - text: What is Apache Kafka on Confluent Cloud - Azure Native ISV Service?
             url: overview.md
       - linkListType: how-to-guide
         links:
@@ -34,15 +34,15 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Get started with Apache Kafka for Confluent Cloud - Azure portal
+          - text: Get started with Apache Kafka on Confluent Cloud - Azure portal
             url: create.md
-          - text: Get started with Apache Kafka for Confluent Cloud - Azure CLI
+          - text: Get started with Apache Kafka on Confluent Cloud - Azure CLI
             url: create-cli.md
       - linkListType: how-to-guide
         links:
           - text: Add connectors for Confluent Cloud
             url: add-connectors.md
-          - text: Troubleshooting Apache Kafka for Confluent Cloud solutions
+          - text: Troubleshooting Apache Kafka on Confluent Cloud solutions
             url: troubleshoot.md
 
   # Card

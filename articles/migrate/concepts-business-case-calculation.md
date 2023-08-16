@@ -5,6 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
+ms.service: azure-migrate
 ms.date: 06/06/2023
 ---
 

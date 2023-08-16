@@ -15,4 +15,4 @@ ms.reviewer: daveba
 
 # Azure AD Connect cloud provisioning agent: Version release history
 
-[!INCLUDE [active-directory-cloud-sync-version-history.md](../../../../includes/active-directory-cloud-sync-version-history.md)]
+[!INCLUDE [cloud-sync-version-history.md](../../../../includes/cloud-sync-version-history.md)]

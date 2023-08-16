@@ -34,7 +34,7 @@ Query and searching experiments and runs is also available using the MLflow REST
 
 ### Prerequisites
 
-[!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
+[!INCLUDE [mlflow-prereqs](includes/machine-learning-mlflow-prereqs.md)]
 
 ## Query and search experiments
 
@@ -135,19 +135,29 @@ All metrics and parameters are also returned when querying runs. However, for me
 
 By default, experiments are ordered descending by `start_time`, which is the time the experiment was queue in Azure Machine Learning. However, you can change this default by using the parameter `order_by`.
 
-* Order runs by the attribute `start_time`:
+* Order runs by attributes, like `start_time`:
 
     ```python
     mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ],
                        order_by=["attributes.start_time DESC"])
     ```
   
-* Order and retrieve the last run:
+* Order runs and limit results. The following example returns the last single run in the experiment:
 
     ```python
     mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ], 
                        max_results=1, order_by=["attributes.start_time DESC"])
     ```
+
+* Order runs by the attribute `duration`:
+
+    ```python
+    mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ], 
+                       order_by=["attributes.duration DESC"])
+    ```
+
+    > [!TIP]
+    > `attributes.duration` is not present in MLflow OSS, but provided in Azure Machine Learning for convenience.
 
 * Order runs by metric's values:
 
@@ -156,7 +166,7 @@ By default, experiments are ordered descending by `start_time`, which is the tim
     ```
 
     > [!WARNING]
-    > Using `order_by` with expressions containing `metrics.*` in the parameter `order_by` is not supported by the moment. Please use `order_values` method from Pandas as shown in the next example.
+    > Using `order_by` with expressions containing `metrics.*`, `params.*`, or `tags.*` in the parameter `order_by` is not supported by the moment. Please use `order_values` method from Pandas as shown in the example.
 
   
 ### Filtering runs
@@ -213,7 +223,18 @@ You can also look for a run with a specific combination in the hyperparameters u
 
     > [!TIP]
     > Notice that for the key `attributes`, values should always be strings and hence encoded between quotes.
-  
+
+* Search runs taking longer than one hour:
+
+    ```python
+    duration = 360 * 1000 # duration is in milliseconds
+    mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ], 
+                       filter_string=f"attributes.duration > '{duration}'")
+    ```
+
+    > [!TIP]
+    > `attributes.duration` is not present in MLflow OSS, but provided in Azure Machine Learning for convenience.
+    
 * Search runs having the ID in a given set:
 
     ```python
@@ -227,13 +248,13 @@ When filtering runs by status, notice that MLflow uses a different convention to
 
 | Azure Machine Learning Job status | MLFlow's `attributes.status` | Meaning |
 | :-: | :-: | :- |
-| Not started | `SCHEDULED` | The job/run was just registered in Azure Machine Learning but it has processed it yet. |
-| Queue | `SCHEDULED` | The job/run is scheduled for running, but it hasn't started yet. |
-| Preparing | `SCHEDULED` | The job/run has not started yet, but a compute has been allocated for the execution and it is on building state. |
-| Running | `RUNNING` | The job/run is currently under active execution. |
-| Completed | `FINISHED` | The job/run has completed without errors. |
-| Failed | `FAILED` | The job/run has completed with errors. |
-| Canceled | `KILLED` | The job/run has been canceled or killed by the user/system. |
+| Not started | `Scheduled` | The job/run was received by Azure Machine Learning. |
+| Queue | `Scheduled` | The job/run is scheduled for running, but it hasn't started yet. |
+| Preparing | `Scheduled` | The job/run has not started yet, but a compute has been allocated for its execution and it's preparing the environment and its inputs. |
+| Running | `Running` | The job/run is currently under active execution. |
+| Completed | `Finished` | The job/run has been completed without errors. |
+| Failed | `Failed` | The job/run has been completed with errors. |
+| Canceled | `Killed` | The job/run has been canceled by the user or terminated by the system. |
 
 Example:
 
@@ -284,7 +305,7 @@ client.get_metric_history("1234-5678-90AB-CDEFG", "log_loss")
 
 ### Getting artifacts from a run
 
-Any artifact logged by a run can be queried by MLflow. Artifacts can't be access using the run object itself and the MLflow client should be used instead:
+Any artifact logged by a run can be queried by MLflow. Artifacts can't be accessed using the run object itself and the MLflow client should be used instead:
 
 ```python
 client = mlflow.tracking.MlflowClient()

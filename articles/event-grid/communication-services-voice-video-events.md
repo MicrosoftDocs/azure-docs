@@ -30,9 +30,6 @@ When an event is triggered, the Event Grid service sends data about that event t
 
 This section contains an example of what that data would look like for each event.
 
-> [!IMPORTANT]
-> Call Recording feature is still in a Public Preview
-
 ### Microsoft.Communication.RecordingFileStatusUpdated
 
 ```json

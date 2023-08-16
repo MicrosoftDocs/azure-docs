@@ -45,7 +45,7 @@ To access the sign-ins log for a tenant, you must have one of the following role
 >To see Conditional Access data in the sign-ins log, you need to be a user in one of the following roles:
 Company Administrator, Global Reader, Security Administrator, Security Reader, Conditional Access Administrator .
 
-The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data). If you have an Azure Active Directory P1 or P2 license, you can access the sign-in activity report through the Microsoft Graph API. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. It will take a couple of days for the data to show up in Graph after you upgrade to a premium license with no data activities before the upgrade.
+The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data). If you have an Azure Active Directory P1 or P2 license, you can access the sign-in activity report through the Microsoft Graph API. See [Getting started with Azure Active Directory Premium](../fundamentals/get-started-premium.md) to upgrade your Azure Active Directory edition. It will take a couple of days for the data to show up in Graph after you upgrade to a premium license with no data activities before the upgrade.
 
 **To access the Azure AD sign-ins log preview:**
 
@@ -197,10 +197,10 @@ There are several filter options to choose from:
 - **User:** The *user principal name* (UPN) of the user in question.
 - **Status:** Options are *Success*, *Failure*, and *Interrupted*.
 - **Resource:** The name of the service used for the sign-in.
-- **Conditional access:** The status of the Conditional Access (CA) policy. Options are: 
+- **Conditional Access:** The status of the Conditional Access policy. Options are: 
     - *Not applied:* No policy applied to the user and application during sign-in.
-    - *Success:* One or more CA policies applied to the user and application (but not necessarily the other conditions) during sign-in.
-    - *Failure:* The sign-in satisfied the user and application condition of at least one CA policy and grant controls are either not satisfied or set to block access.
+    - *Success:* One or more Conditional Access policies applied to the user and application (but not necessarily the other conditions) during sign-in.
+    - *Failure:* The sign-in satisfied the user and application condition of at least one Conditional Access policy and grant controls are either not satisfied or set to block access.
 - **IP addresses:** There's no definitive connection between an IP address and where the computer with that address is physically located. Mobile providers and VPNs issue IP addresses from central pools that are often far from where the client device is used. Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse lookups and other information.
 The following table provides the options and descriptions for the **Client app** filter option.
 

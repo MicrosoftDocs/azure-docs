@@ -5,12 +5,12 @@ metadata:
   title: Update management center (preview) documentation
   description: Learn how to use update management center (preview) in Azure to manage updates on machines across Azure and hybrid environments.
   services: Update-management-center
-  author: SGSneha
-  manager: evansma
+  author: SnehaSudhir
+  manager: jsuri
   ms.service: Update-management-center
   ms.topic: landing-page
-  ms.date: 04/01/2022
-  ms.author: v-ssudhir
+  ms.date: 07/04/2023
+  ms.author: sudhirsneha
 
 landingContent:
 
@@ -39,3 +39,18 @@ landingContent:
         links:
           - text: Check and install on-demand updates
             url: quickstart-on-demand.md
+
+  - title: Dynamic scoping (preview)
+    linkLists:     
+      - linkListType: concept
+        links:
+          - text: About Dynamic scoping (preview)
+            url: dynamic-scope-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Schedule updates on Dynamic scopes (preview)
+            url: tutorial-dynamic-grouping-for-scheduled-patching.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage dynamic scope (preview) operations
+            url: manage-dynamic-scoping.md      

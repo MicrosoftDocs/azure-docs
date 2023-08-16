@@ -1,17 +1,16 @@
 ---
 title: Create monitoring resources by using Bicep
 description: Describes how to create monitoring resources by using Bicep.
-author: willvelida
-ms.author: willvelida
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 07/01/2022
+ms.date: 07/28/2023
 ---
+
 # Create monitoring resources by using Bicep
 
 Azure has a comprehensive suite of tools that can monitor your applications and services. You can programmatically create your monitoring resources using Bicep to automate the creation of rules, diagnostic settings, and alerts when provisioning your Azure infrastructure.
 
-Bringing your monitoring configuration into your Bicep code might seem unusual, considering that there are tools available inside the Azure portal to set up alert rules, diagnostic settings and dashboards. 
+Bringing your monitoring configuration into your Bicep code might seem unusual, considering that there are tools available inside the Azure portal to set up alert rules, diagnostic settings and dashboards.
 
 However, alerts and diagnostic settings are essentially the same as your other infrastructure resources. By including them in your Bicep code, you can deploy and test your alerting resources as you would for other Azure resources.
 
@@ -27,7 +26,7 @@ Diagnostic settings enable you to configure Azure Monitor to export your logs an
 
 When creating [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md) in Bicep, remember that this resource is an [extension resource](scope-extension-resources.md), which means it's applied to another resource. You can create diagnostic settings in Bicep by using the resource type [Microsoft.Insights/diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings?tabs=bicep).
 
-When creating diagnostic settings in Bicep, you need to apply the scope of the diagnostic setting. The diagnostic setting can be applied at the management, subscription, or resource group level. [Use the scope property on this resource to set the scope for this resource](../../azure-resource-manager/bicep/scope-extension-resources.md). 
+When creating diagnostic settings in Bicep, you need to apply the scope of the diagnostic setting. The diagnostic setting can be applied at the management, subscription, or resource group level. [Use the scope property on this resource to set the scope for this resource](../../azure-resource-manager/bicep/scope-extension-resources.md).
 
 Consider the following example:
 
@@ -87,7 +86,7 @@ Metric alerts notify you when one of your metrics crosses a defined threshold. Y
 
 The [Azure activity log](../../azure-monitor/essentials/activity-log.md) is a platform log in Azure that provides insights into events at the subscription level. This includes information such as when a resource in Azure is modified.
 
-Activity log alerts are alerts that are activated when a new activity log event occurs that matches the conditions that are specified in the alert. 
+Activity log alerts are alerts that are activated when a new activity log event occurs that matches the conditions that are specified in the alert.
 
 You can use the `scope` property within the type [Microsoft.Insights/activityLogAlerts](/azure/templates/microsoft.insights/activitylogalerts?tabs=bicep) to create activity log alerts on a specific resource or a list of resources using the resource IDs as a prefix.
 
@@ -120,11 +119,11 @@ For more information about creating dashboards with code, see [Programmatically 
 
 ## Autoscale rules
 
-To create an autoscaling setting, you define these using the resource type [Microsoft.Insights/autoscaleSettings](/azure/templates/microsoft.insights/autoscalesettings?tabs=bicep). 
+To create an autoscaling setting, you define these using the resource type [Microsoft.Insights/autoscaleSettings](/azure/templates/microsoft.insights/autoscalesettings?tabs=bicep).
 
 To target the resource that you want to apply the autoscaling setting to, you need to provide the target resource identifier of the resource that the setting should be added to.
 
-In this example, a *scale out* condition for the App Service plan based on the average CPU percentage over a 10 minute time period. If the App Service plan exceeds 70% average CPU consumption over 10 minutes, the autoscale engine scales out the plan by adding one instance. 
+In this example, a *scale out* condition for the App Service plan based on the average CPU percentage over a 10 minute time period. If the App Service plan exceeds 70% average CPU consumption over 10 minutes, the autoscale engine scales out the plan by adding one instance.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-monitoring/autoscaling-rules.bicep" :::
 

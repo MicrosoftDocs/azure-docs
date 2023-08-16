@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2022
+ms.date: 07/17/2023
 ---
 
 # Use Azure Data Factory to migrate data from an on-premises Hadoop cluster to Azure Storage 

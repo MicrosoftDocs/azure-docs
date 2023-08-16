@@ -5,12 +5,11 @@ description: Learn how to create a user delegation SAS with Azure Active Directo
 services: storage
 author: tamram
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
-ms.subservice: blobs 
 ms.custom: devx-track-azurecli
 ---
 

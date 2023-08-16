@@ -29,6 +29,8 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Configure the group naming policy in the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with a User Administrator account.
 1. Browse to **Azure Active Directory** > **Groups**, then select **Naming policy** to open the Naming policy page.
 

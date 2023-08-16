@@ -6,7 +6,7 @@ ms.author: xiangy
 ms.service: spring-apps
 ms.topic: article
 ms.date: 12/06/2022
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Connect to an app instance for troubleshooting

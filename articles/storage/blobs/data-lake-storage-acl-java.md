@@ -5,11 +5,10 @@ description: Use Azure Storage libraries for Java to manage access control lists
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.date: 02/07/2023
 ms.devlang: java
 ms.topic: how-to
-ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-java, devx-track-extended-java
 ---

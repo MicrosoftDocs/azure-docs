@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/27/2023
+ms.date: 08/11/2023
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: xurobert
@@ -28,7 +28,7 @@ The following video describes the process:
 
 > [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
 
-Publisher verification primarily is for developers who build multitenant apps that use [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md) with the [Microsoft identity platform](v2-overview.md). These types of apps can sign in a user by using OpenID Connect, or they can use OAuth 2.0 to request access to data by using APIs like [Microsoft Graph](https://developer.microsoft.com/graph/).
+Publisher verification primarily is for developers who build multitenant apps that use [OAuth 2.0 and OpenID Connect](./v2-protocols.md) with the [Microsoft identity platform](v2-overview.md). These types of apps can sign in a user by using OpenID Connect, or they can use OAuth 2.0 to request access to data by using APIs like [Microsoft Graph](https://developer.microsoft.com/graph/).
 
 ## Benefits
 
@@ -56,7 +56,7 @@ App developers must meet a few requirements to complete the publisher verificati
 
 - The Azure AD tenant where the app is registered must be associated with the PGA. If the tenant where the app is registered isn't the primary tenant associated with the PGA, complete the steps to [set up the MPN PGA as a multitenant account and associate the Azure AD tenant](/partner-center/multi-tenant-account#add-an-azure-ad-tenant-to-your-account).
 
-- The app must be registered in an Azure AD tenant and have a [publisher domain](howto-configure-publisher-domain.md) set.
+- The app must be registered in an Azure AD tenant and have a [publisher domain](howto-configure-publisher-domain.md) set. The feature is not supported in Azure AD B2C tenant.
 
 - The domain of the email address that's used during MPN account verification must either match the publisher domain that's set for the app or be a DNS-verified [custom domain](../fundamentals/add-custom-domain.md) that's added to the Azure AD tenant. (**NOTE**__: the app's publisher domain can't be *.onmicrosoft.com to be publisher verified) 
 
