@@ -1,13 +1,9 @@
 ---
 title: Manage workspaces in Playwright dashboard
-titleSuffix: Microsoft Playwright Testing
 description: Learn how to create and manage Microsoft Playwright Testing workspaces in the Playwright dashboard.
-services: playwright-testing
-ms.service: playwright-testing
 ms.topic: how-to
-ms.author: nicktrog
-author: ntrogh
 ms.date: 10/12/2022
+ms.custom: playwright-testing-preview
 ---
 
 # Manage Microsoft Playwright Testing Preview workspaces in the Playwright dashboard

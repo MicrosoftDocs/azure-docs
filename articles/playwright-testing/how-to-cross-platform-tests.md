@@ -1,13 +1,9 @@
 ---
 title: Run Playwright tests across operating systems
-titleSuffix: Microsoft Playwright Testing
 description: Learn how to run Playwright tests across multiple operating systems with Microsoft Playwright Testing.
-services: playwright-testing
-ms.service: playwright-testing
 ms.topic: how-to
-ms.author: nicktrog
-author: ntrogh
 ms.date: 10/12/2022
+ms.custom: playwright-testing-preview
 ---
 
 # Run tests across multiple operating systems with Microsoft Playwright Testing Preview

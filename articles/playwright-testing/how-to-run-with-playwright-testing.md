@@ -1,13 +1,9 @@
 ---
 title: Run Playwright tests in the cloud
-titleSuffix: Microsoft Playwright Testing
 description: Learn how to run an existing Playwright test suite at cloud scale with Microsoft Playwright Testing.
-services: playwright-testing
-ms.service: playwright-testing
 ms.topic: how-to
-ms.author: nicktrog
-author: ntrogh
 ms.date: 08/11/2022
+ms.custom: playwright-testing-preview
 ---
 
 # Run existing Playwright tests at cloud scale with Microsoft Playwright Testing Preview

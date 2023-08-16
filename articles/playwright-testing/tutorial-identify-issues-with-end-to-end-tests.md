@@ -1,13 +1,9 @@
 ---
 title: 'Tutorial: Identify app issues with end-to-end tests'
-titleSuffix: Microsoft Playwright Testing
 description: In this tutorial, you learn how to identify issues in your web app with cross-platform, cross-browser end-to-end tests in Microsoft Playwright Testing. Troubleshoot problems by using rich traces, screenshots, and test result artifacts.
-services: playwright-testing
-ms.service: playwright-testing
-ms.author: nicktrog
-author: ntrogh
 ms.date: 09/15/2022
 ms.topic: tutorial
+ms.custom: playwright-testing-preview
 ---
 
 # Tutorial: Identify app issues with end-to-end tests in Microsoft Playwright Testing Preview

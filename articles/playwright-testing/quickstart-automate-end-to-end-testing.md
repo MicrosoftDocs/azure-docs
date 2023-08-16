@@ -1,10 +1,6 @@
 ---
 title: 'Quickstart: Continuous end-to-end testing'
-titleSuffix: Microsoft Playwright Testing
 description: In this quickstart, you learn how to run your Playwright tests at scale in your CI pipeline with Microsoft Playwright Testing. Continuously validate that your web app runs correctly across browsers and operating systems.
-ms.service: load-testing
-ms.author: nicktrog
-author: ntrogh
 ms.topic: quickstart
 ms.date: 08/16/2023
 ms.custom: playwright-testing-preview

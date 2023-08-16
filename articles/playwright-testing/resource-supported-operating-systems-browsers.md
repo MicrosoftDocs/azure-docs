@@ -1,13 +1,9 @@
 ---
 title: Supported browsers & operating systems
-titleSuffix: Microsoft Playwright Testing
 description: Supported operating system and browsers in Microsoft Playwright Testing.
-services: playwright-testing
-ms.service: playwright-testing
 ms.topic: reference
-ms.author: nicktrog
-author: ntrogh
 ms.date: 10/10/2022
+ms.custom: playwright-testing-preview
 ---
 
 # Supported operating systems and browsers in Microsoft Playwright Testing Preview
