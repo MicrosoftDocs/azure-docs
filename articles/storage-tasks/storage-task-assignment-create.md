@@ -35,7 +35,7 @@ Navigate to the storage task in the Azure portal and then under **Storage task m
 In the **Assignments** page, select **+ Create assignment**, and then select **+ Add assignment**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Assignments page.](./media/storage-task-assignment-create/assignment-create.png)
+> ![Screenshot of the Assignments page that appears in the context of the storage task.](./media/storage-task-assignment-create/assignment-create.png)
 
 The **Add assignment** pane appears.
 
@@ -48,7 +48,7 @@ Navigate to the storage account in the Azure portal and then under **Data manage
 In the **Storage tasks** page, select the **Task assignment** tab, select **+ Create assignment**, and then select **+ Add assignment**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Assignments page.](./media/storage-task-assignment-create/assignment-create-2.png)
+> ![Screenshot of the Assignments page that appears in the context of a storage account.](./media/storage-task-assignment-create/assignment-create-2.png)
 
 The **Add assignment** pane appears.
 

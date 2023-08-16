@@ -13,47 +13,62 @@ ms.date: 05/10/2023
 
 You can view a list of task runs. Each item in that list shows metrics which describe the run along with a link to a detailed execution report. That report provides information about each object that was targeted by the task run.
 
-## View task runs
+## View a list of task runs
 
 After a task run completes, metrics that describe that run appear in a list that you can open and review.
 
-## View the task runs of a storage task
+### Storage task view
 
-You can see all of the runs attempted by a storage task by opening a list of runs from the storage task menu. You'll only see runs that targeted accounts to which you have read permission.
+You can see all of the runs attempted by a storage task by opening a list of runs from the storage task menu. You'll see only those runs against accounts to which you have read permission.
 
-1. Steps to open the list from the Azure portal.
+Navigate to the storage task in the Azure portal and then under **Storage task management**, select **Task runs**.
 
-   Metrics appear as tiles that you can select to view a list of the task runs which comprise the metric. These metrics include runs from multiple storage task assignments, but only assignments that target storage accounts to which you have read permission.
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the the storage task list when opened from a storage task.](./media/storage-task-runs/storage-task-runs-storage-task-view.png)
 
-## View task runs of a specific storage account
+Metrics appear as tiles that you can select to view a list of the task runs which comprise the metric. For example, to view list of task runs where at least one operation failed, select the **Objects on which the operation failed** tile. Then, a filtered list of task runs will appear. In that list appears metrics specific to each task run. The following table describes each column field
 
-You can see all of the runs against a specific storage account by opening a list of runs from the storage account menu.
+| Column  | Description |
+|--|--|
+| Execution start time | The date and time when the task run started. |
+| Storage account name | The name of the storage account that was targeted by the task assignment. |
+| Assignment name | The name of the assignment. This name is specified by the creator of the assignment at configuration time. |
+| Status | Specifies whether the task completed or is pending execution. |
+| Completed / attempted count | The number of objects which met the conditions of the storage task and the total number of objects targeted by the storage task. |
+| Report download | A link to an execution report. This report appears only when the status is `Completed`.|
 
-1. Steps to open the list from the Azure portal.
+A drop-down list appears above the table which you can use to filter by time frame.
 
-   Metrics appear as tiles that you can select to view a list of the task runs which comprise the metric. These metrics include runs from multiple storage task assignments.
+### Storage account view
 
-## Review metrics for each task run
+You can see all runs against a specific storage account by opening a list of runs from the storage account menu.
 
-1. Steps to use the report time filter.
+Navigate to the storage account in the Azure portal and then under **Data management**, select **Storage tasks**.
 
-2. Steps to select tiles to filter list.
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the the storage task list when opened from a storage account.](./media/storage-task-runs/storage-task-runs-storage-account-view.png)
 
-   For example, to view list of task runs where at least one operation failed, select the **Objects on which the operation failed** tile. Then, a filtered list of task runs will appear. In that list appears metrics specific to each task run.
+A list of task runs appears. In that list appears metrics specific to each task run. The following table describes each column field.
 
-   Description of each column in the list table.
+| Column  | Description |
+|--|--|
+| Execution start time | The date and time when the task run started. |
+| Assignment name | The name of the assignment. This name is specified by the creator of the assignment at configuration time. |
+| Task name | The name of the storage task. This name is specified by the creator of the assignment at configuration time. |
+| Status | Specifies whether the task completed or is pending execution. When the status is `Completed`, a link to an execution report appears in that column. |
+| Completed / attempted count | The number of objects which met the conditions of the storage task and the total number of objects targeted by the storage task. |
 
-   Each listed task also provides a link to a detailed execution report.
+A drop-down list appears above the table which you can use to filter by time frame.
 
-## Review metrics for each targeted object
+## View execution reports
 
 After a task runs, an execution report is generated and then stored in a container within the targeted storage account. The name of that container is specified when the assignment is created.  A link to that report appears next to each run in the task run list. Use that link to open a report which contains status information about each object that was targeted by the run.
 
-1. Steps to open the execution report - click link, open CSV file etc.
+Select the **View report** link for any listed task run.
 
-The report is formatted as a CSV file. Each row of the report contains the details about the execution of the operation on each object that is targeted by the task. The completion report is stored at the path specified by the report element of the task definition and follows the naming convention of `<taskId>-<completionTimestamp>.csv`.
+The report will begin downloading. The report is packaged as a compressed file so you'll have to extract the contents of that file to a directory on your client.
 
-The following table describes the columns of information that appear in the execution report:
+The report is formatted as a CSV file. Each row of the report contains the details about the execution of the operation on each object that is targeted by the task. The following table describes the columns of information that appear in the execution report:
 
 | Name | Description |
 |--|--|
@@ -66,7 +81,8 @@ The following table describes the columns of information that appear in the exec
 
 The following example shows an execution report:
 
-`Put example here`
+> [!div class="mx-imgBorder"]
+> ![Screenshot of a sample execution report.](./media/storage-task-runs/execution-report-example.png)
 
 ## See also
 
