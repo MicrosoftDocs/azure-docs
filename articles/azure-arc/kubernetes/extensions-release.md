@@ -118,7 +118,7 @@ For more information, see [Tutorial: Deploy applications using GitOps with Flux 
 
 The currently supported versions of the `microsoft.flux` extension are described below. The most recent version of the Flux v2 extension and the two previous versions (N-2) are supported. We generally recommend that you use the most recent version of the extension.
 
-### 1.7.4 (July 2023)
+### 1.7.4 (June 2023)
 
 Flux version: [Release v0.41.2](https://github.com/fluxcd/flux2/releases/tag/v0.41.2)
 
@@ -132,7 +132,10 @@ Flux version: [Release v0.41.2](https://github.com/fluxcd/flux2/releases/tag/v0.
 Changes made for this version:
 
 - Adds support for [`wait`](https://fluxcd.io/flux/components/kustomize/kustomization/#wait) and [`postBuild`](https://fluxcd.io/flux/components/kustomize/kustomization/#post-build-variable-substitution) properties as optional parameters for kustomization. By default, `wait` will be set to `true` for all Flux configurations, and `postBuild` will be null. ([Example](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/examples/CreateFluxConfiguration.json#L55))
-- Adds support for optional properties [`waitForReconciliation`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/fluxconfiguration.json#L1299C14-L1299C35) and [`reconciliationWaitDuration`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/fluxconfiguration.json#L1304). Setting these properties means that success will not be returned until all configuration objects that are part of the Flux configuration have been successfully deployed. ([Example](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/examples/CreateFluxConfiguration.json#L72))
+
+- Adds support for optional properties [`waitForReconciliation`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/fluxconfiguration.json#L1299C14-L1299C35) and [`reconciliationWaitDuration`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/fluxconfiguration.json#L1304).
+
+   By default, `waitForReconciliation` is set to false, so when creating a flux configuration, the `provisioningState` returns `Succeeded` once the configuration reaches the cluster and the ARM template or Azure CLI command successfully exits. However, the actual state of the objects being deployed as part of the configuration is tracked by `compliance State`, which can be viewed in the portal or by using Azure CLI. Setting `waitForReconciliation` to true and specifying a `reconciliationWaitDuration` means that the template or CLI deployment will wait for `complianceState` to reach a terminal state (success or failure) before exiting. ([Example](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/kubernetesconfiguration/resource-manager/Microsoft.KubernetesConfiguration/stable/2023-05-01/examples/CreateFluxConfiguration.json#L72))
 
 ### 1.7.3 (April 2023)
 
