@@ -226,7 +226,7 @@ This indicates a problem in the data model. Here is a [stack overflow article](h
 
 ## Specialized optimizations
 ### Compression 
-Cassandra alows the selection of an appropriate compression algortihm when a table is created (see [Compression](https://cassandra.apache.org/doc/latest/cassandra/operating/compression.html) The default is LZ4 which is excellent
+Cassandra allows the selection of an appropriate compression algortithm when a table is created (see [Compression](https://cassandra.apache.org/doc/latest/cassandra/operating/compression.html)) The default is LZ4 which is excellent
 for throughput and CPU but consumes more space on disk. Using Zstd (Cassandra 4.0 and up) saves about ~12% space with 
 minimal CPU overhead.
 
