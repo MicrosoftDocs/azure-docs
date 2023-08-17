@@ -65,7 +65,7 @@ To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by cr
     "mynexusakscluster-0aeaccf8-control-plane-hrmzr"
     ```
 
-4. Run the following command to SSH into the cluster VM.
+4. Run the following command to SSH into the cluster node.
 
     ```azurecli
     az ssh arc --subscription $SUBSCRIPTION_ID \
