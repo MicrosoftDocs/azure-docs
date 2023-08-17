@@ -17,15 +17,15 @@ In this article, learn how to run Fraud detection use case with the Flink DataSt
 
 ## Develop code in IDE
 
-1. For the sample job, refer [Fraud Detection with the DataStream API](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/try-flink/datastream/)
-1. Build the skeleton of the code using Flink Maven Archetype by using InterlliJ Idea IDE.
-1. Once the IDE is opened, go to **File** -> **New** -> **Project** -> **Maven Archetype**.
-1. Enter the details as shown in the image.
+-  For the sample job, refer [Fraud Detection with the DataStream API](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/try-flink/datastream/)
+-  Build the skeleton of the code using Flink Maven Archetype by using InterlliJ Idea IDE.
+-  Once the IDE is opened, go to **File** -> **New** -> **Project** -> **Maven Archetype**.
+-  Enter the details as shown in the image.
 
    :::image type="content" source="./media/fraud-detection-flink-datastream-api/maven-archetype.png" alt-text="Screenshot showing Maven Archetype." border="true" lightbox="./media/fraud-detection-flink-datastream-api/maven-archetype.png":::
 
-1. After you create the Maven Archetype, it generates 2 java classes FraudDetectionJob and FraudDetector.
-1. Update the `FraudDetector` with the following code.
+- After you create the Maven Archetype, it generates 2 java classes FraudDetectionJob and FraudDetector.
+- Update the `FraudDetector` with the following code.
 
     ```
     package spendreport;
@@ -116,7 +116,7 @@ In this article, learn how to run Fraud detection use case with the Flink DataSt
     
     ```
 
-    This job uses a source that generates an infinite stream of credit card transactions for you to process. Each transaction contains an account ID (accountId), timestamp (timestamp) of when the transaction occurred, and US$ amount (amount). The logic is that if transaction of the small amount (< 1.00) immediately followed by a large amount (> 500) it sets off alarm and updates the output logs. It uses data from TransactionIterator following class, which is hardcoded so that account ID 3 is detected as fraudulent transaction.
+This job uses a source that generates an infinite stream of credit card transactions for you to process. Each transaction contains an account ID (accountId), timestamp (timestamp) of when the transaction occurred, and US$ amount (amount). The logic is that if transaction of the small amount (< 1.00) immediately followed by a large amount (> 500) it sets off alarm and updates the output logs. It uses data from TransactionIterator following class, which is hardcoded so that account ID 3 is detected as fraudulent transaction.
 
 For more information, refer [Sample TransactionIterator.java](https://github.com/apache/flink/blob/master/flink-walkthroughs/flink-walkthrough-common/src/main/java/org/apache/flink/walkthrough/common/source/TransactionIterator.java)
 
@@ -124,19 +124,17 @@ For more information, refer [Sample TransactionIterator.java](https://github.com
 
 After making the code changes, create the jar using the following steps in IntelliJ Idea IDE
 
-1. Go to **File** -> **Project Structure** -> **Project Settings** -> **Artifacts**
-1. Click **+** (plus sign) -> **Jar** -> From modules with dependencies.
-1. Select a **Main Class** (the one with main() method) if you need to make the jar runnable.
-1. Select **Extract to the target Jar**.
-1. Click **OK**.
-1. Click **Apply** and then **OK**.
-1. The following step sets the "skeleton" to where the jar will be saved to. 
+- Go to **File** -> **Project Structure** -> **Project Settings** -> **Artifacts**
+- Click **+** (plus sign) -> **Jar** -> From modules with dependencies.
+- Select a **Main Class** (the one with main() method) if you need to make the jar runnable.
+- Select **Extract to the target Jar**.
+- Click **OK**.
+- Click **Apply** and then **OK**.
+- The following step sets the "skeleton" to where the jar will be saved to.
+  :::image type="content" source="./media/fraud-detection-flink-datastream-api/extract-target-jar.png" alt-text="Screenshot showing how to extract target Jar." border="true" lightbox="./media/fraud-detection-flink-datastream-api/extract-target-jar.png":::
 
-   :::image type="content" source="./media/fraud-detection-flink-datastream-api/extract-target-jar.png" alt-text="Screenshot showing how to extract target Jar." border="true" lightbox="./media/fraud-detection-flink-datastream-api/extract-target-jar.png":::
-
-1. To  build and save
-
-   1. Go to  **Build -> Build Artifact -> Build**
+- To  build and save
+   - Go to  **Build -> Build Artifact -> Build**
 
       :::image type="content" source="./media/fraud-detection-flink-datastream-api/build-artifact.png" alt-text="Screenshot showing how to build artifact.":::
    
@@ -144,17 +142,17 @@ After making the code changes, create the jar using the following steps in Intel
 
 ## Run the job in Flink environment
 
-1. Once the jar is generated, it can be used to submit the job from Flink UI using submit job section.
+- Once the jar is generated, it can be used to submit the job from Flink UI using submit job section.
 
-   :::image type="content" source="./media/fraud-detection-flink-datastream-api/submit-job-from-flink-ui.png" alt-text="Screenshot showing how to submit job from Flink UI." border="true" lightbox="./media/fraud-detection-flink-datastream-api/submit-job-from-flink-ui.png":::
+:::image type="content" source="./media/fraud-detection-flink-datastream-api/submit-job-from-flink-ui.png" alt-text="Screenshot showing how to submit job from Flink UI." border="true" lightbox="./media/fraud-detection-flink-datastream-api/submit-job-from-flink-ui.png":::
    
-1. After the job is submitted, it's moved to running state, and the Task manager logs will be generated.
+- After the job is submitted, it's moved to running state, and the Task manager logs will be generated.
 
-   :::image type="content" source="./media/fraud-detection-flink-datastream-api/task-manager.png" alt-text="Screenshot showing task manager." border="true" lightbox="./media/fraud-detection-flink-datastream-api/task-manager.png":::
+:::image type="content" source="./media/fraud-detection-flink-datastream-api/task-manager.png" alt-text="Screenshot showing task manager." border="true" lightbox="./media/fraud-detection-flink-datastream-api/task-manager.png":::
 
-   :::image type="content" source="./media/fraud-detection-flink-datastream-api/task-manager-logs.png" alt-text="Screenshot showing task manager logs." border="true" lightbox="./media/fraud-detection-flink-datastream-api/task-manager-logs.png":::
+:::image type="content" source="./media/fraud-detection-flink-datastream-api/task-manager-logs.png" alt-text="Screenshot showing task manager logs." border="true" lightbox="./media/fraud-detection-flink-datastream-api/task-manager-logs.png":::
 
- 1. From the logs, view the alert is generated for Account ID 3.
+- From the logs, view the alert is generated for Account ID 3.
 
 ## Reference
 * [Fraud Detector v2: State + Time](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/try-flink/datastream/#fraud-detector-v2-state--time--1008465039)
