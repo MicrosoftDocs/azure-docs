@@ -1,5 +1,5 @@
 ---
-title: Configure Document Intelligence containers
+title: Configure Document Intelligence (formerly Form Recognizer) containers
 titleSuffix: Azure AI services
 description: Learn how to configure the Document Intelligence container to parse form and table data.
 author: laujan

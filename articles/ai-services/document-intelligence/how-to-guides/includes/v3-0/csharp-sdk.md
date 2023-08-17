@@ -1,12 +1,12 @@
 ---
-title: "Use Document Intelligence SDK for C# / .NET (REST API v3.0)"
+title: "Use Document Intelligence (formerly Form Recognizer) SDK for C# / .NET (REST API v3.0)"
 description: 'Use the Document Intelligence SDK for C# / .NET (REST API v3.0) to create a forms processing app that extracts key data from documents.'
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 07/18/2023
+ms.date: 08/16/2023
 ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---

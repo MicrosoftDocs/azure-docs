@@ -28,6 +28,8 @@
       href: migration-options.md
     - name: Security
       href: security.md
+    - name: Transactions
+      href: transactions.md
 - name: How to
   items:
     - name: Use developer tools

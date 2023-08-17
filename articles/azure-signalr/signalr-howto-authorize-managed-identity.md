@@ -29,7 +29,6 @@ This example shows you how to configure `System-assigned managed identity` on a 
    ![Screenshot of an application.](./media/signalr-howto-authorize-managed-identity/identity-virtual-machine.png)
 1. Select the **Save** button to confirm the change.
 
-
 To learn how to create user-assigned managed identities, see [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity)
 
 To learn more about configuring managed identities, see one of these articles:
@@ -73,6 +72,7 @@ The following steps describe how to assign a `SignalR App Server` role to a syst
 > Azure role assignments may take up to 30 minutes to propagate.
 
 To learn more about how to assign and manage Azure role assignments, see these articles:
+
 - [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 - [Assign Azure roles using the REST API](../role-based-access-control/role-assignments-rest.md)
 - [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
@@ -101,7 +101,7 @@ services.AddSignalR().AddAzureSignalR(option =>
 
 #### Using user-assigned identity
 
-Provide `ClientId` while creating the  `ManagedIdentityCredential` object.
+Provide `ClientId` while creating the `ManagedIdentityCredential` object.
 
 > [!IMPORTANT]
 > Use **Client Id**, not the Object (principal) ID even if they are both GUID!
@@ -127,11 +127,13 @@ You might need a group of key-value pairs to configure an identity. The keys of 
 If you only configure the service URI, then the `DefaultAzureCredential` is used. This class is useful when you want to share the same configuration on Azure and local development environments. To learn how `DefaultAzureCredential` works, see [DefaultAzureCredential](/dotnet/api/overview/azure/identity-readme#defaultazurecredential).
 
 In the Azure portal, use the following example to configure a `DefaultAzureCredential`. If you don't configure any [environment variables listed here](/dotnet/api/overview/azure/identity-readme#environment-variables), then the system-assigned identity is used to authenticate.
+
 ```
 <CONNECTION_NAME_PREFIX>__serviceUri=https://<SIGNALR_RESOURCE_NAME>.service.signalr.net
 ```
 
 Here's a config sample of `DefaultAzureCredential` in the `local.settings.json` file. At the local scope there's no managed identity, and the authentication via Visual Studio, Azure CLI, and Azure PowerShell accounts are attempted in order.
+
 ```json
 {
   "Values": {
@@ -160,6 +162,7 @@ If you want to use user-assigned identity, you need to assign `clientId`in addit
 ## Next steps
 
 See the following related articles:
+
 - [Overview of Azure AD for SignalR](signalr-concept-authorize-azure-active-directory.md)
 - [Authorize request to SignalR resources with Azure AD from Azure applications](signalr-howto-authorize-application.md)
 - [Disable local authentication](./howto-disable-local-auth.md)

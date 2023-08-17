@@ -121,8 +121,6 @@
           href: howto-cluster-metrics-configuration-management.md
         - name: Tracking asynchronous operations
           href: howto-track-async-operations-cli.md
-    - name: Precertification
-      href: howto-precertification.md
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
 - name: Troubleshooting
