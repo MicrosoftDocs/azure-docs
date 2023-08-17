@@ -1,12 +1,12 @@
 ---
 title: Table API and SQL - Use Delta Catalog type with Hive in HDInsight on AKS - Flink
-description: Learn about how to create Flink-Delta Catalog using Hive catalog in HDInsight on AKS - Flink
+description: Learn about how to create Flink-Delta Catalog in HDInsight on AKS - Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/04/2023
 ---
 
-# Create Flink-Delta Catalog using Hive catalog in HDInsight on AKS - Flink
+# Create Delta catalog for Flink
 
 [Delta Lake](https://docs.delta.io/latest/delta-intro.html) is an open source project that enables building a Lakehouse architecture on top of data lakes. Delta Lake provides ACID transactions, scalable metadata handling, and unifies streaming and batch data processing on top of existing data lakes.
 
@@ -75,7 +75,7 @@ We use arrival data of flights from a sample data, you can choose a table of you
 ```
 
 > [!IMPORTANT]
->  Delta-Flink Connector has an open bug with String DataType. [BUG - String DataType is not being consumed properly for delta-flink while partitioning or otherwise.](https://github.com/delta-io/delta/issues/1931)
+>  Delta-Flink Connector has an open bug with String DataType,  String DataType is not being consumed properly for delta-flink while partitioning or otherwise. [BUG](https://github.com/delta-io/delta/issues/1931)
 
 #### Output of the Delta Table
 
