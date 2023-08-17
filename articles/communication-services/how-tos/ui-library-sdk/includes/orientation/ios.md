@@ -26,8 +26,6 @@ The following is a table of `OrientationOptions` with out of the box orientation
 
 `OrientationOptions` is a custom type for UI Library for iOS. The name for the orientation type is defined by keeping similarity between iOS Platform's orientation mode names. By default, the setup screen orientation is set with `portrait` mode and calling screen is set with `allButUpsideDown` mode. To set a different orientation for the screens other than default one, developers can pass `OrientationOptions`. Out of the box, the UI Library includes a set of `OrientationOptions` usable with the composite.
 
-You can also obtain list of `OrientationOptions` by the static function `OrientationOptions.allOptions()`.
-
 ```swift
 
 let callCompositeOptions = CallCompositeOptions(localization: localizationConfig,
