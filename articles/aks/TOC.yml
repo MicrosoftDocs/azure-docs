@@ -92,7 +92,11 @@
     - name: Backup and recover cluster
       href: ../backup/azure-kubernetes-service-backup-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Observability
-      href: monitor-aks.md
+      items:
+        - name: Monitor AKS
+          href: monitor-aks.md
+        - name: Network Observability
+          href: network-observability-overview.md
     - name: Security
       items:
         - name: Access and identity
@@ -627,6 +631,12 @@
           href: kubelet-logs.md
         - name: View container data real-time
           href: ../azure-monitor/containers/container-insights-livedata-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Network Observability
+          items:
+            - name: BYO Prometheus and Grafana
+              href: network-observability-byo-cli.md
+            - name: Azure managed Prometheus and Grafana
+              href: network-observability-managed-cli.md
     - name: Upgrade
       items:
         - name: Planned Maintenance for AKS weekly releases
