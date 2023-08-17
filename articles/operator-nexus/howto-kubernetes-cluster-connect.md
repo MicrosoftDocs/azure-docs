@@ -71,7 +71,7 @@ az ssh arc --subscription $SUBSCRIPTION_ID \
 
 Another option for securely connecting to Nexus Kubernetes cluster node from Azure is to use a jumpbox. In this approach, an Azure virtual machine is set up as a secure gateway to connect to the cluster nodes.
 
-To access a cluster node from Azure via a jumpbox, it's necessary to create a new virtual machine in your Azure environment to act as the jumpbox. This jumpbox must establish network connections with both the tenant L3 OAM and the user's workstation. Additionally, a NetworkCloud VM with L3 OAM and DefaultCNI network should be created to establish a connection with the HAKS VM. It's important to note that the NetworkCloud and HAKS VMs must be on the same isolation domain for connectivity. The user will also require an SSH key for the K8s VM to authenticate their access.
+To access a cluster node from Azure via a jumpbox, it's necessary to create a new virtual machine in your Azure environment to act as the jumpbox. This jumpbox must establish network connections with both the tenant L3 OAM and the user's workstation. Additionally, a NetworkCloud VM with L3 OAM and DefaultCNI network should be created to establish a connection with the cluster VM. It's important to note that the NetworkCloud and cluster VMs must be on the same isolation domain for connectivity. The user will also require an SSH key for the K8s VM to authenticate their access.
 
 It's important to ensure that the jumpbox is configured securely and that it's regularly updated with the latest security patches. Additionally, access to the jumpbox should be tightly controlled to prevent unauthorized access. The user must also have an SSH private key to authenticate their access to the on-premises VM.
 
