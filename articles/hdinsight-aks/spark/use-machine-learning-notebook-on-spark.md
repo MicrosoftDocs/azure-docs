@@ -22,7 +22,7 @@ The following tutorial notebook shows an example of training machine learning mo
         
 1. Navigate into your primary HDI storage>container>base folder> upload the [CSV](https://github.com/Azure-Samples/hdinsight-aks/blob/main/spark/iris_csv.csv)
 
-    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/navigate-to-storage-and-container.png" alt-text="Screenshot showing how to navigate to storage and container.":::
+    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/navigate-to-storage-container.png" alt-text="Screenshot showing how to navigate to storage and container.":::
 
     :::image type="content" source="./media/use-machine-learning-notebook-on-spark/upload-csv.png" alt-text="Screenshot showing how to upload CSV file.":::
     
