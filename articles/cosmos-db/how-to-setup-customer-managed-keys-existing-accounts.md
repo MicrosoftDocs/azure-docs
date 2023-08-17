@@ -34,19 +34,19 @@ All the prerequisite steps needed while configuring Customer Managed Keys for ne
 
 To enable CMK on an existing account, update the account with an ARM template setting a Key Vault key identifier in the keyVaultKeyUri property – just like you would when enabling CMK on a new account. This step can be done by issuing a PATCH call with the following payload:
 
-    ```json
+```
     {
     "properties": {
         "keyVaultKeyUri": "<key-vault-key-uri>"
     }
     }
-    ```
+```
 
 The output of this CLI command for enabling CMK waits for the completion of encryption of data.
 
-    ```azurecli
+```azurecli
     az cosmosdb update --name "testaccount" --resource-group "testrg" --key-uri "https://keyvaultname.vault.azure.net/keys/key1"
-    ```
+```
 
 ### Steps to enable CMK on your existing Azure Cosmos DB account with PITR or Analytical store account
 
@@ -90,7 +90,7 @@ For enabling CMK on existing account that has continuous backup and point in tim
 
 ## Monitoring the progress of the resulting encryption
 
-Enabling CMK on an existing account is an asynchronous operation that kicks off a background task that encrypts all existing data. As such, the REST API request to enable CMK provides in its response an "Azure-AsyncOperation" URL. Polling this URL with GET requests return the status of the overall operation, which eventually Succeed. This mechanism is fully described in [this](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/async-operations) article.
+Enabling CMK on an existing account is an asynchronous operation that kicks off a background task that encrypts all existing data. As such, the REST API request to enable CMK provides in its response an "Azure-AsyncOperation" URL. Polling this URL with GET requests return the status of the overall operation, which eventually Succeed. This mechanism is fully described in [this](https://learn.microsoft.com/azure/azure-resource-manager/management/async-operations) article.
 
 The Cosmos DB account can continue to be used and data can continue to be written without waiting for the asynchronous operation to succeed. CLI command for enabling CMK waits for the completion of encryption of data.
 
