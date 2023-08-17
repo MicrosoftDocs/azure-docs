@@ -95,7 +95,7 @@ net:
 
 ## Get started
 
-### Creating a maven project on IdeaJ, to prepare the pom.xml for MongoDB Collection
+### Create a maven project on IdeaJ, to prepare the pom.xml for MongoDB Collection
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -298,7 +298,7 @@ public class Event {
 ```
 ### Use MongoDB as a source and sink to ADLS Gen2
 
-Writing a program for MongoDB as a source and sink to ADLS Gen2
+Write a program for MongoDB as a source and sink to ADLS Gen2
 
 **MongoDBSourceDemo.java**
 ``` java
@@ -373,11 +373,11 @@ public class MongoDBSourceDemo {
 
 Package the maven jar, upload it to Storage and then wget it to [Flink CLI](../flink/flink-webssh-on-portal-to-flink-sql.md) or directly upload to Flink UI to run.
 
-:::image type="content" source="./media/datastream-api-mongodb/step-3-1-maven-jar-upload-abfs.png" alt-text="Screenshot showing how to upload package to storage." border="true" lightbox="./media/datastream-api-mongodb/step-3-1-maven-jar-upload-abfs.png":::
+:::image type="content" source="./media/datastream-api-mongodb/step-3-1-maven-jar-upload-abfs.png" alt-text="Screenshot displays how to upload package to storage." border="true" lightbox="./media/datastream-api-mongodb/step-3-1-maven-jar-upload-abfs.png":::
 
 **Check Flink UI**
 
-:::image type="content" source="./media/datastream-api-mongodb/step-3-2-flink-webui-jar-upload.png" alt-text="Screenshot showing jar submission success and monitoring the Flink Web UI." border="true" lightbox="./media/datastream-api-mongodb/step-3-2-flink-webui-jar-upload.png":::
+:::image type="content" source="./media/datastream-api-mongodb/step-3-2-flink-webui-jar-upload.png" alt-text="Screenshot displays jar submission success and monitoring the Flink Web UI." border="true" lightbox="./media/datastream-api-mongodb/step-3-2-flink-webui-jar-upload.png":::
 
 ### Validate results
 
@@ -405,4 +405,4 @@ test> db.click_events.find()
 ```
 **Use Mongo DB's admin.click_events collection as a source, and sink to ADLS Gen2**
 
-:::image type="content" source="./media/datastream-api-mongodb/step-5-mongodb-collection-adls-gen2.png" alt-text="Screenshot showing How to create a node and connect to web SSH." border="true" lightbox="./media/datastream-api-mongodb/step-5-mongodb-collection-adls-gen2.png":::
+:::image type="content" source="./media/datastream-api-mongodb/step-5-mongodb-collection-adls-gen2.png" alt-text="Screenshot displays How to create a node and connect to web SSH." border="true" lightbox="./media/datastream-api-mongodb/step-5-mongodb-collection-adls-gen2.png":::
