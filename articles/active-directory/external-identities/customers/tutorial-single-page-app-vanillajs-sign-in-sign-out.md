@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.subservice: ciam
 ms.custom: devx-track-js
 ms.topic: tutorial
-ms.date: 05/25/2023
+ms.date: 08/02/2023
 #Customer intent: As a developer, I want to learn how to configure Vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
 ---
 
-# Tutorial: Add sign-in and sign-out to a vanilla JavaScript single-page app for a customer tenant
+# Tutorial: Add sign-in and sign-out to a Vanilla JavaScript single-page app for a customer tenant
 
-In the [previous article](how-to-single-page-app-vanillajs-configure-authentication.md), you edited the popup and redirection files that handle the sign-in page response. This tutorial demonstrates how to build a responsive user interface (UI) that contains a **Sign-In** and **Sign-Out** button and run the project to test the sign-in and sign-out functionality.
+In the [previous article](tutorial-single-page-app-vanillajs-configure-authentication.md), you edited the popup and redirection files that handle the sign-in page response. This tutorial demonstrates how to build a responsive user interface (UI) that contains a **Sign-In** and **Sign-Out** button and run the project to test the sign-in and sign-out functionality.
 
 In this tutorial;
 
@@ -26,7 +26,7 @@ In this tutorial;
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Create components for authentication and authorization](how-to-single-page-app-vanillajs-configure-authentication.md).
+* Completion of the prerequisites and steps in [Create components for authentication and authorization](tutorial-single-page-app-vanillajs-configure-authentication.md).
 
 ## Add code to the *index.html* file
 
@@ -118,7 +118,7 @@ The main page of the SPA, *index.html*, is the first page that is loaded when th
         <link rel="SHORTCUT ICON" href="./favicon.svg" type="image/x-icon">
     
         <!-- adding Bootstrap 4 for UI components  -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/boot8strap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
         <div class="jumbotron" style="margin: 10%">
@@ -209,7 +209,7 @@ Now that all the required code snippets have been added, the application can be 
 
 1. The SPA will now display a button saying **Request Profile Information**. Select it to display profile data.
 
-    :::image type="content" source="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png" alt-text="Screenshot of sign in into a vanilla JS SPA." lightbox="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png":::
+    :::image type="content" source="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png" alt-text="Screenshot of sign in into a Vanilla JS SPA." lightbox="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png":::
 
 ## Sign out of the application
 
