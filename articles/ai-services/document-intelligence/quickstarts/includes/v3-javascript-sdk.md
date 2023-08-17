@@ -1,18 +1,18 @@
 ---
-title: "Quickstart: Document Intelligence (formerly Form Recognizer) JavaScript SDK (beta) | v3.0"
+title: "Quickstart: Document Intelligence (formerly Form Recognizer) JavaScript SDK (beta) | v3.1 | v3.0"
 titleSuffix: Azure AI services
-description: Form and document processing, data extraction, and analysis using Document Intelligence JavaScript client library SDKs v3.0 
+description: Form and document processing, data extraction, and analysis using Document Intelligence JavaScript client library SDKs v3.1 or v3.0 
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 07/18/2023
+ms.date: 08/17/2023
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD025 -->
 
-[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/witemple-msft/azure-sdk-for-js/tree/7e3196f7e529212a6bc329f5f06b0831bf4cc174/sdk/formrecognizer/ai-form-recognizer/samples/v4) |[Supported REST API versions](../../sdk-overview.md)
+[Client library](javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/5.0.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [Samples](https://github.com/witemple-msft/azure-sdk-for-js/tree/ai-form-recognizer/5.0.0-release/sdk/formrecognizer/ai-form-recognizer/samples/v5) |[Supported REST API versions](../../sdk-overview.md)
 
 In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
 
@@ -44,10 +44,10 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 ## Set up
 
-1. Create a new Node.js Express application: In a console window (such as cmd, PowerShell, or Bash), create and navigate to a new directory for your app named `form-recognizer-app`.
+1. Create a new Node.js Express application: In a console window (such as cmd, PowerShell, or Bash), create and navigate to a new directory for your app named `doc-intel-app`.
 
     ```console
-    mkdir form-recognizer-app && cd form-recognizer-app
+    mkdir doc-intel-app && cd doc-intel-app
     ```
 
 1. Run the `npm init` command to initialize the application and scaffold your project.
@@ -61,7 +61,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
     * The most important attributes are name, version number, and entry point.
     * We recommend keeping `index.js` for the entry point name. The description, test command, GitHub repository, keywords, author, and license information are optional attributes—they can be skipped for this project.
     * Accept the suggestions in parentheses by selecting **Return** or **Enter**.
-    * After you've completed the prompts, a `package.json` file will be created in your form-recognizer-app directory.
+    * After you've completed the prompts, a `package.json` file will be created in your doc-intel-app directory.
 
 1. Install the `ai-form-recognizer` client library and `azure/identity` npm packages:
 
@@ -152,7 +152,7 @@ main().catch((error) => {
 
 Once you've added a code sample to your application, run your program:
 
-1. Navigate to the folder where you have your Document Intelligence application (form-recognizer-app).
+1. Navigate to the folder where you have your Document Intelligence application (doc-intel-app).
 
 1. Type the following command in your terminal:
 
@@ -254,7 +254,7 @@ main().catch((error) => {
 
 Once you've added a code sample to your application, run your program:
 
-1. Navigate to the folder where you have your Document Intelligence application (form-recognizer-app).
+1. Navigate to the folder where you have your Document Intelligence application (doc-intel-app).
 
 1. Type the following command in your terminal:
 
@@ -347,7 +347,7 @@ main().catch((error) => {
 
 Once you've added a code sample to your application, run your program:
 
-1. Navigate to the folder where you have your Document Intelligence application (form-recognizer-app).
+1. Navigate to the folder where you have your Document Intelligence application (doc-intel-app).
 
 1. Type the following command in your terminal:
 
