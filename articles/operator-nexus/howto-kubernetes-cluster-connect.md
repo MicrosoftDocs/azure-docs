@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure Operator Nexus Kubernetes cluster nodes
-description: Learn how to connect to Azure Operator Nexus Kubernetes cluster nodes for troubleshooting and maintenance tasks
+title: Connect to Azure Operator Nexus Kubernetes cluster
+description: Learn how to connect to Azure Operator Nexus Kubernetes cluster for interacting, troubleshooting, and maintenance tasks
 author: dramasamy
 ms.author: dramasamy
 ms.service: azure-operator-nexus
@@ -9,9 +9,9 @@ ms.date: 08/17/2023
 ms.custom: template-how-to-pattern
 ---
 
-# Connect to Azure Operator Nexus Kubernetes cluster nodes for maintenance or troubleshooting
+# Connect to Azure Operator Nexus Kubernetes cluster for interacting, troubleshooting, and maintenance tasks
 
-This article provides instructions on how to connect to Azure Operator Nexus Kubernetes cluster nodes using SSH. It includes details on how to connect to the cluster from both Azure and on-premises environments, and how to do so when the ExpressRoute is in both connected and disconnected modes.
+This article provides instructions on how to connect to Azure Operator Nexus Kubernetes cluster and its nodes. It includes details on how to connect to the cluster from both Azure and on-premises environments, and how to do so when the ExpressRoute is in both connected and disconnected modes.
 
 In Azure, connected mode and disconnected mode refer to the state of an ExpressRoute circuit. ExpressRoute is a service provided by Azure that enables organizations to establish a private, high-throughput connection between their on-premises infrastructure and Azure datacenters.
 
