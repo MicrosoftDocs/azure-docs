@@ -29,7 +29,7 @@ Now, let us learn how to use Change Data Capture (CDC) of SQL Server using Flink
 
 The SQLServer CDC connector is a Flink Source connector, which reads database snapshot first and then continues to read change events with exactly once processing even failures happen. This example uses FLINK CDC to create a SQLServerCDC table on FLINK SQL
 
-### Using SSH to use Flink SQL-client
+### Use SSH to use Flink SQL-client
 
 We have already covered this section in detail on how to use [secure shell](../flink/flink-webssh-on-portal-to-flink-sql.md) with Flink. 
 
@@ -43,7 +43,7 @@ CREATE DATABASE inventory;
 GO
 ```
 
-**Enabling CDC on the SQL Server database**
+**Enable CDC on the SQL Server database**
 
 ``` SQL
 USE inventory;
@@ -51,7 +51,7 @@ EXEC sys.sp_cdc_enable_db;
 GO
 ```
 
-**Verifying that the user has access to the CDC table**
+**Verify that the user has access to the CDC table**
 ``` SQL
 USE inventory
 GO
@@ -200,17 +200,17 @@ CREATE TABLE orders (
 select * from orders;
 ``` 
 
-:::image type="content" source="./media/flink-sql-api/flinksqlcdctablecreation.png" alt-text="Screenshot showing Flink CDC Table creation.":::
+:::image type="content" source="./media/sink-sql-server-table-using-flink-sql/flink-sql-change-data-capture-table-creation.png" alt-text="Screenshot showing Flink CDC Table creation.":::
 
 ### Perform changes on table from SQLServer side 
 
-:::image type="content" source="./media/flink-sql-api/insertintosqltable.png" alt-text="Screenshot showing making changes on SQL Table.":::
+:::image type="content" source="./media/sink-sql-server-table-using-flink-sql/insert-sql-table.png" alt-text="Screenshot showing making changes on SQL Table.":::
 
 ## Validation
 
 Monitor the table on Flink SQL
 
-:::image type="content" source="./media/flink-sql-api/validatecdc-flinksql.png" alt-text="Screenshot showing how to CDC monitoring on Flink SQL.":::
+:::image type="content" source="./media/sink-sql-server-table-using-flink-sql/validate-change-data-capture-flink-sql.png" alt-text="Screenshot showing how to CDC monitoring on Flink SQL.":::
 
 
 ###  Reference
