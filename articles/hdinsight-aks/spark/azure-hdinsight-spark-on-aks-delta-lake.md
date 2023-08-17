@@ -166,7 +166,7 @@ createDirectory(avgMoMKPIChangePath)
     loadData(listOfDataFile,None)
     println(s"Time taken in Seconds: ${(System.currentTimeMillis()-starTime)/1000}")
     ```
-    :::image type="content" source="./media/azure-hdinsight-spark-on-aks-delta-lake/data-in-delta-format.png" alt-text="Screenshot showing how to data in delta format." border="true" lightbox="./media/azure-hdinsight-spark-on-aks-delta-lake/data-in-delta-format.png":::
+    :::image type="content" source="./media/azure-hdinsight-spark-on-aks-delta-lake/data-delta-format.png" alt-text="Screenshot showing how to data in delta format." border="true" lightbox="./media/azure-hdinsight-spark-on-aks-delta-lake/data-delta-format.png":::
 1. Read delta format using Delta Table
     1. read transformed data
     1. read KPI data
