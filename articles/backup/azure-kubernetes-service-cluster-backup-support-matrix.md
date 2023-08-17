@@ -31,7 +31,7 @@ AKS backup is available in all the Azure public cloud regions: East US, North Eu
 
 - Any unsupported persistent volume type is skipped while a backup is being created for the AKS cluster.
 
-- The backup extension uses the AKS cluster's system identity to do backup operations. Currently, AKS clusters using a User Identity, or a Service Principal aren't supported. If your AKS cluster uses a Service Principal, you can [update your AKS cluster to use a System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
+- The backup extension uses the AKS cluster's system identity to do the backup operations. Currently, AKS clusters using a User Identity, or a Service Principal aren't supported. If your AKS cluster uses a Service Principal, you can [update your AKS cluster to use a System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
 
 - You must install the backup extension in the AKS cluster. If you're using Azure CLI to install the backup extension, ensure that the version is 2.41 or later. Use `az upgrade` command to upgrade the Azure CLI.
 
