@@ -89,7 +89,17 @@ In the Azure portal, under the multi-site listener, you must choose the **Multip
 
 See [create multi-site using Azure PowerShell](tutorial-multiple-sites-powershell.md) or [using Azure CLI](tutorial-multiple-sites-cli.md) for the step-by-step guide on how to configure wildcard host names in a multi-site listener.
 
+## Multi-site listeners for Application Gateway layer 4 proxy
 
+Multiple site hosting enables you to configure more than one backend TLS or TCP-based application on the same port of application gateway. This can be achieved by using TLS listeners only. This allows you to configure a more efficient topology for your deployments by adding multiple backend applications on the same port using single application gateway. The traffic for each application can be directed to its own backend pool by providing domain names in the TLS listener.
+
+For example, you can create three multisite listeners each with its own domain (example - contoso.com, fabrikam.com, and *.adatum.com), and route them to their respective backend pools having different applications. All the three domains in example must point to the frontend IP address of the application gateway. This feature is in Preview phase for use with layer 4 proxy.
+
+### Feature information:
+- Multi-site listener allows you to add listeners using the same Port number.
+- For multisite TLS listeners, Application Gateway uses Server Name Indication (SNI) value, that is primarily used to present clients with the domain server certificate, to route a connection to the appropriate backend pool. This is done by picking the common name in TLS handshake data of an incoming connection.
+- Application Gateway allows domain-based routing using multisite TLS listener. You can use wildcard characters like asterisk (*) and question mark (?) in the host name, and up to 5 domains per multi-site TLS listener. For example, *.contoso.com.
+- The TCP connection inherently has no concept of hostname or domain name. Hence, with Layer 4 proxy the multisite listener is not supported for TCP listeners.
 
 ## Host headers and Server Name Indication (SNI)
 

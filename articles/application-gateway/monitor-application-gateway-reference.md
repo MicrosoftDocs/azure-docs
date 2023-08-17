@@ -6,7 +6,7 @@ ms.author: greglin
 ms.topic: conceptual
 ms.service: application-gateway
 ms.custom: subject-monitoring
-ms.date: 05/17/2023
+ms.date: 08/17/2023
 ---
 <!-- VERSION 2.2
 Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
@@ -15,21 +15,11 @@ Template for monitoring data reference article for Azure services. This article 
 
 See [Monitoring Azure Application Gateway](monitor-application-gateway.md) for details on collecting and analyzing monitoring data for Azure Application Gateway.
 
-## Metrics
-
-<!-- REQUIRED if you support Metrics. If you don't, keep the section but call that out. Some services are only onboarded to logs.
-<!-- Please keep headings in this order -->
-
-<!--  OPTION 2 -  Link to the metrics as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the metrics-supported link. For highly customized example, see [CosmosDB](../cosmos-db/monitor-cosmos-db-reference.md#metrics). They even regroup the metrics into usage type vs. resource provider and type.
--->
-
-<!-- Example format. Mimic the setup of metrics supported, but add extra information -->
-
-### Application Gateway v2 metrics
+## Application Gateway v2 metrics
 
 Resource Provider and Type: [Microsoft.Network/applicationGateways](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkapplicationgateways)
 
-#### Timing metrics
+### Timing metrics
 Application Gateway provides several built‑in timing metrics related to the request and response, which are all measured in milliseconds.
 
 > [!NOTE]
@@ -53,7 +43,7 @@ If you notice a spike in *Backend last byte response time* but the *Backend firs
 
 Similarly, if the *Application gateway total time* has a spike but the *Backend last byte response time* is stable, then it can either be a sign of performance bottleneck at the Application Gateway or a bottleneck in the network between client and Application Gateway. Additionally, if the *client RTT* also has a corresponding spike, then it indicates that the degradation is because of the network between client and Application Gateway.
 
-#### Application Gateway metrics
+### Application Gateway metrics
 
 | Metric | Unit | Description|
 |:-------|:-----|:------------|
@@ -71,7 +61,7 @@ Similarly, if the *Application gateway total time* has a spike but the *Backend 
 |**Throughput**|Bytes/sec|Number of bytes per second the Application Gateway has served. (This metric accounts for only the Content size served by the Application Gateway. It doesn't include data transfers such as TLS header negotiations, TCP/IP packet headers, or retransmissions.)|
 |**Total Requests**|Count|Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.|
 
-#### Backend metrics
+### Backend metrics
 
 | Metric | Unit | Description|
 |:-------|:-----|:------------|
@@ -80,10 +70,29 @@ Similarly, if the *Application gateway total time* has a spike but the *Backend 
 |**Unhealthy host count**|Count|The number of backends that are determined unhealthy by the health probe. You can filter on a per backend pool basis to show the number of unhealthy hosts in a specific backend pool.|
 |**Requests per minute per Healthy Host**|Count|The average number of requests received by each healthy member in a backend pool in a minute. Specify the backend pool using the *BackendPool HttpSettings* dimension.|
 
+## Application Gateway layer 4 proxy monitoring 
 
-### Application Gateway v1 metrics
+### Layer 4 metrics
 
-#### Application Gateway metrics
+With layer 4 proxy feature now available with Application Gateway, there are some Common metrics (apply to both layer 7 as well as layer 4), and some layer 4 specific metrics. The following table describes all the metrics are the applicable for layer 4 usage.
+
+| Metric | Description | Type | Dimension |
+|:-------|:------------|:-----|:----------|
+|        |             |      |           |
+
+### Layer 4 logs
+
+| Category | Name | 
+|:-------|:------------|
+|        |             |
+
+### Layer 4 backend health
+
+Application Gateway’s layer 4 proxy provides the capability to monitor the health of individual members of the backend pools through the portal and REST API.
+
+## Application Gateway v1 metrics
+
+### Application Gateway metrics
 
 | Metric | Unit | Description|
 |:-------|:-----|:------------|
@@ -103,12 +112,12 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 
 
 
-## Metric Dimensions
+## Metrics Dimensions
 
 <!-- REQUIRED. Please  keep headings in this order -->
 <!-- If you have metrics with dimensions, outline it here. If you have no dimensions, say so.  Questions email azmondocs@microsoft.com -->
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
+For more information on what metrics dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 
 <!-- See https://learn.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
@@ -135,7 +144,7 @@ For more information, see [Backend health and diagnostic logs for Application Ga
 
 <!-- Example format. Add extra information -->
 
-### Application Gateway
+## Application Gateway
 
 Resource Provider and Type: [Microsoft.Network/applicationGateways](../azure-monitor/essentials/resource-logs-categories.md#microsoftnetworkapplicationgateways)
 
