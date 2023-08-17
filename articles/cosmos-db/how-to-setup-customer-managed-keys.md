@@ -156,16 +156,16 @@ Here, create a new key using Azure Key Vault and retrieve the unique identifier.
 
    :::image type="content" source="media/how-to-setup-customer-managed-keys/new-customer-managed-key.png" lightbox="media/how-to-setup-customer-managed-keys/new-customer-managed-key.png" alt-text="Screenshot of the dialog to create a new key.":::
 
-  > [!TIP]
-  > Alternatively, you can use the Azure CLI to generate a key with:
-  >
-  > ```azurecli
-  > az keyvault key create \
-  >     --vault-name <name-of-key-vault> \
-  >     --name <name-of-key>
-  > ```
-  >
-  > For more information on managing a key vault with the Azure CLI, see [manage Azure Key Vault with the Azure CLI](../key-vault/general/manage-with-cli2.md).
+     > [!TIP]
+     > Alternatively, you can use the Azure CLI to generate a key with:
+     >
+     > ```azurecli
+     > az keyvault key create \
+     >     --vault-name <name-of-key-vault> \
+     >     --name <name-of-key>
+     > ```
+     >
+     > For more information on managing a key vault with the Azure CLI, see [manage Azure Key Vault with the Azure CLI](../key-vault/general/manage-with-cli2.md).
 
 1. After the key is created, select the newly created key and then its current version.
 
