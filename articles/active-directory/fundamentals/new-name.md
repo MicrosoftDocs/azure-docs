@@ -117,12 +117,13 @@ Only official product names are capitalized, plus Conditional Access and My * ap
 |                                  | Azure Active Directory for education | Microsoft Entra ID for education |
 | Features and functionality | Azure AD access token authentication<br/> Azure Active Directory access token authentication | Microsoft Entra access token authentication |
 |            | Azure AD account<br/> Azure Active Directory account | Microsoft Entra account<br/> This terminology is only used with IT admins and developers. End users authenticate with a work or school account. |
-|            | Azure AD activity logs<br/> Azure AD audit log | Microsoft Entra ID activity logs |
+|            | Azure AD activity logs<br/> Azure AD audit log | Microsoft Entra activity logs |
 |            | Azure AD admin<br/> Azure Active Directory admin | Microsoft Entra admin |
 |            | Azure AD admin center<br/> Azure Active Directory admin center | Replace with Microsoft Entra admin center and update link to entra.microsoft.com |
 |            | Azure AD application proxy<br/> Azure Active Directory application proxy | Microsoft Entra application proxy |
 |            | Azure AD authentication<br/> authenticate with an Azure AD identity<br/> authenticate with Azure AD<br/> authentication to Azure AD | Microsoft Entra authentication<br/> authenticate with a Microsoft Entra identity<br/> authenticate with Microsoft Entra<br/> authentication to Microsoft Entra<br/><br/> This terminology is only used with administrators. End users authenticate with a work or school account. |
 |            | Azure AD B2B<br/> Azure Active Directory B2B | Microsoft Entra B2B |
+|            | Azure AD built-in roles<br/> Azure Active Directory built-in roles | Microsoft Entra built-in roles |
 |            | Azure AD Conditional Access<br/> Azure Active Directory Conditional Access | Microsoft Entra Conditional Access<br/> (Second use: Conditional Access) |
 |            | Azure AD cloud-only identities<br/> Azure Active Directory cloud-only identities | Microsoft Entra cloud-only identities |
 |            | Azure AD Connect<br/> Azure Active Directory Connect | Microsoft Entra Connect |
