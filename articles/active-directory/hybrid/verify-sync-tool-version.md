@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/17/2023
-ms.subservice: hybridr
+ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
