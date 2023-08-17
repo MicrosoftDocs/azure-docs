@@ -76,8 +76,8 @@ To enroll in the Public preview, please send an email **exrpm@microsoft.com** wi
 - Virtual Network(s) Azure Resource ID(s)
 - ExpressRoute Circuit(s) Azure Resource ID(s)
 - ExpressRoute Connection(s) Azure Resource ID(s)
-- # of Virtual Network peering connections
-- # of UDRs configured in the hub Virtual Network
+- Number of Virtual Network peering connections
+- Number of UDRs configured in the hub Virtual Network
 
 ### Private Link Connectivity for 10Gbps ExpressRoute Direct
 
