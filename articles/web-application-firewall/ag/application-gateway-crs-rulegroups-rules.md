@@ -386,7 +386,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941380|AngularJS client side template injection detected|
 
 >[!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ### <a name="drs942-21"></a> SQLI - SQL Injection
 |RuleId|Description|

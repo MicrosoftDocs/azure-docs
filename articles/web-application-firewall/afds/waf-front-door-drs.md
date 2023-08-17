@@ -339,7 +339,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941380|AngularJS client side template injection detected|
 
 >[!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ### <a name="drs942-21"></a> SQLI: SQL injection
 |RuleId|Description|
@@ -607,7 +607,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941380|AngularJS client side template injection detected.|
 
 >[!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ### <a name="drs942-20"></a> SQLI: SQL injection
 |RuleId|Description|
@@ -800,7 +800,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
 
 >[!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ### <a name="drs942-11"></a> SQLI: SQL injection
 |RuleId|Description|
@@ -983,7 +983,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
 
 >[!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ### <a name="drs942-10"></a> SQLI: SQL injection
 |RuleId|Description|

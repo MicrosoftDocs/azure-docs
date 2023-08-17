@@ -227,7 +227,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Burkina Faso                                        |                |              |       ✓      |      ✓     |        ✓          |
 | Burundi                                             |                |              |       ✓      |      ✓     |        ✓          |
 | Cameroon                                            |                |              |       ✓      |      ✓     |        ✓          |
-| Cape Verde                                          |                |              |       ✓      |      ✓     |        ✓          |
+| Cabo Verde                                          |                |              |       ✓      |      ✓     |        ✓          |
 | Central African Republic                            |                |              |       ✓      |      ✓     |        ✓          |
 | Chad                                                |                |              |              |      ✓     |        ✓          |
 | Congo                                               |                |              |              |      ✓     |        ✓          |

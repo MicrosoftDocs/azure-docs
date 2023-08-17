@@ -139,7 +139,7 @@ If your default payment method is wire transfer, check your invoice for payment 
 > - [Bulgaria](/legal/pay/bulgaria)
 > - [Cameroon](/legal/pay/cameroon)
 > - [Canada](/legal/pay/canada)
-> - [Cape Verde](/legal/pay/cape-verde)
+> - [Cabo Verde](/legal/pay/cape-verde)
 > - [Cayman Islands](/legal/pay/cayman-islands)
 > - [Chile](/legal/pay/chile)
 > - [China (PRC)](/legal/pay/china-prc)
