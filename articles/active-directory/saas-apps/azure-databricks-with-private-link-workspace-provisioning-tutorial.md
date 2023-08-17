@@ -5,9 +5,9 @@ author: billmath
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: conceptual
+ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/08/2023
+ms.date: 08/10/2023
 ms.author: billmath
 ms.reviewer: owinoakelo
 ---
@@ -46,7 +46,7 @@ If you have already downloaded the provisioning agent and configured it for anot
 ## Provisioning to SCIM-enabled Workspace
 Once the agent is installed, no further configuration is necessary on-premises, and all provisioning configurations are then managed from the Azure portal. 
  
-  1.  In the Azure portal navigate to the Enterprise applications and add the **On-premises SCIM app** from the [gallery](../../active-directory/manage-apps/add-application-portal.md).
+  1.  In the Azure portal navigate to the Enterprise applications and add the **On-premises SCIM app** from the [gallery](../manage-apps/add-application-portal.md).
   1.  From the left hand menu navigate to the **Provisioning** option and select **Get started**.
   1.  Select **Automatic** from the dropdown list and expand the **On-Premises Connectivity** option.
   1.  Select the agent that you installed from the dropdown list and select **Assign Agent(s)**.
@@ -55,16 +55,16 @@ Once the agent is installed, no further configuration is necessary on-premises, 
   ![Screenshot that shows assigning an agent.](./common/onpremises-assign-agents.png)
 
   1.  Create an Admin Token in Azure Databricks User Settings Console and enter the same in the **Secret Token** field
-  1.  Select **Test Connection**, and save the credentials. The application SCIM endpoint must be actively listening for inbound provisioning requests, otherwise the test will fail. Use the steps [here](on-premises-ecma-troubleshoot.md#troubleshoot-test-connection-issues) if you run into connectivity issues. 
+  1.  Select **Test Connection**, and save the credentials. The application SCIM endpoint must be actively listening for inbound provisioning requests, otherwise the test will fail. Use the steps [here](../app-provisioning/on-premises-ecma-troubleshoot.md#troubleshoot-test-connection-issues) if you run into connectivity issues. 
       >[!NOTE]
       > If the test connection fails, you will see the request made. Please note that while the URL in the test connection error message is truncated, the actual request sent to the application contains the entire URL provided above. 
 
-  1.  Configure any [attribute mappings](customize-application-attributes.md) or [scoping](define-conditional-rules-for-provisioning-user-accounts.md) rules required for your application.
-  1.  Add users to scope by [assigning users and groups](../../active-directory/manage-apps/add-application-portal-assign-users.md) to the application.
-  1.  Test provisioning a few users [on demand](provision-on-demand.md).
+  1.  Configure any [attribute mappings](../app-provisioning/customize-application-attributes.md) or [scoping](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) rules required for your application.
+  1.  Add users to scope by [assigning users and groups](../manage-apps/add-application-portal-assign-users.md) to the application.
+  1.  Test provisioning a few users [on demand](../app-provisioning/provision-on-demand.md).
   1.  Add more users into scope by assigning them to your application.
   1.  Go to the **Provisioning** pane, and select **Start provisioning**.
-  1.  Monitor using the [provisioning logs](../../active-directory/reports-monitoring/concept-provisioning-logs.md).
+  1.  Monitor using the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md).
 
 The following video provides an overview of on-premises provisioning.
 > [!VIDEO https://www.youtube.com/embed/QdfdpaFolys]
@@ -77,7 +77,7 @@ The following video provides an overview of on-premises provisioning.
 
 ## Next steps
 
-- [App provisioning](user-provisioning.md)
-- [Generic SQL connector](on-premises-sql-connector-configure.md)
-- [Tutorial: ECMA Connector Host generic SQL connector](tutorial-ecma-sql-connector.md)
-- [Known issues](known-issues.md)
+- [App provisioning](../app-provisioning/user-provisioning.md)
+- [Generic SQL connector](../app-provisioning/on-premises-sql-connector-configure.md)
+- [Tutorial: ECMA Connector Host generic SQL connector](../app-provisioning/tutorial-ecma-sql-connector.md)
+- [Known issues](../app-provisioning/known-issues.md)
