@@ -9,15 +9,13 @@ ms.topic: how-to
 ---
 # Troubleshoot Socket.IO common problems
 
-Azure Web PubSub for Socket.IO builds on the Socket.IO library. When you're using the Azure service, you might encounter problems that lie with the library or with the service.
+Azure Web PubSub for Socket.IO builds on the Socket.IO library. When you're using the Azure service, problems might lie with the service or with the library.
 
-To determine if the problems are with Socket.IO library, you can isolate it by temporarily removing Web PubSub for Socket.IO from your application. If the application works as expected after the removal, the root cause is probably with the Azure service.
+To find the origin of problems, you can isolate the Socket.IO library by temporarily removing Web PubSub for Socket.IO from your application. If the application works as expected after the removal, the root cause is probably with the Azure service.
 
-If you suspect that the problems are with Socket.IO library, refer to [Socket.IO library's documentation](https://socket.io/docs/v4/troubleshooting-connection-issues/).
+Use this article to find solutions to common problems with the service. Additionally, you can [enable logging on the server side](./socketio-troubleshoot-logging.md#server-side) to examine the behavior of your Socket.IO app, if none of the listed solutions help.
 
-If you suspect that the problems are with the Azure service after investigation, use this article to find solutions to common problems.
-
-Additionally, you can [enable logging on the server side](./socketio-troubleshoot-logging.md#server-side) to examine closely the behavior of your Socket.IO app, if none of the listed solutions help.
+If you suspect that the problems are with the Socket.IO library, refer to the [Socket.IO library's documentation](https://socket.io/docs/v4/troubleshooting-connection-issues/).
 
 ## Server side: Improper package import
 
@@ -72,7 +70,7 @@ const socket = io(endpoint, {
 });
 ```
 
-## Client side: Missing Web PubSub for Socket.IO endpoint
+## Client side: Incorrect Web PubSub for Socket.IO endpoint
 
 ### Possible error
 

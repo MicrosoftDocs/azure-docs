@@ -13,7 +13,7 @@ Like when you self-host the Socket.IO library, you can collect logs on both the 
 
 ## Server side
 
-The server side includes two utilities that provide debugging capabilities.
+The server side includes two utilities that provide debugging capabilities:
 
 - [DEBUG](https://github.com/debug-js/debug), which the Socket.IO library and extension library provided by Web PubSub use for certain logging.
 - [@azure/logger](https://www.npmjs.com/package/@azure/logger), which provides lower-level network-related logging. Conveniently, it also allows you to set a log level.
@@ -26,19 +26,19 @@ The server side includes two utilities that provide debugging capabilities.
 DEBUG=* node yourfile.js
 ```
 
-#### Log the debug information of specific packages
+#### Log the debug information from specific packages
 
 ```bash
-# Logs debug information of the "socket.io" package
+# Logs debug information from the "socket.io" package
 DEBUG=socket.io:* node yourfile.js
 
-# Logs debug information of the "engine.io" package
+# Logs debug information from the "engine.io" package
 DEBUG=engine:* node yourfile.js
 
-# Logs debug information of the extension library "wps-sio-ext" provided by Web PubSub
+# Logs debug information from the extension library "wps-sio-ext" provided by Web PubSub
 DEBUG=wps-sio-ext:* node yourfile.js
 
-# Logs debug information of multiple packages
+# Logs debug information from multiple packages
 DEBUG=engine:*,socket.io:*,wps-sio-ext:* node yourfile.js
 ```
 
@@ -46,7 +46,7 @@ DEBUG=engine:*,socket.io:*,wps-sio-ext:* node yourfile.js
 
 ### `@azure/logger` utility
 
-You can enable logging from this utility to get lower-level network-related information by setting the environmental variable `AZURE_LOG_LEVEL`.
+You can enable logging from the `@azure/logger` utility to get lower-level network-related information by setting the environmental variable `AZURE_LOG_LEVEL`.
 
 ```bash
 AZURE_LOG_LEVEL=verbose node yourfile.js
@@ -84,6 +84,6 @@ In a browser, use `localStorage.debug = '<scope>'`.
 # Logs all debug information
 localStorage.debug = '*';
 
-# Logs debug information from "socket.io-client" package 
+# Logs debug information from the "socket.io-client" package 
 localStorage.debug = 'socket.io-client';
 ```
