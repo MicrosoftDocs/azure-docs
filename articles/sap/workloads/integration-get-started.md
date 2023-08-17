@@ -155,6 +155,7 @@ For more information about using SAP with Azure Integration services, see the fo
 - [Connect to SAP from workflows in Azure Logic Apps](../../logic-apps/logic-apps-using-sap-connector.md)
 - [Import SAP OData metadata as an API into Azure API Management](../../api-management/sap-api.md)
 - [Apply SAP Principal Propagation to your Azure hosted APIs](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml)
+- [Using Logic Apps (Standard) to connect with SAP BAPIs and RFC](https://www.youtube.com/watch?v=ZmOPPtIYYM4)
 
 Also see the following SAP resources:
 
