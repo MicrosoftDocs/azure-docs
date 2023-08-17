@@ -43,7 +43,7 @@ Before you proceed with this tutorial, be sure to cover these prerequisites:
 
 * An Azure Machine Learning workspace. For more information about workspace creation, see [Quickstart: Create workspace resources](./quickstart-create-resources.md).
 
-* On your user account, the owner or contributor role for the resource group where the feature store is created.
+* On your user account, the Owner or Contributor role for the resource group where the feature store is created.
 
    If you choose to use a new resource group for this tutorial, you can easily delete all the resources by deleting the resource group.
 

@@ -43,7 +43,7 @@ Before you proceed with the following procedures, be sure to complete the first 
 
    You can create a new notebook and execute the instructions in this tutorial step by step. You can also open and run the existing notebook named *3. Experiment and train models using features.ipynb* from the *featurestore_sample/notebooks* directory. You can choose *sdk_only* or *sdk_and_cli*. Keep this tutorial open and refer to it for documentation links and more explanation.
 
-   1. On the top menu, in the **Compute** dropdown list, select **Azure Machine Learning Spark compute**.
+   1. On the top menu, in the **Compute** dropdown list, select **Serverless Spark Compute** under **Azure Machine Learning Serverless Spark**.
 
    1. Configure the session:
 

@@ -39,24 +39,24 @@ In this tutorial, you learn how to:
 Before you proceed with this tutorial, be sure to cover these prerequisites:
 
 * Completion of [Tutorial 1: Develop and register a feature set with managed feature store](tutorial-get-started-with-feature-store.md), to create the required feature store, account entity, and `transactions` feature set.
-* An Azure resource group, where you (or the service principal that you use) have user access administrator and contributor roles.
-* On your user account, the owner or contributor role for the resource group that holds the created feature store.
+* An Azure resource group, where you (or the service principal that you use) have User Access Administrator and Contributor roles.
+* On your user account, the Owner or Contributor role for the resource group that holds the created feature store.
 
 ## Set up
 
 This list summarizes the required setup steps:
 
 1. In your project workspace, create an Azure Machine Learning compute resource to run the training pipeline.
-1. In your feature store workspace, create an offline materialization store. Create an Azure storage account and a container inside it, and attach it to the feature store. Optionally, you can use an existing storage container.
+1. In your feature store workspace, create an offline materialization store. Create an Azure Data Lake Storage Gen2 account and a container inside it, and attach it to the feature store. Optionally, you can use an existing storage container.
 1. Create and assign a UAI to the feature store. Optionally, you can use an existing managed identity. The system-managed materialization jobs - in other words, the recurrent jobs - use the managed identity. The third tutorial in the series relies on it.
-1. Grant required role-based authentication control (RBAC) permissions to the UAI.
+1. Grant required role-based access control (RBAC) permissions to the UAI.
 1. Grant required RBAC permissions to your Azure Active Directory (Azure AD) identity. Users, including you, need read access to the sources and the materialization store.
 
 ### Configure the Azure Machine Learning Spark notebook
 
 You can create a new notebook and execute the instructions in this tutorial step by step. You can also open the existing notebook named *2. Enable materialization and backfill feature data.ipynb* from the *featurestore_sample/notebooks* directory, and then run it. You can choose *sdk_only* or *sdk_and_cli*. Keep this tutorial open and refer to it for documentation links and more explanation.
 
-1. On the top menu, in the **Compute** dropdown list, select **Azure Machine Learning Spark compute**.
+1. On the top menu, in the **Compute** dropdown list, select **Serverless Spark Compute** under **Azure Machine Learning Serverless Spark**.
 
 1. Configure the session:
 
@@ -193,9 +193,9 @@ This UAI is assigned to the feature store shortly. It requires these permissions
 
 | Scope                                      | Role                            |
 |------------------------------------------------|--------------------------------------------|
-| Feature store                                  | Azure Machine Learning data scientist role |
-| Storage account of the offline store on the feature store | Blob storage data contributor role         |
-| Storage accounts of the source data                | Blob storage data reader role              |
+| Feature store                                  | Azure Machine Learning Data Scientist role |
+| Storage account of the offline store on the feature store | Blob storage Data Contributor role         |
+| Storage accounts of the source data                | Blob storage Data Reader role              |
 
 The next CLI commands assign the first two roles to the UAI. In this example, the "storage accounts of the source data" scope doesn't apply because you read the sample data from a public access blob storage. To use your own data sources, you must assign the required roles to the UAI. To learn more about access control, see [Manage access control for managed feature store](./how-to-setup-access-control-feature-store.md).
 
@@ -211,9 +211,9 @@ The next CLI commands assign the first two roles to the UAI. In this example, th
 
 ---
 
-### Grant the blob data reader role access to your user account in the offline store
+### Grant the blob Data Reader role access to your user account in the offline store
 
-If the feature data is materialized, you need the blob data reader role to read feature data from the offline materialization store.
+If the feature data is materialized, you need the blob Data Reader role to read feature data from the offline materialization store.
 
 Obtain your Azure AD object ID value from the Azure portal, as described in [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id).
 
@@ -221,7 +221,7 @@ To learn more about access control, see [Manage access control for managed featu
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=grant-rbac-to-user-identity)]
 
-The following steps grant the blob data reader role access to your user account:
+The following steps grant the blob Data Reader role access to your user account:
 
 1. Attach the offline materialization store and UAI, to enable the offline store on the feature store.
 
