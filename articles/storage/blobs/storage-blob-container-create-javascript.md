@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to create a blob container in your Azure Storage account using the JavaScript client library.
 author: pauljewellmsft
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 11/30/2022
 ms.author: pauljewell
@@ -22,17 +22,7 @@ Blobs in Azure Storage are organized into containers. Before you can upload a bl
 - The [authorization mechanism](../common/authorize-data-access.md) must have permissions to create a blob container. To learn more, see the authorization guidance for the following REST API operation:
     - [Create Container](/rest/api/storageservices/create-container#authorization)
 
-## Name a container
-
-A container name must be a valid DNS name, as it forms part of the unique URI used to address the container or its blobs. Follow these rules when naming a container:
-
-- Container names can be between 3 and 63 characters long.
-- Container names must start with a letter or number, and can contain only lowercase letters, numbers, and the dash (-) character.
-- Two or more consecutive dash characters aren't permitted in container names.
-
-The URI for a container is in this format:
-
-`https://myaccount.blob.core.windows.net/mycontainer`
+[!INCLUDE [storage-dev-guide-about-container-naming](../../../includes/storage-dev-guides/storage-dev-guide-about-container-naming.md)]
 
 ## Create a container
 

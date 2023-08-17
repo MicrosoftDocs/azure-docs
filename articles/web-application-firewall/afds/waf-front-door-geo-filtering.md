@@ -57,7 +57,7 @@ You can configure a geo-filtering policy for your Azure Front Door instance by u
 | BM | Bermuda|
 | BN | Brunei|
 | BO | Bolivia|
-| BQ | Bonaire, Sint Eustatius, and Saba|
+| BQ | Bonaire|
 | BR | Brazil|
 | BS | Bahamas|
 | BT | Bhutan|
@@ -227,7 +227,7 @@ You can configure a geo-filtering policy for your Azure Front Door instance by u
 | SG | Singapore|
 | SH | St Helena, Ascension, Tristan da Cunha|
 | SI | Slovenia|
-| SJ | found as Svalbard and Jan Mayen|
+| SJ | Svalbard|
 | SK | Slovakia|
 | SL | Sierra Leone|
 | SM | San Marino|
@@ -271,6 +271,10 @@ You can configure a geo-filtering policy for your Azure Front Door instance by u
 | VU | Vanuatu|
 | WF | Wallis and Futuna|
 | WS | Samoa|
+| XE | Sint Eustatius|
+| XJ | Jan Mayen|
+| XK | Kosovo|
+| XS | Saba|
 | YE | Yemen|
 | YT | Mayotte|
 | ZA | South Africa|

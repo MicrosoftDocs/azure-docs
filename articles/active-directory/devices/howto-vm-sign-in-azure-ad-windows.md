@@ -12,8 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: sandeo
-
-ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
+ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 # Log in to a Windows virtual machine in Azure by using Azure AD including passwordless
@@ -54,7 +53,7 @@ This feature is now available in the following Azure clouds:
 
 - Azure Global
 - Azure Government
-- Azure China 21Vianet
+- Microsoft Azure operated by 21Vianet
 
 ### Network requirements
 
@@ -72,7 +71,7 @@ Azure Government:
 - `https://login.microsoftonline.us`: For authentication flows.
 - `https://pasff.usgovcloudapi.net`: For Azure RBAC flows.
 
-Azure China 21Vianet:
+Microsoft Azure operated by 21Vianet:
 - `https://enterpriseregistration.partner.microsoftonline.cn`: For device registration.
 - `http://169.254.169.254`: Azure Instance Metadata Service endpoint.
 - `https://login.chinacloudapi.cn`: For authentication flows.
@@ -322,9 +321,9 @@ The AADLoginForWindows extension must be installed successfully for the VM to co
 
    | Command to run | Expected output |
    | --- | --- |
-   | `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"` | Correct information about the Azure VM |
-   | `curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01"` | Valid tenant ID associated with the Azure subscription |
-   | `curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM |
+   | `curl.exe -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"` | Correct information about the Azure VM |
+   | `curl.exe -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01"` | Valid tenant ID associated with the Azure subscription |
+   | `curl.exe -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM |
 
    > [!NOTE]
    > You can decode the access token by using a tool like [calebb.net](http://calebb.net/). Verify that the `oid` value in the access token matches the managed identity that's assigned to the VM.
@@ -489,4 +488,4 @@ Another way to verify it is via Graph PowerShell:
 
 ## Next steps
 
-For more information about Azure AD, see [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
+For more information about Azure AD, see [What is Azure Active Directory?](../fundamentals/whatis.md).

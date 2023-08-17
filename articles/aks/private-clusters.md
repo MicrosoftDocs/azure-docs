@@ -18,7 +18,7 @@ The purpose of this article is to help you deploy a private link-based AKS clust
 
 ## Region availability
 
-Private cluster is available in public regions, Azure Government, and Azure China 21Vianet regions where [AKS is supported][aks-supported-regions].
+Private cluster is available in public regions, Azure Government, and Microsoft Azure operated by 21Vianet regions where [AKS is supported][aks-supported-regions].
 
 ## Prerequisites
 

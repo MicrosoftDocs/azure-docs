@@ -5,6 +5,7 @@ description: Learn how to configure certificate-based authentication with federa
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 05/04/2022
 
@@ -14,7 +15,6 @@ manager: amycolannino
 ms.reviewer: annaba
 
 ms.collection: M365-identity-device-management
-
 ---
 # Get started with certificate-based authentication in Azure Active Directory with federation
 
@@ -31,7 +31,7 @@ Configuring this feature eliminates the need to enter a username and password co
 This topic:
 
 - Provides you with the steps to configure and utilize CBA for users of tenants in Office 365 Enterprise, Business, Education, and US Government plans. 
-- Assumes that you already have a [public key infrastructure (PKI)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831740(v=ws.11)) and [AD FS](../hybrid/how-to-connect-fed-whatis.md) configured.
+- Assumes that you already have a [public key infrastructure (PKI)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831740(v=ws.11)) and [AD FS](../hybrid/connect/how-to-connect-fed-whatis.md) configured.
 
 ## Requirements
 
@@ -57,8 +57,8 @@ As a first step, for the device platform you care about, you need to review the 
 
 The related information exists for the following device platforms:
 
-- [Android](active-directory-certificate-based-authentication-android.md)
-- [iOS](active-directory-certificate-based-authentication-ios.md)
+- [Android](./certificate-based-authentication-federation-android.md)
+- [iOS](./certificate-based-authentication-federation-ios.md)
 
 ## Step 2: Configure the certificate authorities
 
@@ -130,6 +130,6 @@ An EAS profile can be configured and placed on the device through the utilizatio
 
 ## Next steps
 
-[Additional information about certificate-based authentication on Android devices.](active-directory-certificate-based-authentication-android.md)
+[Additional information about certificate-based authentication on Android devices.](./certificate-based-authentication-federation-android.md)
 
-[Additional information about certificate-based authentication on iOS devices.](active-directory-certificate-based-authentication-ios.md)
+[Additional information about certificate-based authentication on iOS devices.](./certificate-based-authentication-federation-ios.md)

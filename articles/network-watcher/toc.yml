@@ -55,6 +55,8 @@
     href: network-watcher-security-group-view-overview.md
   - name: NSG flow logs
     href: network-watcher-nsg-flow-logging-overview.md
+  - name: VNet flow logs
+    href: vnet-flow-logs-overview.md
   - name: Traffic analytics
     items:
     - name: Overview
@@ -185,6 +187,12 @@
         href: network-watcher-nsg-flow-logging-azure-resource-manager.md
       - name: Built-in Policy
         href: nsg-flow-logs-policy-portal.md
+    - name: Manage VNet flow logs
+      items:
+      - name: PowerShell
+        href: vnet-flow-logs-powershell.md
+      - name: Azure CLI
+        href: vnet-flow-logs-cli.md
     - name: Read NSG flow logs
       href: network-watcher-read-nsg-flow-logs.md
     - name: Analyze NSG flow logs

@@ -58,11 +58,11 @@ Next, set up Postman:
 
    1. Select **Import** in Postman.
 
-      :::image type="content" source="media/tutorial-wellbore-ddms/postman-import-button.png" alt-text="Screenshot that shows the import button in Postman."  lightbox="media/tutorial-wellbore-ddms/postman-import-files.png":::
+      :::image type="content" source="media/tutorial-ddms/postman-import-button.png" alt-text="Screenshot that shows the import button in Postman."  lightbox="media/tutorial-ddms/postman-import-button.png":::
 
    1. Paste the URL of each file into the search box.
 
-       :::image type="content" source="media/tutorial-wellbore-ddms/postman-import-search.png" alt-text="Screenshot that shows importing collection and environment files in Postman via URL."  lightbox="media/tutorial-wellbore-ddms/postman-import-files.png":::
+      :::image type="content" source="media/tutorial-ddms/postman-import-search.png" alt-text="Screenshot that shows importing collection and environment files in Postman via URL."  lightbox="media/tutorial-ddms/postman-import-search.png":::
   
 1. In the Postman environment, update **CURRENT VALUE** with the information from your Azure Data Manager for Energy instance details
 

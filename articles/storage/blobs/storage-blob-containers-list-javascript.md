@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 11/30/2022
 
@@ -24,7 +24,7 @@ When you list the containers in an Azure Storage account from your code, you can
 - The [authorization mechanism](../common/authorize-data-access.md) must have permissions to list blob containers. To learn more, see the authorization guidance for the following REST API operation:
     - [List Containers](/rest/api/storageservices/list-containers2#authorization)
 
-## Understand container listing options
+## About container listing options
 
 To list containers in your storage account, create a [BlobServiceClient](storage-blob-javascript-get-started.md#create-a-blobserviceclient-object) object then call the following method:
 
