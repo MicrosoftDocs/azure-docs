@@ -162,6 +162,41 @@ Disable ingress for your container app by omitting the `ingress` configuration p
 
 ::: zone-end
 
+## Use additional TCP ports (preview)
+
+You can additional TCP ports to your application. To learn more, see the [ingress concept article](ingress-overview.md).
+
+::: zone pivot="azure-resource-manager"
+
+# [ARM template](#tab/arm-template)
+
+The following ARM template provides an example of how you can add additional ports to your container apps. Each additional port should be added under `additionalPortMappings` within the `ingress` section for `configuration` within `properties` for the container app. The following is an example:
+
+```json
+{
+  ...
+  "properties": {
+    ...
+    "configuration": {
+      "ingress": {
+        ...
+        "additionalPortMappings": [
+          {
+            "external": false
+            "targetPort": 80
+            "exposedPort": 12000
+          }
+        ]
+      }
+    }
+  ...
+}
+```
+
+---
+
+::: zone-end
+
 ## Next steps
 
 > [!div class="nextstepaction"]

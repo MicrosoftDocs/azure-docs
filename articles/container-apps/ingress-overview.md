@@ -78,6 +78,18 @@ With TCP ingress enabled, your container app:
 - Is accessible to other container apps in the same environment via its name (defined by the `name` property in the Container Apps resource) and exposed port number.
 - Is accessible externally via its fully qualified domain name (FQDN) and exposed port number if the ingress is set to "external".
 
+## Additional TCP Ports (preview)
+
+In addition to the main HTTP/TCP port for your container apps, you may also add additional TCP ports to enable applications which may require more than 1 port. This feature is in preview.
+
+The following apply to additional TCP ports:
+- Additional TCP ports can only be external if the app itself is set as external and the container app is using a custom VNet.
+- If the additional TCP ports are set to external, each app must have a unique exposed port. If the additional ports are internal, the same port can be shared by multiple apps.
+- There is a max of 5 additional ports. If additional ports are required, please open a support request.
+- You may have the main port exposed as HTTP. All additional ports will be TCP.
+
+Visit the [how to article on ingress](ingress-how-to.md#use-additional-tcp-ports-preview) for more information on how to enable additional ports for your container apps.
+
 ## Domain names
 
 You can access your app in the following ways:
