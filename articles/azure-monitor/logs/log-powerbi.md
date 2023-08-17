@@ -17,6 +17,18 @@ This article explains how to feed data from Log Analytics into Power BI to produ
 > [!NOTE]
 > You can use free Power BI features to integrate and create reports and dashboards. More advanced features, such as sharing your work, scheduled refreshes, dataflows, and incremental refresh might require purchasing a Power BI Pro or Premium account. For more information, see [Learn more about Power BI pricing and features](https://powerbi.microsoft.com/pricing/).
 
+## Prerequisites
+
+- To use the Power BI (as an M query) option, you need [Power BI Desktop](https://powerbi.microsoft.com/get-started).
+- To use the Power BI (new Dataset) option:
+  - You need a Power BI account.
+  - You must give permission in Azure for the Power BI service to write logs. For more information, see [Prerequisites](/power-bi/transform-model/log-analytics/desktop-log-analytics-configure#set-permissions).
+
+## Permissions required
+
+- To use the Power BI (as an M query) option, you need `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Reader built-in role](../articles/azure-monitor/logs/manage-access.md#log-analytics-reader), for example.
+- To use the Power BI (new Dataset) option, you need `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Contributor built-in role](../articles/azure-monitor/logs/manage-access.md#log-analytics-contributor), for example. For more information, see [Set permissions](/power-bi/developer/azure-pbie-diag-logs).
+
 ## Create Power BI datasets and reports from Log Analytics queries
 
 From the **Export** menu in Log Analytics, select one of the two options for creating Power BI datasets and reports from your Log Analytics queries:
