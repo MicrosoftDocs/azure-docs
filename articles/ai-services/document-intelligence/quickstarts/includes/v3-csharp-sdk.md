@@ -1,21 +1,22 @@
 ---
-title: "Quickstart: Document Intelligence (formerly Form Recognizer) C# SDK (beta) | v3.0"
+title: "Quickstart: Document Intelligence (formerly Form Recognizer) C# SDK (beta) | v3.1 | v3.0"
 titleSuffix: Azure AI services
-description: 'Form and document processing, data extraction, and analysis using Document Intelligence C# client library SDKs v3.0 '
+description: 'Form and document processing, data extraction, and analysis using Document Intelligence C# client library SDKs v3.1 or v3.0 '
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 07/18/2023
+ms.date: 08/16/2023
 ms.author: lajanuar
+monikerRange: '>=doc-intel-3.0.0'
 ---
 
 <!-- markdownlint-disable MD025 -->
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD029 -->
 
-[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)|[API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) | [Supported REST API versions](../../sdk-overview.md)
+[Client library](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet&preserve-view=true)|[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.1.0/index.html)|[API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.1.0) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) | [Supported REST API versions](../../sdk-overview-v3-1.md)
 
 In this quickstart, you use the following features to analyze and extract data and values from forms and documents:
 
@@ -31,7 +32,7 @@ In this quickstart, you use the following features to analyze and extract data a
 
 * The current version of [Visual Studio IDE](https://visualstudio.microsoft.com/vs/). <!-- or [.NET Core](https://dotnet.microsoft.com/download). -->
 
-* An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource, in the Azure portal, to get your key and endpoint.
+* An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Azure AI multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource, in the Azure portal, to get your key and endpoint.
 
 * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -57,7 +58,7 @@ In this quickstart, you use the following features to analyze and extract data a
 
     :::image type="content" source="../../media/quickstarts/create-new-project.png" alt-text="Screenshot of Visual Studio's create new project page.":::
 
-1. In the **Configure your new project** dialog window, enter `formRecognizer_quickstart` in the Project name box. Then choose Next.
+1. In the **Configure your new project** dialog window, enter `doc_intel_quickstart` in the Project name box. Then choose Next.
 
     :::image type="content" source="../../media/quickstarts/configure-new-project.png" alt-text="Screenshot of Visual Studio's configure new project dialog window.":::
 
@@ -70,7 +71,7 @@ In this quickstart, you use the following features to analyze and extract data a
 
 ### Install the client library with NuGet
 
- 1. Right-click on your **formRecognizer_quickstart** project and select **Manage NuGet Packages...** .
+ 1. Right-click on your **doc_intel_quickstart** project and select **Manage NuGet Packages...** .
 
     :::image type="content" source="../../media/quickstarts/select-nuget-package.png" alt-text="Screenshot of select NuGet package window in Visual Studio.":::
 
@@ -78,7 +79,8 @@ In this quickstart, you use the following features to analyze and extract data a
 
      :::image type="content" source="../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot of select prerelease NuGet package in Visual Studio.":::
 
- 1. Choose the Include prerelease checkbox and select version 4.1.0-beta.1 from the dropdown menu and install the package in your project.
+ <!-- 1. Choose the Include prerelease checkbox and select version 4.1.0 from the dropdown menu and install the package in your project. -->
+
 <!-- --- -->
 
 <!-- > [!div class="nextstepaction"]
