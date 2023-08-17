@@ -88,7 +88,7 @@ For enabling CMK on existing account that has continuous backup and point in tim
 - Ensure account must not have documents with large IDs greater than 990 bytes before enabling CMK. If not, you'll get an error due to max supported limit of 1024 bytes after encryption.
 - During encryption of existing data, [control plane](./audit-control-plane-logs.md) actions such as "add region" is blocked. These actions are unblocked and can be used right after the encryption is complete.
 
-## Monitoring the progress of the resulting encryption
+## Monitor the progress of the resulting encryption
 
 Enabling CMK on an existing account is an asynchronous operation that kicks off a background task that encrypts all existing data. As such, the REST API request to enable CMK provides in its response an "Azure-AsyncOperation" URL. Polling this URL with GET requests return the status of the overall operation, which eventually Succeed. This mechanism is fully described in [this](https://learn.microsoft.com/azure/azure-resource-manager/management/async-operations) article.
 
