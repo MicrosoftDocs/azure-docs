@@ -5,9 +5,9 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 08/11/2023
+ ms.date: 08/17/2023
  ms.author: rogarana
- ms.custom: include file, references_regions
+ ms.custom: include file
 ---
 
 - Incremental snapshots currently can't be moved between subscriptions.
@@ -31,7 +31,4 @@ Incremental snapshots of Premium SSD v2 and Ultra Disks have the following extra
 
 #### Regional availability
 
-Incremental snapshots of Premium SSD v2 and Ultra Disks are currently available in the following regions:
-
-- Incremental snapshots of Ultra Disks are currently only available in North Europe, West Europe, Sweden Central, East US, East US 2, North Central US, South Central US, and West US 2.
-- Incremental snapshots of Premium SSD v2 disks are currently only available in North Europe, West Europe, Central US, East US, East US 2, West US 2.
+Incremental snapshots of Premium SSD v2 and Ultra Disks are currently available in every region that Premium SSD v2 and Ultra Disks are available.
