@@ -1,12 +1,12 @@
 ---
 title: Table API and SQL - Use Iceberg Catalog type with Hive in HDInsight on AKS - Flink
-description: Learn how to create Flink-Iceberg Catalog using Hive catalog in HDInsight on AKS - Flink
+description: Learn how to create Flink-Iceberg Catalog in HDInsight on AKS - Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/17/2023
 ---
 
-# Create Flink-Iceberg Catalog using Hive catalog in HDInsight on AKS - Flink
+# Create Flink-Iceberg Catalog
 
 [Apache Iceberg](https://iceberg.apache.org/) is an open table format for huge analytic datasets. Iceberg adds tables to compute engines like Flink, using a high-performance table format that works just like a SQL table. Apache Iceberg [supports](https://iceberg.apache.org/multi-engine-support/#apache-flink) both Apache Flink’s DataStream API and Table API.
 
