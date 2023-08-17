@@ -48,7 +48,7 @@ The experiences and issues described in this article have the following scope.
 
 - If you followed the correct sequence of creating a multi-tenant organization, adding a tenant to the multi-tenant organization, and the added tenant's join request keeps failing, submit a support request to Azure AD or Microsoft 365 admin center.
 
-- As part of a multi-tenant organization, newly invited B2B users receive an additional user property that includes the [home tenant identifier](/graph/api/user-list?view=graph-rest-beta&branch=pr-en-us-19722&tabs=http#example-14-list-information-about-synchronized-users) of the B2B user. Already redeemed B2B users don't have this additional user property. Currently, Microsoft 365 admin center share users functionality or Azure AD cross-tenant synchronization are currently the only accepted methods to get this additional user property populated.
+- As part of a multi-tenant organization, newly invited B2B users receive an additional user property that includes the home tenant identifier of the B2B user. Already redeemed B2B users don't have this additional user property. Currently, Microsoft 365 admin center share users functionality or Azure AD cross-tenant synchronization are currently the only accepted methods to get this additional user property populated.
 
 - As part of a multi-tenant organization, [reset redemption status for a B2B user](../external-identities/reset-redemption-status.md) is currently unavailable and disabled.
 
