@@ -14,7 +14,7 @@ manager: amycolannino
 ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, has-azure-ad-ps-ref
 ---
 
 # Certificate user IDs 
@@ -208,7 +208,7 @@ To synchronize X509:\<RFC822>RFC822Name, create an outbound synchronization rule
 > [!NOTE]
 > Make sure you use the latest version of [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). 
 
-For more information about declarative provisioning expressions, see [Azure AD Connect: Declarative Provisioning Expressions](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
+For more information about declarative provisioning expressions, see [Azure AD Connect: Declarative Provisioning Expressions](../hybrid/connect/concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
 
 ## Synchronize alternativeSecurityId attribute from AD to Azure AD CBA CertificateUserIds
 

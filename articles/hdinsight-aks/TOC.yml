@@ -17,13 +17,13 @@ items:
     href: versioning.md 
   - name: Enterprise Security
     items:
-    - name: Security Architecture & Security Pillars
+    - name: Security Architecture and Security Pillars
       href: concept-security.md
     - name: Network Security
       items:
       - name: Required outbound traffic
         href: ./required-outbound-traffic.md
-  - name: Metrics & Monitoring
+  - name: Metrics and Monitoring
     href: ./concept-azure-monitor-integration.md
   - name: Customize Clusters
     href : ./customize-clusters.md
@@ -158,7 +158,7 @@ items:
     items:
     - name: Configuration Management
       href: ./flink/flink-configuration-management.md
-    - name: Table API & SQL
+    - name: Table API and SQL
       href: ./flink/flink-tableapi-and-sql.md
   - name: How-to guides
     items:
@@ -188,9 +188,9 @@ items:
         href: ./flink/create-kafka-table-flink-kafka-sql-connector.md
       - name: Using Hive Catalog & FlinkSQL
         href: ./flink/use-hive-catalog.md
-      - name: Using Flink-Iceberg Catalog
+      - name: Flink-Iceberg Catalog
         href: ./flink/flink-catalog-iceberg-hive.md
-      - name: Using Flink-Delta Catalog
+      - name: Flink-Delta Catalog
         href: ./flink/flink-catalog-delta-hive.md
     - name: Flink Streaming
       items:
@@ -204,16 +204,16 @@ items:
         href: ./flink/use-hive-metastore-datastream.md
       - name: Using HBase - Write with DStream API
         href: ./flink/use-flink-to-sink-kafka-message-into-hbase.md
-      - name: Using MongoDB as a source and Sink with DStream API
-        href: ./flink/dstream-api-and-mongo-db.md
-      - name: Join stream from Kafka with Table on ADLSGen2
-        href: ./flink/join-stream-from-kafka-with-table-from-filesystem.md
-      - name: Using Microsoft Fabric with DStream API
-        href: ./flink/fabric-flink-dstreamapi.md
+      - name: MongoDB as a source and Sink with DataStream API
+        href: ./flink/datastream-api-mongodb.md
+      - name: Join stream from Kafka with Table on ADLS Gen2
+        href: ./flink/join-stream-kafka-table-filesystem.md
+      - name: Use Microsoft Fabric with DataStream API
+        href: ./flink/fabric-lakehouse-flink-datastream-api.md
     - name: Use cases
       items:
-      - name: Fraud Detection using DStream API
-        href: ./flink/flink-fraud-detection-using-data-stream-api.md      
+      - name: Fraud Detection with the Flink DataStream API
+        href: ./flink/fraud-detection-flink-datastream-api.md   
 - name: Apache Spark
   items:
   - name: What is Apache Spark in HDInsight on AKS?
