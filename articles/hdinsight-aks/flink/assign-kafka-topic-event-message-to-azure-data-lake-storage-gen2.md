@@ -3,10 +3,10 @@ title: Writing event messages into Azure Data Lake Storage Gen2 with DStreamAPI
 description: Learn how to write event messages into Azure Data Lake Storage Gen2 with DStreamAPI
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 08/17/2023
 ---
 
-# Writing event messages into Azure Data Lake Storage Gen2 with DataStreamAPI
+# Write event messages into Azure Data Lake Storage Gen2 with DataStreamAPI
 
 Apache Flink uses file systems to consume and persistently store data, both for the results of applications and for fault tolerance and recovery. In this article, learn how to write event messages into ADLS Gen2 with DataStreamAPI. 
 
@@ -26,7 +26,7 @@ This filesystem connector provides the same guarantees for both BATCH and STREAM
 
 Flink provides an Apache Kafka connector for reading data from and writing data to Kafka topics with exactly once guarantees. For more information, see [Apache Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/kafka)
 
-## Building the project for Flink
+## Build the project for Flink
 
 **pom.xml on IntelliJ IDEA**
 
