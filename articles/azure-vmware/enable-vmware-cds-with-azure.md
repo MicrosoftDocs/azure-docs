@@ -177,7 +177,7 @@ This offering is supported in all Azure regions where Azure VMware Solution is a
 
 ### How is VMware Cloud Director service supported?
 
-VMware Cloud director service (CDs) is a solution sold and supported by VMware. For any support issue with CDs, always contact VMware support. Both VMware and Microsoft support teams collaborate as necessary to address and resolve Cloud Director Service issues within Azure VMware Solution.
+VMware Cloud director service (CDs) is VMware owned and supported product connected to Azure VMware solution. For any support queries on CDs, please contact VMware support for assistance. Both VMware and Microsoft support teams collaborate as necessary to address and resolve Cloud Director Service issues within Azure VMware Solution.
 
 
 ## Next steps
