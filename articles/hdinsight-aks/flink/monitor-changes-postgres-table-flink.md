@@ -150,9 +150,9 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
 ## Validation
 
 - Run 'select *' command to monitor the changes.
-```sql
-  select * from shipments;
-```
+  
+    `select * from shipments;`
+
      :::image type="content" source="./media/monitor-changes-postgres-table-flink/run-select-command.png" alt-text="Screenshot showing how to run-select-command." border="true" lightbox="./media/monitor-changes-postgres-table-flink/run-select-command.png":::
 
 ### Reference
