@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
+**This article applies to:** ✔️ Standard consumption and dedicated (Preview) 
 
 This article explains how to secure communication between a client application and a microservice application 
 that is hosted on Azure Spring Apps and shielded behind a gateway app. The client application 
