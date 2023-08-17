@@ -119,8 +119,6 @@
       href: organize-inventory-servers.md
     - name: Onboard to Microsoft Defender for Cloud
       href: ../../defender-for-cloud/quickstart-onboard-machines.md?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
-    - name: Prepare to deliver Extended Security Updates
-      href: prepare-extended-security-updates.md
     - name: Manage with Windows Admin Center
       href: /windows-server/manage/windows-admin-center/azure/manage-arc-hybrid-machines?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
   - name: Connect via SSH
@@ -129,6 +127,12 @@
       href: ssh-arc-overview.md
     - name: Troubleshoot SSH access to Azure Arc-enabled servers
       href: ssh-arc-troubleshoot.md
+  - name: Extended Security Updates
+    items:
+    - name: Prepare to deliver Extended Security Updates
+      href: prepare-extended-security-updates.md
+    - name: License provisioning for Extended Security Updates
+      href: license-extended-security-updates.md
   - name: Troubleshooting
     items:
     - name: Agent connection issues
