@@ -4,7 +4,7 @@ description: Learn about incremental snapshots for managed disks, including how 
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 08/11/2023
+ms.date: 08/17/2023
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli, ignite-2022, references_regions, devx-track-arm-template
 ms.devlang: azurecli
@@ -38,9 +38,6 @@ yourDiskID=$(az disk show -n $diskName -g $resourceGroupName --query "id" --outp
 # Create the snapshot
 az snapshot create -g $resourceGroupName -n $snapshotName --source $yourDiskID --incremental true
 ```
-
-> [!IMPORTANT]
-> After taking a snapshot of an Ultra Disk, you must wait for the snapshot to complete before you can use it. See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
 
 You can identify incremental snapshots from the same disk with the `SourceResourceId` property of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk.
 
@@ -85,9 +82,6 @@ $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk
 New-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName -Snapshot $snapshotConfig 
 ```
 
-> [!IMPORTANT]
-> After taking a snapshot of a Premium SSD v2 or an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
-
 You can identify incremental snapshots from the same disk with the `SourceResourceId` and the `SourceUniqueId` properties of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk. `SourceUniqueId` is the value inherited from the `UniqueId` property of the disk. If you delete a disk and then create a new disk with the same name, the value of the `UniqueId` property changes.
 
 You can use `SourceResourceId` and `SourceUniqueId` to create a list of all snapshots associated with a particular disk. Replace `yourResourceGroupNameHere` with your value and then you can use the following example to list your existing incremental snapshots:
@@ -111,9 +105,6 @@ $incrementalSnapshots
 
 # [Portal](#tab/azure-portal)
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-portal](../../includes/virtual-machines-disks-incremental-snapshots-portal.md)]
-
-> [!IMPORTANT]
-> After taking a snapshot of a Premium SSD v2 or an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
 
 # [Resource Manager Template](#tab/azure-resource-manager)
 
@@ -150,11 +141,8 @@ You can also use Azure Resource Manager templates to create an incremental snaps
   ]
 }
 ```
-> [!IMPORTANT]
-> After taking a snapshot of a Premium SSD v2 or an Ultra Disk, you must wait for the snapshot to complete before you can use it.  See the [Check status of snapshots or disks](#check-status-of-snapshots-or-disks) section for details.
 
 ---
-
 
 ## Check sector size
 
