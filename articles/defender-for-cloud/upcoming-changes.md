@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 07/25/2023
+ms.date: 08/17/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -23,16 +23,13 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) | June 2023
-| [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) | July 2023 |
-| [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | July 2023 |
-| [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) | July 2023 |
 | [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) | June 2023|
 | [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) | August 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | August 2023 |
-| [Business model and pricing updates for Defender for Cloud plans](#business-model-and-pricing-updates-for-defender-for-cloud-plans) | August 2023 |
 | [Update naming format of Azure Center for Internet Security standards in regulatory compliance](#update-naming-format-of-azure-center-for-internet-security-standards-in-regulatory-compliance) | August 2023 |
 | [Preview alerts for DNS servers to be deprecated](#preview-alerts-for-dns-servers-to-be-deprecated) | August 2023 |
+| [Deprecate and replace recommendations App Service Client Certificates](#deprecate-and-replace-recommendations-app-service-client-certificates) | August 2023 |
+| [Classic connectors for multicloud will be retired](#classic-connectors-for-multicloud-will-be-retired) | September 2023 |
 | [Replacing secret scanning recommendation results in Defender for DevOps from CredScan with GitHub Advanced Security for Azure DevOps powered secret scanning](#replacing-secret-scanning-recommendation-results-in-defender-for-devops-from-credscan-with-github-advanced-security-for-azure-devops-powered-secret-scanning) | September 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) | September 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) | August 2024 |
@@ -46,6 +43,23 @@ Currently, the recommendations for secret scanning in Azure DevOps repositories 
 As GHAzDO enters Public Preview, we're working towards unifying the secret scanning experience across both GitHub Advanced Security and GHAzDO. This unification enables you to receive detections across all branches, git history, and secret leak protection via push protection to your repositories. This process can all be done with a single button press, without requiring any pipeline runs.
 
 For more information about GHAzDO Secret Scanning, see [Set up secret scanning](/azure/devops/repos/security/configure-github-advanced-security-features#set-up-secret-scanning).
+
+### Classic connectors for multicloud will be retired
+
+**Estimated date for change: September 15, 2023**
+
+The classic multicloud connectors will be retiring on September 15, 2023 and no data will be streamed to them after this date. These classic connectors were used to connect AWS Security Hub and GCP Security Command Center recommendations to Defender for Cloud and onboard AWS EC2s to Defender for Servers.
+
+The full value of these connectors has been replaced with the native multicloud security connectors experience, which has been Generally Available for AWS and GCP since March 2022 at no additional cost.
+
+The new native connectors are included in your plan and offer an automated onboarding experience with options to onboard single accounts, multiple accounts (with Terraform), and organizational onboarding with auto provisioning for the following Defender plans: free foundational CSPM capabilities, Defender Cloud Security Posture Management (CSPM), Defender for Servers, Defender for SQL, and Defender for Containers.
+
+If you're currently using the classic multicloud connectors, we strongly recommend that you begin your migration to the native security connectors before September 15, 2023.
+
+How to migrate to the native security connectors:
+
+- [Connect your AWS account to Defender for Cloud](quickstart-onboard-aws.md)
+- [Connect your GCP project to Defender for Cloud](quickstart-onboard-gcp.md)
 
 ### Defender for Cloud plan and strategy for the Log Analytics agent deprecation
 
@@ -157,9 +171,9 @@ Customers that rely on the `resourceID` to query DevOps recommendation data will
 
 Queries will need to be updated to include both the old and new `resourceID` to show both, for example, total over time.
 
-Additionally, customers that have created custom queries using the DevOps workbook will need to update the assessment keys for the impacted DevOps security recommendations.
+Additionally, customers that have created custom queries using the DevOps workbook will need to update the assessment keys for the impacted DevOps security recommendations. The template DevOps workbook is planned to be updated to reflect the new recommendations, although during the actual migration, customers may experience some errors with the workbook.
 
-The recommendations page's experience will have minimal impact and deprecated assessments may continue to show for a maximum of 14 days if new scan results aren't submitted.  
+The experience on the recommendations page will be impacted and require customers to query under "All recommendations" to view the new DevOps recommendations. For Azure DevOps, deprecated assessments may continue to show for a maximum of 14 days if new pipelines are not run.  Refer to [Defender for DevOps Common questions](https://learn.microsoft.com/azure/defender-for-cloud/faq-defender-for-devops#why-don-t-i-see-recommendations-for-findings-) for details.
 
 ### DevOps Resource Deduplication for Defender for DevOps
 
@@ -170,36 +184,6 @@ To improve the Defender for DevOps user experience and enable further integratio
 If you don't have an instance of a DevOps organization onboarded more than once to your organization, no further action is required. If you do have more than one instance of a DevOps organization onboarded to your tenant, the subscription owner will be notified and will need to delete the DevOps Connector(s) they don't want to keep by navigating to Defender for Cloud Environment Settings.
 
 Customers will have until July 31, 2023 to resolve this issue. After this date, only the most recent DevOps Connector created where an instance of the DevOps organization exists will remain onboarded to Defender for DevOps. For example, if Organization Contoso exists in both connectorA and connectorB, and connectorB was created after connectorA, then connectorA will be removed from Defender for DevOps.
-
-### Business model and pricing updates for Defender for Cloud plans
-
-**Estimated date for change: August 2023**
-
-Microsoft Defender for Cloud has three plans that offer service layer protection:
-
-- Defender for Key Vault
-
-- Defender for Azure Resource Manager
-
-- Defender for DNS
-
-These plans are transitioning to a new business model with different pricing and packaging to address customer feedback regarding spending predictability and simplifying the overall cost structure.
-
-**Business model and pricing changes summary**:
-
-Existing customers of Defender for Key-Vault, Defender for Azure Resource Manager, and Defender for DNS will keep their current business model and pricing unless they actively choose to switch to the new business model and price.
-
-- **Defender for Azure Resource Manager**: This plan will have a fixed price per subscription per month. Customers will have the option to switch to the new business model by selecting the Defender for Azure Resource Manager new per-subscription model.
-
-Existing customers of Defender for Key-Vault, Defender for Azure Resource Manager, and Defender for DNS will keep their current business model and pricing unless they actively choose to switch to the new business model and price.
-
-- **Defender for Azure Resource Manager**: This plan will have a fixed price per subscription per month. Customers will have the option to switch to the new business model by selecting the Defender for Azure Resource Manager new per-subscription model.
-
-- **Defender for Key Vault**: This plan will have a fixed price per vault at per month with no overage charge. Customers will have the option to switch to the new business model by selecting the Defender for Key Vault new per-vault model
-
-- **Defender for DNS**: Defender for Servers Plan 2 customers will gain access to Defender for DNS value as part of Defender for Servers Plan 2 at no extra cost. Customers that have both Defender for Server Plan 2 and Defender for DNS will no longer be charged for Defender for DNS. Defender for DNS will no longer be available as a standalone plan.
-
-For more information on all of these plans, check out the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h)
 
 ### Update naming format of Azure Center for Internet Security standards in regulatory compliance
 
@@ -241,6 +225,21 @@ The following table lists the alerts to be deprecated:
 | Possible data download via DNS tunnel (Preview) | DNS_DataInfiltration |
 | Anonymity network activity (Preview) | DNS_DarkWeb |
 | Anonymity network activity using web proxy (Preview) | DNS_DarkWebProxy |
+
+### Deprecate and replace recommendations App Service Client Certificates
+
+**Estimated date for change: August 2023**
+
+App Service policies are set to be deprecated and replaced so that they only monitor apps using HTTP 1.1 since HTTP 2.0 on App Service doesn't support client certificates. The existing policies that enforce client certificates require an additional check to determine if Http 2.0 is being used by the app. Adding this additional check requires a change to the policy "effect" from Audit to AuditIfNotExists. Policy "effect" changes require deprecation of the old version of the policy and the creation of a replacement.
+
+Policies in this scope:
+
+- App Service apps should have Client Certificates (Incoming client certificates) enabled
+- App Service app slots should have Client Certificates (Incoming client certificates) enabled
+- Function apps should have Client Certificates (Incoming client certificates) enabled
+- Function app slots should have Client Certificates (Incoming client certificates) enabled
+
+Customers who are currently using this policy will need to ensure they have the new policies with similar names enabled and assigned to their intended scope.
 
 ### Change to the Log Analytics daily cap
 

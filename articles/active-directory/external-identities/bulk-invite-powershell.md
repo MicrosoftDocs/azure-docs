@@ -12,11 +12,10 @@ ms.date: 07/31/2023
 ms.author: cmulligan
 author: csmulligan
 manager: CelesteDG
-ms.custom: engagement-fy23
-
-# Customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.
+ms.custom: engagement-fy23, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
+# Customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.
 ---
 
 # Tutorial: Use PowerShell to bulk invite Azure AD B2B collaboration users

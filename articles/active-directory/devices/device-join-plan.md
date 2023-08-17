@@ -51,11 +51,11 @@ Consider Azure AD join if your goals align with the following criteria:
 
 ## Review your identity infrastructure  
 
-Azure AD join works in managed and federated environments. We think most organizations will deploy with managed domains. Managed domain scenarios don't require configuring and managing a federation server like Active Directory Federation Services (AD FS).
+Azure AD join works in managed and federated environments. We think most organizations will deploy managed domains. Managed domain scenarios don't require configuring and managing a federation server like Active Directory Federation Services (AD FS).
 
 ### Managed environment
 
-A managed environment can be deployed either through [Password Hash Sync](../hybrid/how-to-connect-password-hash-synchronization.md) or [Pass Through Authentication](../hybrid/how-to-connect-pta-quick-start.md) with Seamless Single Sign On.
+A managed environment can be deployed either through [Password Hash Sync](../hybrid/connect/how-to-connect-password-hash-synchronization.md) or [Pass Through Authentication](../hybrid/connect/how-to-connect-pta-quick-start.md) with Seamless Single Sign On.
 
 ### Federated environment
 
@@ -79,7 +79,7 @@ If your identity provider doesn't support these protocols, Azure AD join doesn't
 
 If you create users in your:
 
-- **On-premises Active Directory**, you need to synchronize them to Azure AD using [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
+- **On-premises Active Directory**, you need to synchronize them to Azure AD using [Azure AD Connect](../hybrid/connect/how-to-connect-sync-whatis.md). 
 - **Azure AD**, no extra setup is required.
 
 On-premises user principal names (UPNs) that are different from Azure AD UPNs aren't supported on Azure AD joined devices. If your users use an on-premises UPN, you should plan to switch to using their primary UPN in Azure AD.
@@ -189,7 +189,7 @@ Currently, Azure AD joined devices don't support RADIUS authentication for conne
 You can provision Azure AD joined devices using the following approaches:
 
 - **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings. For more information, see [Join your work device to your organization's network](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973). 
-- **Windows Autopilot** - Windows Autopilot enables pre-configuration of devices for a smoother Azure AD join experience in OOBE. For more information, see the [Overview of Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
+- **Windows Autopilot** - Windows Autopilot enables preconfiguration of devices for a smoother Azure AD join experience in OOBE. For more information, see the [Overview of Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
 - **Bulk enrollment** - Bulk enrollment enables an administrator driven Azure AD join by using a bulk provisioning tool to configure devices. For more information, see [Bulk enrollment for Windows devices](/intune/windows-bulk-enroll).
  
 Here’s a comparison of these three approaches 
@@ -291,9 +291,10 @@ If you have an MDM provider configured for your Azure AD joined devices, the pro
 
 ![Compliant device](./media/device-join-plan/46.png)
 
-You can use this implementation to [require managed devices for cloud app access with Conditional Access](../conditional-access/require-managed-devices.md).
+You can use this implementation to [require managed devices for cloud app access with Conditional Access](../conditional-access/concept-conditional-access-grant.md).
 
 ## Next steps
 
 - [Join a new Windows 10 device to Azure AD during a first run](device-join-out-of-box.md)
 - [Join your work device to your organization's network](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973)
+- [Planning a Windows Hello for Business Deployment](/windows/security/identity-protection/hello-for-business/hello-planning-guide)

@@ -50,6 +50,6 @@ The following services support Azure AD authentication. New services are added t
 
 ## Next steps
 
-- [Azure China developer guide](/azure/china/resources-developer-guide)
+- [Microsoft Azure operated by 21Vianet developer guide](/azure/china/resources-developer-guide)
 - [Compare Azure Government and global Azure](../../azure-government/compare-azure-government-global-azure.md)
 - [Azure services that can use Managed identities to access other services](managed-identities-status.md)

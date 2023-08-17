@@ -65,7 +65,7 @@ Take action by selecting the **Learn more** option under :::image type="icon" so
 
 You may need to download software for your OT sensor if you're [installing Defender for IoT software](ot-deploy/install-software-ot-sensor.md) on your own appliances, or [updating software versions](update-ot-software.md).
 
-In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, use one of the following options:
+In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, use one of the following options:
 
 - For a new installation, select **Getting started** > **Sensor**. Select a version in the **Purchase an appliance and install software** area, and then select **Download**.
 
@@ -83,11 +83,15 @@ You need to upload a new activation file to your sensor if you want to switch se
 
 **To add a new activation file:**
 
-1. In [Defender for IoT on the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) > **Sites and sensors**, locate and [delete](how-to-manage-sensors-on-the-cloud.md#sensor-maintenance-and-troubleshooting) your OT sensor.
+1. Do one of the following:
 
-1. Select **Onboard OT sensor > OT** to onboard the sensor again from scratch and download the new activation file. For more information, see [Onboard OT sensors](onboard-sensors.md).
+    - **Onboard your sensor from scratch**:
+    
+        1. In [Defender for IoT on the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) > **Sites and sensors**, locate and [delete](how-to-manage-sensors-on-the-cloud.md#sensor-maintenance-and-troubleshooting) your OT sensor.
 
-    Alternately, on the **Sites and sensors** page, locate the sensor you just added. Select the three dots (...) on the sensor's row and select **Download activation file**. Save the file in a location accessible to your sensor.
+        1. Select **Onboard OT sensor > OT** to onboard the sensor again from scratch and download the new activation file. For more information, see [Onboard OT sensors](onboard-sensors.md).
+
+    - <a name="current"></a>**Download the current sensor's activation file**: On the **Sites and sensors** page, locate the sensor you just added. Select the three dots (...) on the sensor's row and select **Download activation file**. Save the file in a location accessible to your sensor.
 
     [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
@@ -108,7 +112,7 @@ You'll receive an error message if the activation file couldn't be uploaded. The
 - **The activation file is valid but Defender for IoT rejected it:** If you can't resolve this problem, you can download another activation from the **Sites and sensors** page in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). If this doesn't work, contact Microsoft Support.
 
 > [!NOTE]
-> Activation files are valid for 14 days after creation. New activation files must be created if yours are expired.
+> Activation files expire 14 days after creation. If you onboarded your sensor but didn't upload the activation file before it expired, [download a new  activation file](#current).
 >
 
 ## Manage SSL/TLS certificates
@@ -136,7 +140,7 @@ The following procedures describe how to deploy updated SSL/TLS certificates, su
     | Parameter  | Description  |
     |---------|---------|
     | **Certificate Name**     |   Enter your certificate name.      |
-    | **Passphrase** - *Optional*    |  Enter a passphrase.       |
+    | **Passphrase** - *Optional*    |  Enter a [passphrase](best-practices/certificate-requirements.md#supported-characters-for-keys-and-passphrases).  |
     | **Private Key (KEY file)**     |  Upload a Private Key (KEY file).       |
     | **Certificate (CRT file)**     | Upload a Certificate (CRT file).        |
     | **Certificate Chain (PEM file)** - *Optional*     |  Upload a Certificate Chain (PEM file).       |
