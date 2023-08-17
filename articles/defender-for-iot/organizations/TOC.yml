@@ -243,7 +243,7 @@
       href: integrations/logrhythm.md
     - name: Micro Focus ArcSight
       href: integrations/arcsight.md
-    - name: Microsoft Sentinel (on-premises integration)
+    - name: Microsoft Sentinel (legacy)
       href: integrations/on-premises-sentinel.md
     - name: Palo Alto
       href: tutorial-palo-alto.md
