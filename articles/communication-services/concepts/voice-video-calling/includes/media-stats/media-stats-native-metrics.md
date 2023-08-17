@@ -13,7 +13,7 @@ ms.subservice: calling
 ---
 
 ## Best practices
-If you want to collect this data for off-line inspection (after a call ends), it is recommended to collect this data and send it to your pipeline ingest after your call has ended. If you transmit this data during a call, it could use internet bandwidth that is needed to continue an Azure Communication Services call (especially when available bandwidth is low).
+If you want to collect this data for off-line inspection (after a call ends), it's recommended to collect this data and send it to your pipeline ingest after your call has ended. If you transmit this data during a call, it could use internet bandwidth that is needed to continue an Azure Communication Services call (especially when available bandwidth is low).
 
 ### Outgoing Audio metrics
 | Metric Name | Description | Comments |
@@ -40,7 +40,7 @@ If you want to collect this data for off-line inspection (after a call ends), it
 | Bitrate | video send bitrate (bps) | |
 | PacketsPerSecond | packet rate (packets/sec) | |
 | PacketsLostPerSecond | packet loss rate (packets/sec) | Lower is better. |
-| RoundTripTimeInMs | round-trip time (milliseconds) | Lower is better. It is calculated from RTCP Receiver Report. A round trip time of 200 ms or less is recommended. |
+| RoundTripTimeInMs | round-trip time (milliseconds) | Lower is better. It's calculated from RTCP Receiver Report. A round trip time of 200 ms or less is recommended. |
 | AvailableBitrate | bandwidth estimation (bps) | 1.5 Mbps or higher is recommended for high-quality video for upload/download. |
 | FrameRateInput | frame rate originating from the video source (frames/sec) | |
 | FrameWidthInput | frame width of the last frame originating from video source (pixel) | |
@@ -57,7 +57,7 @@ If you want to collect this data for off-line inspection (after a call ends), it
 | JitterInMs | packet jitter (milliseconds) | Lower is better. |
 | PacketsPerSecond | packet rate (packets/sec) | |
 | PacketsLostPerSecond | packet loss rate (packets/sec) | Lower is better. |
-| StreamId | stream id | The streamId value corresponds to id in VideoStreamCommon. It can be used to match the sender. |
+| StreamId | stream Id | The streamId value corresponds to Id of the video of the RemoteParticipant. It can be used to match the sender. |
 | FrameRateReceived | frame rate received on the RTP stream (frames/sec) | |
 | FrameWidthReceived | frame width of the decoded frame (pixel) | |
 | FrameHeightReceived | frame height of the decoded frame (pixel) | |
