@@ -351,7 +351,7 @@ For debugging the application, see [Debugging with Visual Studio Code](https://g
 
 [!INCLUDE [iot-develop-cleanup-resources](../../includes/iot-develop-cleanup-resources.md)]
 
-## Next steps
+## Next step
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the STM DevKit device. You connected the STM DevKit to Azure, and carried out tasks such as viewing telemetry and calling a method on the device.
 
