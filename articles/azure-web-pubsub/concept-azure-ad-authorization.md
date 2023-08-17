@@ -1,6 +1,6 @@
 ---
 title: Authorize access with Azure Active Directory for Azure Web PubSub
-description: This article provides information on authorizing access to Azure Web PubSub Service resources using Azure Active Directory. 
+description: This article provides information on authorizing access to Azure Web PubSub Service resources using Azure Active Directory.
 author: terencefan
 
 ms.author: tefa
@@ -18,7 +18,7 @@ By utilizing role-based access control (RBAC) within Azure AD, permissions can b
 Using Azure AD for authorization of Web PubSub requests offers improved security and ease of use compared to Access Key authorization. Microsoft recommends utilizing Azure AD authorization with Web PubSub resources when possible to ensure access with the minimum necessary privileges.
 
 <a id="security-principal"></a>
-*[1] security principal: a user/resource group, an application, or a service principal such as system-assigned identities and user-assigned identities.*
+_[1] security principal: a user/resource group, an application, or a service principal such as system-assigned identities and user-assigned identities._
 
 ## Overview of Azure AD for Web PubSub
 
@@ -49,11 +49,11 @@ Before assigning an Azure RBAC role to a security principal, it's important to i
 
 You can scope access to Azure SignalR resources at the following levels, beginning with the narrowest scope:
 
-- **An individual resource.** 
+- **An individual resource.**
 
   At this scope, a role assignment applies to only the target resource.
 
-- **A resource group.** 
+- **A resource group.**
 
   At this scope, a role assignment applies to all of the resources in the resource group.
 
@@ -61,7 +61,7 @@ You can scope access to Azure SignalR resources at the following levels, beginni
 
   At this scope, a role assignment applies to all of the resources in all of the resource groups in the subscription.
 
-- **A management group.** 
+- **A management group.**
 
   At this scope, a role assignment applies to all of the resources in all of the resource groups in all of the subscriptions in the management group.
 
@@ -69,29 +69,34 @@ You can scope access to Azure SignalR resources at the following levels, beginni
 
 - `Web PubSub Service Owner`
 
-	Full access to data-plane permissions, including read/write REST APIs and Auth APIs.
+  Full access to data-plane permissions, including read/write REST APIs and Auth APIs.
 
-	This role is the most common used for building an upstream server.
+  This role is the most common used for building an upstream server.
 
 - `Web PubSub Service Reader`
 
-	Use to grant read-only REST APIs permissions to Web PubSub resources.
+  Use to grant read-only REST APIs permissions to Web PubSub resources.
 
-	It's used when you'd like to write a monitoring tool that calling **ONLY** Web PubSub data-plane **READONLY** REST APIs.
+  It's used when you'd like to write a monitoring tool that calling **ONLY** Web PubSub data-plane **READONLY** REST APIs.
 
 ## Next steps
 
 To learn how to create an Azure application and use Azure AD auth, see
+
 - [Authorize request to Web PubSub resources with Azure AD from Azure applications](howto-authorize-from-application.md)
 
 To learn how to configure a managed identity and use Azure AD auth, see
+
 - [Authorize request to Web PubSub resources with Azure AD from managed identities](howto-authorize-from-managed-identity.md)
 
-To learn more about roles and role assignments, see 
+To learn more about roles and role assignments, see
+
 - [What is Azure role-based access control](../role-based-access-control/overview.md)
 
-To learn how to create custom roles, see 
+To learn how to create custom roles, see
+
 - [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)
 
 To learn how to use only Azure AD authentication, see
+
 - [Disable local authentication](./howto-disable-local-auth.md)

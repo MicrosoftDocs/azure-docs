@@ -21,7 +21,11 @@ See the following sections for detailed information:
 
 ## Supported regions
 
-Update management center is available in all [Azure public regions](support-matrix.md#supported-regions). 
+Update management center (preview) is available in all [Azure public regions](support-matrix.md#supported-regions). 
+
+## Configure reboot settings
+
+The registry keys listed in [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) and [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) can cause your machines to reboot, even if you specify **Never Reboot** in the **Schedule** settings. Configure these registry keys to best suit your environment.
 
 
 ## Install updates on single VM
@@ -56,11 +60,11 @@ To install one time updates on a single VM, follow these steps:
    
       :::image type="content" source="./media/deploy-updates/include-update-classification-inline.png" alt-text="Screenshot on including update classification." lightbox="./media/deploy-updates/include-update-classification-expanded.png":::
    
-   - Select **Include KB ID/package** to include in the updates. Enter a comma-separated list of Knowledge Base article ID numbers to include or exclude for Windows updates. For example,  `3103696, 3134815`. For Windows, you can refer to the [MSRC link](https://msrc.microsoft.com/update-guide/deployments) to get the details of the latest Knowledge Base released. For supported Linux distros, you specify a comma separated list of packages by the package name, and you can include wildcards. For example, `kernel*, glibc, libc=1.0.1`. Based on the options specified, update management center shows a preview of OS updates under the **Selected Updates** section.
+   - Select **Include KB ID/package** to include in the updates. Enter a comma separated list of Knowledge Base article ID numbers to include or exclude for Windows updates. For example,  `3103696, 3134815`. For Windows, you can refer to the [MSRC link](https://msrc.microsoft.com/update-guide/deployments) to get the details of the latest Knowledge Base released. For supported Linux distros, you specify a comma separated list of packages by the package name, and you can include wildcards. For example, `kernel*, glibc, libc=1.0.1`. Based on the options specified, update management center (preview) shows a preview of OS updates under the **Selected Updates** section.
 
    - To exclude updates that you don't want to install, select **Exclude KB ID/package**. We recommend checking this option because updates that are not displayed here might be installed, as newer updates might be available.
    
-   - To ensure that the updates published are on or before a specific date, select **Include by maximum patch publish date** and in the Include by maximum patch publish date , choose the date and select **Add** and **Next**.
+   - To ensure that the updates published are on or before a specific date, select **Include by maximum patch publish date** and in the Include by maximum patch publish date, choose the date and select **Add** and **Next**.
    
       :::image type="content" source="./media/deploy-updates/include-patch-publish-date-inline.png" alt-text="Screenshot on including patch publish date." lightbox="./media/deploy-updates/include-patch-publish-date-expanded.png":::
 
