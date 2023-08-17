@@ -20,7 +20,7 @@ monikerRange: '<=doc-intel-3.1.0'
 **This article applies to:**![Document Intelligence v3.1 checkmark](../media/yes-icon.png) [**Document Intelligence v3.1**](?view=doc-intel-3.1.0&preserve-view=true) . **Earlier versions:** [**Document Intelligence v3.0**](?view=doc-intel-3.0.0&preserve-view=true) &#9679; [**Document Intelligence v2.1**](?view=doc-intel-2.1.0&preserve-view=true)
 
 > [!IMPORTANT]
-> Azure Cognitive Services Form Recognizer is now Azure AI Document Intelligence. However, some platforms are still awaiting naming updates. All references to Form Recognizer or Document Intelligence in documentation refer to the same Azure service.
+> Azure Cognitive Services Form Recognizer is now Azure AI Document Intelligence. Some platforms are still awaiting the renaming update. All mention of Form Recognizer or Document Intelligence in our documentation refer to the same Azure service.
 
 ::: moniker range="doc-intel-3.1.0"
 
