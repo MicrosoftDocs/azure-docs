@@ -110,7 +110,6 @@ After created a `springboot` client type connection, Service Connector service w
 | `AZURE_MYSQL_PORT`                  | Port number       | `3306`                                     |
 | `AZURE_MYSQL_SSL`                   | SSL option        | `true`                                     |
 
-s
 
 #### [PHP](#tab/php)
 
