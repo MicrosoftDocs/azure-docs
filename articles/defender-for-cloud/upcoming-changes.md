@@ -173,7 +173,7 @@ Queries will need to be updated to include both the old and new `resourceID` to 
 
 Additionally, customers that have created custom queries using the DevOps workbook will need to update the assessment keys for the impacted DevOps security recommendations. The template DevOps workbook is planned to be updated to reflect the new recommendations, although during the actual migration, customers may experience some errors with the workbook.
 
-The experience on the recommendations page will be impacted and require customers to query under "All recommendations" to view the new DevOps recommendations. For Azure DevOps, deprecated assessments may continue to show for a maximum of 14 days if new pipelines are not run.  Refer to [Defender for DevOps Common questions](https://learn.microsoft.com/azure/defender-for-cloud/faq-defender-for-devops#why-don-t-i-see-recommendations-for-findings-) for details.
+The experience on the recommendations page will be impacted and require customers to query under "All recommendations" to view the new DevOps recommendations. For Azure DevOps, deprecated assessments may continue to show for a maximum of 14 days if new pipelines are not run.  Refer to [Defender for DevOps Common questions](/azure/defender-for-cloud/faq-defender-for-devops#why-don-t-i-see-recommendations-for-findings-) for details.
 
 ### DevOps Resource Deduplication for Defender for DevOps
 
