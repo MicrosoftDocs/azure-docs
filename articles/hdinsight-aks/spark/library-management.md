@@ -31,11 +31,11 @@ Notebook-scoped libraries, available for Python and Scala, which allow you to in
 > [!NOTE]
 > Use notebook-scoped libraries when you need a custom environment for a specific notebook.
 
-**Modes of Library Installation**
+#### Modes of Library Installation
 
 **PyPI**: Fetch libraries from open source PyPI repository by mentioning the library name and version in the installation UI.
 
-## View the installed libraries. 
+## View the installed libraries
 
 1. From Overview page, navigate to Library Manager.
 
@@ -46,9 +46,9 @@ Notebook-scoped libraries, available for Python and Scala, which allow you to in
 
    :::image type="content" source="./media/library-management/view-installed-libraries.png" alt-text="Screenshot showing how to view installed libraries." lightbox="./media/library-management/view-installed-libraries.png":::
 
-## Add library widget.
+## Add library widget
 
-**PyPI**
+#### PyPI
 
 1. From the **PyPI** tab, enter the **Package Name** and **Package Version.**.
 1. Click **Install**.
