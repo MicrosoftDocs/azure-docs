@@ -24,10 +24,7 @@ Once you launch the Secure Shell (SSH), let us start downloading the dependencie
    wget https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-flink-runtime-1.16/1.3.0/iceberg-flink-runtime-1.16-1.3.0.jar -P $FLINK_HOME/lib
    wget https://repo1.maven.org/maven2/org/apache/parquet/parquet-column/1.12.2/parquet-column-1.12.2.jar -P $FLINK_HOME/lib
    ```
-### Set the Environment Variable 
-  ```
-  export HADOOP_CONF_DIR=/etc/hadoop/conf
-  ```
+
 ## Start the Flink SQL Client
 A detailed explanation is given on how to get started with Flink SQL Client using [Secure Shell](../flink/flink-webssh-on-portal-to-flink-sql.md) on Azure portal. You're required to start the SQL Client as described on the article by running the following command. 
 ```
@@ -46,7 +43,7 @@ With the following steps, we illustrate how you can create Flink-Iceberg Catalog
   'property-version'='1',
   'warehouse'='abfs://container@storage_account.dfs.core.windows.net/ieberg-output’;
 ```
-> [!NOTE] In the above step, the container and storage account should be **same** as specified during the cluster creation
+> [!NOTE] In the above step, the container and storage account *need not be same* as specified during the cluster creation. In case you want to specify another storage account, you can update `core-site.xml` with `fs.azure.account.key.<account_name>.dfs.core.windows.net: <azure_storage_key>` using configuration management.
 
 ```sql
   USE CATALOG hive_catalog;
