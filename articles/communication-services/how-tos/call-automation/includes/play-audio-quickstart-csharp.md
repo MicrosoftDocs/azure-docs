@@ -140,7 +140,9 @@ var playResult = await callAutomationClient.GetCallConnection(callConnectionId)
 
 ## Enhance play with audio file caching
 
-If you're playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour. **Note:** Caching audio files isn't suitable for dynamic prompts. If you change the URL provided to ACS, it does not update the cached URL straight away. The update will occur after the existing cache expires.
+If you're playing the same audio file multiple times, your application can provide ACS with the sourceID for the audio file. ACS caches this audio file for 1 hour.
+> [!Note] 
+> Caching audio files isn't suitable for dynamic prompts. If you change the URL provided to ACS, it does not update the cached URL straight away. The update will occur after the existing cache expires.
 
 ``` csharp
 var playTo = new List<CommunicationIdentifier> { targetParticipant }; 
