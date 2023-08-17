@@ -33,9 +33,7 @@ The following image shows how these metrics appear in the **Overview** page.
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Select scope section of the assignment pane.](./media/monitor-storage-tasks/overview-page-storage-task.png)
 
-These metrics include runs from multiple storage task assignments, but only assignments that target storage accounts to which you have read permission. These metrics appear as tiles that you can select to view a list of the task runs which comprise the metric.
-
-For example, to view list of task runs where at least one operation failed, select the **Objects on which the operation failed** tile. Then, a filtered list of task runs will appear. In that list appears metrics specific to each task run. Each listed task also provides a link to a detailed execution report. For more information about how to drill into metrics and reports for each task run, see [Analyze Azure Storage Task runs](storage-task-runs.md).
+These metrics include runs from multiple storage task assignments, but only assignments that target storage accounts to which you have read permission. These metrics appear as tiles that you can select to view a list of the task runs which comprise the metric. Each listed task provides a link to a detailed execution report. For more information about how to drill into metrics and reports for each task run, see [Analyze Azure Storage Task runs](storage-task-runs.md).
 
 ## Monitoring data
 
