@@ -162,9 +162,8 @@ Azure Maps have been localized in variety languages across its services. The fol
 | mt             | Maltese                                    | ✓       |               |
 | nb             | Norwegian (Bokmål)                         | ✓       | ✓             |
 | ne             | Nepali (Nepal)                             | ✓       |               |
-|                |                                            |         |               |
 | nl-NL          | Dutch (Netherlands)                        | ✓       | ✓             |
-| nl-BE          | Dutch (Netherlands)                        | ✓       |               |
+| nl-BE          | Dutch (Belgium)                            | ✓       |               |
 | nn             | Norwegian (Nynorsk)                        | ✓       |               |
 | nso            | Sesotho sa Leboa                           | ✓       |               |
 | or             | Odia                                       | ✓       |               |
@@ -208,8 +207,8 @@ Azure Maps have been localized in variety languages across its services. The fol
 | yo-Latn        | Yoruba                                     | ✓       |               |
 | zh-Hans        | Chinese (Simplified)                       | ✓       |               |
 | zh-Hant        | Chinese (Traditional)                      | ✓       |               |
-|                |                                            |         | ✓             |
-| zu             | isiZulu                                    | ✓       |               |
+| zh-HanT-TW     | Chinese (Traditional, Taiwan)              | ✓       | ✓             |
+| zu             | isiZulu                                    | ✓       |
 
 ## Azure Maps supported views
 

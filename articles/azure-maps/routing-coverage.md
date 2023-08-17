@@ -325,7 +325,7 @@ The following tables provide coverage information for Azure Maps routing.
 ::: zone pivot="route-v2"
 
 | Country/Region                             | Road Data / Routing | Traffic | Truck Routing |
-|--------------------------------------------|---------------------|---------|---------------|
+|--------------------------------------------|---------------------|:-------:|:-------------:|
 | Afghanistan                                | Major Roads Only    |         |               |
 | Albania                                    | Good                |         | ✓             |
 | Algeria                                    | Good                |         |               |
