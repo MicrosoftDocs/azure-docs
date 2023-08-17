@@ -165,7 +165,7 @@ Follow these steps to connect to Azure Database for MySQL.
 Follow these steps to connect to Azure Database for MySQL.
 1. Install dependencies.
    ```bash
-   pip install django==3.2
+   pip install django
    ```
 1. In setting file, get MySQL database information from environment variables added by Service Connector service.
    ```python
