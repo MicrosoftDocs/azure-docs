@@ -58,7 +58,7 @@ The recognize action can be used for many reasons, here are a few examples of ho
 
 ## Sample architecture for gathering user input in a call with voice recognition
 
-![Recognize AI Action](./media/recognize-ai-flow.png)
+![Diagram showing sample architecture for Recognize AI Action.](./media/recognize-ai-flow.png)
 
 ## Sample architecture for gathering user input in a call
 
