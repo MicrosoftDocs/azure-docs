@@ -223,7 +223,7 @@ items:
   - name: How-to guides
     items:
     - name: Submit and Manage Jobs
-      href: ./spark/submit-and-manage-jobs.md
+      href: ./spark/submit-manage-jobs.md
     - name: Configuration management
       href: ./spark/configuration-management.md
     - name: Library management 
