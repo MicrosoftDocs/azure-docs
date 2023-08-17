@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 06/23/2022
 ms.author: barclayn
 ms.reviewer: sumitp
-ms.custom: "it-pro;seo-update-azuread-jan"
+ms.custom: it-pro, seo-update-azuread-jan, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
