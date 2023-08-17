@@ -15,7 +15,7 @@ ms.author: thwimmer
 
 # Tutorial: Configure SAP Cloud Identity Services for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in SAP Cloud Identity Services and Microsoft Entra ID (Azure AD). This aims to configure Microsoft Entra ID to automatically provision and deprovision users to SAP Cloud Identity Services.
+This tutorial aims to demonstrate the steps for configuring Microsoft Entra ID (Azure AD) and SAP Cloud Identity Services. The goal is to set up Microsoft Entra ID to automatically provision and deprovision users to SAP Cloud Identity Services.
 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Microsoft Entra ID User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
@@ -60,7 +60,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 	![Screenshot of the SAP Cloud Identity Services Add SCIM.](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/configurationauth.png)
 
-1. You will receive an email to activate your account and set a password for **SAP Cloud Identity Services Service**.
+1.  You'll get an email to activate your account and set up a password for the **SAP Cloud Identity Services Service**.
 
 1. Copy the **User ID** and **Password**. These values are entered in the Admin Username and Admin Password fields respectively.
 This is done in the Provisioning tab of your SAP Cloud Identity Services application in the Azure portal.
