@@ -4,7 +4,7 @@ ms.author: v-muyaofeng
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 08/10/2023
+ms.date: 08/31/2023
 ---
 
 <!-- 
@@ -14,17 +14,17 @@ To reuse the Spring Apps instance creation steps in other articles, a separate m
 
 -->
 
-Use the following steps to create a service instance:
+Use the following steps to create an Azure Spring Apps service instance:
 
 1. Select **Create a resource** in the corner of the Azure portal.
 
 1. Select **Compute** > **Azure Spring Apps**.
 
-   :::image type="content" source="../../media/quickstart/create-azure-spring-apps.png" alt-text="Screenshot of the Azure portal that shows Azure Spring Apps in the list of compute resources." lightbox="../../media/quickstart/create-azure-spring-apps.png":::
+   :::image type="content" source="../../media/quickstart/create-azure-spring-apps.png" alt-text="Screenshot of the Azure portal showing Azure Spring Apps in the list of compute resources." lightbox="../../media/quickstart/create-azure-spring-apps.png":::
 
-1. Fill out the **Basics** form with the following information:
+1. Fill out the **Basics** form with the following information.
 
-   Use the following table as a guide for completing the form, the recommended **Plan** is `Standard consumption & dedicated (preview)`.
+   Use the following table as a guide for completing the form. The recommended **Plan** is `Standard consumption & dedicated (preview)`.
 
    | Setting        | Suggested Value                              |Description|
       |----------------------------------------------|---------------|-----------|
@@ -35,16 +35,16 @@ Use the following steps to create a service instance:
    | Region         | The region closest to your users             | The location that is closest to your users.|
    | Container Apps Environment | *myacaenv*                                   |The environment is a secure boundary around one or more container apps that can communicate with each other and share a virtual network, logging, and Dapr configuration.|
 
-   :::image type="content" source="../../media/quickstart/create-consumption.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Spring Apps page." lightbox="../../media/quickstart/create-consumption.png":::
+   :::image type="content" source="../../media/quickstart/create-consumption.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps page." lightbox="../../media/quickstart/create-consumption.png":::
 
-1. (Optional) Create Container Apps Environment to select.
+1. (Optional) Create Container Apps Environment.
 
-[!INCLUDE [prepare-container-apps-environment](../../includes/quickstart/prepare-container-apps-environment.md)]
+   [!INCLUDE [prepare-container-apps-environment](../../includes/quickstart/prepare-container-apps-environment.md)]
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
 1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page.
 
-   :::image type="content" source="../../media/quickstart/notifications.png" alt-text="Screenshot of the Azure portal that shows the Notifications pane for Azure Spring Apps creation." lightbox="../../media/quickstart/notifications.png":::
+   :::image type="content" source="../../media/quickstart/notifications.png" alt-text="Screenshot of the Azure portal showing the Notifications pane for Azure Spring Apps creation." lightbox="../../media/quickstart/notifications.png":::
 
 1. Select **Go to resource** to go to the **Azure Spring Apps Overview** page.

@@ -4,7 +4,7 @@ ms.author: v-muyaofeng
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 07/20/2023
+ms.date: 08/31/2023
 ---
 
 <!-- 
@@ -16,14 +16,14 @@ For clarity of structure, a separate markdown file is used to describe how to cr
 
 ### [Consumption Workload](#tab/Consumption-workload)
 
-Fill out the **Basics** tab with the following information:
+1. Fill out the **Basics** tab with the following information:
 - **Environment name**: *myacaenv*
 - **Plan**: **Consumption**
 - **Zone redundancy**: **Disabled**
 
-:::image type="content" source="../../media/quickstart/create-container-apps-environment.png" alt-text="Screenshot of the Azure portal showing the Create Container Apps Environment." lightbox="../../media/quickstart/create-container-apps-environment.png":::
+:::image type="content" source="../../media/quickstart/create-container-apps-environment.png" alt-text="Screenshot of the Azure portal showing the Create Container Apps Environment with consumption plan selected." lightbox="../../media/quickstart/create-container-apps-environment.png":::
 
-Then select **Create** to create the Container Apps Environment.
+1. Select **Create** to create the Container Apps Environment.
 
 ### [Dedicated Workload](#tab/Ddedicated-workload)
 
@@ -32,9 +32,9 @@ Then select **Create** to create the Container Apps Environment.
     - **Plan**: **(Preview) Consumption and Dedicated workload profiles**
     - **Zone redundancy**: **Disabled**
 
-   :::image type="content" source="../../media/quickstart/create-container-apps-environment-dedicated.png" alt-text="Screenshot of the Azure portal showing the Create Container Apps Environment with dedicated workload." lightbox="../../media/quickstart/create-container-apps-environment-dedicated.png":::
+   :::image type="content" source="../../media/quickstart/create-container-apps-environment-dedicated.png" alt-text="Screenshot of the Azure portal showing the Create Container Apps Environment with dedicated workload plan selected." lightbox="../../media/quickstart/create-container-apps-environment-dedicated.png":::
 
-1. Select the **Workload profiles (Preview)** tab and click **Add workload profile** to add a workload profile.
+1. Select the **Workload profiles (Preview)** tab, and then select **Add workload profile** to add a workload profile.
 
 1. On the **Add workload profile(Preview)** page, add the following information:
     - **Workload profile name**: *my-wlp*
@@ -43,6 +43,6 @@ Then select **Create** to create the Container Apps Environment.
 
    :::image type="content" source="../../media/quickstart/create-container-apps-environment-profile.png" alt-text="Screenshot of the Azure portal showing the Configure Container Apps Environment profile." lightbox="../../media/quickstart/create-container-apps-environment-profile.png":::
 
-1. select **Add** to create and back to the **Add workload profile(Preview)** pag, choose **my-wlp**  and select **Create** to create the Container Apps Environment.
+1. Select **Add**. This will take you back to the **Add workload profile(Preview)** page. Select **my-wlp**,  and then select **Create** to create the Container Apps Environment.
 
 ---

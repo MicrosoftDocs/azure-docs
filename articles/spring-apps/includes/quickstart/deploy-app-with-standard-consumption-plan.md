@@ -4,7 +4,7 @@ ms.author: v-shilichen
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 08/10/2023
+ms.date: 08/31/2023
 ---
 
 <!-- 
@@ -22,9 +22,9 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-Use the following steps to initialize the application from the Azure Developer CLI templates.
+Use the following steps to initialize the application from the Azure Developer CLI templates:
 
-1. Open a terminal window, create a new, empty folder, and change directory into it.
+1. Open a terminal window, create a new folder, and then change directory into it.
 1. Use the following command to initialize the project:
 
     ```bash
@@ -36,7 +36,7 @@ Use the following steps to initialize the application from the Azure Developer C
     - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
     - **Please enter a new environment name**: Provide an environment name, which is used as a suffix for the resource group created to hold all Azure resources. This name should be unique within your Azure subscription.
 
-   The console outputs messages similar the ones in the following example:
+   The console outputs messages similar to the ones in the following example:
 
    ```output
    Initializing a new project (azd init)
@@ -67,7 +67,7 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-1. Use the following command to log in Azure with OAuth2. Ignore this step if you've already logged in.
+1. Use the following command to log in to Azure with OAuth2. Ignore this step if you've already logged in.
 
    ```bash
    azd auth login
@@ -87,10 +87,10 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
    The following list describes the command interactions:
 
-    - **Select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
-    - **Select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
+    - **Select an Azure Subscription to use**: Use arrows to move, type to filter, then press <kbd>Enter</kbd>.
+    - **Select an Azure location to use**: Use arrows to move, type to filter, then press <kbd>Enter</kbd>.
 
-   The console outputs messages similar to the ones below:
+   The console outputs messages similar to the ones in the following example:
 
    ```text
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
