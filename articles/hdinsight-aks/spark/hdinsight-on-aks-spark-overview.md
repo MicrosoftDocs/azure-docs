@@ -22,9 +22,7 @@ Apache Spark in Azure HDInsight is the managed spark service in Microsoft Azure.
 
 The Apache Spark framework for HDInsight on AKS enables fast data analytics and cluster computing using in-memory processing. Jupyter Notebook lets you interact with your data, combine code with markdown text, and do simple visualizations.
 
-Spark on AKS in HDInsight composed of multiple components as pods. The component diagram is as follows.
-
-:::image type="content" source="./media/spark-overview/spark-pod-components.png" alt-text="Diagram showing HDInsight on AKS spark pod components." border="true" lightbox="./media/spark-overview/spark-pod-components.png":::
+Spark on AKS in HDInsight composed of multiple components as pods. 
 
 ## Cluster Controllers
 
