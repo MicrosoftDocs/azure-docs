@@ -49,5 +49,5 @@ The following example demonstrates raising a number to various powers.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`SQRT`](sqrt.md)

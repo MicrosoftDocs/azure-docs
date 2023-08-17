@@ -5,6 +5,7 @@ description: Integrate your Remote Desktop Gateway infrastructure with Azure AD 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 01/29/2023
 
@@ -120,6 +121,8 @@ Follow the steps in [What does Azure AD Multi-Factor Authentication mean for me?
 This section provides instructions for configuring RDS infrastructure to use Azure AD MFA for client authentication with the Remote Desktop Gateway.
 
 ### Acquire Azure Active Directory tenant ID
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 As part of the configuration of the NPS extension, you need to supply admin credentials and the Azure AD ID for your Azure AD tenant. To get the tenant ID, complete the following steps:
 

@@ -1,6 +1,6 @@
 ---
 title: Create a function that integrates with Azure Logic Apps
-description: Create a function integrate with Azure Logic Apps and Azure Cognitive Services. The resulting workflow categorizes tweet sentiments sends email notifications.
+description: Create a function integrate with Azure Logic Apps and Azure AI services. The resulting workflow categorizes tweet sentiments sends email notifications.
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.topic: tutorial
 ms.date: 04/10/2021
@@ -17,7 +17,7 @@ This tutorial shows you how to create a workflow to analyze Twitter activity. As
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Create a Cognitive Services API Resource.
+> * Create an Azure AI services API Resource.
 > * Create a function that categorizes tweet sentiment.
 > * Create a logic app that connects to Twitter.
 > * Add sentiment detection to the logic app.
@@ -34,7 +34,7 @@ In this tutorial, you learn to:
 
 ## Create Text Analytics resource
 
-The Cognitive Services APIs are available in Azure as individual resources. Use the Text Analytics API to detect the sentiment of posted tweets.
+The Azure AI services APIs are available in Azure as individual resources. Use the Text Analytics API to detect the sentiment of posted tweets.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -161,7 +161,7 @@ With the Text Analytics resource created, you'll copy a few settings and set the
     > [!NOTE]
     > To test the function, select **Test/Run** from the top menu. On the _Input_ tab, enter a value of `0.9` in the _Body_ input box, and then select **Run**. Verify that a value of _Positive_ is returned in the _HTTP response content_ box in the _Output_ section.
 
-Next, create a logic app that integrates with Azure Functions, Twitter, and the Cognitive Services API.
+Next, create a logic app that integrates with Azure Functions, Twitter, and the Azure AI services API.
 
 ## Create a logic app
 

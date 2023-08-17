@@ -48,5 +48,5 @@ The following example returns the sign of various numbers from -2 to 2.
 
 ## Next steps
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`ABS`](abs.md)

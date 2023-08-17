@@ -6,7 +6,7 @@ brand: azure
 
 metadata:
   title: Bing Search API documentation
-  titleSuffix: Azure Cognitive Services
+  titleSuffix: Azure AI services
   description: The Bing Search APIs let you build web-connected apps and services that find webpages, images, news, locations, and more without advertisements.
   services: cognitive-services
   ms.service: cognitive-services

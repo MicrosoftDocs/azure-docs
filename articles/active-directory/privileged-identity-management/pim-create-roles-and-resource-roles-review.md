@@ -22,7 +22,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
 ## Prerequisites
 
-[!INCLUDE [active-directory-p2-governance-either-license.md](../../../includes/active-directory-p2-governance-either-license.md)]
+[!INCLUDE [entra-id-license-pim.md](../../../includes/entra-id-license-pim.md)]
 
 For more information about licenses for PIM, refer to [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
@@ -35,7 +35,9 @@ Access Reviews for **Service Principals** requires an Entra Workload Identities 
 
 ## Create access reviews
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as a user that is assigned to one of the prerequisite role(s).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as a user that is assigned to one of the prerequisite role(s).
 
 2. Select **Identity Governance**.
  
@@ -134,7 +136,7 @@ You can track the progress as the reviewers complete their reviews on the **Over
 
 :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/access-review-overview.png" alt-text="Access reviews overview page showing the details of the access review for Azure AD roles screenshot." lightbox="./media/pim-create-azure-ad-roles-and-resource-roles-review/access-review-overview.png":::
 
-If this is a one-time review, then after the access review period is over or the administrator stops the access review, follow the steps in [Complete an access review of Azure resource and Azure AD roles](pim-complete-azure-ad-roles-and-resource-roles-review.md) to see and apply the results.  
+If this is a one-time review, then after the access review period is over or the administrator stops the access review, follow the steps in [Complete an access review of Azure resource and Azure AD roles](./pim-complete-roles-and-resource-roles-review.md) to see and apply the results.  
 
 To manage a series of access reviews, navigate to the access review, and you will find upcoming occurrences in Scheduled reviews, and edit the end date or add/remove reviewers accordingly.
 
@@ -169,5 +171,5 @@ After one or more access reviews have been started, you may want to modify or up
     
 ## Next steps
 
-- [Perform an access review of Azure resource and Azure AD roles in PIM](pim-perform-azure-ad-roles-and-resource-roles-review.md)
-- [Complete an access review of Azure resource and Azure AD roles in PIM](pim-complete-azure-ad-roles-and-resource-roles-review.md)
+- [Perform an access review of Azure resource and Azure AD roles in PIM](./pim-perform-roles-and-resource-roles-review.md)
+- [Complete an access review of Azure resource and Azure AD roles in PIM](./pim-complete-roles-and-resource-roles-review.md)

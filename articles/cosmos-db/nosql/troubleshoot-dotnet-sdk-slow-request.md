@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: ignite-2022, devx-track-dotnet
-ms.date: 03/13/2023
+ms.date: 08/02/2023
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: mjbrown
@@ -172,7 +172,7 @@ For multiple store results for a single request, be aware of the following:
 
 Show the time for the different stages of sending and receiving a request in the transport layer.
 
-* `ChannelAcquisitionStarted`: The time to get or create a new connection. You can create new connections for numerous different regions. For example, let's say that a connection was unexpectedly closed, or too many requests were getting sent through the existing connections. You create a new connection.
+* `ChannelAcquisitionStarted`: The time to get or create a new connection. Connections can be created for numerous reasons such as: The previous connection was closed due to inactivity using [CosmosClientOptions.IdleTcpConnectionTimeout](sdk-connection-modes.md#volume-of-connections), the volume of concurrent requests exceeds the [CosmosClientOptions.MaxRequestsPerTcpConnection](sdk-connection-modes.md#volume-of-connections), the connection was closed due to a network error, or the application is not following the [Singleton pattern](#application-design) and new instances are constantly created. Once a connection is established, it is reused for subsequent requests, so this should not impact P99 latency unless the previously mentioned issues are happening.
 * `Pipelined` time is large might be caused by a large request.
 * `Transit time` is large, which leads to a networking problem. Compare this number to the `BELatencyInMs`. If `BELatencyInMs` is small, then the time was spent on the network, and not on the Azure Cosmos DB service.
 * `Received` time is large might be caused by a thread starvation problem. This is the time between having the response and returning the result.
