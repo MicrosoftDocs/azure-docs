@@ -89,7 +89,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    # install Connector/Python https://dev.mysql.com/doc/connector-python/en/connector-python-installation.html
    pip install mysql-connector-python
    ```
-1. Authenticate with access token get via `azure-identity` library. Get connection string from the environment variable added by Service Connector.
+1. Authenticate with access token get via `azure-identity` library. Get connection information from the environment variable added by Service Connector.
    ```python
    from azure.identity import ManagedIdentityCredential, ClientSecretCredential
    import mysql.connector
