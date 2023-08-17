@@ -29,25 +29,25 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
 * Linux virtual Machine to use PostgreSQL client
 * Add the NSG rule that allows inbound and outbound connections on port 5432 in HDInsight on AKS pool subnet.
 
-## Preparing PostgreSQL table & Client
+## Prepare PostgreSQL table & Client
 
-1. Using a Linux virtual machine, install PostgreSQL client using below commands
+- Using a Linux virtual machine, install PostgreSQL client using below commands
 
     ```
     sudo apt-get update
     sudo apt-get install postgresql-client
     ```
 
-1. Install the certificate to connect to PostgreSQL server using SSL
+- Install the certificate to connect to PostgreSQL server using SSL
 
     `wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem`
 
-1. Connect to the server (replace host, username and database name accordingly)
+- Connect to the server (replace host, username and database name accordingly)
 
     ```
     psql --host=flinkpostgres.postgres.database.azure.com --port=5432 --username=admin --dbname=postgres --set=sslmode=require --set=sslrootcert=DigiCertGlobalRootCA.crt.pem
     ```
-1. After connecting to the database successfully, create a sample table
+- After connecting to the database successfully, create a sample table
    ``` 
    CREATE TABLE shipments (
       shipment_id SERIAL NOT NULL PRIMARY KEY,
@@ -64,19 +64,19 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
        (default,10003,'Shanghai','Hangzhou',false);
     ``` 
 
-1. To enable CDC on PostgreSQL database, you're required to make the following changes.
+- To enable CDC on PostgreSQL database, you're required to make the following changes.
+    
+    - WAL level must be changed to **logical**. This value can be changed in server parameters section on Azure portal.
 
-    1. WAL level must be changed to **logical**. This value can be changed in server parameters section on Azure portal.
+        :::image type="content" source="./media/monitor-changes-postgres-table-flink/enable-cdc-on-postgres-database.png" alt-text="Screenshot showing how to enable-cdc-on-postgres-database." border="true" lightbox="./media/monitor-changes-postgres-table-flink/enable-cdc-on-postgres-database.png":::
 
-        :::image type="content" source="./media/monitor-changes-postgres-table-using-flink/enable-cdc-on-postgres-database.png" alt-text="Screenshot showing how to enable-cdc-on-postgres-database." border="true" lightbox="./media/monitor-changes-postgres-table-using-flink/enable-cdc-on-postgres-database.png":::
-
-    1. User accessing the table must have 'REPLICATION' role added
+    - User accessing the table must have 'REPLICATION' role added
 
          ALTER USER `<username>` WITH REPLICATION;
 
-## Creating Flink PostgreSQL CDC table
+## Create Flink PostgreSQL CDC table
 
-1. To create Flink PostgreSQL CDC table,  download all the dependent jars. Use the `pom.xml` file with the following contents.
+- To create Flink PostgreSQL CDC table,  download all the dependent jars. Use the `pom.xml` file with the following contents.
 
     ```xml
     <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0  http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -94,9 +94,11 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
         </dependencies>
     </project>
     ```
-1. Use maven command to download all the dependent jars
+-  Use maven command to download all the dependent jars
 
-    `mvn -DoutputDirectory=target -f pom.xml dependency:copy-dependencies -X`
+    ```
+       mvn -DoutputDirectory=target -f pom.xml dependency:copy-dependencies -X
+    ```
 
     > [!NOTE]
     > * If your web ssh pod does not contain maven please follow the links to download and install it.
@@ -105,7 +107,7 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
     > * In order to download jsr jar file use the following command
     >     * `wget https://repo1.maven.org/maven2/net/java/loci/jsr308-all/1.1.2/jsr308-all-1.1.2.jar`
 
-1. Once the dependent jars are downloaded start the [Flink Sql client](../flink/flink-webssh-on-portal-to-flink-sql.md), with these jars to be imported into the session. Complete command as follows,
+-  Once the dependent jars are downloaded start the [Flink Sql client](../flink/flink-webssh-on-portal-to-flink-sql.md), with these jars to be imported into the session. Complete command as follows,
 
     ```sql
     /opt/flink-webssh/bin/sql-client.sh -j
@@ -118,12 +120,12 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
     ```
     These commands start the sql client with the dependencies as,
 
-     :::image type="content" source="./media/monitor-changes-postgres-table-using-flink/start-the-sql-client.png" alt-text="Screenshot showing start-the-sql-client." border="true" lightbox="./media/monitor-changes-postgres-table-using-flink/start-the-sql-client.png":::
+     :::image type="content" source="./media/monitor-changes-postgres-table-flink/start-the-sql-client.png" alt-text="Screenshot showing start-the-sql-client." border="true" lightbox="./media/monitor-changes-postgres-table-flink/start-the-sql-client.png":::
 
-     :::image type="content" source="./media/monitor-changes-postgres-table-using-flink/sql-client-status.png" alt-text="Screenshot showing sql-client-status."    border="true" lightbox="./media/monitor-changes-postgres-table-using-flink/sql-client-status.png":::
+     :::image type="content" source="./media/monitor-changes-postgres-table-flink/sql-client-status.png" alt-text="Screenshot showing sql-client-status."    border="true" lightbox="./media/monitor-changes-postgres-table-flink/sql-client-status.png":::
 
 
-1. Create a Flink PostgreSQL CDC table using CDC connector
+- Create a Flink PostgreSQL CDC table using CDC connector
 
     ``` 
     CREATE TABLE shipments (
@@ -147,11 +149,11 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
     ```
 ## Validation
 
-1. Run 'select *' command to monitor the changes.
-
-    `select * from shipments;`
-
-     :::image type="content" source="./media/monitor-changes-postgres-table-using-flink/run-select-command.png" alt-text="Screenshot showing how to run-select-command." border="true" lightbox="./media/monitor-changes-postgres-table-using-flink/run-select-command.png":::
+- Run 'select *' command to monitor the changes.
+```sql
+  select * from shipments;
+```
+     :::image type="content" source="./media/monitor-changes-postgres-table-flink/run-select-command.png" alt-text="Screenshot showing how to run-select-command." border="true" lightbox="./media/monitor-changes-postgres-table-flink/run-select-command.png":::
 
 ### Reference
 
