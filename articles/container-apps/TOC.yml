@@ -46,7 +46,7 @@
       href: deploy-visual-studio-code.md
   - name: Run a job
     href: jobs-get-started-cli.md
-- name: Build and deploy
+- name: Develop and deploy
   items:
     - name: Deploy an app with containerapp up
       href: containerapp-up.md
