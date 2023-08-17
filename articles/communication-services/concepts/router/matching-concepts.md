@@ -22,9 +22,9 @@ This document describes the registration of workers, the submission of jobs and 
 
 ## Worker Registration
 
-Before a worker can receive offers to service a job, it must be registered first by setting `availableForOffers` to true.  Next, we need to specify which queues the worker listens on and which channels it can handle.  Once registered, you receive a [RouterWorkerRegistered](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerregistered) event from Event Grid.
+Before a worker can receive offers to service a job, it must be registered first by setting `availableForOffers` to true.  Next, we need to specify which queues the worker listens on and which channels it can handle.  Once registered, you receive a [RouterWorkerRegistered](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerregistered) event from Event Grid and the worker's status is changed to `active`.
 
-In the following example, we register a worker to
+In the following example, we register a worker to:
 
 - Listen on `queue-1` and `queue-2`
 - Be able to handle both the voice and chat channels.  In this case, the worker could either take a single `voice` job at one time or two `chat` jobs at the same time.  This setting is configured by specifying the total capacity of the worker and assigning a cost per job for each channel.
@@ -256,13 +256,13 @@ client.update_worker(worker_id = "worker-1", router_worker = RouterWorker(availa
 ::: zone pivot="programming-language-java"
 
 ```java
-client.updateWorker(new UpdateWorkerOptions("worker-1").setAvailableForOffers(true));
+client.updateWorker(new UpdateWorkerOptions("worker-1").setAvailableForOffers(false));
 ```
 
 ::: zone-end
 
 > [!NOTE]
-> If a worker is registered and idle for more than 7 days, it'll be automatically deregistered.
+> If a worker is registered and idle for more than 7 days, it'll be automatically deregistered. Once deregistered, the worker's status is `draining` if one or more jobs are still assigned, or `inactive` if no jobs are assigned.
 
 <!-- LINKS -->
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md

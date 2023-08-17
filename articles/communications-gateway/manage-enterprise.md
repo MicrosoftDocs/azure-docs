@@ -1,6 +1,6 @@
 ---
 title: Manage an enterprise in Azure Communications Gateway's Number Management Portal
-description: Learn how to manage enterprises and numbers for Operator Connect and Teams Phone Mobile with Azure Communication Gateway's API Bridge Number Management Portal.
+description: Learn how to manage enterprises and numbers for Operator Connect and Teams Phone Mobile with Azure Communication Gateway's Number Management Portal.
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway

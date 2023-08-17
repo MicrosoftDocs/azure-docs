@@ -37,32 +37,32 @@ The connection string contains:
 
 The following table lists all the valid names for key/value pairs in the connection string.
 
-| Key | Description | Required | Default value| Example value 
-| --- | --- | --- | --- | --- |
-| Endpoint | The URL of your ASRS instance. | Y | N/A |`https://foo.service.signalr.net` |
-| Port | The port that your ASRS instance is listening on. on. | N| 80/443, depends on the endpoint URI schema | 8080|
-| Version| The version of given connection. string. | N| 1.0 | 1.0 |
-| ClientEndpoint | The URI of your reverse proxy, such as the App Gateway or API. Management | N| null | `https://foo.bar` |
-| AuthType | The auth type. By default the service uses the AccessKey authorize requests. **Case insensitive** | N | null | Azure, azure.msi, azure.app |
+| Key            | Description                                                                                       | Required | Default value                              | Example value                     |
+| -------------- | ------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------ | --------------------------------- |
+| Endpoint       | The URL of your ASRS instance.                                                                    | Y        | N/A                                        | `https://foo.service.signalr.net` |
+| Port           | The port that your ASRS instance is listening on. on.                                             | N        | 80/443, depends on the endpoint URI schema | 8080                              |
+| Version        | The version of given connection. string.                                                          | N        | 1.0                                        | 1.0                               |
+| ClientEndpoint | The URI of your reverse proxy, such as the App Gateway or API. Management                         | N        | null                                       | `https://foo.bar`                 |
+| AuthType       | The auth type. By default the service uses the AccessKey authorize requests. **Case insensitive** | N        | null                                       | Azure, azure.msi, azure.app       |
 
 ### Use AccessKey
 
 The local auth method is used when `AuthType` is set to null.
 
-| Key | Description| Required | Default value | Example value|
-| --- | --- | --- | --- | --- |
-| AccessKey | The key string in base64 format for building access token. | Y | null | ABCDEFGHIJKLMNOPQRSTUVWEXYZ0123456789+=/ |
+| Key       | Description                                                | Required | Default value | Example value                            |
+| --------- | ---------------------------------------------------------- | -------- | ------------- | ---------------------------------------- |
+| AccessKey | The key string in base64 format for building access token. | Y        | null          | ABCDEFGHIJKLMNOPQRSTUVWEXYZ0123456789+=/ |
 
 ### Use Azure Active Directory
 
 The Azure AD auth method is used when `AuthType` is set to `azure`, `azure.app` or `azure.msi`.
 
-| Key| Description| Required | Default value | Example value|
-| -------------- | ------------------------------------------------------------------ | -------- | ------------- | ------------------------------------------ |
-| ClientId | A GUID of an Azure application or an Azure identity. | N| null| `00000000-0000-0000-0000-000000000000` |
-| TenantId | A GUID of an organization in Azure Active Directory. | N| null| `00000000-0000-0000-0000-000000000000` |
-| ClientSecret | The password of an Azure application instance. | N| null| `***********************.****************` |
-| ClientCertPath | The absolute path of a client certificate (cert) file to an Azure application instance. | N| null| `/usr/local/cert/app.cert` |
+| Key            | Description                                                                             | Required | Default value | Example value                              |
+| -------------- | --------------------------------------------------------------------------------------- | -------- | ------------- | ------------------------------------------ |
+| ClientId       | A GUID of an Azure application or an Azure identity.                                    | N        | null          | `00000000-0000-0000-0000-000000000000`     |
+| TenantId       | A GUID of an organization in Azure Active Directory.                                    | N        | null          | `00000000-0000-0000-0000-000000000000`     |
+| ClientSecret   | The password of an Azure application instance.                                          | N        | null          | `***********************.****************` |
+| ClientCertPath | The absolute path of a client certificate (cert) file to an Azure application instance. | N        | null          | `/usr/local/cert/app.cert`                 |
 
 A different `TokenCredential` is used to generate Azure AD tokens depending on the parameters you have given.
 
@@ -81,7 +81,7 @@ A different `TokenCredential` is used to generate Azure AD tokens depending on t
      ```
      Endpoint=xxx;AuthType=azure.msi;ClientId=<client_id>
      ```
-     
+
      - [ManagedIdentityCredential(clientId)](/dotnet/api/azure.identity.managedidentitycredential) is used.
 
   1. A system-assigned managed identity is used.
@@ -140,7 +140,7 @@ For more information about how to authenticate using Azure AD application, see [
 
 ## Authenticate with Managed identity
 
-You can also use a system assigned or user assigned  [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to authenticate with SignalR service.
+You can also use a system assigned or user assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to authenticate with SignalR service.
 
 To use a system assigned identity, add `AuthType=azure.msi` to the connection string:
 
@@ -163,7 +163,7 @@ For more information about how to configure managed identity, see [Authorize fro
 
 ### Use the connection string generator
 
-It may be cumbersome and error-prone to build connection strings manually. To avoid making mistakes, SignalR provides a connection string generator to help you generate a connection string that includes Azure AD identities like `clientId`, `tenantId`, etc.  To use the tool open your SignalR instance in Azure portal, select **Connection strings** from the left side menu.
+It may be cumbersome and error-prone to build connection strings manually. To avoid making mistakes, SignalR provides a connection string generator to help you generate a connection string that includes Azure AD identities like `clientId`, `tenantId`, etc. To use the tool open your SignalR instance in Azure portal, select **Connection strings** from the left side menu.
 
 :::image type="content" source="media/concept-connection-string/generator.png" alt-text="Screenshot showing connection string generator of SignalR service in Azure portal.":::
 
@@ -178,7 +178,7 @@ For more information about how access tokens are generated and validated, see [A
 
 A connection string contains the HTTP endpoint for app server to connect to SignalR service. The server returns the HTTP endpoint to the clients in a negotiate response, so the client can connect to the service.
 
-In some applications, there may be an extra component in front of SignalR service. All client connections need to go through that component first.  For example, [Azure Application Gateway](../application-gateway/overview.md) is a common service that provides additional network security.
+In some applications, there may be an extra component in front of SignalR service. All client connections need to go through that component first. For example, [Azure Application Gateway](../application-gateway/overview.md) is a common service that provides additional network security.
 
 In such case, the client needs to connect to an endpoint different than SignalR service. Instead of manually replacing the endpoint at the client side, you can add `ClientEndpoint` to connection string:
 
@@ -206,15 +206,15 @@ services.AddSignalR().AddAzureSignalR("<connection_string>");
 
 Or you can call `AddAzureSignalR()` without any arguments. The service SDK returns the connection string from a config named `Azure:SignalR:ConnectionString` in your [configuration provider](/dotnet/core/extensions/configuration-providers).
 
-In a local development environment, the configuration is stored in a file (*appsettings.json* or *secrets.json*) or environment variables. You can use one of the following ways to configure connection string:
+In a local development environment, the configuration is stored in a file (_appsettings.json_ or _secrets.json_) or environment variables. You can use one of the following ways to configure connection string:
 
 - Use .NET secret manager (`dotnet user-secrets set Azure:SignalR:ConnectionString "<connection_string>"`)
-- Set an environment variable named `Azure__SignalR__ConnectionString` to the connection string.  The colons need to be replaced with double underscore in the [environment variable configuration provider](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider).
+- Set an environment variable named `Azure__SignalR__ConnectionString` to the connection string. The colons need to be replaced with double underscore in the [environment variable configuration provider](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider).
 
 In a production environment, you can use other Azure services to manage config/secrets like Azure [Key Vault](../key-vault/general/overview.md) and [App Configuration](../azure-app-configuration/overview.md). See their documentation to learn how to set up configuration provider for those services.
 
 > [!NOTE]
-> Even when you're directly setting a connection string using code, it's not recommended to hardcode the connection string in source code  You should read the connection string from a secret store like key vault and pass it to `AddAzureSignalR()`.
+> Even when you're directly setting a connection string using code, it's not recommended to hardcode the connection string in source code You should read the connection string from a secret store like key vault and pass it to `AddAzureSignalR()`.
 
 ### Configure multiple connection strings
 

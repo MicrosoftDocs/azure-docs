@@ -7,11 +7,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 07/04/2023
+ms.date: 07/31/2023
 
 ms.author: cmulligan
 author: csmulligan
-manager: celestedg
+manager: CelesteDG
 
 # Customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.
 

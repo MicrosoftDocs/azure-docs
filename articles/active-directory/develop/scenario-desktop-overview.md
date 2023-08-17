@@ -40,7 +40,7 @@ You write a desktop application, and you want to sign in users to your applicati
   - Or, if it's a Node.js Electron application, which runs on a Chromium instance.
 
 - For Windows hosted applications, it's also possible for applications running on computers joined to a Windows domain or Azure AD joined to acquire a token silently by using integrated Windows authentication.
-- Finally, and although it's not recommended, you can use a username and a password in public client applications. It's still needed in some scenarios like DevOps. Using it imposes constraints on your application. For instance, it can't sign in a user who needs to do [multifactor authentication](../authentication/concept-mfa-howitworks.md) (conditional access). Also, your application won't benefit from single sign-on (SSO).
+- Finally, and although it's not recommended, you can use a username and a password in public client applications. It's still needed in some scenarios like DevOps. Using it imposes constraints on your application. For instance, it can't sign in a user who needs to do [multifactor authentication](../authentication/concept-mfa-howitworks.md) (Conditional Access). Also, your application won't benefit from single sign-on (SSO).
 
   It's also against the principles of modern authentication and is only provided for legacy reasons.
 

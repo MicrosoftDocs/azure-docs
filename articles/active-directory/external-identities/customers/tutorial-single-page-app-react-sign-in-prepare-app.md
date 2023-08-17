@@ -195,7 +195,7 @@ All parts of the app that require authentication must be wrapped in the [`MsalPr
     root.render(
         <App instance={msalInstance}/>
     );
-	```
+    ```
 
 ## Next steps
 

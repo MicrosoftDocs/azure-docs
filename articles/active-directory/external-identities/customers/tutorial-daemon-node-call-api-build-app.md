@@ -32,7 +32,7 @@ In this tutorial, you'll:
 - [Node.js](https://nodejs.org).
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 - Registration details for the Node.js daemon app and web API you created in the [prepare tenant tutorial](tutorial-daemon-node-call-api-prepare-tenant.md).
-- A protected web API that is running and ready to accept requests. If you haven't created one, see the [create a protected web API tutorial](how-to-protect-web-api-dotnet-core-overview.md). Ensure this web API is using the app registration details you created in the [prepare tenant tutorial](tutorial-daemon-node-call-api-prepare-tenant.md). Make sure your web API exposes the following endpoints via https:
+- A protected web API that is running and ready to accept requests. If you haven't created one, see the [create a protected web API tutorial](./tutorial-protect-web-api-dotnet-core-build-app.md). Ensure this web API is using the app registration details you created in the [prepare tenant tutorial](tutorial-daemon-node-call-api-prepare-tenant.md). Make sure your web API exposes the following endpoints via https:
     - `GET /api/todolist` to get all todos.
     - `POST /api/todolist` to add a todo.
 
@@ -42,7 +42,7 @@ Create a folder to host your Node.js daemon application, such as `ciam-call-api-
 
 1. In your terminal, change directory into your Node daemon app folder, such as `cd ciam-call-api-node-daemon`, then run `npm init -y`. This command creates a default package.json file for your Node.js project. This command creates a default `package.json` file for your Node.js project.
 
-1. Create more folders and files to achieve the following project structure:
+1. Create additional folders and files to achieve the following project structure:
 
     ```
         ciam-call-api-node-daemon/
@@ -268,7 +268,7 @@ const todos = await fetch.callApi(auth.apiConfig.uri, authResponse.accessToken);
 
 At this point, you're ready to test your client daemon app and web API:
 
-1. Use the steps you learned in [Secure an ASP.NET web API](how-to-protect-web-api-dotnet-core-overview.md) tutorial to start your web API. Your web API is now ready to serve client requests. If you don't run your web API on port `44351` as specified in the *authConfig.js* file, make sure you update the *authConfig.js* file to use the correct web API's port number. 
+1. Use the steps you learned in [Secure an ASP.NET web API](./tutorial-protect-web-api-dotnet-core-build-app.md) tutorial to start your web API. Your web API is now ready to serve client requests. If you don't run your web API on port `44351` as specified in the *authConfig.js* file, make sure you update the *authConfig.js* file to use the correct web API's port number. 
 
 1. In your terminal, make sure you're in the project folder that contains your daemon Node.js app such as `ciam-call-api-node-daemon`, then run the following command: 
 

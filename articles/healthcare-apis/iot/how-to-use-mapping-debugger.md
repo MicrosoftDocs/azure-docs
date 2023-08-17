@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 07/19/2023
+ms.date: 08/01/2023
 ms.author: jasteppe
 ---
 
@@ -103,15 +103,22 @@ For this troubleshooting example, we're using a test device message that is [mes
 
 In this article, you were provided with an overview and learned about how to use the Mapping debugger to edit and troubleshoot the MedTech service device and FHIR destination mappings.
 
-To learn how to troubleshoot MedTech service deployment errors, see
+For an overview of the MedTech service device mapping, see
 
 > [!div class="nextstepaction"]
-> [Troubleshoot MedTech service deployment errors](troubleshoot-errors-deployment.md)
+> [Overview of the MedTech service device mapping](overview-of-device-mapping.md)
 
-To learn how to troubleshoot errors using the MedTech service logs, see
+For an overview of the MedTech service FHIR destination mapping, see
 
 > [!div class="nextstepaction"]
-> [Troubleshoot errors using the MedTech service logs](troubleshoot-errors-logs.md)
+> [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
+
+
+For an overview of the MedTech service scenario-based mappings samples, see
+
+> [!div class="nextstepaction"]
+> [Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
+
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
  
