@@ -101,7 +101,7 @@ conceptualContent:
               text: Troubleshoot service log errors   
 
         # Card
-        - title: Automate and optimize FHIR data workflows
+        - title: Automate and optimize data workflows
           links:
             - url: ./events/events-overview.md
               itemType: overview
