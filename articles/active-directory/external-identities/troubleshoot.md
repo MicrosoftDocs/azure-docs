@@ -9,7 +9,7 @@ ms.date: 05/23/2023
 tags: active-directory
 ms.author: cmulligan
 author: csmulligan
-ms.custom: engagement-fy23, it-pro, seo-update-azuread-jan
+ms.custom: engagement-fy23, it-pro, seo-update-azuread-jan, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -206,5 +206,5 @@ You might see this message: "This invitation is blocked by cross-tenant access s
 
 ## Next steps
 
-- [Get support for B2B collaboration](../fundamentals/active-directory-troubleshooting-support-howto.md)
+- [Get support for B2B collaboration](../fundamentals/how-to-get-support.md)
 - [Use audit logs and access reviews](auditing-and-reporting.md)

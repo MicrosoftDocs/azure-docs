@@ -3,6 +3,7 @@ title: Deployment considerations for Azure AD Multi-Factor Authentication
 description: Learn about deployment considerations and strategy for successful implementation of Azure AD Multi-Factor Authentication
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 03/06/2023
 ms.author: justinha
@@ -90,7 +91,7 @@ Common use cases to require Azure AD Multi-Factor Authentication include:
 - To [specific applications](tutorial-enable-azure-mfa.md)
 - For [all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 - For [Azure management](../conditional-access/howto-conditional-access-policy-azure-management.md)
-- From [network locations you don't trust](../conditional-access/untrusted-networks.md)
+- From [network locations you don't trust](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 
 ### Named locations
 
@@ -255,4 +256,4 @@ For a guided walkthrough of many of the recommendations in this article, see the
 
 ## Next steps
 
-[Deploy other identity features](../fundamentals/deployment-plans.md)
+[Deploy other identity features](../architecture/deployment-plans.md)

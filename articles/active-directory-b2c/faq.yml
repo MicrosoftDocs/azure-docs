@@ -11,7 +11,7 @@ metadata:
   ms.date: 07/13/2023
   ms.author: godonnell
   ms.subservice: B2C
-  ms.custom: "b2c-support"
+  ms.custom: b2c-support, has-azure-ad-ps-ref
 title: 'Azure AD B2C: Frequently asked questions (FAQ)'
 summary: This page answers frequently asked questions about the Azure Active Directory B2C (Azure AD B2C). Keep checking back for updates.
 
