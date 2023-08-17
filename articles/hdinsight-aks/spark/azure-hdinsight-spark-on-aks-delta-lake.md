@@ -22,12 +22,12 @@ ms.date: 07/17/2023
 
 ## Scenario
 
-1. Read NYC Taxi Parquet Data format - List of Parquet files URLs are provided from[NYC Taxi & Limousine Commission](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page).
-1. For each url (file) perform some transformation and store in Delta format.
-1. Compute the average distance, average cost per mile and average cost from Delta Table using incremental load.
-1. Store computed value from Step#3 in Delta format into the KPI output folder.
-1. Create Delta Table on Delta Format output folder (auto refresh).
-1. The KPI output folder has multiple versions of the average distance and the average cost per mile for a trip.
+* Read NYC Taxi Parquet Data format - List of Parquet files URLs are provided from [NYC Taxi & Limousine Commission](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page).
+* For each url (file) perform some transformation and store in Delta format.
+* Compute the average distance, average cost per mile and average cost from Delta Table using incremental load.
+* Store computed value from Step#3 in Delta format into the KPI output folder.
+* Create Delta Table on Delta Format output folder (auto refresh).
+* The KPI output folder has multiple versions of the average distance and the average cost per mile for a trip.
 
 ### Provide require configurations for the delta lake
 
