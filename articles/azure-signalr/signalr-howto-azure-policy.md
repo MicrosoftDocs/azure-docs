@@ -43,7 +43,7 @@ When a resource is non-compliant, there are many possible reasons. To determine 
 1. Select **Compliance**.
 1. Use the filters to limit compliance states or to search for policies
 
-   [ ![Policy compliance in portal](./media/signalr-howto-azure-policy/azure-policy-compliance.png) ](./media/signalr-howto-azure-policy/azure-policy-compliance.png#lightbox)
+   [ ![Screenshot showing policy compliance in portal.](./media/signalr-howto-azure-policy/azure-policy-compliance.png) ](./media/signalr-howto-azure-policy/azure-policy-compliance.png#lightbox)
 
 1. Select a policy to review aggregate compliance details and events. If desired, then select a specific SignalR for resource compliance.
 

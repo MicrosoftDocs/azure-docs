@@ -41,7 +41,7 @@ To add a system-managed identity to your SignalR instance:
 1. On the **System assigned** tab, switch **Status** to **On**.
 1. Select **Save**.
 
-   :::image type="content" source="media/signalr-howto-use-managed-identity/system-identity-portal.png" alt-text="Add a system-assigned identity in the portal":::
+   :::image type="content" source="media/signalr-howto-use-managed-identity/system-identity-portal.png" alt-text="Screenshot showing Add a system-assigned identity in the portal.":::
 
 1. Select **Yes** to confirm the change.
 
@@ -55,7 +55,7 @@ To add a user-assigned identity to your SignalR instance, you need to create the
 1. On the **User assigned** tab, select **Add**.
 1. Select the identity from the **User assigned managed identities** drop down menu.
 1. Select **Add**.
-   :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Add a user-assigned identity in the portal":::
+   :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Screenshot showing Add a user-assigned identity in the portal.":::
 
 ## Use a managed identity in serverless scenarios
 
@@ -106,7 +106,7 @@ You can easily set access validation for a Function App without code changes usi
 1. In the **Basics** tab, select **Microsoft** from the **Identity provider** dropdown.
 1. Select **Log in with Azure Active Directory** in **Action to take when request is not authenticated**.
 1. Select **Microsoft** in the identity provider dropdown. The option to create a new registration is selected by default. You can change the name of the registration. For more information on enabling Azure AD provider, see [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md)
-   :::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="Function Aad":::
+   :::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="Screenshot showing Function Add.":::
 1. Navigate to SignalR Service and follow the [steps](howto-use-managed-identity.md#add-a-system-assigned-identity) to add a system-assigned identity or user-assigned identity.
 1. go to **Upstream settings** in SignalR Service and choose **Use Managed Identity** and **Select from existing Applications**. Select the application you created previously.
 
