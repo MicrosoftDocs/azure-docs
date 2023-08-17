@@ -47,6 +47,7 @@ In this tutorial;
             └── authConfig.js
             └── authPopup.js
             └── authRedirect.js
+            └── claimUtils.js
             └── index.html
             └── signout.html
             └── styles.css
