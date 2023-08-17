@@ -71,6 +71,8 @@
       href: guest-attestation-confidential-vms.md
     - name: Microsoft Defender for Cloud integration
       href: guest-attestation-defender-for-cloud.md
+    - name: Virtual TPMs in Azure confidential VMs
+      href: virtual-tpms-in-azure-confidential-vm.md
     - name: References
       items:
       - name: DCasv5 and DCadsv5-series
@@ -134,6 +136,8 @@
       href: key-rotation-offline.md
     - name: Use sample app with guest attestation
       href: guest-attestation-example.md
+    - name: How to leverage virtual TPMs in Azure confidential VMs
+      href: how-to-leverage-virtual-tpms-in-azure-confidential-vms.md
     - name: Create a custom image for a confidential VM
       href: how-to-create-custom-image-confidential-vm.md
     - name: Image hardening techniques for deployment

@@ -110,8 +110,8 @@ If an error occurs while processing the membership rule for a specific group, an
 
 The following articles provide additional information on how to use groups in Azure Active Directory.
 
-- [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Create a new group and adding members](../fundamentals/active-directory-groups-create-azure-portal.md)
-- [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
-- [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [See existing groups](../fundamentals/groups-view-azure-portal.md)
+- [Create a new group and adding members](../fundamentals/how-to-manage-groups.md)
+- [Manage settings of a group](../fundamentals/how-to-manage-groups.md)
+- [Manage memberships of a group](../fundamentals/how-to-manage-groups.md)
 - [Manage dynamic rules for users in a group](groups-dynamic-membership.md)

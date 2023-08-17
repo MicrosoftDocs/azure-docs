@@ -6,7 +6,7 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 02/13/2022
+ms.date: 08/13/2023
 ms.reviewer: lualderm
 ---
 
@@ -167,9 +167,9 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
         ![Screenshot that shows the Settings section in the Azure Monitor menu with Diagnostic settings highlighted.](media/diagnostic-settings/menu-monitor.png)
 
-   - For the activity log, select **Activity log** on the **Azure Monitor** menu and then select **Diagnostic settings**. Make sure you disable any legacy configuration for the activity log. For instructions, see [Disable existing settings](./activity-log.md#legacy-collection-methods).
+   - For the activity log, select **Activity log** on the **Azure Monitor** menu and then select **Export Activity Logs**. Make sure you disable any legacy configuration for the activity log. For instructions, see [Disable existing settings](./activity-log.md#legacy-collection-methods).
 
-        ![Screenshot that shows the Azure Monitor menu with Activity log selected and Diagnostic settings highlighted in the Monitor-Activity log menu bar.](media/diagnostic-settings/menu-activity-log.png)
+        ![Screenshot that shows the Azure Monitor menu with Activity log selected and Export activity logs highlighted in the Monitor-Activity log menu bar.](media/diagnostic-settings/menu-activity-log.png)
 
 1. If no settings exist on the resource you've selected, you're prompted to create a setting. Select **Add diagnostic setting**.
 
