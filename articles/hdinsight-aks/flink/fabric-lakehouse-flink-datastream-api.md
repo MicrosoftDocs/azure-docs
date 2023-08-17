@@ -19,7 +19,7 @@ In this example, you learn how to connect to OneLake in Microsoft Fabric with HD
 * Create a License Mode of at least Premium Capacity Workspace on [Power BI](https://app.powerbi.com/)
 * [Create a Lake House](https://learn.microsoft.com/fabric/data-engineering/tutorial-build-lakehouse) on this workspace
 
-## Connecting to One Lake Storage 
+## Connect to One Lake Storage 
 
 ### Microsoft Fabric and Lakehouse
 
@@ -30,7 +30,7 @@ In this example, you learn how to connect to OneLake in Microsoft Fabric with HD
 > [!Note]
 > [Microsoft Fabric](https://learn.microsoft.com/fabric/get-started/microsoft-fabric-overview) is in [preview](https://learn.microsoft.com/fabric/get-started/preview)
 
-#### UAMI access to the Fabric workspace
+#### Managed identity access to the Fabric workspace
 
 In this step, we provide access to the *user managed identity* to Fabric. You're required to type the *user assigned managed identity* and add to your Fabric workspace. 
 
@@ -199,7 +199,7 @@ public class onelakeDemo {
     }
 }
 ```
-### Package the jar and submit to Flink to run
+### Package the jar and submit to Flink
 
 Here, we use the packaged jar and submit to Flink cluster 
 
