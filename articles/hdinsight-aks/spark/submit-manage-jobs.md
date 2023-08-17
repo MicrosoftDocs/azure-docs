@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 08/17/2023
 ---
 
-# Submit and manage Jobs on a Spark cluster in HDInsight on AKS
+# Submit and manage jobs on a Spark cluster in HDInsight on AKS
 
 Once the cluster is created, user can use various interfaces to submit and manage jobs by
 
@@ -266,9 +266,7 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
    :::image type="content" source="./media/submit-manage-jobs/select-yarn-ui.png" alt-text="Diagram showing how to select Yarn UI." lightbox="./media/submit-manage-jobs/select-yarn-ui.png":::
    
 1. You can track the job you recently ran by the same application ID.
-
-   :::image type="content" source="./media/submit-manage-jobs/track-yarn-job.png" alt-text="Diagram showing track yarn job." lightbox="./media/submit-manage-jobs/track-yarn-job-log.png":::
-   
+     
 1. Click on the Application ID in Yarn to view detailed logs of the job
 
-   :::image type="content" source="./media/submit-manage-jobs/view-yarn-job-log" alt-text="Diagram showing how to view yarn job logs." lightbox="./media/submit-manage-jobs/view-yarn-job-log.png":::
+
