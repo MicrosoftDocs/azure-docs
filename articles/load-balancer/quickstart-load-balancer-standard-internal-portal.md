@@ -121,7 +121,6 @@ In this section, you create a virtual network, subnet, and Azure Bastion host.
     | Public IP Address | Select **Create new**. </br> Enter **myBastionIP** in Name. </br> Select **OK**. |
 
     > [!IMPORTANT]
-
     > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
     >
