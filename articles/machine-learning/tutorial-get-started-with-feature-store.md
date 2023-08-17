@@ -16,9 +16,9 @@ ms.custom: sdkv2, build-2023
 
 # Tutorial 1: Develop and register a feature set with managed feature store (preview)
 
-This tutorial series shows how features seamlessly integrate all phases of the machine learning (ML) lifecycle: prototyping, training, and operationalization.
+This tutorial series shows how features seamlessly integrate all phases of the machine learning lifecycle: prototyping, training, and operationalization.
 
-You can use Azure Machine Learning managed feature store to discover, create, and operationalize features. The ML lifecycle includes a prototyping phase, where you experiment with various features. It also involves an operationalization phase, where models are deployed and inference steps look up feature data. Features serve as the connective tissue in the ML lifecycle. To learn more about basic concepts for managed feature store, see [What is managed feature store?](./concept-what-is-managed-feature-store.md) and [Understanding top-level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md).
+You can use Azure Machine Learning managed feature store to discover, create, and operationalize features. The machine learning lifecycle includes a prototyping phase, where you experiment with various features. It also involves an operationalization phase, where models are deployed and inference steps look up feature data. Features serve as the connective tissue in the machine learning lifecycle. To learn more about basic concepts for managed feature store, see [What is managed feature store?](./concept-what-is-managed-feature-store.md) and [Understanding top-level entities in managed feature store](./concept-top-level-entities-in-managed-feature-store.md).
 
 This tutorial is the first part of a four-part series. Here, you learn how to:
 
@@ -34,8 +34,7 @@ This tutorial series has two tracks:
 * The SDK-only track uses only Python SDKs. Choose this track for pure, Python-based development and deployment.
 * The SDK and CLI track uses the Python SDK for feature set development and testing only, and it uses the CLI for CRUD operations (create, update, and delete). This track is useful in continuous integration and continuous delivery (CI/CD) or GitOps scenarios, where CLI/YAML is preferred.
 
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 

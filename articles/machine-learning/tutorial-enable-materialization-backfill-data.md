@@ -17,13 +17,13 @@ ms.custom: sdkv2, build-2023
 
 # Tutorial 2: Enable materialization and backfill feature data (preview)
 
-This tutorial series shows how features seamlessly integrate all phases of the machine learning (ML) lifecycle: prototyping, training, and operationalization.
+This tutorial series shows how features seamlessly integrate all phases of the machine learning lifecycle: prototyping, training, and operationalization.
 
 This tutorial is the second part of a four-part series. The first tutorial showed how to create a feature set specification with custom transformations, and then use that feature set to generate training data. This tutorial describes materialization.
 
 Materialization computes the feature values for a feature window and then stores those values in a materialization store. All feature queries can then use the values from the materialization store.
 
-A feature set query applies the transformations to the source on the fly, to compute the features before it returns the values. This process works well for the prototyping phase. However, for training and inference operations in a production environment, we recommend that you materialize the features for greater reliability and availability.
+Without materialization, a feature set query applies the transformations to the source on the fly, to compute the features before it returns the values. This process works well for the prototyping phase. However, for training and inference operations in a production environment, we recommend that you materialize the features for greater reliability and availability.
 
 In this tutorial, you learn how to:
 
@@ -31,8 +31,7 @@ In this tutorial, you learn how to:
 > * Enable an offline store on the feature store by creating and attaching an Azure Data Lake Storage Gen2 container and a user-assigned managed identity (UAI).
 > * Enable offline materialization on the feature sets, and backfill the feature data.
 
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
