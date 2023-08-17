@@ -11,16 +11,16 @@ ms.custom: event-tier1-build-2022, engagement-fy23
 
 # Integrate Azure Database for MySQL with Service Connector
 
-This page shows the supported authentication types and client types of Azure Database for MySQL - Flexible Server using Service Connector. You might still be able to connect to Azure Database for MySQL in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
+This page shows the supported authentication types, client types and sample codes of Azure Database for MySQL - Flexible Server using Service Connector.  This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. Also detail steps with sample codes about how to make connection to the database. You can learn more about [Service Connector environment variable naming convention](concept-service-connector-internals.md).
 
 
 [!INCLUDE [Azure-database-for-mysql-single-server-deprecation](../mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 ## Supported compute service
 
-- Azure App Service
-- Azure Container Apps
-- Azure Spring Apps
+- Azure App Service. You can get the configurations from Azure App Service configurations.
+- Azure Container Apps. You can get the configurations from Azure Container Apps environment variables.
+- Azure Spring Apps. You can get the configurations from Azure Spring Apps runtime.
 
 ## Supported authentication types and client types
 
@@ -42,7 +42,7 @@ Supported authentication and clients for App Service, Container Apps, and Azure 
 > [!NOTE]
 > System-assigned managed identity, User-assigned managed identity and Service principal are only supported on Azure CLI. 
 
-## Default environment variable names or application properties and sample codes
+## Default environment variable names or application properties and Sample codes
 
 Reference the connection details and sample codes in following tables to connect compute services to Azure Database for MySQL. 
 
@@ -75,6 +75,7 @@ Follow these steps to connect to Azure Database for MySQL.
 |-----------------------------------|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `AZURE_MYSQL_CONNECTIONSTRING`      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>&password=<Uri.EscapeDataString(<MySQL-DB-password>)` |
 
+Follow these steps to connect to Azure Database for MySQL.
 1. Install dependencies. Follow the guidance to [install Connector/J](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-installing.html).
 1. In code, get MySQL connection string from environment variables added by Service Connector service.
     ```java
@@ -130,7 +131,7 @@ After created a springboot client type connection, Service Connector service wil
 | `AZURE_MYSQL_USER`                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | `AZURE_MYSQL_PASSWORD`              | Database password | `MySQL-DB-password`                        |
 
-
+Follow these steps to connect to Azure Database for MySQL.
 1. Install dependencies. Follow the guidance to [install Connector/Python](https://dev.mysql.com/doc/connector-python/en/connector-python-installation.html) by following the guidance.
 1. In code, get MySQL connection information from environment variables added by Service Connector service.
    ```python
@@ -161,6 +162,7 @@ After created a springboot client type connection, Service Connector service wil
 | `AZURE_MYSQL_USER`                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | `AZURE_MYSQL_PASSWORD`              | Database password | `MySQL-DB-password`                        |
 
+Follow these steps to connect to Azure Database for MySQL.
 1. Install dependencies.
    ```bash
    pip install django==3.2
@@ -192,6 +194,7 @@ After created a springboot client type connection, Service Connector service wil
 |-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
 | `AZURE_MYSQL_CONNECTIONSTRING`      | Go-sql-driver connection string | `<MySQL-DB-username>:<MySQL-DB-password>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
 
+Follow these steps to connect to Azure Database for MySQL.
 1. Install dependencies.
     ```bash
     go get -u github.com/go-sql-driver/mysql
@@ -221,7 +224,7 @@ After created a springboot client type connection, Service Connector service wil
 | `AZURE_MYSQL_PORT`                  | Port number       | `3306`                                     |
 | `AZURE_MYSQL_SSL`                   | SSL option        | `true`                                     |
 
-
+Follow these steps to connect to Azure Database for MySQL.
 1. Install dependencies.
    ```bash
    npm install mysql
@@ -260,7 +263,7 @@ After created a springboot client type connection, Service Connector service wil
 | `AZURE_MYSQL_USERNAME`              | Database Username  | `<MySQL-DB-username>`                      |
 | `AZURE_MYSQL_PASSWORD`              | Database password  | `<MySQL-DB-password>`                      |
 
-
+Follow these steps to connect to Azure Database for MySQL.
 1. Install dependencies. Follow the guide to [install MySQLi](https://www.php.net/manual/en/mysqli.installation.php).
 1. In code, get MySQL connection information from environment variables added by Service Connector service.
    ```php
@@ -296,6 +299,7 @@ After created a springboot client type connection, Service Connector service wil
 | `AZURE_MYSQL_PASSWORD`              | Database password | `<MySQL-DB-password>`                      |
 | `AZURE_MYSQL_SSLMODE`               | SSL option        | `required`                                 |
 
+Follow these steps to connect to Azure Database for MySQL.
 1. Install dependencies.
    ```bash
    gem install mysql2
@@ -401,7 +405,7 @@ After created a springboot client type connection, Service Connector service wil
 
 
 ---
-
+Follow these steps and sample codes to connect to Azure Database for MySQL.
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
 
 ---
@@ -498,6 +502,7 @@ After created a springboot client type connection, Service Connector service wil
 
 ---
 
+Follow these steps and sample codes to connect to Azure Database for MySQL.
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
 
 ---
@@ -611,6 +616,7 @@ After created a springboot client type connection, Service Connector service wil
 
 ---
 
+Follow these steps and sample codes to connect to Azure Database for MySQL.
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
 
 ---
