@@ -1,20 +1,20 @@
 ---
-title: Write messages using DataStream API to HBase
-description: Learn how to write messages using DataStream API to HBase
+title: Write messages to HBase with DataStream API
+description: Learn how to write messages to HBase with DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/16/2023
 ---
 
-# Write messages using DataStream API to HBase
+# Write messages to HBase with DataStream API
 
-Learn how to write messages using DataStream API to HBase.
+In this article, learn how to write messages to HBase with Flink DataStream API
 
 ## Overview
 
-Apache Flink offers HBase connector as a sink, using this connector with Flink you can store the output of a real-time processing application in HBase. Learn how to process streaming data on HDInsight Kafka as a source, perform transformations, then sink into HDInsight HBase table. 
+Apache Flink offers HBase connector as a sink, with this connector with Flink you can store the output of a real-time processing application in HBase. Learn how to process streaming data on HDInsight Kafka as a source, perform transformations, then sink into HDInsight HBase table. 
 
-In a real world scenario, this example is a stream analytics layer to realize value from Internet of Things (IOT) analytics, which use live sensor data. Using a Flink Stream you can read data from Kafka topic and write it to HBase table. If there is a  real time streaming IOT application, the information can be gathered, transformed and optimized. 
+In a real world scenario, this example is a stream analytics layer to realize value from Internet of Things (IOT) analytics, which use live sensor data. The Flink Stream can read data from Kafka topic and write it to HBase table. If there is a  real time streaming IOT application, the information can be gathered, transformed and optimized. 
 
 
 ## Prerequisites
@@ -168,7 +168,7 @@ hbase:002:0>
         <java.version>1.8</java.version>
         <scala.binary.version>2.12</scala.binary.version>
         <hbase.version>2.4.11</hbase.version>
-        <kafka.version>3.2.0</kafka.version> // Replace with 2.4.0 if you're using HDInsight Kafka 2.4
+        <kafka.version>3.2.0</kafka.version> // Replace with 2.4.0 for HDInsight Kafka 2.4
     </properties>
     <dependencies>
         <dependency>
@@ -347,11 +347,13 @@ public class KafkaSinkToHbase {
 
 ### Submit job on Secure Shell
 
-We are using [Flink CLI](../flink/flink-webssh-on-portal-to-flink-sql.md) from Azure portal to submit jobs
+We use [Flink CLI](../flink/flink-webssh-on-portal-to-flink-sql.md) from Azure portal to submit jobs
 
-:::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/submit-job-on-webssh.png" alt-text="Screenshot showing how to submit job on webssh." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/submit-job-on-webssh.png":::
+:::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/submit-job-on-web-ssh.png" alt-text="Screenshot showing how to submit job on web ssh." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/submit-job-on-web-ssh.png":::
 
 ### Monitor job on Flink UI
+
+We can monitor the jobs on Flink Web UI
 
 :::image type="content" source="./media/use-flink-to-sink-kafka-message-into-hbase/check-job-on-flink-ui.png" alt-text="Screenshot showing how to check job on Flink UI." lightbox="./media/use-flink-to-sink-kafka-message-into-hbase/check-job-on-flink-ui.png":::
 
@@ -387,6 +389,6 @@ Took 0.9531 seconds
 > - FlinkKafkaConsumer is deprecated and removed with Flink 1.17, use KafkaSource instead.
 > - FlinkKafkaProducer is deprecated and removed with Flink 1.15, use KafkaSink instead.
 
-### References
+## References
 * [Apache Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/kafka)
 * [Download IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows)
