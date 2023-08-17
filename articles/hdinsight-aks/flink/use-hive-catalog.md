@@ -3,7 +3,7 @@ title: Use Hive Catalog, Hive Read & Write demo on Flink SQL
 description: Learn how to use Hive Catalog, Hive Read & Write demo on Flink SQL
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/30/2023
+ms.date: 08/17/2023
 ---
 
 # How to use Hive Catalog with Flink SQL
