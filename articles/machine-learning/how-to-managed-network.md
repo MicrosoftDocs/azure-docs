@@ -286,16 +286,13 @@ To configure a managed VNet that allows internet outbound communications, use th
     1. To add an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Workspace outbound rules__ sidebar, provide the following information:
     
         * __Rule name__: A name for the rule. The name must be unique for this workspace.
-        * __Destination type__: Private Endpoint is the only option when the network isolation is private with internet outbound.
+        * __Destination type__: Private Endpoint is the only option when the network isolation is private with internet outbound. Azure Machine Learning managed virtual network doesn't support creating a private endpoint to all Azure resource types. For a list of supported resources, see the [Private endpoints](#private-endpoints) section.
         * __Subscription__: The subscription that contains the Azure resource you want to add a private endpoint for.
         * __Resource group__: The resource group that contains the Azure resource you want to add a private endpoint for.
         * __Resource type__: The type of the Azure resource.
         * __Resource name__: The name of the Azure resource.
         * __Sub Resource__: The sub resource of the Azure resource type.
         * __Spark enabled__: Select this option if you want to enable serverless spark jobs for the workspace. This option is only available if the resource type is Azure Storage.
-
-        > [!TIP]
-        > Azure Machine Learning managed virtual network doesn't support creating a private endpoint to all Azure resource types. For a list of supported resources, see the [Private endpoints](#private-endpoints) section.
 
         :::image type="content" source="./media/how-to-managed-network/outbound-rule-private-endpoint.png" alt-text="Screenshot of adding an outbound rule for a private endpoint." lightbox="./media/how-to-managed-network/outbound-rule-private-endpoint.png":::
 
@@ -315,16 +312,13 @@ To configure a managed VNet that allows internet outbound communications, use th
         * To _add_ an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Workspace outbound rules__ sidebar, provide the following information:
     
             * __Rule name__: A name for the rule. The name must be unique for this workspace.
-            * __Destination type__: Private Endpoint is the only option when the network isolation is private with internet outbound.
+            * __Destination type__: Private Endpoint is the only option when the network isolation is private with internet outbound. Azure Machine Learning managed virtual network doesn't support creating a private endpoint to all Azure resource types. For a list of supported resources, see the [Private endpoints](#private-endpoints) section.
             * __Subscription__: The subscription that contains the Azure resource you want to add a private endpoint for.
             * __Resource group__: The resource group that contains the Azure resource you want to add a private endpoint for.
             * __Resource type__: The type of the Azure resource.
             * __Resource name__: The name of the Azure resource.
             * __Sub Resource__: The sub resource of the Azure resource type.
             * __Spark enabled__: Select this option if you want to enable serverless spark jobs for the workspace. This option is only available if the resource type is Azure Storage.
-
-            > [!TIP]
-            > Azure Machine Learning managed virtual network doesn't support creating a private endpoint to all Azure resource types. For a list of supported resources, see the [Private endpoints](#private-endpoints) section.
 
             :::image type="content" source="./media/how-to-managed-network/outbound-rule-private-endpoint.png" alt-text="Screenshot of updating a managed network by adding a private endpoint." lightbox="./media/how-to-managed-network/outbound-rule-private-endpoint.png":::
 
@@ -842,6 +836,12 @@ ml_client._workspace_outbound_rules.begin_remove(resource_group, ws_name, rule_n
 1. Select __Networking__. The __Workspace Outbound access__ section allows you to manage outbound rules.
 
     :::image type="content" source="./media/how-to-managed-network/manage-outbound-rules.png" alt-text="Screenshot of the outbound rules section." lightbox="./media/how-to-managed-network/manage-outbound-rules.png":::
+
+* To _add_ an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Workspace outbound rules__ sidebar, provide the following information:
+
+* To __enable__ or __disable__ a rule, use the toggle in the __Active__ column.
+
+* To __delete__ an outbound rule, select select __delete__ for the rule.
 
 ---
 
