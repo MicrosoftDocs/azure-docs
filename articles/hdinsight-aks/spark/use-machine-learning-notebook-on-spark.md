@@ -16,19 +16,19 @@ The following tutorial notebook shows an example of training machine learning mo
 
 1. Find your storage and container name in the portal JSON view
 
-   :::image type="content" source="./media/use-ml-notebook-on-spark/json-view.png" alt-text="Screenshot showing JSON view.":::
+   :::image type="content" source="./media/use-machine-learning-notebook-on-spark/json-view.png" alt-text="Screenshot showing JSON view.":::
    
-   :::image type="content" source="./media/use-ml-notebook-on-spark/resource-json.png" alt-text="Screenshot showing resource JSON view.":::
+   :::image type="content" source="./media/use-machine-learning-notebook-on-spark/resource-json.png" alt-text="Screenshot showing resource JSON view.":::
         
 1. Navigate into your primary HDI storage>container>base folder> upload the [CSV](https://github.com/Azure-Samples/hdinsight-aks/blob/main/spark/iris_csv.csv)
 
-    :::image type="content" source="./media/use-ml-notebook-on-spark/navigate-to-storage-and-container.png" alt-text="Screenshot showing how to navigate to storage and container.":::
+    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/navigate-to-storage-and-container.png" alt-text="Screenshot showing how to navigate to storage and container.":::
 
-    :::image type="content" source="./media/use-ml-notebook-on-spark/upload-csv.png" alt-text="Screenshot showing how to upload csv file.":::
+    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/upload-csv.png" alt-text="Screenshot showing how to upload csv file.":::
     
 1. Log in to your cluster and open the Jupyter Notebook 
 
-    :::image type="content" source="./media/use-ml-notebook-on-spark/jupyter-notebook.png" alt-text="Screenshot showing Jupyter Notebook.":::
+    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/jupyter-notebook.png" alt-text="Screenshot showing Jupyter Notebook.":::
 
 1. Import Spark MLlib Libraries to create the pipeline
     ```>>import pyspark
@@ -36,7 +36,7 @@ The following tutorial notebook shows an example of training machine learning mo
     from pyspark.ml.classification import LogisticRegression
     from pyspark.ml.feature import VectorAssembler, StringIndexer, IndexToString
     ```
-    :::image type="content" source="./media/use-ml-notebook-on-spark/start-spark-application.png" alt-text="Screenshot showing how to start spark application.":::
+    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/start-spark-application.png" alt-text="Screenshot showing how to start spark application.":::
 
 
 1. Read the CSV into a Spark dataframe
@@ -64,7 +64,7 @@ The following tutorial notebook shows an example of training machine learning mo
     >>test_model.take(1)
     ```
 
-    :::image type="content" source="./media/use-ml-notebook-on-spark/test-model.png" alt-text="Screenshot showing how to run the test model.":::
+    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/test-model.png" alt-text="Screenshot showing how to run the test model.":::
 
 1. Evaluate the model accuracy
 
@@ -74,5 +74,5 @@ The following tutorial notebook shows an example of training machine learning mo
 
     >>print(evaluator.evaluate(test_model,{evaluator.metricName: 'accuracy'}))
     ```
-    :::image type="content" source="./media/use-ml-notebook-on-spark/print-output.png" alt-text="Screenshot showing how to print output.":::
+    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/print-output.png" alt-text="Screenshot showing how to print output.":::
 
