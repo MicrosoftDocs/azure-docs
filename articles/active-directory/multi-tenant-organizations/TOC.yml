@@ -28,6 +28,8 @@
       href: multi-tenant-organization-configure-graph.md
     - name: Configure templates
       href: multi-tenant-organization-configure-templates.md
+    - name: Known issues
+      href: multi-tenant-organization-known-issues.md
   - name: Cross-tenant synchronization
     expanded: true
     items:
