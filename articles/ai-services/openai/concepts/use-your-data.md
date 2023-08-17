@@ -43,7 +43,7 @@ For documents and datasets with long text, you should use the available [data pr
 
 ## Data formats and file types
 
-Azure OpenAI on your data supports the following filetypes:
+Azure OpenAI on your data supports the following filetypes (16 MB or less per file):
 
 * `.txt`
 * `.md`
@@ -65,9 +65,23 @@ There are some caveats about document structure and how it might affect the qual
 
     This will impact the quality of Azure Cognitive Search and the model response. 
 
-## Virtual network support & private link support
+## Virtual network support & private network support
 
-Azure OpenAI on your data does not currently support private endpoints. 
+If you have Azure OpenAI resource protected by a private network, and want to allow Azure OpenAI on your data to access your search service, complete [an application form](https://aka.ms/applyacsvpnaoaionyourdata). The application will be reviewed in five business days and you will be contacted via email about the results. If you are eligible, we will send a private endpoint request to your search service, and you will need to approve the request.
+
+:::image type="content" source="../media/use-your-data/approve-private-endpoint.png" alt-text="A screenshot showing private endpoint approval screen." lightbox="../media/use-your-data/approve-private-endpoint.png":::
+
+Learn more about the [manual approval workflow](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow).
+
+After you approve the request in your search service, you can start using the [chat completions extensions API](/azure/ai-services/openai/reference#completions-extensions). Public network access can be disabled for that search service. Private network access for Azure OpenAI Studio is not currently supported.
+
+### Azure OpenAI resources in private networks
+
+You can protect Azure OpenAI resource in [private networks](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI services.
+
+### Storage accounts in private networks
+
+Storage accounts in private networks are currently not supported by Azure OpenAI on your data.
 
 ## Azure Role-based access controls (Azure RBAC)
 
@@ -241,7 +255,7 @@ You can send a streaming request using the `stream` parameter, allowing data to 
 
 #### Conversation history for better results
 
-When chatting with a model, providing a history of the chat will help the model return higher quality results. 
+When you chat with a model, providing a history of the chat will help the model return higher quality results. 
 
 ```json
 {
