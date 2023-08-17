@@ -1,12 +1,12 @@
 ---
-title: Table API and SQL - Using Delta Catalog type with Hive in HDInsight on AKS - Flink
+title: Table API and SQL - Use Delta Catalog type with Hive in HDInsight on AKS - Flink
 description: Learn about how to create Flink-Delta Catalog using Hive catalog in HDInsight on AKS - Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/04/2023
 ---
 
-# Creating Flink-Delta Catalog using Hive catalog in HDInsight on AKS - Flink
+# Create Flink-Delta Catalog using Hive catalog in HDInsight on AKS - Flink
 
 [Delta Lake](https://docs.delta.io/latest/delta-intro.html) is an open source project that enables building a Lakehouse architecture on top of data lakes. Delta Lake provides ACID transactions, scalable metadata handling, and unifies streaming and batch data processing on top of existing data lakes.
 
@@ -16,7 +16,7 @@ In this article, we learn how Flink SQL/TableAPI is used to implement a Delta ca
 - You're required to have an operational Flink cluster with secure shell, learn how to [create a cluster](../flink/flink-create-cluster-portal.md)
 - You can refer this article on how to use CLI from [Secure Shell](../flink/flink-webssh-on-portal-to-flink-sql.md) on Azure portal.
 
-### Adding dependencies
+### Add dependencies
 
 Once you launch the Secure Shell (SSH), let us start downloading the dependencies required to the SSH node, to illustrate the Delta table managed in Hive catalog.
 
@@ -36,7 +36,7 @@ A detailed explanation is given on how to get started with Flink SQL Client usin
 ```
 ./bin/sql-client.sh
 ```
-#### Creating Delta Catalog using Hive catalog 
+#### Create Delta Catalog using Hive catalog 
 
 ```sql
      CREATE CATALOG delta_catalog WITH (
@@ -49,7 +49,7 @@ Using the delta catalog
     USE CATALOG delta_catalog;
 ```
 
-#### Adding dependencies to server classpath
+#### Add dependencies to server classpath
 
 ```sql
   ADD JAR '/opt/flink-webssh/lib/delta-flink-3.0.0rc1.jar';
