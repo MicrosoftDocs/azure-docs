@@ -54,19 +54,19 @@ If your API Management service is in an internal VNet and you're accessing it th
 
 ## I assigned a custom API Management domain and the published portal doesn't work
 
-After you update the domain, you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
+After you update the domain, you need to [republish the portal](developer-portal-overview.md#publish-the-portal) for the changes to take effect.
 
 ## I added an identity provider and I can't see it in the portal
 
-After you configure an identity provider (for example, Azure AD, Azure AD B2C), you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect. Make sure your developer portal pages include the OAuth buttons widget.
+After you configure an identity provider (for example, Azure AD, Azure AD B2C), you need to [republish the portal](developer-portal-overview.md#publish-the-portal) for the changes to take effect. Make sure your developer portal pages include the OAuth buttons widget.
 
 ## I set up delegation and the portal doesn't use it
 
-After you set up delegation, you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
+After you set up delegation, you need to [republish the portal](developer-portal-overview.md#publish-the-portal) for the changes to take effect.
 
 ## My other API Management configuration changes haven't been propagated in the developer portal
 
-Most configuration changes (for example, VNet, sign-in, product terms) require [republishing the portal](api-management-howto-developer-portal-customize.md#publish).
+Most configuration changes (for example, VNet, sign-in, product terms) require [republishing the portal](developer-portal-overview.md#publish-the-portal).
 
 ## <a name="cors"></a> I'm getting a CORS error when using the interactive console
 
@@ -148,7 +148,7 @@ If you don't need the sign-up functionality enabled by default in the developer 
    
    Optionally, delete the **Sign up** page. Currently, you use the [contentItem](/rest/api/apimanagement/current-ga/content-item) REST APIs to list and delete this page.
  
-1. Save your changes, and [republish the portal](api-management-howto-developer-portal-customize.md#publish).
+1. Save your changes, and [republish the portal](developer-portal-overview.md#publish-the-portal).
 
 ## How can I remove the developer portal content provisioned to my API Management service?
 

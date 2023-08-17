@@ -70,7 +70,7 @@ To configure the CORS proxy, access the developer portal as an administrator:
 1. In the left menu of the administrative interface, select **Pages** > **APIs** > **Details**.
 1. On the **APIs: Details** page, select the **Operation: Details** widget, and select **Edit widget**.
 1. Select **Use CORS proxy**.
-1. Save changes to the portal, and [republish the portal](api-management-howto-developer-portal-customize.md#publish).
+1. Save changes to the portal, and [republish the portal](developer-portal-overview.md#publish-the-portal).
 
 
 ## CORS configuration for self-hosted developer portal

@@ -41,7 +41,7 @@ Developer portal sign-in and sign-up with Azure AD or Azure AD B2C will stop wor
 3. Select **Azure Active Directory** or **Azure Active Directory B2C** from the list.
 4. Select **MSAL** in the **Client library** dropdown.
 5. Select **Update**.
-6. [Republish your developer portal](../api-management-howto-developer-portal-customize.md#publish-from-the-azure-portal).
+6. [Republish your developer portal](../developer-portal-overview.md#publish-the-portal).
 
 
 ## Help and support

@@ -143,7 +143,7 @@ For steps, see [Switch redirect URIs to the single-page application type](../act
 1. Select **Azure Active Directory** from the list.
 1. In the **Client library** dropdown, select **MSAL**.
 1. Select **Update**.
-1. [Republish your developer portal](api-management-howto-developer-portal-customize.md#publish-from-the-azure-portal).
+1. [Republish your developer portal](developer-portal-overview.md#publish-the-portal).
 
 
 ## Add an external Azure AD group
@@ -191,7 +191,7 @@ In the developer portal, you can sign in with Azure AD using the **Sign-in butto
 Although a new account will automatically be created when a new user signs in with Azure AD, consider adding the same widget to the sign-up page. The **Sign-up form: OAuth** widget represents a form used for signing up with OAuth.
 
 > [!IMPORTANT]
-> You need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the Azure AD changes to take effect.
+> You need to [republish the portal](developer-portal-overview.md#publish-the-portal) for the Azure AD changes to take effect.
 
 ## Legacy developer portal: How to sign in with Azure AD
 
