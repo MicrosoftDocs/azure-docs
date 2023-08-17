@@ -605,7 +605,7 @@ To configure a managed VNet that allows only approved outbound communications, u
         > [!TIP]
         > Azure Machine Learning managed virtual network doesn't support creating a private endpoint to all Azure resource types. For a list of supported resources, see the [Private endpoints](#private-endpoints) section.
 
-        :::image type="content" source="./media/how-to-managed-network/outbound-rule-private-endpoint.png" alt-text="Screenshot of updating an approved outbound network by adding a private endpoint rule." lightbox="./media/how-to-managed-network/outbound-rule-private-endpoint.png":::
+        :::image type="content" source="./media/how-to-managed-network/outbound-rule-private-endpoint.png" alt-text="Screenshot of updating an approved outbound network by adding a private endpoint." lightbox="./media/how-to-managed-network/outbound-rule-private-endpoint.png":::
 
         If the destination type is __Service Tag__, provide the following information:
 
@@ -613,13 +613,13 @@ To configure a managed VNet that allows only approved outbound communications, u
         * __Protocol__: The protocol to allow for the service tag.
         * __Port ranges__: The port ranges to allow for the service tag.
 
-        :::image type="content" source="./media/how-to-managed-network/outbound-rule-service-tag.png" alt-text="Screenshot of updating an approved outbound network by adding a service tag rule." lightbox="./media/how-to-managed-network/outbound-rule-service-tag.png" :::
+        :::image type="content" source="./media/how-to-managed-network/outbound-rule-service-tag.png" alt-text="Screenshot of updating an approved outbound network by adding a service tag." lightbox="./media/how-to-managed-network/outbound-rule-service-tag.png" :::
 
         If the destination type is __FQDN__, provide the following information:
 
         * __FQDN destination__: The fully qualified domain name to add to the approved outbound rules.
 
-        :::image type="content" source="./media/how-to-managed-network/outbound-rule-fqdn.png" alt-text="Screenshot of updating an approved outbound network by adding an FQDN rule." lightbox="./media/how-to-managed-network/outbound-rule-fqdn.png":::
+        :::image type="content" source="./media/how-to-managed-network/outbound-rule-fqdn.png" alt-text="Screenshot of updating an approved outbound network by adding an FQDN rule for an approved outbound managed network." lightbox="./media/how-to-managed-network/outbound-rule-fqdn.png":::
 
         Select __Save__ to save the rule. You can continue using __Add user-defined outbound rules__ to add rules.
 
@@ -651,7 +651,7 @@ To configure a managed VNet that allows only approved outbound communications, u
             > [!TIP]
             > Azure Machine Learning managed virtual network doesn't support creating a private endpoint to all Azure resource types. For a list of supported resources, see the [Private endpoints](#private-endpoints) section.
 
-            :::image type="content" source="./media/how-to-managed-network/outbound-rule-private-endpoint.png" alt-text="Screenshot of adding an private endpoint for an approved outbound managed network." lightbox="./media/how-to-managed-network/outbound-rule-private-endpoint.png":::
+            :::image type="content" source="./media/how-to-managed-network/outbound-rule-private-endpoint.png" alt-text="Screenshot of updating an approved outbound network by adding a private endpoint rule." lightbox="./media/how-to-managed-network/outbound-rule-private-endpoint.png":::
 
             If the destination type is __Service Tag__, provide the following information:
 
@@ -659,13 +659,13 @@ To configure a managed VNet that allows only approved outbound communications, u
             * __Protocol__: The protocol to allow for the service tag.
             * __Port ranges__: The port ranges to allow for the service tag.
 
-            :::image type="content" source="./media/how-to-managed-network/outbound-rule-service-tag.png" alt-text="Screenshot of adding a service tag for an approved outbound managed network." lightbox="./media/how-to-managed-network/outbound-rule-service-tag.png" :::
+            :::image type="content" source="./media/how-to-managed-network/outbound-rule-service-tag.png" alt-text="Screenshot of updating an approved outbound network by adding a service tag rule." lightbox="./media/how-to-managed-network/outbound-rule-service-tag.png" :::
 
             If the destination type is __FQDN__, provide the following information:
 
             * __FQDN destination__: The fully qualified domain name to add to the approved outbound rules.
 
-            :::image type="content" source="./media/how-to-managed-network/outbound-rule-fqdn.png" alt-text="Screenshot of adding a service tag for an approved outbound managed network." lightbox="./media/how-to-managed-network/outbound-rule-fqdn.png":::
+            :::image type="content" source="./media/how-to-managed-network/outbound-rule-fqdn.png" alt-text="Screenshot of updating an approved outbound network by adding an FQDN rule." lightbox="./media/how-to-managed-network/outbound-rule-fqdn.png":::
 
             Select __Save__ to save the rule. You can continue using __Add user-defined outbound rules__ to add rules.
 
