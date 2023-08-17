@@ -33,7 +33,7 @@ When operating in connected mode, it's possible to connect to the cluster's kube
 
 ### Arc for Kubernetes
 
-[!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/quickstart-cluster-connect.md)]
+[!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/cluster-connect.md)]
 
 ### Arc for servers
 
@@ -43,37 +43,37 @@ To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by cr
 
 1. Set the required variables.
 
-```bash
-RESOURCE_GROUP="myResourceGroup"
-CLUSTER_NAME="myNexusAKSCluster"
-SUBSCRIPTION_ID="<Subscription ID>"
-USER_NAME="azureuser"
-SSH_PRIVATE_KEY_FILE="<vm_ssh_id_rsa>"
-```
+    ```bash
+    RESOURCE_GROUP="myResourceGroup"
+    CLUSTER_NAME="myNexusAKSCluster"
+    SUBSCRIPTION_ID="<Subscription ID>"
+    USER_NAME="azureuser"
+    SSH_PRIVATE_KEY_FILE="<vm_ssh_id_rsa>"
+    ```
 
 2. Get the available cluster node names.
 
-```azurecli
-az networkcloud kubernetescluster show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID -o json | jq '.nodes[].name'
-```
+    ```azurecli
+    az networkcloud kubernetescluster show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID -o json | jq '.nodes[].name'
+    ```
 
 3. Sample output:
 
-```bash
-"mynexusakscluster-0aeaccf8-agentpool1-md-dfvzz"
-"mynexusakscluster-0aeaccf8-agentpool1-md-gvqmj"
-"mynexusakscluster-0aeaccf8-control-plane-hrmzr"
-```
+    ```bash
+    "mynexusakscluster-0aeaccf8-agentpool1-md-dfvzz"
+    "mynexusakscluster-0aeaccf8-agentpool1-md-gvqmj"
+    "mynexusakscluster-0aeaccf8-control-plane-hrmzr"
+    ```
 
 4. Run the following command to SSH into the cluster VM.
 
-```azurecli
-az ssh arc --subscription $SUBSCRIPTION_ID \
-    --resource-group $RESOURCE_GROUP \
-    --name <VM Name> \
-    --local-user $USER_NAME \
-    --private-key-file $SSH_PRIVATE_KEY_FILE
-```
+    ```azurecli
+    az ssh arc --subscription $SUBSCRIPTION_ID \
+        --resource-group $RESOURCE_GROUP \
+        --name <VM Name> \
+        --local-user $USER_NAME \
+        --private-key-file $SSH_PRIVATE_KEY_FILE
+    ```
 
 ### Azure jumpbox
 
@@ -113,34 +113,34 @@ Before you can connect to the cluster nodes, you need to find the IP address of 
 
 1. Set the RESOURCE_GROUP, CLUSTER_NAME, and SUBSCRIPTION_ID variables to match your environment.
 
-```bash
-RESOURCE_GROUP="myResourceGroup"
-CLUSTER_NAME="myNexusAKSCluster"
-SUBSCRIPTION_ID="<Subscription ID>"
-```
+    ```bash
+    RESOURCE_GROUP="myResourceGroup"
+    CLUSTER_NAME="myNexusAKSCluster"
+    SUBSCRIPTION_ID="<Subscription ID>"
+    ```
 
 2. Execute the following command to get the IP address of the nodes.
 
-```azurecli
-az networkcloud kubernetescluster show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID -o json | jq '.nodes[] | select(any(.networkAttachments[]; .networkAttachmentName == "defaultcni")) | {name: .name, ipv4Address: (.networkAttachments[] | select(.networkAttachmentName == "defaultcni").ipv4Address)}'
-```
+    ```azurecli
+    az networkcloud kubernetescluster show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID -o json | jq '.nodes[] | select(any(.networkAttachments[]; .networkAttachmentName == "defaultcni")) | {name: .name, ipv4Address: (.networkAttachments[] | select(.networkAttachmentName == "defaultcni").ipv4Address)}'
+    ```
 
 3. Here's the sample output of the command.
 
-```json
-{
-  "name": "mynexusakscluster-593806e9-agentpool1-md-dw57z",
-  "ipv4Address": "<IP address>"
-}
-{
-  "name": "mynexusakscluster-593806e9-agentpool1-md-zmxp9",
-  "ipv4Address": "<IP address>"
-}
-{
-  "name": "mynexusakscluster-593806e9-control-plane-xm7rt",
-  "ipv4Address": "<IP address>"
-}
-```
+    ```json
+    {
+      "name": "mynexusakscluster-593806e9-agentpool1-md-dw57z",
+      "ipv4Address": "<IP address>"
+    }
+    {
+      "name": "mynexusakscluster-593806e9-agentpool1-md-zmxp9",
+      "ipv4Address": "<IP address>"
+    }
+    {
+      "name": "mynexusakscluster-593806e9-control-plane-xm7rt",
+      "ipv4Address": "<IP address>"
+    }
+    ```
 
 #### Using the Azure portal
 
@@ -160,3 +160,8 @@ To find the IP address of the VM for SSH, follow these steps:
 7. If you attached a L3 network for OAM purpose, you can find the IP address of the node's 'Layer 3 Network' that used as OAM network.
 :::image type="content" source="media/k8s/agent-pool-network-attachment.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster node IP":::
 
+## Next steps
+
+Try out the following articles to learn more about Azure Operator Nexus Kubernetes cluster.
+1. [Quickstart: Deploy an Azure Operator Nexus Kubernetes cluster using Bicep](./quickstarts-kubernetes-cluster-deployment-bicep.md)
+2. [How to: Monitor Azure Operator Nexus Kubernetes cluster](./howto-monitor-naks-cluster.md)
