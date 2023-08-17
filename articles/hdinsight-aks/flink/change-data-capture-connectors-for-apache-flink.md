@@ -1,12 +1,12 @@
 ---
-title: How to perform Change Data Capture of SQL Server using DStream & DataStream Source.
-description: Learn how to perform Change Data Capture of SQL Server using DStream & DataStream Source.
+title: How to perform Change Data Capture of SQL Server with DataStream API and DataStream Source.
+description: Learn how to perform Change Data Capture of SQL Server with DataStream API and DataStream Source.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/17/2023
 ---
 
-# Change Data Capture of SQL Server using DStream & DataStream Source
+# Change Data Capture of SQL Server with DataStream API and DataStream Source
 
 Change Data Capture (CDC) is a technique you can use to track row-level changes in database tables in response to create, update, and delete operations. In this article, we use [CDC Connectors for Apache Flink®](https://github.com/ververica/flink-cdc-connectors), which offer a set of source connectors for Apache Flink. The connectors integrate [Debezium®](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/debezium/#debezium-format) as the engine to capture the data changes. 
 
@@ -55,7 +55,7 @@ Apache Kafka is an open-source distributed streaming platform that can be used t
 
 For more information, refer [Apache Kafka in Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction)
 
-## Performing a test
+## Perform a test
 
 #### Prepare DB and table on Sqlserver
 
@@ -71,7 +71,7 @@ EXEC sys.sp_cdc_enable_db;
 GO
 ```
 
-**Verifying that the user has access to the CDC table**
+**Verify that the user has access to the CDC table**
 
 ```
 USE inventory
@@ -82,7 +82,7 @@ GO
 > [!NOTE]
 > The query returns configuration information for each table in the database that is enabled for CDC and that contains change data that the caller is authorized to access. If the result is empty, verify that the user has privileges to access both the capture instance and the CDC tables.
 
-**Create and populate our products using a single insert with many rows**
+**Create and populate products with single insert with many rows**
 
 ```
 CREATE TABLE products (
@@ -137,7 +137,7 @@ GO
 ```
 ##### Maven source code on IdeaJ
 
-In the below snippet, we're using HDInsight Kafka 2.4.1. Based on your usage, update the version of Kafka on `<kafka.version>`. 
+In the below snippet, we use HDInsight Kafka 2.4.1. Based on your usage, update the version of Kafka on `<kafka.version>`. 
 
 **maven pom.xml**
 
@@ -283,41 +283,41 @@ public class mssqlSinkToKafka {
 }
 ```
 
-### Verifying the result
+### Validation
 
-1. Insert four rows into table order on sqlserver, then check on Kafka
+- Insert four rows into table order on sqlserver, then check on Kafka
 
-   :::image type="content" source="./media/flink-cdc/check-kafka-output.png" alt-text="Screenshot showing how to check Kafka output.":::
-
-1. Insert more rows on sqlserver
-
-   :::image type="content" source="./media/flink-cdc/insert-more-rows-on-sqlserver.png" alt-text="Screenshot showing how to insert more rows on sqlserver.":::
-
-1. Check changes on Kafka
-
-   :::image type="content" source="./media/flink-cdc/check-changes-on-kafka.png" alt-text="Screenshot showing changes made in Kafka after inserting four rows.":::
- 
- 1. Update `product_id=107` on sqlserver
- 
-    :::image type="content" source="./media/flink-cdc/update-product-id-107.png" alt-text="Screenshot showing update for product ID 107.":::
- 
- 1. Check changes on Kafka for the updated ID 107
- 
-    :::image type="content" source="./media/flink-cdc/check-changes-on-kafka-for id-107.png" alt-text="Screenshot showing changes in Kafka for updated ID 107.":::
+   :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/check-kafka-output.png" alt-text="Screenshot showing how to check Kafka output.":::
   
-  1. Delete `product_id=107` on sqlserver
+- Insert more rows on sqlserver
 
-     :::image type="content" source="./media/flink-cdc/delete-product-id-107-on-sqlserver.png" alt-text="Screenshot showing how to delete product ID 107.":::
+   :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/insert-more-rows-on-sql-server.png" alt-text="Screenshot showing how to insert more rows on sqlserver.":::
+
+- Check changes on Kafka
+
+   :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/check-changes-on-kafka.png" alt-text="Screenshot showing changes made in Kafka after inserting four rows.":::
  
-     :::image type="content" source="./media/flink-cdc/delete-product-id-107-output.png" alt-text="Screenshot showing deleted items on SQL Server.":::
+-  Update `product_id=107` on sqlserver
  
- 1. Check changes on Kafka for the deleted `product_id=107`
+    :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/update-product-id-107.png" alt-text="Screenshot showing update for product ID 107.":::
  
-    :::image type="content" source="./media/flink-cdc/check-changes-on-kafka-for-deleted-records.png" alt-text="Screenshot showing in Kafka for deleted items.":::
+ -  Check changes on Kafka for the updated ID 107
  
- 1. The following JSON message on Kafka shows the change event in JSON format.
+    :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/check-changes-on-kafka-for id-107.png" alt-text="Screenshot showing changes in Kafka for updated ID 107.":::
+  
+  -  Delete `product_id=107` on sqlserver
+
+     :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/delete-product-id-107-on-sql-server.png" alt-text="Screenshot showing how to delete product ID 107.":::
+ 
+     :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/delete-product-id-107-output.png" alt-text="Screenshot showing deleted items on SQL Server.":::
+ 
+ -  Check changes on Kafka for the deleted `product_id=107`
+ 
+    :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/check-changes-on-kafka-for-deleted-records.png" alt-text="Screenshot showing in Kafka for deleted items.":::
+ 
+ -  The following JSON message on Kafka shows the change event in JSON format.
     
-    :::image type="content" source="./media/flink-cdc/json-output.png" alt-text="Screenshot showing JSON output.":::
+    :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/json-output.png" alt-text="Screenshot showing JSON output.":::
    
 ### Reference
 
