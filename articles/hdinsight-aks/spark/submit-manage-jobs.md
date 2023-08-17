@@ -115,7 +115,7 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
 
 1.	Navigate to the Spark cluster Overview page and select Zeppelin notebook from Cluster dashboards. It prompts to authenticate and open the Zeppelin page.
 
-    :::image type="content" source="./media/submit-manage-jobs/select-zeppelin.png" alt-text="Diagram showing how to select Zeppelin." lightbox="./media/submit-manage-jobs/select-zeppelins.png":::
+    :::image type="content" source="./media/submit-manage-jobs/select-zeppelin.png" alt-text="Diagram showing how to select Zeppelin." lightbox="./media/submit-manage-jobs/select-zeppelin.png":::
 
 1. Create a new notebook. From the header pane, navigate to Notebook > Create new note. Ensure the notebook header shows a connected status. It denotes a green dot in the top-right corner.
 
@@ -266,4 +266,4 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
 1. You can track the job you recently ran by the same application ID.
     :::image type="content" source="./media/submit-manage-jobs/track-yarn-job.png" alt-text="Diagram showing track yarn job." lightbox="./media/submit-manage-jobs/track-yarn-job.png":::
 1. Click on the Application ID in Yarn to view detailed logs of the job
-    :::image type="content" source="./media/submit-manage-jobs/view-yarn-job-log" alt-text="Diagram showing how to view yarn job logs." lightbox="./media/submit-manage-jobs/view-yarn-job-lo.png":::
+    :::image type="content" source="./media/submit-manage-jobs/view-yarn-job-log" alt-text="Diagram showing how to view yarn job logs." lightbox="./media/submit-manage-jobs/view-yarn-job-log.png":::
