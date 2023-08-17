@@ -567,8 +567,6 @@ az k8s-extension update --resource-group <resource-group> --cluster-name <cluste
 
 If you don't specify values for `memoryThreshold` and `outOfMemoryWatch`, the default memory threshold is set to 95%, with the interval at which to check the memory utilization set to 500 ms.
 
-
-
 ## Delete the Flux configuration and extension
 
 Use the following commands to delete your Flux configuration and, if desired, the Flux extension itself.
@@ -615,6 +613,8 @@ For AKS clusters, you can't use the Azure portal to delete the extension. Instea
 ```azurecli
 az k8s-extension delete -g <resource-group> -c <cluster-name> -n flux -t managedClusters --yes
 ```
+
+---
 
 ## Next steps
 
