@@ -6,10 +6,9 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
-ms.custom: GGAL-freshness822
+ms.custom: GGAL-freshness822, devx-track-linux
 ms.collection: linux
 ms.date: 03/28/2023
-
 ---
 # Azure Linux VM Agent overview
 

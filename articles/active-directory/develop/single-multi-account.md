@@ -18,7 +18,7 @@ ms.reviewer: shoatman
 
 This article will help you understand the types used in single and multiple account public client apps, with a focus on single account public client apps. 
 
-The Azure Active Directory Authentication Library (ADAL) models the server.  The Microsoft Authentication Library (MSAL) instead models your client application.  The majority of Android apps are considered public clients. A public client is an app that can't securely keep a secret.  
+The Microsoft Authentication Library (MSAL) models your client application. The majority of Android apps are considered public clients. A public client is an app that can't securely keep a secret.  
 
 MSAL specializes the API surface of `PublicClientApplication` to simplify and clarify the development experience for apps that allow only one account to be used at a time. `PublicClientApplication` is subclassed by `SingleAccountPublicClientApplication` and `MultipleAccountPublicClientApplication`.  The following diagram shows the relationship between these classes.
 

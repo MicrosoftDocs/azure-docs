@@ -18,7 +18,7 @@ A deployment environment is a preconfigured collection of Azure resources deploy
 
 :::image type="content" source="./media/overview-what-is-azure-deployment-environments/azure-deployment-environments-scenarios-sml.png" lightbox="./media/overview-what-is-azure-deployment-environments/azure-deployment-environments-scenarios.png" alt-text="Diagram that shows the Azure Deployment Environments scenario flow.":::
 
-With Azure Deployment Environments, your development infrastructure (dev infra) admin can enforce enterprise security policies and provide a curated set of predefined infrastructure as code (IaC) templates. 
+With Azure Deployment Environments, your platform engineer can enforce enterprise security policies and provide a curated set of predefined infrastructure as code (IaC) templates. 
 
 >[!NOTE]
 > Azure Deployment Environments currently supports only Azure Resource Manager (ARM) templates.
@@ -46,9 +46,9 @@ Developers have the following self-service experience when working with [environ
 - Create platform as a service (PaaS) and infrastructure as a service (IaaS) environments quickly and easily by following a few simple steps.
 - Deploy environments right from where they work.
 
-### Dev infra scenarios
+### Platform engineering scenarios
 
-Azure Deployment Environments helps your dev infra admin apply the right set of policies and settings on various types of environments, control the resource configuration that developers can create, and centrally track environments across projects by doing the following tasks:  
+Azure Deployment Environments helps your platform engineer apply the right set of policies and settings on various types of environments, control the resource configuration that developers can create, and centrally track environments across projects by doing the following tasks:  
 
 - Provide a project-based, curated set of reusable IaC templates.
 - Define specific Azure deployment configurations per project and per environment type.
@@ -69,7 +69,7 @@ Azure Deployment Environments provides the following benefits to creating, confi
 Capture and share IaC templates in source control within your team or organization, to easily create on-demand environments. Promote collaboration through inner-sourcing of templates from source control repositories.
 
 - **Compliance and governance**:
-Dev infra teams can curate environment templates to enforce enterprise security policies and map projects to Azure subscriptions, identities, and permissions by environment types.
+Platform engineering teams can curate environment templates to enforce enterprise security policies and map projects to Azure subscriptions, identities, and permissions by environment types.
 
 - **Project-based configurations**:
 Create and organize environment templates by the types of applications that development teams are working on, rather than using an unorganized list of templates or a traditional IaC setup.

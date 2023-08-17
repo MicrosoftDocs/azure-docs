@@ -7,7 +7,7 @@ ms.author: deeikele
 ms.reviewer: larryfr
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.date: 09/14/2022
 ms.topic: how-to
 ms.custom:

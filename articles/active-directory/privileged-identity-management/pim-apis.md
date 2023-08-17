@@ -18,11 +18,13 @@ ms.collection: M365-identity-device-management
 ---
 # Privileged Identity Management APIs
 
-Privileged Identity Management (PIM), part of Microsoft Entra, includes three providers: 
+Privileged Identity Management (PIM), part of Microsoft Entra, includes five providers: 
 
 - [PIM for Azure AD roles API reference](/graph/api/resources/privilegedidentitymanagementv3-overview)
 - [PIM for Azure resource roles API reference](/rest/api/authorization/roleeligibilityschedulerequests)
 - [PIM for Groups API reference](/graph/api/resources/privilegedidentitymanagement-for-groups-api-overview)
+- [PIM Alerts for Azure AD Roles API reference](/graph/api/resources/unifiedrolemanagementalert)
+- [PIM Alerts for Azure Resources API reference](/rest/api/authorization/role-management-alert-rest-sample)
 
 You can manage assignments in PIM for Azure AD roles and PIM for Groups using Microsoft Graph API. You can manage assignments in PIM for Azure Resources using Azure Resource Manager (ARM) API. This article describes important concepts for using the APIs for Privileged Identity Management. 
 
@@ -43,36 +45,36 @@ Under the `/beta/privilegedAccess` endpoint, Microsoft supported both `/aadRoles
 ### Iteration 3 (Current) – PIM for Azure AD roles, groups in Microsoft Graph API, and for Azure resources in ARM API 
 
 This is the final iteration of the PIM API. It includes:
-  - PIM for Azure AD Roles in Microsoft Graph API. Generally available. 
-  - PIM for Azure resources in ARM API. Generally available. 
-  - PIM for groups in Microsoft Graph API. Preview. 
+  - PIM for Azure AD Roles in Microsoft Graph API - Generally available. 
+  - PIM for Azure resources in ARM API - Generally available. 
+  - PIM for groups in Microsoft Graph API - Preview. 
+  - PIM Alerts for Azure AD Roles in Microsoft Graph API - Preview.
+  - PIM Alerts for Azure Resources in ARM API - Preview.
+
 Having PIM for Azure AD Roles in Microsoft Graph API and PIM for Azure Resources in ARM API provide a few benefits including:
   - Alignment of the PIM API for regular role assignment API for both Azure AD roles and Azure Resource roles. 
   - Reducing the need to call additional PIM API to onboard a resource, get a resource, or get role definition. 
   - Supporting app-only permissions. 
   - New features such as approval and email notification configuration. 
 
-API for PIM Alerts in currently available in Preview. 
-- For managing PIM security alerts for Azure AD roles: Graph beta API reference.
-- For managing PIM security alerts for Azure roles: ARM preview API reference. 
 
 ### Overview of PIM API iteration 3 
 
 PIM APIs across providers (both Microsoft Graph APIs and ARM APIs) follow the same principles. 
 
 #### Assignments management 
-To create assignment (active or eligible), renew, extend, of update assignment (active or eligible), activate eligible assignment, deactivate eligible assignment, use resources **AssignmentScheduleRequest** and **EligibilityScheduleRequest**: 
+To create assignment (active or eligible), renew, extend, of update assignment (active or eligible), activate eligible assignment, deactivate eligible assignment, use resources **\*AssignmentScheduleRequest** and **\*EligibilityScheduleRequest**: 
 
   - For Azure AD Roles: [unifiedRoleAssignmentScheduleRequest](/graph/api/resources/unifiedroleassignmentschedulerequest), [unifiedRoleEligibilityScheduleRequest](/graph/api/resources/unifiedroleeligibilityschedulerequest); 
   - For Azure resources: [Role Assignment Schedule Request](/rest/api/authorization/role-assignment-schedule-requests), [Role Eligibility Schedule Request](/rest/api/authorization/role-eligibility-schedule-requests); 
   - For Groups: [privilegedAccessGroupAssignmentScheduleRequest](/graph/api/resources/privilegedaccessgroupassignmentschedulerequest), [privilegedAccessGroupEligibilityScheduleRequest](/graph/api/resources/privilegedaccessgroupeligibilityschedulerequest). 
 
-Creation of **AssignmentScheduleRequest** or **EligibilityScheduleRequest** objects may lead to creation of read-only **AssignmentSchedule**, **EligibilitySchedule**, **AssignmentScheduleInstance**, and **EligibilityScheduleInstance** objects. 
+Creation of **\*AssignmentScheduleRequest** or **\*EligibilityScheduleRequest** objects may lead to creation of read-only **\*AssignmentSchedule**, **\*EligibilitySchedule**, **\*AssignmentScheduleInstance**, and **\*EligibilityScheduleInstance** objects. 
 
-  - **AssignmentSchedule** and **EligibilitySchedule** objects show current assignments and requests for assignments to be created in the future. 
-  - **AssignmentScheduleInstance** and **EligibilityScheduleInstance** objects show current assignments only. 
+  - **\*AssignmentSchedule** and **\*EligibilitySchedule** objects show current assignments and requests for assignments to be created in the future. 
+  - **\*AssignmentScheduleInstance** and **\*EligibilityScheduleInstance** objects show current assignments only. 
 
-When an eligible assignment is activated (Create **AssignmentScheduleRequest** was called), the **EligibilityScheduleInstance** continues to exist, new **AssignmentSchedule** and a **AssignmentScheduleInstance** objects will be created for that activated duration. 
+When an eligible assignment is activated (Create **\*AssignmentScheduleRequest** was called), the **\*EligibilityScheduleInstance** continues to exist, new **\*AssignmentSchedule** and a **\*AssignmentScheduleInstance** objects will be created for that activated duration. 
 
 For more information about assignment and activation APIs, see [PIM API for managing role assignments and eligibilities](/graph/api/resources/privilegedidentitymanagementv3-overview#pim-api-for-managing-role-assignment). 
 

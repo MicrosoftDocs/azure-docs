@@ -3,7 +3,7 @@
     {   "source_path_from_root": "/articles/hdinsight/storm/apache-storm-overview.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
-    }, 
+    },
     {
         "source_path_from_root": "/articles/hdinsight/hdinsight-50-component-versioning.md",
         "redirect_url": "/azure/hdinsight/hdinsight-5x-component-versioning",
@@ -18,11 +18,12 @@
         "source_path_from_root": "/articles/hdinsight/hdinsight-machine-learning-overview.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
-    }, {
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/storm/apache-storm-quickstart.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
-    }, 
+    },
     {
         "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-emulator-get-started.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
@@ -47,51 +48,52 @@
         "source_path_from_root": "/articles/hdinsight/storm/apache-storm-write-data-lake-store.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
-    }, 
+    },
     {
         "source_path_from_root": "/articles/hdinsight/storm/migrate-storm-to-spark.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
-    }, 
+    },
     {
         "source_path_from_root": "/articles/hdinsight/storm/apache-storm-develop-java-topology.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
-    }, 
+    },
     {
         "source_path_from_root": "/articles/hdinsight/hortonworks-release-notes.md",
         "redirect_url": "/azure/hdinsight/hdinsight-release-notes",
         "redirect_document_id": false
-    }, {
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/storm/apache-storm-develop-python-topology.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
-    }, 
+    },
     {
         "source_path_from_root": "/articles/hdinsight/storm/apache-storm-develop-csharp-visual-studio-topology.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
-    }, 
+    },
     {
         "source_path_from_root": "/articles/hdinsight/storm/apache-storm-scp-programming-guide.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
-    }, 
+    },
     {
         "source_path_from_root": "/articles/hdinsight/storm/apache-storm-example-topology.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
-    }, 
+    },
     {
         "source_path_from_root": "/articles/hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
-    }, 
+    },
     {
         "source_path_from_root": "/articles/hdinsight/storm/apache-storm-deploy-monitor-topology-linux.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
-    }, 
+    },
     {
         "source_path_from_root": "/articles/hdinsight/storm/apache-troubleshoot-storm.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
@@ -1277,75 +1279,75 @@
         "redirect_url": "/azure/hdinsight/interactive-query/hive-llap-sizing-guide",
         "redirect_document_id": false
     },
- {
+    {
         "source_path_from_root": "/articles/hdinsight/r-server/machine-learning-services-quickstart-job-rconsole.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
- },
- {
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/r-server/machine-learning-services-quickstart-job-rstudio.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
- },
- {
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-overview.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
-        "redirect_document_id": false   
- },
- {
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/r-server/r-server/quickstart-resource-manager-template.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
- },
- {
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/r-server/r-server/ml-services-tutorial-spark-compute.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
- },
- {
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-submit-jobs-r-tools-vs.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
- }, 
- {
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-compute-contexts.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
- },  
- {
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/r-server/r-server/hdinsight-hadoop-r-scaler-sparkr.md",
         "redirect_url": "/azure/hdinsight/spark/apache-spark-overview",
         "redirect_document_id": false
- },
- {
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-scaler-sparkr.md",
         "redirect_url": "/azure/hdinsight/spark/apache-spark-overview",
         "redirect_document_id": false
- }, 
- {
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-hdinsight-manage.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
- }, 
- {
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/hdinsight-apache-storm-with-kafka.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
- },
- {
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/hdinsight-ubuntu-1804-qa.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
- }, 
- {
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-operationalize.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
- }, 
- {
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-storage.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
     }
-]
+  ]
 }

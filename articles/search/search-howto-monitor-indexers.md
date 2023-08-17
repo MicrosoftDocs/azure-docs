@@ -43,7 +43,7 @@ If there were document-specific problems during the run, they'll be listed in th
 
    ![Indexer details with errors](media/search-monitor-indexers/indexer-execution-error.png "Indexer details with errors")
 
-Warnings are common with some types of indexers, and don't always indicate a problem. For example indexers that use Cognitive Services can report warnings when image or PDF files don't contain any text to process. 
+Warnings are common with some types of indexers, and don't always indicate a problem. For example indexers that use Azure AI services can report warnings when image or PDF files don't contain any text to process. 
 
 For more information about investigating indexer errors and warnings, see [Indexer troubleshooting guidance](search-indexer-troubleshooting.md).
 

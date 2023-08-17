@@ -4,6 +4,7 @@ description: Learn to create self-hosted CI/CD runners and agents with jobs in A
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 06/01/2023
 ms.author: cshoe

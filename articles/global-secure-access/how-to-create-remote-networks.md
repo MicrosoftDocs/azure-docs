@@ -1,11 +1,11 @@
 ---
 title: How to create remote networks for Global Secure Access (preview)
-description: Learn how to create remote networks for Global Secure Access (preview).
+description: Learn how to create remote networks, such as branch office locations, for Global Secure Access (preview).
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 07/27/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -25,6 +25,7 @@ To configure remote networks, you must have:
 - Completed the [onboarding process](#onboard-your-tenant-for-remote-networks) for remote networks
 - The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 - To use the Microsoft 365 traffic forwarding profile, a Microsoft 365 E3 license is recommended.
+- Review the valid configurations for setting up remote networks here - [Global Secure Access remote network configurations](reference-remote-network-configurations.md)
 
 ### Known limitations
 
@@ -104,25 +105,28 @@ Global Secure Access remote networks can be viewed and managed using Microsoft G
 1. Sign in to [Graph Explorer](https://aka.ms/ge).
 1. Select POST as the HTTP method. 
 1. Select BETA as the API version. 
-1. Add the following query to use Create Branches API (add hyperlink to the Graph API) 
+1. Add the following query to use Create Branches API 
     ```
     POST https://graph.microsoft.com/beta/networkaccess/connectivity/branches 
     { 
         "name": "ContosoBranch", 
-        "country": "United States ", //must be removed 
         "region": "East US", 
-        "bandwidthCapacity": 1000, //must be removed. This goes under deviceLink. 
         "deviceLinks": [ 
         { 
             "name": "CPE Link 1", 
             "ipAddress": "20.125.118.219", 
-            "version": "1.0.0", 
             "deviceVendor": "Other", 
             "bgpConfiguration": { 
-                "ipAddress": "172.16.11.5", 
+                "localIpAddress": "172.16.11.5",
+                "peerIpAddress": "10.16.11.5", 
                 "asn": 8888 
-              }, 
-              "tunnelConfiguration": { 
+              },
+            "redundancyConfiguration": {
+                "redundancyTier": "noRedundancy",
+                "zoneLocalIpAddress": "1.2.1.1"
+            },
+            "bandwidthCapacityInMbps": "mbps250"
+            "tunnelConfiguration": { 
                   "@odata.type": "#microsoft.graph.networkaccess.tunnelConfigurationIKEv2Default", 
                   "preSharedKey": "Detective5OutgrowDiligence" 
               } 

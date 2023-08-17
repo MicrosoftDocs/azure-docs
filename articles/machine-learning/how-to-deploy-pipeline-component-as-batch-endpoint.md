@@ -31,6 +31,9 @@ It's also possible to deploy your pipeline job as batch endpoint. In this case, 
 
 - [Deploy existing pipeline jobs to batch endpoints (preview)](how-to-use-batch-pipeline-from-job.md)
 
+    > [!NOTE]
+    > The consumer of the batch endpoint that invokes the pipeline job should be the user application, not the final end user. The application should control the inputs to the endpoint to prevent malicious inputs.
+
 ## Next steps
 
 - [How to deploy a training pipeline with batch endpoints (preview)](how-to-use-batch-training-pipeline.md)

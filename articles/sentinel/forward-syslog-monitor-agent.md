@@ -6,7 +6,7 @@ ms.author: cwatson
 ms.service: microsoft-sentinel
 ms.topic: tutorial 
 ms.date: 01/05/2023
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-linux
 #Customer intent: As a security engineer, I want to get Syslog data into Microsoft Sentinel so that I can do attack detection, threat visibility, proactive hunting, and threat response. As an IT administrator, I want to get Syslog data into my Log Analytics workspace to monitor my Linux-based devices.
 ---
 

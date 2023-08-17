@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for New Zealand ISM Restricted
 description: Details of the New Zealand ISM Restricted Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 07/06/2023
+ms.date: 08/03/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -10,7 +10,7 @@ ms.custom: generated
 The following article details how the Azure Policy Regulatory Compliance built-in initiative
 definition maps to **compliance domains** and **controls** in New Zealand ISM Restricted.
 For more information about this compliance standard, see
-[New Zealand ISM Restricted](https://www.nzism.gcsb.govt.nz/). To understand
+[New Zealand ISM Restricted](https://www.nzism.gcsb.govt.nz/ism-document). To understand
 _Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#type) and
 [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
 

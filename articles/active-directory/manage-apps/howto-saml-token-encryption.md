@@ -12,7 +12,7 @@ ms.date: 06/15/2023
 ms.author: jomondi
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.custom: enterprise-apps
+ms.custom: enterprise-apps, has-azure-ad-ps-ref
 ---
 
 # Configure Azure Active Directory SAML token encryption
@@ -52,7 +52,7 @@ To configure enterprise application's SAML token encryption, follow these steps:
 
 You can add the public cert to your application configuration within the Azure portal.
 
-1. Go to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select the **Azure Active Directory**.
 
@@ -67,7 +67,7 @@ You can add the public cert to your application configuration within the Azure p
 
 1. On the **Token encryption** page, select **Import Certificate** to import the .cer file that contains your public X.509 certificate.
 
-    ![Screenshot shows how to import a certificate file using Azure Portal.](./media/howto-saml-token-encryption/import-certificate-small.png)
+    ![Screenshot shows how to import a certificate file using Azure portal.](./media/howto-saml-token-encryption/import-certificate-small.png)
 
 1. Once the certificate is imported, and the private key is configured for use on the application side, activate encryption by selecting the **...** next to the thumbprint status, and then select **Activate token encryption** from the options in the dropdown menu.
 
@@ -245,5 +245,5 @@ To configure token encryption, follow these steps:
 
 ## Next steps
 
-* Find out [How Azure AD uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md)
+* Find out [How Azure AD uses the SAML protocol](../develop/saml-protocol-reference.md)
 * Learn the format, security characteristics, and contents of [SAML tokens in Azure AD](../develop/reference-saml-tokens.md)

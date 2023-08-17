@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 07/18/2023
 ms.service: network-access
 ms.custom: 
 ms.reviewer: katabish
@@ -52,11 +52,12 @@ Details of your Quick Access and enterprise apps for Private Access are displaye
 
 ## Linked Conditional Access policies
 
-[Conditional Access policies](../active-directory/conditional-access/overview.md) are created and applied to the traffic forwarding profile in the Conditional Access area of Microsoft Entra ID. For example, you can create a policy that requires multifactor authentication to access private resources.
+Conditional Access policies for Private Access are configured at the application level for each app. Conditional Access policies can be created and applied to the application from two places:
 
-If you see "None" in the **Linked Conditional Access policies** section, there isn't a Conditional Access policy linked to the traffic forwarding profile. To create a Conditional Access policy, see [Universal Conditional Access through Global Secure Access](how-to-target-resource-microsoft-365-profile.md).
+- Go to **Global Secure Access (preview)** > **Applications** > **Enterprise applications**. Select an application and then select **Conditional Access** from the side menu.
+- Go to **Microsoft Entra ID** > **Protection** > **Conditional Access** > **Policies**. Select **+ Create new policy**.
 
-![Screenshot of the linked Conditional Access policies area of Private Access.](media/how-to-manage-private-access-profile/private-access-conditional-access-policies.png)
+For more information, see [Apply Conditional Access policies to Private Access apps](how-to-target-resource-private-access-apps.md).
 
 ### Edit an existing Conditional Access policy
 

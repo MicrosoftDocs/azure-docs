@@ -33,6 +33,22 @@ Update management center (preview) uses maintenance control schedule instead of 
 1. All VMs in a common [availability set](../virtual-machines/availability-set-overview.md) aren't updated concurrently.
 1. VMs in a common availability set are updated within Update Domain boundaries and, VMs across multiple Update Domains aren't updated concurrently.
 
+## Configure reboot settings
+
+The registry keys listed in [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) and [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) can cause your machines to reboot, even if you specify **Never Reboot** in the **Schedule** settings. Configure these registry keys to best suit your environment.
+
+## Service limits
+
+The following are the recommended limits for the mentioned indicators:
+
+| Indicator    | Limit          |
+|----------|----------------------------|
+| Number of schedules per Subscription per Region     | 250  |
+| Total number of Resource associations to a schedule | 3000 |
+| Resource associations on each dynamic scope    | 1000 |
+| Number of dynamic scopes per Resource Group or Subscription per Region     | 250  |
+
+
 ## Schedule recurring updates on single VM
 
 >[!NOTE]
@@ -58,7 +74,7 @@ To schedule recurring updates on a single VM, follow these steps:
 		- Start on
 		- Maintenance window (in hours)
 		> [!NOTE]
-        > The upper maintenance window is 3.55 hours.
+        > The upper maintenance window is 3 hours 55 mins.
 		- Repeats (monthly, daily or weekly)
 		- Add end date
 		- Schedule summary
@@ -271,14 +287,6 @@ To view the current compliance state of your existing resources:
 
 ## Check your scheduled patching run
 You can check the deployment status and history of your maintenance configuration runs from the Update management center portal. Follow [Update deployment history by maintenance run ID](./manage-multiple-machines.md#update-deployment-history-by-maintenance-run-id).
-
-
-## Limitations and known issues
-
-The known issues and limitations of scheduled patching are:
-
-1. For concurrent/conflicting schedule, only one schedule will be triggered. The other schedule will be triggered once a schedule is finished.
-1. If a machine is newly created, the schedule might have 15 minutes of schedule trigger delay in case of Azure VMs.
 
 ## Next steps
 

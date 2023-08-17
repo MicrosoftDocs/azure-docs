@@ -6,7 +6,7 @@ ms.author: lle
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 09/26/2022
+ms.date: 08/10/2023
 ---
 
 # Tutorial: How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint
@@ -179,7 +179,7 @@ the page.
     |Region  |Select **East US**.|
     |Availability Options  |Select **Availability zones**.|
     |Availability zone  |Select **1**.| 
-    |Image  |Select **Ubuntu Server 18.04LTS – Gen1**.| 
+    |Image  |Select **Ubuntu Server 18.04LTS - Gen1**.| 
     |Azure Spot instance  |Select **No**.| 
     |Size   |Choose VM size or take default setting.| 
     |**Administrator account**||
@@ -242,7 +242,7 @@ data factory from the resources list.
 4. Select + **New** under **Managed private endpoints**.
 5. Select the **Private Link Service** tile from the list and select **Continue**.
 6. Enter the name of private endpoint and select **myPrivateLinkService** in private link service list.
-7. Add FQDN of your target on-premises SQL Server.
+7. Add <FQDN>,<port> of your target on-premises SQL Server. By default, port is 1433.
 
     :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-6.png" alt-text="Screenshot that shows the private endpoint settings.":::
 

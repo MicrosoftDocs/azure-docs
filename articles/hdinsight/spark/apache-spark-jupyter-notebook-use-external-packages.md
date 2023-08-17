@@ -4,7 +4,7 @@ description: Step-by-step instructions on how to configure Jupyter Notebooks ava
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 06/10/2022
+ms.date: 07/12/2023
 ---
 
 # Use external packages with Jupyter Notebooks in Apache Spark clusters on HDInsight

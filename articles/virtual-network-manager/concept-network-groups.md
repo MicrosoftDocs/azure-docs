@@ -50,8 +50,8 @@ To create an Azure Policy initiative definition and assignment for Azure Virtual
 
 To create, edit, or delete Azure Virtual Network Manager dynamic group policies, you need:
 
-- Read and write Azure RBAC permissions to the underlying policy
-- Azure RBAC permissions to join the network group (Classic Admin authorization isn't supported).
+- Read and write role-based access control permissions to the underlying policy.
+- Role-based access control permissions to join the network group (Classic Admin authorization isn't supported).
 
 For more information on required permissions for Azure Virtual Network Manager dynamic group policies, review [Required permissions](concept-azure-policy-integration.md#required-permissions).
 

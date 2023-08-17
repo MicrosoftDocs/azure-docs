@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 06/20/2023
 ms.custom: devx-track-azurecli
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Tutorial: Back up SAP HANA databases in an Azure VM using Azure CLI
 
-This tutorial describes how to back up SAP HANA database instance and SAP HANA System Replication (HSR) instance (preview) using Azure CLI.
+This tutorial describes how to back up SAP HANA database instance and SAP HANA System Replication (HSR) instance using Azure CLI.
 
 Azure CLI is used to create and manage Azure resources from the Command Line or through scripts. This documentation details how to back up an SAP HANA database and trigger on-demand backups - all using Azure CLI. You can also perform these steps using the [Azure portal](./backup-azure-sap-hana-database.md).
 
@@ -64,7 +64,7 @@ Location   Name             ResourceGroup
 westus2    saphanaVault     saphanaResourceGroup
 ```
 
-# [HSR (preview)](#tab/hsr)
+# [HSR](#tab/hsr)
 
 To create the Recovery Services vault for HSR instance protection, run the following command:
 
@@ -113,7 +113,7 @@ To register and protect database instance, follow these steps:
    > The column “name” in the above output refers to the container name. This container name will be used in the next sections to enable backups and trigger them. Which in this case, is *VMAppContainer;Compute;saphanaResourceGroup;saphanaVM*.
 
 
-# [HSR (preview)](#tab/hsr)
+# [HSR](#tab/hsr)
 
 To register and protect database instance, follow these steps:
 
@@ -217,7 +217,7 @@ To get container name, run the following command. [Learn about this CLI command]
 
 ```
 
-# [HSR (preview)](#tab/hsr)
+# [HSR](#tab/hsr)
 
 To enable database instance backup, follow these steps:
 
@@ -292,7 +292,7 @@ The response will give you the job name. This job name can be used to track the 
 >[!NOTE]
 >Log backups are automatically triggered and managed by SAP HANA internally.
 
-# [HSR (preview)](#tab/hsr)
+# [HSR](#tab/hsr)
 
 To run an on-demand backup, run the following command:
 

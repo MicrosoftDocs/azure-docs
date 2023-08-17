@@ -345,7 +345,7 @@ You can enable dedicated data endpoints in your Azure Container registry to avoi
 
 > [!NOTE]
 > To provide a consistent FQDN between the REST and data endpoints, beginning **June 15, 2020** the Microsoft Container Registry data endpoint will change from `*.cdn.mscr.io` to `*.data.mcr.microsoft.com`  
-> For more information, see [Microsoft Container Registry client firewall rules configuration](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md)
+> For more information, see [Microsoft Container Registry client firewall rules configuration](https://github.com/microsoft/containerregistry/blob/main/docs/client-firewall-rules.md)
 
 If you don't want to configure your firewall to allow access to public container registries, you can store images in your private container registry, as described in [Store runtime containers in your private registry](#store-runtime-containers-in-your-private-registry).
 

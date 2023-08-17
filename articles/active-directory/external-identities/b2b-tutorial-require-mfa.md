@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 04/03/2023
+ms.date: 07/28/2023
 
 ms.author: cmulligan
 author: csmulligan
@@ -55,36 +55,39 @@ To complete the scenario in this tutorial, you need:
 
 ## Create a test guest user in Azure AD
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 1. In the Azure portal, select **Azure Active Directory**.
 1. In the left menu, under **Manage**, select **Users**.
 1. Select **New user**, and then select **Invite external user**.
 
-    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-new-user.png" alt-text="Screenshot showing where to select the new guest user option.":::
+    :::image type="content" source="media/tutorial-mfa/tutorial-mfa-new-user.png" alt-text="Screenshot showing where to select the new guest user option." lightbox="media/tutorial-mfa/tutorial-mfa-new-user.png":::
 
-1. Under **Identity**, enter the email address of the external user. Optionally, include a name and welcome message.
+1. Under **Identity** on the **Basics** tab, enter the email address of the external user. Optionally, include a display name and welcome message.
 
     :::image type="content" source="media/tutorial-mfa/tutorial-mfa-new-user-identity.png" alt-text="Screenshot showing where to enter the guest email.":::
 
-1. Select **Invite** to automatically send the invitation to the guest user. A **Successfully invited user** message appears.
+1. Optionally, you can add further details to the user under the **Properties** and **Assignments** tabs.
+1. Select **Review + invite** to automatically send the invitation to the guest user. A **Successfully invited user** message appears.
 1. After you send the invitation, the user account is automatically added to the directory as a guest.
 
 ## Test the sign-in experience before MFA setup
 
-1. Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
+1. Use your test user name and password to sign in to the [Azure portal](https://portal.azure.com).
 1. You should be able to access the Azure portal using only your sign-in credentials. No other authentication is required.
 1. Sign out.
 
 ## Create a Conditional Access policy that requires MFA
 
-1. Sign in to your [Azure portal](https://portal.azure.com/) as a security administrator or a Conditional Access administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a security administrator or a Conditional Access administrator.
 1. In the Azure portal, select **Azure Active Directory**.
 1. In the left menu, under **Manage**, select **Security**.
 1. Under **Protect**, select **Conditional Access**.
 1. On the **Conditional Access** page, in the toolbar on the top, select **New policy**.
 1. On the **New** page, in the **Name** textbox, type **Require MFA for B2B portal access**.
 1. In the **Assignments** section, choose the link under **Users and groups**.
-1. On the **Users and groups** page, choose **Select users and groups**, and then choose **Guest or external users**. You can assign the policy to different [external user types](authentication-conditional-access.md#assigning-conditional-access-policies-to-external-user-types), built-in [directory roles](../conditional-access/concept-conditional-access-users-groups.md#include-users), or users and groups. 
+1. On the **Users and groups** page, choose **Select users and groups**, and then choose **Guest or external users**. You can assign the policy to different [external user types](authentication-conditional-access.md#assigning-conditional-access-policies-to-external-user-types), built-in directory roles, or users and groups. 
 
     :::image type="content" source="media/tutorial-mfa/tutorial-mfa-user-access.png" alt-text="Screenshot showing selecting all guest users.":::
 
@@ -129,7 +132,7 @@ To complete the scenario in this tutorial, you need:
 
 ## Test your Conditional Access policy
 
-1. Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
+1. Use your test user name and password to sign in to the [Azure portal](https://portal.azure.com).
 1. You should see a request for more authentication methods. It can take some time for the policy to take effect.
 
     :::image type="content" source="media/tutorial-mfa/mfa-required.PNG" alt-text="Screenshot showing the More information required message.":::
@@ -143,7 +146,7 @@ To complete the scenario in this tutorial, you need:
 
 When no longer needed, remove the test user and the test Conditional Access policy.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 1. In the left pane, select **Azure Active Directory**.
 1. Under **Manage**, select **Users**.
 1. Select the test user, and then select **Delete user**.

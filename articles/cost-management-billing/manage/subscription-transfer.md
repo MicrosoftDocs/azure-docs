@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/26/2023
+ms.date: 08/04/2023
 ms.author: banders
 ---
 
@@ -46,7 +46,7 @@ As you begin to plan your product transfer, consider the information needed to a
   - Enterprise Agreement (EA)
   - Microsoft Customer Agreement (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. Also called an MCA enterprise agreement.
   - Microsoft Customer Agreement (MCA) that you bought through the Azure website. Also called an MCA individual agreement.
-  - Others like MSDN, BizSpark, EOPEN, Azure Pass, and Free Trial
+  - Others like MSDN, EOPEN, Azure Pass, and Free Trial
 - Do you have the required permissions on the product to accomplish a transfer? Specific permission needed for each transfer type is listed in the following product transfer support table.
   - Only the billing administrator of an account can transfer subscription ownership.
   - Only a billing administrator owner can transfer reservation or savings plan ownership.
@@ -93,7 +93,7 @@ Dev/Test products aren't shown in the following table. Transfers for Dev/Test pr
 | Previous Azure offer in CSP | Previous Azure offer in CSP | •  Requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/).<br><br> •  Reservations don't automatically transfer and transferring them isn't supported. |
 | Previous Azure offer in CSP | MPA | For details, see [Transfer a customer's Azure subscriptions to a different CSP (under an Azure plan)](/partner-center/transfer-azure-subscriptions-under-azure-plan). |
 | MPA | EA | •  Automatic transfer isn't supported. Any transfer requires resources to move from the existing MPA product manually to a newly created or an existing EA product.<br><br> •  Use the information in the [Perform resource transfers](#perform-resource-transfers) section. <br><br> •  Reservations and savings plan don't automatically transfer and transferring them isn't supported. |
-| MPA | MPA | •  For details, see [Transfer a customer's Azure subscriptions and/or Reservations (under an Azure plan) to a different CSP](/partner-center/transfer-azure-subscriptions-under-azure-plan).<br><br> •  Self-service reservation and savings plan transfers are supported.  |
+| MPA | MPA | •  For details, see [Transfer a customer's Azure subscriptions and/or Reservations (under an Azure plan) to a different CSP](/partner-center/transfer-azure-subscriptions-under-azure-plan).<br><br> •  Self-service reservation transfers are supported.  |
 | MOSP (PAYG) | MOSP (PAYG) | •  If you're changing the billing owner of the subscription, see [Transfer billing ownership of an Azure subscription to another account](billing-subscription-transfer.md).<br><br> •  Reservations don't automatically transfer so you must open a [billing support ticket](https://azure.microsoft.com/support/create-ticket/) to transfer them.  |
 | MOSP (PAYG) | MCA - individual | •  For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br> •  Self-service reservation transfers are supported. |
 | MOSP (PAYG) | EA | • If you're transferring the subscription to the EA enrollment, see [Transfer a subscription to an EA](mosp-ea-transfer.md#transfer-the-subscription-to-the-ea).<br><br> •  If you're changing billing ownership, see [Change Azure subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership). |
@@ -179,7 +179,7 @@ If you have an Azure support plan and you transfer all of your Azure subscriptio
 
 Use your account administrator credentials for your old account if the credentials differ from the ones used to access your new Microsoft Customer Agreement account.
 
-1.	Sign in to the Azure portal at https://portal.azure.com.
+1.	Sign in to the [Azure portal](https://portal.azure.com).
 1.	Navigate to **Cost Management + Billing**.
 1.	Select **Billing Scopes** in the left pane.
 1.	Select the billing account associated with your Microsoft support plan.

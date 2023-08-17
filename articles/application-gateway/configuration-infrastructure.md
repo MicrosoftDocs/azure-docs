@@ -136,7 +136,7 @@ You may block all other incoming traffic by using a deny-all rule.
 
 **Outbound rules**
 
-1. **Outbound to the Internet** - Allow outbound traffic to the Internet for all destinations. This rule is created by default for [network security group](../virtual-network/network-security-groups-overview.md), and you must not override it with a manual Deny rule to ensure smooth operations of your application gateway.
+1. **Outbound to the Internet** - Allow outbound traffic to the Internet for all destinations. This rule is created by default for [network security group](../virtual-network/network-security-groups-overview.md), and you must not override it with a manual Deny rule to ensure smooth operations of your application gateway. Outbound NSG rules that deny any outbound connectivity must not be created.
 
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|

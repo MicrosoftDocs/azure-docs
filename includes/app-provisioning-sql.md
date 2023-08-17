@@ -102,90 +102,81 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
      
     ![Screenshot that shows ODBC management.](./media/app-provisioning-sql/odbc.png)
 
- 1. Select the **File DSN** tab, and select **Add**. 
+ 2. Select the **File DSN** tab, and select **Add**. 
  
      ![Screenshot that shows the File DSN tab.](./media/app-provisioning-sql/dsn-2.png)
 
- 1. If you're using SQL Server or Azure SQL, select **SQL Server Native Client 11.0** and select **Next**. If you're using another database, select its ODBC driver.
+ 3. If you're using SQL Server or Azure SQL, select **SQL Server Native Client 11.0** and select **Next**. If you're using another database, select its ODBC driver.
 
      ![Screenshot that shows choosing a native client.](./media/app-provisioning-sql/dsn-3.png)
      
- 1. Give the file a name, such as **GenericSQL**, and select **Next**. 
+ 4. Give the file a name, such as **GenericSQL**, and select **Next**. 
      ![Screenshot that shows naming the connector.](./media/app-provisioning-sql/dsn-4.png)
      
- 1. Select **Finish**. 
+ 5. Select **Finish**. 
      
      ![Screenshot that shows Finish.](./media/app-provisioning-sql/dsn-5.png)
      
- 1. Now configure the connection. If the SQL Server is located on a different server computer, then enter the name of the server. Then, select **Next**.  The following steps will differ depending upon which ODBC driver you're using.  These settings assume you're using the driver to connect to SQL Server.
+ 6. Now configure the connection. If the SQL Server is located on a different server computer, then enter the name of the server. Then, select **Next**.  The following steps will differ depending upon which ODBC driver you're using.  These settings assume you're using the driver to connect to SQL Server.
      
      ![Screenshot that shows entering a server name.](./media/app-provisioning-sql/dsn-6.png)
 
- 1. If the user you're running this step as has permissions to connect to the database, then keep Windows authentication selected. If the SQL Server administrator requires a SQL local account, then provide those credentials instead. Then select **Next**.
+ 7. If the user you're running this step as has permissions to connect to the database, then keep Windows authentication selected. If the SQL Server administrator requires a SQL local account, then provide those credentials instead. Then select **Next**.
 
      ![Screenshot that shows Windows authentication.](./media/app-provisioning-sql/dsn-7.png)
 
- 1. Enter the name of the database, which in this sample is **CONTOSO**.
+ 8. Enter the name of the database, which in this sample is **CONTOSO**.
      
      ![Screenshot that shows entering a database name.](./media/app-provisioning-sql/dsn-8.png)
 
- 1. Keep everything default on this screen, and select **Finish**.
+ 9. Keep everything default on this screen, and select **Finish**.
 
      ![Screenshot that shows selecting Finish.](./media/app-provisioning-sql/dsn-9.png)
 
- 1. To check everything is working as expected, select **Test Data Source**.
+ 10. To check everything is working as expected, select **Test Data Source**.
   
      ![Screenshot that shows Test Data Source.](./media/app-provisioning-sql/dsn-10.png)
 
- 1. Make sure the test is successful.
+ 11. Make sure the test is successful.
  
      ![Screenshot that shows success.](./media/app-provisioning-sql/dsn-11.png)
 
- 1. Select **OK** twice. Close the ODBC Data Source Administrator. The DSN connection file is saved by default to your **Documents** folder.
+ 12. Select **OK** twice. Close the ODBC Data Source Administrator. The DSN connection file is saved by default to your **Documents** folder.
 
 
 ## 3. Install and configure the Azure AD Connect Provisioning Agent
 
 If you have already downloaded the provisioning agent and configured it for another on-premises application, then continue reading in the next section.
-
-  1.  In the Azure portal, select **Azure Active Directory**.
-  2.  On the left, select **Azure AD Connect**.
-  3.  On the left, select **Cloud sync**.
+ 1. Sign in to the Azure portal.
+ 2. Go to **Enterprise applications** and select **New application**.
+ 3. Search for the **On-premises ECMA app** application, give the app a name, and select **Create** to add it to your tenant.
+ 4. From the menu, navigate to the **Provisioning** page of your application.
+ 5. Select **Get started**.
+ 6. On the **Provisioning** page, change the mode to **Automatic**.
  
- :::image type="content" source="media/active-directory-cloud-sync-how-to-install/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-1.png":::
+ :::image type="content" source="media/app-provisioning-sql/configure-7.png" alt-text="Screenshot of selecting Automatic." lightbox="media/app-provisioning-sql/configure-7.png":::
 
- 4. On the left, select **Agent**.
- 5. Select **Download on-premises agent**, and select **Accept terms & download**.
+ 7. Under **On-premises Connectivity**, select **Download and install**, and select **Accept terms & download**.
+ 
+ :::image type="content" source="media/app-provisioning-sql/download-1.png" alt-text="Screenshot of download location for agent." lightbox="media/app-provisioning-sql/download-1.png":::
+     
+ 8. Leave the portal and open the provisioning agent installer, agree to the terms of service, and select **next**.
+ 9. Open the provisioning agent wizard.
+ 10. In the **Select Extension** step, select **On-premises application provisioning** and then select **Next**.
 
-     >[!NOTE]
-     >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
-
- 1. Open the provisioning agent installer, agree to the terms of service, and select **next**.
- 1. Open the provisioning agent wizard.
- 1. In the **Select Extension** step, select **On-premises application provisioning** and then select **Next**.
-
-    ![Screenshot that shows how to select on premises provisioning.](./media/app-provisioning-sql/sync-agent-select-on-premises.png)
-
- 1. The provisioning agent will use the operating system's web browser to display a popup window for you to authenticate to Azure AD, and potentially also your organization's identity provider.  If you are using Internet Explorer as the browser on Windows Server, then you may need to add Microsoft web sites to your browser's trusted site list to allow JavaScript to run correctly.
- 1. Provide credentials for an Azure AD administrator when you're prompted to authorize. The user is required to have the Hybrid Identity Administrator or Global Administrator role.
- 1. Select **Confirm** to confirm the setting. Once installation is successful, you can select **Exit**, and also close the Provisioning Agent Package installer.
+ :::image type="content" source="media/app-provisioning-sql/sync-agent-select-on-premises.png" alt-text="Screenshot that shows how to select on premises provisioning." lightbox="media/app-provisioning-sql/sync-agent-select-on-premises.png":::
+    
+ 11. The provisioning agent will use the operating system's web browser to display a popup window for you to authenticate to Azure AD, and potentially also your organization's identity provider.  If you are using Internet Explorer as the browser on Windows Server, then you may need to add Microsoft web sites to your browser's trusted site list to allow JavaScript to run correctly.
+ 12. Provide credentials for an Azure AD administrator when you're prompted to authorize. The user is required to have the Hybrid Identity Administrator or Global Administrator role.
+ 13. Select **Confirm** to confirm the setting. Once installation is successful, you can select **Exit**, and also close the Provisioning Agent Package installer.
  
 ## 4. Configure the On-premises ECMA app
 
-1. Sign in to the Azure portal.
-1. Go to **Enterprise applications** and select **New application**.
-1. Search for the **On-premises ECMA app** application, give the app a name, and select **Create** to add it to your tenant.
-1. From the menu, navigate to the **Provisioning** page of your application.
-1. Select **Get started**.
-1. On the **Provisioning** page, change the mode to **Automatic**.
+ 1. Back in the portal, on the **On-Premises Connectivity** section, select the agent that you deployed and select **Assign Agent(s)**.
 
-     ![Screenshot that shows changing the mode to Automatic.](.\media\app-provisioning-sql\configure-7.png)
+      ![Screenshot that shows how to select and assign and agent.](.\media\app-provisioning-sql\configure-7a.png)
 
- 1. On the **On-Premises Connectivity** section, select the agent that you deployed and select **Assign Agent(s)**.
-
-      ![Screenshot that shows how to select and assign an agent.](.\media\app-provisioning-sql\configure-7a.png)
-
- 1. Keep this browser window open, as you complete the next step of configuration using the configuration wizard.
+ 2. Keep this browser window open, as you complete the next step of configuration using the configuration wizard.
 
   
  ## 5. Configure the Azure AD ECMA Connector Host certificate

@@ -31,7 +31,7 @@ For information about public IP prefixes and a NAT gateway, see [Manage NAT gate
     | NAT gateway name             | Enter **nat-gateway**                                    |
     | Region           | Select **East US 2**  |
     | Availability Zone | Select **No Zone**. |
-    | TCP idle timeout (minutes) | Enter **10**. |
+    | TCP idle timeout (minutes) | Leave the default of **4**. |
 
     For information about availability zones and NAT gateway, see [NAT gateway and availability zones](../articles/nat-gateway/nat-availability-zones.md).
 

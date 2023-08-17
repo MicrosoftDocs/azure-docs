@@ -4,7 +4,7 @@ title: Update deployed web services
 titleSuffix: Azure Machine Learning
 description: Learn how to refresh a web service that is already deployed in Azure Machine Learning. You can update settings such as model, environment, and entry script.
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.topic: how-to
 ms.author: bozhlin
 author: bozhong68

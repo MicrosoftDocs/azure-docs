@@ -8,6 +8,7 @@ ms.author: henrymbugua
 ms.service: active-directory
 ms.topic: tutorial
 ms.subservice: ciam
+ms.custom: devx-track-dotnet
 ms.date: 06/05/2023
 ---
 
