@@ -102,23 +102,23 @@ using (MySqlConnection connection = new MySqlConnection(connectionString))
 After created a springboot client type connection, Service Connector service will automatically add properties `spring.datasource.url`, `spring.datasource.username`, `spring.datasource.password`. So Spring boot application could add beans automatically.
 
 1. Install dependencies. Add following dependencies to your `pom.xml` file.
-```xml
-<dependencyManagement>
-  <dependencies>
-    <dependency>
-      <groupId>com.azure.spring</groupId>
-      <artifactId>spring-cloud-azure-dependencies</artifactId>
-      <version>4.10.0</version>
-      <type>pom</type>
-      <scope>import</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.azure.spring</groupId>
-      <artifactId>spring-cloud-azure-starter-jdbc-mysql</artifactId>
-    </dependency>
-  </dependencies>
-</dependencyManagement>
-```
+    ```xml
+    <dependencyManagement>
+      <dependencies>
+        <dependency>
+          <groupId>com.azure.spring</groupId>
+          <artifactId>spring-cloud-azure-dependencies</artifactId>
+          <version>4.10.0</version>
+          <type>pom</type>
+          <scope>import</scope>
+        </dependency>
+        <dependency>
+          <groupId>com.azure.spring</groupId>
+          <artifactId>spring-cloud-azure-starter-jdbc-mysql</artifactId>
+        </dependency>
+      </dependencies>
+    </dependencyManagement>
+    ```
 1. Setup normal Spring App application, more detail in this [section](/azure/developers/java/spring-framework/configure-spring-data-jpa-with-azure-mysql/#tabs=password).
 
 #### [Python](#tab/python)
@@ -162,10 +162,10 @@ cnx.close()
 | `AZURE_MYSQL_PASSWORD`              | Database password | `MySQL-DB-password`                        |
 
 1. Install dependencies.
-```bash
-pip install django==3.2
-```
-2. In setting file, get MySQL database information from environment variables added by Service Connector service.
+    ```bash
+    pip install django==3.2
+    ```
+1. In setting file, get MySQL database information from environment variables added by Service Connector service.
 ```python
 # in your setting file, eg. settings.py
 host = os.getenv('AZURE_MYSQL_HOST')
@@ -227,26 +227,26 @@ DATABASES = {
    npm install mysql
    ```
 1. In code, get MySQL connection information from environment variables added by Service Connector service.
-```javascript
-const mysql = require('mysql')
-
-const connection = mysql.createConnection({
-  host: process.env.AZURE_MYSQL_HOST,
-  user: process.env.AZURE_MYSQL_USER,
-  password: process.env.AZURE_MYSQL_PASSWORD,
-  database: process.env.AZURE_MYSQL_DATABASE,
-  port: process.env.AZURE_MYSQL_PORT,
-  ssl: process.env.AZURE_MYSQL_SSL
-});
-
-connection.connect((err) => {
-  if (err) {
-    console.error('Error connecting to MySQL database: ' + err.stack);
-    return;
-  }
-  console.log('Connected to MySQL database.');
-});
-```
+   ```javascript
+   const mysql = require('mysql')
+   
+   const connection = mysql.createConnection({
+     host: process.env.AZURE_MYSQL_HOST,
+     user: process.env.AZURE_MYSQL_USER,
+     password: process.env.AZURE_MYSQL_PASSWORD,
+     database: process.env.AZURE_MYSQL_DATABASE,
+     port: process.env.AZURE_MYSQL_PORT,
+     ssl: process.env.AZURE_MYSQL_SSL
+   });
+   
+   connection.connect((err) => {
+     if (err) {
+       console.error('Error connecting to MySQL database: ' + err.stack);
+       return;
+     }
+     console.log('Connected to MySQL database.');
+   });
+   ```
 
 
 #### [PHP](#tab/php)
@@ -297,24 +297,24 @@ mysqli_close($conn);
 | `AZURE_MYSQL_SSLMODE`               | SSL option        | `required`                                 |
 
 1. Install dependencies.
-```bash
-gem install mysql2
-```
+   ```bash
+   gem install mysql2
+   ```
 1. In code, get MySQL connection information from environment variables added by Service Connector service.
-```ruby
-require 'mysql2'
-require 'dotenv/load'
-
-client = Mysql2::Client.new(
-  host: ENV['AZURE_MYSQL_HOST'],
-  username: ENV['AZURE_MYSQL_USER'],
-  password: ENV['AZURE_MYSQL_PASSWORD'],
-  database: ENV['AZURE_MYSQL_DATABASE'],
-  sslca: ENV['AZURE_MYSQL_SSLMODE']
-)
-
-client.close
-```
+   ```ruby
+   require 'mysql2'
+   require 'dotenv/load'
+   
+   client = Mysql2::Client.new(
+     host: ENV['AZURE_MYSQL_HOST'],
+     username: ENV['AZURE_MYSQL_USER'],
+     password: ENV['AZURE_MYSQL_PASSWORD'],
+     database: ENV['AZURE_MYSQL_DATABASE'],
+     sslca: ENV['AZURE_MYSQL_SSLMODE']
+   )
+   
+   client.close
+   ```
 
 ---
 
@@ -344,24 +344,6 @@ client.close
 | `spring.datasource.username`             | Database username        | `<MySQL-DB-username>`  |
 
 
-#### [Go](#tab/go)
-
-| Default environment variable name | Description                     | Example value                                                                                                |
-|-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
-| `AZURE_MYSQL_CONNECTIONSTRING`      | Go-sql-driver connection string | `<MySQL-DB-username>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
-
-
-
-#### [NodeJS](#tab/node)
-
-| Default environment variable name   | Description       | Example value                              |
-|-------------------------------------|-------------------|--------------------------------------------|
-| `AZURE_MYSQL_HOST`                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
-| `AZURE_MYSQL_USER`                  | Database Username | `MySQL-DB-username`                        |
-| `AZURE_MYSQL_DATABASE`              | Database name     | `<database-name>`                          |
-| `AZURE_MYSQL_PORT`                  | Port number       | `3306`                                     |
-| `AZURE_MYSQL_SSL`                   | SSL option        | `true`                                     |
-
 #### [Python](#tab/python)
 
 | Default environment variable name   | Description       | Example value                              |
@@ -378,6 +360,25 @@ client.close
 | `AZURE_MYSQL_NAME`                  | Database name     | `MySQL-DB-name`                            |
 | `AZURE_MYSQL_HOST`                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
 | `AZURE_MYSQL_USER`                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
+
+
+#### [Go](#tab/go)
+
+| Default environment variable name | Description                     | Example value                                                                                                |
+|-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
+| `AZURE_MYSQL_CONNECTIONSTRING`      | Go-sql-driver connection string | `<MySQL-DB-username>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
+
+
+#### [NodeJS](#tab/node)
+
+| Default environment variable name   | Description       | Example value                              |
+|-------------------------------------|-------------------|--------------------------------------------|
+| `AZURE_MYSQL_HOST`                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
+| `AZURE_MYSQL_USER`                  | Database Username | `MySQL-DB-username`                        |
+| `AZURE_MYSQL_DATABASE`              | Database name     | `<database-name>`                          |
+| `AZURE_MYSQL_PORT`                  | Port number       | `3306`                                     |
+| `AZURE_MYSQL_SSL`                   | SSL option        | `true`                                     |
+
 
 #### [PHP](#tab/php)
 
@@ -434,6 +435,25 @@ client.close
 | `spring.datasource.username`                                    | Database username                 | `username` |
 
 
+#### [Python](#tab/python)
+
+| Default environment variable name   | Description       | Example value                              |
+|-------------------------------------|-------------------|--------------------------------------------|
+| `AZURE_MYSQL_NAME`                  | Database name     | `MySQL-DB-name`                            |
+| `AZURE_MYSQL_HOST`                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
+| `AZURE_MYSQL_USER`                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
+| `AZURE_MYSQL_CLIENTID`              | Your client ID    | `identity-client-ID`                       |
+
+#### [Django](#tab/django)
+
+| Default environment variable name   | Description       | Example value                              |
+|-------------------------------------|-------------------|--------------------------------------------|
+| `AZURE_MYSQL_NAME`                  | Database name     | `MySQL-DB-name`                            |
+| `AZURE_MYSQL_HOST`                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
+| `AZURE_MYSQL_USER `                 | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
+| `AZURE_MYSQL_CLIENTID`              | Your client ID    | `<identity-client-ID>`                     |
+
+
 #### [Go](#tab/go)
 
 | Default environment variable name | Description                     | Example value                                                                                                |
@@ -454,23 +474,6 @@ client.close
 | `AZURE_MYSQL_SSL`                   | SSL option        | `true`                                     |
 | `AZURE_MYSQL_CLIENTID`              | Your client ID    | `<identity-client-ID>`                     |
 
-#### [Python](#tab/python)
-
-| Default environment variable name   | Description       | Example value                              |
-|-------------------------------------|-------------------|--------------------------------------------|
-| `AZURE_MYSQL_NAME`                  | Database name     | `MySQL-DB-name`                            |
-| `AZURE_MYSQL_HOST`                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
-| `AZURE_MYSQL_USER`                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
-| `AZURE_MYSQL_CLIENTID`              | Your client ID    | `identity-client-ID`                       |
-
-#### [Django](#tab/django)
-
-| Default environment variable name   | Description       | Example value                              |
-|-------------------------------------|-------------------|--------------------------------------------|
-| `AZURE_MYSQL_NAME`                  | Database name     | `MySQL-DB-name`                            |
-| `AZURE_MYSQL_HOST`                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
-| `AZURE_MYSQL_USER `                 | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
-| `AZURE_MYSQL_CLIENTID`              | Your client ID    | `<identity-client-ID>`                     |
 
 #### [PHP](#tab/php)
 
@@ -533,29 +536,6 @@ client.close
 | `spring.datasource.username`                                    | Database username                 | `username`        |
 
 
-#### [Go](#tab/go)
-
-| Default environment variable name | Description                     | Example value                                                                                                |
-|-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
-| `AZURE_MYSQL_CLIENTID`              | Your client ID                  |`<client-ID>`      |
-| `AZURE_MYSQL_CLIENTSECRET`          | Your client secret              | `<client-secret>` |
-| `AZURE_MYSQL_TENANTID`              | Your tenant ID                  | `<tenant-ID>` 
-| `AZURE_MYSQL_CONNECTIONSTRING`      | Go-sql-driver connection string | `<MySQL-DB-username>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
-
-
-#### [NodeJS](#tab/node)
-
-| Default environment variable name   | Description           | Example value                                          |
-|-------------------------------------|-----------------------|--------------------------------------------------------|
-| `AZURE_MYSQL_HOST `                 | Database host URL     | `<MySQL-DB-name>.mysql.database.azure.com`             |
-| `AZURE_MYSQL_USER`                  | Database username     | `MySQL-DB-username`                                    |
-| `AZURE_MYSQL_DATABASE`              | Database name         | `<database-name>`                                      |
-| `AZURE_MYSQL_PORT `                 | Port number           | `3306`                                                 |
-| `AZURE_MYSQL_SSL`                   | SSL option            | `true`                                                 |
-| `AZURE_MYSQL_CLIENTID`              | Your client ID        | `<client-ID>`                                          |
-| `AZURE_MYSQL_CLIENTSECRET`          | Your client secret    | `<client-secret>`                                      |
-| `AZURE_MYSQL_TENANTID`              | Your tenant ID        | `<tenant-ID>`                                          |
-
 #### [Python](#tab/python)
 
 | Default environment variable name   | Description        | Example value                              |
@@ -578,6 +558,30 @@ client.close
 | `AZURE_MYSQL_CLIENTID`              | Your client ID     | `<client-ID>`                              |
 | `AZURE_MYSQL_CLIENTSECRET`          | Your client secret | `<client-secret>`                          |
 | `AZURE_MYSQL_TENANTID`              | Your tenant ID     | `<tenant-ID>`                              |
+
+
+#### [Go](#tab/go)
+
+| Default environment variable name | Description                     | Example value                                                                                                |
+|-----------------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------|
+| `AZURE_MYSQL_CLIENTID`              | Your client ID                  |`<client-ID>`      |
+| `AZURE_MYSQL_CLIENTSECRET`          | Your client secret              | `<client-secret>` |
+| `AZURE_MYSQL_TENANTID`              | Your tenant ID                  | `<tenant-ID>` 
+| `AZURE_MYSQL_CONNECTIONSTRING`      | Go-sql-driver connection string | `<MySQL-DB-username>@tcp(<server-host>:<port>)/<MySQL-DB-name>?tls=true` |
+
+
+#### [NodeJS](#tab/node)
+
+| Default environment variable name   | Description           | Example value                                          |
+|-------------------------------------|-----------------------|--------------------------------------------------------|
+| `AZURE_MYSQL_HOST `                 | Database host URL     | `<MySQL-DB-name>.mysql.database.azure.com`             |
+| `AZURE_MYSQL_USER`                  | Database username     | `MySQL-DB-username`                                    |
+| `AZURE_MYSQL_DATABASE`              | Database name         | `<database-name>`                                      |
+| `AZURE_MYSQL_PORT `                 | Port number           | `3306`                                                 |
+| `AZURE_MYSQL_SSL`                   | SSL option            | `true`                                                 |
+| `AZURE_MYSQL_CLIENTID`              | Your client ID        | `<client-ID>`                                          |
+| `AZURE_MYSQL_CLIENTSECRET`          | Your client secret    | `<client-secret>`                                      |
+| `AZURE_MYSQL_TENANTID`              | Your tenant ID        | `<tenant-ID>`                                          |
 
 
 #### [PHP](#tab/php)
