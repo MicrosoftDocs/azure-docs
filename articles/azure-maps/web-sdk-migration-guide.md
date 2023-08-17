@@ -59,9 +59,9 @@ Consider a gradual rollout strategy for the updated version. Release the migrate
 
 By following these steps and considering best practices, you can successfully migrate your application from Azure Maps WebSDK v1 to v3. Embrace the new capabilities and improvements offered by the latest version while ensuring a smooth and seamless transition for your users.
 
-[Manage Authentication in Azure Maps]: how-to-manage-authentication.md
 [Azure Active Directory Authentication]: how-to-secure-spa-users.md
-[Shared Key Authentication]: how-to-secure-sas-app.md
-[release notes]: release-notes-map-control.md
 [content delivery network]: /azure/cdn/cdn-overview
+[Manage Authentication in Azure Maps]: how-to-manage-authentication.md
 [npm]: https://www.npmjs.com/package/azure-maps-control
+[release notes]: release-notes-map-control.md
+[Shared Key Authentication]: how-to-secure-sas-app.md
