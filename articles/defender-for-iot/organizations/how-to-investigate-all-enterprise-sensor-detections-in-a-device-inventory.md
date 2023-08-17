@@ -79,7 +79,7 @@ Save the exported file locally.
 
 > [!NOTE]
 > The date format on the on-premises management console is always set to DD/MM/YY.
-> We recommend that you set your on-premises management console machine to the same date format to ensure that dates recorded in exported inventory files are correct. 
+> We recommend that you define the date format on any machine where you'll be opening exported inventory files to ensure that dates in the exported inventory files are shown correctly. 
 >
 
 ## Add to and enhance device inventory data
