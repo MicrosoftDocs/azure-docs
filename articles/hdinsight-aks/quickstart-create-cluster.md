@@ -92,7 +92,7 @@ Ensure that you have completed the [subscription prerequisites](prerequisites-su
 
    :::image type="content" source="./media/quickstart-create-cluster/create-cluster-pool-review-create-page.png" alt-text="Diagram showing cluster pool review and create tab." lightbox="./media/quickstart-create-cluster/create-cluster-review-create-page.png"::: 
 
-     If you navigate away from the page, you can check the status of the deployment by clicking Notifications :::icon type="content" source="./media/portal-elements/notifications.png" alt-text="diagram showing notification icon."::: in the Azure portal.
+     If you navigate away from the page, you can check the status of the deployment by clicking Notifications :::icon type="content" source="./media/quickstart-create-cluster/notifications.png" alt-text="diagram showing notification icon."::: in the Azure portal.
     
      > [!TIP]
      > For troubleshooting any deployment errors, you can refer this [page](./create-cluster-error-dictionary.md).
@@ -114,7 +114,7 @@ For a quickstart, refer to the following steps.
 
 1. Click **+ New cluster** from and then provide the following information:
 
-   :::image type="content" source="./media/manage-cluster-pool/create-new-cluster.png" alt-text="Screenshot showing create new cluster option.":::
+   :::image type="content" source="./media/quickstart-create-cluster/create-new-cluster.png" alt-text="Screenshot showing create new cluster option.":::
    
    :::image type="content" source="./media/quickstart-create-cluster/create-cluster-basic-page.png" alt-text="Diagram showing how to create a new cluster." border="true" lightbox="./media/quickstart-create-cluster/create-cluster-basic-page.png":::
    
@@ -187,7 +187,7 @@ For a quickstart, refer to the following steps.
 
    The **Deployment is in process** page is displayed while the cluster is being created, and the **"Your deployment is complete"**  page is displayed once the cluster is fully deployed and ready for use.
 
-   :::image type="content" source="./media/one-click-deployment/custom-deployment-complete.png" alt-text="Screenshot showing custom deployment complete.":::
+   :::image type="content" source="./media/quickstart-create-cluster/custom-deployment-complete.png" alt-text="Screenshot showing custom deployment complete.":::
 
    > [!TIP]
    > For troubleshooting any deployment errors, you can refer to this [page](./create-cluster-error-dictionary.md).
