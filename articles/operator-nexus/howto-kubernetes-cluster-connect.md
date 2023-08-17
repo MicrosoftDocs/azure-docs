@@ -86,7 +86,7 @@ There are two networks that can be used to connect to the cluster nodes:
 * CSN network
 * L3 network (attached as an OSDevice)
 
-During the cluster creation process, a L3 network (Tenant defined L3 isolation domain) can be attached to the agent pool as an OSDevice, which can then be used as the OAM purpose. For more information on how to attach a L3 network as an OSDevice during cluster creation, please refer to the quickstart guide.
+During the cluster creation process, a L3 network (Tenant defined L3 isolation domain) can be attached to the agent pool as an OSDevice, which can then be used as the OAM purpose. For more information on how to attach a L3 network as an OSDevice during cluster creation, please refer to the [QuickStart](./quickstarts-kubernetes-cluster-deployment-bicep.md) guide.
 
 > [!NOTE]
 > For understanding purposes, the L3 network (attached as an OSDevice) will be referred to as the 'OAM network' in this article.
