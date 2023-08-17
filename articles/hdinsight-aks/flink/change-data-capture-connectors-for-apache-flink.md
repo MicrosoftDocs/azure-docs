@@ -33,7 +33,7 @@ The SQLServer CDC source can’t work in parallel reading, because there's only 
 
 The SQLServer CDC connector can also be a DataStream source. You can create a SourceFunction.
 
-## How the SQL Server connector works?
+## How the SQLServer CDC connector works?
 
 To optimize, configure and run a Debezium SQL Server connector. It's helpful to understand how the connector performs snapshots, streams change events, determines Kafka topic names, and uses metadata.
 
