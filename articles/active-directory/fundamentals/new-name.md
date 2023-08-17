@@ -75,12 +75,12 @@ Don't rename the following features, functionality, or services.
 
 | **Correct terminology** | **Details** |
 |-------------------------|-------------|
-| Active Directory <br/>&#8226; Windows Server Active Directory <br/>&#8226; Active Directory Federation Services (AD FS) <br/>&#8226; Active Directory Domain Services (AD DS) <br/>&#8226; Active Directory <br/>&#8226; Any Active Directory feature(s) | Windows Server Active Directory, commonly known as Active Directory, and related features and services associated with Active Directory aren't branded with Microsoft Entra. |
-| Authentication library <br/>&#8226; Azure AD Authentication Library (ADAL) <br/>&#8226; Microsoft Authentication Library (MSAL) |      Azure Active Directory Authentication Library (ADAL) is deprecated. While existing apps that use ADAL will continue to work, Microsoft will no longer release security fixes on ADAL. Migrate applications to the Microsoft Authentication Library (MSAL) to avoid putting your app's security at risk. <br/><br/>[Microsoft Authentication Library (MSAL)](../develop/msal-overview.md) - Provides security tokens from the Microsoft identity platform to authenticate users and access secured web APIs to provide secure access to Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. |
-| B2C <br/>&#8226; Azure Active Directory B2C <br/>&#8226; Azure AD B2C | [Azure Active Directory B2C](/azure/active-directory-b2c) isn't being renamed. Microsoft Entra External ID for customers is Microsoft's new customer identity and access management (CIAM) solution. |
-|  Graph <br/>&#8226; Azure Active Directory Graph <br/>&#8226; Azure AD Graph <br/>&#8226; Microsoft Graph | Azure Active Directory (Azure AD) Graph is deprecated. Going forward, we will make no further investment in Azure AD Graph, and Azure AD Graph APIs have no SLA or maintenance commitment beyond security-related fixes. Investments in new features and functionalities will only be made in Microsoft Graph.<br/><br/>[Microsoft Graph](/graph) - Grants programmatic access to organization, user, and application data stored in Microsoft Entra ID. |
-| PowerShell <br/>&#8226; Azure Active Directory PowerShell <br/>&#8226; Azure AD PowerShell <br/>&#8226; Microsoft Graph PowerShell | Azure AD PowerShell for Graph is planned for deprecation on March 30, 2024. For more info on the deprecation plans, see the deprecation update. We encourage you to migrate to Microsoft Graph PowerShell, which is the recommended module for interacting with Azure AD. <br/><br/>[Microsoft Graph PowerShell](/powershell/microsoftgraph/overview) - Acts as an API wrapper for the Microsoft Graph APIs and helps administer every Microsoft Entra ID feature that has an API in Microsoft Graph. |
-| Accounts <br/>&#8226; Microsoft account <br/>&#8226; Work or school account | For end user sign-ins and account experiences, follow guidance for work and school accounts in [Sign in with Microsoft branding guidelines](../develop/howto-add-branding-in-apps.md). |
+| Active Directory <br/><br/>&#8226; Windows Server Active Directory <br/>&#8226; Active Directory Federation Services (AD FS) <br/>&#8226; Active Directory Domain Services (AD DS) <br/>&#8226; Active Directory <br/>&#8226; Any Active Directory feature(s) | Windows Server Active Directory, commonly known as Active Directory, and related features and services associated with Active Directory aren't branded with Microsoft Entra. |
+| Authentication library <br/><br/>&#8226; Azure AD Authentication Library (ADAL) <br/>&#8226; Microsoft Authentication Library (MSAL) |      Azure Active Directory Authentication Library (ADAL) is deprecated. While existing apps that use ADAL will continue to work, Microsoft will no longer release security fixes on ADAL. Migrate applications to the Microsoft Authentication Library (MSAL) to avoid putting your app's security at risk. <br/><br/>[Microsoft Authentication Library (MSAL)](../develop/msal-overview.md) - Provides security tokens from the Microsoft identity platform to authenticate users and access secured web APIs to provide secure access to Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. |
+| B2C <br/><br/>&#8226; Azure Active Directory B2C <br/>&#8226; Azure AD B2C | [Azure Active Directory B2C](/azure/active-directory-b2c) isn't being renamed. Microsoft Entra External ID for customers is Microsoft's new customer identity and access management (CIAM) solution. |
+|  Graph <br/><br/>&#8226; Azure Active Directory Graph <br/>&#8226; Azure AD Graph <br/>&#8226; Microsoft Graph | Azure Active Directory (Azure AD) Graph is deprecated. Going forward, we will make no further investment in Azure AD Graph, and Azure AD Graph APIs have no SLA or maintenance commitment beyond security-related fixes. Investments in new features and functionalities will only be made in Microsoft Graph.<br/><br/>[Microsoft Graph](/graph) - Grants programmatic access to organization, user, and application data stored in Microsoft Entra ID. |
+| PowerShell <br/><br/>&#8226; Azure Active Directory PowerShell <br/>&#8226; Azure AD PowerShell <br/>&#8226; Microsoft Graph PowerShell | Azure AD PowerShell for Graph is planned for deprecation on March 30, 2024. For more info on the deprecation plans, see the deprecation update. We encourage you to migrate to Microsoft Graph PowerShell, which is the recommended module for interacting with Azure AD. <br/><br/>[Microsoft Graph PowerShell](/powershell/microsoftgraph/overview) - Acts as an API wrapper for the Microsoft Graph APIs and helps administer every Microsoft Entra ID feature that has an API in Microsoft Graph. |
+| Accounts <br/><br/>&#8226; Microsoft account <br/>&#8226; Work or school account | For end user sign-ins and account experiences, follow guidance for work and school accounts in [Sign in with Microsoft branding guidelines](../develop/howto-add-branding-in-apps.md). |
 | Microsoft identity platform | The Microsoft identity platform encompasses all our identity and access developer assets. It will continue to provide the resources to help you build applications that your users and customers can sign in to using their Microsoft identities or social accounts. |
 
 ## Glossary of updated terminology
@@ -93,7 +93,7 @@ Only official product names are capitalized, plus Conditional Access and My * ap
 
 |  **Category**           | **Old terminology** | **Correct name as of July 2023** |
 |-------------------------|---------------------|----------------------------------|
-| Microsoft Entra product family | Microsoft Azure Active Directory<br/> Azure Active Directory<br/> Azure Active Directory (Azure AD)<br/> Azure AD<br/> AAD | Microsoft Entra ID<br/> (Second use: Microsoft Entra ID is preferred, ID is acceptable in product/UI experiences, ME-ID if abbreviation is necessary) |
+| **Microsoft Entra product family** | Microsoft Azure Active Directory<br/> Azure Active Directory<br/> Azure Active Directory (Azure AD)<br/> Azure AD<br/> AAD | Microsoft Entra ID<br/> (Second use: Microsoft Entra ID is preferred, ID is acceptable in product/UI experiences, ME-ID if abbreviation is necessary) |
 |       | Azure Active Directory External Identities<br/> Azure AD External Identities | Microsoft Entra External ID<br/> (Second use: External ID) |
 |       | Azure Active Directory Identity Governance<br/> Azure AD Identity Governance<br/> Microsoft Entra Identity Governance | Microsoft Entra ID Governance<br/> (Second use: ID Governance) |
 |       | *New* | Microsoft Entra Internet Access<br/> (Second use: Internet Access) |
@@ -102,7 +102,7 @@ Only official product names are capitalized, plus Conditional Access and My * ap
 |       | Azure Active Directory Verifiable Credentials<br/> Azure AD Verifiable Credentials | Microsoft Entra Verified ID<br/> (Second use: Verified ID) |
 |       | Azure Active Directory Workload Identities<br/> Azure AD Workload Identities | Microsoft Entra Workload ID<br/> (Second use: Workload ID) |
 |       | Azure Active Directory Domain Services<br/> Azure AD Domain Services | Microsoft Entra Domain Services<br/> (Second use: Domain Services) |
-| Microsoft Entra ID SKUs | Azure Active Directory Premium P1 | Microsoft Entra ID P1 |
+| **Microsoft Entra ID SKUs** | Azure Active Directory Premium P1 | Microsoft Entra ID P1 |
 |                         | Azure Active Directory Premium P1 for faculty | Microsoft Entra ID P1 for faculty |
 |                         | Azure Active Directory Premium P1 for students | Microsoft Entra ID P1 for students |
 |                         | Azure Active Directory Premium P1 for government | Microsoft Entra ID P1 for government |
@@ -111,12 +111,12 @@ Only official product names are capitalized, plus Conditional Access and My * ap
 |                         | Azure Active Directory Premium P2 for students | Microsoft Entra ID P2 for students |
 |                         | Azure Active Directory Premium P2 for government | Microsoft Entra ID P2 for government |
 |                         | Azure Active Directory Premium F2 | Microsoft Entra ID F2 |
-| Microsoft Entra ID service plans | Azure Active Directory Free | Microsoft Entra ID Free |
+| **Microsoft Entra ID service plans** | Azure Active Directory Free | Microsoft Entra ID Free |
 |                                  | Azure Active Directory Premium P1 | Microsoft Entra ID P1 |
 |                                  | Azure Active Directory Premium P2 | Microsoft Entra ID P2 |
 |                                  | Azure Active Directory for education | Microsoft Entra ID for education |
-| Features and functionality | Azure AD access token authentication<br/> Azure Active Directory access token authentication | Microsoft Entra access token authentication |
-|            | Azure AD account<br/> Azure Active Directory account | Microsoft Entra account<br/> This terminology is only used with IT admins and developers. End users authenticate with a work or school account. |
+| **Features and functionality** | Azure AD access token authentication<br/> Azure Active Directory access token authentication | Microsoft Entra access token authentication |
+|            | Azure AD account<br/> Azure Active Directory account | Microsoft Entra account<br/><br/> This terminology is only used with IT admins and developers. End users authenticate with a work or school account. |
 |            | Azure AD activity logs<br/> Azure AD audit log | Microsoft Entra activity logs |
 |            | Azure AD admin<br/> Azure Active Directory admin | Microsoft Entra admin |
 |            | Azure AD admin center<br/> Azure Active Directory admin center | Replace with Microsoft Entra admin center and update link to entra.microsoft.com |
@@ -163,7 +163,7 @@ Only official product names are capitalized, plus Conditional Access and My * ap
 |            | Federated with Azure AD<br/> Federated with Azure Active Directory | Federated with Microsoft Entra |
 |            | Hybrid Azure AD Join<br/> Hybrid Azure AD Joined | Microsoft Entra hybrid join<br/> Microsoft Entra hybrid joined |
 |            | Managed identities in Azure AD for Azure SQL | Managed identities in Microsoft Entra for Azure SQL |
-| Acronym usage | AAD | ME-ID<br/><br/> ![NOTE] This isn't an official abbreviation for the product but may be used in code or when absolute shortest form is required. |
+| **Acronym usage** | AAD | ME-ID<br/><br/> Note that this isn't an official abbreviation for the product but may be used in code or when absolute shortest form is required. |
 
 ## Frequently asked questions
 
@@ -216,12 +216,14 @@ No, only the name Azure AD is going away. Capabilities remain the same.
 
 ### What will happen to the Azure AD capabilities and features like App Gallery or Conditional Access?
 
+All features and capabilities remain unchanged aside from the name. Customers can continue to use all features without any interruption.
+
 The naming of features changes to Microsoft Entra. For example:
 
 - Azure AD tenant -> Microsoft Entra tenant
 - Azure AD account -> Microsoft Entra account
 
-All features and capabilities remain unchanged aside from the name. Customers can continue to use all features without any interruption.
+See the [Glossary of updated terminology](#glossary-of-updated-terminology) for more examples.
 
 ### Are licenses changing? Are there any changes to pricing?
 
