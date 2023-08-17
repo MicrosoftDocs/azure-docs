@@ -11,10 +11,10 @@ ms.date:     07/17/2023
 # Overview of Log File Access
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
-Modern sandboxed applications can sometimes face challenges that hinder user experience. Key among these challenges is the difficulty for and end-user to access the applications internal files such as log files. The Log File Access API offers a solution, helping facilitate smooth log retrieval and sharing, and eventual export from the device into the support process.
+Modern sandboxed applications can sometimes face challenges that hinder user experience. Key among these challenges is the difficulty for an end-user to access the applications internal files such as log files. The Log File Access API offers a solution, helping facilitate access to support files, and eventual export from the device into the support process.
 
 ### For Third-party Application Developers:
-Log file access eliminates the process of manually finding logs. Instead, it paves the way for a direct method to hand off crucial information. This not only speeds up the troubleshooting process but also enhances the overall user experience, as issues can be diagnosed and rectified more efficiently.
+Log file access eliminates the process of manually finding logs or requiring a development environment to extract them. Instead, it paves the way for a direct method to hand off crucial information. This not only speeds up the troubleshooting process but also enhances the overall user experience, as issues can be diagnosed and rectified more efficiently.
 
 ### From Microsoft's Perspective:
 For Microsoft, the primary aim is to ensure that any issues arising from our platforms are addressed swiftly and effectively. Seamless log handoffs between your support team and ours enable our engineering teams to get a clear picture of the challenge at hand, diagnose it accurately, and set about resolving it. 
