@@ -55,7 +55,7 @@ For more information about integration with [Azure OpenAI service](/azure/ai-ser
 
 Also see these SAP resources:
 
-- [empower SAP RISE enterprise users with Azure OpenAI in multi-cloud environment](https://blogs.sap.com/2023/02/14/empower-sap-rise-enterprise-users-with-chatgpt-in-multi-cloud-environment/)
+- [empower SAP RISE enterprise users with Azure OpenAI in multicloud environment](https://blogs.sap.com/2023/02/14/empower-sap-rise-enterprise-users-with-chatgpt-in-multi-cloud-environment/)
 - [Consume OpenAI services (GPT) through CAP & SAP BTP, AI Core](https://github.com/SAP-samples/azure-openai-aicore-cap-api)
 - [SAP SuccessFactors Helps HR Solve Skills Gap with Generative AI | SAP News](https://news.sap.com/2023/05/sap-successfactors-helps-hr-solve-skills-gap-with-generative-ai/)
 
@@ -172,8 +172,8 @@ For more information about integrating SAP with Microsoft services natively, see
 - [Use community-driven OData SDKs with Azure Functions](https://github.com/Azure/azure-sdk-for-sap-odata)
 
 Also see the following SAP resources: 
-- [SAP BTP ABAP Environment (aka. Steampunk) integration with Microsoft services](https://blogs.sap.com/2023/06/06/kick-start-your-sap-abap-platform-integration-journey-with-microsoft/)
-- [SAP S/4HANA Cloud, private edition – ABAP Environment (aka. Embedded Steampunk) integration with Microsoft services](https://blogs.sap.com/2023/06/06/kick-start-your-sap-abap-platform-integration-journey-with-microsoft/)
+- [SAP BTP ABAP Environment (also known as Steampunk) integration with Microsoft services](https://blogs.sap.com/2023/06/06/kick-start-your-sap-abap-platform-integration-journey-with-microsoft/)
+- [SAP S/4HANA Cloud, private edition – ABAP Environment (also known as Embedded Steampunk) integration with Microsoft services](https://blogs.sap.com/2023/06/06/kick-start-your-sap-abap-platform-integration-journey-with-microsoft/)
 - [dotNET speaks OData too, how to implement Azure App Service with SAP Gateway](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/)
 - [Apply cloud native deployment practice blue-green to SAP BTP apps with Azure DevOps](https://blogs.sap.com/2019/12/20/go-blue-green-for-your-cloud-foundry-app-from-webide-with-azure-devops/)
 
@@ -284,7 +284,7 @@ For more information about Azure integration with SAP Business Technology Platfo
 - [Route Multi-Region Traffic to SAP BTP Services Intelligently with Azure Traffic Manager](https://discovery-center.cloud.sap/missiondetail/3603/)
 - [Distributed Resiliency of SAP CAP applications using SAP HANA Cloud with Azure Traffic Manager](https://blogs.sap.com/2022/11/12/distributed-resiliency-of-sap-cap-applications-using-sap-hana-cloud-multi-zone-replication-with-azure-traffic-manager/)
 - [Federate your data from Azure Data Explorer to SAP Data Warehouse Cloud](https://discovery-center.cloud.sap/missiondetail/3433/3473/)
-- [Integrate globally available SAP BTP apps with Azure CosmosDB via OData](https://blogs.sap.com/2021/06/11/sap-where-can-i-get-toilet-paper-an-implementation-of-the-geodes-pattern-with-s4-btp-and-azure-cosmosdb/)
+- [Integrate globally available SAP BTP apps with Azure Cosmos DB via OData](https://blogs.sap.com/2021/06/11/sap-where-can-i-get-toilet-paper-an-implementation-of-the-geodes-pattern-with-s4-btp-and-azure-cosmosdb/)
 - [Explore your Azure data sources with SAP Data Warehouse Cloud](https://discovery-center.cloud.sap/missiondetail/3656/3699/)
 - [Building Applications on SAP BTP with Microsoft Services | OpenSAP course](https://open.sap.com/courses/btpma1)
 
