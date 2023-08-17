@@ -11,7 +11,7 @@ ms.custom: enterprise-iot
 Integrate Microsoft Defender for IoT with partner services to view data from across your security stack data in Defender for IoT, or to view Defender for IoT data in one of your security ecosystem integrations.
 
 > [!IMPORTANT]
-> Defender for IoT plans to end support for the legacy [Aruba ClearPass](#aruba-clearpass), [Palo Alto Panorama](#palo-alto), and [Splunk](#splunk) integrations in an upcoming 23.x version. 
+> Defender for IoT plans to end support for the legacy [Aruba ClearPass](#aruba-clearpass), [Palo Alto Panorama](#palo-alto), [Splunk](#splunk), and [Microsoft Sentinel](#microsoft-sentinel) integrations in an upcoming 23.x version. 
 >
 > We recommend moving your integrations to newly recommended methods, such using a [Microsoft Sentinel connector](concept-sentinel-integration.md), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), or using [Defender for IoT's API](references-work-with-defender-for-iot-apis.md).
 
