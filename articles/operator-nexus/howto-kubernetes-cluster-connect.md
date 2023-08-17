@@ -29,7 +29,7 @@ In Azure, connected mode and disconnected mode refer to the state of an ExpressR
 
 ## Disconnected mode access
 
-When operating in disconnected mode, it's not possible to connect to the cluster's kube-api server using the ```connectedk8s proxy``` or to SSH into the worker nodes for troubleshooting or maintenance tasks.
+When operating in disconnected mode, it's not possible to connect to the cluster's kube-api server using the `connectedk8s proxy` or to SSH into the worker nodes for troubleshooting or maintenance tasks.
 
 However, it's possible to connect to the cluster nodes using the local jumpbox VM within the same virtual network as the cluster nodes. This VM serves as a reliable bridge for connectivity.
 
@@ -55,7 +55,7 @@ Before you can connect to the cluster nodes, you need to find the IP address of 
 
 #### Using the Azure CLI
 
-Set the required variables:
+1. Set the RESOURCE_GROUP, CLUSTER_NAME, and SUBSCRIPTION_ID variables to match your environment.
 
 ```bash
 RESOURCE_GROUP="myResourceGroup"
@@ -63,14 +63,14 @@ CLUSTER_NAME="myNexusAKSCluster"
 SUBSCRIPTION_ID="<Subscription ID>"
 ```
 
-Execute the following command to get the IP address of the nodes:
+2. Execute the following command to get the IP address of the nodes.
 
 ```azurecli
 RESOURCE_GROUP="myResourceGroup"
 az networkcloud kubernetescluster show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID -o json | jq '.nodes[] | select(any(.networkAttachments[]; .networkAttachmentName == "defaultcni")) | {name: .name, ipv4Address: (.networkAttachments[] | select(.networkAttachmentName == "defaultcni").ipv4Address)}'
 ```
 
-Sample output:
+3. Here's the sample output of the command.
 
 ```json
 {
@@ -117,7 +117,7 @@ When operating in connected mode, it's possible to connect to the cluster's kube
 
 The `az ssh arc` command allows users to remotely access a virtual machine that has been connected to Azure Arc. This is a secure way to SSH into the cluster node directly from the command line, while in connected mode. Once the virtual machine has been registered with Azure Arc, the `az ssh arc` command can be used to manage the machine remotely, making it a quick and efficient method for remote management.
 
-To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by creating a service principle (SP) with 'Azure Connected Machine Onboarding' role. For more detailed steps on how to connect a Nexus Kubernetes cluster nodes to Arc, refer to the [how to guide](./howto-monitor-naks-cluster.md##monitor-nexus-kubernetes-cluster--vm-layer).
+To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by creating a service principle (SP) with 'Azure Connected Machine Onboarding' role. For more detailed steps on how to connect a Nexus Kubernetes cluster nodes to Arc, refer to the [how to guide](./howto-monitor-naks-cluster.md#monitor-nexus-kubernetes-cluster--vm-layer).
 
 Set the required variables for the cluster node VMs:
 
