@@ -57,7 +57,7 @@ If you want to collect this data for off-line inspection (after a call ends), it
 | JitterInMs | packet jitter (milliseconds) | Lower is better. |
 | PacketsPerSecond | packet rate (packets/sec) | |
 | PacketsLostPerSecond | packet loss rate (packets/sec) | Lower is better. |
-| StreamId | stream Id | The streamId value corresponds to Id of the video of the RemoteParticipant. It can be used to match the sender. |
+| StreamId | stream ID | The streamId value corresponds to the ID of the video of the RemoteParticipant. It can be used to match the sender. |
 | FrameRateReceived | frame rate received on the RTP stream (frames/sec) | |
 | FrameWidthReceived | frame width of the decoded frame (pixel) | |
 | FrameHeightReceived | frame height of the decoded frame (pixel) | |
