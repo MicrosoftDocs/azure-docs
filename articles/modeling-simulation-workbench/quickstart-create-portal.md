@@ -155,7 +155,7 @@ Creating a client secret allows the Azure Modeling and Simulation Workbench to r
    - **Name**: Enter *QuickstartModSimWorkbenchAppSecretValue*
    - **Value**: Enter the **Client secret value** you documented in the Add a client secret step.
    - Leave the other values to their defaults.
-1. Locate and document the three secret identifiers:
+1. Locate and document the two secret identifiers:
    - Select **secret**.
    - Select the **latest version**.
    - Copy/document the secret identifier shown.
@@ -180,7 +180,7 @@ To create an Azure Modeling and Simulation Workbench, you first fill out the Azu
    - **Application (client) ID URL**: Enter the secret identifier Key Vault URL for *QuickstartModSimWorkbenchAppClientId* you documented in the **Add secrets to Key Vault** step.
    - **Client secret value URL**: Enter the secret identifier Key Vault URL for *QuickstartModSimWorkbenchAppSecretValue* you documented in the **Add secrets to Key Vault** step.
 
-1. Select **Next : Chamber >** button at the bottom of the page.
+1. Select **Next** button at the bottom of the page.
 
     :::image type="content" source="./media/quickstart-create-portal/create-02.png" alt-text="Screenshot of the Workbench details section showing where you type and select the values.":::
 
@@ -200,13 +200,15 @@ To create an Azure Modeling and Simulation Workbench, you first fill out the Azu
    - **Network ACLs**: Enter your public IP address using CIDR notation (for example, 100.100.100.100/32).
 
       > [!NOTE]
-      > If you have another **Chamber Admin** with 100.100.100.101 and 2 **Chamber Users** with 100.100.100.102 and 100.100.100.103, then the **Network ACLs** value is *100.100.100.100/30*.
+      > A range of IP addresses from the same subnet can be masked using CIDR notation. /32 is a single IP address. If you have chamber users with host addresses 100.100.100.1 – 100.100.100.6, then the **Network ACLs** entry is 100.100.100.0/29.
 
 1. Provide the following information for the **Chamber VM**:
    - **Chamber VM name**: Enter *myFirstChamberWorkload*.
    - **Chamber VM size**: Select *E2s_v5*.
 
 1. Select **Review + create** button at the bottom of the page.
+
+     :::image type="content" source="./media/quickstart-create-portal/create-03.png" alt-text="Screenshot of the Chamber details section showing where you type and select the values.":::
 
 1. On the **Review + create** page, you can see the details about the Azure Modeling and Simulation Workbench you're about to create. When you're ready, select **Create**.
 
@@ -261,13 +263,15 @@ Follow these steps to add redirect URIs:
 
 1. Under **Configure platforms**, select **Web** tile.
 
-1. On the **Configure Web** pane, paste the **Dashboard reply URL** you documented in the previous step. Then select **Configure**.
+1. On the **Configure Web** pane, paste the **Dashboard reply URL** you documented in the previous step in the Redirect URI field. Then select **Configure**.
+
+   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-02.png" alt-text="Screenshot of the Azure AD app Authentication page showing where you configure web authentication.":::
 
 1. Under **Platform configurations** > **Web** > **Redirect URIs**, select **Add URI**.
 
 1. Paste the **Authentication reply URL** you documented in the previous step. Then select **Save**.
 
-   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-02.png" alt-text="Screenshot of the Azure AD app Authentication page showing where you select the Redirect URIs.":::
+   :::image type="content" source="./media/quickstart-create-portal/update-aad-app-03.png" alt-text="Screenshot of the Azure AD app Authentication page showing where you set the second Redirect URI.":::
 
 ## Connect to chamber with remote desktop
 
