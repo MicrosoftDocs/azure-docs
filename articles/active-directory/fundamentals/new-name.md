@@ -54,7 +54,7 @@ Please change the Azure AD product icon in your experiences. The Azure AD icons 
 |:--------------------------:|:-----------------------------------:|
 | ![Azure AD product icon](./media/new-name/azure-ad-icon-1.png)  ![Alternative Azure AD product icon](./media/new-name/azure-ad-icon-2.png) | ![Microsoft Entra ID product icon](./media/new-name/microsoft-entra-id-icon.png) |
 
-You can download the new Microsoft Entra ID icon here: [Microsoft Entra architecture icons](/architecture/architecture-icons.md)
+You can download the new Microsoft Entra ID icon here: [Microsoft Entra architecture icons](../architecture/architecture-icons.md)
 
 ### Feature names
 
