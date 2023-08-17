@@ -202,8 +202,6 @@
           href: ../migrate/tutorial-app-containerization-aspnet-kubernetes.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Clusters
       items:
-        - name: Create a cluster
-          href: create-cluster.md
         - name: Deploy a cluster in an Edge Zone
           href: edge-zones.md
         - name: Cluster configuration options
