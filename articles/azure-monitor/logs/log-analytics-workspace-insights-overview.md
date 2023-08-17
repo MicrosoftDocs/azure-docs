@@ -16,7 +16,9 @@ Log Analytics Workspace Insights provides comprehensive monitoring of your works
 
 ## Permissions required
 
-`Microsoft.OperationalInsights/workspaces/read`
+- You need `Microsoft.OperationalInsights/workspaces/read` permissions to the Log Analytics workspace whose insights you want to see, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example..
+- To run the additional usage queries, you need `*/read` permissions, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
+
 
 ## Overview of your Log Analytics workspaces
 
