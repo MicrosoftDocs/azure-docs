@@ -166,7 +166,8 @@ var recognizeResult = await callAutomationClient.GetCallConnection(callConnectio
     .GetCallMedia() 
     .StartRecognizingAsync(recognizeOptions); 
 ```
-**Note:** If parameters aren't set, the defaults are applied where possible.
+> [!Note]
+> If parameters aren't set, the defaults are applied where possible.
 
 ## Receiving recognize event updates
 
