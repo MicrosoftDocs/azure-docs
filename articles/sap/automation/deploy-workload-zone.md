@@ -121,12 +121,13 @@ export          region_code="<region_code>"
 export            vnet_code="SAP02"
 export deployer_environment="MGMT"
 
-az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
-
 
 export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/config/WORKSPACES"
 export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+
+az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
+
 
 cd "${CONFIG_REPO_PATH}/LANDSCAPE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE"
 parameterFile="${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
@@ -137,8 +138,7 @@ $SAP_AUTOMATION_REPO_PATH/deploy/scripts/install_workloadzone.sh   \
     --subscription "${ARM_SUBSCRIPTION_ID}"                        \
     --spn_id "${ARM_CLIENT_ID}"                                    \
     --spn_secret "${ARM_CLIENT_SECRET}"                            \
-    --tenant_id "${ARM_TENANT_ID}"                                 \
-    --auto-approve 
+    --tenant_id "${ARM_TENANT_ID}"
     
 ```
 # [Windows](#tab/windows)
