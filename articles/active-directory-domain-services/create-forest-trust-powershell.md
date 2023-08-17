@@ -10,10 +10,8 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/03/2023
 ms.author: justinha 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 #Customer intent: As an identity administrator, I want to create an Azure AD Domain Services forest and one-way outbound trust from an Azure Active Directory Domain Services forest to an on-premises Active Directory Domain Services forest using Azure PowerShell to provide authentication and resource access between forests.
-
 ---
 
 # Create an Azure Active Directory Domain Services forest trust to an on-premises domain using Azure PowerShell
