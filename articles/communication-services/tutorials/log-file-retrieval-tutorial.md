@@ -21,7 +21,7 @@ In this tutorial, you learn how to access the Log Files stored on the device.
 
 ## Prerequisites
 
-- Access to a `CallClient` instance, on Windows, iOS or Android
+- Access to a `CallClient` instance
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Android](./includes/log-file-retrieval-android.md)]
