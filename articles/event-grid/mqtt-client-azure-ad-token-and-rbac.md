@@ -39,7 +39,7 @@ In AUTH packet, you can provide required values in the following fields:
 Authenticate Reason Code with value 25 signifies reauthentication.
 
 > [!NOTE]
-> Audience: “aud” claim must be set to “https://eventgrid.azure.net/”.
+> Audience: “aud” claim must be set to "https://eventgrid.azure.net/".
 
 ## Authorization to grant access permissions
 A client using Azure AD based JWT authentication needs to be authorized to communicate with the Event Grid namespace.  You can create custom roles to enable the client to communicate with Event Grid instances in your resource group, and then assign the roles to the client.  You can use following two data actions to provide publish or subscribe permissions, to clients with Azure AD identities, on specific topic spaces.
