@@ -59,7 +59,7 @@ Azure Web PubSub Service is a fully managed service, so you can't use a managed 
 
    - Use default Microsoft Entra application.
    - Select from existing Microsoft Entra applications. The application ID of the one you choose will be used.
-   - Specify an Microsoft Entra application. The value should be [Resource ID of an Azure service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
+   - Specify a Microsoft Entra application. The value should be [Resource ID of an Azure service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
    > [!NOTE]
    > If you validate an access token by yourself in your service, you can choose any one of the resource formats. If you use Azure role-based access control (Azure RBAC) for a data plane, you must use the resource that the service provider requests.
