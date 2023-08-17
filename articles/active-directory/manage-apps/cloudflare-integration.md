@@ -23,7 +23,7 @@ In this tutorial, learn to integrate Azure Active Directory (Azure AD) with Clou
 * An Azure AD subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An Azure AD tenant linked to the Azure AD subscription
-  * See, [Quickstart: Create a new tenant in Azure AD](../fundamentals/active-directory-access-create-new-tenant.md)
+  * See, [Quickstart: Create a new tenant in Azure AD](../fundamentals/create-new-tenant.md)
 * A Cloudflare Zero Trust account
   * If you don't have one, go to [Get started with Cloudflare's Zero Trust platform](https://dash.cloudflare.com/sign-up/teams)
 
