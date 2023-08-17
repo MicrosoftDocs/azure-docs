@@ -11,10 +11,10 @@ ms.date:     07/17/2023
 # Overview of Log File Access
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
-Mobile applications, while dynamic, can sometimes face challenges that hinder user experience. Key among these is the difficulty in accessing logs which provide insights into app behavior. The Azure Calling SDK - Log File Access offers a solution, helping facilitate smooth log retrieval and sharing.
+Modern sandboxed applications, can sometimes face challenges that hinder user experience. Key among these is the difficulty for and end-user to access the applications internal files. The Log File Access API offers a solution, helping facilitate smooth log retrieval and sharing, and eventual export from the device into the support process.
 
 ### For Third-party Application Developers:
-Log file access eliminates the often cumbersome process of manually finding logs. Instead, it paves the way for a direct and simple method to hand off crucial information. This not only speeds up the troubleshooting process but also enhances the overall user experience, as issues are diagnosed and rectified more efficiently.
+Log file access eliminates the process of manually finding logs. Instead, it paves the way for a direct method to hand off crucial information. This not only speeds up the troubleshooting process but also enhances the overall user experience, as issues can be diagnosed and rectified more efficiently.
 
 ### From Microsoft's Perspective:
 For Microsoft, the primary aim is to ensure that any issues arising from our platforms are addressed swiftly and effectively. Seamless log handoffs between your support team and ours will enable our engineering teams to get a clear picture of the challenge at hand, diagnose it accurately, and set about resolving it. 

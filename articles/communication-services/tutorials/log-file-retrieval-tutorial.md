@@ -14,13 +14,14 @@ ms.subservice: identity
 zone_pivot_groups: acs-programming-languages-java-swift-csharp
 ---
 
-!! Simplify, remove Zip/UI from pivots
-!! Next Steps
-
 # Retrieval and Sharing of support file tutorial.
 [!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
-In this tutorial, you learn how to implement a basic log sharing mechanism.
+In this tutorial, you will learn how to access the Log Files stored on the device.
+
+## Prerequisites
+
+- Access to a `CallClient` instance, on Windows, iOS or Android
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Android](./includes/log-file-retrieval-android.md)]
@@ -36,7 +37,17 @@ In this tutorial, you learn how to implement a basic log sharing mechanism.
 
 ## Next steps
 
-From here, you want to consider creating a more robust error reporting flow to ensure the correct issues are escalated in a low-friction way. For ideas on how to implement further, refer to the conceptual document.
+To add enhanced log collection capabilities to your app, please consider the following.
+
+1. Explore support features: 
+   - "Report an Issue" prompts
+   - End-of-call surveys
+   - Shake-to-report
+   - Proactive auto-detection
+2. Always obtain user consent before submitting data.
+3. Customize strategies based on your users.
+
+Please Refer to the [Conceptual Document](../concepts/voice-video-calling/retrieving-support-files.md) for more in-depth guidance.
 
 ## You may also like
 
