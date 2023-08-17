@@ -11,7 +11,7 @@ ms.subservice: compliance
 ms.date: 08/02/2023
 ms.author: owinfrey
 ms.reviewer: krbain
-ms.custom: template-tutorial
+ms.custom: template-tutorial, has-azure-ad-ps-ref
 ---
 # Preparing user accounts for Lifecycle workflows tutorials
 

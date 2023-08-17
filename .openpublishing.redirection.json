@@ -24142,8 +24142,27 @@
           "source_path": "articles/azure-cache-for-redis/cache-how-to-functions.md",
           "redirect_url": "/azure/azure-functions/functions-bindings-cache",
           "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-app-vanillajs-configure-authentication.md",
+            "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-vanillajs-configure-authentication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-app-vanillajs-prepare-app.md",
+            "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-vanillajs-prepare-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-app-vanillajs-prepare-tenant.md",
+            "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-vanillajs-prepare-tenant",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/external-identities/customers/how-to-single-page-app-vanillajs-sign-in-sign-out.md",
+            "redirect_url": "/azure/active-directory/external-identities/customers/tutorial-single-page-app-vanillajs-sign-in-sign-out",
+            "redirect_document_id": false
         }
-
 
 
         
