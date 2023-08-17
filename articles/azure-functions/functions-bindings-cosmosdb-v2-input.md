@@ -449,7 +449,7 @@ This section contains examples that require version 3.x of Azure Cosmos DB exten
 
 The examples refer to a simple `ToDoItem` type:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDbInputBindingFunction.cs" id="docsnippet_qtrigger_with_cosmosdb_inputbinding_todo_model" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosInputBindingFunction.cs" id="docsnippet_qtrigger_with_cosmosdb_inputbinding_todo_model" :::
 
 <a id="queue-trigger-look-up-id-from-json-isolated"></a>
 
