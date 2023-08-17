@@ -32,7 +32,7 @@ The experiences and issues described in this article have the following scope.
 | In scope | <ul><li>Azure AD administrator experiences and issues related to multi-tenant organizations to support seamless collaboration experiences in new Teams, with reciprocally provisioned B2B members.</li></ul> |
 | Related scope | <ul><li>Microsoft 365 admin center experiences and issues related to multi-tenant organizations</li><li>Microsoft 365 multi-tenant organization people search experiences and issues</li><li>Cross-tenant synchronization issues related to Microsoft 365</li></ul> |
 | Out of scope | <ul><li>Cross-tenant synchronization unrelated to Microsoft 365</li><li>End user experiences in new Teams</li><li>End user experiences in Power BI</li><li>Tenant migration or consolidation</li></ul> |
-| Unsupported scenarios | <ul><li>Seamless collaboration experience across multi-tenant organizations in classic Teams</li><li>Self-service for multi-tenant organizations larger than 5 tenants or 100,000 internal users per tenant</li><li>Using provisioning or synchronization engines other than Azure AD cross-tenant synchronization</li><li>Multi-tenant organizations in government clouds or sovereign clouds</li><li>Cross-cloud multi-tenant organizations</li></ul> |
+| Unsupported scenarios | <ul><li>Seamless collaboration experience across multi-tenant organizations in classic Teams</li><li>Self-service for multi-tenant organizations larger than 5 tenants or 100,000 internal users per tenant</li><li>Using provisioning or synchronization engines other than Azure AD cross-tenant synchronization</li><li>Multi-tenant organizations in Azure Government or Microsoft Azure operated by 21Vianet</li><li>Cross-cloud multi-tenant organizations</li></ul> |
 
 ## Multi-tenant organization related issues
 
@@ -46,7 +46,7 @@ The experiences and issues described in this article have the following scope.
 
 - There are multiple reasons why a join request might fail. If Microsoft 365 admin center doesn't indicate why a join request isn't succeeding, try examining the join request response by using the Microsoft Graph APIs or Microsoft Graph Explorer.
 
-- There's a small fraction of organizations, likely those that participated in early previews of cross-tenant access policies, whose join request might fail. If you followed the correct sequence of creating a multi-tenant organization, adding a tenant to the multi-tenant organization, and the added tenant's join request keeps failing, submit a support request to Azure AD or Microsoft 365 admin center.
+- If you followed the correct sequence of creating a multi-tenant organization, adding a tenant to the multi-tenant organization, and the added tenant's join request keeps failing, submit a support request to Azure AD or Microsoft 365 admin center.
 
 - As part of a multi-tenant organization, newly invited B2B users receive an additional user property that includes the [home tenant identifier](/graph/api/user-list?view=graph-rest-beta&branch=pr-en-us-19722&tabs=http#example-14-list-information-about-synchronized-users) of the B2B user. Already redeemed B2B users don't have this additional user property. Currently, Microsoft 365 admin center share users functionality or Azure AD cross-tenant synchronization are currently the only accepted methods to get this additional user property populated.
 
@@ -54,15 +54,10 @@ The experiences and issues described in this article have the following scope.
 
 ## B2B user or B2B member related issues
 
-- When to use [Azure AD B2B member Invite](../external-identities/add-users-administrator.md) functionality: For testing purposes and one-off invitations, B2B members redeemed after formation of a multi-tenant organization can be used to test the new seamless collaboration experience in new Microsoft Teams.
-
-- The creation of B2B users may collide with [contacts in Exchange Online](/exchange/recipients-in-exchange-online/recipients-in-exchange-online). The handling or conversion of contact objects is currently not supported.
-
-- The [conversion of internal users to B2B members](../external-identities/invite-internal-users.md) and the recognition of such converted B2B members for seamless multi-tenant organization collaboration in new Microsoft Teams is untested.
-
 - The promotion of B2B guests to B2B members represents a strategic decision by multi-tenant organizations to consider B2B members as trusted users of the organization. Review the [default permissions](../fundamentals/users-default-permissions.md) for B2B members.
 
-- You can promote B2B guests to B2B members in the source tenant by using cross-tenant synchronization or in the B2B guest hosting tenant by changing a user's nonsynchronized userType property.
+- To promote B2B guests to B2B members, a source tenant administrator can amend the [attribute mappings](cross-tenant-synchronization-configure.md#step-9-review-attribute-mappings), or a target tenant administrator can [change the userType](../fundamentals/how-to-manage-user-profile-info.md#add-or-change-profile-information) if the property is not recurringly synchronized.
+
 
 - In [SharePoint OneDrive](/sharepoint/), the promotion of B2B guests to B2B members may not happen automatically. If faced with a user type mismatch between Azure AD and SharePoint OneDrive, try [Set-SPUser [-SyncFromAD]](/powershell/module/sharepoint-server/set-spuser?view=sharepoint-server-ps).
 
@@ -80,9 +75,7 @@ The experiences and issues described in this article have the following scope.
 
 - When to use Azure AD cross-tenant synchronization: If you're already using Azure AD cross-tenant synchronization, for various [multi-hub multi-spoke topologies](cross-tenant-synchronization-topology.md), you don't need to use the Microsoft 365 admin center share users functionality. Instead, you may want to continue using your existing Azure AD cross-tenant synchronization jobs.
 
-- When to use your own alternative provisioning engine: Currently for the preview, seamless collaboration in new Microsoft Teams relies on usage of the Microsoft 365 admin center share users functionality or Azure AD cross-tenant synchronization.
-
-- Contact objects: The at-scale provisioning or synchronization of B2B users may collide with contact objects. The handling or conversion of contact objects is currently not supported.
+- Contact objects: The at-scale provisioning of B2B users may collide with contact objects. The handling or conversion of contact objects is currently not supported.
 
 - Microsoft 365 admin center / Azure AD: Whether you use the Microsoft 365 admin center share users functionality or Azure AD cross-tenant synchronization, the following items apply:
 
@@ -99,7 +92,7 @@ The experiences and issues described in this article have the following scope.
 
 - Advantage of using cross-tenant access settings template for identity synchronization: Azure AD cross-tenant synchronization doesn't support establishing a cross-tenant synchronization configuration before the tenant in question allows inbound synchronization in their cross-tenant access settings for identity synchronization. Hence the usage of the cross-tenant access settings template for identity synchronization is encouraged, with `userSyncInbound` set to true, as facilitated by Microsoft 365 admin center.
 
-- B2B users in scope of multiple synchronization engines: The use of [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md) or [Azure AD Cloud sync](../hybrid/cloud-sync/concept-how-it-works.md), followed by the conversion of [hybrid identities](../hybrid/whatis-hybrid-identity.md) into [B2B members](../external-identities/invite-internal-users.md), subsequent synchronization of such B2B members with [Azure AD cross-tenant synchronization](cross-tenant-synchronization-overview.md), and the recognition of such hybrid converted B2B members for seamless multi-tenant organization collaboration in new Microsoft Teams is untested.
+- Source of Authority Conflict: Using Azure AD cross-tenant synchronization to target hybrid identities that have been converted to B2B users has not been tested and is not supported.
 
 - Syncing B2B guests versus B2B members: As your organization rolls out the multi-tenant organization functionality including provisioning of B2B users across multi-tenant organization tenants, you might want to provision some users as B2B guests, while provision others users as B2B members. To achieve this, you may want to establish two Azure AD cross-tenant synchronization configurations in the source tenant, one with userType attribute mappings configured to B2B guest, and another with userType attribute mappings configured to B2B member, each with [**Apply this mapping** set to **Always**](cross-tenant-synchronization-configure.md#step-9-review-attribute-mappings). By moving a user from one configuration's scope to the other, you can easily control who will be a B2B guest or a B2B member in the target tenant.
 
