@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/17/2023
 ms.author: greglin
 ms.custom: mvc, devx-track-azurepowershell
 ---
@@ -26,7 +26,7 @@ To support IPv6 connectivity, you must create a dual-stack VNet. This dual-stack
 
 You learn how to:
 * [Register](#register-to-the-preview) and [unregister](#unregister-from-the-preview) from the preview
-* Set up the [dual-stack network](#create-a-dual-stack-subnet)
+* Set up the [dual-stack network](#configure-a-dual-stack-subnet-and-backend-subnet)
 * Create an application gateway with [IPv6 frontend](#create-application-gateway-frontend-public-ip-addresses)
 * Create a virtual machine scale set with the default [backend pool](#create-the-backend-pool-and-settings)
 
