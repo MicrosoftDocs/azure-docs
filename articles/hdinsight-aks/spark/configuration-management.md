@@ -26,9 +26,7 @@ When user updates a configuration in the management portal the corresponding ser
     :::image type="content" source="./media/configuration-management/show-spark-configuration.png" alt-text="Screenshot showing spark configuration.":::
 
 1. Click on the **configuration** tabs that need to be changed.
-
-    :::image type="content" source="./media/configuration-management/change-spark-configuration-1.png" alt-text="Screenshot showing how to change spark configuration 1.":::
-   
+     
     :::image type="content" source="./media/configuration-management/change-spark-configuration-2.png" alt-text="Screenshot showing how to change spark configuration 2.":::
    
     :::image type="content" source="./media/configuration-management/change-spark-configuration-3.png" alt-text="Screenshot showing how to change spark configuration 3. ":::
