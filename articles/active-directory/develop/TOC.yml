@@ -39,8 +39,6 @@
     - name: Permissions and access
       displayName: Access control
       items:
-        - name: Permissions and consent overview
-          href: permissions-consent-overview.md
         - name: Delegated access
           href: delegated-access-primer.md
         - name: App-only access
@@ -469,11 +467,6 @@
               href: quickstart-create-new-tenant.md
             - name: Register app or web API
               href: quickstart-register-app.md
-            - name: Expose scopes in web API registration
-              href: quickstart-configure-app-expose-web-apis.md
-            - name: Grant scoped permission to web API
-              displayName: permissions, scp, scp claims
-              href: quickstart-configure-app-access-web-apis.md
             - name: Create a self-signed certificate to authenticate your app
               href: howto-create-self-signed-certificate.md
         - name: Sign in users
