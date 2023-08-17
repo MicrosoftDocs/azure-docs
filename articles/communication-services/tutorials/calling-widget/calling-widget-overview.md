@@ -1,5 +1,5 @@
 ---
-title: Get started with a click to call experience using Azure Communication Services
+title: Get started with a Calling Widget using Azure Communication Services
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to create a Calling Widget widget experience with the Azure Communication Services CallComposite to facilitate click to call.
 author: dmceachern
@@ -66,7 +66,8 @@ Then you need to update the dependency array in the `package.json` to include so
 "@azure/communication-calling": "1.14.1-beta.1",
 "@azure/communication-chat": "1.3.2-beta.2",
 "@azure/communication-react": "1.7.0-beta.1",
-"@azure/communication-calling-effects": "1.0.1",
+"@azure/communication-calling-effects": "1.0.0-beta.2",
+"@azure/communication-common": "2.2.1",
 "@fluentui/react-icons": "~2.0.203",
 "@fluentui/react": "~8.98.3",
 ```

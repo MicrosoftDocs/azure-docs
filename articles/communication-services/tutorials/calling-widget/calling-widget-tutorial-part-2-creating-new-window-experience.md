@@ -110,9 +110,7 @@ export const NewWindowCallScreen = (props: {
             peopleButton: false,
             displayType: "compact",
           },
-          localVideoTileOptions: {
-            position: !useVideo ? "hidden" : "floating",
-          },
+          localVideoTile: useVideo ? {position: 'floating'} : false
         }}
         adapter={adapter}
       />
@@ -130,6 +128,13 @@ To make sure we are passing around data correctly, let's create some handlers to
 This flow illustrates that if the child window has spawned, it needs to ask for the arguments. This behavior has to do with React and that if the parent window just sends a message right after creation, the call adapter arguments needed are lost before the application mounts. The adapter arguments are lost because in the new window the listener is not set yet until after a render pass completes. More on where these event handlers are made to come.
 
 Now we want to update the splash screen we created earlier. First we add a reference to the new child window that we create.
+
+`CallingWidgetScreen.tsx`
+```ts
+// add this import for the following code snippet
+import { useRef } from 'react';
+
+```
 
 `CallingWidgetScreen.tsx`
 
