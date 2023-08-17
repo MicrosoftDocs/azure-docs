@@ -4,7 +4,7 @@ description: How to configure networking for Azure Elastic SAN Preview, a servic
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/17/2023
 ms.author: rogarana
 ms.custom: ignite-2022, devx-track-azurepowershell, references_regions
 ---
@@ -228,7 +228,7 @@ Use this sample code to create a private endpoint for your Elastic SAN volume gr
 | `<ApprovalDesc>`                 | The description provided for the approval of the private endpoint connection. |
 
 ```azurecli
-# Define some variables
+# Define some variables.
 RgName="<ResourceGroupName>"
 VnetName="<VnetName>"
 SubnetName="<SubnetName>"
@@ -239,13 +239,14 @@ PLSvcConnectionName="<PrivateLinkSvcConnectionName>"
 Location="<Location>"
 ApprovalDesc="<ApprovalDesc>"
 
+# Get the id of the Elastic SAN.
 id=$(az elastic-san show \
     --elastic-san-name $EsanName \
     --resource-group $RgName \
     --query 'id' \
     --output tsv)
 
-# Create private endpoint
+# Create the private endpoint.
 az network private-endpoint create \
     --connection-name $PLSvcConnectionName \
     --name $EndpointName \
@@ -256,10 +257,23 @@ az network private-endpoint create \
     --location $Location \
     --group-id $EsanVgName # --manual-request
 
-# Verify the status of the private endpoint
+# Verify the status of the private endpoint.
 az network private-endpoint show \
     --name $EndpointName \
     --resource-group $RgName
+
+# Verify the status of the private endpoint connection.
+PLConnectionName=$(az network private-endpoint-connection list \
+    --name $EsanName \
+    --resource-group $RgName \
+    --type Microsoft.ElasticSan/elasticSans \
+    --query "[?properties.groupIds[0]=='$EsanVgName'].name" -o tsv)
+
+az network private-endpoint-connection show  \
+    --resource-name $EsanName \
+    --resource-group $RgName \
+    --type Microsoft.ElasticSan/elasticSans \
+    --name $PLConnectionName
 ```
 
 Use this sample code to approve the private link service connection if you are using the two-step process. Use the same variables from the previous code sample:
@@ -268,15 +282,16 @@ Use this sample code to approve the private link service connection if you are u
 az network private-endpoint-connection approve \
     --resource-name $EsanName \
     --resource-group $RgName \
-    --name $PLSvcConnectionName \
+    --name $PLConnectionName \
     --type Microsoft.ElasticSan/elasticSans \
     --description $ApprovalDesc
 
-id=$(az elastic-san show \
-    --elastic-san-name $EsanName \
+# Verify the status of the private endpoint connection.
+az network private-endpoint-connection show  \
+    --resource-name $EsanName \
     --resource-group $RgName \
-    --query id' \
-    --output tsv)
+    --type Microsoft.ElasticSan/elasticSans \
+    --name $PLConnectionName
 ```
 
 ---
