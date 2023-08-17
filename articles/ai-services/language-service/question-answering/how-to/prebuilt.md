@@ -190,12 +190,12 @@ ne|Nepali
 nl|Dutch, Flemish
 nn|Norwegian Nynorsk
 no|Norwegian
-or|Oriya
+or|Odia
 pa|Punjabi, Panjabi
 pl|Polish
 ps|Pashto, Pushto
 pt|Portuguese
-ro|Romanian, Moldavian, Moldovan
+ro|Romanian, Moldovan
 ru|Russian
 sa|Sanskrit
 sd|Sindhi

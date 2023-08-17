@@ -134,7 +134,7 @@ Tweet sentiment ratings:
 
 Tweet text
 1. "I can't stand homework"
-2. "This sucks. I'm bored 😠"
+2. "This is no fun. I'm bored 😠"
 3. "I can't wait for Halloween!!!"
 4. "My cat is adorable ❤️❤️"
 5. "I hate chocolate"

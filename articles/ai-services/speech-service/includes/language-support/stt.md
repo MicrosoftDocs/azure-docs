@@ -23,7 +23,7 @@ ms.author: eur
 | `ar-LY` | Arabic (Libya) | Plain text |
 | `ar-MA` | Arabic (Morocco) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `ar-OM` | Arabic (Oman) | Plain text |
-| `ar-PS` | Arabic (Palestinian Territories) | Plain text |
+| `ar-PS` | Arabic (Palestinian Authority) | Plain text |
 | `ar-QA` | Arabic (Qatar) | Plain text |
 | `ar-SA` | Arabic (Saudi Arabia) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `ar-SY` | Arabic (Syria) | Plain text |
@@ -138,7 +138,7 @@ ms.author: eur
 | `ta-IN` | Tamil (India) | Plain text |
 | `te-IN` | Telugu (India) | Plain text |
 | `th-TH` | Thai (Thailand) | Audio + human-labeled transcript<br/><br/>Plain text |
-| `tr-TR` | Turkish (Turkey) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text |
+| `tr-TR` | Turkish (Türkiye) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text |
 | `uk-UA` | Ukrainian (Ukraine) | Plain text |
 | `uz-UZ` | Uzbek (Latin, Uzbekistan) | Plain text |
 | `vi-VN` | Vietnamese (Vietnam) | Audio + human-labeled transcript<br/><br/>Plain text |

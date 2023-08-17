@@ -113,7 +113,7 @@ Added 10 new locales as shown in the following table. See the complete language 
 |  `hy-AM`         | Armenian (Armenia)                |
 |  `az-AZ`         | Azerbaijani (Azerbaijan)          |
 |  `eu-ES`         | Basque                    |
-|  `gl-ES`         | Galician (Spain)                  |
+|  `gl-ES`         | Galician                  |
 | `ka-GE`         | Georgian (Georgia)                |
 |  `it-CH`         | Italian (Switzerland)             |
 |  `kk-KZ`         | Kazakh (Kazakhstan)               |

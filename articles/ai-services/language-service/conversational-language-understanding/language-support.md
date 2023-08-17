@@ -114,7 +114,7 @@ Conversational language understanding supports utterances in the following langu
 | Nepali | `ne` |
 | Dutch | `nl` |
 | Norwegian (Bokmal) | `nb` |
-| Oriya | `or` |
+| Odia | `or` |
 | Punjabi | `pa` |
 | Polish | `pl` |
 | Pashto | `ps` |
