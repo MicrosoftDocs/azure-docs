@@ -1,21 +1,21 @@
 ---
-title: Fraud Detection with the Flink DataStream API
-description: Learn about Fraud Detection with the Flink DataStream API
+title: Fraud detection with the Flink DataStream API
+description: Learn about Fraud detection with the Flink DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/16/2023
 ---
 
-# Fraud Detection with the Flink DataStream API
+# Fraud detection with the Flink DataStream API
 
-In this article, learn how to run Fraud Detection usecase with the Flink DataStream API.
+In this article, learn how to run Fraud detection use case with the Flink DataStream API.
 
 ## Prerequisites
 
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
 * IntelliJ Idea community edition installed locally
 
-## Developing code in IDE
+## Develop code in IDE
 
 1. For the sample job, refer [Fraud Detection with the DataStream API](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/try-flink/datastream/)
 1. Build the skeleton of the code using Flink Maven Archetype by using InterlliJ Idea IDE.
@@ -120,7 +120,7 @@ In this article, learn how to run Fraud Detection usecase with the Flink DataStr
 
 For more information, refer [Sample TransactionIterator.java](https://github.com/apache/flink/blob/master/flink-walkthroughs/flink-walkthrough-common/src/main/java/org/apache/flink/walkthrough/common/source/TransactionIterator.java)
 
-## Creating JAR file
+## Create JAR file
 
 After making the code changes, create the jar using the following steps in IntelliJ Idea IDE
 
@@ -138,11 +138,11 @@ After making the code changes, create the jar using the following steps in Intel
 
    1. Go to  **Build -> Build Artifact -> Build**
 
-      :::image type="content" source="./media/fraud-detection-flink-datastream-api/build-artifact.png" alt-text="Screenshot showing how to build Artifact.":::
+      :::image type="content" source="./media/fraud-detection-flink-datastream-api/build-artifact.png" alt-text="Screenshot showing how to build artifact.":::
    
-      :::image type="content" source="./media/fraud-detection-flink-datastream-api/extract-target-jar-1.png" alt-text="Screenshot showing how to build Artifacts.":::
+      :::image type="content" source="./media/fraud-detection-flink-datastream-api/extract-target-jar-1.png" alt-text="Screenshot showing how to extract the target jar.":::
 
-## Running the job in Flink environment
+## Run the job in Flink environment
 
 1. Once the jar is generated, it can be used to submit the job from Flink UI using submit job section.
 
