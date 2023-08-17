@@ -1,5 +1,5 @@
 ---
-title: 'Verifying your version of cloud sync or connect sync'
+title: 'Verify your version of cloud sync or connect sync'
 description: This article describes the steps to verify the version of the provisioning agent or connect sync.
 services: active-directory
 documentationcenter: ''
@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/17/2023
-ms.subservice: hybrid
+ms.subservice: hybridr
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Verifying your version of the provisioning agent or connect sync
-This article describes the steps to verify the installed verision of the provisiong agent and connect sync.
+# Verify your version of the provisioning agent or connect sync
+This article describes the steps to verify the installed version of the provisioning agent and connect sync.
 
 ## Verify the provisioning agent
-To see what version of the provisioning agent you are using, use the following steps:
+To see what version of the provisioning agent your using, use the following steps:
 
 [!INCLUDE [active-directory-cloud-sync-how-to-verify-installation](../../../includes/active-directory-cloud-sync-how-to-verify-installation.md)]
 
 ## Verfiy connect sync
-To see what version of connect sync you are using, use the following steps:
+To see what version of connect sync your using, use the following steps:
 
 ### On the local server
 
@@ -42,7 +42,7 @@ To verify that the version of the agent running, follow these steps:
 
 1.  Navigate to 'C:\Program Files\Microsoft Azure AD Connect'
 2.  Right-click on **AzureADConnect.exe** and select **properties**.
-3.  Click the **details** tab and the version number will be displayed next to Product version.
+3.  Click the **details** tab and the version number id next to the Product version.
 
 ## Next steps
 - [Common scenarios](common-scenarios.md)
