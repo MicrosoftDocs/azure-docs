@@ -348,17 +348,19 @@ To start vCenter Server discovery, select **Start discovery**. After the discove
 
    :::image type="content" source="./media/tutorial-discover-vmware/discovery-assessment-tile.png" alt-text="Screenshot that shows how to refresh data in discovery and assessment tile.":::
 
-Customers have the capability to purchase extended security updates, but these are very expensive.
-operating system license support status and we drill down into database level.
-With this, customers can also see how much time they have left in this extended support status left, which means like how much months are left for the license to be valid and after which it will go end of support.
+Details such as OS license support status, inventory, database instances, etc are displayed. 
 
-Select Columns > Support ends in > duration is displayed in months.
+#### View support status
 
-For database, “Database instance support status”> right pane with status on clicking each and every support status they have details of what support status is it in how many months is it ending?
-actions do they have to take
-What are the options they have to secure this workload because extended or out of support is that your workload is vulnerable
+You can also view the support status and the duration of the extended support of the OS and the database instance from the **Discovered servers** section.
 
+The **Operating system license support status** column displays the support status of the Operating system, whether it is in mainstream support, extended support, or out of support. Selecting the support status opens a pane on the right which shows the type of support status, duration of support, and the recommended steps to secure their workloads. 
+- To view the remaining duration of support, that is, the number of months for which the license is valid, 
+select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months.
 
+The **Database instances** displays the number of instances discovered by Azure Migrate. Select the number of instances to view the database instance details. The **Database instance license support status** displays the support status of the database instance. Selecting the support status opens a pane on the right which shows the type of support status, duration of support, and the recommended steps to secure their workloads. 
+- To view the remaining duration of support, that is, the number of months for which the license is valid, 
+select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months.
 
 ## Next steps
 
