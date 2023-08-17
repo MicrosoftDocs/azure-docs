@@ -37,7 +37,7 @@ When operating in connected mode, it's possible to connect to the cluster's kube
 
 ### Arc for servers
 
-The `az ssh arc` command allows users to remotely access a virtual machine that has been connected to Azure Arc. This is a secure way to SSH into the cluster node directly from the command line, while in connected mode. Once the virtual machine has been registered with Azure Arc, the `az ssh arc` command can be used to manage the machine remotely, making it a quick and efficient method for remote management.
+The `az ssh arc` command allows users to remotely access a virtual machine that has been connected to Azure Arc. This method is a secure way to SSH into the cluster node directly from the command line, while in connected mode. Once the virtual machine has been registered with Azure Arc, the `az ssh arc` command can be used to manage the machine remotely, making it a quick and efficient method for remote management.
 
 To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by creating a service principle (SP) with 'Azure Connected Machine Onboarding' role. For more detailed steps on how to connect a Nexus Kubernetes cluster nodes to Arc, refer to the [how to guide](./howto-monitor-naks-cluster.md#monitor-nexus-kubernetes-cluster--vm-layer).
 
@@ -79,7 +79,7 @@ To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by cr
 
 Another option for securely connecting to Nexus Kubernetes cluster node from Azure is to use a jumpbox. In this approach, an Azure virtual machine is set up as a secure gateway to connect to the cluster nodes.
 
-To access a cluster node from Azure via a jumpbox, it's necessary to create a new virtual machine in your Azure environment to act as the jumpbox. This jumpbox must establish network connections with both, the cluster's L3 OAM and the user's workstation. Additionally, a NetworkCloud VM with L3 OAM and CNI network should be created to establish a connection with the cluster VM. It's important to note that the NetworkCloud and cluster VMs must be on the same isolation domain for connectivity. The user will also require an SSH key for the K8s VM to authenticate their access.
+To access a cluster node from Azure via a jumpbox, it's necessary to create a new virtual machine in your Azure environment to act as the jumpbox. This jumpbox must establish network connections with both, the cluster's L3 OAM and the user's workstation. Additionally, a NetworkCloud VM with L3 OAM and CNI network should be created to establish a connection with the cluster VM. It's important to note that the NetworkCloud and cluster VMs must be on the same isolation domain for connectivity. The user needs an SSH key for the K8s VM to authenticate their access.
 
 It's important to ensure that the jumpbox is configured securely and that it's regularly updated with the latest security patches. Additionally, access to the jumpbox should be tightly controlled to prevent unauthorized access. The user must also have an SSH private key to authenticate their access to the on-premises VM.
 
@@ -94,16 +94,16 @@ There are two networks that can be used to connect to the cluster nodes:
 * CSN network
 * L3 network (attached as an OSDevice)
 
-During the cluster creation process, a L3 network (Tenant defined L3 isolation domain) can be attached to the agent pool as an OSDevice, which can then be used as the OAM purpose. For more information on how to attach a L3 network as an OSDevice during cluster creation, please refer to the [QuickStart](./quickstarts-kubernetes-cluster-deployment-bicep.md) guide.
+During the cluster creation process, a L3 network (Tenant defined L3 isolation domain) can be attached to the agent pool as an OSDevice, which can then be used as the OAM purpose. For more information on how to attach a L3 network as an OSDevice during cluster creation, see the [QuickStart](./quickstarts-kubernetes-cluster-deployment-bicep.md) guide.
 
 > [!NOTE]
 > For understanding purposes, the L3 network (attached as an OSDevice) will be referred to as the 'OAM network' in this article.
 
 The OAM network is the recommended network to use for connectivity during disconnected mode. It's important to note that the CSN network is used for critical cluster functions and shouldn't be used for general connectivity. While there's no difference in the connectivity experience between the two networks, it's recommended to use the OAM network for all noncritical connectivity needs.
 
-The L3 network as OSDevice must be attached to the agent pool during the cluster creation process, and it can't be attached to the agent pool after the cluster is created. Also, the OAM network is not attached to the master nodes, so you can't connect to the master nodes using the OAM network. In those cases, you can use the CSN network to connect to the master nodes.
+The L3 network as OSDevice must be attached to the agent pool during the cluster creation process, and it can't be attached to the agent pool after the cluster is created. Also, the OAM network isn't attached to the control plane nodes, so you can't connect to the control plane nodes using the OAM network. In those cases, you can use the CSN network to connect to the control plane nodes.
 
-It is not recommended to log into the master nodes unless it's necessary. However, you may be required to sign-in to get the kubeconfig file for the cluster. If the local jumpbox is connected to the CNI network, you can use the kubeconfig file to execute kubectl against the cluster instead of logging into the master nodes.
+It's not recommended to log into the control plane nodes unless it's necessary. However, you may be required to sign-in to get the kubeconfig file for the cluster. If the local jumpbox is connected to the CNI network, you can use the kubeconfig file to execute kubectl against the cluster instead of logging into the control plane nodes.
 
 ### IP address of the cluster nodes
 
