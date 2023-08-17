@@ -55,8 +55,36 @@ Before you can connect to the cluster nodes, you need to find the IP address of 
 
 #### Using the Azure CLI
 
+Set the required variables:
+
+```bash
+RESOURCE_GROUP="myResourceGroup"
+CLUSTER_NAME="myNexusAKSCluster"
+SUBSCRIPTION_ID="<Subscription ID>"
+```
+
+Execute the following command to get the IP address of the nodes:
+
 ```azurecli
-az networkcloud kubernetescluster show --name myNexusAKSCluster --resource-group myResourceGroup --subscription 5ffad143-8f31-4e1e-b171-fa1738b14748 -o json | jq '.nodes[] | select(any(.networkAttachments[]; .networkAttachmentName == "defaultcni")) | {name: .name, ipv4Address: (.networkAttachments[] | select(.networkAttachmentName == "defaultcni").ipv4Address)}'
+RESOURCE_GROUP="myResourceGroup"
+az networkcloud kubernetescluster show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID -o json | jq '.nodes[] | select(any(.networkAttachments[]; .networkAttachmentName == "defaultcni")) | {name: .name, ipv4Address: (.networkAttachments[] | select(.networkAttachmentName == "defaultcni").ipv4Address)}'
+```
+
+Sample output:
+
+```json
+{
+  "name": "mynexusakscluster-593806e9-agentpool1-md-dw57z",
+  "ipv4Address": "<IP address>"
+}
+{
+  "name": "mynexusakscluster-593806e9-agentpool1-md-zmxp9",
+  "ipv4Address": "<IP address>"
+}
+{
+  "name": "mynexusakscluster-593806e9-control-plane-xm7rt",
+  "ipv4Address": "<IP address>"
+}
 ```
 
 #### Using the Azure portal
