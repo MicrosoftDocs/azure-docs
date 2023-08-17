@@ -379,4 +379,3 @@ The output should look like the one below. You can see that Write Accelerator en
 ```
 
 Once you've made this change, the drive should be supported by Write Accelerator.
-
