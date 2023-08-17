@@ -22,7 +22,8 @@ This guide is tailored to assist you in resolving issues you may encounter when 
 ### Unable to Connect to Azure Cosmos DB for MongoDB vCore - Timeout error 
 This issue might occur when the cluster does not have the correct firewall rule(s) enabled. If you're trying to access the cluster from a non-Azure IP range, you need to add extra firewall rules. Refer to [Security options and features - Azure Cosmos DB for MongoDB vCore](./security.md#network-security-options) for detailed steps. Firewall rules can be configured in the portal's Networking setting for the cluster. Options include adding a known IP address/range or enabling public IP access.
 
-:::image type="content" source="./media/troubleshoot-guide/timeout-error-solution.png" alt-text="Screenshot of the Timeout error solution for Azure Cosmos DB for MongoDB vCore":::
+:::image type="content" source="/media/troubleshoot-guide/timeout-error-solution.png" alt-text="Screenshot of the Timeout error solution for Azure Cosmos DB for MongoDB vCore." lightbox="/media/troubleshoot-guide/timeout-error-solution-expanded.png":::
+
 
 ### Unable to Connect with DNSClient.DnsResponseException Error
 #### Debugging Connectivity Issues: 
@@ -36,7 +37,7 @@ To check connectivity, follow these steps:
 ```
 nc -v <accountName>.documents.azure.com 10250
 ```
-If TCP connect to port 10250/10255 fails, a environment firewall may be blocking the Azure Cosmos DB connection. Kindly scroll down to the page's bottom to submit a support ticket.
+If TCP connect to port 10250/10255 fails, an environment firewall may be blocking the Azure Cosmos DB connection. Kindly scroll down to the page's bottom to submit a support ticket.
 
 
 
