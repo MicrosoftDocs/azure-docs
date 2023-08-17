@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Handle authentication flows in a vanilla JavaScript single-page app
-description: Learn how to configure authentication for a vanilla JavaScript single-page app (SPA) with your Azure Active Directory (AD) for customers tenant.
+title: Tutorial - Handle authentication flows in a Vanilla JavaScript single-page app
+description: Learn how to configure authentication for a Vanilla JavaScript single-page app (SPA) with your Azure Active Directory (AD) for customers tenant.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
@@ -10,13 +10,13 @@ ms.service: active-directory
 ms.subservice: ciam
 ms.custom: devx-track-js
 ms.topic: tutorial
-ms.date: 06/09/2023
-#Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
+ms.date: 08/17/2023
+#Customer intent: As a developer, I want to learn how to configure Vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
 ---
 
-# Tutorial: Handle authentication flows in a vanilla JavaScript single-page app
+# Tutorial: Handle authentication flows in a Vanilla JavaScript single-page app
 
-In the [previous article](./how-to-single-page-app-vanillajs-prepare-app.md), you created a vanilla JavaScript (JS) single-page application (SPA) and a server to host it. This tutorial demonstrates how to configure the application to authenticate and authorize users to access protected resources.
+In the [previous article](./tutorial-single-page-app-vanillajs-prepare-app.md), you created a Vanilla JavaScript (JS) single-page application (SPA) and a server to host it. This tutorial demonstrates how to configure the application to authenticate and authorize users to access protected resources.
 
 In this tutorial;
 
@@ -27,7 +27,7 @@ In this tutorial;
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Prepare a single-page application for authentication](how-to-single-page-app-vanillajs-prepare-app.md).
+* Completion of the prerequisites and steps in [Prepare a single-page application for authentication](tutorial-single-page-app-vanillajs-prepare-app.md).
 
 ## Edit the authentication configuration file
 
@@ -278,4 +278,4 @@ The application uses *authPopup.js* to handle the authentication flow when the u
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign in and sign out of the vanilla JS SPA](./how-to-single-page-app-vanillajs-sign-in-sign-out.md)
+> [Sign in and sign out of the Vanilla JS SPA](./tutorial-single-page-app-vanillajs-sign-in-sign-out.md)
