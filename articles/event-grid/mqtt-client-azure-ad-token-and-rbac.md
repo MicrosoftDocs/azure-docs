@@ -141,5 +141,5 @@ The following are sample role definitions that allow you to publish and subscrib
 - To learn more about how Managed Identities work, you can refer to [How managed identities for Azure resources work with Azure virtual machines - Microsoft Entra](/azure/active-directory/managed-identities-azure-resources/how-managed-identities-work-vm)  
 - To learn more about how to obtain tokens from Azure AD, you can refer to [obtaining Azure AD tokens](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token)
 - To learn more about Azure Identity client library, you can refer to [using Azure Identity client library](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-the-azure-identity-client-library)
-- To learn more about implementing an interface for credentials that can provide a token, you can refer to [TokenCredential Interface](/java/api/com.azure.core.credential.tokencredential?view=azure-java-stable)
+- To learn more about implementing an interface for credentials that can provide a token, you can refer to [TokenCredential Interface](/java/api/com.azure.core.credential.tokencredential)
 - To learn more about how to authenticate using Azure Identity, you can refer to [examples](https://github.com/Azure/azure-sdk-for-java/wiki/Azure-Identity-Examples)
