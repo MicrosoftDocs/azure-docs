@@ -86,7 +86,7 @@ To learn more about Document Intelligence features and development options, visi
 
 That's it, congratulations!
 
-In this quickstart, you used a form Document Intelligence model to analyze various forms and documents. Next, explore the Document Intelligence Studio and reference documentation to learn about Document Intelligence API in depth.
+In this quickstart, you used a document Intelligence model to analyze various forms and documents. Next, explore the Document Intelligence Studio and reference documentation to learn about Document Intelligence API in depth.
 
 ## Next steps
 
