@@ -92,16 +92,16 @@ However, it's possible to connect to the cluster nodes using the local jumpbox V
 There are two networks that can be used to connect to the cluster nodes:
 
 * CSN network
-* L3 network (attached as an OSDevice)
+* L3 network (attached as an `OSDevice`)
 
-During the cluster creation process, a L3 network (Tenant defined L3 isolation domain) can be attached to the agent pool as an OSDevice, which can then be used as the OAM purpose. For more information on how to attach a L3 network as an OSDevice during cluster creation, see the [QuickStart](./quickstarts-kubernetes-cluster-deployment-bicep.md) guide.
+During the cluster creation process, a L3 network (Tenant defined L3 isolation domain) can be attached to the agent pool as an `OSDevice`, which can then be used as the OAM purpose. For more information on how to attach a L3 network as an `OSDevice` during cluster creation, see the [QuickStart](./quickstarts-kubernetes-cluster-deployment-bicep.md) guide.
 
 > [!NOTE]
-> For understanding purposes, the L3 network (attached as an OSDevice) will be referred to as the 'OAM network' in this article.
+> For understanding purposes, the L3 network (attached as an `OSDevice`) will be referred to as the 'OAM network' in this article.
 
 The OAM network is the recommended network to use for connectivity during disconnected mode. It's important to note that the CSN network is used for critical cluster functions and shouldn't be used for general connectivity. While there's no difference in the connectivity experience between the two networks, it's recommended to use the OAM network for all noncritical connectivity needs.
 
-The L3 network as OSDevice must be attached to the agent pool during the cluster creation process, and it can't be attached to the agent pool after the cluster is created. Also, the OAM network isn't attached to the control plane nodes, so you can't connect to the control plane nodes using the OAM network. In those cases, you can use the CSN network to connect to the control plane nodes.
+The L3 network as `OSDevice` must be attached to the agent pool during the cluster creation process, and it can't be attached to the agent pool after the cluster is created. Also, the OAM network isn't attached to the control plane nodes, so you can't connect to the control plane nodes using the OAM network. In those cases, you can use the CSN network to connect to the control plane nodes.
 
 It's not recommended to log into the control plane nodes unless it's necessary. However, you may be required to sign-in to get the kubeconfig file for the cluster. If the local jumpbox is connected to the CNI network, you can use the kubeconfig file to execute kubectl against the cluster instead of logging into the control plane nodes.
 
