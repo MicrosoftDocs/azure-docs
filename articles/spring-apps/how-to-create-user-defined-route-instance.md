@@ -224,7 +224,7 @@ az network firewall application-rule create \
     --collection-name 'aksfwar'\
     --name 'fqdn' \
     --source-addresses '*' \
-    --protocols 'http=80' 'https=443' \
+    --protocols 'https=443' \
     --fqdn-tags "AzureKubernetesService" \
     --action allow --priority 100
 ```
