@@ -72,7 +72,8 @@ We use arrival data of flights from a sample data, you can choose a table of you
 ```
 
 > [!IMPORTANT]
->  Delta-Flink Connector has an open bug with String DataType,  String DataType is not being consumed properly for delta-flink while partitioning or otherwise. [BUG](https://github.com/delta-io/delta/issues/1931)
+>  Delta-Flink Connector has an known [issue](https://github.com/delta-io/delta/issues/1931) with String DataType,  String DataType is not being consumed properly for delta-flink while partitioning or otherwise.
+>  Delta-Flink has a known [issue](https://github.com/delta-io/delta/issues/1971) on viewing the table schema in Trino for the table when registered in Hive metastore (HMS) from Flink. Read and Write operations using Trino with same Flink HMS are not operational due to this issue.
 
 #### Output of the Delta Table
 
