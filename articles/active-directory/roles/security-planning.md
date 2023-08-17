@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.reviewer: "martincoetzer; MarkMorow"
 ms.collection: M365-identity-device-management
 ---
