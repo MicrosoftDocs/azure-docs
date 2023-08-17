@@ -57,17 +57,17 @@ Reference the connection details and sample codes in following tables to connect
 Follow these steps to connect to Azure Database for MySQL.
 1. Install dependencies. Follow the guidance to [install connector/NET MySQL](https://dev.mysql.com/doc/connector-net/en/connector-net-installation.html)
 1. In code, get MySQL connection string from environment variables added by Service Connector service.
-```csharp
-using System;
-using System.Data;
-using MySql.Data.MySqlClient;
-
-string connectionString = Environment.GetEnvironmentVariable("AZURE_MYSQL_CONNECTIONSTRING");
-using (MySqlConnection connection = new MySqlConnection(connectionString))
-{
-    connection.Open();
-}
-```
+   ```csharp
+   using System;
+   using System.Data;
+   using MySql.Data.MySqlClient;
+   
+   string connectionString = Environment.GetEnvironmentVariable("AZURE_MYSQL_CONNECTIONSTRING");
+   using (MySqlConnection connection = new MySqlConnection(connectionString))
+   {
+       connection.Open();
+   }
+   ```
 
 #### [Java](#tab/java)
 
@@ -133,23 +133,23 @@ After created a springboot client type connection, Service Connector service wil
 
 1. Install dependencies. Follow the guidance to [install Connector/Python](https://dev.mysql.com/doc/connector-python/en/connector-python-installation.html) by following the guidance.
 1. In code, get MySQL connection information from environment variables added by Service Connector service.
-```python
-import os
-import mysql.connector
-
-host = os.getenv('AZURE_MYSQL_HOST')
-user = os.getenv('AZURE_MYSQL_USER')
-password = os.getenv('AZURE_MYSQL_PASSWORD')
-database = os.getenv('Azure_MYSQL_NAME')
-port = os.getenv('AZURE_MYSQL_PORT')
-
-cnx = mysql.connector.connect(user=user, password=password,
-                              host=host,
-                              database=database,
-                              port=port)
-
-cnx.close()
-```
+   ```python
+   import os
+   import mysql.connector
+   
+   host = os.getenv('AZURE_MYSQL_HOST')
+   user = os.getenv('AZURE_MYSQL_USER')
+   password = os.getenv('AZURE_MYSQL_PASSWORD')
+   database = os.getenv('Azure_MYSQL_NAME')
+   port = os.getenv('AZURE_MYSQL_PORT')
+   
+   cnx = mysql.connector.connect(user=user, password=password,
+                                 host=host,
+                                 database=database,
+                                 port=port)
+   
+   cnx.close()
+   ```
 
 
 #### [Django](#tab/django)
@@ -162,29 +162,29 @@ cnx.close()
 | `AZURE_MYSQL_PASSWORD`              | Database password | `MySQL-DB-password`                        |
 
 1. Install dependencies.
-    ```bash
-    pip install django==3.2
-    ```
+   ```bash
+   pip install django==3.2
+   ```
 1. In setting file, get MySQL database information from environment variables added by Service Connector service.
-```python
-# in your setting file, eg. settings.py
-host = os.getenv('AZURE_MYSQL_HOST')
-user = os.getenv('AZURE_MYSQL_USER')
-password = os.getenv('AZURE_MYSQL_PASSWORD')
-database = os.getenv('AZURE_MYSQL_NAME')
-port = os.getenv('AZURE_MYSQL_PORT')
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': database,
-        'USER': user,
-        'PASSWORD': password,
-        'HOST': host,
-        'PORT': port
-    }
-}
-```
+   ```python
+   # in your setting file, eg. settings.py
+   host = os.getenv('AZURE_MYSQL_HOST')
+   user = os.getenv('AZURE_MYSQL_USER')
+   password = os.getenv('AZURE_MYSQL_PASSWORD')
+   database = os.getenv('AZURE_MYSQL_NAME')
+   port = os.getenv('AZURE_MYSQL_PORT')
+   
+   DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.mysql',
+           'NAME': database,
+           'USER': user,
+           'PASSWORD': password,
+           'HOST': host,
+           'PORT': port
+       }
+   }
+   ```
 
 #### [Go](#tab/go)
 
@@ -263,27 +263,27 @@ DATABASES = {
 
 1. Install dependencies. Follow the guide to [install MySQLi](https://www.php.net/manual/en/mysqli.installation.php).
 1. In code, get MySQL connection information from environment variables added by Service Connector service.
-```php
-<?php
-$host = getenv('AZURE_MYSQL_HOST');
-$username = getenv('AZURE_MYSQL_USER');
-$password = getenv('AZURE_MYSQL_PASSWORD');
-$database = getenv('Azure_MYSQL_DBNAME');
-$port = getenv('AZURE_MYSQL_PORT');
-$flag = getenv('AZURE_MYSQL_FLAG');
-
-$conn = mysqli_init();
-mysqli_ssl_set($conn,NULL,NULL,NULL,NULL,NULL);
-mysqli_real_connect($conn, $host, $username, $password, $database, $port, NULL, $flag);
-
-if (mysqli_connect_errno($conn)) {
-    die('Failed to connect to MySQL: ' . mysqli_connect_error());
-}
-
-echo 'Connected successfully to MySQL database!';
-mysqli_close($conn);
-?>
-```
+   ```php
+   <?php
+   $host = getenv('AZURE_MYSQL_HOST');
+   $username = getenv('AZURE_MYSQL_USER');
+   $password = getenv('AZURE_MYSQL_PASSWORD');
+   $database = getenv('Azure_MYSQL_DBNAME');
+   $port = getenv('AZURE_MYSQL_PORT');
+   $flag = getenv('AZURE_MYSQL_FLAG');
+   
+   $conn = mysqli_init();
+   mysqli_ssl_set($conn,NULL,NULL,NULL,NULL,NULL);
+   mysqli_real_connect($conn, $host, $username, $password, $database, $port, NULL, $flag);
+   
+   if (mysqli_connect_errno($conn)) {
+       die('Failed to connect to MySQL: ' . mysqli_connect_error());
+   }
+   
+   echo 'Connected successfully to MySQL database!';
+   mysqli_close($conn);
+   ?>
+   ```
 
 
 #### [Ruby](#tab/ruby)
@@ -524,7 +524,7 @@ mysqli_close($conn);
 | `AZURE_MYSQL_CONNECTIONSTRING`      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>` |
 
 
-#### [SpringBoot](#sp-spring)
+#### [SpringBoot](#tab/spring)
 
 | Application properties                                          | Description                       | Example value                                                                                                 |
 |-----------------------------------------------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------|
