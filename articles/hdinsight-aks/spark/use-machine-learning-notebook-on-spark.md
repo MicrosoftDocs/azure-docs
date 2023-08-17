@@ -12,7 +12,7 @@ Machine learning is a growing technology, which enables computers to learn autom
 
 The following tutorial notebook shows an example of training machine learning models on tabular data. You can import this notebook and run it yourself.
 
-## Upload the csv into your storage
+## Upload the CSV into your storage
 
 1. Find your storage and container name in the portal JSON view
 
@@ -24,7 +24,7 @@ The following tutorial notebook shows an example of training machine learning mo
 
     :::image type="content" source="./media/use-machine-learning-notebook-on-spark/navigate-to-storage-and-container.png" alt-text="Screenshot showing how to navigate to storage and container.":::
 
-    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/upload-csv.png" alt-text="Screenshot showing how to upload csv file.":::
+    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/upload-csv.png" alt-text="Screenshot showing how to upload CSV file.":::
     
 1. Log in to your cluster and open the Jupyter Notebook 
 
@@ -41,7 +41,7 @@ The following tutorial notebook shows an example of training machine learning mo
 
 1. Read the CSV into a Spark dataframe
 
-    `>>df = spark.read.csv("abfss:///iris_csv.csv",inferSchema=True,header=True)`
+    `>>df = spark.read.("abfss:///iris_csv.csv",inferSchema=True,header=True)`
 1. Split the data for training and testing
 
     `>>iris_train, iris_test = df.randomSplit([0.7, 0.3], seed=123)`
