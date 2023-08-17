@@ -7,12 +7,13 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 07/18/2023
+ms.date: 08/16/2023
 ms.author: lajanuar
+monikerRange: '>=doc-intel-3.0.0'
 ---
 <!-- markdownlint-disable MD025 -->
 
-[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/) | [Samples](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md) | [Supported REST API versions](../../sdk-overview.md)
+[Client library](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python&preserve-view=true) [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.3.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.3.0/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.3.0/sdk/formrecognizer/azure-ai-formrecognizer/samples) | [Supported REST API versions](../../sdk-overview.md)
 
 In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
 
@@ -49,7 +50,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
 Open a terminal window in your local environment and install the Azure AI Document Intelligence client library for Python with pip:
 
 ```console
-pip install azure-ai-formrecognizer==3.3.0b1
+pip install azure-ai-formrecognizer==3.3.0
 ```
 
 <!-- > [!div class="nextstepaction"]
