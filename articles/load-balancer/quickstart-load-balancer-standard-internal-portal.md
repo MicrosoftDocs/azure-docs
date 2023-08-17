@@ -6,15 +6,15 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 07/18/2022
+ms.date: 08/17/2023
 ms.author: mbender
-ms.custom: mvc, mode-ui, template-quickstart, engagement-fy23
+ms.custom: mvc, mode-ui, template-quickstart, engagement-fy24
 #Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using the Azure portal
 
-Get started with Azure Load Balancer by using the Azure portal to create an internal load balancer for a backend pool with two virtual machines. Additional resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
+Get started with Azure Load Balancer by using the Azure portal to create an internal load balancer for a backend pool with two virtual machines. Other resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
 
 :::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer.":::
 
@@ -72,7 +72,7 @@ A private IP address in the virtual network is configured as the frontend for th
 
 An Azure Bastion host is created to securely manage the virtual machines and install IIS.
 
-In this section, you'll create a virtual network, subnet, and Azure Bastion host.
+In this section, you create a virtual network, subnet, and Azure Bastion host.
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual Networks** in the search results.
 
@@ -138,7 +138,7 @@ In this section, you'll create a virtual network, subnet, and Azure Bastion host
 
 In this section, you create a load balancer that load balances virtual machines.
 
-During the creation of the load balancer, you'll configure:
+During the creation of the load balancer, you configure:
 
 - Frontend IP address
 - Backend pool
@@ -214,7 +214,7 @@ During the creation of the load balancer, you'll configure:
 
 ## Create virtual machines
 
-In this section, you'll create two VMs (**myVM1** and **myVM2**) in two different zones (**Zone 1** and **Zone 2**). 
+In this section, you create two VMs (**myVM1** and **myVM2**) in two different zones (**Zone 1** and **Zone 2**). 
 
 These VMs are added to the backend pool of the load balancer that was created earlier.
 
@@ -280,7 +280,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
 ## Create test virtual machine
 
-In this section, you'll create a VM named **myTestVM**.  This VM will be used to test the load balancer configuration.
+In this section, you create a VM named **myTestVM**.  This VM is used to test the load balancer configuration.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -363,7 +363,7 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
 
 ## Test the load balancer
 
-In this section, you'll test the load balancer by connecting to the **myTestVM** and verifying the webpage.
+In this section, you test the load balancer by connecting to the **myTestVM** and verifying the webpage.
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
