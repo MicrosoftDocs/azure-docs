@@ -1,6 +1,6 @@
 ---
 title: Sign in users in a sample vanilla JavaScript single-page application
-description: Learn how to configure a sample JavaSCript single-page application (SPA) to sign in and sign out users.
+description: Learn how to configure a sample JavaScript single-page application (SPA) to sign in and sign out users.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
