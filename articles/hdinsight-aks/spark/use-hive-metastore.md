@@ -70,7 +70,7 @@ While you create the cluster, HDInsight service needs to connect to the external
 
 1. Click on **Review and Create.**
 
-    :::image type="content" source="./media/use-hive-metastore/review-and-create-tab.png" alt-text="Screenshot showing the review and create tab.":::
+    :::image type="content" source="./media/use-hive-metastore/review-create-tab.png" alt-text="Screenshot showing the review and create tab.":::
 
     > [!NOTE]
     > * The lifecycle of the metastore isn't tied to a clusters lifecycle, so you can create and delete clusters without losing metadata. Metadata such as your Hive schemas persist even after you delete and re-create the HDInsight cluster.
