@@ -3,7 +3,7 @@ title: DataStream API for MongoDB as a source and sink on Apache Flink
 description: Learn how to use DataStream API for MongoDB as a source and sink on Apache Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 08/17/2023
 ---
 
 # DataStream API for MongoDB as a source and sink on Apache Flink
