@@ -105,10 +105,10 @@ After created a `springboot` client type connection, Service Connector service w
 |-------------------------------------|-------------------|--------------------------------------------|
 | `AZURE_MYSQL_HOST`                  | Database Host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
 | `AZURE_MYSQL_USER`                  | Database Username | `MySQL-DB-username`                        |
-| `AZURE_MYSQL_PASSWORD`              | Database password | `MySQL-DB-password`                        |
-| `AZURE_MYSQL_DATABASE`              | Database name     | `<database-name>`                          |
-| `AZURE_MYSQL_PORT`                  | Port number       | `3306`                                     |
-| `AZURE_MYSQL_SSL`                   | SSL option        | `true`                                     |
+| `AZURE_MYSQL_PASSWORD`              | Database Password | `MySQL-DB-password`                        |
+| `AZURE_MYSQL_DATABASE`              | Database Name     | `<database-name>`                          |
+| `AZURE_MYSQL_PORT`                  | Port Number       | `3306`                                     |
+| `AZURE_MYSQL_SSL`                   | SSL Option        | `true`                                     |
 
 
 #### [PHP](#tab/php)
