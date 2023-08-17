@@ -1,22 +1,22 @@
 ---
-title: Writing event messages into Azure Data Lake Storage Gen2 with DStreamAPI
-description: Learn how to write event messages into Azure Data Lake Storage Gen2 with DStreamAPI
+title: Write event messages into Azure Data Lake Storage Gen2 with DataStream API
+description: Learn how to write event messages into Azure Data Lake Storage Gen2 with DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/17/2023
 ---
 
-# Write event messages into Azure Data Lake Storage Gen2 with DataStreamAPI
+# Write event messages into Azure Data Lake Storage Gen2 with DataStream API
 
-Apache Flink uses file systems to consume and persistently store data, both for the results of applications and for fault tolerance and recovery. In this article, learn how to write event messages into ADLS Gen2 with DataStreamAPI. 
+Apache Flink uses file systems to consume and persistently store data, both for the results of applications and for fault tolerance and recovery. In this article, learn how to write event messages into Azure Data Lake Storage Gen2 with DataStream API. 
 
 ## Prerequisites
 
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
 * [HDInsight Kafka](https://learn.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)
-  * You're  required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
+  * You're  required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same Virtual Network 
 * Use MSI to access ADLS Gen2 
-* IntelliJ for development on an Azure VM in HDInsight on AKS VNet 
+* IntelliJ for development on an Azure VM in HDInsight on AKS Virtual Network 
 
 ## Flink FileSystem connector
 
@@ -163,15 +163,15 @@ public class KafkaSinkToGen2 {
 
 We are using Maven to package a jar onto local and submitting to Flink, and using Kafka to sink into ADLS Gen2
 
-:::image type="content" source="./media/flink-adslgen2/submit-the-job-flinkui.png" alt-text="Screenshot showing jar submission to Flink dashboard.":::
-:::image type="content" source="./media/flink-adslgen2/submit-the-job-flinkui-2.png" alt-text="Screenshot showing job running on Flink dashboard.":::
+:::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/submit-the-job-flink-ui.png" alt-text="Screenshot showing jar submission to Flink dashboard.":::
+:::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/submit-the-job-flink-ui-2.png" alt-text="Screenshot showing job running on Flink dashboard.":::
 
-**Let's Validate streaming data on ADLS Gen2**
+**Validate streaming data on ADLS Gen2**
 
 We are seeing the `click_events` streaming into ADLS Gen2
 
-:::image type="content" source="./media/flink-adslgen2/validatestream-adlsg2-1.png" alt-text="Screenshot showing adlsg2 output.":::
-:::image type="content" source="./media/flink-adslgen2/validatestream-adlsg2-2.png" alt-text="Screenshot showing Flink click event output.":::
+:::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/validate-stream-adls-gen2-1.png" alt-text="Screenshot showing ADLS Gen2 output.":::
+:::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/validate-stream-adls-gen2-2.png" alt-text="Screenshot showing Flink click event output.":::
 
 You can specify a rolling policy that rolls the in-progress part file on any of the following three conditions:
 
@@ -184,7 +184,7 @@ You can specify a rolling policy that rolls the in-progress part file on any of 
                                 .build())
 ```
 
-### Reference
+## Reference
 - [Apache Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/kafka)
 - [Flink DataStream Filesystem](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/filesystem)
 
