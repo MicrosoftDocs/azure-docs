@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 For organizations with a conservative cloud migration approach, the block all policy is an option that can be used. 
 
 > [!CAUTION]
-> Misconfiguration of a block policy can lead to organizations being locked out of the Azure portal.
+> Misconfiguration of a block policy can lead to organizations being locked out.
 
 Policies like these can have unintended side effects. Proper testing and validation are vital before enabling. Administrators should utilize tools such as [Conditional Access report-only mode](concept-conditional-access-report-only.md) and [the What If tool in Conditional Access](what-if-tool.md) when making changes.
 

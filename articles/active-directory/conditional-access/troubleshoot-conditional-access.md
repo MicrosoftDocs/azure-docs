@@ -28,7 +28,7 @@ Organizations should avoid the following configurations:
 **For all users, all cloud apps:**
 
 - **Block access** - This configuration blocks your entire organization.
-- **Require device to be marked as compliant** - For users that haven't enrolled their devices yet, this policy blocks all access including access to the Intune portal. If you're an administrator without an enrolled device, this policy blocks you from getting back into the Azure portal to change the policy.
+- **Require device to be marked as compliant** - For users that haven't enrolled their devices yet, this policy blocks all access including access to the Intune portal. If you're an administrator without an enrolled device, this policy blocks you from getting back in to change the policy.
 - **Require Hybrid Azure AD domain joined device** - This policy block access has also the potential to block access for all users in your organization if they don't have a hybrid Azure AD joined device.
 - **Require app protection policy** - This policy block access has also the potential to block access for all users in your organization if you don't have an Intune policy. If you're an administrator without a client application that has an Intune app protection policy, this policy blocks you from getting back into portals such as Intune and Azure.
 
@@ -112,5 +112,5 @@ If you're locked out of the due to an incorrect setting in a Conditional Access 
 ## Next steps
 
 - [Use the What If tool to troubleshoot Conditional Access policies](what-if-tool.md)
-- [Sign-in activity reports in the Azure portal](../reports-monitoring/concept-sign-ins.md)
+- [Sign-in activity reports](../reports-monitoring/concept-sign-ins.md)
 - [Troubleshooting Conditional Access using the What If tool](troubleshoot-conditional-access-what-if.md)

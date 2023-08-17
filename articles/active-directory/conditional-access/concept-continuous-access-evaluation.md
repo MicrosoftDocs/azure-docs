@@ -178,7 +178,7 @@ Changes made to Conditional Access policies and group membership made by adminis
 When Conditional Access policy or group membership changes need to be applied to certain users immediately, you have two options. 
 
 - Run the [revoke-mgusersign PowerShell command](/powershell/module/microsoft.graph.users.actions/revoke-mgusersigninsession) to revoke all refresh tokens of a specified user.
-- Select "Revoke Session" on the user profile page in the Azure portal to revoke the user's session to ensure that the updated policies are applied immediately.
+- Select "Revoke Session" on the user profile page to revoke the user's session to ensure that the updated policies are applied immediately.
 
 ### IP address variation and networks with IP address shared or unknown egress IPs 
 

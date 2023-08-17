@@ -62,7 +62,7 @@ Once you've completed your terms of use policy document, use the following proce
  
     ![New term of use pane to specify your terms of use settings](./media/terms-of-use/new-tou.png)
 
-1. In the **Name** box, enter a name for the terms of use policy used in the Azure portal.
+1. In the **Name** box, enter a name for the terms of use policy.
 1. For **Terms of use document**, browse to your finalized terms of use policy PDF and select it.
 1. Select the language for your terms of use policy document. The language option allows you to upload multiple terms of use policies, each with a different language. The version of the terms of use policy that an end user sees is based on their browser preferences.
 1. In the **Display name** box, enter a title that users see when they sign in.
