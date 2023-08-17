@@ -80,5 +80,5 @@ The following example shows an execution report:
 
 ## See also
 
-- [Monitor Azure Storage Tasks](monitor-storage-tasks)
+- [Monitor Azure Storage Tasks](monitor-storage-tasks.md)
 - [Storage Tasks Overview](overview.md)

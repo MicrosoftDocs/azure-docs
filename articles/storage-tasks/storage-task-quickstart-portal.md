@@ -23,7 +23,7 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 
 - An Azure subscription. See [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An Azure storage account. See [create a storage account](../common/storage-account-create.md).
+- An Azure storage account. See [create a storage account](../storage/common/storage-account-create.md).
 
 - A blob container that has a metadata key named `Classification` which is set to the string "Confidential".
 

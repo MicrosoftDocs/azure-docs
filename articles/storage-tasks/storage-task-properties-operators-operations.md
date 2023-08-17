@@ -41,7 +41,7 @@ The following table shows the properties that you can use to compose each clause
 
 <sup>2</sup>    Allowed values are `BlockBlob`, `PageBlob`, or `AppendBlob`
 
-<sup>3</sup>    Can be set to a specific time or to a metadata value dynamically obtained from objects. See [Parameters in values](#referencing-values-from-object-metadata).
+<sup>3</sup>    Can be set to a specific time or to a metadata value dynamically obtained from objects. See [Parameters in values](storage-task-conditions-operations-edit.md#reference-a-value-from-object-metadata).
 
 ### Supported operators in a clause
 
@@ -72,4 +72,3 @@ The following table shows the supported operations, parameters, and parameter va
 ## See also
 
 - [Define conditions and operations](storage-task-conditions-operations-edit.md)
-- [Storage task assignments](storage-task-assignment.md)

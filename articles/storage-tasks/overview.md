@@ -53,7 +53,7 @@ A storage task can be assigned to a storage account only by an owner of that acc
 See these articles to learn how to assign a task:
 
 - [Create and manage a storage task assignment](storage-task-assignment-create.md)
-- [Azure roles for storage task assignments](storage-task-authorization.md)
+- [Azure roles for storage task assignments](storage-task-authorization-roles.md)
 
 ### Monitor task runs
 

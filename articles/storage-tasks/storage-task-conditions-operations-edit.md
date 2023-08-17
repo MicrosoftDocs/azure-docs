@@ -59,22 +59,20 @@ The following example specifies a value of `.log` along with the **Ends with** o
 > [!div class="mx-imgBorder"]
 > ![Screenshot of an example condition in the visual editor.](./media/storage-task-conditions-operations-edit/storage-task-blob-name-condition.png)
 
-#### String matching and wildcards
+#### Use a wildcard in string values
 
 Values can include either `*` or `?` wildcard values.
 
-? represents a single (exactly one) characters, including space
-* represents a multiple (zero or more) characters, including space
+- `?` represents a single (exactly one) characters, including space
+- `*` represents a multiple (zero or more) characters, including space
 
-Provide an example for *
+Provide an example for using `*`.
 
-Provide an example for ?
+Provide an example for using `?`.
 
 Explain that you can escape characters by using a `\`
 
 Provide an example of escaping characters by using a `\`.
-
-Case-sensitive (or case-insensitive) matching. The values can include a multi-character match wildcard (*) or a single-character match wildcard (?) anywhere in the string. If needed, these characters can be escaped by add a backslash \* and \?.
 
 #### Reference a value from object metadata
 

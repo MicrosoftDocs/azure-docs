@@ -98,8 +98,6 @@ The following image shows an example of the **Add assignment** pane.
 > [!div class="mx-imgBorder"]
 > ![Screenshot of assignment tab of the storage task create experience.](./media/storage-task-create/storage-task-assignment-tab.png)
 
-To learn more about assignments, see [storage task assignment](storage-task-assignment.md).
-
 ## Tags tab
 
 On the **Tags** tab, you can specify Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../azure-resource-manager/management/tag-resources.md).

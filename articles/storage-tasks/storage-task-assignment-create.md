@@ -67,7 +67,7 @@ The following table describes each field in the **Select Scope** section:
 
 ## Add a role assignment
 
-In the **Role assignment** section, in the **Role** drop-down list, select the role that you want to assign to the system-assigned managed identity of the storage task. Only roles that are assigned to your user identity appear in this drop-down list. Roles not assigned to your user identity do not appear in this list. To learn more, see [Azure roles for storage task assignments](storage-task-assignment.md#assignment-authorization)
+In the **Role assignment** section, in the **Role** drop-down list, select the role that you want to assign to the system-assigned managed identity of the storage task. Only roles that are assigned to your user identity appear in this drop-down list. Roles not assigned to your user identity do not appear in this list. To learn more, see [Azure roles for storage task assignments](storage-task-assignment-authorization-roles.md)
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Role assignment section of the assignment pane.](./media/storage-task-assignment-create/assignment-role.png)
@@ -124,5 +124,4 @@ After the task runs, an execution report is generated and then stored in the con
 ## See also
 
 - [Azure Storage Tasks Overview](overview.md)
-- [Storage task assignments](storage-task-assignment.md)
 - [Analyze Storage Task Runs](storage-task-runs.md)

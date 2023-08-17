@@ -48,15 +48,15 @@ additionalContent:
           links:
           - url: storage-task-conditions-operations-edit.md
             text: Define storage task conditions and operations
-          - url: storage-task-conditions-operations.md
+          - url: storage-task-properties-operators-operations.md
             text: Supported properties, operators, and operations
         # Card
         - title: Assign
           links:
           - url: storage-task-assignment-create.md
             text: Create and manage a storage task assignment
-          - url: storage-task-assignment.md
-            text: Storage task assignments
+          - url: storage-task-assignment-authorization-roles.md
+            text: Azure roles for storage task assignments
         # Card
         - title: Monitor
           links:
