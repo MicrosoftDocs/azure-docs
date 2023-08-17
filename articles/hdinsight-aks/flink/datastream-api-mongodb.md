@@ -1,16 +1,16 @@
 ---
-title: DataStream API for MongoDB as a Source and Sink on Flink
-description: Learn how to use DataStream API MongoDB as a Source and Sink on Flink
+title: DataStream API for MongoDB as a source and sink on Apache Flink
+description: Learn how to use DataStream API for MongoDB as a source and sink on Apache Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 07/31/2023
 ---
 
-# DataStream API for MongoDB as a Source and Sink on Apache Flink
+# DataStream API for MongoDB as a source and sink on Apache Flink
 
 Apache Flink provides a MongoDB connector for reading and writing data from and to MongoDB collections with at-least-once guarantees.
 
-This example demonstrates on how to use HDInsight on AKS Flink 1.16.0 along with your existing MongoDB as Sink and Source using Flink DataStream API MongoDB connector.
+This example demonstrates on how to use HDInsight on AKS Flink 1.16.0 along with your existing MongoDB as Sink and Source with Flink DataStream API MongoDB connector.
 
 MongoDB is a non-relational document database that provides support for JSON-like storage that helps store complex structures easily.
 
@@ -19,9 +19,9 @@ In this example, you learn how to use MongoDB to source and sink with DataStream
 ## Prerequisites
 
 * [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
-* For this demonstration, using a Window VM as maven project develop env in the same VNET as HDInsight on AKS.
-* We are using the [Apache Flink - MongoDB Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/mongodb/)
-* For this demonstration, using an Ubuntu VM in the same VNET as HDInsight on AKS, install a MongoDB on this VM.
+* For this demonstration, use a Window VM as maven project develop env in the same VNET as HDInsight on AKS.
+* We use the [Apache Flink - MongoDB Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/mongodb/)
+* For this demonstration, use an Ubuntu VM in the same VNET as HDInsight on AKS, install a MongoDB on this VM.
 
 ## Installation of MongoDB on Ubuntu VM
 
@@ -29,7 +29,7 @@ In this example, you learn how to use MongoDB to source and sink with DataStream
 
 [MongoDB Shell commands](https://www.mongodb.com/docs/mongodb-shell/run-commands/)
 
-**Preparing the MongoDB Environment**:
+**Prepare MongoDB environment**:
 ```
 root@contosoubuntuvm:/var/lib/mongodb# vim /etc/mongod.conf
 
@@ -59,7 +59,7 @@ Trying 10.0.0.7...
 Connected to 10.0.0.7.
 Escape character is '^]'.
 
--- using mongosh to connect to mongodb
+-- Use mongosh to connect to mongodb
 root@contosoubuntuvm:/var/lib/mongodb# mongosh "mongodb://10.0.0.7:27017/test"
 Current Mongosh Log ID: 648bccc3b8a6b0885614b2dc
 Connecting to:          mongodb://10.0.0.7:27017/test?directConnection=true&appName=mongosh+1.10.0
@@ -83,7 +83,7 @@ test> db.click_events.count()
 ```
 
 > [!NOTE]
-> To ensure the MongoDB setup can be accessed outside, please change bindIp to 0.0.0.0
+> To ensure the MongoDB setup can be accessed outside, change bindIp to `0.0.0.0`.
 
 ```
 vim /etc/mongod.conf
@@ -93,9 +93,9 @@ net:
   bindIp: 0.0.0.0
 ```
 
-## Getting Started
+## Get started
 
-### Creating a Maven project on IdeaJ to prepare the pom.xml for MongoDB Collection
+### Creating a maven project on IdeaJ, to prepare the pom.xml for MongoDB Collection
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -189,7 +189,7 @@ net:
 </project>
 ```
 
-###  Generate a stream source and sink to the MongoDB Collection:click_events
+###  Generate a stream source and sink to the MongoDB collection:click_events
 **MongoDBSinkDemo.java**
 ``` java
 package contoso.example;
@@ -296,9 +296,9 @@ public class Event {
     }
 }
 ```
-### Using MongoDB as a source and sink to ADLS Gen2
+### Use MongoDB as a source and sink to ADLS Gen2
 
-Writing a program for using MongoDB as a source and sink to ADLS Gen2
+Writing a program for MongoDB as a source and sink to ADLS Gen2
 
 **MongoDBSourceDemo.java**
 ``` java
@@ -377,9 +377,9 @@ Package the maven jar, upload it to Storage and then wget it to [Flink CLI](../f
 
 **Check Flink UI**
 
-:::image type="content" source="./media/datastream-api-mongodb/step-3-2-flink-webui-jar-upload.png" alt-text="Screenshot showing how to upload package to the storage." border="true" lightbox="./media/datastream-api-mongodb/step-3-2-flink-webui-jar-upload.png.png":::
+:::image type="content" source="./media/datastream-api-mongodb/step-3-2-flink-webui-jar-upload.png" alt-text="Screenshot showing jar submission success and monitoring the Flink Web UI." border="true" lightbox="./media/datastream-api-mongodb/step-3-2-flink-webui-jar-upload.png":::
 
-### Validating results
+### Validate results
 
 **Sink click events to Mongo DB's admin.click_events collection**
 ```
@@ -403,6 +403,6 @@ test> db.click_events.find()
 …….
 
 ```
-**Use Mongo DB's admin.click_events collection as a source, and sink to ADSL Gen2**
+**Use Mongo DB's admin.click_events collection as a source, and sink to ADLS Gen2**
 
-:::image type="content" source="./media/datastream-api-mongodb/step-5-mongodb-collection-adls-gen2.png" alt-text="Screenshot showing How to create POD and connect to webssh." border="true" lightbox="./media/datastream-api-mongodb/step-5-mongodb-collection-adls-gen2.png":::
+:::image type="content" source="./media/datastream-api-mongodb/step-5-mongodb-collection-adls-gen2.png" alt-text="Screenshot showing How to create a node and connect to web SSH." border="true" lightbox="./media/datastream-api-mongodb/step-5-mongodb-collection-adls-gen2.png":::
