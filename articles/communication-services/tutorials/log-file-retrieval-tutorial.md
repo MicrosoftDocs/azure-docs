@@ -14,7 +14,7 @@ ms.subservice: identity
 zone_pivot_groups: acs-programming-languages-java-swift-csharp
 ---
 
-# Retrieval and Sharing of support file tutorial.
+# Log File Access tutorial
 [!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
 In this tutorial, you learn how to access the Log Files stored on the device.
