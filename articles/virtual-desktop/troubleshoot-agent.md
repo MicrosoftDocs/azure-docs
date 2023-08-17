@@ -275,11 +275,11 @@ To resolve this issue, first reinstall the side-by-side stack:
 
 1. From a command prompt run `qwinsta.exe` again and verify the *STATE* column for **rdp-tcp** and **rdp-sxs** entries is **Listen**. If not, you must [re-register your VM and reinstall the agent](#your-issue-isnt-listed-here-or-wasnt-resolved) component.
 
-## Error: Session host VMs are stuck in Unavailable state
+## Error: Session hosts are stuck in Unavailable state
 
 If your session host VMs are stuck in the Unavailable state, your VM didn't pass one of the health checks listed in [Health check](troubleshoot-statuses-checks.md#health-check). You must resolve the issue that's causing the VM to not pass the health check.
 
-## Error: VMs are stuck in the "Needs Assistance" state
+## Error: Session hosts are stuck in the Needs Assistance state
 
 There are several health checks that can cause your session host VMs to be stuck in the **Needs Assistance** state, *UrlsAccessibleCheck*. *MetaDataServiceCheck*, and *MonitoringAgentCheck*.
 
