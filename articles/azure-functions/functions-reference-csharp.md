@@ -591,11 +591,11 @@ These instructions show you how to convert C# script functions (which run in-pro
 
 1. Complete the **Create a functions app project** section from your preferred quickstart:
    
-   ### [Azure CLI](#tabs/azure-cli)
+   ### [Azure CLI](#tab/azure-cli)
    [Create a C# function in Azure from the command line](create-first-function-cli-csharp#create-a-local-function-project)
-   ### [Visual Studio](#tabs/vs)
+   ### [Visual Studio](#tab/vs)
    [Create your first C# function in Azure using Visual Studio](functions-create-your-first-function-visual-studio.md#create-a-function-app-project)
-   ### [Visual Studio Code](#tabs/vs-code) 
+   ### [Visual Studio Code](#tab/vs-code) 
    [Create your first C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md#create-an-azure-functions-project)
 
    ---
@@ -612,11 +612,11 @@ These instructions show you how to convert C# script functions (which run in-pro
 1. Perform the following tasks for each `<FUNCTION_NAME>` folder in your original project:
 
     1. Create a new file named `<FUNCTION_NAME>.cs`, replacing `<FUNCTION_NAME>` with the name of the folder that defined your C# script function. You can create a new function code file from one of the trigger-specific templates in the following way:
-        ### [Azure CLI](#tabs/azure-cli)
+        ### [Azure CLI](#tab/azure-cli)
         Using the `func new --name <FUNCTION_NAME>` command and choosing the correct trigger template at the prompt.
-        ### [Visual Studio](#tabs/vs)
+        ### [Visual Studio](#tab/vs)
         Following [Add a function to your project](functions-develop-vs.md?tabs=isolated-process#add-a-function-to-your-project) in the Visual Studio guide.
-        ### [Visual Studio Code](#tabs/vs-code) 
+        ### [Visual Studio Code](#tab/vs-code) 
         Following [Add a function to your project](functions-develop-vs-code.md?tabs=isolated-process#add-a-function-to-your-project) in the Visual Studio Code guide.
         
         ---
@@ -632,22 +632,22 @@ These instructions show you how to convert C# script functions (which run in-pro
  
 1. Verify that your project runs locally:
 
-      ### [Azure CLI](#tabs/azure-cli)
+      ### [Azure CLI](#tab/azure-cli)
       Use `func start` to run your app from the command line. For more information, see [Run functions locally](functions-run-local.md#start).
-      ### [Visual Studio](#tabs/vs)
+      ### [Visual Studio](#tab/vs)
       Follow the [Run functions locally](functions-develop-vs.md?tabs=isolated-process#run-functions-locally) section of the Visual Studio guide.
-      ### [Visual Studio Code](#tabs/vs-code) 
+      ### [Visual Studio Code](#tab/vs-code) 
       Follow the [Run functions locally](functions-develop-vs-code.md?tabs=csharp#run-functions-locally) section of the Visual Studio Code guide.
       
       ---
    
 1. Publish your project to a new function app in Azure:
 
-      ### [Azure CLI](#tabs/azure-cli)
+      ### [Azure CLI](#tab/azure-cli)
       [Create your Azure resources](create-first-function-cli-csharp.md#create-supporting-azure-resources-for-your-function) and deploy the code project to Azure by using the `func azure functionapp publish <APP_NAME>` command. For more information, see [Deploy project files](functions-run-local.md#project-file-deployment).
-      ### [Visual Studio](#tabs/vs)
+      ### [Visual Studio](#tab/vs)
       Follow the [Publish to Azure](functions-develop-vs?tabs=isolated-process#publish-to-azure) section of the Visual Studio guide.
-      ### [Visual Studio Code](#tabs/vs-code) 
+      ### [Visual Studio Code](#tab/vs-code) 
       Follow the [Create Azure resources](functions-develop-vs-code?tabs=csharp#publish-to-azure) section of the Visual Studio Code guide.
       
       ---
