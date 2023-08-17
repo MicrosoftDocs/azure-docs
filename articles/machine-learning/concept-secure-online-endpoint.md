@@ -80,7 +80,9 @@ Alternatively, if you set the `public_network_access` to `enabled`, the endpoint
 ## Secure outbound access with managed workspace VNet
 
 To secure outbound communication from a deployment to services, you need to enable managed virtual network isolation for your Azure Machine Learning workspace so that Azure Machine Learning can create a managed VNet for the workspace.
-All managed online endpoints in the workspace (and managed compute resources for the workspace, such as compute clusters and compute instances) automatically use this workspace managed VNet, and the deployments in the endpoints share the managed VNet's private endpoints for communication with the workspace's resources.
+All managed online endpoints in the workspace (and managed compute resources for the workspace, such as compute clusters and compute instances) automatically use this workspace managed VNet, and the deployments under the endpoints share the managed VNet's private endpoints for communication with the workspace's resources.
+
+When you secure your workspace with a managed VNet, the `egress_public_access` flag for managed online deployments no longer applies. Avoid setting this flag when creating the managed online deployment.
 
 For outbound communication with a workspace managed VNet, Azure Machine Learning:
 
@@ -93,7 +95,7 @@ Furthermore, you have two configuration modes for outbound traffic from the mana
 - **Allow internet outbound**, to allow all internet outbound traffic from the managed VNet
 - **Allow only approved outbound**, to control outbound traffic using private endpoints, FQDNs, and service tags.
 
-For example, say your workspace's managed VNet contains two deployments of a managed online endpoint, both deployments can use the workspace's private endpoints to communicate with:
+For example, say your workspace's managed VNet contains two deployments under a managed online endpoint, both deployments can use the workspace's private endpoints to communicate with:
 
 - The Azure Machine Learning workspace
 - The Azure Storage blob that is associated with the workspace
@@ -132,9 +134,7 @@ For managed online endpoints, you can also secure outbound communication between
 
 To restrict communication between a deployment and external resources, including the Azure resources it uses, you should ensure that:
 
-- The deployment's `egress_public_network_access` flag is `disabled`. This flag ensures that the download of the model, code, and images needed by the deployment are secured with a private endpoint.
-    > [!NOTE]
-    > You cannot update (enable or disable) the `egress_public_network_access` flag after creating the deployment. Attempting to change the flag while updating the deployment will fail with an error.
+- The deployment's `egress_public_network_access` flag is `disabled`. This flag ensures that the download of the model, code, and images needed by the deployment are secured with a private endpoint. Once you've created the deployment, you cannot update (enable or disable) the `egress_public_network_access` flag. Attempting to change the flag while updating the deployment will fail with an error.
 
 - The workspace has a private link that allows access to Azure resources via a private endpoint. Because the workspace has a `public_network_access` flag that can be either enabled or disabled, if you plan on using a managed online deployment that uses __public outbound__, then you must also [configure the workspace to allow public access](how-to-configure-private-link.md#enable-public-access). This is because outbound communication from the online deployment is to the _workspace API_. When the deployment is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
 
