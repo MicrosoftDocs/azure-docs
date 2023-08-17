@@ -11,50 +11,49 @@ ms.date:     07/17/2023
 # Overview of Log File Access
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
-Log Sharing offers access to Log files, which help in building more effective support channels.
+Mobile applications, while dynamic, can sometimes face challenges that hinder user experience. Key among these is the difficulty in accessing logs which provide insights into app behavior. The Azure Calling SDK - Log File Access offers a solution, helping facilitate smooth log retrieval and sharing.
 
-Especially on mobile devices, the Application Sandbox poses challenges for an End User when they attempt to retrieve and transmit these files. This feature provides an application developer with a mechanism to implement enhanced support tools, making it easy for users to submit the necessary files and receive robust support.
+### For Third-party Application Developers:
+Log file access eliminates the often cumbersome process of manually finding logs. Instead, it paves the way for a direct and simple method to hand off crucial information. This not only speeds up the troubleshooting process but also enhances the overall user experience, as issues are diagnosed and rectified more efficiently.
 
-## Designing Effective Support Tools
+### From Microsoft's Perspective:
+For Microsoft, the primary aim is to ensure that any issues arising from our platforms are addressed swiftly and effectively. Seamless log handoffs between your support team and ours will enable our engineering teams to get a clear picture of the challenge at hand, diagnose it accurately, and set about resolving it. 
 
-Consider the following factors when implementing support tools:
+## Integrating Log Collection in Third-Party Applications
 
-1. **Time**: Retrieving logs close to the time of impact yields the most relevant data.
-1. **End User**: How would you like a user to escalate and report issues?
-1. **Your Support**: How would your support like to have access to these files?
-1. **Azure Support**: Can you provide a Link or another quick way to access these files on request?
+**Developer Considerations:**  
+As a developer, it's crucial to understand how and when to capture logs. When issues arise, timely delivery of log files aids in faster diagnostics and resolutions. 
 
-By thinking about these requirements, you can implement an effective way of communicate support requests.
+1. **Timeliness**: Always prioritize the immediate retrieval of logs. The closer to the time of the incident, the more relevant and insightful the data will be.
+2. **User Interaction**: Determine the most intuitive way for your users to report problems. A seamless user experience can encourage more accurate and timely reporting.
+3. **Support Integration**: Consider how your support teams will access these logs. Integration should be straightforward, ensuring efficient troubleshooting.
+4. **Collaboration with Azure**: Ensure easy accessibility for Azure's teams, perhaps through a direct link or a streamlined request mechanism.
 
-## Common Use Cases
+By addressing these elements, you can craft a system that not only serves the immediate needs of your users but also sets the stage for effective collaboration with Microsoft's support infrastructure.
 
-### Report an Issue Dialog
+## Implementing Log Collection in Your Application
 
-The most straightforward way to implement this feature is to provide the user with the ability to report an issue with a call and include the logs. When the user reports an issue, the system can retrieve the log files and submit them to a ticketing system.
+When incorporating log collection strategies into your application, the responsibility to ensure the privacy and security of these logs lies with the developers. However, we're here to provide some suggestions to enhance your implementation process.
 
-### End of Call Survey Collection
+### "Report an Issue" Dialog
 
-You can encourage users to report issues during the end-of-call survey. This period presents a good opportunity for the end user to volunteer any issues with the call and include logs for further diagnostics.
+A simple yet effective method is the "Report an Issue" feature. Think of it as a direct line between the user and support. After encountering an issue, a prompt can ask users if they wish to report the problem. If they agree, logs can be automatically attached and sent to the relevant support channels.
 
-### Log Request via Push Notification
+### Feedback After the Call
 
-For organizations that prefer not to rely on user-submitted logs and would like a more automated retrieval, push notifications can be used. In this flow, the application receives a push notification requesting the logs. Upon the application receiving the notification, the end user can authorize the request and submit the logs. This approach is more proactive on the application developer's part, allowing them to actively request logs when necessary.
+Right after a call might be an opportune time to gather feedback. Using an end-of-call survey can be beneficial. Here, users can provide feedback on the call quality and, if needed, attach logs of any issues faced. This ensures timely and relevant data collection.
 
-### Auto-Detection of Failures
+### Shake-to-Report Feature
 
-When the system detects call issues/errors, it can present the Report an Issue prompt or initiate an automated collection of logs. This approach is more proactive as it doesn't rely on the user's choice, although it may lead to unnecessary log collection.
+Taking inspiration from Microsoft Teams, consider integrating a shake-to-report feature. By simply shaking their device, users can initiate the process to report an issue. It's a user-friendly method, but remember to inform users about this feature to ensure its effective use.
 
-## Choosing the Right Approach
+### Proactive Auto-Detection
 
-Every organization has different needs in relation to this feature. It may be useful to consider some of the following questions: 
+For a more advanced approach, consider having the system automatically detect potential call issues. Upon detection, users can be prompted to share logs. It's a proactive measure, ensuring issues are caught early, but it's crucial to strike a balance to avoid unnecessary prompts.
 
-- Have you needed logs in the past? 
-- Do you actively engage with Azure Support or Developers? 
-- What resources are available for your support services? 
-- Do you use any preview features?
-- Is your use-case complex?
+## Choosing the Best Strategy
 
-Answering these questions help you decide the appropriate approach for support tools and log collection.
+User consent is paramount. Always inform and ensure users are aware of what they are sharing and why. Each application and its user base are unique. Reflect on past interactions, and consider the resources at hand. These considerations will guide you to select the best strategy for your application, ensuring a smooth user experience and efficient troubleshooting.
 
 ## Further Reading
 

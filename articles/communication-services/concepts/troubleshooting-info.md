@@ -163,8 +163,8 @@ Console.WriteLine($"Email operation id = {emailSendOperation.Id}");
 
 Calling SDK provides convenience methods to get access to the Log Files. To actively collect, it is encouraged to pair this functionality with your applications support tooling.
 
-[Log Sharing Conceptual Document](../concepts/voice-video-calling/retrieving-support-files.md)
-[Log Sharing Tutorials](../tutorials/log-file-retrieval-tutorial.md)
+[Log File Access Conceptual Document](../concepts/voice-video-calling/retrieving-support-files.md)
+[Log File Access Tutorials](../tutorials/log-file-retrieval-tutorial.md)
 
 ## Enable and access call logs
 

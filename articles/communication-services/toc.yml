@@ -1,8 +1,6 @@
 items:
 - name: Azure Communication Services documentation
   href: index.yml
-- name: Log File Access
-  href: ./concepts/voice-video-calling/retrieving-support-files.md
 - name: Overview
   expanded: true
   items:
@@ -679,6 +677,8 @@ items:
         href: concepts/ui-library/ui-library-use-cases.md
       - name: Design with UI Library Design Kit
         href: quickstarts/ui-library/get-started-ui-kit.md  
+    - name: Log File Access
+      href: ./concepts/voice-video-calling/retrieving-support-files.md
     - name: Known issues
       href: concepts/known-issues.md
   - name: Chat

@@ -49,16 +49,15 @@ Next, define the `shareLogs()` function:
 
 ```swift
 func shareLogs() {
-    if let files = callClient.debugInfo.getSupportFiles() {
-        let success = SSZipArchive.createZipFile(atPath: zipFilePath.path, withFilesAtPaths: files.map { $0.path })
-        if success {
-            DispatchQueue.main.async {
-                isSharing = true
-            }
-        } else {
-            print("Error creating ZIP archive")
+    let files = callClient.debugInfo.supportFiles 
+    let success = SSZipArchive.createZipFile(atPath: zipFilePath.path, withFilesAtPaths: files.map { $0.path })
+    if success {
+        DispatchQueue.main.async {
+            isSharing = true
         }
-    }
+    } else {
+        print("Error creating ZIP archive")
+    }    
 }
 ```
 

@@ -14,6 +14,9 @@ ms.subservice: identity
 zone_pivot_groups: acs-programming-languages-java-swift-csharp
 ---
 
+!! Simplify, remove Zip/UI from pivots
+!! Next Steps
+
 # Retrieval and Sharing of support file tutorial.
 [!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
