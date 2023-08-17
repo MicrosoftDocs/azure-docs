@@ -12,7 +12,7 @@ ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, has-azure-ad-ps-ref
 ---
 # Azure AD Connect: Version release history archive
 

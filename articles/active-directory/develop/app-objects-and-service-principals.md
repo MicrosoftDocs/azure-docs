@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/22/2023
 ms.author: ryanwi
-ms.custom: contperf-fy21q4-portal, aaddev, identityplatformtop40
+ms.custom: contperf-fy21q4-portal, aaddev, identityplatformtop40, has-azure-ad-ps-ref
 ms.reviewer: sureshja
 ---
 

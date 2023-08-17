@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 04/10/2023
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---

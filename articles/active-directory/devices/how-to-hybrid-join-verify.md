@@ -5,6 +5,7 @@ description: Verify configurations for hybrid Azure AD joined devices
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 02/27/2023
 
