@@ -6,7 +6,7 @@ author: kunaal
 ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.topic: include
-ms.date: 02/15/2023
+ms.date: 08/17/2023
 ms.author: kpunjabi
 ms.custom: references_regions
 services: azure-communication-services
@@ -14,9 +14,7 @@ services: azure-communication-services
 
 # Connect Azure Communication Services with Azure AI services
 
->[!IMPORTANT]
->Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
->Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/acs-tap-invite).
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 
 Azure Communication Services Call Automation APIs provide developers the ability to steer and control the Azure Communication Services Telephony, VoIP or WebRTC calls using real-time event triggers to perform actions based on custom business logic specific to their domain. Within the Call Automation APIs developers can use simple AI powered APIs, which can be used to play personalized greeting messages, recognize conversational voice inputs to gather information on contextual questions to drive a more self-service model with customers, use sentiment analysis to improve customer service overall. These content specific APIs are orchestrated through **Azure Cognitive Services** with support for customization of AI models without developers needing to terminate media streams on their services and streaming back to Azure for AI functionality. 
@@ -35,40 +33,53 @@ BYO Azure AI services can be easily integrated into any application regardless o
 With the ability to, connect your Azure AI services to Azure Communication Services, you can enable custom play functionality, using [Text-to-Speech](../../../../articles/cognitive-services/Speech-Service/text-to-speech.md) and [SSML](../../../../articles/cognitive-services/Speech-Service/speech-synthesis-markup.md) configuration, to play more customized and natural sounding audio to users. Through the Azure AI services connection, you can also use the Speech-To-Text service to incorporate recognition of voice responses that can be converted into actionable tasks through business logic in the application. These functions can be further enhanced through the ability to create custom models within Azure AI services that are bespoke to your domain and region through the ability to choose which languages are spoken and recognized, custom voices and custom models built based on your experience. 
 
 ## Run time flow
-[![Run time flow](./media/run-time-flow.png)](./media/run-time-flow.png#lightbox)
+[![Screen shot of integration run time flow](./media/run-time-flow.png)](./media/run-time-flow.png#lightbox)
 
 ## Azure portal experience
-You can also configure and bind your Communication Services and Azure AI services through the Azure portal. 
+You can configure and bind your Communication Services and Azure AI services through the Azure portal. 
 
-### Add a Managed Identity to the Azure Communication Services Resource 
+## Pre-requisites 
+- Azure account with an active subscription and access to Azure portal, for details see [Create an account for free.](https://azure.microsoft.com/free/)
+- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). 
+- A Azure Cognitive Services resource.
 
-1. Navigate to your Azure Communication Services Resource in the Azure portal.
-2. Select the Identity tab.
-3. Enable system assigned identity.  This action begins the creation of the identity; A pop-up notification appears notifying you that the request is being processed.
+### Connecting through the Azure portal
 
-[![Enable managed identiy](./media/enable-system-identity.png)](./media/enable-system-identity.png#lightbox)
+1. Open your Azure Communication Services resource and click on the Cognitive Services tab. 
 
-<a name='option-1-add-role-from-azure-cognitive-services-in-the-azure-portal'></a>
+[![Screenshot of Azure Communcation Services resource highlighting Cognitive Services tab](INSERT IMAGE)]
 
-### Option 1: Add role from Azure AI services in the Azure portal
-1. Navigate to your Azure Cognitive Service resource.
-2. Select the "Access control (IAM)" tab.
-3. Click the "+ Add" button.
-4. Select "Add role assignments" from the menu.
+2. If system-assigned managed identity is not enabled, there are two ways to enable it.
 
-[![Add role from IAM](./media/add-role.png)](./media/add-role.png#lightbox)
+   2.1 In the Cognitive Services tab, click on "Enable Managed Identity" button.
 
-5. Choose the "Cognitive Services User" role to assign, then click "Next".
+[![Screenshot of Enable Managed Identity button](INSERT IMAGE)]
 
-[![Cognitive Services User](./media/cognitive-service-user.png)](./media/cognitive-service-user.png#lightbox)
+or
 
-6. For the field "Assign access to" choose the "User, group or service principal".
-7. Press "+ Select members" and a side tab opens.
-8. Search for your Azure Communication Services resource name in the text box and click it when it shows up, then click "Select".
+  2.1 Navigate to the Identity tab 
 
-[![Select ACS resource](./media/select-acs-resource.png)](./media/select-acs-resource.png#lightbox)
+[![Screenshot of Identity tab](INSERT image)]
 
-9. Click “Review + assign”, this assigns the role to the managed identity.
+  2.2 Turn the Status toggle On and then click Save.
+  [![Screenshot of status toggle](INSERT IMAGE HERE)]
+  
+  2.3 Click "Yes" on the confirmation dialog.
+  [![Screenshot of confirmation dialog]](INSER IMAGE HERE)]
+  
+  2.4 Once the identity is enable you should see something similar.
+  [![Screenshot of enabled identity](INSERT IMAGE HERE)]
+
+3. After, the identity is enabled the Cognitive Service tab should show a button 'Connect cognitive service' to connect the two services.
+[![Screenshot of Connect cognitive services button](INSERT IMAGE HERE)]
+
+4. Click on 'Connect cognitive service', select the Subscription, Resource Group and Resource and click "Connect" in the context pane that opens up.
+   [![Screenshot of Subscription, Resource Group and Resource in pane](INSERT IMAGE HERE)]
+5. If connection is successful, you should see a green banner confirming successful connection.
+
+   [![Screenshot of successful connection](INSERT IMAGE HERE)]
+
+6. Now in the Cognitive Service tab you should see your connected services showing up. 
 
 ### Option 2: Add role through Azure Communication Services Identity tab
 
