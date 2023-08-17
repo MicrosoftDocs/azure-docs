@@ -119,7 +119,6 @@ The following are sample role definitions that allow you to publish and subscrib
 1. Select **Create** in Review + create tab to create the custom role.
 1. Once the custom role is created, you can assign the role to an identity to provide the publish permission on the topic space.  You can learn how to assign roles [here](/azure/role-based-access-control/role-assignments-portal).
 
-
 ## Assign the custom role to your Azure AD identity
 1. In the Azure portal, navigate to your Event Grid namespace
 1. Navigate to the topic space to which you want to authorize access.
