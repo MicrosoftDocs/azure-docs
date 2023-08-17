@@ -22,6 +22,12 @@ You can use the `$convert-data` endpoint as a component within an ETL (extract, 
 
 However, the `$convert-data` operation itself isn't an ETL pipeline.
 
+## Where can I find an example of an ETL pipeline that I can reference? 
+
+There's one example published in the [Azure Data Factory Template Gallery](../../data-factory/solution-templates-introduction). This template transforms HL7v2 messages read from an Azure Data Lake Storage (ADLS) Gen2 or an Azure Blob Storage account into the FHIR R4 format. It then persists the transformed FHIR bundle JSON file into an ADLS Gen2 or a Blob Storage account. Once you’re in the Azure Data Factory Template Gallery, you can search for the template.
+
+:::image type="content" source="media/convert-data/frequently-asked-questions-convert-data/use-azure-data-factory.png" alt-text="Screenshot of the Azure Data Factory Template Gallery." lightbox="media/convert-data/frequently-asked-questions-convert-data/use-azure-data-factory.png"::: 
+
 ## How can I persist the data into the FHIR service?
 
 You can use the FHIR service's APIs to persist the converted data into the FHIR service by using `POST {{fhirUrl}}/{{FHIR resource type}}` with the request body containing the FHIR resource to be persisted in JSON format. 
