@@ -26,8 +26,7 @@ Part 1 of this tutorial showed how to create a feature set spec with custom tran
 > * Enable recurrent materialization for the `transactions` feature set
 > * Run a batch inference pipeline on the registered model
 
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [preview disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
