@@ -28,12 +28,11 @@ When creating an Azure Machine Learning compute instance through Bicep, using th
 
 When creating an Azure Machine Learning compute instance through Bicep, using the `idleTimeBeforeShutdown` property as described in the API reference [Microsoft.MachineLearningServices workspaces/computes API reference](/azure/templates/microsoft.machinelearningservices/workspaces/computes?pivots=deployment-language-bicep) results in an error.
 
-
+:::image type="content" source="media/ki-compute-idelshutdown-bicep/error.png" alt-text="An screenshot depicting the error message resulting from the IdleShutdown property being set" lightbox="media/ki-compute-idelshutdown-bicep/error.png":::
 
 ## Solutions and workarounds
 
-
- You can suppress warnings with the `#disable-next-line` directive by entering `#disable-next-line BCP037` in the template above the line with the warning: 
+To allow the property to be set, you can suppress warnings with the `#disable-next-line` directive. Enter `#disable-next-line BCP037` in the template above the line with the warning: 
 
 :::image type="content" source="media/ki-compute-idelshutdown-bicep/disable-next-line.png" alt-text="image depicting the use of the #disable-next-line directive":::
 
