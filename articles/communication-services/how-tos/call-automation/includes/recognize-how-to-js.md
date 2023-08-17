@@ -160,7 +160,8 @@ await callAutomationClient.getCallConnection(callConnectionId)
     .getCallMedia() 
     .startRecognizing(targetParticipant, recognizeOptions); 
 ```
-**Note:** If parameters aren't set, the defaults are applied where possible.
+> [!Note]
+> If parameters aren't set, the defaults are applied where possible.
 
 ## Receiving recognize event updates
 
