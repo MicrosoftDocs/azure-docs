@@ -3,7 +3,7 @@ title: Configuration management in HDInsight on AKS Spark
 description: Learn how to perform Configuration management in HDInsight on AKS Spark
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 08/17/2023
 ---
 # Configuration management in HDInsight on AKS Spark
 
