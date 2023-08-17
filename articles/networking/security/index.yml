@@ -59,6 +59,8 @@ additionalContent:
               url: ../../firewall/overview.md
             - text: Protect my inbound web application connections
               url: ../../web-application-firewall/overview.md
+            - text: Protect against PaperCut vulnerability
+              url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/protect-against-papercut-vulnerability-with-azure-firewall/ba-p/3859945
             - text: Manage my network firewall
               url: ../../firewall-manager/overview.md
             - text: Learn more about Azure Firewall
