@@ -30,7 +30,8 @@ This "how to" shows you steps to remove guest agent from the Linux image.
 Steps to create an image that removes the Azure Linux Agent are as follows:
 
 1. Download an Ubuntu image.
-[How to download a Linux VHD from Azure](/azure/virtual-machines/linux/download-vhd?tabs=azure-portal)
+
+    [How to download a Linux VHD from Azure](/azure/virtual-machines/linux/download-vhd?tabs=azure-portal)
 
 2. Mount the image.
 
@@ -51,6 +52,7 @@ Steps to create an image that removes the Azure Linux Agent are as follows:
 
 
 4. (Optional) Remove the Azure Linux Agent artifacts.
+
     If you know you will not reinstall the Linux Agent again, then you can run the following else skip this step:
 
     For Ubuntu 18.04+
@@ -83,11 +85,11 @@ Steps to create an image that removes the Azure Linux Agent are as follows:
 
 7. Use the prepared image to deploy a confidential VM.
 
-    Follow the steps from 4 in the [Create a custom image for Azure confidential VM](/azure/confidential-computing/how-to-create-custom-image-confidential-vm) document to deploy the agent-less confidential VM.
+    Follow the steps starting from 4 in the [Create a custom image for Azure confidential VM](/azure/confidential-computing/how-to-create-custom-image-confidential-vm) document to deploy the agent-less confidential VM.
 
 > [!NOTE]
 > If you are looking to deploy cvm scaled scale using the custom image, please note that some features related to auto scaling will be restricted. Will manual scaling rules continue to work as expected, the autoscaling ability will be limited due to the agentless custom image. More details on the restrictions can be found here for the [provisioning agent](/azure/virtual-machines/linux/disable-provisioning). Alternatively, you can navigate to the metrics tab on the azure portal and confirm the same.
 
 ## Next Steps
 
-Further, we can create an image that has no admin and an agent in it by following the instructions to remove the sudo users from the linux image [remove sudo users from the Linux Image](/azure/confidential-computing/harden-the-linux-image-to-remove-sudo-users), and then followed by the above mentioned steps to remove the agent for the same image.
+[Create a custom image for Azure confidential VM](/azure/confidential-computing/how-to-create-custom-image-confidential-vm)
