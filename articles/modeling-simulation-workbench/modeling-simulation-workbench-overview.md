@@ -17,7 +17,7 @@ The Azure Modeling and Simulation Workbench is a secure, on-demand service that 
 - A chamber environment enables primary development teams to onboard their collaborators (customers, partners, ISVs, service/IP providers) for joint analysis/debug activity within the same chamber.
 - Multi-layered security and access controls allow users to monitor, scale, and optimize the compute and storage capacity as needed.
 - Automated provisioning reduces set up time of the design environment from weeks to hours. After providing an initial set of configurations, all resources, identity management, access controls, VMs, configured network, and partitioned storage are automatically provisioned.
-- Fully scalable to workload demands. For infra management and cost control, users can scale workloads up or down with push button controls, as well as change the storage performance tier and size. Chambers and workloads can be stopped while not in use, to further control costs."
+- Fully scalable to workload demands. For infra management and cost control, users can scale workloads up or down with push button controls, as well as change the storage performance tier and size. Chambers and workloads can be stopped while not in use, to further control costs.
 
 <!--- Multi-Chamber collaboration allows these dev teams and their collaborators to have their own private workspaces, while allowing them to share data across chamber boundaries through Shared Storage
 --->
