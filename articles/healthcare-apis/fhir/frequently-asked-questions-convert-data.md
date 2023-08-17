@@ -24,9 +24,9 @@ However, the `$convert-data` operation itself isn't an ETL pipeline.
 
 ## Where can I find an example of an ETL pipeline that I can reference? 
 
-There's an example published in the [Azure Data Factory Template Gallery](../../data-factory/solution-templates-introduction.md) named **Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2**. This template transforms HL7v2 messages read from an Azure Data Lake Storage (ADLS) Gen2 or an Azure Blob Storage account into the FHIR R4 format. It then persists the transformed FHIR bundle JSON file into an ADLS Gen2 or a Blob Storage account. Once you’re in the Azure Data Factory Template Gallery, you can search for the template.
+There's an example published in the [Azure Data Factory Template Gallery](../../data-factory/solution-templates-introduction.md#template-gallery) named **Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2**. This template transforms HL7v2 messages read from an Azure Data Lake Storage (ADLS) Gen2 or an Azure Blob Storage account into the FHIR R4 format. It then persists the transformed FHIR bundle JSON file into an ADLS Gen2 or a Blob Storage account. Once you’re in the Azure Data Factory Template Gallery, you can search for the template.
 
-:::image type="content" source="media/convert-data/frequently-asked-questions-convert-data/use-azure-data-factory.png" alt-text="Screenshot of the Azure Data Factory Template Gallery." lightbox="media/convert-data/frequently-asked-questions-convert-data/use-azure-data-factory.png"::: 
+:::image type="content" source="media/convert-data/frequently-asked-questions-convert-data/azure-data-factory-template-gallery.png" alt-text="Screenshot of the Azure Data Factory Template Gallery." lightbox="media/convert-data/frequently-asked-questions-convert-data/azure-data-factory-template-gallery.png"::: 
 
 ## How can I persist the data into the FHIR service?
 
