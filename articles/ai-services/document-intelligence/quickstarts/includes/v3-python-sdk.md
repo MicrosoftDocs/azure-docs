@@ -7,12 +7,13 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 07/18/2023
+ms.date: 08/16/2023
 ms.author: lajanuar
+monikerRange: '>=doc-intel-3.0.0'
 ---
 <!-- markdownlint-disable MD025 -->
 
-[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/) | [Samples](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md) | [Supported REST API versions](../../sdk-overview.md)
+[Client library](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python&preserve-view=true) [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.3.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.3.0/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.3.0/sdk/formrecognizer/azure-ai-formrecognizer/samples) | [Supported REST API versions](../../sdk-overview.md)
 
 In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
 
@@ -49,7 +50,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
 Open a terminal window in your local environment and install the Azure AI Document Intelligence client library for Python with pip:
 
 ```console
-pip install azure-ai-formrecognizer==3.3.0b1
+pip install azure-ai-formrecognizer==3.3.0
 ```
 
 <!-- > [!div class="nextstepaction"]
@@ -59,9 +60,9 @@ pip install azure-ai-formrecognizer==3.3.0b1
 
 To interact with the Document Intelligence service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Document Intelligence `endpoint`.
 
-1. Create a new Python file called **form_recognizer_quickstart.py** in your preferred editor or IDE.
+1. Create a new Python file called **doc_intel_quickstart.py** in your preferred editor or IDE.
 
-1. Open the **form_recognizer_quickstart.py** file and select one of the following code samples to copy and paste into your application:
+1. Open the **doc_intel_quickstart.py** file and select one of the following code samples to copy and paste into your application:
 
     * [**General document**](#general-document-model)
 
@@ -85,7 +86,7 @@ Extract text, tables, structure, and key-value pairs from documents.
 > * We've added the file URL value to the `docUrl` variable in the `analyze_general_documents` function.
 
 <!-- markdownlint-disable MD036 -->
-**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
+**Add the following code sample to your doc_intel_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```python
 
@@ -215,11 +216,11 @@ if __name__ == "__main__":
 
 Once you've added a code sample to your application, build and run your program:
 
-1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
+1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
 1. Type the following command in your terminal:
 
     ```console
-    python form_recognizer_quickstart.py
+    python doc_intel_quickstart.py
     ```
 
 <!-- > [!div class="nextstepaction"]
@@ -251,7 +252,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 > * We've added the file URL value to the `formUrl` variable in the `analyze_layout` function.
 > * To analyze a given file at a URL, you'll use the `begin_analyze_document_from_url` method and pass in `prebuilt-layout` as the model Id. The returned value is a `result` object containing data about the submitted document.
 
-**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
+**Add the following code sample to your doc_intel_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```python
 
@@ -365,11 +366,11 @@ if __name__ == "__main__":
 
 Once you've added a code sample to your application, build and run your program:
 
-1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
+1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
 1. Type the following command in your terminal:
 
     ```console
-    python form_recognizer_quickstart.py
+    python doc_intel_quickstart.py
     ```
 
 <!-- > [!div class="nextstepaction"]
@@ -413,7 +414,7 @@ Analyze and extract common fields from specific document types using a prebuilt 
 > * To analyze a given file at a URI, you'll use the `begin_analyze_document_from_url` method and pass `prebuilt-invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../../concept-invoice.md#field-extraction) concept page.
 
-**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
+**Add the following code sample to your doc_intel_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```python
 # import libraries
@@ -705,11 +706,11 @@ if __name__ == "__main__":
 
 Once you've added a code sample to your application, build and run your program:
 
-1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
+1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
 1. Type the following command in your terminal:
 
     ```console
-    python form_recognizer_quickstart.py
+    python doc_intel_quickstart.py
     ```
 
 <!-- > [!div class="nextstepaction"]

@@ -9,7 +9,7 @@ ms.subservice: openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 08/08/2023
+ms.date: 08/17/2023
 recommendations: false
 ---
 
@@ -43,7 +43,7 @@ For documents and datasets with long text, you should use the available [data pr
 
 ## Data formats and file types
 
-Azure OpenAI on your data supports the following filetypes (16 MB or less per file):
+Azure OpenAI on your data supports the following filetypes (16 MB size limit per file):
 
 * `.txt`
 * `.md`
