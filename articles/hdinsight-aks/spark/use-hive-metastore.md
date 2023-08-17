@@ -38,7 +38,10 @@ While you create the cluster, HDInsight service needs to connect to the external
     |Object	|Role|Remarks|
     |-|-|-|
     |User Assigned Managed Identity(the same UAMI as used by the HDInsight cluster) |Key Vault Secrets User | Learn how to [Assign role to UAMI](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md)|
-    |User(who creates secret in Azure Key Vault) | Key Vault Administrator| Learn how to [Assign role to user](../../role-based-access-control/role-assignments-portal.md#step-2-open-the-add-role-assignment-page).  **Note**: Without this role, user can't create a secret.|
+    |User(who creates secret in Azure Key Vault) | Key Vault Administrator| Learn how to [Assign role to user](../../role-based-access-control/role-assignments-portal.md#step-2-open-the-add-role-assignment-page). |
+
+    > [!NOTE]
+    > Without this role, user can't create a secret.
 
 1. [Create a secret](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)
 
@@ -53,7 +56,7 @@ While you create the cluster, HDInsight service needs to connect to the external
     > Make sure to note the secret name, as you'll need this during cluster creation.
     
 
-## Configure Metastore while you creating HDInsight Spark cluster
+## Configure Metastore while you create a HDInsight Spark cluster
 
 1. Navigate to HDInsight on AKS Cluster pool to create clusters. 
 
