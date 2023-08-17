@@ -6,13 +6,13 @@ ms.topic: how-to
 ms.date: 08/04/2023
 ---
 
-# Submit and Manage Jobs on a Spark cluster in HDInsight on AKS
+# Submit and manage Jobs on a Spark cluster in HDInsight on AKS
 
-Once the cluster is created, user can use various interfaces to submit and manage jobs
+Once the cluster is created, user can use various interfaces to submit and manage jobs by
 
-* Using Jupyter
-* Using Zeppelin
-* Using ssh (spark-submit)
+* using Jupyter
+* using Zeppelin
+* using ssh (spark-submit)
 
 ## Using Jupyter
 
@@ -111,7 +111,7 @@ HDInsight on AKS Spark clusters include [Apache Zeppelin notebooks](https://ze
 ### Prerequisites
 An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an Apache Spark cluster](./hdinsight-on-aks-spark-create-cluster-portal.md).
 
-**Launch an Apache Zeppelin notebook**
+#### Launch an Apache Zeppelin notebook
 
 1.	Navigate to the Spark cluster Overview page and select Zeppelin notebook from Cluster dashboards. It prompts to authenticate and open the Zeppelin page.
 
@@ -237,7 +237,7 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
 
 ## Monitor queries on a Spark cluster in HDInsight on AKS
 
-**Spark History UI**
+#### Spark History UI
 
 1. Click on the Spark History Server UI from the overview Tab.
 
