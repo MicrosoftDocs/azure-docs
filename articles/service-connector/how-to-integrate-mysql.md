@@ -46,7 +46,7 @@ Supported authentication and clients for App Service, Container Apps, and Azure 
 
 Reference the connection details and sample codes in following tables, accordling to your connection's authentication type and client type, to connect compute services to Azure Database for MySQL. 
 
-### [Connection String](#secret)
+### Connection String
 
 #### [.NET](#tab/dotnet)
 
@@ -142,7 +142,7 @@ Follow these steps and sample codes to connect to Azure Database for MySQL.
 
 ---
 
-### [System assigned Managed Identity](#systemmi)
+### System assigned Managed Identity
 
 #### [.NET](#tab/dotnet)
 
@@ -231,7 +231,7 @@ Follow these steps and sample codes to connect to Azure Database for MySQL.
 
 ---
 
-### [User assigned Managed Identity](#usermi)
+### User assigned Managed Identity
 #### [.NET](#tab/dotnet)
 
 | Default environment variable name | Description                     | Example value                                                                                                                                                  |
@@ -328,7 +328,7 @@ Follow these steps and sample codes to connect to Azure Database for MySQL.
 
 ---
 
-### [Service Principal](#sp)
+### Service Principal
 
 #### [.NET](#tab/dotnet)
 
