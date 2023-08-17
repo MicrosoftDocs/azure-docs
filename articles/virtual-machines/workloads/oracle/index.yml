@@ -42,11 +42,11 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Oracle application architecture
-            url: oracle-oci-applications.md
-          - text: Oracle database architecture
+          - text: Architectures for Oracle solutions on Azure
             url: oracle-reference-architecture.md
-          - text: Design an Oracle Database
+          - text: Oracle application solutions with Database on OCI
+            url: oracle-reference-architecture.md
+          - text: Architectures for Oracle Database Enterprise Edition on Azure
             url: oracle-design.md
 
   #card 4  
