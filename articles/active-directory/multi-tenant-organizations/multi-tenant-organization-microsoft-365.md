@@ -59,10 +59,6 @@ Microsoft 365 admin center facilitates orchestration of such a collaborating use
 
 Alternatively, pair-wise configuration of inbound and outbound cross-tenant synchronization can be used to orchestrate such collating user set across multi-tenant organization tenants, see [What is a cross-tenant synchronization](cross-tenant-synchronization-overview.md).
 
-## Inviting users
-
-Instead of sharing users from a source to a target tenant, you might invite users into the resource tenant, which creates corresponding B2B collaboration users. This mechanism of creating a collaborating user set includes invitation and synchronization of users by using custom-scripted or alternative synchronization engines. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../external-identities/add-users-administrator.md) and [invitation manager in Microsoft Graph API](/graph/api/resources/invitation).
-
 ## B2B member users
 
 To ensure a seamless collaboration experience across the multi-tenant organization in new Microsoft Teams, B2B identities are provisioned as B2B users of [Member userType](../external-identities/user-properties.md#user-type). 
@@ -75,8 +71,6 @@ To ensure a seamless collaboration experience across the multi-tenant organizati
 From a security perspective, you should review the default permissions granted to B2B member users. For more information, see [Compare member and guest default permissions](../fundamentals/users-default-permissions.md#compare-member-and-guest-default-permissions).
 
 To change the userType from **Guest** to **Member** (or vice versa), a source tenant administrator can amend the [attribute mappings](cross-tenant-synchronization-configure.md#step-9-review-attribute-mappings), or a target tenant administrator can [change the userType](../fundamentals/how-to-manage-user-profile-info.md#add-or-change-profile-information) if the property is not recurringly synchronized.
-
-For B2B identities not in scope of synchronization, the resource tenant administrator can simply [change the userType](../fundamentals/how-to-manage-user-profile-info.md#add-or-change-profile-information). Note that B2B identities must be [redeemed](../external-identities/redemption-experience.md) to be recognized by new Microsoft Teams for seamless collaboration.
 
 ## Unsharing your users
 
