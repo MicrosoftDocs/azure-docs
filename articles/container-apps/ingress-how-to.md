@@ -169,8 +169,6 @@ You can add additional TCP ports to your application. To learn more, see the [in
 
 ::: zone pivot="azure-cli"
 
-## Disable ingress
-
 # [Azure CLI](#tab/azure-cli)
 
 Adding additional tcp ports can be done through the CLI by referencing a yaml file with your TCP port configurations.
