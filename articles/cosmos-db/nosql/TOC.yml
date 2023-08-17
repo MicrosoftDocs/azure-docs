@@ -921,6 +921,8 @@
           href: migrate-hbase-to-cosmos-db.md
     - name: Integrate with other Azure services
       items:
+        - name: RAG with Azure OpenAI
+          href: ../rag-data-openai.md
         - name: Change feed Ecommerce solution
           href: changefeed-ecommerce-solution.md
         - name: Azure App Service
