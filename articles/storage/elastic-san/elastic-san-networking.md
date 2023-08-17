@@ -257,11 +257,6 @@ az network private-endpoint create \
     --location $Location \
     --group-id $EsanVgName # --manual-request
 
-# Verify the status of the private endpoint.
-az network private-endpoint show \
-    --name $EndpointName \
-    --resource-group $RgName
-
 # Verify the status of the private endpoint connection.
 PLConnectionName=$(az network private-endpoint-connection list \
     --name $EsanName \
@@ -285,13 +280,6 @@ az network private-endpoint-connection approve \
     --name $PLConnectionName \
     --type Microsoft.ElasticSan/elasticSans \
     --description $ApprovalDesc
-
-# Verify the status of the private endpoint connection.
-az network private-endpoint-connection show  \
-    --resource-name $EsanName \
-    --resource-group $RgName \
-    --type Microsoft.ElasticSan/elasticSans \
-    --name $PLConnectionName
 ```
 
 ---
