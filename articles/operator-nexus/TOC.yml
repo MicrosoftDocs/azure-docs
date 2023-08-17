@@ -19,6 +19,8 @@
       href: concepts-nexus-kubernetes-cluster.md
     - name: Observability
       href: concepts-observability.md 
+    - name: Security
+      href: concepts-security.md
 - name: Quickstarts
   items:
     - name: Before you start workload deployment
