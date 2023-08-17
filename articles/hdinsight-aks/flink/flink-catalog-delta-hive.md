@@ -3,7 +3,7 @@ title: Table API and SQL - Use Delta Catalog type with Hive in HDInsight on AKS 
 description: Learn about how to create Flink-Delta Catalog in HDInsight on AKS - Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/04/2023
+ms.date: 08/17/2023
 ---
 
 # Create Flink-Delta Catalog 
@@ -27,10 +27,7 @@ Once you launch the Secure Shell (SSH), let us start downloading the dependencie
  wget https://repo1.maven.org/maven2/org/apache/flink/flink-parquet/1.16.0/flink-parquet-1.16.0.jar -P $FLINK_HOME/lib
  wget https://repo1.maven.org/maven2/org/apache/parquet/parquet-hadoop-bundle/1.12.2/parquet-hadoop-bundle-1.12.2.jar -P $FLINK_HOME/lib
    ```
-### Set the Environment Variable 
-  ```
-  export HADOOP_CONF_DIR=/etc/hadoop/conf
-  ```
+
 ### Start the Flink SQL Client
 A detailed explanation is given on how to get started with Flink SQL Client using [Secure Shell](../flink/flink-webssh-on-portal-to-flink-sql.md) on Azure portal. You're required to start the SQL Client as described on the article by running the following command. 
 ```
@@ -66,7 +63,7 @@ We use arrival data of flights from a sample data, you can choose a table of you
     CREATE TABLE flightsintervaldata1 (arrivalAirportCandidatesCount INT, estArrivalHour INT) PARTITIONED BY (estArrivalHour) WITH ('connector' = 'delta', 'table-path' = 'abfs://container@storage_account.dfs.core.windows.net'/delta-output);
 ```
 > [!NOTE]
-> In the above step, the container and storage account should be **same** as specified during the cluster creation
+> In the above step, the container and storage account *need not be same* as specified during the cluster creation. In case you want to specify another storage account, you can update `core-site.xml` with `fs.azure.account.key.<account_name>.dfs.core.windows.net: <azure_storage_key>` using configuration management.
 
 #### Insert Data into the Delta Table
 
