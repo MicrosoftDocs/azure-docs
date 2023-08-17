@@ -1,5 +1,5 @@
 ---
-title: Storage task conditions & operations
+title: Properties, operators, and operations in storage task conditions
 titleSuffix: Azure Storage Tasks
 description: Learn about the elements of conditions and operations in a storage task.
 services: storage
@@ -12,27 +12,14 @@ ms.author: normesta
 
 ---
 
-# Storage task conditions and operations
+# Properties, operators, and operations in storage task conditions
 
-A storage task performs operations on containers and blobs in an Azure Storage account based on a set of conditions that you define. This article describes the anatomy of conditions and operations and how to define them.
+This article describes the properties, operators, and operations that you can use to compose each clause of a Azure Storage Task condition. For more information about how to define conditions and operations, see [Define storage task conditions and operations](storage-task-conditions-operations-edit.md).
 
 > [!IMPORTANT]
 > Azure Storage Tasks is currently in PREVIEW and is available in the following regions: \<List regions here\>.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
-
-## Defining conditions and operations
-
-A _condition_ contains one or more conditional _clauses_. A clause contains a property, a value, and an operator. The storage tasks uses the operator to compare a property with a value to determine whether a clause is met by the target object. An _operation_ is the action a storage task performs on each object that meets the defined conditions.
-
-You can define conditions and operations by using a visual designer in the Azure portal. The following image shows the visual designer that you can use to define the conditions and operations of a storage task.
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot of the Conditions button and the Conditions editor.](./media/storage-task-conditions-operations-edit/storage-task-condition-editor.png)
-
-Conditions and operations are stored as a JSON document that is generated based on selections that you make in the visual designer. You can view that JSON by selecting the **Code** tab that appears in the designer.  
-
-For more information about how to define conditions and operations, see [Define storage task conditions and operations](storage-task-conditions-operations-edit.md).
 
 ## Supported properties in a clause
 
@@ -68,14 +55,6 @@ The following table shows the operators that you can use in a clause to evaluate
 | endWith | less | less ||
 | length | lessOrEquals | lessOrEquals ||
 | startsWith | addToTime | ||
-
-### String matching and wildcards
-
-Explain matching and wild card patterns. At the time of this draft, it appears that `*` and `?` are supported with the addition of a "matches" operator soon which enables the escaping of these characters in a name. This section is TBD pending the addition of the "matches" operator.
-
-### Referencing values from object metadata
-
-clauses that include a date and time property can reference a value from the metadata of a container or an index tag of a blob. These values are obtained dynamically at runtime when the task executes. To learn more, see [Reference a value from object metadata](storage-task-conditions-operations-edit.md#reference-a-value-from-object-metadata).
 
 ## Supported operations
 

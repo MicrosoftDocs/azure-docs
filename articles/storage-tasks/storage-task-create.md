@@ -59,10 +59,10 @@ The following table describes the fields on the **Conditions** tab.
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
 | If | And/Or | Required | An operator which combines two or more predicates to form a logical-AND or logical-OR expression. |
-| If | Blob property | Required | The blob or container property that you like to use in the clause. See [Supported blob properties](storage-task-conditions-operations.md#supported-properties-in-a-clause)|
-| If | Operator | Required | The operator that defines how each property in the clause must relate to the corresponding value. See [Supported operators](storage-task-conditions-operations.md#supported-operators-in-a-clause)|
+| If | Blob property | Required | The blob or container property that you like to use in the clause. See [Supported blob properties](storage-task-properties-operators-operations.md#supported-properties-in-a-clause)|
+| If | Operator | Required | The operator that defines how each property in the clause must relate to the corresponding value. See [Supported operators](storage-task-properties-operators-operations.md#supported-operators-in-a-clause)|
 | If| Property value | Required | The value that relates to the corresponding property.  |
-| Then | Operations | Required | The action to perform when objects meet the conditions defined in this task. See [Supported operations](storage-task-conditions-operations.md#supported-operations)|
+| Then | Operations | Required | The action to perform when objects meet the conditions defined in this task. See [Supported operations](storage-task-properties-operators-operations.md#supported-operations)|
 | Then | Parameter | Required | A value used by the operation. |
 
 The following image shows an example of the **Conditions** tab.
@@ -70,7 +70,7 @@ The following image shows an example of the **Conditions** tab.
 > [!div class="mx-imgBorder"]
 > ![Screenshot of conditions tab of the storage task create experience.](./media/storage-task-create/storage-task-conditions-tab.png)
 
-To learn more about conditions and operations, see [storage task conditions and operations](storage-task-conditions-operations.md).
+To learn more about supported properties and operators in conditions, see [Storage task conditions and operations](storage-task-properties-operators-operations.md).
 
 ## Assignments tab
 

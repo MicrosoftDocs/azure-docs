@@ -20,8 +20,6 @@ This article helps you create an assignment, and then enable that assignment to 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
-To learn more about storage task assignments, see [Storage task assignment](storage-task-assignment.md).
-
 ## Create an assignment
 
 Create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.
@@ -69,7 +67,7 @@ The following table describes each field in the **Select Scope** section:
 
 ## Add a role assignment
 
-In the **Role assignment** section, in the **Role** drop-down list, select the role that you want to assign to the system-assigned managed identity of the storage task. Only roles that are assigned to your user identity appear in this drop-down list. Roles not assigned to your user identity do not appear in this list. To learn more, see [Assignment authorization](storage-task-assignment.md#assignment-authorization)
+In the **Role assignment** section, in the **Role** drop-down list, select the role that you want to assign to the system-assigned managed identity of the storage task. Only roles that are assigned to your user identity appear in this drop-down list. Roles not assigned to your user identity do not appear in this list. To learn more, see [Azure roles for storage task assignments](storage-task-assignment.md#assignment-authorization)
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Role assignment section of the assignment pane.](./media/storage-task-assignment-create/assignment-role.png)

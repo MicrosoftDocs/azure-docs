@@ -1,7 +1,7 @@
 ---
-title: Storage task assignments
+title: Azure roles for storage task assignments
 titleSuffix: Azure Storage Tasks
-description: Learn about how a storage task is configured to operate on one or more storage accounts.
+description: Learn about the least privileged built-in Azure roles or RBAC actions required by each operation that a storage task can perform.
 services: storage
 author: normesta
 
@@ -11,18 +11,20 @@ ms.date: 05/10/2023
 ms.author: normesta
 ---
 
-# Storage task assignments
+# Azure roles for storage task assignments
 
-An _assignment_ identifies a storage account and a subset of objects in that account that the task will target. An assignment also defines when the task runs and where execution reports are stored. For step-by-step guidance, see [Create and manage a Storage task assignment](storage-task-assignment-create.md).
+An _assignment_ identifies a storage account and a subset of objects in that account that a storage task will target. An assignment also defines when the task runs and where execution reports are stored. For step-by-step guidance, see [Create and manage a Storage task assignment](storage-task-assignment-create.md).
+
+As part of creating an assignment, you must choose an Azure Built-in or custom role that has the permission necessary to perform the operations specified in the task on the storage account that you specify in the assignment. You can choose only roles that are assigned to your user identity. If you prefer to use a custom role, you must make sure that your role contains the RBAC actions necessary to perform the operations. This article describes the built-in Azure roles and RBAC actions required by each operation that a storage task can perform.
 
 > [!IMPORTANT]
 > Storage Tasks is currently in PREVIEW and is available in the following regions: \<List regions here\>.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
-## Assignment authorization
+## Built-in roles and RBAC actions
 
-As part of creating an assignment, you must choose an Azure Built-in or custom role that has the permission necessary to perform the operations specified in the task on the storage account that you specify in the assignment. You can choose only roles that are assigned to your user identity. If you prefer to use a custom role, make sure that your role contains the RBAC actions necessary to perform the operations. The following table shows the least privileged built-in Azure role as well as the RBAC actions required by each operation.
+ The following table shows the least privileged built-in Azure role as well as the RBAC actions required by each operation.
 
 | Permission | Built-in role | RBAC actions for a custom role |
 |---|---|---|

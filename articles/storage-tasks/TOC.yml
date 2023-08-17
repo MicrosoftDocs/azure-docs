@@ -13,12 +13,12 @@ items:
   expanded: true
 - name: Concepts
   items: 
-  - name: Storage task authorization
-    href: storage-task-authorization.md
-  - name: Storage task conditions & operations
-    href: storage-task-conditions-operations.md
-  - name: Storage task assignments
-    href: storage-task-assignment.md
+  - name: Properties, operators, and operations
+    href: storage-task-properties-operators-operations.md
+  - name: Azure roles for storage tasks
+    href: storage-task-authorization-roles.md
+  - name: Azure roles for storage task assignments
+    href: storage-task-assignment-authorization-roles.md
   expanded: true
 - name: How-To
   items: 

@@ -31,18 +31,13 @@ Azure Storage Tasks is a service that manages *storage tasks*. A storage task co
 | Operations | An operation is the action a storage task performs on each object that meets the defined set of conditions. Deleting a blob is an example of an operation. |
 | Assignments | An assignment identifies a storage account and a subset of objects to target in that account. It also specifies when the task runs and where execution reports are stored. |
 
-See these articles to learn more about each component:
-
-- [Storage task conditions and operations](storage-task-conditions-operations.md)
-- [Storage task assignments](storage-task-assignment.md)
-
 ## How to use a storage task
 
 First, define the conditions and operations of a task. Then, assign that task to one or more storage accounts. Monitor task runs by using metrics, charts, and reports.
 
 ### Define a task
 
-Start by creating a task. To provision a task, you must define at least one condition and one operation. After the task is created, you can edit those conditions and operations or add more of them by using a visual designer.
+Start by creating a task. To provision a task, you must define at least one condition and one operation. After the task is created, you can edit those conditions and operations or add more of them by using a visual designer.  
 
 See these articles to learn how to define a task:
 
@@ -57,8 +52,8 @@ A storage task can be assigned to a storage account only by an owner of that acc
 
 See these articles to learn how to assign a task:
 
-- [Storage task authorization](storage-task-authorization.md)
 - [Create and manage a storage task assignment](storage-task-assignment-create.md)
+- [Azure roles for storage task assignments](storage-task-authorization.md)
 
 ### Monitor task runs
 

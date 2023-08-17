@@ -1,5 +1,5 @@
 ---
-title: Storage task authorization
+title: Azure roles for storage tasks
 titleSuffix: Azure Storage Tasks
 description: Learn about the least privileged built-in Azure roles or RBAC actions required to read, update, or delete a storage task.
 services: storage
@@ -12,7 +12,7 @@ ms.author: normesta
 
 ---
 
-# Storage task authorization
+# Azure roles for storage tasks
 
 This article describes the least privileged built-in Azure roles or RBAC actions required to read, update, or delete a storage task.
 
