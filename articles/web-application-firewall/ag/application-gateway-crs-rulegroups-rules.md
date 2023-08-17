@@ -18,6 +18,9 @@ Customers also have the option of using rules that are defined based on the OWAS
 
 Rules can be disabled on a rule-by-rule basis, or you can set specific actions by individual rule. This article contains the current rules and rule sets offered. In the rare occasion that a published ruleset needs to be updated, it will be documented here.
 
+> [!NOTE]
+> When changing from one ruleset version to another all disabled and enabled rule settings will return to the default for the ruleset your are migrating to. This means that if you previously disabled or enabled a rule, you will need to disable or enable it again once you've moved to the new ruleset version.
+
 ## Default rule sets
 
 The Azure-managed Default Rule Set (DRS) includes rules against the following threat categories:

@@ -2,11 +2,11 @@
 title: Restore SAP HANA databases on Azure VMs
 description: In this article, you'll learn how to restore SAP HANA databases that are running on Azure virtual machines. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: how-to
-ms.date: 07/14/2023
+ms.date: 07/31/2023
 ms.service: backup
 ms.custom: ignite-2022
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore SAP HANA databases on Azure VMs
@@ -16,7 +16,7 @@ This article describes how to restore SAP HANA databases that are running on Azu
 Azure Backup now supports backup and restore of SAP HANA System Replication (HSR) instance.
 
 >[!Note]
->- The restore process for HANA databases with HSR is the same as the restore process for HANA databases without HSR. As per SAP advisories, you can restore databases with HSR mode as *standalone* databases. If the target system has the HSR mode enabled, first disable the mode, and then restore the database.
+>- The restore process for HANA databases with HSR is the same as the restore process for HANA databases without HSR. As per SAP advisories, you can restore databases with HSR mode as *standalone* databases. If the target system has the HSR mode enabled, first disable the mode, and then restore the database. However, if you're restoring as files, disabling the HSR mode (breaking the HSR) isn't needed.
 >- Original Location Recovery (OLR) is currently not supported for HSR. Alternatively, select **Alternate location** restore, and then select the source VM as your *Host* from the list.
 >- Restore to HSR instance isn't supported. However, restore only to HANA instance is supported.
 
@@ -169,7 +169,7 @@ To restore the backup data as files instead of a database, select **Restore as F
     * `<LogFilesDir>`: The folder that contains the log backups, differential backups, and incremental backups. For Full BackUp Restore, because the log folder isn't created, add an empty directory.
     * `<PathToPlaceCatalogFile>`: The folder where the generated catalog file must be placed.
 
-    d. Restore by using the newly generated catalog file through HANA Studio, or run the SAP HANA HDBSQL tool restore query with this newly generated catalog. The HDBSQL queries are listed here:
+    d. You can restore by using the newly generated catalog file through HANA Studio or run the SAP HANA HDBSQL tool restore query with this newly generated catalog. The HDBSQL queries are listed here:
 
      * To open the HDBSQL prompt, run the following command:
 
@@ -355,6 +355,53 @@ The secondary region restore user experience is similar to the primary region re
 1. To view the jobs in the secondary region, filter the **Operation** for **CrossRegionRestore**. 
 
    :::image type="content" source="./media/sap-hana-db-restore/hana-view-jobs-inline.png" alt-text="Screenshot that shows filtered backup jobs." lightbox="./media/sap-hana-db-restore/hana-view-jobs-expanded.png":::
+
+## Cross Subscription Restore
+
+Azure Backup now allows you to restore SAP HANA Database to any subscription (as per the following Azure RBAC requirements) from the restore point. By default, Azure Backup restores to the same subscription where the restore points are available. 
+
+With Cross Subscription Restore (CSR), you have the flexibility of restoring to any subscription and any vault under your tenant if restore permissions are available. By default, CSR is enabled on all Recovery Services vaults (existing and newly created vaults). 
+
+>[!Note]
+>- You can trigger Cross Subscription Restore from Recovery Services vault.
+>- CSR is supported only for streaming/Backint-based backups and is not supported for snapshot-based backup.
+>- Cross Regional Restore (CRR) with CSR is not supported.
+
+**Azure RBAC  requirements**
+
+| Operation type | Backup operator | Recovery Services vault | Alternate operator |
+| --- | --- | --- | --- |
+| Restore database or restore as files | `Virtual Machine Contributor` | Source VM that got backed up | Instead of a built-in role, you can consider a custom role which has the following permissions: <br><br> - `Microsoft.Compute/virtualMachines/write` <br> - `Microsoft.Compute/virtualMachines/read` |
+|            | `Virtual Machine Contributor` | Target VM in which the database will be restored or files are created. | Instead of a built-in role, you can consider a custom role that has the following permissions: <br><br> - `Microsoft.Compute/virtualMachines/write` <br> - `Microsoft.Compute/virtualMachines/read` |
+|          | `Backup Operator` | Target Recovery Services vault |            |	
+
+By default, CSR is enabled on the Recovery Services vault. To update the Recovery Services vault restore settings, go to **Properties** > **Cross Subscription Restore** and make the required changes.
+
+:::image type="content" source="./media/sap-hana-db-restore/cross-subscription-restore-settings-for-database.png" alt-text="Screenshot shows how to modify the Cross Subscription Restore settings on a Recovery Services vault for HANA database." lightbox="./media/sap-hana-db-restore/cross-subscription-restore-settings-for-database.png":::
+
+**Cross Subscription Restore using Azure CLI**
+
+```azurecli
+az backup vault create
+
+```
+
+Add the parameter `cross-subscription-restore-state` that enables you to set the CSR state of the vault during vault creation and updating.
+
+```azurecli
+az backup recoveryconfig show
+
+```
+
+Add the parameter `--target-subscription-id` that enables you to provide the target subscription as the input while triggering Cross Subscription Restore for SQL or HANA datasources.
+
+**Example**:
+
+```azurecli
+   az backup vault create -g {rg_name} -n {vault_name} -l {location} --cross-subscription-restore-state Disable
+   az backup recoveryconfig show --restore-mode alternateworkloadrestore --backup-management-type azureworkload -r {rp} --target-container-name {target_container} --target-item-name {target_item} --target-resource-group {target_rg} --target-server-name {target_server} --target-server-type SQLInstance --target-subscription-id {target_subscription} --target-vault-name {target_vault} --workload-type SQLDataBase --ids {source_item_id}
+
+```
 
 ## Next steps
 

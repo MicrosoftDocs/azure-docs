@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 04/15/2022
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 # List Azure AD role assignments
@@ -29,6 +29,8 @@ This article describes how to list roles you have assigned in Azure Active Direc
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
 ## Azure portal
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 This procedure describes how to list role assignments with organization-wide scope.
 

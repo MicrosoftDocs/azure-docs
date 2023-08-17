@@ -442,7 +442,7 @@ You may reference templates using parameters that include HTTP or HTTPS. For exa
 
 If you're linking to a template in GitHub, use the raw URL. The link has the format: `https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json`. To get the raw link, select **Raw**.
 
-:::image type="content" source="./media/linked-templates/select-raw.png" alt-text="Select raw URL":::
+:::image type="content" source="./media/linked-templates/select-raw.png" alt-text="Screenshot of selecting raw URL in GitHub.":::
 
 [!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
@@ -506,7 +506,7 @@ The `relativePath` property of `Microsoft.Resources/deployments` makes it easier
 
 Assume a folder structure like this:
 
-![resource manager linked template relative path](./media/linked-templates/resource-manager-linked-templates-relative-path.png)
+:::image type="content" source="./media/linked-templates/resource-manager-linked-templates-relative-path.png" alt-text="Diagram showing folder structure for Resource Manager linked template relative path.":::
 
 The following template shows how *mainTemplate.json* deploys *nestedChild.json* illustrated in the preceding image.
 
@@ -707,7 +707,7 @@ To use the public IP address from the preceding template when deploying a load b
 
 Resource Manager processes each template as a separate deployment in the deployment history. A main template with three linked or nested templates appears in the deployment history as:
 
-![Deployment history](./media/linked-templates/deployment-history.png)
+:::image type="content" source="./media/linked-templates/deployment-history.png" alt-text="Screenshot of deployment history in Azure portal.":::
 
 You can use these separate entries in the history to retrieve output values after the deployment. The following template creates a public IP address and outputs the IP address:
 

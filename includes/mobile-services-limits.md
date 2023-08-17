@@ -12,7 +12,7 @@ ms.author: jroth
 | Active devices |500 |Unlimited |Unlimited |
 | Scale |N/A |Up to 6 units |Unlimited units |
 | Push notifications |Azure Notification Hubs Free tier included, up to 1 million pushes |Notification Hubs Basic tier included, up to 10 million pushes |Notification Hubs Standard tier included, up to 10 million pushes |
-| Real-time messaging/<br/>Web Sockets |Limited |350 per mobile service |Unlimited |
+| Real-time messaging/<br/>WebSockets |Limited |350 per mobile service |Unlimited |
 | Offline synchronizations |Limited |Included |Included |
 | Scheduled jobs |Limited |Included |Included |
 | Azure SQL Database (required) <br/>Standard rates apply for additional capacity |20 MB included |20 MB included |20 MB included |

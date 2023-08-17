@@ -8,7 +8,7 @@ ms.author: rosemalcolm
 ms.topic: conceptual
 ms.date: 04/25/2023
 ms.custom: template-concept
-#Customer intent: As a developer, I want to understand Dev Box concepts and terminology so that I can set up a Dev Box environment.
+#Customer intent: As a platform engineer, I want to understand Dev Box concepts and terminology so that I can set up a Dev Box environment.
 ---
 
 # Key concepts for Microsoft Dev Box 
@@ -23,7 +23,7 @@ As a dev box user, you have control over your own dev boxes. You can create more
 
 ## Dev center
 
-A dev center is a collection of projects that require similar settings. Dev centers enable dev infrastructure managers to:
+A dev center is a collection of projects that require similar settings. Dev centers enable platform engineers to:
 
 - Manage the images and SKUs available to the projects by using dev box definitions.
 - Configure the networks that the development teams consume by using network connections. 
@@ -40,7 +40,7 @@ A dev box definition specifies a source image and size, including compute size a
 
 ## Network connection
 
-IT administrators and dev infrastructure managers configure the network that's used for dev box creation in accordance with their organizational policies. Network connections store configuration information, like Active Directory join type and virtual network, that dev boxes use to connect to network resources.
+IT administrators and platform engineers configure the network that's used for dev box creation in accordance with their organizational policies. Network connections store configuration information, like Active Directory join type and virtual network, that dev boxes use to connect to network resources.
 
 When you're creating a network connection, you must choose the Active Directory join type:
 

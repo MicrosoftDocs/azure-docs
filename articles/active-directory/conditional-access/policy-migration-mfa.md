@@ -29,7 +29,12 @@ The migration process consists of the following steps:
 
 ## Open a classic policy
 
-1. In the [Azure portal](https://portal.azure.com), navigate to **Azure Active Directory** > **Security** > **Conditional Access**.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Navigate to **Azure Active Directory** > **Security** > **Conditional Access**.
+
 1. Select, **Classic policies**.
 
    ![Classic policies view](./media/policy-migration-mfa/12.png)

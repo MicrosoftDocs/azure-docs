@@ -26,7 +26,7 @@ When a query is received for this profile, all healthy endpoints are returned ba
 
 ## Create a resource group
 Create a resource group for the Traffic Manager profile.
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the left pane of the Azure portal, select **Resource groups**.
 1. In **Resource groups**, on the top of the page, select **Add**.
 1. In **Resource group name**, type a name *myResourceGroupTM1*. For **Resource group location**, select **East US**, and then select **OK**.
@@ -82,5 +82,3 @@ Add two IP addresses as external endpoints to the MultiValue Traffic Manager pro
 - Learn about [priority routing method](traffic-manager-configure-priority-routing-method.md).
 - Learn more about [performance routing method](traffic-manager-configure-performance-routing-method.md)
 - Learn about [geographic routing method](traffic-manager-configure-geographic-routing-method.md).
-
-

@@ -42,7 +42,7 @@ As of November 2020, new application registrations show up as unverified in the 
 
 ## Register an Azure AD app
 
-To enable sign-in for users with an Azure AD account from a specific Azure AD organization, in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
+To enable sign-in for users with an Azure AD account from a specific Azure AD organization, in Azure Active Directory B2C (Azure AD B2C), you need to create an application in the [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, Contoso):

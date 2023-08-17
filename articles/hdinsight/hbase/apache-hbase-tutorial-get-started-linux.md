@@ -222,28 +222,27 @@ The HBase REST API is secured via [basic authentication](https://en.wikipedia.or
 
 1. To enable the HBase REST API in the HDInsight cluster, add the following custom startup script to the **Script Action** section. You can add the startup script when you create the cluster or after the cluster has been created. For **Node Type**, select **Region Servers** to ensure that the script executes only in HBase Region Servers.
 
+    ```bash
+    #! /bin/bash
 
-	```bash
-	#! /bin/bash
+    THIS_MACHINE=`hostname`
 
-	THIS_MACHINE=`hostname`
+    if [[ $THIS_MACHINE != wn* ]]
+    then
+        printf 'Script to be executed only on worker nodes'
+        exit 0
+    fi
 
-	if [[ $THIS_MACHINE != wn* ]]
-	then
-		printf 'Script to be executed only on worker nodes'
-		exit 0
-	fi
-
-	RESULT=`pgrep -f RESTServer`
-	if [[ -z $RESULT ]]
-	then
-		echo "Applying mitigation; starting REST Server"
-		sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
-	else
-		echo "REST server already running"
-		exit 0
-	fi
-	```
+    RESULT=`pgrep -f RESTServer`
+    if [[ -z $RESULT ]]
+    then
+        echo "Applying mitigation; starting REST Server"
+        sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
+    else
+        echo "REST server already running"
+        exit 0
+    fi
+    ```
 
 1. Set environment variable for ease of use. Edit the commands below by replacing `MYPASSWORD` with the cluster login password. Replace `MYCLUSTERNAME` with the name of your HBase cluster. Then enter the commands.
 

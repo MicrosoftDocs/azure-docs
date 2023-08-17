@@ -16,9 +16,7 @@ ms.devlang: azurecli
 
 # Use a custom container to deploy a model to an online endpoint
 
-[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
-
-[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Learn how to use a custom container for deploying a model to an online endpoint in Azure Machine Learning.
 

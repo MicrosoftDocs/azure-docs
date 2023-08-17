@@ -8,7 +8,7 @@ metadata:
   description: Azure Spring Apps is a fully managed service for building and running Spring Boot and Steeltoe apps without needing to manage infrastructure.
   services: spring-cloud
   ms.service: spring-apps
-  ms.custom: event-tier1-build-2022, devx-track-java, devx-track-extended-java
+  ms.custom: event-tier1-build-2022, devx-track-java
   ms.topic: landing-page
   ms.collection: collection
   author: KarlErickson
@@ -128,6 +128,16 @@ landingContent:
             url: quickstart-deploy-infrastructure-vnet.md
           - text: Provision using Terraform
             url: quickstart-deploy-infrastructure-vnet-terraform.md
+
+  # Card (optional)
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Architecture design
+            url: /azure/architecture/web-apps/spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+          - text: Landing zone accelerator
+            url: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 
   # Card (optional)
   - title: Monitor end-to-end

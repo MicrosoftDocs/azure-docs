@@ -38,6 +38,8 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Turn on user creation for groups
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) with a User administrator account.
 
 2. Select **Groups**, and then select **General**.
@@ -68,7 +70,7 @@ That's it! In this quickstart, you successfully set the expiration policy for th
 
 ### To remove the expiration policy
 
-1. Ensure that you are signed in to the [Azure portal](https://portal.azure.com) with an account that is the Global Administrator for your Azure AD organization.
+1. Sign in to to the [Azure portal](https://portal.azure.com) with an account that is the Global Administrator for your Azure AD organization.
 2. Select **Azure Active Directory** > **Groups** > **Expiration**.
 3. Set **Enable expiration for these Microsoft 365 groups** to **None**.
 

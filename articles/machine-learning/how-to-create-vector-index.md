@@ -1,7 +1,7 @@
 ---
-title: How to create vector index in Azure Machine Learning prompt flow (preview)
+title: Create a vector index in an Azure Machine Learning prompt flow (preview)
 titleSuffix: Azure Machine Learning
-description: How to create a vector index in Azure Machine Learning and use it in a prompt flow.
+description: Learn how to create a vector index in Azure Machine Learning and use it in a prompt flow.
 services: machine-learning
 ms.author: balapv
 author: balapv
@@ -13,15 +13,21 @@ ms.topic: how-to
 ms.custom: prompt-flow
 ---
 
-# How to create vector index in Azure Machine Learning prompt flow (preview)
+# Create a vector index in an Azure Machine Learning prompt flow (preview)
 
-Azure Machine Learning enables you to create a vector index from files/folders on your machine, a location in a cloud storage, an Azure Machine Learning data asset, a Git repository, or an SQL database. Azure Machine Learning can currently crack and process text files, md files, pdf, excel files, word documents. You can also reuse an existing Azure Cognitive Search Index instead of creating a new Index.
+You can use Azure Machine Learning to create a vector index from files or folders on your machine, a location in cloud storage, an Azure Machine Learning data asset, a Git repository, or a SQL database. Azure Machine Learning can currently process .txt, .md, .pdf, .xls, and .docx files. You can also reuse an existing Azure Cognitive Search index instead of creating a new index.
 
-When a Vector Index is created, Azure Machine Learning will chunk the data, create embeddings, and store the embeddings in a FAISS Index or Azure Cognitive Search Index. In addition, Azure Machine Learning creates: 
+When you create a vector index, Azure Machine Learning chunks the data, creates embeddings, and stores the embeddings in a Faiss index or Azure Cognitive Search index. In addition, Azure Machine Learning creates:
 
 * Test data for your data source.
 
-* A sample prompt flow, which uses the Vector Index you created. The sample prompt flow, which gets created has several key features like: a. Automatically generated prompt variants. b. Evaluation of each of these variations using the test data generated<TBD - link to eval blog>. c. Metrics against each of the variants to help you choose the best variant to run. You can use this sample to continue developing your prompt. 
+* A sample prompt flow, which uses the vector index that you created. Features of the sample prompt flow include:
+
+  * Automatically generated prompt variants.
+  * Evaluation of each prompt variant by using the [generated test data](https://aka.ms/prompt_flow_blog).
+  * Metrics against each prompt variant to help you choose the best variant to run.
+
+  You can use this sample to continue developing your prompt.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -29,61 +35,52 @@ When a Vector Index is created, Azure Machine Learning will chunk the data, crea
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
-* Access to Azure Open AI. 
+* Access to Azure OpenAI Service.
 
-* Enable prompt flow in your Azure Machine Learning workspace
+* Prompt flows enabled in your Azure Machine Learning workspace. You can enable prompt flows by turning on **Build AI solutions with Prompt flow** on the **Manage preview features** panel.
 
-In your Azure Machine Learning workspace, you can enable prompt flow by turn-on **Build AI solutions with Prompt flow** in the **Manage preview features** panel.
+## Create a vector index by using Machine Learning studio
 
+1. Select **Prompt flow** on the left menu.
 
-## Create a new Vector Index using studio
+    :::image type="content" source="media/how-to-create-vector-index/prompt.png" alt-text="Screenshot that shows the location of prompt flow on the left menu.":::
 
-1.  Select **Prompt flow** on the left menu
+1. Select the **Vector Index** tab.
 
-     :::image type="content" source="media/how-to-create-vector-index/prompt.png" alt-text="Screenshot showing the Prompt flow location on the left menu.":::
+    :::image type="content" source="./media/how-to-create-vector-index/vector-index.png" alt-text="Screenshot that shows the tab for vector index.":::
 
-1.  Select **Vector Index** on the top menu
+1. Select **Create**.
 
-    :::image type="content" source="./media/how-to-create-vector-index/vector-index.png" alt-text="Screenshot showing the Vector Index location on the top menu.":::
+1. When the form for creating a vector index opens, provide a name for your vector index.
 
+    :::image type="content" source="media/how-to-create-vector-index/new-vector-creation.png" alt-text="Screenshot that shows basic settings for creating a vector index.":::
 
-1.  Select **Create**
+1. Select your data source type.
 
-1.  After the create new vector index form opens, provide a name for your vector index.
+1. Based on the chosen type, provide the location details of your source. Then, select **Next**.
 
-1.  Next choose your data source type
+1. Review the details of your vector index, and then select the **Create** button.
 
-    :::image type="content" source="media/how-to-create-vector-index/new-vector-creation.png" alt-text="Screenshot showing the create new Vector Index form.":::
+1. On the overview page that appears, you can track and view the status of creating your vector index. The process might take a while, depending on the size of your data.
 
-1.  Based on the chosen type, provide the location details of your
-    source. Then, select **Next**.
+## Add a vector index to a prompt flow
 
-1.  Review the details of your vector index, then select the **Create** button to create the vector index. For more information about how to [use Vector Stores (preview).](concept-vector-stores.md) 
+After you create a vector index, you can add it to a prompt flow from the prompt flow canvas.
 
-1. This takes you to an overview page from where you can track and view the status of your Vector Index creation. Note: Vector Index creation may take a while depending on the size of data.
+1. Open an existing prompt flow.
 
+1. On the top menu of the prompt flow designer, select **More tools**, and then select **Vector Index Lookup**.
 
+    :::image type="content" source="media/how-to-create-vector-index/vector-lookup.png" alt-text="Screenshot that shows the list of available tools.":::
 
-## Add a Vector Index to a prompt flow
+   The Vector Index Lookup tool is added to the canvas. If you don't see the tool immediately, scroll to the bottom of the canvas.
 
-Once you have created a Vector Index, you can add it to a prompt flow from the prompt flow canvas. The prompt flow designer has a Vector Index lookup tool. Add this tool to the canvas and enter the path to your Vector Index and the query you want to perform against the index. You can find the steps to do this here.
+    :::image type="content" source="media/how-to-create-vector-index/vector-index-lookup-tool.png" alt-text="Screenshot that shows the Vector Index Lookup tool.":::
 
-
-1. Open an existing prompt flow
-
-
-1. On the top menu, select **More Tools** and select Vector Index Lookup
-
-    :::image type="content" source="media/how-to-create-vector-index/new-vector-creation.png" alt-text="Screenshot showing the location of the More Tools button.":::
-
-1. The Vector Index lookup tool gets added to the canvas. If you don't see the tool immediately, scroll to the bottom of the canvas.
-
-    :::image type="content" source="media/how-to-create-vector-index/vector-index-lookup-tool.png" alt-text="Screenshot showing the vector index lookup tool.":::
-
-1. Enter the path to your Vector Index and enter your desired query. Be sure to type in your path directly, or to paste the path.
+1. Enter the path to your vector index, along with the query that you want to perform against the index.
 
 ## Next steps
 
-[Get started with RAG using a prompt flow sample (preview)](how-to-use-pipelines-prompt-flow.md)
+[Get started with RAG by using a prompt flow sample (preview)](how-to-use-pipelines-prompt-flow.md)
 
-[Use Vector Stores](concept-vector-stores.md) with Azure Machine Learning (preview)
+[Use vector stores with Azure Machine Learning (preview)](concept-vector-stores.md)

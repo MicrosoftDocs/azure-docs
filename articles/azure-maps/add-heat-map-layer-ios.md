@@ -25,17 +25,17 @@ You can use heat maps in many different scenarios, including:
 > [!TIP]
 > Heat map layers by default render the coordinates of all geometries in a data source. To limit the layer so that it only renders point geometry features, set the `filter` option of the layer to `NSPredicate(format: "%@ == \"Point\"", NSExpression.geometryTypeAZMVariable)`. If you want to include MultiPoint features as well, use `NSCompoundPredicate`.
 
-[Internet of Things Show - Heat Maps and Image Overlays in Azure Maps](/shows/internet-of-things-show/heat-maps-and-image-overlays-in-azure-maps/player?format=ny)
+[Internet of Things Show - Heat Maps and Image Overlays in Azure Maps]
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an iOS app](quick-ios-app.md) document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
+Be sure to complete the steps in the [Quickstart: Create an iOS app] document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
 
 ## Add a heat map layer
 
 To render a data source of points as a heat map, pass your data source into an instance of the `HeatMapLayer` class, and add it to the map.
 
-The following code sample loads a GeoJSON feed of earthquakes from the past week and renders them as a heat map. Each data point is rendered with a radius of 10 points at all zoom levels. To ensure a better user experience, the heat map is below the label layer so the labels stay clearly visible. The data in this sample is from the [USGS Earthquake Hazards Program](https://earthquake.usgs.gov/).
+The following code sample loads a GeoJSON feed of earthquakes from the past week and renders them as a heat map. Each data point is rendered with a radius of 10 points at all zoom levels. To ensure a better user experience, the heat map is below the label layer so the labels stay clearly visible. The data in this sample is from the [USGS Earthquake Hazards Program].
 
 ```swift
 // Create a data source.
@@ -209,5 +209,11 @@ The following video shows a map running the above code, which scales the radius 
 
 For more code examples to add to your maps, see the following articles:
 
-- [Create a data source](create-data-source-ios-sdk.md)
-- [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
+- [Create a data source]
+- [Use data-driven style expressions]
+
+[Internet of Things Show - Heat Maps and Image Overlays in Azure Maps]: /shows/internet-of-things-show/heat-maps-and-image-overlays-in-azure-maps/player?format=ny
+[Quickstart: Create an iOS app]: quick-ios-app.md
+[USGS Earthquake Hazards Program]: https://earthquake.usgs.gov
+[Create a data source]: create-data-source-ios-sdk.md
+[Use data-driven style expressions]: data-driven-style-expressions-ios-sdk.md

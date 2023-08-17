@@ -7,12 +7,13 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 03/30/2022
+ms.date: 07/19/2023
 ms.topic: conceptual
 ---
 
 # Connectivity modes and requirements
 
+This article describes the connectivity modes available for Azure Arc-enabled data services, and their respective requirements.
 
 ## Connectivity modes
 

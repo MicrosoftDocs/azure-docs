@@ -6,11 +6,11 @@ author: CelesteDG
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: fundamentals
+ms.custom: has-azure-ad-ps-ref
 ms.topic: overview
 ms.date: 07/11/2023
 ms.author: celested
 ms.reviewer: nicholepet
-
 # Customer intent: As a new or existing customer, I want to learn more about the new name for Azure Active Directory (Azure AD) and understand the impact the name change may have on other products, new or existing license(s), what I need to do, and where I can learn more about Microsoft Entra products.
 ---
 
@@ -72,7 +72,7 @@ Microsoft Entra helps you protect all identities and secure network access every
 
 ### Where can I manage Microsoft Entra ID?
 
-You can manage Microsoft Entra ID and all other Microsoft Entra solutions in the [Microsoft Entra admin center](https://entra.microsoft.com) or [Azure portal](https://portal.azure.com).
+You can manage Microsoft Entra ID and all other Microsoft Entra solutions in the [Microsoft Entra admin center](https://entra.microsoft.com) or the [Azure portal](https://portal.azure.com).
 
 ### What are the display names for service plans and SKUs?
 

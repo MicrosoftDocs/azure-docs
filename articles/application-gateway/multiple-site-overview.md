@@ -108,7 +108,7 @@ Application Gateway relies on HTTP 1.1 host headers to host more than one websit
 ## Next steps
 
 Learn how to configure multiple site hosting in Application Gateway
-* [Using Azure portal](create-multiple-sites-portal.md)
+* [Using the Azure portal](create-multiple-sites-portal.md)
 * [Using Azure PowerShell](tutorial-multiple-sites-powershell.md)
 * [Using Azure CLI](tutorial-multiple-sites-cli.md)
 

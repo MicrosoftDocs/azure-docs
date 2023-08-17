@@ -14,7 +14,7 @@ ms.custom: engagement-fy23
 This article describes how to upgrade Windows Server OS while migrating to Azure. Azure Migrate OS upgrade allows you to move from an older operating system to a newer one while keeping your settings, server roles, and data intact. You can move your on-premises server to Azure with an upgraded OS version of Windows Server using Windows upgrade.
 
 > [!NOTE]
-> This feature is currently available only for [VMWare agentless migration](tutorial-migrate-vmware.md).
+> This feature is currently available only for [VMware agentless migration](tutorial-migrate-vmware.md).
 
 ## Prerequisites 
 
@@ -48,7 +48,7 @@ Windows Server 2019 | Windows Server 2022
 
 To upgrade Windows during the test migration, follow these steps:
 
-1. On the **Get started** page > **Servers, databases and web apps**, select **Replicate**. 
+1. Go to **Get started** > **Servers, databases and web apps**, select **Replicate**. 
    
    A Start Replication job begins. When the Start Replication job finishes successfully, the machines begin their initial replication to Azure. 
 
@@ -82,7 +82,7 @@ To upgrade Windows during the test migration, follow these steps:
 
 After you've verified that the test migration works as expected, you can migrate the on-premises machines. To upgrade Windows during the migration, follow these steps:
 
-1. On the **Get started** page > **Servers, databases and web apps**, select **Replicate**. A Start Replication job begins.    
+1. On the **Get started** page, in **Servers, databases and web apps**, select **Replicate**. A Start Replication job begins.    
 2. In **Replicating machines**, right-click the VM and select **Migrate**.  
 
    :::image type="content" source="./media/how-to-upgrade-windows/migration.png" alt-text="Screenshot displays the Migrate option.":::

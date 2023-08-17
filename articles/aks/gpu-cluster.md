@@ -422,7 +422,7 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 [azureml-aks]: ../machine-learning/how-to-attach-kubernetes-anywhere.md
 [azureml-deploy]: ../machine-learning/how-to-deploy-managed-online-endpoints.md
 [azureml-triton]: ../machine-learning/how-to-deploy-with-triton.md
-[aks-container-insights]: monitor-aks.md#container-insights
+[aks-container-insights]: monitor-aks.md#integrations
 [advanced-scheduler-aks]: operator-best-practices-advanced-scheduler.md
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-register]: /cli/azure/feature#az-feature-register
