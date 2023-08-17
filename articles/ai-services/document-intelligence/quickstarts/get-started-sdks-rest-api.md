@@ -155,7 +155,7 @@ That's it, congratulations! In this quickstart, you used Document Intelligence m
 
 ## Next steps
 
-* For an enhanced experience and advanced model quality, try the [Document Intelligence v3.0 Studio ](https://formrecognizer.appliedai.azure.com/studio).
+* For an enhanced experience and advanced model quality, try the [Document Intelligence v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
 
 * The v3.0 Studio supports any model trained with v2.1 labeled data.
 
