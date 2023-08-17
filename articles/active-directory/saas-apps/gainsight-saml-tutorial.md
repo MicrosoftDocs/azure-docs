@@ -39,13 +39,13 @@ Before you begin the process of configuring single sign-on, you need to add the 
 
 ### Add Gainsight SAML from the Azure AD gallery
 
-Add Gainsight SAML from the Azure AD application gallery to configure single sign-on with Gainsight SAML. For more information on how to add application from the gallery, see the [Quickstart: Add application from the gallery](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/overview-application-gallery).
+Add Gainsight SAML from the Azure AD application gallery to configure single sign-on with Gainsight SAML. For more information on how to add application from the gallery, see the [Quickstart: Add application from the gallery](../manage-apps/add-application-portal.md).
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](https://learn.microsoft.com/en-us/microsoft-365/admin/misc/azure-ad-setup-guides).
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides).
 
 ## Configure Azure AD SSO
 
@@ -121,7 +121,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ### Create Gainsight SAML test user
 
-In this section, you create a user called Britta Simon at Gainsight SAML SSO. Work with [Gainsight SAML support team](mailto:support@gainsight.com) to add the users in the Gainsight SAML SSO platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon at Gainsight using **User Management** page. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 
