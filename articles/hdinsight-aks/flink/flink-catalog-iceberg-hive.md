@@ -1,12 +1,12 @@
 ---
-title: Table API and SQL - Using Iceberg Catalog type with Hive in HDInsight on AKS - Flink
-description: Learn about how to create Flink-Iceberg Catalog using Hive catalog in HDInsight on AKS - Flink
+title: Table API and SQL - Use Iceberg Catalog type with Hive in HDInsight on AKS - Flink
+description: Learn how to create Flink-Iceberg Catalog using Hive catalog in HDInsight on AKS - Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/04/2023
+ms.date: 08/17/2023
 ---
 
-# Creating Flink-Iceberg Catalog using Hive catalog in HDInsight on AKS - Flink
+# Create Flink-Iceberg Catalog using Hive catalog in HDInsight on AKS - Flink
 
 [Apache Iceberg](https://iceberg.apache.org/) is an open table format for huge analytic datasets. Iceberg adds tables to compute engines like Flink, using a high-performance table format that works just like a SQL table. Apache Iceberg [supports](https://iceberg.apache.org/multi-engine-support/#apache-flink) both Apache Flink’s DataStream API and Table API.
 
@@ -16,7 +16,7 @@ In this article, we learn how to use Iceberg Table managed in Hive catalog, with
 - You're required to have an operational Flink cluster with secure shell, learn how to [create a cluster](../flink/flink-create-cluster-portal.md)
    - Refer this article on how to use CLI from [Secure Shell](../flink/flink-webssh-on-portal-to-flink-sql.md) on Azure portal.
 
-### Adding dependencies
+### Add dependencies
 
 Once you launch the Secure Shell (SSH), let us start downloading the dependencies required to the SSH node, to illustrate the Iceberg table managed in Hive catalog.
 
@@ -33,7 +33,7 @@ A detailed explanation is given on how to get started with Flink SQL Client usin
 ```
 ./bin/sql-client.sh
 ```
-### Creating Iceberg Table managed in Hive catalog
+### Create Iceberg Table managed in Hive catalog
 
 With the following steps, we illustrate how you can create Flink-Iceberg Catalog using Hive catalog
 
@@ -52,7 +52,7 @@ With the following steps, we illustrate how you can create Flink-Iceberg Catalog
   USE CATALOG hive_catalog;
 ```
 
-#### Adding dependencies to server classpath
+#### Add dependencies to server classpath
 
 ```sql
   ADD JAR '/opt/flink-webssh/lib/iceberg-flink-runtime-1.16-1.3.0.jar';
