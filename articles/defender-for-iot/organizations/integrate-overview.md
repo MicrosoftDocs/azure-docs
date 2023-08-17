@@ -13,7 +13,7 @@ Integrate Microsoft Defender for IoT with partner services to view data from acr
 > [!IMPORTANT]
 > Defender for IoT plans to end support for the legacy [Aruba ClearPass](#aruba-clearpass), [Palo Alto Panorama](#palo-alto), and [Splunk](#splunk) integrations in an upcoming 23.x version. 
 >
-> We recommend transitioning to newly recommended methods instead, such using a [Microsoft Sentinel connector](concept-sentinel-integration.md), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), or using [Defender for IoT's API](references-work-with-defender-for-iot-apis.md).
+> We recommend moving your integrations to newly recommended methods, such using a [Microsoft Sentinel connector](concept-sentinel-integration.md), [forwarding alert rules](how-to-forward-alert-information-to-partners.md), or using [Defender for IoT's API](references-work-with-defender-for-iot-apis.md).
 
 ## Aruba ClearPass
 

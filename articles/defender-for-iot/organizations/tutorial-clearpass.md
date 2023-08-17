@@ -13,7 +13,7 @@ This article describes how to integrate Aruba ClearPass with Microsoft Defender 
 
 Viewing both Defender for IoT and ClearPass information together provides SOC analysts with multidimensional visibility into the specialized OT protocols and devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior.
 
-## Cloud integration (recommended)
+## Cloud integrations (recommended)
 
 If you're integrating a cloud-connected OT sensor with Aruba ClearPass, we recommend that you connect to [Microsoft Sentinel](concept-sentinel-integration.md), and then install the [Aruba ClearPass data connector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-arubaclearpass?tab=Overview).
 
@@ -27,31 +27,17 @@ For more information, see:
 - [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md)
 - [Microsoft Sentinel documentation](/azure/sentinel/data-connectors/aruba-clearpass).
 
-## On-premises integration (recommended)
+## On-premises integrations (recommended)
 
-If you're working with an air-gapped, locally managed OT sensor, you'll need an on-premises solution to view Defender for IoT and ClearPass information in the same place.
+If you're working with an air-gapped, locally managed OT sensor, you'll need an on-premises solution to view Defender for IoT and Splunk information in the same place.
 
-In such cases, we recommend that you configure your OT sensor to send syslog files directly to ClearPass, or use [Defender for IoT's built-in API](references-work-with-defender-for-iot-apis.md).
+In such cases, we recommend that you configure your OT sensor to send syslog files directly to Splunk, or use Defender for IoT's built-in API.
 
-When creating your forwarding rule:
+For more information, see:
 
-1. In the **Actions** area, select **ClearPass**.
+- [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md)
+- [Defender for IoT API reference](references-work-with-defender-for-iot-apis.md)
 
-1. Enter the ClearPass server IP address and port.
-
-1. Select to forward specific alert details. We recommend selecting one of more of the following:
-
-    - **Block illegal function codes**:	Protocol violations - Illegal field value violating ICS protocol specification (potential exploit)
-    - **Block unauthorized PLC programming / firmware updates**:	Unauthorized PLC changes
-    - **Block unauthorized PLC stop**	PLC stop (downtime)
-    - **Block malware related alerts**: Blocking of the industrial malware attempts, such as TRITON or NotPetya
-    - **Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance) |
-
-> [!NOTE]
-> Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
->
-
-For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
 
 ## On-premises integration (legacy)
 

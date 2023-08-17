@@ -28,18 +28,15 @@ Defender for IoT now has updated guidance for integrating with your security sta
 
 We now recommend using cloud connections such as via [Microsoft Sentinel](concept-sentinel-integration.md) or the [OT Security Add-on for Splunk](https://apps.splunk.com/app/5151). For on-premises integrations, we recommend that you [configure forwarding alert rules from your sensor](how-to-forward-alert-information-to-partners.md), or use [Defender for IoT's API](references-work-with-defender-for-iot-apis.md).
 
-The legacy Aruba ClearPass, Palo Alto Panorama, and Splunk integrations are planned to be deprecated in an upcoming 23.x version. For customers using legacy integration methods, we recommend transitioning to newly recommended methods instead. For more information, see:
+The legacy Aruba ClearPass, Palo Alto Panorama, Splunk, and Microsoft Sentinel integrations are planned to be deprecated in an upcoming 23.x version. For customers using legacy integration methods, we recommend moving your integrations to newly recommended methods. For more information, see:
 
 - [Integrate ClearPass with Microsoft Defender for IoT (on-premises integration)](tutorial-clearpass.md)
 - [Integrate Palo Alto with Microsoft Defender for IoT](tutorial-palo-alto.md)
 - [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)
+- [Integrate Microsoft Sentinel and Defender for IoT](concept-sentinel-integration.md)
 - [Integrations with Microsoft and partner services](integrate-overview.md)
 
-> [!NOTE]
-> Microsoft Sentinel is a scalable cloud service for security information event management (SIEM) security orchestration automated response (SOAR).  SOC teams can use the integration between Microsoft Defender for IoT and Microsoft Sentinel to collect data across networks, detect and investigate threats, and respond to incidents.
->
-> Some features of Microsoft Sentinel might incur a fee. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](/azure/sentinel/billing).
->
+
 
 ## July 2023
 

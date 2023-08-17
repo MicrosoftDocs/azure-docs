@@ -1,18 +1,19 @@
 ---
 title: How to connect on-premises Defender for IoT resources to Microsoft Sentinel
-description: Learn how to stream data into Microsoft Sentinel from an on-premises and locally-managed Microsoft Defender for IoT OT network sensor or an on-premises management console.
+description: This article describes the legacy method for connecting your OT sensor or on-premises management console to Microsoft Sentinel.
 ms.topic: how-to
-ms.date: 12/26/2022
+ms.date: 08/17/2023
 ms.custom: template-how-to-pattern
 ---
 
-# Connect on-premises OT network sensors to Microsoft Sentinel
+# Connect on-premises OT network sensors to Microsoft Sentinel (legacy)
 
-You can [stream Microsoft Defender for IoT data into Microsoft Sentinel](../iot-solution.md) via the Azure portal, for any data coming from cloud-connected OT network sensors.
+This article describes the legacy method for connecting your OT sensor or on-premises management console to Microsoft Sentinel. Stream data into Microsoft Sentinel whenever you want to use Microsoft Sentinel's advanced threat hunting, security analytics, and automation features when responding to security incidents and threats across your network.
 
-However, if you're working either in a hybrid environment, or completely on-premises, you might want to stream data in from your locally-managed sensors to Microsoft Sentinel. To do this, create forwarding rules on either your OT network sensor, or for multiple sensors from an on-premises management console.
-
-Stream data into Microsoft Sentinel whenever you want to use Microsoft Sentinel's advanced threat hunting, security analytics, and automation features when responding to security incidents and threats across your network. For more information, see [Microsoft Sentinel documentation](../../../sentinel/index.yml).
+> [!IMPORTANT]
+> Defender for IoT plans to end support for the legacy method of connecting to Microsoft Sentinel in an upcoming 23.x version.
+>
+> We recommend transitioning to newly recommended methods instead, such as [connecting via the cloud](../concept-sentinel-integration.md), [forwarding sylsog files via alert forwarding rules](../how-to-forward-alert-information-to-partners.md), or using [Defender for IoT's API](../references-work-with-defender-for-iot-apis.md). 
 
 ## Prerequisites
 
