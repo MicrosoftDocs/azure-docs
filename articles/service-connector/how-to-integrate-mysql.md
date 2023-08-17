@@ -100,7 +100,7 @@ Follow these steps to connect to Azure Database for MySQL.
 | `spring.datasource.username` | Database username             | `<MySQL-DB-username>`  |
 | `spring.datasource.password` | Database password             | `MySQL-DB-password`    |
 
-After created a springboot client type connection, Service Connector service will automatically add properties `spring.datasource.url`, `spring.datasource.username`, `spring.datasource.password`. So Spring boot application could add beans automatically.
+After created a `springboot` client type connection, Service Connector service will automatically add properties `spring.datasource.url`, `spring.datasource.username`, `spring.datasource.password`. So Spring boot application could add beans automatically.
 
 1. Install dependencies. Add following dependencies to your `pom.xml` file.
     ```xml
@@ -623,7 +623,7 @@ Follow these steps and sample codes to connect to Azure Database for MySQL.
 
 ## Next steps
 
-Follow the tutorials listed below to learn more about Service Connector.
+Follow the documentations to learn more about Service Connector.
 
 > [!div class="nextstepaction"]
 > [Learn about Service Connector concepts](./concept-service-connector-internals.md)
