@@ -17,13 +17,13 @@ items:
     href: versioning.md 
   - name: Enterprise Security
     items:
-    - name: Security Architecture & Security Pillars
+    - name: Security Architecture and Security Pillars
       href: concept-security.md
     - name: Network Security
       items:
       - name: Required outbound traffic
         href: ./required-outbound-traffic.md
-  - name: Metrics & Monitoring
+  - name: Metrics and Monitoring
     href: ./concept-azure-monitor-integration.md
   - name: Customize Clusters
     href : ./customize-clusters.md
@@ -158,7 +158,7 @@ items:
     items:
     - name: Configuration Management
       href: ./flink/flink-configuration-management.md
-    - name: Table API & SQL
+    - name: Table API and SQL
       href: ./flink/flink-tableapi-and-sql.md
   - name: How-to guides
     items:
@@ -174,19 +174,19 @@ items:
         href: ./flink/flink-how-to-setup-event-hub.md  
       - name: Delta Connectors
         href: ./flink/use-flink-delta-connector.md  
-      - name: Elastic & Kibana
+      - name: Elastic and Kibana
         href: ./flink/sink-kafka-to-kibana.md
       - name: HDInsight Kafka
         href: ./flink/process-and-consume-data.md
     - name: Flink SQL
       items:
-      - name: CDC - Azure PostgresSQL & FlinkSQL 
+      - name: CDC - Azure PostgresSQL and FlinkSQL 
         href: ./flink/monitor-changes-postgres-table-using-flink.md
-      - name: CDC - SQL Server & FlinkSQL 
+      - name: CDC - SQL Server and FlinkSQL 
         href: ./flink/sink-sql-server-table-using-flink-sql.md
       - name: Use Kafka table on FlinkSQL
         href: ./flink/create-kafka-table-using-kafka-sql-connector.md
-      - name: Hive Catalog & FlinkSQL
+      - name: Hive Catalog and FlinkSQL
         href: ./flink/use-hive-catalog.md
       - name: Flink-Iceberg Catalog
         href: ./flink/flink-catalog-iceberg-hive.md
@@ -198,7 +198,7 @@ items:
         href: ./flink/assign-kafka-topic-event-message-to-adslgen2.md
       - name: Apache NiFi with DataStream API
         href: ./flink/using-apache-nifi-with-dstream-api.md
-      - name: CDC - SQL Server & DataStream API
+      - name: CDC - SQL Server and DataStream API
         href: ./flink/cdc-connectors-for-apache-flink.md
       - name: Hivemetastore with Flink DataStream
         href: ./flink/using-hms-dstream.md
