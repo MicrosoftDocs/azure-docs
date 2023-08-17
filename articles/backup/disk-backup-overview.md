@@ -74,6 +74,15 @@ The retention period for a backup also follows the maximum limit of 450 snapshot
 
 For example, if the scheduling frequency for backups is set as Daily, then you can set the retention period for backups at a maximum value of 450 days. Similarly, if the scheduling frequency for backups is set as Hourly with a 1-hour frequency, then you can set the retention for backups at a maximum value of 18 days. 
 
+## Why do I see more snapshots than my retention policy?
+
+If a retention policy is set as *1*, you can find two snapshots. This configuration ensures that at least one latest recovery point is always present in the vault, if all subsequent backups fail due to any issue. This causes the presence of two snapshots.
+
+So, if the policy is for *n* snapshots, you can find *n+1* snapshots at times. Further, you can even find *n+1+2* snapshots if there is a delay in deletion of recovery points whose retention period is over (garbage collection). This can happen at rare times when:
+
+- You clean up snapshots, which are past retentions.
+- The garbage collector (GC) in the backend is under heavy load.
+
 ## Pricing
 
 Azure Backup uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md) of the managed disk. Incremental snapshots are charged per GiB of the storage occupied by the delta changes since the last snapshot. For example, if you're using a managed disk with a provisioned size of 128 GiB, with 100 GiB used, the first incremental snapshot is billed only for the used size of 100 GiB. 20 GiB of data is added on the disk before you create the second snapshot. Now, the second incremental snapshot is billed for only 20 GiB. 
@@ -83,15 +92,6 @@ Incremental snapshots are always stored on standard storage, irrespective of the
 The snapshots created by Azure Backup are stored in the resource group within your Azure subscription and incur Snapshot Storage charges. For more details about the snapshot pricing, see [Managed Disk Pricing](https://azure.microsoft.com/pricing/details/managed-disks/). Because the snapshots aren't copied to the Backup Vault, Azure Backup doesn't charge a Protected Instance fee and Backup Storage cost doesn't apply. 
 
 The number of recovery points is determined by the Backup policy used to configure backups of the disk backup instances. Older block blobs are deleted according to the garbage collection process as the corresponding older recovery points are pruned.
-
-## Why do I see more snapshots than my retention policy?
-
-If a retention policy is set as *1*, you can find two snapshots. This configuration ensures that at least one latest recovery point is always present in the vault, if all subsequent backups fail due to any issue. This causes the presence of two snapshots.
-
-So, if the policy is for *n* snapshots, you can find *n+1* snapshots at times. Further, you can even find *n+1+2* snapshots if there is a delay in deletion of recovery points whose retention period is over (garbage collection). This can happen at rare times when:
-
-- You clean up snapshots, which are past retentions.
-- The garbage collector (GC) in the backend is under heavy load.
 
 ## Next steps
 
