@@ -20,11 +20,11 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 This article describes how to use Azure Spring Apps with a Palo Alto firewall.
 
-For example, the [Azure Spring Apps reference architecture](./reference-architecture.md) includes an Azure Firewall to secure your applications. However, if your current deployments include a Palo Alto firewall, you can omit the Azure Firewall from the Azure Spring Apps deployment and use Palo Alto instead, as described in this article.
+If your current deployments include a Palo Alto firewall, you can omit the Azure Firewall from the Azure Spring Apps deployment and use Palo Alto instead, as described in this article.
 
-You should keep configuration information, such as rules and address wildcards, in CSV files in a Git repository. This article shows you how to use automation to apply these files to Palo Alto. To understand the configuration to be applied to Palo Alto, see [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md). 
+You should keep configuration information, such as rules and address wildcards, in CSV files in a Git repository. This article shows you how to use automation to apply these files to Palo Alto. To understand the configuration to be applied to Palo Alto, see [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md).
 
-> [!Note]
+> [!NOTE]
 > In describing the use of REST APIs, this article uses the PowerShell variable syntax to indicate names and values that are left to your discretion. Be sure to use the same values in all the steps.
 >
 > After you've configured the TLS/SSL certificate in Palo Alto, remove the `-SkipCertificateCheck` argument from all Palo Alto REST API calls in the examples below.

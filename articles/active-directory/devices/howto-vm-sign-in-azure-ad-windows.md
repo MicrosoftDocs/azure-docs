@@ -12,8 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: sandeo
-
-ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
+ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 # Log in to a Windows virtual machine in Azure by using Azure AD including passwordless
@@ -489,4 +488,4 @@ Another way to verify it is via Graph PowerShell:
 
 ## Next steps
 
-For more information about Azure AD, see [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
+For more information about Azure AD, see [What is Azure Active Directory?](../fundamentals/whatis.md).
