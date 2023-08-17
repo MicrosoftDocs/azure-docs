@@ -104,7 +104,7 @@ The following are sample role definitions that allow you to publish and subscrib
 ```
 
 ## Create custom roles
-1. Navigate to topic spaces page in Event Grid namespace
+1. Navigate to topic spaces page in your Event Grid namespace
 1. Select the topic space for which the custom RBAC role needs to be created
 1. Navigate to the Access control (IAM) page within the topic space
 1. In the Roles tab, right select any of the roles to clone a new custom role.  Provide the custom role name.
@@ -118,6 +118,7 @@ The following are sample role definitions that allow you to publish and subscrib
 1. Select Next to see the topic space in the Assignable scopes tab.  You can add other assignable scopes if needed.
 1. Select **Create** in Review + create tab to create the custom role.
 1. Once the custom role is created, you can assign the role to an identity to provide the publish permission on the topic space.  You can learn how to assign roles [here](/azure/role-based-access-control/role-assignments-portal).
+
 
 ## Assign the custom role to your Azure AD identity
 1. In the Azure portal, navigate to your Event Grid namespace
@@ -141,4 +142,4 @@ The following are sample role definitions that allow you to publish and subscrib
 - To learn more about how to obtain tokens from Azure AD, you can refer to [obtaining Azure AD tokens](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token)
 - To learn more about Azure Identity client library, you can refer to [using Azure Identity client library](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-the-azure-identity-client-library)
 - To learn more about implementing an interface for credentials that can provide a token, you can refer to [TokenCredential Interface](/java/api/com.azure.core.credential.tokencredential?view=azure-java-stable)
-- To learn more about how to authenticate using Azure AD, you can refer to [examples](https://github.com/Azure/azure-sdk-for-java/wiki/Azure-Identity-Examples)
+- To learn more about how to authenticate using Azure Identity, you can refer to [examples](https://github.com/Azure/azure-sdk-for-java/wiki/Azure-Identity-Examples)
