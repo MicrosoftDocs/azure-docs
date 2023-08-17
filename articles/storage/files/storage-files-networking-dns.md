@@ -55,6 +55,8 @@ Before you can set up DNS forwarding to Azure Files, you'll need the following:
 ## Configure DNS forwarding using VMs
 If you already have DNS servers in place within your Azure virtual network, or if you prefer to deploy your own DNS server VMs by whatever methodology your organization uses, you can configure DNS with the built-in DNS server PowerShell cmdlets.
 
+:::image type="content" source="media/storage-files-networking-dns/dns-forwarding-azure-virtual-machines.png" alt-text="Diagram showing the network topology for configuring D N S forwarding using virtual machines in Azure." lightbox="media/storage-files-networking-dns/dns-forwarding-azure-virtual-machines.png" border="false":::
+
 > [!Important]  
 > This guide assumes you're using the DNS server within Windows Server in your on-premises environment. All of the steps described here are possible with any DNS server, not just the Windows DNS Server.
 
@@ -80,10 +82,10 @@ Add-DnsServerConditionalForwarderZone `
         -MasterServers "168.63.129.16"
 ```
 
-:::image type="content" source="media/storage-files-networking-dns/dns-forwarding-azure-virtual-machines.png" alt-text="Diagram showing the network topology for configuring D N S forwarding using virtual machines in Azure." lightbox="media/storage-files-networking-dns/dns-forwarding-azure-virtual-machines.png" border="false":::
-
 ## Configure DNS forwarding using Azure DNS Private Resolver
 If you prefer not to deploy DNS server VMs, you can accomplish the same task using Azure DNS Private Resolver. See [Create an Azure DNS Private Resolver using the Azure portal](../../dns/dns-private-resolver-get-started-portal.md).
+
+:::image type="content" source="media/storage-files-networking-dns/dns-forwarding-azure-private-resolver.png" alt-text="Diagram showing the network topology for configuring D N S forwarding using Azure D N S Private Resolver." lightbox="media/storage-files-networking-dns/dns-forwarding-azure-private-resolver.png" border="false":::
 
 There's no difference in how you configure your on-premises DNS servers, except that instead of pointing to the IP addresses of the DNS servers in Azure, you point to the resolver's inbound endpoint IP address. The resolver doesn't require any configuration, as it will forward queries to the Azure private DNS server by default. If a private DNS zone is linked to the VNet where the resolver is deployed, the resolver will be able to reply with records from that DNS zone.
 
@@ -98,8 +100,6 @@ Add-DnsServerConditionalForwarderZone `
         -Name $storageAccountEndpoint `
         -MasterServers $privateResolver
 ```
-
-:::image type="content" source="media/storage-files-networking-dns/dns-forwarding-azure-private-resolver.png" alt-text="Diagram showing the network topology for configuring D N S forwarding using Azure D N S Private Resolver." lightbox="media/storage-files-networking-dns/dns-forwarding-azure-private-resolver.png" border="false":::
 
 ## Confirm DNS forwarders
 Before testing to see if the DNS forwarders have successfully been applied, we recommend clearing the DNS cache on your local workstation using `Clear-DnsClientCache`. To test if you can successfully resolve the FQDN of your storage account, use `Resolve-DnsName` or `nslookup`.
