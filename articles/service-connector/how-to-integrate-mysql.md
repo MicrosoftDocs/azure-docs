@@ -92,7 +92,6 @@ After created a `springboot` client type connection, Service Connector service w
 | `AZURE_MYSQL_USER`                  | Database Username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | `AZURE_MYSQL_PASSWORD`              | Database password | `MySQL-DB-password`                        |
 
-
 #### [Go](#tab/go)
 
 | Default environment variable name | Description                     | Example value                                                                                                |
