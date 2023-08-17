@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/17/2023
+ms.date: 08/17/2023
 
 ms.author: mimart
 author: msmimart
@@ -14,10 +14,10 @@ ms.custom: it-pro, devx-track-dotnet
 ms.collection: M365-identity-device-management
 ---
 
-# Set up tenant restrictions V2 (Preview)
+# Set up tenant restrictions V2
 
 > [!NOTE]
-> The **Tenant restrictions** settings, which are included with cross-tenant access settings, are preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Certain features described in this article are preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 For increased security, you can limit what your users can access when they use an external account to sign in from your networks or devices. With the **Tenant restrictions** settings included with [cross-tenant access settings](cross-tenant-access-overview.md), you can control the external apps that your Windows device users can access when they're using external accounts.
 
@@ -180,7 +180,7 @@ Settings for tenant restrictions V2 are located in the Azure portal under **Cros
 
    :::image type="content" source="media/tenant-restrictions-v2/tenant-restrictions-default-section.png" alt-text="Screenshot showing the tenant restrictions section on the default settings tab.":::
 
-1. Scroll to the **Tenant restrictions (Preview)** section.
+1. Scroll to the **Tenant restrictions** section.
 
 1. Select the **Edit tenant restrictions defaults** link.
 
@@ -246,7 +246,7 @@ Suppose you use tenant restrictions to block access by default, but you want to 
 
    :::image type="content" source="media/tenant-restrictions-v2/tenant-restrictions-edit-link.png" alt-text="Screenshot showing an organization added with default settings.":::
 
-1. The **Tenant restrictions (Preview)** page for the organization appears. Copy the values for **Tenant ID** and **Policy ID**. You'll use them when you configure Windows clients to enable tenant restrictions.
+1. The **Tenant restrictions** page for the organization appears. Copy the values for **Tenant ID** and **Policy ID**. You'll use them when you configure Windows clients to enable tenant restrictions.
 
    :::image type="content" source="media/tenant-restrictions-v2/org-tenant-policy-id.png" alt-text="Screenshot showing tenant ID and policy ID.":::
 
