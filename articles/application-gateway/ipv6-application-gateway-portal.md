@@ -5,7 +5,7 @@ description: Learn how to configure Application Gateway with a frontend private 
 services: application-gateway
 author: greg-lindsay
 ms.topic: how-to
-ms.date: 08/14/2023
+ms.date: 08/17/2023
 ms.author: greglin
 ms.service: application-gateway
 ms.custom: mvc, mode-ui
@@ -65,7 +65,7 @@ For more information about preview features, see [Set up preview features in Azu
 In this article, you use the Azure portal to create an IPv6 Azure Application Gateway and test it to ensure it works correctly. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, a simple setup is used with two public frontend IP addresses (IPv4 and IPv6), a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines (VMs) in the backend pool.
 
 > [!IMPORTANT]
-> If you are registered for [Private Application Gateway](application-gateway-private-deployment.md) preview, you must delete any Private Application Gateways that are provisioned before you can register to the IPv6 Application Gateway preview. Also [unregister](application-gateway-private-deployment.md#unregister-from-the-preview) from the **EnableApplicationGatewayNetworkIsolation** preview feature. 
+> If you're registered for [Private Application Gateway](application-gateway-private-deployment.md) preview, you must delete any Private Application Gateways that are provisioned before you can register to the IPv6 Application Gateway preview. Also [unregister](application-gateway-private-deployment.md#unregister-from-the-preview) from the **EnableApplicationGatewayNetworkIsolation** preview feature. 
 
 Use the following steps to enroll into the public preview for IPv6 Application Gateway using the Azure portal:
 
@@ -228,7 +228,7 @@ A backend IPv4 subnet is required for the backend targets. The backend subnet is
 
 Next, a backend target is added to test the application gateway:
 
-1. One [VM is created](#create-a-virtual-machine): **myVM** and used as a backend target. You can also use existing virtual machines if they are available.
+1. One [VM is created](#create-a-virtual-machine): **myVM** and used as a backend target. You can also use existing virtual machines if they're available.
 2. [IIS is installed](#install-iis-for-testing) on the virtual machine to verify that the application gateway was created successfully.
 3. The backend server (VM) is [added to the backend pool](#add-backend-servers-to-backend-pool).
 
@@ -298,7 +298,7 @@ In this example, you install IIS on the virtual machines to verify Azure created
 
 ## Test the application gateway
 
-IIS isn't required to create the application gateway. It is installed here to verify that you are able to successfully connect to the IPv6 interface of the application gateway. 
+IIS isn't required to create the application gateway. It's installed here to verify that you're able to successfully connect to the IPv6 interface of the application gateway. 
 
 Previously, we assigned the DNS name **myipv6appgw.westcentralus.cloudapp.azure.com** to the public IPv6 address of the application gateway. To test this connection:
 

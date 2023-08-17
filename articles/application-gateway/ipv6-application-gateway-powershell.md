@@ -203,7 +203,7 @@ $frontendRulev6 = New-AzApplicationGatewayRequestRoutingRule `
 
 ### Create the application gateway
 
-Now that you have created the necessary supporting resources, you can specify parameters for the application gateway using [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku). The new application gateway is created using [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).  Creating the application gateway will take a few minutes.
+Now that you have created the necessary supporting resources, you can specify parameters for the application gateway using [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku). The new application gateway is created using [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).  Creating the application gateway takes a few minutes.
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -241,7 +241,7 @@ To create the virtual machines, we get the recently created Application Gateway 
 * Create the virtual machines with *New-AzVM*.
 
 > [!NOTE]
-> When you run the following code sample to create virtual machines, Azure prompts you for credentials. Enter your username and password.​ Creation of the VMs will take a few minutes.
+> When you run the following code sample to create virtual machines, Azure prompts you for credentials. Enter your username and password.​ Creation of the VMs takes a few minutes.
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway -ResourceGroupName myResourceGroupAG -Name myipv6AppGW
@@ -312,7 +312,7 @@ Set-AzPublicIpAddress -PublicIpAddress $publicIp
 Previously, we assigned the DNS name **myipv6appgw.eastus.cloudapp.azure.com** to the public IPv6 address of the application gateway. To test this connection:
 
 1. Using the Invoke-WebRequest cmdlet, issue a request to the IPv6 frontend.
-2. Check the response. A valid response of **myVM1** or **myVM2** verifies that the application gateway was successfully created and can successfully connect with the backend.  If you issue the command several times, the gateway will load balance and respond to subsequent requests from a different backend server.
+2. Check the response. A valid response of **myVM1** or **myVM2** verifies that the application gateway was successfully created and can successfully connect with the backend.  If you issue the command several times, the gateway load balances and responds to subsequent requests from a different backend server.
 
 ```PowerShell
 PS C:\> (Invoke-WebRequest -Uri myipv6appgw.eastus.cloudapp.azure.com).Content
