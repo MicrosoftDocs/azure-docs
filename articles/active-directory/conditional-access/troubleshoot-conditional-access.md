@@ -54,7 +54,7 @@ More information can be found about the problem by clicking **More Details** in 
 
 To find out which Conditional Access policy or policies applied and why do the following.
 
-1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Global Reader.
+1. Sign in to the **[Azure portal](https://portal.azure.com)** as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Azure Active Directory** > **Sign-ins**.
 1. Find the event for the sign-in to review. Add or remove filters and columns to filter out unnecessary information.
    1. Add filters to narrow the scope:
@@ -102,11 +102,11 @@ To determine the service dependency, check the sign-ins log for the application 
 
 :::image type="content" source="media/troubleshoot-conditional-access/service-dependency-example-sign-in.png" alt-text="Screenshot that shows an example sign-in log showing an Application calling a Resource. This scenario is also known as a service dependency." lightbox="media/troubleshoot-conditional-access/service-dependency-example-sign-in.png":::
 
-## What to do if you're locked out of the Azure portal?
+## What to do if you're locked out?
 
-If you're locked out of the Azure portal due to an incorrect setting in a Conditional Access policy:
+If you're locked out of the due to an incorrect setting in a Conditional Access policy:
 
-- Check is there are other administrators in your organization that aren't blocked yet. An administrator with access to the Azure portal can disable the policy that is impacting your sign-in. 
+- Check is there are other administrators in your organization that aren't blocked yet. An administrator with access can disable the policy that is impacting your sign-in. 
 - If none of the administrators in your organization can update the policy, submit a support request. Microsoft support can review and upon confirmation update the Conditional Access policies that are preventing access.
 
 ## Next steps

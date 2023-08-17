@@ -108,7 +108,7 @@ Some IP addresses don't map to a specific country or region. To capture these IP
 
 ## Define locations
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
+1. Sign in to the **[Azure portal](https://portal.azure.com)** as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
 1. Choose **New location**.
 1. Give your location a name.

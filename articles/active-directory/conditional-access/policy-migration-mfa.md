@@ -31,9 +31,9 @@ The migration process consists of the following steps:
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the **[Azure portal](https://portal.azure.com)** as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 
-1. Navigate to **Azure Active Directory** > **Security** > **Conditional Access**.
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 
 1. Select, **Classic policies**.
 
