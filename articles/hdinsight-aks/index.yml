@@ -134,7 +134,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Submit and Manage Jobs
-            url: ./spark/submit-and-manage-jobs.md
+            url: ./spark/submit-manage-jobs.md
           - text: Library Management
             url: ./spark/library-management.md
           - text: Use ML Notebook on Spark
