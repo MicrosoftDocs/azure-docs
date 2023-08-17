@@ -139,11 +139,12 @@ s
 ---
 
 Follow these steps and sample codes to connect to Azure Database for MySQL.
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-secret.md)]
+[!INCLUDE [code sample for mysql secrets](./includes/code-mysql-secret.md)]
 
 ---
 
 ### [System assigned Managed Identity](#systemmi)
+
 #### [.NET](#tab/dotnet)
 
 | Default environment variable name | Description                     | Example value                                                                                                                                                  |
