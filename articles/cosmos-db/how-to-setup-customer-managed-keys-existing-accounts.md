@@ -22,13 +22,13 @@ This feature eliminates the need for data migration to a new account to enable C
 > [!NOTE]
 > Currently, enabling customer-managed keys on existing Azure Cosmos DB accounts is in preview. This preview is provided without a service-level agreement. Certain features of this preview may not be supported or may have constrained capabilities. For more information, see [supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Enabling CMK kicks off a background, asynchronous process to encrypt all the existing data in the account, while new incoming data are encrypted before persisting. There's no need to wait for the asynchronous operation to succeed. The enablement process consumes unused/spare RUs so that it doesn't affect your read/write workloads. You can refer to this [link](./how-to-setup-customer-managed-keys?tabs=azure-powershell#how-do-customer-managed-keys-influence-capacity-planning) for capacity planning once your account is encrypted. 
+Enabling CMK kicks off a background, asynchronous process to encrypt all the existing data in the account, while new incoming data are encrypted before persisting. There's no need to wait for the asynchronous operation to succeed. The enablement process consumes unused/spare RUs so that it doesn't affect your read/write workloads. You can refer to this [link](./how-to-setup-customer-managed-keys.md?tabs=azure-powershell#how-do-customer-managed-keys-influence-capacity-planning) for capacity planning once your account is encrypted. 
 
 ## Get started by enabling CMK on your existing accounts
 
 ### Prerequisites
 
-All the prerequisite steps needed while configuring Customer Managed Keys for new accounts is applicable to enable CMK on your existing account. Refer to the steps [here](./how-to-setup-customer-managed-keys?tabs=azure-portal#prerequisites)
+All the prerequisite steps needed while configuring Customer Managed Keys for new accounts is applicable to enable CMK on your existing account. Refer to the steps [here](./how-to-setup-customer-managed-keys.md?tabs=azure-portal#prerequisites)
 
 ### Steps to enable CMK on your existing account
 
