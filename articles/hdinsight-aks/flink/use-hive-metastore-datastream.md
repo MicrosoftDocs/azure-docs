@@ -1,12 +1,12 @@
 ---
-title: Using Hive Metastore with Flink DataStream API
-description: Using Hive Metastore with Flink DataStream API
+title: Use Hive Metastore with Flink DataStream API
+description: Use Hive Metastore with Flink DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/16/2023
 ---
 
-# Using Hive Metastore with Flink DataStream
+# Use Hive Metastore with Flink DataStream API
 
 Over the years, Hive Metastore has evolved into a de facto metadata center in the Hadoop ecosystem. Many companies have a separate Hive Metastore service instance in their production environments to manage all their metadata (Hive or non-Hive metadata). For users who have both Hive and Flink deployments, HiveCatalog enables them to use Hive Metastore to manage Flink’s metadata.
 
@@ -38,7 +38,7 @@ If you're building your own program, you need the following dependencies in your
 </dependency>
 ```
 
-## Connecting to Hive
+## Connect to Hive
 
 This example illustrates various snippets of connecting to hive, using HDInsight on AKS - Flink, you're required to use `/opt/hive-conf` as hive configuration directory to connect with Hive metastore
 
@@ -64,5 +64,5 @@ public static void main(String[] args) throws Exception
         tableEnv.executeSql("create view MyView as select * from MyTable");
 ```
 
-### References
+## References
 [Apache Flink - Hive read & write](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/table/hive/hive_read_write/)
