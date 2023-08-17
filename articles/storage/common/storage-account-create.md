@@ -7,10 +7,10 @@ author: tamram
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 05/02/2023
+ms.date: 08/17/2023
 ms.author: tamram
 ms.subservice: storage-common-concepts
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement
 ---
 
 # Create a storage account
@@ -503,6 +503,95 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 
 ---
 Alternately, you can delete the resource group, which deletes the storage account and any other resources in that resource group. For more information about deleting a resource group, see [Delete resource group and resources](../../azure-resource-manager/management/delete-resource-group.md).
+
+## Create a general purpose v1 (GPv1) storage account
+
+[!INCLUDE [GPv1 support statement](../../../includes/storage-account-gpv1-support.md)]
+
+GPv1 storage accounts can no longer be created from the Azure portal. If you need to create a GPv1 storage account, you must use PowerShell, the Azure CLI, Bicep, or Azure Templates to create them.
+
+# [Portal](#tab/azure-portal)
+
+GPv1 storage accounts can no longer be created from the Azure portal. If you need to create a GPv1 storage account, you must use PowerShell, the Azure CLI, Bicep, or Azure Templates to create them.
+
+# [PowerShell](#tab/azure-powershell)
+
+Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions to authenticate.
+
+```powershell
+Connect-AzAccount
+```
+
+```azurepowershell
+New-AzStorageAccount -ResourceGroupName $resourceGroup `
+  -Name <account-name> `
+  -Location $location `
+  -SkuName Standard_RAGRS `
+  -Kind StorageV2
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
+
+To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az-login) command:
+
+```azurecli-interactive
+az login
+```
+
+```azurecli-interactive
+az storage account create \
+  --name <account-name> \
+  --resource-group storage-resource-group \
+  --location eastus \
+  --sku Standard_RAGRS \
+  --kind StorageV2
+```
+
+# [Bicep](#tab/bicep)
+
+You can use either Azure PowerShell or Azure CLI to deploy a Bicep file to create a storage account. The Bicep file used in this how-to article is from [Azure Resource Manager quickstart templates](https://azure.microsoft.com/resources/templates/storage-account-create/). Bicep currently doesn't support deploying a remote file.  Download and save [the Bicep file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/main.bicep) to your local computer, and then run the scripts.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "main.bicep"
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the location (i.e. centralus):" &&
+read location &&
+az group create --name $resourceGroupName --location "$location" &&
+az deployment group create --resource-group $resourceGroupName --template-file "main.bicep"
+```
+
+# [Template](#tab/template)
+
+You can use either Azure PowerShell or Azure CLI to deploy a Resource Manager template to create a storage account. The template used in this how-to article is from [Azure Resource Manager quickstart templates](https://azure.microsoft.com/resources/templates/storage-account-create/). To run the scripts, select **Try it** to open the Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**.
+
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json"
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the location (i.e. centralus):" &&
+read location &&
+az group create --name $resourceGroupName --location "$location" &&
+az deployment group create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json"
+```
+
+---
 
 ## Next steps
 
