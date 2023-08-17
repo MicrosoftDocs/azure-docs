@@ -219,4 +219,4 @@ Now that all the required code snippets have been added, the application can be 
 
 ## Next steps
 
-- [Enable self-service password reset](./how-to-enable-password-reset-customers.md)
+- [Enable self-service password reset](./how-to-enable-password-reset-customers.md) 
