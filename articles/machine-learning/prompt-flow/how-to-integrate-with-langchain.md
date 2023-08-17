@@ -59,7 +59,7 @@ Then you can create a [Prompt flow runtime](./how-to-create-manage-runtime.md) b
 
 When developing your LangChain code, you might have [defined environment variables to store your credentials, such as the AzureOpenAI API KEY](https://python.langchain.com/docs/integrations/llms/azure_openai_example), which is necessary for invoking the AzureOpenAI model.
 
-:::image type="content" source="./media/how-to-integrate-with-langchain/langchain_env_variables.png" alt-text="Screenshot of Azure OpenAI example in LangChain. " lightbox = "./media/how-to-integrate-with-langchain/langchain_env_variables.png":::
+:::image type="content" source="./media/how-to-integrate-with-langchain/langchain-env-variables.png" alt-text="Screenshot of Azure OpenAI example in LangChain. " lightbox = "./media/how-to-integrate-with-langchain/langchain-env-variables.png":::
 
 Instead of directly coding the credentials in your code and exposing them as environment variables when running LangChain code in the cloud, it is recommended to convert the credentials from environment variables into a connection in prompt flow. This allows you to securely store and manage the credentials separately from your code.
 
@@ -118,7 +118,7 @@ After you have a properly structured flow and are done moving the code to specif
 
 **Configure connection**
 
-To utilize a connection that replace the environment variables you originally defined in LangChain code, you need to import promptflow connection library `promptflow.connections` in the python node. 
+To utilize a connection that replaces the environment variables you originally defined in LangChain code, you need to import promptflow connection library `promptflow.connections` in the python node. 
 
 For example:
 
