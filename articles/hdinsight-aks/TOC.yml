@@ -180,8 +180,8 @@ items:
         href: ./flink/process-and-consume-data.md
     - name: Flink SQL
       items:
-      - name:  CDC - Azure PostgresSQL & FlinkSQL 
-        href: ./flink/monitor-changes-postgres-table-using-flink.md
+      - name:  CDC - Azure PostgreSQL & FlinkSQL 
+        href: ./flink/monitor-changes-postgres-table-flink.md
       - name: Using CDC - SQL Server & FlinkSQL 
         href: ./flink/sink-sql-server-table-using-flink-sql.md
       - name: Using Kafka table on FlinkSQL
