@@ -24,7 +24,7 @@ This issue might occur when the cluster does not have the correct firewall rule(
 
 :::image type="content" source="./media/troubleshoot-guide/timeout-error-solution.png" alt-text="Screenshot of the Timeout error solution for Azure Cosmos DB for MongoDB vCore":::
 
-### Application Unable to Connect with DNSClient.DnsResponseException Error
+### Unable to Connect with DNSClient.DnsResponseException Error
 #### Debugging Connectivity Issues: 
 Windows User: <br>
 Psping doesn't work. The use of nslookup confirms cluster reachability and discoverability, indicating network issues are unlikely.
