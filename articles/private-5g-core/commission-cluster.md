@@ -72,6 +72,8 @@ Run the following commands at the PowerShell prompt, specifying the object ID yo
 
 ```powershell
 Invoke-Command -Session $minishellSession -ScriptBlock {Set-HcsKubeClusterArcInfo -CustomLocationsObjectId *object ID*}
+
+Invoke-Command -Session $minishellSession -ScriptBlock {Enable-HcsAzureKubernetesService -f} 
 ```
 
 Once you've run this command, you should see an updated option in the local UI – **Kubernetes** becomes **Kubernetes (Preview)** as shown in the following image.
@@ -301,7 +303,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
 1. Create the Network Function Operator Kubernetes extension:
 
     ```azurecli
-    Add-Content -Path $TEMP_FILE -Value @"
+    cat > $TEMP_FILE <<EOF
     {
       "helm.versions": "v3",
       "Microsoft.CustomLocation.ServiceAccount": "azurehybridnetwork-networkfunction-operator",
@@ -312,7 +314,7 @@ The Azure Private 5G Core private mobile network requires a custom location and 
       "helm.release-namespace": "azurehybridnetwork",
       "managed-by": "helm"
     }
-    "@ 
+    EOF 
     ```
 
     ```azurecli

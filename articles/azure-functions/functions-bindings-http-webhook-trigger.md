@@ -83,7 +83,7 @@ The following example shows an HTTP trigger that returns a "hello world" respons
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger":::
 
-The following example shows an HTTP trigger that returns a "hello, world" response as an [IActionResult], using [ASP.NET Core integration in .NET Isolated](./dotnet-isolated-process-guide.md#aspnet-core-integration-preview):
+The following example shows an HTTP trigger that returns a "hello, world" response as an [IActionResult], using [ASP.NET Core integration in .NET Isolated]:
 
 ```csharp
 [Function("HttpFunction")]
@@ -587,9 +587,51 @@ The [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger
 + Any plain-old Java object (POJO) type.
 ::: zone-end
 
+::: zone pivot="programming-language-csharp"
+
 ### Payload
 
+# [In-process](#tab/in-process)   
+
 The trigger input type is declared as either `HttpRequest` or a custom type. If you choose `HttpRequest`, you get full access to the request object. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
+
+# [Isolated process](#tab/isolated-process)
+
+The trigger input type is declared as one of the following types:
+
+| Type              | Description | 
+|-|-|
+| [HttpRequestData] | A projection of the full request object. |
+| [HttpRequest]     | _Use of this type requires that the app is configured with [ASP.NET Core integration in .NET Isolated]._<br/>This gives you full access to the request object and overall HttpContext. |
+| A custom type     | When the body of the request is JSON, the runtime will try to parse it to set the object properties. |
+
+When using `HttpRequestData` or `HttpRequest`, custom types can also be bound to additional parameters using `Microsoft.Azure.Functions.Worker.Http.FromBodyAttribute`. Use of this attribute requires [`Microsoft.Azure.Functions.Worker.Extensions.Http` version 3.1.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http). Note that this is a different type than the similar attribute in `Microsoft.AspNetCore.Mvc`, and when using ASP.NET Core integration, you will need a fully qualified reference or `using` statement. The following example shows how to use the attribute to get just the body contents while still having access to the full `HttpRequest`, using the ASP.NET Core integration:
+
+```csharp
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Functions.Worker;
+using FromBodyAttribute = Microsoft.Azure.Functions.Worker.Http.FromBodyAttribute;
+
+namespace AspNetIntegration
+{
+    public class BodyBindingHttpTrigger
+    {
+        [Function(nameof(BodyBindingHttpTrigger))]
+        public IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequest req,
+            [FromBody] Person person)
+        {
+            return new OkObjectResult(person);
+        }
+    }
+
+    public record Person(string Name, int Age);
+}
+```
+
+---
+
+::: zone-end 
 
 ### Customize the HTTP endpoint
 
@@ -1014,3 +1056,9 @@ If a function that uses the HTTP trigger doesn't complete within 230 seconds, th
 - [Return an HTTP response from a function](./functions-bindings-http-webhook-output.md)
 
 [ClaimsPrincipal]: /dotnet/api/system.security.claims.claimsprincipal
+[ASP.NET Core integration in .NET Isolated]: ./dotnet-isolated-process-guide.md#aspnet-core-integration-preview
+[HttpRequestData]: /dotnet/api/microsoft.azure.functions.worker.http.httprequestdata
+[HttpResponseData]: /dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata
+[HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest
+[HttpResponse]: /dotnet/api/microsoft.aspnetcore.http.httpresponse
+[IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult

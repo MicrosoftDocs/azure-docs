@@ -58,7 +58,7 @@ Azure AD has a set of built-in admin roles for granting access to manage configu
 
 For more information and to view the description for these roles, see [Azure AD built-in roles](permissions-reference.md).
 
-Follow the instructions in the [Assign roles to users with Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md) how-to guide to assign the Application Administrator or Cloud Application Administrator roles.
+Follow the instructions in the [Assign roles to users with Azure Active Directory](../fundamentals/how-subscriptions-associated-directory.md) how-to guide to assign the Application Administrator or Cloud Application Administrator roles.
 
 > [!IMPORTANT]
 > Application Administrators and Cloud Application Administrators can add credentials to an application and use those credentials to impersonate the application’s identity. The application may have permissions that are an elevation of privilege over the admin role's permissions. An admin in this role could potentially create or update users or other objects while impersonating the application, depending on the application's permissions.
