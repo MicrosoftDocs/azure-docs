@@ -32,7 +32,7 @@ Adding custom branding requires one of the following licenses:
 - Azure AD Premium 2
 - Office 365 (for Office apps)
 
-For more information about licensing and editions, see the [Sign up for Azure AD Premium](active-directory-get-started-premium.md) article.
+For more information about licensing and editions, see the [Sign up for Azure AD Premium](./get-started-premium.md) article.
 
 Azure AD Premium editions are available for customers in China using the worldwide instance of Azure AD. Azure AD Premium editions aren't currently supported in the Azure service operated by 21Vianet in China
 

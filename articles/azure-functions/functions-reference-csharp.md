@@ -581,6 +581,144 @@ The following table lists the .NET attributes for each binding type and the pack
 > | Storage table | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 > | Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
 
+## Convert a C# script app to a C# project
+
+The easiest way to convert an application using C# script to a C# project is to start with a new project and migrate the code and configuration from your .csx and function.json files. 
+
+If you are using C# scripting for portal editing, you may wish to start by [downloading the app content to your local machine](./deployment-zip-push.md#download-your-function-app-files). Choose the "Site content" option instead of "Content and Visual Studio project". The project that the portal provides isn't needed because in the later steps of this section, you will be creating a new Visual Studio project. Similarly, do not include app settings in the download. You are defining a new development environment, and this environment should not have the same permissions as your hosted app environment.
+
+Once you have your C# script code ready, you can begin creating the new project:
+
+1. Follow the instructions to create a new function project [using Visual Studio](./functions-create-your-first-function-visual-studio.md), using [Visual Studio Code](./create-first-function-vs-code-csharp.md), or [using the command line](./create-first-function-cli-csharp.md). You don't need to publish the project yet.
+1. If your C# script code included an `extensions.csproj` file or any `function.proj` files, copy the package references from these files, and add them to the new project's `.csproj` file alongside it's core dependencies.
+
+    The conversion activity a good opportunity to update to the latest versions of your dependencies. Doing so may require additional code changes in a later step.
+
+1. Copy the contents of the C# scripting `host.json` file into the project `host.json` file. If you are combining this with any other migration activities, note that the [`host.json`](./functions-host-json.md) schema depends on the version you are targeting. The contents of the `extensions` section are also informed by the versions of triggers and bindings that you are using. Refer to the reference for each extension to identify the right properties to configure.
+1. For any [shared files referenced by a `#load` directive](#reusing-csx-code), create new `.cs` files for their contents. You can structure this in any way you prefer. For most apps, it is simplest to create a new `.cs` file for each class that you defined. For any static methods created without a class, you'll need to define a new class or classes that they can be defined in. 
+1. Migrate each function to a `.cs` file. This file will combine the `run.csx` and the `function.json` for that function. For example, if you had a function named `HelloWorld`, in C# script this would be represented with `HelloWorld/run.csx` and `HelloWorld/function.json`. For the new project, you would create a `HelloWorld.cs`. Perform the following steps for each function:
+
+    1. Create a new file named `<FUNCTION_NAME>.cs`, replacing `<FUNCTION_NAME>` with the name of the folder that defined your C# script function. It is often easiest to start by creating a new function in the project model, which will cover some of the later steps. From the CLI, you can use the command `func new --name <FUNCTION_NAME>` making a similar substitution, and selecting the target template when prompted.
+    1. Copy the `using` statements from your `run.csx` file and add them to the new file. You do not need any `#r` directives.
+    1. For any `#load` statement in your `run.csx` file, add a new `using` statement for the namespace you used for the shared code.
+    1. In the new file, define a class for your function under the namespace you are using for the project.
+    1. Create a new method named `RunHandler` or something similar. This new method will serve as the new entry point for the function.
+    1. Copy the static method that represents your function, along with any functions it calls, from `run.csx` into your new class as a second method. From the new method you created in the previous step, call into this static method. This indirection step is helpful for navigating any differences as you continue the upgrade. You can keep the original method exactly the same and simply control its inputs from the new context. You may need to create parameters on the new method which you then pass into the static method call. After you have confirmed that the migration has worked as intended, you can remove this extra level of indirection.
+    1. For each binding in the `function.json` file, add the corresponding attribute to your new method. This may require you to add additional package dependencies. Consult the reference for each binding for specific requirements in the new model.
+     
+1. Verify that your project runs locally.
+1. Republish the app to Azure.
+    
+### Example function conversion
+
+This section shows an example of the migration for a single function.
+
+The original function in C# scripting has two files:
+- `HelloWorld/function.json`
+- `HelloWorld/run.csx`
+
+The contents of `HelloWorld/function.json` are:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "FUNCTION",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ]
+}
+```
+
+The contents of `HelloWorld/run.csx` are:
+
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
+public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
+
+    string name = req.Query["name"];
+
+    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    dynamic data = JsonConvert.DeserializeObject(requestBody);
+    name = name ?? data?.name;
+
+    string responseMessage = string.IsNullOrEmpty(name)
+        ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
+                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+
+            return new OkObjectResult(responseMessage);
+}
+```
+
+After migrating to the isolated worker model with ASP.NET Core integration, these are replaced by a single `HelloWorld.cs`:
+
+```csharp
+using System.Net;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
+namespace MyFunctionApp
+{
+    public class HelloWorld
+    {
+        private readonly ILogger _logger;
+
+        public HelloWorld(ILoggerFactory loggerFactory)
+        {
+            _logger = loggerFactory.CreateLogger<HelloWorld>();
+        }
+
+        [Function("HelloWorld")]
+        public async Task<IActionResult> RunHandler([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequest req)
+        {
+            return await Run(req, _logger);
+        }
+
+        // From run.csx
+        public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+
+            string name = req.Query["name"];
+
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+            dynamic data = JsonConvert.DeserializeObject(requestBody);
+            name = name ?? data?.name;
+
+            string responseMessage = string.IsNullOrEmpty(name)
+                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
+                        : $"Hello, {name}. This HTTP triggered function executed successfully.";
+
+            return new OkObjectResult(responseMessage);
+        }
+    }
+}
+```
+
 ## Binding configuration and examples
 
 ### Blob trigger
