@@ -1,12 +1,12 @@
 ---
-title: Using Apache NiFi with HDInsight on AKS Flink to publish into ADLS Gen2
+title: Use Apache NiFi with HDInsight on AKS Flink to publish into ADLS Gen2
 description: Learn how to use  Apache NiFi to consume Processed Kafka topic from HDInsight Flink on AKS and publish into ADLS Gen2
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/16/2023
 ---
 
-# Using Apache NiFi to consume processed Kafka topic from HDInsight Flink on AKS and publish into ADLS Gen2
+# Use Apache NiFi to consume processed Kafka topics from Flink and publish into ADLS Gen2
 
 Apache NiFi is a software project from the Apache Software Foundation designed to automate the flow of data between software systems. It supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic.
 
@@ -67,7 +67,7 @@ Here, we configure NiFi properties in order to be accessed outside the localhost
 
 `$nifi_home/conf/nifi.properties`
 
-:::image type="content" source="./media/using-apache-nifi-with-dstream-api/step2-configuringnifi.png" alt-text="Screenshot showing how to define NiFi properties." border="true" lightbox="./media/using-apache-nifi-with-dstream-api/step2-configuringnifi.png":::
+:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-2-configuring-nifi.png" alt-text="Screenshot showing how to define NiFi properties." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-2-configuring-nifi.png":::
 
 ## Process streaming data from HDInsight Kafka On HDInsight on AKS Flink
 
@@ -261,7 +261,7 @@ You can replace 2.4.1 with 3.2.0 in case you're using HDInsight Kafka 3.2.0, whe
 
 Now, lets submit streaming job as mentioned in the previous step into HDInsight on AKS - Flink
 
-:::image type="content" source="./media/using-apache-nifi-with-dstream-api/step5-flinkuijobsubmission.png" alt-text="Screenshot showing how to submit the streaming job from FLink UI." border="true" lightbox="./media/using-apache-nifi-with-dstream-api/step5-flinkuijobsubmission.png":::
+:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-5-flink-ui-job-submission.png" alt-text="Screenshot showing how to submit the streaming job from FLink UI." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-5-flink-ui-job-submission.png":::
 
 ## Check the topic on HDInsight Kafka
 
@@ -302,33 +302,33 @@ In this demonstration, we have used Apache NiFi instance installed on an Ubuntu 
 
 To use Managed Identity authentication with the PutAzureDataLakeStorage processor in NiFi. You're required to ensure Ubuntu VM on which NiFi is installed has a managed identity assigned to it, or assign a managed identity to the Ubuntu VM.
 
-:::image type="content" source="./media/using-apache-nifi-with-dstream-api/step6-nifiui-kafkaconsumption.png" alt-text="Screenshot showing how to create a flow in Apache NiFi - Step 1." border="true" lightbox="./media/using-apache-nifi-with-dstream-api/step6-nifiui-kafkaconsumption.png":::
+:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-nifiui-kafka-consumption.png" alt-text="Screenshot showing how to create a flow in Apache NiFi - Step 1." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-nifiui-kafka-consumption.png":::
 
 Once you have assigned a managed identity to the Azure VM, you need to make sure that the VM can connect to the IMDS (Instance Metadata Service) endpoint. The IMDS endpoint is available at the IP address shown in this example. You need to update your network security group rules to allow outbound traffic from the Ubuntu VM to this IP address.
 
-:::image type="content" source="./media/using-apache-nifi-with-dstream-api/step6-2-nifiui-kafkaconsumption.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step2." border="true" lightbox="./media/using-apache-nifi-with-dstream-api/step6-2-nifiui-kafkaconsumption.png":::
+:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-2-nifiui-kafka-consumption.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step2." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-2-nifiui-kafka-consumption.png":::
 
 **Run the flow:**
 
-:::image type="content" source="./media/using-apache-nifi-with-dstream-api/step6-3-nifiui-kafkaconsumption-nififlow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step3." border="true" lightbox="./media/using-apache-nifi-with-dstream-api/step6-3-nifiui-kafkaconsumption-nififlow.png":::
+:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-3-nifiui-kafka-consumption-nifi-flow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step3." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-3-nifiui-kafka-consumption-nifi-flow.png":::
 
 [**Using Processor ConsumerKafka_2_0's properties setting:**](https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-kafka-2-0-nar/1.22.0/org.apache.nifi.processors.kafka.pubsub.ConsumeKafka_2_0/index.html)
 
-:::image type="content" source="./media/using-apache-nifi-with-dstream-api/step6-4-nifiui-kafkaconsumption-nififlow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step4." border="true" lightbox="./media/using-apache-nifi-with-dstream-api/step6-4-nifiui-kafkaconsumption-nififlow.png":::
+:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-4-nifiui-kafka-consumption-nifi-flow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step4." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-4-nifiui-kafka-consumption-nifi-flow.png":::
 
-:::image type="content" source="./media/using-apache-nifi-with-dstream-api/step6-5-nifiui-kafkaconsumption-nififlow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step5." border="true" lightbox="./media/using-apache-nifi-with-dstream-api/step6-5-nifiui-kafkaconsumption-nififlow.png":::
+:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-5-nifi-ui-kafka-consumption-nifi-flow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step5." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-5-nifi-ui-kafka-consumption-nifi-flow.png":::
 
 [**Using Processor PutAzureDataLakeStorage properties setting:**](https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-azure-nar/1.22.0/org.apache.nifi.processors.azure.storage.PutAzureDataLakeStorage/index.html)
 
-:::image type="content" source="./media/using-apache-nifi-with-dstream-api/step6-6-nifiui-kafkaconsumption-nififlow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step6." border="true" lightbox="./media/using-apache-nifi-with-dstream-api/step6-6-nifiui-kafkaconsumption-nififlow.png":::
+:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-6-nifi-ui-kafka-consumption-nifi-flow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step6." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-6-nifi-ui-kafka-consumption-nifi-flow.png":::
 
 [**Using PutAzureDataLakeStorage credential setting:**](https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-azure-nar/1.22.0/org.apache.nifi.services.azure.storage.ADLSCredentialsControllerService/index.html)
 
-:::image type="content" source="./media/using-apache-nifi-with-dstream-api/step6-7-nifiui-kafkaconsumption-nififlow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step7." border="true" lightbox="./media/using-apache-nifi-with-dstream-api/step6-7-nifiui-kafkaconsumption-nififlow.png":::
+:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-7-nifiui-kafka-consumption-nifi-flow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step7." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-7-nifiui-kafka-consumption-nifi-flow.png":::
 
 ### Lets check output in ADLS gen2
 
-:::image type="content" source="./media/using-apache-nifi-with-dstream-api/step7-resultadlg2.png" alt-text="Validating the output in ADLS Gen2." border="true" lightbox="./media/using-apache-nifi-with-dstream-api/step7-resultadlg2.png":::
+:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-7-result-adls-gen2.png" alt-text="Validating the output in ADLS Gen2." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-7-result-adls-gen2.png":::
 
 ## Reference
 
