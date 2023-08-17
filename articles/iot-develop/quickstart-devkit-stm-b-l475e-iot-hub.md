@@ -1,12 +1,13 @@
 ---
-title: Connect an STMicroelectronics B-L475E-IOT01A to Azure IoT Hub quickstart
-description: Use Azure RTOS embedded software to connect an STMicroelectronics B-L475E-IOT01A device to Azure IoT Hub and send telemetry.
+title: Quickstart - Connect an STMicroelectronics B-L475E-IOT01A to Azure IoT Hub
+description: A quickstart that uses Azure RTOS embedded software to connect an STMicroelectronics B-L475E-IOT01A device to Azure IoT Hub and send telemetry.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/27/2023
+# CustomerIntent: As an embedded device developer, I want to use Azure RTOS to connect my device to Azure IoT Hub, so that I can learn about device connectivity and development. 
 ---
 
 # Quickstart: Connect an STMicroelectronics B-L475E-IOT01A Discovery kit to IoT Hub
