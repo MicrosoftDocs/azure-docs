@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/16/2023
+ms.date: 08/17/2023
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: xurobert
