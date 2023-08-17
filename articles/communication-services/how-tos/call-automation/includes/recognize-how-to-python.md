@@ -157,7 +157,8 @@ call_automation_client.get_call_connection(call_connection_id).start_recognizing
     operation_context="OpenQuestionSpeechOrDtmf") 
 app.logger.info("Start recognizing") 
 ```
-**Note:** If parameters aren't set, the defaults are applied where possible.
+> [!Note]
+> If parameters aren't set, the defaults are applied where possible.
 
 ## Receiving recognize event updates
 
