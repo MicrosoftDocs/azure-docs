@@ -808,8 +808,10 @@
               href: ../how-to-always-encrypted.md
             - name: Self-serve minimum TLS version enforcement
               href: ../self-serve-minimum-tls-enforcement.md
-            - name: Configure customer-managed keys with Azure key vault
+            - name: Configure customer-managed keys with Azure Key Vault
               href: ../how-to-setup-customer-managed-keys.md
+            - name: Configure customer-managed keys on existing accounts with Azure Key Vault
+              href: ../how-to-setup-customer-managed-keys-existing-accounts.md
             - name: CMK troubleshooting guide
               href: ../cmk-troubleshooting-guide.md
             - name: Configure customer-managed keys with Azure managed HSM key vault
