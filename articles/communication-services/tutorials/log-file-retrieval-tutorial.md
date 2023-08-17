@@ -17,7 +17,7 @@ zone_pivot_groups: acs-programming-languages-java-swift-csharp
 # Retrieval and Sharing of support file tutorial.
 [!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
-In this tutorial, you will learn how to access the Log Files stored on the device.
+In this tutorial, you learn how to access the Log Files stored on the device.
 
 ## Prerequisites
 
@@ -37,17 +37,17 @@ In this tutorial, you will learn how to access the Log Files stored on the devic
 
 ## Next steps
 
-To add enhanced log collection capabilities to your app, please consider the following.
+To add enhanced log collection capabilities to your app, consider the following points.
 
 1. Explore support features: 
    - "Report an Issue" prompts
    - End-of-call surveys
    - Shake-to-report
-   - Proactive auto-detection
+   - Proactive autodetection
 2. Always obtain user consent before submitting data.
 3. Customize strategies based on your users.
 
-Please Refer to the [Conceptual Document](../concepts/voice-video-calling/retrieving-support-files.md) for more in-depth guidance.
+Refer to the [Conceptual Document](../concepts/voice-video-calling/retrieving-support-files.md) for more in-depth guidance.
 
 ## You may also like
 
