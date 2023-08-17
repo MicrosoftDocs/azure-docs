@@ -29,7 +29,7 @@ With [Azure AD Application Proxy](application-proxy.md), you can address this is
 :::image type="content" source="./media/application-proxy-configure-complex-application/complex-app-flow-1.png" alt-text="Diagram of a Complex application with multiple application segments definition.":::
 
 A complex app has multiple app segments, with each app segment being a pair of an internal & external URL.
-There is one conditional access policy associated with the app and access to any of the external URLs work with pre-authentication with the same set of policies that are enforced for all.
+There is one Conditional Access policy associated with the app and access to any of the external URLs work with pre-authentication with the same set of policies that are enforced for all.
 
 This solution that allows user to:
 
@@ -51,7 +51,7 @@ This article provides you with the information you need to configure wildcard ap
 
 ## Pre-requisites
 Before you get started with Application Proxy Complex application scenario apps, make sure your environment is ready with the following settings and configurations:
-- You need to enable Application Proxy and install a connector that has line of site to your applications. See the tutorial [Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) to learn how to prepare your on-premises environment, install and register a connector, and test the connector.
+- You need to enable Application Proxy and install a connector that has line of sight to your applications. See the tutorial [Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) to learn how to prepare your on-premises environment, install and register a connector, and test the connector.
 
 
 ## Configure application segment(s) for complex application. 

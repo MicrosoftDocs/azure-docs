@@ -33,7 +33,7 @@ Use KCD when there's a need to provide remote access, protect with pre-authentic
 * **User**: Accesses legacy application that Application Proxy serves.
 * **Web browser**: The component that the user interacts with to access the external URL of the application.
 * **Azure AD**: Authenticates the user. 
-* **Application Proxy service**: Acts as reverse proxy to send requests from the user to the on-premises application. It sits in Azure AD. Application Proxy can enforce conditional access policies.
+* **Application Proxy service**: Acts as reverse proxy to send requests from the user to the on-premises application. It sits in Azure AD. Application Proxy can enforce Conditional Access policies.
 * **Application Proxy connector**: Installed on Windows on premises servers to provide connectivity to the application. Returns the response to Azure AD. Performs KCD negotiation with Active Directory, impersonating the user to get a Kerberos token to the application.
 * **Active Directory**: Sends the Kerberos token for the application to the Application Proxy connector.
 * **Legacy applications**: Applications that receive user requests from Application Proxy. The legacy applications return the response to the Application Proxy connector.

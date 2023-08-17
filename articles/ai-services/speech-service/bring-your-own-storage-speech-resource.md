@@ -275,7 +275,7 @@ If you perform all actions in the section, your Storage account will be in the f
 - Access to all external network traffic is prohibited.
 - Access to Storage account using Storage account key is prohibited.
 - Access to Storage account blob storage using [shared access signatures (SAS)](../../storage/common/storage-sas-overview.md) is prohibited. (Except for [User delegation SAS](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens))
-- Access to the BYOS-enanled Speech resource is allowed using the resource [system assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
+- Access to the BYOS-enabled Speech resource is allowed using the resource [system assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
 
 So in effect your Storage account becomes completely "locked" and can only be accessed by your Speech resource, which will be able to:
 - Write artifacts of your Speech data processing (see details in the [correspondent articles](#next-steps)),
@@ -326,7 +326,7 @@ If you perform all actions in the section, your Storage account will be in the f
 - External network traffic is allowed.
 - Access to Storage account using Storage account key is prohibited.
 - Access to Storage account blob storage using [shared access signatures (SAS)](../../storage/common/storage-sas-overview.md) is prohibited. (Except for [User delegation SAS](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens))
-- Access to the BYOS-enanled Speech resource is allowed using the resource [system assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) and [User delegation SAS](../../storage/common/storage-sas-overview.md#user-delegation-sas).
+- Access to the BYOS-enabled Speech resource is allowed using the resource [system assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) and [User delegation SAS](../../storage/common/storage-sas-overview.md#user-delegation-sas).
 
 These are the most restricted security settings possible for Text to speech scenario. You may further customize them according to your needs.
 

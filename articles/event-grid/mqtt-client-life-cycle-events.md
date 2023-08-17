@@ -195,6 +195,8 @@ This sample event shows the schema of an event raised when an MQTT client is del
     "namespaceName": "myns"
   }
 }]
+```
+
 ---
 
 ### Disconnection Reasons:

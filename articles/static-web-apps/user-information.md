@@ -59,7 +59,9 @@ async function getUserInfo() {
   return clientPrincipal;
 }
 
+(async () => {
 console.log(await getUserInfo());
+})();
 ```
 
 ## API functions

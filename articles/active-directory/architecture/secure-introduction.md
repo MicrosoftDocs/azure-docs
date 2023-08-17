@@ -41,7 +41,7 @@ To distinguish between human and non-human identities, different terms are emerg
 
 * **Workload identity** - In Azure Active Directory (Azure AD), workload identities are applications, service principals, and managed identities. The workload identity is used to authenticate and access other services and resources.
 
-For more information on workload identities, see [What are workload identities](../develop/workload-identities-overview.md).
+For more information on workload identities, see [What are workload identities](../workload-identities/workload-identities-overview.md).
 
 The Azure AD tenant is an identity security boundary that is under the control of global administrators. Within this security boundary, administration of subscriptions, management groups, and resource groups can be delegated to segment administrative control of Azure resources. While not directly interacting, these groupings are dependent on tenant-wide configurations of policies and settings. And those settings and configurations are under the control of the Azure AD Global Administrators.
 
@@ -150,7 +150,7 @@ Configuration settings in Azure AD can affect any resource in the Azure AD tenan
 
   * Block sign-ins from specific locations.
 
-  * Trigger conditional access policies such as MFA.
+  * Trigger Conditional Access policies such as MFA.
 
   * Bypass security requirements
 
@@ -233,7 +233,7 @@ Administrators manage how identity objects can access resources, and under what 
 
   * Applications
 
-In a hybrid environment, identities are typically synchronized from the on-premises Active Directory environment using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md).
+In a hybrid environment, identities are typically synchronized from the on-premises Active Directory environment using [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md).
 
 ### Administration of identity services
 
@@ -243,7 +243,7 @@ Administrators with appropriate permissions can also manage how tenant-wide poli
 
 * An **identity assigned an Authentication Administrator role** can require nonadministrators to reregister for MFA or FIDO authentication.
 
-* A **Conditional Access (CA) Administrator** can create CA policies that require users signing-in to specific apps to do so only from organization-owned devices. They can also scope configurations. For example, even if external identities are allowed in the tenant, they can exclude those identities from accessing a resource.
+* A **Conditional Access Administrator** can create Conditional Access policies that require users signing-in to specific apps to do so only from organization-owned devices. They can also scope configurations. For example, even if external identities are allowed in the tenant, they can exclude those identities from accessing a resource.
 
 * A **Cloud Application Administrator** can consent to application permissions on behalf of all users.
 
@@ -259,7 +259,7 @@ Who should have the ability to administer the environment and its resources? The
 
 Given the interdependence between an Azure AD tenant and its resources, it's critical to understand the security and operational risks of compromise or error. If you're operating in a federated environment with synchronized accounts, an on-premises compromise can lead to an Azure AD compromise.
 
-* **Identity compromise** - Within the boundary of a tenant, any identity can be assigned any role, given the one providing access has sufficient privileges. While the effect of compromised non-privileged identities is largely contained, compromised administrators can have broad implications. For example, if an Azure AD global administrator account is compromised, Azure resources can become compromised. To mitigate risk of identity compromise, or bad actors, implement [tiered administration](/security/compass/privileged-access-access-model) and ensure that you follow principles of least privilege for [Azure AD Administrator Roles](../roles/delegate-by-task.md). Similarly, ensure that you create CA policies that specifically exclude test accounts and test service principals from accessing resources outside of the test applications. For more information on privileged access strategy, see [Privileged access: Strategy](/security/compass/privileged-access-strategy).
+* **Identity compromise** - Within the boundary of a tenant, any identity can be assigned any role, given the one providing access has sufficient privileges. While the effect of compromised non-privileged identities is largely contained, compromised administrators can have broad implications. For example, if an Azure AD global administrator account is compromised, Azure resources can become compromised. To mitigate risk of identity compromise, or bad actors, implement [tiered administration](/security/compass/privileged-access-access-model) and ensure that you follow principles of least privilege for [Azure AD Administrator Roles](../roles/delegate-by-task.md). Similarly, ensure that you create Conditional Access policies that specifically exclude test accounts and test service principals from accessing resources outside of the test applications. For more information on privileged access strategy, see [Privileged access: Strategy](/security/compass/privileged-access-strategy).
 
 * **Federated environment compromise**
 
@@ -273,7 +273,7 @@ Incorporating zero-trust principles into your Azure AD design strategy can help 
 
 ## Next steps
 
-* [Azure AD fundamentals](../fundamentals/secure-fundamentals.md)
+* [Azure AD fundamentals](./secure-fundamentals.md)
 
 * [Azure resource management fundamentals](secure-resource-management.md)
 

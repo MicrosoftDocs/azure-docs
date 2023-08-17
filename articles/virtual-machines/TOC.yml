@@ -278,6 +278,8 @@
         href: msv2-mdsv2-series.md
       - name: Mv2-series
         href: mv2-series.md
+      - name: Msv3 and Mdsv3 Medium Memory Series
+        href: msv3-mdsv3-medium-series.md
       - name: Constrained vCPUs
         href: constrained-vcpu.md
     - name: Storage optimized
@@ -322,6 +324,8 @@
         href: nd-series.md
       - name: NDv2-series
         href: ndv2-series.md
+      - name: NDm-H100-v5-series
+        href: nd-h100-v5-series.md
       - name: NGads V620-series (preview)
         href: ngads-v-620-series.md
       - name: NV-series
@@ -1377,6 +1381,8 @@
       href: ephemeral-os-disks-faq.md
   - name: Securely import/export a disk
     items:
+    - name: Options for restricting access
+      href: disks-restrict-import-export-overview.md
     - name: Configure private links for disks - CLI
       href: ./linux/disks-export-import-private-links-cli.md
     - name: Configure private links for disks - Portal

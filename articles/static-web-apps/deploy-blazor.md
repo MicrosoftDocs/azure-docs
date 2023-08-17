@@ -1,18 +1,18 @@
 ---
-title: 'Build an Azure Static Web Apps website with Blazor'
-description: Learn to build an Azure Static Web Apps website with Blazor.
+title: 'Deploy a Blazor app on Azure Static Web Apps'
+description: Learn to deploy a Blazor app on Azure Static Web Apps.
 services: static-web-apps
 ms.custom: engagement-fy23
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 11/22/2022
+ms.date: 07/21/2023
 ms.author: cshoe
 ---
 
-# Build an Azure Static Web Apps website with Blazor and serverless API
+# Deploy a Blazor app on Azure Static Web Apps
 
-Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository, which is supported by a serverless backend. The following tutorial shows how to deploy C# Blazor WebAssembly app that displays weather data returned by a serverless API.
+Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository supported by a serverless backend. The following tutorial shows how to deploy C# Blazor WebAssembly app that displays weather data returned by a serverless API.
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ Now that the repository is created, create a static web app from the Azure porta
 
 9. Select **Create** to start the creation of the static web app and provision a GitHub Actions for deployment.
 
-10. Once the deployment completes select, **Go to resource**.
+10. Once the deployment is completed, select **Go to resource**.
 
 11. Select **Go to resource**.
 

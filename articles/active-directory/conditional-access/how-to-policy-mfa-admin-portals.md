@@ -19,6 +19,9 @@ ms.collection: M365-identity-device-management
 
 Microsoft recommends securing access to any Microsoft admin portals like Microsoft Entra, Microsoft 365, Exchange, and Azure. Using the [Microsoft Admin Portals (Preview)](concept-conditional-access-cloud-apps.md#microsoft-admin-portals-preview) app organizations can control interactive access to Microsoft admin portals.
 
+> [!IMPORTANT]
+> Microsoft Admin Poratls (preview) is not currently supported in Government clouds.
+
 ## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 

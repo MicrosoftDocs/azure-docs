@@ -3,7 +3,7 @@ title: Use Key Management Service (KMS) etcd encryption in Azure Kubernetes Serv
 description: Learn how to use the Key Management Service (KMS) etcd encryption with Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 07/19/2023
+ms.date: 08/04/2023
 ---
 
 # Add Key Management Service (KMS) etcd encryption to an Azure Kubernetes Service (AKS) cluster
@@ -359,7 +359,7 @@ Starting with AKS version 1.27, enabling the KMS feature configures KMS v2. With
 
 ### Migration to KMS v2
 
-If your cluster version is less than 1.27 and you already enabled KMS, use the following steps to migrate to KMS v2:
+If your cluster version is less than 1.27 and you already enabled KMS, the upgrade to 1.27 or higher will be blocked. You use the following steps to migrate to KMS v2:
 
 1. Disable KMS on the cluster.
 2. Perform the storage migration.

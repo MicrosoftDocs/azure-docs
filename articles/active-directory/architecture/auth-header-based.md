@@ -36,7 +36,7 @@ Remote users need to securely single sign-on (SSO) into to on-premises applicati
 
 * **Azure AD**: Authenticates the user. 
 
-* **Application Proxy service**: Acts as reverse proxy to send request from the user to the on-premises application. It resides in Azure AD and can also enforce any conditional access policies.
+* **Application Proxy service**: Acts as reverse proxy to send request from the user to the on-premises application. It resides in Azure AD and can also enforce any Conditional Access policies.
 
 * **Application Proxy connector**: Installed on-premises on Windows servers to provide connectivity to the applications. It only uses outbound connections. Returns the response to Azure AD.
 

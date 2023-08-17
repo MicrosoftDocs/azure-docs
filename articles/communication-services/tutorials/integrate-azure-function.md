@@ -52,7 +52,7 @@ Before you get started, make sure to:
         };
     }
 ```
-**Explanation to code above**: The first line import the interface for the `CommunicationIdentityClient`. The connection string in the second line can be found in your ACS resource in the Azure portal. The `ACSEndpoint` is the URL of the ACS resource that was created. 
+**Explanation to code above**: The first line import the interface for the `CommunicationIdentityClient`. The connection string in the second line can be found in your Azure Communication Services resource in the Azure portal. The `ACSEndpoint` is the URL of the ACS resource that was created. 
 
 5. Open the local Azure Function folder in Visual Studio Code. Open the `index.js` and run the local Azure Function. A local Azure Function endpoint will be created and printed in the terminal. The printed message looks similar to:
 
@@ -74,7 +74,7 @@ Open the link in a browser. The result will be similar to this example:
 
 7. **Test the deployed Azure Function.** First, find your Azure Function in the Azure portal. Then, use the "Get Function URL" button to get the Azure Function endpoint. The result you see should be similar to what was shown in step 5. The Azure Function endpoint will be used in the app for initializing application parameters.
 
-8. Implement `UserTokenClient`, which is used to call the target Azure Function resource and obtain the ACS endpoint, user ID and user token from the returned JSON object. Refer to the sample app for usage.
+8. Implement `UserTokenClient`, which is used to call the target Azure Function resource and obtain the Azure Communication Services endpoint, user ID and user token from the returned JSON object. Refer to the sample app for usage.
 
 ## Troubleshooting guide
 1. If the Azure Function extension failed to deploy the local function to the Azure cloud, it's likely due to the version of Visual Studio Code and the Azure Function extension being used having a bug. This version combination has been tested to work: Visual Studio Code version `1.68.1` and Azure Function extension version `1.2.1`.
