@@ -175,7 +175,7 @@ The status column in your Permissions Management UI shows you which step of data
 - **Onboarded**: data collection has completed, and all detected authorization systems have been successfully onboarded to Permissions Management. 
 
 > [!NOTE] 
-> Data collection might take time depending on the amount of authorization systems you've onboarded. While the data collection process continues, you can begin setting up [users and groups in Permissions Management](how-to-add-remove-user-to-group). 
+> Data collection might take time depending on the amount of authorization systems you've onboarded. While the data collection process continues, you can begin setting up [users and groups in Permissions Management](how-to-add-remove-user-to-group.md). 
 
 ## Next steps
 
