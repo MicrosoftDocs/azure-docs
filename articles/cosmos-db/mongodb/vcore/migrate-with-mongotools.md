@@ -19,7 +19,7 @@ You can use MongoDB native tools to perform an offline (one-time) migration of d
 
 In this guide, you migrate a dataset in MongoDB hosted in an Azure Virtual Machine to Azure Cosmos DB for MongoDB vCore by using MongoDB native tools. The MongoDB native tools are a set of binaries that facilitate data manipulation on an existing MongoDB instance. The focus of this doc is on migrating data out of a MongoDB instance using *mongoexport/mongoimport* or *mongodump/mongorestore*. Since the native tools connect to MongoDB using connection strings, you can run the tools anywhere, however we recommend running these tools within the same network as the MongoDB instance to avoid firewall issues. 
 
-The MongoDB native tools can move data only as fast as the host hardware allows; the native tools can be the simplest solution for small datasets where total migration time isn't a concern. [MongoDB Spark connector](https://docs.mongodb.com/spark-connector/current/), [Azure Data Migration Service (DMS)](../../../dms/tutorial-mongodb-cosmos-db.md), or [Azure Data Factory (ADF)](../../../data-factory/connector-azure-cosmos-db-mongodb-api.md) can be better alternatives if you need a scalable migration pipeline.
+The MongoDB native tools can move data only as fast as the host hardware allows; the native tools can be the simplest solution for small datasets where total migration time isn't a concern. [MongoDB Spark connector](https://docs.mongodb.com/spark-connector/current/), or [Azure Data Factory (ADF)](../../../data-factory/connector-azure-cosmos-db-mongodb-api.md) can be better alternatives if you need a scalable migration pipeline.
 
 
 ## Prerequisites
