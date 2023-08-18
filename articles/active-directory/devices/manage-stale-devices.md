@@ -5,6 +5,7 @@ description: Learn how to remove stale devices from your database of registered 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 09/27/2022
 
@@ -13,9 +14,8 @@ author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: spunukol
 
-#Customer intent: As an IT admin, I want to understand how I can get rid of stale devices, so that I can I can cleanup my device registration data.
-
 ms.collection: M365-identity-device-management
+#Customer intent: As an IT admin, I want to understand how I can get rid of stale devices, so that I can I can cleanup my device registration data.
 ---
 # How To: Manage stale devices in Azure AD
 

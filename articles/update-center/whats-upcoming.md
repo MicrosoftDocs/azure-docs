@@ -20,6 +20,10 @@ Expanded support for [specialized images](../virtual-machines/linux/imaging.md#s
 
 Update management center will be declared GA soon.
 
+## Prescript and postscript 
+
+The prescript and post-script will be available soon.
+
 ## Next steps
 
 - [Learn more](support-matrix.md) about supported regions.
