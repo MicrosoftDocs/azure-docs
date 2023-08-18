@@ -67,6 +67,6 @@ private void RemoteParticipant_OnRoleChanged(object sender, Azure.Communication.
 
 ```
 
-The ability to join a room call and display the roles of call participants is available in the Windows Nuget Release [version 1.1.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.1.0) and above.
+The ability to join a room call and display the roles of call participants is available in the Windows NuGet Release [version 1.1.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.1.0) and above.
 
 You can learn more about roles of room call participants in the [rooms concept documentation](../../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).
