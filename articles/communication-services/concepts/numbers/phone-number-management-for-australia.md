@@ -41,7 +41,7 @@ More details on eligible subscription types are as follows:
 
 
 ## Azure subscription billing locations where Australia phone numbers are available
-| Country/region |
+| Country/Region |
 | :---------- |
 |Canada|
 |Denmark|
