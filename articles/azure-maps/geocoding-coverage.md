@@ -293,7 +293,8 @@ The ability to geocode in a country/region is dependent upon the road data cover
 
 Learn more about Azure Maps geocoding:
 > [!div class="nextstepaction"]
-> [Azure Maps Search service](/rest/api/maps/search)
+> [Azure Maps Search service]
 
 [Search service]: /rest/api/maps/search
-[Get Search Address API]: /rest/api/maps/search/getsearchaddress
+[Azure Maps Search service]: /rest/api/maps/search
+[Get Search Address]: /rest/api/maps/search/get-search-address

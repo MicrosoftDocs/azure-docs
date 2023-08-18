@@ -246,4 +246,8 @@ To verify the container image, you need to add the root certificate that signs t
     ```
    Upon successful verification of the image using the trust policy, the sha256 digest of the verified image is returned in a successful output message.
 
+## Next steps
+
+See [Ratify on Azure: Allow only signed images to be deployed on AKS with Notation and Ratify](https://github.com/deislabs/ratify/blob/main/docs/quickstarts/ratify-on-azure.md).
+
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

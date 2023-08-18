@@ -76,7 +76,7 @@ Organizations can use the [Microsoft Graph API to programmatically interact with
 ## Next steps
 
 - [What is Azure Active Directory monitoring?](../reports-monitoring/overview-monitoring.md)
-- [Install and use the log analytics views for Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
+- [Install and use the log analytics views for Azure Active Directory](../../azure-monitor/visualize/workbooks-view-designer-conversion-overview.md)
 - [Connect data from Azure Active Directory (Azure AD) Identity Protection](../../sentinel/data-connectors/azure-active-directory-identity-protection.md)
 - [Azure Active Directory Identity Protection and the Microsoft Graph PowerShell SDK](howto-identity-protection-graph-api.md)
 - [Tutorial: Stream Azure Active Directory logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)

@@ -29,6 +29,8 @@
       href: quickstart-wordpress.md
     - name: Deploy Go (experimental)
       href: quickstart-golang.md
+    - name: Deploy a custom container
+      href: quickstart-custom-container.md
 - name: Deployment and configuration
   items:
     - name: Deployment best practices
@@ -365,8 +367,6 @@
       href: overview-manage-costs.md
 - name: Custom containers
   items:
-    - name: Custom container quickstart
-      href: quickstart-custom-container.md
     - name: Configure custom container
       href: configure-custom-container.md
     - name: CI/CD to custom container
