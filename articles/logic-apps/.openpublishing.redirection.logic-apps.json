@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-using-file-connector.md",
+            "redirect_url": "/azure/connectors/file-system",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-x12-encode.md",
             "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-x12",
             "redirect_document_id": false
@@ -397,12 +402,12 @@
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-connector-file.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-using-file-connector",
+            "redirect_url": "/azure/connectors/file-system",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-use-file-connector.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-using-file-connector",
+            "redirect_url": "/azure/connectors/file-system",
             "redirect_document_id": false
         },
         {
