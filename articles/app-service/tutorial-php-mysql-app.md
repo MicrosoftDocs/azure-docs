@@ -1,7 +1,8 @@
 ---
 title: 'Tutorial: PHP app with MySQL and Redis' 
 description: Learn how to get a PHP app working in Azure, with connection to a MySQL database and a Redis cache in Azure. Laravel is used in the tutorial.
-
+author: msangapu-msft
+ms.author: msangapu
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
