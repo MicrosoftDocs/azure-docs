@@ -7,6 +7,7 @@ ms.topic: article
 ms.date: 04/20/2023
 ms.reviewer: yutlin
 ms.custom: seodec18, devx-track-azurepowershell
+ms.author: msangapu
 ---
 # Secure a custom DNS name with a TLS/SSL binding in Azure App Service
 

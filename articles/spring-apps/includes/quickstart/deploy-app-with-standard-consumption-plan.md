@@ -145,7 +145,6 @@ Use the following steps to deploy using the [Maven plugin for Azure Spring Apps]
    [INFO] Getting public url of app(demo)...
    [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-demo.azuremicroservices.io
    ```
-
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
 Use the following steps to package the app, provision the Azure resources required by the web application, and then deploy to Azure Spring Apps:

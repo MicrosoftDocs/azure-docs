@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to use the "Permitted scope for copy operations (preview)" Azure storage account setting to limit the source accounts of copy operations to the same tenant or with private links to the same virtual network.
 author: jimmart-dev
 ms.author: jammart
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 01/10/2023
 ms.reviewer: santoshc 

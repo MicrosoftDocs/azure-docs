@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/14/2023
+ms.date: 08/14/2023
 ---
 
 # Semantic ranking in Azure Cognitive Search
@@ -39,7 +39,7 @@ Each document is now represented by a single long string.
 > [!NOTE]
 > In the 2020-06-30-preview, the "searchFields" parameter is used rather than the semantic configuration to determine which fields to use. We recommend upgrading to the 2021-04-30-preview API version for best results.
 
-The string is composed of tokens, not characters or words. The maximum token count is 128 unique tokens. For estimation purposes, you can assume that 128 tokens are roughly equivalent to a string that is 128 words in length. 
+The string is composed of tokens, not characters or words. The maximum token count is 256 unique tokens. For estimation purposes, you can assume that 256 tokens are roughly equivalent to a string that is 256 words in length. 
 
 > [!NOTE]
 > Tokenization is determined in part by the analyzer assignment on searchable fields. If you are using specialized analyzer, such as nGram or EdgeNGram, you might want to exclude that field from "searchFields". For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).
