@@ -49,7 +49,7 @@ To create a storage account, you must be either the service administrator or a c
 
 1. On the page for your storage account, select **Security + Networking** > **Front Door and CDN** from the left menu. The **Front Door and CDN** page appears.
 
-    :::image type="content" source="./media/cdn-create-a-storage-account-with-cdn/azure-cdn-storage-endpoint-configuration.png" alt-text="Screenshot of create a CDN endpoint.":::
+    :::image type="content" source="./media/cdn-create-a-storage-account-with-cdn/azure-cdn-storage-endpoint-configuration.png" alt-text="Screenshot of create a CDN endpoint." lightbox="./media/cdn-create-a-storage-account-with-cdn/azure-cdn-storage-endpoint-configuration.png":::
 	
 1. In the **New endpoint** section, enter the following information:
 
@@ -64,7 +64,7 @@ To create a storage account, you must be either the service administrator or a c
 	
 1. Select **Create**. After the endpoint is created, it appears in the endpoint list.
 
-	![Storage new CDN endpoint](./media/cdn-create-a-storage-account-with-cdn/azure-cdn-storage-new-endpoint-list.png)
+	[ ![Screenshot of a storage new CDN endpoint.](./media/cdn-create-a-storage-account-with-cdn/azure-cdn-storage-new-endpoint-list.png) ](./media/cdn-create-a-storage-account-with-cdn/azure-cdn-storage-new-endpoint-list.png#lightbox)
 
 > [!TIP]
 > If you want to specify advanced configuration settings for your CDN endpoint, such as [large file download optimization](cdn-optimization-overview.md#large-file-download), you can instead use the [Azure CDN extension](cdn-create-new-endpoint.md) to create a CDN profile and endpoint.
