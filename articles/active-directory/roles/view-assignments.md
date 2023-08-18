@@ -91,9 +91,9 @@ This section describes how to list role assignments with single-application scop
 
 ## PowerShell
 
-This section describes viewing assignments of a role with organization-wide scope. This article uses the [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/#directory_roles) module. To view single-application scope assignments using PowerShell, you can use the cmdlets in [Assign custom roles with PowerShell](custom-assign-powershell.md).
+This section describes viewing assignments of a role with organization-wide scope. This article uses the [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview) module. To view single-application scope assignments using PowerShell, you can use the cmdlets in [Assign custom roles with PowerShell](custom-assign-powershell.md).
 
-Use the [Get-MgRoleManagementDirectoryRoleDefinition](/powershell/module/microsoft.graph.identity.governance/get-mgrolemanagementdirectoryroledefinition?view=graph-powershell-1.0&preserve-view=true) and [Get-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/get-mgrolemanagementdirectoryroleassignment?view=graph-powershell-1.0&preserve-view=true) commands to list role assignments.
+Use the [Get-MgRoleManagementDirectoryRoleDefinition](/powershell/module/microsoft.graph.identity.governance/get-mgrolemanagementdirectoryroledefinition) and [Get-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.identity.governance/get-mgrolemanagementdirectoryroleassignment) commands to list role assignments.
 
 The following example shows how to list the role assignments for the [Groups Administrator](permissions-reference.md#groups-administrator) role.
 
