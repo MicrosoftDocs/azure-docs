@@ -164,7 +164,8 @@ additionalContent:
       - title: HPC FastTrack
         links:
           - url: https://gearup.microsoft.com/program/fasttrack?tab=overview&subtab=fasttrack-for-azure
-            text: Azure FastTrack \n\n
+            text: Azure FastTrack 
+            \n\n
 
 
 # HPC Resourcess
@@ -201,7 +202,8 @@ additionalContent:
             - url: https://www.bigcompute.org/blog/high-performance-computing-for-randd
               text: HPC for Innovation in R&D          
             - url: https://idcdocserv.com/US50583623
-              text: HPC for Product Modeling \n\n
+              text: HPC for Product Modeling 
+              \n\n
 
 
 # Video Playlists and other links
