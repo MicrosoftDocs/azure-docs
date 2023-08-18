@@ -39,7 +39,7 @@ To establish direct interconnect for Peering Service, follow these requirements:
 
 ## Establish Direct Interconnect for Peering Service
 
-Refer to the [Azure Peering Service partner overview requirements](./maps-partner-overview.md#maps-partner-requirements) and ensure that you sign a Microsoft Azure Peering Service agreement before proceeding.
+Ensure that you sign a Microsoft Azure Peering Service agreement before proceeding. For more information, see [Azure Peering Service partner overview requirements](./peering-service-partner-overview.md#peering-service-partner-requirements).
 
 To establish a Peering Service interconnect with Microsoft, follow the following steps:
 
