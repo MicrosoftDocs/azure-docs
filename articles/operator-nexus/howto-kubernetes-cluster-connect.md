@@ -9,14 +9,14 @@ ms.date: 08/17/2023
 ms.custom: template-how-to-pattern
 ---
 
-# Connect to Azure Operator Nexus Kubernetes cluster for interacting, troubleshooting, and maintenance tasks
+# Connect to Azure Operator Nexus Kubernetes cluster
 
 This article provides instructions on how to connect to Azure Operator Nexus Kubernetes cluster and its nodes. It includes details on how to connect to the cluster from both Azure and on-premises environments, and how to do so when the ExpressRoute is in both connected and disconnected modes.
 
 In Azure, connected mode and disconnected mode refer to the state of an ExpressRoute circuit. ExpressRoute is a service provided by Azure that enables organizations to establish a private, high-throughput connection between their on-premises infrastructure and Azure datacenters.
 
 * Connected Mode: In connected mode, the ExpressRoute circuit is fully operational and provides a private connection between your on-premises infrastructure and Azure services. This mode is ideal for scenarios where you need constant connectivity to Azure.
-* Disconnected Mode: In disconnected mode, the ExpressRoute circuit is partially or down and is unable to provide connectivity to Azure services. This mode is useful when you want to perform maintenance on the circuit or need to temporarily disconnect from Azure.
+* Disconnected Mode: In disconnected mode, the ExpressRoute circuit is partially or fully down and is unable to provide connectivity to Azure services. This mode is useful when you want to perform maintenance on the circuit or need to temporarily disconnect from Azure.
 
 > [!IMPORTANT]
 > While the ExpressRoute circuit is in disconnected mode, traffic will not be able to flow between your on-premises environment and Azure. Therefore, it is recommended to only use disconnected mode when necessary, and to monitor the circuit closely to ensure it is brought back to connected mode as soon as possible.
@@ -29,7 +29,7 @@ In Azure, connected mode and disconnected mode refer to the state of an ExpressR
 
 ## Connected mode access
 
-When operating in connected mode, it's possible to connect to the cluster's kube-api server using the `connectedk8s proxy`. Also it's possible to SSH into the worker nodes for troubleshooting or maintenance tasks from Azure using express route.
+When operating in connected mode, it's possible to connect to the cluster's kube-api server using the `az connectedk8s proxy` CLI command. Also it's possible to SSH into the worker nodes for troubleshooting or maintenance tasks from Azure using the ExpressRoute circuit.
 
 ### Arc for Kubernetes
 
@@ -39,7 +39,7 @@ When operating in connected mode, it's possible to connect to the cluster's kube
 
 The `az ssh arc` command allows users to remotely access a cluster VM that has been connected to Azure Arc. This method is a secure way to SSH into the cluster node directly from the command line, while in connected mode. Once the cluster VM has been registered with Azure Arc, the `az ssh arc` command can be used to manage the machine remotely, making it a quick and efficient method for remote management.
 
-To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by creating a service principle (SP) with 'Azure Connected Machine Onboarding' role. For more detailed steps on how to connect a Nexus Kubernetes cluster nodes to Arc, refer to the [how to guide](./howto-monitor-naks-cluster.md#monitor-nexus-kubernetes-cluster--vm-layer).
+To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by creating a service principal (SP) with the 'Azure Connected Machine Onboarding' role. For more detailed steps on how to connect an Azure Operator Nexus Kubernetes cluster node to Arc, refer to the [how to guide](./howto-monitor-naks-cluster.md#monitor-nexus-kubernetes-cluster--vm-layer).
 
 1. Set the required variables.
 
@@ -77,7 +77,7 @@ To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by cr
 
 ### Azure jumpbox
 
-Another option for securely connecting to Nexus Kubernetes cluster node from Azure is to use a jumpbox. In this approach, an Azure cluster VM is set up as a secure gateway to connect to the cluster nodes.
+Another option for securely connecting to an Azure Operator Nexus Kubernetes cluster node is to use a jumpbox. In this approach, a stand-alone VM (not a Kubernetes node) is set up as a secure gateway to connect to the Azure Operator Nexus Kubernetes cluster nodes.
 
 To access a cluster node from Azure via a jumpbox, it's necessary to create a new cluster VM in your Azure environment to act as the jumpbox. This jumpbox must establish network connections with both, the cluster's L3 OAM and the user's workstation. Additionally, a NetworkCloud VM with L3 OAM and CNI network should be created to establish a connection with the cluster VM. It's important to note that the NetworkCloud and cluster VMs must be on the same isolation domain for connectivity. The user needs an SSH key for the K8s VM to authenticate their access.
 
@@ -85,7 +85,7 @@ It's important to ensure that the jumpbox is configured securely and that it's r
 
 ## Disconnected mode access
 
-When operating in disconnected mode, it's not possible to connect to the cluster's kube-api server using the `connectedk8s proxy` or to SSH into the worker nodes for troubleshooting or maintenance tasks.
+While cluster is in disconnected mode, it's not possible to connect to the cluster's kube-api server using the `az connectedk8s proxy` CLI command or the `az ssh` CLI command into the worker nodes for troubleshooting or maintenance tasks.
 
 However, it's possible to connect to the cluster nodes using the local jumpbox VM within the same virtual network as the cluster nodes. This VM serves as a reliable bridge for connectivity.
 
@@ -94,14 +94,14 @@ There are two networks that can be used to connect to the cluster nodes:
 * CSN network
 * L3 network (attached as an `OSDevice`)
 
-During the cluster creation process, a L3 network (Tenant defined L3 isolation domain) can be attached to the agent pool as an `OSDevice`, which can then be used as the OAM purpose. For more information on how to attach a L3 network as an `OSDevice` during cluster creation, see the [QuickStart](./quickstarts-kubernetes-cluster-deployment-bicep.md) guide.
+During the cluster creation process, an L3 network (Tenant-defined L3 isolation domain) can be attached to the agent pool as an `OSDevice`, which can then be used for OAM purposes. For more information on how to attach an L3 network as an `OSDevice` during cluster creation, see the [QuickStart](./quickstarts-kubernetes-cluster-deployment-bicep.md) guide.
 
 > [!NOTE]
 > For understanding purposes, the L3 network (attached as an `OSDevice`) will be referred to as the 'OAM network' in this article.
 
-The OAM network is the recommended network to use for connectivity during disconnected mode. It's important to note that the CSN network is used for critical cluster functions and shouldn't be used for general connectivity. While there's no difference in the connectivity experience between the two networks, it's recommended to use the OAM network for all noncritical connectivity needs.
+The OAM network is the recommended network to use for connectivity during disconnected mode. The cloud services network (CSN) is used for critical cluster functions and shouldn't be used for general connectivity. While there's no difference in the connectivity experience between the two networks, it's recommended to use the OAM network for all noncritical connectivity needs.
 
-The L3 network as `OSDevice` must be attached to the agent pool during the cluster creation process, and it can't be attached to the agent pool after the cluster is created. Also, the OAM network isn't attached to the control plane nodes, so you can't connect to the control plane nodes using the OAM network. In those cases, you can use the CSN network to connect to the control plane nodes.
+The OAM network can only be attached to the agent pool during the cluster creation process. The OAM network isn't attached to the control plane nodes, so you can't connect to the control plane nodes using the OAM network. In those cases, you can use the CSN network to connect to the control plane nodes.
 
 It's not recommended to log into the control plane nodes unless it's necessary. However, you may be required to sign-in to get the kubeconfig file for the cluster. If the local jumpbox is connected to the CNI network, you can use the kubeconfig file to execute kubectl against the cluster instead of logging into the control plane nodes.
 
