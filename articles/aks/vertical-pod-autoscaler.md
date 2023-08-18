@@ -40,7 +40,9 @@ Vertical Pod autoscaling supports a maximum of 500 `VerticalPodAutoscaler` objec
 
 * `kubectl` should be connected to the cluster you want to install VPA.
 
-## VPA components
+## VPA overview
+
+### VPA object
 
 The VPA object consists of three components:
 
@@ -50,17 +52,17 @@ The VPA object consists of three components:
 
 - **Admission Plugin** - it sets the correct resource requests on new pods (either just created or recreated by their controller due to the Updater's activity).
 
-## VPA admission controller
+### VPA admission controller
 
 VPA admission controller is a binary that registers itself as a Mutating Admission Webhook. With each pod created, it gets a request from the apiserver and it evaluates if there's a matching VPA configuration, or find a corresponding one and use the current recommendation to set resource requests in the pod. VPA admission controller uses the `gencerts.sh` script to create the `vpa-tls-certs` secret. The webhook certificates are auto-renewed.
 
 For high availability, AKS supports two admission controller replicas.
 
-## API Object
+### API Object
 
 The Vertical Pod Autoscaler is an API resource in the Kubernetes autoscaling API group. The version supported is 0.11 can be found in the [Kubernetes autoscaler repo][github-autoscaler-repo-v011].
 
-## VPA object operation modes
+### VPA object operation modes
 
 A Vertical Pod Autoscaler resource is inserted for each controller that you want to have automatically computed resource requirements. This is most commonly a *deployment*. There are four modes in which VPAs operate:
 
