@@ -1,5 +1,5 @@
 ---
-title: Enforce group naming policy in Azure Active Directory | Microsoft Docs
+title: Enforce group naming policy in Azure Active Directory
 description: How to set up naming policy for Microsoft 365 groups in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 06/24/2022
 ms.author: barclayn                   
 ms.reviewer: krbain
-ms.custom: "it-pro;seo-update-azuread-jan"
+ms.custom: it-pro, seo-update-azuread-jan, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -37,7 +37,7 @@ You can enforce naming policy for groups in two different ways:
 
 ### Prefix-suffix naming policy
 
-The general structure of the naming convention is ‘Prefix[GroupName]Suffix’. While you can define multiple prefixes and suffixes, you can only have one instance of the [GroupName] in the setting. The prefixes or suffixes can be either fixed strings or user attributes such as \[Department\] that are substituted based on the user who is creating the group. The total allowable number of characters for your prefix and suffix strings including group name is 53 characters.
+The general structure of the naming convention is ‘Prefix[GroupName]Suffix’. While you can define multiple prefixes and suffixes, you can only have one instance of the [GroupName] in the setting. The prefixes or suffixes can be either fixed strings or user attributes such as \[Department\] that are substituted based on the user who is creating the group. The total allowable number of characters for your prefix and suffix strings including group name is 63 characters.
 
 Prefixes and suffixes can contain special characters that are supported in group name and group alias. Any characters in the prefix or suffix that are not supported in the group alias are still applied in the group name, but removed from the group alias. Because of this restriction, the prefixes and suffixes applied to the group name might be different from the ones applied to the group alias.
 
@@ -77,8 +77,10 @@ Some administrator roles are exempted from these policies, across all group work
 
 ## Configure naming policy in Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Group Administrator account.
-1. Select **Groups**, then select **Naming policy** to open the Naming policy page.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with a Group Administrator account.
+1. Browse to **Azure Active Directory** > **Groups**, then select **Naming policy** to open the Naming policy page.
 
     ![open the Naming policy page in the admin center](./media/groups-naming-policy/policy.png)
 
@@ -231,7 +233,7 @@ After you set a group naming policy in Azure AD, when a user creates a group in 
 
 Workload | Compliance
 ----------- | -------------------------------
-Azure Active Directory portals | The Azure AD portal and the Access Panel portal show the naming policy enforced name when the user types in a group name when creating or editing a group. When a user enters a custom blocked word, an error message with the blocked word is displayed so that the user can remove it.
+Azure portal | The Azure portal and the Access Panel portal show the naming policy enforced name when the user types in a group name when creating or editing a group. When a user enters a custom blocked word, an error message with the blocked word is displayed so that the user can remove it.
 Outlook Web Access (OWA) | Outlook Web Access shows the naming policy enforced name when the user types a group name or group alias. When a user enters a custom blocked word, an error message is shown in the UI along with the blocked word so that the user can remove it.
 Outlook Desktop | Groups created in Outlook desktop are compliant with the naming policy settings. Outlook desktop app doesn't yet show the preview of the enforced group name and doesn't return the custom blocked word errors when the user enters the group name. However, the naming policy is automatically applied when creating or editing a group, and users see error messages if there are custom blocked words in the group name or alias.
 Microsoft Teams | Microsoft Teams shows the group naming policy enforced name when the user enters a team name. When a user enters a custom blocked word, an error message is shown along with the blocked word so that the user can remove it.
@@ -255,9 +257,9 @@ Microsoft 365 admin center | Microsoft 365 admin center is compliant with naming
 
 These articles provide additional information on Azure AD groups.
 
-- [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [See existing groups](../fundamentals/groups-view-azure-portal.md)
 - [Expiration policy for Microsoft 365 groups](groups-lifecycle.md)
-- [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
-- [Manage members of a group](../fundamentals/active-directory-groups-members-azure-portal.md)
-- [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [Manage settings of a group](../fundamentals/how-to-manage-groups.md)
+- [Manage members of a group](../fundamentals/how-to-manage-groups.md)
+- [Manage memberships of a group](../fundamentals/how-to-manage-groups.md)
 - [Manage dynamic rules for users in a group](groups-dynamic-membership.md)

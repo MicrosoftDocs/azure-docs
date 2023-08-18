@@ -1,16 +1,16 @@
 ---
 title: Configure a SIM policy
-titleSuffix: Azure Private 5G Core Preview
-description: With this how-to guide, learn how to configure a SIM policy for Azure Private 5G Core Preview through the Azure portal. 
-author: djrmetaswitch
-ms.author: drichards
+titleSuffix: Azure Private 5G Core
+description: With this how-to guide, learn how to configure a SIM policy for Azure Private 5G Core through the Azure portal. 
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to 
 ms.date: 01/16/2022
 ms.custom: template-how-to
 ---
 
-# Configure a SIM policy for Azure Private 5G Core Preview - Azure portal
+# Configure a SIM policy for Azure Private 5G Core - Azure portal
 
 *SIM policies* allow you to define different sets of policies and interoperability settings that can each be assigned to a group of SIMs. The SIM policy also defines the default Quality of Service settings for any services that use the policy. You'll need to assign a SIM policy to a SIM before the user equipment (UE) using that SIM can access the private mobile network. In this how-to-guide, you'll learn how to configure a SIM policy.
 
@@ -23,7 +23,7 @@ ms.custom: template-how-to
 
 ## Configure the SIM policy
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the **Mobile Network** resource representing the private mobile network for which you want to configure a SIM policy.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
@@ -33,10 +33,7 @@ ms.custom: template-how-to
     :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policies-resource-menu-option.png" alt-text="Screenshot of the Azure portal. It shows the SIM policies option in the resource menu of a Mobile Network resource.":::
 
 1. In the **Command** bar, select **Create**.
-1. Under **Create a SIM policy**:
-    
-    - Set the **Default slice** field to **(Default) slice-1**.
-    - Fill out all the other fields using the information you collected from [Collect top-level setting values](collect-required-information-for-sim-policy.md#collect-top-level-setting-values).
+1. Fill out the fields under **Create a SIM policy** using the information you collected from [Collect top-level setting values](collect-required-information-for-sim-policy.md#collect-top-level-setting-values).
 
 1. Select **Add a network scope**.
 

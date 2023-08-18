@@ -2,24 +2,22 @@
 title: Tutorial - Simulate a failure in reading data from the primary region
 titleSuffix: Azure Storage
 description: Simulate an error in reading data from the primary region when the storage account is configured for read-access geo-zone-redundant storage (RA-GZRS).
-services: storage
-author: tamram
+author: pauljewellmsft
 
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: tutorial
-ms.date: 04/16/2020
-ms.author: tamram
+ms.date: 09/06/2022
+ms.author: pauljewell
 ms.reviewer: artek
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom: devx-track-linux
 ---
 
 # Tutorial: Simulate a failure in reading data from the primary region
 
-This tutorial is part two of a series. In it, you learn about the benefits of [read-access geo-zone-redundant storage](../common/storage-redundancy.md) (RA-GZRS) by simulating a failure.
+This tutorial is part two of a series. In it, you'll learn about the benefits of [read-access geo-zone-redundant storage](../common/storage-redundancy.md) (RA-GZRS) by simulating a failure.
 
-In order to simulate a failure, you can use either [static routing](#simulate-a-failure-with-an-invalid-static-route) or [Fiddler](#simulate-a-failure-with-fiddler). Both methods will allow you to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy.md) (RA-GZRS) storage account, leading the application to read from the secondary endpoint instead.
+In order to simulate a failure, you can use either [static routing](#simulate-a-failure-with-an-invalid-static-route) or [Fiddler](#simulate-a-failure-with-fiddler). Both methods will allow you to simulate failure for requests to the primary endpoint of your RA-GZRS storage account, leading the application to read from the secondary endpoint instead.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -34,13 +32,13 @@ In part two of the series, you learn how to:
 
 Before you begin this tutorial, complete the previous tutorial: [Make your application data highly available with Azure storage][previous-tutorial].
 
-To simulate a failure with static routing, you will use an elevated command prompt.
+To simulate a failure with static routing, you'll use an elevated command prompt.
 
 To simulate a failure using Fiddler, download and [install Fiddler](https://www.telerik.com/download/fiddler)
 
 ## Simulate a failure with an invalid static route
 
-You can create an invalid static route for all requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy.md) (RA-GZRS) storage account. In this tutorial, the local host is used as the gateway for routing requests to the storage account. Using the local host as the gateway causes all requests to your storage account primary endpoint to loop back inside the host, which subsequently leads to failure. Follow the following steps to simulate a failure, and primary endpoint restoration with an invalid static route.
+You can create an invalid static route for all requests to the primary endpoint of your RA-GZRS storage account. In this tutorial, the local host is used as the gateway for routing requests to the storage account. Using the local host as the gateway causes all requests to your storage account primary endpoint to loop back inside the host, which results in a failed request. Follow the following steps to simulate a failure, and primary endpoint restoration with an invalid static route.
 
 ### Start and pause the application
 
@@ -52,7 +50,7 @@ While the application is paused, open a command prompt on Windows as an administ
 
 Get information about the storage account primary endpoint domain by entering the following command on a command prompt or terminal, replacing `STORAGEACCOUNTNAME` with the name of your storage account.
 
-```
+```bash
 nslookup STORAGEACCOUNTNAME.blob.core.windows.net
 ```
 
@@ -64,13 +62,13 @@ To add a static route for a destination host, type the following command on a Wi
 
 #### Linux
 
-```
-route add <destination_ip> gw <gateway_ip>
+```bash
+sudo route add <destination_ip> gw <gateway_ip>
 ```
 
 #### Windows
 
-```
+```console
 route add <destination_ip> <gateway_ip>
 ```
 
@@ -83,7 +81,7 @@ To simulate the primary endpoint becoming functional again, delete the invalid s
 #### Linux
 
 ```bash
-route del <destination_ip> gw <gateway_ip>
+sudo route del <destination_ip> gw <gateway_ip>
 ```
 
 #### Windows
@@ -108,7 +106,7 @@ Open Fiddler, select **Rules** and **Customize Rules**.
 
 The Fiddler ScriptEditor launches and displays the **SampleRules.js** file. This file is used to customize Fiddler.
 
-Paste the following code sample in the `OnBeforeResponse` function, replacing `STORAGEACCOUNTNAME` with the name of your storage account. Depending on the sample, you may also need to replace `HelloWorld` with the name of the test file (or a prefix such as `sampleFile`) being downloaded. The new code is commented out to ensure that it doesn't run immediately.
+Paste the following code sample in the `OnBeforeResponse` function, replacing `STORAGEACCOUNTNAME` with the name of your storage account. Depending on the sample, you may also need to replace `HelloWorld` with the name of the test file being downloaded, or remove that part of the condition if it doesn't apply. The new code is commented out to ensure that it doesn't run immediately.
 
 Once complete, select **File** and **Save** to save your changes. Leave the ScriptEditor window open for use in the following steps.
 
@@ -122,6 +120,7 @@ Once complete, select **File** and **Save** to save your changes. Leave the Scri
         //     and save the changes.
 
         if ((oSession.hostname == "STORAGEACCOUNTNAME.blob.core.windows.net")
+            // depending on the sample, you may need to modify or remove the line below
             && (oSession.PathAndQuery.Contains("HelloWorld"))) {
             oSession.responseCode = 503;
         }
@@ -148,11 +147,8 @@ In the window with the running sample, resume the application or press the appro
 
 ## Next steps
 
-In part two of the series, you learned about simulating a failure to test read access geo-redundant storage.
+In part two of the series, you learned about simulating a failure to test read-access geo-redundant storage.
 
-To learn more about how RA-GZRS storage works, as well as its associated risks, read the following article:
-
-> [!div class="nextstepaction"]
-> [Designing HA apps with RA-GZRS](../common/geo-redundant-design.md)
+To learn more about how RA-GZRS storage works, and its associated risks, see [Designing HA apps with RA-GZRS](../common/geo-redundant-design.md).
 
 [previous-tutorial]: storage-create-geo-redundant-storage.md

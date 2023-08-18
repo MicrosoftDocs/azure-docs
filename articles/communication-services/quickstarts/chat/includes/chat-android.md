@@ -19,13 +19,13 @@ Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Android Studio](https://developer.android.com/studio), we will be using Android Studio to create an Android application for the quickstart to install dependencies.
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to **record your resource endpoint and connection string** for this quickstart.
-- Create **two** Communication Services Users and issue them a [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and the user_id string**. In this quickstart, we will create a thread with an initial participant and then add a second participant to the thread. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- Create **two** Communication Services Users and issue them a [User Access Token](../../identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and the user_id string**. In this quickstart, we will create a thread with an initial participant and then add a second participant to the thread. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope chat --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity/access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -77,10 +77,25 @@ To import the library into your project using the [Maven](https://maven.apache.o
 </dependency>
 ```
 
+### Set up Azure Function
+Please check out [Azure Function integration](../../../tutorials/integrate-azure-function.md) for details. We highly recommend integrating with Azure Function to avoid hard-coding application parameters.
+
+### Set up application constants:
+Create a class `ApplicationConstants` which stores all application constants:
+```java
+public class ApplicationConstants {
+    public static final String SDK_VERSION = "<your_version>";
+    public final static String SDK_NAME = "azure-communication-com.azure.android.communication.chat";
+    public final static String APPLICATION_ID = "Chat_Test_App";
+    public final static String TAG = "[Chat Test App]";
+    public static CommunicationTokenCredential COMMUNICATION_TOKEN_CREDENTIAL;
+}
+```
 
 ### Set up the placeholders
 
-Open and edit the file `MainActivity.java`. In this Quickstart, we'll add our code to `MainActivity`, and view the output in the console. This quickstart does not address building a UI. At the top of file, import the `Communication common`, `Communication chat`, and other system libraries:
+Open and edit the file `MainActivity.java`. In this quick-start, we'll add our code to `MainActivity`, and view the output in the console. This quick-start does not address building a UI. At the top of the file, import the `Azure Communication Common`, `Azure 
+ Communication Chat`, and other system libraries:
 
 ```
 import com.azure.android.communication.chat.*;
@@ -100,16 +115,6 @@ import java.util.List;
 Copy the following code into class `MainActivity` in file `MainActivity.java`:
 
 ```java
-    private String endpoint = "<replace with your resource endpoint>'";
-    private String firstUserId = "<first_user_id>";
-    private String secondUserId = "<second_user_id>";
-    private String firstUserAccessToken = "<first_user_access_token>";
-    private String threadId = "<thread_id>";
-    private String chatMessageId = "<chat_message_id>";
-    private final String sdkVersion = "<chat_sdk_version>";
-    private static final String APPLICATION_ID = "Chat Quickstart App";
-    private static final String SDK_NAME = "azure-communication-com.azure.android.communication.chat";
-    private static final String TAG = "Chat Quickstart App";
     private ChatAsyncClient chatAsyncClient;
 
     private void log(String msg) {
@@ -122,6 +127,8 @@ Copy the following code into class `MainActivity` in file `MainActivity.java`:
         super.onStart();
         try {
             AndroidThreeTen.init(this);
+
+            // Initialize application parameters if one of the conditions in '### Initialize Application Parameters' are met.
 
             // <CREATE A CHAT CLIENT>
 
@@ -150,13 +157,33 @@ Copy the following code into class `MainActivity` in file `MainActivity.java`:
     }
 ```
 
-1. Replace `<resource>` with your Communication Services resource.
-2. Replace `<first_user_id>` and `<second_user_id>` with valid Communication Services user IDs that were generated as part of prerequisite steps.
-3. Replace `<first_user_access_token>` with the Communication Services access token for `<first_user_id>` that was generated as part of prerequisite steps.
-4. Replace `<chat_sdk_version>` with the version of Azure Communication Chat SDK.
+### Initialize Application Parameters
+> [!NOTE]
+> Initializing `ApplicationConstants` needs to be added to `MainActivity.java` if EITHER of the following conditions is met: 1. The push notification feature is NOT enabled. 2. The version for the Azure Communication Chat library for Android is < '2.0.0'. Otherwise, please refer to step 11 in [Android push notifications](../../../tutorials/chat-android-push-notification.md). Please refer to the sample APP of the SDK version that you are consuming for reference.
 
-In following steps, we'll replace the placeholders with sample code using the Azure Communication Services Chat library.
+`ACS_ENDPOINT`, `FIRST_USER_ID` and `FIRST_USER_ACCESS_TOKEN` are returned from calling Azure Function. Please check out [Azure Function integration](../../../tutorials/integrate-azure-function.md) for details. We use the response from calling Azure Function to initialize the list of parameters:
+* `ACS_ENDPOINT`: the endpoint of your Communication Services resource.
+* `FIRST_USER_ID` and `SECOND_USER_ID`: valid Communication Services user IDs generated by your Communication Services resource.
+* `FIRST_USER_ACCESS_TOKEN`: the communication Services access token for `<FIRST_USER_ID>`.
 
+Code block for initialing application parameters by calling Azure Function: 
+```java
+try {
+        UserTokenClient userTokenClient = new UserTokenClient(AZURE_FUNCTION_URL);
+        //First user context
+        userTokenClient.getNewUserContext();
+        ACS_ENDPOINT = userTokenClient.getACSEndpoint();
+        FIRST_USER_ID = userTokenClient.getUserId();
+        FIRST_USER_ACCESS_TOKEN = userTokenClient.getUserToken();
+        COMMUNICATION_TOKEN_CREDENTIAL = new CommunicationTokenCredential(FIRST_USER_ACCESS_TOKEN);
+        //Second user context
+        userTokenClient.getNewUserContext();
+        SECOND_USER_ID = userTokenClient.getUserId();
+    } catch (Throwable throwable) {
+        //Your handling code
+        logger.logThrowableAsError(throwable);
+    }
+```
 
 ### Create a chat client
 

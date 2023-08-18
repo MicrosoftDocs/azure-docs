@@ -1,14 +1,15 @@
 ---
 title: Protected web API app registration
 description: Learn how to build a protected web API and the information you need to register the app.
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.date: 01/27/2022
-ms.author: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev
 # Customer intent: As an application developer, I want to know how to write a protected web API using the Microsoft identity platform for developers.
 ---
@@ -83,6 +84,9 @@ If you're following along with the web API scenario described in this set of art
 - **User consent description**: _Accesses the TodoListService web API as a user_
 - **State**: _Enabled_
 
+> [!TIP] 
+> For the **Application ID URI**, you have the option to set it to the physical authority of the API, for example `https://graph.microsoft.com`. This can be useful if the URL of the API that needs to be called is known.
+
 ### If your web API is called by a service or daemon app
 
 Expose _application permissions_ instead of delegated permissions if your API should be accessed by daemons, services, or other non-interactive (by a human) applications. Because daemon- and service-type applications run unattended and authenticate with their own identity, there is no user to "delegate" their permission.
@@ -90,7 +94,7 @@ Expose _application permissions_ instead of delegated permissions if your API sh
 
 #### Expose application permissions (app roles)
 
-To expose application permissions, follow the steps in [Add app roles to your app](howto-add-app-roles-in-azure-ad-apps.md).
+To expose application permissions, follow the steps in [Add app roles to your app](./howto-add-app-roles-in-apps.md).
 
 In the **Create app role** pane under **Allowed member types**, select **Applications**. Or, add the role by using the **Application manifest editor** as described in the article.
 

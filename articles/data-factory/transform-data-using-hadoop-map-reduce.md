@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 08/10/2023
 ---
 
 # Transform data using Hadoop MapReduce activity in Azure Data Factory or Synapse Analytics

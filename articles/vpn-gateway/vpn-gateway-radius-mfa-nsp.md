@@ -2,10 +2,8 @@
 title: 'Integrate NPS with VPN Gateway RADIUS authentication for MFA'
 titleSuffix: Azure VPN Gateway
 description: Learn about integrating Azure VPN Gateway RADIUS authentication with NPS server for Multi-Factor Authentication.
-services: vpn-gateway
 author: ahmadnyasin  
 manager: dcscontentpm
-
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/16/2019

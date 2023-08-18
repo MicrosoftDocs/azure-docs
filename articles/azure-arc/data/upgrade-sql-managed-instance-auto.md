@@ -4,8 +4,8 @@ description: Article describes how to enable automatic upgrades for Azure SQL Ma
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-author: grrlgeek
-ms.author: jeschult
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 05/27/2022
 ms.topic: how-to
@@ -13,7 +13,6 @@ ms.topic: how-to
 
 # Enable automatic upgrades of an Azure SQL Managed Instance for Azure Arc
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 You can set the `--desired-version` parameter of the `spec.update.desiredVersion` property of an Azure Arc-enabled SQL Managed Instance to `auto` to ensure that your managed instance will be upgraded after a data controller upgrade, with no interaction from a user. This setting simplifies management, as you don't need to manually upgrade every instance for every release.
 

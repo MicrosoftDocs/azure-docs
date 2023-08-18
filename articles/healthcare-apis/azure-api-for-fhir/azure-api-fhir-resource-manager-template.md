@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Deploy Azure API for FHIR using an ARM template'
 description: In this quickstart, learn how to deploy Azure API for Fast Healthcare Interoperability Resources (FHIR®), by using an Azure Resource Manager template (ARM template).
-author: mikaelweave
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-api
-ms.author: mikaelw
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-api, devx-track-arm-template
+ms.author: kesheth
 ms.date: 06/03/2022
 ---
 
@@ -29,7 +29,7 @@ An Azure account with an active subscription. [Create one for free](https://azur
 # [PowerShell](#tab/PowerShell)
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-* If you want to run the code locally, [Azure PowerShell](/powershell/azure/install-az-ps).
+* If you want to run the code locally, [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 # [CLI](#tab/CLI)
 
@@ -52,7 +52,7 @@ The template defines one Azure resource:
 
 <!--
 
-Replace the line above with the following line once https://docs.microsoft.com/azure/templates/microsoft.healthcareapis/services goes live:
+Replace the line above with the following line once https://learn.microsoft.com/azure/templates/microsoft.healthcareapis/services goes live:
 
 * [**Microsoft.HealthcareApis/services**](/azure/templates/microsoft.healthcareapis/services)
 

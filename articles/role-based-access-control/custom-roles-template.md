@@ -7,12 +7,10 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/16/2020
+ms.date: 10/19/2022
 ms.author: rolyon 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 #Customer intent: As an IT admin, I want to create custom roles by using an Azure Resource Manager template so that I can start automating custom role processes.
-
 ---
 
 # Create or update Azure custom roles using an ARM template
@@ -32,6 +30,12 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 To create a custom role, you must have:
 
 - Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+
+You must use the following version:
+
+- `2018-07-01` or later
+
+For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
 
 ## Review the template
 
@@ -173,7 +177,7 @@ Here are the changes you would need to make to the previous Quickstart template 
       "resources": [
         {
           "type": "Microsoft.Authorization/roleDefinitions",
-          "apiVersion": "2018-07-01",
+          "apiVersion": "2022-04-01",
           "name": "[parameters('roleDefName')]",
           "properties": {
             ...

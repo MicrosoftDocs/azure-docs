@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/06/2021
+ms.date: 10/20/2022
 ms.author: billmath
 ms.reviewer: arvinh
 ---
@@ -17,7 +17,7 @@ ms.reviewer: arvinh
 The following documentation provides configuration and tutorial information demonstrating how the generic SQL connector and the ECMA Connector Host can be used with a SQL Server.
 
 
-[!INCLUDE [active-directory-app-provisioning-sql.md](../../../includes/active-directory-app-provisioning-sql.md)]
+[!INCLUDE [app-provisioning-sql.md](../../../includes/app-provisioning-sql.md)]
 
 ## Next steps
 

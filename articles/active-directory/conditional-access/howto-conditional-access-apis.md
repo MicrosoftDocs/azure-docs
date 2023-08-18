@@ -1,10 +1,11 @@
 ---
-title: Conditional Access APIs and PowerShell - Azure Active Directory
+title: Conditional Access APIs and PowerShell
 description: Using the Azure AD Conditional Access APIs and PowerShell to manage policies like code
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 09/10/2020
 
@@ -38,9 +39,9 @@ For many administrators, PowerShell is already an understood scripting tool. The
 
 - [Configure Conditional Access policies with Azure AD PowerShell commands](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/01-configure/powershell)
 
-### Graph API
+### Microsoft Graph APIs
 
-This example shows the basic Create, Read, Update, and Delete (CRUD) options available in the Conditional Access Graph APIs. The example also includes some JSON templates you can use to create some sample policies.
+This example shows the basic Create, Read, Update, and Delete (CRUD) options available in the Conditional Access APIs in Microsoft Graph. The example also includes some JSON templates you can use to create some sample policies.
 
 - [Configure Conditional Access policies with Microsoft Graph API calls](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/01-configure/graphapi)
 
@@ -90,7 +91,7 @@ Things don't always work the way you want, when that happens you need a way to g
 
 ## Community contribution
 
-These samples are available in our [GitHub repository](https://github.com/Azure-Samples/azure-ad-conditional-access-apis). We are happy to support community contributions thorough GitHub Issues and Pull Requests.
+These samples are available in our [GitHub repository](https://github.com/Azure-Samples/azure-ad-conditional-access-apis). We are happy to support community contributions through GitHub Issues and Pull Requests.
 
 ## Next steps
 

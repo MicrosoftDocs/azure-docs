@@ -2,6 +2,7 @@
 title: Reliability recommendations
 description: Full list of available reliability recommendations in Advisor.
 ms.topic: article
+ms.custom: ignite-2022
 ms.date: 02/04/2022
 ---
 
@@ -131,37 +132,37 @@ Some or all of your devices are using outdated SDK and we recommend you upgrade 
 
 Learn more about [IoT hub - UpgradeDeviceClientSdk (Upgrade device client SDK to a supported version for IotHub)](https://aka.ms/iothubsdk).
 
-## Cosmos DB
+## Azure Cosmos DB
 
-### Configure Consistent indexing mode on your Azure Cosmos container
+### Configure Consistent indexing mode on your Azure Cosmos DB container
 
-We noticed that your Azure Cosmos container is configured with the Lazy indexing mode, which may impact the freshness of query results. We recommend switching to Consistent mode.
+We noticed that your Azure Cosmos DB container is configured with the Lazy indexing mode, which may impact the freshness of query results. We recommend switching to Consistent mode.
 
-Learn more about [Cosmos DB account - CosmosDBLazyIndexing (Configure Consistent indexing mode on your Azure Cosmos container)](/azure/cosmos-db/how-to-manage-indexing-policy).
+Learn more about [Azure Cosmos DB account - CosmosDBLazyIndexing (Configure Consistent indexing mode on your Azure Cosmos DB container)](/azure/cosmos-db/how-to-manage-indexing-policy).
 
 ### Upgrade your old Azure Cosmos DB SDK to the latest version
 
 Your Azure Cosmos DB account is using an old version of the SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [Cosmos DB account - CosmosDBUpgradeOldSDK (Upgrade your old Azure Cosmos DB SDK to the latest version)](../cosmos-db/index.yml).
+Learn more about [Azure Cosmos DB account - CosmosDBUpgradeOldSDK (Upgrade your old Azure Cosmos DB SDK to the latest version)](../cosmos-db/index.yml).
 
 ### Upgrade your outdated Azure Cosmos DB SDK to the latest version
 
 Your Azure Cosmos DB account is using an outdated version of the SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [Cosmos DB account - CosmosDBUpgradeOutdatedSDK (Upgrade your outdated Azure Cosmos DB SDK to the latest version)](../cosmos-db/index.yml).
+Learn more about [Azure Cosmos DB account - CosmosDBUpgradeOutdatedSDK (Upgrade your outdated Azure Cosmos DB SDK to the latest version)](../cosmos-db/index.yml).
 
 ### Configure your Azure Cosmos DB containers with a partition key
 
 Your Azure Cosmos DB non-partitioned collections are approaching their provisioned storage quota. Migrate these collections to new collections with a partition key definition so that they can automatically be scaled out by the service.
 
-Learn more about [Cosmos DB account - CosmosDBFixedCollections (Configure your Azure Cosmos DB containers with a partition key)](../cosmos-db/partitioning-overview.md#choose-partitionkey).
+Learn more about [Azure Cosmos DB account - CosmosDBFixedCollections (Configure your Azure Cosmos DB containers with a partition key)](../cosmos-db/partitioning-overview.md#choose-partitionkey).
 
-### Upgrade your Azure Cosmos DB API for MongoDB account to v4.0 to save on query/storage costs and utilize new features
+### Upgrade your Azure Cosmos DB for MongoDB account to v4.0 to save on query/storage costs and utilize new features
 
-Your Azure Cosmos DB API for MongoDB account is eligible to upgrade to version 4.0. Upgrading to v4.0 can reduce your storage costs by up to 55% and your query costs by up to 45% by leveraging a new storage format. Numerous additional features such as multi-document transactions are also included in v4.0.
+Your Azure Cosmos DB for MongoDB account is eligible to upgrade to version 4.0. Upgrading to v4.0 can reduce your storage costs by up to 55% and your query costs by up to 45% by leveraging a new storage format. Numerous additional features such as multi-document transactions are also included in v4.0.
 
-Learn more about [Cosmos DB account - CosmosDBMongoSelfServeUpgrade (Upgrade your Azure Cosmos DB API for MongoDB account to v4.0 to save on query/storage costs and utilize new features)](/azure/cosmos-db/mongodb-version-upgrade).
+Learn more about [Azure Cosmos DB account - CosmosDBMongoSelfServeUpgrade (Upgrade your Azure Cosmos DB for MongoDB account to v4.0 to save on query/storage costs and utilize new features)](/azure/cosmos-db/mongodb-version-upgrade).
 
 ### Add a second region to your production workloads on Azure Cosmos DB
 
@@ -170,49 +171,49 @@ Based on their names and configuration, we have detected the Azure Cosmos DB acc
 > [!NOTE]
 > Additional regions will incur extra costs.
 
-Learn more about [Cosmos DB account - CosmosDBSingleRegionProdAccounts (Add a second region to your production workloads on Azure Cosmos DB)](../cosmos-db/high-availability.md).
+Learn more about [Azure Cosmos DB account - CosmosDBSingleRegionProdAccounts (Add a second region to your production workloads on Azure Cosmos DB)](../cosmos-db/high-availability.md).
 
-### Enable Server Side Retry (SSR) on your Azure Cosmos DB's API for MongoDB account
+### Enable Server Side Retry (SSR) on your Azure Cosmos DB for MongoDB account
 
 We observed your account is throwing a TooManyRequests error with the 16500 error code. Enabling Server Side Retry (SSR) can help mitigate this issue for you.
 
-Learn more about [Cosmos DB account - CosmosDBMongoServerSideRetries (Enable Server Side Retry (SSR) on your Azure Cosmos DB's API for MongoDB account)](/azure/cosmos-db/cassandra/prevent-rate-limiting-errors).
+Learn more about [Azure Cosmos DB account - CosmosDBMongoServerSideRetries (Enable Server Side Retry (SSR) on your Azure Cosmos DB for MongoDB account)](/azure/cosmos-db/cassandra/prevent-rate-limiting-errors).
 
-### Migrate your Azure Cosmos DB API for MongoDB account to v4.0 to save on query/storage costs and utilize new features
+### Migrate your Azure Cosmos DB for MongoDB account to v4.0 to save on query/storage costs and utilize new features
 
-Migrate your database account to a new database account to take advantage of Azure Cosmos DB's API for MongoDB v4.0. Upgrading to v4.0 can reduce your storage costs by up to 55% and your query costs by up to 45% by leveraging a new storage format. Numerous additional features such as multi-document transactions are also included in v4.0. When upgrading, you must also migrate the data in your existing account to a new account created using version 4.0. Azure Data Factory or Studio 3T can assist you in migrating your data.
+Migrate your database account to a new database account to take advantage of Azure Cosmos DB for MongoDB v4.0. Upgrading to v4.0 can reduce your storage costs by up to 55% and your query costs by up to 45% by leveraging a new storage format. Numerous additional features such as multi-document transactions are also included in v4.0. When upgrading, you must also migrate the data in your existing account to a new account created using version 4.0. Azure Data Factory or Studio 3T can assist you in migrating your data.
 
-Learn more about [Cosmos DB account - CosmosDBMongoMigrationUpgrade (Migrate your Azure Cosmos DB API for MongoDB account to v4.0 to save on query/storage costs and utilize new features)](/azure/cosmos-db/mongodb-feature-support-40).
+Learn more about [Azure Cosmos DB account - CosmosDBMongoMigrationUpgrade (Migrate your Azure Cosmos DB for MongoDB account to v4.0 to save on query/storage costs and utilize new features)](/azure/cosmos-db/mongodb-feature-support-40).
 
-### Your Cosmos DB account is unable to access its linked Azure Key Vault hosting your encryption key
+### Your Azure Cosmos DB account is unable to access its linked Azure Key Vault hosting your encryption key
 
-It appears that your key vault's configuration is preventing your Cosmos DB account from contacting the key vault to access your managed encryption keys. If you've recently performed a key rotation, make sure that the previous key or key version remains enabled and available until Cosmos DB has completed the rotation. The previous key or key version can be disabled after 24 hours, or after the Azure Key Vault audit logs don't show activity from Azure Cosmos DB on that key or key version anymore.
+It appears that your key vault's configuration is preventing your Azure Cosmos DB account from contacting the key vault to access your managed encryption keys. If you've recently performed a key rotation, make sure that the previous key or key version remains enabled and available until Azure Cosmos DB has completed the rotation. The previous key or key version can be disabled after 24 hours, or after the Azure Key Vault audit logs don't show activity from Azure Cosmos DB on that key or key version anymore.
 
-Learn more about [Cosmos DB account - CosmosDBKeyVaultWrap (Your Cosmos DB account is unable to access its linked Azure Key Vault hosting your encryption key)](../cosmos-db/how-to-setup-cmk.md).
+Learn more about [Azure Cosmos DB account - CosmosDBKeyVaultWrap (Your Azure Cosmos DB account is unable to access its linked Azure Key Vault hosting your encryption key)](../cosmos-db/how-to-setup-cmk.md).
 
 ### Avoid being rate limited from metadata operations
 
-We found a high number of metadata operations on your account. Your data in Cosmos DB, including metadata about your databases and collections is distributed across partitions. Metadata operations have a system-reserved request unit (RU) limit. Avoid being rate limited from metadata operations by using static Cosmos DB client instances in your code and caching the names of databases and collections.
+We found a high number of metadata operations on your account. Your data in Azure Cosmos DB, including metadata about your databases and collections is distributed across partitions. Metadata operations have a system-reserved request unit (RU) limit. Avoid being rate limited from metadata operations by using static Azure Cosmos DB client instances in your code and caching the names of databases and collections.
 
-Learn more about [Cosmos DB account - CosmosDBHighMetadataOperations (Avoid being rate limited from metadata operations)](/azure/cosmos-db/performance-tips).
+Learn more about [Azure Cosmos DB account - CosmosDBHighMetadataOperations (Avoid being rate limited from metadata operations)](/azure/cosmos-db/performance-tips).
 
-### Use the new 3.6+ endpoint to connect to your upgraded Azure Cosmos DB's API for MongoDB account
+### Use the new 3.6+ endpoint to connect to your upgraded Azure Cosmos DB for MongoDB account
 
-We observed some of your applications are connecting to your upgraded Azure Cosmos DB's API for MongoDB account using the legacy 3.2 endpoint - [accountname].documents.azure.com. Use the new endpoint - [accountname].mongo.cosmos.azure.com (or its equivalent in sovereign, government, or restricted clouds).
+We observed some of your applications are connecting to your upgraded Azure Cosmos DB for MongoDB account using the legacy 3.2 endpoint `[accountname].documents.azure.com`. Use the new endpoint `[accountname].mongo.cosmos.azure.com` (or its equivalent in sovereign, government, or restricted clouds).
 
-Learn more about [Cosmos DB account - CosmosDBMongoNudge36AwayFrom32 (Use the new 3.6+ endpoint to connect to your upgraded Azure Cosmos DB's API for MongoDB account)](/azure/cosmos-db/mongodb-feature-support-40).
+Learn more about [Azure Cosmos DB account - CosmosDBMongoNudge36AwayFrom32 (Use the new 3.6+ endpoint to connect to your upgraded Azure Cosmos DB for MongoDB account)](/azure/cosmos-db/mongodb-feature-support-40).
 
 ### Upgrade to 2.6.14 version of the Async Java SDK v2 to avoid a critical issue or upgrade to Java SDK v4 as Async Java SDK v2 is being deprecated
 
 There is a critical bug in version 2.6.13 and lower of the Azure Cosmos DB Async Java SDK v2 causing errors when a Global logical sequence number (LSN) greater than the Max Integer value is reached. This happens transparent to you by the service after a large volume of transactions occur in the lifetime of an Azure Cosmos DB container. Note: This is a critical hotfix for the Async Java SDK v2, however it is still highly recommended you migrate to the [Java SDK v4](../cosmos-db/sql/sql-api-sdk-java-v4.md).
 
-Learn more about [Cosmos DB account - CosmosDBMaxGlobalLSNReachedV2 (Upgrade to 2.6.14 version of the Async Java SDK v2 to avoid a critical issue or upgrade to Java SDK v4 as Async Java SDK v2 is being deprecated)](../cosmos-db/sql/sql-api-sdk-async-java.md).
+Learn more about [Azure Cosmos DB account - CosmosDBMaxGlobalLSNReachedV2 (Upgrade to 2.6.14 version of the Async Java SDK v2 to avoid a critical issue or upgrade to Java SDK v4 as Async Java SDK v2 is being deprecated)](../cosmos-db/sql/sql-api-sdk-async-java.md).
 
 ### Upgrade to the current recommended version of the Java SDK v4 to avoid a critical issue
 
 There is a critical bug in version 4.15 and lower of the Azure Cosmos DB Java SDK v4 causing errors when a Global logical sequence number (LSN) greater than the Max Integer value is reached. This happens transparent to you by the service after a large volume of transactions occur in the lifetime of an Azure Cosmos DB container.
 
-Learn more about [Cosmos DB account - CosmosDBMaxGlobalLSNReachedV4 (Upgrade to the current recommended version of the Java SDK v4 to avoid a critical issue)](../cosmos-db/sql/sql-api-sdk-java-v4.md).
+Learn more about [Azure Cosmos DB account - CosmosDBMaxGlobalLSNReachedV4 (Upgrade to the current recommended version of the Java SDK v4 to avoid a critical issue)](../cosmos-db/sql/sql-api-sdk-java-v4.md).
 
 ## Fluid Relay
 
@@ -342,7 +343,7 @@ Learn more about [ExpressRoute circuit - ExpressRouteGatewayE2EMonitoring (Imple
 
 ### Avoid hostname override to ensure site integrity
 
-Try to avoid overriding the hostname when configuring Application Gateway.  Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect urls being broken.  Note that this might not be the case in all situations and that certain categories of backends (like REST API's) in general are less sensitive to this.  Make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend.  When used with App Service, attach a custom domain name to the Web App and avoid use of the *.azurewebsites.net host name towards the backend.
+Try to avoid overriding the hostname when configuring Application Gateway.  Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect urls being broken.  Note that this might not be the case in all situations and that certain categories of backends (like REST API's) in general are less sensitive to this.  Make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend.  When used with App Service, attach a custom domain name to the Web App and avoid use of the `*.azurewebsites.net` host name towards the backend.
 
 Learn more about [Application gateway - AppGatewayHostOverride (Avoid hostname override to ensure site integrity)](https://aka.ms/appgw-advisor-usecustomdomain).
 

@@ -1,25 +1,26 @@
 ---
-title: Monitoring Azure Video Indexer data reference #Required; *your official service name*  
-description: Important reference material needed when you monitor Azure Video Indexer 
-author: itnorman #Required; your GitHub user alias, with correct capitalization.
+title: Monitoring Azure AI Video Indexer data reference
+description: Important reference material needed when you monitor Azure AI Video Indexer 
+author: itnorman
 ms.topic: reference
-ms.author: itnorman #Required; Microsoft alias of author; optional team alias.
-ms.service: azure-video-indexer #Required; service you are monitoring
+ms.author: itnorman
+ms.service: azure-video-indexer
 ms.custom: subject-monitoring
-ms.date: 05/10/2022 #Required; mm/dd/yyyy format.
+ms.date: 04/17/2023
 ---
 <!-- VERSION 2.3
 Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
 
-<!-- IMPORTANT STEP 1.  Do a search and replace of Azure Video Indexer with the name of your service. That will make the template easier to read -->
+<!-- IMPORTANT STEP 1.  Do a search and replace of Azure AI Video Indexer with the name of your service. That will make the template easier to read -->
 
-# Monitor Azure Video Indexer data reference
+# Monitor Azure AI Video Indexer data reference
 
-See [Monitoring Azure Video Indexer](monitor-video-indexer.md) for details on collecting and analyzing monitoring data for Azure Video Indexer.
+See [Monitoring Azure AI Video Indexer](monitor-video-indexer.md) for details on collecting and analyzing monitoring data for Azure AI Video Indexer.
 
 ## Metrics
 
-Azure Video Indexer currently does not support any monitoring on metrics.
+Azure AI Video Indexer currently does not support any metrics monitoring.
+
 <!-- REQUIRED if you support Metrics. If you don't, keep the section but call that out. Some services are only onboarded to logs.
 <!-- Please keep headings in this order -->
 
@@ -27,12 +28,12 @@ Azure Video Indexer currently does not support any monitoring on metrics.
 
 <!--------------**OPTION 1 EXAMPLE** ---------------------
 
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported, which is auto generated from underlying systems.  Not all metrics are published depending on whether your product group wants them to be.  If the metric is published, but descriptions are wrong of missing, contact your PM and tell them to update them  in the Azure Monitor "shoebox" manifest.  If this article is missing metrics that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
+<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://learn.microsoft.com/azure/azure-monitor/platform/metrics-supported, which is auto generated from underlying systems.  Not all metrics are published depending on whether your product group wants them to be.  If the metric is published, but descriptions are wrong of missing, contact your PM and tell them to update them  in the Azure Monitor "shoebox" manifest.  If this article is missing metrics that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
 -->
 
 <!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
 
-<!--This section lists all the automatically collected platform metrics collected for Azure Video Indexer.  
+<!--This section lists all the automatically collected platform metrics collected for Azure AI Video Indexer.  
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
@@ -71,19 +72,19 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 
 ## Metric dimensions
 
-Azure Video Indexer currently does not support any monitoring on metrics.
+Azure AI Video Indexer currently does not support any metrics monitoring.
 <!-- REQUIRED. Please  keep headings in this order -->
 <!-- If you have metrics with dimensions, outline it here. If you have no dimensions, say so.  Questions email azmondocs@microsoft.com -->
 
 <!--For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
-Azure Video Indexer does not have any metrics that contain dimensions.
+Azure AI Video Indexer does not have any metrics that contain dimensions.
 
 *OR*
 
-Azure Video Indexer has the following dimensions associated with its metrics.
+Azure AI Video Indexer has the following dimensions associated with its metrics.
 
-<!-- See https://docs.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
+<!-- See https://learn.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
 
 <!--**--------------EXAMPLE format when you have dimensions------------------**
 
@@ -98,7 +99,7 @@ Azure Storage supports following dimensions for metrics in Azure Monitor.
 ## Resource logs
 <!-- REQUIRED. Please  keep headings in this order -->
 
-This section lists the types of resource logs you can collect for Azure Video Indexer.
+This section lists the types of resource logs you can collect for Azure AI Video Indexer.
 
 <!-- List all the resource log types you can have and what they are for -->  
 
@@ -106,12 +107,12 @@ For reference, see a list of [all resource logs category types supported in Azur
 
 <!--------------**OPTION 1 EXAMPLE** ---------------------
 
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-categories, which is auto generated from the REST API.  Not all resource log types metrics are published depending on whether your product group wants them to be.  If the resource log is published, but category display names are wrong or missing, contact your PM and tell them to update them in the Azure Monitor "shoebox" manifest.  If this article is missing resource logs that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
+<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://learn.microsoft.com/azure/azure-monitor/platform/resource-logs-categories, which is auto generated from the REST API.  Not all resource log types metrics are published depending on whether your product group wants them to be.  If the resource log is published, but category display names are wrong or missing, contact your PM and tell them to update them in the Azure Monitor "shoebox" manifest.  If this article is missing resource logs that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
 -->
 
 <!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
 
-<!--This section lists all the resource log category types collected for Azure Video Indexer.  
+<!--This section lists all the resource log category types collected for Azure AI Video Indexer.  
 
 |Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
@@ -135,31 +136,32 @@ Resource Provider and Type: [Microsoft.videoindexer/accounts](/azure/azure-monit
 | AppServiceAuditLogs | Access Audit Logs            | *TODO other important information about this type* |
 |  etc.               |                              |                                                   |  -->
 
-### Azure Video Indexer
+### Azure AI Video Indexer
 
 Resource Provider and Type: [Microsoft.VideoIndexer/accounts](/azure/azure-monitor/platform/resource-logs-categories#microsoftvideoindexeraccounts)
 
 | Category | Display Name | Additional information |
 |:---------|:-------------|------------------|
-| VIAudit   | Azure Video Indexer Audit Logs | Logs are produced from both the Video Indexer portal and the REST API. |
+| VIAudit   | Azure AI Video Indexer Audit Logs | Logs are produced from both the [Azure AI Video Indexer website](https://www.videoindexer.ai/) and the REST API. |
+| IndexingLogs | Indexing Logs | Azure AI Video Indexer indexing logs to monitor all files uploads, indexing and reindexing jobs. |
 
 <!-- --------------**END Examples** ------------- -->
 
 ## Azure Monitor Logs tables
 <!-- REQUIRED. Please keep heading in this order -->
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure Video Indexer and available for query by Log Analytics. 
+This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure AI Video Indexer and available for query by Log Analytics. 
 
 <!--------------**OPTION 1 EXAMPLE** ---------------------
 
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
+<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://learn.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
 -->
 
 <!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
 
 |Resource Type | Notes |
 |-------|-----|
-| [Azure Video Indexer](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-video-indexer) | |
+| [Azure AI Video Indexer](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-video-indexer) | |
 
 <!----------------**OPTION 2 EXAMPLE** -------------
 
@@ -168,11 +170,12 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Az
 NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the automatically generated list. You can group these sections however you want provided you include the proper links back to the proper tables. 
 -->
 
-### Azure Video Indexer
+### Azure AI Video Indexer
 
 | Table |  Description | Additional information  |
 |:---------|:-------------|------------------|
-| [VIAudit](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-video-indexer)<!-- (S/azure/azure-monitor/reference/tables/viaudit)-->   | <!-- description copied from previous link --> Events produced using Azure Video Indexer [portal](https://aka.ms/VIportal) or [REST API](https://aka.ms/vi-dev-portal). |  |
+| [VIAudit](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-video-indexer)<!-- (S/azure/azure-monitor/reference/tables/viaudit)-->   | <!-- description copied from previous link --> Events produced using the Azure AI Video Indexer [website](https://aka.ms/VIportal) or the [REST API portal](https://aka.ms/vi-dev-portal). |  |
+|VIIndexing| Events produced using the Azure AI Video Indexer [upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) and [re-index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) APIs. |
 <!--| [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | <!-- description copied from previous link --> 
 <!--Metric data emitted by Azure services that measure their health and performance.    | *TODO other important information about this type |
 |  etc.               |                              |                                                   |  
@@ -197,7 +200,7 @@ For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure
 <!-- REQUIRED. Please keep heading in this order -->
 <!-- If your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics, list what fields you use and what they are for. Azure Diagnostics is over 500 columns wide with all services using the fields that are consistent across Azure Monitor and then adding extra ones just for themselves.  If it uses service specific diagnostic table, refers to that table. If it uses both, put both types of information in. Most services in the future will have their own specific table. If you have questions, contact azmondocs@microsoft.com -->
 
-<!-- Azure Video Indexer uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever additional] table to store resource log information. The following columns are relevant.
+<!-- Azure AI Video Indexer uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever additional] table to store resource log information. The following columns are relevant.
 
 **Azure Diagnostics**
 
@@ -216,7 +219,7 @@ For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure
 ## Activity log
 <!-- REQUIRED. Please keep heading in this order -->
 
-The following table lists the operations related to Azure Video Indexer that may be created in the Activity log.
+The following table lists the operations related to Azure AI Video Indexer that may be created in the Activity log.
 
 <!-- Fill in the table with the operations that can be created in the Activity log for the service. -->
 | Operation | Description |
@@ -234,9 +237,11 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 ## Schemas
 <!-- REQUIRED. Please keep heading in this order -->
 
-The following schemas are in use by Azure Video Indexer
+The following schemas are in use by Azure AI Video Indexer
 
 <!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
+
+#### Audit schema
 
 ```json
 {
@@ -265,8 +270,52 @@ The following schemas are in use by Azure Video Indexer
   }
   ```
 
+#### Indexing schema
+
+```json
+{
+    "time": "2022-09-28T09:41:08.6216252Z",
+    "resourceId": "/SUBSCRIPTIONS/{SubscriptionId}/RESOURCEGROUPS/{ResourceGroup}/PROVIDERS/MICROSOFT.VIDEOINDEXER/ACCOUNTS/MY-VI-ACCOUNT",
+    "operationName": "UploadStarted",
+    "category": "IndexingLogs",
+    "correlationId": "5cc9a3ea-126b-4f53-a4b5-24b1a5fb9736",
+    "resultType": "Success",
+    "location": "eastus",
+    "operationVersion": "2.0",
+    "durationMs": "0",
+    "identity": {
+        "upn": "my-email@microsoft.com",
+        "claims": null
+    },
+    "properties": {
+        "accountName": "my-vi-account",
+        "accountId": "6961331d-16d3-413a-8f90-f86a5cabf3ef",
+        "videoId": "46b91bc012",
+        "indexing": {
+            "Language": "en-US",
+            "Privacy": "Private",
+            "Partition": null,
+            "PersonModelId": null,
+            "LinguisticModelId": null,
+            "AssetId": null,
+            "IndexingPreset": "Default",
+            "StreamingPreset": "Default",
+            "Description": null,
+            "Priority": null,
+            "ExternalId": null,
+            "Filename": "1 Second Video 1.mp4",
+            "AnimationModelId": null,
+            "BrandsCategories": null,
+            "CustomLanguages": "en-US,ar-BH,hi-IN,es-MX",
+            "ExcludedAIs": "Faces",
+            "LogoGroupId": "ea9d154d-0845-456c-857e-1c9d5d925d95"
+        }
+    }
+}
+  ```
+
 ## Next steps
 
 <!-- replace below with the proper link to your main monitoring service article -->
-- See [Monitoring Azure Video Indexer](monitor-video-indexer.md) for a description of monitoring Azure Video Indexer.
+- See [Monitoring Azure AI Video Indexer](monitor-video-indexer.md) for a description of monitoring Azure AI Video Indexer.
 - See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

@@ -1,7 +1,9 @@
 ---
 title: Quickstart - Create registry - PowerShell
 description: Quickly learn to create a private Docker registry in Azure Container Registry with PowerShell
-ms.date: 06/03/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, mvc, mode-api
 ---
@@ -14,7 +16,7 @@ Azure Container Registry is a private registry service for building, storing, an
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This quickstart requires Azure PowerShell module. Run `Get-Module -ListAvailable Az` to determine your installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+This quickstart requires Azure PowerShell module. Run `Get-Module -ListAvailable Az` to determine your installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 You must also have Docker installed locally. Docker provides packages for [macOS][docker-mac], [Windows][docker-windows], and [Linux][docker-linux] systems.
 
@@ -40,10 +42,10 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 Next, create a container registry in your new resource group with the [New-AzContainerRegistry][New-AzContainerRegistry] command.
 
-The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The following example creates a registry named "myContainerRegistry007." Replace *myContainerRegistry007* in the following command, then run it to create the registry:
+The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The following example creates a registry named "mycontainerregistry." Replace *mycontainerregistry* in the following command, then run it to create the registry:
 
 ```powershell
-$registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
+$registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "mycontainerregistry" -EnableAdminUser -Sku Basic
 ```
 
 [!INCLUDE [container-registry-quickstart-sku](../../includes/container-registry-quickstart-sku.md)]

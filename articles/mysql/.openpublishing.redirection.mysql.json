@@ -66,11 +66,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/mysql/app-development-best-practices.md",
-        "redirect_url": "/azure/mysql/single-server/app-development-best-practices",
-        "redirect_document_id": false
-    },
-    {
         "source_path_from_root": "/articles/mysql/concept-monitoring-best-practices.md",
         "redirect_url": "/azure/mysql/single-server/concept-monitoring-best-practices",
         "redirect_document_id": false
@@ -426,9 +421,9 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/mysql/howto-create-users.md",
-        "redirect_url": "/azure/mysql/single-server/how-to-create-users",
-        "redirect_document_id": false
+    "source_path_from_root": "/articles/mysql/howto-create-users.md",
+    "redirect_url": "/azure/mysql/single-server/how-to-create-users",
+    "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/mysql/howto-data-encryption-cli.md",
@@ -706,11 +701,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/mysql/select-right-deployment-type.md",
-        "redirect_url": "/azure/mysql/single-server/select-right-deployment-type",
-        "redirect_document_id": false
-    },
-    {
         "source_path_from_root": "/articles/mysql/single-server-overview.md",
         "redirect_url": "/azure/mysql/single-server/single-server-overview",
         "redirect_document_id": false
@@ -743,6 +733,66 @@
     {
         "source_path_from_root": "/articles/mysql/flexible-server/concepts-compute-storage.md",
         "redirect_url": "/azure/mysql/flexible-server/concepts-service-tiers-storage",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-decide-on-right-migration-tools.md",
+        "redirect_url": "/azure/mysql/migrate/how-to-decide-on-right-migration-tools",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-migrate-single-flexible-minimum-downtime.md",
+        "redirect_url": "/azure/mysql/migrate/how-to-migrate-single-flexible-minimum-downtime",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/concepts-migrate-mydumper-myloader.md",
+        "redirect_url": "/azure/mysql/migrate/concepts-migrate-mydumper-myloader",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/flexible-server/tutorial-wordpress-app-service.md",
+        "redirect_url": "/azure/app-service/quickstart-wordpress",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/index.yml",
+        "redirect_url": "/azure/mysql/index",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/flexible-server/index.yml",
+        "redirect_url": "/azure/mysql/index",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/quickstart-create-mysql-server-database-using-azure-portal.md",
+        "redirect_url": "/azure/mysql/flexible-server/quickstart-create-server-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-create-users.md",
+        "redirect_url": "/azure/mysql/how-to-create-users",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/app-development-best-practices.md",
+        "redirect_url": "/azure/mysql/app-development-best-practices",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/select-right-deployment-type.md",
+        "redirect_url": "/azure/mysql/select-right-deployment-type",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-troubleshoot-replication-latency.md",
+        "redirect_url": "/azure/mysql/how-to-troubleshoot-replication-latency",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/flexible-server/tutorial-archive-laravel.md",
+        "redirect_url": "/azure/mysql/flexible-server/tutorial-php-database-app",
         "redirect_document_id": true
     }
   ]

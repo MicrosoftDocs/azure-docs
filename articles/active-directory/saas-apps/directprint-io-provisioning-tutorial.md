@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure directprint.io for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure directprint.io for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to directprint.io.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 0a79e880-bbdf-45e4-ae1e-2c74aec9f51e
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 09/24/2021
+ms.date: 11/21/2022
 ms.author: Thwimmer
 ---
 

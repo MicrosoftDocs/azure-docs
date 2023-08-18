@@ -17,7 +17,7 @@ ms.collection:
 
 # Scenario - Using Azure Active Directory to secure access to SAP platforms and applications
 
-This document provides advice on the technical design and configuration of SAP platforms and applications when using Azure Active Directory as the primary user authentication service.
+This document provides advice on the **technical design and configuration** of SAP platforms and applications when using Azure Active Directory as the primary user authentication service. Learn more about the initial setup in [this tutorial](../saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md).
 
 ## Terminology used in this guide
 
@@ -28,7 +28,7 @@ This document provides advice on the technical design and configuration of SAP p
 | [IDS](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/d6a8db70bdde459f92f2837349f95090.html) | SAP ID Service. An instance of IAS used by SAP to authenticate customers and partners to SAP-operated PaaS and SaaS services.                                                                                 |
 | [IPS](https://help.sap.com/viewer/f48e822d6d484fa5ade7dda78b64d9f5/Cloud/en-US/2d2685d469a54a56b886105a06ccdae6.html) | SAP Cloud Identity Services - Identity Provisioning Service.  IPS helps to synchronize identities between different stores / target systems.                                                           |
 | [XSUAA](https://blogs.sap.com/2019/01/07/uaa-xsuaa-platform-uaa-cfuaa-what-is-it-all-about/)                          | Extended Services for Cloud Foundry User Account and Authentication.  XSUAA is a multi-tenant OAuth authorization server within the SAP BTP.                                                                   |
-| [CF](https://www.cloudfoundry.org/)                                                                                   | Cloud Foundry. Cloud Foundry is the environment on which SAP built their multi-cloud offering for BTP (AWS, Azure, GCP, Alibaba).                                                                                      |
+| [CF](https://www.cloudfoundry.org/)                                                                                   | Cloud Foundry. Cloud Foundry is the environment on which SAP built their multicloud offering for BTP (AWS, Azure, GCP, Alibaba).                                                                                      |
 | [Fiori](https://www.sap.com/products/fiori.html)                                                              | The web-based user experience of SAP (as opposed to the desktop-based experience).                                                                                                                            |
 
 ## Overview
@@ -50,6 +50,9 @@ Based on these assumptions, we focus mostly on the products and services present
 
 > [!NOTE]
 > Most of the guidance here applies to [Azure Active Directory B2C](../../active-directory-b2c/overview.md) as well, but there are some important differences. See [Using Azure AD B2C as the Identity Provider](#using-azure-ad-b2c-as-the-identity-provider) for more information.
+
+> [!WARNING]
+> Be aware of the SAP SAML assertion limits and impact of the length of SAP Cloud Foundry role collection names and amount of collections proxied by groups in SAP Cloud Identity Service. See SAP note [2732890](https://launchpad.support.sap.com/?sap-support-cross-site-visitor-id=b73c7292f9a46d52#/notes/2732890) for more information. Exceeded limits result in authorization issues.
 
 ## Recommendations
 
@@ -97,7 +100,7 @@ Note: to IAS, every Subaccount is considered to be an "application", even though
 
 In Azure AD:
 
-- Optionally [configure Azure AD for seamless single sign-on](../hybrid/how-to-connect-sso.md) (Seamless SSO), which automatically signs users in when they are on their corporate devices connected to your corporate network. When enabled, users don't need to type in their passwords to sign in to Azure AD, and usually, even type in their usernames.
+- Optionally [configure Azure AD for seamless single sign-on](../hybrid/connect/how-to-connect-sso.md) (Seamless SSO), which automatically signs users in when they are on their corporate devices connected to your corporate network. When enabled, users don't need to type in their passwords to sign in to Azure AD, and usually, even type in their usernames.
 
 In Azure AD and IAS:
 
@@ -165,7 +168,7 @@ We recommend using the Azure AD group's Group ID rather than its name because th
 In Azure AD:
 
 - Create groups to which users can be added that need access to applications in BTP (for example, create an Azure AD group for each Role Collection in BTP).
-- On the Azure AD Enterprise Application representing the federation relation with IAS, configure the SAML User Attributes & Claims to [add a group claim for security groups](../hybrid/how-to-connect-fed-group-claims.md#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration):
+- On the Azure AD Enterprise Application representing the federation relation with IAS, configure the SAML User Attributes & Claims to [add a group claim for security groups](../hybrid/connect/how-to-connect-fed-group-claims.md#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration):
     - Set the Source attribute to "Group ID" and the Name to `Groups` (spelled exactly like this, with upper case 'G').
     - Further, in order to keep claims payloads small and to avoid running into the limitation whereby Azure AD will limit the number of group claims to 150 in SAML assertions, we highly recommend limiting the groups returned in the claims to only those groups that explicitly were assigned:  
         - Under "Which groups associated with the user should be returned in the claim?" answer with "Groups assigned to the application".  Then for the groups you want to include as claims, assign them to the Enterprise Application using the "Users and Groups" section and selecting "Add user/group".
@@ -226,7 +229,7 @@ Because IAS is the centralized component which has been set up to federate with 
 
 When configuring federation between Azure AD and IAS, as well as between IAS and BTP, SAML metadata is exchanged which contains X.509 certificates used for encryption and cryptographic signatures of the SAML tokens being sent between both parties. These certificates have expiration dates and must be updated periodically (even in emergency situations when a certificate was compromised for example).
 
-Note: the default validity period of the initial Azure AD certificate used to sign SAML assertions is 3 years (and note that the certificate is specific to the Enterprise Application, unlike OpenID Connect and OAuth 2.0 tokens which are signed by a global certificate in Azure AD). You can choose to [generate a new certificate with a different expiration date](../manage-apps/manage-certificates-for-federated-single-sign-on.md#customize-the-expiration-date-for-your-federation-certificate-and-roll-it-over-to-a-new-certificate), or create and import your own certificate.
+Note: the default validity period of the initial Azure AD certificate used to sign SAML assertions is 3 years (and note that the certificate is specific to the Enterprise Application, unlike OpenID Connect and OAuth 2.0 tokens which are signed by a global certificate in Azure AD). You can choose to [generate a new certificate with a different expiration date](../manage-apps/tutorial-manage-certificates-for-federated-single-sign-on.md#customize-the-expiration-date-for-your-federation-certificate-and-roll-it-over-to-a-new-certificate), or create and import your own certificate.
 
 When certificates expire, they can no longer be used, and new certificates must be configured. Therefore, a process must be established to keep the certificate configuration inside the relying party (which needs to validate the signatures) up to date with the actual certificates being used to sign the SAML tokens.
 
@@ -246,7 +249,7 @@ As discussed before, we recommend setting up a trust configuration in BTP toward
 
 ![Rolling over SAML Signing Certs](./media/scenario-azure-first-sap-identity-integration/sap-rollover-saml-signing-certs.png)
 
-SAP has example implementations for client certificate notifications with SAP Cloud Platform Integration [here](https://blogs.sap.com/2017/12/06/sap-cloud-platform-integration-automated-notification-of-keystore-entries-reaching-expiry/) and [here](https://blogs.sap.com/2019/03/01/sap-cloud-platform-integration-automated-notification-for-client-certificates-reaching-expiry/). This could be adapted with Azure Integration Services or PowerAutomate. However, they would need to be adapted to work with server certificates. Such approach requires a custom implementation.
+SAP has example implementations for [client certificate notifications](https://blogs.sap.com/2017/12/06/sap-cloud-platform-integration-automated-notification-of-keystore-entries-reaching-expiry/) with SAP Cloud Integration and [near-expiry handling](https://blogs.sap.com/2019/03/01/sap-cloud-platform-integration-automated-notification-for-client-certificates-reaching-expiry/). Find another example focusing on the SAP BTP trust store and Azure Key Vault [here](https://blogs.sap.com/2022/12/02/automatic-sap-btp-trust-store-certificate-renewal-with-azure-key-vault-or-how-to-stop-thinking-about-expiry-dates-once-and-for-all/). This could be adapted with Azure Integration Services or PowerAutomate. However, they would need to be adapted to work with server certificates. Such approach requires a custom implementation.
 
 #### Why this recommendation?
 
@@ -254,13 +257,15 @@ If the certificates are allowed to expire, or when they are replaced in time but
 
 #### Summary of implementation
 
-[Add an email notification address for certificate expiration](../manage-apps/manage-certificates-for-federated-single-sign-on.md#add-email-notification-addresses-for-certificate-expiration) in Azure AD and set it to a group mailbox so that it isn't sent to a single individual (who may even no longer have an account by the time the certificate is about to expire). By default, only the user who created the Enterprise Application will receive a notification.
+[Add an email notification address for certificate expiration](../manage-apps/tutorial-manage-certificates-for-federated-single-sign-on.md#add-email-notification-addresses-for-certificate-expiration) in Azure AD and set it to a group mailbox so that it isn't sent to a single individual (who may even no longer have an account by the time the certificate is about to expire). By default, only the user who created the Enterprise Application will receive a notification.
 
 Consider building automation to execute the entire certificate rollover process.  For example, one can periodically check for expiring certificates and replace them while updating all relying parties with the new metadata.
 
 ## Using Azure AD B2C as the Identity Provider
 
-[Azure Active Directory B2C](../../active-directory-b2c/overview.md) provides business-to-customer identity as a service. Given that the integration with Azure AD B2C is similar to how you would allow enterprise users to sign in with Azure AD, the recommendations above still mostly apply when you want to use Azure AD B2C for your customers, consumers or citizens and allow them to use their preferred social, enterprise, or local account identities. There are a few important differences, however.
+[Azure Active Directory B2C](../../active-directory-b2c/overview.md) provides business-to-customer identity as a service. Given that the integration with Azure AD B2C is similar to how you would allow enterprise users to sign in with Azure AD, the recommendations above still mostly apply when you want to use Azure AD B2C for your customers, consumers or citizens and allow them to use their preferred social, enterprise, or local account identities. 
+
+There are a few important differences, however. Setting up Azure AD B2C as a corporate identity provider in IAS and configuring federation between both tenants is described in more detail in [this blog post](https://blogs.sap.com/2023/02/08/identity-federation-between-azure-ad-b2c-and-sap-cloud-identity-services-using-custom-policies/).
 
 ### Registering a SAML application in Azure AD B2C
 
@@ -273,3 +278,8 @@ Azure AD B2C doesn't natively support the use of groups to create collections of
 Fortunately, Azure AD B2C is highly customizable, so you can configure the SAML tokens it sends to IAS to include any custom information. For various options on supporting authorization claims, see the documentation accompanying the [Azure AD B2C App Roles sample](https://github.com/azure-ad-b2c/api-connector-samples/tree/main/Authorization-AppRoles), but in summary: through its [API Connector](../../active-directory-b2c/api-connectors-overview.md) extensibility mechanism you can optionally still use groups, app roles, or even a custom database to determine what the user is allowed to access.
 
 Regardless of where the authorization information comes from, it can then be emitted as the `Groups` attribute inside the SAML token by configuring that attribute name as the [default partner claim type on the claims schema](../../active-directory-b2c/claimsschema.md#defaultpartnerclaimtypes) or by overriding the [partner claim type on the output claims](../../active-directory-b2c/relyingparty.md#outputclaims). Note however that BTP allows you to [map Role Collections to User Attributes](https://help.sap.com/products/BTP/65de2977205c403bbc107264b8eccf4b/b3fbb1a9232d4cf99967a0b29dd85d4c.html), which means that *any* attribute name can be used for authorization decisions, even if you don't use the `Groups` attribute name.
+
+## Next Steps
+
+- Learn more about the initial setup in [this tutorial](../saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md)
+- Discover additional [SAP integration scenarios with Azure AD](../../sap/workloads/integration-get-started.md#microsoft-entra-id-formerly-azure-ad) and beyond

@@ -194,7 +194,7 @@ using Azure.Storage.Blobs;
 var clientID = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID");
 var credentialOptions = new DefaultAzureCredentialOptions
 {
-    ManagedIdentityClientId = clientID;
+    ManagedIdentityClientId = clientID
 };
 var credential = new DefaultAzureCredential(credentialOptions);                        
 
@@ -252,7 +252,7 @@ using Azure.Core;
 var clientID = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID");
 var credentialOptions = new DefaultAzureCredentialOptions
 {
-    ManagedIdentityClientId = clientID;
+    ManagedIdentityClientId = clientID
 };
 var credential = new DefaultAzureCredential(credentialOptions);        
 
@@ -308,7 +308,7 @@ using Microsoft.Data.SqlClient;
 var clientID = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID");
 var credentialOptions = new DefaultAzureCredentialOptions
 {
-    ManagedIdentityClientId = clientID;
+    ManagedIdentityClientId = clientID
 };
 
 AccessToken accessToken = await new DefaultAzureCredential(credentialOptions).GetTokenAsync(
@@ -368,3 +368,4 @@ Tokens should be treated like credentials. Don't expose them to users or other s
 * [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md)
 * [How to use managed identities with Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Implementing managed identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing)
+* Use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets

@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial: Configure Lucid (All Products) for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Lucid (All Products) for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Lucid (All Products).
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: Thwimmer
-manager: beatrizd
+manager: jeedes
 ms.assetid: 54a47643-8703-4ab9-96a5-a803b344ccc4
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/20/2022
+ms.date: 11/21/2022
 ms.author: Thwimmer
 ---
 
 # Tutorial: Configure Lucid (All Products) for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Lucid (All Products) and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Lucid (All Products)](https://www.lucid.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Lucid (All Products) and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Lucid (All Products)](https://lucid.co/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities supported
@@ -98,7 +98,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Select **Save**.
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Lucid (All Products)**.
+1. Under the **Mappings** section, select **Provision Azure Active Directory Users**.
 
 1. Review the user attributes that are synchronized from Azure AD to Lucid (All Products) in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Lucid (All Products) for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Lucid (All Products) API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
@@ -116,7 +116,7 @@ This section guides you through the steps to configure the Azure AD provisioning
     |urn:ietf:params:scim:schemas:extension:lucid:2.0:User:productLicenses.LucidscaleCreator|String||
 
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Lucid (All Products)**.
+1. Under the **Mappings** section, select **Provision Azure Active Directory Groups**.
 
 1. Review the group attributes that are synchronized from Azure AD to Lucid (All Products) in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Lucid (All Products) for update operations. Select the **Save** button to commit any changes.
 

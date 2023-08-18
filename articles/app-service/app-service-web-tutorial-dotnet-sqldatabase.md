@@ -5,7 +5,7 @@ ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 01/27/2022
-ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18"
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, AppServiceConnectivity
 ---
 
 # Tutorial: Deploy an ASP.NET app to Azure with Azure SQL Database
@@ -46,7 +46,10 @@ The sample project contains a basic [ASP.NET MVC](https://www.asp.net/mvc) creat
 
 1. Open the *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* file in Visual Studio.
 
-1. Type `Ctrl+F5` to run the app without debugging. The app is displayed in your default browser.
+1. Type `F5` to run the app. The app is displayed in your default browser.
+
+   > [!NOTE] 
+   > If you only installed Visual Studio and the prerequisites, you may have to [install missing packages via NuGet](/nuget/consume-packages/install-use-packages-visual-studio).
 
 1. Select the **Create New** link and create a couple *to-do* items.
 

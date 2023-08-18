@@ -1,19 +1,17 @@
 ---
  title: include file
  description: include file
- services: storage
  author: roygara
- ms.service: storage
+ ms.service: azure-disk-storage
  ms.topic: include
- ms.date: 07/21/2022
+ ms.date: 01/03/2023
  ms.author: rogarana
  ms.custom: include file
 ---
-If you're using [Azure Active Directory (Azure AD)](../articles/active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict uploads and downloads of Azure managed disks. This feature is currently in preview. When a user attempts to upload or download a disk, Azure validates the identity of the requesting user in Azure AD, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level, to ensure that all disks and snapshots must use Azure AD for uploads or downloads. If you have any questions on securing uploads or downloads with Azure AD, reach out to this email: azuredisks@microsoft .com
+If you're using [Azure Active Directory (Azure AD)](../articles/active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict uploads and downloads of Azure managed disks. This feature is available as a GA offering in all regions. When a user attempts to upload or download a disk, Azure validates the identity of the requesting user in Azure AD, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level, to ensure that all disks and snapshots must use Azure AD for uploads or downloads. If you have any questions on securing uploads or downloads with Azure AD, reach out to this email: azuredisks@microsoft .com
 
 ### Restrictions
 [!INCLUDE [disks-azure-ad-upload-download-restrictions](disks-azure-ad-upload-download-restrictions.md)]
-- To download a VHD that is using Azure AD to restrict access, you must access the Azure portal from this link: [https://aka.ms/dataAccessAuthenticationMode](https://aka.ms/dataAccessAuthenticationMode)
 
 ### Prerequisites
 [!INCLUDE [disks-azure-ad-upload-download-prereqs](disks-azure-ad-upload-download-prereqs.md)]
@@ -33,9 +31,9 @@ For detailed steps on assigning a role, see the following articles for [portal](
 
 # [Portal](#tab/azure-portal)
 
-Enable **data access authentication mode** to restrict access to the disk. You can either enable it when creating the disk, or you can enable it on the **Disk Export** page for existing disks. In order to enable **data access authentication mode** you must access the Azure portal from the following link: [https://aka.ms/dataAccessAuthenticationMode](https://aka.ms/dataAccessAuthenticationMode)
+Enable **data access authentication mode** to restrict access to the disk. You can either enable it when creating the disk, or you can enable it on the **Disk Export** page for existing disks.
 
-:::image type="content" source="media/disks-azure-ad-upload-download-portal/disks-data-access-auth-mode.png" alt-text="Screenshot of a disk's data access authentication mode checkbox, tick the checkbox to restrict access to the disk, and save your changes." lightbox="media/disks-azure-ad-upload-download-portal/disks-data-access-auth-mode.png":::
+:::image type="content" source="./media/disks-upload-download-portal/disks-data-access-auth-mode.png" alt-text="Screenshot of a disk's data access authentication mode checkbox, tick the checkbox to restrict access to the disk, and save your changes." lightbox="./media/disks-upload-download-portal/disks-data-access-auth-mode.png":::
 
 # [PowerShell](#tab/azure-powershell)
 

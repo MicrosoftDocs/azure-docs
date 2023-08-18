@@ -3,11 +3,9 @@ title: Deploy virtual machine scale sets with IPv6 in Azure
 titlesuffix: Azure Virtual Network
 description: This article shows how to deploy virtual machine scale sets with IPv6 in an Azure virtual network.
 services: virtual-network
-documentationcenter: na
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: allensu

@@ -11,7 +11,7 @@ ms.topic: overview
 ms.date: 04/22/2022
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -38,7 +38,7 @@ Other services such as Teams, SharePoint, and Managed Desktop don’t have separ
 
 ![Azure RBAC versus Azure AD roles](./media/concept-understand-roles/azure-roles-azure-ad-roles.png)
 
-When we say separate role-based access control system. it means there is a different data store where role definitions and role assignments are stored. Similarly, there is a different policy decision point where access checks happen. For more information, see [Roles for Microsoft 365 services in Azure AD](m365-workload-docs.md) and [Classic subscription administrator roles, Azure roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+When we say separate role-based access control system. it means there is a different data store where role definitions and role assignments are stored. Similarly, there is a different policy decision point where access checks happen. For more information, see [Roles for Microsoft 365 services in Azure AD](m365-workload-docs.md) and [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ## Why some Azure AD roles are for other services
 

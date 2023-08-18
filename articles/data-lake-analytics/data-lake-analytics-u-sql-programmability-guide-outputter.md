@@ -2,14 +2,15 @@
 title: U-SQL user defined outputter programmability guide for Azure Data Lake
 description: Learn about the U-SQL UDO programmability guide user defined outputter.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 06/30/2017
+ms.date: 01/27/2023
 ---
 
 # Use user-defined outputter
 
 ## U-SQL UDO: user-defined outputter
+
 User-defined outputter is another U-SQL UDO that allows you to extend built-in U-SQL functionality. Similar to the extractor, there are several built-in outputters.
 
 * *Outputters.Text()*: Writes data to delimited text files of different encodings.
@@ -24,6 +25,7 @@ Custom outputter allows you to write data in a custom defined format. This can b
 * Modifying output data or adding custom attributes.
 
 ## How to define and use user-defined outputter
+
 To define user-defined outputter, we need to create the `IOutputter` interface.
 
 Following is the base `IOutputter` class implementation:
@@ -66,7 +68,7 @@ public class MyOutputter : IOutputter
 * The Constructor class is used to pass parameters to the user-defined outputter.
 * `Close` is used to optionally override to release expensive state or determine when the last row was written.
 
-**SqlUserDefinedOutputter** attribute indicates that the type should be registered as a user-defined outputter. This class cannot be inherited.
+**SqlUserDefinedOutputter** attribute indicates that the type should be registered as a user-defined outputter. This class can't be inherited.
 
 SqlUserDefinedOutputter is an optional attribute for a user-defined outputter definition. It's used to define the AtomicFileProcessing property.
 
@@ -97,7 +99,7 @@ This approach enables you to build a flexible outputter for any metadata schema.
 
 The output data is written to file by using `System.IO.StreamWriter`. The stream parameter is set to `output.BaseStream` as part of `IUnstructuredWriter output`.
 
-Note that it's important to flush the data buffer to the file after each row iteration. In addition, the `StreamWriter` object must be used with the Disposable attribute enabled (default) and with the **using** keyword:
+It's important to flush the data buffer to the file after each row iteration. In addition, the `StreamWriter` object must be used with the Disposable attribute enabled (default) and with the **using** keyword:
 
 ```csharp
 using (StreamWriter streamWriter = new StreamWriter(output.BaseStream, this._encoding))
@@ -292,5 +294,6 @@ USING USQL_Programmability.Factory.HTMLOutputter(isHeader: true);
 ```
 
 ## Next steps
+
 * [U-SQL programmability guide - overview](data-lake-analytics-u-sql-programmability-guide.md)
 * [U-SQL programmability guide - UDT and UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)

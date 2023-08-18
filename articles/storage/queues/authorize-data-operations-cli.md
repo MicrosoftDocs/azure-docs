@@ -2,14 +2,15 @@
 title: Choose how to authorize access to queue data with Azure CLI
 titleSuffix: Azure Storage
 description: Specify how to authorize data operations against queue data with the Azure CLI. You can authorize data operations using Azure AD credentials, with the account access key, or with a shared access signature (SAS) token. 
-author: jimmart-dev
+author: tamram
 services: storage
-ms.author: jammart
+
+ms.author: tamram
 ms.reviewer: ozgun
 ms.date: 02/10/2021
 ms.topic: how-to
-ms.service: storage
-ms.subservice: common 
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli
 ---
 
@@ -51,7 +52,7 @@ For details about the permissions required for each Azure Storage operation on a
 
 ### Example: Authorize an operation to create a queue with Azure AD credentials
 
-The following example shows how to create a queue from Azure CLI using your Azure AD credentials. To create the queue, you'll need to log in to the Azure CLI, and you'll need a resource group and a storage account.
+The following example shows how to create a queue from Azure CLI using your Azure AD credentials. To create the queue, you'll need to sign in to the Azure CLI, and you'll need a resource group and a storage account.
 
 1. Before you create the queue, assign the [Storage Queue Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning Azure roles, see [Assign an Azure role for access to queue data](assign-azure-role-data-access.md).
 
@@ -107,4 +108,4 @@ You can specify authorization parameters in environment variables to avoid inclu
 ## Next steps
 
 - [Assign an Azure role for access to queue data](assign-azure-role-data-access.md)
-- [Authorize access to queue data with managed identities for Azure resources](authorize-managed-identity.md)
+- [Authorize access to data in Azure Storage](../common/authorize-data-access.md)

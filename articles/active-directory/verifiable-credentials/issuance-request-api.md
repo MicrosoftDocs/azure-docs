@@ -30,10 +30,10 @@ The Request Service REST API issuance request supports the following HTTP method
 
 The Request Service REST API issuance request requires the following HTTP headers:
 
-| Method |Value  |
+| Name |Value  |
 |---------|---------|
 |`Authorization`| Attach the access token as a bearer token to the authorization header in an HTTP request. For example, `Authorization: Bearer <token>`.|
-|`Content-Type`| `Application/json`|
+|`Content-Type`| `application/json`|
 
 Construct an HTTP POST request to the Request Service REST API. 
 
@@ -46,18 +46,18 @@ The following HTTP request demonstrates a request to the Request Service REST AP
 ```http
 POST https://verifiedid.did.msidentity.com/v1.0/verifiableCredentials/createIssuanceRequest
 Content-Type: application/json
-Authorization: Bearer  <token>
+Authorization: Bearer <token>
 
 {
-    "includeQRCode": true, 
-    "callback": {  
-        "url": "https://wwww.contoso.com/vc/callback",  
-        "state": "Aaaabbbb11112222", 
-        "headers": { 
-            "api-key": "an-api-key-can-go-here" 
-        }  
-    }, 
-    ... 
+    "includeQRCode": true,
+    "callback": {
+        "url": "https://wwww.contoso.com/vc/callback",
+        "state": "Aaaabbbb11112222",
+        "headers": {
+            "api-key": "an-api-key-can-go-here"
+        }
+    },
+    ...
 }
 ```  
 
@@ -86,7 +86,7 @@ The issuance request payload contains information about your verifiable credenti
     "clientName": "Verifiable Credential Expert Sample"
   },
   "type": "VerifiedCredentialExpert",
-  "manifest": "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert",
+  "manifest": "https://verifiedid.did.msidentity.com/v1.0/tenants/12345678-0000-0000-0000-000000000000/verifiableCredentials/contracts/MTIzNDU2NzgtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwdmVyaWZpZWRjcmVkZW50aWFsZXhwZXJ0/manifest",
   "claims": {
     "given_name": "Megan",
     "family_name": "Bowen"
@@ -108,8 +108,8 @@ The payload contains the following properties:
 | `registration` | [RequestRegistration](#requestregistration-type)|  Provides information about the issuer that can be displayed in the authenticator app. |
 | `type` |  string |  The verifiable credential type. Should match the type as defined in the verifiable credential manifest. For example: `VerifiedCredentialExpert`. For more information, see [Create the verified credential expert card in Azure](verifiable-credentials-configure-issuer.md). |
 | `manifest` | string| The URL of the verifiable credential manifest document. For more information, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md).|
-| `claims` | string| Optional. Used for the `ID token hint` flow to include a collection of assertions made about the subject in the verifiable credential. For PIN code flow, it's important that you provide the user's first name and last name. For more information, see [Verifiable credential names](verifiable-credentials-configure-issuer.md#verifiable-credential-names). |
-| `pin` | [PIN](#pin-type)| Optional. A PIN number to provide extra security during issuance. For PIN code flow, this property is required. You generate a PIN code, and present it to the user in your app. The user must provide the PIN code that you generated. |
+| `claims` | string| Optional. Can only be used for the [ID token hint](rules-and-display-definitions-model.md#idtokenhintattestation-type) attestation flow to include a collection of assertions made about the subject in the verifiable credential. |
+| `pin` | [PIN](#pin-type)| Optional. PIN code can only be used with the [ID token hint](rules-and-display-definitions-model.md#idtokenhintattestation-type) attestation flow. A PIN number to provide extra security during issuance. You generate a PIN code, and present it to the user in your app. The user must provide the PIN code that you generated. |
 
 There are currently four claims attestation types that you can send in the payload. Microsoft Entra Verified ID uses four ways to insert claims into a verifiable credential and attest to that information with the issuer's DID. The following are the four types:
 
@@ -182,7 +182,7 @@ When your app receives the response, the app needs to present the QR code to the
 
 ## Error response
 
-If there is an error with the request, an [error responses](error-codes.md) will be returned and should be handled appropriately by the app. 
+If there is an error with the request, an [error response](error-codes.md) will be returned and should be handled appropriately by the app. 
 
 ## Callback events
 
@@ -193,7 +193,7 @@ The callback endpoint is called when a user scans the QR code, uses the deep lin
 | `requestId`| string | Mapped to the original request when the payload was posted to the Verifiable Credentials service.|
 | `requestStatus` |string |The status returned for the request. Possible values: <ul><li>`request_retrieved`: The user scanned the QR code or selected the link that starts the issuance flow.</li><li>`issuance_successful`: The issuance of the verifiable credentials was successful.</li><li>`issuance_error`: There was an error during issuance. For details, see the `error` property.</li></ul>    |
 | `state` |string| Returns the state value that you passed in the original payload.   |
-| `error`| error | When the `code` property value is `Issuance_error`, this property contains information about the error.| 
+| `error`| error | When the `code` property value is `issuance_error`, this property contains information about the error.| 
 | `error.code` | string| The return error code. |
 | `error.message`| string| The error message. |
 
@@ -223,8 +223,8 @@ The callback endpoint might be called with an error message. The following table
 
 |Message  |Definition    |
 |---------|---------|
-| `fetch_contract_error*`| Unable to fetch the verifiable credential contract. This error usually happens when the API can't fetch the manifest you specify in the request payload [RequestIssuance object](#issuance-request-payload).|
-| `issuance_service_error*` | The Verifiable Credentials service isn't able to validate requirements, or something went wrong in Verifiable Credentials.|
+| `fetch_contract_error`| Unable to fetch the verifiable credential contract. This error usually happens when the API can't fetch the manifest you specify in the request payload [RequestIssuance object](#issuance-request-payload).|
+| `issuance_service_error` | The Verifiable Credentials service isn't able to validate requirements, or something went wrong in Verifiable Credentials.|
 | `unspecified_error`| This error is uncommon, but worth investigating. |
 
 The following example demonstrates a callback payload when an error occurred:

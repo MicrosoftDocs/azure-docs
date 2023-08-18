@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/29/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -25,7 +25,7 @@ Integrating a BIG-IP with Azure AD provides many benefits, including:
 
 * Manage Identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
 
-To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](../manage-apps/f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](../manage-apps/f5-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Scenario description
 
@@ -41,7 +41,7 @@ The SHA solution for this scenario is made up of several components:
 
 **Oracle JDE Application:** BIG-IP published service to be protected by Azure AD SHA.
 
-**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SAML based SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes.
+**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access, and SAML based SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes.
 
 **BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the Oracle service.
 
@@ -97,7 +97,7 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 
 This first step creates a tenant app registration that will be used to authorize the **Easy Button** access to Graph. Through these permissions, the BIG-IP will be allowed to push the configurations required to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-1. Sign in to the [Azure AD portal](https://portal.azure.com/) with Application Administrative rights
+1. Sign in to the [Azure portal](https://portal.azure.com/) with Application Administrative rights
 
 2. From the left navigation pane, select the **Azure Active Directory** service
 
@@ -249,7 +249,7 @@ To select a policy to be applied to the application being published:
 
    The selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the policy is not enforced.
 
-   ![Screenshot for CA policies](./media/f5-big-ip-easy-button-oracle-jde/conditional-access-policy.png)
+   ![Screenshot for Conditional Access policies](./media/f5-big-ip-easy-button-oracle-jde/conditional-access-policy.png)
 
 > [!NOTE]
 > The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.

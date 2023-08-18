@@ -3,11 +3,11 @@ title: Build and deploy a Node.js Express app to Azure Cloud Services (classic)
 description: Use this tutorial to create a new application using the Express module, which provides an MVC framework for creating Node.js web applications.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen, devx-track-js
 ---
 
 # Build and deploy a Node.js web application using Express on an Azure Cloud Services (classic)
@@ -17,7 +17,7 @@ ms.custom:
 Node.js includes a minimal set of functionality in the core runtime.
 Developers often use 3rd party modules to provide additional
 functionality when developing a Node.js application. In this tutorial
-you will create a new application using the [Express](https://github.com/expressjs/express) module, which provides an MVC framework for creating Node.js web applications.
+you'll create a new application using the [Express](https://github.com/expressjs/express) module, which provides an MVC framework for creating Node.js web applications.
 
 A screenshot of the completed application is below:
 
@@ -26,12 +26,12 @@ A screenshot of the completed application is below:
 ## Create a Cloud Service Project
 [!INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 
-Perform the following steps to create a new cloud service project named 'expressapp':
+Perform the following steps to create a new cloud service project named `expressapp`:
 
 1. From the **Start Menu** or **Start Screen**, search for **Windows PowerShell**. Finally, right-click **Windows PowerShell** and select **Run As Administrator**.
 
     ![Azure PowerShell icon](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
-2. Change directories to the **c:\\node** directory and then enter the following commands to create a new solution named **expressapp** and a web role named **WebRole1**:
+2. Change directories to the **c:\\node** directory and then enter the following commands to create a new solution named `expressapp` and a web role named **WebRole1**:
 
    ```powershell
    PS C:\node> New-AzureServiceProject expressapp
@@ -60,7 +60,7 @@ Perform the following steps to create a new cloud service project named 'express
     PS C:\node\expressapp\WebRole1> express
     ```
 
-    You will be prompted to overwrite your earlier application. Enter **y** or **yes** to continue. Express will generate the app.js file and a folder structure for building your application.
+    You'll be prompted to overwrite your earlier application. Enter **y** or **yes** to continue. Express will generate the app.js file and a folder structure for building your application.
 
     ![The output of the express command](./media/cloud-services-nodejs-develop-deploy-express-app/node23.png)
 3. To install additional dependencies defined in the package.json file,
@@ -90,7 +90,7 @@ Perform the following steps to create a new cloud service project named 'express
     var app = require('./app');
     ```
 
-   This change is required since we moved the file (formerly **bin/www**,) to the same directory as the app file being required. After making this change, save the **server.js** file.
+   This change is required since we moved the file (formerly `bin/www`) to the same directory as the app file being required. After making this change, save the **server.js** file.
 6. Use the following command to run the application in the Azure emulator:
 
     ```powershell
@@ -111,13 +111,13 @@ Azure".
 
    ![The contents of the index.jade file.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
 
-   Jade is the default view engine used by Express applications. For more
-   information on the Jade view engine, see [http://jade-lang.com][http://jade-lang.com].
+   Jade is the default view engine used by Express applications. 
+   
 2. Modify the last line of text by appending **in Azure**.
 
    ![The index.jade file, the last line reads: p Welcome to \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
 3. Save the file and exit Notepad.
-4. Refresh your browser and you will see your changes.
+4. Refresh your browser and you'll see your changes.
 
    ![A browser window, the page contains Welcome to Express in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node32.png)
 

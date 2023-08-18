@@ -5,10 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
+ms.custom: engagement-fy23
 ms.date: 09/02/2022
 ---
 
 # Schedule and run recurring workflows with the Recurrence trigger in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 To start and run your workflow on a schedule, you can use the generic Recurrence trigger as the first step. You can set a date, time, and time zone for starting the workflow and a recurrence for repeating that workflow. The following list includes some patterns that this trigger supports along with more advanced recurrences and complex schedules:
 
@@ -37,7 +40,7 @@ The Recurrence trigger is part of the built-in Schedule connector and runs nativ
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Basic knowledge about [logic app workflows](../logic-apps/logic-apps-overview.md). If you're new to logic apps, learn [how to create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Basic knowledge about [logic app workflows](../logic-apps/logic-apps-overview.md).
 
 <a name="add-recurrence-trigger"></a>
 
@@ -101,11 +104,14 @@ The Recurrence trigger is part of the built-in Schedule connector and runs nativ
    > the first recurrence runs immediately when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, 
    > provide a start date and time for when you want the first recurrence to run.
    >
+   > If you deploy a disabled Consumption workflow that has a Recurrence trigger using an ARM template, the trigger 
+   > instantly fires when you enable the workflow unless you set the **Start time** parameter before deployment.
+   >
    > If a recurrence doesn't specify any other advanced scheduling options such as specific times to run future recurrences, 
    > those recurrences are based on the last run time. As a result, the start times for those recurrences might drift due to 
    > factors such as latency during storage calls. To make sure that your logic app doesn't miss a recurrence, especially when 
    > the frequency is in days or longer, try the following options:
-   >
+   > 
    > * Provide a start date and time for the recurrence and the specific times to run subsequent recurrences. You can use the 
    > properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
    >
@@ -147,7 +153,7 @@ The Recurrence trigger is part of the built-in Schedule connector and runs nativ
 
    ![Screenshot showing Standard workflow and "Recurrence" trigger with advanced scheduling example.](./media/connectors-native-recurrence/recurrence-trigger-advanced-example-standard.png)
 
-1. Now continue building your workflow with other actions. For more actions that you can add, see [Connectors for Azure Logic Apps](../connectors/apis-list.md).
+1. Now continue building your workflow with other actions.
 
 ## Workflow definition - Recurrence
 
@@ -223,4 +229,5 @@ Otherwise, if you don't select a time zone, daylight saving time (DST) events mi
 ## Next steps
 
 * [Pause workflows with delay actions](../connectors/connectors-native-delay.md)
-* [Connectors for Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](built-in.md)

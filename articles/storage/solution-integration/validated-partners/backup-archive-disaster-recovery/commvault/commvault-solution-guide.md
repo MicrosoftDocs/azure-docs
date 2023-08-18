@@ -7,8 +7,8 @@ author: karauten
 ms.author: karauten
 ms.date: 03/15/2021
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Backup to Azure with Commvault
@@ -60,7 +60,6 @@ To determine how much bandwidth you'll need, use the following resources:
 - Reports from your backup software.
 - Commvault provides standard reports to determine [change rate](https://documentation.commvault.com/commvault/v11_sp19/article?p=39699.htm) and [total backup set size](https://documentation.commvault.com/commvault/v11_sp19/article?p=39621.htm) for the initial baseline transfer to Azure.
 - Backup software-independent assessment and reporting tools like:
-  - [MiTrend](https://mitrend.com/)
   - [Aptare](https://www.veritas.com/insights/aptare-it-analytics)
   - [Datavoss](https://www.datavoss.com/)
 

@@ -9,7 +9,7 @@ metadata:
   ms.subservice: app-proxy
   ms.workload: identity
   ms.topic: faq
-  ms.date: 01/10/2022
+  ms.date: 11/17/2022
   ms.author: kenwith
   ms.reviewer: ashishj
 title: Active Directory (Azure AD) Application Proxy frequently asked questions
@@ -102,7 +102,7 @@ sections:
       - question: |
          Should I create a dedicated account to register the connector with Azure AD Application Proxy?
         answer: |
-              There's no reason to. Any global admin or application administrator account will work. The credentials entered during installation aren't used after the registration process. Instead, a certificate is issued to the connector, which is used for authentication from that point on.
+              There's no reason to. Any Global Administrator or application administrator account will work. The credentials entered during installation aren't used after the registration process. Instead, a certificate is issued to the connector, which is used for authentication from that point on.
 
       - question: |
          How can I monitor the performance of the Azure AD Application Proxy connector?
@@ -128,7 +128,7 @@ sections:
           ```
           
       - question: |
-         Why is the connector still showing in Azure AD portal after I uninstalled the connector from the Server?
+         Why is the connector still showing in Azure portal after I uninstalled the connector from the Server?
         answer: |
            When a connector is running, it remains active as it connects to the service. Uninstalled /Unused connectors are tagged as inactive and are removed after 10 days of inactivity from the portal.
            There is no way to remove the Inactive connector manually from the Azure portal.
@@ -152,7 +152,7 @@ sections:
               - If the certificate was created with Microsoft Software Key Storage Provider, the RSA algorithm must be used.
           
       - question: |
-         What is the length of the default and "long" back-end timeout? Can the timeout be extended?
+         What is the length of the default and "long" backend timeout? Can the timeout be extended?
         answer: |
               The default length is 85 seconds. The "long" setting is 180 seconds. The timeout limit can't be extended.
 
@@ -170,7 +170,13 @@ sections:
           
               > [!IMPORTANT]
               > Deleting CWAP_AuthSecret breaks pre-authentication for Azure AD Application Proxy. Don't delete CWAP_AuthSecret.
-          
+
+      - question: |
+         I'm using or want to use Azure Active Directory Application Proxy. Can I replace the `onmicrosoft.com` fallback domain of my tenant in Microsoft 365 as suggested in the article [Add and replace your onmicrosoft.com fallback domain in Microsoft 365](../../microsoft-365/admin/setup/add-or-replace-your-onmicrosoftcom-domain?view=o365-worldwide)? 
+        answer: |
+              No. You must use the original fallback domain.  
+
+         
       - question: |
          How do I change the landing page my application loads?
         answer: |

@@ -1,0 +1,13 @@
+# YamlMime:ZonePivotGroups
+groups:
+# Owner: xiaofanzhou
+- id: passwordless
+  title: Azure Database for PostgreSQL/MySQL/SQL use passwordless connection
+  prompt: Choose the Azure service to connect
+  pivots:
+  - id: postgresql
+    title: Azure Database for PostgreSQL - Flexible Server
+  - id: mysql
+    title: Azure Database for MySQL - Flexible Server
+  - id: sql
+    title: Azure SQL Database

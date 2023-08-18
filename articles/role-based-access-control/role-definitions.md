@@ -8,7 +8,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/19/2022
+ms.date: 04/05/2023
 ms.author: rolyon
 ms.custom:
 ---
@@ -254,7 +254,7 @@ To view and work with data actions, you must have the correct versions of the to
 
 | Tool  | Version  |
 |---------|---------|
-| [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 or later |
+| [Azure PowerShell](/powershell/azure/install-azure-powershell) | 1.1.0 or later |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 or later |
 | [Azure for .NET](/dotnet/azure/) | 2.8.0-preview or later |
 | [Azure SDK for Go](/azure/go/azure-sdk-go-install) | 15.0.0 or later |
@@ -353,7 +353,7 @@ Examples of valid assignable scopes include:
 > | Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", "/subscriptions/{subscriptionId1}",` |
 > | All scopes (applies only to built-in roles) | `"/"` |
 
-You can define only one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview.
+You can define only one management group in `AssignableScopes` of a custom role.
 
 Although it's possible to create a custom role with a resource instance in `AssignableScopes` using the command line, it's not recommended. Each tenant supports a maximum of 5000 custom roles. Using this strategy could potentially exhaust your available custom roles. Ultimately, the level of access is determined by the custom role assignment (scope + role permissions + security principal) and not the `AssignableScopes` listed in the custom role. So, create your custom roles with `AssignableScopes` of management group, subscription, or resource group, but assign the custom roles with narrow scope, such as resource or resource group.
 
@@ -361,6 +361,7 @@ For more information about `AssignableScopes` for custom roles, see [Azure custo
 
 ## Next steps
 
+* [Understand role assignments](role-assignments.md)
 * [Azure built-in roles](built-in-roles.md)
 * [Azure custom roles](custom-roles.md)
 * [Azure resource provider operations](resource-provider-operations.md)

@@ -1,17 +1,17 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Cognitive Search
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Cognitive Search. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 08/17/2022
+ms.date: 08/03/2023
 ms.topic: sample
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Cognitive Search
 
 If you are using [Azure Policy](../governance/policy/overview.md) to enforce the recommendations in
-[Azure Security Benchmark](/azure/security/benchmarks/introduction), then you probably already know
+[Microsoft cloud security benchmark](/azure/security/benchmarks/introduction), then you probably already know
 that you can create policies for identifying and fixing non-compliant services. These policies might
 be custom, or they might be based on built-in definitions that provide compliance criteria and
 appropriate solutions for well-understood best practices.

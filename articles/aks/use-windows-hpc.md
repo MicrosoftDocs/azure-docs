@@ -1,9 +1,8 @@
 ---
 title: Use Windows HostProcess containers
 description: Learn how to use HostProcess & Privileged containers for Windows workloads on AKS
-services: container-service
 ms.topic: article
-ms.date: 4/6/2022
+ms.date: 05/09/2023
 ms.author: juda
 
 ---
@@ -14,23 +13,21 @@ HostProcess / Privileged containers extend the Windows container model to enable
 
 A privileged DaemonSet can carry out changes or monitor a Linux host on Kubernetes but not Windows hosts. HostProcess containers are the Windows equivalent of host elevation.
 
-
 ## Limitations
 
 * HostProcess containers require Kubernetes 1.23 or greater.
 * HostProcess containers require `containerd` 1.6 or higher container runtime.
-* HostProcess pods can only contain HostProcess containers. This is a current limitation of the Windows operating system. Non-privileged Windows containers can't share a vNIC with the host IP namespace.
+* HostProcess pods can only contain HostProcess containers due to a limitation on the Windows operating system. Non-privileged Windows containers can't share a vNIC with the host IP namespace.
 * HostProcess containers run as a process on the host. The only isolation those containers have from the host is the resource constraints imposed on the HostProcess user account.
 * Filesystem isolation and Hyper-V isolation aren't supported for HostProcess containers.
 * Volume mounts are supported and are mounted under the container volume. See Volume Mounts.
 * A limited set of host user accounts are available for Host Process containers by default. See Choosing a User Account.
 * Resource limits such as disk, memory, and cpu count, work the same way as fashion as processes on the host.
-* Named pipe mounts and Unix domain sockets are not directly supported, but can be accessed on their host path, for example `\\.\pipe\*`.
-
+* Named pipe mounts and Unix domain sockets aren't directly supported, but can be accessed on their host path, for example `\\.\pipe\*`.
 
 ## Run a HostProcess workload
 
-To use HostProcess features with your deployment, set *privilaged: true*, *hostProcess: true*, and *hostNetwork: true*:  
+To use HostProcess features with your deployment, set *hostProcess: true* and *hostNetwork: true*:  
 
 ```yaml
     spec:
@@ -38,7 +35,6 @@ To use HostProcess features with your deployment, set *privilaged: true*, *hostP
       containers:
           ...
           securityContext:
-            privileged: true
             windowsOptions:
               hostProcess: true
               ...
@@ -46,7 +42,7 @@ To use HostProcess features with your deployment, set *privilaged: true*, *hostP
       ...
 ```
 
-To run an example workload that uses HostProcess features on an existing AKS cluster with Windows nodes, create `hostprocess.yaml` with the following:
+To run an example workload that uses HostProcess features on an existing AKS cluster with Windows nodes, create `hostprocess.yaml` with the following contents:
 
 ```yaml
 apiVersion: apps/v1
@@ -71,12 +67,11 @@ spec:
         - name: powershell
           image: mcr.microsoft.com/powershell:lts-nanoserver-1809
           securityContext:
-            privileged: true
             windowsOptions:
               hostProcess: true
               runAsUserName: "NT AUTHORITY\\SYSTEM"
           command:
-            - pwsh.exe
+            - C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
             - -command
             - |
               $AdminRights = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")
@@ -99,7 +94,7 @@ $ kubectl apply -f hostprocess.yaml
 daemonset.apps/privileged-daemonset created
 ```
 
-You can verify your workload use the features of HostProcess by view the pod's logs.
+Verify that your workload uses the features of HostProcess containers by viewing the pod's logs.
 
 Use `kubectl` to find the name of the pod in the `kube-system` namespace.
 
@@ -111,7 +106,7 @@ NAME                                  READY   STATUS    RESTARTS   AGE
 privileged-daemonset-12345            1/1     Running   0          2m13s
 ```
 
-Use `kubctl log` to view the logs of the pod and verify the pod has administrator rights:
+Use `kubectl log` to view the logs of the pod and verify the pod has administrator rights:
 
 ```output
 $ kubectl logs privileged-daemonset-12345 --namespace kube-system
@@ -121,8 +116,7 @@ Process has admin rights:
 
 ## Next steps
 
-For more details on HostProcess containers and Microsoft's contribution to Kubernetes upstream, see the [Alpha in v1.22: Windows HostProcess Containers][blog-post].
-
+For more information on HostProcess containers and Microsoft's contribution to Kubernetes upstream, see the [Alpha in v1.22: Windows HostProcess Containers][blog-post].
 
 <!-- LINKS - External -->
 [blog-post]: https://kubernetes.io/blog/2021/08/16/windows-hostprocess-containers/

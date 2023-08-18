@@ -4,10 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Monitor online endpoints and create alerts with Application Insights.
 services: machine-learning
 ms.service: machine-learning
-ms.author: larryfr
-author: blackmist
+ms.reviewer: mopeakande 
+author: dem108
+ms.author: sehan
 ms.subservice: mlops
-ms.date: 08/29/2022
+ms.date: 07/17/2023
 ms.topic: conceptual
 ms.custom: how-to, devplatv2, event-tier1-build-2022
 ---
@@ -23,6 +24,11 @@ In this article you learn how to:
 > * Create a dashboard for your metrics
 > * Create a metric alert
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Prerequisites
 
 - Deploy an Azure Machine Learning online endpoint.
@@ -30,11 +36,24 @@ In this article you learn how to:
 
 ## Metrics
 
-Use the following steps to view metrics for an online endpoint or deployment:
-1. Go to the [Azure portal](https://portal.azure.com).
+You can view metrics pages for online endpoints or deployments in the Azure portal. An easy way to access these metrics pages is through links available in the Azure Machine Learning studio user interface—specifically in the **Details** tab of an endpoint's page. Following these links will take you to the exact metrics page in the Azure portal for the endpoint or deployment. Alternatively, you can also go into the Azure portal to search for the metrics page for the endpoint or deployment.
+
+To access the metrics pages through links available in the studio:
+
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com).
+1. In the left navigation bar, select the **Endpoints** page.
+1. Select an endpoint by clicking its name.
+1. Select **View metrics** in the **Attributes** section of the endpoint to open up the endpoint's metrics page in the Azure portal.
+1. Select **View metrics** in the section for each available deployment to open up the deployment's metrics page in the Azure portal.
+
+    :::image type="content" source="media/how-to-monitor-online-endpoints/online-endpoints-access-metrics-from-studio.png" alt-text="A screenshot showing how to access the metrics of an endpoint and deployment from the studio UI." lightbox="media/how-to-monitor-online-endpoints/online-endpoints-access-metrics-from-studio.png":::
+
+To access metrics directly from the Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to the online endpoint or deployment resource.
 
-    online endpoints and deployments are Azure Resource Manager (ARM) resources that can be found by going to their owning resource group. Look for the resource types **Machine Learning online endpoint** and **Machine Learning online deployment**.
+    Online endpoints and deployments are Azure Resource Manager (ARM) resources that can be found by going to their owning resource group. Look for the resource types **Machine Learning online endpoint** and **Machine Learning online deployment**.
 
 1. In the left-hand column, select **Metrics**.
 
@@ -58,6 +77,7 @@ Split on the following dimensions:
 - Deployment
 - Status Code
 - Status Code Class
+- Model Status Code
 
 **Bandwidth throttling**
 
@@ -102,11 +122,11 @@ You can also create custom alerts to notify you of important status updates to y
 
 There are three logs that can be enabled for online endpoints:
 
-* **AMLOnlineEndpointTrafficLog** (preview): You could choose to enable traffic logs if you want to check the information of your request. Below are some cases: 
+* **AMLOnlineEndpointTrafficLog**: You could choose to enable traffic logs if you want to check the information of your request. Below are some cases: 
 
-    * If the response isn't 200, check the value of the column “ResponseCodeReason” to see what happened. Also check the reason in the "HTTPS status codes" section of the [Troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md#http-status-codes) article.
+    * If the response isn't 200, check the value of the column "ResponseCodeReason" to see what happened. Also check the reason in the "HTTPS status codes" section of the [Troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md#http-status-codes) article.
 
-    * You could check the response code and response reason of your model from the column “ModelStatusCode” and “ModelStatusReason”. 
+    * You could check the response code and response reason of your model from the column "ModelStatusCode" and "ModelStatusReason". 
 
     * You want to check the duration of the request like total duration, the request/response duration, and the delay caused by the network throttling. You could check it from the logs to see the breakdown latency. 
 
@@ -122,7 +142,7 @@ There are three logs that can be enabled for online endpoints:
 
     * You may also use this log for performance analysis in determining the time required by the model to process each request. 
 
-* **AMLOnlineEndpointEventLog** (preview): Contains event information regarding the container’s life cycle. Currently, we provide information on the following types of events: 
+* **AMLOnlineEndpointEventLog**: Contains event information regarding the container’s life cycle. Currently, we provide information on the following types of events: 
 
     | Name | Message |
     | ----- | ----- | 
@@ -174,56 +194,17 @@ You can find example queries on the __Queries__ tab while viewing logs. Search f
 
 The following tables provide details on the data stored in each log:
 
-**AMLOnlineEndpointTrafficLog** (preview)
+**AMLOnlineEndpointTrafficLog**
 
-| Field name | Description |
-| ---- | ---- |
-| Method | The requested method from client. 
-| Path | The requested path from client. 
-| SubscriptionId | The machine learning subscription ID of the online endpoint. 
-| WorkspaceId | The machine learning workspace ID of the online endpoint. 
-| EndpointName | The name of the online endpoint. 
-| DeploymentName | The name of the online deployment. 
-| Protocol | The protocol of the request. 
-| ResponseCode | The final response code returned to the client. 
-| ResponseCodeReason | The final response code reason returned to the client. 
-| ModelStatusCode | The response status code from model. 
-| ModelStatusReason | The response status reason from model. 
-| RequestPayloadSize | The total bytes received from the client. 
-| ResponsePayloadSize | The total bytes sent back to the client. 
-| UserAgent | The user-agent header of the request. 
-| XRequestId | The request ID generated by Azure Machine Learning for internal tracing. 
-| XMSClientRequestId | The tracking ID generated by the client. 
-| TotalDurationMs | Duration in milliseconds from the request start time to the last response byte sent back to the client. If the client disconnected, it measures from the start time to client disconnect time. 
-| RequestDurationMs | Duration in milliseconds from the request start time to the last byte of the request received from the client. 
-| ResponseDurationMs | Duration in milliseconds from the request start time to the first response byte read from the model. 
-| RequestThrottlingDelayMs | Delay in milliseconds in request data transfer due to network throttling. 
-| ResponseThrottlingDelayMs | Delay in milliseconds in response data transfer due to network throttling. 
+[!INCLUDE [endpoint-monitor-traffic-reference](includes/endpoint-monitor-traffic-reference.md)]
 
 **AMLOnlineEndpointConsoleLog**
 
-| Field Name | Description |
-| ----- | ----- |
-| TimeGenerated | The timestamp (UTC) of when the log was generated. 
-| OperationName | The operation associated with log record. 
-| InstanceId | The ID of the instance that generated this log record. 
-| DeploymentName | The name of the deployment associated with the log record. 
-| ContainerName | The name of the container where the log was generated. 
-| Message | The content of the log. 
+[!INCLUDE [endpoint-monitor-console-reference](includes/endpoint-monitor-console-reference.md)]
 
-**AMLOnlineEndpointEventLog** (preview)
+**AMLOnlineEndpointEventLog**
 
-
-| Field Name | Description |
-| ----- | ----- |
-| TimeGenerated | The timestamp (UTC) of when the log was generated. 
-| OperationName | The operation associated with log record. 
-| InstanceId | The ID of the instance that generated this log record. 
-| DeploymentName | The name of the deployment associated with the log record. 
-| Name | The name of the event. 
-| Message | The content of the event. 
-
-
+[!INCLUDE [endpoint-monitor-event-reference](includes/endpoint-monitor-event-reference.md)]
 
 ## Next steps
 

@@ -14,7 +14,7 @@ ms.custom: mode-ui
 
 This quickstart shows you how to create an ExpressRoute circuit using the Azure portal and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
 
-:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using Azure portal." border="false":::
+:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using Azure portal.":::
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ This quickstart shows you how to create an ExpressRoute circuit using the Azure 
 
 ### Sign in to the Azure portal
 
-From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
+From a browser, sign in to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 
 ### Create a new ExpressRoute circuit
 
@@ -38,13 +38,13 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 1. On the **Create ExpressRoute** page. Provide the **Resource Group**, **Region**, and  **Name** for the circuit. Then select **Next: Configuration >**.
 
-| Setting | Value |
-| ---     | ---   |
-| Resource group | Select **Create new**. Enter **ExpressRouteResourceGroup** </br>  Select **OK**. |
-| Region   |  West US 2 |
-| Name   |  TestERCircuit |
+    | Setting | Value |
+    | ---     | ---   |
+    | Resource group | Select **Create new**. Enter **ExpressRouteResourceGroup** </br>  Select **OK**. |
+    | Region   |  West US 2 |
+    | Name   |  TestERCircuit |
 
-  :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text=" Screenshot of how to configure the resource group and region.":::
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text=" Screenshot of how to configure the resource group and region.":::
 
 1. When you're filling in the values on this page, make sure that you specify the correct SKU tier (Local, Standard, or Premium) and data metering billing model (Unlimited or Metered).
 
@@ -56,13 +56,13 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
     | Create new or import from classic | Select if you're creating a new circuit or if you're migrating a classic circuit to Azure Resource Manager. |
     | Provider | Select the internet service provider who you'll be requesting your service from. |
     | Peering Location | Select the physical location where you're peering with Microsoft. |
-    | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Standard and Premium but not to Local once created. |
+    | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Local, Standard and Premium. |
     | Billing model | Select the billing type for egress data charge. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. You can change the billing type from **Metered** to **Unlimited**. |
     | Allow classic operations | Enable this option to allow classic virtual networks to link to the circuit. |
 
     > [!IMPORTANT]
     > * The Peering Location indicates the [physical location](expressroute-locations.md) where you are peering with Microsoft. This is **not** linked to "Location" property, which refers to the geography where the Azure Network Resource Provider is located. While they're not related, it is a good practice to choose a Network Resource Provider geographically close to the Peering Location of the circuit.
-    > * You can't change the SKU from **Standard/Premium** to **Local**.
+    > * You can't change the SKU from **Standard/Premium** to **Local** in Azure portal. To downgrade the SKU to **Local**, you can use [Azure PowerShell](expressroute-howto-circuit-arm.md) or [Azure CLI](howto-circuit-cli.md).
     > * You can't change the type from **Unlimited** to **Metered**.
 
 1. Select **Review + create** and then select **Create** to deploy the ExpressRoute circuit.
@@ -136,7 +136,7 @@ You can do the following tasks with no downtime:
 * Enable or disable an ExpressRoute Premium add-on for your ExpressRoute circuit.
 
   > [!IMPORTANT]
-  > Changing the SKU from **Standard/Premium** to **Local** is not supported.
+  > Changing the SKU from **Standard/Premium** to **Local** is not supported in Azure portal. To downgrade the SKU to **Local**, you can use [Azure PowerShell](expressroute-howto-circuit-arm.md) or [Azure CLI](howto-circuit-cli.md).
 
 * Increase the bandwidth of your ExpressRoute circuit, provided there's capacity available on the port.
 

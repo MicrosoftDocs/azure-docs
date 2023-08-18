@@ -5,8 +5,8 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 03/22/2022
 ms.service: confidential-ledger
+ms.custom: devx-track-azurecli
 ms.topic: quickstart
-
 ---
 
 # Quickstart: Create a confidential ledger using the Azure CLI
@@ -17,7 +17,7 @@ For more information on Azure confidential ledger, and for examples of what can 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a resource group
 

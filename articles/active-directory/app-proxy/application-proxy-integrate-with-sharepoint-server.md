@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -23,7 +23,7 @@ To perform the configuration, you need the following resources:
 - A SharePoint 2013 farm or newer.
 - An Azure AD tenant with a plan that includes Application Proxy. Learn more about [Azure AD plans and pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 - A [custom, verified domain](../fundamentals/add-custom-domain.md) in the Azure AD tenant.
-- On-premises Active Directory synchronized with Azure AD Connect, through which users can [sign in to Azure](../hybrid/plan-connect-user-signin.md).
+- On-premises Active Directory synchronized with Azure AD Connect, through which users can [sign in to Azure](../hybrid/connect/plan-connect-user-signin.md).
 - An Application Proxy connector installed and running on a machine within the corporate domain.
 
 Configuring SharePoint with Application Proxy requires two URLs:

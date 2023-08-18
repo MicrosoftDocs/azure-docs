@@ -18,7 +18,6 @@ Using the Oracle Database connector, you create organizational workflows that us
 
 This connector doesn't support the following items:
 
-* Views 
 * Any table with composite keys
 * Nested object types in tables
 * Database functions with non-scalar values
@@ -121,6 +120,8 @@ The [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-log
 
 You can help improve Logic Apps and connectors by voting and submitting your ideas at [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish).
 
-
 ## Next steps
-[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), and explore the available connectors in Logic Apps at [APIs list](apis-list.md).
+
+* [Managed connectors for Azure Logic Apps](managed.md)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)

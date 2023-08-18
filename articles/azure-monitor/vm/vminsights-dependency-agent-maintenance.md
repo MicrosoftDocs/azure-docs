@@ -2,8 +2,8 @@
 title: VM Insights Dependency Agent
 description: This article describes how to upgrade the VM insights Dependency agent using command-line, setup wizard, and other methods.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.date: 04/16/2020
 
 ---
@@ -12,11 +12,14 @@ ms.date: 04/16/2020
 
 The Dependency Agent collects data about processes running on the virtual machine and external process dependencies. Dependency Agent updates include bug fixes or support of new features or functionality. This article describes Dependency Agent requirements and how to upgrade Dependency Agent manually or through automation.
 
+>[!NOTE]
+> The Dependency Agent sends heartbeat data to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table, for which you incur data ingestion charges. This behavior is different from Azure Monitor Agent, which sends agent health data to the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table, which is free from data collection charges.
+
 ## Dependency Agent requirements
 
-- The Dependency Agent requires the Log Analytics Agent to be installed on the same machine.
+- The Dependency Agent requires the Azure Monitor Agent to be installed on the same machine.
 - On both the Windows and Linux versions, the Dependency Agent collects data using a user-space service and a kernel driver. 
-    - Dependency Agent supports the same [Windows versions Log Analytics Agent supports](../agents/agents-overview.md#supported-operating-systems), except Windows Server 2008 SP2 and Azure Stack HCI.
+    - Dependency Agent supports the same [Windows versions that Azure Monitor Agent supports](../agents/agents-overview.md#supported-operating-systems), except Windows Server 2008 SP2 and Azure Stack HCI.
     - For Linux, see [Dependency Agent Linux support](#dependency-agent-linux-support).
 
 ## Upgrade Dependency Agent 
@@ -60,7 +63,7 @@ Update the agent on a Windows VM from the command prompt, with a script or other
 
 ### Upgrade Linux agent 
 
-Upgrade from prior versions of the Dependency agent on Linux is supported and performed following the same command as a new installation.
+Upgrade from prior versions of the Dependency Agent on Linux is supported and performed following the same command as a new installation.
 
 You can download the latest version of the Linux agent from [here](https://aka.ms/dependencyagentlinux).
 
@@ -74,12 +77,21 @@ You can download the latest version of the Linux agent from [here](https://aka.m
 
 If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*. 
 
+## Uninstall Dependency Agent 
+
+To uninstall Dependency Agent:
+
+1. From the **Virtual Machines** menu in the Azure portal, select your virtual machine.
+1. Select **Extensions + applications** > **DependencyAgentWindows** or **DependencyAgentLinux** > **Uninstall**.
+
+    :::image type="content" source="media/vminsights-dependency-agent-maintenance/azure-monitor-uninstall-dependency-agent.png" alt-text="Screenshot showing the Extensions and applications screen for a virtual machine." lightbox="media/vminsights-dependency-agent-maintenance/azure-monitor-uninstall-dependency-agent.png":::
+
 ## Dependency Agent Linux support
 
 Since the Dependency agent works at the kernel level, support is also dependent on the kernel version. As of Dependency agent version 9.10.* the agent supports * kernels.  The following table lists the major and minor Linux OS release and supported kernel versions for the Dependency agent.
 
 >[!NOTE]
-> Dependency agent is not supported for Azure Virtual Machines with Ampere Altra ARM–based processors.
+> With Dependency agent 9.10.15 and above, installation is not blocked for unsupported kernel versions, but the agent will run in degraded mode. In this mode, connection and port data stored in VMConnection and VMBoundport tables is not collected. The VMProcess table may have some data, but it will be minimal.
 
 | Distribution | OS version | Kernel version |
 |:---|:---|:---|
@@ -112,6 +124,7 @@ Since the Dependency agent works at the kernel level, support is also dependent 
 |                    | 18.04   | 5.3.0-1020<br>5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
 |                    | 16.04.3 | 4.15.\* |
 |                    | 16.04   | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
+|                    | 14.04   | 3.13.\*-generic<br>4.4.\*-generic|
 | SUSE Linux 12 Enterprise Server | 12 SP5     | 4.12.14-122.\*-default, 4.12.14-16.\*-azure|
 |                                 | 12 SP4 | 4.12.\* (includes Azure-tuned kernel) |
 |                                 | 12 SP3 | 4.4.\* |
@@ -119,6 +132,9 @@ Since the Dependency agent works at the kernel level, support is also dependent 
 | SUSE Linux 15 Enterprise Server | 15 SP1 | 4.12.14-197.\*-default, 4.12.14-8.\*-azure |
 |                                 | 15     | 4.12.14-150.\*-default |
 | Debian                          | 9      | 4.9  | 
+
+>[!NOTE]
+> Dependency agent is not supported for Azure Virtual Machines with Ampere Altra ARM–based processors.
 
 ## Next steps
 

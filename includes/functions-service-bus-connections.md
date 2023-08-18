@@ -17,7 +17,7 @@ If the configured value is both an exact match for a single setting and a prefix
 
 ### Connection string
 
-To obtain a connection string, follow the steps shown at [Get the management credentials](../articles/service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.
+To obtain a connection string, follow the steps shown at [Get the management credentials](../articles/service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-connection-string). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.
 
 This connection string should be stored in an application setting with a name matching the value specified by the `connection` property of the binding configuration.
 

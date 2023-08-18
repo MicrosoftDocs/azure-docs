@@ -5,17 +5,21 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/02/2021
+ms.date: 10/31/2022
 ms.author: victorh
+ms.custom: FY23 content-maintenance
 ---
 
 # Azure Firewall logs and metrics
 
 You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
 
-You can access some of these logs through the portal. Logs can be sent to [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Azure Monitor logs or by different tools such as Excel and Power BI.
+You can access some of these logs through the portal. Logs can be sent to [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics), Storage, and Event Hubs and analyzed in Azure Monitor logs or by different tools such as Excel and Power BI.
 
 Metrics are lightweight and can support near real-time scenarios making them useful for alerting and fast issue detection.
+
+> [!NOTE]
+> Structured firewall logs is available which offers more control over the logs and faster queries. For more information, see [Azure Structured Firewall Logs](firewall-structured-logs.md).
 
 ## Diagnostic logs
 
@@ -179,6 +183,22 @@ The following metrics are available for Azure Firewall:
 
    If your firewall is running into SNAT port exhaustion, you should add at least five public IP address. This increases the number of SNAT ports available. For more information, see [Azure Firewall features](features.md#multiple-public-ip-addresses).
 
+- **AZFW Latency Probe** - Estimates Azure Firewall average latency.
+
+   Unit: m/s
+
+   This metric measures the overall or average latency of Azure Firewall. Administrators can use this metric for the following purposes: 
+
+   - Diagnose if Azure Firewall is the cause of latency in the network 
+
+   - Monitor and alert if there are any latency or performance issues, so IT teams can proactively engage.  
+
+   - There may be various reasons that can cause high latency in Azure Firewall. For example, high CPU utilization, high throughput, or a possible networking issue.
+
+     This metric does not measure end-to-end latency of a given network path. In other words, this latency health probe does not measure how much latency Azure Firewall adds.
+
+   - When the latency metric is not functioning as expected, a value of 0 appears in the metrics dashboard.
+   - As a reference, the average expected latency for a firewall is approximately 1 m/s. This may vary depending on deployment size and environment.   
 
 ## Next steps
 

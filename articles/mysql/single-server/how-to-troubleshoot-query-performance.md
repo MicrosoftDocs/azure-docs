@@ -3,8 +3,8 @@ title: Profile query performance - Azure Database for MySQL
 description: Learn how to profile query performance in Azure Database for MySQL by using EXPLAIN.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: troubleshooting
 ms.date: 06/20/2022
 ---
@@ -12,6 +12,8 @@ ms.date: 06/20/2022
 # Profile query performance in Azure Database for MySQL using EXPLAIN
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 **EXPLAIN** is a handy tool that can help you optimize queries. You can use an EXPLAIN statement to get information about how SQL statements are run. The following shows example output from running an EXPLAIN statement.
 

@@ -8,7 +8,7 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 03/24/2020
+ms.date: 11/14/2022
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure
 ---
@@ -20,11 +20,11 @@ Azure Key Vault is a cloud service that provides a secure store for secrets. You
 
 To access Azure Key Vault, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-All access to secrets takes place through Azure Key Vault. For this quickstart, create a key vault using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md).
+All access to secrets takes place through Azure Key Vault. For this quickstart, create a key vault using the [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md).
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Add a certificate to Key Vault
 

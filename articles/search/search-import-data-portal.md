@@ -2,13 +2,12 @@
 title: Import data into a search index using Azure portal
 titleSuffix: Azure Cognitive Search
 description: Learn about the Import Data wizard in the Azure portal used to create and load an index, and optionally invoke AI enrichment using built-in skills for natural language processing, translation, OCR, and image analysis.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/24/2022
+ms.date: 07/25/2023
 ---
 # Import data wizard in Azure Cognitive Search
 
@@ -37,7 +36,7 @@ The wizard will output the objects in the following table. After the objects are
 | [Indexer](/rest/api/searchservice/create-indexer)  | A configuration object specifying a data source, target index, an optional skillset, optional schedule, and optional configuration settings for error handing and base-64 encoding. |
 | [Data Source](/rest/api/searchservice/create-data-source)  | Persists connection information to a [supported data source](search-indexer-overview.md#supported-data-sources) on Azure. A data source object is used exclusively with indexers. | 
 | [Index](/rest/api/searchservice/create-index) | Physical data structure used for full text search and other queries. | 
-| [Skillset](/rest/api/searchservice/create-skillset) | Optional. A complete set of instructions for manipulating, transforming, and shaping content, including analyzing and extracting information from image files. Unless the volume of work fall under the limit of 20 transactions per indexer per day, the skillset must include a reference to a Cognitive Services resource that provides enrichment. | 
+| [Skillset](/rest/api/searchservice/create-skillset) | Optional. A complete set of instructions for manipulating, transforming, and shaping content, including analyzing and extracting information from image files. Unless the volume of work fall under the limit of 20 transactions per indexer per day, the skillset must include a reference to an Azure AI multi-service resource that provides enrichment. | 
 | [Knowledge store](knowledge-store-concept-intro.md) | Optional. Stores output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) in tables and blobs in Azure Storage for independent analysis or downstream processing. |
 
 ## Benefits and limitations
@@ -62,7 +61,7 @@ The wizard isn't without limitations. Constraints are summarized as follows:
 
 + A [knowledge store](knowledge-store-concept-intro.md), which can be created by the wizard, is limited to a few default projections and uses a default naming convention. If you want to customize names or projections, you'll need to create the knowledge store through REST API or the SDKs.
 
-+ Public access to all networks must be enabled on the supported data source while the wizard is used, since the portal won't be able to access the data source during setup if public access is disabled. This means that if your data source has a firewall enabled, you must disable it, run the Import Data wizard and then enable it after wizard setup is completed. If this isn't an option, you can create Azure Cognitive Search data source, indexer, skillset and index through REST API or the SDKs.
++ Public access to all networks must be enabled on the supported data source while the wizard is used, since the portal won't be able to access the data source during setup if public access is disabled. This means that if your data source has a firewall enabled or you have set a shared private link, you must disable them, run the Import Data wizard and then enable it after wizard setup is completed. If this isn't an option, you can create Azure Cognitive Search data source, indexer, skillset and index through REST API or the SDKs.
 
 ## Workflow
 
@@ -75,6 +74,8 @@ The wizard is organized into four main steps:
 1. Optionally, add AI enrichments to extract or generate content and structure. Inputs for creating a knowledge store are collected in this step.
 
 1. Run the wizard to create objects, load data, set a schedule and other configuration options.
+
+The workflow is a pipeline, so it's one way. You can't use the wizard to edit any of the objects that were created, but you can use other portal tools, such as the index or indexer designer or the JSON editors, for allowed updates.
 
 <a name="data-source-inputs"></a>
 
@@ -106,7 +107,7 @@ The wizard samples your data source to detect the fields and field type. Dependi
 
 Because sampling is an imprecise exercise, review the index for the following considerations:
 
-1. Is the field list accurate? If your data source contains fields that were not picked up in sampling, you can manually add any new fields that sampling missed, and remove any that don't add value to a search experience or that won't be used in a [filter expression](search-query-odata-filter.md) or [scoring profile](index-add-scoring-profiles.md).
+1. Is the field list accurate? If your data source contains fields that weren't picked up in sampling, you can manually add any new fields that sampling missed, and remove any that don't add value to a search experience or that won't be used in a [filter expression](search-query-odata-filter.md) or [scoring profile](index-add-scoring-profiles.md).
 
 1. Is the data type appropriate for the incoming data? Azure Cognitive Search supports the [entity data model (EDM) data types](/rest/api/searchservice/supported-data-types). For Azure SQL data, there's [mapping chart](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) that lays out equivalent values. For more background, see [Field mappings and transformations](search-indexer-field-mappings.md).
 
@@ -114,7 +115,7 @@ Because sampling is an imprecise exercise, review the index for the following co
 
 1. Set attributes to determine how that field is used in an index. 
 
-   Take your time with this step because attributes determine the physical expression of fields in the index. If you want to change attributes later, even programmatically, you will almost always need to drop and rebuild the index. Core attributes like **Searchable** and **Retrievable** have a [negligible impact on storage](search-what-is-an-index.md#index-size). Enabling filters and using suggesters increase storage requirements. 
+   Take your time with this step because attributes determine the physical expression of fields in the index. If you want to change attributes later, even programmatically, you'll almost always need to drop and rebuild the index. Core attributes like **Searchable** and **Retrievable** have a [negligible impact on storage](search-what-is-an-index.md#index-size). Enabling filters and using suggesters increase storage requirements. 
 
    + **Searchable** enables full-text search. Every field used in free form queries or in query expressions must have this attribute. Inverted indexes are created for each field that you mark as **Searchable**.
 

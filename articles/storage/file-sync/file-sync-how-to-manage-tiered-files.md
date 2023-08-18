@@ -1,17 +1,16 @@
 ---
-title: How to manage Azure File Sync tiered files | Microsoft Docs
+title: How to manage Azure File Sync tiered files
 description: Tips and PowerShell commandlets to help you manage tiered files
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 06/06/2022
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # How to manage tiered files
 
-This article provides guidance for users who have questions related to managing tiered files. For conceptual questions regarding cloud tiering, please see [Azure Files FAQ](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
+This article provides guidance for users who have questions related to managing tiered files. For conceptual questions regarding cloud tiering, please see [Azure Files FAQ](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json).
 
 ## How to check if your files are being tiered
 
@@ -184,4 +183,4 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCoun
 
 ## Next steps
 
-- [Frequently asked questions (FAQ) about Azure Files](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json)
+- [Frequently asked questions (FAQ) about Azure Files](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json)

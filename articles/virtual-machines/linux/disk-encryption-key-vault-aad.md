@@ -7,9 +7,8 @@ ms.subservice: disks
 ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
-ms.date: 12/06/2021
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-
+ms.date: 01/04/2023
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell, has-azure-ad-ps-ref
 ---
 # Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release) for Linux VMs
 
@@ -35,7 +34,7 @@ See the main [Creating and configuring a key vault for Azure Disk Encryption](di
 
 
 ## Create a key vault
-Azure Disk Encryption is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. You can create a key vault or use an existing one for Azure Disk Encryption. For more information about key vaults, see [Get started with Azure Key Vault](../../key-vault/general/overview.md) and [Secure your key vault](../../key-vault/general/security-features.md). You can use a Resource Manager template, Azure PowerShell, or the Azure CLI to create a key vault.
+Azure Disk Encryption is integrated with [Azure Key Vault](../../key-vault/index.yml) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. You can create a key vault or use an existing one for Azure Disk Encryption. For more information about key vaults, see [Get started with Azure Key Vault](../../key-vault/general/overview.md) and [Secure your key vault](../../key-vault/general/security-features.md). You can use a Resource Manager template, Azure PowerShell, or the Azure CLI to create a key vault.
 
 
 >[!WARNING]
@@ -84,8 +83,8 @@ You can manage your key vault with Azure CLI using the [az keyvault](/cli/azure/
 
 You can create a key vault by using the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.keyvault/key-vault-create).
 
-1. On the Azure quickstart template, click **Deploy to Azure**.
-2. Select the subscription, resource group, resource group location, Key Vault name, Object ID,  legal terms, and agreement, and then click **Purchase**.
+1. On the Azure Quickstart Template, select **Deploy to Azure**.
+2. Select the subscription, resource group, resource group location, Key Vault name, Object ID,  legal terms, and agreement, and then select **Purchase**.
 
 
 ## <a name="bkmk_ADapp"></a> Set up an Azure AD app and service principal
@@ -104,7 +103,7 @@ To execute the following commands, get and use the [Azure AD PowerShell module](
      $servicePrincipal = New-AzADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId -Role Contributor
      ```
 
-3. The $azureAdApplication.ApplicationId is the Azure AD ClientID and the $aadClientSecret is the client secret that you will use later to enable Azure Disk Encryption. Safeguard the Azure AD client secret appropriately. Running `$azureAdApplication.ApplicationId` will show you the ApplicationID.
+3. The $azureAdApplication.ApplicationId is the Azure AD ClientID and the $aadClientSecret is the client secret that you'll use later to enable Azure Disk Encryption. Safeguard the Azure AD client secret appropriately. Running `$azureAdApplication.ApplicationId` will show you the ApplicationID.
 
 
 ### <a name="bkmk_ADappCLI"></a> Set up an Azure AD app and service principal with Azure CLI
@@ -118,13 +117,13 @@ You can manage your service principals with Azure CLI using the [az ad sp](/cli/
      ```
 3.  The appId returned is the Azure AD ClientID used in other commands. It's also the SPN you'll use for az keyvault set-policy. The password is the client secret that you should use later to enable Azure Disk Encryption. Safeguard the Azure AD client secret appropriately.
 
-### <a name="bkmk_ADappRM"></a> Set up an Azure AD app and service principal though the Azure portal
+### <a name="bkmk_ADappRM"></a> Set up an Azure AD app and service principal through the Azure portal
 Use the steps from the [Use portal to create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md) article to create an Azure AD application. Each step listed below will take you directly to the article section to complete.
 
 1. [Verify required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)
 2. [Create an Azure Active Directory application](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
      - You can use any name and sign-on URL you would like when creating the application.
-3. [Get the application ID and the authentication key](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+3. [Get the application ID and the authentication key](../../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
      - The authentication key is the client secret and is used as the AadClientSecret for Set-AzVMDiskEncryptionExtension.
         - The authentication key is used by the application as a credential to sign in to Azure AD. In the Azure portal, this secret is called keys, but has no relation to key vaults. Secure this secret appropriately.
      - The application ID will be used later as the AadClientId for Set-AzVMDiskEncryptionExtension and as the ServicePrincipalName for Set-AzKeyVaultAccessPolicy.
@@ -159,11 +158,11 @@ az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the A
 ### <a name="bkmk_KVAPRM"></a> Set the key vault access policy for the Azure AD app with the portal
 
 1. Open the resource group with your key vault.
-2. Select your key vault, go to **Access Policies**, then click **Add new**.
+2. Select your key vault, go to **Access Policies**, then select **Add new**.
 3. Under **Select principal**, search for the Azure AD application you created and select it.
 4. For **Key permissions**, check **Wrap Key** under **Cryptographic Operations**.
 5. For **Secret permissions**, check **Set** under **Secret Management Operations**.
-6. Click **OK** to save the access policy.
+6. Select **OK** to save the access policy.
 
 ![Azure Key Vault cryptographic operations - Wrap Key](./media/disk-encryption/keyvault-portal-fig3.png)
 
@@ -181,7 +180,7 @@ The Azure platform needs access to the encryption keys or secrets in your key va
      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDiskEncryption
      ```
 
-  - **Enable Key Vault for deployment, if needed:** Enables the Microsoft.Compute resource provider to retrieve secrets from this key vault when this key vault is referenced in resource creation, for example when creating a virtual machine.
+  - **Enable Key Vault for deployment, if needed:** Enables the Microsoft. Compute resource provider to retrieve secrets from this key vault when this key vault is referenced in resource creation, for example when creating a virtual machine.
 
      ```azurepowershell-interactive
       Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDeployment
@@ -218,7 +217,7 @@ Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable disk 
 1. Select your keyvault, go to **Access Policies**, and **Click to show advanced access policies**.
 2. Select the box labeled **Enable access to Azure Disk Encryption for volume encryption**.
 3. Select **Enable access to Azure Virtual Machines for deployment** and/or **Enable Access to Azure Resource Manager for template deployment**, if needed.
-4. Click **Save**.
+4. Select **Save**.
 
 ![Azure key vault advanced access policies](./media/disk-encryption/keyvault-portal-fig4.png)
 
@@ -226,7 +225,7 @@ Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable disk 
 ## <a name="bkmk_KEK"></a> Set up a key encryption key (optional)
 If you want to use a key encryption key (KEK) for an additional layer of security for encryption keys, add a KEK to your key vault. Use the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet to create a key encryption key in the key vault. You can also import a KEK from your on-premises key management HSM. For more information, see [Key Vault Documentation](../../key-vault/keys/hsm-protected-keys.md). When a key encryption key is specified, Azure Disk Encryption uses that key to wrap the encryption secrets before writing to Key Vault.
 
-* When generating keys, use an RSA key type. Azure Disk Encryption does not yet support using Elliptic Curve keys.
+* When generating keys, use an RSA key type. Azure Disk Encryption doesn't yet support using Elliptic Curve keys.
 
 * Your key vault secret and KEK URLs must be versioned. Azure enforces this restriction of versioning. For valid secret and KEK URLs, see the following examples:
 

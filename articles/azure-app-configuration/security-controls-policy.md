@@ -1,10 +1,10 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure App Configuration
 description: Lists Azure Policy Regulatory Compliance controls available for Azure App Configuration. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 08/17/2022
+ms.date: 08/03/2023
 ms.topic: sample
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: azure-app-configuration
 ms.custom: subject-policy-compliancecontrols
 ---

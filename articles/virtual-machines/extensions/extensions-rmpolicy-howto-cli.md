@@ -4,11 +4,11 @@ description: Use Azure Policy to restrict VM extension deployments.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.author: gabsta
-author: MsGabsta
+author: GabstaMSFT
 ms.collection: linux
-ms.date: 07/05/2022
-
+ms.date: 04/11/2023
 ---
 
 # Use Azure Policy to restrict extensions installation on Linux VMs
@@ -23,13 +23,9 @@ In order to restrict what extensions are available, you need to create a [rule](
 
 This example demonstrates how to deny the installation of disallowed VM extensions by defining a rules file in Azure Cloud Shell. However, if you're working in Azure CLI locally, you can create a local file and replace the path (~/clouddrive) with the path to the file on your local file system.
 
-In a [bash Cloud Shell](https://shell.azure.com/bash), type:
+1. In a [bash Cloud Shell](https://shell.azure.com/bash) create the file `~/clouddrive/azurepolicy.rules.json` using any text editor.
 
-```bash
-vim ~/clouddrive/azurepolicy.rules.json
-```
-
-Copy and paste the following `.json` data into the file.
+2. Copy and paste the following `.json` contents into the new file and save it.
 
 ```json
 {
@@ -55,16 +51,15 @@ Copy and paste the following `.json` data into the file.
 }
 ```
 
-When you're finished, press **Esc**, and then type **:wq** to save and close the file.
-
 ## Create a parameters file
 
 You also need a [parameters](../../governance/policy/concepts/definition-structure.md#parameters) file that creates a structure for you to use for passing in a list of the unauthorized extensions. 
 
 This example shows you how to create a parameter file for Linux VMs in Cloud Shell.
-```
 
-Copy and paste the following `.json` data into the file.
+1. In the bash Cloud Shell opened before, create the file ~/clouddrive/azurepolicy.parameters.json using any text editor.
+
+2. Copy and paste the following `.json` contents into the new file and save it.
 
 ```json
 {
@@ -77,8 +72,6 @@ Copy and paste the following `.json` data into the file.
 	}
 }
 ```
-
-When you're finished, press **Esc**, and then type **:wq** to save and close the file.
 
 ## Create the policy
 
@@ -128,9 +121,12 @@ Test the policy by creating a new VM and adding a new user.
 az vm create \
     --resource-group myResourceGroup \
 	--name myVM \
-	--image UbuntuLTS \
+	--image myImage \
 	--generate-ssh-keys
 ```
+
+> [!NOTE]
+> Replace `myResourceGroup`, `myVM` and `myImage` values accordingly.
 
 Try to create a new user named **myNewUser** using the VM Access extension.
 
@@ -147,6 +143,7 @@ az vm user update \
 ```azurecli-interactive
 az policy assignment delete --name 'not-allowed-vmextension-linux' --resource-group myResourceGroup
 ```
+
 ## Remove the policy
 
 ```azurecli-interactive

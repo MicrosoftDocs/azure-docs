@@ -1,8 +1,8 @@
 ---
 title: Azure Database for MySQL managing updates and upgrades
 description: Learn which versions of the MySQL server are supported in the Azure Database for MySQL service.
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
@@ -13,6 +13,8 @@ ms.date: 06/20/2022
 #  Connect to a gateway node to a specific MySQL version 
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 In the Single Server deployment option, a gateway is used to redirect the connections to server instances. After the connection is established, the MySQL client displays the version of MySQL set in the gateway, not the actual version running on your MySQL server instance. To determine the version of your MySQL server instance, use the `SELECT VERSION();` command at the MySQL prompt. Review [Connectivity architecture](./concepts-connectivity-architecture.md#connectivity-architecture) to learn more about gateways in Azure Database for MySQL service architecture.
 

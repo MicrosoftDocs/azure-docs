@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Connect an App Services Web app to an Azure Database for MySQL flexible server in a virtual network'
-description: Tutorial to create and connect Web App to Azure Database for MySQL Flexible Server in a virtual network
+title: 'Tutorial: Connect an App Services Web app to an Azure Database for MySQL - Flexible Server in a virtual network'
+description: Tutorial to create and connect Web App to Azure Database for MySQL - Flexible Server in a virtual network
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
@@ -11,11 +11,11 @@ ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Tutorial: Connect an App Services Web app to an Azure Database for MySQL flexible server in a virtual network
+# Tutorial: Connect an App Services Web app to an Azure Database for MySQL - Flexible Server in a virtual network
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This tutorial shows you how to create and connect an Azure App Service Web App to an Azure Database for MySQL flexible server isolated inside same or different [virtual networks](../../virtual-network/virtual-networks-overview.md).
+This tutorial shows you how to create and connect an Azure App Service Web App to an Azure Database for MySQL - Flexible Server isolated inside same or different [virtual networks](../../virtual-network/virtual-networks-overview.md).
 
 In this tutorial you will learn how to:
 >[!div class="checklist"]
@@ -44,7 +44,7 @@ If you have multiple subscriptions, choose the appropriate subscription in which
 az account set --subscription <subscription ID>
 ```
 
-## Create an Azure Database for MySQL Flexible Server
+## Create an Azure Database for MySQL - Flexible Server
 
 Create a private flexible server inside a virtual network (VNET) using the following command:
 ```azurecli

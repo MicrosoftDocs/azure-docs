@@ -7,8 +7,8 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/10/2021
-ms.author: rolyon 
+ms.date: 03/21/2023
+ms.author: rolyon
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Elevate access to manage all Azure subscriptions and management groups
@@ -62,7 +62,7 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
     > [!NOTE]
     > If you're using [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), deactivating your role assignment does not change the **Access management for Azure resources** toggle to **No**. To maintain least privileged access, we recommend that you set this toggle to **No** before you deactivate your role assignment.
-    
+
 1. Click **Save** to save your setting.
 
    This setting is not a global property and applies only to the currently signed in user. You can't elevate access for all members of the Global Administrator role.
@@ -196,6 +196,16 @@ To remove the User Access Administrator role assignment for yourself or another 
 
 ## REST API
 
+### Prerequisites
+
+You must use the following versions:
+
+- `2015-07-01` or later to list and remove role assignments
+- `2016-07-01` or later to elevate access
+- `2018-07-01-preview` or later to list deny assignments
+
+For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
+
 ### Elevate access for a Global Administrator
 
 Use the following basic steps to elevate access for a Global Administrator using the REST API.
@@ -216,10 +226,10 @@ Use the following basic steps to elevate access for a Global Administrator using
 
 You can list all of the role assignments for a user at root scope (`/`).
 
-- Call [GET roleAssignments](/rest/api/authorization/roleassignments/listforscope) where `{objectIdOfUser}` is the object ID of the user whose role assignments you want to retrieve.
+- Call [Role Assignments - List For Scope](/rest/api/authorization/role-assignments/list-for-scope) where `{objectIdOfUser}` is the object ID of the user whose role assignments you want to retrieve.
 
    ```http
-   GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
+   GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2022-04-01&$filter=principalId+eq+'{objectIdOfUser}'
    ```
 
 ### List deny assignments at root scope (/)
@@ -229,17 +239,17 @@ You can list all of the deny assignments for a user at root scope (`/`).
 - Call GET denyAssignments where `{objectIdOfUser}` is the object ID of the user whose deny assignments you want to retrieve.
 
    ```http
-   GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
+   GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2022-04-01&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
    ```
 
 ### Remove elevated access
 
 When you call `elevateAccess`, you create a role assignment for yourself, so to revoke those privileges you need to remove the User Access Administrator role assignment for yourself at root scope (`/`).
 
-1. Call [GET roleDefinitions](/rest/api/authorization/roledefinitions/get) where `roleName` equals User Access Administrator to determine the name ID of the User Access Administrator role.
+1. Call [Role Definitions - Get](/rest/api/authorization/role-definitions/get) where `roleName` equals User Access Administrator to determine the name ID of the User Access Administrator role.
 
     ```http
-    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User Access Administrator'
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2022-04-01&$filter=roleName+eq+'User Access Administrator'
     ```
 
     ```json
@@ -282,17 +292,17 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 1. You also need to list the role assignment for the directory administrator at directory scope. List all assignments at directory scope for the `principalId` of the directory administrator who made the elevate access call. This will list all assignments in the directory for the objectid.
 
     ```http
-    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2022-04-01&$filter=principalId+eq+'{objectid}'
     ```
-    	
-    >[!NOTE] 
-    >A directory administrator should not have many assignments, if the previous query returns too many assignments, you can also query for all assignments just at directory scope level, then filter the results: 
-    > `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
-    		
-1. The previous calls return a list of role assignments. Find the role assignment where the scope is `"/"` and the `roleDefinitionId` ends with the role name ID you found in step 1 and `principalId` matches the objectId of the directory administrator. 
-	
+
+    >[!NOTE]
+    >A directory administrator should not have many assignments, if the previous query returns too many assignments, you can also query for all assignments just at directory scope level, then filter the results:
+    > `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2022-04-01&$filter=atScope()`
+
+1. The previous calls return a list of role assignments. Find the role assignment where the scope is `"/"` and the `roleDefinitionId` ends with the role name ID you found in step 1 and `principalId` matches the objectId of the directory administrator.
+
     Sample role assignment:
-    
+
     ```json
     {
       "value": [
@@ -314,22 +324,20 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
       "nextLink": null
     }
     ```
-    
+
     Again, save the ID from the `name` parameter, in this case 11111111-1111-1111-1111-111111111111.
 
 1. Finally, Use the role assignment ID to remove the assignment added by `elevateAccess`:
 
     ```http
-    DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111?api-version=2015-07-01
+    DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111?api-version=2022-04-01
     ```
 
-## View elevate access logs
+## View elevate access log entries in the Directory Activity logs
 
-When access is elevated, an entry is added to the logs. As a Global Administrator in Azure AD, you might want to check when access was elevated and who did it. Elevate access log entries do not appear in the standard activity logs, but instead appear in the directory activity logs. This section describes different ways that you can view the elevate access logs.
+When access is elevated, an entry is added to the logs. As a Global Administrator in Azure AD, you might want to check when access was elevated and who did it. Elevate access log entries do not appear in the standard activity logs, but instead appear in the Directory Activity logs. This section describes different ways that you can view the elevate access log entries.
 
-### View elevate access logs using the Azure portal
-
-1. Follow the steps earlier in this article to elevate your access.
+### View elevate access log entries using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 
@@ -343,11 +351,7 @@ When access is elevated, an entry is added to the logs. As a Global Administrato
 
     ![Screenshot showing directory activity logs in Monitor.](./media/elevate-access-global-admin/monitor-directory-activity.png)
 
-1. Follow the steps earlier in this article to remove elevated access.
-
-### View elevate access logs using Azure CLI
-
-1. Follow the steps earlier in this article to elevate your access.
+### View elevate access log entries using Azure CLI
 
 1. Use the [az login](/cli/azure/reference-index#az-login) command to sign in as Global Administrator.
 
@@ -359,7 +363,7 @@ When access is elevated, an entry is added to the logs. As a Global Administrato
     az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2021-09-10T20:00:00Z'" > output.txt
     ```
 
-1.	In the output file, search for `elevateAccess`.
+1. In the output file, search for `elevateAccess`.
 
     The log will resemble the following where you can see the timestamp of when the action occurred and who called it.
 
@@ -380,17 +384,13 @@ When access is elevated, an entry is added to the logs. As a Global Administrato
       },
     ```
 
-1. Follow the steps earlier in this article to remove elevated access.
+### Delegate access to a group to view elevate access log entries using Azure CLI
 
-### Delegate access to a group to view elevate access logs using Azure CLI
-
-If you want to be able to periodically get the elevate access logs, you can delegate access to a group and then use Azure CLI.
+If you want to be able to periodically get the elevate access log entries, you can delegate access to a group and then use Azure CLI.
 
 1. Open **Azure Active Directory** > **Groups**.
 
 1. Create a new security group and note the group object ID.
-
-1. Follow the steps earlier in this article to elevate your access.
 
 1. Use the [az login](/cli/azure/reference-index#az-login) command to sign in as Global Administrator.
 
@@ -402,9 +402,7 @@ If you want to be able to periodically get the elevate access logs, you can dele
 
 1. Add a user who will read logs to the previously created group.
 
-1. Follow the steps earlier in this article to remove elevated access.
-
-A user in the group can now periodically run the [az rest](/cli/azure/reference-index#az-rest) command to view elevate access logs.
+A user in the group can now periodically run the [az rest](/cli/azure/reference-index#az-rest) command to view elevate access log entries.
 
 ```azurecli
 az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2021-09-10T20:00:00Z'" > output.txt

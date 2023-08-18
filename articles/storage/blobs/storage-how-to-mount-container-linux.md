@@ -1,84 +1,107 @@
 ---
-title: How to mount Azure Blob storage as a file system on Linux with BlobFuse | Microsoft Docs
-titleSuffix: Azure Blob Storage
-description: Learn how to mount an Azure Blob storage container with BlobFuse, a virtual file system driver on Linux.
+title: How to mount Azure Blob Storage as a file system on Linux with BlobFuse v1
+titleSuffix: Azure Storage
+description: Learn how to mount an Azure Blob Storage container with BlobFuse v1, a virtual file system driver on Linux.
 author: jimmart-dev
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 08/02/2022
+ms.date: 12/02/2022
 ms.author: jammart
 ms.reviewer: tamram
+ms.custom: engagement-fy23, devx-track-linux
 ---
 
-# How to mount Blob storage as a file system with BlobFuse
+# How to mount Azure Blob Storage as a file system with BlobFuse v1
 
-## Overview
+> [!IMPORTANT]
+> [BlobFuse2](blobfuse2-what-is.md) is the latest version of BlobFuse and has many significant improvements over the version discussed in this article, BlobFuse v1. To learn about the improvements made in BlobFuse2, see [the list of BlobFuse2 enhancements](blobfuse2-what-is.md#blobfuse2-enhancements-from-blobfuse-v1).
 
-> [!NOTE]
-> This article is about the original version of BlobFuse. It is simply referred to as "BlobFuse" in many cases, but is also referred to as "BlobFuse v1" in this and other articles to distinguish it from the next generation of BlobFuse, BlobFuse2.  BlobFuse2 is currently in preview and might not be suitable for production workloads.
->
-> To learn about the improvements made in BlobFuse2, see [What is BlobFuse2?](blobfuse2-what-is.md).
+[BlobFuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob Storage. BlobFuse allows you to access your existing block blob data in your storage account through the Linux file system. BlobFuse uses the virtual directory scheme with the forward-slash '/' as a delimiter.
 
-[BlobFuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob storage. BlobFuse allows you to access your existing block blob data in your storage account through the Linux file system. BlobFuse uses the virtual directory scheme with the forward-slash '/' as a delimiter.
-
-This guide shows you how to use BlobFuse, and mount a Blob storage container on Linux and access data. To learn more about BlobFuse, see the [readme](https://github.com/Azure/azure-storage-fuse) and [wiki](https://github.com/Azure/azure-storage-fuse/wiki).
+This guide shows you how to use BlobFuse v1 and mount a Blob Storage container on Linux and access data. To learn more about BlobFuse v1, see the [readme](https://github.com/Azure/azure-storage-fuse) and [wiki](https://github.com/Azure/azure-storage-fuse/wiki).
 
 > [!WARNING]
 > BlobFuse doesn't guarantee 100% POSIX compliance as it simply translates requests into [Blob REST APIs](/rest/api/storageservices/blob-service-rest-api). For example, rename operations are atomic in POSIX, but not in BlobFuse.
 > For a full list of differences between a native file system and BlobFuse, visit [the BlobFuse source code repository](https://github.com/azure/azure-storage-fuse).
 
-## Install BlobFuse on Linux
+## Install BlobFuse v1 on Linux
 
 BlobFuse binaries are available on [the Microsoft software repositories for Linux](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) for Ubuntu, Debian, SUSE, CentOS, Oracle Linux and RHEL distributions. To install BlobFuse on those distributions, configure one of the repositories from the list. You can also build the binaries from source code following the [Azure Storage installation steps](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) if there are no binaries available for your distribution.
 
-BlobFuse is published in the Linux repo for Ubuntu versions: 16.04, 18.04, and 20.04, RHELversions: 7.5, 7.8, 7.9, 8.0, 8.1, 8.2, CentOS versions: 7.0, 8.0, Debian versions: 9.0, 10.0, SUSE version: 15, OracleLinux  8.1 . Run this command to make sure that you have one of those versions deployed:
+BlobFuse is published in the Linux repo for Ubuntu versions: 16.04, 18.04, and 20.04, RHEL versions: 7.5, 7.8, 7.9, 8.0, 8.1, 8.2, CentOS versions: 7.0, 8.0, Debian versions: 9.0, 10.0, SUSE version: 15, Oracle Linux  8.1. Run this command to make sure that you have one of those versions deployed:
 
 ```bash
-lsb_release -a
+cat /etc/*-release
 ```
 
 ### Configure the Microsoft package repository
 
 Configure the [Linux Package Repository for Microsoft Products](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
 
-As an example, on an Enterprise Linux 8 distribution:
+
+# [RHEL](#tab/RHEL) 
+
+As an example, on a Redhat Enterprise Linux 8 distribution:
 
 ```bash
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
 ```
 
-Similarly, change the URL to `.../rhel/7/...` to point to an Enterprise Linux 7 distribution.
+Similarly, change the URL to `.../rhel/7/...` to point to a Redhat Enterprise Linux 7 distribution.
+
+# [CentOS](#tab/CentOS)
+ 
+As an example, on a CentOS 8 distribution:
+
+```bash
+sudo rpm -Uvh https://packages.microsoft.com/config/centos/8/packages-microsoft-prod.rpm
+```
+
+Similarly, change the URL to `.../centos/7/...` to point to a CentOS 7 distribution.
+
+# [Ubuntu](#tab/Ubuntu)
 
 Another example on an Ubuntu 20.04 distribution:
 
 ```bash
-wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+sudo wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
 Similarly, change the URL to `.../ubuntu/16.04/...` or `.../ubuntu/18.04/...` to reference another Ubuntu version.
 
-### Install BlobFuse
-
-On an Ubuntu/Debian distribution:
+# [SLES](#tab/SLES) 
 
 ```bash
-sudo apt-get install blobfuse
+sudo rpm -Uvh https://packages.microsoft.com/config/sles/15/packages-microsoft-prod.rpm
 ```
+--- 
 
-On an Enterprise Linux distribution:
+### Install BlobFuse v1
+
+# [RHEL](#tab/RHEL) 
+
+```bash
+sudo yum install blobfuse
+```
+# [CentOS](#tab/CentOS)
 
 ```bash
 sudo yum install blobfuse
 ```
 
-On a SUSE distribution:
+# [Ubuntu](#tab/Ubuntu)
+
+```bash
+sudo apt-get install blobfuse
+```
+# [SLES](#tab/SLES)  
 
 ```bash
 sudo zypper install blobfuse
 ```
+---
 
 ## Prepare for mounting
 
@@ -120,20 +143,21 @@ For example, suppose you are authorizing with the account access keys and storin
 accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
+authType Key
 ```
 
-The `accountName` is the name of your storage account, and not the full URL.
+The `accountName` is the name of your storage account, and not the full URL. You need to update `myaccount`, `storageaccesskey`, and `mycontainer` with your storage information. 
 
 Create this file using:
 
 ```bash
-touch /path/to/fuse_connection.cfg
+sudo touch /path/to/fuse_connection.cfg
 ```
 
 Once you've created and edited this file, make sure to restrict access so no other users can read it.
 
 ```bash
-chmod 600 /path/to/fuse_connection.cfg
+sudo chmod 600 /path/to/fuse_connection.cfg
 ```
 
 > [!NOTE]
@@ -142,7 +166,7 @@ chmod 600 /path/to/fuse_connection.cfg
 ### Create an empty directory for mounting
 
 ```bash
-mkdir ~/mycontainer
+sudo mkdir ~/mycontainer
 ```
 
 ## Mount
@@ -154,7 +178,7 @@ mkdir ~/mycontainer
 To mount BlobFuse, run the following command with your user. This command mounts the container specified in '/path/to/fuse_connection.cfg' onto the location '/mycontainer'.
 
 ```bash
-blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
+sudo blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
 
 > [!NOTE]
@@ -163,9 +187,9 @@ blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path
 You should now have access to your block blobs through the regular file system APIs. The user who mounts the directory is the only person who can access it, by default, which secures the access. To allow access to all users, you can mount via the option `-o allow_other`.
 
 ```bash
-cd ~/mycontainer
-mkdir test
-echo "hello world" > test/blob.txt
+sudo cd ~/mycontainer
+sudo mkdir test
+sudo echo "hello world" > test/blob.txt
 ```
 
 ## Persist the mount

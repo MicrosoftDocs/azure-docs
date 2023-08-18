@@ -1,22 +1,49 @@
 ---
-title: "Migrate from Single Server to Flexible Server by using the Azure CLI"
-titleSuffix: Azure Database for PostgreSQL Flexible Server
-description: Learn about migrating your Single Server databases to Azure Database for PostgreSQL Flexible Server by using the Azure CLI.
+title: "Tutorial: Migrate Azure Database for PostgreSQL - Single Server to Flexible Server using the Azure CLI"
+titleSuffix: "Azure Database for PostgreSQL Flexible Server"
+description: "Learn about migrating your Single Server databases to Azure Database for PostgreSQL Flexible Server by using the Azure CLI."
 author: hariramt
 ms.author: hariramt
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 05/09/2022
+ms.topic: tutorial
+ms.date: 02/02/2023
+ms.custom: seo-lt-2023, devx-track-azurecli
 ---
 
-# Migrate from Single Server to Flexible Server by using the Azure CLI
+# Tutorial: Migrate Azure Database for PostgreSQL - Single Server to Flexible Server by using the Azure CLI
 
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
-This article shows you how to use the migration tool in the Azure CLI to migrate databases from Azure Database for PostgreSQL Single Server to Flexible Server.
+You can migrate an instance of Azure Database for PostgreSQL – Single Server to Azure Database for PostgreSQL – Flexible Server by using the Azure Command Line Interface (CLI). In this tutorial, we perform migration of a sample database from an Azure Database for PostgreSQL single server to a PostgreSQL flexible server using the Azure CLI.
+
+In this tutorial, you learn about:
+
+> [!div class="checklist"]
+>
+> * Prerequisites
+> * Getting started
+> * Migration CLI commands
+> * Monitor the migration
+> * Cancel the migration
+> * Migration best practices
+
+## Prerequisites
+
+To complete this tutorial, you need to:
+
+1. Use an existing instance of Azure Database for PostgreSQL – Single Server (the source server)
+2. All extensions used on the Single Server (source) must be [allow-listed on the Flexible Server (target)](./concepts-single-to-flexible.md#allow-list-required-extensions)
 
 >[!NOTE]
-> The migration tool is in public preview.
+> If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER, POSTGRES_FDW or PG_PARTMAN extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
+
+3. Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the Portal](../flexible-server/quickstart-create-server-portal.md) or [Create an Azure Database for PostgreSQL flexible server using the CLI](../flexible-server/quickstart-create-server-cli.md)
+
+> [!IMPORTANT]
+> To provide the best migration experience, performing migration using a burstable instance of Flexible server is not supported. Please use a general purpose or a memory optimized instance (4 VCore or higher) as your Target Flexible server to perform the migration. Once the migration is complete, you can downscale back to a burstable instance if necessary.
+
+4. Check if the data distribution among all the tables of a database is skewed with most of the data present in a single (or few) tables. If it is skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table(s) in parallel](./concepts-single-to-flexible.md#improve-migration-speed---parallel-migration-of-tables).
+
 
 ## Getting started
 
@@ -24,7 +51,7 @@ This article shows you how to use the migration tool in the Azure CLI to migrate
 
 2. Install the latest Azure CLI for your operating system from the [Azure CLI installation page](/cli/azure/install-azure-cli).
 
-   If the Azure CLI is already installed, check the version by using the `az version` command. The version should be 2.28.0 or later to use the migration CLI commands. If not, [update your Azure CLI version](/cli/azure/update-azure-cli).
+   If the Azure CLI is already installed, check the version by using the `az version` command. The version should be **2.50.0** or later to use the migration CLI commands. If not, [update your Azure CLI version](/cli/azure/update-azure-cli).
 
 3. Run the `az login` command:
    
@@ -32,27 +59,25 @@ This article shows you how to use the migration tool in the Azure CLI to migrate
    az login
    ```
 
-   A browser window opens with the Azure sign-in page. Provide your Azure credentials to do a successful authentication. For other ways to sign with the Azure CLI, see [this article](/cli/azure/authenticate-azure-cli).
-
-4. Complete the prerequisites listed in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#migration-prerequisites). It is very important to complete the prerequisite steps before you initiate a migration using this tool.
+   A browser window opens with the Azure sign-in page. Provide your Azure credentials to do a successful authentication. For other ways to sign with the Azure CLI, refer [this article](/cli/azure/authenticate-azure-cli).
 
 ## Migration CLI commands
 
 The migration tool comes with easy-to-use CLI commands to do migration-related tasks. All the CLI commands start with  `az postgres flexible-server migration`.
-
+Allow-list all required extensions as shown in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#allow-list-required-extensions). It is important to allow-list the extensions before you initiate a migration using this tool.
 For help with understanding the options associated with a command and with framing the right syntax, you can use the `help` parameter:
 
 ```azurecli-interactive
 az postgres flexible-server migration --help
 ```
 
-That command gives you the following output:
+The above command gives you the following output:
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-help.png" alt-text="Screenshot of Azure Command Line Interface help." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-help.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-help.png" alt-text="Screenshot of Azure Command Line Interface help." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-help.png":::
 
 The output lists the supported migration commands, along with their actions. Let's look at these commands in detail.
 
-### Create a migration
+### Create a migration using the Azure CLI
 
 The `create` command helps in creating a migration from a source server to a target server:
 
@@ -60,18 +85,19 @@ The `create` command helps in creating a migration from a source server to a tar
 az postgres flexible-server migration create -- help
 ```
 
-That command gives the following result:
+The above command gives you the following result:
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-create.png" alt-text="Screenshot of the command for creating a migration." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-create.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-create.png" alt-text="Screenshot of the command for creating a migration." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-create.png":::
 
-It calls out the expected arguments and has an example syntax for creating a successful migration from the source server to the target server. Here's the CLI command to create a migration:
+It lists the expected arguments and has an example syntax for successfully creating a migration from the source server to the target server. Here's the CLI command to create a new migration:
 
 ```azurecli
 az postgres flexible-server migration create [--subscription]
                                             [--resource-group]
                                             [--name] 
                                             [--migration-name] 
-                                            [--properties] 
+                                            [--migration-mode]
+                                            [--properties]
 ```
 
 | Parameter | Description |
@@ -80,89 +106,75 @@ az postgres flexible-server migration create [--subscription]
 |`resource-group` | Resource group of the Flexible Server target. |
 |`name` | Name of the Flexible Server target. |
 |`migration-name` | Unique identifier to migrations attempted to Flexible Server. This field accepts only alphanumeric characters and does not accept any special characters, except a hyphen (`-`). The name can't start with `-`, and no two migrations to a Flexible Server target can have the same name. |
+|`migration-mode` | This is an optional parameter. Default value: Offline. Offline migration involves copying of your source databases at a point in time, to your target server. |
 |`properties` | Absolute path to a JSON file that has the information about the Single Server source. |
 
 For example:
 
 ```azurecli-interactive
-az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --properties "C:\Users\Administrator\Documents\migrationBody.JSON"
+az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --properties "C:\Users\Administrator\Documents\migrationBody.JSON" --migration-mode offline
 ```
 
-The `migration-name` argument used in the `create` command will be used in other CLI commands, such as `update`, `delete`, and `show.` In all those commands, it will uniquely identify the migration attempt in the corresponding actions.
+The `migration-name` argument used in the `create` command will be used in other CLI commands, such as `update`, `delete`, and `show.` In all those commands, it uniquely identifies the migration attempt in the corresponding actions.
 
-The migration tool offers online and offline modes of migration. To know more about the migration modes and their differences, see [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md).
-
-Create a migration between source and target servers by using the migration mode of your choice. The `create` command needs a JSON file to be passed as part of its `properties` argument.
+Finally, the `create` command needs a JSON file to be passed as part of its `properties` argument.
 
 The structure of the JSON is:
 
 ```bash
 {
 "properties": {
- "SourceDBServerResourceId":"subscriptions/<subscriptionid>/resourceGroups/<src_ rg_name>/providers/Microsoft.DBforPostgreSQL/servers/<source server name>",
-
-"SourceDBServerFullyQualifiedDomainName": "fqdn of the source server as per the custom DNS server", 
-"TargetDBServerFullyQualifiedDomainName": "fqdn of the target server as per the custom DNS server"
-
-"SecretParameters": {
-    "AdminCredentials": 
+ "sourceDbServerResourceId":"/subscriptions/<subscriptionid>/resourceGroups/<src_ rg_name>/providers/Microsoft.DBforPostgreSQL/servers/<source server name>",
+"secretParameters": {
+    "adminCredentials": 
     {
-  "SourceServerPassword": "<password>",
-  "TargetServerPassword": "<password>"
-    },
-"AADApp": 
-    {
-   "ClientId": "<client id>",
-   "TenantId": "<tenant id>",
-   "AadSecret": "<secret>"
-     }
+      "sourceServerPassword": "<password>",
+      "targetServerPassword": "<password>"
+    }
+   "sourceServerUserName": "<username>@<servername>",
+   "targetServerUserName": "<username>"
 },
 
-"MigrationResourceGroup":
-    {
- "ResourceId":"subscriptions/<subscriptionid>/resourceGroups/<temp_rg_name>",
- "SubnetResourceId":"/subscriptions/<subscriptionid>/resourceGroups/<rg_name>/providers/Microsoft.Network/virtualNetworks/<Vnet_name>/subnets/<subnet_name>"
-    },
-
-"DBsToMigrate": 
+"dbsToMigrate": 
    [
    "<db1>","<db2>"
    ],
 
-"SetupLogicalReplicationOnSourceDBIfNeeded": "true", 
-
-"OverwriteDBsInTarget": "true"
+"overwriteDbsInTarget":"true"
 
 }
-
 }
 
 ```
->[!NOTE]
-> Gentle reminder to complete the [prerequisites](./concepts-single-to-flexible.md#migration-prerequisites) before you execute **Create** in case it is not yet done. It is very important to complete the prerequisite steps in before you initiate a migration using this tool.
 
-Here are the `create` parameters:
+The `create` parameters that go into the json file format are as shown below:
 
 | Parameter | Type | Description |
 | ---- | ---- | ---- |
-| `SourceDBServerResourceId` | Required |  This is the resource ID of the Single Server source and is mandatory. |
-| `SourceDBServerFullyQualifiedDomainName` | Optional |  Use it when a custom DNS server is used for name resolution for a virtual network. Provide the FQDN of the Single Server source according to the custom DNS server for this property. |
-| `TargetDBServerFullyQualifiedDomainName` | Optional |  Use it when a custom DNS server is used for name resolution inside a virtual network. Provide the FQDN of the Flexible Server target according to the custom DNS server. <br> `SourceDBServerFullyQualifiedDomainName` and `TargetDBServerFullyQualifiedDomainName` should be included as a part of the JSON only in the rare scenario of a custom DNS server being used for name resolution instead of Azure-provided DNS. Otherwise, don't include these parameters as a part of the JSON file. |
-| `SecretParameters` | Required | This parameter lists passwords for admin users for both the Single Server source and the Flexible Server target, along with the Azure Active Directory app credentials. These passwords help to authenticate against the source and target servers. They also help in checking proper authorization access to the resources.
-| `MigrationResourceGroup` | Optional | This section consists of two properties: <br><br> `ResourceID` (optional): The migration infrastructure and other network infrastructure components are created to migrate data and schemas from the source to the target. By default, all the components that this tool creates are provisioned under the resource group of the target server. If you want to deploy them under a different resource group, you can assign the resource ID of that resource group to this property. <br><br> `SubnetResourceID` (optional): If your source has public access turned off, or if your target server is deployed inside a virtual network, specify a subnet under which migration infrastructure needs to be created so that it can connect to both source and target servers. |
-| `DBsToMigrate` | Required | Specify the list of databases that you want to migrate to Flexible Server. You can include a maximum of eight database names at a time. |
+| `sourceDbServerResourceId` | Required |  This parameter is the resource ID of the Single Server source and is mandatory. |
+| `adminCredentials` | Required | This parameter lists passwords for admin users for both the Single Server source and the Flexible Server target. These passwords help to authenticate against the source and target servers.
+| `sourceServerUserName` | Required | The default value is the admin user created during the creation of single server and the password provided will be used for authentication against this user. In case you are not using the default user, this parameter is the user or role on the source server used for performing the migration. This user should have necessary privileges and ownership on the database objects involved in the migration and should be a member of **azure_pg_admin** role. |
+| `targetServerUserName` | Required | The default value is the admin user created during the creation of flexible server and the password provided will be used for authentication against this user. In case you are not using the default user, this parameter is the user or role on the target server used for performing the migration. This user should be a member of **azure_pg_admin**, **pg_read_all_settings**, **pg_read_all_stats**,**pg_stat_scan_tables** roles and should have the **Create role, Create DB** attributes. |
+| `dbsToMigrate` | Required | Specify the list of databases that you want to migrate to Flexible Server. You can include a maximum of eight database names at a time. |
+| `overwriteDbsInTarget` | Required | When set to true (default), if the target server happens to have an existing database with the same name as the one you're trying to migrate, migration tool automatically overwrites the database. |
 | `SetupLogicalReplicationOnSourceDBIfNeeded` | Optional | You can enable logical replication on the source server automatically by setting this property to `true`. This change in the server settings requires a server restart with a downtime of two to three minutes. |
-| `OverwriteDBsinTarget` | Optional | If the target server happens to have an existing database with the same name as the one you're trying to migrate, the migration will pause until you acknowledge that overwrites in the target databases are allowed. You can avoid this pause by setting the value of this property to `true`, which gives the migration tool permission to automatically overwrite databases. |
+| `SourceDBServerFullyQualifiedDomainName` | Optional |  Use it when a custom DNS server is used for name resolution for a virtual network. Provide the FQDN of the Single Server source according to the custom DNS server for this property. |
+| `TargetDBServerFullyQualifiedDomainName` | Optional |  Use it when a custom DNS server is used for name resolution inside a virtual network. Provide the FQDN of the Flexible Server target according to the custom DNS server. <br> `SourceDBServerFullyQualifiedDomainName` and `TargetDBServerFullyQualifiedDomainName` are included as a part of the JSON only in the rare scenario that a custom DNS server is used for name resolution instead of Azure-provided DNS. Otherwise, don't include these parameters as a part of the JSON file. |
 
-### Choose a migration mode
+Note these important points for the command response:
 
-The default migration mode for migrations created through CLI commands is *online*. Filling out the preceding properties in your JSON file would create an online migration from your Single Server source to the Flexible Server target.
+- As soon as the `create` command is triggered, the migration moves to the `InProgress` state and the `PerformingPreRequisiteSteps` substate. The migration workflow takes a couple of minutes to deploy the migration infrastructure and setup connections between the source and target.
+- After the `PerformingPreRequisiteSteps` substate is completed, the migration moves to the substate of `Migrating Data`, where the Cloning/Copying of the databases take place.
+- Each database migrated has its own section with all migration details, such as table count, incremental inserts, deletions, and pending bytes.
+- The time that the `Migrating Data` substate takes to finish depends on the size of databases that are migrated.
+- The migration moves to the `Succeeded` state as soon as the `Migrating Data` substate finishes successfully. If there's a problem at the `Migrating Data` substate, the migration moves into a `Failed` state.
 
-If you want to migrate in offline mode, you need to add another property (`"TriggerCutover":"true"`) to your JSON file before you initiate the `create` command.
+>[!NOTE]
+> Gentle reminder to [allow-list the extensions](./concepts-single-to-flexible.md#allow-list-required-extensions) before you execute **Create** in case it is not yet done. It is important to allow-list the extensions before you initiate a migration using this tool.
 
-### List migrations
+### List the migration(s)
 
-The `list` command shows the migration attempts that were made to a Flexible Server target. Here's the CLI command to list migrations:
+The `list` command lists all the migration attempts made to a Flexible Server target:
 
 ```azurecli
 az postgres flexible-server migration list [--subscription]
@@ -171,40 +183,32 @@ az postgres flexible-server migration list [--subscription]
                                             [--filter] 
 ```
 
-The `filter` parameter can take these values:
+The `filter` parameter has two options:
 
-- `Active`: Lists the current active migration attempts for the target server. It does not include the migrations that have reached a failed, canceled, or succeeded state.
-- `All`: Lists all the migration attempts to the target server. This includes both the active and past migrations, regardless of the state.
+- `Active`: Lists the current active migration attempts (in progress) into the target server. It does not include the migrations that have reached a failed, canceled, or succeeded state.
+- `All`: Lists all the migration attempts into the target server. This includes both the active and past migrations, regardless of the state.
 
-For more information about this command, use the `help` parameter: 
+For more information about this command, use the `help` parameter:
 
 ```azurecli-interactive
 az postgres flexible-server migration list -- help
 ```
 
-### Show details
+## Monitor the migration
 
-Use the following `list` command to get the details of a specific migration. These details include information on the current state and substate of the migration. 
+The `show` command helps you monitor ongoing migrations and gives the current state and substate of the migration.
+These details include information on the current state and substate of the migration.
 
 ```azurecli
-az postgres flexible-server migration list [--subscription]
+az postgres flexible-server migration show [--subscription]
                                             [--resource-group]
                                             [--name]  
                                             [--migration-name] 
 ```
 
-The `migration_name` parameter is the name assigned to the migration during the `create` command. Here's a snapshot of the sample response from the CLI command for showing details:
+The `migration_name` parameter is the name you have assigned to the migration during the `create` command. Here's a snapshot of the sample response from the CLI command for showing details:
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-migration-name.png" alt-text="Screenshot of Command Line Interface migration name." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-migration-name.png":::
-
-Note these important points for the command response:
-
-- As soon as the `create` command is triggered, the migration moves to the `InProgress` state and the `PerformingPreRequisiteSteps` substate. It takes up to 15 minutes for the migration workflow to deploy the migration infrastructure, configure firewall rules with source and target servers, and perform a few maintenance tasks. 
-- After the `PerformingPreRequisiteSteps` substate is completed, the migration moves to the substate of `Migrating Data`, where the dump and restore of the databases take place.
-- Each database being migrated has its own section with all migration details, such as table count, incremental inserts, deletions, and pending bytes.
-- The time that the `Migrating Data` substate takes to finish depends on the size of databases that are being migrated.
-- For offline mode, the migration moves to the `Succeeded` state as soon as the `Migrating Data` substate finishes successfully. If there's a problem at the `Migrating Data` substate, the migration moves into a `Failed` state.
-- For online mode, the migration moves to the state of  `WaitingForUserAction` and a substate of `WaitingForCutoverTrigger` after the `Migrating Data` state finishes successfully. The next section covers the details of the `WaitingForUserAction` state.
+:::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-show.png" alt-text="Screenshot of Command Line Interface migration Show." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-show.png":::
 
 For more information about this command, use the `help` parameter:
 
@@ -212,135 +216,49 @@ For more information about this command, use the `help` parameter:
  az postgres flexible-server migration show -- help
  ```
 
-### Update a migration
-
-As soon as the infrastructure setup is complete, the migration activity will pause. Messages in the response for the CLI command will show details if some prerequisites are missing or if the migration is at a state to perform a cutover. At this point, the migration goes into a state called `WaitingForUserAction`. 
-
-You use the `update` command to set values for parameters, which helps the migration move to the next stage in the process. Let's look at each of the substates.
-
-#### WaitingForLogicalReplicationSetupRequestOnSourceDB
-
-If the logical replication is not set at the source server or if it was not included as a part of the JSON file, the migration will wait for logical replication to be enabled at the source. You can enable the logical replication setting manually by changing the replication flag to `Logical` on the portal. This change requires a server restart. 
-
-You can also enable the logical replication setting by using the following CLI command:
-
-```azurecli
-az postgres flexible-server migration update [--subscription]
-                                            [--resource-group]
-                                            [--name]  
-                                            [--migration-name]
-                                            [--initiate-data-migration] 
-```
-
-To set logical replication on your source server, pass the value `true` to the `initiate-data-migration` property. For example:
-
-```azurecli-interactive
-az postgres flexible-server migration update --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --initiate-data-migration true"
-```
-
-If you enable it manually, *you still need to issue the preceding `update` command* for the migration to move out of the `WaitingForUserAction` state. The server doesn't need to restart again because that already happened via the portal action.
-
-#### WaitingForTargetDBOverwriteConfirmation
-
-`WaitingForTargetDBOverwriteConfirmation` is the state where migration is waiting for confirmation on target overwrite, because data is already present in the target server for the database that's being migrated. You can enable it by using the following CLI command:
-
-```azurecli
-az postgres flexible-server migration update [--subscription]
-                                            [--resource-group]
-                                            [--name]  
-                                            [--migration-name]
-                                            [--overwrite-dbs] 
-```
-
-To give the migration permissions to overwrite any existing data in the target server, you need to pass the value `true` to the `overwrite-dbs` property. For example:
-
-```azurecli-interactive
-az postgres flexible-server migration update --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --overwrite-dbs true"
-```
-
-#### WaitingForCutoverTrigger
-
-Migration gets to the `WaitingForCutoverTrigger` state when the dump and restore of the databases have finished and the ongoing writes at your Single Server source are being replicated to the Flexible Server target. You should wait for the replication to finish so that the target is in sync with the source. 
-
-You can monitor the replication lag by using the response from the `show` command. A metric called **Pending Bytes** is associated with each database that's being migrated. This metric gives you an indication of the difference between the source and target databases in bytes. This number should be nearing zero over time. After the number reaches zero for all the databases, stop any further writes to your Single Server source. Then, validate the data and schema on your Flexible Server target to make sure they match exactly with the source server. 
-
-After you complete the preceding steps, you can trigger a cutover by using the following CLI command:
-
-```azurecli
-az postgres flexible-server migration update [--subscription]
-                                            [--resource-group]
-                                            [--name]  
-                                            [--migration-name]
-                                            [--cutover] 
-```
-
-For example:
-
-```azurecli-interactive
-az postgres flexible-server migration update --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --cutover"
-```
-
-After you use the preceding command, use the command for showing details to monitor if the cutover has finished successfully. Upon successful cutover, migration will move to a `Succeeded` state. Update your application to point to the new Flexible Server target.
-
-For more information about this command, use the `help` parameter:
-
-```azurecli-interactive
- az postgres flexible-server migration update -- help
- ```
-
-### Delete or cancel a migration
-
-You can delete or cancel any ongoing migration attempts by using the `delete` command. This command stops all migration activities in that task, but it doesn't drop or roll back any changes on your target server. Here's the CLI command to delete a migration:
-
-```azurecli
-az postgres flexible-server migration delete [--subscription]
-                                            [--resource-group]
-                                            [--name]  
-                                            [--migration-name]
-```
-
-For example:
-
-```azurecli-interactive
-az postgres flexible-server migration delete --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1"
-```
-
-For more information about this command, use the `help` parameter:
-
-```azurecli-interactive
- az postgres flexible-server migration delete -- help
- ```
-
-## Monitoring migration
-
-The `create` command starts a migration between the source and target servers. The migration goes through a set of states and substates before eventually moving into the `completed` state. The `show` command helps you monitor ongoing migrations, because it gives the current state and substate of the migration.
-
 The following tables describe the migration states and substates.
 
 | Migration state | Description |
 | ---- | ---- |
-| `InProgress` | The migration infrastructure is being set up, or the actual data migration is in progress. |
-| `Canceled` | The migration has been canceled or deleted. |
+| `InProgress` | The migration infrastructure is set up, or the actual data migration is in progress. |
+| `Canceled` | The migration is canceled or deleted. |
 | `Failed` | The migration has failed. |
 | `Succeeded` | The migration has succeeded and is complete. |
-| `WaitingForUserAction` | Migration is waiting on a user action. This state has a list of substates that were discussed in detail in the previous section. |
 
 | Migration substate | Description |
 | ----  | ---- |
-| `PerformingPreRequisiteSteps` | Infrastructure is being set up and is being prepped for data migration. |
-| `MigratingData` | Data is being migrated. |
+| `PerformingPreRequisiteSteps` | Infrastructure is set up and is prepped for data migration. |
+| `MigratingData` | Data migration is in progress. |
 | `CompletingMigration` | Migration cutover is in progress. |
-| `WaitingForLogicalReplicationSetupRequestOnSourceDB` | Waiting for logical replication enablement. You can enable this substate manually or by using the `update` CLI command covered in the next section. |
-| `WaitingForCutoverTrigger` | Migration is ready for cutover. You can start the cutover when ready. |
-| `WaitingForTargetDBOverwriteConfirmation` | Waiting for confirmation on target overwrite. Data is present in the target server. <br> You can enable this substate via the `update` CLI command. |
 | `Completed` | Cutover was successful, and migration is complete. |
 
-## Custom DNS for name resolution
+## Cancel the migration
 
-To find out if custom DNS is used for name resolution, go to the virtual network where you deployed your source or target server, and then select **DNS server**. The virtual network should indicate if it's using a custom DNS server or the default Azure-provided DNS server.
+You can cancel any ongoing migration attempts by using the `cancel` command. This command stops the particular migration attempt, but it doesn't drop or roll back any changes on your target server. Here's the CLI command to delete a migration:
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-dns-server.png" alt-text="Screenshot of D N S information, with the default option selected." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-dns-server.png":::
+```azurecli
+az postgres flexible-server migration update cancel [--subscription]
+                                            [--resource-group]
+                                            [--name]  
+                                            [--migration-name]
+```
 
-## Next steps
+For example:
 
-- For a successful end-to-end migration, follow the post-migration steps in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md).
+```azurecli-interactive
+az postgres flexible-server migration update cancel --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1"
+```
+
+For more information about this command, use the `help` parameter:
+
+```azurecli-interactive
+ az postgres flexible-server migration update cancel -- help
+ ```
+
+The command gives you the following output:
+
+:::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png" alt-text="Screenshot of Azure Command Line Interface Cancel." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png":::
+
+## Migration best practices
+
+- For a successful end-to-end migration, follow the post-migration steps in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#best-practices).

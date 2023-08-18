@@ -2,7 +2,10 @@
 title: Restore Azure file shares with the Azure CLI
 description: Learn how to use the Azure CLI to restore backed-up Azure file shares in the Recovery Services vault
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 01/16/2020
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore Azure file shares with the Azure CLI
@@ -29,7 +32,7 @@ This article assumes that you already have an Azure file share that's backed up 
 
 You can use a similar structure for your file shares to try out the different types of restores explained in this article.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
  - This tutorial requires version 2.0.18 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

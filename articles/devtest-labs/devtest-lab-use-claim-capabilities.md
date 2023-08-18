@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Use claim capabilities in Azure DevTest Labs

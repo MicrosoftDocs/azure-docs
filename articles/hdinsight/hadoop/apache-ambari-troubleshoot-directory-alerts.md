@@ -3,7 +3,7 @@ title: Apache Ambari directory alerts in Azure HDInsight
 description: Discussion and analysis of possible reasons and solutions for Apache Ambari directory alerts in HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 04/06/2022
+ms.date: 06/07/2023
 ---
 
 # Scenario: Apache Ambari directory alerts in Azure HDInsight

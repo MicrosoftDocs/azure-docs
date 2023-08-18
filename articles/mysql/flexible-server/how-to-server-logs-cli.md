@@ -3,6 +3,7 @@ title: 'Monitoring - List and Download Server logs using Azure CLI'
 description: This article describes how to download and list server logs using Azure CLI.
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 author: code-sidd
 ms.author: sisawant

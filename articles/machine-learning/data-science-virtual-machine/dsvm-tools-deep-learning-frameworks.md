@@ -5,7 +5,7 @@ description: Available deep learning frameworks and tools on Azure Data Science 
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 ms.service: data-science-vm
-ms.custom: devx-track-python
+ms.custom:
 
 author: michalmar
 ms.author: mimarusa
@@ -22,7 +22,7 @@ Deep learning frameworks on the DSVM are listed below.
 | Category | Value |
 |--|--|
 | Version(s) supported | 11 |
-| Supported DSVM editions | Windows Server 2019<br>Ubuntu 18.04 |
+| Supported DSVM editions | Windows Server 2019<br>Linux |
 | How is it configured / installed on the DSVM? | _nvidia-smi_ is available on the system path. |
 | How to run it | Open a command prompt (on Windows) or a terminal (on Linux), and then run _nvidia-smi_. |
 ## [Horovod](https://github.com/uber/horovod)
@@ -30,7 +30,7 @@ Deep learning frameworks on the DSVM are listed below.
 | Category | Value |
 | ------------- | ------------- |
 | Version(s) supported | 0.21.3|
-| Supported DSVM editions      | Ubuntu 18.04 |
+| Supported DSVM editions      | Linux |
 | How is it configured / installed on the DSVM?  | Horovod is installed in Python 3.5 |
 | How to run it      | Activate the correct environment at the terminal, and then run Python. |
 
@@ -40,7 +40,7 @@ Deep learning frameworks on the DSVM are listed below.
 | Category | Value |
 |--|--|
 | Version(s) supported |  |
-| Supported DSVM editions | Windows Server 2019<br>Ubuntu 18.04 |
+| Supported DSVM editions | Windows Server 2019<br>Linux |
 | What is it for? | NVIDIA tool for querying GPU activity |
 | How is it configured / installed on the DSVM? | `nvidia-smi` is on the system path. |
 | How to run it | On a virtual machine **with GPU's**, open a command prompt (on Windows) or a terminal (on Linux), and then run `nvidia-smi`. |
@@ -49,8 +49,8 @@ Deep learning frameworks on the DSVM are listed below.
 
 | Category | Value |
 |--|--|
-| Version(s) supported | 1.9.0 (Ubuntu 18.04, Windows 2019) |
-| Supported DSVM editions | Windows Server 2019<br>Ubuntu 18.04 |
+| Version(s) supported | 1.9.0 (Linux, Windows 2019) |
+| Supported DSVM editions | Windows Server 2019<br>Linux |
 | How is it configured / installed on the DSVM? | Installed in Python, conda environments 'py38_default', 'py38_pytorch' |
 | How to run it | Terminal: Activate the correct environment, and then run Python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): Connect, and then open the PyTorch directory for samples. |
 
@@ -59,6 +59,6 @@ Deep learning frameworks on the DSVM are listed below.
 | Category | Value |
 |--|--|
 | Version(s) supported | 2.5 |
-| Supported DSVM editions | Windows Server 2019<br>Ubuntu 18.04 |
+| Supported DSVM editions | Windows Server 2019<br>Linux |
 | How is it configured / installed on the DSVM? | Installed in Python, conda environments 'py38_default', 'py38_tensorflow' |
 | How to run it | Terminal: Activate the correct environment, and then run Python. <br/> * Jupyter: Connect to [Jupyter](provision-vm.md) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), and then open the TensorFlow directory for samples. |

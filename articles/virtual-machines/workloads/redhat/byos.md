@@ -4,6 +4,7 @@ description: Learn about bring-your-own-subscription images for Red Hat Enterpri
 author: mamccrea
 ms.service: virtual-machines
 ms.subservice: redhat
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.collection: linux
 ms.topic: article
 ms.date: 06/10/2020
@@ -17,7 +18,7 @@ ms.author: mamccrea
 Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-go or bring-your-own-subscription (BYOS) (Red Hat Gold Image) model. This article provides an overview of the Red Hat Gold Images in Azure.
 
 >[!NOTE]
-> RHEL BYOS Gold Images are available in Azure Public (commercial) and Azure Government clouds. They're not available in Azure China or Azure Blackforest clouds.
+> RHEL BYOS Gold Images are available in Azure Public (commercial) and Azure Government clouds. They're not available in Microsoft Azure operated by 21Vianet or Azure Blackforest clouds.
 
 ## Important points to consider
 
@@ -26,7 +27,7 @@ Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-g
 - Standard support policies apply to VMs created from these images.
 - The VMs provisioned from Red Hat Gold Images don't carry RHEL fees associated with RHEL pay-as-you-go images.
 - The images are unentitled. You must use Red Hat Subscription-Manager to register and subscribe the VMs to get updates from Red Hat directly.
-- It's possible to switch from pay-as-you-go images to BYOS using the [Azure Hybrid Benefit](../../linux/azure-hybrid-benefit-linux.md). However it's not possible to  switch from an initially deployed BYOS to pay-as-you-go billing models for Linux images. To switch the billing model from BYOS to pay-as-you-go, you must redeploy the VM from the respective image.
+- It's possible to switch from pay-as-you-go images to BYOS using the [Azure Hybrid Benefit](../../linux/azure-hybrid-benefit-linux.md). To convert from RHEL BYOS to pay-as-you-go, follow the steps in [Azure Hybrid Benefit for bring-your-own-subscription Linux virtual machines](../../linux/azure-hybrid-benefit-byos-linux.md#get-started)
 
 ## Requirements and conditions to access the Red Hat Gold Images
 
@@ -40,11 +41,11 @@ After you finish the Cloud Access enablement steps, Red Hat validates your eligi
 
 ## Use the Red Hat Gold Images from the Azure portal
 
-1. After your Azure subscription receives access to Red Hat Gold Images, you can locate them in the [Azure portal](https://portal.azure.com). Go to **Create a Resource** > **See all**.
+1. After your Azure subscription receives access to Red Hat Gold Images, you can locate them in the [Azure portal](https://portal.azure.com). Go to **Create a Resource** > **MarketPlace**.
 
 1. At the top of the page, you'll see that you have private offers.
 
-    ![Marketplace private offers](./media/rhel-byos-privateoffers.png)
+    ![Marketplace private offers](./media/rhel-byos-privateoffers-2.png)
 
 1. Select the purple link, or scroll down to the bottom of the page to see your private offers.
 
@@ -75,16 +76,22 @@ The following instructions walk you through the initial deployment process for a
     ```
 
 1. Accept the image terms.
-
+  
+    Option 1
     ```azurecli
     az vm image terms accept --publisher redhat --offer rhel-byos --plan <SKU value here> -o=jsonc
-
-    # Example:
-    az vm image terms accept --publisher redhat --offer rhel-byos --plan rhel-lvm75 -o=jsonc
-
-    OR
-
-    az vm image terms accept --urn redhat:rhel-byos:rhel-lvm8:8.0.20190620
+    ```
+    Example
+    ```azurecli
+    az vm image terms accept --publisher redhat --offer rhel-byos --plan rhel-lvm87 -o=jsonc
+    ```
+    Option2
+    ```azurecli
+    az vm image terms accept --urn <SKU value here> 
+    ```
+    Example
+    ```azurecli
+    az vm image terms accept --urn RedHat:rhel-byos:rhel-lvm87:8.7.2023021503
     ```
 
     >[!NOTE]
@@ -94,8 +101,9 @@ The following instructions walk you through the initial deployment process for a
 
     ```azurecli
     az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
-
-    # Example:
+    ```
+    Example:
+    ```azurecli
     az vm create -n rhel-byos-vm -g rhel-byos-group --image redhat:rhel-byos:rhel-lvm8:latest --validate
     ```
 
@@ -103,8 +111,9 @@ The following instructions walk you through the initial deployment process for a
 
     ```azurecli
     az vm create -n <VM name> -g <resource group name> --image <image urn>
-
-    # Example:
+    ```
+    Example:
+    ```azurecli
     az vm create -n rhel-byos-vm -g rhel-byos-group --image redhat:rhel-byos:rhel-lvm8:latest
     ```
 
@@ -126,7 +135,7 @@ The following script is an example. Replace the resource group, location, VM nam
     # Define user name and blank password
     $securePassword = ConvertTo-SecureString 'TestPassword1!' -AsPlainText -Force
     $cred = New-Object System.Management.Automation.PSCredential("azureuser",$securePassword)
-    Get-AzureRmMarketplaceTerms -Publisher redhat -Product rhel-byos -Name rhel-lvm75 | SetAzureRmMarketplaceTerms -Accept
+    Get-AzureRmMarketplaceTerms -Publisher redhat -Product rhel-byos -Name rhel-lvm87 | SetAzureRmMarketplaceTerms -Accept
 
     # Create a resource group
     New-AzureRmResourceGroup -Name $resourceGroup -Location $location
@@ -159,8 +168,8 @@ The following script is an example. Replace the resource group, location, VM nam
     # Create a virtual machine configuration
     $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D3_v2 |
     Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred |
-    Set-AzureRmVMSourceImage -PublisherName redhat -Offer rhel-byos -Skus rhel-lvm75 -Version latest | Add-     AzureRmVMNetworkInterface -Id $nic.Id
-    Set-AzureRmVMPlan -VM $vmConfig -Publisher redhat -Product rhel-byos -Name "rhel-lvm75"
+    Set-AzureRmVMSourceImage -PublisherName redhat -Offer rhel-byos -Skus rhel-lvm87 -Version latest | Add-     AzureRmVMNetworkInterface -Id $nic.Id
+    Set-AzureRmVMPlan -VM $vmConfig -Publisher redhat -Product rhel-byos -Name "rhel-lvm87"
 
     # Configure SSH Keys
     $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
@@ -183,7 +192,7 @@ For steps to apply Azure Disk Encryption, see [Azure Disk Encryption scenarios o
 - If you attempt to provision a VM on a subscription that isn't enabled for this offer, you get the following message:
 
     ```
-    "Offer with PublisherId: redhat, OfferId: rhel-byos, PlanId: rhel-lvm75 is private and can not be purchased by subscriptionId: GUID"
+    "Offer with PublisherId: redhat, OfferId: rhel-byos, PlanId: rhel-lvm87 is private and can not be purchased by subscriptionId: GUID"
     ```
 
     In this case, contact Microsoft or Red Hat to enable your subscription.
@@ -194,7 +203,7 @@ For steps to apply Azure Disk Encryption, see [Azure Disk Encryption scenarios o
     az vm create –image \
     "/subscriptions/GUID/resourceGroups/GroupName/providers/Microsoft.Compute/galleries/GalleryName/images/ImageName/versions/1.0.0" \
     -g AnotherGroupName --location EastUS2 -n VMName \
-    --plan-publisher redhat --plan-product rhel-byos --plan-name rhel-lvm75
+    --plan-publisher redhat --plan-product rhel-byos --plan-name rhel-lvm87
     ```
 
     Note the plan parameters in the final line.

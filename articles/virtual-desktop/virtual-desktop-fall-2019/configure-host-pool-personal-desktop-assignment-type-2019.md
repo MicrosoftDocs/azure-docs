@@ -84,5 +84,5 @@ If you need to add the session host back into the personal desktop host pool, un
 
 Now that you've configured the personal desktop assignment type, you can sign in to a Azure Virtual Desktop client to test it as part of a user session. These next two How-tos will tell you how to connect to a session using the client of your choice:
 
-- [Connect with the Windows Desktop client](connect-windows-7-10-2019.md)
+- [Connect with the Windows Desktop client](connect-windows-2019.md)
 - [Connect with the web client](connect-web-2019.md)

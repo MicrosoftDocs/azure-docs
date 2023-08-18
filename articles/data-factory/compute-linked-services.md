@@ -7,8 +7,8 @@ ms.subservice: concepts
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 09/09/2021
-ms.custom: devx-track-azurepowershell, synapse
+ms.date: 10/25/2022
+ms.custom: synapse
 ---
 
 # Compute environments supported by Azure Data Factory and Synapse pipelines
@@ -30,7 +30,10 @@ The following table provides a list of supported compute environments and the ac
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
+| [Azure Synapse Analytics (Artifacts)](#azure-synapse-analytics-artifacts-linked-service) | [Synapse Notebook activity](transform-data-synapse-notebook.md), [Synapse Spark job definition](transform-data-synapse-spark-job-definition.md) |
 | [Azure Function](#azure-function-linked-service)         | [Azure Function activity](control-flow-azure-function-activity.md)
+
+
 >  
 
 ## HDInsight compute environment
@@ -177,7 +180,7 @@ You can also specify the following properties for the granular configuration of 
 | stormConfiguration     | Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster. | No       |
 | yarnConfiguration      | Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster. | No       |
 
-* Example – On-demand HDInsight cluster configuration with advanced properties
+* Example - On-demand HDInsight cluster configuration with advanced properties
 
 ```json
 {
@@ -371,7 +374,7 @@ See following articles if you are new to Azure Batch service:
 
 [!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
 
-You create an Machine Learning Studio (classic) linked service to register a Machine Learning Studio (classic) batch scoring endpoint to a data factory or Synapse workspace.
+You create a Machine Learning Studio (classic) linked service to register a Machine Learning Studio (classic) batch scoring endpoint to a data factory or Synapse workspace.
 
 ### Example
 
@@ -573,6 +576,40 @@ You create an Azure Synapse Analytics linked service and use it with the [Stored
 ## SQL Server linked service
 
 You create a SQL Server linked service and use it with the [Stored Procedure Activity](transform-data-using-stored-procedure.md) to invoke a stored procedure from a pipeline. See [SQL Server connector](connector-sql-server.md#linked-service-properties) article for details about this linked service.
+
+## Azure Synapse Analytics (Artifacts) linked service
+
+You create an Azure Synapse Analytics (Artifacts) linked service and use it with the [Synapse Notebook Activity](transform-data-synapse-notebook.md) and [Synapse Spark job definition Activity](transform-data-synapse-spark-job-definition.md). 
+
+### Example
+
+```json
+{
+    "name": "AzureSynapseArtifacts",
+    "properties": {
+        "description": "AzureSynapseArtifactsDescription",
+        "annotations": [],
+        "type": "AzureSynapseArtifacts",
+        "typeProperties": {
+            "endpoint": "https://<workspacename>.dev.azuresynapse.net",
+            "authentication": "MSI",
+            "workspaceResourceId": "<workspace Resource Id>"
+        }
+    }
+}
+```
+
+### Properties
+
+| **Property** | **Description** | **Required** |
+| --- | --- | --- |
+| name | Name of the Linked Service	 | Yes |
+| description | description of the Linked Service	 | No |
+| annotations | annotations of the Linked Service	 | No |
+| type | The type property should be set to **AzureSynapseArtifacts** | Yes |
+| endpoint | The Azure Synapse Analytics URL	 | Yes |
+| authentication | The default setting is System Assigned Managed Identity | Yes |
+| workspaceResourceId | workspace Resource Id	 | Yes |
 
 ## Azure Function linked service
 

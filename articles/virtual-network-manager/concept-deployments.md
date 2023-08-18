@@ -1,40 +1,44 @@
 ---
-title: 'Configuration deployments in Azure Virtual Network Manager (Preview)'
+title: 'Configuration deployments in Azure Virtual Network Manager'
 description: Learn about how configuration deployments work in Azure Virtual Network Manager.
 author: mbender-ms    
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 07/06/2022
-ms.custom: template-concept, ignite-fall-2021
+ms.date: 3/22/2023
+ms.custom: template-concept
 ---
 
-# Configuration deployments in Azure Virtual Network Manager (Preview)
+# Configuration deployments in Azure Virtual Network Manager
 
-In this article, you'll learn about how configurations are applied to your network resources. You'll also explore how updating a configuration deployment is different for each membership type. Then we'll go into details about *Deployment status* and *Goal state model*.
+In this article, you learn about how configurations are applied to your network resources. Also, you explore how updating a configuration deployment is different for each membership type. Then we go into details about *Deployment status* and *Goal state model*.
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is currently in public preview.
+> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
+>
+> Mesh connectivity configurations and security admin rules remain in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Deployment
 
-*Deployment* is the method Azure Virtual Network Manager uses to apply configurations to your virtual networks in network groups. Configurations won't take effect until they're deployed. Changes to network groups, including events such as removal and addition of a virtual network into a network group, will take effect without the need for redeployment. For example, if you have a configuration deployed, and a virtual network is added to a network group, it takes effect immediately. When committing a deployment, you select the region(s) to which the configuration will be applied. When a deployment request is sent to Azure Virtual Network Manager, it will calculate the [goal state](#goalstate) of network resources and request the necessary changes to your infrastructure. The changes can take a few minutes depending on how large the configuration is.
+*Deployment* is the method Azure Virtual Network Manager uses to apply configurations to your virtual networks in network groups. Configurations don't take effect until they're deployed. When a deployment request is sent to Azure Virtual Network Manager, it calculates the [goal state](#goalstate) of all resources under your network manager in that region. Goal state is a combination of deployed configurations and network group membership. Network manager applies the necessary changes to your infrastructure.
 
-*Deployment* is the method Azure Virtual Network Manager uses to apply configurations to your virtual networks in network groups. Configurations won't take effect until they're deployed. When a deployment request is sent to Azure Virtual Network Manager, it will calculate the [goal state](#goalstate) of all resources under your network manager in that region. Goal state is a combination of deployed configurations and network group membership. Network manager will then apply the necessary changes to your infrastructure.
+When committing a deployment, you select the region(s) to which the configuration applies. The length of time for a deployment depends on how large the configuration is.  Once the virtual networks are members of a network group, deploying a configuration onto that network group takes a few minutes. This includes adding or removing group members directly, or configuring an Azure Policy resource. Safe deployment practices recommend gradually rolling out changes on a per-region basis. 
+## Deployment latency
 
-When committing a deployment, you select the region(s) to which the configuration will be applied. The deployed configuration is also static. Once deployed, you can edit your configurations freely without impacting your deployed setup. Applying any of these new changes will take another deployment. The changes reprocess the entire region and can take a few minutes depending on how large the configuration is. There are two factors in how quick the configurations are applied:
+Deployment latency is the time it takes for a deployment configuration to be applied and take effect. There are two factors in how quickly the configurations are applied: 
 
-- The time of applying configuration is a few minutes.
-- The time to get notification of what is in a network group can very. 
+- The base time of applying a configuration is a few minutes. 
 
-For static members, it's immediate. For dynamic members where the scope is less than 1000 subscriptions, it takes a few minutes. In environments with over 1000 subscriptions, the notification mechanism works in a 24-hour window. Once the policy is deployed, commits are faster in the future. However, Changes to network groups will take effect without the need for redeployment. This includes adding or removing group members directly, or configuring an Azure Policy resource. Safe deployment practices recommend gradually rolling out changes on a per-region basis. 
+- The time to receive a notification of network group membership can vary. 
 
-AVNM will apply the configuration to the VNets in the network group. So even if your network group consists of dynamic members from more than 1000 subscriptions, if AVNM also is notified who is in the network group, the configuration will be applied in a few minutes.
+For manually added members, notification is immediate. For dynamic members where the scope is less than 1000 subscriptions, notification takes a few minutes. In environments with more than 1000 subscriptions, the notification mechanism works in a 24-hour window. Changes to network groups take effect without the need for configuration redeployment.   
+
+Virtual network manager applies the configuration to the virtual networks in the network group even if your network group consists of dynamic members from more than 1000 subscriptions. When the virtual network manager is notified of group membership, the configuration is applied in a few minutes. 
 ## Deployment status
 
-When you commit a configuration deployment, the API does a POST operation. Once the deployment request has been made, Azure Virtual Network Manager will calculate the goal state of your networks in the deployed regions and request the underlying infrastructure to make the changes. You can see the deployment status on the *Deployment* page of the Virtual Network Manager.
+When you commit a configuration deployment, the API does a POST operation. Once the deployment request has been made, Azure Virtual Network Manager calculates the goal state of your networks in the deployed regions and request the underlying infrastructure to make the changes. You can see the deployment status on the *Deployment* page of the Virtual Network Manager.
 
 :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deployment-in-progress.png" alt-text="Screenshot of deployment in progress in deployment list.":::
 
@@ -44,4 +48,5 @@ When you commit a deployment of configuration(s), you're describing the goal sta
 
 ## Next steps
 
-Learn how to [create an Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md).
+- Learn how to [create an Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md) in the Azure portal.
+- Deploy an [Azure Virtual Network Manager](create-virtual-network-manager-terraform.md) instance using Terraform.

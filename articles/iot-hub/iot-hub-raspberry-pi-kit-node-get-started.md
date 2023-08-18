@@ -2,14 +2,12 @@
 title: Connect Raspberry Pi to Azure IoT Hub in the cloud (Node.js)
 description: Learn how to set up and connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud platform in this tutorial.
 author: kgremban
-manager:  eliotgra
-keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud
-ms.service: iot-hub
-services: iot-hub
-ms.devlang: javascript
-ms.topic: conceptual
-ms.date: 02/22/2022
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.devlang: javascript
+ms.topic: tutorial
+ms.date: 02/22/2022
 ms.custom: ['Role: Cloud Development', devx-track-js]
 ---
 
@@ -185,7 +183,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    > [!NOTE]
    > The default username is `pi` and the password is `raspberry`.
 
-2. Install Node.js and NPM to your Pi.
+2. Install Node.js and npm to your Pi.
 
    First check your Node.js version.
 
@@ -251,7 +249,7 @@ You should see the following output that shows the sensor data and the messages 
 
 ## Read the messages received by your hub
 
-One way to monitor messages received by your IoT hub from your device is to use the Azure IoT Tools for Visual Studio Code. To learn more, see [Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+One way to monitor messages received by your IoT hub from your device is to use the Azure IoT Hub extension for Visual Studio Code. To learn more, see [Use the Azure IoT Hub extension for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 For more ways to process data sent by your device, continue on to the next section.
 
@@ -261,7 +259,7 @@ You can use the resources created in this topic with other tutorials and quickst
 
 1. From the left-hand menu in the Azure portal, select **All resources** and then select the IoT Hub you created. 
 1. At the top of the IoT Hub overview pane, click **Delete**.
-1. Enter your hub name and click **Delete** again to confirm permanently deleting the IoT Hub.
+1. Enter your hub name and click **Delete** again to confirm permanently deleting the IoT hub.
 
 ## Next steps
 

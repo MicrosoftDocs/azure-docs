@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 02/23/2023
 ms.author: anfdocs
 ---
 # Create volume replication for Azure NetApp Files
@@ -36,7 +36,7 @@ You need to obtain the resource ID of the source volume that you want to replica
 
 ## Create the data replication volume (the destination volume)
 
-You need to create a destination volume where you want the data from the source volume to be replicated to.  Before you can create a destination volume, you need to have a NetApp account and a capacity pool in the destination region. 
+You need to create a destination volume where you want the data from the source volume to be replicated to. Before you can create a destination volume, you need to have a NetApp account and a capacity pool in the destination region. 
 
 1. The destination account must be in a different region from the source volume region. If necessary, create a NetApp account in the Azure region to be used for replication by following the steps in [Create a NetApp account](azure-netapp-files-create-netapp-account.md).   
 You can also select an existing NetApp account in a different region.  
@@ -109,4 +109,5 @@ To authorize the replication, you need to obtain the resource ID of the replicat
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region-replication](troubleshoot-cross-region-replication.md)
-
+* [Manage default and individual user and group quotas for a volume](manage-default-individual-user-group-quotas.md)
+* [Manage Azure NetApp Files volume replication with the CLI](/cli/azure/netappfiles/volume/replication)

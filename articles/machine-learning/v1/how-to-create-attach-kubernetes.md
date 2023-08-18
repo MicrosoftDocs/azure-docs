@@ -6,52 +6,54 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv1, sdkv1, event-tier1-build-2022
-ms.author: larryfr
-author:  larryfr
+ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1, sdkv1, event-tier1-build-2022
+ms.author: bozhlin
+author:  bozhong68
 ms.reviewer: larryfr
 ms.date: 04/21/2022
 ---
 
-# Create and attach an Azure Kubernetes Service cluster
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+# Create and attach an Azure Kubernetes Service cluster with v1
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
-> * [v1](how-to-create-attach-kubernetes.md)
-> * [v2 (current version)](../how-to-attach-kubernetes-anywhere.md)
 
-Azure Machine Learning can deploy trained machine learning models to Azure Kubernetes Service. However, you must first either __create__ an Azure Kubernetes Service (AKS) cluster from your Azure ML workspace, or __attach__ an existing AKS cluster. This article provides information on both creating and attaching a cluster.
+> [!IMPORTANT]
+> This article shows how to use the CLI and SDK v1 to create or attach an Azure Kubernetes Service cluster, which is considered as **legacy** feature now.  To attach Azure Kubernetes Service cluster using  the recommended approach for v2, see [Introduction to Kubernetes compute target in v2](../how-to-attach-kubernetes-anywhere.md).
+
+Azure Machine Learning can deploy trained machine learning models to Azure Kubernetes Service. However, you must first either __create__ an Azure Kubernetes Service (AKS) cluster from your Azure Machine Learning workspace, or __attach__ an existing AKS cluster. This article provides information on both creating and attaching a cluster.
 
 ## Prerequisites
-
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
+- The [Azure CLI extension (v1) for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
 
-- If you plan on using an Azure Virtual Network to secure communication between your Azure ML workspace and the AKS cluster, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same VNET as AKS cluster's VNET. Please follow tutorial [create a secure workspace](../tutorial-create-secure-workspace.md) to add those private endpoints or service endpoints to your VNET.
+    [!INCLUDE [cli v1 deprecation](../includes/machine-learning-cli-v1-deprecation.md)]
+
+- If you plan on using an Azure Virtual Network to secure communication between your Azure Machine Learning workspace and the AKS cluster, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same VNET as AKS cluster's VNET. Please follow tutorial [create a secure workspace](../tutorial-create-secure-workspace.md) to add those private endpoints or service endpoints to your VNET.
 
 ## Limitations
 
-- If you need a **Standard Load Balancer(SLB)** deployed in your cluster instead of a Basic Load Balancer(BLB), create a cluster in the AKS portal/CLI/SDK and then **attach** it to the AzureML workspace.
+- An AKS can only be created or attached as a single compute target in Azure Machine Learning workspace. Multiple attachments for one AKS is not supported.
+- If you need a **Standard Load Balancer(SLB)** deployed in your cluster instead of a Basic Load Balancer(BLB), create a cluster in the AKS portal/CLI/SDK and then **attach** it to the Azure Machine Learning workspace.
 
 - If you have an Azure Policy that restricts the creation of Public IP addresses, then AKS cluster creation will fail. AKS requires a Public IP for [egress traffic](../../aks/limit-egress-traffic.md). The egress traffic article also provides guidance to lock down egress traffic from the cluster through the Public IP, except for a few fully qualified domain names. There are 2 ways to enable a Public IP:
     - The cluster can use the Public IP created by default with the BLB or SLB, Or
     - The cluster can be created without a Public IP and then a Public IP is configured with a firewall with a user defined route. For more information, see [Customize cluster egress with a user-defined-route](../../aks/egress-outboundtype.md).
     
-    The AzureML control plane does not talk to this Public IP. It talks to the AKS control plane for deployments. 
+    The Azure Machine Learning control plane does not talk to this Public IP. It talks to the AKS control plane for deployments. 
 
 - To attach an AKS cluster, the service principal/user performing the operation must be assigned the __Owner or contributor__ Azure role-based access control (Azure RBAC) role on the Azure resource group that contains the cluster. The service principal/user must also be assigned [Azure Kubernetes Service Cluster Admin Role](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) on the cluster.
 
-- If you **attach** an AKS cluster, which has an [Authorized IP range enabled to access the API server](../../aks/api-server-authorized-ip-ranges.md), enable the AzureML control plane IP ranges for the AKS cluster. The AzureML control plane is deployed across paired regions and deploys inference pods on the AKS cluster. Without access to the API server, the inference pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=56519) for both the [paired regions](../../availability-zones/cross-region-replication-azure.md) when enabling the IP ranges in an AKS cluster.
+- If you **attach** an AKS cluster, which has an [Authorized IP range enabled to access the API server](../../aks/api-server-authorized-ip-ranges.md), enable the Azure Machine Learning control plane IP ranges for the AKS cluster. The Azure Machine Learning control plane is deployed across paired regions and deploys inference pods on the AKS cluster. Without access to the API server, the inference pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=56519) for both the [paired regions](../../availability-zones/cross-region-replication-azure.md) when enabling the IP ranges in an AKS cluster.
 
     Authorized IP ranges only works with Standard Load Balancer.
 
 - If you want to use a private AKS cluster (using Azure Private Link), you must create the cluster first, and then **attach** it to the workspace. For more information, see [Create a private Azure Kubernetes Service cluster](../../aks/private-clusters.md).
 
-- Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../../aks/private-clusters.md) is __not supported__ with Azure Machine learning. 
+- Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../../aks/private-clusters.md) is __not supported__ with Azure Machine Learning. 
 
-- The compute name for the AKS cluster MUST be unique within your Azure ML workspace. It can include letters, digits and dashes. It must start with a letter, end with a letter or digit, and be between 3 and 24 characters in length.
+- The compute name for the AKS cluster MUST be unique within your Azure Machine Learning workspace. It can include letters, digits and dashes. It must start with a letter, end with a letter or digit, and be between 3 and 24 characters in length.
  
  - If you want to deploy models to **GPU** nodes or **FPGA** nodes (or any specific SKU), then you must create a cluster with the specific SKU. There is no support for creating a secondary node pool in an existing cluster and deploying models in the secondary node pool.
  
@@ -162,9 +164,9 @@ Creating or attaching an AKS cluster is a one time process for your workspace. Y
 
 The following example demonstrates how to create a new AKS cluster using the SDK and CLI:
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -201,7 +203,7 @@ For more information on the classes, methods, and parameters used in this exampl
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 ```azurecli
 az ml computetarget create aks -n myaks
@@ -226,7 +228,7 @@ If you already have AKS cluster in your Azure subscription, you can use it with 
 
 
 > [!WARNING]
-> Do not create multiple, simultaneous attachments to the same AKS cluster from your workspace. For example, attaching one AKS cluster to a workspace using two different names. Each new attachment will break the previous existing attachment(s).
+> **Do not** create multiple, simultaneous attachments to the same AKS cluster. For example, attaching one AKS cluster to a workspace using two different names, or attaching one AKS cluster to different workspace. Each new attachment will break the previous existing attachment(s), and cause unpredictable error.
 >
 > If you want to re-attach an AKS cluster, for example to change TLS or other cluster configuration setting, you must first remove the existing attachment by using [AksCompute.detach()](/python/api/azureml-core/azureml.core.compute.akscompute#detach--).
 
@@ -234,13 +236,13 @@ For more information on creating an AKS cluster using the Azure CLI or portal, s
 
 * [Create an AKS cluster (CLI)](/cli/azure/aks?bc=/azure/bread/toc.json&toc=/azure/aks/TOC.json#az-aks-create)
 * [Create an AKS cluster (portal)](../../aks/learn/quick-kubernetes-deploy-portal.md)
-* [Create an AKS cluster (ARM Template on Azure Quickstart templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aks-azml-targetcompute)
+* [Create an AKS cluster (ARM Template on Azure Quickstart Templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aks-azml-targetcompute)
 
 The following example demonstrates how to attach an existing AKS cluster to your workspace:
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -268,7 +270,7 @@ For more information on the classes, methods, and parameters used in this exampl
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 To attach an existing cluster using the CLI, you need to get the resource ID of the existing cluster. To get this value, use the following command. Replace `myexistingcluster` with the name of your AKS cluster. Replace `myresourcegroup` with the resource group that contains the cluster:
 
@@ -301,7 +303,7 @@ When you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md), 
 
 Following example shows how to enable TLS termination with automatic TLS certificate generation and configuration by using Microsoft certificate under the hood.
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
    from azureml.core.compute import AksCompute, ComputeTarget
@@ -324,7 +326,7 @@ Following example shows how to enable TLS termination with automatic TLS certifi
 ```
 Following example shows how to enable TLS termination with custom certificate and custom domain name. With custom domain and certificate, you must update your DNS record to point to the IP address of scoring endpoint, please see [Update your DNS](../how-to-secure-web-service.md#update-your-dns)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
    from azureml.core.compute import AksCompute, ComputeTarget
@@ -350,7 +352,7 @@ When you create or attach an AKS cluster, you can configure the cluster to use a
 
 # [Create](#tab/akscreate)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 To create an AKS cluster that uses an Internal Load Balancer, use the `load_balancer_type` and `load_balancer_subnet` parameters:
 
@@ -358,10 +360,8 @@ To create an AKS cluster that uses an Internal Load Balancer, use the `load_bala
 from azureml.core.compute.aks import AksUpdateConfiguration
 from azureml.core.compute import AksCompute, ComputeTarget
 
-# Change to the name of the subnet that contains AKS
-subnet_name = "default"
 # When you create an AKS cluster, you can specify Internal Load Balancer to be created with provisioning_config object
-provisioning_config = AksCompute.provisioning_configuration(load_balancer_type = 'InternalLoadBalancer', load_balancer_subnet = subnet_name)
+provisioning_config = AksCompute.provisioning_configuration(load_balancer_type = 'InternalLoadBalancer')
 
 # Create the cluster
 aks_target = ComputeTarget.create(workspace = ws,
@@ -374,7 +374,7 @@ aks_target.wait_for_completion(show_output = True)
 
 # [Attach](#tab/aksattach)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 To attach an AKS cluster and use an internal load balancer (no public IP for the cluster), use the `load_balancer_type` and `load_balancer_subnet` parameters:
 
@@ -415,9 +415,9 @@ To detach a cluster from your workspace, use one of the following methods:
 > [!WARNING]
 > Using the Azure Machine Learning studio, SDK, or the Azure CLI extension for machine learning to detach an AKS cluster **does not delete the AKS cluster**. To delete the cluster, see [Use the Azure CLI with AKS](../../aks/learn/quick-kubernetes-deploy-cli.md#delete-the-cluster).
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 aks_target.detach()
@@ -425,7 +425,7 @@ aks_target.detach()
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 To detach the existing cluster to your workspace, use the following command. Replace `myaks` with the name that the AKS cluster is attached to your workspace as. Replace `myresourcegroup` with the resource group that contains your workspace. Replace `myworkspace` with your workspace name.
 
@@ -446,7 +446,7 @@ Updates to Azure Machine Learning components installed in an Azure Kubernetes Se
 
 You can apply these updates by detaching the cluster from the Azure Machine Learning workspace and reattaching the cluster to the workspace. 
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
@@ -469,7 +469,7 @@ kubectl delete cm azuremlfeconfig
 
 If TLS is enabled in the cluster, you will need to supply the TLS/SSL certificate and private key when reattaching the cluster.
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 attach_config = AksCompute.attach_configuration(resource_group=resourceGroup, cluster_name=kubernetesClusterName)
@@ -499,7 +499,7 @@ kubectl get secret/azuremlfessl -o yaml
 
 Many webservice failures in AKS can be debugged by connecting to the cluster using `kubectl`. You can get the `kubeconfig.json` for an AKS cluster by running
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 ```azurecli-interactive
 az aks get-credentials -g <rg> -n <aks cluster name>

@@ -13,7 +13,7 @@ ms.author: cherylmc
 ---
 # Manage secure access to resources in spoke VNets for User VPN clients
 
-This article shows you how to use Virtual WAN and Azure Firewall rules and filters to manage secure access for connections to your resources in Azure over point-to site IKEv2 or Open VPN connections. This configuration is helpful if you have remote users for whom you want to restrict access to Azure resources, or to secure your resources in Azure.
+This article shows you how to use Virtual WAN and Azure Firewall rules and filters to manage secure access for connections to your resources in Azure over point-to site IKEv2 or OpenVPN connections. This configuration is helpful if you have remote users for whom you want to restrict access to Azure resources, or to secure your resources in Azure.
 
 The steps in this article help you create the architecture in the following diagram to allow User VPN clients to access a specific resource (VM1) in a spoke VNet connected to the virtual hub, but not other resources (VM2). Use this architecture example as a basic guideline.
 
@@ -23,7 +23,7 @@ The steps in this article help you create the architecture in the following diag
 
 [!INCLUDE [Prerequisites](../../includes/virtual-wan-before-include.md)]
 
-* You have the values available for the authentication configuration that you want to use. For example, a RADIUS server, Azure Active Directory authentication, or [Generate and export certificates](../vpn-gateway/vpn-gateway-certificates-point-to-site.md).
+* You have the values available for the authentication configuration that you want to use. For example, a RADIUS server, Azure Active Directory authentication, or [Generate and export certificates](certificates-point-to-site.md).
 
 ## Create a virtual WAN
 
@@ -45,7 +45,7 @@ When selecting the authentication method, you have three choices. Each method ha
 
 * **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
 
-* **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](../vpn-gateway/vpn-gateway-certificates-point-to-site.md).
+* **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](certificates-point-to-site.md).
 
 [!INCLUDE [Define parameters](../../includes/virtual-wan-p2s-configuration-include.md)]
 
@@ -67,7 +67,7 @@ In this section, you create the virtual hub with a point-to-site gateway. When c
 
 ## <a name="generate"></a>Generate VPN client configuration files
 
-In this section, you generate and download the configuration profile files. These files are used to configure the native VPN client on the client computer. For information about the contents of the client profile files, see [Point-to-site configuration - certificates](../vpn-gateway/point-to-site-vpn-client-cert-windows.md#generate).
+In this section, you generate and download the configuration profile files. These files are used to configure the native VPN client on the client computer. 
 
 [!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 
@@ -103,7 +103,7 @@ Once you complete these steps, you will have created an architecture that allows
 1. Under Security, select **Azure Firewall policies**.
 1. Select **Create Azure Firewall Policy**.
 1. Under **Policy details**, type in a name and select the region your virtual hub is deployed in.
-1. Select **Next: DNS Settings (preview)**.
+1. Select **Next: DNS Settings**.
 1. Select **Next: Rules**.
 1. On the **Rules** tab, select **Add a rule collection**.
 1. Provide a name for the collection. Set the type as **Network**. Add a priority value **100**.

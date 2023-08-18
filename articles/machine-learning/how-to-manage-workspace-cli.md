@@ -8,21 +8,19 @@ ms.subservice: core
 ms.author: deeikele
 author: deeikele
 ms.reviewer: larryfr
-ms.date: 08/12/2022
+ms.date: 06/16/2023
 ms.topic: how-to
 ms.custom: devx-track-azurecli, cliv2, event-tier1-build-2022
 ---
 
 # Manage Azure Machine Learning workspaces using Azure CLI
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
-> * [v1](v1/how-to-manage-workspace-cli.md)
-> * [v2 (current version)](how-to-manage-workspace-cli.md)
 
 In this article, you learn how to create and manage Azure Machine Learning workspaces using the Azure CLI. The Azure CLI provides commands for managing Azure resources and is designed to get you working quickly with Azure, with an emphasis on automation. The machine learning extension to the CLI provides commands for working with Azure Machine Learning resources.
+
+You can also manage workspaces the [Azure portal and Python SDK](how-to-manage-workspace.md), [Azure PowerShell](how-to-manage-workspace-powershell.md), or [via the VS Code extension](how-to-setup-vs-code.md).
 
 ## Prerequisites
 
@@ -34,9 +32,9 @@ In this article, you learn how to create and manage Azure Machine Learning works
 
 ## Limitations
 
-[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+[!INCLUDE [register-namespace](includes/machine-learning-register-namespace.md)]
 
-[!INCLUDE [application-insight](../../includes/machine-learning-application-insight.md)]
+[!INCLUDE [application-insight](includes/machine-learning-application-insight.md)]
 
 ### Secure CLI communications
 
@@ -76,7 +74,7 @@ az login
 
 If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser and follow the instructions on the command line. The instructions involve browsing to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and entering an authorization code.
 
-[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
+[!INCLUDE [select-subscription](includes/machine-learning-cli-subscription.md)] 
 
 For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
@@ -128,7 +126,7 @@ When you deploy an Azure Machine Learning workspace, various other services are 
 To create a new workspace where the __services are automatically created__, use the following command:
 
 ```azurecli-interactive
-az ml workspace create -w <workspace-name> -g <resource-group-name>
+az ml workspace create -n <workspace-name> -g <resource-group-name>
 ```
 
 # [Bring existing resources](#tab/bringexistingresources)
@@ -274,7 +272,7 @@ az ml workspace create -g <resource-group-name> --file cmk.yml
 > Authorize the __Machine Learning App__ (in Identity and Access Management) with contributor permissions on your subscription to manage the data encryption additional resources.
 
 > [!NOTE]
-> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](v1/concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
+> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments.
 
 > [!IMPORTANT]
 > Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.
@@ -317,7 +315,7 @@ For more information on the sync-keys command, see [az ml workspace sync-keys](/
 
 ### Delete a workspace
 
-[!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
+[!INCLUDE [machine-learning-delete-workspace](includes/machine-learning-delete-workspace.md)]
 
 To delete a workspace after it's no longer needed, use the following command:
 
@@ -336,13 +334,14 @@ az group delete -g <resource-group-name>
 
 For more information, see the [az ml workspace delete](/cli/azure/ml/workspace#az-ml-workspace-delete) documentation.
 
-If you accidentally deleted your workspace, are still able to retrieve your notebooks. For more information, see the [workspace deletion](./how-to-high-availability-machine-learning.md#workspace-deletion) section of the disaster recovery article.
+> [!TIP]
+> The default behavior for Azure Machine Learning is to _soft delete_ the workspace. This means that the workspace is not immediately deleted, but instead is marked for deletion. For more information, see [Soft delete](./concept-soft-delete.md).
 
 ## Troubleshooting
 
 ### Resource provider errors
 
-[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+[!INCLUDE [machine-learning-resource-provider](includes/machine-learning-resource-provider.md)]
 
 ### Moving the workspace
 
@@ -353,7 +352,7 @@ If you accidentally deleted your workspace, are still able to retrieve your note
 
 The Azure Machine Learning workspace uses Azure Container Registry (ACR) for some operations. It will automatically create an ACR instance when it first needs one.
 
-[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
+[!INCLUDE [machine-learning-delete-acr](includes/machine-learning-delete-acr.md)]
 
 ## Next steps
 
@@ -363,4 +362,4 @@ To check for problems with your workspace, see [How to use workspace diagnostics
 
 To learn how to move a workspace to a new Azure subscription, see [How to move a workspace](how-to-move-workspace.md).
 
-For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).
+For information on how to keep your Azure Machine Learning up to date with the latest security updates, see [Vulnerability management](concept-vulnerability-management.md).

@@ -1,36 +1,39 @@
 ---
-title: Run a workflow on-demand - Azure Active Directory
+title: Run a workflow on-demand
 description: This article guides a user to running a workflow on demand using Lifecycle Workflows
 author: OWinfreyATL
 ms.author: owinfrey
 manager: amycolannino
 ms.service: active-directory
+ms.subservice: compliance
 ms.workload: identity
 ms.topic: how-to 
-ms.date: 03/04/2022
-ms.subservice: compliance
+ms.date: 05/31/2023
 ms.custom: template-how-to 
 ---
 
 
-# Run a workflow on-demand (Preview)
+# Run a workflow on-demand
 
-While most workflows by default are scheduled to run every 3 hours, workflows created using Lifecycle Workflows can also run on-demand so that they can be applied to specific users whenever you see fit. A workflow can be run on demand for any user and doesn't take into account whether or not a user meets the workflow's execution conditions. Workflows created in the Azure portal are disabled by default. Running a workflow on-demand allows you to run workflows that can't be run on schedule currently such as leaver workflows. It also allows you to test workflows before their scheduled run. You can test the workflow on a smaller group of users before enabling it for a broader audience.
+Scheduled workflows by default run every 3 hours, but can also run on-demand so that they can be applied to specific users whenever you see fit. A workflow can be run on demand for any user, and doesn't take into account whether or not a user meets the workflow's execution conditions. Running a workflow on-demand allows you to test workflows before their scheduled run. This testing, on a set of users up to 10 at a time, allows you to see how a workflow will run before it processes a larger set of users. Testing your workflow before their scheduled runs helps you proactively solve potential lifecycle issues more quickly.
 
->[!NOTE]
->Be aware that you currently cannot run a workflow on-demand if it is set to disabled, which is the default state of newly created workflows using the Azure portal.  You need to set the workflow to enabled to use the on-demand feature.
 
 ## Run a workflow on-demand in the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Use the following steps to run a workflow on-demand.
+
+>[!NOTE]
+>To be run on demand, the  workflow must be enabled.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **Azure Active Directory** and then select **Identity Governance**.
+1. Type in **Identity Governance** on the search bar near the top of the page and select it.
 
-1. On the left menu, select **Lifecycle workflows (Preview)**.
+1. On the left menu, select **Lifecycle workflows**.
 
-1. select **Workflows (Preview)**
+1. select **Workflows**
 
 1. On the workflow screen, select the specific workflow you want to run.
 
@@ -50,29 +53,13 @@ Use the following steps to run a workflow on-demand.
 
      :::image type="content" source="media/on-demand-workflow/on-demand-run.png" alt-text="Screenshot of a workflow being run on-demand.":::
 
+
 ## Run a workflow on-demand using Microsoft Graph
 
-Running a workflow on-demand using Microsoft Graph requires users to manually be added by their user ID with a POST call.
-
-To run a workflow on-demand in Microsoft Graph, use the following request and body:
-```http
-POST https://graph.microsoft.com/beta/identityGovernance/lifecycleWorkflows/workflows/<id>/activate
-Content-type: application/json
-```
-
-```Request body
-{
-   "subjects":[
-      {"id":"<userid>"},
-      {"id":"<userid>"}
-   ]
-}
-
-```
+To run a workflow on-demand using API via Microsoft Graph, see: [workflow: activate (run a workflow on-demand)](/graph/api/identitygovernance-workflow-activate).
 
 
 ## Next steps
 
-- [workflow: activate (run a workflow on-demand)](/graph/api/identitygovernance-workflow-activate?view=graph-rest-beta)
 - [Customize the schedule of workflows](customize-workflow-schedule.md)
 - [Delete a Lifecycle workflow](delete-lifecycle-workflow.md)

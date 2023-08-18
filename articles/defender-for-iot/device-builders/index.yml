@@ -4,15 +4,15 @@ title: Microsoft Defender for IoT for device builders documentation
 summary: 'Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.'
 
 metadata: 
-   title: Microsoft Defender for IoT for device builders documentation
-   description: Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.
-   services: service
-   ms.service: defender-for-iot
-   ms.topic: landing-page
-   ms.collection: M365-security-compliance
-   author: batamig
-   manager: raynew
-   ms.date: 11/09/2021
+  title: Microsoft Defender for IoT for device builders documentation
+  description: Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.
+  services: service
+  ms.service: defender-for-iot
+  ms.topic: landing-page
+  ms.collection: M365-security-compliance
+  author: batamig
+  manager: raynew
+  ms.date: 01/01/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -41,6 +41,8 @@ landingContent:
             url: concept-recommendations.md
           - text: Event aggregation
             url: concept-event-aggregation.md
+          - text: Firmware analysis (preview)
+            url: overview-firmware-analysis.md
   - title: How-to
     linkLists:
       - linkListType: how-to-guide

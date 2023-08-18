@@ -6,12 +6,12 @@ summary: Verifiable credentials help you build solutions that empower customers 
 metadata: 
   author: barclayn
   description: "Learn how to incorporate verifiable credentials into your solutions empowering customers to control information about themselves"
-  manager: rkarlin
+  manager: amycolannino
   ms.author: barclayn
   ms.collection: na
   ms.date: 07/28/2022
-  ms.service: decentralized-identity
-  ms.subservice: na
+  ms.service: active-directory
+  ms.subservice: verifiable-credentials
   ms.topic: landing-page
   services: active-directory
 

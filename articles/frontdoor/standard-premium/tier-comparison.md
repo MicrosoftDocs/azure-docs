@@ -1,24 +1,23 @@
 ---
 title: Azure Front Door tier comparison
-description: This article provides an overview of Azure Front Door tiers and feature differences between them.
+description: This article provides a comparison between the different Azure Front Door tiers and their features.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 03/20/2022
+ms.date: 04/04/2023
 ms.author: duau
 ---
 
-# Overview of Azure Front Door tier
+# Azure Front Door tier comparison
 
-
-Azure Front Door is offered in 2 different tiers, Azure Front Door Standard and Azure Front Door Premium. Azure Front Door Standard and Premium tier combines capabilities of Azure Front Door (classic), Azure CDN Standard from Microsoft (classic), and Azure WAF into a single secure cloud CDN platform with intelligent threat protection.
+Azure Front Door offers two different tiers, Standard and Premium. Both Azure Front Door tier combines capabilities of Azure Front Door (classic), Azure CDN Standard from Microsoft (classic), and Azure WAF into a single secure cloud CDN platform with intelligent threat protection.
 
 :::image type="content" source="../media/tier-comparison/architecture.png" alt-text="Diagram of Azure Front Door architecture.":::
 
 > [!NOTE]
-> In order to switch between tiers, you will need to recreate the Azure Front Door profile.
+> To switch between tiers, you will need to recreate the Azure Front Door profile. Currently in Public Preview, you can use the [**migration capability**](../migrate-tier.md) to move your existing Azure Front Door profile to the new tier. For more information about upgrading from Standard to Premium, see [**upgrade capability**](../tier-upgrade.md).
 > 
 
 ## Feature comparison between tiers
@@ -26,7 +25,7 @@ Azure Front Door is offered in 2 different tiers, Azure Front Door Standard and 
 | Features and optimization | Standard | Premium | Classic |
 |--|--|--|--|
 | Static file delivery | Yes | Yes | Yes |
-| Dynamic site deliver | Yes | Yes | Yes |
+| Dynamic site delivery | Yes | Yes | Yes |
 | Custom domains | Yes - DNS TXT record based domain validation | Yes - DNS TXT record based domain validation | Yes - CNAME based validation |
 | Cache manage (purge, rules, and compression) | Yes | Yes | Yes |
 | Origin load balancing | Yes | Yes | Yes |
@@ -40,8 +39,8 @@ Azure Front Door is offered in 2 different tiers, Azure Front Door Standard and 
 | Health probe log | Yes | Yes | No |
 | Custom Web Application Firewall (WAF) rules | Yes | Yes | Yes |
 | Microsoft managed rule set | No | Yes | Yes - Only default rule set 1.1 or below |
-| Bot protection | No | Yes | No |
-| Private link support | No | Yes | No |
+| Bot protection | No | Yes | Yes - Only bot manager rule set 1.0  |
+| Private link connection to origin | No | Yes | No |
 | Simplified price (base + usage) | Yes | Yes | No |
 | Azure Policy integration | Yes | Yes | No |
 | Azure Advisory integration | Yes | Yes | No | 

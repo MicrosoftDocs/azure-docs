@@ -1,15 +1,14 @@
 ---
-title: Azure Active Directory Authentication Libraries | Microsoft Docs
+title: Azure Active Directory Authentication Libraries
 description: The Azure AD Authentication Library (ADAL) allows client application developers to easily authenticate users to cloud or on-premises Active Directory (AD) and then obtain access tokens for securing API calls.
 services: active-directory
 author: rwike77
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: reference
 ms.workload: identity
-ms.date: 12/01/2018
+ms.date: 12/29/2022
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
@@ -31,13 +30,13 @@ The Azure Active Directory Authentication Library (ADAL) v1.0 enables applicatio
 
 
 > [!WARNING]
-> Support for Active Directory Authentication Library (ADAL) will end in December, 2022. Apps using ADAL on existing OS versions will continue to work, but technical support and security updates will end. Without continued security updates, apps using ADAL will become increasingly vulnerable to the latest security attack patterns. For more information, see [Migrate apps to MSAL](..\develop\msal-migration.md).
+> Azure Active Directory Authentication Library (ADAL) has been deprecated. Please use the [Microsoft Authentication Library (MSAL)](/entra/msal/). If you have existing applications that use ADAL, be sure to [migrate them to MSAL](../develop/msal-migration.md).
 
 ## Microsoft-supported Client Libraries
 
 | Platform | Library | Download | Source Code | Sample | Reference
 | --- | --- | --- | --- | --- | --- |
-| .NET Client, Windows Store, UWP, Xamarin iOS and Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Desktop app](../develop/quickstart-v2-windows-desktop.md) |[Reference](/dotnet/api/microsoft.identitymodel.clients.activedirectory) |
+| .NET Client, Windows Store, UWP, Xamarin iOS and Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Desktop app](../develop/quickstart-v2-windows-desktop.md) | |
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Single-page app](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
 | iOS, macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[iOS app](../develop/quickstart-v2-ios.md) | [Reference](http://cocoadocs.org/docsets/ADAL/2.5.1/)|
 | Android |ADAL |[Maven](https://search.maven.org/search?q=g:com.microsoft.aad+AND+a:adal&core=gav) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android app](../develop/quickstart-v2-android.md) | [JavaDocs](https://javadoc.io/doc/com.microsoft.aad/adal/)|

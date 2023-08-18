@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure Peripass for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Peripass for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Peripass.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 1d036aa3-4e07-4f48-a6ae-40fc6c066e42
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/27/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

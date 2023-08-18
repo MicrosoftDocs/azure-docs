@@ -104,7 +104,7 @@ When configuring the Azure Connected Machine agent with a reduced set of capabil
 
 ### Example configuration for monitoring and security scenarios
 
-It's common to use Azure Arc to monitor your servers with Azure Monitor and Microsoft Sentinel and secure them with Microsoft Defender for Cloud. The following configuration samples can help you configure the Azure Arc agent to only allow these scenarios.
+It's common to use Azure Arc to monitor your servers with Azure Monitor and Microsoft Sentinel and secure them with Microsoft Defender for Cloud. The following configuration samples can help you configure the Azure Arc Connected Machine agent to only allow these scenarios.
 
 #### Azure Monitor Agent only
 

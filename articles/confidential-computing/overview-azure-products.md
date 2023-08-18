@@ -29,7 +29,11 @@ Azure confidential computing can help you:
 
 - **Ensure secure and untrusted collaboration**: Tackle industry-wide work-scale problems by combing data across organizations, even competitors, to unlock broad data analytics and deeper insights.
 
-- **Isolate processing**: Offer a new wave of products that remove liability on private data with blind processing. User data can't even be retrieved by the service provider. 
+- **Isolate processing**: Offer a new wave of products that remove liability on private data with blind processing. User data can't even be retrieved by the service provider.
+
+## What's new in Azure confidential computing
+
+> [!VIDEO https://www.youtube.com/embed/ds48uwDaA-w]
 
 ## Azure offerings
 Verifying that applications are running confidentially form the very foundation of confidential computing. This verification is multi-pronged and relies on the following suite of Azure offerings:
@@ -37,6 +41,8 @@ Verifying that applications are running confidentially form the very foundation 
 - [Microsoft Azure Attestation](../attestation/overview.md), a remote attestation service for validating the trustworthiness of multiple Trusted Execution Environments (TEEs) and verifying integrity of the binaries running inside the TEEs.
 
 - [Azure Key Vault Managed HSM](../key-vault/managed-hsm/index.yml), a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated Hardware Security Modules (HSM).
+
+- [Trusted Hardware Identity Management](../security/fundamentals/trusted-hardware-identity-management.md), a service that handles cache management of certificates for all TEEs residing in Azure and provides trusted computing base (TCB) information to enforce a minimum baseline for attestation solutions.
 
 - [Trusted Launch](../virtual-machines/trusted-launch.md) is available across all Generation 2 VMs bringing hardened security features – secure boot, virtual trusted platform module, and boot integrity monitoring – that protect against boot kits, rootkits, and kernel-level malware.
 

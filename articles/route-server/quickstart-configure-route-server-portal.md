@@ -1,13 +1,12 @@
 ---
-title: 'Quickstart: Create and configure Route Server using the Azure portal'
-description: In this quickstart, you learn how to create and configure a Route Server using the Azure portal.
-services: route-server
+title: 'Quickstart: Create and configure Route Server - Azure portal'
+description: In this quickstart, you learn how to create and configure an Azure Route Server using the Azure portal.
 author: halkazwini
+ms.author: halkazwini
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 07/19/2022
-ms.author: halkazwini
-ms.custom: mode-ui
+ms.date: 08/11/2022
+ms.custom: mode-ui, template-quickstart
 ---
 
 # Quickstart: Create and configure Route Server using the Azure portal
@@ -86,13 +85,19 @@ You'll need the Azure Route Server's peer IPs and ASN to complete the configurat
 
 :::image type="content" source="./media/quickstart-configure-route-server-portal/route-server-overview.png" alt-text="Screenshot of Route Server overview page.":::
 
+[!INCLUDE [NVA peering note](../../includes/route-server-note-nva-peering.md)]
+
 ## Configure route exchange
 
-If you have an ExpressRoute gateway and/or VPN gateway and you want them to exchange routes with the Route Server, you can enable route exchange.
+If you have a virtual network gateway (ExpressRoute or VPN) in the same virtual network, you can enable *branch-to-branch* traffic to exchange routes between the gateway and the Route Server.
 
-1. Go to [Route Server](./overview.md) in the Azure portal and select the Route Server you want to configure.
+[!INCLUDE [VPN gateway note](../../includes/route-server-note-vpn-gateway.md)]
 
-1. Select **Configuration** under *Settings* in the left navigation panel.
+[!INCLUDE [downtime note](../../includes/route-server-note-vng-downtime.md)]
+
+1. Go to the Route Server that you want to configure.
+
+1. Select **Configuration** under **Settings** in the left navigation panel.
 
 1. Select **Enable** for the **Branch-to-Branch** setting and then select **Save**.
 

@@ -1,125 +1,69 @@
 ---
 title: Quickstart - Export data from Azure IoT Central
-description: Quickstart - Learn how to use the data export feature in IoT Central to integrate with other cloud services.
+description: In this quickstart, you learn how to use the data export feature in IoT Central to integrate with other cloud services.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/18/2022
+ms.date: 10/28/2022
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc, mode-other, devx-track-azurecli 
+ms.custom: mvc, mode-other, devx-track-azurecli
 ms.devlang: azurecli
+# Customer intent: As a new user of IoT Central, I want to learn how to use the data export feature so that I can integrate my IoT Central application with other backend services.
 ---
 
 # Quickstart: Export data from an IoT Central application
 
-This quickstart shows you how to continuously export data from your Azure IoT Central application to another cloud service. To get you set up quickly, this quickstart uses [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), a fully managed data analytics service for real-time analysis. Azure Data Explorer lets you store, query, and process the telemetry from devices such as the **IoT Plug and Play** smartphone app.
+Get started with IoT Central data export to integrate your IoT Central application with another cloud service such as Azure Data Explorer. Azure Data Explorer lets you store, query, and process the telemetry from devices such as the **IoT Plug and Play** smartphone app.
 
 In this quickstart, you:
 
-- Use the data export feature in IoT Central to export the telemetry sent by the smartphone app to an Azure Data Explorer database.
+- Use the data export feature in IoT Central to the telemetry from the smartphone app to an Azure Data Explorer database.
 - Use Azure Data Explorer to run queries on the telemetry.
+
+Completing this quickstart incurs a small cost in your Azure account for the Azure Data Explorer instance. The first two devices in your IoT Central application are free.
 
 ## Prerequisites
 
-- Before you begin, you should complete the first quickstart [Create an Azure IoT Central application](./quick-deploy-iot-central.md). The second quickstart, [Configure rules and actions for your device](quick-configure-rules.md), is optional.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- Complete the first quickstart [Create an Azure IoT Central application](./quick-deploy-iot-central.md). The second quickstart, [Configure rules and actions for your device](quick-configure-rules.md), is optional.
 - You need the IoT Central application *URL prefix* that you chose in the first quickstart [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Install Azure services
 
-Before you can export data from your IoT Central application, you need an Azure Data Explorer cluster and database. In this quickstart, you use the bash environment in the [Azure Cloud Shell](https://shell.azure.com) to create and configure them.
+Before you can export data from your IoT Central application, you need an Azure Data Explorer cluster and database. In this quickstart, you run a bash script in the [Azure Cloud Shell](https://shell.azure.com) to create and configure them.
 
-Run the following script in the Azure Cloud Shell. Replace the `clustername` value with a unique name for your cluster before you run the script. The cluster name can contain only lowercase letters and numbers. Replace the `centralurlprefix` value with the URL prefix you chose in the first quickstart:
+The script completes the following steps:
 
-> [!IMPORTANT]
-> The script can take 20 to 30 minutes to run.
+- Prompts you to sign in to your Azure subscription so that it can generate a bearer token to authenticate the REST API calls.
+- Creates an Azure Data Explorer cluster and database.
+- Creates a managed identity for your IoT Central application.
+- Configures the managed identity with permission to access the Azure Data Explorer database.
+- Adds a table to the database to store the incoming telemetry from IoT Central.
+
+Run the following commands to download the script to your Azure Cloud Shell environment:
 
 ```azurecli
-# The cluster name can contain only lowercase letters and numbers.
-# It must contain from 4 to 22 characters.
-clustername="<A unique name for your cluster>"
-
-centralurlprefix="<The URL prefix of your IoT Central application>"
-
-databasename="phonedata"
-location="eastus"
-resourcegroup="IoTCentralExportData"
-
-az extension add -n kusto
-
-# Create a resource group for the Azure Data Explorer cluster
-az group create --location $location \
-    --name $resourcegroup
-
-# Create the Azure Data Explorer cluster
-# This command takes at least 10 minutes to run
-az kusto cluster create --cluster-name $clustername \
-    --sku name="Standard_D11_v2"  tier="Standard" \
-    --enable-streaming-ingest=true \
-    --enable-auto-stop=true \
-    --resource-group $resourcegroup --location $location
-
-# Create a database in the cluster
-az kusto database create --cluster-name $clustername \
-    --database-name $databasename \
-    --read-write-database location=$location soft-delete-period=P365D hot-cache-period=P31D \
-    --resource-group $resourcegroup
-
-# Create and assign a managed identity to use
-# when authenticating from IoT Central.
-# This assumes your IoT Central was created in the default
-# IOTC resource group.
-MI_JSON=$(az iot central app identity assign --name $centralurlprefix \
-    --resource-group IOTC --system-assigned)
-
-## Assign the managed identity permissions to use the database.
-az kusto database-principal-assignment create --cluster-name $clustername \
-                                              --database-name $databasename \
-                                              --principal-id $(jq -r .principalId <<< $MI_JSON) \
-                                              --principal-assignment-name $centralurlprefix \
-                                              --resource-group $resourcegroup \
-                                              --principal-type App \
-                                              --tenant-id $(jq -r .tenantId <<< $MI_JSON) \
-                                              --role Admin
-
-echo "Azure Data Explorer URL: $(az kusto cluster show --name $clustername --resource-group $resourcegroup --query uri -o tsv)" 
+wget https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/main/quickstart-cde/createADX.sh
+chmod u+x createADX.sh
 ```
 
-Make a note of the **Azure Data Explorer URL**. You use this value later in the quickstart.
+Use the following command to run the script:
 
-## Configure the database
+- Replace `CLUSTER_NAME` with a unique name for your Azure Data Explorer cluster. The cluster name can contain only lowercase letters and numbers. The length of the cluster name must be between 4 and 22 characters.
+- Replace `CENTRAL_URL_PREFIX` with URL prefix you chose in the first quickstart for your IoT Central application.
+- When prompted, follow the instructions to sign in to your account. It's necessary for the script to sign in because it generates a bearer token to authenticate a REST API call.
 
-To add a table in the database to store the accelerometer data from the **IoT Plug and Play** smartphone app:
+```azurecli
+./createADX.sh CLUSTER_NAME CENTRAL_URL_PREFIX
+```
 
-1. Use the **Azure Data Explorer URL** from the previous section to navigate to your Azure Data Explorer environment.
+> [!IMPORTANT]
+> This script can take 20 to 30 minutes to run.
 
-1. Expand the cluster node and select the **phonedata** database. The cope of the query window changes to `Scope:yourclustername.eastus/phonedata`.
-
-1. Paste the following Kusto script into the query editor and select **Run**:
-
-    ```kusto
-    .create table acceleration (
-      EnqueuedTime:datetime,
-      Device:string,
-      X:real,
-      Y:real,
-      Z:real
-    );
-    ```
-
-    The result looks like the following screenshot:
-
-    :::image type="content" source="media/quick-export-data/azure-data-explorer-create-table.png" alt-text="Screenshot that shows the results of creating the table in Azure Data Explorer.":::
-
-1. In the Azure Data Explorer, open a new tab and paste in the following Kusto script. The script enables streaming ingress for the **acceleration** table:
-
-    ```kusto
-    .alter table acceleration policy streamingingestion enable;
-    ```
-
-Keep the Azure Data Explorer page open in your browser. After you configure the data export in your IoT Central application, you'll run a query to view the accelerometer telemetry stored in the **acceleration** table.
+Make a note of the **Azure Data Explorer URL** output by the script. You use this value later in the quickstart.
 
 ## Configure data export
 
@@ -162,7 +106,7 @@ To configure the data export:
     }
     ```
 
-    :::image type="content" source="media/quick-export-data/data-transformation-query.png" alt-text="Screenshot that shows the data transformation query for the export.":::
+    :::image type="content" source="media/quick-export-data/data-transformation-query.png" alt-text="Screenshot that shows the data transformation query for the export." lightbox="media/quick-export-data/data-transformation-query.png":::
 
     If you want to see how the transformation works and experiment with the query, paste the following sample telemetry message into **1. Add your input message**:
 
@@ -209,30 +153,36 @@ To configure the data export:
 
 Wait until the export status shows **Healthy**:
 
-:::image type="content" source="media/quick-export-data/healthy-export.png" alt-text="Screenshot that shows a running data export with the healthy status.":::
+:::image type="content" source="media/quick-export-data/healthy-export.png" alt-text="Screenshot that shows a running data export with the healthy status." lightbox="media/quick-export-data/healthy-export.png":::
 
 ## Query exported data
 
-In Azure Data Explorer, open a new tab and paste in the following Kusto query and then select **Run** to plot the accelerometer telemetry:
+To query the exported telemetry:
 
-```kusto
-['acceleration'] 
-    | project EnqueuedTime, Device, X, Y, Z
-    | render timechart 
-```
+1. Use the **Azure Data Explorer URL** output by the script you ran previously to navigate to your Azure Data Explorer environment.
+
+1. Expand the cluster node and select the **phonedata** database. The scope of the query window changes to `Scope:yourclustername.eastus/phonedata`.
+
+1. In Azure Data Explorer, open a new tab and paste in the following Kusto query and then select **Run** to plot the accelerometer telemetry:
+
+  ```kusto
+  ['acceleration'] 
+      | project EnqueuedTime, Device, X, Y, Z
+      | render timechart 
+  ```
 
 You may need to wait for several minutes to collect enough data. Try holding your phone in different orientations to see the telemetry values change:
 
-:::image type="content" source="media/quick-export-data/acceleration-plot.png" alt-text="Screenshot of the query results for the accelerometer telemetry.":::
+:::image type="content" source="media/quick-export-data/acceleration-plot.png" alt-text="Screenshot of the query results for the accelerometer telemetry." lightbox="media/quick-export-data/acceleration-plot.png":::
 
 ## Clean up resources
 
 [!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
-To remove the Azure Data Explorer instance from your subscription and avoid being billed unnecessarily, delete the **IoTCentralExportData** resource group from the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) or run the following command in the Azure Cloud Shell:
+To remove the Azure Data Explorer instance from your subscription and avoid being billed unnecessarily, delete the **IoTCentralExportData-rg** resource group from the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) or run the following command in the Azure Cloud Shell:
 
 ```azurecli
-az group delete --name IoTCentralExportData
+az group delete --name IoTCentralExportData-rg
 ```
 
 ## Next steps
@@ -242,4 +192,4 @@ In this quickstart, you learned how to continuously export data from IoT Central
 Now that you know now to export your data, the suggested next step is to:
 
 > [!div class="nextstepaction"]
-> [Build and manage a device template](howto-set-up-template.md).
+> [Create and connect a device](tutorial-connect-device.md).

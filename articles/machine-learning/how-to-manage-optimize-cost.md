@@ -2,16 +2,15 @@
 title: Manage and optimize costs
 titleSuffix: Azure Machine Learning
 description: Learn tips to optimize your cost when building machine learning models in Azure Machine Learning
-author: ssalgadodev
-ms.author: ssalgado
+ms.reviewer: ssalgado
+author: joburges
+ms.author: joburges
 ms.custom: subject-cost-optimization, event-tier1-build-2022
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 06/08/2021 
 ---
-
-[//]: # (needs PM review; ParallelJobStep or ParallelRunStep?)
 
 # Manage and optimize Azure Machine Learning costs
 
@@ -32,6 +31,11 @@ Use the following tips to help you manage and optimize your compute resource cos
 
 For information on planning and monitoring costs, see the [plan to manage costs for Azure Machine Learning](concept-plan-manage-cost.md) guide.
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Use Azure Machine Learning compute cluster (AmlCompute)
 
 With constantly changing data, you need fast and streamlined model training and retraining to maintain accurate models. However, continuous training comes at a cost, especially for deep learning models on GPUs. 
@@ -46,14 +50,14 @@ Autoscaling clusters based on the requirements of your workload helps reduce you
 
 AmlCompute clusters are designed to scale dynamically based on your workload. The cluster can be scaled up to the maximum number of nodes you configure. As each job completes, the cluster will release nodes and scale to your configured minimum node count.
 
-[!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
+[!INCLUDE [min-nodes-note](includes/machine-learning-min-nodes.md)]
 
 You can also configure the amount of time the node is idle before scale down. By default, idle time before scale down is set to 120 seconds.
 
 + If you perform less iterative experimentation, reduce this time to save costs.
 + If you perform highly iterative dev/test experimentation, you might need to increase the time so you aren't paying for constant scaling up and down after each change to your training script or environment.
 
-AmlCompute clusters can be configured for your changing workload requirements in Azure portal, using the [AmlCompute SDK class](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute), [AmlCompute CLI](/cli/azure/ml(v1)/computetarget/create#az-ml-v1--computetarget-create-amlcompute), with the [REST APIs](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
+AmlCompute clusters can be configured for your changing workload requirements in Azure portal, using the [AmlCompute SDK class](/python/api/azure-ai-ml/azure.ai.ml.entities.amlcompute), [AmlCompute CLI](/cli/azure/ml/compute#az-ml-compute-create), with the [REST APIs](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
 
 ## Set quotas on resources
@@ -71,7 +75,7 @@ In some cases, you should configure your training runs to limit their duration o
 Here are a few options that you have:
 * Define a parameter called `max_run_duration_seconds` in your RunConfiguration to control the maximum duration a run can extend to on the compute you choose (either local or remote cloud compute).
 * For [hyperparameter tuning](how-to-tune-hyperparameters.md#early-termination), define an early termination policy from a Bandit policy, a Median stopping policy, or a Truncation selection policy. To further control hyperparameter sweeps, use parameters such as `max_total_runs` or `max_duration_minutes`.
-* For [automated machine learning](how-to-configure-auto-train.md#exit), set similar termination policies using the  `enable_early_stopping` flag. Also use properties such as `iteration_timeout_minutes` and `experiment_timeout_minutes` to control the maximum duration of a job or for the entire experiment.
+* For [automated machine learning](how-to-configure-auto-train.md#exit-criteria), set similar termination policies using the  `enable_early_stopping` flag. Also use properties such as `iteration_timeout_minutes` and `experiment_timeout_minutes` to control the maximum duration of a job or for the entire experiment.
 
 ## <a id="low-pri-vm"></a> Use low-priority VMs
 
@@ -83,7 +87,9 @@ Low-Priority VMs have a single quota separate from the dedicated quota value, wh
 
 ## Schedule compute instances
 
-When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  [Set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop-preview) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
+When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  
+* [Enable idle shutdown (preview)](how-to-create-compute-instance.md#configure-idle-shutdown) to save on cost when the VM has been idle for a specified time period.
+* Or [set up a schedule](how-to-create-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
 
 ## Use reserved instances
 
@@ -91,15 +97,9 @@ Another way to save money on compute resources is Azure Reserved VM Instance. Wi
 
 Azure Machine Learning Compute supports reserved instances inherently. If you purchase a one-year or three-year reserved instance, we will automatically apply discount against your Azure Machine Learning managed compute.
 
-## Train locally
-
-When prototyping and running training jobs that are small enough to run on your local computer, consider training locally. Using the Python SDK, setting your compute target to `local` executes your script locally. 
-
-Visual Studio Code provides a full-featured environment for developing your machine learning applications. Using the Azure Machine Learning visual Visual Studio Code extension and Docker, you can run and debug locally. For more information, see [interactive debugging with Visual Studio Code](how-to-debug-visual-studio-code.md).
-
 ## Parallelize training
 
-One of the key methods of optimizing cost and performance is by parallelizing the workload with the help of a parallel run step in Azure Machine Learning. This step allows you to use many smaller nodes to execute the task in parallel, hence allowing you to scale horizontally. There is an overhead for parallelization. Depending on the workload and the degree of parallelism that can be achieved, this may or may not be an option. For further information, see the [ParallelRunStep](xref:azureml.contrib.pipeline.steps.ParallelRunStep) documentation.
+One of the key methods of optimizing cost and performance is by parallelizing the workload with the help of a parallel component in Azure Machine Learning. A parallel component allows you to use many smaller nodes to execute the task in parallel, hence allowing you to scale horizontally. There is an overhead for parallelization. Depending on the workload and the degree of parallelism that can be achieved, this may or may not be an option. For further information, see the [ParallelComponent](/python/api/azure-ai-ml/azure.ai.ml.entities.parallelcomponent) documentation.
 
 ## Set data retention & deletion policies
 

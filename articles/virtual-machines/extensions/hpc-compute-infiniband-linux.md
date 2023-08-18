@@ -1,6 +1,6 @@
 ---
 title: InfiniBand driver extension - Azure Linux VMs 
-description: Microsoft Azure Extension for installing InfiniBand Drivers on H- and N-series compute VMs running Linux.
+description: Microsoft Azure Extension for installing InfiniBand Drivers on HB- and N-series compute VMs running Linux.
 services: virtual-machines
 documentationcenter: ''
 editor: ''
@@ -11,17 +11,17 @@ ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 1/13/2022
-ms.custom: devx-track-azurepowershell
+ms.date: 04/21/2023
+ms.custom: devx-track-azurepowershell, devx-track-linux
 ms.author: mamccrea
 author: mamccrea
 ---
 
 # InfiniBand Driver Extension for Linux
 
-This extension installs InfiniBand OFED drivers on InfiniBand and SR-IOV-enabled ('r' sizes) [H-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs running Linux. Depending on the VM family, the extension installs the appropriate drivers for the Connect-X NIC. It does not install the InfiniBand ND drivers on the non-SR-IOV enabled [H-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs.
+This extension installs InfiniBand OFED drivers on InfiniBand and SR-IOV-enabled ('r' sizes) [HB-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs running Linux. Depending on the VM family, the extension installs the appropriate drivers for the Connect-X NIC. It does not install the InfiniBand ND drivers on the non-SR-IOV enabled [HB-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs.
 
-Instructions on manual installation of the OFED drivers are available in [Enable InfiniBand on HPC VMs](../workloads/hpc/enable-infiniband.md#manual-installation).
+Instructions on manual installation of the OFED drivers are available in [Enable InfiniBand on HPC VMs](enable-infiniband.md#manual-installation).
 
 An extension is also available to install InfiniBand drivers for [Windows VMs](hpc-compute-infiniband-windows.md).
 
@@ -29,15 +29,16 @@ An extension is also available to install InfiniBand drivers for [Windows VMs](h
 
 ### Operating system
 
-This extension supports the following OS distros, depending on driver support for specific OS version.
+This extension supports the following OS distros, depending on driver support for specific OS version. For latest list of supported OS and driver versions, refer to [resources.json](https://github.com/Azure/azhpc-extensions/blob/master/InfiniBand/resources.json)
 
 | Distribution | Version | InfiniBand NIC drivers |
 |---|---|---|
-| Ubuntu | 16.04 LTS, 18.04 LTS, 20.04 LTS | CX3-Pro, CX5, CX6 |
+| Ubuntu | 18.04 LTS, 20.04 LTS | CX3-Pro, CX5, CX6 |
 | CentOS | 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8.1, 8,2 | CX3-Pro, CX5, CX6 |
 | Red Hat Enterprise Linux | 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8.1, 8,2 | CX3-Pro, CX5, CX6 |
 
-For latest list of supported OS and driver versions, refer to [resources.json](https://github.com/Azure/azhpc-extensions/blob/master/InfiniBand/resources.json)
+> [!IMPORTANT] 
+> This document references a release version of Linux that is nearing or at, End of Life (EOL). Please consider updating to a more current version.
 
 ### Internet connectivity
 
@@ -187,7 +188,7 @@ The following table describes the meaning and recommended action based on the ex
 If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file a support incident through the [Azure support site](https://azure.microsoft.com/support/options/). For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
 
 ## Next steps
-For more information about InfiniBand-enabled ('r' sizes), see [H-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs.
+For more information about InfiniBand-enabled ('r' sizes), see [HB-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs.
 
 > [!div class="nextstepaction"]
 > [Learn more about Linux VMs extensions and features](features-linux.md)

@@ -5,8 +5,9 @@ author: madsd
 
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 09/20/2021
+ms.date: 01/23/2023
 ms.author: madsd
+ms.custom: UpdateFrequency3
 
 ---
 # App Service networking features
@@ -50,7 +51,7 @@ For any given use case, there might be a few ways to solve the problem. Choosing
 | Expose your app on a private IP in your virtual network | ILB ASE </br> Private endpoints </br> Private IP for inbound traffic on an Application Gateway instance with service endpoints |
 | Protect your app with a web application firewall (WAF) | Application Gateway and ILB ASE </br> Application Gateway with private endpoints </br> Application Gateway with service endpoints </br> Azure Front Door with access restrictions |
 | Load balance traffic to your apps in different regions | Azure Front Door with access restrictions | 
-| Load balance traffic in the same region | [Application Gateway with service endpoints][appgwserviceendpoints] | 
+| Load balance traffic in the same region | [Application Gateway with service endpoints](./networking/app-gateway-with-service-endpoints.md) | 
 
 The following outbound use cases suggest how to use App Service networking features to solve outbound access needs for your app:
 
@@ -73,11 +74,11 @@ Azure App Service scale units support many customers in each deployment. The Fre
 
 The worker VMs are broken down in large part by the App Service plans. The Free, Shared, Basic, Standard, and Premium plans all use the same worker VM type. The PremiumV2 plan uses another VM type. PremiumV3 uses yet another VM type. When you change the VM family, you get a different set of outbound addresses. If you scale from Standard to PremiumV2, your outbound addresses will change. If you scale from PremiumV2 to PremiumV3, your outbound addresses will change. In some older scale units, both the inbound and outbound addresses will change when you scale from Standard to PremiumV2. 
 
-There are a number of addresses that are used for outbound calls. The outbound addresses used by your app for making outbound calls are listed in the properties for your app. These addresses are shared by all the apps running on the same worker VM family in the App Service deployment. If you want to see all the addresses that your app might use in a scale unit, there's property called `possibleOutboundAddresses` that will list them. 
+There are many addresses that are used for outbound calls. The outbound addresses used by your app for making outbound calls are listed in the properties for your app. These addresses are shared by all the apps running on the same worker VM family in the App Service deployment. If you want to see all the addresses that your app might use in a scale unit, there's property called `possibleOutboundAddresses` that will list them. 
 
 ![Screenshot that shows app properties.](media/networking-features/app-properties.png)
 
-App Service has a number of endpoints that are used to manage the service.  Those addresses are published in a separate document and are also in the `AppServiceManagement` IP service tag. The `AppServiceManagement` tag is used only in App Service Environments where you need to allow such traffic. The App Service inbound addresses are tracked in the `AppService` IP service tag. There's no IP service tag that contains the outbound addresses used by App Service. 
+App Service has many endpoints that are used to manage the service.  Those addresses are published in a separate document and are also in the `AppServiceManagement` IP service tag. The `AppServiceManagement` tag is used only in App Service Environments where you need to allow such traffic. The App Service inbound addresses are tracked in the `AppService` IP service tag. There's no IP service tag that contains the outbound addresses used by App Service. 
 
 ![Diagram that shows App Service inbound and outbound traffic.](media/networking-features/default-behavior.png)
 
@@ -92,69 +93,24 @@ When you use an app-assigned address, your traffic still goes through the same f
 * Support IP-based SSL needs for your app.
 * Set a dedicated address for your app that's not shared.
 
-To learn how to set an address on your app, see [Add a TLS/SSL certificate in Azure App Service][appassignedaddress]. 
+To learn how to set an address on your app, see [Add a TLS/SSL certificate in Azure App Service](./configure-ssl-certificate.md). 
 
 ### Access restrictions 
 
-Access restrictions let you filter *inbound* requests. The filtering action takes place on the front-end roles that are upstream from the worker roles where your apps are running. Because the front-end roles are upstream from the workers, you can think of access restrictions as network-level protection for your apps. 
+Access restrictions let you filter *inbound* requests. The filtering action takes place on the front-end roles that are upstream from the worker roles where your apps are running. Because the front-end roles are upstream from the workers, you can think of access restrictions as network-level protection for your apps. For more information about access restrictions, see [Access restrictions overview](./overview-access-restrictions.md).
 
-This feature allows you to build a list of allow and deny rules that are evaluated in priority order. It's similar to the network security group (NSG) feature in Azure networking. You can use this feature in an ASE or in the multi-tenant service. When you use it with an ILB ASE, you can restrict access from private address blocks.
+This feature allows you to build a list of allow and deny rules that are evaluated in priority order. It's similar to the network security group (NSG) feature in Azure networking. You can use this feature in an ASE or in the multi-tenant service. When you use it with an ILB ASE, you can restrict access from private address blocks. To learn how to enable this feature, see [Configuring access restrictions](./app-service-ip-restrictions.md).
+
 > [!NOTE]
 > Up to 512 access restriction rules can be configured per app. 
 
 ![Diagram that illustrates access restrictions.](media/networking-features/access-restrictions.png)
 
-#### IP-based access restriction rules
-
-The IP-based access restrictions feature helps when you want to restrict the IP addresses that can be used to reach your app. Both IPv4 and IPv6 are supported. Some use cases for this feature:
-* Restrict access to your app from a set of well-defined addresses. 
-* Restrict access to traffic coming through an external load-balancing service or other network appliances with known egress IP addresses. 
-
-To learn how to enable this feature, see [Configuring access restrictions][iprestrictions].
-
-> [!NOTE]
-> IP-based access restriction rules only handle virtual network address ranges when your app is in an App Service Environment. If your app is in the multi-tenant service, you need to use [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to restrict traffic to select subnets in your virtual network.
-
-#### Access restriction rules based on service endpoints 
-
-Service endpoints allow you to lock down *inbound* access to your app so that the source address must come from a set of subnets that you select. This feature works together with IP access restrictions. Service endpoints aren't compatible with remote debugging. If you want to use remote debugging with your app, your client can't be in a subnet that has service endpoints enabled. The process for setting service endpoints is similar to the process for setting IP access restrictions. You can build an allow/deny list of access rules that includes public addresses and subnets in your virtual networks.
-
-> [!NOTE]
-> Access restriction rules based on service endpoints are not supported on apps that use IP-based SSL ([App-assigned address](#app-assigned-address)).
-
-Some use cases for this feature:
-
-* Set up an application gateway with your app to lock down inbound traffic to your app.
-* Restrict access to your app to resources in your virtual network. These resources can include VMs, ASEs, or even other apps that use virtual network integration. 
-
-![Diagram that illustrates the use of service endpoints with Application Gateway.](media/networking-features/service-endpoints-appgw.png)
-
-To learn more about configuring service endpoints with your app, see [Azure App Service access restrictions][serviceendpoints].
-
-#### Access restriction rules based on service tags
-
-[Azure service tags][servicetags] are well defined sets of IP addresses for Azure services. Service tags group the IP ranges used in various Azure services and is often also further scoped to specific regions. This allows you to filter *inbound* traffic from specific Azure services. 
-
-For a full list of tags and more information, visit the service tag link above. 
-To learn how to enable this feature, see [Configuring access restrictions][iprestrictions].
-
-#### Http header filtering for access restriction rules
-
-For each access restriction rule, you can add additional http header filtering. This allows you to further inspect the incoming request and filter based on specific http header values. Each header can have up to eight values per rule. The following list of http headers is currently supported: 
-* X-Forwarded-For
-* X-Forwarded-Host
-* X-Azure-FDID
-* X-FD-HealthProbe
-
-Some use cases for http header filtering are:
-* Restrict access to traffic from proxy servers forwarding the host name
-* Restrict access to a specific Azure Front Door instance with a service tag rule and X-Azure-FDID header restriction
-
 ### Private endpoint
 
 Private endpoint is a network interface that connects you privately and securely to your Web App by Azure private link. Private endpoint uses a private IP address from your virtual network, effectively bringing the web app into your virtual network. This feature is only for *inbound* flows to your web app.
 For more information, see
-[Using private endpoints for Azure Web App][privateendpoints].
+[Using private endpoints for Azure Web App](./networking/private-endpoint.md).
 
 Some use cases for this feature:
 
@@ -172,7 +128,7 @@ App Service Hybrid Connections enables your apps to make *outbound* calls to spe
 
 App Service Hybrid Connections is built on the Azure Relay Hybrid Connections capability. App Service uses a specialized form of the feature that only supports making outbound calls from your app to a TCP host and port. This host and port only need to resolve on the host where Hybrid Connection Manager is installed. 
 
-When the app, in App Service, does a DNS lookup on the host and port defined in your hybrid connection, the traffic automatically redirects to go through the hybrid connection and out of Hybrid Connection Manager. To learn more, see [App Service Hybrid Connections][hybridconn].
+When the app, in App Service, does a DNS lookup on the host and port defined in your hybrid connection, the traffic automatically redirects to go through the hybrid connection and out of Hybrid Connection Manager. To learn more, see [App Service Hybrid Connections](./app-service-hybrid-connections.md).
 
 This feature is commonly used to:
 
@@ -184,27 +140,15 @@ This feature is commonly used to:
 
 Because this feature enables access to on-premises resources without an inbound firewall hole, it's popular with developers. The other outbound App Service networking features are related to Azure Virtual Network. Hybrid Connections doesn't depend on going through a virtual network. It can be used for a wider variety of networking needs. 
 
-Note that App Service Hybrid Connections is unaware of what you're doing on top of it. So you can use it to access a database, a web service, or an arbitrary TCP socket on a mainframe. The feature essentially tunnels TCP packets. 
+App Service Hybrid Connections is unaware of what you're doing on top of it. So you can use it to access a database, a web service, or an arbitrary TCP socket on a mainframe. The feature essentially tunnels TCP packets. 
 
 Hybrid Connections is popular for development, but it's also used in production applications. It's great for accessing a web service or database, but it's not appropriate for situations that involve creating many connections. 
 
-### Gateway-required virtual network integration 
+### <a id="regional-vnet-integration"></a>Virtual network integration
 
-Gateway-required App Service virtual network integration enables your app to make *outbound* requests into an Azure virtual network. The feature works by connecting the host your app is running on to a Virtual Network gateway on your virtual network by using a point-to-site VPN. When you configure the feature, your app gets one of the point-to-site addresses assigned to each instance. This feature enables you to access resources in either classic or Azure Resource Manager virtual networks in any region. 
+App Service virtual network integration enables your app to make *outbound* requests into an Azure virtual network. 
 
-![Diagram that illustrates gateway-required virtual network integration.](media/networking-features/gw-vnet-integration.png)
-
-This feature solves the problem of accessing resources in other virtual networks. It can even be used to connect through a virtual network to either other virtual networks or on-premises. It doesn't work with ExpressRoute-connected virtual networks, but it does work with site-to-site VPN-connected networks. It's usually inappropriate to use this feature from an app in an App Service Environment (ASE) because the ASE is already in your virtual network. Use cases for this feature:
-
-* Access resources in cross region virtual networks that aren't peered to a virtual network in the region. 
-
-When this feature is enabled, your app will use the DNS server that the destination virtual network is configured with. For more information on this feature, see [App Service virtual network integration][vnetintegrationp2s]. 
-
-### <a id="regional-vnet-integration"></a>Regional virtual network integration
-
-Gateway-required virtual network integration is useful, but it doesn't solve the problem of accessing resources across ExpressRoute. On top of needing to reach across ExpressRoute connections, there's a need for apps to be able to make calls to services secured by service endpoint. Another virtual network integration capability can meet these needs. 
-
-The regional virtual network integration feature enables you to place the back end of your app in a subnet in a Resource Manager virtual network in the same region as your app. This feature isn't available from an App Service Environment, which is already in a virtual network. Use cases for this feature:
+The virtual network integration feature enables you to place the back end of your app in a subnet in a Resource Manager virtual network. The virtual network must be in the same region as your app. This feature isn't available from an App Service Environment, which is already in a virtual network. Use cases for this feature:
 
 * Access resources in Resource Manager virtual networks in the same region.
 * Access resources in peered virtual networks, including cross region connections.
@@ -216,7 +160,15 @@ The regional virtual network integration feature enables you to place the back e
 
 ![Diagram that illustrates virtual network integration.](media/networking-features/vnet-integration.png)
 
-To learn more, see [App Service virtual network integration][vnetintegration].
+To learn more, see [App Service virtual network integration](./overview-vnet-integration.md).
+
+#### Gateway-required virtual network integration 
+
+Gateway-required virtual network integration was the first edition of virtual network integration in App Service. The feature works by connecting the host your app is running on to a Virtual Network gateway on your virtual network by using a point-to-site VPN. When you configure the feature, your app gets one of the point-to-site assigned addresses assigned to each instance.
+
+![Diagram that illustrates gateway-required virtual network integration.](media/networking-features/gw-vnet-integration.png)
+
+Gateway required integration allows you to connect directly to a virtual network in another region without peering and to connect to a classic virtual network. The feature is limited to App Service Windows plans and doesn't work with ExpressRoute-connected virtual networks. It's recommended to use the regional virtual network integration. For more information on this feature, see [App Service virtual network integration](./configure-gateway-required-vnet-integration.md). 
 
 ### App Service Environment 
 
@@ -228,7 +180,7 @@ An App Service Environment (ASE) is a single-tenant deployment of the Azure App 
 * Access resources across service endpoints. 
 * Access resources across private endpoints. 
 
-With an ASE, you don't need to use virtual network integration because the ASE is already in your virtual network. If you want to access resources like SQL or Azure Storage over service endpoints, enable service endpoints on the ASE subnet. If you want to access resources in the virtual network or private endpoints in the virtual network, you don't need to do any additional configuration. If you want to access resources across ExpressRoute, you're already in the virtual network and don't need to configure anything on the ASE or the apps in it. 
+With an ASE, you don't need to use virtual network integration because the ASE is already in your virtual network. If you want to access resources like SQL or Azure Storage over service endpoints, enable service endpoints on the ASE subnet. If you want to access resources in the virtual network or private endpoints in the virtual network, you don't need to do any extra configuration. If you want to access resources across ExpressRoute, you're already in the virtual network, and don't need to configure anything on the ASE or the apps in it. 
 
 Because the apps in an ILB ASE can be exposed on a private IP address, you can easily add WAF devices to expose just the apps that you want to the internet and help keep the rest secure. This feature can help make the development of multi-tier applications easier. 
 
@@ -243,7 +195,7 @@ Some things aren't currently possible from the multi-tenant service but are poss
 
 The ASE provides the best story around isolated and dedicated app hosting, but it does involve some management challenges. Some things to consider before you use an operational ASE:
  
- * An ASE runs inside your virtual network, but it does have dependencies outside the virtual network. Those dependencies must be allowed. For more information, see [Networking considerations for an App Service Environment][networkinfo].
+ * An ASE runs inside your virtual network, but it does have dependencies outside the virtual network. Those dependencies must be allowed. For more information, see [Networking considerations for an App Service Environment](./environment/network-info.md).
  * An ASE doesn't scale immediately like the multi-tenant service. You need to anticipate scaling needs rather than reactively scaling. 
  * An ASE does have a higher up-front cost. To get the most out of your ASE, you should plan to put many workloads into one ASE rather than using it for small efforts.
  * The apps in an ASE can't selectively restrict access to some apps in the ASE and not others.
@@ -251,7 +203,7 @@ The ASE provides the best story around isolated and dedicated app hosting, but i
 
 ## Combining features 
 
-The features noted for the multi-tenant service can be used together to solve more elaborate use cases. Two of the more common use cases are described here, but they're just examples. By understanding what the various features do, you can meet nearly all your system architecture needs.
+The features noted for the multi-tenant service can be used together to solve more elaborate use cases. Two of the more common use cases are described here, but that's just examples. By understanding what the various features do, you can meet nearly all your system architecture needs.
 
 ### Place an app into a virtual network
 
@@ -283,7 +235,7 @@ If you're hosting both the front end and API app for a multi-tier application, y
 
 Here are some considerations to help you decide which method to use:
 
-* When you use service endpoints, you only need to secure traffic to your API app to the integration subnet. Service endpoints helps to secure the API app, but you could still have data exfiltration from your front-end app to other apps in the app service.
+* When you use service endpoints, you only need to secure traffic to your API app to the integration subnet. Service endpoints help to secure the API app, but you could still have data exfiltration from your front-end app to other apps in the app service.
 * When you use private endpoints, you have two subnets at play, which adds complexity. Also, the private endpoint is a top-level resource and adds management overhead. The benefit of using private endpoints is that you don't have the possibility of data exfiltration. 
 
 Either method will work with multiple front ends. On a small scale, service endpoints are easier to use because you simply enable service endpoints for the API app on the front-end integration subnet. As you add more front-end apps, you need to adjust every API app to include service endpoints with the integration subnet. When you use private endpoints, there's more complexity, but you don't have to change anything on your API apps after you set a private endpoint. 
@@ -296,7 +248,7 @@ Line-of-business (LOB) applications are internal applications that aren't normal
 
 If neither of these needs apply, you're better off using private endpoints. With private endpoints available in App Service, you can expose your apps on private addresses in your virtual network. The private endpoint you place in your virtual network can be reached across ExpressRoute and VPN connections. 
 
-Configuring private endpoints will expose your apps on a private address, but you'll need to configure DNS to reach that address from on-premises. To make this configuration work, you'll need to forward the Azure DNS private zone that contains your private endpoints to your on-premises DNS servers. Azure DNS private zones don't support zone forwarding, but you can support zone forwarding by using a DNS server for that purpose. The [DNS Forwarder](https://azure.microsoft.com/resources/templates/dns-forwarder/) template makes it easier to forward your Azure DNS private zone to your on-premises DNS servers.
+Configuring private endpoints will expose your apps on a private address, but you'll need to configure DNS to reach that address from on-premises. To make this configuration work, you'll need to forward the Azure DNS private zone that contains your private endpoints to your on-premises DNS servers. Azure DNS private zones don't support zone forwarding, but you can support zone forwarding by using [Azure DNS private resolver](../dns/dns-private-resolver-overview.md).
 
 ## App Service ports
 
@@ -310,15 +262,3 @@ If you scan App Service, you'll find several ports that are exposed for inbound 
 |  Visual Studio remote debugging  |  4020, 4022, 4024 |
 |  Web Deploy service | 8172 |
 |  Infrastructure use | 7654, 1221 |
-
-<!--Links-->
-[appassignedaddress]: ./configure-ssl-certificate.md
-[iprestrictions]: ./app-service-ip-restrictions.md
-[serviceendpoints]: ./app-service-ip-restrictions.md
-[hybridconn]: ./app-service-hybrid-connections.md
-[vnetintegrationp2s]: ./overview-vnet-integration.md
-[vnetintegration]: ./overview-vnet-integration.md
-[networkinfo]: ./environment/network-info.md
-[appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
-[privateendpoints]: ./networking/private-endpoint.md
-[servicetags]: ../virtual-network/service-tags-overview.md

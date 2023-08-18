@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/14/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -53,7 +53,9 @@ To configure the integration of DocuSign into Azure AD, you must add DocuSign fr
 1. In the **Add from the gallery** section, type **DocuSign** in the search box.
 1. Select **DocuSign** from the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. You can learn more about O365 wizards [here](/microsoft-365/admin/misc/azure-ad-setup-guides?view=o365-worldwide).
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. You can learn more about O365 wizards [here](/microsoft-365/admin/misc/azure-ad-setup-guides?view=o365-worldwide&preserve-view=true).
 
 ## Configure and test Azure AD SSO for DocuSign
 
@@ -134,16 +136,7 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 1. In the **Add Assignment** dialog box, select the **Assign** button.
 
 ## Configure DocuSign SSO
-
-1. To automate the configuration in DocuSign, you must install the My Apps Secure Sign-in browser extension by selecting **Install the extension**.
-
-    ![My apps extension](common/install-myappssecure-extension.png)
-
-2. After you add the extension to the browser, select **Setup DocuSign**. You're directed to the DocuSign application. From there, provide the admin credentials to sign in to DocuSign. The browser extension automatically configures the application and automates steps 3 through 5.
-
-    ![Setup configuration](common/setup-sso.png)
-
-3. If you want to set up DocuSign manually, open a new web browser window and sign in to your DocuSign company site as an administrator.
+1. In a different web browser window, sign in to your up DocuSign company site as an administrator
 
 4. In the upper-left corner of the page, select the  app launcher (9 dots), and then select **Admin**.
   
@@ -222,7 +215,7 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
        > [!NOTE]
        > Use the appropriate **User identifier** to map the user from Azure AD to DocuSign user mapping. Select the proper field, and enter the appropriate value based on your organization settings. Custom Attribute Mapping setting is not mandatory.
 
-    i. In the **Identity Provider Certificates** section, select **ADD CERTIFICATE**, upload the certificate you downloaded from Azure AD portal, and select **SAVE**.
+    i. In the **Identity Provider Certificates** section, select **ADD CERTIFICATE**, upload the certificate you downloaded from Azure portal, and select **SAVE**.
 
        ![Screenshot of Identity Provider Certificates/Add Certificate.](media/docusign-tutorial/certificates.png)
 

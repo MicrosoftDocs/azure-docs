@@ -1,5 +1,5 @@
 ---
-title: Azure AD built-in roles - Azure Active Directory
+title: Azure AD built-in roles
 description: Describes the Azure Active Directory built-in roles and permissions.
 services: active-directory
 author: rolyon
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 08/03/2022
+ms.date: 07/26/2023
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
@@ -62,8 +62,10 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [External ID User Flow Administrator](#external-id-user-flow-administrator) | Can create and manage all aspects of user flows. | 6e591065-9bad-43ed-90f3-e9424366d2f0 |
 > | [External ID User Flow Attribute Administrator](#external-id-user-flow-attribute-administrator) | Can create and manage the attribute schema available to all user flows. | 0f971eea-41eb-4569-a71e-57bb8a3eff1e |
 > | [External Identity Provider Administrator](#external-identity-provider-administrator) | Can configure identity providers for use in direct federation. | be2f45a1-457d-42af-a067-6ec1fa63bc45 |
+> | [Fabric Administrator](#fabric-administrator) | Can manage all aspects of the Fabric and Power BI products. | a9ea8996-122f-4c74-9520-8edcd192826c |
 > | [Global Administrator](#global-administrator) | Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities. | 62e90394-69f5-4237-9190-012177145e10 |
 > | [Global Reader](#global-reader) | Can read everything that a Global Administrator can, but not update anything. | f2ef992c-3afb-46b9-b7cf-a126ee74c451 |
+> | [Global Secure Access Administrator](#global-secure-access-administrator) | Create and manage all aspects of Microsoft Entra Internet Access and Microsoft Entra Private Access, including managing access to public and private endpoints. | ac434307-12b9-4fa1-a708-88bf58caabc1 |
 > | [Groups Administrator](#groups-administrator) | Members of this role can create/manage groups, create/manage groups settings like naming and expiration policies, and view groups activity and audit reports. | fdd7a751-b60b-444a-984c-02652fe8fa1c |
 > | [Guest Inviter](#guest-inviter) | Can invite guest users independent of the 'members can invite guests' setting. | 95e79109-95c0-4d8e-aee3-d01accf2d47b |
 > | [Helpdesk Administrator](#helpdesk-administrator) | Can reset passwords for non-administrators and Helpdesk Administrators. | 729827e3-9c14-49f7-bb1b-9608f156bbb8 |
@@ -80,13 +82,16 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Lifecycle Workflows Administrator](#lifecycle-workflows-administrator) | Create and manage all aspects of workflows and tasks associated with Lifecycle Workflows in Azure AD. | 59d46f88-662b-457b-bceb-5c3809e5908f |
 > | [Message Center Privacy Reader](#message-center-privacy-reader) | Can read security messages and updates in Office 365 Message Center only. | ac16e43d-7b2d-40e0-ac05-243ff356ab5b |
 > | [Message Center Reader](#message-center-reader) | Can read messages and updates for their organization in Office 365 Message Center only. | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b |
+> | [Microsoft Hardware Warranty Administrator](#microsoft-hardware-warranty-administrator) | Create and manage all aspects warranty claims and entitlements for Microsoft manufactured hardware, like Surface and HoloLens. | 1501b917-7653-4ff9-a4b5-203eaf33784f |
+> | [Microsoft Hardware Warranty Specialist](#microsoft-hardware-warranty-specialist) | Create and read warranty claims for Microsoft manufactured hardware, like Surface and HoloLens. | 281fe777-fb20-4fbb-b7a3-ccebce5b0d96 |
 > | [Modern Commerce User](#modern-commerce-user) | Can manage commercial purchases for a company, department or team. | d24aef57-1500-4070-84db-2666f29cf966 |
 > | [Network Administrator](#network-administrator) | Can manage network locations and review enterprise network design insights for Microsoft 365 Software as a Service applications. | d37c8bed-0711-4417-ba38-b4abe66ce4c2 |
 > | [Office Apps Administrator](#office-apps-administrator) | Can manage Office apps cloud services, including policy and settings management, and manage the ability to select, unselect and publish 'what's new' feature content to end-user's devices. | 2b745bdf-0803-4d80-aa65-822c4493daac |
+> | [Organizational Messages Writer](#organizational-messages-writer) | Write, publish, manage, and review the organizational messages for end-users through Microsoft product surfaces. | 507f53e4-4e52-4077-abd3-d2e1558b6ea2 |
 > | [Partner Tier1 Support](#partner-tier1-support) | Do not use - not intended for general use. | 4ba39ca4-527c-499a-b93d-d9b492c50246 |
 > | [Partner Tier2 Support](#partner-tier2-support) | Do not use - not intended for general use. | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8 |
 > | [Password Administrator](#password-administrator) | Can reset passwords for non-administrators and Password Administrators. | 966707d0-3269-4727-9be2-8c3a10f19b9d |
-> | [Power BI Administrator](#power-bi-administrator) | Can manage all aspects of the Power BI product. | a9ea8996-122f-4c74-9520-8edcd192826c |
+> | [Permissions Management Administrator](#permissions-management-administrator) | Manage all aspects of Entra Permissions Management. | af78dc32-cf4d-46f9-ba4e-4428526346b5 |
 > | [Power Platform Administrator](#power-platform-administrator) | Can create and manage all aspects of Microsoft Dynamics 365, Power Apps and Power Automate. | 11648597-926c-4cf3-9c36-bcebb0ba8dcc |
 > | [Printer Administrator](#printer-administrator) | Can manage all aspects of printers and printer connectors. | 644ef478-e28f-4e28-b9dc-3fdde9aa0b1f |
 > | [Printer Technician](#printer-technician) | Can register and unregister printers and update printer status. | e8cef6f1-e4bd-4ea8-bc07-4b8d950f4477 |
@@ -106,9 +111,12 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Teams Communications Support Engineer](#teams-communications-support-engineer) | Can troubleshoot communications issues within Teams using advanced tools. | f70938a0-fc10-4177-9e90-2178f8765737 |
 > | [Teams Communications Support Specialist](#teams-communications-support-specialist) | Can troubleshoot communications issues within Teams using basic tools. | fcf91098-03e3-41a9-b5ba-6f0ec8188a12 |
 > | [Teams Devices Administrator](#teams-devices-administrator) | Can perform management related tasks on Teams certified devices. | 3d762c5a-1b6c-493f-843e-55a3b42923d4 |
+> | [Tenant Creator](#tenant-creator) | Create new Azure AD or Azure AD B2C tenants. | 112ca1a2-15ad-4102-995e-45b0bc479a6a |
 > | [Usage Summary Reports Reader](#usage-summary-reports-reader) | Can see only tenant level aggregates in Microsoft 365 Usage Analytics and Productivity Score. | 75934031-6c7e-415a-99d7-48dbd49e875e |
 > | [User Administrator](#user-administrator) | Can manage all aspects of users and groups, including resetting passwords for limited admins. | fe930be7-5e62-47db-91af-98c3a49a38b1 |
 > | [Virtual Visits Administrator](#virtual-visits-administrator) | Manage and share Virtual Visits information and metrics from admin centers or the Virtual Visits app. | e300d9e7-4a2b-4295-9eff-f1c78b36cc98 |
+> | [Viva Goals Administrator](#viva-goals-administrator) | Manage and configure all aspects of Microsoft Viva Goals. | 92b086b3-e367-4ef2-b869-1de128fb986e |
+> | [Viva Pulse Administrator](#viva-pulse-administrator) | Can manage all settings for Microsoft Viva Pulse app. | 87761b17-1ed2-4af3-9acd-92a150038160 |
 > | [Windows 365 Administrator](#windows-365-administrator) | Can provision and manage all aspects of Cloud PCs. | 11451d60-acb2-45eb-a7d6-43d0f0125c13 |
 > | [Windows Update Deployment Administrator](#windows-update-deployment-administrator) | Can create and manage all aspects of Windows Update deployments through the Windows Update for Business deployment service. | 32696413-001a-46ae-978c-ce0f6b3620d2 |
 > | [Yammer Administrator](#yammer-administrator) | Manage all aspects of the Yammer service. | 810a2642-a034-447f-a5e8-41beaa378541 |
@@ -150,7 +158,7 @@ This role also grants the ability to consent for delegated permissions and appli
 > | microsoft.directory/applications/verification/update | Update applicationsverification property |
 > | microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object |
 > | microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates |
-> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
+> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, excluding custom security attributes audit logs |
 > | microsoft.directory/connectors/create | Create application proxy connectors |
 > | microsoft.directory/connectors/allProperties/read | Read all properties of application proxy connectors |
 > | microsoft.directory/connectorGroups/create | Create application proxy connector groups |
@@ -175,8 +183,8 @@ This role also grants the ability to consent for delegated permissions and appli
 > | microsoft.directory/servicePrincipals/enable | Enable service principals |
 > | microsoft.directory/servicePrincipals/getPasswordSingleSignOnCredentials | Manage password single sign-on credentials on service principals |
 > | microsoft.directory/servicePrincipals/synchronizationCredentials/manage | Manage application provisioning secrets and credentials |
-> | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning syncronization jobs |
-> | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning syncronization jobs and schema |
+> | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning synchronization jobs |
+> | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning synchronization jobs and schema |
 > | microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | Read password single sign-on credentials on service principals |
 > | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-application-admin | Grant consent for application permissions and delegated permissions on behalf of any user or all users, except for application permissions for Microsoft Graph |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
@@ -212,21 +220,25 @@ Users in this role can create application registrations when the "Users can regi
 
 Users in this role can create attack payloads but not actually launch or schedule them. Attack payloads are then available to all administrators in the tenant who can use them to create a simulation.
 
+For more information, see [Microsoft Defender for Office 365 permissions in the Microsoft 365 Defender portal](/microsoft-365/security/office-365-security/mdo-portal-permissions) and [Permissions in the Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center-permissions).
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Create and manage attack payloads in Attack Simulator |
-> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation responses and associated training |
+> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation, responses, and associated training |
 
 ## Attack Simulation Administrator
 
 Users in this role can create and manage all aspects of attack simulation creation, launch/scheduling of a simulation, and the review of simulation results. Members of this role have this access for all simulations in the tenant.
 
+For more information, see [Microsoft Defender for Office 365 permissions in the Microsoft 365 Defender portal](/microsoft-365/security/office-365-security/mdo-portal-permissions) and [Permissions in the Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center-permissions).
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Create and manage attack payloads in Attack Simulator |
-> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation responses and associated training |
+> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation, responses, and associated training |
 > | microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/allTasks | Create and manage attack simulation templates in Attack Simulator |
 
 ## Attribute Assignment Administrator
@@ -296,19 +308,19 @@ For more information, see [Manage access to custom security attributes in Azure 
 
 ## Authentication Administrator
 
-Users with this role can set or reset any authentication method (including passwords) for non-administrators and some roles. Authentication Administrators can require users who are non-administrators or assigned to some roles to re-register against existing non-password credentials (for example, MFA or FIDO), and can also revoke **remember MFA on the device**, which prompts for MFA on the next sign-in. For a list of the roles that an Authentication Administrator can read or update authentication methods, see [Who can reset passwords](#who-can-reset-passwords).
+Assign the Authentication Administrator role to users who need to do the following:
 
-Authentication Administrators can update sensitive attributes for some users. For a list of the roles that an Authentication Administrator can update sensitive attributes, see [Who can update sensitive attributes](#who-can-update-sensitive-attributes).
+- Set or reset any authentication method (including passwords) for non-administrators and some roles. For a list of the roles that an Authentication Administrator can read or update authentication methods, see [Who can reset passwords](#who-can-reset-passwords).
+- Require users who are non-administrators or assigned to some roles to re-register against existing non-password credentials (for example, MFA or FIDO), and can also revoke **remember MFA on the device**, which prompts for MFA on the next sign-in.
+- Perform sensitive actions for some users. For more information, see [Who can perform sensitive actions](#who-can-perform-sensitive-actions).
+- Create and manage support tickets in Azure and the Microsoft 365 admin center.
 
-The [Privileged Authentication Administrator](#privileged-authentication-administrator) role has permission to force re-registration and multifactor authentication for all users.
+Users with this role **cannot** do the following:
 
-The [Authentication Policy Administrator](#authentication-policy-administrator) role has permissions to set the tenant's authentication method policy that determines which methods each user can register and use.
+- Cannot change the credentials or reset MFA for members and owners of a [role-assignable group](groups-concept.md).
+- Cannot manage MFA settings in the legacy MFA management portal or Hardware OATH tokens. The same functions can be accomplished using the [Set-MsolUser](/powershell/module/msonline/set-msoluser) commandlet Azure AD PowerShell module.
 
-| Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy | Update sensitive attributes |
-| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| Authentication Administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No | Yes for some users (see above) |
-| Privileged Authentication Administrator| Yes for all users | Yes for all users | No | No | No | Yes for all users |
-| Authentication Policy Administrator | No |No | Yes | Yes | Yes | No |
+[!INCLUDE [authentication-table-include](./includes/authentication-table-include.md)]
 
 > [!IMPORTANT]
 > Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -316,13 +328,8 @@ The [Authentication Policy Administrator](#authentication-policy-administrator) 
 >* Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Authentication Administrators. Through this path an Authentication Administrator can assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
 >* Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
 >* Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
->* Administrators in other services outside of Azure AD like Exchange Online, Office 365 Security & Compliance Center, and human resources systems.
+>* Administrators in other services outside of Azure AD like Exchange Online, Microsoft 365 Defender portal, Microsoft Purview compliance portal, and human resources systems.
 >* Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
-
-> [!IMPORTANT]
-> This role can't manage MFA settings in the legacy MFA management portal or Hardware OATH tokens. The same functions can be accomplished using the [Set-MsolUser](/powershell/module/msonline/set-msoluser) commandlet Azure AD PowerShell module.
-
-Users with this role can't change the credentials or reset MFA for members and owners of a [role-assignable group](groups-concept.md).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -349,18 +356,20 @@ Users with this role can't change the credentials or reset MFA for members and o
 
 ## Authentication Policy Administrator
 
-Users with this role can configure the authentication methods policy, tenant-wide MFA settings, and password protection policy. This role grants permission to manage Password Protection settings: smart lockout configurations and updating the custom banned passwords list. Authentication Policy Administrators cannot update sensitive attributes for users.
+Assign the Authentication Policy Administrator role to users who need to do the following:
 
-The [Authentication Administrator](#authentication-administrator) and [Privileged Authentication Administrator](#privileged-authentication-administrator) roles have permission to manage registered authentication methods on users and can force re-registration and multifactor authentication for all users.
+- Configure the authentication methods policy, tenant-wide MFA settings, and password protection policy that determine which methods each user can register and use.
+- Manage Password Protection settings: smart lockout configurations and updating the custom banned passwords list.
+- Create and manage verifiable credentials.
+- Create and manage Azure support tickets.
 
-| Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy | Update sensitive attributes |
-| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| Authentication Administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No | Yes for some users (see above) |
-| Privileged Authentication Administrator| Yes for all users | Yes for all users | No | No | No | Yes for all users |
-| Authentication Policy Administrator | No | No | Yes | Yes | Yes | No |
+Users with this role **cannot** do the following:
 
-> [!IMPORTANT]
-> This role can't manage MFA settings in the legacy MFA management portal or Hardware OATH tokens.
+- Cannot update sensitive properties. For more information, see [Who can perform sensitive actions](#who-can-perform-sensitive-actions).
+- Cannot delete or restore users. For more information, see [Who can perform sensitive actions](#who-can-perform-sensitive-actions).
+- Cannot manage MFA settings in the legacy MFA management portal or Hardware OATH tokens.
+
+[!INCLUDE [authentication-table-include](./includes/authentication-table-include.md)]
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -387,7 +396,7 @@ The [Authentication Administrator](#authentication-administrator) and [Privilege
 
 ## Azure AD Joined Device Local Administrator
 
-This role is available for assignment only as an additional local administrator in [Device settings](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory.
+This role is available for assignment only as an additional local administrator in [Device settings](../devices/assign-local-admin.md). Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -406,7 +415,7 @@ Users with this role can manage all enterprise Azure DevOps policies, applicable
 
 ## Azure Information Protection Administrator
 
-Users with this role have all permissions in the Azure Information Protection service. This role allows configuring labels for the Azure Information Protection policy, managing protection templates, and activating protection. This role does not grant any permissions in Identity Protection Center, Privileged Identity Management, Monitor Microsoft 365 Service Health, or Office 365 Security & Compliance Center.
+Users with this role have all permissions in the Azure Information Protection service. This role allows configuring labels for the Azure Information Protection policy, managing protection templates, and activating protection. This role does not grant any permissions in Identity Protection, Privileged Identity Management, Monitor Microsoft 365 Service Health, Microsoft 365 Defender portal, or Microsoft Purview compliance portal.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -500,7 +509,7 @@ This role also grants the ability to consent for delegated permissions and appli
 > | microsoft.directory/applications/verification/update | Update applicationsverification property |
 > | microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object |
 > | microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates |
-> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
+> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, excluding custom security attributes audit logs |
 > | microsoft.directory/deletedItems.applications/delete | Permanently delete applications, which can no longer be restored |
 > | microsoft.directory/deletedItems.applications/restore | Restore soft deleted applications to original state |
 > | microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Create and delete OAuth 2.0 permission grants, and read and update all properties |
@@ -518,8 +527,8 @@ This role also grants the ability to consent for delegated permissions and appli
 > | microsoft.directory/servicePrincipals/enable | Enable service principals |
 > | microsoft.directory/servicePrincipals/getPasswordSingleSignOnCredentials | Manage password single sign-on credentials on service principals |
 > | microsoft.directory/servicePrincipals/synchronizationCredentials/manage | Manage application provisioning secrets and credentials |
-> | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning syncronization jobs |
-> | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning syncronization jobs and schema |
+> | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning synchronization jobs |
+> | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning synchronization jobs and schema |
 > | microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | Read password single sign-on credentials on service principals |
 > | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-application-admin | Grant consent for application permissions and delegated permissions on behalf of any user or all users, except for application permissions for Microsoft Graph |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
@@ -547,12 +556,15 @@ Users in this role can enable, disable, and delete devices in Azure AD and read 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
+> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, excluding custom security attributes audit logs |
 > | microsoft.directory/authorizationPolicy/standard/read | Read standard properties of authorization policy |
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices |
+> | microsoft.directory/deletedItems.devices/delete | Permanently delete devices, which can no longer be restored |
+> | microsoft.directory/deletedItems.devices/restore | Restore soft deleted devices to original state |
 > | microsoft.directory/devices/delete | Delete devices from Azure AD |
 > | microsoft.directory/devices/disable | Disable devices in Azure AD |
 > | microsoft.directory/devices/enable | Enable devices in Azure AD |
+> | microsoft.directory/deviceLocalCredentials/password/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, including the password |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
 > | microsoft.directory/deviceManagementPolicies/basic/update | Update basic properties on device management application policies |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
@@ -563,13 +575,13 @@ Users in this role can enable, disable, and delete devices in Azure AD and read 
 
 ## Compliance Administrator
 
-Users with this role have permissions to manage compliance-related features in the Microsoft Purview compliance portal, Microsoft 365 admin center, Azure, and Office 365 Security & Compliance Center. Assignees can also manage all features within the Exchange admin center and Teams & Skype for Business admin centers and create support tickets for Azure and Microsoft 365. More information is available at [About Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role have permissions to manage compliance-related features in the Microsoft Purview compliance portal, Microsoft 365 admin center, Azure, and Microsoft 365 Defender portal. Assignees can also manage all features within the Exchange admin center and create support tickets for Azure and Microsoft 365. For more information, see [Roles and role groups in Microsoft Defender for Office 365 and Microsoft Purview compliance](/microsoft-365/security/office-365-security/scc-permissions).
 
 In | Can do
 ----- | ----------
-[Microsoft Purview compliance portal](https://protection.office.com) | Protect and manage your organization's data across Microsoft 365 services<br>Manage compliance alerts
-[Compliance Manager](/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Track, assign, and verify your organization's regulatory compliance activities
-[Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request<br><br>This role has the same permissions as the [Compliance Administrator RoleGroup](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) in Office 365 Security & Compliance Center role-based access control.
+[Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center) | Protect and manage your organization's data across Microsoft 365 services<br>Manage compliance alerts
+[Microsoft Purview Compliance Manager](/microsoft-365/compliance/compliance-manager) | Track, assign, and verify your organization's regulatory compliance activities
+[Microsoft 365 Defender portal](/microsoft-365/security/defender/microsoft-365-defender-portal) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request<br><br>This role has the same permissions as the [Compliance Administrator role group](/microsoft-365/security/office-365-security/scc-permissions) in Microsoft 365 Defender portal role-based access control.
 [Intune](/intune/role-based-access-control) | View all Intune audit data
 [Microsoft Defender for Cloud Apps](/defender-cloud-apps/manage-admins) | Has read-only permissions and can manage alerts<br>Can create and modify file policies and allow file governance actions<br>Can view all the built-in reports under Data Management
 
@@ -586,13 +598,13 @@ In | Can do
 
 ## Compliance Data Administrator
 
-Users with this role have permissions to track data in the Microsoft Purview compliance portal, Microsoft 365 admin center, and Azure. Users can also track compliance data within the Exchange admin center, Compliance Manager, and Teams & Skype for Business admin center and create support tickets for Azure and Microsoft 365. [This documentation](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) has details on differences between Compliance Administrator and Compliance Data Administrator.
+Users with this role have permissions to track data in the Microsoft Purview compliance portal, Microsoft 365 admin center, and Azure. Users can also track compliance data within the Exchange admin center, Compliance Manager, and Teams & Skype for Business admin center and create support tickets for Azure and Microsoft 365. For more information about the differences between Compliance Administrator and Compliance Data Administrator, see [Roles and role groups in Microsoft Defender for Office 365 and Microsoft Purview compliance](/microsoft-365/security/office-365-security/scc-permissions).
 
 In | Can do
 ----- | ----------
-[Microsoft Purview compliance portal](https://protection.office.com) | Monitor compliance-related policies across Microsoft 365 services<br>Manage compliance alerts
-[Compliance Manager](/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Track, assign, and verify your organization's regulatory compliance activities
-[Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request<br><br>This role has the same permissions as the [Compliance Data Administrator RoleGroup](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) in Office 365 Security & Compliance Center role-based access control.
+[Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center) | Monitor compliance-related policies across Microsoft 365 services<br>Manage compliance alerts
+[Microsoft Purview Compliance Manager](/microsoft-365/compliance/compliance-manager) | Track, assign, and verify your organization's regulatory compliance activities
+[Microsoft 365 Defender portal](/microsoft-365/security/defender/microsoft-365-defender-portal) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request<br><br>This role has the same permissions as the [Compliance Data Administrator role group](/microsoft-365/security/office-365-security/scc-permissions) in Microsoft 365 Defender portal role-based access control.
 [Intune](/intune/role-based-access-control) | View all Intune audit data
 [Microsoft Defender for Cloud Apps](/defender-cloud-apps/manage-admins) | Has read-only permissions and can manage alerts<br>Can create and modify file policies and allow file governance actions<br>Can view all the built-in reports under Data Management
 
@@ -620,18 +632,19 @@ Users with this role have the ability to manage Azure Active Directory Condition
 > | microsoft.directory/namedLocations/delete | Delete custom rules that define network locations |
 > | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
 > | microsoft.directory/namedLocations/basic/update | Update basic properties of custom rules that define network locations |
-> | microsoft.directory/conditionalAccessPolicies/create | Create conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/delete | Delete conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/standard/read | Read conditional access for policies |
-> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/owners/update | Update owners for conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/tenantDefault/update | Update the default tenant for conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/create | Create Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/delete | Delete Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/standard/read | Read Conditional Access for policies |
+> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/owners/update | Update owners for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/tenantDefault/update | Update the default tenant for Conditional Access policies |
+> | microsoft.directory/resourceNamespaces/resourceActions/authenticationContext/update | Update Conditional Access authentication context of Microsoft 365 role-based access control (RBAC) resource actions |
 
 ## Customer LockBox Access Approver
 
-Manages [Customer Lockbox requests](/office365/admin/manage/customer-lockbox-requests) in your organization. They receive email notifications for Customer Lockbox requests and can approve and deny requests from the Microsoft 365 admin center. They can also turn the Customer Lockbox feature on or off. Only Global Administrators can reset the passwords of people assigned to this role.
+Manages [Microsoft Purview Customer Lockbox requests](/microsoft-365/compliance/customer-lockbox-requests) in your organization. They receive email notifications for Customer Lockbox requests and can approve and deny requests from the Microsoft 365 admin center. They can also turn the Customer Lockbox feature on or off. Only Global Administrators can reset the passwords of people assigned to this role.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -656,7 +669,7 @@ Users in this role can manage the Desktop Analytics service. This includes the a
 Users in this role can read basic directory information. This role should be used for:
 
 * Granting a specific set of guest users read access instead of granting it to all guest users.
-* Granting a specific set of non-admin users access to Azure portal when "Restrict access to Azure AD portal to admins only" is set to "Yes".
+* Granting a specific set of non-admin users access to Azure portal when "Restrict access to Azure portal to admins only" is set to "Yes".
 * Granting service principals access to directory where Directory.Read.All is not an option.
 
 > [!div class="mx-tableFixed"]
@@ -714,6 +727,7 @@ Users in this role can read basic directory information. This role should be use
 > | microsoft.directory/users/photo/read | Read photo of users |
 > | microsoft.directory/users/registeredDevices/read | Read registered devices of users |
 > | microsoft.directory/users/scopedRoleMemberOf/read | Read user's membership of an Azure AD role, that is scoped to an administrative unit |
+> | microsoft.directory/users/sponsors/read | Read sponsors of users |
 
 ## Directory Synchronization Accounts
 
@@ -773,12 +787,13 @@ Do not use. This role is automatically assigned to the Azure AD Connect service,
 
 ## Directory Writers
 
-Users in this role can read and update basic information of users, groups, and service principals. Assign this role only to applications that don’t support the [Consent Framework](../develop/quickstart-register-app.md). It should not be assigned to any users.
+Users in this role can read and update basic information of users, groups, and service principals.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.directory/applications/extensionProperties/update | Update extension properties on applications |
+> | microsoft.directory/contacts/create | Create contacts |
 > | microsoft.directory/groups/assignLicense | Assign product licenses to groups for group-based licensing |
 > | microsoft.directory/groups/create | Create Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/reprocessLicenseAssignment | Reprocess license assignments for group-based licensing |
@@ -797,8 +812,8 @@ Users in this role can read and update basic information of users, groups, and s
 > | microsoft.directory/oAuth2PermissionGrants/create | Create OAuth 2.0 permission grants |
 > | microsoft.directory/oAuth2PermissionGrants/basic/update | Update OAuth 2.0 permission grants |
 > | microsoft.directory/servicePrincipals/synchronizationCredentials/manage | Manage application provisioning secrets and credentials |
-> | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning syncronization jobs |
-> | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning syncronization jobs and schema |
+> | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning synchronization jobs |
+> | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning synchronization jobs and schema |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
 > | microsoft.directory/users/assignLicense | Manage user licenses |
 > | microsoft.directory/users/create | Add users |
@@ -810,6 +825,7 @@ Users in this role can read and update basic information of users, groups, and s
 > | microsoft.directory/users/basic/update | Update basic properties on users |
 > | microsoft.directory/users/manager/update | Update manager for users |
 > | microsoft.directory/users/photo/update | Update photo of users |
+> | microsoft.directory/users/sponsors/update | Update sponsors of users |
 > | microsoft.directory/users/userPrincipalName/update | Update User Principal Name of users |
 
 ## Domain Name Administrator
@@ -825,10 +841,10 @@ Users with this role can manage (read, add, verify, update, and delete) domain n
 
 ## Dynamics 365 Administrator
 
-Users with this role have global permissions within Microsoft Dynamics 365 Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Use the service admin role to manage your Azure AD organization](/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
+Users with this role have global permissions within Microsoft Dynamics 365 Online, when the service is present, as well as the ability to manage support tickets and monitor service health. For more information, see [Use service admin roles to manage your tenant](/power-platform/admin/use-service-admin-role-manage-tenant).
 
 > [!NOTE]
-> In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Dynamics 365 Service Administrator." It is "Dynamics 365 Administrator" in the [Azure portal](https://portal.azure.com).
+> In the Microsoft Graph API and Azure AD PowerShell, this role is named Dynamics 365 Service Administrator. In the [Azure portal](../../azure-portal/azure-portal-overview.md), it is named Dynamics 365 Administrator.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -853,10 +869,10 @@ Users in this role can create and manage the enterprise site list required for I
 
 ## Exchange Administrator
 
-Users with this role have global permissions within Microsoft Exchange Online, when the service is present. Also has the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health. More information at [About Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role have global permissions within Microsoft Exchange Online, when the service is present. Also has the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health. For more information, see [About admin roles in the Microsoft 365 admin center](/microsoft-365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
-> In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Exchange Service Administrator." It is "Exchange Administrator" in the [Azure portal](https://portal.azure.com). It is "Exchange Online administrator" in the [Exchange admin center](https://go.microsoft.com/fwlink/p/?LinkID=529144).
+> In the Microsoft Graph API and Azure AD PowerShell, this role is named Exchange Service Administrator. In the [Azure portal](../../azure-portal/azure-portal-overview.md), it is named Exchange Administrator. In the [Exchange admin center](/exchange/exchange-admin-center), it is named Exchange Online administrator.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -879,12 +895,12 @@ Users with this role have global permissions within Microsoft Exchange Online, w
 
 ## Exchange Recipient Administrator
 
-Users with this role have read access to recipients and write access to the attributes of those recipients in Exchange Online. More information at [Exchange Recipients](/exchange/recipients/recipients).
+Users with this role have read access to recipients and write access to the attributes of those recipients in Exchange Online. For more information, see [Recipients in Exchange Server](/exchange/recipients/recipients).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.office365.exchange/allRecipients/allProperties/allTasks | Create and delete all recipients, and read and update all properties of recipients in Exchange Online |
+> | microsoft.office365.exchange/recipients/allProperties/allTasks | Create and delete all recipients, and read and update all properties of recipients in Exchange Online |
 > | microsoft.office365.exchange/migration/allProperties/allTasks | Manage all tasks related to migration of recipients in Exchange Online |
 
 ## External ID User Flow Administrator
@@ -915,11 +931,26 @@ This administrator manages federation between Azure AD organizations and externa
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | microsoft.directory/domains/federation/update | Update federation property of domains |
 > | microsoft.directory/identityProviders/allProperties/allTasks | Read and configure identity providers in Azure Active Directory B2C |
+
+## Fabric Administrator
+
+Users with this role have global permissions within Microsoft Fabric and Power BI, when the service is present, as well as the ability to manage support tickets and monitor service health. For more information, see [Understanding Fabric admin roles](/fabric/admin/roles).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
+> | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
+> | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
+> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+> | microsoft.powerApps.powerBI/allEntities/allTasks | Manage all aspects of Fabric and Power BI |
 
 ## Global Administrator
 
-Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like the Microsoft 365 Defender portal, the Microsoft Purview compliance portal, Exchange Online, SharePoint Online, and Skype for Business Online. Furthermore, Global Administrators can [elevate their access](../../role-based-access-control/elevate-access-global-admin.md) to manage all Azure subscriptions and management groups. This allows Global Administrators to get full access to all Azure resources using the respective Azure AD Tenant. The person who signs up for the Azure AD organization becomes a Global Administrator. There can be more than one Global Administrator at your company. Global Administrators can reset the password for any user and all other administrators.
+Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like the Microsoft 365 Defender portal, the Microsoft Purview compliance portal, Exchange Online, SharePoint Online, and Skype for Business Online. Global Administrators can view Directory Activity logs. Furthermore, Global Administrators can [elevate their access](../../role-based-access-control/elevate-access-global-admin.md) to manage all Azure subscriptions and management groups. This allows Global Administrators to get full access to all Azure resources using the respective Azure AD Tenant. The person who signs up for the Azure AD organization becomes a Global Administrator. There can be more than one Global Administrator at your company. Global Administrators can reset the password for any user and all other administrators. A Global Administrator cannot remove their own Global Administrator assignment. This is to prevent a situation where an organization has zero Global Administrators.
 
 > [!NOTE]
 > As a best practice, Microsoft recommends that you assign the Global Administrator role to fewer than five people in your organization. For more information, see [Best practices for Azure AD roles](best-practices.md).
@@ -935,7 +966,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/applications/allProperties/allTasks | Create and delete applications, and read and update all properties |
 > | microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object |
 > | microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates |
-> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
+> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, excluding custom security attributes audit logs |
 > | microsoft.directory/users/authenticationMethods/create | Create authentication methods for users |
 > | microsoft.directory/users/authenticationMethods/delete | Delete authentication methods for users |
 > | microsoft.directory/users/authenticationMethods/standard/read | Read standard properties of authentication methods for users |
@@ -959,6 +990,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/namedLocations/delete | Delete custom rules that define network locations |
 > | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
 > | microsoft.directory/namedLocations/basic/update | Update basic properties of custom rules that define network locations |
+> | microsoft.directory/deviceLocalCredentials/password/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, including the password |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
 > | microsoft.directory/deviceManagementPolicies/basic/update | Update basic properties on device management application policies |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
@@ -966,6 +998,10 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/directoryRoles/allProperties/allTasks | Create and delete directory roles, and read and update all properties |
 > | microsoft.directory/directoryRoleTemplates/allProperties/allTasks | Create and delete Azure AD role templates, and read and update all properties |
 > | microsoft.directory/domains/allProperties/allTasks | Create and delete domains, and read and update all properties |
+> | microsoft.directory/domains/federationConfiguration/standard/read | Read standard properties of federation configuration for domains |
+> | microsoft.directory/domains/federationConfiguration/basic/update | Update basic federation configuration for domains |
+> | microsoft.directory/domains/federationConfiguration/create | Create federation configuration for domains |
+> | microsoft.directory/domains/federationConfiguration/delete | Delete federation configuration for domains |
 > | microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Azure AD entitlement management |
 > | microsoft.directory/groups/allProperties/allTasks | Create and delete groups, and read and update all properties |
 > | microsoft.directory/groupsAssignableToRoles/create | Create role-assignable groups |
@@ -981,7 +1017,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/organization/allProperties/allTasks | Read and update all properties for an organization |
 > | microsoft.directory/passwordHashSync/allProperties/allTasks | Manage all aspects of Password Hash Synchronization (PHS) in Azure AD |
 > | microsoft.directory/policies/allProperties/allTasks | Create and delete policies, and read and update all properties |
-> | microsoft.directory/conditionalAccessPolicies/allProperties/allTasks | Manage all properties of conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/allProperties/allTasks | Manage all properties of Conditional Access policies |
 > | microsoft.directory/crossTenantAccessPolicy/standard/read | Read basic properties of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/allowedCloudEndpoints/update | Update allowed cloud endpoints of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/basic/update | Update basic settings of cross-tenant access policy |
@@ -999,6 +1035,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update | Update tenant restrictions of cross-tenant access policy for partners |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in Privileged Identity Management |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
+> | microsoft.directory/resourceNamespaces/resourceActions/authenticationContext/update | Update Conditional Access authentication context of Microsoft 365 role-based access control (RBAC) resource actions |
 > | microsoft.directory/roleAssignments/allProperties/allTasks | Create and delete role assignments, and read and update all role assignment properties |
 > | microsoft.directory/roleDefinitions/allProperties/allTasks | Create and delete role definitions, and read and update all properties |
 > | microsoft.directory/scopedRoleMemberships/allProperties/allTasks | Create and delete scopedRoleMemberships, and read and update all properties |
@@ -1020,6 +1057,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/servicePrincipalCreationPolicies/delete | Delete service principal creation policies |
 > | microsoft.directory/servicePrincipalCreationPolicies/standard/read | Read standard properties of service principal creation policies |
 > | microsoft.directory/servicePrincipalCreationPolicies/basic/update | Update basic properties of service principal creation policies |
+> | microsoft.directory/tenantManagement/tenants/create | Create new tenants in Azure Active Directory |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/cards/allProperties/read | Read a verifiable credential card |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/cards/revoke | Revoke a verifiable credential card |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/create | Create a verifiable credential contract |
@@ -1029,16 +1067,27 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/verifiableCredentials/configuration/delete | Delete configuration required to create and manage verifiable credentials and delete all of its verifiable credentials |
 > | microsoft.directory/verifiableCredentials/configuration/allProperties/read | Read configuration required to create and manage verifiable credentials |
 > | microsoft.directory/verifiableCredentials/configuration/allProperties/update | Update configuration required to create and manage verifiable credentials |
-> | microsoft.directory/lifecycleManagement/workflows/allProperties/allTasks | Manage all aspects of lifecycle management workflows and tasks in Azure AD |
+> | microsoft.directory/lifecycleWorkflows/workflows/allProperties/allTasks | Manage all aspects of lifecycle workflows and tasks in Azure AD |
+> | microsoft.directory/pendingExternalUserProfiles/create | Create external user profiles in the extended directory for Teams |
+> | microsoft.directory/pendingExternalUserProfiles/standard/read | Read standard properties of external user profiles in the extended directory for Teams |
+> | microsoft.directory/pendingExternalUserProfiles/basic/update | Update basic properties of external user profiles in the extended directory for Teams |
+> | microsoft.directory/pendingExternalUserProfiles/delete | Delete external user profiles in the extended directory for Teams |
+> | microsoft.directory/externalUserProfiles/standard/read | Read standard properties of external user profiles in the extended directory for Teams |
+> | microsoft.directory/externalUserProfiles/basic/update | Update basic properties of external user profiles in the extended directory for Teams |
+> | microsoft.directory/externalUserProfiles/delete | Delete external user profiles in the extended directory for Teams |
 > | microsoft.azure.advancedThreatProtection/allEntities/allTasks | Manage all aspects of Azure Advanced Threat Protection |
 > | microsoft.azure.informationProtection/allEntities/allTasks | Manage all aspects of Azure Information Protection |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
 > | microsoft.cloudPC/allEntities/allProperties/allTasks | Manage all aspects of Windows 365 |
 > | microsoft.commerce.billing/allEntities/allProperties/allTasks | Manage all aspects of Office 365 billing |
+> | microsoft.commerce.billing/purchases/standard/read | Read purchase services in M365 Admin Center. |
 > | microsoft.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365 |
 > | microsoft.edge/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Edge |
 > | microsoft.flow/allEntities/allTasks | Manage all aspects of Microsoft Power Automate |
+> | microsoft.hardware.support/shippingAddress/allProperties/allTasks | Create, read, update, and delete shipping addresses for Microsoft hardware warranty claims, including shipping addresses created by others |
+> | microsoft.hardware.support/shippingStatus/allProperties/read | Read shipping status for open Microsoft hardware warranty claims |
+> | microsoft.hardware.support/warrantyClaims/allProperties/allTasks | Create and manage all aspects of Microsoft hardware warranty claims |
 > | microsoft.insights/allEntities/allProperties/allTasks | Manage all aspects of Insights app |
 > | microsoft.intune/allEntities/allTasks | Manage all aspects of Microsoft Intune |
 > | microsoft.office365.complianceManager/allEntities/allTasks | Manage all aspects of Office 365 Compliance Manager |
@@ -1053,6 +1102,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
 > | microsoft.office365.messageCenter/securityMessages/read | Read security messages in Message Center in the Microsoft 365 admin center |
 > | microsoft.office365.network/performance/allProperties/read | Read all network performance properties in the Microsoft 365 admin center |
+> | microsoft.office365.organizationalMessages/allEntities/allProperties/allTasks | Manage all authoring aspects of Microsoft 365 Organizational Messages |
 > | microsoft.office365.protectionCenter/allEntities/allProperties/allTasks | Manage all aspects of the Security and Compliance centers |
 > | microsoft.office365.search/content/manage | Create and delete content, and read and update all properties in Microsoft Search |
 > | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Create and delete all resources, and read and update standard properties in the Office 365 Security & Compliance Center |
@@ -1064,8 +1114,9 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.office365.userCommunication/allEntities/allTasks | Read and update what's new messages visibility |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 > | microsoft.office365.yammer/allEntities/allProperties/allTasks | Manage all aspects of Yammer |
+> | microsoft.permissionsManagement/allEntities/allProperties/allTasks | Manage all aspects of Entra Permissions Management |
 > | microsoft.powerApps/allEntities/allTasks | Manage all aspects of Power Apps |
-> | microsoft.powerApps.powerBI/allEntities/allTasks | Manage all aspects of Power BI |
+> | microsoft.powerApps.powerBI/allEntities/allTasks | Manage all aspects of Fabric and Power BI |
 > | microsoft.teams/allEntities/allProperties/allTasks | Manage all resources in Teams |
 > | microsoft.virtualVisits/allEntities/allProperties/allTasks | Manage and share Virtual Visits information and metrics from admin centers or the Virtual Visits app |
 > | microsoft.windows.defenderAdvancedThreatProtection/allEntities/allTasks | Manage all aspects of Microsoft Defender for Endpoint |
@@ -1073,23 +1124,24 @@ Users with this role have access to all administrative features in Azure Active 
 
 ## Global Reader
 
-Users in this role can read settings and administrative information across Microsoft 365 services but can't take management actions. Global Reader is the read-only counterpart to Global Administrator. Assign Global Reader instead of Global Administrator for planning, audits, or investigations. Use Global Reader in combination with other limited admin roles like Exchange Administrator to make it easier to get work done without the assigning the Global Administrator role. Global Reader works with Microsoft 365 admin center, Exchange admin center, SharePoint admin center, Teams admin center, Security center, Compliance center, Azure AD admin center, and Device Management admin center.
+Users in this role can read settings and administrative information across Microsoft 365 services but can't take management actions. Global Reader is the read-only counterpart to Global Administrator. Assign Global Reader instead of Global Administrator for planning, audits, or investigations. Use Global Reader in combination with other limited admin roles like Exchange Administrator to make it easier to get work done without the assigning the Global Administrator role. Global Reader works with Microsoft 365 admin center, Exchange admin center, SharePoint admin center, Teams admin center, Microsoft 365 Defender portal, Microsoft Purview compliance portal, Azure portal, and Device Management admin center.
+
+Users with this role **cannot** do the following:
+
+- Cannot access the Purchase Services area in the Microsoft 365 admin center.
 
 > [!NOTE]
-> Global Reader role has a few limitations right now -
+> Global Reader role has the following limitations:
 >
->- [OneDrive admin center](https://admin.onedrive.com/) - OneDrive admin center does not support the Global Reader role
->- [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage) - Global Reader can't read integrated apps. You won't find the **Integrated apps** tab under **Settings** in the left pane of Microsoft 365 admin center.
->- [Office Security & Compliance Center](https://sip.protection.office.com/homepage) - Global Reader can't read SCC audit logs, do content search, or see Secure Score.
->- [Teams admin center](https://admin.teams.microsoft.com) - Global Reader cannot read **Teams lifecycle**, **Analytics & reports**, **IP phone device management**, and **App catalog**. For more information, see [Use Microsoft Teams administrator roles to manage Teams](/microsoftteams/using-admin-roles).
->- [Privileged Access Management (PAM)](/office365/securitycompliance/privileged-access-management-overview) doesn't support the Global Reader role.
+>- OneDrive admin center - OneDrive admin center does not support the Global Reader role
+>- [Microsoft 365 admin center](/microsoft-365/admin/admin-overview/admin-center-overview) - Global Reader can't read integrated apps. You won't find the **Integrated apps** tab under **Settings** in the left pane of Microsoft 365 admin center.
+>- [Microsoft 365 Defender portal](/microsoft-365/security/defender/microsoft-365-defender-portal) - Global Reader can't read SCC audit logs, do content search, or see Secure Score.
+>- [Teams admin center](/microsoftteams/manage-teams-in-modern-portal) - Global Reader cannot read **Teams lifecycle**, **Analytics & reports**, **IP phone device management**, and **App catalog**. For more information, see [Use Microsoft Teams administrator roles to manage Teams](/microsoftteams/using-admin-roles).
+>- [Privileged Access Management](/microsoft-365/compliance/privileged-access-management) doesn't support the Global Reader role.
 >- [Azure Information Protection](/azure/information-protection/what-is-information-protection) - Global Reader is supported [for central reporting](/azure/information-protection/reports-aip) only, and when your Azure AD organization isn't on the [unified labeling platform](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
-> - [SharePoint](https://admin.microsoft.com/sharepoint) - Global Reader currently can't access SharePoint using PowerShell.
-> - [Power Platform admin center](https://admin.powerplatform.microsoft.com) - Global Reader is not yet supported in the Power Platform admin center.
+> - [SharePoint](/sharepoint/get-started-new-admin-center) - Global Reader currently can't access SharePoint using PowerShell.
+> - [Power Platform admin center](/power-platform/admin/admin-documentation) - Global Reader is not yet supported in the Power Platform admin center.
 > - Microsoft Purview doesn't support the Global Reader role.
->
-> These features are currently in development.
->
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1101,7 +1153,7 @@ Users in this role can read settings and administrative information across Micro
 > | microsoft.directory/appConsent/appConsentRequests/allProperties/read | Read all properties of consent requests for applications registered with Azure AD |
 > | microsoft.directory/applications/allProperties/read | Read all properties (including privileged properties) on all types of applications |
 > | microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object |
-> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
+> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, excluding custom security attributes audit logs |
 > | microsoft.directory/users/authenticationMethods/standard/restrictedRead | Read standard properties of authentication methods that do not include personally identifiable information for users |
 > | microsoft.directory/authorizationPolicy/standard/read | Read standard properties of authorization policy |
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices |
@@ -1110,11 +1162,14 @@ Users in this role can read settings and administrative information across Micro
 > | microsoft.directory/connectorGroups/allProperties/read | Read all properties of application proxy connector groups |
 > | microsoft.directory/contacts/allProperties/read | Read all properties for contacts |
 > | microsoft.directory/customAuthenticationExtensions/allProperties/read | Read custom authentication extensions |
+> | microsoft.directory/deviceLocalCredentials/standard/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, except the password |
 > | microsoft.directory/devices/allProperties/read | Read all properties of devices |
 > | microsoft.directory/directoryRoles/allProperties/read | Read all properties of directory roles |
 > | microsoft.directory/directoryRoleTemplates/allProperties/read | Read all properties of directory role templates |
 > | microsoft.directory/domains/allProperties/read | Read all properties of domains |
+> | microsoft.directory/domains/federationConfiguration/standard/read | Read standard properties of federation configuration for domains |
 > | microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management |
+> | microsoft.directory/externalUserProfiles/standard/read | Read standard properties of external user profiles in the extended directory for Teams |
 > | microsoft.directory/groups/allProperties/read | Read all properties (including privileged properties) on Security groups and Microsoft 365 groups, including role-assignable groups |
 > | microsoft.directory/groupSettings/allProperties/read | Read all properties of group settings |
 > | microsoft.directory/groupSettingTemplates/allProperties/read | Read all properties of group setting templates |
@@ -1123,9 +1178,10 @@ Users in this role can read settings and administrative information across Micro
 > | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
 > | microsoft.directory/oAuth2PermissionGrants/allProperties/read | Read all properties of OAuth 2.0 permission grants |
 > | microsoft.directory/organization/allProperties/read | Read all properties for an organization |
+> | microsoft.directory/pendingExternalUserProfiles/standard/read | Read standard properties of external user profiles in the extended directory for Teams |
 > | microsoft.directory/permissionGrantPolicies/standard/read | Read standard properties of permission grant policies |
 > | microsoft.directory/policies/allProperties/read | Read all properties of policies |
-> | microsoft.directory/conditionalAccessPolicies/allProperties/read | Read all properties of conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/allProperties/read | Read all properties of Conditional Access policies |
 > | microsoft.directory/crossTenantAccessPolicy/standard/read | Read basic properties of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/default/standard/read | Read basic properties of the default cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/partners/standard/read | Read basic properties of cross-tenant access policy for partners |
@@ -1146,23 +1202,65 @@ Users in this role can read settings and administrative information across Micro
 > | microsoft.directory/verifiableCredentials/configuration/contracts/cards/allProperties/read | Read a verifiable credential card |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/allProperties/read | Read a verifiable credential contract |
 > | microsoft.directory/verifiableCredentials/configuration/allProperties/read | Read configuration required to create and manage verifiable credentials |
-> | microsoft.directory/lifecycleManagement/workflows/allProperties/read | Read all properties of lifecycle management workflows and tasks in Azure AD |
+> | microsoft.directory/lifecycleWorkflows/workflows/allProperties/read | Read all properties of lifecycle workflows and tasks in Azure AD |
 > | microsoft.cloudPC/allEntities/allProperties/read | Read all aspects of Windows 365 |
 > | microsoft.commerce.billing/allEntities/allProperties/read | Read all resources of Office 365 billing |
+> | microsoft.commerce.billing/purchases/standard/read | Read purchase services in M365 Admin Center. |
 > | microsoft.edge/allEntities/allProperties/read | Read all aspects of Microsoft Edge |
+> | microsoft.hardware.support/shippingAddress/allProperties/read | Read shipping addresses for Microsoft hardware warranty claims, including existing shipping addresses created by others |
+> | microsoft.hardware.support/shippingStatus/allProperties/read | Read shipping status for open Microsoft hardware warranty claims |
+> | microsoft.hardware.support/warrantyClaims/allProperties/read | Read Microsoft hardware warranty claims |
 > | microsoft.insights/allEntities/allProperties/read | Read all aspects of Viva Insights |
-> | microsoft.office365.exchange/allEntities/standard/read | Read all resources of Exchange Online |
 > | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
 > | microsoft.office365.messageCenter/securityMessages/read | Read security messages in Message Center in the Microsoft 365 admin center |
 > | microsoft.office365.network/performance/allProperties/read | Read all network performance properties in the Microsoft 365 admin center |
+> | microsoft.office365.organizationalMessages/allEntities/allProperties/read | Read all aspects of Microsoft 365 Organizational Messages |
 > | microsoft.office365.protectionCenter/allEntities/allProperties/read | Read all properties in the Security and Compliance centers |
 > | microsoft.office365.securityComplianceCenter/allEntities/read | Read standard properties in Microsoft 365 Security and Compliance Center |
 > | microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 > | microsoft.office365.yammer/allEntities/allProperties/read | Read all aspects of Yammer |
+> | microsoft.permissionsManagement/allEntities/allProperties/read | Read all aspects of Entra Permissions Management |
 > | microsoft.teams/allEntities/allProperties/read | Read all properties of Microsoft Teams |
 > | microsoft.virtualVisits/allEntities/allProperties/read | Read all aspects of Virtual Visits |
 > | microsoft.windows.updatesDeployments/allEntities/allProperties/read | Read all aspects of Windows Update Service |
+
+## Global Secure Access Administrator
+
+Assign the Global Secure Access Administrator role to users who need to do the following:
+
+- Create and manage all aspects of Microsoft Entra Internet Access and Microsoft Entra Private Access
+- Manage access to public and private endpoints
+
+Users with this role **cannot** do the following:
+
+- Cannot manage enterprise applications, application registrations, Conditional Access, or application proxy settings
+
+[Learn more](../../global-secure-access/overview-what-is-global-secure-access.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
+> | microsoft.directory/applicationPolicies/standard/read | Read standard properties of application policies |
+> | microsoft.directory/applications/applicationProxy/read | Read all application proxy properties |
+> | microsoft.directory/applications/owners/read | Read owners of applications |
+> | microsoft.directory/applications/policies/read | Read policies of applications |
+> | microsoft.directory/applications/standard/read | Read standard properties of applications |
+> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, excluding custom security attributes audit logs |
+> | microsoft.directory/conditionalAccessPolicies/standard/read | Read Conditional Access for policies |
+> | microsoft.directory/connectorGroups/allProperties/read | Read all properties of application proxy connector groups |
+> | microsoft.directory/connectors/allProperties/read | Read all properties of application proxy connectors |
+> | microsoft.directory/crossTenantAccessPolicy/default/standard/read | Read basic properties of the default cross-tenant access policy |
+> | microsoft.directory/crossTenantAccessPolicy/partners/standard/read | Read basic properties of cross-tenant access policy for partners |
+> | microsoft.directory/crossTenantAccessPolicy/standard/read | Read basic properties of cross-tenant access policy |
+> | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
+> | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
+> | microsoft.networkAccess/allEntities/allProperties/allTasks | Manage all aspects of Entra Network Access |
+> | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
+> | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
+> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
 ## Groups Administrator
 
@@ -1215,10 +1313,15 @@ Users in this role can manage Azure Active Directory B2B guest user invitations 
 > | microsoft.directory/users/photo/read | Read photo of users |
 > | microsoft.directory/users/registeredDevices/read | Read registered devices of users |
 > | microsoft.directory/users/scopedRoleMemberOf/read | Read user's membership of an Azure AD role, that is scoped to an administrative unit |
+> | microsoft.directory/users/sponsors/read | Read sponsors of users |
 
 ## Helpdesk Administrator
 
 Users with this role can change passwords, invalidate refresh tokens, create and manage support requests with Microsoft for Azure and Microsoft 365 services, and monitor service health. Invalidating a refresh token forces the user to sign in again. Whether a Helpdesk Administrator can reset a user's password and invalidate refresh tokens depends on the role the user is assigned. For a list of the roles that a Helpdesk Administrator can reset passwords for and invalidate refresh tokens, see [Who can reset passwords](#who-can-reset-passwords).
+
+Users with this role **cannot** do the following:
+
+- Cannot change the credentials or reset MFA for members and owners of a [role-assignable group](groups-concept.md).
 
 > [!IMPORTANT]
 > Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -1226,19 +1329,18 @@ Users with this role can change passwords, invalidate refresh tokens, create and
 >- Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Helpdesk Administrators. Through this path a Helpdesk Administrator may be able to assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
 >- Azure subscription owners, who might have access to sensitive or private information or critical configuration in Azure.
 >- Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
->- Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
+>- Administrators in other services outside of Azure AD like Exchange Online, Microsoft 365 Defender portal, Microsoft Purview compliance portal, and human resources systems.
 >- Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
-
-Users with this role can't change the credentials or reset MFA for members and owners of a [role-assignable group](groups-concept.md).
 
 Delegating administrative permissions over subsets of users and applying policies to a subset of users is possible with [Administrative Units](administrative-units.md).
 
-This role was previously called "Password Administrator" in the [Azure portal](https://portal.azure.com/). The "Helpdesk Administrator" name in Azure AD now matches its name in Azure AD PowerShell and the Microsoft Graph API.
+This role was previously named Password Administrator in the [Azure portal](../../azure-portal/azure-portal-overview.md). It was renamed to Helpdesk Administrator to align with the existing name in the Microsoft Graph API and Azure AD PowerShell.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices |
+> | microsoft.directory/deviceLocalCredentials/standard/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, except the password |
 > | microsoft.directory/users/invalidateAllRefreshTokens | Force sign-out by invalidating user refresh tokens |
 > | microsoft.directory/users/password/update | Reset passwords for all users |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
@@ -1267,12 +1369,16 @@ Users in this role can create, manage and deploy provisioning configuration setu
 > | microsoft.directory/applications/tag/update | Update tags of applications |
 > | microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object |
 > | microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates |
-> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
+> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, excluding custom security attributes audit logs |
 > | microsoft.directory/cloudProvisioning/allProperties/allTasks | Read and configure all properties of Azure AD Cloud Provisioning service. |
 > | microsoft.directory/deletedItems.applications/delete | Permanently delete applications, which can no longer be restored |
 > | microsoft.directory/deletedItems.applications/restore | Restore soft deleted applications to original state |
 > | microsoft.directory/domains/allProperties/read | Read all properties of domains |
 > | microsoft.directory/domains/federation/update | Update federation property of domains |
+> | microsoft.directory/domains/federationConfiguration/standard/read | Read standard properties of federation configuration for domains |
+> | microsoft.directory/domains/federationConfiguration/basic/update | Update basic federation configuration for domains |
+> | microsoft.directory/domains/federationConfiguration/create | Create federation configuration for domains |
+> | microsoft.directory/domains/federationConfiguration/delete | Delete federation configuration for domains |
 > | microsoft.directory/hybridAuthenticationPolicy/allProperties/allTasks | Manage hybrid authentication policy in Azure AD |
 > | microsoft.directory/organization/dirSync/update | Update the organization directory sync property |
 > | microsoft.directory/passwordHashSync/allProperties/allTasks | Manage all aspects of Password Hash Synchronization (PHS) in Azure AD |
@@ -1282,8 +1388,8 @@ Users in this role can create, manage and deploy provisioning configuration setu
 > | microsoft.directory/servicePrincipals/disable | Disable service principals |
 > | microsoft.directory/servicePrincipals/enable | Enable service principals |
 > | microsoft.directory/servicePrincipals/synchronizationCredentials/manage | Manage application provisioning secrets and credentials |
-> | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning syncronization jobs |
-> | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning syncronization jobs and schema |
+> | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning synchronization jobs |
+> | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning synchronization jobs and schema |
 > | microsoft.directory/servicePrincipals/audience/update | Update audience properties on service principals |
 > | microsoft.directory/servicePrincipals/authentication/update | Update authentication properties on service principals |
 > | microsoft.directory/servicePrincipals/basic/update | Update basic properties on service principals |
@@ -1294,6 +1400,7 @@ Users in this role can create, manage and deploy provisioning configuration setu
 > | microsoft.directory/servicePrincipals/tag/update | Update the tag property for service principals |
 > | microsoft.directory/servicePrincipals/synchronization/standard/read | Read provisioning settings associated with your service principal |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
+> | microsoft.directory/users/authorizationInfo/update | Update the multivalued Certificate user IDs property of users |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
 > | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
@@ -1367,12 +1474,12 @@ Users in this role can access a set of dashboards and insights via the Microsoft
 
 ## Intune Administrator
 
-Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](/intune/role-based-access-control).
+Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. For more information, see [Role-based administration control (RBAC) with Microsoft Intune](/intune/fundamentals/role-based-access-control).
 
 This role can create and manage all security groups. However, Intune Administrator does not have admin rights over Office groups. That means the admin cannot update owners or memberships of all Office groups in the organization. However, he/she can manage the Office group that he creates which comes as a part of his/her end-user privileges. So, any Office group (not security group) that he/she creates should be counted against his/her quota of 250.
 
 > [!NOTE]
-> In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Intune Service Administrator." It is "Intune Administrator" in the [Azure portal](https://portal.azure.com).
+> In the Microsoft Graph API and Azure AD PowerShell, this role is named Intune Service Administrator. In the [Azure portal](../../azure-portal/azure-portal-overview.md), it is named Intune Administrator.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1381,6 +1488,8 @@ This role can create and manage all security groups. However, Intune Administrat
 > | microsoft.directory/contacts/create | Create contacts |
 > | microsoft.directory/contacts/delete | Delete contacts |
 > | microsoft.directory/contacts/basic/update | Update basic properties on contacts |
+> | microsoft.directory/deletedItems.devices/delete | Permanently delete devices, which can no longer be restored |
+> | microsoft.directory/deletedItems.devices/restore | Restore soft deleted devices to original state |
 > | microsoft.directory/devices/create | Create devices (enroll in Azure AD) |
 > | microsoft.directory/devices/delete | Delete devices from Azure AD |
 > | microsoft.directory/devices/disable | Disable devices in Azure AD |
@@ -1391,6 +1500,7 @@ This role can create and manage all security groups. However, Intune Administrat
 > | microsoft.directory/devices/extensionAttributeSet3/update | Update the extensionAttribute11 to extensionAttribute15 properties on devices |
 > | microsoft.directory/devices/registeredOwners/update | Update registered owners of devices |
 > | microsoft.directory/devices/registeredUsers/update | Update registered users of devices |
+> | microsoft.directory/deviceLocalCredentials/password/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, including the password |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
 > | microsoft.directory/groups/hiddenMembers/read | Read hidden members of Security groups and Microsoft 365 groups, including role-assignable groups |
@@ -1408,6 +1518,7 @@ This role can create and manage all security groups. However, Intune Administrat
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
 > | microsoft.cloudPC/allEntities/allProperties/allTasks | Manage all aspects of Windows 365 |
 > | microsoft.intune/allEntities/allTasks | Manage all aspects of Microsoft Intune |
+> | microsoft.office365.organizationalMessages/allEntities/allProperties/read | Read all aspects of Microsoft 365 Organizational Messages |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
@@ -1425,7 +1536,7 @@ Users with this role have global permissions to manage settings within Microsoft
 
 ## Knowledge Administrator
 
-Users in this role have full access to all knowledge, learning and intelligent features settings in the Microsoft 365 admin center. They have a general understanding of the suite of products, licensing details and has responsibility to control access. Knowledge Administrator can create and manage content, like topics, acronyms and learning resources. Additionally, these users can create content centers, monitor service health, and create service requests.
+Users in this role have full access to all knowledge, learning and intelligent features settings in the Microsoft 365 admin center. They have a general understanding of the suite of products, licensing details and have responsibility to control access. Knowledge Administrator can create and manage content, like topics, acronyms and learning resources. Additionally, these users can create content centers, monitor service health, and create service requests.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1465,7 +1576,7 @@ Users in this role can create and manage content, like topics, acronyms and lear
 
 ## License Administrator
 
-Users in this role can add, remove, and update license assignments on users, groups (using group-based licensing), and manage the usage location on users. The role does not grant the ability to purchase or manage subscriptions, create or manage groups, or create or manage users beyond the usage location. This role has no access to view, create, or manage support tickets.
+Users in this role can read, add, remove, and update license assignments on users, groups (using group-based licensing), and manage the usage location on users. The role does not grant the ability to purchase or manage subscriptions, create or manage groups, or create or manage users beyond the usage location. This role has no access to view, create, or manage support tickets.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1492,7 +1603,8 @@ Assign the Lifecycle Workflows Administrator role to users who need to do the fo
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/lifecycleManagement/workflows/allProperties/allTasks | Manage all aspects of lifecycle management workflows and tasks in Azure AD |
+> | microsoft.directory/lifecycleWorkflows/workflows/allProperties/allTasks | Manage all aspects of lifecycle workflows and tasks in Azure AD |
+> | microsoft.directory/organization/strongAuthentication/read | Read strong authentication properties of an organization |
 
 ## Message Center Privacy Reader
 
@@ -1507,13 +1619,59 @@ Users in this role can monitor all notifications in the Message Center, includin
 
 ## Message Center Reader
 
-Users in this role can monitor notifications and advisory health updates in [Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) for their organization on configured services such as Exchange, Intune, and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Microsoft 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. This role has no access to view, create, or manage support tickets.
+Users in this role can monitor notifications and advisory health updates in [Message center](/microsoft-365/admin/manage/message-center) for their organization on configured services such as Exchange, Intune, and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Microsoft 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. This role has no access to view, create, or manage support tickets.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+
+## Microsoft Hardware Warranty Administrator
+
+Assign the Microsoft Hardware Warranty Administrator role to users who need to do the following tasks:
+
+- Create new warranty claims for Microsoft manufactured hardware, like Surface and HoloLens
+- Search and read opened or closed warranty claims
+- Search and read warranty claims by serial number
+- Create, read, update, and delete shipping addresses
+- Read shipping status for open warranty claims
+- Create and manage service requests in the Microsoft 365 admin center
+- Read Message center announcements in the Microsoft 365 admin center
+
+A warranty claim is a request to have the hardware repaired or replaced in accordance with the terms of the warranty. For more information, see [Self-serve your Surface warranty & service requests](/surface/self-serve-warranty-service).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.hardware.support/shippingAddress/allProperties/allTasks | Create, read, update, and delete shipping addresses for Microsoft hardware warranty claims, including shipping addresses created by others |
+> | microsoft.hardware.support/shippingStatus/allProperties/read | Read shipping status for open Microsoft hardware warranty claims |
+> | microsoft.hardware.support/warrantyClaims/allProperties/allTasks | Create and manage all aspects of Microsoft hardware warranty claims |
+> | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
+> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+
+## Microsoft Hardware Warranty Specialist
+
+Assign the Microsoft Hardware Warranty Specialist role to users who need to do the following tasks:
+
+- Create new warranty claims for Microsoft manufactured hardware, like Surface and HoloLens
+- Read warranty claims that they created
+- Read and update existing shipping addresses
+- Read shipping status for open warranty claims they created
+- Create and manage service requests in the Microsoft 365 admin center
+
+A warranty claim is a request to have the hardware repaired or replaced in accordance with the terms of the warranty. For more information, see [Self-serve your Surface warranty & service requests](/surface/self-serve-warranty-service).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.hardware.support/shippingAddress/allProperties/read | Read shipping addresses for Microsoft hardware warranty claims, including existing shipping addresses created by others |
+> | microsoft.hardware.support/warrantyClaims/createAsOwner | Create Microsoft hardware warranty claims where creator is the owner |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
+> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+> | microsoft.hardware.support/shippingStatus/allProperties/read | Read shipping status for open Microsoft hardware warranty claims |
+> | microsoft.hardware.support/warrantyClaims/allProperties/read | Read Microsoft hardware warranty claims |
 
 ## Modern Commerce User
 
@@ -1525,7 +1683,7 @@ Users with the Modern Commerce User role typically have administrative permissio
 
 **When is the Modern Commerce User role assigned?**
 
-* **Self-service purchase in Microsoft 365 admin center** – Self-service purchase gives users a chance to try out new products by buying or signing up for them on their own. These products are managed in the admin center. Users who make a self-service purchase are assigned a role in the commerce system, and the Modern Commerce User role so they can manage their purchases in admin center. Admins can block self-service purchases (for Power BI, Power Apps, Power automate) through [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). For more information, see [Self-service purchase FAQ](/microsoft-365/commerce/subscriptions/self-service-purchase-faq).
+* **Self-service purchase in Microsoft 365 admin center** – Self-service purchase gives users a chance to try out new products by buying or signing up for them on their own. These products are managed in the admin center. Users who make a self-service purchase are assigned a role in the commerce system, and the Modern Commerce User role so they can manage their purchases in admin center. Admins can block self-service purchases (for Fabric, Power BI, Power Apps, Power automate) through [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). For more information, see [Self-service purchase FAQ](/microsoft-365/commerce/subscriptions/self-service-purchase-faq).
 * **Purchases from Microsoft commercial marketplace** – Similar to self-service purchase, when a user buys a product or service from Microsoft AppSource or Azure Marketplace, the Modern Commerce User role is assigned if they don’t have the Global Administrator or Billing Administrator role. In some cases, users might be blocked from making these purchases. For more information, see [Microsoft commercial marketplace](../../marketplace/marketplace-faq-publisher-guide.yml#what-could-block-a-customer-from-completing-a-purchase-).
 * **Proposals from Microsoft** – A proposal is a formal offer from Microsoft for your organization to buy Microsoft products and services. When the person who is accepting the proposal doesn’t have a Global Administrator or Billing Administrator role in Azure AD, they are assigned both a commerce-specific role to complete the proposal and the Modern Commerce User role to access admin center. When they access the admin center they can only use features that are authorized by their commerce-specific role.
 * **Commerce-specific roles** – Some users are assigned commerce-specific roles. If a user isn't a Global Administrator or Billing Administrator, they get the Modern Commerce User role so they can access the admin center.
@@ -1566,12 +1724,28 @@ Users in this role can manage Microsoft 365 apps' cloud settings. This includes 
 > | microsoft.office365.userCommunication/allEntities/allTasks | Read and update what's new messages visibility |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
+## Organizational Messages Writer
+
+Assign the Organizational Messages Writer role to users who need to do the following tasks:
+
+- Write, publish, and delete organizational messages using Microsoft 365 admin center or Microsoft Intune
+- Manage organizational message delivery options using Microsoft 365 admin center or Microsoft Intune
+- Read organizational message delivery results using Microsoft 365 admin center or Microsoft Intune
+- View usage reports and most settings in the Microsoft 365 admin center, but can't make changes
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.office365.organizationalMessages/allEntities/allProperties/allTasks | Manage all authoring aspects of Microsoft 365 Organizational Messages |
+> | microsoft.office365.usageReports/allEntities/standard/read | Read tenant-level aggregated Office 365 usage reports |
+> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+
 ## Partner Tier1 Support
 
 Do not use. This role has been deprecated and will be removed from Azure AD in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
 
 > [!IMPORTANT]
-> This role can reset passwords and invalidate refresh tokens for only non-administrators. This role should not be used as it is deprecated and it will no longer be returned in API.
+> This role can reset passwords and invalidate refresh tokens for only non-administrators. This role should not be used because it is deprecated.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1621,7 +1795,7 @@ Do not use. This role has been deprecated and will be removed from Azure AD in t
 Do not use. This role has been deprecated and will be removed from Azure AD in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
 
 > [!IMPORTANT]
-> This role can reset passwords and invalidate refresh tokens for all non-administrators and administrators (including Global Administrators). This role should not be used as it is deprecated and it will no longer be returned in API.
+> This role can reset passwords and invalidate refresh tokens for all non-administrators and administrators (including Global Administrators). This role should not be used because it is deprecated.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1676,7 +1850,9 @@ Do not use. This role has been deprecated and will be removed from Azure AD in t
 
 Users with this role have limited ability to manage passwords. This role does not grant the ability to manage service requests or monitor service health. Whether a Password Administrator can reset a user's password depends on the role the user is assigned. For a list of the roles that a Password Administrator can reset passwords for, see [Who can reset passwords](#who-can-reset-passwords).
 
-Users with this role can't change the credentials or reset MFA for members and owners of a [role-assignable group](groups-concept.md).
+Users with this role **cannot** do the following:
+
+- Cannot change the credentials or reset MFA for members and owners of a [role-assignable group](groups-concept.md).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1684,22 +1860,18 @@ Users with this role can't change the credentials or reset MFA for members and o
 > | microsoft.directory/users/password/update | Reset passwords for all users |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
-## Power BI Administrator
+## Permissions Management Administrator
 
-Users with this role have global permissions within Microsoft Power BI, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Understanding the Power BI Administrator role](/power-bi/service-admin-role).
+Assign the Permissions Management Administrator role to users who need to do the following tasks:
 
-> [!NOTE]
-> In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Power BI Service Administrator ". It is "Power BI Administrator" in the [Azure portal](https://portal.azure.com).
+- Manage all aspects of Entra Permissions Management, when the service is present
+
+Learn more about Permissions Management roles and polices at [View information about roles/policies](../cloud-infrastructure-entitlement-management/how-to-view-role-policy.md).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
-> | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
-> | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
-> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
-> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
-> | microsoft.powerApps.powerBI/allEntities/allTasks | Manage all aspects of Power BI |
+> | microsoft.permissionsManagement/allEntities/allProperties/allTasks | Manage all aspects of Entra Permissions Management |
 
 ## Power Platform Administrator
 
@@ -1741,17 +1913,19 @@ Users with this role can register printers and manage printer status in the Micr
 
 ## Privileged Authentication Administrator
 
-Users with this role can set or reset any authentication method (including passwords) for any user, including Global Administrators. Privileged Authentication Administrators can force users to re-register against existing non-password credential (such as MFA or FIDO) and revoke 'remember MFA on the device', prompting for MFA on the next sign-in of all users. Privileged Authentication Administrators can update sensitive attributes for all users.
+Assign the Privileged Authentication Administrator role to users who need to do the following:
 
-The [Authentication Administrator](#authentication-administrator) role has permission to force re-registration and multifactor authentication for standard users and users with some admin roles.
+- Set or reset any authentication method (including passwords) for any user, including Global Administrators.
+- Delete or restore any users, including Global Administrators. For more information, see [Who can perform sensitive actions](#who-can-perform-sensitive-actions).
+- Force users to re-register against existing non-password credential (such as MFA or FIDO) and revoke **remember MFA on the device**, prompting for MFA on the next sign-in of all users.
+- Update sensitive properties for all users. For more information, see [Who can perform sensitive actions](#who-can-perform-sensitive-actions).
+- Create and manage support tickets in Azure and the Microsoft 365 admin center.
 
-The [Authentication Policy Administrator](#authentication-policy-administrator) role has permissions to set the tenant's authentication method policy that determines which methods each user can register and use.
+Users with this role **cannot** do the following:
 
-| Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy | Update sensitive attributes |
-| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| Authentication Administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No | Yes for some users (see above) |
-| Privileged Authentication Administrator| Yes for all users | Yes for all users | No | No | No | Yes for all users |
-| Authentication Policy Administrator | No | No | Yes | Yes | Yes | No |
+- Cannot manage per-user MFA in the legacy MFA management portal. The same functions can be accomplished using the [Set-MsolUser](/powershell/module/msonline/set-msoluser) commandlet Azure AD PowerShell module.
+
+[!INCLUDE [authentication-table-include](./includes/authentication-table-include.md)]
 
 > [!IMPORTANT]
 > Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -1759,12 +1933,8 @@ The [Authentication Policy Administrator](#authentication-policy-administrator) 
 >* Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Authentication Administrators. Through this path an Authentication Administrator can assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
 >* Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
 >* Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
->* Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
+>* Administrators in other services outside of Azure AD like Exchange Online, Microsoft 365 Defender portal, and Microsoft Purview compliance portal, and human resources systems.
 >* Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
-
-
-> [!IMPORTANT]
-> This role is not currently capable of managing per-user MFA in the legacy MFA management portal. The same functions can be accomplished using the [Set-MsolUser](/powershell/module/msonline/set-msoluser) commandlet Azure AD PowerShell module.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1780,6 +1950,7 @@ The [Authentication Policy Administrator](#authentication-policy-administrator) 
 > | microsoft.directory/users/invalidateAllRefreshTokens | Force sign-out by invalidating user refresh tokens |
 > | microsoft.directory/users/restore | Restore deleted users |
 > | microsoft.directory/users/basic/update | Update basic properties on users |
+> | microsoft.directory/users/authorizationInfo/update | Update the multivalued Certificate user IDs property of users |
 > | microsoft.directory/users/manager/update | Update manager for users |
 > | microsoft.directory/users/password/update | Reset passwords for all users |
 > | microsoft.directory/users/userPrincipalName/update | Update User Principal Name of users |
@@ -1824,12 +1995,12 @@ Users with this role can manage role assignments in Azure Active Directory, as w
 
 ## Reports Reader
 
-Users with this role can view usage reporting data and the reports dashboard in Microsoft 365 admin center and the adoption context pack in Power BI. Additionally, the role provides access to all sign-in logs, audit logs, and activity reports in Azure AD and data returned by the Microsoft Graph reporting API. A user assigned to the Reports Reader role can access only relevant usage and adoption metrics. They don't have any admin permissions to configure settings or access the product-specific admin centers like Exchange. This role has no access to view, create, or manage support tickets.
+Users with this role can view usage reporting data and the reports dashboard in Microsoft 365 admin center and the adoption context pack in Fabric and Power BI. Additionally, the role provides access to all sign-in logs, audit logs, and activity reports in Azure AD and data returned by the Microsoft Graph reporting API. A user assigned to the Reports Reader role can access only relevant usage and adoption metrics. They don't have any admin permissions to configure settings or access the product-specific admin centers like Exchange. This role has no access to view, create, or manage support tickets.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
+> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, excluding custom security attributes audit logs |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
@@ -1863,27 +2034,28 @@ Users in this role can create, manage, and delete content for Microsoft Search i
 
 ## Security Administrator
 
-Users with this role have permissions to manage security-related features in the Microsoft 365 Defender portal, Azure Active Directory Identity Protection, Azure Active Directory Authentication, Azure Information Protection, and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+Users with this role have permissions to manage security-related features in the Microsoft 365 Defender portal, Azure Active Directory Identity Protection, Azure Active Directory Authentication, Azure Information Protection, and Microsoft Purview compliance portal. For more information about Office 365 permissions, see [Roles and role groups in Microsoft Defender for Office 365 and Microsoft Purview compliance](/microsoft-365/security/office-365-security/scc-permissions).
 
 In | Can do
 --- | ---
-[Microsoft 365 security center](https://protection.office.com) | Monitor security-related policies across Microsoft 365 services<br>Manage security threats and alerts<br>View reports
-Identity Protection Center | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords
+[Microsoft 365 Defender portal](/microsoft-365/security/defender/microsoft-365-defender-portal) | Monitor security-related policies across Microsoft 365 services<br>Manage security threats and alerts<br>View reports
+[Identity Protection](../identity-protection/overview-identity-protection.md) | All permissions of the Security Reader role<br>Perform all Identity Protection operations except for resetting passwords
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) | All permissions of the Security Reader role<br>**Cannot** manage Azure AD role assignments or settings
-[Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage security policies<br>View, investigate, and respond to security threats<br>View reports
+[Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center) | Manage security policies<br>View, investigate, and respond to security threats<br>View reports
 Azure Advanced Threat Protection | Monitor and respond to suspicious security activity
 [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/prepare-deployment) | Assign roles<br>Manage machine groups<br>Configure endpoint threat detection and automated remediation<br>View, investigate, and respond to alerts<br/>View machines/device inventory
 [Intune](/intune/role-based-access-control) | Views user, device, enrollment, configuration, and application information<br>Cannot make changes to Intune
 [Microsoft Defender for Cloud Apps](/defender-cloud-apps/manage-admins) | Add admins, add policies and settings, upload logs and perform governance actions
-[Microsoft 365 service health](/office365/enterprise/view-service-health) | View the health of Microsoft 365 services
+[Microsoft 365 service health](/microsoft-365/enterprise/view-service-health) | View the health of Microsoft 365 services
 [Smart lockout](../authentication/howto-password-smart-lockout.md) | Define the threshold and duration for lockouts when failed sign-in events happen.
 [Password Protection](../authentication/concept-password-ban-bad.md) | Configure custom banned password list or on-premises password protection.
+[Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) | Configure cross-tenant access settings for users in another tenant. Security Administrators can't directly create and delete users, but can indirectly create and delete synchronized users from another tenant when both tenants are configured for cross-tenant synchronization, which is a privileged permission.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.directory/applications/policies/update | Update policies of applications |
-> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
+> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, excluding custom security attributes audit logs |
 > | microsoft.directory/authorizationPolicy/standard/read | Read standard properties of authorization policy |
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices |
 > | microsoft.directory/crossTenantAccessPolicy/standard/read | Read basic properties of cross-tenant access policy |
@@ -1901,6 +2073,12 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 > | microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update | Update tenant restrictions of cross-tenant access policy for partners |
+> | microsoft.directory/deviceLocalCredentials/standard/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, except the password |
+> | microsoft.directory/domains/federation/update | Update federation property of domains |
+> | microsoft.directory/domains/federationConfiguration/standard/read | Read standard properties of federation configuration for domains |
+> | microsoft.directory/domains/federationConfiguration/basic/update | Update basic federation configuration for domains |
+> | microsoft.directory/domains/federationConfiguration/create | Create federation configuration for domains |
+> | microsoft.directory/domains/federationConfiguration/delete | Delete federation configuration for domains |
 > | microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management |
 > | microsoft.directory/identityProtection/allProperties/read | Read all resources in Azure AD Identity Protection |
 > | microsoft.directory/identityProtection/allProperties/update | Update all resources in Azure AD Identity Protection |
@@ -1913,16 +2091,17 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 > | microsoft.directory/policies/basic/update | Update basic properties on policies |
 > | microsoft.directory/policies/owners/update | Update owners of policies |
 > | microsoft.directory/policies/tenantDefault/update | Update default organization policies |
-> | microsoft.directory/conditionalAccessPolicies/create | Create conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/delete | Delete conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/standard/read | Read conditional access for policies |
-> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/owners/update | Update owners for conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/tenantDefault/update | Update the default tenant for conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/create | Create Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/delete | Delete Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/standard/read | Read Conditional Access for policies |
+> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/owners/update | Update owners for Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/tenantDefault/update | Update the default tenant for Conditional Access policies |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in Privileged Identity Management |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
+> | microsoft.directory/resourceNamespaces/resourceActions/authenticationContext/update | Update Conditional Access authentication context of Microsoft 365 role-based access control (RBAC) resource actions |
 > | microsoft.directory/servicePrincipals/policies/update | Update policies of service principals |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
@@ -1930,7 +2109,7 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 > | microsoft.office365.protectionCenter/allEntities/standard/read | Read standard properties of all resources in the Security and Compliance centers |
 > | microsoft.office365.protectionCenter/allEntities/basic/update | Update basic properties of all resources in the Security and Compliance centers |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Create and manage attack payloads in Attack Simulator |
-> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation responses and associated training |
+> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation, responses, and associated training |
 > | microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/allTasks | Create and manage attack simulation templates in Attack Simulator |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
@@ -1938,15 +2117,15 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 
 ## Security Operator
 
-Users with this role can manage alerts and have global read-only access on security-related features, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Security & Compliance Center](/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
+Users with this role can manage alerts and have global read-only access on security-related features, including all information in Microsoft 365 Defender portal, Azure Active Directory, Identity Protection, Privileged Identity Management and Microsoft Purview compliance portal. For more information about Office 365 permissions, see [Roles and role groups in Microsoft Defender for Office 365 and Microsoft Purview compliance](/microsoft-365/security/office-365-security/scc-permissions).
 
 | In | Can do |
 | --- | --- |
-| [Microsoft 365 security center](https://protection.office.com) | All permissions of the Security Reader role<br/>View, investigate, and respond to security threats alerts<br/>Manage security settings in security center |
-| [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords and configuring alert e-mails. |
+| [Microsoft 365 Defender portal](/microsoft-365/security/defender/microsoft-365-defender-portal) | All permissions of the Security Reader role<br/>View, investigate, and respond to security threats alerts<br/>Manage security settings in Microsoft 365 Defender portal |
+| [Identity Protection](../identity-protection/overview-identity-protection.md) | All permissions of the Security Reader role<br>Perform all Identity Protection operations except for configuring or changing risk-based policies, resetting passwords, and configuring alert e-mails. |
 | [Privileged Identity Management](../privileged-identity-management/pim-configure.md) | All permissions of the Security Reader role |
-| [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts |
-| [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/prepare-deployment) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts |
+| [Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts |
+| [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/prepare-deployment) | All permissions of the Security Reader role<br/>View, investigate, and respond to security alerts<br/>When you turn on role-based access control in Microsoft Defender for Endpoint, users with read-only permissions such as the Security Reader role lose access until they are assigned a Microsoft Defender for Endpoint role. |
 | [Intune](/intune/role-based-access-control) | All permissions of the Security Reader role |
 | [Microsoft Defender for Cloud Apps](/defender-cloud-apps/manage-admins) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts |
 | [Microsoft 365 service health](/microsoft-365/enterprise/view-service-health) | View the health of Microsoft 365 services |
@@ -1954,7 +2133,7 @@ Users with this role can manage alerts and have global read-only access on secur
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
+> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, excluding custom security attributes audit logs |
 > | microsoft.directory/authorizationPolicy/standard/read | Read standard properties of authorization policy |
 > | microsoft.directory/cloudAppSecurity/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Microsoft Defender for Cloud Apps |
 > | microsoft.directory/identityProtection/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Azure AD Identity Protection |
@@ -1970,52 +2149,54 @@ Users with this role can manage alerts and have global read-only access on secur
 
 ## Security Reader
 
-Users with this role have global read-only access on security-related feature, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management, as well as the ability to read Azure Active Directory sign-in reports and audit logs, and in Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+Users with this role have global read-only access on security-related feature, including all information in Microsoft 365 Defender portal, Azure Active Directory, Identity Protection, Privileged Identity Management, as well as the ability to read Azure Active Directory sign-in reports and audit logs, and in Microsoft Purview compliance portal. For more information about Office 365 permissions, see [Roles and role groups in Microsoft Defender for Office 365 and Microsoft Purview compliance](/microsoft-365/security/office-365-security/scc-permissions).
 
 In | Can do
 --- | ---
-[Microsoft 365 security center](https://protection.office.com) | View security-related policies across Microsoft 365 services<br>View security threats and alerts<br>View reports
-Identity Protection Center | Read all security reports and settings information for security features<br><ul><li>Anti-spam<li>Encryption<li>Data loss prevention<li>Anti-malware<li>Advanced threat protection<li>Anti-phishing<li>Mail flow rules
+[Microsoft 365 Defender portal](/microsoft-365/security/defender/microsoft-365-defender-portal) | View security-related policies across Microsoft 365 services<br>View security threats and alerts<br>View reports
+[Identity Protection](../identity-protection/overview-identity-protection.md) | View all Identity Protection reports and Overview
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Has read-only access to all information surfaced in Azure AD Privileged Identity Management: Policies and reports for Azure AD role assignments and security reviews.<br>**Cannot** sign up for Azure AD Privileged Identity Management or make any changes to it. In the Privileged Identity Management portal or via PowerShell, someone in this role can activate additional roles (for example, Global Administrator or Privileged Role Administrator), if the user is eligible for them.
-[Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | View security policies<br>View and investigate security threats<br>View reports
-[Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/prepare-deployment) | View and investigate alerts. When you turn on role-based access control in Microsoft Defender for Endpoint, users with read-only permissions such as the Azure AD Security Reader role lose access until they are assigned to a Microsoft Defender for Endpoint role.
+[Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center) | View security policies<br>View and investigate security threats<br>View reports
+[Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/prepare-deployment) | View and investigate alerts<br/>When you turn on role-based access control in Microsoft Defender for Endpoint, users with read-only permissions such as the Security Reader role lose access until they are assigned a Microsoft Defender for Endpoint role.
 [Intune](/intune/role-based-access-control) | Views user, device, enrollment, configuration, and application information. Cannot make changes to Intune.
 [Microsoft Defender for Cloud Apps](/defender-cloud-apps/manage-admins) | Has read permissions.
-[Microsoft 365 service health](/office365/enterprise/view-service-health) | View the health of Microsoft 365 services
+[Microsoft 365 service health](/microsoft-365/enterprise/view-service-health) | View the health of Microsoft 365 services
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.directory/accessReviews/definitions/allProperties/read | Read all properties of access reviews of all reviewable resources in Azure AD |
-> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
+> | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, excluding custom security attributes audit logs |
 > | microsoft.directory/authorizationPolicy/standard/read | Read standard properties of authorization policy |
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices |
+> | microsoft.directory/deviceLocalCredentials/standard/read | Read all properties of the backed up local administrator account credentials for Azure AD joined devices, except the password |
+> | microsoft.directory/domains/federationConfiguration/standard/read | Read standard properties of federation configuration for domains |
 > | microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management |
 > | microsoft.directory/identityProtection/allProperties/read | Read all resources in Azure AD Identity Protection |
 > | microsoft.directory/namedLocations/standard/read | Read basic properties of custom rules that define network locations |
 > | microsoft.directory/policies/standard/read | Read basic properties on policies |
 > | microsoft.directory/policies/owners/read | Read owners of policies |
 > | microsoft.directory/policies/policyAppliedTo/read | Read policies.policyAppliedTo property |
-> | microsoft.directory/conditionalAccessPolicies/standard/read | Read conditional access for policies |
-> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of conditional access policies |
-> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/standard/read | Read Conditional Access for policies |
+> | microsoft.directory/conditionalAccessPolicies/owners/read | Read the owners of Conditional Access policies |
+> | microsoft.directory/conditionalAccessPolicies/policyAppliedTo/read | Read the "applied to" property for Conditional Access policies |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in Privileged Identity Management |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.office365.protectionCenter/allEntities/standard/read | Read standard properties of all resources in the Security and Compliance centers |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/read | Read all properties of attack payloads in Attack Simulator |
-> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation responses and associated training |
+> | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation, responses, and associated training |
 > | microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/read | Read all properties of attack simulation templates in Attack Simulator |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
 ## Service Support Administrator
 
-Users with this role can create and manage support requests with Microsoft for Azure and Microsoft 365 services, and view the service dashboard and message center in the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role can create and manage support requests with Microsoft for Azure and Microsoft 365 services, and view the service dashboard and message center in the [Azure portal](../../azure-portal/azure-portal-overview.md) and [Microsoft 365 admin center](/microsoft-365/admin/admin-overview/admin-center-overview). For more information, see [About admin roles in the Microsoft 365 admin center](/microsoft-365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
-> Previously, this role was called "Service Administrator" in [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). We have renamed it to "Service Support Administrator" to align with the existing name in Microsoft Graph API and Azure AD PowerShell.
+> This role was previously named Service Administrator in the [Azure portal](../../azure-portal/azure-portal-overview.md) and [Microsoft 365 admin center](/microsoft-365/admin/admin-overview/admin-center-overview). It was renamed to Service Support Administrator to align with the existing name in the Microsoft Graph API and Azure AD PowerShell.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2029,10 +2210,10 @@ Users with this role can create and manage support requests with Microsoft for A
 
 ## SharePoint Administrator
 
-Users with this role have global permissions within Microsoft SharePoint Online, when the service is present, as well as the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health. More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role have global permissions within Microsoft SharePoint Online, when the service is present, as well as the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health. For more information, see [About admin roles in the Microsoft 365 admin center](/microsoft-365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
-> In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "SharePoint Service Administrator." It is "SharePoint Administrator" in the [Azure portal](https://portal.azure.com).
+> In the Microsoft Graph API and Azure AD PowerShell, this role is named SharePoint Service Administrator. In the [Azure portal](../../azure-portal/azure-portal-overview.md), it is named SharePoint Administrator.
 
 > [!NOTE]
 > This role also grants scoped permissions to the Microsoft Graph API for Microsoft Intune, allowing the management and configuration of policies related to SharePoint and OneDrive resources.
@@ -2040,6 +2221,7 @@ Users with this role have global permissions within Microsoft SharePoint Online,
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | microsoft.directory/groups/hiddenMembers/read | Read hidden members of Security groups and Microsoft 365 groups, including role-assignable groups |
 > | microsoft.directory/groups.unified/create | Create Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups.unified/delete | Delete Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups.unified/restore | Restore Microsoft 365 groups from soft-deleted container, excluding role-assignable groups |
@@ -2057,10 +2239,10 @@ Users with this role have global permissions within Microsoft SharePoint Online,
 
 ## Skype for Business Administrator
 
-Users with this role have global permissions within Microsoft Skype for Business, when the service is present, as well as manage Skype-specific user attributes in Azure Active Directory. Additionally, this role grants the ability to manage support tickets and monitor service health, and to access the Teams and Skype for Business admin center. The account must also be licensed for Teams or it can't run Teams PowerShell cmdlets. More information at [About the Skype for Business admin role](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) and Teams licensing information at [Skype for Business and Microsoft Teams add-on licensing](/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
+Users with this role have global permissions within Microsoft Skype for Business, when the service is present, as well as manage Skype-specific user attributes in Azure Active Directory. Additionally, this role grants the ability to manage support tickets and monitor service health, and to access the Teams and Skype for Business admin center. The account must also be licensed for Teams or it can't run Teams PowerShell cmdlets. For more information, see [Skype for Business Online Admin](/skypeforbusiness/skype-for-business-online) and Teams licensing information at [Skype for Business add-on licensing](/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing).
 
 > [!NOTE]
-> In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Lync Service Administrator." It is "Skype for Business Administrator" in the [Azure portal](https://portal.azure.com/).
+> In the Microsoft Graph API and Azure AD PowerShell, this role is named Lync Service Administrator. In the [Azure portal](../../azure-portal/azure-portal-overview.md), it is named Skype for Business Administrator.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2099,19 +2281,18 @@ Users in this role can manage all aspects of the Microsoft Teams workload via th
 > | microsoft.teams/allEntities/allProperties/allTasks | Manage all resources in Teams |
 > | microsoft.directory/crossTenantAccessPolicy/standard/read | Read basic properties of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/allowedCloudEndpoints/update | Update allowed cloud endpoints of cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/basic/update | Update basic settings of cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/default/standard/read | Read basic properties of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/b2bCollaboration/update | Update Azure AD B2B collaboration settings of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of the default cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/default/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/tenantRestrictions/update | Update tenant restrictions of the default cross-tenant access policy |
 > | microsoft.directory/crossTenantAccessPolicy/partners/create | Create cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/delete | Delete cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/standard/read | Read basic properties of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/b2bCollaboration/update | Update Azure AD B2B collaboration settings of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of cross-tenant access policy for partners |
 > | microsoft.directory/crossTenantAccessPolicy/partners/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update | Update tenant restrictions of cross-tenant access policy for partners |
+> | microsoft.directory/pendingExternalUserProfiles/create | Create external user profiles in the extended directory for Teams |
+> | microsoft.directory/pendingExternalUserProfiles/standard/read | Read standard properties of external user profiles in the extended directory for Teams |
+> | microsoft.directory/pendingExternalUserProfiles/basic/update | Update basic properties of external user profiles in the extended directory for Teams |
+> | microsoft.directory/pendingExternalUserProfiles/delete | Delete external user profiles in the extended directory for Teams |
+> | microsoft.directory/externalUserProfiles/standard/read | Read standard properties of external user profiles in the extended directory for Teams |
+> | microsoft.directory/externalUserProfiles/basic/update | Update basic properties of external user profiles in the extended directory for Teams |
+> | microsoft.directory/externalUserProfiles/delete | Delete external user profiles in the extended directory for Teams |
 
 ## Teams Communications Administrator
 
@@ -2162,13 +2343,25 @@ Users in this role can troubleshoot communication issues within Microsoft Teams 
 
 ## Teams Devices Administrator
 
-Users with this role can manage [Teams-certified devices](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) from the Teams admin center. This role allows viewing all devices at single glance, with ability to search and filter devices. The user can check details of each device including logged-in account, make and model of the device. The user can change the settings on the device and update the software versions. This role does not grant permissions to check Teams activity and call quality of the device.
+Users with this role can manage [Teams-certified devices](https://www.microsoft.com/microsoft-teams/across-devices/devices) from the Teams admin center. This role allows viewing all devices at single glance, with ability to search and filter devices. The user can check details of each device including logged-in account, make and model of the device. The user can change the settings on the device and update the software versions. This role does not grant permissions to check Teams activity and call quality of the device.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 > | microsoft.teams/devices/standard/read | Manage all aspects of Teams-certified devices including configuration policies |
+
+## Tenant Creator
+
+Assign the Tenant Creator role to users who need to do the following tasks:
+-	Create both Azure Active Directory and Azure Active Directory B2C tenants even if the tenant creation toggle is turned off in the user settings
+> [!NOTE]
+>The tenant creators will be assigned the Global administrator role on the new tenants they create.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/tenantManagement/tenants/create | Create new tenants in Azure Active Directory |
 
 ## Usage Summary Reports Reader
 
@@ -2183,15 +2376,30 @@ Users with this role can access tenant level aggregated data and associated insi
 
 ## User Administrator
 
-Users with this role can create users, and manage all aspects of users with some restrictions (see the table), and can update password expiration policies. Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health. User Administrators don't have permission to manage some user properties for users in most administrator roles. Admins with this role do not have permissions to manage MFA or manage shared mailboxes. The roles that are exceptions to this restriction are listed in the following table.
+Assign the User Administrator role to users who need to do the following:
 
-| User Administrator permission | Notes |
+| Permission | More information |
 | --- | --- |
-| Create users and groups<br/>Create and manage user views<br/>Manage Office support tickets<br/>Update password expiration policies |  |
-| Manage licenses<br/>Manage all user properties except User Principal Name | Applies to all users, including all admins |
-| Delete and restore<br/>Disable and enable<br/>Manage all user properties including User Principal Name<br/>Update (FIDO) device keys | Applies to users who are non-admins or in any of the following roles:<ul><li>Helpdesk Administrator</li><li>User with no role</li><li>User Administrator</li></ul> |
-| Invalidate refresh Tokens<br/>Reset password | For a list of the roles that a User Administrator can reset passwords for and invalidate refresh tokens, see [Who can reset passwords](#who-can-reset-passwords). |
-| Update sensitive attributes | For a list of the roles that a User Administrator can update sensitive attributes for, see [Who can update sensitive attributes](#who-can-update-sensitive-attributes). |
+| Create users |  |
+| Update most user properties for all users, including all administrators | [Who can perform sensitive actions](#who-can-perform-sensitive-actions) |
+| Update sensitive properties (including user principal name) for some users | [Who can perform sensitive actions](#who-can-perform-sensitive-actions) |
+| Disable or enable some users | [Who can perform sensitive actions](#who-can-perform-sensitive-actions) |
+| Delete or restore some users | [Who can perform sensitive actions](#who-can-perform-sensitive-actions) |
+| Create and manage user views |  |
+| Create and manage all groups |  |
+| Assign and read licenses for all users, including all administrators |  |
+| Reset passwords | [Who can reset passwords](#who-can-reset-passwords) |
+| Invalidate refresh tokens | [Who can reset passwords](#who-can-reset-passwords) |
+| Update (FIDO) device keys |  |
+| Update password expiration policies |  |
+| Create and manage support tickets in Azure and the Microsoft 365 admin center |  |
+| Monitor service health |  |
+
+Users with this role **cannot** do the following:
+
+- Cannot manage MFA.
+- Cannot change the credentials or reset MFA for members and owners of a [role-assignable group](groups-concept.md).
+- Cannot manage shared mailboxes.
 
 > [!IMPORTANT]
 > Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -2199,10 +2407,8 @@ Users with this role can create users, and manage all aspects of users with some
 >- Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to User Administrators. Through this path a User Administrator may be able to assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
 >- Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
 >- Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
->- Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
+>- Administrators in other services outside of Azure AD like Exchange Online, Microsoft 365 Defender portal, Microsoft Purview compliance portal, and human resources systems.
 >- Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
-
-Users with this role can't change the credentials or reset MFA for members and owners of a [role-assignable group](groups-concept.md).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2251,6 +2457,8 @@ Users with this role can't change the credentials or reset MFA for members and o
 > | microsoft.directory/users/manager/update | Update manager for users |
 > | microsoft.directory/users/password/update | Reset passwords for all users |
 > | microsoft.directory/users/photo/update | Update photo of users |
+> | microsoft.directory/users/sponsors/update | Update sponsors of users |
+> | microsoft.directory/users/usageLocation/update | Update usage location of users |
 > | microsoft.directory/users/userPrincipalName/update | Update User Principal Name of users |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
@@ -2263,7 +2471,7 @@ Users with this role can't change the credentials or reset MFA for members and o
 Users with this role can do the following tasks:
 
 - Manage and configure all aspects of Virtual Visits in Bookings in the Microsoft 365 admin center, and in the Teams EHR connector
-- View usage reports for Virtual Visits in the Teams admin center, Microsoft 365 admin center, and PowerBI
+- View usage reports for Virtual Visits in the Teams admin center, Microsoft 365 admin center, Fabric, and Power BI
 - View features and settings in the Microsoft 365 admin center, but can't edit any settings
 
 Virtual Visits are a simple way to schedule and manage online and video appointments for staff and attendees. For example, usage reporting can show how sending SMS text messages before appointments can reduce the number of people who don't show up for appointments.
@@ -2274,6 +2482,47 @@ Virtual Visits are a simple way to schedule and manage online and video appointm
 > | microsoft.virtualVisits/allEntities/allProperties/allTasks | Manage and share Virtual Visits information and metrics from admin centers or the Virtual Visits app |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
+## Viva Goals Administrator
+
+Assign the Viva Goals Administrator role to users who need to do the following tasks:
+
+- Manage and configure all aspects of the Microsoft Viva Goals application
+- Configure Microsoft Viva Goals admin settings
+- Read Azure AD tenant information
+- Monitor Microsoft 365 service health
+- Create and manage Microsoft 365 service requests
+
+For more information, see [Roles and permissions in Viva Goals](/viva/goals/roles-permissions-in-viva-goals) and [Introduction to Microsoft Viva Goals](/viva/goals/intro-to-ms-viva-goals).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
+> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+
+## Viva Pulse Administrator
+
+Assign the Viva Pulse Administrator role to users who need to do the following tasks:
+
+- Read and configure all settings of Viva Pulse
+- Read basic properties on all resources in the Microsoft 365 admin center
+- Read and configure Azure Service Health
+- Create and manage Azure support tickets
+- Read messages in Message Center in the Microsoft 365 admin center, excluding security messages
+- Read usage reports in the Microsoft 365 admin center
+
+For more information, see [Assign a Viva Pulse admin in the Microsoft 365 admin center](/viva/pulse/setup-admin-access/assign-a-viva-pulse-admin-in-m365-admin-center).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
+> | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
+> | microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports |
+> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+> | microsoft.viva.pulse/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Viva Pulse |
+
 ## Windows 365 Administrator
 
 Users with this role have global permissions on Windows 365 resources, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups.
@@ -2282,16 +2531,18 @@ This role can create and manage security groups, but does not have administrator
 
 Assign the Windows 365 Administrator role to users who need to do the following tasks:
 
-- Manage Windows 365 Cloud PCs in Microsoft Endpoint Manager
+- Manage Windows 365 Cloud PCs in Microsoft Intune
 - Enroll and manage devices in Azure AD, including assigning users and policies
 - Create and manage security groups, but not role-assignable groups
 - View basic properties in the Microsoft 365 admin center
 - Read usage reports in the Microsoft 365 admin center
-- Create and manage support tickets in Azure AD and the Microsoft 365 admin center
+- Create and manage support tickets in Azure and the Microsoft 365 admin center
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | microsoft.directory/deletedItems.devices/delete | Permanently delete devices, which can no longer be restored |
+> | microsoft.directory/deletedItems.devices/restore | Restore soft deleted devices to original state |
 > | microsoft.directory/devices/create | Create devices (enroll in Azure AD) |
 > | microsoft.directory/devices/delete | Delete devices from Azure AD |
 > | microsoft.directory/devices/disable | Disable devices in Azure AD |
@@ -2339,7 +2590,7 @@ Assign the Yammer Administrator role to users who need to do the following tasks
 - View announcements in the Message center, but not security announcements
 - View service health
 
-[Learn more](/yammer/manage-yammer-users/manage-yammer-admins)
+[Learn more](/Viva/engage/eac-key-admin-roles-permissions)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2407,7 +2658,7 @@ Workplace Device Join | Deprecated | [Deprecated roles documentation](#deprecate
 
 ## Who can reset passwords
 
-In the following table, the columns list the roles that can reset passwords. The rows list the roles for which their password can be reset.
+In the following table, the columns list the roles that can reset passwords and invalidate refresh tokens. The rows list the roles for which their password can be reset.
 
 The following table is for roles assigned at the scope of a tenant. For roles assigned at the scope of an administrative unit, [further restrictions apply](admin-units-assign-roles.md#roles-that-can-be-assigned-with-administrative-unit-scope).
 
@@ -2425,35 +2676,40 @@ Privileged Auth Admin | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: |
 Privileged Role Admin | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
 Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 User<br/>(no admin role) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-User<br/>(no admin role, but member or owner of a role-assignable group) | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+User<br/>(no admin role, but member or owner of a [role-assignable group](groups-concept.md)) | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+User with a role scoped to a [restricted management administrative unit](./admin-units-restricted-management.md) | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
 User Admin | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Usage Summary Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+All custom roles |  |  |  |  | :heavy_check_mark: | :heavy_check_mark:
 
-\* A Global Administrator cannot remove their own Global Administrator assignment. This is to prevent a situation where an organization has 0 Global Administrators.
+> [!IMPORTANT]
+> The [Partner Tier2 Support](#partner-tier2-support) role can reset passwords and invalidate refresh tokens for all non-administrators and administrators (including Global Administrators). The [Partner Tier1 Support](#partner-tier1-support) role can reset passwords and invalidate refresh tokens for only non-administrators. These roles should not be used because they are deprecated.
 
-> [!NOTE]
-> The ability to reset a password includes the ability to update the following sensitive attributes required for [self-service password reset](../authentication/concept-sspr-howitworks.md):
-> - businessPhones
-> - mobilePhone
-> - otherMails
-
-## Who can update sensitive attributes
-
-Some administrators can update the following sensitive attributes for some users. All users can read these sensitive attributes.
-
-- accountEnabled
+The ability to reset a password includes the ability to update the following sensitive properties required for [self-service password reset](../authentication/concept-sspr-howitworks.md):
 - businessPhones
 - mobilePhone
-- onPremisesImmutableId
 - otherMails
-- passwordProfile
-- userPrincipalName
 
-In the following table, the columns list the roles that can update the sensitive attributes. The rows list the roles for which their sensitive attributes can be updated.
+## Who can perform sensitive actions
+
+Some administrators can perform the following sensitive actions for some users. All users can read the sensitive properties.
+
+| Sensitive action | Sensitive property name |
+| --- | --- |
+| Disable or enable users | `accountEnabled` |
+| Update business phone | `businessPhones` |
+| Update mobile phone | `mobilePhone` |
+| Update on-premises immutable ID | `onPremisesImmutableId` |
+| Update other emails | `otherMails` |
+| Update password profile | `passwordProfile` |
+| Update user principal name | `userPrincipalName` |
+| Delete or restore users | Not applicable |
+
+In the following table, the columns list the roles that can perform sensitive actions. The rows list the roles for which the sensitive action can be performed upon.
 
 The following table is for roles assigned at the scope of a tenant. For roles assigned at the scope of an administrative unit, [further restrictions apply](admin-units-assign-roles.md#roles-that-can-be-assigned-with-administrative-unit-scope).
 
-Role that sensitive attributes can be updated | Auth Admin | User Admin | Privileged Auth Admin | Global Admin
+Role that sensitive action can be performed upon | Auth Admin | User Admin | Privileged Auth Admin | Global Admin
 ------ | ------ | ------ | ------ | ------
 Auth Admin | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
 Directory Readers | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
@@ -2467,9 +2723,11 @@ Privileged Auth Admin | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark
 Privileged Role Admin | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
 Reports Reader | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 User<br/>(no admin role) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-User<br/>(no admin role, but member or owner of a role-assignable group) | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+User<br/>(no admin role, but member or owner of a [role-assignable group](groups-concept.md)) | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+User with a role scoped to a [restricted management administrative unit](./admin-units-restricted-management.md) | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
 User Admin | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Usage Summary Reports Reader | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+All custom roles |  |  | :heavy_check_mark: | :heavy_check_mark:
 
 ## Next steps
 

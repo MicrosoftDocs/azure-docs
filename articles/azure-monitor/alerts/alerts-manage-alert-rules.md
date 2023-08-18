@@ -4,7 +4,8 @@ description: Manage your alert rules in the Azure portal, or using the CLI or Po
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.custom: devx-track-azurecli
+ms.date: 03/05/2023
 ms.reviewer: harelbr
 ---
 # Manage your alert rules
@@ -14,9 +15,36 @@ Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 ## Manage alert rules in the Azure portal
 
 1. In the [portal](https://portal.azure.com/), select **Monitor**, then **Alerts**.
-1. From the top command bar, select **Alert rules**. You'll see all of your alert rules across subscriptions. You can filter the list of rules using the available filters: **Resource group**, **Resource type**, **Resource** and **Signal type**.
-1. Select the alert rule that you want to edit. You can select multiple alert rules and enable or disable them. Multi-selecting rules can be useful when you want to perform maintenance on specific resources.
-1. Edit any of the fields in the following sections. You can't edit the **Alert Rule Name**, **Scope**, or **Signal type** of an existing alert rule.
+1. From the top command bar, select **Alert rules**. The page shows all your alert rules on all subscriptions.
+
+    :::image type="content" source="media/alerts-managing-alert-instances/alerts-rules-page.png" alt-text="Screenshot of alerts rules page.":::
+
+1. You can filter the list of rules using the available filters:
+    - Subscription
+    - Alert condition
+    - Severity
+    - User response
+    - Monitor service
+    - Signal type
+    - Resource group
+    - Target resource type
+    - Resource name
+    - Suppression status
+
+    > [!NOTE]
+    > If you filter on a `target resource type` scope, the alerts rules list doesn’t include resource health alert rules. To see the resource health alert rules, remove the `Target resource type` filter, or filter the rules based on the `Resource group` or `Subscription`.
+
+1. Select an alert rule or use the checkboxes on the left to select multiple alert rules. 
+1. If you select multiple alert rules, you can enable or disable the selected rules. Selecting multiple rules can be useful when you want to perform maintenance on specific resources. 
+1. If you select a single alert rule, you can edit, disable, duplicate, or delete the rule in the alert rule pane.
+
+    :::image type="content" source="media/alerts-managing-alert-instances/alerts-rules-pane.png" alt-text="Screenshot of alerts rules pane.":::
+
+1. To edit an alert rule, select **Edit**, and then edit any of the fields in the following sections. You can't edit the **Alert Rule Name**, or the **Signal type** of an existing alert rule.
+    - **Scope**. You can edit the scope for all alert rules **other than**:
+        - Log alert rules
+        - Metric alert rules that monitor a custom metric
+        - Smart detection alert rules
     - **Condition**. Learn more about conditions for [metric alert rules](./alerts-create-new-alert-rule.md?tabs=metric#tabpanel_1_metric), [log alert rules](./alerts-create-new-alert-rule.md?tabs=log#tabpanel_1_log), and [activity log alert rules](./alerts-create-new-alert-rule.md?tabs=activity-log#tabpanel_1_activity-log)
     - **Actions**
     - **Alert rule details**
@@ -25,69 +53,48 @@ Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 > [!NOTE]
 > This section describes how to manage alert rules created in the latest UI or using an API version later than `2018-04-16`. See [View and manage log alert rules created in previous versions](alerts-manage-alerts-previous-version.md) for information about how to view and manage log alert rules created in the previous UI.
 
-## Enable recommended alert rules in the Azure portal (preview)
-
-> [!NOTE]
-> The alert rule recommendations feature is currently in preview and is only enabled for VMs.
+## Enable recommended alert rules in the Azure portal
 
 If you don't have alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can [create a new alert rule](alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal), or enable recommended out-of-the-box alert rules in the Azure portal.
-
-:::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-alert-rules.jpg" alt-text="Screenshot of alerts page with link to recommended alert rules.":::
 
 The system compiles a list of recommended alert rules based on:
 - The resource provider’s knowledge of important signals and thresholds for monitoring the resource.
 - Telemetry that tells us what customers commonly alert on for this resource.
+
+> [!NOTE]
+> The alert rule recommendations feature is enabled for:
+> - Virtual machines
+> - AKS resources
+> - Log Analytics workspaces
+
+:::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-alert-rules.jpg" alt-text="Screenshot of alerts page with link to recommended alert rules.":::
 
 To enable recommended alert rules:
 
 1. On the **Alerts** page, select **Enable recommended alert rules**. The **Enable recommended alert rules** pane opens with a list of recommended alert rules based on your type of resource.  
 1. In the **Alert me if** section, select all of the rules you want to enable. The rules are populated with the default values for the rule condition, such as the percentage of CPU usage that you want to trigger an alert. You can change the default values if you would like.
 1. In the **Notify me by** section, select the way you want to be notified if an alert is fired.
+1. Select **Use an existing action group**, and enter the details of the existing action group if you want to use an action group that already exists.
 1. Select **Enable**.
 
-:::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-rule-pane.jpg" alt-text="Screenshot of recommended alert rules pane."::: 
+    :::image type="content" source="media/alerts-managing-alert-instances/alerts-enable-recommended-alert-rule-pane.png" alt-text="Screenshot of recommended alert rules pane."::: 
 
 ## Manage metric alert rules with the Azure CLI
 
-This section describes how to do manage metric alert rules using the cross-platform [Azure CLI](/cli/azure/get-started-with-azure-cli). The following examples use [Azure Cloud Shell](../../cloud-shell/overview.md). 
+This section describes how to manage metric alert rules using the cross-platform [Azure CLI](/cli/azure/get-started-with-azure-cli). The following examples use [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
 1. In the [portal](https://portal.azure.com/), select **Cloud Shell**.
+1. Use these options of the `az monitor metrics alert` CLI command in this table:
 
-You can use commands with ``--help`` option to learn more about the command and how to use it. For example, the following command shows you the list of commands available for creating, viewing, and managing metric alerts.
-
-```azurecli
-az monitor metrics alert --help
-```
-
-### View all the metric alerts in a resource group
-
-```azurecli
-az monitor metrics alert list  -g {ResourceGroup}
-```
-
-### See the details of a particular metric alert rule
-
-Use the name or the resource ID of the rule in the following commands:
-
-```azurecli
-az monitor metrics alert show -g {ResourceGroup} -n {AlertRuleName}
-```
-
-```azurecli
-az monitor metrics alert show --ids {RuleResourceId}
-```
-
-### Disable a metric alert rule
-
-```azurecli
-az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
-```
-
-### Delete a metric alert rule
-
-```azurecli
-az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
-```
+    
+    |What you want to do|CLI command  |
+    |---------|---------|
+    |View all the metric alerts in a resource group|`az monitor metrics alert list -g {ResourceGroup}`|
+    |See the details of a metric alert rule|`az monitor metrics alert show -g {ResourceGroup} -n {AlertRuleName}`|
+    |     |`az monitor metrics alert show --ids {RuleResourceId}`|
+    |Disable a metric alert rule|`az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false`|
+    |Delete a metric alert rule|`az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}`|
+    |Learn more about the command|`az monitor metrics alert --help`|
 
 ## Manage metric alert rules with PowerShell
 
@@ -115,41 +122,17 @@ This section describes how to manage log alerts using the cross-platform [Azure 
 
 
 1. In the [portal](https://portal.azure.com/), select **Cloud Shell**.
+1. Use these options of the `az monitor scheduled-query alert` CLI command in this table:
 
-You can use commands with ``--help`` option to learn more about the command and how to use it. For example, the following command shows you the list of commands available for creating, viewing, and managing log alerts.
-
-```azurecli
-az monitor scheduled-query --help
-```
-
-### View all the log alert rules in a resource group
-
-```azurecli
-az monitor scheduled-query list -g {ResourceGroup}
-```
-
-### See the details of a log alert rule
-
-Use the name or the resource ID of the rule in the following command:
-
-```azurecli
-az monitor scheduled-query show -g {ResourceGroup} -n {AlertRuleName}
-```
-```azurecli
-az monitor scheduled-query show --ids {RuleResourceId}
-```
-
-### Disable a log alert rule
-
-```azurecli
-az monitor scheduled-query update -g {ResourceGroup} -n {AlertRuleName} --disabled true
-```
-
-### Delete a log alert rule
-
-```azurecli
-az monitor scheduled-query delete -g {ResourceGroup} -n {AlertRuleName}
-```
+    
+    |What you want to do|CLI command  |
+    |---------|---------|
+    |View all the log alert rules in a resource group|`az monitor scheduled-query list -g {ResourceGroup}`|
+    |See the details of a log alert rule|`az monitor scheduled-query show -g {ResourceGroup} -n {AlertRuleName}`|
+    |     |`az monitor scheduled-query show --ids {RuleResourceId}`|
+    |Disable a log alert rule|`az monitor scheduled-query update -g {ResourceGroup} -n {AlertRuleName} --disabled true`|
+    |Delete a log alert rule|`az monitor scheduled-query delete -g {ResourceGroup} -n {AlertRuleName}`|
+    |Learn more about the command|`az monitor scheduled-query --help`|
 
 ### Manage log alert rules using the Azure Resource Manager CLI with [templates](./alerts-log-create-templates.md)
 
@@ -164,6 +147,10 @@ az deployment group create \
 
 A 201 response is returned on successful creation. 200 is returned on successful updates.
 
+## Manage log alert rules with PowerShell
+
+Log alert rules have this dedicated PowerShell cmdlet:
+- [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule): Creates a new log alert rule or updates an existing log alert rule.
 ## Manage activity log alert rules using PowerShell
 
 Activity log alerts have these dedicated PowerShell cmdlets:

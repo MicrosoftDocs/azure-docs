@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Jive for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Jive for automatic user provisioning with Azure Active Directory'
 description: Learn the steps you need to perform in Jive and Azure AD to automatically provision and de-provision user accounts from Azure AD to Jive.
 services: active-directory
 author: jeevansd
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/26/2018
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Configure Jive for automatic user provisioning
@@ -42,7 +42,7 @@ Before configuring and enabling the provisioning service, you need to decide wha
 This section guides you through connecting your Azure AD to Jive's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Jive based on user and group assignment in Azure AD.
 
 > [!TIP]
-> You may also choose to enabled SAML-based Single Sign-On for Jive, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+> You may also choose to enabled SAML-based Single Sign-On for Jive, following the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 ### To configure user account provisioning:
 
@@ -61,11 +61,11 @@ As part of this procedure, you are required to provide a user security token you
 
 1. Under the **Admin Credentials** section, provide the following configuration settings:
    
-    a. In the **Jive Admin User Name** textbox, type a Jive account name that has the **System Administrator** profile in Jive.com assigned.
+    1. In the **Jive Admin User Name** textbox, type a Jive account name that has the **System Administrator** profile in Jive.com assigned.
    
-    b. In the **Jive Admin Password** textbox, type the password for this account.
+    1. In the **Jive Admin Password** textbox, type the password for this account.
    
-    c. In the **Jive Tenant URL** textbox, type the Jive tenant URL.
+    1. In the **Jive Tenant URL** textbox, type the Jive tenant URL.
       
       > [!NOTE]
       > The Jive tenant URL is URL that is used by your organization to log in to Jive.  

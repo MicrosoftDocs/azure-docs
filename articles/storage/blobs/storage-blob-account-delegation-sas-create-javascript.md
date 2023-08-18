@@ -2,14 +2,12 @@
 title: Create account SAS tokens - JavaScript
 titleSuffix: Azure Storage
 description: Create and use account SAS tokens in a JavaScript application that works with Azure Blob Storage. This article helps you set up a project and authorizes access to an Azure Blob Storage endpoint.
-services: storage
-author: normesta
+author: pauljewellmsft
 
-ms.service: storage
+ms.author: pauljewell
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 07/05/2022
-ms.author: normesta
-ms.subservice: blobs
+ms.date: 11/30/2022
 ms.custom: template-how-to, devx-track-js
 ---
 
@@ -19,11 +17,11 @@ This article shows you how to create and use account SAS tokens to use the Azure
 
 The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
 
-[Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples) | [API reference](/javascript/api/preview-docs/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) | [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
+[Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [API reference](/javascript/api/preview-docs/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) | [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
 
 ## Account SAS tokens
 
-An **account SAS token** is one [type of SAS token](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#types-of-shared-access-signatures) for access delegation provided by Azure Storage. An account SAS token provides access to Azure Storage. The token is only as restrictive as you define it when creating it. Because anyone with the token can use it to access your Storage account, you should define the token with the most restrictive permissions that still allow the token to complete the required tasks.
+An **account SAS token** is one [type of SAS token](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json#types-of-shared-access-signatures) for access delegation provided by Azure Storage. An account SAS token provides access to Azure Storage. The token is only as restrictive as you define it when creating it. Because anyone with the token can use it to access your Storage account, you should define the token with the most restrictive permissions that still allow the token to complete the required tasks.
 
 [Best practices for token](../common/storage-sas-overview.md#best-practices-when-using-sas) creation include limiting permissions:
 
@@ -93,15 +91,28 @@ Because this token can be used with blobs, queues, tables, and files, some of th
 
 ## Use Blob service with account SAS token
 
+### [BlobServiceClient](#tab/blob-service-client)
+
 To use the account SAS token, you need to combine it with the account name to create the URI. Pass the URI to create the blobServiceClient. Once you have the blobServiceClient, you can use that client to access your Blob service. 
  
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-account-sas.js" id="Snippet_UseSas":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/connect-with-sas-token.js":::
 
+### [ContainerClient](#tab/container-client)
+
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-sas-token.js":::
+
+### [BlobClient](#tab/blob-client)
+
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-sas-token.js":::
+
+-----------------
+
+The `dotenv` package is used to read your storage account name from a `.env` file. This file should not be checked into source control.
 
 ## See also
 
-- [Types of SAS tokens](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json)
-- [How a shared access signature works](../common/storage-sas-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#how-a-shared-access-signature-works)
+- [Types of SAS tokens](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
+- [How a shared access signature works](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json#how-a-shared-access-signature-works)
 - [API reference](/javascript/api/@azure/storage-blob/)
 - [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)

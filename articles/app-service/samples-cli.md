@@ -6,9 +6,8 @@ tags: azure-service-management
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 04/21/2022
-ms.custom: mvc, devx-track-azurecli, seo-azure-cli
+ms.custom: mvc, devx-track-azurecli, seo-azure-cli, ignite-2022
 keywords: azure cli samples, azure cli examples, azure cli code samples
-
 ---
 # CLI samples for Azure App Service
 
@@ -36,7 +35,7 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Connect an app to a SQL Database](./scripts/cli-connect-to-sql.md)| Creates an App Service app and a database in Azure SQL Database, then adds the database connection string to the app settings. |
 | [Connect an app to a storage account](./scripts/cli-connect-to-storage.md)| Creates an App Service app and a storage account, then adds the storage connection string to the app settings. |
 | [Connect an app to an Azure Cache for Redis](./scripts/cli-connect-to-redis.md) | Creates an App Service app and an Azure Cache for Redis, then adds the redis connection details to the app settings.) |
-| [Connect an app to Cosmos DB](./scripts/cli-connect-to-documentdb.md) | Creates an App Service app and a Cosmos DB, then adds the Cosmos DB connection details to the app settings. |
+| [Connect an app to Azure Cosmos DB](./scripts/cli-connect-to-documentdb.md) | Creates an App Service app and an Azure Cosmos DB, then adds the Azure Cosmos DB connection details to the app settings. |
 |**Backup and restore app**||
 | [Backup and restore app](./scripts/cli-backup-schedule-restore.md) | Creates an App Service app and creates a one-time backup for it, creates a backup schedule for it, and then restores an App Service app from a backup. |
 |**Monitor app**||

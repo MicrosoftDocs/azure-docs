@@ -8,10 +8,11 @@ metadata:
   description: Learn how to use managed identities for Azure resources in Azure AD.
   services: active-directory
   ms.service: active-directory
-  ms.subservice: devices
+  ms.subservice: msi
   ms.topic: landing-page
   author: barclayn
   ms.author: barclayn
+  manager: amycolannino
   ms.date: 08/29/2019
   ms.collection: M365-identity-device-management
 

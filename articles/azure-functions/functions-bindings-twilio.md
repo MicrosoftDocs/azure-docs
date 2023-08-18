@@ -4,7 +4,7 @@ description: Understand how to use Twilio bindings with Azure Functions.
 ms.topic: reference
 ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, python
-ms.custom: "devx-track-csharp, H1Hack27Feb2017"
+ms.custom: devx-track-csharp, H1Hack27Feb2017, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -26,7 +26,7 @@ Functions execute in the same process as the Functions host. To learn more, see 
 
 # [Isolated process](#tab/isolated-process)
 
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 # [C# script](#tab/csharp-script)
 
@@ -46,11 +46,11 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 # [Functions v2.x+](#tab/functionsv2/isolated-process)
 
-There is currently no support for Twilio for an isolated process app.
+There is currently no support for Twilio for an isolated worker process app.
 
 # [Functions v1.x](#tab/functionsv1/isolated-process)
 
-Functions 1.x doesn't support running in an isolated process.
+Functions 1.x doesn't support running in an isolated worker process.
 
 # [Functions v2.x+](#tab/functionsv2/csharp-script)
 
@@ -81,16 +81,12 @@ You can add the extension to your project by explicitly installing the [NuGet pa
 
 ::: zone-end
 
----
-
-::: zone-end
-
 ## Example
 
 Unless otherwise noted, these examples are specific to version 2.x and later version of the Functions runtime.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+[!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
 # [In-process](#tab/in-process)    
 
@@ -129,7 +125,7 @@ This example uses the `TwilioSms` attribute with the method return value. An alt
 
 # [Isolated process](#tab/isolated-process)
 
-The Twilio binding isn't currently supported for a function app running in an isolated process.
+The Twilio binding isn't currently supported for a function app running in an isolated worker process.
 
 # [C# Script](#tab/csharp-script)
 
@@ -218,7 +214,6 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 ```
 
 ---
-
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
@@ -354,7 +349,7 @@ public class TwilioOutput {
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file.  
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file.  
 
 # [In-process](#tab/in-process)
 
@@ -371,7 +366,7 @@ In [in-process](functions-dotnet-class-library.md) function apps, use the [Twili
 
 # [Isolated process](#tab/isolated-process)
 
-The Twilio binding isn't currently supported for a function app running in an isolated process.
+The Twilio binding isn't currently supported for a function app running in an isolated worker process.
 
 # [C# Script](#tab/csharp-script)
 

@@ -1,0 +1,74 @@
+### YamlMime:Landing
+
+title: Azure Deployment Environments documentation
+summary: Learn how to configure self-serve environments that developers can use to deploy their code with Azure Deployment Environments. Tutorials, quickstarts, how-to guides, and more. 
+
+metadata:
+  title: Azure Deployment Environments documentation
+  description: Learn how to configure self-serve environments that developers can use to deploy their code with Azure Deployment Environments. Tutorials, quickstarts, how-to guides, and more. 
+  services: deployment-environments
+  ms.service: deployment-environments
+  ms.custom: ignite-2022, build-2023
+  ms.topic: landing-page
+  ms.collection: collection
+  ms.author: rosemalcolm
+  author: RoseHJM
+  ms.date: 05/05/2023
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure Deployment Environments
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Deployment Environments?
+            url: overview-what-is-azure-deployment-environments.md
+          - text: Key concepts
+            url: concept-environments-key-concepts.md
+          - text: Use scenarios
+            url: concept-environments-scenarios.md         
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: 'Create & configure a dev center'
+            url: quickstart-create-and-configure-devcenter.md
+          - text: 'Create & configure a project'
+            url: quickstart-create-and-configure-projects.md
+          - text: 'Create & access environments'
+            url: quickstart-create-access-environments.md
+  
+  # Card
+  - title: Configure the Deployment Environments service
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure a catalog
+            url: how-to-configure-catalog.md
+          - text: Configure an environment definition
+            url: configure-environment-definition.md
+          - text: Configure a managed identity
+            url: how-to-configure-managed-identity.md
+
+  # Card
+  - title: Configure environment types
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure a dev center environment type
+            url: how-to-configure-devcenter-environment-types.md
+          - text: Configure a project environment type
+            url: how-to-configure-project-environment-types.md
+
+  # Card
+  - title: Provide access to create and manage environments
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Provide access to dev center project admin
+            url: how-to-configure-project-admin.md
+          - text: Provide access to create environments
+            url: how-to-configure-deployment-environments-user.md

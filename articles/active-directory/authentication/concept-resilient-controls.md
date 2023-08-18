@@ -1,15 +1,16 @@
 ---
-title: Create a resilient access control management strategy - Azure AD
+title: Create a resilient access control management strategy
 description: This document provides guidance on strategies an organization should adopt to provide resilience to reduce the risk of lockout during unforeseen disruptions
 services: active-directory
 author: martincoetzer
-manager: amycolannino
+manager: travisgr
 tags: azuread
+ms.custom: has-azure-ad-ps-ref
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/17/2022
+ms.date: 01/29/2023
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ---
@@ -61,7 +62,7 @@ Incorporate the following access controls in your existing Conditional Access po
 
 - Provision multiple authentication methods for each user that rely on different communication channels, for example the Microsoft Authenticator app (internet-based), OATH token (generated on-device), and SMS (telephonic). The following PowerShell script will help you identify in advance, which additional methods your users should register: [Script for Azure AD MFA authentication method analysis](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 - Deploy Windows Hello for Business on Windows 10 devices to satisfy MFA requirements directly from device sign-in.
-- Use trusted devices via [Azure AD Hybrid Join](../devices/overview.md) or [Microsoft Endpoint Manager](/intune/planning-guide). Trusted devices will improve user experience because the trusted device itself can satisfy the strong authentication requirements of policy without an MFA challenge to the user. MFA will then be required when enrolling a new device and when accessing apps or resources from untrusted devices.
+- Use trusted devices via [Azure AD Hybrid Join](../devices/overview.md) or [Microsoft Intune](/intune/planning-guide). Trusted devices will improve user experience because the trusted device itself can satisfy the strong authentication requirements of policy without an MFA challenge to the user. MFA will then be required when enrolling a new device and when accessing apps or resources from untrusted devices.
 - Use Azure AD identity protection risk-based policies that prevent access when the user or sign-in is at risk in place of fixed MFA policies.
 - If you are protecting VPN access using Azure AD MFA NPS extension, consider federating your VPN solution as a [SAML app](../manage-apps/view-applications-portal.md) and determine the app category as recommended below. 
 
@@ -71,7 +72,7 @@ Incorporate the following access controls in your existing Conditional Access po
 The following example describes policies you must create to provide a resilient access control for user to access their apps and resources. In this example, you will require a security group **AppUsers** with the target users you want to give access to, a group named **CoreAdmins** with the core administrators, and a group named **EmergencyAccess** with the emergency access accounts.
 This example policy set will grant selected users in **AppUsers**, access to selected apps if they are connecting from a trusted device OR provide strong authentication, for example MFA. It excludes emergency accounts and core administrators.
 
-**CA mitigation policies set:**
+**Conditional Access mitigation policies set:**
 
 * Policy 1: Block access to people outside target groups
   * Users and Groups: Include all users. Exclude AppUsers, CoreAdmins, and EmergencyAccess
@@ -227,7 +228,7 @@ User lockout can also occur if the following conditions are true:
 - Your organization uses a hybrid identity solution with pass-through authentication or federation.
 - Your on-premises identity systems (such as Active Directory, AD FS, or a dependent component) are unavailable. 
  
-To be more resilient, your organization should [enable password hash sync](../hybrid/choose-ad-authn.md), because it enables you to [switch to using password hash sync](../hybrid/plan-connect-user-signin.md) if your on-premises identity systems are down.
+To be more resilient, your organization should [enable password hash sync](../hybrid/connect/choose-ad-authn.md), because it enables you to [switch to using password hash sync](../hybrid/connect/plan-connect-user-signin.md) if your on-premises identity systems are down.
 
 #### Microsoft recommendations
  Enable password hash sync using the Azure AD Connect wizard, regardless whether your organization uses federation or pass-through authentication.
@@ -282,7 +283,7 @@ Undo the changes you made as part of the activated contingency plan once the ser
 * [Manage emergency-access administrative accounts in Azure AD](../roles/security-emergency-access.md)
 * [Configure named locations in Azure Active Directory](../conditional-access/location-condition.md)
   * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings)
-* [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-azuread-join-plan.md)
+* [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-join-plan.md)
 * [Windows Hello for Business Deployment Guide](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [What are conditions in Azure Active Directory Conditional Access?](../conditional-access/concept-conditional-access-conditions.md)

@@ -8,7 +8,7 @@ metadata:
   ms.service: payment-hsm
   ms.workload: security
   ms.topic: faq
-  ms.date: 01/25/2022
+  ms.date: 03/10/2023
   ms.author: mbaldwin
 title: Frequently asked questions (FAQ)
 summary: Find answers to common questions about Microsoft Azure Payment HSM.
@@ -17,14 +17,14 @@ sections:
   - name: The Basics
     questions:
       - question: |
-          Where is Azure Payment HSM preview available? 
+          Where is Azure Payment HSM available? 
         answer: |
-          Azure Payment HSM is available for preview in East US and North Europe regions. 
+          Azure Payment HSM is available in East US, West US, South Central US, Central US, North Europe, and West Europe.
 
       - question: |
           How does Azure Payment HSM work? 
         answer: |
-          After HSMs are provisioned, they’re connected directly to a user’s virtual network, and HSMs are under users’ sole administrative control. HSMs can be provisioned as a pair of devices and configured for high availability. The service uses Thales payShield Manager for secure remote access to the HSM. 
+          After HSMs are provisioned, they're connected directly to a user's virtual network, and HSMs are under users' sole administrative control. HSMs can be provisioned as a pair of devices and configured for high availability. The service uses Thales payShield Manager for secure remote access to the HSM. 
           
       - question: |
           Which industries might use Azure Payment HSM? 
@@ -39,4 +39,70 @@ sections:
       - question: |
           How do I get started with the service? 
         answer: |
-          As Azure Payment HSM is a specialized service, you can request access [via email](mailto:paymentHSMRequest@microsoft.com).
+          As Azure Payment HSM is a specialized service, customers should ask their Microsoft account manager and CSA to send a request [via email](mailto:paymentHSMRequest@microsoft.com).       
+      - question: |
+          What HSM SKUs are supported for Azure Payment HSM?
+        answer: |
+          See [Azure Payment HSM overview: supported SKUs](overview.md#supported-skus).
+
+      - question: |
+          How do I change the performance level or SKU of my payment HSM?
+        answer: |
+          See [How to change the performance level of a payment HSM](change-performance-level.md).
+
+      - question: |
+          What default license comes with Azure Payment HSM?
+        answer: |
+          The service comes with Thales payShield 10K Premium Package license with 1 or 2 LMK at 60CPS, 250CPS or 2500CPS. For pricing, please see [Azure Payment HSM pricing details](https://azure.microsoft.com/pricing/details/payment-hsm); for firmware information, see [Azure Payment HSM service support guide: Firmware and license support](support-guide.md#firmware-and-license-support).
+          
+      - question: |
+          In what scenarios you need to contact Thales for licenses?
+        answer: |
+          Device licenses are required when applying custom firmware or returning to base firmware version. For license, contact Thales support with device serial number.
+          
+      - question: |
+          What kind of smart cards and readers are needed to access payShield manager?
+        answer: |
+          Azure payment HSM comes with payShield Manager for customer to remotely manage the HSM. Compatible smart cards and smart card readers are required to access payShield Manager, and can be ordered directly from Thales:
+          - **Item**:  971-000135-001-000 
+          - **Description**: PS10-RMGT-KIT2 - payShield Manager Starter Kit - for software V1.4A (1.8.3) and above    
+          - **Items Included**: 2 Thales Card Readers, 30 PayShield Manager Smartcards
+          Compatible smart cards have a blue band and are labeled "payShield Manager Card". These are the only smart cards compatible with the ciphers used to enable over-network use.
+          
+      - question: |
+          How are physical keys are handled?
+        answer: |
+          Physical keylocks are decoupled from payShield Manager use and are no longer tied to system state.
+          
+      - question: |
+          Can I still use a console to manage HSM?
+        answer: |
+          HSMs are managed remotely with payShield Manager. This access does provide a virtual console which can be used for configuration. No access to Local Console is available and availability of local console cannot be controlled.
+          
+      - question: |
+          How do I monitor payShield 10K?
+        answer: |
+          Payshield 10k can be monitored using standard SNMP V3 tools. payShield Monitor is an additional product available to provide continuous monitoring of HSMs. Contact Thales Sales rep for licensing information.
+          
+      - question: |
+          How do I set up payShield monitor with Azure Payment HSM?
+        answer: |
+          Paysheild Monitor is distributed as a Virtual Machine and can be deployed on-premises or hosted in an Azure VM instance.
+          
+      - question: |
+          When do I need TMD?
+        answer: |
+          TMD enables key management for these typical use cases:
+          - Forming keys from components 
+          - Splitting existing keys into components 
+          - Sharing symmetric KEKs internally within an organization or externally with trusted third party
+          
+      - question: |
+          What kind of performance can I expect?
+        answer: |
+          Performance of a hosted payShield is no different from an on-premises deployment. The actual end-to-end performance of the payment API depends on the location of the workloads and network latencies. When the payment service workloads are run on virtual machines hosted in the same service provider's network, performance should match an on-premises deployment. Network latencies between the computer virtual machine(s) running payment service workloads and the hosted payShield are typically very low, but this would depend on the provider's network setup
+          
+      - question: |
+          How do I decommission an HSM?
+        answer: |
+          Releasing a device process removes ALL customer data, logs, keys, and so forth.  For steps, see [Tutorial: Remove a commissioned payment HSM](remove-payment-hsm.md).

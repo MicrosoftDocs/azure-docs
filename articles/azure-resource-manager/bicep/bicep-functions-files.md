@@ -2,7 +2,8 @@
 title: Bicep functions - files
 description: Describes the functions to use in a Bicep file to load content from a file.
 ms.topic: conceptual
-ms.date: 07/08/2022
+ms.custom: devx-track-bicep
+ms.date: 04/21/2023
 ---
 
 # File functions for Bicep
@@ -21,11 +22,11 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| filePath | Yes | string | The path to the file to load. The path is relative to the deployed Bicep file. |
+| filePath | Yes | string | The path to the file to load. The path is relative to the deployed Bicep file. It can't include variables. |
 
 ### Remarks
 
-Use this function when you have binary content you would like to include in deployment. Rather than manually encoding the file to a base64 string and adding it to your Bicep file, load the file with this function. The file is loaded when the Bicep file is compiled to a JSON template. During deployment, the JSON template contains the contents of the file as a hard-coded string.
+Use this function when you have binary content you would like to include in deployment. Rather than manually encoding the file to a base64 string and adding it to your Bicep file, load the file with this function. The file is loaded when the Bicep file is compiled to a JSON template. You can't use variables in the file path because they haven't been resolved when compiling to the template. During deployment, the JSON template contains the contents of the file as a hard-coded string.
 
 This function requires **Bicep version 0.4.412 or later**.
 
@@ -47,13 +48,13 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| filePath | Yes | string | The path to the file to load. The path is relative to the deployed Bicep file. |
-| jsonPath | No | string | JSONPath expression to take only a part of the JSON into ARM. |
+| filePath | Yes | string | The path to the file to load. The path is relative to the deployed Bicep file. It can't include variables. |
+| jsonPath | No | string | JSONPath expression to specify that only part of the file is loaded. |
 | encoding | No | string | The file encoding. The default value is `utf-8`. The available options are: `iso-8859-1`, `us-ascii`, `utf-16`, `utf-16BE`, or `utf-8`.  |
 
 ### Remarks
 
-Use this function when you have JSON content or minified JSON content that is stored in a separate file. Rather than duplicating the JSON content in your Bicep file, load the content with this function. You can load a part of a JSON file by specifying a JSON path. The file is loaded when the Bicep file is compiled to the JSON template. During deployment, the JSON template contains the contents of the file as a hard-coded string.
+Use this function when you have JSON content or minified JSON content that is stored in a separate file. Rather than duplicating the JSON content in your Bicep file, load the content with this function. You can load a part of a JSON file by specifying a JSON path. The file is loaded when the Bicep file is compiled to the JSON template. You can't include variables in the file path because they haven't been resolved when compiling to the template. During deployment, the JSON template contains the contents of the file as a hard-coded string.
 
 In VS Code, the properties of the loaded object are available intellisense. For example, you can create a file with values to share across many Bicep files. An example is shown in this article.
 
@@ -73,7 +74,49 @@ The following example creates a JSON file that contains values for a network sec
 
 You load that file and convert it to a JSON object. You use the object to assign values to the resource.
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadJsonContent/loadsharedrules.bicep" highlight="3,13-21" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadJsonContent/loadsharedrules.bicep" highlight="3,12" :::
+
+You can reuse the file of values in other Bicep files that deploy a network security group.
+
+## loadYamlContent
+
+`loadYamlContent(filePath, [pathFilter], [encoding])`
+
+Loads the specified YAML file as an Any object.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| filePath | Yes | string | The path to the file to load. The path is relative to the deployed Bicep file. It can't include variables. |
+| pathFilter | No | string | The path filter is a JSONPath expression to specify that only part of the file is loaded. |
+| encoding | No | string | The file encoding. The default value is `utf-8`. The available options are: `iso-8859-1`, `us-ascii`, `utf-16`, `utf-16BE`, or `utf-8`.  |
+
+### Remarks
+
+Use this function when you have YAML content or minified YAML content that is stored in a separate file. Rather than duplicating the YAML content in your Bicep file, load the content with this function. You can load a part of a YAML file by specifying a path filer. The file is loaded when the Bicep file is compiled to the YAML template. You can't include variables in the file path because they haven't been resolved when compiling to the template. During deployment, the YAML template contains the contents of the file as a hard-coded string.
+
+In VS Code, the properties of the loaded object are available intellisense. For example, you can create a file with values to share across many Bicep files. An example is shown in this article.
+
+This function requires **Bicep version >0.16.2**.
+
+The maximum allowed size of the file is **1,048,576 characters**, including line endings.
+
+### Return value
+
+The contents of the file as an Any object.
+
+### Examples
+
+The following example creates a YAML file that contains values for a network security group.
+
+::: code language="yml" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadYamlContent/nsg-security-rules.yaml" :::
+
+You load that file and convert it to a JSON object. You use the object to assign values to the resource.
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadYamlContent/loadsharedrules.bicep" highlight="3,12" :::
 
 You can reuse the file of values in other Bicep files that deploy a network security group.
 
@@ -89,12 +132,12 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| filePath | Yes | string | The path to the file to load. The path is relative to the deployed Bicep file. |
+| filePath | Yes | string | The path to the file to load. The path is relative to the deployed Bicep file. It can't contain variables. |
 | encoding | No | string | The file encoding. The default value is `utf-8`. The available options are: `iso-8859-1`, `us-ascii`, `utf-16`, `utf-16BE`, or `utf-8`.  |
 
 ### Remarks
 
-Use this function when you have content that is more stored in a separate file. Rather than duplicating the content in your Bicep file, load the content with this function. For example, you can load a deployment script from a file. The file is loaded when the Bicep file is compiled to the JSON template. During deployment, the JSON template contains the contents of the file as a hard-coded string.
+Use this function when you have content that is stored in a separate file. You can load the content rather than duplicating it in your Bicep file. For example, you can load a deployment script from a file. The file is loaded when the Bicep file is compiled to the JSON template. You can't include any variables in the file path because they haven't been resolved when compiling to the template. During deployment, the JSON template contains the contents of the file as a hard-coded string.
 
 Use the [`loadJsonContent()`](#loadjsoncontent) function to load JSON files.
 

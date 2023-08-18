@@ -1,5 +1,5 @@
 ---
-title: "What is a component (preview)" 
+title: "What is a component" 
 titleSuffix: Azure Machine Learning
 description: Use Azure Machine Learning components to build machine learning pipelines.
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: lagayhar
-ms.date:  05/10/2022
+ms.date: 11/04/2022
 ms.topic: conceptual
 ms.custom: event-tier1-build-2022
 ---
 # What is an Azure Machine Learning component?
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 An Azure Machine Learning component is a self-contained piece of code that does one step in a machine learning pipeline. A component is analogous to a function - it has a name, inputs, outputs, and a body. Components are the building blocks of the [Azure Machine Learning pipelines](concept-ml-pipelines.md).
 
@@ -46,21 +46,21 @@ To build components, the first thing is to define the machine learning pipeline.
 
 Once the steps in the workflow are defined, the next thing is to specify how each step is connected in the pipeline. For example, to connect your data processing step and model training step, you may want to define a data processing component to output a folder that contains the processed data. A training component takes a folder as input and outputs a folder that contains the trained model. These inputs and outputs definition will become part of your component interface definition.
 
-Now, it's time to develop the code of executing a step. You can use your preferred languages (python, R, etc.). The code must be able to be executed by a shell command. During the development, you may want to add a few inputs to control how this step is going to be executed. For example, for a training step, you may like to add learning rate, number of epochs as the inputs to control the training. These additional inputs plus the inputs and outputs required to connect with other steps are the interface of the component. The argument of a shell command is used to pass inputs and outputs to the code. The environment to execute the command and the code needs to be specified. The environment could be a curated AzureML environment, a docker image or a conda environment.
+Now, it's time to develop the code of executing a step. You can use your preferred languages (python, R, etc.). The code must be able to be executed by a shell command. During the development, you may want to add a few inputs to control how this step is going to be executed. For example, for a training step, you may like to add learning rate, number of epochs as the inputs to control the training. These additional inputs plus the inputs and outputs required to connect with other steps are the interface of the component. The argument of a shell command is used to pass inputs and outputs to the code. The environment to execute the command and the code needs to be specified. The environment could be a curated Azure Machine Learning environment, a docker image or a conda environment.
 
 Finally, you can package everything including code, cmd, environment, input, outputs, metadata together into a component. Then connects these components together to build pipelines for your machine learning workflow. One component can be used in multiple pipelines.
 
 To learn more about how to build a component, see:
 
-- How to [build a component using Azure MLCLI v2](how-to-create-component-pipelines-cli.md).
-- How to [build a component using Azure ML SDK v2](how-to-create-component-pipeline-python.md).
+- How to [build a component using Azure Machine Learning CLI v2](how-to-create-component-pipelines-cli.md).
+- How to [build a component using Azure Machine Learning SDK v2](how-to-create-component-pipeline-python.md).
 
 ## Next steps
 
-- [Define component with the Azure ML CLI v2](./how-to-create-component-pipelines-cli.md).
-- [Define component with the Azure ML SDK v2](./how-to-create-component-pipeline-python.md).
+- [Define component with the Azure Machine Learning CLI v2](./how-to-create-component-pipelines-cli.md).
+- [Define component with the Azure Machine Learning SDK v2](./how-to-create-component-pipeline-python.md).
 - [Define component with Designer](./how-to-create-component-pipelines-ui.md).
 - [Component CLI v2 YAML reference](./reference-yaml-component-command.md).
 - [What is Azure Machine Learning Pipeline?](concept-ml-pipelines.md).
 - Try out [CLI v2 component example](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components).
-- Try out [Python SDK v2 component example](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/pipelines).
+- Try out [Python SDK v2 component example](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines).

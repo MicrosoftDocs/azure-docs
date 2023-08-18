@@ -1,14 +1,13 @@
 ---
-title: Azure IoT Central device connectivity guide | Microsoft Docs
-description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how IoT devices connect to your IoT Central application. After a device connects, it uses telemetry to send streaming data and properties to report device state. Iot Central can set device state using writable properties and call commands on a device.
+title: Device connectivity guide
+description: This guide describes how IoT devices connect to and communicate with your IoT Central application. The article describes telemetry, properties, and commands.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/02/2022
+ms.date: 02/13/2023
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: [mvc, device-developer, iot-central-frontdoor]
-
 
 # This article applies to device developers.
 ---
@@ -41,7 +40,7 @@ An IoT Edge device connects directly to IoT Central. An IoT Edge device can send
 
 IoT Central only sees the IoT Edge device, not the downstream devices connected to the IoT Edge device.
 
-To learn more, see [Add an Azure IoT Edge device to your Azure IoT Central application](/learn/modules/connect-iot-edge-device-to-iot-central/).
+To learn more, see [Add an Azure IoT Edge device to your Azure IoT Central application](/training/modules/connect-iot-edge-device-to-iot-central/).
 
 ### Gateways
 
@@ -126,7 +125,7 @@ The following options support persistent device connections:
 
 - Use IoT Central Device Bridge to connect devices that use a custom protocol:
 
-  Some devices use a protocol or encoding, such as LWM2M or COAP, that IoT Central doesn't currently support. IoT Central Device Bridge acts as a translator that forwards telemetry to IoT Central. Because the bridge maintains a persistent connection, this option enables command and control of the devices connected to the bridge.
+  Some devices use a protocol or encoding, such as LWM2M or COAP, that IoT Central doesn't currently support. IoT Central Device Bridge acts as a translator that forwards telemetry to IoT Central.
 
   To learn more, see the [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge) GitHub repository.
 

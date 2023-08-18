@@ -8,6 +8,7 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.devlang: golang
+ms.custom: devx-track-go
 ---
 
 # Quickstart: Azure Key Vault keys client library for Go

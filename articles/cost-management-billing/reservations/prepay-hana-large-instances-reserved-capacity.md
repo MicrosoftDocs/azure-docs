@@ -2,11 +2,11 @@
 title: Save on SAP HANA Large Instances with an Azure reservation
 description: Understand the things you need to know before you buy a HANA Large Instance reservation and how to make the purchase.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/22/2022
+ms.date: 12/06/2022
 ms.author: banders
 ---
 
@@ -50,7 +50,7 @@ armclient post /providers/Microsoft.Capacity/calculatePrice?api-version=2019-04-
         'billingScopeId': '/subscriptions/11111111-1111-1111-111111111111',
         'term': 'P1Y',
         'quantity': '1',
-        'billingplan': 'Monthly'
+        'billingplan': 'Monthly',
         'displayName': 'testreservation_S224om',
         'appliedScopes': ['/subscriptions/11111111-1111-1111-111111111111'],
         'appliedScopeType': 'Single',
@@ -105,7 +105,7 @@ The following example response resembles what you get returned. Note the value y
 
 ### Make your purchase
 
-Make your purchase using the returned `quoteId` and the `reservationOrderId` that you got from the preceding [Get the reservation order and price](#get-the-reservation-order-and-price) section.
+Make your purchase using the returned `reservationOrderId` that you got from the preceding [Get the reservation order and price](#get-the-reservation-order-and-price) section.
 
 Here's an example request:
 
@@ -120,14 +120,13 @@ armclient put /providers/Microsoft.Capacity/reservationOrders/22222222-2222-2222
         'billingScopeId': '/subscriptions/11111111-1111-1111-111111111111',
         'term': 'P1Y',
         'quantity': '1',
-               'billingplan': 'Monthly'
+               'billingplan': 'Monthly',
 
         'displayName': ' testreservation_S224om',
         'appliedScopes': ['/subscriptions/11111111-1111-1111-111111111111/resourcegroups/123'],
         'appliedScopeType': 'Single',
        'instanceFlexibility': 'NotSupported',
-       'renew': true,
-       'quoteId': 'd0fd3a890795'
+       'renew': true       
     }
 }"
 ```

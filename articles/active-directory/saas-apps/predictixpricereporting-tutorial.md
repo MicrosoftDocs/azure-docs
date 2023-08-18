@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/29/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Predictix Price Reporting
@@ -45,6 +45,8 @@ To configure the integration of Predictix Price Reporting into Azure AD, you nee
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Predictix Price Reporting** in the search box.
 1. Select **Predictix Price Reporting** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Predictix Price Reporting
 
@@ -82,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
      `https://<companyname-pricing>.predictix.com/sso/request`
 
 	> [!NOTE]
-	> These values are placeholders. Update these values with the actual Identifier and Sign on URL. Contact the [Predictix Price Reporting support team](https://www.infor.com/company/customer-center/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
+	> These values are placeholders. Update these values with the actual Identifier and Sign on URL. Contact the [Predictix Price Reporting support team](https://www.infor.com/customer-center) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer:
 
@@ -118,11 +120,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Predictix Price Reporting SSO
 
-To configure single sign-on on the Predictix Price Reporting side, you need to send the certificate that you downloaded and the URLs that you copied from the Azure portal to the [Predictix Price Reporting support team](https://www.infor.com/company/customer-center/). This team ensures the SAML SSO connection is set properly on both sides.
+To configure single sign-on on the Predictix Price Reporting side, you need to send the certificate that you downloaded and the URLs that you copied from the Azure portal to the [Predictix Price Reporting support team](https://www.infor.com/customer-center). This team ensures the SAML SSO connection is set properly on both sides.
 
 ### Create a Predictix Price Reporting test user
 
-Next, you need to create a user named Britta Simon in Predictix Price Reporting. Work with the [Predictix Price Reporting support team](https://www.infor.com/company/customer-center/) to add users. Users need to be created and activated before you use single sign-on.
+Next, you need to create a user named Britta Simon in Predictix Price Reporting. Work with the [Predictix Price Reporting support team](https://www.infor.com/customer-center) to add users. Users need to be created and activated before you use single sign-on.
 
 ## Test SSO
 

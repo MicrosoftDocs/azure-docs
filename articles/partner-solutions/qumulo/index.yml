@@ -1,0 +1,65 @@
+### YamlMime:Landing
+
+title: Azure Native Qumulo Scalable File Service
+summary: Azure Native Qumulo Scalable File Service enables you to create and manage a Qumulo file system by using the Azure portal with a seamlessly integrated experience.
+
+metadata:
+  title: Azure Native Qumulo Scalable File Service documentation
+  description: Azure Native Qumulo Scalable File Service offers a scalable, performant, and simple-to-use cloud-native file system on Azure.
+  ms.topic: landing-page
+  ms.date: 01/18/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About Azure Native Qumulo Scalable File Service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Native Qumulo Scalable File Service?
+            url: qumulo-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create an Azure Native Qumulo Scalable File Service deployment
+            url: qumulo-create.md
+          - text: Qumulo Admin Guide
+            url: https://docs.qumulo.com/administrator-guide/
+      - linkListType: video
+        links: 
+          - text: Azure Native Qumulo Scalable File Service
+            url: https://www.youtube.com/watch?v=s-5DXAuYZss 
+
+
+  # Card
+  - title: Create an Azure Native Qumulo Scalable File Service instance
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage the Azure Native Qumulo Scalable File Service by using the portal
+            url: qumulo-how-to-manage.md
+          - text: Troubleshoot Azure Native Qumulo Scalable File Service
+            url: qumulo-troubleshoot.md 
+          - text: Setting up Azure Native Qumulo Scalable File Service 
+            url: qumulo-how-to-setup-features.md
+ 
+      
+  #Card
+  - title: SDKs and command-lines
+    linkLists:
+      - linkListType: reference 
+        links:
+          - text: Python
+            url: /python/api/overview/azure/qumulo
+          - text: JavaScript
+            url: /javascript/api/overview/azure/qumulo
+          - text: .NET
+            url: /dotnet/api/overview/azure/qumulo
+          - text: Java
+            url: /java/api/overview/azure/qumulo
+          - text: CLI
+            url: /cli/azure/service-page/qumulo
+          - text: Azure PowerShell
+            url: /powershell/module/az.qumulo
+          - text: Qumulo Developer tools 
+            url: qumulo-how-to-setup-features.md#developer-tools

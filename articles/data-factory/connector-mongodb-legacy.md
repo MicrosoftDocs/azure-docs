@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 01/25/2023
 ---
 
 # Copy data from MongoDB using Azure Data Factory or Synapse Analytics (legacy)
@@ -224,7 +224,7 @@ Virtual tables refer to the data in the real table, enabling the driver to acces
 
 ### Example
 
-For example, ExampleTable here is a MongoDB table that has one column with an array of Objects in each cell – Invoices, and one column with an array of Scalar types – Ratings.
+For example, ExampleTable here is a MongoDB table that has one column with an array of Objects in each cell - Invoices, and one column with an array of Scalar types - Ratings.
 
 | _id | Customer Name | Invoices | Service Level | Ratings |
 | --- | --- | --- | --- | --- |

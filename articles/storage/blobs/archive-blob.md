@@ -2,7 +2,6 @@
 title: Archive a blob
 titleSuffix: Azure Storage
 description: Learn how to create a blob in the Archive tier, or move an existing blob to the Archive tier.
-services: storage
 author: normesta
 
 ms.service: storage
@@ -10,7 +9,8 @@ ms.topic: how-to
 ms.date: 08/24/2022
 ms.author: normesta
 ms.reviewer: fryu
-ms.subservice: blobs
+ms.devlang: powershell, azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Archive a blob
@@ -264,7 +264,72 @@ azcopy copy 'https://<source-account>.blob.core.windows.net/sample-container/blo
 
 ## Bulk archive
 
+To move blobs to the archive tier in a container or a folder, enumerate blobs and call the Set Blob Tier operation on each one. The following example shows how to perform this operation:
+
+### [Portal](#tab/azure-portal)
+
+N/A
+
+### [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+# Initialize these variables with your values.
+    $rgName = "<resource-group>"
+    $accountName = "<storage-account>"
+    $containerName = "<container>"
+    $folderName = "<folder>/"
+
+    $ctx = (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).Context
+
+    $blobCount = 0
+    $Token = $Null
+    $MaxReturn = 5000
+
+    do {
+        $Blobs = Get-AzStorageBlob -Context $ctx -Container $containerName -Prefix $folderName -MaxCount $MaxReturn -ContinuationToken $Token
+        if($Blobs -eq $Null) { break }
+
+        #Set-StrictMode will cause Get-AzureStorageBlob returns result in different data types when there is only one blob
+        if($Blobs.GetType().Name -eq "AzureStorageBlob")
+        {
+            $Token = $Null
+        }
+        else
+        {
+            $Token = $Blobs[$Blobs.Count - 1].ContinuationToken;
+        }
+
+        $Blobs | ForEach-Object {
+                if($_.BlobType -eq "BlockBlob") {
+                    $_.BlobClient.SetAccessTier("Archive", $null)
+                }
+            }
+    }
+    While ($Token -ne $Null)
+    
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az storage blob list --account-name $accountName --account-key $key \
+    --container-name $containerName --prefix $folderName \
+    --query "[?properties.blobTier == 'Cool'].name" --output tsv \
+    | xargs -I {} -P 10 \
+    az storage blob set-tier --account-name $accountName --account-key $key \
+    --container-name $containerName --tier Archive --name "{}" 
+```
+
+### [AzCopy](#tab/azcopy)
+
+N/A
+
+---
+
 When moving a large number of blobs to the Archive tier, use a batch operation for optimal performance. A batch operation sends multiple API calls to the service with a single request. The suboperations supported by the [Blob Batch](/rest/api/storageservices/blob-batch) operation include [Delete Blob](/rest/api/storageservices/delete-blob) and [Set Blob Tier](/rest/api/storageservices/set-blob-tier).
+
+> [!NOTE]
+> The [Set Blob Tier](/rest/api/storageservices/set-blob-tier) suboperation of the [Blob Batch](/rest/api/storageservices/blob-batch) operation is not yet supported in accounts that have a hierarchical namespace.
 
 To archive blobs with a batch operation, use one of the Azure Storage client libraries. The following code example shows how to perform a basic batch operation with the .NET client library:
 

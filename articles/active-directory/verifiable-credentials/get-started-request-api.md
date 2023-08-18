@@ -132,7 +132,7 @@ In the preceding code, provide the following parameters:
 
 | Parameter | Condition | Description |
 | --- | --- | --- |
-| Authority | Required | The directory tenant the application plans to operate against. For example: `https://login.microsoftonline.com/{your-tenant}`. (Replace `your-tenant` with your [tenant ID or name](../fundamentals/active-directory-how-to-find-tenant.md).) |
+| Authority | Required | The directory tenant the application plans to operate against. For example: `https://login.microsoftonline.com/{your-tenant}`. (Replace `your-tenant` with your [tenant ID or name](/azure/active-directory-b2c/tenant-management-read-tenant-name).) |
 | Client ID | Required | The application ID that's assigned to your app. You can find this information in the Azure portal, where you registered your app. |
 | Client secret | Required | The client secret that you generated for your app.|
 | Scopes | Required | Must be set to `3db474b9-6a0c-4840-96ac-1fceb342124f/.default`. This will produce an access token with a **roles** claim of `VerifiableCredential.Create.All`. |
@@ -285,7 +285,7 @@ To issue or verify a verifiable credential, follow these steps:
 
 1. Submit the request to the Request Service REST API.
 
-The Request Service API returns an HTTP Status Code `201 Created` on a successful call. If the API call returns an error, please check the [error reference documentation](error-codes.md). //TODO
+The Request Service API returns an HTTP Status Code `201 Created` on a successful call. If the API call returns an error, please check the [error reference documentation](error-codes.md).
 
 ## Issuance request example
 
@@ -310,7 +310,7 @@ Authorization: Bearer  <token>
         "clientName": "Verifiable Credential Expert Sample"
     },
     "type": "VerifiedCredentialExpert",
-    "manifest": "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert1",
+    "manifestUrl": "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredentials/contracts/VerifiedCredentialExpert1",
     "pin": {
         "value": "3539",
         "length": 4

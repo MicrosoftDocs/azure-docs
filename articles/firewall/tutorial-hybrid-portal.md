@@ -4,6 +4,7 @@ description: In this article, you learn how to deploy and configure Azure Firewa
 services: firewall
 author: vhorne
 ms.service: firewall
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: victorh
@@ -70,7 +71,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 First, create the resource group to contain the resources:
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Azure portal home page, select **Resource groups** > **Add**.
 3. For **Subscription**, select your subscription.
 1. For **Resource group name**, type **FW-Hybrid-Test**.
@@ -240,7 +241,7 @@ In this step, you create the connection from the hub virtual network to the on-p
 1. Open the **FW-Hybrid-Test** resource group and select the **GW-hub** gateway.
 2. Select **Connections** in the left column.
 3. Select **Add**.
-4. The the connection name, type **Hub-to-Onprem**.
+4. For the connection name, type **Hub-to-Onprem**.
 5. Select **VNet-to-VNet** for **Connection type**.
 6. For the **Second virtual network gateway**, select **GW-Onprem**.
 7. For **Shared key (PSK)**, type **AzureA1b2C3**.

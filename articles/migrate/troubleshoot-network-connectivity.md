@@ -1,13 +1,11 @@
 ---
 title: Troubleshoot network connectivity issues | Microsoft Docs
 description: Provides troubleshooting tips for common errors in using Azure Migrate with private endpoints.
-author: MaggiePucciEvans
-ms.author: evansma
-ms.manager: deseelam
+author: vijain
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/03/2021
-
+ms.date: 12/12/2022
+ms.custom: engagement-fy23
 ---
 
 # Troubleshoot network connectivity
@@ -17,7 +15,7 @@ This article helps you troubleshoot network connectivity issues using Azure Migr
 
 Make sure the private endpoint is an approved state.  
 
-1. Go to **Azure Migrate**: **Discovery and Assessment** and **Server Migration properties** page.
+1. Go to **Azure Migrate**: **Discovery and Assessment** and **Migration and modernization** properties page.
 
 2. The properties page contains the list of private endpoints and private link FQDNs that were automatically created by Azure Migrate.  
 
@@ -30,7 +28,7 @@ Make sure the private endpoint is an approved state.
 
 
 ## Validate the data flow through the private endpoints
-Review the data flow metrics to verify the traffic flow through private endpoints. Select the private endpoint in the Azure Migrate: Server Assessment and Server Migration Properties page. This will redirect to the private endpoint overview section in Azure Private Link Center. In the left menu, select **Metrics** to view the _Data Bytes In_ and _Data Bytes Out_ information to view the traffic flow.
+Review the data flow metrics to verify the traffic flow through private endpoints. Select the private endpoint in the Azure Migrate: Server Assessment and Migration and modernization Properties page. This will redirect to the private endpoint overview section in Azure Private Link Center. In the left menu, select **Metrics** to view the _Data Bytes In_ and _Data Bytes Out_ information to view the traffic flow.
 
 ## Verify DNS resolution
 
@@ -40,11 +38,11 @@ To validate the private link connection, perform a DNS resolution of the Azure M
 
 **To obtain the private endpoint details to verify DNS resolution:**
 
-1. The private endpoint details and private link resource FQDNs' information is available in the Discovery and Assessment and Server Migration properties pages. Select **Download DNS settings** to view the list. Note, only the private endpoints that were automatically created by Azure Migrate are listed below. 
+1. The private endpoint details and private link resource FQDNs' information is available in the Discovery and Assessment and Migration and modernization properties pages. Select **Download DNS settings** to view the list. Note, only the private endpoints that were automatically created by Azure Migrate are listed below. 
 
       ![Azure Migrate: Discovery and Assessment Properties](./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png)
 
-      [![Azure Migrate: Server Migration Properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties-inline.png)](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties-expanded.png#lightbox) 
+      [![Migration and modernization tool Properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties-inline.png)](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties-expanded.png#lightbox) 
 
 2. If you have created a private endpoint for the storage account(s) for replicating over a private network, you can obtain the private link FQDN and IP address as illustrated below. 
 
@@ -355,6 +353,6 @@ To validate the private link connection, perform a DNS resolution of the Azure M
 
 **To obtain the private endpoint details to verify DNS resolution:**
 
-The private endpoint details and private link resource FQDN information are available in the Discovery and Assessment and Server Migration properties pages. Select **Download DNS settings** on both the properties pages to view the full list. 
+The private endpoint details and private link resource FQDN information are available in the Discovery and Assessment and Migration and modernization properties pages. Select **Download DNS settings** on both the properties pages to view the full list. 
 
 Next, refer to [this guidance](#verify-dns-resolution) to verify the DNS resolution.

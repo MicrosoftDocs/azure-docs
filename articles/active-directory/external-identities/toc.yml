@@ -1,5 +1,7 @@
-- name: External Identities documentation
+- name: Azure Active Directory External Identities documentation
   href: index.yml
+- name: External Identities documentation
+  href: index-b2b.yml
 - name: Overview
   expanded: true
   items:
@@ -70,6 +72,8 @@
     href: authentication-conditional-access.md
   - name: Azure AD B2C (link to documentation)
     href: ../../active-directory-b2c/overview.md
+  - name: Multi-tenant organizations documentation (link to documentation)
+    href: ../../active-directory/multi-tenant-organizations/overview.md
 - name: How-to guides
   expanded: false
   items:
@@ -78,19 +82,23 @@
     - name: Cross-tenant access settings
       displayName: XTAS, XTAP, inbound, outbound, organizational settings, trust settings
       href: cross-tenant-access-settings-b2b-collaboration.md
-    - name: Microsoft cloud settings (Preview)
+    - name: Microsoft cloud settings
       href: cross-cloud-settings.md
     - name: External collaboration settings
       displayName: guest access, guest invite restrictions, self-service, domains
       href: external-collaboration-settings-configure.md
     - name: Allow or block domains
       href: allow-deny-list.md
+  - name: Enforce tenant restrictions
+    items:
+    - name: Tenant restrictions V2
+      href: tenant-restrictions-v2.md
   - name: Configure B2B direct connect 
     href: cross-tenant-access-settings-b2b-direct-connect.md
   - name: Select identity providers
     items:
     - name: Azure Active Directory
-      href: azure-ad-account.md
+      href: default-account.md
     - name: Microsoft account
       href: microsoft-account.md
     - name: Google federation
@@ -111,8 +119,6 @@
       href: add-users-information-worker.md
     - name: Invite internal users to B2B
       href: invite-internal-users.md
-    - name: Add B2B users without an invitation
-      href: add-user-without-invite.md
     - name: Customize invitations using API
       href: customize-invitation-api.md
   - name: Add self-service sign-up for guest users
@@ -135,10 +141,10 @@
       href: use-dynamic-groups.md
     - name: Understand the B2B user
       href: user-properties.md
-    - name: Reset redemption status (Preview)
+    - name: Assign sponsors to guest users
+      href: b2b-sponsors.md
+    - name: Reset redemption status
       href: reset-redemption-status.md
-    - name: B2B for Azure AD integrated apps
-      href: configure-saas-apps.md
   - name: Manage guest access in a hybrid organization
     items:
     - name: Grant local users access to cloud apps
@@ -162,7 +168,7 @@
   - name: FAQ
     href: ./faq.yml
   - name: Getting support
-    href: ../fundamentals/active-directory-troubleshooting-support-howto.md
+    href: ../fundamentals/how-to-get-support.md
   - name: Azure feedback forum
     href: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789
   - name: Azure Roadmap

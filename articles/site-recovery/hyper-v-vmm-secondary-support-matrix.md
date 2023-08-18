@@ -4,6 +4,8 @@ description: Summarizes support for Hyper-V VM replication in VMM clouds to a se
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 
 # Support matrix for disaster recovery of Hyper-V VMs to a secondary site

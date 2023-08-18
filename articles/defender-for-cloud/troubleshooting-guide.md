@@ -1,10 +1,11 @@
 ---
-title: Microsoft Defender for Cloud troubleshooting guide
+title: Troubleshooting guide
 description: This guide is for IT professionals, security analysts, and cloud admins who need to troubleshoot Microsoft Defender for Cloud related issues.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: conceptual
-ms.date: 07/17/2022
+ms.custom: ignite-2022
+ms.date: 06/18/2023
 ---
 # Microsoft Defender for Cloud Troubleshooting Guide
 
@@ -37,7 +38,11 @@ Common connector issues:
 - Connector resource should be present in Azure Resource Graph (ARG). Use the following ARG query to check: `resources | where ['type'] =~ "microsoft.security/securityconnectors"`
 - Make sure that sending Kubernetes audit logs is enabled on the AWS or GCP connector so that you can get [threat detection alerts for the control plane](alerts-reference.md#alerts-k8scluster).
 - Make sure that Azure Arc and the Azure Policy Arc extension were installed successfully.
-- Make sure that the agent is installed to your Elastic Kubernetes Service (EKS) clusters. You can install the agent with the **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters** recommendation, or **Azure policy extension for Kubernetes should be installed and enabled on your clusters** recommendations. Download the given script provided in the recommendation and run it on your cluster. The recommendation should disappear within an hour of when the script is run.
+- Make sure that agents are installed to your Elastic Kubernetes Service (EKS) and Google Kubernetes Engine (GKE) clusters. You can verify and install the agent with the following Defender for Cloud recommendations:
+  - **Azure Arc-enabled Kubernetes clusters should have the Azure Policy extension installed**
+  - **GKE clusters should have the Azure Policy extension installed**
+  - **EKS clusters should have Microsoft Defender's extension for Azure Arc installed**
+  - **GKE clusters should have Microsoft Defender's extension for Azure Arc installed**
 - If you’re experiencing issues with deleting the AWS or GCP connector, check if you have a lock (in this case there might be an error in the Azure Activity log, hinting at the presence of a lock).  
 - Check that workloads exist in the AWS account or GCP project.
 
@@ -48,7 +53,7 @@ AWS connector issues:
 - Make sure that EKS clusters are successfully connected to Arc-enabled Kubernetes.
 - If you don't see AWS data in Defender for Cloud, make sure that the AWS resources required to send data to Defender for Cloud exist in the AWS account.
 
-GCP connector issues: 
+GCP connector issues:
 
 - Make sure that the GCP Cloud Shell script completed successfully.
 - Make sure that GKE clusters are successfully connected to Arc-enabled Kubernetes.
@@ -57,7 +62,7 @@ GCP connector issues:
 
 ## Troubleshooting the Log Analytics agent
 
-Defender for Cloud uses the Log Analytics agent to [collect and store data](./enable-data-collection.md). The information in this article represents Defender for Cloud functionality after transition to the Log Analytics agent.
+Defender for Cloud uses the Log Analytics agent to [collect and store data](./monitoring-components.md#log-analytics-agent). The information in this article represents Defender for Cloud functionality after transition to the Log Analytics agent.
 
 Alert types:
 
@@ -137,6 +142,38 @@ By default the Microsoft Antimalware user interface is disabled, but you can [en
 
 If you experience issues loading the workload protection dashboard, make sure that the user that first enabled Defender for Cloud on the subscription and the user that want to turn on data collection have the *Owner* or *Contributor* role on the subscription. If that is the case, users with the *Reader* role on the subscription can see the dashboard, alerts, recommendations, and policy.
 
+## Troubleshoot Azure DevOps Organization connector issues
+
+The `Unable to find Azure DevOps Organization` error occurs when you create an Azure DevOps Organization (ADO) connector and the incorrect account was signed in and granted access to the Microsoft Security DevOps App. This can also result in the `Failed to create Azure DevOps connectorFailed to create Azure DevOps connector. Error: 'Unable to find Azure DevOps organization : OrganizationX in available organizations: Organization1, Organization2, Organization3.'` error.
+
+It is important to know which account you are logged in to when you authorize the access, as that will be the account that is used. Your account can be associated with the same email address but also associated with different tenants.
+
+You should [check which account](https://app.vssps.visualstudio.com/profile/view) you are currently logged in on and ensure that the right account and tenant combination is selected.
+
+:::image type="content" source="./media/troubleshooting-guide/authorize-popup.png" alt-text="Screenshot of the Azure DevOps organization Consent Page for the Microsoft Security application.":::
+
+**To change your current account**:
+
+1. Select **profile page**.
+
+    :::image type="content" source="./media/troubleshooting-guide/authorize-profile-page.png" alt-text="Screenshot showing how to switch to the ADO Profile Page.":::
+
+1. On your profile page, select the drop down menu to select another account.
+
+    :::image type="content" source="./media/troubleshooting-guide/authorize-select-tenant.png" alt-text="Screenshot of the Azure DevOps profile page that is used to select an account.":::
+
+The first time you authorize the Microsoft Security application, you are given the ability to select an account. However, each time you login after that, the page defaults to the logged in account without giving you the chance to select an account.
+
+**To change the default account**:
+
+1. [Sign in](https://app.vssps.visualstudio.com/profile/view) and select the same tenant you use in Azure from the dropdown menu.
+
+1. Create a new connector, and authorize it. When the pop-up page appears, ensure it shows the correct tenant.
+
+If this process does not fix your issue, you should revoke Microsoft Security DevOps's permission from all tenants in Azure DevOps and repeat the above steps. You should then be able to see the authorization pop up again when authorizing the connector.
+
+:::image type="content" source="./media/troubleshooting-guide/authorization-revoke.png" alt-text="Screenshot of the authorization page used to revoke the permission of the Microsoft Security application." lightbox="media/troubleshooting-guide/authorization-revoke.png":::
+
 ## Contacting Microsoft Support
 
 You can also find troubleshooting information for Defender for Cloud at the [Defender for Cloud Q&A page](/answers/topics/azure-security-center.html). If you need further troubleshooting, you can open a new support request using **Azure portal** as shown below:
@@ -149,4 +186,4 @@ In this page, you learned about troubleshooting steps for Defender for Cloud. To
 
 - Learn how to [manage and respond to security alerts](managing-and-responding-alerts.md) in Microsoft Defender for Cloud
 - [Alert validation](alert-validation.md) in Microsoft Defender for Cloud
-- Review [frequently asked questions](faq-general.yml) about using Microsoft Defender for Cloud
+- Review [common questions](faq-general.yml) about using Microsoft Defender for Cloud

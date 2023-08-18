@@ -2,7 +2,8 @@
 title: Create private registry for Bicep module
 description: Learn how to set up an Azure container registry for private Bicep modules
 ms.topic: conceptual
-ms.date: 04/01/2022
+ms.custom: devx-track-bicep
+ms.date: 04/18/2023
 ---
 
 # Create private registry for Bicep modules
@@ -13,7 +14,7 @@ To work with module registries, you must have [Bicep CLI](./install.md) version 
 
 ### Training resources
 
-If you would rather learn about parameters through step-by-step guidance, see [Share Bicep modules by using private registries](/learn/modules/share-bicep-modules-using-private-registries).
+If you would rather learn about parameters through step-by-step guidance, see [Share Bicep modules by using private registries](/training/modules/share-bicep-modules-using-private-registries).
 
 ## Configure private registry
 
@@ -45,10 +46,12 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
 
 1. To publish modules to a registry, you must have permission to **push** an image. To deploy a module from a registry, you must have permission to **pull** the image. For more information about the roles that grant adequate access, see [Azure Container Registry roles and permissions](../../container-registry/container-registry-roles.md).
 
-1. Depending on the type of account you use to deploy the module, you may need to customize which credentials are used. These credentials are needed to get the modules from the registry. By default, credentials are obtained from Azure CLI or Azure PowerShell. You can customize the precedence for getting the credentials in the **bicepconfig.json** file. For more information, see [Credentials for restoring modules](bicep-config-modules.md#credentials-for-publishingrestoring-modules).
+1. Depending on the type of account you use to deploy the module, you may need to customize which credentials are used. These credentials are needed to get the modules from the registry. By default, credentials are obtained from Azure CLI or Azure PowerShell. You can customize the precedence for getting the credentials in the **bicepconfig.json** file. For more information, see [Credentials for restoring modules](bicep-config-modules.md#configure-profiles-and-credentials).
 
 > [!IMPORTANT]
 > The private container registry is only available to users with the required access. However, it's accessed through the public internet. For more security, you can require access through a private endpoint. See [Connect privately to an Azure container registry using Azure Private Link](../../container-registry/container-registry-private-link.md).
+> 
+> The private container registry must have the policy `azureADAuthenticationAsArmPolicy` set to `enabled`. If `azureADAuthenticationAsArmPolicy` is set to `disabled`, you'll get a 401 (Unauthorized) error message when publishing modules. See [Azure Container Registry introduces the Conditional Access policy](../../container-registry/container-registry-enable-conditional-access-policy.md).
 
 ## Publish files to registry
 
@@ -57,7 +60,7 @@ After setting up the container registry, you can publish files to it. Use the [p
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
+Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 -DocumentationUri https://www.contoso.com/exampleregistry.html
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -65,7 +68,7 @@ Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azure
 To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
 
 ```azurecli
-az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
+az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 --documentationUri https://www.contoso.com/exampleregistry.html
 ```
 
 ---

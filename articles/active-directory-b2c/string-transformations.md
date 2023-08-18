@@ -408,7 +408,7 @@ Formats multiple claims according to a provided localized format string. This tr
 | OutputClaim | outputClaim | string | The claim that is produced after this claims transformation has been invoked. |
 
 > [!NOTE]
-> String format maximum allowed size is 4000.
+> There is no limit to the number of input claims that you can specify, but the maximum length of the formatted string is 4000.
 
 To use the FormatLocalizedString claims transformation:
 
@@ -1062,7 +1062,7 @@ Extracts parts of a string claim type, beginning at the character at the specifi
 | InputClaim | inputClaim | string | The claim type, which contains the string. |
 | InputParameter | startIndex | int | The zero-based starting character position of a substring in this instance. |
 | InputParameter | length | int | The number of characters in the substring. |
-| OutputClaim | outputClaim | boolean | A string that is equivalent to the substring of length that begins at startIndex in this instance, or Empty if startIndex is equal to the length of this instance and length is zero. |
+| OutputClaim | outputClaim | string | A string that is equivalent to the substring of length that begins at startIndex in this instance, or Empty if startIndex is equal to the length of this instance and length is zero. |
 
 ### Example of StringSubstring
 

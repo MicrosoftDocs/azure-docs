@@ -2,8 +2,8 @@
 title: 'Tutorial: Design an Azure Database for MariaDB - Azure CLI'
 description: This tutorial explains how to create and manage Azure Database for MariaDB server and database using Azure CLI from the command line.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/24/2022
@@ -25,7 +25,7 @@ Azure Database for MariaDB is a relational database service in the Microsoft clo
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

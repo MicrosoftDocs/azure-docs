@@ -1,17 +1,19 @@
 ---
 title: Create a custom IP address prefix - Azure PowerShell
 titleSuffix: Azure Virtual Network
-description: Learn about how to create a custom IP address prefix using Azure PowerShell
+description: Learn about how to create a custom IPv4 address prefix using Azure PowerShell
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/31/2022
 ms.author: allensu
 ---
-# Create a custom IP address prefix using Azure PowerShell
 
-A custom IP address prefix enables you to bring your own IP ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses. 
+# Create a custom IPv4 address prefix using Azure PowerShell
+
+A custom IPv4 address prefix enables you to bring your own IPv4 ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses.
 
 The steps in this article detail the process to:
 
@@ -26,22 +28,27 @@ The steps in this article detail the process to:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell.
 - Sign in to Azure PowerShell and ensure you've selected the subscription with which you want to use this feature.  For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
-- Ensure your Az. Network module is 4.3.0 or later. To verify the installed module, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command Update-Module -Name "Az. Network" if necessary.
-- A customer owned IP range to provision in Azure.
+- Ensure your Az.Network module is 5.1.1 or later. To verify the installed module, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command Update-Module -Name "Az.Network" if necessary.
+- A customer owned IPv4 range to provision in Azure.
     - A sample customer range (1.2.3.0/24) is used for this example. This range won't be validated by Azure. Replace the example range with yours.
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 > [!NOTE]
 > For problems encountered during the provisioning process, please see [Troubleshooting for custom IP prefix](manage-custom-ip-address-prefix.md#troubleshooting-and-faqs).
 
 ## Pre-provisioning steps
 
-To utilize the Azure BYOIP feature, you must perform the following steps prior to the provisioning of your IP address range.
+To utilize the Azure BYOIP feature, you must perform the following steps prior to the provisioning of your IPv4 address range.
 
 ### Requirements and prefix readiness
 
-* The address range must be owned by you and registered under your name with the [American Registry for Internet Numbers (ARIN)](https://www.arin.net/), the [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/), or the [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/). If the range is registered under the Latin America and Caribbean Network Information Centre (LACNIC) or the African Network Information Centre (AFRINIC), contact the [Microsoft Azure BYOIP team](mailto:byoipazure@microsoft.com).
+* The address range must be owned by you and registered under your name with the one of the 5 major Regional Internet Registries:
+      * [American Registry for Internet Numbers (ARIN)](https://www.arin.net/)
+      * [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/)
+      * [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/)
+      * [Latin America and Caribbean Network Information Centre (LACNIC)](https://www.lacnic.net/)
+      * [African Network Information Centre (AFRINIC)](https://afrinic.net/)
 
 * The address range must be no smaller than a /24 so it will be accepted by Internet Service Providers.
 
@@ -49,7 +56,7 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
     
     For this ROA:
         
-    * The Origin AS must be listed as 8075.
+    * The Origin AS must be listed as 8075 for the Public Cloud.  (If the range will be onboarded to the US Gov Cloud, the Origin AS must be listed as 8070.)
     
     * The validity end date (expiration date) needs to account for the time you intend to have the prefix advertised by Microsoft. Some RIRs don't present validity end date as an option and or choose the date for you.
     
@@ -60,17 +67,20 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
 > [!NOTE]
 > It is also recommended to create a ROA for any existing ASN that is advertising the range to avoid any issues during migration.
 
+> [!IMPORTANT]
+> While Microsoft will not stop advertising the range after the specified date,  it is strongly recommended to independently create a follow-up ROA if the original expiration date has passed to avoid external carriers from not accepting the advertisement.
+
 ### Certificate readiness
 
 To authorize Microsoft to associate a prefix with a customer subscription, a public certificate must be compared against a signed message. 
 
-The following steps show the steps required to prepare sample customer range (1.2.3.0/24) for provisioning.
+The following steps show the steps required to prepare sample customer range (1.2.3.0/24) for provisioning to the Public cloud.
 
 > [!NOTE]
 > Execute the following commands in PowerShell with OpenSSL installed.  
 
     
-1. A [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) must be created to add to the Whois/RDAP record for the prefix. For information about RDAP, see the [ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), and [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/) sites. 
+1. A [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) must be created to add to the Whois/RDAP record for the prefix. For information about RDAP, see the [ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/), and [AFRINIC](https://www.afrinic.net/whois/rdap) sites. 
 
     An example utilizing the OpenSSL toolkit is shown below.  The following commands generate an RSA key pair and create an X509 certificate using the key pair that expires in six months:
     
@@ -89,7 +99,9 @@ The following steps show the steps required to prepare sample customer range (1.
     
     * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - edit the “Remarks” of the inetnum record using MyAPNIC.
     
-    * For ranges from either LACNIC or AFRINIC registries, create a support ticket with Microsoft.
+    * [AFRINIC](https://afrinic.net/support/my-afrinic-net) - edit the “Remarks” of the inetnum record using MyAFRINIC.
+    
+    * For ranges from LACNIC registry, create a support ticket with Microsoft.
      
     After the public comments are filled out, the Whois/RDAP record should look like the example below. Ensure there aren't spaces or carriage returns. Include all dashes:
 
@@ -190,7 +202,7 @@ As before, the operation is asynchronous. Use [Get-AzCustomIpPrefix](/powershell
 > The estimated time to fully complete the commissioning process is 3-4 hours.
 
 > [!IMPORTANT]
-> As the custom IP prefix transitions to a **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.
+> As the custom IP prefix transitions to a **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.  Additionally, you could take advantage of the regional commissioning feature to put a custom IP prefix into a state where it is only advertised within the Azure region it is deployed in-- see [Manage a custom IP address prefix (BYOIP)](manage-custom-ip-address-prefix.md) for more information.
 
 ## Next steps
 

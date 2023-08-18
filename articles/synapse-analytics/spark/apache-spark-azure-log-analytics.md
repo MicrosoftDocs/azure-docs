@@ -35,7 +35,7 @@ Use any of the following options to prepare the file.
 Copy the following Apache Spark configuration, save it as *spark_loganalytics_conf.txt*, and fill in the following parameters:
 
    - `<LOG_ANALYTICS_WORKSPACE_ID>`: Log Analytics workspace ID.
-   - `<LOG_ANALYTICS_WORKSPACE_KEY>`: Log Analytics key. To find this, in the Azure portal, go to **Azure Log Analytics workspace** > **Agents management** > **Primary key**.
+   - `<LOG_ANALYTICS_WORKSPACE_KEY>`: Log Analytics key. To find this, in the Azure portal, go to **Azure Log Analytics workspace** > **Agents** > **Primary key**.
 
 ```properties
 spark.synapse.logAnalytics.enabled true
@@ -118,8 +118,9 @@ spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 | spark.synapse.logAnalytics.filter.metricName.match | - | Optional. The comma-separated spark metric name suffixes, you can specify which metrics to collect. For example: `jvm.heap.used`|
 
 > [!NOTE]  
-> - For Azure China, the `spark.synapse.logAnalytics.uriSuffix` parameter should be `ods.opinsights.azure.cn`. 
+> - For Microsoft Azure operated by 21Vianet, the `spark.synapse.logAnalytics.uriSuffix` parameter should be `ods.opinsights.azure.cn`. 
 > - For Azure Government, the `spark.synapse.logAnalytics.uriSuffix` parameter should be `ods.opinsights.azure.us`. 
+> - For any cloud except Azure, the `spark.synapse.logAnalytics.keyVault.name` parameter should be the fully qualified domain name (FQDN) of the Key Vault. For example, `AZURE_KEY_VAULT_NAME.vault.usgovcloudapi.net` for AzureUSGovernment.
 
 [uri_suffix]: ../../azure-monitor/logs/data-collector-api.md#request-uri
 
@@ -183,6 +184,14 @@ val logger = org.apache.log4j.LogManager.getLogger("com.contoso.LoggerExample")
 logger.info("info message")
 logger.warn("warn message")
 logger.error("error message")
+//log exception
+try {
+      1/0
+ } catch {
+      case e:Exception =>logger.warn("Exception", e)
+}
+// run job for task level metrics
+val data = sc.parallelize(Seq(1,2,3,4)).toDF().count()
 ```
 
 Example for PySpark:

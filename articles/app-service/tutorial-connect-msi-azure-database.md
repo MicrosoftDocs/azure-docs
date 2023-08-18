@@ -6,7 +6,7 @@ keywords: azure app service, web app, security, msi, managed service identity, m
 ms.devlang: csharp,java,javascript,python
 ms.topic: tutorial
 ms.date: 04/12/2022
-ms.custom: "mvc, devx-track-azurecli"
+ms.custom: mvc, devx-track-azurecli, ignite-2022, devx-track-dotnet, devx-track-extended-java, devx-track-python, AppServiceConnectivity
 ---
 # Tutorial: Connect to Azure databases from App Service without secrets using a managed identity
 
@@ -17,7 +17,7 @@ ms.custom: "mvc, devx-track-azurecli"
 - [Azure Database for PostgreSQL](../postgresql/index.yml)
 
 > [!NOTE]
-> This tutorial doesn't include guidance for [Azure Cosmos DB](../cosmos-db/index.yml), which supports Azure Active Directory authentication differently. For information, see Cosmos DB documentation. For example: [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.md).
+> This tutorial doesn't include guidance for [Azure Cosmos DB](../cosmos-db/index.yml), which supports Azure Active Directory authentication differently. For more information, see the Azure Cosmos DB documentation, such as [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.md).
 
 Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. This tutorial shows you how to connect to the above-mentioned databases from App Service using managed identities. 
 
@@ -43,7 +43,7 @@ What you will learn:
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## 1. Grant database access to Azure AD user
 
@@ -57,7 +57,7 @@ First, enable Azure Active Directory authentication to the Azure database by ass
 1. Find the object ID of the Azure AD user using the [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) and replace *\<user-principal-name>*. The result is saved to a variable.
 
     ```azurecli-interactive
-    azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
+    azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].id --output tsv)
     ```
 
 # [Azure SQL Database](#tab/sqldatabase)
@@ -237,7 +237,7 @@ Next, you configure your App Service app to connect to SQL Database with a manag
 
     ```sql
     SET aad_validate_oids_in_tenant = off;
-    CREATE ROLE <postgresql-user-name> WITH LOGIN PASSWORD '<application-id-of-system-assigned-identity>' IN ROLE azure_ad_user;
+    CREATE ROLE <postgresql-user-name> WITH LOGIN PASSWORD '<application-id-of-user-assigned-identity>' IN ROLE azure_ad_user;
     ```
 
     Whatever name you choose for *\<postgresql-user-name>*, it's the PostgreSQL user you'll use to connect to the database later from your code in App Service.
@@ -251,8 +251,8 @@ In this section, connectivity to the Azure database in your code follows the `De
 1. Instantiate a `DefaultAzureCredential` from the Azure Identity client library. If you're using a user-assigned identity, specify the client ID of the identity. 
 1. Get an access token for the resource URI respective to the database type.
     - For Azure SQL Database: `https://database.windows.net/.default`
-    - For Azure Database for MySQL: `https://ossrdbms-aad.database.windows.net`
-    - For Azure Database for PostgreSQL: `https://ossrdbms-aad.database.windows.net`
+    - For Azure Database for MySQL: `https://ossrdbms-aad.database.windows.net/.default`
+    - For Azure Database for PostgreSQL: `https://ossrdbms-aad.database.windows.net/.default`
 1. Add the token to your connection string.
 1. Open the connection.
 
@@ -319,7 +319,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     //var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = '<client-id-of-user-assigned-identity>' }); // user-assigned identity
 
     // Get token for Azure Database for MySQL
-    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net" }));
+    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net/.default" }));
 
     // Set MySQL user depending on the environment
     string user;
@@ -351,7 +351,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     //var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = '<client-id-of-user-assigned-identity>' }); // user-assigned identity
 
     // Get token for Azure Database for PostgreSQL
-    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net" }));
+    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net/.default" }));
 
     // Check if in Azure and set user accordingly
     string postgresqlUser;
@@ -431,7 +431,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     //var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = '<client-id-of-user-assigned-identity>' }); // user-assigned identity
 
     // Get token for Azure Database for MySQL
-    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net" }));
+    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net/.default" }));
 
     // Set MySQL user depending on the environment
     string user;
@@ -465,7 +465,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     //var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = '<client-id-of-user-assigned-identity>' }); // user-assigned identity
 
     // Get token for Azure Database for PostgreSQL
-    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net" }));
+    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net/.default" }));
 
     // Check if in Azure and set user accordingly
     string postgresqlUser;
@@ -563,7 +563,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     //const credential = new DefaultAzureCredential({ managedIdentityClientId: '<client-id-of-user-assigned-identity>' }); // user-assigned identity
     
     // Get token for Azure Database for MySQL
-    const accessToken = await credential.getToken("https://ossrdbms-aad.database.windows.net");
+    const accessToken = await credential.getToken("https://ossrdbms-aad.database.windows.net/.default");
     
     // Set MySQL user depending on the environment
     if(process.env.IDENTITY_ENDPOINT) {
@@ -617,7 +617,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     //const credential = new DefaultAzureCredential({ managedIdentityClientId: '<client-id-of-user-assigned-identity>' }); // user-assigned identity
     
     // Get token for Azure Database for PostgreSQL
-    const accessToken = await credential.getToken("https://ossrdbms-aad.database.windows.net");
+    const accessToken = await credential.getToken("https://ossrdbms-aad.database.windows.net/.default");
     
     // Set PosrgreSQL user depending on the environment
     if(process.env.IDENTITY_ENDPOINT) {
@@ -719,7 +719,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     #credential = DefaultAzureCredential(managed_identity_client_id='<client-id-of-user-assigned-identity>') # user-assigned identity
     
     # Get token for Azure Database for MySQL
-    token = credential.get_token("https://ossrdbms-aad.database.windows.net")
+    token = credential.get_token("https://ossrdbms-aad.database.windows.net/.default")
     
     # Set MySQL user depending on the environment
     if 'IDENTITY_ENDPOINT' in os.environ:
@@ -754,7 +754,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     #credential = DefaultAzureCredential(managed_identity_client_id='<client-id-of-user-assigned-identity>') # user-assigned identity
     
     # Get token for Azure Database for PostgreSQL
-    token = credential.get_token("https://ossrdbms-aad.database.windows.net")
+    token = credential.get_token("https://ossrdbms-aad.database.windows.net/.default")
     
     # Set PostgreSQL user depending on the environment
     if 'IDENTITY_ENDPOINT' in os.environ:
@@ -884,7 +884,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     // Get the token
     TokenRequestContext request = new TokenRequestContext();
-    request.addScopes("https://ossrdbms-aad.database.windows.net");
+    request.addScopes("https://ossrdbms-aad.database.windows.net/.default");
     AccessToken token=creds.getToken(request).block();
 
     // Set MySQL user depending on the environment
@@ -930,7 +930,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     // Get the token
     TokenRequestContext request = new TokenRequestContext();
-    request.addScopes("https://ossrdbms-aad.database.windows.net");
+    request.addScopes("https://ossrdbms-aad.database.windows.net/.default");
     AccessToken token=creds.getToken(request).block();
 
     // Set PostgreSQL user depending on the environment
@@ -1010,7 +1010,7 @@ Without any further changes, your code is ready to be run in Azure. To debug you
 
 # [Azure PowerShell](#tab/ps)
 
-1. The Azure Identity client library that you'll use later can use tokens from Azure PowerShell. To enable command-line based development, [install Azure PowerShell](/powershell/azure/install-az-ps) on your local machine.
+1. The Azure Identity client library that you'll use later can use tokens from Azure PowerShell. To enable command-line based development, [install Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine.
 
 1. Sign in to Azure CLI with the following cmdlet using your Azure AD user:
 

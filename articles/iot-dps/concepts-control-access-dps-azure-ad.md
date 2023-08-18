@@ -1,13 +1,15 @@
 ---
-title:  Access control and security for DPS by using Azure Active Directory | Microsoft Docs
-description: Concepts - how to control access to Azure IoT Hub Device Provisioning Service (DPS) (DPS) for back-end apps. Includes information about Azure Active Directory and RBAC.
+title: Access control and security for DPS with Azure AD
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: Control access to Azure IoT Hub Device Provisioning Service (DPS) for back-end apps. Includes information about Azure Active Directory and RBAC.
 author: jesusbar
 ms.author: jesusbar
 ms.service: iot-dps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/07/2022
-ms.custom: ['Role: Cloud Development', 'Role: Azure IoT Hub Device Provisioning Service (DPS)', 'Role: Operations', devx-track-js, devx-track-csharp]
+ms.custom: ['Role: Cloud Development', 'Role: Azure IoT Hub Device Provisioning Service (DPS)', 'Role: Operations', devx-track-csharp, devx-track-azurecli]
 ---
+
 # Control access to Azure IoT Hub Device Provisioning Service (DPS) by using Azure Active Directory (preview)
 
 You can use Azure Active Directory (Azure AD) to authenticate requests to Azure IoT Hub Device Provisioning Service (DPS) APIs, like create device identity and invoke direct method. You can also use Azure role-based access control (Azure RBAC) to authorize those same service APIs. By using these technologies together, you can grant permissions to access Azure IoT Hub Device Provisioning Service (DPS) APIs to an Azure AD security principal. This security principal could be a user, group, or application service principal.
@@ -19,7 +21,7 @@ Authenticating access by using Azure AD and controlling permissions by using Azu
 
 ## Authentication and authorization
 
-When an Azure AD security principal requests access to an Azure IoT Hub Device Provisioning Service (DPS) API, the principal's identity is first *authenticated*. For authentication, the request needs to contain an OAuth 2.0 access token at runtime. The resource name for requesting the token is `https://iothubs.azure.net`. If the application runs in an Azure resource like an Azure VM, Azure Functions app, or Azure App Service app, it can be represented as a [managed identity](../active-directory/managed-identities-azure-resources/how-managed-identities-work-vm.md). 
+When an Azure AD security principal requests access to an Azure IoT Hub Device Provisioning Service (DPS) API, the principal's identity is first *authenticated*. For authentication, the request needs to contain an OAuth 2.0 access token at runtime. The resource name for requesting the token is `https://azure-devices-provisioning.net`. If the application runs in an Azure resource like an Azure VM, Azure Functions app, or Azure App Service app, it can be represented as a [managed identity](../active-directory/managed-identities-azure-resources/how-managed-identities-work-vm.md). 
 
 After the Azure AD principal is authenticated, the next step is *authorization*. In this step, Azure IoT Hub Device Provisioning Service (DPS) uses the Azure AD role assignment service to determine what permissions the principal has. If the principal's permissions match the requested resource or API, Azure IoT Hub Device Provisioning Service (DPS) authorizes the request. So this step requires one or more Azure roles to be assigned to the security principal. Azure IoT Hub Device Provisioning Service (DPS) provides some built-in roles that have common groups of permissions.
 
@@ -89,9 +91,8 @@ For more information, see the [Azure IoT extension for Azure CLI release page](h
 - [Azure IoT SDKs for Node.js Provisioning Service](https://aka.ms/IoTDPSNodeJSSDKRBAC)
     - [Sample](https://aka.ms/IoTDPSNodeJSSDKRBACSample)
 - [Azure IoT SDK for Java Preview Release ](https://aka.ms/IoTDPSJavaSDKRBAC)
-    - [Sample](https://aka.ms/IoTDPSJavaSDKRBACSample)
+    - [Sample](https://github.com/Azure/azure-iot-sdk-java/tree/preview/provisioning/provisioning-service-client-samples)
 - [•	Microsoft Azure IoT SDKs for .NET Preview Release](https://aka.ms/IoTDPScsharpSDKRBAC)
-    - [Sample](https://aka.ms/IoTDPScsharpSDKRBACSample)
 
 ## Azure AD access from the Azure portal
 
@@ -100,5 +101,5 @@ For more information, see the [Azure IoT extension for Azure CLI release page](h
 
 ## Next steps
 
-- For more information on the advantages of using Azure AD in your application, see [Integrating with Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md).
+- For more information on the advantages of using Azure AD in your application, see [Integrating with Azure Active Directory](../active-directory/develop/how-to-integrate.md).
 - For more information on requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md).

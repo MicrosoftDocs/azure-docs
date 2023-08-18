@@ -3,14 +3,14 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 10/20/2020
+ms.date: 11/17/2022
 ---
 
 The following resources are also available:
 
 - [Node.js SDK reference documentation](/javascript/api/azure-iothub)
-- [Service client samples](https://github.com/Azure/azure-iot-sdk-node/blob/main/service/samples/javascript/twin.js)
-- [Digital Twins samples](https://github.com/Azure/azure-iot-sdk-node/blob/main/service/samples/javascript/get_digital_twin.js)
+- [Service client samples](https://github.com/Azure/azure-iot-hub-node/blob/main/samples/twin.js)
+- [Digital Twins samples](https://github.com/Azure/azure-iot-hub-node/blob/main/samples/get_digital_twin.js)
 
 ## IoT Hub service client examples
 

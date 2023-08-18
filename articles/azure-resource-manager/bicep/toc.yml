@@ -21,8 +21,14 @@
   - name: Create Bicep templates - VS Code
     displayname: vscode
     href: quickstart-create-bicep-use-visual-studio-code.md
+  - name: Create Bicep templates - Visual Studio
+    href: quickstart-create-bicep-use-visual-studio.md
   - name: Create template specs
     href: quickstart-create-template-specs.md
+  - name: Create deployment stacks
+    href: quickstart-create-deployment-stacks.md
+  - name: Create deployment stacks from template specs
+    href: quickstart-create-deployment-stacks-template-specs.md
   - name: Use loops
     displayName: multiple
     href: quickstart-loops.md
@@ -43,16 +49,20 @@
   items:
   - name: Learn modules for Bicep
     href: learn-bicep.md
-  - name: Learn live - Bicep
+  - name: Learn Live - Bicep
     href: /events/learntv/learnlive-iac-and-bicep/
+  - name: Learn Live - Bicep and GitHub Actions
+    href: /events/learn-events/learnlive-automate-azure-deployments-bicep-github-actions/
+  - name: Use deployment stacks
+    href: ./tutorial-use-deployment-stacks.md
 - name: Samples - Azure Services
   items:
   - name: AI + Machine Learning
     items:
     - name: Cognitive Search
       href: ../../search/search-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Cognitive Services
-      href: ../../cognitive-services/create-account-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Azure AI services
+      href: ../../ai-services/create-account-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Data Science Virtual Machine
       href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Machine Learning secure workspace
@@ -105,7 +115,7 @@
     items:
     - name: Cache for Redis
       href: ../../azure-cache-for-redis/cache-redis-cache-bicep-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       href: ../../cosmos-db/sql/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database for MariaDB
       href: ../../mariadb/quickstart-create-mariadb-server-database-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
@@ -253,13 +263,18 @@
     displayName: parameters,variables,resources,outputs,condition,syntax
   - name: Data types
     href: data-types.md
-    displayName: supported types,arrays,booleans,integers,objects,strings,secure
+    displayName: supported types,arrays,booleans,integers,objects,strings,secure,interpolation
+  - name: User-defined data types (type)
+    displayName: custom
+    href: user-defined-data-types.md
   - name: Parameters (param)
     href: parameters.md
     displayName: decorators,secure,objects,constraints
   - name: Variables (var)
     href: variables.md
     displayName: configuration
+  - name: Import (import)
+    href: bicep-import-providers.md
   - name: Resources (resource)
     href: resource-declaration.md
   - name: Existing resources (existing)
@@ -273,7 +288,7 @@
     href: resource-dependencies.md
   - name: Modules (module)
     href: modules.md
-    displayName: scopes,consume,registry,module registry,private module registry
+    displayName: scopes,consume,registry,module registry,private module registry,public module registry
   - name: Outputs (output)
     href: outputs.md
     displayName: dynamic number of outputs,modules
@@ -286,16 +301,16 @@
     items:
     - name: Resource group
       href: deploy-to-resource-group.md
-      displayName: deployment commands,multiple resource groups
+      displayName: deployment commands,multiple resource groups,scope
     - name: Subscription
       href: deploy-to-subscription.md
-      displayName: Azure Policy,policy,access control
+      displayName: Azure Policy,policy,access control,scope
     - name: Management group
       href: deploy-to-management-group.md
-      displayName: policy,Azure Policy
+      displayName: policy,Azure Policy,scope
     - name: Tenant
       href: deploy-to-tenant.md
-      displayName: assign role
+      displayName: assign role,scope
   - name: Functions
     items:
     - name: All functions
@@ -304,18 +319,24 @@
       href: bicep-functions-any.md
     - name: Array functions
       href: bicep-functions-array.md
+    - name: CIDR functions
+      href: bicep-functions-cidr.md
     - name: Date functions
       href: bicep-functions-date.md
     - name: Deployment functions
       href: bicep-functions-deployment.md
     - name: File functions
       href: bicep-functions-files.md
+    - name: Lambda functions
+      href: bicep-functions-lambda.md
     - name: Logical functions
       href: bicep-functions-logical.md
     - name: Numeric functions
       href: bicep-functions-numeric.md
     - name: Object functions
       href: bicep-functions-object.md
+    - name: Parameters file functions
+      href: bicep-functions-parameters-file.md
     - name: Resource functions
       href: bicep-functions-resource.md
     - name: Scope functions
@@ -332,8 +353,12 @@
       href: operators-comparison.md
     - name: Logical operators
       href: operators-logical.md
+    - name: Null forgiving operator
+      href: operator-null-forgiving.md
     - name: Numeric operators
       href: operators-numeric.md
+    - name: Safe-dereference operator
+      href: operator-safe-dereference.md
 - name: How to
   items:
   - name: Author
@@ -350,6 +375,12 @@
       href: deployment-script-bicep.md
     - name: Template specs
       href: template-specs.md
+    - name: Deployment stacks
+      href: deployment-stacks.md
+    - name: Bicep extensibility
+      items:
+      - name: Kubernetes provider
+        href: ./bicep-extensibility-kubernetes-provider.md
     - name: Patterns
       items:
       - name: Configuration set
@@ -372,8 +403,8 @@
         href: scenarios-virtual-networks.md
   - name: Provide parameters
     items:
-    - name: Parameter file
-      displayName: comments,metadata,
+    - name: Parameters file
+      displayName: comments,metadata,bicepparam
       href: parameter-files.md
     - name: Sensitive values
       displayName: key vault
@@ -381,54 +412,99 @@
   - name: Validate file
     items:
     - name: Linter
+      displayName: ttk
       href: linter.md
     - name: Linter rules
       items:
       - name: Admin user name not literal
+        displayName: linter
         href: linter-rule-admin-username-should-not-be-literal.md
       - name: Artifacts parameters
+        displayName: linter
         href: linter-rule-artifacts-parameters.md
+      - name: Decompiler cleanup
+        displayName: linter
+        href: linter-rule-decompiler-cleanup.md
       - name: Max outputs
+        displayName: linter
         href: linter-rule-max-outputs.md
       - name: Max parameters
+        displayName: linter
         href: linter-rule-max-parameters.md
       - name: Max resources
+        displayName: linter
         href: linter-rule-max-resources.md
       - name: Max variables
+        displayName: linter
         href: linter-rule-max-variables.md
       - name: No hardcoded environment URLs
+        displayName: linter
         href: linter-rule-no-hardcoded-environment-urls.md
-      - name: No hard-coded locations
+      - name: No hardcoded locations
+        displayName: linter
         href: linter-rule-no-hardcoded-location.md
       - name: No location expressions outside of parameter default values
+        displayName: linter
         href: linter-rule-no-loc-expr-outside-params.md
       - name: No unnecessary dependsOn entries
+        displayName: linter
         href: linter-rule-no-unnecessary-dependson.md
       - name: No unused existing resources
+        displayName: linter
         href: linter-rule-no-unused-existing-resources.md
       - name: No unused parameters
+        displayName: linter
         href: linter-rule-no-unused-parameters.md
       - name: No unused variables
+        displayName: linter
         href: linter-rule-no-unused-variables.md
       - name: Outputs should not contain secrets
+        displayName: linter
         href: linter-rule-outputs-should-not-contain-secrets.md
       - name: Prefer interpolation
+        displayName: linter
         href: linter-rule-prefer-interpolation.md
       - name: Prefer unquoted property names
+        displayName: linter
         href: linter-rule-prefer-unquoted-property-names.md
       - name: Protect commandToExecute secrets
+        displayName: linter
         href: linter-rule-protect-commandtoexecute-secrets.md
       - name: Secure parameter default
+        displayName: linter
         href: linter-rule-secure-parameter-default.md
+      - name: Secure parameters in nested deployments
+        displayName: linter
+        href: linter-rule-secure-params-in-nested-deploy.md
       - name: Secure secrets in parameters
+        displayName: linter
         href: linter-rule-secure-secrets-in-parameters.md
       - name: Simplify interpolation
+        displayName: linter
         href: linter-rule-simplify-interpolation.md
+      - name: Simplify JSON null
+        displayName: linter
+        href: linter-rule-simplify-json-null.md
       - name: Use explicit values for module location parameters
+        displayName: linter
         href: linter-rule-explicit-values-for-loc-params.md
+      - name: Use parent property
+        displayName: linter
+        href: linter-rule-use-parent-property.md
+      - name: use recent API versions
+        displayName: linter
+        href: linter-rule-use-recent-api-versions.md
+      - name: use resource ID functions
+        displayName: linter
+        href: linter-rule-use-resource-id-functions.md
+      - name: use resource symbol reference
+        displayName: linter
+        href: linter-rule-use-resource-symbol-reference.md
       - name: Use stable resource identifier
+        displayName: linter
         href: linter-rule-use-stable-resource-identifier.md
       - name: Use stable VM image
+        displayName: linter
         href: linter-rule-use-stable-vm-image.md
   - name: Deploy
     items:
@@ -451,6 +527,7 @@
     - name: Linter settings
       href: bicep-config-linter.md
     - name: Module settings
+      displayName: registry
       href: bicep-config-modules.md
   - name: Migrate to Bicep
     items:
@@ -467,7 +544,7 @@
     href: /azure/templates/
   - name: Bicep CLI
     href: bicep-cli.md
-    displayName: build,decompile,install,list-versions,list versions,upgrade,version
+    displayName: build,decompile,install,list-versions,list versions,upgrade,version,module,registry
   - name: Azure PowerShell
     href: /powershell/module/az.resources/
   - name: Azure CLI

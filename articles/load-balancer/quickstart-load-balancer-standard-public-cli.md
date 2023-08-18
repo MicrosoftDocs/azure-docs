@@ -1,23 +1,25 @@
 ---
 title: "Quickstart: Create a public load balancer - Azure CLI"
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create a public load balancer using the Azure CLI
+description: This quickstart shows how to create a public load balancer using the Azure CLI.
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 03/16/2022
 ms.author: mbender
-ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
+ms.custom: mvc, devx-track-azurecli, mode-api, template-quickstart, engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs using the Azure CLI
 
-Get started with Azure Load Balancer by using the Azure CLI to create a public load balancer and two virtual machines.
+Get started with Azure Load Balancer by using the Azure CLI to create a public load balancer and two virtual machines. Additional resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
+
+:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer.":::
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -178,6 +180,12 @@ Create a network security group rule using [az network nsg rule create](/cli/azu
 ## Create a bastion host
 
 In this section, you'll create the resources for Azure Bastion. Azure Bastion is used to securely manage the virtual machines in the backend pool of the load balancer.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+>
 
 ### Create a public IP address
 

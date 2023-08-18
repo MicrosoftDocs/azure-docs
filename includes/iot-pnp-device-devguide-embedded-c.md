@@ -3,7 +3,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 09/07/2021
+ms.date: 11/17/2022
 ---
 
 ## SDKs
@@ -13,7 +13,7 @@ The code snippets in this article are based on samples that use the [Azure IoT M
 The code snippets in this article are based on the following samples:
 
 - [Sample IoT Plug and Play Thermostat](https://github.com/azure-rtos/netxduo/blob/master/addons/azure_iot/samples/sample_azure_iot_embedded_sdk_pnp.c)
-- [Sample IoT Plug and Play Temperature Controller](https://github.com/azure-rtos/netxduo/tree/master/addons/azure_iot/samples/sample_pnp_temperature_controller)
+- [Sample IoT Plug and Play Thermostat](https://github.com/Azure/embedded-wireless-framework/tree/main/examples/WIN32/netxduo/addons/azure_iot/samples/sample_pnp_temperature_controller)
 
 ## Model ID announcement
 
@@ -36,7 +36,7 @@ status = nx_azure_iot_hub_client_model_id_set(iothub_client_ptr, (UCHAR *)SAMPLE
 
 ## DPS payload
 
-Devices using the [Device Provisioning Service (DPS)](../articles/iot-dps/about-iot-dps.md) can include the `modelId` to be used during the provisioning process using the following JSON payload:
+Devices using the [Device Provisioning Service (DPS)](../articles/iot-dps/about-iot-dps.md) can include the `modelId` to be used during the provisioning process by using the following JSON payload:
 
 ```json
 {
@@ -61,13 +61,13 @@ status = nx_azure_iot_provisioning_client_registration_payload_set(prov_client_p
 
 ## Use components
 
-As described in [Understand components in IoT Plug and Play models](../articles/iot-develop/concepts-modeling-guide.md), device builders must decide if they want to use components to describe their devices. When using components, devices must follow the rules described in the following sections. To simplify working with the IoT Plug and Play conventions for components, the samples use the helper functions in [nx_azure_iot_hub_client.h](https://github.com/azure-rtos/netxduo/blob/master/addons/azure_iot/nx_azure_iot_hub_client.h).
+As described in [Understand components in IoT Plug and Play models](../articles/iot-develop/concepts-modeling-guide.md), you must decide if you want to use components to describe your devices. When you use components, devices must follow the rules described in the following sections. To simplify working with the IoT Plug and Play conventions for components, the samples use the helper functions in [nx_azure_iot_hub_client.h](https://github.com/azure-rtos/netxduo/blob/master/addons/azure_iot/nx_azure_iot_hub_client.h).
 
 ## Telemetry
 
 A default component doesn't require any special property added to the telemetry message.
 
-When using nested components, devices must set a message property with the component name. In the following snippet, `component_name_ptr` is the name of a component such as `thermostat1`. The helper function `nx_azure_iot_pnp_helper_telemetry_message_create` defined in *nx_azure_iot_pnp_helpers.h* adds the message property with the component name:
+When you use nested components, devices must set a message property with the component name. In the following snippet, `component_name_ptr` is the name of a component such as `thermostat1`. The helper function `nx_azure_iot_pnp_helper_telemetry_message_create` defined in *nx_azure_iot_pnp_helpers.h* adds the message property with the component name:
 
 ```c
 #include "nx_azure_iot_pnp_helpers.h"
@@ -174,7 +174,7 @@ The device twin is updated with the following reported property:
 }
 ```
 
-When using nested components, properties must be created within the component name and include a marker and include a marker. In the following snippet, `component_name_ptr` is the name of a component such as `thermostat1`. The helper function `nx_azure_iot_pnp_helper_build_reported_property` defined in *nx_azure_iot_pnp_helpers.h* creates the reported property in the correct format:
+When you use nested components, properties must be created within the component name and include a marker. In the following snippet, `component_name_ptr` is the name of a component such as `thermostat1`. The helper function `nx_azure_iot_pnp_helper_build_reported_property` defined in *nx_azure_iot_pnp_helpers.h* creates the reported property in the correct format:
 
 ```c
 #include "nx_azure_iot_pnp_helpers.h"
@@ -232,7 +232,7 @@ The device twin is updated with the following reported property:
 
 ## Writable properties
 
-These properties can be set by the device or updated by the solution. To follow the IoT Plug and Play conventions, the device must inform the service that the property was successfully received.
+These properties can be set by the device or updated by the back-end application. To follow the IoT Plug and Play conventions, the device must inform the service that the property was successfully received.
 
 ### Report a writable property
 
@@ -369,7 +369,7 @@ The device twin is updated with the following reported property:
 
 ### Subscribe to desired property updates
 
-Services can update desired properties that trigger a notification on the connected devices. This notification includes the updated desired properties and the version number identifying the update. Devices must include this version number in the  `ack` message sent back to the service.
+Services can update desired properties that trigger a notification on the connected devices. This notification includes the updated desired properties and the version number identifying the update. Devices must include this version number in the `ack` message sent back to the service.
 
 A default component sees the single property and creates the reported `ack` with the received version:
 
@@ -699,5 +699,5 @@ UCHAR time_buf[32];
 }
 ```
 
-> [!Tip]
+> [!TIP]
 > The request and response names aren't present in the serialized payloads transmitted over the wire.

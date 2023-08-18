@@ -2,11 +2,11 @@
 title: Troubleshoot mutual authentication on Azure Application Gateway 
 description: Learn how to troubleshoot mutual authentication on Application Gateway
 services: application-gateway
-author: mscatyao
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 02/18/2022
-ms.author: caya
+ms.author: greglin
 ---
 
 # Troubleshooting mutual authentication errors in Application Gateway
@@ -87,7 +87,7 @@ There is certificate data that is missing. The certificate uploaded could have b
 
 #### Solution
 
-Validate that the certificate file uploaded does not have any missing data. 
+Validate that the certificate file uploaded doesn't have any missing data. 
 
 ### Error code: ApplicationGatewayTrustedClientCertificateMustNotHavePrivateKey
 

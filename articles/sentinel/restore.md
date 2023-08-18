@@ -7,24 +7,21 @@ ms.date: 01/20/2022
 ms.author: cwatson
 ---
 
-# Restore archived logs from search (preview)
+# Restore archived logs from search
 
 Restore data from an archived log to use in high performing queries and analytics.
 
 Before you restore data in an archived log, see [Start an investigation by searching large datasets (preview)](investigate-large-datasets.md) and [Restore in Azure Monitor](../azure-monitor/logs/restore.md).
 
-> [!IMPORTANT]
-> The search job and restore features are currently in **PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Restore archived log data
 
 To restore archived log data in Microsoft Sentinel, specify  the table and time range for the data you want to restore. Within a few minutes, the log data is available within the Log Analytics workspace. Then you can use the data in high-performance queries that support full KQL.
 
-You can restore archived data directly from the **Search (preview)** page or from a saved search.
+You can restore archived data directly from the **Search** page or from a saved search.
 
 1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
-1. Under **General**, select **Search (preview)**.
+1. Under **General**, select **Search**.
 1. Restore log data in one of two ways:
    - At the top of **Search** page, select **Restore**.
       :::image type="content" source="media/restore/search-page-restore.png" alt-text="Screenshot of restore button at the top of the search page.":::

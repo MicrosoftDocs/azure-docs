@@ -2,7 +2,7 @@
 title: Azure subscription as Event Grid source
 description: Describes the properties that are provided for subscription events with Azure Event Grid
 ms.topic: reference
-ms.date: 09/15/2021
+ms.date: 12/02/2022
 ---
 
 # Azure subscription as an Event Grid source
@@ -13,7 +13,7 @@ Azure subscriptions and resource groups emit the same event types. The event typ
 
 Resource events are created for PUT, PATCH, POST, and DELETE operations that are sent to `management.azure.com`. GET operations don't create events. Operations sent to the data plane (like `myaccount.blob.core.windows.net`) don't create events. The action events provide event data for operations like listing the keys for a resource.
 
-When you subscribe to events for an Azure subscription, your endpoint receives all events for that subscription. The events can include event you want to see, such as updating a virtual machine, but also events that maybe aren't important to you, such as writing a new entry in the deployment history. You can receive all events at your endpoint and write code that processes the events you want to handle. Or, you can set a filter when creating the event subscription.
+When you subscribe to events for an Azure subscription, your endpoint receives all events for that subscription. The events can include event you want to see, such as updating a virtual machine, but also events that aren't important to you, such as writing a new entry in the deployment history. You can receive all events at your endpoint and write code that processes the events you want to handle. Or, you can set a filter when creating the event subscription.
 
 To programmatically handle events, you can sort events by looking at the `operationName` value. For example, your event endpoint might only process events for operations that are equal to `Microsoft.Compute/virtualMachines/write` or `Microsoft.Storage/storageAccounts/write`.
 
@@ -462,7 +462,7 @@ The data object has the following properties:
 | [Tutorial: Azure Automation with Event Grid and Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Create a virtual machine, which sends an event. The event triggers an Automation runbook that tags the virtual machine, and triggers a message that is sent to a Microsoft Teams channel. |
 | [How to: subscribe to events through portal](subscribe-through-portal.md) | Use the portal to subscribe to events for an Azure subscription. |
 | [Azure CLI: subscribe to events for an Azure subscription](./scripts/event-grid-cli-azure-subscription.md) |Sample script that creates an Event Grid subscription to an Azure subscription and sends events to a WebHook. |
-| [PowerShell: subscribe to events for an Azure subscription](./scripts/event-grid-powershell-azure-subscription.md)| Sample script that creates an Event Grid subscription to an Azure subscription and sends events to a WebHook. |
+| [PowerShell: subscribe to events for an Azure subscription](./scripts/powershell-azure-subscription.md)| Sample script that creates an Event Grid subscription to an Azure subscription and sends events to a WebHook. |
 
 ## Next steps
 

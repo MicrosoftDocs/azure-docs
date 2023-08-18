@@ -23,6 +23,8 @@ items:
 - name: Tutorials
   expanded: true
   items:
+  - name: SMART on FHIR
+    href: smart-on-fhir.md
   - name: Interoperability and Patient Access
     expanded: false
     items:
@@ -63,6 +65,8 @@ items:
     items:
     - name: Overview of FHIR search
       href: overview-of-search.md
+    - name: selectable search parameters
+      href: selectable-search-parameters.md
     - name: Defining custom search parameters
       href: how-to-do-custom-search.md
     - name: How to run a reindex job
@@ -73,7 +77,16 @@ items:
     expanded: false
     items:
     - name: $convert-data
-      href: convert-data.md
+      expanded: false
+      items:
+      - name: Overview of $convert-data
+        href: overview-of-convert-data.md
+      - name: Configure settings for $convert-data
+        href: configure-settings-convert-data.md
+      - name: Troubleshoot $convert-data
+        href: troubleshoot-convert-data.md
+      - name: FAQs - $convert-data
+        href: frequently-asked-questions-convert-data.md     
     - name: $export
       expanded: false
       items:

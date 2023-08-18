@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure Hoxhunt for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Hoxhunt for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Hoxhunt.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 24fbe0a4-ab2d-4e10-93a6-c87d634ffbcf
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/28/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -62,19 +62,19 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+	![Screenshot of Enterprise applications blade.](common/enterprise-applications.png)
 
 2. In the applications list, select **Hoxhunt**.
 
-	![The Hoxhunt link in the Applications list](common/all-applications.png)
+	![Screenshot of the Hoxhunt link in the Applications list.](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of Provisioning tab.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab automatic](common/provisioning-automatic.png)
+	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input your Hoxhunt Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Hoxhunt. If the connection fails, ensure your Hoxhunt account has Admin permissions and try again.
 
@@ -82,7 +82,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-	![Notification Email](common/provisioning-notification-email.png)
+	![Screenshot of Notification Email.](common/provisioning-notification-email.png)
 
 7. Select **Save**.
 
@@ -90,29 +90,34 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Hoxhunt in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Hoxhunt for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Hoxhunt API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported for filtering|
-   |---|---|---|
-   |userName|String|&check;|
-   |emails[type eq "work"].value|String|
-   |active|Boolean|
-   |name.givenName|String|
-   |name.familyName|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
-   |addresses[type eq "work"].country|String|
+   |Attribute|Type|Supported for filtering|Required by Hoxhunt
+   |---|---|---|---
+   |userName|String|&check;|&check;
+   |emails[type eq "work"].value|String||&check;
+   |active|Boolean||
+   |name.givenName|String||
+   |name.familyName|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
+   |addresses[type eq "work"].country|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String||
+   |preferredLanguage|String||
+   |addresses[type eq "work"].locality|String||
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference||
+
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. To enable the Azure AD provisioning service for Hoxhunt, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+	![Screenshot of Provisioning Status Toggled On.](common/provisioning-toggle-on.png)
 
 12. Define the users and/or groups that you would like to provision to Hoxhunt by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Provisioning Scope](common/provisioning-scope.png)
+	![Screenshot of Provisioning Scope.](common/provisioning-scope.png)
 
 13. When you are ready to provision, click **Save**.
 
-	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+	![Screenshot of Saving Provisioning Configuration.](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
@@ -124,7 +129,8 @@ Once you've configured provisioning, use the following resources to monitor your
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## Change Log
-* 04/20/2021 - Added support for "preferredLanguage" and enterprise extension attribute "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division".
+* 04/20/2021 - Added support for core user attribute **preferredLanguage** and enterprise extension attribute **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division**.
+* 08/08/2023 - Added support for core user attribute **addresses[type eq "work"].locality|String** and enterprise extension attribute **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager**.
 
 ## Additional resources
 

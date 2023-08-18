@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure G Suite for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to G Suite.
+title: 'Tutorial: Configure G Suite for automatic user provisioning with Azure Active Directory'
+description: Learn how to automatically provision and deprovision user accounts from Azure AD to G Suite.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 07/05/2023
 ms.author: thwimmer
 ---
 
 # Tutorial: Configure G Suite for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both G Suite and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [G Suite](https://gsuite.google.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both G Suite and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and deprovisions users and groups to [G Suite](https://gsuite.google.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -23,7 +23,7 @@ This tutorial describes the steps you need to perform in both G Suite and Azure 
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in G Suite
-> * Remove users in G Suite when they do not require access anymore
+> * Remove users in G Suite when they do not require access anymore (note: removing a user from the sync scope will not result in deletion of the object in GSuite)
 > * Keep user attributes synchronized between Azure AD and G Suite
 > * Provision groups and group memberships in G Suite
 > * [Single sign-on](./google-apps-tutorial.md) to G Suite (recommended)
@@ -33,7 +33,7 @@ This tutorial describes the steps you need to perform in both G Suite and Azure 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * [A G Suite tenant](https://gsuite.google.com/pricing.html)
 * A user account on a G Suite with Admin permissions.
 
@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure G Suite to support provisioning with Azure AD
 
-Before configuring G Suite for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on G Suite.
+Before configuring G Suite for automatic user provisioning with Azure AD, you need to enable SCIM provisioning on G Suite.
 
 1. Sign in to the [G Suite Admin console](https://admin.google.com/) with your administrator account, then click on **Main menu** and then select **Security**. If you don't see it, it might be hidden under the **Show More** menu.
 
@@ -75,7 +75,7 @@ Before configuring G Suite for automatic user provisioning with Azure AD, you wi
 
     1. Select **ADD DOMAIN & START VERIFICATION**. Then follow the steps to verify that you own the domain name. For comprehensive instructions on how to verify your domain with Google, see [Verify your site ownership](https://support.google.com/webmasters/answer/35179).
 
-    1. Repeat the preceding steps for any additional domains that you intend to add to G Suite.
+    1. Repeat the preceding steps for any more domains that you intend to add to G Suite.
 
 1. Next, determine which admin account you want to use to manage user provisioning in G Suite. Navigate to **Account->Admin roles**.
 
@@ -87,15 +87,15 @@ Before configuring G Suite for automatic user provisioning with Azure AD, you wi
 
 ## Step 3. Add G Suite from the Azure AD application gallery
 
-Add G Suite from the Azure AD application gallery to start managing provisioning to G Suite. If you have previously setup G Suite for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add G Suite from the Azure AD application gallery to start managing provisioning to G Suite. If you have previously setup G Suite for SSO, you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
-## Step 4. Define who will be in scope for provisioning 
+## Step 4. Define who is in scope for provisioning 
 
-The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+The Azure AD provisioning service allows you to scope who is provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who is provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who is provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
+* If you need more roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
 ## Step 5. Configure automatic user provisioning to G Suite 
@@ -107,7 +107,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for G Suite in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**. Users will need to log in to `portal.azure.com` and will not be able to use `aad.portal.azure.com`.
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**. Users will need to log in to `portal.azure.com` and won't be able to use `aad.portal.azure.com`.
 
 	![Enterprise applications blade](./media/g-suite-provisioning-tutorial/enterprise-applications.png)
 
@@ -127,7 +127,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, click on **Authorize**. You will be redirected to a Google authorization dialog box in a new browser window.
+5. Under the **Admin Credentials** section, click on **Authorize**. You'll be redirected to a Google authorization dialog box in a new browser window.
 
       ![G Suite authorize](./media/g-suite-provisioning-tutorial/authorize-1.png)
 
@@ -246,7 +246,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-15. When you are ready to provision, click **Save**.
+15. When you're ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
@@ -259,17 +259,42 @@ This operation starts the initial synchronization cycle of all users and groups 
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it's to completion
+3. If the provisioning configuration seems to be in an unhealthy state, the application goes into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## Troubleshooting Tips
+* Removing a user from the sync scope disables them in GSuite but won't result in deletion of the user in G Suite
+
+## Just-in-time (JIT) application access with PIM for groups (preview)
+With PIM for Groups, you can provide just-in-time access to groups in Google Cloud / Google Workspace and reduce the number of users that have permanent access to privileged groups in Google Cloud / Google Workspace. 
+
+**Configure your enterprise application for SSO and provisioning**
+1. Add Google Cloud / Google Workspace to your tenant, configure it for provisioning as described in the tutorial above, and start provisioning. 
+1. Configure [single sign-on](google-apps-tutorial.md) for Google Cloud / Google Workspace.
+1. Create a [group](/azure/active-directory/fundamentals/how-to-manage-groups) that provides all users access to the application.
+1. Assign the group to the Google Cloud / Google Workspace application.
+1. Assign your test user as a direct member of the group created in the previous step, or provide them access to the group through an access package. This group can be used for persistent, nonadmin access in Google Cloud / Google Workspace.
+
+**Enable PIM for groups**
+1. Create a second group in Azure AD. This group provides access to admin permissions in Google Cloud / Google Workspace. 
+1. Bring the group under [management in Azure AD PIM](/azure/active-directory/privileged-identity-management/groups-discover-groups).
+1. Assign your test user as [eligible for the group in PIM](/azure/active-directory/privileged-identity-management/groups-assign-member-owner) with the role set to member.
+1. Assign the second group to the Google Cloud / Google Workspace application.
+1. Use on-demand provisioning to create the group in Google Cloud / Google Workspace.
+1. Sign-in to Google Cloud / Google Workspace and assign the second group the necessary permissions to perform admin tasks.  
+
+Now any end user that was made eligible for the group in PIM can get JIT access to the group in Google Cloud / Google Workspace by [activating their group membership](/azure/active-directory/privileged-identity-management/groups-activate-roles#activate-a-role). 
+
+> [!IMPORTANT]
+> The group membership is provisioned roughly a minute after the activation is complete. Please wait before attempting to sign-in to Google Cloud / Google Workspace. If the user is unable to access the necessary group in Google Cloud / Google Workspace, please review the provisioning logs to ensure that the user was successfully provisioned. 
 
 ## Change log
 
-* 10/17/2020 - Added support for additional G Suite user and group attributes.
+* 10/17/2020 - Added support for more G Suite user and group attributes.
 * 10/17/2020 - Updated G Suite target attribute names to match what is defined [here](https://developers.google.com/admin-sdk/directory).
 * 10/17/2020 - Updated default attribute mappings.
-* 03/18/2021 - Manager email is now synchronized instead of ID for all new users. For any existing users that were provisioned with a manager as an ID, you can do a restart through [Microsoft Graph](/graph/api/synchronization-synchronizationjob-restart?preserve-view=true&tabs=http&view=graph-rest-beta) with scope "full" to ensure that the email is provisioned. This change only impacts the GSuite provisioning job and not the older provisioning job beginning with Goov2OutDelta. Note, the manager email is provisioned when the user is first created or when the manager changes. The manager email is not provisioned if the manager changes their email address. 
 
-## Additional resources
+## More resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

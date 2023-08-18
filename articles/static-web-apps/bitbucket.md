@@ -35,7 +35,7 @@ In this tutorial, you learn to:
 This article uses a GitHub repository as the source to import code into a Bitbucket repository.
 
 1. Sign in to [Bitbucket](https://bitbucket.org).
-1. Navigate to [https://bitbucket.org/repo/import](https://bitbucket.org/repo/import) to begin the import process.
+1. Go to [https://bitbucket.org/repo/import](https://bitbucket.org/repo/import) to begin the import process.
 1. Under the *Old repository* label, in the *URL* box, enter the repository URL for your choice of framework.
 
     # [No Framework](#tab/vanilla-javascript)
@@ -62,7 +62,7 @@ This article uses a GitHub repository as the source to import code into a Bitbuc
 
 1. Next to the *Project* label, select **Create new project**.
 1. Enter **MyStaticWebApp**.
-1. Select the **Import repository** button and wait a moment while the website creates your repository.
+2. Select **Import repository** and wait a moment while the website creates your repository.
 
 ### Set main branch
 
@@ -72,13 +72,13 @@ From time to time the template repository have more than one branch. Use the fol
 1. Expand the **Advanced** section.
 1. Under the *Main branch* label, ensure **main** is selected in the drop down.
 1. If you made a change, select **Save changes**.
-1. Select the **Back** button on the left.
+2. Select **Back**.
 
 ## Create a static web app
 
 Now that the repository is created, you can create a static web app from the Azure portal.
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Go to the [Azure portal](https://portal.azure.com).
 1. Select **Create a Resource**.
 1. Search for **Static Web Apps**.
 1. Select **Static Web Apps**.
@@ -96,20 +96,20 @@ Now that the repository is created, you can create a static web app from the Azu
 
 1. Select **Review + create**.
 1. Select **Create**.
-1. Select the **Go to resource** button.
-1. Select the **Manage deployment token** button.
-1. Copy the deployment token value and set it aside in an editor for later use.
-1. Select the **Close** button on the *Manage deployment token* window.
+2. Select **Go to resource**.
+3. Select **Manage deployment token**.
+4. Copy the deployment token value and set it aside in an editor for later use.
+5. Select **Close** on the *Manage deployment token* window.
 
 ## Create the pipeline task in Bitbucket
 
-1. Navigate to the repository in Bitbucket.
+1. Go to the repository in Bitbucket.
 1. Select the **Source** menu item.
 1. Ensure the **main** branch is selected in the branch drop down.
 1. Select **Pipelines**.
 1. Select text link **Create your first pipeline**.
-1. On the *Starter pipeline* card, select the **Select** button.
-1. Enter the following YAML into the configuration file.
+2. On the *Starter pipeline* card, select **Select**.
+3. Enter the following YAML into the configuration file.
 
     # [No Framework](#tab/vanilla-javascript)
 
@@ -125,7 +125,7 @@ Now that the repository is created, you can create a static web app from the Azu
                 variables:
                     APP_LOCATION: '$BITBUCKET_CLONE_DIR/src'
                     OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/src'
-                    API_TOKEN: $deployment_token​
+                    API_TOKEN: $deployment_token
     ```
 
     # [Angular](#tab/angular)
@@ -142,7 +142,7 @@ Now that the repository is created, you can create a static web app from the Azu
                 variables:
                     APP_LOCATION: '$BITBUCKET_CLONE_DIR'
                     OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/dist/angular-basic'
-                    API_TOKEN: $deployment_token​
+                    API_TOKEN: $deployment_token
     ```
 
     # [Blazor](#tab/blazor)
@@ -158,8 +158,8 @@ Now that the repository is created, you can create a static web app from the Azu
               - pipe: microsoft/azure-static-web-apps-deploy:main
                 variables:
                     APP_LOCATION: '$BITBUCKET_CLONE_DIR/Client'
-                    OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/wwwroot'
-                    API_TOKEN: $deployment_token​
+                    OUTPUT_LOCATION: 'wwwroot'
+                    API_TOKEN: $deployment_token
     ```
 
     # [React](#tab/react)
@@ -176,7 +176,7 @@ Now that the repository is created, you can create a static web app from the Azu
                 variables:
                     APP_LOCATION: '$BITBUCKET_CLONE_DIR'
                     OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/build'
-                    API_TOKEN: $deployment_token​
+                    API_TOKEN: $deployment_token
     ```
 
     # [Vue](#tab/vue)
@@ -193,7 +193,7 @@ Now that the repository is created, you can create a static web app from the Azu
                 variables:
                     APP_LOCATION: '$BITBUCKET_CLONE_DIR'
                     OUTPUT_LOCATION: '$BITBUCKET_CLONE_DIR/dist'
-                    API_TOKEN: $deployment_token​
+                    API_TOKEN: $deployment_token
     ```
 
     ---
@@ -209,7 +209,7 @@ Now that the repository is created, you can create a static web app from the Azu
     |--|--|--|--|
     | `app_location` | Location of your application code. | Enter `/` if your application source code is at the root of the repository, or `/app` if your application code is in a directory named `app`. | Yes |
     | `api_location` | Location of your Azure Functions code. | Enter `/api` if your api code is in a folder named `api`. If no Azure Functions app is detected in the folder, the build doesn't fail, the workflow assumes you don't want an API. | No |
-    | `output_location` | Location of the build output directory relative to the `app_location`. | If your application source code is located at `/app`, and the build script outputs files to the `/app/build` folder, then set build as the `output_location` value. | No |
+    | `output_location` | Location of the build output directory relative to the `app_location`. | If your application source code is located at `/app`, and the build script outputs files to the `/app/build` folder, then set `build` as the `output_location` value. | No |
 
 Next, define value for the `API_TOKEN` variable.
 
@@ -217,8 +217,8 @@ Next, define value for the `API_TOKEN` variable.
 1. In the *Name* box, enter **deployment_token**, which matches the name in the workflow.
 1. In the *Value* box, paste in the deployment token value you set aside in a previous step.
 1. Check the **Secured** checkbox.
-1. Select the **Add** button.
-1. Select **Commit file** and return to your pipelines tab.
+2. Select **Add**.
+3. Select **Commit file** and return to your pipelines tab.
 
 Wait a moment on the *Pipelines* window and you'll see your deployment status appear. Once the deployment is finished running, you can view the website in your browser.
 
@@ -226,22 +226,22 @@ Wait a moment on the *Pipelines* window and you'll see your deployment status ap
 
 There are two aspects to deploying a static app. The first step creates the underlying Azure resources that make up your app. The second is a Bitbucket workflow that builds and publishes your application.
 
-Before you can navigate to your new static site, the deployment build must first finish running.
+Before you can go to your new static site, the deployment build must first finish running.
 
 The Static Web Apps overview window displays a series of links that help you interact with your web app.
 
 1. Return to your static web app in the Azure portal.
-1. Navigate to the **Overview** window.
-1. Select the link under the *URL* label. Your website will load in a new tab.
+1. Go to the **Overview** window.
+2. Select the link under the *URL* label. Your website loads in a new tab.
 
 ## Clean up resources
 
 If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance and all the associated services by removing the resource group.
 
 1. Select the **static-web-apps-bitbucket** resource group from the *Overview* section.
-1. Select the **Delete resource group** button at the top of the resource group *Overview*.
-1. Enter the resource group name **static-web-apps-bitbucket** in the *Are you sure you want to delete "static-web-apps-bitbucket"?* confirmation dialog.
-1. Select **Delete**.
+2. Select **Delete resource group** at the top of the resource group *Overview*.
+3. Enter the resource group name **static-web-apps-bitbucket** in the *Are you sure you want to delete "static-web-apps-bitbucket"?* confirmation dialog.
+4. Select **Delete**.
 
 The process to delete the resource group may take a few minutes to complete.
 

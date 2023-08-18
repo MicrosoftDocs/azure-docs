@@ -1,7 +1,7 @@
 ---
 title: Use GPU workloads with Azure Red Hat OpenShift (ARO)
 description: Discover how to utilize GPU workloads with Azure Red Hat OpenShift (ARO)
-author: johnmarc
+author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: aro, gpu, openshift, red hat
@@ -43,9 +43,13 @@ All GPU quotas in Azure are 0 by default. You will need to sign in to the Azure 
 ARO supports the following GPU workers:
 
 * NC4as T4 v3
+* NC6s v3
 * NC8as T4 v3
+* NC12s v3
 * NC16as T4 v3
-* NC464as T4 v3
+* NC24s v3
+* NC24rs v3
+* NC64as T4 v3
 
 > [!NOTE] 
 > When requesting quota, remember that Azure is per core. To request a single NC4as T4 v3 node, you will need to request quota in groups of 4. If you wish to request an NC16as T4 v3, you will need to request quota of 16.
@@ -54,7 +58,7 @@ ARO supports the following GPU workers:
 
 1. Enter **quotas** in the search box, then select **Compute**.
 
-1. In the search box, enter **NCAv3_T4**, check the box for the region your cluster is in, and then select **Request quota increase**.
+1. In the search box, enter **NCAsv3_T4**, check the box for the region your cluster is in, and then select **Request quota increase**.
 
 1. Configure quota.
 
@@ -145,13 +149,13 @@ ARO uses Kubernetes MachineSet to create machine sets. The procedure below expla
 1. Change the `.spec.selector.matchLabels.machine.openshift.io/cluster-api-machineset` field to match the `.metadata.name` field.
 
    ```bash
-   jq '.spec.selector.matchLabels."machine.openshift.io/cluster-api-machineset" = "nvidia-worker-southcentralus1"' gpu_machineset.json| sponge gpu_machineset.json
+   jq '.spec.selector.matchLabels."machine.openshift.io/cluster-api-machineset" = "nvidia-worker-<region><az>"' gpu_machineset.json| sponge gpu_machineset.json
    ```
 
 1. Change the `.spec.template.metadata.labels.machine.openshift.io/cluster-api-machineset` to match the `.metadata.name` field.
 
    ```bash
-   jq '.spec.template.metadata.labels."machine.openshift.io/cluster-api-machineset" = "nvidia-worker-southcentralus1"' gpu_machineset.json| sponge gpu_machineset.json
+   jq '.spec.template.metadata.labels."machine.openshift.io/cluster-api-machineset" = "nvidia-worker-<region><az>"' gpu_machineset.json| sponge gpu_machineset.json
    ```
 
 1. Change the `spec.template.spec.providerSpec.value.vmSize` to match the desired GPU instance type from Azure.
@@ -240,6 +244,12 @@ This section explains how to create the `nvidia-gpu-operator` namespace, set up 
    ```bash
    CHANNEL=$(oc get packagemanifest gpu-operator-certified -n openshift-marketplace -o jsonpath='{.status.defaultChannel}')
    ```
+> [!NOTE] 
+> If your cluster was created without providing the pull secret, the cluster won't include samples or operators from Red Hat or from certified partners. This will result in the following error message: 
+> 
+> *Error from server (NotFound): packagemanifests.packages.operators.coreos.com "gpu-operator-certified" not found.* 
+>
+> To add your Red Hat pull secret on an Azure Red Hat OpenShift cluster, [follow this guidance](howto-add-update-pull-secret.md).
 
 1. Get latest Nvidia package using the following command:
 

@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/25/2022
+ms.date: 07/11/2023
 ms.author: helohr
 manager: femila
 ---
@@ -17,26 +17,32 @@ In this article, we'll give you a brief overview of what kinds of identities and
 
 Azure Virtual Desktop supports different types of identities depending on which configuration you choose. This section explains which identities you can use for each configuration.
 
+>[!IMPORTANT]
+>Azure Virtual Desktop doesn't support signing in to Azure AD with one user account, then signing in to Windows with a separate user account. Signing in with two different accounts at the same time can lead to users reconnecting to the wrong session host, incorrect or missing information in the Azure portal, and error messages appearing while using MSIX app attach.
+
 ### On-premises identity
 
 Since users must be discoverable through Azure Active Directory (Azure AD) to access the Azure Virtual Desktop, user identities that exist only in Active Directory Domain Services (AD DS) aren't supported. This includes standalone Active Directory deployments with Active Directory Federation Services (AD FS).
 
 ### Hybrid identity
 
-Azure Virtual Desktop supports [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md) through Azure AD, including those federated using AD FS. You can manage these user identities in AD DS and sync them to Azure AD using [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md). You can also use Azure AD to manage these identities and sync them to [Azure AD Directory Services (Azure AD DS)](../active-directory-domain-services/overview.md).
+Azure Virtual Desktop supports [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md) through Azure AD, including those federated using AD FS. You can manage these user identities in AD DS and sync them to Azure AD using [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md). You can also use Azure AD to manage these identities and sync them to [Azure AD Domain Services (Azure AD DS)](../active-directory-domain-services/overview.md).
 
 When accessing Azure Virtual Desktop using hybrid identities, sometimes the User Principal Name (UPN) or Security Identifier (SID) for the user in Active Directory (AD) and Azure AD don't match. For example, the AD account user@contoso.local may correspond to user@contoso.com in Azure AD. Azure Virtual Desktop only supports this type of configuration if either the UPN or SID for both your AD and Azure AD accounts match. SID refers to the user object property "ObjectSID" in AD and "OnPremisesSecurityIdentifier" in Azure AD.
 
 ### Cloud-only identity
 
-Azure Virtual Desktop supports cloud-only identities when using [Azure AD-joined VMs](deploy-azure-ad-joined-vm.md). These users are created and managed directly in Azure AD.
+Azure Virtual Desktop supports cloud-only identities when using [Azure AD joined VMs](deploy-azure-ad-joined-vm.md). These users are created and managed directly in Azure AD.
+
+>[!NOTE]
+>You can also assign hybrid identities to Azure Virtual Desktop Application groups that host Session hosts of join type Azure AD joined.
 
 ### Third-party identity providers
 
 If you're using an Identity Provider (IdP) other than Azure AD to manage your user accounts, you must ensure that:
 
 - Your IdP is [federated with Azure AD](../active-directory/devices/azureadjoin-plan.md#federated-environment).
-- Your session hosts are Azure AD-joined or [Hybrid Azure AD-joined](../active-directory/devices/hybrid-azuread-join-plan.md).
+- Your session hosts are Azure AD-joined or [Hybrid Azure AD-joined](../active-directory/devices/hybrid-join-plan.md).
 - You enable [Azure AD authentication](configure-single-sign-on.md) to the session host.
 
 ### External identity
@@ -53,7 +59,7 @@ Follow the instructions in [Enforce Azure Active Directory Multi-Factor Authenti
 
 ### Passwordless authentication
 
-You can use any authentication type supported by Azure AD, such as [Windows Hello for Business](/security/identity-protection/hello-for-business/hello-overview) and other [passwordless authentication options](../active-directory/authentication/concept-authentication-passwordless.md) (for example, FIDO keys), to authenticate to the service.
+You can use any authentication type supported by Azure AD, such as [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) and other [passwordless authentication options](../active-directory/authentication/concept-authentication-passwordless.md) (for example, FIDO keys), to authenticate to the service.
 
 ### Smart card authentication
 
@@ -63,22 +69,16 @@ To use a smart card to authenticate to Azure AD, you must first [configure AD FS
 
 If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved your credentials locally, you'll also need to authenticate to the session host when launching a connection. The following list describes which types of authentication each Azure Virtual Desktop client currently supports.
 
-- The Windows Desktop client supports the following authentication methods:
-    - Username and password
-    - Smart card
-    - [Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust)
-    - [Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs)
-    - [Azure AD authentication](configure-single-sign-on.md)
-- The Windows Store client supports the following authentication method:
-    - Username and password
-- The web client supports the following authentication method:
-    - Username and password
-- The Android client supports the following authentication method:
-    - Username and password
-- The iOS client supports the following authentication method:
-    - Username and password
-- The macOS client supports the following authentication method:
-    - Username and password
+
+|Client  |Supported authentication type(s)  |
+|---------|---------|
+|Windows Desktop client    | Username and password <br>Smart card <br>[Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) <br>[Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) <br>[Azure AD authentication](configure-single-sign-on.md)               |
+|Azure Virtual Desktop Store app     |  Username and password <br>Smart card <br>[Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) <br>[Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) <br>[Azure AD authentication](configure-single-sign-on.md)           |
+|Remote Desktop app     |  Username and password       |
+|Web client    | Username and password        |
+|Android client   | Username and password        |
+|iOS client     |   Username and password      |
+|macOS client    | Username and password <br>Smart card: support for smart card-based sign in using smart card redirection at the Winlogon prompt when NLA is not negotiated.        |
 
 >[!IMPORTANT]
 >In order for authentication to work properly, your local machine must also be able to access the [required URLs for Remote Desktop clients](safe-url-list.md#remote-desktop-clients).
@@ -97,21 +97,22 @@ Azure Virtual Desktop supports both NT LAN Manager (NTLM) and Kerberos for sessi
 
 ## In-session authentication
 
-Once you're connected to your remote app or desktop, you may be prompted for authentication inside the session. This section explains how to use credentials other than username and password in this scenario.
+Once you're connected to your RemoteApp or desktop, you may be prompted for authentication inside the session. This section explains how to use credentials other than username and password in this scenario.
 
 ### In-session passwordless authentication (preview)
 
 > [!IMPORTANT]
-> In-session passwordless authentication is currently in Insider preview.
+> In-session passwordless authentication is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Virtual Desktop supports in-session passwordless authentication (preview) using [Windows Hello for Business](/security/identity-protection/hello-for-business/hello-overview) or security devices like FIDO keys. Passwordless authentication is currently only available for certain versions of Windows Insider. When deploying new session hosts, choose one of the following images:
+Azure Virtual Desktop supports in-session passwordless authentication (preview) using [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) or security devices like FIDO keys when using the [Windows Desktop client](users/connect-windows.md). Passwordless authentication is enabled automatically when the session host and local PC are using the following operating systems:
 
-- Windows 11 version 22H2 Enterprise, (Preview) - X64 Gen 2.
-- Windows 11 version 22H2 Enterprise multi-session, (Preview) - X64 Gen2.
+  - Windows 11 single or multi-session with the [2022-10 Cumulative Updates for Windows 11 (KB5018418)](https://support.microsoft.com/kb/KB5018418) or later installed.
+  - Windows 10 single or multi-session, versions 20H2 or later with the [2022-10 Cumulative Updates for Windows 10 (KB5018410)](https://support.microsoft.com/kb/KB5018410) or later installed.
+  - Windows Server 2022 with the [2022-10 Cumulative Update for Microsoft server operating system (KB5018421)](https://support.microsoft.com/kb/KB5018421) or later installed.
 
-Passwordless authentication is enabled by default when the local PC and session hosts use one of the supported operating systems above. You can disable it using the [WebAuthn redirection](configure-device-redirections.md#webauthn-redirection) RDP property.
+To disable passwordless authentication on your host pool, you must [customize an RDP property](customize-rdp-properties.md). You can find the **WebAuthn redirection** property under the **Device redirection** tab in the Azure portal or set the **redirectwebauthn** property to **0** using PowerShell.
 
 When enabled, all WebAuthn requests in the session are redirected to the local PC. You can use Windows Hello for Business or locally attached security devices to complete the authentication process.
 

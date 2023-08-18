@@ -17,13 +17,13 @@ In this article, you'll use the Azure portal to:
 > [!NOTE]
 > You can enable the Application Insights Profiler for Azure Functions apps on the **App Service** plan. 
 
-## Pre-requisites
+## Prerequisites
 
 - [An Azure Functions app](../../azure-functions/functions-create-function-app-portal.md). Verify your Functions app is on the **App Service** plan. 
      
   :::image type="content" source="./media/profiler-azure-functions/choose-plan.png" alt-text="Screenshot of where to select App Service plan from drop-down in Functions app creation.":::
 
-- Linked to [an Application Insights resource](../app/create-new-resource.md). Make note of the instrumentation key.
+- Linked to [an Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource). Make note of the instrumentation key.
 
 ## App settings for enabling Profiler
 
@@ -31,6 +31,7 @@ In this article, you'll use the Azure portal to:
 |---------------|----------|
 |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
 |DiagnosticServices_EXTENSION_VERSION | ~3 |
+|APPINSIGHTS_INSTRUMENTATIONKEY | Unique value from your App Insights resource. |
 
 ## Add app settings to your Azure Functions app
 
@@ -60,13 +61,13 @@ From your Functions app overview page in the Azure portal:
 
 1. Click **Save** in the top menu, then **Continue**.
 
-   :::image type="content" source="./media/profiler-azure-functions/save-button.png" alt-text="Screenshot outlining the save button in the top menu of the configuration blade.":::
+   :::image type="content" source="./media/profiler-azure-functions/save-button.png" alt-text="Screenshot outlining the save button in the top menu of the configuration pane.":::
 
    :::image type="content" source="./media/profiler-azure-functions/continue-button.png" alt-text="Screenshot outlining the continue button in the dialog after saving.":::
 
 The app settings now show up in the table:
 
-   :::image type="content" source="./media/profiler-azure-functions/app-settings-table.png" alt-text="Screenshot showing the two new app settings in the table on the configuration blade.":::
+   :::image type="content" source="./media/profiler-azure-functions/app-settings-table.png" alt-text="Screenshot showing the two new app settings in the table on the configuration pane.":::
 
 
 > [!NOTE]

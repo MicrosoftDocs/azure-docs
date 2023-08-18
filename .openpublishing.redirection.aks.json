@@ -1,9 +1,0 @@
-{
-  "redirections": [
-    {
-      "source_path_from_root": "/articles/aks/azure-cni-overlay.md",
-      "redirect_url": "/azure/aks",
-      "redirect_document_id": false
-    }
-  ]
-}

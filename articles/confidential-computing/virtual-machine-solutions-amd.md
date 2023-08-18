@@ -1,13 +1,15 @@
 ---
-title: Azure Confidential virtual machine options on AMD processors (preview)
+title: Azure Confidential virtual machine options on AMD processors
 description: Azure Confidential Computing offers multiple options for confidential virtual machines that run on AMD processors backed by SEV-SNP technology.
 author: mamccrea
 ms.author: mamccrea
+ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 11/15/2021
+ms.date: 3/29/2023
 ---
 
 # Azure Confidential VM options on AMD
@@ -58,7 +60,7 @@ Consider the following settings and choices before deploying confidential VMs.
 
 ### Azure subscription
 
-To deploy a confidential VM instance, consider a pay-as-you-go subscription or other purchase option. If you're using an [Azure free account](https://azure.microsoft.com/free/), the quota doesn't allow the appropriate number of Azure compute cores.
+To deploy a confidential VM instance, consider a [pay-as-you-go subscription](/azure/virtual-machines/linux/azure-hybrid-benefit-linux) or other purchase option. If you're using an [Azure free account](https://azure.microsoft.com/free/), the quota doesn't allow the appropriate number of Azure compute cores.
 
 You might need to increase the cores quota in your Azure subscription from the default value. Default limits vary depending on your subscription category. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the confidential VM sizes. 
 
@@ -84,9 +86,20 @@ It's not possible to resize a non-confidential VM to a confidential VM.
 
 OS images for confidential VMs have to meet certain security and compatibility requirements. Qualified images support the secure mounting, attestation, optional [confidential OS disk encryption](confidential-vm-overview.md#confidential-os-disk-encryption), and isolation from underlying cloud infrastructure. These images include:
 
-- Ubuntu 20.04 Gen 2
-- Windows Server 2019 Gen 2
-- Windows Server 2022 Gen 2
+- Ubuntu 20.04 LTS
+- Ubuntu 22.04 LTS
+- Windows Server 2019 Datacenter - x64 Gen 2
+- Windows Server 2019 Datacenter Server Core - x64 Gen 2
+- Windows Server 2022 Datacenter - x64 Gen 2
+- Windows Server 2022 Datacenter: Azure Edition Core - x64 Gen 2
+- Windows Server 2022 Datacenter: Azure Edition - x64 Gen 2
+- Windows Server 2022 Datacenter Server Core - x64 Gen 2
+- Windows 11 Enterprise N, version 22H2 -x64 Gen 2
+- Windows 11 Pro, version 22H2 ZH-CN -x64 Gen 2
+- Windows 11 Pro, version 22H2 -x64 Gen 2
+- Windows 11 Pro N, version 22H2 -x64 Gen 2
+- Windows 11 Enterprise, version 22H2 -x64 Gen 2
+- Windows 11 Enterprise multi-session, version 22H2 -x64 Gen 2
 
 For more information about supported and unsupported VM scenarios, see [support for generation 2 VMs on Azure](../virtual-machines/generation-2.md). 
 

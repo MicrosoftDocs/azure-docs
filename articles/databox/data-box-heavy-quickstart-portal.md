@@ -52,7 +52,7 @@ Before you begin, make sure that:
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Order
 
@@ -71,7 +71,7 @@ Once the order is created, the device is prepared for shipment.
 
 Use these Azure CLI commands to create a Data Box Heavy job.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 1. Run the [az group create](/cli/azure/group#az-group-create) command to create a resource group or use an existing resource group:
 

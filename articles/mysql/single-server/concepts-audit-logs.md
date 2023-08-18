@@ -4,14 +4,16 @@ description: Describes the audit logs available in Azure Database for MySQL, and
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 
 # Audit Logs in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 In Azure Database for MySQL, the audit log is available to users. The audit log can be used to track database-level activity and is commonly used for compliance.
 
@@ -47,7 +49,7 @@ Other parameters you can adjust include:
 
 Audit logs are integrated with Azure Monitor Diagnostic Logs. Once you've enabled audit logs on your MySQL server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs in the Azure portal, see the [audit log portal article](how-to-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
->[!Note]
+>[!NOTE]
 >Premium Storage accounts are not supported if you sending the logs to Azure storage via diagnostics and settings 
 
 ## Diagnostic Logs Schemas

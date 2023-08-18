@@ -1,16 +1,16 @@
 ---
 title: Manage the lifecycle of group-based licenses in Azure AD
-description: This step-by-step tutorial shows how to create an access package for managing group-based licenses in Azure Active Directory entitlement management.
+description: This step-by-step tutorial shows how to create an access package for managing group-based licenses in entitlement management.
 services: active-directory
 documentationCenter: ''
-author: sama
+author: owinfreyATL
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 08/18/2021
-ms.author: sama
+ms.date: 05/25/2023
+ms.author: owinfrey
 ms.collection: M365-identity-device-management
 
 
@@ -26,9 +26,9 @@ With Azure Active Directory (Azure AD), you can use groups to manage the [licens
 
 In this tutorial, you play the role of an IT administrator for Woodgrove Bank. You're asked to create an access package so employees in your organization can easily gain access to Office licenses. (You should already have a group that manages your [Office licenses](../enterprise-users/licensing-groups-assign.md).) You want to be able to review these group members every year. You also want to allow new employees to request Office licenses, pending manager approval.
  
-To use Azure AD entitlement management, you must have one of these licenses:
+To use entitlement management, you must have one of these licenses:
 
-- Azure AD Premium P2
+- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
@@ -60,7 +60,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 1. Select **Next: Requests** to go to the **Requests** tab.
 
-   On this tab, you create a request policy. A *policy* defines the rules for access to an access package. You'll create a policy that allows employees in the resource directory to request the access package.
+   On this tab, you create a request policy. A *policy* defines the rules for access to an access package. You create a policy that allows employees in the resource directory to request the access package.
 
 3. In the **Users who can request access** section, select **For users in your directory** and then select **All members (excluding guests)**. These settings make it so that only members of your directory can request Office licenses.
 
@@ -90,16 +90,16 @@ For more information, see [License requirements](entitlement-management-overview
 
 2. In the **Expiration** section, for **Access package assignments expire**, select **Number of days**.
 	
-3. In **Assignments expire after**, enter **365**. This box specifies when members who have access to the access package will need to renew their access. 
+3. In **Assignments expire after**, enter **365**. This box specifies when members who have access to the access package needs to renew their access. 
 
 4. You can also configure access reviews, which allow periodic checks of whether the employee still needs access to the access package. A review can be a self-review performed by the employee. Or you can set the employee's manager or another person as the reviewer. For more information, see [Access reviews](entitlement-management-access-reviews-create.md). 
  
     In this scenario, you want all employees to review whether they still need a license for Office each year.
 
     1. Under **Require access reviews**, select **Yes**.
-    2. You can leave **Starting on** set to the current date. This date is when the access review will start. After you create an access review, you can't update its start date.
-    3. Under **Review frequency**, select **Annually**, because the review will occur once per year. The **Review frequency** box is where you determine how often the access review runs.
-    4. Specify a **Duration (in days)**.  The duration box is where you indicate how many days each occurrence of the access review series will run.
+    2. You can leave **Starting on** set to the current date. This date is when the access review starts. After you create an access review, you can't update its start date.
+    3. Under **Review frequency**, select **Annually**, because the review occurs once per year. The **Review frequency** box is where you determine how often the access review runs.
+    4. Specify a **Duration (in days)**.  The duration box is where you indicate how many days each occurrence of the access review series runs.
     5. Under **Reviewers**, select **Manager**.
 
 ## Step 6: Review and create your access package
@@ -138,4 +138,4 @@ In this step, you can delete the Office Licenses access package.
 
 Learn how to create access packages to manage access to other types of resources, like applications and sites: 
 
-[Manage access to resources in Azure AD entitlement management](./entitlement-management-access-package-first.md)
+[Manage access to resources in entitlement management](./entitlement-management-access-package-first.md)

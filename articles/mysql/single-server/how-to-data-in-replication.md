@@ -3,15 +3,18 @@ title: Configure Data-in Replication - Azure Database for MySQL
 description: This article describes how to set up Data-in Replication for Azure Database for MySQL.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+ms.custom: devx-track-linux
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 05/03/2023
 ---
 
 # How to configure Azure Database for MySQL Data-in Replication
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article describes how to set up [Data-in Replication](concepts-data-in-replication.md) in Azure Database for MySQL by configuring the source and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
 
@@ -23,9 +26,9 @@ To create a replica in the Azure Database for MySQL service, [Data-in Replicatio
 
 Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication before performing the steps in this article.
 
-## Create an Azure Database for MySQL Single Server instance to use as a replica
+## Create an Azure Database for MySQL single server instance to use as a replica
 
-1. Create a new instance of Azure Database for MySQL Single Server (for example, `replica.mysql.database.azure.com`). Refer to [Create an Azure Database for MySQL server by using the Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) for server creation. This server is the "replica" server for Data-in Replication.
+1. Create a new instance of Azure Database for MySQL single server (for example, `replica.mysql.database.azure.com`). Refer to [Create an Azure Database for MySQL server by using the Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) for server creation. This server is the "replica" server for Data-in Replication.
 
    > [!IMPORTANT]
    > The Azure Database for MySQL server must be created in the General Purpose or Memory Optimized pricing tiers as data-in replication is only supported in these tiers.
@@ -59,7 +62,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    2. Execute the following query.
 
-      ```bash
+      ```sql
       mysql> SELECT @@global.redirect_server_host;
       ```
 
@@ -82,7 +85,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
       For example:
 
-      ```bash
+      ```cmd
       C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
       Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
       ```
@@ -107,7 +110,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    2. Open the configuration file to edit it and locate **mysqld** section in the file.
    3. In the mysqld section, add following line:
 
-       ```bash
+       ```config
        log-bin=mysql-bin.log
        ```
 
@@ -133,7 +136,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    ```
 
    >[!IMPORTANT]
-   > All servers have gtid_mode set to the default value OFF. You don't need to enable GTID on the source MySQL server specifically to set up Data-in Replication. If GTID is already enabled on source server, you can optionally use GTID-based replication to set up Data-in Replication too with Azure Database for MySQL Single Server. You can use file-based replication to set up data-in replication for all servers regardless of the gitd_mode configuration on the source server.
+   > All servers have gtid_mode set to the default value OFF. You don't need to enable GTID on the source MySQL server specifically to set up Data-in Replication. If GTID is already enabled on source server, you can optionally use GTID-based replication to set up Data-in Replication too with Azure Database for MySQL single server. You can use file-based replication to set up data-in replication for all servers regardless of the gitd_mode configuration on the source server.
 
 5. Create a new replication role and set up permission.
 
@@ -191,6 +194,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    ```sql
     show master status;
    ```
+
    The results should appear similar to the following. Make sure to note the binary file name for use in later steps.
 
    :::image type="content" source="./media/how-to-data-in-replication/master-status.png" alt-text="Master Status Results":::
@@ -232,7 +236,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    All Data-in Replication functions are done by stored procedures. You can find all procedures at [Data-in Replication Stored Procedures](./reference-stored-procedures.md). The stored procedures can be run in the MySQL shell or MySQL Workbench.
 
-   To link two servers and start replication, login to the target replica server in the Azure DB for MySQL service and set the external instance as the source server. This is done by using the `mysql.az_replication_change_master` stored procedure on the Azure DB for MySQL server.
+   To link two servers and start replication, login to the target replica server in the Azure Database for MySQL service and set the external instance as the source server. This is done by using the `mysql.az_replication_change_master` stored procedure on the Azure Database for MySQL server.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', <master_port>, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/22/2022
+ms.date: 10/06/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -46,7 +46,7 @@ If you don't already have one, start by setting up a Mailjet account (Azure cust
 
 Next, store the Mailjet API key in an Azure AD B2C policy key for your policies to reference.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
@@ -162,7 +162,7 @@ With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C
                <td valign="top" width="50%"></td>
            </tr>
        </table>
-    <img src="https://mucp.api.account.microsoft.com/m/v2/v?d=AIAACWEPFYXYIUTJIJVV4ST7XLBHVI5MLLYBKJAVXHBDTBHUM5VBSVVPTTVRWDFIXJ5JQTHYOH5TUYIPO4ZAFRFK52UAMIS3UNIPPI7ZJNDZPRXD5VEJBN4H6RO3SPTBS6AJEEAJOUYL4APQX5RJUJOWGPKUABY&amp;i=AIAACL23GD2PFRFEY5YVM2XQLM5YYWMHFDZOCDXUI2B4LM7ETZQO473CVF22PT6WPGR5IIE6TCS6VGEKO5OZIONJWCDMRKWQQVNP5VBYAINF3S7STKYOVDJ4JF2XEW4QQVNHMAPQNHFV3KMR3V3BA4I36B6BO7L4VQUHQOI64EOWPLMG5RB3SIMEDEHPILXTF73ZYD3JT6MYOLAZJG7PJJCAXCZCQOEFVH5VCW2KBQOKRYISWQLRWAT7IINZ3EFGQI2CY2EMK3FQOXM7UI3R7CZ6D73IKDI" width="1" height="1"></body>
+    </body>
     </html>
     ```
 
@@ -333,11 +333,12 @@ Add the following technical profiles to the `<ClaimsProviders>` element.
         <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
         <Metadata>
           <Item Key="Operation">GenerateCode</Item>
-          <Item Key="CodeExpirationInSeconds">1200</Item>
+          <Item Key="CodeExpirationInSeconds">600</Item>
           <Item Key="CodeLength">6</Item>
           <Item Key="CharacterSet">0-9</Item>
-          <Item Key="ReuseSameCode">true</Item>
           <Item Key="NumRetryAttempts">5</Item>
+          <Item Key="NumCodeGenerationAttempts">10</Item>
+          <Item Key="ReuseSameCode">false</Item>
         </Metadata>
         <InputClaims>
           <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />

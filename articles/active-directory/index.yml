@@ -1,32 +1,32 @@
 ### YamlMime:Hub
 
-title: Azure Active Directory documentation
-summary: Use Microsoft Azure Active Directory (Azure AD), part of Microsoft Entra, to manage user identities and control access to your apps, data, and resources.
+title: Microsoft Entra ID documentation
+summary: Microsoft Azure Active Directory (Azure AD) is being renamed to Microsoft Entra ID. Use Microsoft Entra ID to manage user identities and control access to your apps, data, and resources.
 brand: azure ## Used for color theming of icons and hero area
 
 metadata:
-  title: Azure Active Directory documentation
-  description: Microsoft Azure Active Directory (Azure AD), part of Microsoft Entra, is Microsoft's multi-tenant, cloud-based directory, and identity management service that combines core directory services, application access management, and identity protection into a single solution.
+  title: Microsoft Entra ID documentation
+  description: Microsoft Azure Active Directory (Azure AD) is being renamed to Microsoft Entra ID. Microsoft Entra ID is Microsoft's multi-tenant, cloud-based directory, and identity management service that combines core directory services, application access management, and identity protection into a single solution.
   ms.service: active-directory
   ms.topic: hub-page
   ms.collection: M365-identity-device-management
   author: rolyon
   ms.author: rolyon
-  manager: CelesteDG
-  ms.date: 08/03/2022
+  manager: amycolannino
+  ms.date: 06/20/2023
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
     - title: What is Azure AD?
       itemType: overview # controls the icon image and super-title text
-      url: ./fundamentals/active-directory-whatis.md
+      url: ./fundamentals/whatis.md
     - title: What's new in Azure AD?
       itemType: whats-new
       url: ./fundamentals/whats-new.md
     - title: Azure AD feature deployment guide
       itemType: concept
-      url: ./fundamentals/active-directory-deployment-checklist-p2.md
+      url: ./fundamentals/concept-secure-remote-workers.md
     - title: Microsoft Entra
       itemType: get-started
       url: /entra
@@ -59,22 +59,22 @@ conceptualContent:
         # Card
         - title: Microsoft Learn
           links:
-            - url: /learn/modules/describe-identity-principles-concepts/
+            - url: /training/modules/describe-identity-principles-concepts/
               itemType: learn
               text: Identity concepts
-            - url: /learn/modules/explore-basic-services-identity-types/
+            - url: /training/modules/explore-basic-services-identity-types/
               itemType: learn
               text: Services and identity types
-            - url: /learn/modules/create-users-and-groups-in-azure-active-directory/
+            - url: /training/modules/create-users-and-groups-in-azure-active-directory/
               itemType: learn
               text: Create users and groups
-            - url: /learn/modules/allow-users-reset-their-password/
+            - url: /training/modules/allow-users-reset-their-password/
               itemType: learn
               text: Allow users to reset their password
-            - url: /learn/modules/secure-access-azure-identity-services/
+            - url: /training/modules/secure-access-azure-identity-services/
               itemType: learn
               text: Secure access to your apps
-            - url: /learn/browse/?expanded=azure&products=azure-active-directory-domain%2Cazure-active-directory-b2c%2Cazure-active-directory&resource_type=module
+            - url: /training/browse/?expanded=azure&products=azure-active-directory-domain%2Cazure-active-directory-b2c%2Cazure-active-directory&resource_type=module
               itemType: learn
               text: See more >
         # Card
@@ -124,6 +124,10 @@ additionalContent:
           summary: Learn basic Azure Active Directory (Azure AD) concepts and processes.
           url: ./fundamentals/index.yml
         # Card
+        - title: Architecture
+          summary: Learn basic Azure Active Directory (Azure AD) architecture.
+          url: ./architecture/index.yml
+        # Card
         - title: Enterprise users
           summary: Create Azure AD tenants, manage user accounts, roles, and groups, and assign app access.
           url: ./enterprise-users/index.yml
@@ -136,21 +140,29 @@ additionalContent:
           summary: Manage just-in-time role assignments to limit access to secure information and resources.
           url: ./privileged-identity-management/index.yml
         # Card
-        - title: External Identities
-          summary: Collaborate with partners using their own identities (B2B), or design customer identity and access management for your app (B2C).
-          url: ./external-identities/index.yml
+        - title: External partners (B2B)
+          summary: Collaborate with partners using their own external identities (B2B).
+          url: ./external-identities/index-b2b.yml
         # Card
-        - title: Cloud sync
-          summary: Create and manage user identities in Azure AD using Azure AD Connect cloud sync.
-          url: ./cloud-sync/index.yml
+        - title: Customers (preview)
+          summary: Secure and customize sign-ins for your apps with our new customer identity and access management (CIAM) solution.  
+          url: ./external-identities/customers/index.yml
+        # Card
+        - title: Consumers (B2C)
+          summary: Business to consumers identity and access management for your app.   
+          url: ../active-directory-b2c/index.yml
         # Card
         - title: Application provisioning
           summary: Create and manage user identities in applications by provisioning from Azure AD.
           url: ./app-provisioning/index.yml
         # Card
         - title: Hybrid identity
-          summary: Create a user identity that can access both on-premises and cloud resources by using Azure AD Connect.
+          summary: Create a user identity that can access both on-premises and cloud resources.
           url: ./hybrid/index.yml
+        # Card
+        - title: Multi-tenant organizations
+          summary: Collaborate across tenants within your organization.
+          url: ./multi-tenant-organizations/index.yml
     - title: Control access
       items:
         # Card

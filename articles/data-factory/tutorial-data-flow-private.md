@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/04/2021
+ms.date: 08/10/2023
 ---
 
 # Transform data securely by using mapping data flow
@@ -58,7 +58,7 @@ In this step, you create a data factory and open the Data Factory UI to create a
 
 1. Select **Create**.
 1. After the creation is finished, you see the notice in the Notifications center. Select **Go to resource** to go to the **Data Factory** page.
-1. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
+1. Select **Open Azure Data Factory Studio** to launch the Data Factory UI in a separate tab.
 
 ## Create an Azure IR in Data Factory Managed Virtual Network
 
@@ -84,7 +84,7 @@ In this step, you'll create a pipeline that contains a data flow activity.
 
 1. On the home page of Azure Data Factory, select **Orchestrate**.
 
-   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows creating a pipeline.":::
+   :::image type="content" source="./media/tutorial-data-flow/orchestrate.png" alt-text="Screenshot that shows the data factory home page with the Orchestrate button highlighted.":::
 
 1. In the properties pane for the pipeline, enter **TransformMovies** for the pipeline name.
 1. In the **Activities** pane, expand **Move and Transform**. Drag the **Data Flow** activity from the pane to the pipeline canvas.

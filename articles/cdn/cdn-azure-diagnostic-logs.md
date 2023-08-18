@@ -5,16 +5,14 @@ description: Learn how to use Azure diagnostic logs to save core analytics, whic
 services: cdn
 author: duongau
 manager: KumudD
-ms.assetid: 
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 07/15/2020
+ms.date: 02/27/2023
 ms.author: duau 
 ms.custom: devx-track-azurepowershell
 ---
-
 
 # Diagnostic logs - Azure Content Delivery Network
 
@@ -38,9 +36,9 @@ An Azure CDN profile is required for the following steps. Refer to [create an Az
 
 Follow these steps enable logging for your Azure CDN endpoint:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the Azure portal, navigate to **All resources** -> **your-cdn-profile**
+2. In the Azure portal, navigate to **All resources** > **your-cdn-profile**.
 
 2. Select the CDN endpoint for which you want to enable diagnostics logs:
 
@@ -48,7 +46,7 @@ Follow these steps enable logging for your Azure CDN endpoint:
 
 3. Select **Diagnostics logs** in the **Monitoring** section:
 
-    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Select diagnostics logs." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Screenshot of the diagnostics logs button under monitoring menu." border="true":::
 
 ### Enable logging with Azure Storage
 
@@ -260,8 +258,8 @@ Not all metrics are available from all providers, although such differences are 
 | RequestCountCacheHit | Count of all requests that resulted in a Cache hit. The asset was served directly from the POP to the client. | Yes | Yes | No  |
 | RequestCountCacheMiss | Count of all requests that resulted in a Cache miss. A Cache miss means the asset wasn't found on the POP closest to the client, and was retrieved from the origin. | Yes | Yes | No |
 | RequestCountCacheNoCache | Count of all requests to an asset that are prevented from being cached because of a user configuration on the edge. | Yes | Yes | No |
-| RequestCountCacheUncacheable | Count of all requests to assets that are prevented from being cached by the asset's Cache-Control and Expires headers. This count indicates that it shouldn't be cached on a POP or by the HTTP client. | Yes | Yes | No |
-| RequestCountCacheOthers | Count of all requests with cache status not covered by above. | No | Yes | No  |
+| RequestCountCacheUncacheable | Count of all requests to assets that are prevented from getting cached by the asset's Cache-Control and Expires headers. This count indicates that it shouldn't be cached on a POP or by the HTTP client. | Yes | Yes | No |
+| RequestCountCacheOthers | Count of all requests with cache status not covered by metrics listed previously. | No | Yes | No  |
 | EgressTotal | Outbound data transfer in GB | Yes |Yes |Yes |
 | EgressHttpStatus2xx | Outbound data transfer* for responses with 2xx HTTP status codes in GB. | Yes | Yes | No  |
 | EgressHttpStatus3xx | Outbound data transfer for responses with 3xx HTTP status codes in GB. | Yes | Yes | No  |
@@ -271,7 +269,7 @@ Not all metrics are available from all providers, although such differences are 
 | EgressCacheHit | Outbound data transfer for responses that were delivered directly from the CDN cache on the CDN POPs/Edges. | Yes | Yes | No |
 | EgressCacheMiss. | Outbound data transfer for responses that weren't found on the nearest POP server, and retrieved from the origin server. | Yes | Yes | No |
 | EgressCacheNoCache | Outbound data transfer for assets that are prevented from being cached because of a user configuration on the edge. | Yes | Yes | No |
-| EgressCacheUncacheable | Outbound data transfer for assets that are prevented from being cached by the asset's Cache-Control and, or Expires headers. Indicates that it shouldn't be cached on a POP or by the HTTP client. | Yes | Yes | No |
+| EgressCacheUncacheable | Outbound data transfer for assets that are prevented from getting cached by the asset's Cache-Control and, or Expires headers. Indicates that it shouldn't be cached on a POP or by the HTTP client. | Yes | Yes | No |
 | EgressCacheOthers | Outbound data transfers for other cache scenarios. | No | Yes | No |
 
 *Outbound data transfer refers to traffic delivered from CDN POP servers to the client.
@@ -362,7 +360,7 @@ Example properties:
 
 ```
 
-## Additional resources
+## More resources
 
 * [Azure Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md)
 * [Core analytics via Azure CDN supplemental portal](./cdn-analyze-usage-patterns.md)

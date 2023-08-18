@@ -2,7 +2,7 @@
 title: Use Search in Azure Application Insights | Microsoft Docs
 description: Search and filter raw telemetry sent by your web app.
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 03/22/2023
 ms.reviewer: saars
 
 ---
@@ -21,7 +21,7 @@ You can find **Search** in the Azure portal or Visual Studio.
 
 You can open transaction search from the Application Insights **Overview** tab of your application. You can also select **Search** under **Investigate** on the left menu.
 
-![Screenshot that shows the Search tab.](./media/diagnostic-search/view-custom-events.png)
+:::image type="content" source="./media/diagnostic-search/view-custom-events.png" lightbox="./media/diagnostic-search/view-custom-events.png" alt-text="Screenshot that shows the Search tab.":::
 
 Go to the **Event types** dropdown menu to see a list of telemetry items such as server requests, page views, and custom events that you've coded. At the top of the **Results** list is a summary chart showing counts of events over time.
 
@@ -33,11 +33,11 @@ In Visual Studio, there's also an **Application Insights Search** window. It's m
 
 Open the **Application Insights Search** window in Visual Studio:
 
-![Screenshot that shows Visual Studio open to Application Insights Search.](./media/diagnostic-search/32.png)
+:::image type="content" source="./media/diagnostic-search/32.png" lightbox="./media/diagnostic-search/32.png" alt-text="Screenshot that shows Visual Studio open to Application Insights Search.":::
 
 The **Application Insights Search** window has features similar to the web portal:
 
-![Screenshot that shows Visual Studio Application Insights Search window.](./media/diagnostic-search/34.png)
+:::image type="content" source="./media/diagnostic-search/34.png" lightbox="./media/diagnostic-search/34.png" alt-text="Screenshot that shows Visual Studio Application Insights Search window.":::
 
 The **Track Operation** tab is available when you open a request or a page view. An "operation" is a sequence of events that's associated with a single request or page view. For example, dependency calls, exceptions, trace logs, and custom events might be part of a single operation. The **Track Operation** tab shows graphically the timing and duration of these events in relation to the request or page view.
 
@@ -45,7 +45,7 @@ The **Track Operation** tab is available when you open a request or a page view.
 
 Select any telemetry item to see key fields and related items.
 
-![Screenshot that shows an individual dependency request.](./media/diagnostic-search/telemetry-item.png)
+:::image type="content" source="./media/diagnostic-search/telemetry-item.png" lightbox="./media/diagnostic-search/telemetry-item.png" alt-text="Screenshot that shows an individual dependency request.":::
 
 The end-to-end transaction details view opens.
 
@@ -61,11 +61,11 @@ The event types are:
 * **Custom Event**: If you inserted calls to `TrackEvent()` to [monitor usage](./api-custom-events-metrics.md), you can search them here.
 * **Exception**: Uncaught [exceptions in the server](./asp-net-exceptions.md), and the exceptions that you log by using `TrackException()`.
 * **Dependency**: [Calls from your server application](./asp-net-dependencies.md) to other services such as REST APIs or databases, and AJAX calls from your [client code](./javascript.md).
-* **Availability**: Results of [availability tests](./monitor-web-app-availability.md).
+* **Availability**: Results of [availability tests](availability-overview.md)
 
 ## Filter on property values
 
-You can filter events on the values of their properties. The available properties depend on the event types you selected. Select **Filter** ![Filter icon](./media/diagnostic-search/filter-icon.png) to start.
+You can filter events on the values of their properties. The available properties depend on the event types you selected. Select **Filter** :::image type="content" source="./media/diagnostic-search/filter-icon.png" lightbox="./media/diagnostic-search/filter-icon.png" alt-text="Filter icon"::: to start.
 
 Choosing no values of a particular property has the same effect as choosing all values. It switches off filtering on that property.
 
@@ -75,7 +75,7 @@ Notice that the counts to the right of the filter values show how many occurrenc
 
 To find all the items with the same property value, either enter it in the **Search** box or select the checkbox when you look through properties on the **Filter** tab.
 
-![Screenshot that shows selecting the checkbox of a property on the Filter tab.](./media/diagnostic-search/filter-property.png)
+:::image type="content" source="./media/diagnostic-search/filter-property.png" lightbox="./media/diagnostic-search/filter-property.png" alt-text="Screenshot that shows selecting the checkbox of a property on the Filter tab.":::
 
 ## Search the data
 
@@ -87,7 +87,7 @@ You can search for terms in any of the property values. This capability is usefu
 
 You might want to set a time range because searches over a shorter range are faster.
 
-![Screenshot that shows opening a diagnostic search.](./media/diagnostic-search/search-property.png)
+:::image type="content" source="./media/diagnostic-search/search-property.png" lightbox="./media/diagnostic-search/search-property.png" alt-text="Screenshot that shows opening a diagnostic search.":::
 
 Search for complete words, not substrings. Use quotation marks to enclose special characters.
 
@@ -117,7 +117,7 @@ You can create a bug in GitHub or Azure DevOps with the details from any telemet
 
 Go to the end-to-end transaction detail view by selecting any telemetry item. Then select **Create work item**.
 
-![Screenshot that shows Create work item.](./media/diagnostic-search/work-item.png)
+:::image type="content" source="./media/diagnostic-search/work-item.png" lightbox="./media/diagnostic-search/work-item.png" alt-text="Screenshot that shows Create work item.":::
 
 The first time you do this step, you're asked to configure a link to your Azure DevOps organization and project. You can also configure the link on the **Work Items** tab.
 
@@ -125,13 +125,13 @@ The first time you do this step, you're asked to configure a link to your Azure 
 
 In addition to the out-of-the-box telemetry sent by Application Insights SDK, you can:
 
-* Capture log traces from your favorite logging framework in [.NET](./asp-net-trace-logs.md) or [Java](./java-in-process-agent.md#autocollected-logs). This means you can search through your log traces and correlate them with page views, exceptions, and other events.
+* Capture log traces from your favorite logging framework in [.NET](./asp-net-trace-logs.md) or [Java](./opentelemetry-add-modify.md?tabs=java#logs). This means you can search through your log traces and correlate them with page views, exceptions, and other events.
 
 * [Write code](./api-custom-events-metrics.md) to send custom events, page views, and exceptions.
 
 Learn how to [send logs and custom telemetry to Application Insights](./asp-net-trace-logs.md).
 
-## <a name="questions"></a>Q & A
+## <a name="questions"></a>Frequently asked questions
 
 Find answers to common questions.
 
@@ -143,9 +143,13 @@ See the [Limits summary](../service-limits.md#application-insights).
 
 We don't log the POST data automatically, but you can use [TrackTrace or log calls](./asp-net-trace-logs.md). Put the POST data in the message parameter. You can't filter on the message in the same way you can filter on properties, but the size limit is longer.
 
+### Why does my Azure Function search return no results?
+
+The URL query strings are not logged by Azure Functions.
+
 ## <a name="add"></a>Next steps
 
 * [Write complex queries in Analytics](../logs/log-analytics-tutorial.md)
 * [Send logs and custom telemetry to Application Insights](./asp-net-trace-logs.md)
-* [Set up availability and responsiveness tests](./monitor-web-app-availability.md)
+* [Availability overview](availability-overview.md)
 * [Troubleshooting](../faq.yml)

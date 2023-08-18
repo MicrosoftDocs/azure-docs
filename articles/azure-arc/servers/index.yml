@@ -19,10 +19,15 @@ landingContent:
             url: overview.md
           - text: Azure Connected Machine agent overview
             url: agent-overview.md
+          - text: VMware FAQ
+            url: vmware-faq.md
+
       - linkListType: architecture
         links:
           - text: Manage configurations for hybrid servers 
             url: /azure/architecture/hybrid/azure-arc-hybrid-config 
+          - text: Azure Arc landing zone accelerator for hybrid and multicloud
+            url: /azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management
  
  # Card
   - title: Connect machines to Azure
@@ -53,7 +58,7 @@ landingContent:
     linkLists:
      - linkListType: sample
        links:
-          - text: Jumpstart
+          - text: Jumpstart for Azure Arc-enabled servers
             url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
      - linkListType: get-started
        links:
@@ -69,8 +74,6 @@ landingContent:
             url: /cli/azure/connectedmachine
           - text: Azure PowerShell
             url: /powershell/module/az.connectedmachine/
-          - text: .NET
-            url: /dotnet/api/overview/azure/hybridcompute/management
           - text: REST
             url: /rest/api/hybridcompute/
           - text: Java
@@ -84,7 +87,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Learning path
-            url: /learn/paths/manage-hybrid-infrastructure-with-azure-arc         
+            url: /training/paths/manage-hybrid-infrastructure-with-azure-arc         
 
  # Card
   - title: Azure service integration

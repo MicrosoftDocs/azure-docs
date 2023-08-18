@@ -1,0 +1,11 @@
+items:
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Communications Gateway
+    tocHref: /security/benchmark/azure/baselines/
+    topicHref: /azure/communications-gateway/
+  - name: Communications Gateway
+    tocHref: /azure/communications-gateway/
+    topicHref: /azure/communications-gateway/

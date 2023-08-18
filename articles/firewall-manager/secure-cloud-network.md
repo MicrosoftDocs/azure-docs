@@ -5,15 +5,13 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 01/26/2022
+ms.date: 01/12/2023
 ms.author: victorh
 ---
 
 # Tutorial: Secure your virtual hub using Azure Firewall Manager
 
 Using Azure Firewall Manager, you can create secured virtual hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there's no need to create user-defined routes (UDRs).
-
-![secure the cloud network](media/secure-cloud-network/secure-cloud-network.png)
 
 Firewall Manager also supports a hub virtual network architecture. For a comparison of the secured virtual hub and hub virtual network architecture types, see [What are the Azure Firewall Manager architecture options?](vhubs-and-vnets.md)
 
@@ -32,7 +30,9 @@ In this tutorial, you learn how to:
 > The procedure in this tutorial uses Azure Firewall Manager to create a new Azure Virtual WAN secured hub.
 > You can use Firewall Manager to upgrade an existing hub, but you can't configure Azure **Availability Zones** for Azure Firewall.
 > It is also possible to convert an existing hub to a secured hub using the Azure portal, as described in [Configure Azure Firewall in a Virtual WAN hub](../virtual-wan/howto-firewall.md). But like Azure Firewall Manager, you can't configure **Availability Zones**.
-> To upgrade an existing hub and specify **Availability Zones** for Azure Firewall (recommended) you must follow the upgrade procedure in [Tutorial: Secure your virtual hub using Azure PowerShell](secure-cloud-network-powershell.md). secure-cloud-network-powershell). 
+> To upgrade an existing hub and specify **Availability Zones** for Azure Firewall (recommended) you must follow the upgrade procedure in [Tutorial: Secure your virtual hub using Azure PowerShell](secure-cloud-network-powershell.md).
+
+:::image type="content" source="media/secure-cloud-network/secure-cloud-network.png" alt-text="Diagram showing the secure cloud network.":::
 
 ## Prerequisites
 
@@ -51,9 +51,9 @@ The two virtual networks will each have a workload server in them and will be pr
 3. For **Subscription**, select your subscription.
 4. For **Resource group**, select **Create new**, and type **fw-manager-rg** for the name and select **OK**.
 5. For **Name**, type **Spoke-01**.
-6. For **Region**, select **(US) East US**.
+6. For **Region**, select **East US**.
 7. Select **Next: IP Addresses**.
-8. For **Address space**, type **10.0.0.0/16**.
+8. For **Address space**, accept the default **10.0.0.0/16**.
 9. Select **Add subnet**.
 10. For **Subnet name**, type  **Workload-01-SN**.
 11. For **Subnet address range**, type **10.0.1.0/24**.
@@ -61,7 +61,7 @@ The two virtual networks will each have a workload server in them and will be pr
 13. Select **Review + create**.
 14. Select **Create**.
 
-Repeat this procedure to create another similar virtual network:
+Repeat this procedure to create another similar virtual network in the **fw-manager-rg** resource group:
 
 Name: **Spoke-02**<br>
 Address space: **10.1.0.0/16**<br>
@@ -79,13 +79,15 @@ Create your secured virtual hub using Firewall Manager.
 
     :::image type="content" source="./media/secure-cloud-network/1-create-new-secured-virtual-hub.jpg" alt-text="Screenshot of creating a new secured virtual hub." lightbox="./media/secure-cloud-network/1-create-new-secured-virtual-hub.jpg":::
 
+1. Select your **Subscription**.
 5. For **Resource group**, select **fw-manager-rg**.
 6. For **Region**, select **East US**.
 7. For the **Secured virtual hub name**, type **Hub-01**.
 8. For **Hub address space**, type **10.2.0.0/16**.
+10. Select **New vWAN**.
 9. For the new virtual WAN name, type **Vwan-01**.
-10. Select **New vWAN** and select **Standard** for "Type"
-11. Leave the **Include VPN gateway to enable Trusted Security Partners** check box cleared.
+1. For **Type** Select **Standard**.
+1. Leave the **Include VPN gateway to enable Trusted Security Partners** check box cleared.
 
     :::image type="content" source="./media/secure-cloud-network/2-create-new-secured-virtual-hub.png" alt-text="Screenshot of creating a new virtual hub with properties." lightbox="./media/secure-cloud-network/2-create-new-secured-virtual-hub.png":::
 
@@ -99,8 +101,8 @@ Create your secured virtual hub using Firewall Manager.
 
    :::image type="content" source="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png" alt-text="Screenshot of configuring Azure Firewall parameters." lightbox="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png":::
 
-16. Select the **Firewall Policy** to apply at the new Azure Firewall instance. Select **Default Deny Policy**, you will refine your settings later in this article.
-17. Select **Next: Trusted Security Partner**.
+16. Select the **Firewall Policy** to apply at the new Azure Firewall instance. Select **Default Deny Policy**, you'll refine your settings later in this article.
+17. Select **Next: Security Partner Provider**.
 
     :::image type="content" source="./media/secure-cloud-network/4-trusted-security-partner.png" alt-text="Screenshot of configuring Trusted Partners parameters." lightbox="./media/secure-cloud-network/4-trusted-security-partner.png":::
 
@@ -117,7 +119,7 @@ You can get the firewall public IP address after the deployment completes.
 1. Open **Firewall Manager**.
 2. Select **Virtual hubs**.
 3. Select **hub-01**.
-4. Select **Public IP configuration**.
+4. Under **Azure Firewall**, select **Public IP configuration**.
 5. Note the public IP address to use later.
 
 ### Connect the hub and spoke virtual networks
@@ -157,8 +159,9 @@ Now you can peer the hub and spoke virtual networks.
 7. Select **Spoke-01** for the virtual network and select **Workload-01-SN** for the subnet.
 8. For **Public IP**, select **None**.
 9. Accept the other defaults and select **Next: Management**.
-10. Select **Disable** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
-11. Review the settings on the summary page, and then select **Create**.
+1. Select **Next:Monitoring**.
+1. Select **Disable** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
+1. Review the settings on the summary page, and then select **Create**.
 
 Use the information in the following table to configure another virtual machine named **Srv-Workload-02**. The rest of the configuration is the same as the **Srv-workload-01** virtual machine.
 
@@ -222,9 +225,10 @@ A firewall policy defines collections of rules to direct traffic on one or more 
     9. For **Destination Ports**, type **3389**.
     10. For **Destination Type**, select **IP Address**.
     11. For **Destination**, type the firewall public IP address that you noted previously.
-    12. For **Translated address**, type the private IP address for **Srv-Workload-01** that you noted previously.
-    13. For **Translated port**, type **3389**.
-    14. Select **Add**.
+    1. For **Translated type**, select **IP Address**.
+    1. For **Translated address**, type the private IP address for **Srv-Workload-01** that you noted previously.
+    1. For **Translated port**, type **3389**.
+    1. Select **Add**.
 
 22. Add a **Network rule** so you can connect a remote desktop from **Srv-Workload-01** to **Srv-Workload-02**.
 
@@ -241,18 +245,18 @@ A firewall policy defines collections of rules to direct traffic on one or more 
     11. For **Destination Type**, select **IP Address**.
     12. For **Destination**, type the **Srv-Workload-02** private IP address that you noted previously.
     13. Select **Add**.
-    14. Select **Review + create**.
-    15. Select **Create**.
 
-23. In the **IDPS** page, click on **Next: Threat Intelligence**
+
+1. Select **Next: IDPS**.
+23. On the **IDPS** page, select **Next: Threat Intelligence**
 
     :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy-idps7.png" alt-text="Screenshot of configuring IDPS settings." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy-idps7.png":::
 
-24. In the **Threat Intelligence** page, accept defaults and click on **Review and Create**:
+24. In the **Threat Intelligence** page, accept defaults and select **Review and Create**:
 
     :::image type="content" source="./media/secure-cloud-network/7a-create-azure-firewall-policy-threat-intelligence7.png" alt-text="Screenshot of configuring Threat Intelligence settings." lightbox="./media/secure-cloud-network/7a-create-azure-firewall-policy-threat-intelligence7.png":::
 
-25. Review and confirm your selection clicking on **Create** button.
+25. Review to confirm your selection and then select **Create**.
 
 ## Associate policy
 
@@ -278,8 +282,9 @@ Now you must ensure that network traffic gets routed through your firewall.
 3. Under **Settings**, select **Security configuration**.
 4. Under **Internet traffic**, select **Azure Firewall**.
 5. Under **Private traffic**, select **Send via Azure Firewall**.
-6. Select **Save**.
-7. Select **OK** on the **Warning** dialog.
+6. Under **Inter-hub**, select **Enabled** to enable the Virtual WAN routing intent feature. Routing intent is the mechanism through which you can configure Virtual WAN to route branch-to-branch (on-premises to on-premises) traffic via Azure Firewall deployed in the Virtual WAN Hub. For more information regarding pre-requisites and considerations associated with the routing intent feature, see [Routing Intent documentation](../virtual-wan/how-to-routing-policies.md). 
+7. Select **Save**.
+8. Select **OK** on the **Warning** dialog.
 
    :::image type="content" source="./media/secure-cloud-network/9a-firewall-warning.png" alt-text="Screenshot of Secure Connections." lightbox="./media/secure-cloud-network/9a-firewall-warning.png":::
 

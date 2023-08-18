@@ -16,6 +16,10 @@
     href: verifiable-credentials-configure-issuer.md
   - name: Verify a verifiable credential
     href: verifiable-credentials-configure-verifier.md
+  - name: Using the Authenticator
+    href: using-authenticator.md
+  - name: Using the Wallet Library
+    href: using-wallet-library.md
 - name: Concepts
   expanded: true
   items:
@@ -38,41 +42,56 @@
     items:
     - name: Directory based - Employee
       href: how-to-use-quickstart-verifiedemployee.md
-    - name: ID Token Hint credentials
+    - name: Id token hint attestation
       href: how-to-use-quickstart.md
-    - name: ID Token credentials
+    - name: Id token attestation
       href: how-to-use-quickstart-idtoken.md      
-    - name: Self Issued credentials
+    - name: Presentation attestation
+      href: how-to-use-quickstart-presentation.md
+    - name: Self issued attestation
       href: how-to-use-quickstart-selfissued.md
+    - name: Multiple attestations
+      href: how-to-use-quickstart-multiple.md
   - name: Use the Verified ID Network
     href: how-use-vcnetwork.md
   - name: Using the Request Service REST API
     href: get-started-request-api.md
-  - name: Link your domain to your DID
-    href: how-to-dnsbind.md
-  - name: Register your website ID
+  - name: Register decentralized ID
     href: how-to-register-didwebsite.md
+  - name: Verify domain ownership
+    href: how-to-dnsbind.md
   - name: Revoke a verifiable credential
     href: how-to-issuer-revoke.md
   - name: Opt out of Verified ID service
     href: how-to-opt-out.md
-  - name: Partner integration
+  - name: Partner gallery
     items:
-    - name: Partner gallery
-      href: partner-gallery.md
-    - name: Au10tix
-      href: howto-verifiable-credentials-partner-au10tix.md
-    - name: LexisNexis
-      href: howto-verifiable-credentials-partner-lexisnexis.md
+    - name: IDV partners
+      items:
+      - name: IDV partner network
+        href: partner-gallery.md
+      - name: Au10tix
+        href: howto-verifiable-credentials-partner-au10tix.md
+      - name: LexisNexis
+        href: howto-verifiable-credentials-partner-lexisnexis.md
+      - name: Vu
+        href: partner-vu.md
+    - name: Services partners
+      href: services-partners.md
 - name: Samples
   expanded: true
   items:
   - name: Sample Applications
     href: https://github.com/Azure-Samples/active-directory-verifiable-credentials
-#  - name: Sample Issuer
-#   href: 
   - name: End to End Demo
     href: https://woodgroveemployee.azurewebsites.net/
+- name: Architecture and Deployment
+  expanded: true
+  items:
+  - name: Remote onboarding
+    href: remote-onboarding-new-employees-id-verification.md
+  - name: LinkedIn employment verification
+    href: linkedin-employment-verification.md
 - name: Reference
   expanded: true
   items:

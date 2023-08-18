@@ -1,5 +1,5 @@
 ---
-title: Visualize your data using Azure Monitor Workbooks in Microsoft Sentinel | Microsoft Docs
+title: Visualize your data using workbooks in Microsoft Sentinel | Microsoft Docs
 description: Learn how to visualize your data using workbooks in Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
@@ -8,30 +8,28 @@ ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
-# Use Azure Monitor workbooks to visualize and monitor your data
+# Visualize and monitor your data by using workbooks in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-Once you have [connected your data sources](quickstart-onboard.md) to Microsoft Sentinel, you can visualize and monitor the data using the Microsoft Sentinel adoption of Azure Monitor Workbooks, which provides versatility in creating custom dashboards. While the Workbooks are displayed differently in Microsoft Sentinel, it may be useful for you to see how to [create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md). Microsoft Sentinel allows you to create custom workbooks across your data, and also comes with built-in workbook templates to allow you to quickly gain insights across your data as soon as you connect a data source.
+After you have connected your data sources to Microsoft Sentinel, visualize and monitor the data using workbooks in Microsoft Sentinel. Microsoft Sentinel allows you to create custom workbooks across your data or, use existing workbook templates available with packaged solutions or as standalone content from the content hub. These templates allow you to quickly gain insights across your data as soon as you connect a data source.
 
 This article describes how to visualize your data in Microsoft Sentinel.
 
 > [!div class="checklist"]
-> * Use built-in workbooks
+> * Use workbook templates
 > * Create new workbooks
 
 ## Prerequisites
 
-You must have at least **Workbook reader** or **Workbook contributor** permissions on the resource group of the Microsoft Sentinel workspace.
+- You must have at least **Workbook reader** or **Workbook contributor** permissions on the resource group of the Microsoft Sentinel workspace.
 
-> [!NOTE]
-> The workbooks that you can see in Microsoft Sentinel are saved within the Microsoft Sentinel workspace's resource group and are tagged by the workspace in which they were created.
+   The workbooks that you see in Microsoft Sentinel are saved within the Microsoft Sentinel workspace's resource group and are tagged by the workspace in which they were created.
+- To use a workbook template, install the solution that contains the workbook or install the workbook as a standalone item from the **Content Hub**. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+ 
+## Use a workbook template
 
-## Use built-in workbooks
+1. Go to **Workbooks** and then select **Templates** to see the list of workbook templates installed.
 
-1. Go to **Workbooks** and then select **Templates** to see the full list of Microsoft Sentinel built-in workbooks. 
-
-    To see which are relevant to the data types you have connected, the **Required data types** field in each workbook will list the data type next to a green check mark if you already stream relevant data to Microsoft Sentinel.
+    To see which are relevant to the data types you have connected, the **Required data types** field in each workbook lists the data type next to a green check mark if you already stream relevant data to Microsoft Sentinel.
 
     [ ![Go to workbooks.](media/tutorial-monitor-data/access-workbooks.png) ](media/tutorial-monitor-data/access-workbooks.png#lightbox)
 
@@ -84,9 +82,9 @@ You must have at least **Workbook reader** or **Workbook contributor** permissio
 
 Refresh your workbook to display updated data. In the toolbar, select one of the following options:
 
-- :::image type="icon" source="media/whats-new/manual-refresh-button.png" border="false"::: **Refresh**, to manually refresh your workbook data.
+- :::image type="icon" source="media/monitor-your-data/manual-refresh-button.png" border="false"::: **Refresh**, to manually refresh your workbook data.
 
-- :::image type="icon" source="media/whats-new/auto-refresh-workbook.png" border="false"::: **Auto refresh**, to set your workbook to automatically refresh at a configured interval.
+- :::image type="icon" source="media/monitor-your-data/auto-refresh-workbook.png" border="false"::: **Auto refresh**, to set your workbook to automatically refresh at a configured interval.
 
     - Supported auto refresh intervals range from **5 minutes** to **1 day**.
 
@@ -102,23 +100,23 @@ Refresh your workbook to display updated data. In the toolbar, select one of the
 
 To print a workbook, or save it as a PDF, use the options menu to the right of the workbook title.
 
-1. Select options > :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **Print content**. 
+1. Select options > :::image type="icon" source="media/monitor-your-data/print-icon.png" border="false"::: **Print content**. 
 2. In the print screen, adjust your print settings as needed or select **Save as PDF** to save it locally.
 
 For example:
 
-[ ![Print your workbook or save as PDF.](media/whats-new/print-workbook.png) ](media/whats-new/print-workbook.png#lightbox)
+[ ![Print your workbook or save as PDF.](media/monitor-your-data/print-workbook.png) ](media/monitor-your-data/print-workbook.png#lightbox)
 
 ## How to delete workbooks
 
-To delete a saved workbook (either a saved template or a customized workbook), in the Workbooks page, select the saved workbook that you want to delete and select **Delete**. This will remove the saved workbook.
+To delete a saved workbook (either a saved template or a customized workbook), in the Workbooks page, select the saved workbook that you want to delete and select **Delete**. This action removes the saved workbook.
 
 > [!NOTE]
 > This removes the workbook resource as well as any changes you made to the template. The original template will remain available.
 
 ## Next steps
 
-In this article, you learned how to visualize your data in Microsoft Sentinel, using Azure Workbooks.
+In this article, you learned how to visualize your data by using workbooks in Microsoft Sentinel.
 
 To learn how to automate your responses to threats, see [Set up automated threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).
 

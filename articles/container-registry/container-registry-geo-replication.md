@@ -1,14 +1,15 @@
 ---
 title: Geo-replicate a registry
-description: Get started creating and managing a geo-replicated Azure container registry, which enables the registry to serve multiple regions with multi-master regional replicas. Geo-replication is a feature of the Premium service tier.
-author: stevelas
+description: Get started creating and managing a geo-replicated Azure container registry, which enables the registry to serve multiple regions with multi-primary regional replicas. Geo-replication is a feature of the Premium service tier.
+author: tejaswikolli-web
 ms.topic: article
-ms.date: 06/28/2021
-ms.author: stevelas
+ms.author: tejaswikolli
+ms.date: 10/11/2022
+
 ---
 # Geo-replication in Azure Container Registry
 
-Companies that want a local presence, or a hot backup, choose to run services from multiple Azure regions. As a best practice, placing a container registry in each region where images are run allows network-close operations, enabling fast, reliable image layer transfers. Geo-replication enables an Azure container registry to function as a single registry, serving multiple regions with multi-master regional registries. 
+Companies that want a local presence, or a hot backup, choose to run services from multiple Azure regions. As a best practice, placing a container registry in each region where images are run allows network-close operations, enabling fast, reliable image layer transfers. Geo-replication enables an Azure container registry to function as a single registry, serving multiple regions with multi-primary regional registries. 
 
 A geo-replicated registry provides the following benefits:
 
@@ -21,6 +22,15 @@ A geo-replicated registry provides the following benefits:
 > [!NOTE]
 > * If you need to maintain copies of container images in more than one Azure container registry, Azure Container Registry also supports [image import](container-registry-import-images.md). For example, in a DevOps workflow, you can import an image from a development registry to a production registry, without needing to use Docker commands.
 > * If you want to move a registry to a different Azure region, instead of geo-replicating the registry, see [Manually move a container registry to another region](manual-regional-move.md).
+
+## Prerequisites
+
+* The user requires following permissions (at registry level) to create/delete replications:
+
+    | Permission | Description |
+    |---|---|
+    | Microsoft.ContainerRegistry/registries/write | Create a replication |
+    | Microsoft.ContainerRegistry/registries/replications/write | Delete a replication |
 
 ## Example use case
 Contoso runs a public presence website located across the US, Canada, and Europe. To serve these markets with local and network-close content, Contoso runs [Azure Kubernetes Service](../aks/index.yml) (AKS) clusters in West US, East US, Canada Central, and West Europe. The website application, deployed as a Docker image, utilizes the same code and image across all regions. Content, local to that region, is retrieved from a database, which is provisioned uniquely in each region. Each regional deployment has its unique configuration for resources like the local database.
@@ -39,7 +49,7 @@ docker push contosowesteu.azurecr.io/public/products/web:1.2
 
 Typical challenges of multiple registries include:
 
-* The East US, West US, and Canada Central clusters all pull from the West US registry, incurring egress fees as each of these remote container hosts pull images from West US data centers.
+* All the East US, West US, and Canada Central clusters pull from the West US registry, incurring egress fees as each of these remote container hosts pull images from West US data centers.
 * The development team must push images to West US and West Europe registries.
 * The development team must configure and maintain each regional deployment with image names referencing the local registry.
 * Registry access must be configured for each region.
@@ -48,7 +58,7 @@ Typical challenges of multiple registries include:
 
 ![Pulling from a geo-replicated registry](media/container-registry-geo-replication/after-geo-replicate-pull.png)
 
-Using the geo-replication feature of Azure Container Registry, these benefits are realized:
+The geo-replication feature of Azure Container Registry has following benefits:
 
 * Manage a single registry across all regions: `contoso.azurecr.io`
 * Manage a single configuration of image deployments as all regions use the same image URL: `contoso.azurecr.io/public/products/web:1.2`
@@ -66,7 +76,7 @@ Geo-replication is a feature of [Premium registries](container-registry-skus.md)
 
 ![Switching service tiers in the Azure portal](media/container-registry-skus/update-registry-sku.png)
 
-To configure geo-replication for your Premium registry, log in to the Azure portal at https://portal.azure.com.
+To configure geo-replication for your Premium registry, sign in to the [Azure portal](https://portal.azure.com).
 
 Navigate to your Azure Container Registry, and select **Replications**:
 
@@ -90,8 +100,8 @@ ACR begins syncing images across the configured replicas. Once complete, the por
 
 ## Considerations for using a geo-replicated registry
 
-* Each region in a geo-replicated registry is independent once set up. Azure Container Registry SLAs apply to each geo-replicated region.
-* When you push or pull images from a geo-replicated registry, Azure Traffic Manager in the background sends the request to the registry located in the region that is closest to you in terms of network latency.
+* Each region in a geo-replicated registry is independent once set-up. Azure Container Registry SLAs apply to each geo-replicated region.
+* For every push or pull image operations on a geo-replicated registry, Azure Traffic Manager in the background sends a request to the registry closest location in the region to maintain network latency.
 * After you push an image or tag update to the closest region, it takes some time for Azure Container Registry to replicate the manifests and layers to the remaining regions you opted into. Larger images take longer to replicate than smaller ones. Images and tags are synchronized across the replication regions with an eventual consistency model.
 * To manage workflows that depend on push updates to a geo-replicated registry, we recommend that you configure [webhooks](container-registry-webhook.md) to respond to the push events. You can set up regional webhooks within a geo-replicated registry to track push events as they complete across the geo-replicated regions.
 * To serve blobs representing content layers, Azure Container Registry uses data endpoints. You can enable [dedicated data endpoints](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) for your registry in each of your registry's geo-replicated regions. These endpoints allow configuration of tightly scoped firewall access rules. For troubleshooting purposes, you can optionally [disable routing to a replication](#temporarily-disable-routing-to-replication) while maintaining replicated data.
@@ -102,7 +112,7 @@ ACR begins syncing images across the configured replicas. Once complete, the por
 * For high availability and resiliency, we recommend creating a registry in a region that supports enabling [zone redundancy](zone-redundancy.md). Enabling zone redundancy in each replica region is also recommended.
 * If an outage occurs in the registry's home region (the region where it was created) or one of its replica regions, a geo-replicated registry remains available for data plane operations such as pushing or pulling container images. 
 * If the registry's home region becomes unavailable, you may be unable to carry out registry management operations including configuring network rules, enabling availability zones, and managing replicas.
-* To plan for high availablity of a geo-replicated registry encrypted with a [customer-managed key](container-registry-customer-managed-keys.md) stored in an Azure key vault, review the guidance for key vault [failover and redundancy](../key-vault/general/disaster-recovery-guidance.md).
+* To plan for high availability of a geo-replicated registry encrypted with a [customer-managed key](tutorial-enable-customer-managed-keys.md) stored in an Azure key vault, review the guidance for key vault [failover and redundancy](../key-vault/general/disaster-recovery-guidance.md).
 
 ## Delete a replica
 
@@ -156,6 +166,18 @@ az acr replication update --name westus \
   --registry myregistry --resource-group MyResourceGroup \
   --region-endpoint-enabled true
 ```
+
+## Creating replication for a Private Endpoint enabled registry
+
+When creating a new registry replication for the primary registry enabled with Private Endpoint, we recommend validating User Identity has valid Private Endpoint creation permissions. Otherwise, the operation gets stuck in the provisioning state while creating the replication.
+
+Follow the below steps if you got stuck in the provisioning state while creating the registry replication:
+
+- Manually delete the replication that got stuck in the provisioning state.
+- Add the `Microsoft.Network/privateEndpoints/privateLinkServiceProxies/write` permission for the User Identity.
+- Recreate the registry replication request.
+
+This permission check is only applicable to the registries with Private Endpoint enabled.
 
 ## Next steps
 

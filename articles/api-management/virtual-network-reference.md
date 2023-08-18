@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 12/16/2021
+ms.date: 01/06/2023
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -30,22 +30,24 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 
 ### [stv2](#tab/stv2)
 
+>[!IMPORTANT]
+> When using `stv2`, it is required to assign a Network Security Group to your VNet in order for the Azure Load Balancer to work. Learn more in the [Azure Load Balancer documentation](/security/benchmark/azure/baselines/azure-load-balancer-security-baseline#network-security-group-support).
+
 | Source / Destination Port(s) | Direction          | Transport protocol |   Service tags <br> Source / Destination   | Purpose                                            | VNet type |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | Inbound            | TCP                | Internet / VirtualNetwork           | **Client communication to API Management**                     | External only            |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VirtualNetwork       | **Management endpoint for Azure portal and PowerShell**         | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VirtualNetwork / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) and Azure Key Vault dependency (optional)              | External & Internal  |
-| * / 1433                     | Outbound           | TCP                | VirtualNetwork / SQL                 | **Access to Azure SQL endpoints**                           | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureConnectors | [Authorizations](authorizations-overview.md) dependency (optional)              | External & Internal  |
+| * / 1433                     | Outbound           | TCP                | VirtualNetwork / Sql                 | **Access to Azure SQL endpoints**                           | External & Internal  |
 | * / 443                     | Outbound           | TCP                | VirtualNetwork / AzureKeyVault                | **Access to Azure Key Vault**                         | External & Internal  |
-| * / 5671, 5672, 443          | Outbound           | TCP                | VirtualNetwork / EventHub            | Dependency for [Log to Azure Event Hubs policy](api-management-howto-log-event-hubs.md) and monitoring agent (optional) | External & Internal  |
+| * / 5671, 5672, 443          | Outbound           | TCP                | VirtualNetwork / EventHub            | Dependency for [Log to Azure Event Hubs policy](api-management-howto-log-event-hubs.md) and [Azure Monitor](api-management-howto-use-azure-monitor.md) (optional) | External & Internal  |
 | * / 445                      | Outbound           | TCP                | VirtualNetwork / Storage             | Dependency on Azure File Share for [GIT](api-management-configuration-repository-git.md) (optional)                   | External & Internal  |
-| * / 443, 12000                     | Outbound           | TCP                | VirtualNetwork / AzureCloud            | Health and Monitoring Extension (optional)        | External & Internal  |
 | * / 1886, 443                     | Outbound           | TCP                | VirtualNetwork / AzureMonitor         | Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md), and [Application Insights](api-management-howto-app-insights.md) (optional)                  | External & Internal  |
-| * / 25, 587, 25028                       | Outbound           | TCP                | VirtualNetwork / Internet            | Connect to SMTP Relay for sending e-mail (optional)                   | External & Internal  |
 | * / 6380             | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access external Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
 | * / 6381 - 6383              | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access internal Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
-| * / 4290              | Inbound & Outbound | UDP                | VirtualNetwork / VirtualNetwork     | Sync Counters for [Rate Limit](api-management-access-restriction-policies.md#LimitCallRateByKey) policies between machines (optional)        | External & Internal  |
+| * / 4290              | Inbound & Outbound | UDP                | VirtualNetwork / VirtualNetwork     | Sync Counters for [Rate Limit](rate-limit-policy.md) policies between machines (optional)        | External & Internal  |
 | * / 6390                       | Inbound            | TCP                | AzureLoadBalancer / VirtualNetwork | **Azure Infrastructure Load Balancer**                          | External & Internal  |
 
 ### [stv1](#tab/stv1)
@@ -55,15 +57,17 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / [80], 443                  | Inbound            | TCP                | Internet / VirtualNetwork            | **Client communication to API Management**                     | External only          |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VirtualNetwork       | **Management endpoint for Azure portal and PowerShell**       | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VirtualNetwork / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
-| * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) dependency  (optional)                | External & Internal  |
-| * / 1433                     | Outbound           | TCP                | VirtualNetwork / SQL                 | **Access to Azure SQL endpoints**                           | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) and Azure Key Vault dependency  (optional)                | External & Internal  |
+| * / 443                     | Outbound           | TCP                | VirtualNetwork / AzureKeyVault                | Access to Azure Key Vault for [named values](api-management-howto-properties.md) integration (optional)                         | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VirtualNetwork / AzureConnectors | [Authorizations](authorizations-overview.md) dependency (optional)              | External & Internal  |
+| * / 1433                     | Outbound           | TCP                | VirtualNetwork / Sql                 | **Access to Azure SQL endpoints**                           | External & Internal  |
 | * / 5671, 5672, 443          | Outbound           | TCP                | VirtualNetwork / Azure Event Hubs            | Dependency for [Log to Azure Event Hubs policy](api-management-howto-log-event-hubs.md) and monitoring agent (optional)| External & Internal  |
 | * / 445                      | Outbound           | TCP                | VirtualNetwork / Storage             | Dependency on Azure File Share for [GIT](api-management-configuration-repository-git.md) (optional)                     | External & Internal  |
 | * / 443, 12000                     | Outbound           | TCP                | VirtualNetwork / AzureCloud            | Health and Monitoring Extension & Dependency on Event Grid (if events notification activated) (optional)       | External & Internal  |
 | * / 1886, 443                     | Outbound           | TCP                | VirtualNetwork / AzureMonitor         | Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md), and [Application Insights](api-management-howto-app-insights.md) (optional)                  | External & Internal  |
-| * / 25, 587, 25028                       | Outbound           | TCP                | VirtualNetwork / Internet            | Connect to SMTP Relay for sending e-mail (optional)                    | External & Internal  |
-| * / 6381 - 6383              | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access Redis Service for [Cache](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
-| * / 4290              | Inbound & Outbound | UDP                | VirtualNetwork / VirtualNetwork     | Sync Counters for [Rate Limit](api-management-access-restriction-policies.md#LimitCallRateByKey) policies between machines (optional)        | External & Internal  |
+| * / 6380             | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access external Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
+| * / 6381 - 6383              | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access internal Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
+| * / 4290              | Inbound & Outbound | UDP                | VirtualNetwork / VirtualNetwork     | Sync Counters for [Rate Limit](rate-limit-policy.md) policies between machines (optional)        | External & Internal  |
 | * / *                         | Inbound            | TCP                | AzureLoadBalancer / VirtualNetwork | **Azure Infrastructure Load Balancer** (required for Premium SKU, optional for other SKUs)                        | External & Internal  |
 
 ---
@@ -73,10 +77,20 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 NSG rules allowing outbound connectivity to Storage, SQL, and Azure Event Hubs service tags may use the regional versions of those tags corresponding to the region containing the API Management instance (for example, **Storage.WestUS** for an API Management instance in the West US region). In multi-region deployments, the NSG in each region should allow traffic to the service tags for that region and the primary region.
 
 ## TLS functionality  
-  To enable TLS/SSL certificate chain building and validation, the API Management service needs outbound network connectivity to `ocsp.msocsp.com`, `mscrl.microsoft.com`, and `crl.microsoft.com`. This dependency is not required if any certificate you upload to API Management contains the full chain to the CA root.
+
+To enable TLS/SSL certificate chain building and validation, the API Management service needs outbound network connectivity to `ocsp.msocsp.com`, `mscrl.microsoft.com`, and `crl.microsoft.com`. This dependency is not required if any certificate you upload to API Management contains the full chain to the CA root.
 
 ## DNS access
-  Outbound access on port `53` is required for communication with DNS servers. If a custom DNS server exists on the other end of a VPN gateway, the DNS server must be reachable from the subnet hosting API Management.
+
+Outbound access on port `53` is required for communication with DNS servers. If a custom DNS server exists on the other end of a VPN gateway, the DNS server must be reachable from the subnet hosting API Management.
+
+### FQDN dependencies
+
+To operate properly, the API Management service needs outbound connectivity on port 443 to the following endpoints associated with its cloud-based API Management instance:
+
+| Description | Required | Notes |
+|:------------|:---------------------|:------|
+| Endpoints for Azure Active Directory integration | ✔️ | Required endpoints are `<region>.login.microsoft.com` and `login.microsoftonline.com`. |
 
 ## Metrics and health monitoring 
 
@@ -90,16 +104,9 @@ Outbound network connectivity to Azure Monitoring endpoints, which resolve under
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure Public      | <ul><li>gcs.prod.monitoring.core.windows.net</li><li>global.prod.microsoftmetrics.com</li><li>shoebox2.prod.microsoftmetrics.com</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>prod3.prod.microsoftmetrics.com</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
 | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>global.prod.microsoftmetrics.com</li><li>shoebox2.prod.microsoftmetrics.com</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>prod3.prod.microsoftmetrics.com</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
-| Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>global.prod.microsoftmetrics.com</li><li>shoebox2.prod.microsoftmetrics.com</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>prod3.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                        
+| Microsoft Azure operated by 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>global.prod.microsoftmetrics.com</li><li>shoebox2.prod.microsoftmetrics.com</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>prod3.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                        
 
-## SMTP relay  
-  
-Allow outbound network connectivity for the SMTP relay, which resolves under the host `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com`, and `ies.global.microsoft.com`
-
-> [!NOTE]
-> Only the SMTP relay provided in API Management may be used to send email from your instance.
-
-## Developer portal CAPTCHA 
+## Developer portal CAPTCHA
 Allow outbound network connectivity for the developer portal's CAPTCHA, which resolves under the hosts `client.hip.live.com` and `partner.hip.live.com`.
 
 ## Publishing the developer portal
@@ -121,15 +128,13 @@ When adding virtual machines running Windows to the VNet, allow outbound connect
 
 ## Control plane IP addresses
 
-The following IP addresses are divided by **Azure Environment**. When allowing inbound requests, IP addresses marked with **Global** must be permitted, along with the **Region**-specific IP address. In some cases, two IP addresses are listed. Permit both IP addresses.
+The following IP addresses are divided by **Azure Environment** and **Region**. In some cases, two IP addresses are listed. Permit both IP addresses.
 
 > [!IMPORTANT]
 > Control plane IP addresses should be configured for network access rules only when needed in certain networking scenarios. We recommend using the **ApiManagement** [service tag](../virtual-network/service-tags-overview.md) instead of control plane IP addresses to prevent downtime when infrastructure improvements necessitate IP address changes.   
 
 | **Azure Environment**|   **Region**|  **IP address**|
 |-----------------|-------------------------|---------------|
-| Azure Public| South Central US (Global)| 104.214.19.224|
-| Azure Public| North Central US (Global)| 52.162.110.80|
 | Azure Public| Australia Central| 20.37.52.67|
 | Azure Public| Australia Central 2| 20.39.99.81|
 | Azure Public| Australia East| 20.40.125.155|
@@ -176,12 +181,12 @@ The following IP addresses are divided by **Azure Environment**. When allowing i
 | Azure Public| West US| 13.64.39.16|
 | Azure Public| West US 2| 51.143.127.203|
 | Azure Public| West US 3| 20.150.167.160|
-| Azure China 21Vianet| China North (Global)| 139.217.51.16|
-| Azure China 21Vianet| China East (Global)| 139.217.171.176|
-| Azure China 21Vianet| China North| 40.125.137.220|
-| Azure China 21Vianet| China East| 40.126.120.30|
-| Azure China 21Vianet| China North 2| 40.73.41.178|
-| Azure China 21Vianet| China East 2| 40.73.104.4|
+| Microsoft Azure operated by 21Vianet| China North (Global)| 139.217.51.16|
+| Microsoft Azure operated by 21Vianet| China East (Global)| 139.217.171.176|
+| Microsoft Azure operated by 21Vianet| China North| 40.125.137.220|
+| Microsoft Azure operated by 21Vianet| China East| 40.126.120.30|
+| Microsoft Azure operated by 21Vianet| China North 2| 40.73.41.178|
+| Microsoft Azure operated by 21Vianet| China East 2| 40.73.104.4|
 | Azure Government| USGov Virginia (Global)| 52.127.42.160|
 | Azure Government| USGov Texas (Global)| 52.127.34.192|
 | Azure Government| USGov Virginia| 52.227.222.92|
@@ -190,7 +195,6 @@ The following IP addresses are divided by **Azure Environment**. When allowing i
 | Azure Government| USGov Texas| 52.243.154.118|
 | Azure Government| USDoD Central| 52.182.32.132|
 | Azure Government| USDoD East| 52.181.32.192|
-
 
 ## Next steps
 

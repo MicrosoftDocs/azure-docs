@@ -4,8 +4,10 @@ description:  Set up agentless dependency analysis in Azure Migrate.
 author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 6/08/2020
+ms.date: 02/23/2022
+ms.custom: engagement-fy23
 ---
 
 
@@ -39,7 +41,7 @@ This article describes how to set up agentless dependency analysis using Azure M
 2. As you configure the appliance, you need to specify the following in the appliance configuration manager:
     - The details of the source environment (vCenter Server(s)/Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
     - Server credentials, which can be domain/ Windows (non-domain)/ Linux (non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
-    - Verify the permissions required to perform agentless dependency analysis. For Windows servers, you need to provide domain or non-domain (local) account with administrative permissions. For Linux servers, you need to provide root user account, or an account with these permissions on /bin/netstat and /bin/ls files: CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE.<br/><br/> You can set these capabilities using the following commands: <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat
+    - Verify the permissions required to perform agentless dependency analysis. For Windows servers, you need to provide domain or non-domain (local) account with administrative permissions. For Linux servers, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that you have enabled NOPASSWD for the account to run the required commands without prompting for a password every time sudo command is invoked.
 
 ### Add credentials and initiate discovery
 

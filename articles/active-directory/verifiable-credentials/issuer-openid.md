@@ -7,7 +7,7 @@ ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 05/25/2023
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
@@ -53,7 +53,7 @@ The configured redirect URI is used by Authenticator so it knows when the sign-i
 The authorization request sent to your identity provider uses the following format.
 
 ```HTTP
-GET /authorize?client_id=<client-id>&redirect_uri=portableidentity%3A%2F%2Fverify&response_mode=query&response_type=code&scope=openid&state=12345&nonce=12345 HTTP/1.1
+GET /authorize?client_id=<client-id>&redirect_uri=vcclient%3A%2F%2Fopenid%2F&response_mode=query&response_type=code&scope=openid&state=12345&nonce=12345 HTTP/1.1
 Host: www.contoso.com
 Connection: Keep-Alive
 ```

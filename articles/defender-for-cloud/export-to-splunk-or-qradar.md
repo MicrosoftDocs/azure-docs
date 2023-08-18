@@ -1,8 +1,8 @@
 ---
 title: Set up the required Azure resources to export security alerts to IBM QRadar and Splunk
 description: Learn how to configure the required Azure resources in the Azure portal to stream security alerts to IBM QRadar and Splunk
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
 ms.date: 04/04/2022
 ---
@@ -53,7 +53,7 @@ To configure the Azure resources for QRadar and Splunk in the Azure portal:
 
 1. In the Azure search box, search for "policy" and go to the Policy.
 1. In the Policy menu, select **Definitions**.
-1. Search for "deploy export" and select the **Deploy export to Event Hub for Azure Security Center data** built-in policy.
+1. Search for "deploy export" and select the **Deploy export to Event Hub for Microsoft Defender for Cloud data** built-in policy.
 1. Select **Assign**.
 1. Define the basic policy options:
     1. In Scope, select the **...** to select the scope to apply the policy to.

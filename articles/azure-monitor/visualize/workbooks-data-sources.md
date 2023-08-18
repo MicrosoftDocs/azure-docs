@@ -5,7 +5,8 @@ services: azure-monitor
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.custom: devx-track-arm-template
+ms.date: 06/21/2023
 ms.reviewer: gardnerjr
 ---
 
@@ -25,6 +26,7 @@ Workbooks can extract data from these data sources:
  - [Azure resource health](#azure-resource-health)
  - [Azure RBAC](#azure-rbac)
  - [Change Analysis (preview)](#change-analysis-preview)
+ - [Prometheus (preview)](#prometheus-preview)
 
 ## Logs
 
@@ -38,6 +40,12 @@ You can use Kusto query language (KQL) queries that transform the underlying res
 ![Screenshot that shows a workbook logs report interface.](./media/workbooks-data-sources/logs.png)
 
 You can easily query across multiple resources to create a unified rich reporting experience.
+
+See also: [Log Analytics query optimization tips](../logs/query-optimization.md)
+
+See also: [Workbooks best practices and hints for logs queries](workbooks-create-workbook.md#best-practices-for-querying-logs)
+
+Tutorial: [Making resource centric log queries in workbooks](workbooks-create-workbook.md#tutorial---resource-centric-logs-queries-in-workbooks)
 
 ## Metrics
 
@@ -70,6 +78,8 @@ Workbooks now have support for querying from [Azure Data Explorer](/azure/data-e
 For the **Cluster Name** field, add the region name following the cluster name. An example is *mycluster.westeurope*.
 
 ![Screenshot that shows Kusto query window.](./media/workbooks-data-sources/data-explorer.png)
+
+See also: [Azure Data Explorer query best practices](/azure/data-explorer/kusto/query/best-practices)
 
 ## JSON
 
@@ -111,6 +121,10 @@ Workbooks support these merges:
 * Right anti-join
 * Union
 * Duplicate table
+
+### Merge examples
+
+[Using the Duplicate Table option to reuse queried data](workbooks-commonly-used-components.md#reuse-query-data-in-different-visualizations)
 
 ## Custom endpoint
 
@@ -160,6 +174,16 @@ To make a query control that uses [Application Change Analysis](../app/change-an
 
 > [!div class="mx-imgBorder"]
 > ![A screenshot that shows a workbook with Change Analysis.](./media/workbooks-data-sources/change-analysis-data-source.png)
+
+
+## Prometheus (preview)
+
+With [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md), you can collect Prometheus metrics for your Kubernetes clusters. To query Prometheus metrics, select **Prometheus** from the data source dropdown, followed by where the metrics are stored in [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) and the [Prometheus query type](https://prometheus.io/docs/prometheus/latest/querying/api/) for the PromQL query.
+![Screenshot that shows sample PromQL query.](./media/workbooks-data-sources/prometheus-query.png)
+
+> [!NOTE]
+> Querying from an Azure Monitor workspace is a data plane action and requires an explicit role assignment of Monitoring Data Reader, which is not assigned by default
+> Learn more about [Azure control and data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md) 
 
 ## Next steps
 

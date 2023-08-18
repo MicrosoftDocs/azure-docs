@@ -1,13 +1,13 @@
 ---
-title: How to use API portal for VMware Tanzu with Azure Spring Apps Enterprise Tier
-titleSuffix: Azure Spring Apps Enterprise Tier
-description: How to use API portal for VMware Tanzu with Azure Spring Apps Enterprise Tier.
-author: karlerickson
+title: How to use API portal for VMware Tanzu with the Azure Spring Apps Enterprise plan
+titleSuffix: Azure Spring Apps Enterprise plan
+description: How to use API portal for VMware Tanzu with the Azure Spring Apps Enterprise plan.
+author: KarlErickson
 ms.author: xiading
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 02/09/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Use API portal for VMware Tanzu
@@ -15,15 +15,15 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to use API portal for VMware Tanzu® with Azure Spring Apps Enterprise Tier.
+This article shows you how to use API portal for VMware Tanzu® with the Azure Spring Apps Enterprise plan.
 
-[API portal](https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.0/api-portal/GUID-index.html) is one of the commercial VMware Tanzu components. API portal supports viewing API definitions from [Spring Cloud Gateway for VMware Tanzu®](./how-to-use-enterprise-spring-cloud-gateway.md) and testing of specific API routes from the browser. It also supports enabling single sign-on (SSO) authentication via configuration.
+[API portal](https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.1/api-portal/GUID-index.html) is one of the commercial VMware Tanzu components. API portal supports viewing API definitions from [Spring Cloud Gateway for VMware Tanzu®](./how-to-use-enterprise-spring-cloud-gateway.md) and testing of specific API routes from the browser. It also supports enabling single sign-on (SSO) authentication via configuration.
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise tier instance with API portal enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise plan instance with API portal enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 
   > [!NOTE]
   > To use API portal, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
@@ -121,7 +121,7 @@ This section describes how to view and try out APIs with schema definitions in A
                "Method=PUT"
             ],
             "filters": [
-               "StripPrefix=0",
+               "StripPrefix=0"
             ]
          }
       ]
@@ -148,7 +148,7 @@ This section describes how to view and try out APIs with schema definitions in A
 
 Select the `endpoint URL` to go to API portal. You'll see all the routes configured in Spring Cloud Gateway for Tanzu.
 
-:::image type="content" source="media/enterprise/how-to-use-enterprise-api-portal/api-portal.png" alt-text="Screenshot of A P I portal showing configured routes.":::
+:::image type="content" source="media/how-to-use-enterprise-api-portal/api-portal.png" alt-text="Screenshot of API portal showing configured routes.":::
 
 ## Try out APIs in API portal
 
@@ -157,7 +157,38 @@ Use the following steps to try out APIs:
 1. Select the API you would like to try.
 1. Select **EXECUTE**, and the response will be shown.
 
-   :::image type="content" source="media/enterprise/how-to-use-enterprise-api-portal/api-portal-tryout.png" alt-text="Screenshot of A P I portal.":::
+   :::image type="content" source="media/how-to-use-enterprise-api-portal/api-portal-tryout.png" alt-text="Screenshot of API portal.":::
+
+## Enable/disable API portal after service creation
+
+You can enable and disable API portal after service creation using the Azure portal or Azure CLI. Before disabling API portal, you're required to unassign its endpoint.
+
+### [Azure portal](#tab/Portal)
+
+Use the following steps to enable or disable API portal using the Azure portal:
+
+1. Navigate to your service resource, and then select **API portal**.
+1. Select **Manage**.
+1. Select or unselect the **Enable API portal**, and then select **Save**.
+1. You can now view the state of API portal on the **API portal** page.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following Azure CLI commands to enable or disable API portal:
+
+```azurecli
+az spring api-portal create \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
+```azurecli
+az spring api-portal delete \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
+---
 
 ## Next steps
 

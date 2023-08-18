@@ -4,7 +4,7 @@ description: Learn how to create and delete Azure HDInsight clusters with script
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 12/27/2019
+ms.date: 11/17/2022
 ---
 
 # Tutorial: Create Azure HDInsight clusters with Azure Automation
@@ -22,12 +22,12 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-* An existing [Azure Automation account](../automation/quickstarts/create-account-portal.md).
+* An existing [Azure Automation account](../automation/quickstarts/create-azure-automation-account-portal.md).
 * An existing [Azure Storage account](../storage/common/storage-account-create.md), which will be used as cluster storage.
 
 ## Install HDInsight modules
 
-1. Sign in to the the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select your Azure Automation Accounts.
 1. Select **Modules gallery** under **Shared Resources**.
 1. Type **AzureRM.Profile** in the box and hit enter to search. Select the available search result.
@@ -108,7 +108,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
     #Automation credential for user to SSH into cluster
     $sshCreds = Get-AutomationPSCredential –Name 'ssh-password' 
     
-    $clusterType = "Hadoop" #Use any supported cluster type (Hadoop, HBase, Storm, etc.)
+    $clusterType = "Hadoop" #Use any supported cluster type (Hadoop, HBase, etc.)
     $clusterOS = "Linux"
     $clusterWorkerNodes = 3
     $clusterNodeSize = "Standard_D3_v2"

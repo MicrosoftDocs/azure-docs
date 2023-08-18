@@ -33,7 +33,17 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Virtual Networks
-            url: /learn/modules/introduction-to-azure-virtual-networks
+            url: /training/modules/introduction-to-azure-virtual-networks
+      - linkListType: deploy
+        links: 
+          - text: Provision a network landing zone
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%201
+          - text: Provision a new application in an existing network
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%202
+          - text: Provision a secondary Azure region infrastructure
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%205
+          - text: Implement Azure network security
+            url: https://mslearn.cloudguides.com/guides/Azure%20network%20security
  
   # Card (optional)
   - title: Get started
@@ -64,6 +74,8 @@ landingContent:
             url: virtual-networks-faq.md#security
           - text: Default outbound access
             url: ./ip-services/default-outbound-access.md
+          - text: Virtual network encryption
+            url: ./virtual-network-encryption-overview.md
       - linkListType: tutorial
         links:
           - text: Filter network traffic using network security groups
@@ -72,10 +84,14 @@ landingContent:
             url: tutorial-restrict-network-access-to-resources.md
           - text: Work with application security groups
             url: manage-network-security-group.md#work-with-application-security-groups
+      - linkListType: how-to-guide
+        links:
+          - text: Create a virtual network with encryption
+            url: ./how-to-create-encryption-portal.md
       - linkListType: learn
         links:
           - text: Secure and isolate access to Azure resources
-            url: /learn/modules/secure-and-isolate-with-nsg-and-service-endpoints
+            url: /training/modules/secure-and-isolate-with-nsg-and-service-endpoints
        
   # Card
   - title: Connect virtual networks
@@ -103,7 +119,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Communicate across virtual network with peering
-            url: /learn/modules/integrate-vnets-with-vnet-peering
+            url: /training/modules/integrate-vnets-with-vnet-peering
 
   # Card
   - title: Route network traffic
@@ -119,7 +135,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Manage and control traffic flow in your Azure deployment with routes
-            url: /learn/modules/control-network-traffic-flow-with-routes/       
+            url: /training/modules/control-network-traffic-flow-with-routes/       
 
   # Card
   - title: Create IP addresses 
@@ -196,7 +212,7 @@ landingContent:
       - linkListType: learn
         links:
         - text: Architect network infrastructure in Azure
-          url: /learn/paths/architect-network-infrastructure/
+          url: /training/paths/architect-network-infrastructure/
       - linkListType: reference
         links:
         - text: Connect an on-premises network to Azure
@@ -219,7 +235,3 @@ landingContent:
             url: /powershell/module/az.network
           - text: REST
             url: /rest/api/virtual-network      
-
-
-
-

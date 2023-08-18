@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 08/29/2022
 ms.author: kenwith
 ms.reviewer: ashishj
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, ignite-2022
 ---
 
 # Using Azure AD Application Proxy to publish on-premises apps for remote users
@@ -96,7 +96,7 @@ App Proxy also supports the following authentication protocols with third-party 
 * [**Forms- or password-based authentication**](./application-proxy-configure-single-sign-on-password-vaulting.md). With this authentication method, users sign on to the application with a username and password the first time they access it. After the first sign-on, Azure AD supplies the username and password to the application. In this scenario, authentication is handled by Azure AD.
 * [**SAML authentication**](./application-proxy-configure-single-sign-on-on-premises-apps.md). SAML-based single sign-on is supported for applications that use either SAML 2.0 or WS-Federation protocols. With SAML single sign-on, Azure AD authenticates to the application by using the user's Azure AD account.
 
-For more information on supported methods, see [Choosing a single sign-on method](../manage-apps/sso-options.md#choosing-a-single-sign-on-method).
+For more information on supported methods, see [Choosing a single sign-on method](../manage-apps/plan-sso-deployment.md#choosing-a-single-sign-on-method).
 
 ### Security benefits
 
@@ -134,7 +134,7 @@ The following diagram illustrates in general how Azure AD authentication service
 
 |**Component**|**Description**|
 |:-|:-|
-|Endpoint|The endpoint is a URL or an [user portal](../manage-apps/end-user-experiences.md). Users can reach applications while outside of your network by accessing an external URL. Users within your network can access the application through a URL or an user portal. When users go to one of these endpoints, they authenticate in Azure AD and then are routed through the connector to the on-premises application.|
+|Endpoint|The endpoint is a URL or an [user portal](../manage-apps/end-user-experiences.md). Users can reach applications while outside of your network by accessing an external URL. Users within your network can access the application through a URL or a user portal. When users go to one of these endpoints, they authenticate in Azure AD and then are routed through the connector to the on-premises application.|
 |Azure AD|Azure AD performs the authentication using the tenant directory stored in the cloud.|
 |Application Proxy service|This Application Proxy service runs in the cloud as part of Azure AD. It passes the sign-on token from the user to the Application Proxy Connector. Application Proxy forwards any accessible headers on the request and sets the headers as per its protocol, to the client IP address. If the incoming request to the proxy already has that header, the client IP address is added to the end of the comma-separated list that is the value of the header.|
 |Application Proxy connector|The connector is a lightweight agent that runs on a Windows Server inside your network. The connector manages communication between the Application Proxy service in the cloud and the on-premises application. The connector only uses outbound connections, so you don't have to open any inbound ports or put anything in the DMZ. The connectors are stateless and pull information from the cloud as necessary. For more information about connectors, like how they load-balance and authenticate, see [Understand Azure AD Application Proxy connectors](./application-proxy-connectors.md).|

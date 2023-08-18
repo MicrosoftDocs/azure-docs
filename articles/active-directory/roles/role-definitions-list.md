@@ -1,5 +1,5 @@
 ---
-title: List Azure AD role definitions - Azure AD
+title: List Azure AD role definitions
 description: Learn how to list Azure built-in and custom roles.
 services: active-directory
 author: rolyon
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 02/04/2022
 ms.author: rolyon
 ms.reviewer: absinh
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -30,7 +30,9 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 

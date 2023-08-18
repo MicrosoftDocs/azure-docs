@@ -1,12 +1,13 @@
 ---
-title: Enable B2B external collaboration settings - Azure AD
+title: Enable B2B external collaboration settings
 description: Learn how to enable Active Directory B2B external collaboration and manage who can invite guest users. Use the Guest Inviter role to delegate invitations.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 10/24/2022
 
 ms.author: mimart
 author: msmimart
@@ -31,6 +32,8 @@ For B2B collaboration with other Azure AD organizations, you should also review 
 
 ## Configure settings in the portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account and open the **Azure Active Directory** service.
 1. Select **External Identities** > **External collaboration settings**.
 
@@ -52,8 +55,6 @@ For B2B collaboration with other Azure AD organizations, you should also review 
    - **Member users and users assigned to specific admin roles can invite guest users including guests with member permissions**: To allow member users and users who have specific administrator roles to invite guests, select this radio button.
    - **Only users assigned to specific admin roles can invite guest users**: To allow only those users with administrator roles to invite guests, select this radio button. The administrator roles include [Global Administrator](../roles/permissions-reference.md#global-administrator), [User Administrator](../roles/permissions-reference.md#user-administrator), and [Guest Inviter](../roles/permissions-reference.md#guest-inviter).
    - **No one in the organization can invite guest users including admins (most restrictive)**: To deny everyone in the organization from inviting guests, select this radio button.
-     > [!NOTE]
-     > If **Members can invite** is set to **No** and **Admins and users in the guest inviter role can invite** is set to **Yes**, users in the **Guest Inviter** role will still be able to invite guests.
 
 1. Under **Enable guest self-service sign up via user flows**, select **Yes** if you want to be able to create user flows that let users sign up for apps. For more information about this setting, see [Add a self-service sign-up user flow to an app](self-service-sign-up-user-flow.md).
 
@@ -65,7 +66,7 @@ For B2B collaboration with other Azure AD organizations, you should also review 
    - **No**: Users can't leave your organization themselves. They'll see a message guiding them to contact your admin or privacy contact to request removal from your organization.
 
    > [!IMPORTANT]
-   > You can configure **External user leave settings** only if you have [added your privacy information](../fundamentals/active-directory-properties-area.md) to your Azure AD tenant. Otherwise, this setting will be unavailable.
+   > You can configure **External user leave settings** only if you have [added your privacy information](../fundamentals/properties-area.md) to your Azure AD tenant. Otherwise, this setting will be unavailable.
 
    ![Screenshot showing External user leave settings in the portal.](media/external-collaboration-settings-configure/external-user-leave-settings.png)
 
@@ -100,5 +101,4 @@ When a B2B user signs into a resource tenant to collaborate, a sign-in log is ge
 See the following articles on Azure AD B2B collaboration:
 
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
-- [Add B2B collaboration guest users without an invitation](add-user-without-invite.md)
 - [Adding a B2B collaboration user to a role](./add-users-administrator.md)

@@ -10,14 +10,13 @@ ms.author: shwinne
 ms.reviewer: sgilley
 ms.date: 04/25/2022
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli, cliv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, devx-track-azurecli, cliv1, event-tier1-build-2022
 ---
 
 # Start, monitor, and track run history
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 The [Azure Machine Learning SDK for Python v1](/python/api/overview/azure/ml/intro) and [Machine Learning CLI](reference-azure-machine-learning-cli.md) provide various methods to monitor, organize, and track your runs for training and experimentation. Your ML run history is an important part of an explainable and repeatable ML development process.
 
@@ -60,14 +59,15 @@ You'll need the following items:
 
 * The [Azure CLI](/cli/azure/) and [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
+    [!INCLUDE [cli v1 deprecation](../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Monitor run performance
 
 * Start a run and its logging process
 
-    # [Python](#tab/python)
+    # [Python SDK](#tab/python)
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
     
     1. Set up your experiment by importing the [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace), [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment), [Run](/python/api/azureml-core/azureml.core.run%28class%29), and [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) classes from the [azureml.core](/python/api/azureml-core/azureml.core) package.
     
@@ -89,7 +89,7 @@ You'll need the following items:
         
     # [Azure CLI](#tab/azure-cli)
     
-    [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]   
+    [!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]   
     
     To start a run of your experiment, use the following steps:
     
@@ -98,7 +98,7 @@ You'll need the following items:
         ```azurecli-interactive
         az login
         ```
-        [!INCLUDE [select-subscription](../../../includes/machine-learning-cli-subscription.md)]     
+        [!INCLUDE [select-subscription](../includes/machine-learning-cli-subscription.md)]     
     
     1. Attach a workspace configuration to the folder that contains your training script. Replace `myworkspace` with your Azure Machine Learning workspace. Replace `myresourcegroup` with the Azure resource group that contains your workspace:
         
@@ -131,9 +131,9 @@ You'll need the following items:
 
 * Monitor the status of a run
 
-    # [Python](#tab/python)
+    # [Python SDK](#tab/python)
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
     
     * Get the status of a run with the [`get_status()`](/python/api/azureml-core/azureml.core.run%28class%29#get-status--) method.
     
@@ -166,7 +166,7 @@ You'll need the following items:
     
     # [Azure CLI](#tab/azure-cli)
     
-    [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+    [!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
     
     * To view a list of runs for your experiment, use the following command. Replace `experiment` with the name of your experiment:
     
@@ -196,9 +196,9 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
 * Add properties and tags
 
-    # [Python](#tab/python)
+    # [Python SDK](#tab/python)
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
     
     To add searchable metadata to your runs, use the [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29#add-properties-properties-) method. For example, the following code adds the `"author"` property to the run:
     
@@ -235,7 +235,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     
     # [Azure CLI](#tab/azure-cli)
 
-    [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+    [!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
     
     > [!NOTE]
     > Using the CLI, you can only add or update tags.
@@ -254,9 +254,9 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
     You can query runs within an experiment to return a list of runs that match specific properties and tags.
 
-    # [Python](#tab/python)
+    # [Python SDK](#tab/python)
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
     
     ```Python
     list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
@@ -265,7 +265,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     
     # [Azure CLI](#tab/azure-cli)
 
-    [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+    [!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
     
     The Azure CLI supports [JMESPath](http://jmespath.org) queries, which can be used to filter runs based on properties and tags. To use a JMESPath query with the Azure CLI, specify it with the `--query` parameter. The following examples show some queries using properties and tags:
     
@@ -285,9 +285,9 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
 If you notice a mistake or if your run is taking too long to finish, you can cancel the run.
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 To cancel a run using the SDK, use the [`cancel()`](/python/api/azureml-core/azureml.core.run%28class%29#cancel--) method:
 
@@ -310,7 +310,7 @@ print(local_run.get_status())
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 To cancel a run using the CLI, use the following command. Replace `runid` with the ID of the run
 
@@ -324,7 +324,7 @@ For more information, see [az ml run cancel](/cli/azure/ml(v1)/run#az-ml-run-can
 
 ## Create child runs
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 Create child runs to group together related runs, such as for different hyperparameter-tuning iterations.
 
@@ -434,7 +434,7 @@ root_run(current_child_run).log("MyMetric", f"Data from child run {current_child
 
 1. Select **Diagnostic settings** and then select **+ Add diagnostic setting**.
 
-    ![Screenshot of diagnostic settings for email notification.](./media/how-to-track-monitor-analyze-runs/diagnostic-setting.png)
+    ![Screenshot of diagnostic settings for email notification.](../media/how-to-track-monitor-analyze-runs/diagnostic-setting.png)
 
 1. In the Diagnostic Setting, 
     1. under the **Category details**, select the **AmlRunStatusChangedEvent**. 
@@ -443,11 +443,11 @@ root_run(current_child_run).log("MyMetric", f"Data from child run {current_child
     > [!NOTE]
     > The **Azure Log Analytics Workspace** is a different type of Azure Resource than the **Azure Machine Learning service Workspace**. If there are no options in that list, you can [create a Log Analytics Workspace](../../azure-monitor/logs/quick-create-workspace.md). 
     
-    ![Screenshot of configuring the email notification.](./media/how-to-track-monitor-analyze-runs/log-location.png)
+    ![Screenshot of configuring the email notification.](../media/how-to-track-monitor-analyze-runs/log-location.png)
 
 1. In the **Logs** tab, add a **New alert rule**. 
 
-    ![Screeenshot of the new alert rule.](./media/how-to-track-monitor-analyze-runs/new-alert-rule.png)
+    ![Screeenshot of the new alert rule.](../media/how-to-track-monitor-analyze-runs/new-alert-rule.png)
 
 1. See [how to create and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
 

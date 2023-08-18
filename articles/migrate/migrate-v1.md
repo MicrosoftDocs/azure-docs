@@ -1,12 +1,12 @@
 ---
 title: Work with the previous version of Azure Migrate 
 description: Describes how to work with the previous version of Azure Migrate.
-author: v-ksreedevan
-ms.author: v-ksreedevan
+author: jyothisuri
+ms.author: jsuri
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 9/23/2021
-ms.custom: mvc
+ms.date: 03/08/2023
+ms.custom: mvc, engagement-fy23
 ---
 
 
@@ -249,7 +249,7 @@ To install the agent on a Linux machine:
 
 ### Install the MMA agent on a machine monitored by Operations Manager
 
-For machines monitored by System Center Operations Manager 2012 R2 or later, there is no need to install the MMA agent. Service Map integrates with the Operations Manager MMA to gather the necessary dependency data. [Learn more](../azure-monitor/vm/service-map-scom.md#prerequisites). The Dependency agent needs to be installed.
+For machines monitored by System Center Operations Manager 2012 R2 or later, there is no need to install the MMA agent. Service Map integrates with the Operations Manager MMA to gather the necessary dependency data. [Learn more](/previous-versions/azure/azure-monitor/vm/service-map-scom#prerequisites). The Dependency agent needs to be installed.
 
 ### Install the Dependency agent
 
@@ -294,7 +294,7 @@ Once the group is created, it is recommended to install agents on all the machin
 
 ## Query dependency data from Azure Monitor logs
 
-Dependency data captured by Service Map is available for querying in the Log Analytics workspace associated with your Azure Migrate project. [Learn more](../azure-monitor/vm/service-map.md#log-analytics-records) about the Service Map data tables to query in Azure Monitor logs. 
+Dependency data captured by Service Map is available for querying in the Log Analytics workspace associated with your Azure Migrate project. [Learn more](/previous-versions/azure/azure-monitor/vm/service-map#log-analytics-records) about the Service Map data tables to query in Azure Monitor logs. 
 
 To run the Kusto queries:
 
@@ -308,11 +308,11 @@ To run the Kusto queries:
 
 ### Sample Azure Monitor logs queries
 
-Following are sample queries you can use to extract dependency data. You can modify the queries to extract your preferred data points. An exhaustive list of the fields in dependency data records is available [here](../azure-monitor/vm/service-map.md#log-analytics-records). Find more sample queries [here](../azure-monitor/vm/service-map.md#sample-log-searches).
+Following are sample queries you can use to extract dependency data. You can modify the queries to extract your preferred data points. An exhaustive list of the fields in dependency data records is available [here](/previous-versions/azure/azure-monitor/vm/service-map#log-analytics-records). Find more sample queries [here](/previous-versions/azure/azure-monitor/vm/service-map#sample-log-searches).
 
 #### Summarize inbound connections on a set of machines
 
-The records in the table for connection metrics, VMConnection, do not represent individual physical network connections. Multiple physical network connections are grouped into a logical connection. [Learn more](../azure-monitor/vm/service-map.md#connections) about how physical network connection data is aggregated into a single logical record in VMConnection. 
+The records in the table for connection metrics, VMConnection, do not represent individual physical network connections. Multiple physical network connections are grouped into a logical connection. [Learn more](/previous-versions/azure/azure-monitor/vm/service-map#connections) about how physical network connection data is aggregated into a single logical record in VMConnection. 
 
 ```
 // the machines of interest

@@ -10,7 +10,8 @@ ms.author: tchladek
 ms.date: 12/01/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: calling
+ms.subservice: teams-interop
+ms.custom: has-azure-ad-ps-ref
 ---
 # Calling capabilities supported for Teams users in Calling SDK
 
@@ -21,8 +22,6 @@ Key features of the Calling SDK:
 - **Addressing** - Azure Communication Services is using [Azure Active Directory user identifier](/powershell/module/azuread/get-azureaduser) to address communication endpoints. Clients use Azure Active Directory identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provide clients visibility into who is connected to a call (the roster). And are also used in [Microsoft Graph API](/graph/api/user-get).
 - **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire. 
 - **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications data plane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
-- **PSTN** - The Calling SDK can receive and initiate voice calls with the traditional publicly switched telephony system [using phone numbers you acquire in the Teams Admin Portal](/microsoftteams/pstn-connectivity).
-- **Teams Meetings** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video data plane. 
 - **Notifications** - The Calling SDK provides APIs that allow clients to be notified of an incoming call. In situations where your app is not running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform users of an incoming call. 
 
 ## Calling capabilities 
@@ -54,6 +53,7 @@ The following list presents the set of features that are currently available in 
 | Screen sharing    | Share the entire screen from within the application                                                                 | ✔️        |
 |                   | Share a specific application (from the list of running applications)                                                | ✔️        |
 |                   | Share a web browser tab from the list of open tabs                                                                  | ✔️        |
+|                   | Receive your screen sharing stream                                                                                  | ❌        |
 |                   | Share content in "content-only" mode                                                                                | ✔️        |
 |                   | Receive video stream with content for "content-only" screen sharing experience                                      | ✔️        |
 |                   | Share content in "standout" mode                                                                                    | ❌        |
@@ -69,6 +69,8 @@ The following list presents the set of features that are currently available in 
 |                   | Adding Teams user honors Teams guest access configuration                                                           |   ✔️      |
 |                   | Add a phone number                                                                                                  | ✔️        |
 |                   | Remove a participant                                                                                                | ✔️        |
+|                   | Admit participants in the lobby into the Teams meeting                                                             |   ✔️      |
+|                   | Be admitted from the lobby into the Teams meeting                                                                   |   ✔️      |
 |                   | Adding Teams users honors information barriers                                                                       |   ✔️      |
 | Device Management | Ask for permission to use audio and/or video                                                                        | ✔️        |
 |                   | Get camera list                                                                                                     | ✔️        |
@@ -87,8 +89,8 @@ The following list presents the set of features that are currently available in 
 |                   | See Large gallery view                                                                                              | ❌ |
 |                   | Receive video stream from Teams media bot                                                                           | ❌ |
 |                   | Receive adjusted stream for "content from Camera"                                                                   | ❌ |
-|                   | Add and remove video stream from spotlight                                                                          | ❌ |
-|                   | Allow video stream to be selected for spotlight                                                                     | ❌ |
+|                   | Add and remove video stream from spotlight                                                                          | ✔️ |
+|                   | Allow video stream to be selected for spotlight                                                                     | ✔️ |
 |                   | Apply Teams background effects                                                                                      | ❌ |
 | Recording & transcription | Manage Teams convenient recording                                                                           | ❌ |
 |                   | Receive information of call being recorded                                                                          |   ✔️      |
@@ -96,8 +98,8 @@ The following list presents the set of features that are currently available in 
 |                   | Receive information of call being transcribed                                                                       |   ✔️      |
 |                   | Manage Teams closed captions                                                                                        | ❌ |
 |                   | Support for compliance recording                                                                                    |   ✔️      |
-| Engagement        | Raise and lower hand                                                                                                | ❌ |
-|                   | Indicate other participants' raised and lowered hands | ❌ |
+| Engagement        | Raise and lower hand                                                                                                | ✔️ |
+|                   | Indicate other participants' raised and lowered hands                                                               | ✔️ |
 |                   | Trigger reactions                                                                                                   | ❌ |
 |                   | Indicate other participants' reactions                                                                              | ❌ |
 | Integrations      | Control Teams third-party applications                                                                              | ❌ |
@@ -106,10 +108,11 @@ The following list presents the set of features that are currently available in 
 |                   | Interact with a poll                                                                                                | ❌ |
 |                   | Interact with a Q&A                                                                                                 | ❌ |
 | Accessibility     | Receive closed captions                                                                                             | ❌ |
-| Advanced call routing   | Does start a call and add user operations honor forwarding rules                                              |   ✔️      |
+| Advanced call routing   | Start a call and add user operations honor forwarding rules                                              |   ✔️      |
 |                   | Read and configure call forwarding rules                                                                             |   ❌      |
-|                   | Does start a call and add user operations honor simultaneous ringing                                                 |   ✔️      |
+|                   | Start a call and add user operations honor simultaneous ringing                                                 |   ✔️      |
 |                   | Read and configure simultaneous ringing                                                                              |   ❌      |
+|                   | Start a call and add user operations honor "Do not disturb" status                                                 |   ✔️      |
 |                   | Placing participant on hold plays music on hold                                                                      |   ❌      |
 |                   | Being placed by Teams user on Teams client on hold plays music on hold                                               |   ✔️      |
 |                   | Park a call                                                                                                          |   ❌      |
@@ -144,8 +147,8 @@ The following list presents the set of features that are currently available in 
 |                   | Honor setting "Spam filtering"                                                                                       |   ✔️      |
 |                   | Honor setting "SIP devices can be used for calls"                                                                    |   ✔️      |
 | DevOps            | [Azure Metrics](../metrics.md)                                                                                   | ✔️ |
-|                   | [Azure Monitor](../logging-and-diagnostics.md)                                                                   | ✔️ |
-|                   | [Azure Communication Services Insights](../analytics/insights.md)                                                | ✔️ |
+|                   | [Azure Monitor](../analytics/logs/voice-and-video-logs.md)                                                                   | ✔️ |
+|                   | [Azure Communication Services Insights](../analytics/insights/voice-and-video-insights.md)                                                | ✔️ |
 |                   | [Azure Communication Services Voice and video calling events](../../../event-grid/communication-services-voice-video-events.md) | ❌ |
 |                   | [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality)                        | ✔️ |
 |                   | [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality)           | ❌ |

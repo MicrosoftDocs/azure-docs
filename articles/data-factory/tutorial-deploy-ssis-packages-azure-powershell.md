@@ -6,14 +6,14 @@ ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: tutorial
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 10/22/2021
+ms.date: 08/10/2023
 author: chugugrace
 ms.author: chugu
 ---
 
 # Set up an Azure-SSIS IR in Azure Data Factory by using PowerShell
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This tutorial provides steps for using PowerShell to provision an Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) in Azure Data Factory (ADF). An Azure-SSIS IR supports:
 
@@ -59,7 +59,7 @@ In this tutorial, you will:
 
   - Confirm that your database server does not have an SSISDB instance already. The provisioning of an Azure-SSIS IR does not support using an existing SSISDB instance.
 
-- **Azure PowerShell**. To run a PowerShell script to set up your Azure-SSIS IR, follow the instructions in [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+- **Azure PowerShell**. To run a PowerShell script to set up your Azure-SSIS IR, follow the instructions in [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 > [!NOTE]
 > For a list of Azure regions in which Azure Data Factory and Azure-SSIS IR are currently available, see [Azure Data Factory and Azure-SSIS IR availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
@@ -105,7 +105,7 @@ $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|
 $SSISDBServerEndpoint = "[your server name.database.windows.net or managed instance name.public.DNS prefix.database.windows.net,3342 or leave it empty if you're not using SSISDB]" # WARNING: If you use SSISDB, please ensure that there is no existing SSISDB on your database server, so we can prepare and manage one on your behalf    
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication]"
-# For the basic pricing tier, specify "Basic", not "B" - For standard/premium/elastic pool tiers, specify "S0", "S1", "S2", "S3", etc., see https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server
+# For the basic pricing tier, specify "Basic", not "B" - For standard/premium/elastic pool tiers, specify "S0", "S1", "S2", "S3", etc., see https://learn.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for SQL Database or leave it empty for SQL Managed Instance]"
 
 ### Self-hosted integration runtime info - This can be configured as a proxy for on-premises data access 
@@ -390,7 +390,7 @@ $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|
 $SSISDBServerEndpoint = "[your server name.database.windows.net or managed instance name.public.DNS prefix.database.windows.net,3342 or leave it empty if you're not using SSISDB]" # WARNING: If you want to use SSISDB, ensure that there is no existing SSISDB on your database server, so we can prepare and manage one on your behalf    
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication]"
-# For the basic pricing tier, specify "Basic", not "B" - For standard/premium/elastic pool tiers, specify "S0", "S1", "S2", "S3", etc., see https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server
+# For the basic pricing tier, specify "Basic", not "B" - For standard/premium/elastic pool tiers, specify "S0", "S1", "S2", "S3", etc., see https://learn.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for SQL Database or leave it empty for SQL Managed Instance]"
 
 ### Self-hosted integration runtime info - This can be configured as a proxy for on-premises data access 

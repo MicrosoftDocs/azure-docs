@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 07/18/2022
+ms.date: 09/06/2022
 ms.author: jodowns
 ---
 
@@ -39,6 +39,12 @@ For more information, see [Troubleshoot Web Application Firewall (WAF) for Azure
 
 After you've tuned your WAF, you should configure it to [run in prevention mode](create-waf-policy-ag.md#configure-waf-rules-optional). By running in prevention mode, you ensure the WAF actually blocks requests that it detects are malicious. Running in detection mode is useful while you tune and configure your WAF, but provides no protection.
 
+### Define your WAF configuration as code
+
+When you tune your WAF for your application workload, you typically create a set of rule exclusions to reduce false positive detections. If you manually configure these exclusions by using the Azure portal, then when you upgrade your WAF to use a newer ruleset version, you need to reconfigure the same exceptions against the new ruleset version. This process can be time-consuming and error-prone.
+
+Instead, consider defining your WAF rule exclusions and other configuration as code, such as by using the Azure CLI, Azure PowerShell, Bicep or Terraform. Then, when you need to update your WAF ruleset version, you can easily reuse the same exclusions.
+
 ## Managed ruleset best practices
 
 ### Enable core rule sets
@@ -63,7 +69,7 @@ For more information, see [Web Application Firewall CRS rule groups and rules](a
 
 ### Geo-filter traffic
 
-Many web applications are designed for users within a specific geographic region. If this situation applies to your application, consider implementing geo-filtering to block requests that come from outside of the countries you expect to receive traffic from.
+Many web applications are designed for users within a specific geographic region. If this situation applies to your application, consider implementing geo-filtering to block requests that come from outside of the countries/regions you expect to receive traffic from.
 
 For more information, see [Geomatch custom rules](geomatch-custom-rules.md).
 

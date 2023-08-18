@@ -3,11 +3,11 @@ author: cephalin
 ms.service: app-service
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 06/30/2022
+ms.date: 02/21/2023
 ms.author: cephalin
 ---
 
-[Azure App Service](../../overview.md) provides a highly scalable, self-patching web hosting service. This quickstart tutorial shows how to deploy a Java SE app to Azure App Service on Linux using the Azure portal. To follow a quickstart that deploys to Tomcat or JBoss EAP, select one of the Maven options above.
+[Azure App Service](../../overview.md) provides a highly scalable, self-patching web app hosting service. This quickstart tutorial shows how to deploy a Java SE app to Azure App Service on Linux using the Azure portal. To follow a quickstart that deploys to Tomcat or JBoss EAP, select one of the Maven options above.
 
 This quickstart configures an App Service app in the **Free** tier and incurs no cost for your Azure subscription.
 
@@ -228,9 +228,9 @@ You will see the placeholder page with the message "Hey, Java developers!". The 
 
     ```java
     @RequestMapping("/")
-	String sayHello() {
-		return "Hello Azure!";
-	}
+    String sayHello() {
+        return "Hello Azure!";
+    }
     ```
 
 1. From the **Source Control** pane, select the **Stage Changes** button to stage the change.
@@ -267,9 +267,9 @@ You will see the placeholder page with the message "Hey, Java developers!". The 
 
     ```java
     @RequestMapping("/")
-	String sayHello() {
-		return "Hello Azure!";
-	}
+    String sayHello() {
+        return "Hello Azure!";
+    }
     ```
 
 1. From the **Source Control** pane, select the **Stage Changes** button to stage the change.

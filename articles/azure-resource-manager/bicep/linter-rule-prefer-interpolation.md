@@ -2,7 +2,8 @@
 title: Linter rule - prefer interpolation
 description: Linter rule - prefer interpolation
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.custom: devx-track-bicep
+ms.date: 02/10/2023
 ---
 
 # Linter rule - prefer interpolation
@@ -17,21 +18,25 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 ## Solution
 
-Use string interpolation instead of the concat function.
+Use string interpolation instead of the `concat` function.
 
-The following example fails this test because the concat function is used.
+The following example fails this test because the `concat` function is used.
 
 ```bicep
 param suffix string = '001'
 var vnetName = concat('vnet-', suffix)
 ```
 
-You can fix it by replacing concat with string interpolation. The following example passes this test.
+You can fix it by replacing `concat` with string interpolation. The following example passes this test.
 
 ```bicep
 param suffix string = '001'
 var vnetName = 'vnet-${suffix}'
 ```
+
+Optionally, you can use **Quickfix** to replace the `concat` with string interpolation:
+
+:::image type="content" source="./media/linter-rule-prefer-interpolation/linter-rule-prefer-interpolation-quick-fix.png" alt-text="The screenshot of Prefer interpolation linter rule quick fix.":::
 
 ## Next steps
 

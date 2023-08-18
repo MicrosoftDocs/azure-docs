@@ -2,9 +2,9 @@
 title: Alert processing rules for Azure Monitor alerts
 description: Understand Azure Monitor alert processing rules and how to configure and manage them.
 ms.topic: conceptual
-ms.date: 2/23/2022
-ms.reviewer: ofmanor
-
+ms.custom: devx-track-azurepowershell
+ms.date: 6/19/2023
+ms.reviewer: nolavime
 ---
 
 # Alert processing rules
@@ -15,7 +15,7 @@ ms.reviewer: ofmanor
 > [!NOTE]
 > Alert processing rules were previously known as 'action rules'. For backward compatibility, the Azure resource type of these rules is still **Microsoft.AlertsManagement/actionRules** .
 
-Alert processing rules allow you to apply processing on fired alerts. Alert processing rules are different from alert rules. Alert rules generate new alerts, while alert processing rules  modify the fired alerts as they're being fired.
+Alert processing rules allow you to apply processing on fired alerts. Alert processing rules are different from alert rules. Alert rules generate new alerts, while alert processing rules modify the fired alerts as they're being fired.
 
 You can use alert processing rules to add [action groups](./action-groups.md) or remove (suppress) action groups from your fired alerts. You can apply alert processing rules to different resource scopes, from a single resource, or to an entire subscription. You can also use them to apply various filters or have the rule work on a predefined schedule.
 
@@ -59,7 +59,7 @@ You can also define filters to narrow down which specific subset of alerts are a
 
 | Filter | Description|
 |:---|:---|
-Alert context (payload)  |  The rule applies only to alerts that contain any of the filter's strings within the [alert context](./alerts-common-schema-definitions.md#alert-context) section of the alert. This section includes fields specific to each alert type. |
+Alert context (payload)  |  The rule applies only to alerts that contain any of the filter's strings within the [alert context](./alerts-common-schema.md) section of the alert. This section includes fields specific to each alert type. |
 Alert rule ID |  The rule applies only to alerts from a specific alert rule. The value should be the full resource ID, for example, `/subscriptions/SUB1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/MY-API-LATENCY`.  To locate the alert rule ID, open a specific alert rule in the portal, select **Properties**, and copy the **Resource ID** value. You can also locate it by listing your alert rules from PowerShell or the Azure CLI. |
 Alert rule name |  The rule applies only to alerts with this alert rule name. It can also be useful with a **Contains** operator. |
 Description |  The rule applies only to alerts that contain the specified string within the alert rule description field. |
@@ -225,7 +225,7 @@ az monitor alert-processing-rules list
 az monitor alert-processing-rules show --resource-group RG1 --name MyRule
 
 # Update an alert processing rule
-az monitor alert-processing-rules update --resource-group RG1 --name MyRule --status Disabled
+az monitor alert-processing-rule update --resource-group RG1 --name MyRule --enabled true
 
 # Delete an alert processing rule
 az monitor alert-processing-rules delete --resource-group RG1 --name MyRule

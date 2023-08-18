@@ -9,7 +9,7 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.custom: references_regions, mode-other
+ms.custom: references_regions, mode-other, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-azcli-azp-java-net-python-csharp-js
 ---
 
@@ -20,7 +20,7 @@ zone_pivot_groups: acs-azcli-azp-java-net-python-csharp-js
 [!INCLUDE [Bulk Acquisition Instructions](../../includes/phone-number-special-order.md)]
 
 ::: zone pivot="platform-azcli"
-[!INCLUDE [Azure CLI](./includes/phone-numbers-azcli.md)]
+[!INCLUDE [Azure CLI](./includes/phone-numbers-az-cli.md)]
 ::: zone-end
 
 ::: zone pivot="platform-azp"
@@ -59,7 +59,16 @@ In this quickstart you learned how to:
 > * Purchase a phone number
 > * Manage your phone number
 > * Release a phone number
+> * Submit toll-free verification application [(see if required)](../../concepts/sms/sms-faq.md#toll-free-verification)
 
 > [!div class="nextstepaction"]
 > [Send an SMS](../sms/send.md)
-> [Get started with calling](../voice-video-calling/getting-started-with-calling.md)
+> 
+> [!div class="nextstepaction"]
+> [Toll-free verification](../../concepts/sms/sms-faq.md#toll-free-verification)
+>
+> [!div class="nextstepaction"]
+> [Build workflow for outbound calls using the purchased phone numbers](../call-automation/quickstart-make-an-outbound-call.md)
+>
+> [!div class="nextstepaction"]
+> [Get started with calling in applications](../voice-video-calling/getting-started-with-calling.md)

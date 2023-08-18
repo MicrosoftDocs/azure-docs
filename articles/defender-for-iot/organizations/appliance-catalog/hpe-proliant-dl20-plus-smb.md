@@ -1,82 +1,100 @@
 ---
-title: HPE ProLiant DL20/DL20 Plus (NHP 2LFF) for OT monitoring in SMB deployments- Microsoft Defender for IoT
-description: Learn about the HPE ProLiant  DL20/DL20 Plus appliance when used for in SMB deployments for OT monitoring with Microsoft Defender for IoT.
+title: HPE ProLiant DL20 Gen10 Plus (NHP 2LFF) for OT monitoring in SMB deployments - Microsoft Defender for IoT
+description: Learn about the HPE ProLiant DL20 Gen10 Plus appliance when used for in SMB deployments for OT monitoring with Microsoft Defender for IoT.
 ms.date: 04/24/2022
 ms.topic: reference
 ---
 
-# HPE ProLiant DL20/DL20 Plus (NHP 2LFF) for SMB deployments
+# HPE ProLiant DL20 Gen10 Plus (NHP 2LFF)
 
-This article describes the **HPE ProLiant DL20** or **HPE ProLiant DL20 Plus** appliance for OT sensors in an SBM deployment.
+This article describes the **HPE ProLiant DL20 Gen10 Plus** appliance for OT sensors monitoring production lines.
 
-The HPE ProLiant DL20 Plus is also available for the on-premises management console.
+The HPE ProLiant DL20 Gen10 Plus is also available for the on-premises management console.
 
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L500|
-|**Performance** | 	Max bandwidth: 200Mbp/s <br>Max devices: 1,000 |
-|**Physical specifications** | Mounting: 1U<br>Ports: 4x RJ45|
-|**Status** | Supported; Available as pre-configured |
+|**Performance** | 	Max bandwidth: 200 Mbps <br>Max devices: 1,000 <br>Up to 8x Monitoring ports|
+|**Physical specifications** | Mounting: 1U<br>Minimum dimensions (H x W x D) 1.70 x 17.11 x 15.05 in<br>Minimum dimensions (H x W x D) 4.32 x 43.46 x 38.22 cm|
+|**Status** | Supported; available pre-configured |
 
-The following image shows a sample of the HPE ProLiant DL20 front panel:
+The following image shows a sample of the HPE ProLiant DL20 Gen10 front panel:
 
-:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl20-front-panel-v2.png" alt-text="Photo of the HPE ProLiant DL20 front panel." border="false":::
+:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl20-front-panel-v2.png" alt-text="Photo of the HPE ProLiant DL20 Gen10 front panel." border="false":::
 
-The following image shows a sample of the HPE ProLiant DL20 back panel:
+The following image shows a sample of the HPE ProLiant DL20 Gen10 back panel:
 
-:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl20-back-panel-v2.png" alt-text="Photo of the back panel of the HPE ProLiant DL20." border="false":::
+:::image type="content" source="../media/tutorial-install-components/hpe-proliant-dl20-back-panel-v2.png" alt-text="Photo of the back panel of the HPE ProLiant DL20 Gen10." border="false":::
 
 ## Specifications
 
 |Component|Technical specifications|
 |----|----|
 |Chassis|1U rack server|
-|Dimensions |4.32 x 43.46 x 38.22 cm / 1.70 x 17.11 x 15.05 in|
-|Weight|7.88 kg / 17.37 lb|
-|Processor| Intel Xeon E-2224 <br> 3.4 GHz 4C 71 W|
-|Chipset|Intel C242|
-|Memory|One 8-GB Dual Rank x8 DDR4-2666|
-|Storage|Two 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 with Smart Array P208i-a|
-|Network controller|On-board: Two 1 Gb|
-|On-board| iLO Port Card 1 Gb|
+|Physical Characteristics  | HPE DL20 Gen10+ NHP 2LFF CTO Server |
+|Processor| Intel Xeon E-2334 <br> 3.4 GHz 4C 65 W|
+|Chipset|Intel C256|
+|Memory|1x 8-GB Dual Rank x8 DDR4-3200|
+|Storage|2x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 |
+|Network controller|On-board: 2x 1 Gb|
 |External| 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
+|On-board| iLO Port Card 1 Gb|
 |Management|HPE iLO Advanced|
 |Device access| Front: One USB 3.0 1 x USB iLO Service Port<br> Rear: Two USBs 3.0|
 |Internal| One USB 3.0|
 |Power|Hot Plug Power Supply 290 W|
 |Rack support|HPE 1U Short Friction Rail Kit|
 
-## Appliance BOM
+## DL20 Gen10 Plus (NHP 2LFF) - Bill of Materials
 
-|PN|Description|Quantity|
-|:----|:----|:----|
-|P06961-B21|HPE DL20 Gen10 NHP 2LFF CTO Server|1|
-|P17102-L21|HPE DL20 Gen10 E-2224 FIO Kit|1|
-|879505-B21|HPE 8-GB 1Rx8 PC4-2666V-E Standard Kit|1|
-|801882-B21|HPE 1-TB SATA 7.2 K LFF RW HDD|2|
-|P06667-B21|HPE DL20 Gen10 x8x16 FLOM Riser Kit|1|
-|665240-B21|HPE Ethernet 1-Gb 4-port 366FLR Adapter|1|
-|869079-B21|HPE Smart Array E208i-a SR G10 LH Controller|1|
-|P21649-B21|HPE DL20 Gen10 Plat 290 W FIO PSU Kit|1|
-|P06683-B21|HPE DL20 Gen10 M.2 SATA/LFF AROC Cable Kit|1|
-|512485-B21|HPE iLO Adv 1-Server License 1 Year Support|1|
-|775612-B21|HPE 1U Short Friction Rail Kit|1|
+|Quantity|PN|Description|
+|----|---|----|
+|1|	P44111-B21 | HPE DL20 Gen10+ NHP 2LFF CTO Server|
+|1|	P45252-B21 | Intel Xeon E-2334 FIO CPU for HPE|
+|2|	P28610-B21 | HPE 1-TB SATA 7.2K SFF BC HDD|
+|1|	P43016-B21 | HPE 8 GB 1Rx8 PC4-3200AA-E Standard Kit|
+|1|	869079-B21 | HPE Smart Array E208i-a SR G10 LH Ctrlr (RAID10)|
+|1|	P21106-B21 | INT I350 1GbE 4p BASE-T Adapter|
+|1|	P45948-B21 | HPE DL20 Gen10+ RPS FIO Enable Kit|
+|1|	865408-B21 | HPE 500W FS Plat Hot Plug LH Power Supply Kit|
+|1|	775612-B21 | HPE 1U Short Friction Rail Kit|
+|1|	512485-B21 | HPE iLO Adv 1 Server License 1 year support|
+|1|	P46114-B21 | HPE DL20 Gen10+ 2x8 LP FIO Riser Kit|
 
-## HPE ProLiant DL20/HPE ProLiant DL20 Plus installation
+## Optional Storage Arrays
 
-This section describes how to install Defender for IoT software on the HPE ProLiant DL20 or HPE ProLiant DL20 Plus appliance.
+|Quantity|PN|Description|
+|----|---|----|
+|1| P26325-B21 | Broadcom MegaRAID MR216i-a x16 Lanes without Cache NVMe/SAS 12G Controller (RAID5)<br><br>**Note**: This RAID controller occupies the PCIe expansion slot and does not allow expansion of networking port expansion |
+
+## Port expansion
+
+Optional modules for port expansion include:
+
+|Location |Type|Specifications|
+|--------------|--------------|---------|
+| PCI Slot 1 (Low profile)  | DP F/O NIC |P26262-B21 - Broadcom BCM57414 Ethernet 10/25-Gb 2-port SFP28 Adapter for HPE |
+| PCI Slot 1 (Low profile)  | DP F/O NIC |P28787-B21 - Intel X710-DA2 Ethernet 10-Gb 2-port SFP+ Adapter for HPE |
+| PCI Slot 2 (High profile) | Quad Port Ethernet NIC| P21106-B21 - Intel I350-T4 Ethernet 1-Gb 4-port BASE-T Adapter for HPE |
+| PCI Slot 2 (High profile) | DP F/O NIC |P26262-B21 - Broadcom BCM57414 Ethernet 10/25 Gb 2-port SFP28 Adapter for HPE |
+| PCI Slot 2 (High profile) | DP F/O NIC |P28787-B21 - Intel X710-DA2 Ethernet 10 Gb 2-port SFP+ Adapter for HPE |
+| SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
+| SFPs for Fiber Optic NICs|SingleMode, Long Range | 455886-B21 -  HPE BLc 10G SFP+ LR Transceiver|
+
+## HPE ProLiant DL20 Gen10 Plus installation
+
+This section describes how to install Defender for IoT software on the HPE ProLiant DL20 Gen10 Plus appliance.
 
 Installation includes:
 
 - Enabling remote access and updating the default administrator password
 - Configuring iLO port on network port 1
-- Configuring BIOS and RAID settings
+- Configuring BIOS and RAID1 settings
 - Installing Defender for IoT software
 
 > [!NOTE]
-> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+> Installation procedures are only relevant if you need to re-install software on a pre-configured device, or if you buy your own hardware and configure the appliance yourself.
 >
-
 
 ### Enable remote access and update the password
 
@@ -116,15 +134,15 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 
 1. In the **BIOS/Platform Configuration (RBSU)** form, select **Boot Options**.
 
-1. Change **Boot Mode** to **Legacy BIOS Mode**, and then select **F10: Save**.
+1. Change **Boot Mode** to **UEFI BIOS Mode**, and then select **F10: Save**.
 
 1. Select **Esc** twice to close the **System Configuration** form.
 
-1. Select **Embedded RAID 1: HPE Smart Array P208i-a SR Gen 10** > **Array Configuration** > **Create Array**.
+1. Select **Embedded RAID 1: HPE Smart Array E208i-a SR Gen 10** > **Array Configuration** > **Create Array**.
 
 1. Select **Proceed to Next Form**.
 
-1. In the **Set RAID Level** form, set the level to **RAID 5** for enterprise deployments and **RAID 1** for SMB deployments.
+1. In the **Set RAID Level** form, set the level to **RAID 1**.
 
 1. Select **Proceed to Next Form**.
 
@@ -146,9 +164,11 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 
     :::image type="content" source="../media/tutorial-install-components/boot-override-window-two-v2.png" alt-text="Screenshot that shows the second Boot Override window.":::
 
-### Install Defender for IoT software on the HPE ProLiant DL20 or HPE ProLiant DL20 Plus
+[!INCLUDE [install iLO remotely from virtual drive and change timeout settings](../includes/ilo-remote-install-hpe.md)]
 
-This procedure describes how to install Defender for IoT software on the HPE ProLiant DL20 or HPE ProLiant DL20 Plus.
+### Install Defender for IoT software on the HPE ProLiant DL20 Gen10 Plus
+
+This procedure describes how to install Defender for IoT software on the HPE ProLiant DL20 Gen10 Plus.
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
@@ -168,6 +188,5 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
-- [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install software](../how-to-install-software.md)
+- [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
+- [Download software files for an on-premises management console](../ot-deploy/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

@@ -1,8 +1,10 @@
 ---
 title: MABS & System Center DPM support matrix
 description: This article summarizes Azure Backup support when you use Microsoft Azure Backup Server (MABS) or System Center DPM to back up on-premises and Azure VM resources.
-ms.date: 02/17/2019
+ms.date: 04/20/2023
 ms.topic: conceptual
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Support matrix for backup with Microsoft Azure Backup Server or System Center DPM
@@ -21,7 +23,7 @@ MABS is based on System Center DPM and provides similar functionality with a few
 - For both MABS and DPM, Azure provides long-term backup storage. In addition, DPM allows you to back up data for long-term storage on tape. MABS doesn't provide this functionality.
 - [You can back up a primary DPM server with a secondary DPM server](/system-center/dpm/back-up-the-dpm-server). The secondary server will protect the primary server database and the data source replicas stored on the primary server. If the primary server fails, the secondary server can continue to protect workloads that are protected by the primary server, until the primary server is available again.  MABS doesn't provide this functionality.
 
-You download MABS from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57520). It can be run on-premises or on an Azure VM.
+You can download MABS from the [Microsoft Download Center](https://go.microsoft.com/fwLink/?LinkId=626082). It can be run on-premises or on an Azure VM.
 
 DPM and MABS support backing up a wide variety of apps, and server and client operating systems. They provide multiple backup scenarios:
 
@@ -65,9 +67,9 @@ Azure Backup can back up DPM/MABS instances that are running any of the followin
 
 **Scenario** | **DPM/MABS**
 --- | ---
-**MABS on an Azure VM** |  Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> We recommend that you start with an image from the marketplace.<br/><br/> Minimum Standard_A4_v2 with four cores and 8-GB RAM.
-**DPM on an Azure VM** | System Center 2012 R2 with Update 3 or later.<br/><br/> Windows operating system as [required by System Center](/system-center/dpm/prepare-environment-for-dpm#dpm-server).<br/><br/> We recommend that you start with an image from the marketplace.<br/><br/> Minimum Standard_A4_v2 with four cores and 8-GB RAM.
-**MABS on-premises** |  MABS v3 and later: Windows Server 2016 or Windows Server 2019
+**MABS on an Azure VM** |  MABS v4 and later: Windows 2022 Datacenter, Windows 2019 Datacenter <br><br> MABS v3, UR1 and UR2: Windows 2019 Datacenter, Windows 2016 Datacenter <br/><br/> We recommend that you start with an image from the marketplace.<br/><br/> Minimum Standard_A4_v2 with four cores and 8-GB RAM.
+**DPM on an Azure VM** | System Center 2012 R2 with Update 3 or later<br/><br/> Windows operating system as [required by System Center](/system-center/dpm/prepare-environment-for-dpm#dpm-server).<br/><br/> We recommend that you start with an image from the marketplace.<br/><br/> Minimum Standard_A4_v2 with four cores and 8-GB RAM.
+**MABS on-premises** |  MABS v4 and later: Windows Server 2022 or Windows Server 2019 <br><br> MABS v3, UR1 and UR2: Windows Server 2019 and Windows Server 2016
 **DPM on-premises** | Physical server/Hyper-V VM: System Center 2012 SP1 or later.<br/><br/> VMware VM: System Center 2012 R2 with Update 5 or later.
 
 >[!NOTE]
@@ -78,9 +80,9 @@ Azure Backup can back up DPM/MABS instances that are running any of the followin
 **Issue** | **Details**
 --- | ---
 **Installation** | Install DPM/MABS on a single-purpose machine.<br/><br/> Don't install DPM/MABS on a domain controller, on a machine with the Application Server role installation, on a machine that's running Microsoft Exchange Server or System Center Operations Manager, or on a cluster node.<br/><br/> [Review all DPM system requirements](/system-center/dpm/prepare-environment-for-dpm#dpm-server).
-**Domain** | DPM/MABS should be joined to a domain. Install first, and then join DPM/MABS to a domain. Moving DPM/MABS to a new domain after deployment isn't supported.
+**Domain** | The server on which DPM/MABS will be installed should be joined to a domain before the installation begins. Moving DPM/MABS to a new domain after deployment isn't supported.
 **Storage** | Modern backup storage (MBS) is supported from DPM 2016/MABS v2 and later. It isn't available for MABS v1.
-**MABS upgrade** | You can directly install MABS v3, or upgrade to MABS v3 from MABS v2. [Learn more](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
+**MABS upgrade** | You can directly install MABS v4, or upgrade to MABS v4 from MABS v3 UR1 and UR2. [Learn more](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 **Moving MABS** | Moving MABS to a new server while retaining the storage is supported if you're using MBS.<br/><br/> The server must have the same name as the original. You can't change the name if you want to keep the same storage pool, and use the same MABS database to store data recovery points.<br/><br/> You'll need a backup of the MABS database because you'll need to restore it.
 
 >[!NOTE]
@@ -92,63 +94,22 @@ You can deploy MABS on an Azure Stack VM so that you can manage backup of Azure 
 
 **Component** | **Details**
 --- | ---
-**MABS on Azure Stack VM** | At least size A2. We recommend you start with a Windows Server 2012 R2 or Windows Server 2016 image from Azure Marketplace.<br/><br/> Don't install anything else on the MABS VM.
+**MABS on Azure Stack VM** | At least size A2. We recommend you start with a Windows Server 2019 or Windows Server 2022 image from Azure Marketplace.<br/><br/> Don't install anything else on the MABS VM.
 **MABS storage** | Use a separate storage account for the MABS VM. The MARS agent running on MABS needs temporary storage for a cache location and to hold data restored from the cloud.
 **MABS storage pool** | The size of the MABS storage pool is determined by the number and size of disks that are attached to the MABS VM. Each Azure Stack VM size has a maximum number of disks. For example, A2 is four disks.
 **MABS retention** | Don't retain backed up data on the local MABS disks for more than five days.
 **MABS scale up** | To scale up your deployment, you can increase the size of the MABS VM. For example, you can change from A to D series.<br/><br/> You can also ensure that you're offloading data with backup to Azure regularly. If necessary, you can deploy additional MABS servers.
-**.NET Framework on MABS** | The MABS VM needs .NET Framework 3.3 SP1 or later installed on it.
+**.NET Framework on MABS** | The MABS VM needs .NET Framework 4.5 or later installed on it.
 **MABS domain** | The MABS VM must be joined to a domain. A domain user with admin privileges must install MABS on the VM.
 **Azure Stack VM data backup** | You can back up files, folders, and apps.
-**Supported backup** | These operating systems are supported for VMs that you want to back up:<br/><br/> Windows Server Semi-Annual Channel (Datacenter, Enterprise, Standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
-**SQL Server support for Azure Stack VMs** | Back up SQL Server 2016, SQL Server 2014, SQL Server 2012 SP1.<br/><br/> Back up and recover a database.
-**SharePoint support for Azure Stack VMs** | SharePoint 2016, SharePoint 2013, SharePoint 2010.<br/><br/> Back up and recover a farm, database, front end, and web server.
+**Supported backup** | These operating systems are supported for VMs that you want to back up: <br/><br/>  Windows Server 2022, Windows Server 2019, Windows Server 20016, Windows Server 2012, Windows Server 2012 R2
+**SQL Server support for Azure Stack VMs** | Back up SQL Server 2022, SQL Server 2019, SQL Server 2017, SQL Server 2016 (SPs), and SQL Server 2014 (SPs).<br/><br/> Back up and recover a database.
+**SharePoint support for Azure Stack VMs** | SharePoint 2019, SharePoint 2016 with latest SPs.<br/><br/> Back up and recover a farm, database, front end, and web server.
 **Network requirements for backed up VMs** | All VMs in Azure Stack workload must belong to the same virtual network and belong to the same subscription.
 
-## DPM/MABS networking support
+## Networking and access support
 
-### URL access
-
-The DPM server/MABS server needs access to these URLs and IP addresses:
-
-* URLs
-  * `www.msftncsi.com`
-  * `*.Microsoft.com`
-  * `*.WindowsAzure.com`
-  * `*.microsoftonline.com`
-  * `*.windows.net`
-  * `www.msftconnecttest.com`
-* IP addresses
-  * 20.190.128.0/18
-  * 40.126.0.0/18:
-
-### Azure ExpressRoute support
-
-You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering isn't supported.
-
-With public peering: Ensure access to the following domains/addresses:
-
-* URLs
-  * `www.msftncsi.com`
-  * `*.Microsoft.com`
-  * `*.WindowsAzure.com`
-  * `*.microsoftonline.com`
-  * `*.windows.net`
-  * `www.msftconnecttest.com`
-* IP addresses
-  * 20.190.128.0/18
-  * 40.126.0.0/18
-
-With Microsoft peering, select the following services/regions and relevant community values:
-
-- Azure Active Directory (12076:5060)
-- Microsoft Azure Region (according to the location of your Recovery Services vault)
-- Azure Storage (according to the location of your Recovery Services vault)
-
-For more information, see the [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).
-
->[!NOTE]
->Public Peering is deprecated for new circuits.
+[!INCLUDE [Configuring network connectivity](../../includes/backup-network-connectivity.md)]
 
 ### DPM/MABS connectivity to Azure Backup
 
@@ -165,7 +126,7 @@ No connectivity for more than 15 days | Expired/deprovisioned | No backup to dis
 
 |Requirement |Details |
 |---------|---------|
-|Domain    | The DPM/MABS server should be in a Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 domain.        |
+|Domain    | The DPM/MABS server should be in a Windows Server 2022, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 domain.        |
 |Domain trust   |  DPM/MABS supports data protection across forests, as long as you establish a forest-level, two-way trust between the separate forests.   <BR><BR>   DPM/MABS can protect servers and workstations across domains, within a forest that has a two-way trust relationship with the DPM/MABS server domain. To protect computers in workgroups or untrusted domains, see [Back up and restore workloads in workgroups and untrusted domains.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains) <br><br> To back up Hyper-V server clusters, they must be located in the same domain as the MABS server or in a trusted or child domain. You can back up servers and clusters in an untrusted domain or workload using NTLM or certificate authentication for a single server, or certificate authentication only for a cluster.  |
 
 ## DPM/MABS storage support
@@ -208,12 +169,25 @@ For information on the various servers and workloads that you can protect with D
 
 ## Deduplicated volumes support
 
->[!NOTE]
-> Deduplication support for MABS depends on operating system support.
+Deduplication support for MABS depends on operating system support.
 
-### For NTFS volumes
+### For NTFS volumes with MABS v4
 
-| Operating   system of protected server  | Operating   system of MABS server  | MABS version  | Dedup support |
+| Operating system of protected server | Operating system of MABS server | MABS version | Dedupe support |
+| --- | --- | --- | --- |
+| Windows Server 2022 | Windows Server 2022 | MABS v4 | Y  |
+| Windows Server 2019 | Windows Server 2022 | MABS v4 | Y  |
+| Windows Server 2016 | Windows Server 2022 | MABS v4 | Y* |
+| Windows Server 2022 | Windows Server 2019 | MABS v4 | N  |
+| Windows Server 2019 | Windows Server 2019 | MABS v4 | Y  |
+| Windows Server 2016 | Windows Server 2019 | MABS v4 | Y* |
+
+**Deduped NTFS volumes in Windows Server 2016 Protected Servers are non-deduplicated during restore.*
+
+
+### For NTFS volumes with MABS v3
+
+| Operating   system of protected server  | Operating   system of MABS server  | MABS version  | Dedupe support |
 | ------------------------------------------ | ------------------------------------- | ------------------ | -------------------- |
 | Windows  Server 2019                       | Windows  Server 2019                  | MABS v3            | Y                    |
 | Windows  Server 2016                       | Windows  Server 2019                  | MABS v3            | Y*                   |
@@ -233,10 +207,9 @@ For information on the various servers and workloads that you can protect with D
 
 ### For ReFS Volumes
 
->[!NOTE]
-> We have identified a few issues with backups of deduplicated ReFS volumes. We are working on fixing these, and will update this section as soon as we have a fix available. Until then, we are removing the support for backup of deduplicated ReFS volumes from MABS v3.
->
-> MABS v3 UR1 and later continues to support protection and recovery of normal ReFS volumes.
+- We've identified a few issues with backups of deduplicated ReFS volumes. We're working on fixing these, and will update this section as soon as we have a fix available. Until then, we're removing the support for backup of deduplicated ReFS volumes from MABS v3 and v4.
+
+- MABS v3 UR1, MABS v4, and later continues to support protection and recovery of normal ReFS volumes.
 
 ## Next steps
 

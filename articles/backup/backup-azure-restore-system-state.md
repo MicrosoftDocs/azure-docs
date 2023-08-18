@@ -2,7 +2,10 @@
 title: Restore System State to a Windows Server
 description: Step-by-step explanation for restoring Windows Server System State from a backup in Azure.
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 12/09/2022
+ms.service: backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Restore System State to Windows Server
 
@@ -16,7 +19,7 @@ This article explains how to restore Windows Server System State backups from an
 
 ## Recover System State files to the same server
 
-The following steps explain how to roll back your Windows Server configuration to a previous state. Rolling your server configuration back to a known, stable state, can be extremely valuable. The following steps restore the server's System State from a Recovery Services vault.
+The following steps explain how to roll back your Windows Server configuration to a previous state. If you roll back your server configuration to a known, stable state, it can be extremely valuable. The following steps restore the server's System State from a Recovery Services vault.
 
 1. Open the **Microsoft Azure Backup** snap-in. If you don't know where the snap-in was installed, search the computer or server for **Microsoft Azure Backup**.
 
@@ -52,7 +55,9 @@ The following steps explain how to roll back your Windows Server configuration t
 
    ![Select Recover to acknowledge the recover action](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
-9. Copy the *WindowsImageBackup* directory in the Recovery destination to a non-critical volume of the server. Usually, the Windows OS volume is the critical volume.
+9. Copy the *WindowsImageBackup* directory in the Recovery destination to the root of a non-critical volume of the server, for example `D:\\WindowsImageBackup`. Usually, the Windows OS volume is the critical volume.
+
+   The *WindowsImageBackup* folder is available on the path `<restore_path>\C_vol\Program Files\Microsoft Azure Recovery Services Agent\Scratch\SSBV\WindowsImageBackup` where `>\C_vol\Program Files\Microsoft Azure Recovery Services Agent\Scratch` is the scratch volume that was configured for the MARS agent.
 
 10. Once the recovery is successful, follow the steps in the section, [Apply restored System State on a Windows Server](#apply-restored-system-state-on-a-windows-server), to complete the System State recovery process.
 
@@ -100,7 +105,9 @@ The terminology used in these steps includes:
 
     ![Select the Recover button to confirm the recovery process](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
-12. Copy the *WindowsImageBackup* directory to a non-critical volume of the server (for example D:\). Usually the Windows OS volume is the critical volume.
+12. Copy the *WindowsImageBackup* directory to the root of a non-critical volume of the server (for example `D:\\WindowsImageBackup`). Usually the Windows OS volume is the critical volume.
+
+    The *WindowsImageBackup* folder is available on the path `<restore_path>\C_vol\Program Files\Microsoft Azure Recovery Services Agent\Scratch\SSBV\WindowsImageBackup` where `>\C_vol\Program Files\Microsoft Azure Recovery Services Agent\Scratch` is the scratch volume that was configured for the MARS agent.
 
 13. To complete the recovery process, use the following section to [apply the restored System State files on a Windows Server](#apply-restored-system-state-on-a-windows-server).
 
@@ -125,6 +132,10 @@ Once you've recovered System State as files using Azure Recovery Services Agent,
 1. When specifying the location type, select **Remote shared folder** if your System State backup was recovered to another server. If your System State was recovered locally, then select **Local drives**.
 
     ![select whether to recovery from local server or another](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
+
+1. If you're using a remote shared location, enter the path to the *WindowsImageBackup* directory. For example, `\\MyFileServer\MyFolder\WindowsImageBackup`.
+
+   If you've selected **local drive**, then Windows Server Backup automatically checks for system state backups in the root of all the attached volumes (for example, `D:\WindowsImageBackup`). If Windows Server Backup can't find the **local drive system state backup**, ensure that you've copied the *WindowsImageBackup* folder at the root of a non-critical volume.
 
 1. Enter the path to the *WindowsImageBackup* directory, or choose the local drive containing this directory (for example, D:\WindowsImageBackup), recovered as part of the System State files recovery using Azure Recovery Services Agent and select **Next**.
 

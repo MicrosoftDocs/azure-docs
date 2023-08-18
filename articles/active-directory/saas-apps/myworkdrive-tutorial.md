@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with MyWorkDrive | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with MyWorkDrive'
 description: Learn how to configure single sign-on between Azure Active Directory and MyWorkDrive.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/15/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Integrate MyWorkDrive with Azure Active Directory
@@ -45,6 +45,8 @@ To configure the integration of MyWorkDrive into Azure AD, you need to add MyWor
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **MyWorkDrive** in the search box.
 1. Select **MyWorkDrive** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for MyWorkDrive
 
@@ -118,15 +120,10 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 ## Configure MyWorkDrive SSO
 
-1. To automate the configuration within MyWorkDrive, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Setup MyWorkDrive** will direct you to the MyWorkDrive application. From there, provide the admin credentials to sign into MyWorkDrive. The browser extension will automatically configure the application for you and automate steps 3-4.
 
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to setup MyWorkDrive manually,  In a different web browser window, sign in to MyWorkDrive as a Security Administrator.
+1. In a different web browser window, sign in to your MyWorkDrive company site as an administrator
 
 1. On the MyWorkDrive Server in the admin panel, click on **ENTERPRISE** and perform the following steps:
 

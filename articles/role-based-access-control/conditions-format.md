@@ -1,5 +1,5 @@
 ---
-title: Azure role assignment condition format and syntax (preview) - Azure RBAC
+title: Azure role assignment condition format and syntax - Azure ABAC
 description: Get an overview of the format and syntax of Azure role assignment conditions for Azure attribute-based access control (Azure ABAC).
 services: active-directory
 author: rolyon
@@ -8,18 +8,13 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/21/2022
+ms.date: 08/10/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
-# Azure role assignment condition format and syntax (preview)
-
-> [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Azure role assignment condition format and syntax
 
 A condition is an additional check that you can optionally add to your role assignment to provide more fine-grained access control. For example, you can add a condition that requires an object to have a specific tag to read the object. This article describes the format and syntax of role assignment conditions.
 
@@ -243,26 +238,56 @@ Currently, conditions can be added to built-in or custom role assignments that h
 - [Storage Queue Data Message Sender](built-in-roles.md#storage-queue-data-message-sender)
 - [Storage Queue Data Reader](built-in-roles.md#storage-queue-data-reader)
 
-For a list of the blob storage actions you can use in conditions, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md).
+For a list of the storage actions you can use in conditions, see:
+
+- [Actions and attributes for Azure role assignment conditions for Azure Blob Storage](../storage/blobs/storage-auth-abac-attributes.md)
+- [Actions and attributes for Azure role assignment conditions for Azure Queue Storage](../storage/queues/queues-auth-abac-attributes.md).
 
 ## Attributes
 
-Depending on the selected actions, the attribute might be found in different places. If you select multiple actions for a single condition, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions. To specify an attribute, you must include the source as a prefix.
+Depending on the selected actions, the attribute might be found in different places. If you select multiple actions for a single condition, there might be fewer attributes to choose from for your condition because the attributes must be available across all of the selected actions. To specify an attribute, you must include the source as a prefix.
 
 > [!div class="mx-tableFixed"]
 > | Attribute source | Description | Code |
 > | --- | --- | --- |
-> | Resource | Indicates that the attribute is on the resource, such as a container name. | `@Resource` |
-> | Request | Indicates that the attribute is part of the action request, such as setting the blob index tag. | `@Request` |
-> | Principal | Indicates that the attribute is an Azure AD custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity. | `@Principal` |
+> | [Environment](#environment-attributes) | Indicates that the attribute is associated with the environment of the request, such as the network origin of the request or the current date and time.</br>***(Environment attributes are currently in preview.)*** | `@Environment` |
+> | [Principal](#principal-attributes) | Indicates that the attribute is an Azure AD custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity.</br>***(Principal attributes are currently in preview.)*** | `@Principal` |
+> | [Request](#request-attributes) | Indicates that the attribute is part of the action request, such as setting the blob index tag. | `@Request` |
+> | [Resource](#resource-attributes) | Indicates that the attribute is a property of the resource, such as a container name. | `@Resource` |
 
-#### Resource and request attributes
+For a complete list of the storage attributes you can use in conditions, see:
 
-For a list of the blob storage or queue storage attributes you can use in conditions, see:
+- [Azure Blob Storage attributes](../storage/blobs/storage-auth-abac-attributes.md#azure-blob-storage-attributes)
+- [Azure Queue Storage attributes](../storage/queues/queues-auth-abac-attributes.md#azure-queues-storage-attributes)
 
-- [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md)
+#### Environment attributes
+
+Environment attributes are associated with the circumstances under which the access request is made, such as the date and time of day or the network environment. The network environment might be whether access is over a specific private endpoint or a virtual network subnet, or perhaps over any private link.
+
+> [!IMPORTANT]
+> Environment attributes are currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+The following table lists the supported environment attributes for conditions.
+
+| Display name | Description | Attribute | Type |
+| --- | --- | --- | --- |
+| [Is private link](../storage/blobs/storage-auth-abac-attributes.md#is-private-link)<sup>1</sup> | Use this attribute in conditions to require access over any private link. | `isPrivateLink` | [Boolean](#boolean-comparison-operators) |
+| [Private endpoint](../storage/blobs/storage-auth-abac-attributes.md#private-endpoint)<sup>1,2</sup> | Use this attribute in conditions to restrict access over a specific private endpoint. | `Microsoft.Network/privateEndpoints` | [String](#string-comparison-operators) |
+| [Subnet](../storage/blobs/storage-auth-abac-attributes.md#subnet)<sup>1,3</sup> | Use this attribute in conditions to restrict access from a specific subnet. | `Microsoft.Network/virtualNetworks/subnets` | [String](#string-comparison-operators) |
+| UTC now | Use this attribute in conditions to restrict access to objects during specific time periods. | `UtcNow` | [DateTime](#datetime-comparison-operators) |
+
+<sup>1</sup> For copy operations, the `Is private link`, `Private endpoint`, and `Subnet` attributes only apply to the destination, such a storage account, not the source. For more information about the copy operations this applies to, select each attribute in the table to see more details.<br />
+<sup>2</sup> You can only use the `Private endpoint` attribute if you currently have at least one private endpoint configured in your subscription.<br />
+<sup>3</sup> You can only use the `Subnet` attribute if you currently have at least one virtual network subnet configured in your subscription.<br />
 
 #### Principal attributes
+
+Principal attributes are Azure AD custom security attributes associated with the principal requesting access to a resource. The security principal can be a user, an enterprise application (a service principal), or a managed identity.
+
+> [!IMPORTANT]
+> Principal attributes are currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 To use principal attributes, you must have **all** of the following:
 
@@ -272,9 +297,17 @@ To use principal attributes, you must have **all** of the following:
 
 For more information about custom security attributes, see:
 
-- [Allow read access to blobs based on tags and custom security attributes](conditions-custom-security-attributes.md)
-- [Principal does not appear in Attribute source](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source)
-- [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md)
+- [Allow read access to blobs based on tags and custom security attributes (Preview)](conditions-custom-security-attributes.md)
+- [Principal does not appear in Attribute source (Preview)](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source)
+- [Add or deactivate custom security attributes in Azure AD (Preview)](../active-directory/fundamentals/custom-security-attributes-add.md)
+
+#### Request attributes
+
+Request attributes are associated with the criteria specified in an access request, such as the specified prefix of blobs to be listed.
+
+#### Resource attributes
+
+Resource attributes are associated with the object to which access is being requested, such as the storage account name, container name, or whether hierarchical namespace is enabled for the storage account.
 
 ## Function operators
 
@@ -306,7 +339,9 @@ This section lists the function operators that are available to construct condit
 > | **Operator** | `Exists` |
 > | **Description** | Checks if the specified attribute exists. |
 > | **Examples** | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` |
-> | **Attributes support** | [Encryption scope name](../storage/common/storage-auth-abac-attributes.md#encryption-scope-name)<br/>[Snapshot](../storage/common/storage-auth-abac-attributes.md#snapshot)<br/>[Version ID](../storage/common/storage-auth-abac-attributes.md#version-id) |
+> | **Attributes support** <sup>1</sup>| [Encryption scope name](../storage/blobs/storage-auth-abac-attributes.md#encryption-scope-name)<br/>[Snapshot](../storage/blobs/storage-auth-abac-attributes.md#snapshot)<br/>[Version ID](../storage/blobs/storage-auth-abac-attributes.md#version-id) |
+
+<sup>1</sup> The `Exists` operator is supported for only these attributes in the visual ABAC condition builder in the Azure portal. You can add the `Exists` operator to any attribute using other tools, such as [PowerShell](conditions-role-assignments-powershell.md), the [Azure CLI](conditions-role-assignments-cli.md), the [REST API](conditions-role-assignments-rest.md), and the condition code editor in the Azure portal.
 
 ## Logical operators
 
@@ -422,7 +457,7 @@ This section lists the date/time comparison operators that are available to cons
 > | Property | Value |
 > | --- | --- |
 > | **Operators** | `DateTimeEquals`<br/>`DateTimeNotEquals`<br/>`DateTimeGreaterThan`<br/>`DateTimeGreaterThanEquals`<br/>`DateTimeLessThan`<br/>`DateTimeLessThanEquals` |
-> | **Description** |Full-precision check with the format: `yyyy-mm-ddThh:mm:ss.mmmmmmmZ`. Used for blob version ID and blob snapshot. |
+> | **Description** | Full-precision check with the format: `yyyy-mm-ddThh:mm:ss.mmmmmmmZ`. Used for blob version ID, blob snapshot, and UTC now. |
 > | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T00:00:00.0Z'` |
 
 ## Cross product comparison operators
@@ -493,6 +528,5 @@ a AND (b OR c)
 
 ## Next steps
 
-- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)
-- [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/common/storage-auth-abac-attributes.md)
-- [Add or edit Azure role assignment conditions using the Azure portal (preview)](conditions-role-assignments-portal.md)
+- [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md)
+- [Add or edit Azure role assignment conditions using the Azure portal](conditions-role-assignments-portal.md)

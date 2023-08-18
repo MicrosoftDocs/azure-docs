@@ -1,7 +1,7 @@
 ---
 title: Manage hybrid infrastructure at scale with Azure Arc
 description: Azure Lighthouse helps you effectively manage customers' machines and Kubernetes clusters outside of Azure.
-ms.date: 06/20/2022
+ms.date: 12/01/2022
 ms.topic: how-to
 ---
 
@@ -13,7 +13,7 @@ ms.topic: how-to
 
 With [Azure Arc–enabled servers](../../azure-arc/servers/overview.md), customers can manage Windows and Linux machines hosted outside of Azure on their corporate network, in the same way they manage native Azure virtual machines. Through Azure Lighthouse, service providers can then manage these connected non-Azure machines along with their customers' Azure resources.
 
-[Azure Arc–enabled Kubernetes](../../azure-arc/kubernetes/overview.md) lets customers attach and configure Kubernetes clusters outside of Azure. When a Kubernetes cluster is connected to Azure Arc, it appears in the Azure portal with an Azure Resource Manager ID and a managed identity. Clusters are attached to standard Azure subscriptions, are located in a resource group, and can receive tags just like any other Azure resource.
+[Azure Arc–enabled Kubernetes](../../azure-arc/kubernetes/overview.md) lets customers attach and configure Kubernetes clusters outside of Azure. When a Kubernetes cluster is connected to Azure Arc, it appears in the Azure portal with an Azure Resource Manager ID and a managed identity. Clusters are attached to standard Azure subscriptions, are located in a resource group, and can receive tags just like any other Azure resource. Through Azure Lighthouse, service providers can connect Kubernetes clusters and manage them along with their customer's Azure Kubernetes Service (AKS) clusters and other Azure resources.
 
 > [!TIP]
 > Though we refer to service providers and customers in this topic, this guidance also applies to [enterprises using Azure Lighthouse to manage multiple tenants](../concepts/enterprise.md).
@@ -32,7 +32,7 @@ You can manage Kubernetes clusters that have been [connected to a customer's sub
 
 If your customer has created a service principal account to onboard Kubernetes clusters to Azure Arc, you can access this account so that you can [onboard and manage clusters](../../azure-arc/kubernetes/quickstart-connect-cluster.md). To do so, a user in the managing tenant must have been granted the [Kubernetes Cluster - Azure Arc Onboarding built-in role](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) when the subscription containing the service principal account was [onboarded to Azure Lighthouse](onboard-customer.md).
 
-You can deploy [configurations](../../azure-arc/kubernetes/tutorial-use-gitops-flux2.md) and [Helm charts](../../azure-arc/kubernetes/use-gitops-with-helm.md) using [GitOps for connected clusters](../../azure-arc/kubernetes/conceptual-gitops-flux2.md).
+You can deploy [configurations and Helm charts](../../azure-arc/kubernetes/tutorial-use-gitops-flux2.md) using [GitOps for connected clusters](../../azure-arc/kubernetes/conceptual-gitops-flux2.md).
 
 You can also [monitor connected clusters](../..//azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md) with Azure Monitor, and [use Azure Policy to apply cluster configurations at scale](../../azure-arc/kubernetes/use-azure-policy.md).
 
@@ -40,4 +40,4 @@ You can also [monitor connected clusters](../..//azure-monitor/containers/contai
 
 - Explore the [Azure Arc Jumpstart](https://azurearcjumpstart.io/).
 - Learn about [supported cloud operations for Azure Arc-enabled servers](../../azure-arc/servers/overview.md#supported-cloud-operations).
-- Learn about [Kubernetes distributions supported by Azure Arc](../../azure-arc/kubernetes/overview.md#supported-kubernetes-distributions).
+- Learn about [accessing connected Kubernetes clusters through the Azure portal](../../azure-arc/kubernetes/kubernetes-resource-view.md).

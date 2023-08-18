@@ -1,11 +1,9 @@
 ---
 title: Tutorial - add parameters to template
 description: Add parameters to your Azure Resource Manager template (ARM template) to make it reusable.
-author: mumian
-ms.date: 06/15/2022
+ms.date: 07/28/2023
 ms.topic: tutorial
-ms.author: jgao 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-arm-template
 ---
 
 # Tutorial: Add parameters to your ARM template
@@ -74,7 +72,7 @@ This way of handling updates means your template can include all of the resource
 
 ## Customize by environment
 
-Parameters let you customize the deployment by providing values that tailored for a particular environment. You can pass different values, for example, based on whether you're deploying to a development, testing, or production environment.
+Parameters let you customize the deployment by providing values that are tailored for a particular environment. You can pass different values, for example, based on whether you're deploying to a development, testing, or production environment.
 
 The previous template always deploys a standard locally redundant storage (LRS) **Standard_LRS** account. You might want the flexibility to deploy different stock keeping units (SKUs) depending on the environment. The following example shows the changes to add a parameter for SKU. Copy the whole file and paste it over your template.
 

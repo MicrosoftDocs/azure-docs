@@ -3,54 +3,33 @@ title: Autoscale scaling plans and example scenarios in Azure Virtual Desktop
 description: Information about autoscale and a collection of four example scenarios that illustrate how various parts of autoscale for Azure Virtual Desktop work.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 07/18/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
 ---
 # Autoscale scaling plans and example scenarios in Azure Virtual Desktop
 
-Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down to optimize deployment costs. You create a scaling plan that can be based on:
+> [!IMPORTANT]
+> Autoscale for personal host pools is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-- Time of day
-- Specific days of the week
-- Session limits per session host
+Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs.
 
 > [!NOTE]
 > - Azure Virtual Desktop (classic) doesn't support autoscale. 
-> - Autoscale doesn't support Azure Virtual Desktop for Azure Stack HCI.
+> - Autoscale isn't supported on Azure Virtual Desktop for Azure Stack HCI.
 > - Autoscale doesn't support scaling of ephemeral disks.
-> - Autoscale doesn't support scaling of generalized VMs.
 > - You can't use autoscale and [scale session hosts using Azure Automation](set-up-scaling-script.md) on the same host pool. You must use one or the other.
+> - Autoscale is available in Azure and Azure Government in the same regions you can [create host pools](create-host-pools-azure-marketplace.md) in.
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager (ARM) templates or first-party tools from Microsoft.
-
->[!IMPORTANT]
->Deploying scaling plans with autoscale is currently limited to the following Azure regions:
->
->   - Australia East
->   - Canada Central
->   - Canada East
->   - Central US
->   - East US
->   - East US 2
->   - Japan East
->   - North Central US
->   - North Europe
->   - South Central US
->   - UK South
->   - UK West
->   - West Central US
->   - West Europe
->   - West US
->   - West US 2
->   - West US 3
 
 ## How a scaling plan works
 
 Before you create your plan, keep the following things in mind:
 
-- You can assign one scaling plan to one or more host pools of the same host pool type. The scaling plan's schedule will also be applied across all assigned host pools.
+- You can assign one scaling plan to one or more host pools of the same host pool type. The scaling plan's schedules will be applied to all assigned host pools.
 
 - You can only associate one scaling plan per host pool. If you assign a single scaling plan to multiple host pools, those host pools can't be assigned to another scaling plan.
 
@@ -61,9 +40,9 @@ Before you create your plan, keep the following things in mind:
 - Make sure you understand usage patterns before defining your schedule. You'll need to schedule around the following times of day:
 
     - Ramp-up: the start of the day, when usage picks up.
-    - Peak hours: the time of day when usage is highest.
+    - Peak hours: the time of day when usage is expected to be at its highest.
     - Ramp-down: when usage tapers off. This is usually when you shut down your VMs to save costs.
-    - Off-peak hours: the time with the lowest possible usage. You can define the maximum number of VMs that can be active during this time.
+    - Off-peak hours: the time of the day when usage is expected to be at its lowest.
 
 - The scaling plan will take effect as soon as you enable it.
 
@@ -71,13 +50,13 @@ Also, keep these limitations in mind:
 
 - Don’t use autoscale in combination with other scaling Microsoft or third-party scaling tools. Ensure that you disable those for the host pools you apply the scaling plans to.
 
-- Autoscale overwrites [drain mode](drain-mode.md), so make sure to use exclusion tags when updating VMs in host pools.
+- For pooled host pools, autoscale overwrites [drain mode](drain-mode.md), so make sure to use exclusion tags when updating VMs in host pools.
 
-- Autoscale ignores existing [load-balancing algorithms](host-pool-load-balancing.md) in your host pool settings, and instead applies load balancing based on your schedule configuration.
+- For pooled host pools, autoscale ignores existing [load-balancing algorithms](host-pool-load-balancing.md) in your host pool settings, and instead applies load balancing based on your schedule configuration.
 
-## Example scenarios
+## Example scenarios for autoscale for pooled host pools
 
-In this section, there are four scenarios that show how different parts of autoscale works. In each example, there are tables that show the host pool's settings and animated visual demonstrations.
+In this section, there are four scenarios that show how different parts of autoscale for pooled host pools works. In each example, there are tables that show the host pool's settings and animated visual demonstrations.
 
 >[!NOTE]
 >To learn more about what the parameter terms mean, see [our autoscale glossary](autoscale-glossary.md).

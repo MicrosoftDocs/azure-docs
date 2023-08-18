@@ -1,16 +1,16 @@
 ---
-title: Create resource provider
-description: Describes how to create a resource provider and deploy its custom resource types.
-author: MSEvanhi
+title: Create a custom resource provider
+description: Describes how to create a custom resource provider and deploy custom resources.
 ms.topic: tutorial
-ms.date: 06/24/2020
-ms.author: evanhi 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 09/20/2022
+ms.author: evanhi
+author: MSEvanhi
+ms.custom: devx-track-azurecli
 ---
 
-# Quickstart: Create a custom provider and deploy custom resources
+# Quickstart: Create Azure Custom Resource Provider and deploy custom resources
 
-In this quickstart, you create your own resource provider and deploy custom resource types for that resource provider. For more information about custom providers, see [Azure Custom Providers Preview overview](overview.md).
+In this quickstart, you create a custom resource provider and deploy custom resources for that resource provider. For more information about custom resource providers, see [Azure Custom Resource Providers Overview](overview.md).
 
 ## Prerequisites
 
@@ -21,30 +21,30 @@ In this quickstart, you create your own resource provider and deploy custom reso
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Azure CLI examples use `az rest` for `REST` requests. For more information, see [az rest](/cli/azure/reference-index#az-rest).
 
 # [PowerShell](#tab/azure-powershell)
 
-- The PowerShell commands are run locally using PowerShell 7 or later and the Azure PowerShell modules. For more information, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+- The PowerShell commands are run locally using PowerShell 7 or later and the Azure PowerShell modules. For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 - If you don't already have a tool for `REST` operations, install the [ARMClient](https://github.com/projectkudu/ARMClient). It's an open-source command-line tool that simplifies invoking the Azure Resource Manager API.
-- After the **ARMClient** is installed you can display usage information from a PowerShell command prompt by typing: `armclient.exe`. Or, go to the [ARMClient wiki](https://github.com/projectkudu/ARMClient/wiki).
+- After the **ARMClient** is installed, you can display usage information from a PowerShell command prompt by typing: `armclient.exe`. Or, go to the [ARMClient wiki](https://github.com/projectkudu/ARMClient/wiki).
 
 ---
 
-## Deploy custom provider
+## Deploy custom resource provider
 
-To set up the custom provider, deploy an [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/custom-providers/customprovider.json) to your Azure subscription.
+To set up the custom resource provider, deploy an [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/custom-providers/customprovider.json) to your Azure subscription.
 
-After deploying the template, your subscription has the following resources:
+The template deploys the following resources to your subscription:
 
-- Function App with the operations for the resources and actions.
-- Storage Account for storing users that are created through the custom provider.
-- Custom Provider that defines the custom resource types and actions. It uses the function app endpoint for sending requests.
-- Custom resource from the custom provider.
+- Function app with the operations for the resources and actions.
+- Storage account for storing users that are created through the custom resource provider.
+- Custom resource provider that defines the custom resource types and actions. It uses the function app endpoint for sending requests.
+- Custom resource from the custom resource provider.
 
-To deploy the custom provider, use Azure CLI, PowerShell, or the Azure portal:
+To deploy the custom resource provider, use Azure CLI, PowerShell, or the Azure portal.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -77,17 +77,17 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 ---
 
-You can also deploy the solution from the Azure portal. Select the **Deploy to Azure** button to open the template in the Azure portal.
+To deploy the template from the Azure portal, select the **Deploy to Azure** button.
 
-[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json)
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Illustration of the Deploy to Azure button." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json":::
 
-## View custom provider and resource
+## View custom resource provider and resource
 
-In the portal, the custom provider is a hidden resource type. To confirm that the resource provider was deployed, navigate to the resource group. Select the option to **Show hidden types**.
+In the portal, the custom resource provider is a hidden resource type. To confirm that the resource provider was deployed, go to the resource group and select **Show hidden types**.
 
-![Show hidden resource types](./media/create-custom-provider/show-hidden.png)
+:::image type="content" source="./media/create-custom-provider/show-hidden.png" alt-text="Screenshot of Azure portal displaying hidden resource types and resources deployed in a resource group.":::
 
-To see the custom resource type that you deployed, use the `GET` operation on your resource type.
+To see the custom resource that you deployed, use the `GET` operation on your resource type. The resource type `Microsoft.CustomProviders/resourceProviders/users` shown in the JSON response includes the resource that was created by the template.
 
 ```http
 GET https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users?api-version=2018-09-01-preview
@@ -107,14 +107,13 @@ You receive the response:
 {
   "value": [
     {
-      "id": "/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/santa",
-      "name": "santa",
+      "id": "/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/ana",
+      "name": "ana",
       "properties": {
-        "FullName": "Santa Claus",
-        "Location": "NorthPole",
+        "FullName": "Ana Bowman",
+        "Location": "Moon",
         "provisioningState": "Succeeded"
       },
-      "resourceGroup": "<rg-name>",
       "type": "Microsoft.CustomProviders/resourceProviders/users"
     }
   ]
@@ -138,11 +137,11 @@ You receive the response:
     {
       "properties": {
         "provisioningState": "Succeeded",
-        "FullName": "Santa Claus",
-        "Location": "NorthPole"
+        "FullName": "Ana Bowman",
+        "Location": "Moon"
       },
-      "id": "/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/santa",
-      "name": "santa",
+      "id": "/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/ana",
+      "name": "ana",
       "type": "Microsoft.CustomProviders/resourceProviders/users"
     }
   ]
@@ -153,9 +152,9 @@ You receive the response:
 
 ## Call action
 
-Your custom provider also has an action named `ping`. The code that processes the request is implemented in the function app. The `ping` action replies with a greeting.
+Your custom resource provider also has an action named `ping`. The code that processes the request is implemented in the function app. The `ping` action replies with a greeting.
 
-To send a `ping` request, use the `POST` operation on your custom provider.
+To send a `ping` request, use the `POST` operation on your action.
 
 ```http
 POST https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/ping?api-version=2018-09-01-preview
@@ -200,9 +199,11 @@ You receive the response:
 
 ---
 
-## Create a resource type
+## Use PUT to create resource
 
-To create the custom resource type, you can deploy the resource in a template. This approach is shown in the template you deployed in this quickstart. You can also send a `PUT` request for the resource type.
+In this quickstart, the template used the resource type `Microsoft.CustomProviders/resourceProviders/users` to deploy a resource. You can also use a `PUT` operation to create a resource. For example, if a resource isn't deployed with the template, the `PUT` operation will create a resource.
+
+In this example, because the template already deployed a resource, the `PUT` operation creates a new resource.
 
 ```http
 PUT https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/<resource-name>?api-version=2018-09-01-preview
@@ -228,7 +229,6 @@ You receive the response:
     "Location": "Earth",
     "provisioningState": "Succeeded"
   },
-  "resourceGroup": "<rg-name>",
   "type": "Microsoft.CustomProviders/resourceProviders/users"
 }
 ```
@@ -258,6 +258,35 @@ You receive the response:
 ```
 
 ---
+
+You can rerun the `GET` operation from the [view custom resource provider and resource](#view-custom-resource-provider-and-resource) section to show the two resources that were created. This example shows output from the Azure CLI command.
+
+```json
+{
+  "value": [
+    {
+      "id": "/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/ana",
+      "name": "ana",
+      "properties": {
+        "FullName": "Ana Bowman",
+        "Location": "Moon",
+        "provisioningState": "Succeeded"
+      },
+      "type": "Microsoft.CustomProviders/resourceProviders/users"
+    },
+    {
+      "id": "/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/testuser",
+      "name": "testuser",
+      "properties": {
+        "FullName": "Test User",
+        "Location": "Earth",
+        "provisioningState": "Succeeded"
+      },
+      "type": "Microsoft.CustomProviders/resourceProviders/users"
+    }
+  ]
+}
+```
 
 ## Custom resource provider commands
 
@@ -358,9 +387,28 @@ The `delete` command prompts you and deletes only the custom resource provider. 
 az custom-providers resource-provider delete --resource-group $rgName --name $funcName
 ```
 
+## Clean up resources
+
+If you're finished with the resources created in this article, you can delete the resource group. When you delete a resource group, all the resources in that resource group are deleted.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az group delete --resource-group $rgName
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name $rgName
+```
+
+---
+
+
 ## Next steps
 
-For an introduction to custom providers, see the following article:
+For an introduction to custom resource providers, see the following article:
 
 > [!div class="nextstepaction"]
-> [Azure Custom Providers Preview overview](overview.md)
+> [Azure Custom Resource Providers Overview](overview.md)

@@ -10,18 +10,15 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 05/11/2022
-ms.custom: contperf-fy21q1, devx-track-python, data4ml, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy21q1, data4ml, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute to train my machine learning models.
 ---
 
 # Connect to storage services on Azure with datastores
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
-> * [v1](how-to-access-data.md)
-> * [v2 (current version)](../how-to-datastore.md)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 In this article, learn how to connect to data storage services on Azure with Azure Machine Learning datastores and the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).
 
@@ -104,7 +101,7 @@ Azure Machine Learning requires extra configuration steps to communicate with a 
 
 Azure Machine Learning can receive requests from clients outside of the virtual network. To ensure that the entity requesting data from the service is safe and to enable data being displayed in your workspace, [use a private endpoint with your workspace](../how-to-configure-private-link.md).
 
-**For Python SDK users**, to access your data via your training script on a compute target, the compute target needs to be inside the same virtual network and subnet of the storage. You can [use a compute cluster in the same virtual network](../how-to-secure-training-vnet.md#compute-cluster) or [use a compute instance in the same virtual network](../how-to-secure-training-vnet.md#compute-instance).
+**For Python SDK users**, to access your data via your training script on a compute target, the compute target needs to be inside the same virtual network and subnet of the storage. You can [use a compute instance/cluster in the same virtual network](how-to-secure-training-vnet.md).
 
 **For Azure Machine Learning studio users**, several features rely on the ability to read data from a dataset, such as dataset previews, profiles, and automated machine learning. For these features to work with storage behind virtual networks, use a [workspace managed identity in the studio](../how-to-enable-studio-virtual-network.md) to allow Azure Machine Learning to access the storage account from outside the virtual network. 
 
@@ -114,7 +111,7 @@ Azure Machine Learning can receive requests from clients outside of the virtual 
 ### Access validation
 
 > [!WARNING]
->  Cross tenant access to storage accounts is not supported. If cross tenant access is needed for your scenario, please reach out to the AzureML Data Support team alias at  amldatasupport@microsoft.com for assistance with a custom code solution.
+>  Cross tenant access to storage accounts is not supported. If cross tenant access is needed for your scenario, please reach out to the Azure Machine Learning Data Support team alias at  amldatasupport@microsoft.com for assistance with a custom code solution.
 
 **As part of the initial datastore creation and registration process**, Azure Machine Learning automatically validates that the underlying storage service exists and the user provided principal (username, service principal, or SAS token) has access to the specified storage.
 
@@ -296,7 +293,7 @@ For situations where the SDK doesn't provide access to datastores, you might be 
 
 ## Move data to supported Azure storage solutions
 
-Azure Machine Learning supports accessing data from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL. If you're using unsupported storage, we recommend that you move your data to supported Azure storage solutions by using [Azure Data Factory and these steps](../../data-factory/quickstart-create-data-factory-copy-data-tool.md). Moving data to supported storage can help you save data egress costs during machine learning experiments. 
+Azure Machine Learning supports accessing data from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL. If you're using unsupported storage, we recommend that you move your data to supported Azure storage solutions by using [Azure Data Factory and these steps](../../data-factory/quickstart-hello-world-copy-data-tool.md). Moving data to supported storage can help you save data egress costs during machine learning experiments. 
 
 Azure Data Factory provides efficient and resilient data transfer with more than 80 prebuilt connectors at no extra cost. These connectors include Azure data services, on-premises data sources, Amazon S3 and Redshift, and Google BigQuery.
 

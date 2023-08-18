@@ -1,9 +1,9 @@
 ---
-title: Renew Azure AD role assignments in PIM - Azure Active Directory | Microsoft Docs
+title: Renew Azure AD role assignments in PIM
 description: Learn how to extend or renew Azure Active Directory role assignments in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: pim
 ms.date: 06/24/2022
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -194,5 +194,5 @@ They can also renew expired role assignments from within the **Expired** roles t
 
 ## Next steps
 
-- [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md)
+- [Approve or deny requests for Azure AD roles in Privileged Identity Management](./pim-approval-workflow.md)
 - [Configure Azure AD role settings in Privileged Identity Management](pim-how-to-change-default-settings.md)

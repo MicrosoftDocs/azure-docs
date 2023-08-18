@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/23/2022
+ms.date: 03/29/2023
 ms.author: jeedes
 ---
 
@@ -47,6 +47,8 @@ To configure the integration of Zendesk into Azure AD, you need to add Zendesk f
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Zendesk** in the search box.
 1. Select **Zendesk** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Zendesk
 
@@ -129,24 +131,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ## Configure Zendesk SSO
 
 You can set up one SAML configuration for team members and a second SAML configuration for end users.
-
-1. To automate the configuration within **Zendesk**, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
-
-	![Screenshot shows the Install the extension button.](./media/target-process-tutorial/install_extension.png)
-
-1. After adding extension to the browser, click on **setup Zendesk** will direct you to the Zendesk application. From there, provide the admin credentials to sign into Zendesk. The browser extension will automatically configure the application for you and automate steps 3-6.
-
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to set up Zendesk manually, open a new web browser window and sign into your Zendesk company site as an administrator and perform the following steps:
+1. In a different web browser window, sign in to your up Zendesk company site as an administrator
 
 1. In the **Zendesk Admin Center**, go to **Account -> Security -> Single sign-on**, then click **Create SSO configuration** and select **SAML**.
 
-	![Screenshot shows the Zendesk Admin Center with Security settings selected.](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zendesk_create_sso_configuration.png "Security")
+	![Screenshot shows the Zendesk Admin Center with Security settings selected.](./media/zendesk-tutorial/zendesk-create-sso-configuration.png "Security")
 
 1. Perform the following steps in the **Single sign-on** page.
 
-	![Single sign-on](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zendesk_saml_configuration_settings.png "Single sign-on")
+	![Single sign-on](./media/zendesk-tutorial/zendesk-saml-configuration-settings.png "Single sign-on")
 
     a. In **Configuration name**, enter a name for your configuration. Up to two SAML and two JWT configurations are possible.
 

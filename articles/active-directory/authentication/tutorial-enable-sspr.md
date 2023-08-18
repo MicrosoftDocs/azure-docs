@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 1/05/2022
+ms.date: 01/30/2023
 ms.author: justinha
 author: justinha
 ms.reviewer: tilarso
@@ -29,6 +29,10 @@ In this tutorial you learn how to:
 > * Set up authentication methods and registration options
 > * Test the SSPR process as a user
 
+> [!IMPORTANT]
+> In March 2023, we announced the deprecation of managing authentication methods in the legacy multifactor authentication (MFA) and self-service password reset (SSPR) policies. Beginning September 30, 2024, authentication methods can't be managed in these legacy MFA and SSPR policies. We recommend customers use the manual migration control to migrate to the Authentication methods policy by the deprecation date.
+
+
 ## Video tutorial
 
 You can also follow along in a related video: [How to enable and configure SSPR in Azure AD](https://www.youtube.com/embed/rA8TvhNcCvQ?azure-portal=true).
@@ -40,13 +44,15 @@ To finish this tutorial, you need the following resources and privileges:
 * A working Azure AD tenant with at least an Azure AD free or trial license enabled. In the Free tier, SSPR only works for cloud users in Azure AD. Password change is supported in the Free tier, but password reset is not. 
     * For later tutorials in this series, you'll need an Azure AD Premium P1 or trial license for on-premises password writeback.
     * If needed, [create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An account with *Global Administrator* privileges.
+* An account with *Global Administrator* or *Authentication Policy Administrator* privileges.
 * A non-administrator user with a password you know, like *testuser*. You'll test the end-user SSPR experience using this account in this tutorial.
-    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users.md).
 * A group that the non-administrator user is a member of, likes *SSPR-Test-Group*. You'll enable SSPR for this group in this tutorial.
-    * If you need to create a group, see [Create a basic group and add members using Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
+    * If you need to create a group, see [Create a basic group and add members using Azure Active Directory](../fundamentals/how-to-manage-groups.md).
 
 ## Enable self-service password reset
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Azure AD lets you enable SSPR for *None*, *Selected*, or *All* users. This granular ability lets you choose a subset of users to test the SSPR registration process and workflow. When you're comfortable with the process and the time is right to communicate the requirements with a broader set of users, you can select a group of users to enable for SSPR. Or, you can enable SSPR for everyone in the Azure AD tenant.
 
@@ -55,7 +61,7 @@ Azure AD lets you enable SSPR for *None*, *Selected*, or *All* users. This granu
 
 In this tutorial, set up SSPR for a set of users in a test group. Use the *SSPR-Test-Group* and provide your own Azure AD group as needed:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* or *authentication policy administrator* permissions.
 1. Search for and select **Azure Active Directory**, then select **Password reset** from the menu on the left side.
 1. From the **Properties** page, under the option *Self service password reset enabled*, choose **Selected**.
 1. If your group isn't visible, choose **No groups selected**, browse for and select your Azure AD group, like *SSPR-Test-Group*, and then choose *Select*.
@@ -93,6 +99,9 @@ An administrator can manually provide this contact information, or users can go 
     It's important to keep the contact information up to date. If outdated contact information exists when an SSPR event starts, the user may not be able to unlock their account or reset their password.
 
 1. To apply the registration settings, select **Save**.
+
+> [!NOTE]
+> The interruption to request to register contact information during signing in, will only occur, if the conditions configured on the settings are met, and will only apply to users and admin accounts that are enabled to reset passwords using Azure Active Directory self-service password reset. 
 
 ## Set up notifications and customizations
 
@@ -142,6 +151,10 @@ If you no longer want to use the SSPR functionality you have set up as part of t
 ## FAQs
 
 This section explains common questions from administrators and end-users who try SSPR:
+
+- Why aren't on-premises password policies displayed during SSPR?
+
+  At this time, Azure AD Connect and cloud sync don't support sharing password policy details with the cloud. SSPR only displays the cloud password policy details, and can't show on-premises policies.
 
 - Why do federated users wait up to 2 minutes after they see **Your password has been reset** before they can use passwords that are synchronized from on-premises?
 

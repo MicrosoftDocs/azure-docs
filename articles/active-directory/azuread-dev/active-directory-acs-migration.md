@@ -1,5 +1,5 @@
 ---
-title: Migrate from the Azure Access Control Service | Microsoft Docs
+title: Migrate from the Azure Access Control Service
 description: Learn about the options for moving apps and services from the Azure Access Control Service (ACS).
 services: active-directory
 author: rwike77
@@ -128,7 +128,7 @@ Each Microsoft cloud service that accepts tokens that are issued by Access Contr
 | Azure Service Bus | [Migrate to shared access signatures](../../service-bus-messaging/service-bus-sas.md) |
 | Azure Service Bus Relay | [Migrate to shared access signatures](../../azure-relay/relay-migrate-acs-sas.md) |
 | Azure Managed Cache | [Migrate to Azure Cache for Redis](../../azure-cache-for-redis/cache-faq.yml) |
-| Azure DataMarket | [Migrate to the Cognitive Services APIs](https://azure.microsoft.com/services/cognitive-services/) |
+| Azure DataMarket | [Migrate to the Azure AI services APIs](https://azure.microsoft.com/services/cognitive-services/) |
 | BizTalk Services | [Migrate to the Logic Apps feature of Azure App Service](https://azure.microsoft.com/services/cognitive-services/) |
 | Azure Media Services | [Migrate to Azure AD authentication](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
 | Azure Backup | [Upgrade the Azure Backup agent](../../backup/backup-azure-file-folder-backup-faq.yml) |
@@ -210,7 +210,7 @@ At a high level, *Azure Active Directory is probably the best choice for your mi
 
 If you decide that Azure AD is the best migration path for your applications and services, you should be aware of two ways to integrate your app with Azure AD.
 
-To use WS-Federation or WIF to integrate with Azure AD, we recommend following the approach described in [Configure federated single sign-on for a non-gallery application](../manage-apps/configure-saml-single-sign-on.md). The article refers to configuring Azure AD for SAML-based single sign-on, but also works for configuring WS-Federation. Following this approach requires an Azure AD Premium license. This approach has two advantages:
+To use WS-Federation or WIF to integrate with Azure AD, we recommend following the approach described in [Configure federated single sign-on for a non-gallery application](../develop/single-sign-on-saml-protocol.md). The article refers to configuring Azure AD for SAML-based single sign-on, but also works for configuring WS-Federation. Following this approach requires an Azure AD Premium license. This approach has two advantages:
 
 - You get the full flexibility of Azure AD token customization. You can customize the claims that are issued by Azure AD to match the claims that are issued by Access Control. This especially includes the user ID or Name Identifier claim. To continue to receive consistent user IDentifiers for your users after you change technologies, ensure that the user IDs issued by Azure AD match those issued by Access Control.
 - You can configure a token-signing certificate that is specific to your application, and with a lifetime that you control.
@@ -220,7 +220,7 @@ To use WS-Federation or WIF to integrate with Azure AD, we recommend following t
 
 An alternative approach is to follow [this code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), which gives slightly different instructions for setting up WS-Federation. This code sample does not use WIF, but rather, the ASP.NET 4.5 OWIN middleware. However, the instructions for app registration are valid for apps using WIF, and don't require an Azure AD Premium license. 
 
-If you choose this approach, you need to understand [signing key rollover in Azure AD](../develop/active-directory-signing-key-rollover.md). This approach uses the Azure AD global signing key to issue tokens. By default, WIF does not automatically refresh signing keys. When Azure AD rotates its global signing keys, your WIF implementation needs to be prepared to accept the changes. For more information, see [Important information about signing key rollover in Azure AD](/previous-versions/azure/dn641920(v=azure.100)).
+If you choose this approach, you need to understand [signing key rollover in Azure AD](../develop/signing-key-rollover.md). This approach uses the Azure AD global signing key to issue tokens. By default, WIF does not automatically refresh signing keys. When Azure AD rotates its global signing keys, your WIF implementation needs to be prepared to accept the changes. For more information, see [Important information about signing key rollover in Azure AD](/previous-versions/azure/dn641920(v=azure.100)).
 
 If you can integrate with Azure AD via the OpenID Connect or OAuth protocols, we recommend doing so. We have extensive documentation and guidance about how to integrate Azure AD into your web application available in our [Azure AD developer guide](../develop/index.yml).
 
@@ -279,7 +279,7 @@ In these cases, you might want to consider migrating your web application to ano
 
 ![This image shows the Auth0 logo](./media/active-directory-acs-migration/rsz-auth0.png) 
 
-[Auth0](https://auth0.com/acs) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/acs), and supports nearly every feature that ACS does.
+[Auth0](https://auth0.com/access-management) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/access-management), and supports nearly every feature that ACS does.
 
 ![This image shows the Ping Identity logo](./media/active-directory-acs-migration/rsz-ping.png)
 
@@ -344,7 +344,7 @@ In these cases, you might consider migrating your web application to another clo
 
 ![This image shows the Auth0 logo](./media/active-directory-acs-migration/rsz-auth0.png)
 
-[Auth0](https://auth0.com/acs) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/acs), and supports nearly every feature that ACS does.
+[Auth0](https://auth0.com/access-management) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/access-management), and supports nearly every feature that ACS does.
 
 ![This image shows the Ping Identity logo](./media/active-directory-acs-migration/rsz-ping.png)
 [Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on premises identity product that offers more flexibility. Refer to Ping's ACS retirement guidance for more details on using these products.

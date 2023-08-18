@@ -7,10 +7,10 @@ author: santiagxf
 ms.author: fasantia
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: nibaccam
+ms.reviewer: mopeakande
 ms.date: 07/06/2022
 ms.topic: how-to
-ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
+ms.custom: sdkv2, event-tier1-build-2022
 ---
 
 # Track Azure Synapse Analytics ML experiments with MLflow and Azure Machine Learning
@@ -20,6 +20,8 @@ In this article, learn how to enable MLflow to connect to Azure Machine Learning
 [MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts. Learn more about [MLflow](concept-mlflow.md). 
 
 If you have an MLflow Project to train with Azure Machine Learning, see [Train ML models with MLflow Projects and Azure Machine Learning (preview)](how-to-train-mlflow-projects.md).
+
+[!INCLUDE [machine-learning-mlflow-projects-deprecation](includes/machine-learning-mlflow-projects-deprecation.md)]
 
 ## Prerequisites
 
@@ -62,76 +64,15 @@ Azure Synapse Analytics can be configured to track experiments using MLflow to A
 
 To use Azure Machine Learning as your centralized repository for experiments, you can leverage MLflow. On each notebook where you are working on, you have to configure the tracking URI to point to the workspace you will be using. The following example shows how it can be done:
 
-   # [Using the Azure ML SDK v2](#tab/azuremlsdk)
-   
-   [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v2.md)]
+__Configure tracking URI__
 
-   You can get the Azure ML MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the cluster you are using. The following sample gets the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
+[!INCLUDE [configure-mlflow-tracking](includes/machine-learning-mlflow-configure-tracking.md)]
 
-   a. Using the workspace configuration file:
+__Configure authentication__
 
-   ```Python
-   from azure.ai.ml import MLClient
-   from azure.identity import DefaultAzureCredential
-   import mlflow
+Once the tracking is configured, you'll also need to configure how the authentication needs to happen to the associated workspace. By default, the Azure Machine Learning plugin for MLflow will perform interactive authentication by opening the default browser to prompt for credentials. Refer to [Configure MLflow for Azure Machine Learning: Configure authentication](how-to-use-mlflow-configure-tracking.md#configure-authentication) to additional ways to configure authentication for MLflow in Azure Machine Learning workspaces.
 
-   ml_client = MLClient.from_config(credential=DefaultAzureCredential()
-   azureml_mlflow_uri = ml_client.workspaces.get(ml_client.workspace_name).mlflow_tracking_uri
-   mlflow.set_tracking_uri(azureml_mlflow_uri)
-   ```
-
-   > [!TIP]
-   > You can download the workspace configuration file by:
-   > 1. Navigate to [Azure ML studio](https://ml.azure.com)
-   > 2. Click on the uper-right corner of the page -> Download config file.
-   > 3. Save the file `config.json` in the same directory where you are working on.
-
-   b. Using the subscription ID, resource group name and workspace name:
-
-   ```Python
-   from azure.ai.ml import MLClient
-   from azure.identity import DefaultAzureCredential
-   import mlflow
-
-   #Enter details of your AzureML workspace
-   subscription_id = '<SUBSCRIPTION_ID>'
-   resource_group = '<RESOURCE_GROUP>'
-   workspace_name = '<AZUREML_WORKSPACE_NAME>'
-
-   ml_client = MLClient(credential=DefaultAzureCredential(),
-                        subscription_id=subscription_id, 
-                        resource_group_name=resource_group)
-
-   azureml_mlflow_uri = ml_client.workspaces.get(workspace_name).mlflow_tracking_uri
-   mlflow.set_tracking_uri(azureml_mlflow_uri)
-   ```
-
-   > [!IMPORTANT]
-   > `DefaultAzureCredential` will try to pull the credentials from the available context. If you want to specify credentials in a different way, for instance using the web browser in an interactive way, you can use `InteractiveBrowserCredential` or any other method available in `azure.identity` package.
-
-   # [Building the MLflow tracking URI](#tab/build)
-
-   The Azure Machine Learning Tracking URI can be constructed using the subscription ID, region of where the resource is deployed, resource group name and workspace name. The following code sample shows how:
-
-   ```python
-   import mlflow
-
-   region = ""
-   subscription_id = ""
-   resource_group = ""
-   workspace_name = ""
-
-   azureml_mlflow_uri = f"azureml://{region}.api.azureml.ms/mlflow/v1.0/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace_name}"
-   mlflow.set_tracking_uri(azureml_mlflow_uri)
-   ```
-
-   > [!NOTE]
-   > You can also get this URL by: 
-   > 1. Navigate to [Azure ML studio](https://ml.azure.com)
-   > 2. Click on the uper-right corner of the page -> View all properties in Azure Portal -> MLflow tracking URI.
-   > 3. Copy the URI and use it with the method `mlflow.set_tracking_uri`.
-
-   ---
+[!INCLUDE [configure-mlflow-auth](includes/machine-learning-mlflow-configure-auth.md)]
 
 ### Experiment's names in Azure Machine Learning
 
@@ -155,7 +96,7 @@ mlflow.spark.log_model(model,
                        registered_model_name = "model_name")  
 ```
 
-* **If a registered model with the name doesn’t exist**, the method registers a new model, creates version 1, and returns a ModelVersion MLflow object. 
+* **If a registered model with the name doesn't exist**, the method registers a new model, creates version 1, and returns a ModelVersion MLflow object. 
 
 * **If a registered model with the name already exists**, the method creates a new model version and returns the version object. 
 
@@ -200,7 +141,7 @@ display(preds)
 
 ## Clean up resources
 
-If you wish to keep your Azure Synapse Analytics workspace, but no longer need the Azure ML workspace, you can delete the Azure ML workspace. If you don't plan to use the logged metrics and artifacts in your workspace, the ability to delete them individually is unavailable at this time. Instead, delete the resource group that contains the storage account and workspace, so you don't incur any charges:
+If you wish to keep your Azure Synapse Analytics workspace, but no longer need the Azure Machine Learning workspace, you can delete the Azure Machine Learning workspace. If you don't plan to use the logged metrics and artifacts in your workspace, the ability to delete them individually is unavailable at this time. Instead, delete the resource group that contains the storage account and workspace, so you don't incur any charges:
 
 1. In the Azure portal, select **Resource groups** on the far left.
 

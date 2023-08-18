@@ -4,20 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Automate hyperparameter tuning for deep learning and machine learning models using Azure Machine Learning.
 ms.author: amipatel
 author: amibp
+ms.reviewer: ssalgado
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.date: 05/02/2022
+ms.subservice: training
+ms.date: 06/7/2023
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, event-tier1-build-2022
+ms.custom: contperf-fy21q1, event-tier1-build-2022
 ---
 
 # Hyperparameter tuning a model (v2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](v1/how-to-tune-hyperparameters-v1.md)
-> * [v2 (current version)](how-to-tune-hyperparameters.md)
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
+
 
 Automate efficient hyperparameter tuning using Azure Machine Learning SDK v2 and CLI v2 by way of the SweepJob type. 
 
@@ -235,7 +234,7 @@ mlflow.log_metric("accuracy", float(val_accuracy))
 
 The training script calculates the `val_accuracy` and logs it as the primary metric "accuracy". Each time the metric is logged, it's received by the hyperparameter tuning service. It's up to you to determine the frequency of reporting.
 
-For more information on logging values for training jobs, see [Enable logging in Azure ML training jobs](how-to-log-view-metrics.md).
+For more information on logging values for training jobs, see [Enable logging in Azure Machine Learning training jobs](how-to-log-view-metrics.md).
 
 ## <a name="early-termination"></a> Specify early termination policy
 
@@ -327,12 +326,12 @@ sweep_job.early_termination = None
 Control your resource budget by setting limits for your sweep job.
 
 * `max_total_trials`: Maximum number of trial jobs. Must be an integer between 1 and 1000.
-* `max_concurrent_trials`: (optional) Maximum number of trial jobs that can run concurrently. If not specified, all jobs launch in parallel. If specified, must be an integer between 1 and 100.
+* `max_concurrent_trials`: (optional) Maximum number of trial jobs that can run concurrently. If not specified, max_total_trials number of jobs launch in parallel. If specified, must be an integer between 1 and 1000.
 * `timeout`: Maximum time in seconds the entire sweep job is allowed to run. Once this limit is reached the system will cancel the sweep job, including all its trials.
 * `trial_timeout`: Maximum time in seconds each trial job is allowed to run. Once this limit is reached the system will cancel the trial. 
 
 >[!NOTE] 
->If both max_total_trials and max_concurrent_trials are specified, the hyperparameter tuning experiment terminates when the first of these two thresholds is reached.
+>If both max_total_trials and timeout are specified, the hyperparameter tuning experiment terminates when the first of these two thresholds is reached.
 
 >[!NOTE] 
 >The number of concurrent trial jobs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.
@@ -411,9 +410,9 @@ sweep_job.early_termination = MedianStoppingPolicy(
 )
 ```
 
-The `command_job` is called as a function so we can apply the parameter expressions to the sweep inputs. The `sweep` function is then configured with `trial`, `sampling-algorithm`, `objective`, `limits`, and `compute`. The above code snippet is taken from the sample notebook [Run hyperparameter sweep on a Command or CommandComponent](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb). In this sample, the `learning_rate` and `boosting` parameters will be tuned. Early stopping of jobs will be determined by a `MedianStoppingPolicy`, which stops a job whose primary metric value is worse than the median of the averages across all training jobs.(see [MedianStoppingPolicy class reference](/python/api/azure-ai-ml/azure.ai.ml.sweep.medianstoppingpolicy)).
+The `command_job` is called as a function so we can apply the parameter expressions to the sweep inputs. The `sweep` function is then configured with `trial`, `sampling-algorithm`, `objective`, `limits`, and `compute`. The above code snippet is taken from the sample notebook [Run hyperparameter sweep on a Command or CommandComponent](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb). In this sample, the `learning_rate` and `boosting` parameters will be tuned. Early stopping of jobs will be determined by a `MedianStoppingPolicy`, which stops a job whose primary metric value is worse than the median of the averages across all training jobs.(see [MedianStoppingPolicy class reference](/python/api/azure-ai-ml/azure.ai.ml.sweep.medianstoppingpolicy)).
 
-To see how the parameter values are received, parsed, and passed to the training script to be tuned, refer to this [code sample](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/single-step/lightgbm/iris/src/main.py)
+To see how the parameter values are received, parsed, and passed to the training script to be tuned, refer to this [code sample](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/lightgbm/iris/src/main.py)
 
 > [!Important]
 > Every hyperparameter sweep job restarts the training from scratch, including rebuilding the model and _all the data loaders_. You can minimize 
@@ -421,7 +420,7 @@ To see how the parameter values are received, parsed, and passed to the training
 
 ## Submit hyperparameter tuning experiment
 
-After you define your hyperparameter tuning configuration, [submit the experiment](/python/api/azureml-core/azureml.core.experiment%28class%29#submit-config--tags-none----kwargs-):
+After you define your hyperparameter tuning configuration, [submit the job](/python/api/azure-ai-ml/azure.ai.ml.mlclient#azure-ai-ml-mlclient-create-or-update):
 
 ```Python
 # submit the sweep
@@ -472,9 +471,9 @@ az ml job download --name <sweep-job> --output-name model
     
 ## References
 
-- [Hyperparameter tuning example](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/single-step/lightgbm/iris/src/main.py)
+- [Hyperparameter tuning example](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/lightgbm/iris/src/main.py)
 - [CLI (v2) sweep job YAML schema here](reference-yaml-job-sweep.md#parameter-expressions)
 
 ## Next steps
 * [Track an experiment](how-to-log-view-metrics.md)
-* [Deploy a trained model](how-to-deploy-managed-online-endpoints.md)
+* [Deploy a trained model](how-to-deploy-online-endpoints.md)

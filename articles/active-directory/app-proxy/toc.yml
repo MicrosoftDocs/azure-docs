@@ -12,6 +12,8 @@
       href: ../saas-apps/tutorial-list.md
     - name: Add an on-premises app with Application Proxy
       href: application-proxy-add-on-premises-application.md
+    - name: Configure Application Proxy - Microsoft Graph
+      href: /graph/application-proxy-configure-api?toc=/azure/active-directory/app-proxy/toc.json&bc=/azure/active-directory/app-proxy/breadcrumb/toc.json
   - name: Samples
     expanded: false
     items: 
@@ -81,14 +83,20 @@
       href: application-proxy-configure-connectors-with-proxy-servers.md
     - name: Add Traffic Manager
       href: application-proxy-integrate-with-traffic-manager.md
+    - name: Geo-acceleration with Azure Front Door
+      href: application-proxy-azure-front-door.md
     - name: Give mobile and desktop apps access to on-premises APIs
       href: application-proxy-secure-api-access.md 
+    - name: Securely integrate logic-apps with on-premises APIs
+      href: application-proxy-integrate-with-logic-apps.md
     - name: Configure custom home page
       href: application-proxy-configure-custom-home-page.md
     - name: Configure cookie settings
       href: application-proxy-configure-cookie-settings.md
     - name: Publish using wildcards
       href: application-proxy-wildcard.md
+    - name: Publish complex distributed application using application segments
+      href: application-proxy-configure-complex-application.md
     - name: Configure custom domain
       href: application-proxy-configure-custom-domain.md
     - name: Translate inline links
@@ -104,7 +112,7 @@
     - name: Publishing walkthroughs
       items:
       - name: Integrate with Application Proxy on an NDES server
-        href: active-directory-app-proxy-protect-ndes.md
+        href: ./app-proxy-protect-ndes.md
       - name: Integrate with Application Proxy using PingAccess
         href: application-proxy-ping-access-publishing-guide.md
       - name: Integrate with Azure AD Domain Services

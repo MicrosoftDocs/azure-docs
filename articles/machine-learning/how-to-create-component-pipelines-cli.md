@@ -7,18 +7,19 @@ ms.service: machine-learning
 ms.subservice: core
 author: xiaoharper
 ms.author: zhanxia
+ms.reviewer: lagayhar
 ms.date: 05/26/2022
 ms.topic: how-to
-ms.custom: devplatv2, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devplatv2, devx-track-azurecli, event-tier1-build-2022, build-2023
 ms.devlang: azurecli, cliv2
 ---
 
 # Create and run machine learning pipelines using components with the Azure Machine Learning CLI
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 
-In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure CLI and components (for more, see [What is an Azure Machine Learning component?](concept-component.md)). You can [create pipelines without using components](how-to-train-cli.md#build-a-training-pipeline), but components offer the greatest amount of flexibility and reuse. AzureML Pipelines may be defined in YAML and run from the CLI, authored in Python, or composed in AzureML Studio Designer with a drag-and-drop UI. This document focuses on the CLI.
+In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure CLI and components (for more, see [What is an Azure Machine Learning component?](concept-component.md)). You can create pipelines without using components, but components offer the greatest amount of flexibility and reuse. Azure Machine Learning Pipelines may be defined in YAML and run from the CLI, authored in Python, or composed in Azure Machine Learning Studio Designer with a drag-and-drop UI. This document focuses on the CLI.
 
 ## Prerequisites
 
@@ -42,7 +43,7 @@ In this article, you learn how to create and run [machine learning pipelines](co
 
 ## Create your first pipeline with component
 
-Let's create your first pipeline with component using an example. This section aims to give you an initial impression of what pipeline and component look like in AzureML with a concrete example.
+Let's create your first pipeline with component using an example. This section aims to give you an initial impression of what pipeline and component look like in Azure Machine Learning with a concrete example.
 
 From the `cli/jobs/pipelines-with-components/basics` directory of the [`azureml-examples` repository](https://github.com/Azure/azureml-examples), navigate to the `3b_pipeline_with_data` subdirector. There are three types of files in this directory. Those are the files you'll need to create when building your own pipeline.
 
@@ -51,7 +52,7 @@ From the `cli/jobs/pipelines-with-components/basics` directory of the [`azureml-
 - **component.yml**:  This YAML file defines the component. It packages following information:
   - Metadata: name, display name, version, description, type etc. The metadata helps to describe and manage the component.
   - Interface: inputs and outputs. For example, a model training component will take training data and number of epochs as input, and generate a trained model file as output. Once the interface is defined, different teams can develop and test the component independently.
-  - Command, code & environment: the command, code and environment to run the component.    Command is the shell command to execute the component. Code usually refers to a source  code directory. Environment could be an AzureML environment(curated or customer created), docker image or conda environment.  
+  - Command, code & environment: the command, code and environment to run the component.    Command is the shell command to execute the component. Code usually refers to a source  code directory. Environment could be an Azure Machine Learning environment(curated or customer created), docker image or conda environment.  
 
 - **component_src**: This is the source code directory for a specific component. It contains the source code that will be executed in the component. You can use your preferred language(Python, R...). The code must be executed by a shell command. The source code can take a few inputs from shell command line to control how this step is going to be executed. For example, a training step may take training data, learning rate, number of epochs to control the training process. The argument of a shell command is used to pass inputs and outputs to the code. 
 
@@ -64,6 +65,9 @@ az ml compute list
 ```
 
 If you don't have it, create a cluster called `cpu-cluster` by running:
+
+> [!NOTE]
+> Skip this step to use [serverless compute (preview)](./how-to-use-serverless-compute.md).
 
 ```azurecli
 az ml compute create -n cpu-cluster --type amlcompute --min-instances 0 --max-instances 10
@@ -92,6 +96,10 @@ Open the `services.Studio.endpoint` URL you'll see a graph visualization of the 
 
 Let's take a look at the pipeline definition in the *3b_pipeline_with_data/pipeline.yml* file.  
 
+
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), replace `default_compute: azureml:cpu-cluster` with `default_compute: azureml:serverless` in this file.
+
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
 
 Below table describes the most common used fields of pipeline YAML schema. See [full pipeline YAML schema here](reference-yaml-job-pipeline.md).  
@@ -114,12 +122,12 @@ In the *3b_pipeline_with_data* example, we've created a three steps pipeline.
 
 ### Read and write data in pipeline
 
-One common scenario is to read and write data in your pipeline. In AzureML, we use the same schema to [read and write data](how-to-read-write-data-v2.md) for all type of jobs (pipeline job, command job, and sweep job). Below are pipeline job examples of using data for common scenarios.
+One common scenario is to read and write data in your pipeline. In Azure Machine Learning, we use the same schema to [read and write data](how-to-read-write-data-v2.md) for all type of jobs (pipeline job, command job, and sweep job). Below are pipeline job examples of using data for common scenarios.
 
 - [local data](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components/basics/4a_local_data_input)
 - [web file with public URL](https://github.com/Azure/azureml-examples/blob/sdk-preview/cli/jobs/pipelines-with-components/basics/4c_web_url_input/pipeline.yml)
-- [AzureML datastore and path](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components/basics/4b_datastore_datapath_uri)
-- [AzureML data asset](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components/basics/4d_data_input)
+- [Azure Machine Learning datastore and path](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components/basics/4b_datastore_datapath_uri)
+- [Azure Machine Learning data asset](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components/basics/4d_data_input)
 
 ## Understand the component definition YAML
 
@@ -131,7 +139,7 @@ The most common used schema of the component YAML is described in below table. S
 
 |key|description|
 |------|------|
-|name|**Required**. Name of the component. Must be unique across the AzureML workspace. Must start with lowercase letter. Allow lowercase letters, numbers and underscore(_). Maximum length is 255 characters.|
+|name|**Required**. Name of the component. Must be unique across the Azure Machine Learning workspace. Must start with lowercase letter. Allow lowercase letters, numbers and underscore(_). Maximum length is 255 characters.|
 |display_name|Display name of the component in the studio UI. Can be non-unique within the workspace.|
 |command|**Required** the command to execute|
 |code|Local path to the source code directory to be uploaded and used for the component.|
@@ -140,7 +148,7 @@ The most common used schema of the component YAML is described in below table. S
 |outputs|Dictionary of component outputs. The key is a name for the output within the context of the component and the value is the component output definition. Outputs can be referenced in the command using the ${{ outputs.<output_name> }} expression.|
 |is_deterministic|Whether to reuse the previous job's result if the component inputs did not change. Default value is `true`, also known as reuse by default. The common scenario when set as `false` is to force reload data from a cloud storage or URL.|
 
-For the example in *3b_pipeline_with_data/componentA.yml*, componentA has one data input and one data output, which can be connected to other steps in the parent pipeline. All the files under `code` section in component YAML will be uploaded to AzureML when submitting the pipeline job. In this example, files under `./componentA_src` will be uploaded (line 16 in *componentA.yml*). You can see the uploaded source code in Studio UI: double select the ComponentA step and navigate to Snapshot tab, as shown in below screenshot. We can see it's a hello-world script just doing some simple printing, and write current datetime to the `componentA_output` path. The component takes input and output through command line argument, and it's handled in the *hello.py* using `argparse`.
+For the example in *3b_pipeline_with_data/componentA.yml*, componentA has one data input and one data output, which can be connected to other steps in the parent pipeline. All the files under `code` section in component YAML will be uploaded to Azure Machine Learning when submitting the pipeline job. In this example, files under `./componentA_src` will be uploaded (line 16 in *componentA.yml*). You can see the uploaded source code in Studio UI: double select the ComponentA step and navigate to Snapshot tab, as shown in below screenshot. We can see it's a hello-world script just doing some simple printing, and write current datetime to the `componentA_output` path. The component takes input and output through command line argument, and it's handled in the *hello.py* using `argparse`.
   
 :::image type="content" source="./media/how-to-create-component-pipelines-cli/component-snapshot.png" alt-text="Screenshot of pipeline with data example above showing componentA." lightbox="./media/how-to-create-component-pipelines-cli/component-snapshot.png":::
 
@@ -157,9 +165,9 @@ If you want to add an input to a component, remember to edit three places:  1)`i
 
 ### Environment
 
-Environment defines the environment to execute the component. It could be an AzureML environment(curated or custom registered), docker image or conda environment. See examples below.
+Environment defines the environment to execute the component. It could be an Azure Machine Learning environment(curated or custom registered), docker image or conda environment. See examples below.
 
-- [AzureML registered environment asset](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components/basics/5b_env_registered). It's referenced in component following `azureml:<environment-name>:<environment-version>` syntax.
+- [Azure Machine Learning registered environment asset](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components/basics/5b_env_registered). It's referenced in component following `azureml:<environment-name>:<environment-version>` syntax.
 - [public docker image](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components/basics/5a_env_public_docker_image)
 - [conda file](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components/basics/5c_env_conda_file) Conda file needs to be used together with a base image.
 
@@ -210,4 +218,4 @@ You can check component details and manage the component using CLI (v2). Use `az
 
 ## Next steps
 
-- Try out [CLI v2 component example](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines-with-components)
+- Try out [CLI v2 component example](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components)

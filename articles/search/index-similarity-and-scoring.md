@@ -2,17 +2,18 @@
 title: Relevance and scoring
 titleSuffix: Azure Cognitive Search
 description: Explains the concepts of relevance and scoring in Azure Cognitive Search, and what a developer can do to customize the scoring result.
-
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 04/18/2023
 ---
 
 # Relevance and scoring in Azure Cognitive Search
 
-This article describes relevance and the scoring algorithms used to compute search scores in Azure Cognitive Search. A relevance score applies to matches returned in [full text search](search-lucene-query-architecture.md), where the most relevant matches appear first. Filter queries, autocomplete and suggested queries, wildcard search or fuzzy search queries are not scored or ranked for relevance.
+This article explains the relevance and the scoring algorithms used to compute search scores in Azure Cognitive Search. A relevance score is computed for each match found in a [full text search](search-lucene-query-architecture.md), where the strongest matches are assigned higher search scores. 
+
+Relevance applies to full text search only. Filter queries, autocomplete and suggested queries, wildcard search or fuzzy search queries are not scored or ranked for relevance.
 
 In Azure Cognitive Search, you can tune search relevance and boost search scores through these mechanisms:
 
@@ -39,7 +40,12 @@ If you want to break the tie among repeating scores, you can add an **$orderby**
 
 ## Scoring algorithms in Search
 
-Azure Cognitive Search provides the `BM25Similarity` ranking algorithm. On older search services, you might be using `ClassicSimilarity`.
+Azure Cognitive Search provides the following scoring algorithms:
+
+| Algorithm | Usage | Range |
+|-----------|-------------|-------|
+| BM25Similarity | Fixed algorithm on all search services created after July 2020. You can configure this algorithm, but you can't switch to an older one (classic). | Unbounded. |
+|ClassicSimilarity | Present on older search services. You can [opt-in for BM25](index-ranking-similarity.md) and choose an algorithm on a per-index basis. | 0 < 1.00 |
 
 Both BM25 and Classic are TF-IDF-like retrieval functions that use the term frequency (TF) and the inverse document frequency (IDF) as variables to calculate relevance scores for each document-query pair, which is then used for ranking results. While conceptually similar to classic, BM25 is rooted in probabilistic information retrieval that produces more intuitive matches, as measured by user research. 
 
@@ -51,6 +57,16 @@ BM25 offers advanced customization options, such as allowing the user to decide 
 The following video segment fast-forwards to an explanation of the generally available ranking algorithms used in Azure Cognitive Search. You can watch the full video for more background.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
+
+## Score variation
+
+Search scores convey general sense of relevance, reflecting the strength of match relative to other documents in the same result set. But scores aren't always consistent from one query to the next, so as you work with queries, you might notice small discrepancies in how search documents are ordered. There are several explanations for why this might occur.
+
+| Cause | Description |
+|-----------|-------------|
+| Data volatility | Index content varies as you add, modify, or delete documents. Term frequencies will change as index updates are processed over time, affecting the search scores of matching documents. |
+| Multiple replicas | For services using multiple replicas, queries are issued against each replica in parallel. The index statistics used to calculate a search score are calculated on a per-replica basis, with results merged and ordered in the query response. Replicas are mostly mirrors of each other, but statistics can differ due to small differences in state. For example, one replica might have deleted documents contributing to their statistics, which were merged out of other replicas. Typically, differences in per-replica statistics are more noticeable in smaller indexes. For more information about this condition, see [Concepts: search units, replicas, partitions, shards](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards) in the capacity planning documentation. |
+| Identical scores | If multiple documents have the same score, any one of them might appear first.  |
 
 <a name="scoring-statistics"></a>
 
@@ -87,7 +103,7 @@ As long as the same `sessionId` is used, a best-effort attempt will be made to t
 
 ## Scoring profiles
 
-You can customize the way different fields are ranked by defining a *scoring profile*. Scoring profiles give you greater control over the ranking of items in search results. For example, you might want to boost items based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long. 
+You can customize the way different fields are ranked by defining a *scoring profile*. Scoring profiles provide criteria for boosting the search score of a match based on content characteristics. For example, you might want to boost matches based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long. 
 
 A scoring profile is part of the index definition, composed of weighted fields, functions, and parameters. For more information about defining one, see [Scoring Profiles](index-add-scoring-profiles.md).
 

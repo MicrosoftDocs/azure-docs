@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.author: piyushgupta
 author: piyush-gupta1999
-ms.date: 08/30/2022
+ms.date: 03/30/2023
 ---
 
 # Enable Private Link on an HDInsight cluster
@@ -116,6 +116,13 @@ To create the private endpoints:
     | Virtual network | hdi-privlink-client-vnet |
     | Subnet | default |
     
+    :::image type="content" source="media/hdinsight-private-link/basic-tab-private-endpoint.png" alt-text="Diagram of the Private Link basic tab.":::
+    :::image type="content" source="media/hdinsight-private-link/resource-tab-private-endpoint.png" alt-text="Diagram of the Private Link resource tab":::
+    :::image type="content" source="media/hdinsight-private-link/virtual-network-tab-private-endpoint.png" alt-text="Diagram of the Private Link virtual network tab.":::
+    :::image type="content" source="media/hdinsight-private-link/dns-tab-private-endpoint.png" alt-text="Diagram of the Private Link dns end point tab.":::
+    :::image type="content" source="media/hdinsight-private-link/tag-tab-private-endpoint.png" alt-text="Diagram of the Private Link tag tab.":::
+    :::image type="content" source="media/hdinsight-private-link/review-tab-private-endpoint.png" alt-text="Diagram of the Private Link review-tab.":::
+       
 4. Repeat the process to create another private endpoint for SSH access using the following configurations:
     
     | Config | Value |
@@ -129,14 +136,14 @@ To create the private endpoints:
 > [!IMPORTANT]
 > If you're using KafkaRestProxy HDInsight cluster, then follow this extra steps to [Enable Private Endpoints](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#create-private-endpoints).
 > 
-  
-  
+
 Once the private endpoints are created, you’re done with this phase of the setup. If you didn’t make a note of the private IP addresses assigned to the endpoints, follow the steps below:
 
 1. Open the client VNET in the Azure portal. 
-2. Click the 'Overview' tab.
-3. You should see both the Ambari and ssh Network interfaces listed and their private IP Addresses. 
-4. Make a note of these IP addresses because they are required to connect to the cluster and properly configure DNS.
+1. Click on 'Private endpoints' tab.
+1. You should see both the Ambari and ssh Network interfaces listed. 
+1. Click on each one and navigate to the ‘DNS configuration’ blade to see the private IP address. 
+1. Make a note of these IP addresses because they are required to connect to the cluster and properly configure DNS.
 
 ## <a name="ConfigureDNS"></a>Step 6: Configure DNS to connect over private endpoints
 
@@ -159,6 +166,8 @@ To configure DNS resolution through a Private DNS zone:
     | ------ | ----- |
     | Name | privatelink.azurehdinsight.net |
     
+     :::image type="content" source="media/hdinsight-private-link/private-dns-zone.png" alt-text="Diagram of the Private dns zone.":::
+    
 2. Add a Record set to the Private DNS zone for Ambari.
     
     | Config | Value |
@@ -168,7 +177,9 @@ To configure DNS resolution through a Private DNS zone:
     | TTL | 1 |
     | TTL unit | Hours |
     | IP Address | Private IP of private endpoint for Ambari access |
-    
+     
+    :::image type="content" source="media/hdinsight-private-link/private-dns-zone-add-record.png" alt-text="Diagram of private dns zone add record.":::
+        
 3. Add a Record set to the Private DNS zone for SSH.
     
     | Config | Value |
@@ -178,6 +189,8 @@ To configure DNS resolution through a Private DNS zone:
     | TTL | 1 |
     | TTL unit | Hours |
     | IP Address | Private IP of private endpoint for SSH access |
+    
+    :::image type="content" source="media/hdinsight-private-link/private-dns-zone-add-ssh-record.png" alt-text="Diagram of private link dns zone add ssh record.":::
    
 > [!IMPORTANT]
 > If you are using KafkaRestProxy HDInsight cluster, then follow this extra steps to [Configure DNS to connect over private endpoint](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#configure-dns-to-connect-over-private-endpoints).
@@ -187,8 +200,10 @@ To configure DNS resolution through a Private DNS zone:
     1. Open the private DNS zone in the Azure portal.
     1. Click the 'Virtual network links' tab.
     1. Click the 'Add' button.
-    1. Fill in the details: Link name, Subscription, and Virtual Network
+    1. Fill in the details: Link name, Subscription, and Virtual Network (your client VNET) 
     1. Click **Save**.
+   
+    :::image type="content" source="media/hdinsight-private-link/virtual-network-link.png" alt-text="Diagram of virtual-network-link.":::
 
 ## <a name="CheckConnectivity"></a>Step 7: Check cluster connectivity
 

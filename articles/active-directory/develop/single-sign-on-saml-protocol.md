@@ -1,19 +1,20 @@
 ---
-title: Azure single sign-on SAML protocol
+title: Single sign-on SAML protocol
 description: This article describes the single sign-on (SSO) SAML protocol in Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: kenwith
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/05/2022
-ms.author: kenwith
+ms.date: 08/11/2023
+ms.author: owenrichards
+ms.reviewer: kenwith
 ms.custom: aaddev
-ms.reviewer: paulgarn
+
 ---
 
 # Single sign-on SAML protocol
@@ -22,7 +23,7 @@ This article covers the SAML 2.0 authentication requests and responses that Azur
 
 The protocol diagram below describes the single sign-on sequence. The cloud service (the service provider) uses an HTTP Redirect binding to pass an `AuthnRequest` (authentication request) element to Azure AD (the identity provider). Azure AD then uses an HTTP post binding to post a `Response` element to the cloud service.
 
-![Single Sign-On (SSO) Workflow](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
+![Screenshot of the Single Sign-On (SSO) Workflow.](./media/single-sign-on-saml-protocol/saml-single-sign-on-workflow.png)
 
 > [!NOTE]
 > This article discusses using SAML for single sign-on. For more information on other ways to handle single sign-on (for example, by using OpenID Connect or integrated Windows authentication), see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
@@ -43,14 +44,14 @@ To request a user authentication, cloud services send an `AuthnRequest` element 
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| ID | Required | Azure AD uses this attribute to populate the `InResponseTo` attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "id" to the string representation of a GUID. For example, `id6c1c178c166d486687be4aaf5e482730` is a valid ID. |
-| Version | Required | This parameter should be set to **2.0**. |
-| IssueInstant | Required | This is a DateTime string with a UTC value and [round-trip format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD expects a DateTime value of this type, but doesn't evaluate or use the value. |
-| AssertionConsumerServiceURL | Optional | If provided, this parameter must match the `RedirectUri` of the cloud service in Azure AD. |
-| ForceAuthn | Optional | This is a boolean value. If true, it means that the user will be forced to re-authenticate, even if they have a valid session with Azure AD. |
-| IsPassive | Optional | This is a boolean value that specifies whether Azure AD should authenticate the user silently, without user interaction, using the session cookie if one exists. If this is true, Azure AD will attempt to authenticate the user using  the session cookie. |
+| `ID` | Required | Azure AD uses this attribute to populate the `InResponseTo` attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "ID" to the string representation of a GUID. For example, `id6c1c178c166d486687be4aaf5e482730` is a valid ID. |
+| `Version` | Required | This parameter should be set to `2.0`. |
+| `IssueInstant` | Required | This is a DateTime string with a UTC value and [round-trip format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD expects a DateTime value of this type, but doesn't evaluate or use the value. |
+| `AssertionConsumerServiceURL` | Optional | If provided, this parameter must match the `RedirectUri` of the cloud service in Azure AD. |
+| `ForceAuthn` | Optional | This is a boolean value. If true, it means that the user will be forced to re-authenticate, even if they have a valid session with Azure AD. |
+| `IsPassive` | Optional | This is a boolean value that specifies whether Azure AD should authenticate the user silently, without user interaction, using the session cookie if one exists. If this is true, Azure AD will attempt to authenticate the user using  the session cookie. |
 
-All other `AuthnRequest` attributes, such as Consent, Destination, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex, and ProviderName are **ignored**.
+All other `AuthnRequest` attributes, such as `Consent`, `Destination`, `AssertionConsumerServiceIndex`, `AttributeConsumerServiceIndex`, and `ProviderName` are **ignored**.
 
 Azure AD also ignores the `Conditions` element in `AuthnRequest`.
 
@@ -97,7 +98,7 @@ If provided, don't include the `ProxyCount` attribute, `IDPListOption` or `Reque
 
 ### Signature
 
-A `Signature` element in `AuthnRequest` elements is optional. Azure AD does not validate signed authentication requests if a signature is present. Requestor verification is provided for by only responding to registered Assertion Consumer Service URLs. 
+A `Signature` element in `AuthnRequest` elements is optional. Azure AD can be configured (Preview) to enforce the requirement of signed authentication requests. If enabled, only signed authentication requests are accepted, otherwise the requestor verification is provided for by only responding to registered Assertion Consumer Service URLs.
 
 ### Subject
 
@@ -217,7 +218,7 @@ To generate this digital signature, Azure AD uses the signing key in the `IDPSSO
 
 #### Subject
 
-This specifies the principal that is the subject of the statements in the assertion. It contains a `NameID` element, which represents the authenticated user. The `NameID` value is a targeted identifier that is directed only to the service provider that is the audience for the token. It is persistent - it can be revoked, but is never reassigned. It is also opaque, in that it does not reveal anything about the user and cannot be used as an identifier for attribute queries.
+This specifies the principle that is the subject of the statements in the assertion. It contains a `NameID` element, which represents the authenticated user. The `NameID` value is a targeted identifier that is directed only to the service provider that is the audience for the token. It is persistent - it can be revoked, but is never reassigned. It is also opaque, in that it does not reveal anything about the user and cannot be used as an identifier for attribute queries.
 
 The `Method` attribute of the `SubjectConfirmation` element is always set to `urn:oasis:names:tc:SAML:2.0:cm:bearer`.
 

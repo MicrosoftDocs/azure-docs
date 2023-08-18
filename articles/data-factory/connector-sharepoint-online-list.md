@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/08/2022
+ms.date: 06/26/2023
 ms.author: jianleishen
 ---
 # Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse Analytics
@@ -38,7 +38,7 @@ Specifically, this SharePoint List Online connector uses service principal authe
 
 The SharePoint List Online connector uses service principal authentication to connect to SharePoint. Follow these steps to set it up:
 
-1. Register an application entity in Azure Active Directory (Azure AD) by following [Register your application with an Azure AD tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Make note of the following values, which you use to define the linked service:
+1. Register an application with the Microsoft Identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
 
     - Application ID
     - Application key
@@ -49,8 +49,8 @@ The SharePoint List Online connector uses service principal authentication to co
     1. Open SharePoint Online site link e.g. `https://[your_site_url]/_layouts/15/appinv.aspx` (replace the site URL).
     2. Search the application ID you registered, fill the empty fields, and click "Create".
 
-        - App Domain: `localhost.com`
-        - Redirect URL: `https://www.localhost.com`
+        - App Domain: `contoso.com`
+        - Redirect URL: `https://www.contoso.com`
         - Permission Request XML:  
 
             ```xml
@@ -60,6 +60,9 @@ The SharePoint List Online connector uses service principal authentication to co
             ```
 
             :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site admin role.":::
+            
+        > [!NOTE]
+        > In the context of configuring the SharePoint connector, the "App Domain" and "Redirect URL" refer to the SharePoint app that you have registered in Azure Active Directory (AAD) to allow access to your SharePoint data. The "App Domain" is the domain where your SharePoint site is hosted. For example, if your SharePoint site is located at "https://contoso.sharepoint.com", then the "App Domain" would be "contoso.sharepoint.com". The "Redirect URL" is the URL that the SharePoint app will redirect to after the user has authenticated and granted permissions to the app. This URL should be a page on your SharePoint site that the app has permission to access. For example, you could use the URL of a page that displays a list of files in a library, or a page that displays the contents of a document.
 
     3. Click "Trust It" for this app.
 
@@ -101,10 +104,11 @@ The following properties are supported for a SharePoint Online List linked servi
 | ------------------- | ------------------------------------------------------------ | ------------ |
 | type                | The type property must be set to: **SharePointOnlineList**.  | Yes          |
 | siteUrl             | The SharePoint Online site url, e.g. `https://contoso.sharepoint.com/sites/siteName`. | Yes          |
-| servicePrincipalId  | The Application (client) ID of the application registered in Azure Active Directory. | Yes          |
+| servicePrincipalId  | The Application (client) ID of the application registered in Azure Active Directory. Refer to [Prerequisites](#prerequisites) for more details including the permission settings.| Yes          |
 | servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes          |
 | tenantId            | The tenant ID under which your application resides.          | Yes          |
-| connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites), earlier in this article. If not specified, the default Azure Integration Runtime is used. | No           |
+| connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. If not specified, the default Azure Integration Runtime is used. | No           |
+
 
 **Example:**
 
@@ -133,7 +137,7 @@ For a full list of sections and properties that are available for defining datas
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the dataset must be set to **SharePointOnlineLResource**. | Yes |
-| listName | The name of the SharePoint Online List. | Yes |
+| listName | The name of the SharePoint Online List. Note that the apostrophe (') is not allowed in file names. | Yes |
 
 **Example**
 

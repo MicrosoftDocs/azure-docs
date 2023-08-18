@@ -1,8 +1,8 @@
 ---
 title: Cost management guide for Azure Lab Services
 description: Understand the different ways to view costs for Lab Services.
-author: rbest
-ms.author: rbest
+author: RogerBestMSFT
+ms.service: lab-services
 ms.date: 07/04/2022
 ms.topic: how-to
 ms.custom: devdivchpfy22
@@ -14,7 +14,9 @@ For Azure Lab Services, cost management can be broken down into two distinct are
 
 ## Estimate the lab costs
 
-Each lab dashboard has a **Costs & Billing** section that lays out a rough estimate of what the lab will cost for the lab. The estimate uses the number [schedules](classroom-labs-concepts.md#schedules), [quota hours](classroom-labs-concepts.md#quota), [extra quota for individual students](how-to-configure-student-usage.md#set-additional-quotas-for-specific-users), and [lab capacity](how-to-manage-vm-pool.md#set-lab-capacity) when calculating the cost estimate.  Changes to the number of quota hours, schedules or lab capacity will affect the cost estimate value.
+Each lab dashboard has a **Costs & Billing** section that lays out a rough estimate of what the lab will cost for the lab. The estimate uses the number [schedules](classroom-labs-concepts.md#schedule), [quota hours](classroom-labs-concepts.md#quota), [extra quota for individual students](how-to-manage-lab-users.md#set-additional-quotas-for-specific-users), and [lab capacity](how-to-manage-vm-pool.md#change-lab-capacity) when calculating the cost estimate.  Changes to the number of quota hours, schedules or lab capacity will affect the cost estimate value.
+
+If users don't consume their assigned quota hours, you are only charged for the quota hours that lab users consumed.
 
 This estimate might not show all the possible costs. A few resources aren't included:
 
@@ -86,11 +88,17 @@ Depending on the type of class, there are ways to manage costs to reduce instanc
 
 ### Automatic shutdown settings for cost control
 
-Automatic shutdown features enable you to prevent wasted VM usage hours in the labs. To configure automatic shutdown for a lab plan, see [Configure automatic shutdown of VMs for a lab plan](how-to-configure-auto-shutdown-lab-plans.md).  You can configure these settings at both the lab plan/lab account level and the lab level.
+Anytime a machine is **Running**, costs are being incurred, even if no one is connected to the VM.  You can enable several auto-shutdown features to avoid extra costs when the VMs aren't being used.  The are three auto-shutdown policies available in Azure Lab Services.
+
+- Disconnect idle virtual machines.
+- Shut down virtual machines when students disconnect from the virtual machine.
+- Shut down virtual machines when students don't connect a recently started virtual machine.
+
+For more information, see [Configure automatic shutdown of VMs for a lab plan](how-to-configure-auto-shutdown-lab-plans.md). You can configure these settings at both the lab plan/lab account level and the lab level.
 
 ### Scheduled time and quota time
 
-[Schedules](classroom-labs-concepts.md#schedules) and [Quota](classroom-labs-concepts.md#quota) are two ways of allowing access to the lab VMs.
+[Schedules](classroom-labs-concepts.md#schedule) and [Quota](classroom-labs-concepts.md#quota) are two ways of allowing access to the lab VMs.
 
 In the schedule, you can add a stop-only event type that will stop all machines at a specific time. Some lab owners have set a stop-only event for every day at midnight to reduce the cost and quota usage. The downside to this type of event is that all VMs will be shut down, even if a student is using a VM.
 

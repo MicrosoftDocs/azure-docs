@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Certify | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Certify'
 description: Learn how to configure single sign-on between Azure Active Directory and Certify.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/20/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Certify
@@ -48,6 +48,8 @@ To configure the integration of Certify into Azure AD, you need to add Certify f
 1. In the **Add from the gallery** section, type **Certify** in the search box.
 1. Select **Certify** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Certify
 
 Configure and test Azure AD SSO with Certify using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Certify.
@@ -74,7 +76,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
     In the **Identifier** text box, type the URL:
-    `https://www.certify.com`
+    `https://expense.certify.com`
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
 

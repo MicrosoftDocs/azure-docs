@@ -4,16 +4,14 @@ description: Learn how the principle of least privilege can help increase the se
 services: active-directory
 author: davidmu1
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/16/2022
+ms.date: 01/06/2023
 ms.custom: template-concept
 ms.author: davidmu
-ms.reviewer: yuhko, saumadan, marsma
-
+ms.reviewer: yuhko, saumadan
 # Customer intent: As a developer, I want to learn about the principle of least privilege and the features of the Microsoft identity platform that I can use to make sure my application and its users are restricted to actions and have access to only the data they need perform their tasks.
 ---
 
@@ -54,7 +52,7 @@ A reducible permission is a permission that has a lower-privileged counterpart t
 
 ## Use consent to control access to data
 
-Most applications require access to protected data, and the owner of that data needs to [consent](application-consent-experience.md#consent-and-permissions) to that access. Consent can be granted in several ways, including by a tenant administrator who can consent for *all* users in an Azure AD tenant, or by the application users themselves who can grant access.
+Most applications require access to protected data, and the owner of that data needs to [consent](consent-types-developer.md) to that access. Consent can be granted in several ways, including by a tenant administrator who can consent for *all* users in an Azure AD tenant, or by the application users themselves who can grant access.
 
 Whenever an application that runs in a device requests access to protected data, the application should ask for the consent of the user before granting access to the protected data. The user is required to grant (or deny) consent for the requested permission before the application can progress.
 
@@ -84,5 +82,5 @@ Make these standard practices in an organization to help make sure that deployed
 
 ## Next steps
 
-- [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
+- [Permissions and consent in the Microsoft identity platform](./permissions-consent-overview.md)
 - [Understanding Azure AD application consent experiences](../develop/application-consent-experience.md)

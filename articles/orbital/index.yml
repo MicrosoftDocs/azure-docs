@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Orbital documentation
-summary: Azure Orbital is a cloud-based Ground Station as a Service that allows you to streamline your operations by ingesting space data directly into Azure.
+title: Azure Orbital Documentation
+summary: Azure Orbital Ground Station is a cloud-based Ground Station as a Service that allows you to streamline your satellite operations by ingesting space data directly into Azure.
 
 metadata:
-  title: Azure Orbital documentation
-  description: Azure Orbital is a cloud-based Ground Station as a Service that allows you to streamline your operations by ingesting space data directly into Azure.
+  title: Azure Orbital Documentation
+  description: Azure Orbital Ground Station is a cloud-based Ground Station as a Service that allows you to streamline your satellite operations by ingesting space data directly into Azure.
   ms.service: orbital
   ms.topic: landing-page
   author: wamota
@@ -19,14 +19,16 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Orbital
+  - title: About Azure Orbital Ground Station
     linkLists:
       - linkListType: overview
         links:
-          - text: Why use Azure Orbital?
+          - text: Why use Azure Orbital Ground Station?
             url: overview.md
-          - text: What is the Space Partner Community?
-            url: space-partner-program-overview.md
+          - text: Get started with Azure Orbital Ground Station
+            url: get-started.md
+          - text: What is the Azure Space Partner Community?
+            url: space-partner-program-overview.md  
 
   # Card
   - title: Get started with Earth Observation
@@ -47,8 +49,6 @@ landingContent:
         links:
           - text: Prepare network to receive and send data
             url: prepare-network.md
-          - text: License your spacecraft
-            url: license-spacecraft.md
           - text: Integrate partner network ground stations
             url: partner-network-integration.md
           - text: Receive real-time telemetry
@@ -59,24 +59,27 @@ landingContent:
             url: delete-contact.md     
 
   # Card
-  - title: Azure Orbital Analytics
+  - title: Tutorials & Architectures
     linkLists:
-      - linkListType: overview
+      - linkListType: tutorial
         links:
-          - text: What is Azure Orbital Analytics?
-            url: overview-analytics.md
-      - linkListType: concept
+          - text: Downlink data from NASA's Aqua public satellite
+            url: downlink-aqua.md
+          - text: Process Aqua satellite data using NASA-provided tools
+            url: satellite-imagery-with-orbital-ground-station.md
+          - text: Understand virtual RF (vRF) through demodulation of Aqua using GNU Radio
+            url: virtual-rf-tutorial.md
+      - linkListType: architecture
         links:
           - text: Geospatial reference architecture
             url: geospatial-reference-architecture.md
           - text: Spaceborne data analysis with Azure Synapse Analytics
-            url: /azure/architecture/industries/aerospace/geospatial-processing-analytics  
-      - linkListType: tutorial
-        links:
-          - text: Schedule a contact with NASA's AQUA public satellite
-            url: downlink-aqua.md
-          - text: Collect and process AQUA satellite payload
-            url: satellite-imagery-with-orbital-ground-station.md 
+            url: /azure/architecture/industries/aerospace/geospatial-processing-analytics 
+          - text: Organize spaceborne geospatial data with STAC
+            url: organize-stac-data.md
+          - text: Process Synthetic Aperture Radar (SAR) data
+            url: sar-reference-architecture.md   
+
 
   # Card
   - title: Concepts

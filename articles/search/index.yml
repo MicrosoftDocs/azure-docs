@@ -1,4 +1,4 @@
-﻿### YamlMime:Landing
+### YamlMime:Landing
 
 title: Azure Cognitive Search documentation # < 60 chars
 summary: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
@@ -6,12 +6,12 @@ metadata:
   title: Azure Cognitive Search documentation
   description: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form. 
   services: search
-  ms.service: service #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
+  ms.service: service
+  ms.topic: landing-page
   ms.collection: collection
-  author: HeidiSteen #Required; your GitHub user alias, with correct capitalization.
-  ms.author: heidist #Required; microsoft alias of author; optional team alias.
-  ms.date: 03/02/2021 #Required; mm/dd/yyyy format.
+  author: HeidiSteen
+  ms.author: heidist
+  ms.date: 03/02/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,17 +25,17 @@ landingContent:
         links:
           - text: What is Azure Cognitive Search?
             url: search-what-is-azure-search.md
+          - text: What is vector search?
+            url: vector-search-overview.md
           - text: What is semantic search?
             url: semantic-search-overview.md
-          - text: What are Azure Applied AI Services?
-            url: ../applied-ai-services/what-are-applied-ai-services.md
-      - linkListType: video
+      - linkListType: learn
         links:
-          - text: Use AI in search solutions
-            url: https://youtu.be/M4Rf1s0WcWQ?t=19
+          - text: Learning module
+            url: /training/modules/intro-to-azure-search/
 
   # Card
-  - title: Get started
+  - title: 10-minute quickstarts
     linkLists:
       - linkListType: quickstart
         links:
@@ -63,10 +63,10 @@ landingContent:
             url: search-get-started-rest.md
       - linkListType: reference
         links:
-          - text: Azure SDK for .NET
-            url: /dotnet/api/overview/azure/search.documents-readme
           - text: Azure REST API Reference
             url: /rest/api/searchservice/
+          - text: Azure SDK for .NET
+            url: /dotnet/api/overview/azure/search.documents-readme
           - text: Azure SDK for Python
             url: /python/api/overview/azure/search-documents-readme
 

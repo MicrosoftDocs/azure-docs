@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 02/22/2023
 ---
 
 # Encode and decode flat files in Azure Logic Apps
@@ -29,7 +29,7 @@ This article shows how to add the **Flat File** encoding and decoding actions to
 
 For more information, review the following documentation:
 
-* [Consumption versus Standard logic apps](logic-apps-overview.md#resource-type-and-host-environment-differences)
+* [Consumption versus Standard logic apps](logic-apps-overview.md#resource-environment-differences)
 * [Integration account built-in connectors](../connectors/built-in.md#integration-account-built-in)
 * [Built-in connectors overview for Azure Logic Apps](../connectors/built-in.md)
 * [Managed or Azure-hosted connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
@@ -42,11 +42,11 @@ For more information, review the following documentation:
 
   If you have a blank workflow, use any trigger that you want to start the workflow. This example uses the Request trigger.
 
-* Your logic app resource and workflow. Flat file operations don't have any triggers available, so your workflow has to minimally include a trigger. For more information, review the following documentation:
+* Your logic app resource and workflow. Flat file operations don't have any triggers available, so your workflow has to minimally include a trigger. For more information, see the following documentation:
 
-  * [Quickstart: Create your first Consumption logic app workflow with multi-tenant Azure Logic Apps](quickstart-create-first-logic-app-workflow.md)
+  * [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
 
-  * [Create a Standard logic app workflow with single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
+  * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
 
 * A flat file schema for encoding and decoding the XML content. For more information, [Add schemas to use with workflows in Azure Logic Apps](logic-apps-enterprise-integration-schemas.md).
 
@@ -67,6 +67,8 @@ For more information, review the following documentation:
     So, if you don't have or need an integration account, you can use the upload option. Otherwise, you can use the linking option. Either way, you can use these artifacts across all child workflows within the same logic app resource.
 
 ## Limitations
+
+* XML content that you want to decode must be encoded in UTF-8 format.
 
 * In your flat file schema, make sure the contained XML groups don't have excessive numbers of the `max count` property set to a value *greater than 1*. Avoid nesting an XML group with a `max count` property value greater than 1 inside another XML group with a `max count` property greater than 1.
 
@@ -131,8 +133,8 @@ After you create your schema, you now have to upload the schema based on the fol
 
    | Parameter | Value | Description |
    |-----------|-------|-------------|
-   | **Mode of empty node generation** | **ForcedDisabled** or **HonorSchemaNodeProperty** or **ForcedEnabled** | The mode to use for empty node generation in flat file encoding |
-   | **XML Normalization** | **Yes** or **No** | The setting to enable or disable XML normalization in flat file encoding |
+   | **Mode of empty node generation** | **ForcedDisabled** or **HonorSchemaNodeProperty** or **ForcedEnabled** | The mode to use for empty node generation with flat file encoding. <br><br>For BizTalk, the flat file schema has a property that controls empty node generation. You can either follow the empty node generation property behavior for your flat file schema, or you can use this setting to have Azure Logic Apps generate or omit empty nodes. For more information, see [Tags for empty elements](https://www.w3.org/TR/xml/#dt-empty). |
+   | **XML Normalization** | **Yes** or **No** | The setting to enable or disable XML normalization in flat file encoding. For more information, see [XmlTextReader.Normalization](/dotnet/api/system.xml.xmltextreader.normalization). |
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -277,7 +279,10 @@ After you create your schema, you now have to upload the schema based on the fol
 
 ---
 
-You're now done with setting up your flat file decoding action. In a real world app, you might want to store the decoded data in a line-of-business (LOB) app, such as Salesforce. Or, you can send the decoded data to a trading partner. To send the output from the decoding action to Salesforce or to your trading partner, use the other [connectors available in Azure Logic Apps](../connectors/apis-list.md).
+You're now done with setting up your flat file decoding action. In a real world app, you might want to store the decoded data in a line-of-business (LOB) app, such as Salesforce. Or, you can send the decoded data to a trading partner. To send the output from the decoding action to Salesforce or to your trading partner, use the other connectors available in Azure Logic Apps:
+
+* [Managed connectors for Azure Logic Apps](../connectors/managed.md)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)
 
 ## Test your workflow
 

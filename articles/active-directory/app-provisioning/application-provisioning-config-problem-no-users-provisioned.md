@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 10/06/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -63,4 +63,4 @@ For the next 3 months, the behavior will continue as it is today. Users with the
 For questions about these changes, please reach out to provisioningfeedback@microsoft.com
 ## Next steps
 
-[Azure AD Connect sync: Understanding Declarative Provisioning](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)
+[Azure AD Connect sync: Understanding Declarative Provisioning](../hybrid/connect/concept-azure-ad-connect-sync-declarative-provisioning.md)

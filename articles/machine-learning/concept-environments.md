@@ -6,9 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: larryfr
-author: Blackmist
-ms.date: 09/23/2021
+author: ositanachi  
+ms.author: osiotugo 
+ms.reviewer: larryfr
+ms.date: 11/04/2022
 ---
 
 # What are Azure Machine Learning environments?
@@ -39,9 +40,9 @@ You use system-managed environments when you want [conda](https://conda.io/docs/
 
 ## Create and manage environments
 
-You can create environments from clients like the AzureML Python SDK, Azure Machine Learning CLI, Environments page in Azure Machine Learning studio, and [VS Code extension](how-to-manage-resources-vscode.md#create-environment). Every client allows you to customize the base image, Dockerfile, and Python layer if needed.
+You can create environments from clients like the Azure Machine Learning Python SDK, Azure Machine Learning CLI, Environments page in Azure Machine Learning studio, and [VS Code extension](how-to-manage-resources-vscode.md#create-environment). Every client allows you to customize the base image, Dockerfile, and Python layer if needed.
 
-For specific code samples, see the "Create an environment" section of [How to use environments](how-to-use-environments.md#create-an-environment). 
+For specific code samples, see the "Create an environment" section of [How to use environments](how-to-manage-environments-v2.md#create-an-environment). 
 
 Environments are also easily managed through your workspace, which allows you to:
 
@@ -53,7 +54,7 @@ Environments are also easily managed through your workspace, which allows you to
 
 "Anonymous" environments are automatically registered in your workspace when you submit an experiment. They will not be listed but may be retrieved by version.
 
-For code samples, see the "Manage environments" section of [How to use environments](how-to-use-environments.md#manage-environments).
+For code samples, see the "Manage environments" section of [How to use environments](how-to-manage-environments-v2.md#manage-environments).
 
 ## Environment building, caching, and reuse
 
@@ -72,15 +73,15 @@ If the image for a particular environment definition doesn't already exist in th
  1. Downloading a base image, and executing any Docker steps
  2. Building a conda environment according to conda dependencies specified in the environment definition.
 
-The second step is omitted if you specify [user-managed dependencies](/python/api/azureml-core/azureml.core.environment.pythonsection). In this case you're responsible for installing any Python packages, by including them in your base image, or specifying custom Docker steps within the first step. You're also responsible for specifying the correct location for the Python executable. It is also possible to use a [custom Docker base image](./how-to-deploy-custom-container.md).
+The second step is optional, and the environment may instead come from the Docker build context or base image. In this case you're responsible for installing any Python packages, by including them in your base image, or specifying custom Docker steps. You're also responsible for specifying the correct location for the Python executable. It is also possible to use a [custom Docker base image](./how-to-deploy-custom-container.md).
 
 ### Image caching and reuse
 
 If you use the same environment definition for another job, Azure Machine Learning reuses the cached image from the Workspace ACR to save time.
 
-To view the details of a cached image, check the Environments page in Azure Machine Learning studio or use the [`Environment.get_image_details`](/python/api/azureml-core/azureml.core.environment.environment#get-image-details-workspace-) method.
+To view the details of a cached image, check the Environments page in Azure Machine Learning studio or use [`MLClient.environments`](/python/api/azure-ai-ml/azure.ai.ml.mlclient#azure-ai-ml-mlclient-environments) to get and inspect the environment.
 
-To determine whether to reuse a cached image or build a new one, AzureML computes a [hash value](https://en.wikipedia.org/wiki/Hash_table) from the environment definition and compares it to the hashes of existing environments. The hash is based on the environment definition's:
+To determine whether to reuse a cached image or build a new one, Azure Machine Learning computes a [hash value](https://en.wikipedia.org/wiki/Hash_table) from the environment definition and compares it to the hashes of existing environments. The hash is based on the environment definition's:
  
  * Base image
  * Custom docker steps
@@ -107,22 +108,18 @@ Actual cached images in your workspace ACR will have names like `azureml/azureml
 >
 > * Using an unpinned base image like `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04` in your environment definition results in rebuilding the image every time the `latest` tag is updated. This helps the image receive the latest patches and system updates.
 
-> [!WARNING]
->  The [`Environment.build`](/python/api/azureml-core/azureml.core.environment.environment#build-workspace--image-build-compute-none-) method will rebuild the cached image, with the possible side-effect of updating unpinned packages and breaking reproducibility for all environment definitions corresponding to that cached image.
-
 ### Image patching
 
-Microsoft is responsible for patching the base images for known security vulnerabilities. Updates for supported images are released every two weeks, with a commitment of no unpatched vulnerabilities older than 30 days in the the latest version of the image. Patched images are released with a new immutable tag and the `:latest` tag is updated to the latest version of the patched image. 
+Microsoft is responsible for patching the base images for known security vulnerabilities. Updates for supported images are released every two weeks, with a commitment of no unpatched vulnerabilities older than 30 days in the latest version of the image. Patched images are released with a new immutable tag and the `:latest` tag is updated to the latest version of the patched image. 
 
 If you provide your own images, you are responsible for updating them.
 
 For more information on the base images, see the following links:
 
 * [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers) GitHub repository.
-* [Train a model using a custom image](how-to-train-with-custom-image.md).
-* [Deploy a TensorFlow model using a custom container](how-to-deploy-custom-container.md)
+* [Use a custom container to deploy a model to an online endpoint](how-to-deploy-custom-container.md)
 
 ## Next steps
 
 * Learn how to [create and use environments](how-to-use-environments.md) in Azure Machine Learning.
-* See the Python SDK reference documentation for the [environment class](/python/api/azureml-core/azureml.core.environment%28class%29).
+* See the Python SDK reference documentation for the [environment class](/python/api/azure-ai-ml/azure.ai.ml.entities.environment).

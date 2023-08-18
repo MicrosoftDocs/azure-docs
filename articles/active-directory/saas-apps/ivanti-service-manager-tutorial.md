@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Ivanti Service Manager (ISM) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Ivanti Service Manager (ISM)'
 description: Learn how to configure single sign-on between Azure Active Directory and Ivanti Service Manager (ISM).
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/05/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Ivanti Service Manager (ISM)
@@ -44,6 +44,8 @@ To configure the integration of Ivanti Service Manager (ISM) into Azure AD, you 
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Ivanti Service Manager (ISM)** in the search box.
 1. Select **Ivanti Service Manager (ISM)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Ivanti Service Manager (ISM)
 

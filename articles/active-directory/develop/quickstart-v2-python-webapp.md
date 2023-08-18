@@ -6,9 +6,9 @@ author: henrymbuguakiarie
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/22/2021
+ms.date: 01/24/2023
 ROBOTS: NOINDEX
 ms.author: henrymbugua
 ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Python", mode-api
@@ -20,7 +20,7 @@ ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Py
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
-> > [Quickstart: Python web app with user sign-in](web-app-quickstart.md?pivots=devlang-python)
+> > [Quickstart: Add sign-in with Microsoft to a Python web app](quickstart-web-app-python-sign-in.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
@@ -74,7 +74,7 @@ ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Py
 >     ```
 > 
 >    > [!IMPORTANT]
->    > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](./active-directory-certificate-credentials.md).
+>    > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](./certificate-credentials.md).
 > 
 > ## More information
 > 
@@ -96,7 +96,7 @@ ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Py
 > import msal
 > ```
 > 
-> [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 > 
 > ## Next steps
 > 

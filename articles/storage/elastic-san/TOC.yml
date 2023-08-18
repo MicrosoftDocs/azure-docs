@@ -1,0 +1,42 @@
+items:
+- name: Azure Elastic SAN documentation
+  href: ./index.yml
+- name: Overview
+  items:
+  - name: What is Azure Elastic SAN?
+    href: elastic-san-introduction.md
+  - name: Compare core storage services
+    href: ../common/storage-introduction.md?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
+    expanded: true
+- name: Concepts
+  items:
+  - name: Planning
+    href: elastic-san-planning.md
+  - name: Networking
+    href: elastic-san-networking-concepts.md
+  - name: Scale targets
+    href: elastic-san-scale-targets.md
+  - name: Performance
+    href: elastic-san-performance.md
+  - name: Clustered applications
+    href: elastic-san-shared-volumes.md
+- name: How to
+  items:
+  - name: Deploy an Elastic SAN
+    href: elastic-san-create.md
+  - name: Configure networking
+    href: elastic-san-networking.md
+  - name: Connect to an Elastic SAN volume - Windows
+    href: elastic-san-connect-windows.md
+  - name: Connect to an Elastic SAN volume - Linux
+    href: elastic-san-connect-linux.md
+  - name: Connect to an Elastic SAN volume - AKS
+    href: elastic-san-connect-aks.md
+  - name: Expand an Elastic SAN
+    href: elastic-san-expand.md
+  - name: Delete an Elastic SAN
+    href: elastic-san-delete.md
+- name: Samples
+  items:
+  - name: Create elastic SAN volumes in a batch
+    href: elastic-san-batch-create-sample.md

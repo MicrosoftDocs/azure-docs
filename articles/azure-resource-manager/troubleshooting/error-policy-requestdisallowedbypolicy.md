@@ -1,16 +1,16 @@
 ---
-title: RequestDisallowedByPolicy error
-description: Describes the cause of the RequestDisallowedByPolicy error when deploying resources with an Azure Resource Manager template (ARM template) or Bicep file.
-author: genlin
+title: Request disallowed by policy error
+description: Describes the error for request disallowed by policy when deploying resources with an Azure Resource Manager template (ARM template) or Bicep file.
 ms.topic: troubleshooting
-ms.date: 12/08/2021
+ms.custom: devx-track-bicep, devx-track-arm-template
+ms.date: 04/05/2023
+author: genlin
 ms.author: genli
-ms.custom: devx-track-azurepowershell
 ---
 
-# RequestDisallowedByPolicy error with Azure resource policy
+# Resolve errors for request disallowed by policy
 
-This article describes the cause of the `RequestDisallowedByPolicy` error and provides a solution for the error. The error can occur when you deploy resources with an Azure Resource Manager template (ARM template) or Bicep file.
+This article describes the cause of the `RequestDisallowedByPolicy` error and provides a solution for the error. The request disallowed by policy error can occur when you deploy resources with an Azure Resource Manager template (ARM template) or Bicep file.
 
 ## Symptom
 
@@ -27,7 +27,7 @@ During a deployment, you might receive a `RequestDisallowedByPolicy` error that 
   "id":"/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/83a86a26-fd1f-447c-b59d-e51f44264114"}
 ```
 
-The name of a `policyAssignment` or `policyDefinition` is the last segment of the `id` string. The `{guid}` placeholder represents an Azure subscription ID.
+In the `id` string, the `{guid}` placeholder represents an Azure subscription ID. The name of a `policyAssignment` or `policyDefinition` is the last segment of the `id` string.
 
 ## Cause
 

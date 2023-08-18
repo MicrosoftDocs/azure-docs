@@ -4,11 +4,11 @@ description: The Role element of a service configuration file specifies how many
 ms.topic: article
 ms.service: cloud-services
 ms.subservice: deployment-files
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimtckit
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Azure Cloud Services (classic) Config Role Schema

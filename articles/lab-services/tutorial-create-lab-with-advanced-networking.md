@@ -4,14 +4,14 @@ description: Create an Azure Lab Services lab plan with advanced networking.  Cr
 ms.service: lab-services
 ms.topic: tutorial 
 ms.date: 07/27/2022
-ms.custom: template-tutorial 
+ms.custom: template-tutorial
 ---
 
 # Tutorial: Set up lab to lab communication with advanced networking
 
 [!INCLUDE [update focused article](includes/lab-services-new-update-focused-article.md)]
 
-Azure Lab Services provides a feature called advanced networking.  Advanced networking enables you to control the network for labs created using lab plans.  Advanced networking is used to enable various scenarios including [connecting to licensing servers](how-to-create-a-lab-with-shared-resource.md), using [hub-spoke model for Azure Networking](/azure/architecture/reference-architectures/hybrid-networking/), lab to lab communication, etc.  
+Azure Lab Services provides a feature called advanced networking.  Advanced networking enables you to control the network for labs created using lab plans.  You can use advanced networking to implement various scenarios including [connecting to licensing servers](how-to-create-a-lab-with-shared-resource.md), using [hub-spoke model for Azure Networking](/azure/architecture/reference-architectures/hybrid-networking/), or lab to lab communication. Learn more about the [supported networking scenarios in Azure Lab Services](./concept-lab-services-supported-networking-scenarios.md).
 
 Let's focus on the lab to lab communication scenario.  For our example, we'll create labs for a web development class.  Each student will need access to both a server VM and a client VM.  The server and client VMs must be able to communicate with each other.  We'll test communication by configuring Internet Control Message Protocol (ICMP) for each VM and allowing the VMs to ping each other.
 
@@ -34,13 +34,14 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+[!INCLUDE [Azure subscription](./includes/lab-services-prerequisite-subscription.md)]
+[!INCLUDE [Azure manage resources](./includes/lab-services-prerequisite-manage-resources.md)]
 
 ## Create a resource group
 
 [!INCLUDE [resource group definition](../../includes/resource-group.md)]
 
-The following steps show how to use the Azure portal to [create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal).  For simplicity, we'll put all resources for this tutorial in the same resource group.  
+The following steps show how to use the Azure portal to [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md).  For simplicity, we'll put all resources for this tutorial in the same resource group.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Resource groups**.
@@ -72,10 +73,10 @@ The following steps show how to use the Azure portal to create a virtual network
     1. Select **Next: IP Addresses**.
 
     :::image type="content" source="media/tutorial-create-lab-with-advanced-networking/create-virtual-network-basics-page.png" alt-text="Screenshot of Basics tab of Create virtual network page in the Azure portal.":::
-1. One the **IP Addresses** tab, create a subnet that will be used by the labs.
+1. On the **IP Addresses** tab, create a subnet that will be used by the labs.
     1. Select **+ Add subnet**
     1. For **Subnet name**, enter **labservices-subnet**.
-    1. For **Subnet address range**, enter range in CIDR notation. For example, 10.0.1.0/24 will have enough IP addresses for 251 lab VMs.  (Five IP addresses are reserved by Azure for every subnet.)  To create a subnet with more available IP addresses for VMs, use a different CIDR prefix length. For example, 10.0.0.0/20 would have room for over 4000 IP addresses for lab VMs.  For more information about adding subnets, see [Add a subnet](/azure/virtual-network/virtual-network-manage-subnet).
+    1. For **Subnet address range**, enter range in CIDR notation. For example, 10.0.1.0/24 will have enough IP addresses for 251 lab VMs.  (Five IP addresses are reserved by Azure for every subnet.)  To create a subnet with more available IP addresses for VMs, use a different CIDR prefix length. For example, 10.0.0.0/20 would have room for over 4000 IP addresses for lab VMs.  For more information about adding subnets, see [Add a subnet](../virtual-network/virtual-network-manage-subnet.md).
     1. Select **OK**.
 1. Select **Review + Create**.
 
@@ -85,7 +86,7 @@ The following steps show how to use the Azure portal to create a virtual network
 
 ## Delegate subnet to Azure Lab Services
 
-In this section, we'll configure the subnet to be used with Azure Lab Services.  To tell Azure Lab Services that a subnet may be used, the subnet must be [delegated to the service](/azure/virtual-network/manage-subnet-delegation).
+In this section, we'll configure the subnet to be used with Azure Lab Services.  To tell Azure Lab Services that a subnet may be used, the subnet must be [delegated to the service](../virtual-network/manage-subnet-delegation.md).
 
 1. Open the **MyVirtualNetwork** resource.
 1. Select the **Subnets** item on the left menu.
@@ -208,14 +209,12 @@ To create a lab, see the following steps.  We'll run the steps twice.  Once to c
 
 1. On the **Virtual machine credentials** page, specify default administrator credentials for all VMs in the lab. Specify the **name** and **password** for the administrator.  By default all the student VMs will have the same password as the one specified here. Select **Next**.
 
-    :::image type="content" source="./media/tutorial-setup-lab/virtual-machine-credentials.png" alt-text="Screenshot that shows the Virtual machine credentials window when creating a new Azure Lab Services lab.":::
+    :::image type="content" source="./media/tutorial-create-lab-with-advanced-networking/new-lab-credentials.png" alt-text="Screenshot that shows the Virtual machine credentials window when creating a new Azure Lab Services lab.":::
 
     > [!IMPORTANT]
     > Make a note of user name and password. They won't be shown again.
 
 1. On the **Lab policies** page, leave the default selections and select **Next**.
-
-    :::image type="content" source="./media/tutorial-setup-lab/quota-for-each-user.png" alt-text="Screenshot of the Lab policy window when creating a new Azure Lab Services lab.":::
 
 1. On the **Template virtual machine settings** window, leave the selection on **Create a template virtual machine**.  Select **Finish**.
 
@@ -289,7 +288,7 @@ First, let's start and connect to a lab VM from each lab.  Complete the followin
 1. Select the **State** slider to change the state from **Stopped** to **Starting**.
 
     > [!NOTE]
-    > When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to a student outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
+    > When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to a student outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-manage-lab-users.md?#set-quotas-for-users).
 1. Once the **State** is **Running**, select the connect icon for the running VM.  Open the download RDP file to connect to the VM.  For more information about connection experiences on different operating systems, see [Connect to a lab VM](connect-virtual-machine.md).
 
 :::image type="content" source="media/tutorial-create-lab-with-advanced-networking/virtual-machine-pool-running-vm.png" alt-text="Screen shot of virtual machine pool page for Azure Lab Services lab.":::
@@ -308,7 +307,11 @@ If you're not going to continue to use this application, delete the virtual netw
 1. Select **Delete resource group**.
 1. To confirm the deletion, type the name of the resource group
 
+## Troubleshooting
+
+[!INCLUDE [Troubleshoot not authorized error](./includes/lab-services-troubleshoot-not-authorized.md)]
+
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Add students to the labs](how-to-configure-student-usage.md)
+>[Add students to the labs](how-to-manage-lab-users.md)

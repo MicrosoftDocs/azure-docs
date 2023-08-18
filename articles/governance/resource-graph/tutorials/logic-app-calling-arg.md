@@ -46,6 +46,8 @@ Keep the query above handy as we will need it later when we configure our Logic 
 
 2. Click the **Add** button on upper left of your screen and continue with creating your Logic App.
 
+3. When creating the Logic App, ensure you choose **Consumption** under **Plan Type**.
+
 ## Setup a Managed Identity
 
 ### Create a New System-Assigned Managed Identity

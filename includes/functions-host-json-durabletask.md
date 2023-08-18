@@ -33,6 +33,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
       "trackingStoreConnectionStringName": "TrackingStorage",
       "trackingStoreNamePrefix": "DurableTask",
       "useLegacyPartitionManagement": true,
+      "useTablePartitionManagement": false,
       "workItemQueueVisibilityTimeout": "00:05:00",
     },
     "tracing": {
@@ -95,11 +96,11 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
 ```
 ---
 
-Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **DurableFunctionsHub**. For  more information, see [Task hubs](../articles/azure-functions/durable/durable-functions-task-hubs.md).
+Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **TestHubName**. For  more information, see [Task hubs](../articles/azure-functions/durable/durable-functions-task-hubs.md).
 
 |Property  |Default | Description |
 |---------|---------|----------|
-|hubName|DurableFunctionsHub|Alternate [task hub](../articles/azure-functions/durable/durable-functions-task-hubs.md) names can be used to isolate multiple Durable Functions applications from each other, even if they're using the same storage backend.|
+|hubName|TestHubName (DurableFunctionsHub if using Durable Functions 1.x)|Alternate [task hub](../articles/azure-functions/durable/durable-functions-task-hubs.md) names can be used to isolate multiple Durable Functions applications from each other, even if they're using the same storage backend.|
 |controlQueueBatchSize|32|The number of messages to pull from the control queue at a time.|
 |controlQueueBufferThreshold| **Consumption plan for Python**: 32 <br> **Consumption plan for JavaScript and C#**: 128 <br> **Dedicated/Premium plan**: 256 |The number of control queue messages that can be buffered in memory at a time, at which point the dispatcher will wait before dequeuing any additional messages.|
 |partitionCount |4|The partition count for the control queue. May be a positive integer between 1 and 16.|
@@ -120,6 +121,7 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |eventGridPublishEventTypes||A list of event types to publish to Event Grid. If not specified, all event types will be published. Allowed values include `Started`, `Completed`, `Failed`, `Terminated`.|
 |useAppLease|true|When set to `true`, apps will require acquiring an app-level blob lease before processing task hub messages. For more information, see the [disaster recovery and geo-distribution](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md) documentation. Available starting in v2.3.0.
 |useLegacyPartitionManagement|false|When set to `false`, uses a partition management algorithm that reduces the possibility of duplicate function execution when scaling out.  Available starting in v2.3.0.|
+|useTablePartitionManagement|false|When set to `true`, uses a partition management algorithm designed to reduce costs for Azure Storage V2 accounts. Available starting in v2.10.0.|
 |useGracefulShutdown|false|(Preview) Enable gracefully shutting down to reduce the chance of host shutdowns failing in-process function executions.|
 |maxEntityOperationBatchSize(2.6.1)|**Consumption plan**: 50 <br> **Dedicated/Premium plan**: 5000|The maximum number of entity operations that are processed as a [batch](../articles/azure-functions/durable/durable-functions-perf-and-scale.md#entity-operation-batching). If set to 1, batching is disabled, and each operation message is processed by a separate function invocation.|
 

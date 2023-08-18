@@ -1,15 +1,15 @@
 ---
 title: PowerShell - How to create VM Images with Packer
 description: Learn how to use Packer and PowerShell to create images of virtual machines in Azure
-author: cynthn
+author: ericd-mst-github
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 08/05/2020
-ms.author: cynthn 
-ms.custom: devx-track-azurepowershell
+ms.date: 03/31/2023
+ms.author: erd 
+ms.custom: devx-track-azurepowershell, devx-track-linux
 ---
 
 # PowerShell: How to use Packer to create virtual machine images in Azure
@@ -19,7 +19,7 @@ ms.custom: devx-track-azurepowershell
 
 Each virtual machine (VM) in Azure is created from an image that defines the Windows distribution and OS version. Images can include pre-installed applications and configurations. The Azure Marketplace provides many first and third-party images for most common OS' and application environments, or you can create your own custom images tailored to your needs. This article details how to use the open-source tool [Packer](https://www.packer.io/) to define and build custom images in Azure.
 
-This article was last tested on 8/5/2020 using [Packer](https://www.packer.io/docs/install) version 1.6.1.
+This article was last tested on 8/5/2020 using [Packer](https://www.packer.io/docs/install) version 1.8.1.
 
 > [!NOTE]
 > Azure now has a service, Azure Image Builder, for defining and creating your own custom images. Azure Image Builder is built on Packer, so you can even use your existing Packer shell provisioner scripts with it. To get started with Azure Image Builder, see [Create a Windows VM with Azure Image Builder](image-builder.md).
@@ -166,8 +166,8 @@ If you don't already have Packer installed on your local machine, [follow the Pa
 
 Build the image by opening a cmd prompt and specifying your Packer template file as follows:
 
-```
-./packer build windows.json
+```powershell
+packer build windows.json
 ```
 You can also build the image by specifying the *windows.pkr.hcl* file as follows:
 
@@ -177,7 +177,7 @@ packer build windows.pkr.hcl
 
 An example of the output from the preceding commands is as follows:
 
-```bash
+```powershell
 azure-arm output will be in this color.
 
 ==> azure-arm: Running builder ...

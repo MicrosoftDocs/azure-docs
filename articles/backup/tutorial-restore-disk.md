@@ -2,11 +2,11 @@
 title: Tutorial - Restore a VM with Azure CLI
 description: Learn how to restore a disk and create a recover a VM in Azure with Backup and Recovery Services.
 ms.topic: tutorial
-ms.date: 04/25/2022
+ms.date: 10/28/2022
 ms.custom: mvc, devx-track-azurecli
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore a VM with Azure CLI
@@ -23,7 +23,7 @@ For information on using PowerShell to restore a disk and create a recovered VM,
 
 Now, you can also use CLI to directly restore the backup content to a VM (original/new), without performing the above steps separately. For more information, see [Restore data to virtual machine using CLI](#restore-data-to-virtual-machine-using-cli).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.18 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -86,7 +86,7 @@ If the backed-up VM has managed disks and if the intent is to restore managed di
     ```
 
     > [!WARNING]
-    > If **target-resource-group** isn't provided, then the managed disks will be restored as unmanaged disks to the given storage account. This will have significant consequences to the restore time since the time taken to restore the disks entirely depends on the given storage account. You'll get the benefit of instant restore only when the target-resource-group parameter is given. If the intention is to restore managed disks as unmanaged then don't provide the **target-resource-group** parameter and instead provide the parameter **restore-as-unmanaged-disk** parameter as shown below. This parameter is available from az 3.4.0 onwards.
+    > If **target-resource-group** isn't provided, then the managed disks will be restored as unmanaged disks to the given storage account. This will have significant consequences to the restore time since the time taken to restore the disks entirely depends on the given storage account. You'll get the benefit of instant restore only when the target-resource-group parameter is given. If the intention is to restore managed disks as unmanaged then don't provide the **target-resource-group** parameter and instead provide the **restore-as-unmanaged-disk** parameter as shown below. This parameter is available from Azure CLI 3.4.0 onwards.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -346,9 +346,15 @@ az backup restore restore-disks \
     --vault-name myRecoveryServicesVault \
     --container-name myVM \
     --item-name myVM \
-    --restore-mode OriginalLocation 
+    --restore-mode AlternateLocation \
     --storage-account mystorageaccount \
-    --rp-name myRecoveryPointName \ 
+
+--target-resource-group "Target_RG" \
+    --rp-name myRecoveryPointName \
+    --target-vm-name "TargetVirtualMachineName" \
+    --target-vnet-name "Target_VNet" \
+    --target-vnet-resource-group "Target_VNet_RG" \
+    --target-subnet-name "targetSubNet"
 ```
 
 ```output

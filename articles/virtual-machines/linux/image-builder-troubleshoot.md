@@ -3,12 +3,12 @@ title: Troubleshoot Azure VM Image Builder
 description: This article helps you troubleshoot common problems and errors you might encounter when you're using Azure VM Image Builder.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 10/02/2020
+ms.reviewer: erd
+ms.date: 07/31/2023
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
 # Troubleshoot Azure VM Image Builder
@@ -20,16 +20,17 @@ Use this article to troubleshoot and resolve common issues that you might encoun
 ## Prerequisites
 
 When you're creating a build, do the following:
-	
+
 - The VM Image Builder service communicates to the build VM by using WinRM or Secure Shell (SSH). Do *not* disable these settings as part of the build.
 - VM Image Builder creates resources as part of the build. Be sure to verify that Azure Policy doesn't prevent VM Image Builder from creating or using necessary resources.
   - Create an IT_ resource group.
   - Create a storage account without a firewall.
 - Verify that Azure Policy doesn't install unintended features on the build VM, such as Azure Extensions.
--	Ensure that VM Image Builder has the correct permissions to read/write images and to connect to the storage account. For more information, review the permissions documentation for the [Azure CLI](./image-builder-permissions-cli.md) or [Azure PowerShell](./image-builder-permissions-powershell.md).
+- Ensure that VM Image Builder has the correct permissions to read/write images and to connect to the storage account. For more information, review the permissions documentation for the [Azure CLI](./image-builder-permissions-cli.md) or [Azure PowerShell](./image-builder-permissions-powershell.md).
 - VM Image Builder will fail the build if the scripts or inline commands fail with errors (non-zero exit codes). Ensure that you've tested the custom scripts and verified that they run without error (exit code 0) or require user input. For more information, see [Create an Azure Virtual Desktop image by using VM Image Builder and PowerShell](../windows/image-builder-virtual-desktop.md#tips-for-building-windows-images).
 
 VM Image Builder failures can happen in two areas:
+
 - During image template submission
 - During image building
 
@@ -37,31 +38,32 @@ VM Image Builder failures can happen in two areas:
 
 Image template submission errors are returned at submission only. There isn't an error log for image template submission errors. If there's an error during submission, you can return the error by checking the status of the template, specifically by reviewing `ProvisioningState` and `ProvisioningErrorMessage`/`provisioningError`.
 
-```azurecli
+```azurecli-interactive
 az image builder show --name $imageTemplateName  --resource-group $imageResourceGroup
 ```
 
 ```azurepowershell-interactive
 Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGroupName <imageTemplateResourceGroup> | Select-Object ProvisioningState, ProvisioningErrorMessage
 ```
+
 > [!NOTE]
 > For PowerShell, you'll need to install the [VM Image Builder PowerShell modules](../windows/image-builder-powershell.md#prerequisites).
 
 > [!IMPORTANT]
 > API version 2021-10-01 introduces a change to the error schema that will be part of every future API release. If you have any Azure VM Image Builder automations, be aware of the [new error output](#error-output-for-version-2021-10-01-and-later) when you switch to API version 2021-10-01 or later. We recommend, after you've switched to the latest API version, that you don't revert to an earlier version, because you'll have to change your automation again to produce the earlier error schema. We don't anticipate that we'll change the error schema again in future releases.
 
-##### **Error output for version 2020-02-14 and earlier**
+### **Error output for version 2020-02-14 and earlier**
 
-```
+```output
 { 
   "code": "ValidationFailed",
   "message": "Validation failed: 'ImageTemplate.properties.source': Field 'imageId' has a bad value: '/subscriptions/subscriptionID/resourceGroups/resourceGroupName/providers/Microsoft.Compute/images/imageName'. Please review  http://aka.ms/azvmimagebuildertmplref  for details on fields requirements in the Image Builder Template." 
 } 
 ```
 
-##### **Error output for version 2021-10-01 and later**
+### **Error output for version 2021-10-01 and later**
 
-```
+```output
 { 
   "error": {
     "code": "ValidationFailed", 
@@ -76,7 +78,7 @@ The following sections present problem resolution guidance for common image temp
 
 #### Error
 
-```text
+```output
 'Conflict'. Details: Update/Upgrade of image templates is currently not supported
 ```
 
@@ -88,11 +90,47 @@ The template already exists.
 
 If you submit an image configuration template and the submission fails, a failed template artifact still exists. Delete the failed template.
 
+### Reassigning MSI on image templates
+
+#### Error
+
+```output
+The assigned managed identity cannot be used. Please remove the existing one and re-assign a new identity. For more troubleshooting steps go to https://aka.ms/azvmimagebuilderts.
+```
+
+#### Cause
+
+
+There are cases where [Managed Service Identities (MSI)](/azure/virtual-machines/linux/image-builder-permissions-cli#create-a-user-assigned-managed-identity) assigned to the image template cannot be used: 
+
+
+- The Image Builder template uses a customer provided staging resource group and the MSI is deleted before the image template is deleted ([staging resource group](./image-builder-json.md#properties-stagingresourcegroup) scenario)
+- The created [Managed Service Identities (MSI)](./image-builder-permissions-cli.md#create-a-user-assigned-managed-identity) assigned to the image template cannot be used
+
+
+#### Solution
+
+
+Use Azure CLI to reset identity on the image template. Ensure you [update](/cli/azure/update-azure-cli) Azure CLI to the 2.45.0 version or later.
+
+
+Remove the managed identity from the target image builder template
+
+```azurecli-interactive
+az image builder identity remove -g <template resource group> -n <template name> --user-assigned <identity resource id>
+```
+
+Re-assign identity to the target image builder template
+
+```azurecli-interactive
+az image builder identity assign -g <template rg> -n <template name> --user-assigned <identity resource id>
+```
+
 ### The resource operation finished with a terminal provisioning state of "Failed"
 
 #### Error
 
-```text
+```output
 Microsoft.VirtualMachineImages/imageTemplates 'helloImageTemplateforSIG01' failed with message '{
   "status": "Failed",
   "error": {
@@ -103,6 +141,7 @@ Microsoft.VirtualMachineImages/imageTemplates 'helloImageTemplateforSIG01' faile
         "code": "InternalOperationError",
         "message": "Internal error occurred."
 ```
+
 #### Cause
 
 In most cases, the resource deployment failure error occurs because of missing permissions. This error may also be caused by a conflict with the staging resource group.
@@ -110,6 +149,7 @@ In most cases, the resource deployment failure error occurs because of missing p
 #### Solution
 
 Depending on your scenario, VM Image Builder might need permissions to:
+
 - The source image or Azure Compute Gallery (formerly Shared Image Gallery) resource group.
 - The distribution image or Azure Compute Gallery resource.
 - The storage account, container, or blob that the `File` customizer is accessing. 
@@ -122,11 +162,12 @@ For more information about configuring permissions, see [Configure VM Image Buil
 
 #### Error
 
-```text
+```output
 Build (Managed Image) step failed: Error getting Managed Image '/subscriptions/.../providers/Microsoft.Compute/images/mymanagedmg1': Error getting managed image (...): compute.
 ImagesClient#Get: Failure responding to request: StatusCode=403 -- Original Error: autorest/azure: Service returned an error.
 Status=403 Code="AuthorizationFailed" Message="The client '......' with object id '......' doesn't have authorization to perform action 'Microsoft.Compute/images/read' over scope 
 ```
+
 #### Cause
 
 Missing permissions.
@@ -134,9 +175,10 @@ Missing permissions.
 #### Solution
 
 Depending on your scenario, VM Image Builder might need permissions to:
+
 - The source image or Azure Compute Gallery resource group.
 - The distribution image or Azure Compute Gallery resource.
-- The storage account, container, or blob that the `File` customizer is accessing. 
+- The storage account, container, or blob that the `File` customizer is accessing.
 
 For more information about configuring permissions, see [Configure VM Image Builder permissions by using the Azure CLI](image-builder-permissions-cli.md) or [Configure VM Image Builder permissions by using PowerShell](image-builder-permissions-powershell.md).
 
@@ -144,7 +186,7 @@ For more information about configuring permissions, see [Configure VM Image Buil
 
 #### Error
 
-```text
+```output
 Build (Shared Image Version) step failed for Image Version '/subscriptions/.../providers/Microsoft.Compute/galleries/.../images/... /versions/0.23768.4001': Error getting Image Version '/subscriptions/.../resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/.../images/.../versions/0.23768.4001': Error getting image version '... :0.23768.4001': compute.GalleryImageVersionsClient#Get: Failure responding to request: StatusCode=404 -- Original Error: autorest/azure: Service returned an error. 
 Status=404 Code="ResourceNotFound" Message="The Resource 'Microsoft.Compute/galleries/.../images/.../versions/0.23768.4001' under resource group '<rgName>' was not found."
 ```
@@ -161,7 +203,7 @@ Ensure that the source image is correct and exists in the location of VM Image B
 
 #### Error
 
-```text
+```output
 Downloading external file (<myFile>) to local file (xxxxx.0.customizer.fp) [attempt 1 of 10] failed: Error downloading '<myFile>' to 'xxxxx.0.customizer.fp'..
 ```
 
@@ -173,12 +215,51 @@ The file name or location is incorrect, or the location isn't reachable.
 
 Ensure that the file is reachable. Verify that the name and location are correct.
 
+### Authorization error creating disk
+
+The Azure Image Builder build fails with an authorization error that looks like the following:
+
+#### Error
+
+```output
+Attempting to deploy created Image template in Azure fails with an 'The client '6df325020-fe22-4e39-bd69-10873965ac04' with object id '6df325020-fe22-4e39-bd69-10873965ac04' does not have authorization to perform action 'Microsoft.Compute/disks/write' over scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/disks/proxyVmDiskWin_<timestamp>' or the scope is invalid. If access was recently granted, please refresh your credentials.' 
+```
+
+#### Cause
+
+This error is caused when trying to specify a pre-existing resource group and VNet to the Azure Image Builder service with a Windows source image.  
+
+#### Solution
+
+You will need to assign the contributor role to the resource group for the service principal corresponding to Azure Image Builder's first party app by using the CLI command or portal instructions below.
+
+First, validate that the service principal is associated with Azure Image Builder's first party app by using the following CLI command:
+
+```azurecli-interactive
+az ad sp show --id {servicePrincipalName, or objectId}
+```
+
+Then, to implement this solution using CLI, use the following command:
+
+```azurecli-interactive
+az role assignment create -g {ResourceGroupName} --assignee {AibrpSpOid} --role Contributor 
+```
+
+To implement this solution in portal, follow the instructions in this documentation: [Assign Azure roles using the Azure portal - Azure RBAC](../../role-based-access-control/role-assignments-portal.md).
+
+For [Step 1: Identify the needed scope](../../role-based-access-control/role-assignments-portal.md#step-1-identify-the-needed-scope): The needed scope is your resource group. 
+
+For [Step 3: Select the appropriate role](../../role-based-access-control/role-assignments-portal.md#step-3-select-the-appropriate-role): The role is Contributor. 
+
+For [Step 4: Select who needs access](../../role-based-access-control/role-assignments-portal.md#step-4-select-who-needs-access): Select member “Azure Virtual Machine Image Builder”
+
+Then proceed to [Step 6: Assign role](../../role-based-access-control/role-assignments-portal.md#step-6-assign-role) to assign the role.
+
 ## Troubleshoot build failures
 
 For image build failures, get the error from the `lastrunstatus`, and then review the details in the *customization.log* file.
 
-
-```azurecli
+```azurecli-interactive
 az image builder show --name $imageTemplateName  --resource-group $imageResourceGroup
 ```
 
@@ -192,18 +273,17 @@ When the image build is running, logs are created and stored in a storage accoun
 
 The storage account name uses the pattern IT_\<ImageResourceGroupName\>_\<TemplateName\>_\<GUID\> (for example, *IT_aibmdi_helloImageTemplateLinux01*).
 
-To view the *customization.log* file in the resource group,  select **Storage Account** > **Blobs** > `packerlogs`, select **directory**, and then select the *customization.log* file.
-
+To view the `customization.log` file in the resource group,  select **Storage Account** > **Blobs** > `packerlogs`, select **directory**, and then select the *customization.log* file.
 
 ### Understand the customization log
 
 The log is verbose. It covers the image build, including any issues with the image distribution, such as Azure Compute Gallery replication. These errors are surfaced in the error message of the image template status.
 
-The *customization.log* file includes the following stages:
+The `customization.log` file includes the following stages:
 
 1. *Deploy the build VM and dependencies by using ARM templates to the IT_ staging resource group* stage. This stage includes multiple POSTs to the VM Image Builder resource provider:
 
-    ```text
+    ```output
     Azure request method="POST" request="https://management.azure.com/subscriptions/<subID>/resourceGroups/IT_aibImageRG200_window2019VnetTemplate01_dec33089-1cc3-cccc-cccc-ccccccc/providers/Microsoft.Storage/storageAccounts
     ..
     PACKER OUT ==> azure-arm: Deploying deployment template ...
@@ -212,7 +292,7 @@ The *customization.log* file includes the following stages:
 
 1. *Status of the deployments* stage. This stage includes the status of each resource deployment:
 
-    ```text
+    ```output
     PACKER ERR 2020/04/30 23:28:50 packer: 2020/04/30 23:28:50 Azure request method="GET" request="https://management.azure.com/subscriptions/<subID>/resourcegroups/IT_aibImageRG200_window2019VnetTemplate01_dec33089-1cc3-4505-ae28-6661e43fac48/providers/Microsoft.Resources/deployments/pkrdp51lc0339jg/operationStatuses/08586133176207523519?[REDACTED]" body=""
     ```
 
@@ -220,7 +300,7 @@ The *customization.log* file includes the following stages:
 
     In Windows, VM Image Builder connects by using WinRM:
 
-    ```text
+    ```output
     PACKER ERR 2020/04/30 23:30:50 packer: 2020/04/30 23:30:50 Waiting for WinRM, up to timeout: 10m0s
     ..
     PACKER OUT     azure-arm: WinRM connected.
@@ -228,7 +308,7 @@ The *customization.log* file includes the following stages:
 
     In Linux, VM Image Builder connects by using SSH:
 
-    ```text
+    ```output
     PACKER OUT ==> azure-arm: Waiting for SSH to become available...
     PACKER ERR 2019/12/10 17:20:51 packer: 2020/04/10 17:20:51 [INFO] Waiting for SSH, up to timeout: 20m0s
     PACKER OUT ==> azure-arm: Connected to SSH!
@@ -248,9 +328,11 @@ The *customization.log* file includes the following stages:
     
     (telemetry) Finalizing. - This means the build hasfinished
     ```
+
 1. *Deprovision* stage. VM Image Builder adds a hidden customizer. This deprovision step is responsible for preparing the VM for deprovisioning. In Windows, it runs `Sysprep` (by using *c:\DeprovisioningScript.ps1*). In Linux, it runs `waagent-deprovision` (by using /tmp/DeprovisioningScript.sh). 
 
     For example:
+
     ```text
     PACKER ERR 2020/03/04 23:05:04 [INFO] (telemetry) Starting provisioner powershell
     PACKER ERR 2020/03/04 23:05:04 packer: 2020/03/04 23:05:04 Found command: if( TEST-PATH c:\DeprovisioningScript.ps1 ){cat c:\DeprovisioningScript.ps1} else {echo "Deprovisioning script [c:\DeprovisioningScript.ps1] could not be found. Image build may fail or the VM created from the Image may not boot. Please make sure the deprovisioning script is not accidentally deleted by a Customizer in the Template."}
@@ -265,12 +347,39 @@ The *customization.log* file includes the following stages:
     ...
     PACKER ERR ==> azure-arm: The resource group was not created by Packer, not deleting ...
     ```
+
 ## Tips for troubleshooting script or inline customization
+
 - Test the code before you supply it to VM Image Builder.
 - Ensure that Azure Policy and Firewall allow connectivity to remote resources.
 - Output comments to the console by using `Write-Host` or `echo`. Doing so lets you search the *customization.log* file.
 
+
 ## Troubleshoot common build errors
+
+### The template deployment failed because of policy violation
+
+#### Error
+
+```text
+{
+  "statusCode": "BadRequest",
+  "serviceRequestId": null,
+  "statusMessage": "{\"error\":{\"code\":\"InvalidTemplateDeployment\",\"message\":\"The template deployment failed because of policy violation. Please see details for more information.\",\"details\":[{\"code\":\"RequestDisallowedByPolicy\",\"target\":\"<target_name>\",\"message\":\"Resource '<resource_name>' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[Initiative] KeyVault (Microsoft.KeyVault)\\\",\\\"id\\\":\\\"/providers/Microsoft.Management/managementGroups/<managementGroup_name>/providers/Microsoft.Authorization/policyAssignments/Microsoft.KeyVault\\\"},\\\"policyDefinition\\\":{\\\"name\\\":\\\"Azure Key Vault should disable public network access\\\",\\\"id\\\":\\\"/providers/Microsoft.Management/managementGroups/<managementGroup_name>/providers/Microsoft.Authorization/policyDefinitions/KeyVault.disablePublicNetworkAccess_deny_deny\\\"},\\\"policySetDefinition\\\":{\\\"name\\\":\\\"[Initiative] KeyVault (Microsoft.KeyVault)\\\",\\\"id\\\":\\\"/providers/Microsoft.Management/managementGroups/<managementGroup_name>/providers/Microsoft.Authorization/policySetDefinitions/Microsoft.KeyVault\\\"}}]'.\",\"additionalInfo\":[{\"type\":\"PolicyViolation\"}]}]}}",
+  "eventCategory": "Administrative",
+  "entity": "/subscriptions/<subscription_ID>/<resourcegroups>/<resourcegroupname>/providers/Microsoft.Resources/deployments/<deployment_name>",
+  "message": "Microsoft.Resources/deployments/validate/action",
+  "hierarchy": "<subscription_ID>/<resourcegroupname>/<policy_name>/<managementGroup_name>/<deployment_ID>"
+}
+```
+
+#### Cause
+
+The above policy violation error is a result of using an Azure Key Vault with public access disabled. At this time, Azure Image Builder doesn't support this configuration.
+
+#### Solution
+
+The Azure Key Vault must be created with public access enabled.
 
 ### Packer build command failure
 
@@ -294,6 +403,7 @@ Customization failure.
 Review the log to locate customizer failures. Search for *(telemetry)*. 
 
 For example:
+
 ```text
 (telemetry) Starting provisioner windows-update
 (telemetry) ending windows-update
@@ -321,7 +431,7 @@ The build exceeded the build time-out. This error is seen in the 'lastrunstatus'
 
 #### Solution
 
-1. Review the *customization.log* file. Identify the last customizer to run. Search for *(telemetry)*, starting from the bottom of the log. 
+1. Review the *customization.log* file. Identify the last customizer to run. Search for *(telemetry)*, starting from the bottom of the log.
 
 1. Check script customizations. The customizations might not be suppressing user interaction for commands, such as `quiet` options. For example, `apt-get install -y` results in the script execution waiting for user interaction.
 
@@ -336,6 +446,7 @@ The build exceeded the build time-out. This error is seen in the 'lastrunstatus'
 ### Long file download time
 
 #### Error
+
 ```text
 [086cf9c4-0457-4e8f-bfd4-908cfe3fe43c] PACKER OUT 
 myBigFile.zip 826 B / 826000 B  1.00%
@@ -348,6 +459,7 @@ hours later...
 myBigFile.zip 826000 B / 826000 B  100.00%
 [086cf9c4-0457-4e8f-bfd4-908cfe3fe43c] PACKER OUT 
 ```
+
 #### Cause 
 
 `File` customizer is downloading a large file.
@@ -355,6 +467,58 @@ myBigFile.zip 826000 B / 826000 B  100.00%
 #### Solution
 
 `File` customizer is suitable only for small (less than 20 MB) file downloads. For larger file downloads, use a script or inline command. For example, in Linux you can use `wget` or `curl`. In Windows, you can use `Invoke-WebRequest`.
+
+
+### The builder continually fails to run Windows-Restart with the error code 1190
+
+#### Error
+
+```output
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] (telemetry) Starting provisioner windows-restart
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] starting remote command: shutdown /r /f /t 10
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] command 'shutdown /r /f /t 10' exited with code: 0
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT ==> azure-arm: A system shutdown has already been scheduled.(1190)
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] RPC endpoint: Communicator ended with: 0
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] 0 bytes written for 'stdout'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] 0 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] RPC client: Communicator ended with: 0
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] RPC endpoint: Communicator ended with: 0
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] 0 bytes written for 'stdout'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] 0 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] RPC client: Communicator ended with: 0
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: Check if machine is rebooting...
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] starting remote command: shutdown /r /f /t 60 /c "packer restart test"
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] command 'shutdown /r /f /t 60 /c "packer restart test"' exited with code: 1190
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-plugin-azure plugin: 2023/06/13 08:28:58 [INFO] RPC endpoint: Communicator ended with: 1190
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] 52 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] 0 bytes written for 'stdout'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] RPC client: Communicator ended with: 1190
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 [INFO] RPC endpoint: Communicator ended with: 1190
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] 52 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] 0 bytes written for 'stdout'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: [INFO] RPC client: Communicator ended with: 1190
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:28:58 packer-provisioner-windows-restart plugin: Reboot already in progress, waiting...
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:29:08 packer-provisioner-windows-restart plugin: Check if machine is rebooting...
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:29:09 [INFO] 0 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:29:09 packer-provisioner-windows-restart plugin: [INFO] 0 bytes written for 'stderr'
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:29:09 packer-provisioner-windows-restart plugin: Waiting for machine to reboot with timeout: 15m0s
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:29:09 packer-provisioner-windows-restart plugin: Waiting for machine to become available...
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT ==> Some builds didn't complete successfully and had errors:
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:46:26 machine readable: azure-arm,error []string{"Timeout waiting for machine to restart."}
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT --> azure-arm: Timeout waiting for machine to restart.
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR ==> Builds finished but no artifacts were created.
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT 
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER ERR 2023/06/13 08:46:26 [INFO] (telemetry) Finalizing.
+[864c0337-b300-48ab-8e8e-7894bc695b7c] PACKER OUT ==> Builds finished but no artifacts were created.
+```
+
+#### Cause
+
+The windows update step declares prematurely in images based on Windows Server 2016.
+
+#### Solution
+
+Increase `restartTimeout` from 15 minutes to 30 minutes.
 
 ### Error waiting on Azure Compute Gallery
 
@@ -368,7 +532,7 @@ Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in dis
 
 VM Image Builder timed out waiting for the image to be added and replicated to Azure Compute Gallery. If the image is being injected into the gallery, you can assume that the image build was successful. However, the overall process failed because VM Image Builder was waiting on Azure Compute Gallery to complete the replication. Even though the build has failed, the replication continues. You can get the properties of the image version by checking the distribution *runOutput*.
 
-```azurecli
+```azurecli-interactive
 $runOutputName=<distributionRunOutput>
 az resource show \
     --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/$imageTemplateName/runOutputs/$runOutputName"  \
@@ -378,7 +542,7 @@ az resource show \
 #### Solution
 
 Increase the value of `buildTimeoutInMinutes`.
- 
+
 ### Low Windows resource information events
 
 #### Error
@@ -426,6 +590,7 @@ Increase the value of `buildTimeoutInMinutes`.
 [45f485cf-5a8c-4379-9937-8d85493bc791] PACKER OUT Build 'azure-arm' errored: unexpected EOF
 [45f485cf-5a8c-4379-9937-8d85493bc791] PACKER OUT 
 ```
+
 #### Cause
 
 Resource exhaustion. This issue is commonly seen with Windows Update running with the default build VM size D1_V2.
@@ -436,7 +601,7 @@ Increase the build VM size.
 
 ### The build finished but no artifacts were created
 
-#### Error
+#### Warning
 
 ```text
 [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT Build 'azure-arm' errored: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded
@@ -453,19 +618,17 @@ Increase the build VM size.
 [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER ERR 2020/04/30 22:29:24 waiting for all plugin processes to complete...
 Done exporting Packer logs to Azure for Packer prefix: [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT
 ```
-#### Cause
 
-The build timed out while it was waiting for the required Azure resources to be created.
 
 #### Solution
 
-Rerun the build to try again.
+The above warning can safely be ignored.
 
 ### Resource not found
 
 #### Error
 
-```text
+```output
   "provisioningState": "Succeeded",
   "lastRunStatus": {
    "startTime": "2020-05-01T00:13:52.599326198Z",
@@ -474,6 +637,7 @@ Rerun the build to try again.
    "message": "network.InterfacesClient#UpdateTags: Failure responding to request: StatusCode=404 -- Original Error: autorest/azure: Service returned an error. Status=404 Code=\"ResourceNotFound\" Message=\"The Resource 'Microsoft.Network/networkInterfaces/aibpls7lz2e.nic.4609d697-be0a-4cb0-86af-49b6fe877fe1' under resource group 'IT_aibImageRG200_window2019VnetTemplate01_9988723b-af56-413a-9006-84130af0e9df' was not found.\""
   },
 ```
+
 #### Cause
 
 Missing permissions.
@@ -540,9 +704,10 @@ For more information about configuring permissions, see [Configure VM Image Buil
 [922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER OUT ==> azure-arm: The resource group was not created by Packer, deleting individual resources ...
 [922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER ERR ==> azure-arm: The resource group was not created by Packer, deleting individual resources ...
 ```
+
 #### Cause
 
-The cause might be a timing issue because of the D1_V2 VM size. If customizations are limited and are run in less than three seconds, `Sysprep` commands are run by VM Image Builder to deprovision. When VM Image Builder deprovisions, the `Sysprep` command checks for the *WindowsAzureGuestAgent*, which might not be fully installed and might cause the timing issue. 
+The cause might be a timing issue because of the D1_V2 VM size. If customizations are limited and are run in less than three seconds, `Sysprep` commands are run by VM Image Builder to deprovision. When VM Image Builder deprovisions, the `Sysprep` command checks for the *WindowsAzureGuestAgent*, which might not be fully installed and might cause the timing issue.
 
 #### Solution
 
@@ -551,6 +716,7 @@ To avoid the timing issue, you can increase the VM size or you can add a 60-seco
 ### The build is canceled after the context cancelation context is canceled
 
 #### Error
+
 ```text
 PACKER ERR 2020/03/26 22:11:23 Cancelling builder after context cancellation context canceled
 PACKER OUT Cancelling build after receiving terminated
@@ -564,16 +730,19 @@ PACKER ERR 2020/03/26 22:11:25 [INFO] 0 bytes written for 'stderr'
 PACKER ERR 2020/03/26 22:11:25 [INFO] RPC client: Communicator ended with: 2300218
 PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 2300218
 ```
+
 #### Cause
 
 VM Image Builder uses port 22 (Linux) or 5986 (Windows) to connect to the build VM. This occurs when the service is disconnected from the build VM during an image build. The reasons for the disconnection can vary, but enabling or configuring a firewall in the script can block the previously mentioned ports.
 
 #### Solution
+
 Review your scripts for firewall changes or enablement, or changes to SSH or WinRM, and ensure that any changes allow for constant connectivity between the service and the build VM on the previously mentioned ports. For more information, see [VM Image Builder networking options](./image-builder-networking.md).
 
 ### JWT errors in log early in the build
 
 #### Error
+
 Early in the build process, the build fails and the log indicates a JSON Web Token (JWT) error:
 
 ```text
@@ -589,11 +758,13 @@ PACKER OUT 1 error(s) occurred:
 The `buildTimeoutInMinutes` value in the template is set to from 1 to 5 minutes.
 
 #### Solution
+
 As described in [Create an VM Image Builder template](./image-builder-json.md), the time-out must be set to 0 to use the default or set to more than 5 minutes to override the default.  Change the time-out in your template to 0 to use the default or to a minimum of 6 minutes.
 
 ### Resource deletion errors
 
 #### Error
+
 Intermediate resources are cleaned up toward the end of the build, and the customization log might show several resource deletion errors:
 
 ```text
@@ -605,14 +776,42 @@ PACKER ERR 2022/03/07 18:43:06 packer-plugin-azure plugin: 2022/03/07 18:43:06 R
 ```
 
 #### Cause
+
 These error log messages are mostly harmless, because resource deletions are retried several times and, ordinarily, they eventually succeed. You can verify this by continuing to follow the deletion logs until you observe a success message. Alternatively, you can inspect the staging resource group to confirm whether the resource has been deleted.
 
 Making these observations is especially important in build failures, where these error messages might lead you to conclude that they're the reason for the failures, even when the actual errors might be elsewhere.
 
-## DevOps tasks 
+#### Error
+
+When images are stuck in template deletion, the customization log may show the below error:
+
+```output
+error deleting resource id /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/networkInterfaces/<networkInterfacName>: resources.Client#DeleteByID: Failure sending request: StatusCode=400 -- 
+Original Error: Code="NicInUseWithPrivateEndpoint"
+Message="Network interface /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/networkInterfaces/<networkInterfacName> cannot be deleted because it is currently in use with an private endpoint (/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Network/privateEndpoints/<pIname>)." Details=[]
+```
+
+#### Cause
+
+The error occurs because the network interface is currently in use with a private endpoint.
+
+#### Solution
+
+To resolve the issue, delete the below resources one by one in the specific order:
+
+1. Private endpoint connection. You can find this in the private link service resource by going to the "private endpoint connections" tab on the private link service resource page.
+1. Private link service.
+1. Network interface and load balancer.
+1. Resource Group.
+1. Image template.
+
+For additional assistance, you can [contact Azure support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to resolve the stuck deletion error.
+
+## DevOps tasks
 
 ### Troubleshoot the task
-The task fails only if an error occurs during customization. When this happens, the task reports the failure and leaves the staging resource group, with the logs, so that you can identify the issue. 
+
+The task fails only if an error occurs during customization. When this happens, the task reports the failure and leaves the staging resource group, with the logs, so that you can identify the issue.
 
 To locate the log, you need to know the template name. Go to **pipeline** > **failed build**, and then drill down into the VM Image Builder DevOps task. 
 
@@ -627,7 +826,7 @@ created archive /home/vsts/work/_temp/temp_web_package_21475337782320203.zip
 Source for image:  { type: 'SharedImageVersion',
   imageVersionId: '/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<imageDefName>/versions/<imgVersionNumber>' }
 template name:  t_1556938436xxx
-``` 
+```
 
 1. Go to the Azure portal, search for the template name in the resource group, and then search for the resource group by typing  **IT_***.
 1. Select the storage account name > **blobs** > **containers** > **logs**.
@@ -635,11 +834,10 @@ template name:  t_1556938436xxx
 ### Troubleshoot successful builds
 
 You might occasionally need to investigate successful builds and  review their logs. As mentioned earlier, if the image build is successful, the staging resource group that contains the logs will be deleted as part of the cleanup. To prevent an automatic cleanup, though, you can introduce a `sleep` after the inline command, and then view the logs as the build is paused. To do so, do the following:
- 
+
 1. Update the inline command by adding **Write-Host / Echo “Sleep”**. This gives you time to search in the log.
 1. Add a `sleep` value of at least 10 minutes by using a [Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep) or `Sleep` Linux command.
 1. Use this method to identify the log location, and then keep downloading or checking the log until it gets to `sleep`.
-
 
 ### Operation was canceled
 
@@ -671,12 +869,13 @@ You might occasionally need to investigate successful builds and  review their l
 2020-05-05T19:33:14.3923479Z ##[error]The operation was canceled.
 2020-05-05T19:33:14.3939721Z ##[section]Finishing: Azure VM Image Builder Task
 ```
+
 #### Cause
 
 If the build wasn't canceled by a user, it was canceled by Azure DevOps User Agent. Most likely, the 1-hour time-out has occurred because of Azure DevOps capabilities. If you're using a private project and agent, you get 60 minutes of build time. If the build exceeds the time-out, DevOps cancels the running task.
 
 For more information about Azure DevOps capabilities and limitations, see [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted#capabilities-and-limitations).
- 
+
 #### Solution
 
 You can host your own DevOps agents or look to reduce the time of your build. For example, if you're distributing to Azure Compute Gallery, you can replicate them to one region or replicate them asynchronously. 
@@ -695,12 +894,11 @@ Please wait for the Windows Modules Installer
 
 1. In the image build, check to ensure that:
 
-   * There are no outstanding reboots required by adding a Windows Restart customizer as the last customization.
-   * All software installation is complete. 
-   
+   - There are no outstanding reboots required by adding a Windows Restart customizer as the last customization.
+   - All software installation is complete. 
+
 1. Add the [/mode:vm](/windows-hardware/manufacture/desktop/sysprep-command-line-options) option to the default `Sysprep` that VM Image Builder uses. For more information, go to the ["Override the commands"](#override-the-commands) section under "VMs created from VM Image Builder images aren't created successfully."  
 
- 
 ## VMs created from VM Image Builder images aren't created successfully
 
 By default, VM Image Builder runs *deprovision* code at the end of each image customization phase to *generalize* the image. To generalize an image is to set it up to reuse to create multiple VMs. As part of the process, you can pass in VM settings, such as hostname, username, and so on. In Windows, VM Image Builder runs `Sysprep`, and in Linux, VM Image Builder runs `waagent -deprovision`. 
@@ -710,6 +908,7 @@ In Windows, VM Image Builder uses a generic `Sysprep` command. However, this com
 If you're migrating an existing customization and you're using various `Sysprep` or `waagent` commands, you can try the VM Image Builder generic commands. If the VM creation fails, use your previous `Sysprep` or `waagent` commands.
 
 Let's suppose you've used VM Image Builder successfully to create a Windows custom image, but you've failed to create a VM successfully from the image. For example, the VM creation fails to finish or it times out. In this event, do either of the following:
+
 * Review the Windows Server Sysprep documentation.
 * Raise a support request with the Windows Server Sysprep Customer Services Support team. They can help troubleshoot your issue and advise you on the correct `Sysprep` command.
 
@@ -722,13 +921,14 @@ c:\DeprovisioningScript.ps1
 ```
 
 In Linux:
+
 ```bash
 /tmp/DeprovisioningScript.sh
 ```
 
 ### The `Sysprep` command: Windows
 
-```PowerShell
+```azurepowershell-interactive 
 Write-Output '>>> Waiting for GA Service (RdAgent) to start ...'
 while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }
 Write-Output '>>> Waiting for GA Service (WindowsAzureTelemetryService) to start ...'
@@ -752,7 +952,7 @@ Write-Output '>>> Sysprep complete ...'
 ### The `-deprovision` command: Linux
 
 ```bash
-/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync
+sudo /usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync
 ```
 
 ### Override the commands
@@ -760,10 +960,12 @@ Write-Output '>>> Sysprep complete ...'
 To override the commands, use the PowerShell or shell script provisioners to create the command files with the exact file name and put them in the previously listed directories. VM Image Builder reads these commands and writes output to the *customization.log* file.
 
 ## Get support
+
 If you've referred to the guidance and are still having problems, you can open a support case. Be sure to select the correct product and support topic. Doing so will ensure that you're connected with the Azure VM Image Builder support team.
 
 Selecting the case product:
-```bash
+
+```text
 Product Family: Azure
 Product: Virtual Machine Running (Window\Linux)
 Support Topic: Azure Features

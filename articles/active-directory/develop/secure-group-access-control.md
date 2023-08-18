@@ -4,16 +4,14 @@ description: Learn about how groups are used to securely control access to resou
 services: active-directory
 author: davidmu1
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity 
-ms.date: 6/16/2022
+ms.date: 01/06/2023
 ms.custom: template-concept
 ms.author: davidmu
-ms.reviewer: jodah, marsma
-
+ms.reviewer: jodah
 # Customer intent: As a developer, I want to learn how to most securely use Azure AD groups to control access to resources.
 ---
 
@@ -27,7 +25,7 @@ Azure Active Directory (Azure AD) allows the use of groups to manage access to r
 
 To learn more about the benefits of groups for access control, see [manage access to an application](../manage-apps/what-is-access-management.md).
 
-While developing an application, authorize access with the [groups claim](/graph/api/resources/application?view=graph-rest-1.0#properties&preserve-view=true). To learn more, see how to [configure group claims for applications with Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
+While developing an application, authorize access with the groups claim. To learn more, see how to [configure group claims for applications with Azure AD](../hybrid/connect/how-to-connect-fed-group-claims.md).
 
 Today, many applications select a subset of groups with the `securityEnabled` flag set to `true` to avoid scale challenges, that is, to reduce the number of groups returned in the token. Setting the `securityEnabled` flag to be true for a group doesn't guarantee that the group is securely managed.
 
@@ -44,5 +42,5 @@ The following table presents several security best practices for security groups
 
 ## Next steps
 
-- [Manage app and resource access using Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md)
+- [Manage app and resource access using Azure Active Directory groups](../fundamentals/concept-learn-about-groups.md)
 - [Restrict your Azure AD app to a set of users in an Azure AD tenant](./howto-restrict-your-app-to-a-set-of-users.md)

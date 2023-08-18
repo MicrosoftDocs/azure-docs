@@ -1,15 +1,14 @@
 ---
 title: Using the HDFS CLI with Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Use the Hadoop Distributed File System (HDFS) CLI for Azure Data Lake Storage Gen2. Create a container, get a list of files or directories, and more.
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.topic: how-to
-ms.date: 12/06/2018
+ms.date: 03/09/2023
 ms.author: normesta
-ms.subservice: data-lake-storage-gen2
-ms.reviewer: artek
 ---
 
 # Using the HDFS CLI with Data Lake Storage Gen2

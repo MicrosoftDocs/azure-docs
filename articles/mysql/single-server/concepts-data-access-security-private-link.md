@@ -13,6 +13,8 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 Private Link allows you to connect to various PaaS services in Azure via a private endpoint. Azure Private Link essentially brings Azure services inside your private Virtual Network (VNet). The PaaS resources can be accessed using the private IP address just like any other resource in the VNet.
 
 For a list to PaaS services that support Private Link functionality, review the Private Link [documentation](../../private-link/index.yml). A private endpoint is a private IP address within a specific [VNet](../../virtual-network/virtual-networks-overview.md) and Subnet.
@@ -115,8 +117,8 @@ If you want to rely only on private endpoints for accessing their Azure Database
 
 When this setting is set to *YES*, only connections via private endpoints are allowed to your Azure Database for MySQL. When this setting is set to *NO*, clients can connect to your Azure Database for MySQL based on your firewall or VNet service endpoint settings. Additionally, once the value of the Private network access is set, customers cannot add and/or update existing 'Firewall rules' and 'VNet service endpoint rules'.
 
-> [!Note]
-> This feature is available in all Azure regions where Azure Database for MySQL - Single server supports General Purpose and Memory Optimized pricing tiers.
+> [!NOTE]
+> This feature is available in all Azure regions where Azure Database for MySQL - Single Server supports General Purpose and Memory Optimized pricing tiers.
 >
 > This setting does not have any impact on the SSL and TLS configurations for your Azure Database for MySQL.
 

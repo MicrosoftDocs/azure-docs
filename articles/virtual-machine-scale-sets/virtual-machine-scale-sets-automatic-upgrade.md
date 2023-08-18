@@ -1,17 +1,19 @@
 ---
-title: Automatic OS image upgrades with Azure virtual machine scale sets
+title: Automatic OS image upgrades with Azure Virtual Machine Scale Sets
 description: Learn how to automatically upgrade the OS image on VM instances in a scale set
 author: ju-shim
 ms.author: jushiman
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
-ms.date: 08/24/2022
-ms.reviewer: jushiman
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-linux
+ms.date: 07/25/2023
+ms.reviewer: mimckitt
 ---
-# Azure virtual machine scale set automatic OS image upgrades
+# Azure Virtual Machine Scale Set automatic OS image upgrades
+
+> [!NOTE]
+> Many of the steps listed in this document apply to Virtual Machine Scale Sets using Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 Enabling automatic OS image upgrades on your scale set helps ease update management by safely and automatically upgrading the OS disk for all instances in the scale set.
 
@@ -49,7 +51,7 @@ The availability-first model for platform orchestrated updates described below e
 
 **Within a 'set':**
 - All VMs in a common scale set are not updated concurrently.  
-- VMs in a common virtual machine scale set are grouped in batches and updated within Update Domain boundaries as described below.
+- VMs in a common Virtual Machine Scale Set are grouped in batches and updated within Update Domain boundaries as described below.
 
 The platform orchestrated updates process is followed for rolling out supported OS platform image upgrades every month. For custom images through Azure Compute Gallery, an image upgrade is only kicked off for a particular Azure region when the new image is published and [replicated](../virtual-machines/azure-compute-gallery.md#replication) to the region of that scale set.
 
@@ -65,8 +67,10 @@ The region of a scale set becomes eligible to get image upgrades either through 
 
 The scale set OS upgrade orchestrator checks for the overall scale set health before upgrading every batch. While you're upgrading a batch, there could be other concurrent planned or unplanned maintenance activities that could impact the health of your scale set instances. In such cases if more than 20% of the scale set's instances become unhealthy, then the scale set upgrade stops at the end of current batch.
 
+To modify the default settings associated with Rolling Upgrades, review Azure's [Rolling Upgrade Policy](/rest/api/compute/virtual-machine-scale-sets/create-or-update?tabs=HTTP#rollingupgradepolicy).
+
 > [!NOTE]
->Automatic OS upgrade does not upgrade the reference image Sku on the scale set. To change the Sku (such as Ubuntu 16.04-LTS to 18.04-LTS), you must update the [scale set model](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) directly with the desired image Sku. Image publisher and offer can't be changed for an existing scale set.  
+>Automatic OS upgrade does not upgrade the reference image Sku on the scale set. To change the Sku (such as Ubuntu 18.04-LTS to 20.04-LTS), you must update the [scale set model](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) directly with the desired image Sku. Image publisher and offer can't be changed for an existing scale set.  
 
 ## Supported OS images
 Only certain OS platform images are currently supported. Custom images [are supported](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) if the scale set uses custom images through [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
@@ -75,15 +79,19 @@ The following platform SKUs are currently supported (and more are added periodic
 
 | Publisher               | OS Offer      |  Sku               |
 |-------------------------|---------------|--------------------|
-| Canonical               | UbuntuServer  | 18.04-LTS          |                
-| Canonical               | 0001-com-ubuntu-server-focal  | 20.04-LTS          |                   
-| Canonical               | 0001-com-ubuntu-server-focal  | 20.04-LTS-Gen2     | 
+| Canonical               | UbuntuServer  | 18.04-LTS          |  
+| Canonical               | UbuntuServer  | 18_04-LTS-Gen2          |  
+| Canonical               | 0001-com-ubuntu-server-focal  | 20_04-LTS          |                   
+| Canonical               | 0001-com-ubuntu-server-focal  | 20_04-LTS-Gen2     | 
+| Canonical               | 0001-com-ubuntu-server-jammy  | 22_04-LTS    | 
 | MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-1      |                 
 | MicrosoftCblMariner     | Cbl-Mariner   | 1-Gen2             |                   
 | MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-2                        
-| MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-2-Gen2                  
+| MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-2-Gen2 |    
+| MicrosoftSqlServer      | Sql2017-ws2019| enterprise |   
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-gensecond    |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-gs        |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-smalldisk |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-with-Containers |
@@ -95,14 +103,18 @@ The following platform SKUs are currently supported (and more are added periodic
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-gs |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-smalldisk |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-Containers |                 
-| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-containers-gs |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-Containers-gs |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-smalldisk |
-| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-smalldisk-g2 |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-core |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-core-smalldisk |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-g2 |
-
+| MicrosoftWindowsServer  | WindowsServer | Datacenter-core-20h2-with-containers-smalldisk-gs |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition-smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition-core |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition-core-smalldisk |
 
 ## Requirements for configuring automatic OS image upgrade
 
@@ -112,10 +124,14 @@ The following platform SKUs are currently supported (and more are added periodic
 - Ensure that external resources specified in the scale set model are available and updated. Examples include SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model, and more.
 - For scale sets using Windows virtual machines, starting with Compute API version 2019-03-01, the property *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates* property must set to *false* in the scale set model definition. The *enableAutomaticUpdates* property enables in-VM patching where "Windows Update" applies operating system patches without replacing the OS disk. With automatic OS image upgrades enabled on your scale set, an extra patching process through Windows Update is not required.
 
+> [!NOTE]
+> After an OS disk is replaced through reimage or upgrade, the attached data disks may have their drive letters reassigned. To retain the same drive letters for attached disks, it is suggested to use a custom boot script. 
+
+
 ### Service Fabric requirements
 
 If you are using Service Fabric, ensure the following conditions are met:
--	Service Fabric [durability level](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) is Silver or Gold. If Service Fabric durability is Bronze, only Stateless-only node types supports automatic OS image upgrades).
+-	Service Fabric [durability level](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) is Silver or Gold. If Service Fabric durability is Bronze, only Stateless-only node types support automatic OS image upgrades).
 -	The Service Fabric extension on the scale set model definition must have TypeHandlerVersion 1.1 or above.
 -	Durability level should be the same at the Service Fabric cluster and Service Fabric extension on the scale set model definition.
 - An additional health probe or use of application health extension is not required for Silver or Gold durability. Bronze durability with Stateless-only node types requires an additional health probe.
@@ -134,7 +150,7 @@ Automatic OS image upgrade is supported for custom images deployed through [Azur
 - The new image version should not be excluded from the latest version for that gallery image. Image versions excluded from the gallery image's latest version are not rolled out to the scale set through automatic OS image upgrade.
 
 > [!NOTE]
->It can take up to 3 hours for a scale set to trigger the first image upgrade rollout after the scale set is first configured for automatic OS upgrades. This is a one-time delay per scale set. Subsequent image rollouts are triggered on the scale set within 30-60 minutes.
+> It can take up to 3 hours for a scale set to trigger the first image upgrade rollout after the scale set is first configured for automatic OS upgrades due to certain factors such as Maintenance Windows or other restrictions. Customers on the latest image may not get an upgrade until a new image is available. 
 
 
 ## Configure automatic OS image upgrade
@@ -177,7 +193,61 @@ az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradeP
 ```
 
 > [!NOTE]
->After configuring automatic OS image upgrades for your scale set, you must also bring the scale set VMs to the latest scale set model if your scale set uses the 'Manual' [upgrade policy](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+>After configuring automatic OS image upgrades for your scale set, you must also bring the scale set VMs to the latest scale set model if your scale set uses the 'Manual' [upgrade policy](virtual-machine-scale-sets-upgrade-policy.md).
+
+### ARM templates
+The following example describes how to set automatic OS upgrades on a scale set model via Azure Resource Manager templates (ARM templates):
+
+```json
+"properties": { 
+   "upgradePolicy": { 
+     "mode": "Automatic", 
+     "RollingUpgradePolicy": {
+         "BatchInstancePercent": 20,
+         "MaxUnhealthyInstancePercent": 25,
+         "MaxUnhealthyUpgradedInstancePercent": 25,
+         "PauseTimeBetweenBatches": "PT0S"
+     },
+    "automaticOSUpgradePolicy": { 
+      "enableAutomaticOSUpgrade": true,
+        "useRollingUpgradePolicy": true,
+        "disableAutomaticRollback": false 
+    } 
+  },
+  },
+"imagePublisher": {
+   "type": "string",
+   "defaultValue": "MicrosoftWindowsServer"
+ },
+ "imageOffer": {
+   "type": "string",
+   "defaultValue": "WindowsServer"
+ },
+ "imageSku": {
+   "type": "string",
+   "defaultValue": "2022-datacenter"
+ },
+ "imageOSVersion": {
+   "type": "string",
+   "defaultValue": "latest"
+ }
+
+```
+
+### Bicep
+The following example describes how to set automatic OS upgrades on a scale set model via Bicep:
+
+```json
+properties: { 
+    overprovision: overProvision 
+    upgradePolicy: { 
+      mode: 'Automatic' 
+      automaticOSUpgradePolicy: { 
+        enableAutomaticOSUpgrade: true 
+      } 
+    } 
+}
+```
 
 ## Using Application Health Probes
 
@@ -216,7 +286,7 @@ The recommended steps to recover VMs and re-enable automatic OS upgrade if there
 * Deploy the updated scale set, which will update all VM instances including the failed ones.
 
 ## Using Application Health extension
-The Application Health extension is deployed inside a virtual machine scale set instance and reports on VM health from inside the scale set instance. You can configure the extension to probe on an application endpoint and update the status of the application on that instance. This instance status is checked by Azure to determine whether an instance is eligible for upgrade operations.
+The Application Health extension is deployed inside a Virtual Machine Scale Set instance and reports on VM health from inside the scale set instance. You can configure the extension to probe on an application endpoint and update the status of the application on that instance. This instance status is checked by Azure to determine whether an instance is eligible for upgrade operations.
 
 As the extension reports health from within a VM, the extension can be used in situations where external probes such as Application Health Probes (that utilize custom Azure Load Balancer [probes](../load-balancer/load-balancer-custom-probe-overview.md)) can’t be used.
 
@@ -294,12 +364,12 @@ GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{lo
 
 ### Azure PowerShell
 ```azurepowershell-interactive
-Get-AzVmImage -Location "westus" -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "16.04-LTS"
+Get-AzVmImage -Location "westus" -PublisherName "Canonical" -offer "0001-com-ubuntu-server-jammy" -sku "22_04-lts"
 ```
 
 ### Azure CLI 2.0
 ```azurecli-interactive
-az vm image list --location "westus" --publisher "Canonical" --offer "UbuntuServer" --sku "16.04-LTS" --all
+az vm image list --location "westus" --publisher "Canonical" --offer "0001-com-ubuntu-server-jammy" --sku "22_04-lts" --all
 ```
 
 ## Manually trigger OS image upgrades
@@ -311,7 +381,7 @@ For specific cases where you do not want to wait for the orchestrator to apply t
 > Manual trigger of OS image upgrades does not provide automatic rollback capabilities. If an instance does not recover its health after an upgrade operation, its previous OS disk can't be restored.
 
 ### REST API
-Use the [Start OS Upgrade](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) API call to start a rolling upgrade to move all virtual machine scale set instances to the latest available image OS version. Instances that are already running the latest available OS version are not affected. The following example details how you can start a rolling OS upgrade on a scale set named *myScaleSet* in the resource group named *myResourceGroup*:
+Use the [Start OS Upgrade](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) API call to start a rolling upgrade to move all Virtual Machine Scale Set instances to the latest available image OS version. Instances that are already running the latest available OS version are not affected. The following example details how you can start a rolling OS upgrade on a scale set named *myScaleSet* in the resource group named *myResourceGroup*:
 
 ```
 POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2021-03-01`

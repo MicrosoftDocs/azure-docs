@@ -80,7 +80,7 @@
     - name: Deploy SQL extensions
       href: template-tutorial-deploy-sql-extensions-bacpac.md
   - name: Learning path for templates
-    href: /learn/paths/deploy-manage-resource-manager-templates/
+    href: /training/paths/deploy-manage-resource-manager-templates/
 - name: Samples - Azure services
   items:
   - name: Advisor
@@ -91,8 +91,8 @@
     items:
     - name: Cognitive Search
       href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: Cognitive Services
-      href: ../../cognitive-services/create-account-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Azure AI services
+      href: ../../ai-services/create-account-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Data Science Virtual Machine
       href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Machine Learning
@@ -149,7 +149,7 @@
     items:
     - name: Cache for Redis
       href: ../../azure-cache-for-redis/cache-redis-cache-arm-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       href: ../../cosmos-db/sql/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database for MariaDB
       href: ../../mariadb/quickstart-create-mariadb-server-database-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
@@ -375,6 +375,9 @@
       - name: Deploy - PowerShell
         displayName: deployment
         href: deploy-powershell.md
+      - name: Python
+        displayName: deployment
+        href: deploy-python.md
       - name: Deploy - REST API
         displayName: deployment
         href: deploy-rest.md
@@ -423,8 +426,10 @@
   - name: Test templates
     items:
     - name: Test toolkit
+      displayName: ttk,linter
       href: test-toolkit.md
     - name: Template test cases
+      displayName: ttk,linter
       href: template-test-cases.md
     - name: Parameter file test cases
       href: parameter-file-test-cases.md
@@ -441,7 +446,7 @@
   - name: CI/CD
     items:
     - name: ARM templates with pipelines
-      displayName: continuous,ci,cd, CI/CD
+      displayName: continuous,ci,cd,CI/CD
       href: add-template-to-azure-pipelines.md
     - name: Deploy - GitHub Actions
       displayName: continuous,ci,cd,CI/CD
@@ -464,12 +469,16 @@
       href: template-functions.md
     - name: Array functions
       href: template-functions-array.md
+    - name: CIDR functions
+      href: template-functions-cidr.md
     - name: Comparison functions
       href: template-functions-comparison.md
     - name: Date functions
       href: template-functions-date.md
     - name: Deployment functions
       href: template-functions-deployment.md
+    - name: Lambda functions
+      href: template-functions-lambda.md
     - name: Logical functions
       href: template-functions-logical.md
     - name: Numeric functions
@@ -496,8 +505,8 @@
     href: /python/api/overview/azure/resources
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/paths/deploy-manage-resource-manager-templates/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/paths/deploy-manage-resource-manager-templates/
   - name: Azure Quickstart Templates
     href: https://azure.microsoft.com/resources/templates/
   - name: Azure Roadmap

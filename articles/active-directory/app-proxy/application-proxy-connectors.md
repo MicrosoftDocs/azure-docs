@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 08/09/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -28,6 +28,8 @@ To deploy Application Proxy successfully, you need at least one connector, but w
 ### Windows Server
 You need a server running Windows Server 2012 R2 or later on which you can install the Application Proxy connector. The server needs to connect to the Application Proxy services in Azure, and the on-premises applications that you're publishing.
 
+Starting from the version 1.5.3437.0, having the .NET version 4.7.1 or greater is required for successful installation (upgrade).
+
 The server needs to have TLS 1.2 enabled before you install the Application Proxy connector. To enable TLS 1.2 on the server:
 
 1. Set the following registry keys:
@@ -36,9 +38,25 @@ The server needs to have TLS 1.2 enabled before you install the Application Prox
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.8.4250.0] "SchUseStrongCrypto"=dword:00000001
     ```
 
+    A `regedit` file you can use to set these values follows:
+    
+    ```
+    Windows Registry Editor Version 5.00
+
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client]
+    "DisabledByDefault"=dword:00000000
+    "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server]
+    "DisabledByDefault"=dword:00000000
+    "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.8.4250.0]
+    "SchUseStrongCrypto"=dword:00000001
+    ```
+    
 1. Restart the server
 
 For more information about the network requirements for the connector server, see [Get started with Application Proxy and install a connector](application-proxy-add-on-premises-application.md).
@@ -158,7 +176,7 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector -EnvironmentName "AzureCloud"
 ```
 
-For government, use `-EnvironmentName "AzureUSGovernment"`. For more details, see [Install Agent for the Azure Government Cloud](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
+For government, use `-EnvironmentName "AzureUSGovernment"`. For more details, see [Install Agent for the Azure Government Cloud](../hybrid/connect/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
 
 To learn more about how to verify the certificate and troubleshoot problems see [Verify Machine and backend components support for Application Proxy trust certificate](./application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate).
 

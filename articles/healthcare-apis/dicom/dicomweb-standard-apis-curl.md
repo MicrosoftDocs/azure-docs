@@ -1,12 +1,12 @@
 ---
 title:  Using DICOMweb&trade;Standard APIs with cURL - Azure Health Data Services
 description: In this tutorial, you'll learn how to use DICOMweb Standard APIs with cURL. 
-author: stevewohl
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 02/15/2022
-ms.author: aersoy
+ms.author: mmitrik
 ---
 
 # Using DICOMWeb&trade; Standard APIs with cURL
@@ -37,7 +37,7 @@ To use the DICOMWeb&trade; Standard APIs, you must have an instance of the DICOM
 
 Once you've deployed an instance of the DICOM service, retrieve the URL for your App service:
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search **Recent resources** and select your DICOM service instance.
 3. Copy the **Service URL** of your DICOM service. 
 4. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). 
@@ -113,7 +113,7 @@ Some programming languages and tools behave differently. For instance, some requ
 ```
 curl --request POST "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420"
 --header "Accept: application/dicom+json"
---header "Content-Type: multipart/related; type=\"application/dicom\"
+--header "Content-Type: multipart/related; type=\"application/dicom\""
 --header "Authorization: Bearer {token value}"
 --form "file1=@{path-to-dicoms}/blue-circle.dcm;type=application/dicom"
 ```
@@ -284,7 +284,7 @@ In the following examples, we'll search for items using their unique identifiers
 
 This request enables searches for one or more studies by DICOM attributes.
 
-For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md).
 
 _Details:_
 * Path: ../studies?StudyInstanceUID={study}
@@ -303,7 +303,7 @@ curl --request GET "{Service URL}/v{version}/studies?StudyInstanceUID=1.2.826.0.
 
 This request enables searches for one or more series by DICOM attributes.
 
-For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md).
 
 _Details:_
 * Path: ../series?SeriesInstanceUID={series}
@@ -322,7 +322,7 @@ curl --request GET "{Service URL}/v{version}/series?SeriesInstanceUID=1.2.826.0.
 
 This request enables searches for one or more series within a single study by DICOM attributes.
 
-For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md).
 
 _Details:_
 * Path: ../studies/{study}/series?SeriesInstanceUID={series}
@@ -341,7 +341,7 @@ curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.1
 
 This request enables searches for one or more instances by DICOM attributes.
 
-For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md).
 
 _Details:_
 * Path: ../instances?SOPInstanceUID={instance}
@@ -360,7 +360,7 @@ curl --request GET "{Service URL}/v{version}/instances?SOPInstanceUID=1.2.826.0.
 
 This request enables searches for one or more instances within a single study by DICOM attributes.
 
-For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md).
 
 _Details:_
 * Path: ../studies/{study}/instances?SOPInstanceUID={instance}
@@ -379,7 +379,7 @@ curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.1
 
 This request enables searches for one or more instances within a single study and single series by DICOM attributes.
 
-For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md)
+For more information about the supported DICOM attributes, see the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md)
 
 _Details:_
 * Path: ../studies/{study}/series/{series}/instances?SOPInstanceUID={instance}

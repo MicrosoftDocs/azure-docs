@@ -2,15 +2,17 @@
 title: SAML token encryption
 description: Learn how to configure Azure Active Directory SAML token encryption.
 services: active-directory
-author: AllisonAm
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/21/2022
-ms.author: alamaral
+ms.date: 06/15/2023
+ms.author: jomondi
+ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps, has-azure-ad-ps-ref
 ---
 
 # Configure Azure Active Directory SAML token encryption
@@ -28,6 +30,8 @@ To configure token encryption, you need to upload an X.509 certificate file that
 
 Azure AD uses AES-256 to encrypt the SAML assertion data.
 
+[!INCLUDE [portal updates](../includes/portal-update.md)]
+
 ## Configure enterprise application SAML token encryption
 
 This section describes how to configure enterprise application's SAML token encryption. Applications that have been set up from the **Enterprise applications** blade in the Azure portal, either from the Application Gallery or a Non-Gallery app. For applications registered through the **App registrations** experience, follow the [Configure registered application SAML token encryption](#configure-registered-application-saml-token-encryption) guidance.
@@ -38,8 +42,8 @@ To configure enterprise application's SAML token encryption, follow these steps:
 
     Create an asymmetric key pair to use for encryption. Or, if the application supplies a public key to use for encryption, follow the application's instructions to download the X.509 certificate.
 
-    The public key should be stored in an X.509 certificate file in .cer format.
-
+    The public key should be stored in an X.509 certificate file in .cer format. You can copy the contents of the certificate file to a text editor and save it as a .cer file. The certificate file should contain only the public key and not the private key.
+    
     If the application uses a key that you create for your instance, follow the instructions provided by your application for installing the private key that the application will use to decrypt tokens from your Azure AD tenant.
 
 1. Add the certificate to the application configuration in Azure AD.
@@ -48,9 +52,11 @@ To configure enterprise application's SAML token encryption, follow these steps:
 
 You can add the public cert to your application configuration within the Azure portal.
 
-1. Go to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Go to the **Azure Active Directory > Enterprise applications** blade and then select the application that you wish to configure token encryption for.
+1. Search for and select the **Azure Active Directory**.
+
+1. Select **Enterprise applications** blade and then select the application that you wish to configure token encryption for.
 
 1. On the application's page, select **Token encryption**.
 
@@ -61,7 +67,7 @@ You can add the public cert to your application configuration within the Azure p
 
 1. On the **Token encryption** page, select **Import Certificate** to import the .cer file that contains your public X.509 certificate.
 
-    ![Screenshot shows how to import a certificate file using Azure Portal.](./media/howto-saml-token-encryption/import-certificate-small.png)
+    ![Screenshot shows how to import a certificate file using Azure portal.](./media/howto-saml-token-encryption/import-certificate-small.png)
 
 1. Once the certificate is imported, and the private key is configured for use on the application side, activate encryption by selecting the **...** next to the thumbprint status, and then select **Activate token encryption** from the options in the dropdown menu.
 
@@ -97,9 +103,7 @@ To configure token encryption, follow these steps:
 
 1. In the application's page, select **Manifest** to edit the [application manifest](../develop/reference-app-manifest.md).
 
-1. Set the value for the `tokenEncryptionKeyId` attribute.
-
-    The following example shows an application manifest configured with two encryption certificates, and with the second selected as the active one using the tokenEnryptionKeyId.
+    The following example shows an application manifest configured with two encryption certificates, and with the second selected as the active one using the tokenEncryptionKeyId.
 
     ```json
     { 
@@ -168,7 +172,7 @@ To configure token encryption, follow these steps:
     }  
     ```
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure AD PowerShell](#tab/azuread-powershell)
 
 1. Use the latest Azure AD PowerShell module to connect to your tenant.
 
@@ -186,7 +190,29 @@ To configure token encryption, follow these steps:
     $app.TokenEncryptionKeyId
     ```
 
+# [Microsoft Graph PowerShell](#tab/msgraph-powershell)
 
+1. Use the Microsoft Graph PowerShell module to connect to your tenant.
+
+1. Set the token encryption settings using the **[Update-MgApplication](/powershell/module/microsoft.graph.applications/update-mgapplication?view=graph-powershell-1.0&preserve-view=true)** command.
+
+    ```powershell
+
+    Update-MgApplication -ApplicationId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
+
+    ```
+
+1. Read the token encryption settings using the following commands.
+
+    ```powershell
+
+    $app=Get-MgApplication -ApplicationId <ApplicationObjectId>
+
+    $app.KeyCredentials
+
+    $app.TokenEncryptionKeyId
+
+    ```
 # [Microsoft Graph](#tab/microsoft-graph)
 
 1. Update the application's `keyCredentials` with an X.509 certificate for encryption. The following example shows a Microsoft Graph JSON payload with a collection of key credentials associated with the application.
@@ -217,8 +243,7 @@ To configure token encryption, follow these steps:
 
 ---
 
-
 ## Next steps
 
-* Find out [How Azure AD uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md)
+* Find out [How Azure AD uses the SAML protocol](../develop/saml-protocol-reference.md)
 * Learn the format, security characteristics, and contents of [SAML tokens in Azure AD](../develop/reference-saml-tokens.md)

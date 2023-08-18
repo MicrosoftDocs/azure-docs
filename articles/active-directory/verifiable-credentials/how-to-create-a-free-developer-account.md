@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to
-ms.date: 04/01/2021
+ms.date: 01/26/2023
 ms.author: barclayn
 # Customer intent: As a developer, I want to learn how to create a developer Azure Active Directory account so I can participate in the preview with a P2 license. 
 ---
@@ -47,4 +47,4 @@ For your convenience, you could add your own work account as [guest](../external
 
 ## Next steps
 
-Now that you have a developer account, try our [first tutorial](get-started-verifiable-credentials.md) to learn more about verifiable credentials.
+Now that you have a developer account, try our [first tutorial](./verifiable-credentials-configure-tenant.md) to learn more about verifiable credentials.

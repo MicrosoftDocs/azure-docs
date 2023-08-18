@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/23/2022
+ms.date: 01/29/2023
 
 ms.author: gasinh
 author: gargi-sinha
@@ -33,22 +33,22 @@ Microsoft offers the following [three passwordless authentication options](conce
 
 ## Use the passwordless methods wizard
 
-The [Azure portal](https://portal.azure.com/) now has a passwordless methods wizard that will help you to select the appropriate method for each of your audiences. If you haven't yet determined the appropriate methods, see [https://aka.ms/passwordlesswizard](https://aka.ms/passwordlesswizard), then return to this article to continue planning for your selected methods. **You need administrator rights to access this wizard.**
+The [Azure portal](https://portal.azure.com) now has a passwordless methods wizard that will help you to select the appropriate method for each of your audiences. If you haven't yet determined the appropriate methods, see [https://aka.ms/passwordlesswizard](https://aka.ms/passwordlesswizard), then return to this article to continue planning for your selected methods. **You need administrator rights to access this wizard.**
 
 ## Passwordless authentication scenarios
 
 Microsoft's passwordless authentication methods enable many scenarios. Consider your organizational needs, prerequisites, and the capabilities of each authentication method to select your passwordless authentication strategy. 
 
-The following table lists the passwordless authentication methods by device types. Our recommendations are in **bold**.
+The following table lists the passwordless authentication methods by device types. Our recommendations are in ***bold italics***.
 
 | Device types| Passwordless authentication method |
 | - | - |
-| Dedicated non-windows devices| <li> **Microsoft Authenticator** <li> Security keys |
-| Dedicated Windows 10 computers (version 1703 and later)| <li> **Windows Hello for Business** <li> Security keys |
-| Dedicated Windows 10 computers (before version 1703)| <li> **Windows Hello for Business** <li> Microsoft Authenticator app |
-| Shared devices: tablets, and mobile devices| <li> **Microsoft Authenticator** <li> One-time password sign-in |
-| Kiosks (Legacy)| **Microsoft Authenticator** |
-| Kiosks and shared computers ‎(Windows 10)| <li> **Security keys** <li> Microsoft Authenticator app |
+| Dedicated non-windows devices| <li> ***Microsoft Authenticator*** <li> Security keys |
+| Dedicated Windows 10 computers (version 1703 and later)| <li> ***Windows Hello for Business*** <li> Security keys |
+| Dedicated Windows 10 computers (before version 1703)| <li> ***Windows Hello for Business*** <li> Microsoft Authenticator app |
+| Shared devices: tablets, and mobile devices| <li> ***Microsoft Authenticator*** <li> One-time password sign-in |
+| Kiosks (Legacy)| ***Microsoft Authenticator*** |
+| Kiosks and shared computers ‎(Windows 10)| <li> ***Security keys*** <li> Microsoft Authenticator app |
 
 
 ## Prerequisites 
@@ -95,11 +95,11 @@ The wizard will use your inputs to craft a step-by-step plan for you to follow.
 
 ## Plan the project
 
-When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood.
+When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../architecture/deployment-plans.md) and that stakeholder roles in the project are well understood.
 
 ### Plan a pilot
 
-When you deploy passwordless authentication, you should first enable one or more pilot groups. You can create groups specifically for this purpose. Add the users who will participate in the pilot to the groups. Then, enable new passwordless authentication methods for the selected groups. See [best practices for a pilot](../fundamentals/active-directory-deployment-plans.md).
+When you deploy passwordless authentication, you should first enable one or more pilot groups. You can create groups specifically for this purpose. Add the users who will participate in the pilot to the groups. Then, enable new passwordless authentication methods for the selected groups. See [best practices for a pilot](../architecture/deployment-plans.md).
 
 ### Plan communications
 
@@ -132,12 +132,12 @@ This method can also be used for easy recovery when the user has lost or forgott
 
 ### Technical considerations
 
-**Active Directory Federation Services (AD FS) Integration** - When a user enables the Authenticator passwordless credential, authentication for that user defaults to sending a notification for approval. Users in a hybrid tenant are prevented from being directed to AD FS for sign-in unless they select "Use your password instead." This process also bypasses any on-premises Conditional Access policies, and pass-through authentication (PTA) flows. However, if a login_hint is specified, the user is forwarded to AD FS and bypasses the option to use the passwordless credential.
+**Active Directory Federation Services (AD FS) Integration** - When a user enables the Authenticator passwordless credential, authentication for that user defaults to sending a notification for approval. Users in a hybrid tenant are prevented from being directed to AD FS for sign-in unless they select "Use your password instead." This process also bypasses any on-premises Conditional Access policies, and pass-through authentication (PTA) flows. However, if a login_hint is specified, the user is forwarded to AD FS and bypasses the option to use the passwordless credential. For non-Microsoft 365 applications which use AD FS for authentication, Azure AD Conditional Access policies will not be applied and you will need to set up access control policies within AD FS.
 
 **MFA server** - End users enabled for multi-factor authentication through an organization's on-premises MFA server can create and use a single passwordless phone sign-in credential. If the user attempts to upgrade multiple installations (5 or more) of the Authenticator app with the credential, this change may result in an error.
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multi-factor authentication (MFA) during sign-in events should use cloud-based Azure AD Multi-Factor Authentication. Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual. We recommend moving from MFA Server to Azure AD MFA.
+> In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users' authentication data](how-to-migrate-mfa-server-to-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
 
 **Device registration** - To use the Authenticator app for passwordless authentication, the device must be registered in the Azure AD tenant and can't be a shared device. A device can only be registered in a single tenant. This limit means that only one work or school account is supported for phone sign-in using the Authenticator app.
 
@@ -154,7 +154,7 @@ The following are sample test cases for passwordless authentication with the Aut
 | User can register the Authenticator app.| User can register app from https://aka.ms/mysecurityinfo. |
 | User can enable phone sign-in| Phone sign-in configured for work account. |
 | User can access an app with phone sign-in.| User goes through phone sign-in flow and reaches application. |
-| Test rolling back phone sign-in registration by turning off passwordless sign-in in the Authenticator app. Do this within the Authentication methods screen in the Azure AD portal| Previously enabled users unable to use passwordless sign-in from the Authenticator app. |
+| Test rolling back phone sign-in registration by turning off passwordless sign-in in the Authenticator app. Do this within the Authentication methods screen in the Azure portal| Previously enabled users unable to use passwordless sign-in from the Authenticator app. |
 | Removing phone sign-in from the Authenticator app| Work account no longer available on the Authenticator app. |
 
 
@@ -216,13 +216,13 @@ There are three types of passwordless sign-in deployments available with securit
 
 Enabling Windows 10 sign-in using FIDO2 security keys requires you to enable the credential provider functionality in Windows 10. Choose one of the following:
 
-* [Enable credential provider with Microsoft Endpoint Manager](howto-authentication-passwordless-security-key-windows.md)
+* [Enable credential provider with Microsoft Intune](howto-authentication-passwordless-security-key-windows.md)
 
-  * We recommend Microsoft Endpoint Manager deployment.
+  * We recommend Microsoft Intune deployment.
 
 * [Enable credential provider with a provisioning package](howto-authentication-passwordless-security-key-windows.md)
 
-  * If Microsoft Endpoint Manager deployment isn't possible, administrators must deploy a package on each machine to enable the credential provider functionality. The package installation can be carried out by one of the following options:
+  * If Microsoft Intune deployment isn't possible, administrators must deploy a package on each machine to enable the credential provider functionality. The package installation can be carried out by one of the following options:
     * Group Policy or Configuration Manager
     * Local installation on a Windows 10 machine
 
@@ -287,7 +287,7 @@ Here are the sample test cases for passwordless authentication with security key
 | The user can register FIDO2 device at aka.ms/mysecurityinfo using Firefox| Registration should succeed |
 | The user can sign in to OneDrive online using FIDO2 device using Microsoft Edge| Sign-in should succeed |
 | The user can sign in to OneDrive online using FIDO2 device using Firefox| Sign-in should succeed |
-| Test rolling back FIDO2 device registration by turning off FIDO2 Security Keys within the Authentication method window in the Azure Active Directory portal| Users will: <li> be prompted to sign in using their security key <li> successfully sign in and see an error: "Your company policy requires that you use a different method to sign in". <li>be able to select a different method and successfully sign in. Close the window and sign in again to verify they do not see the same error message. |
+| Test rolling back FIDO2 device registration by turning off FIDO2 Security Keys within the Authentication method window in the Azure portal| Users will: <li> be prompted to sign in using their security key <li> successfully sign in and see an error: "Your company policy requires that you use a different method to sign in". <li>be able to select a different method and successfully sign in. Close the window and sign in again to verify they do not see the same error message. |
 
 
 ### Troubleshoot security key sign-in
@@ -304,7 +304,7 @@ Here are the sample test cases for passwordless authentication with security key
 
 ## Manage passwordless authentication
 
-To manage your user's passwordless authentication methods in the [Azure portal](https://portal.azure.com/), select your user account, and then select Authentication methods.
+To manage your user's passwordless authentication methods in the [Azure portal](https://portal.azure.com), select your user account, and then select Authentication methods.
 
 ### Microsoft Graph APIs 
 
@@ -319,6 +319,8 @@ You can also manage the passwordless authentication methods using the authentica
 For more information on what authentication methods can be managed in Microsoft Graph, see [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview).
 
 ### Rollback
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Though passwordless authentication is a lightweight feature with minimal impact on end users, it may be necessary to roll back.
 
@@ -364,7 +366,7 @@ The [Registration tab](https://portal.azure.com/) shows the number of users capa
 
 ![Registration tab to view auth methods](media/howto-authentication-passwordless-deployment/monitoring-registration-tab.png)
 
-The [Usage tab ](https://portal.azure.com/)shows the sign-ins by authentication method.
+The [Usage tab](https://portal.azure.com/)shows the sign-ins by authentication method.
 
 ![Usage tab to view auth methods](media/howto-authentication-passwordless-deployment/monitoring-usage-tab.png)
 
@@ -382,4 +384,4 @@ Select the user row, and then select the **Authentication Details** tab to view 
 
 * [Learn how passwordless authentication works](concept-authentication-passwordless.md)
 
-* [Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)
+* [Deploy other identity features](../architecture/deployment-plans.md)

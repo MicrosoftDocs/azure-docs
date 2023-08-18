@@ -1,5 +1,5 @@
 ---
-title: Remove users, groups, or devices from an administrative unit - Azure Active Directory
+title: Remove users, groups, or devices from an administrative unit
 description: Remove users, groups, or devices from an administrative unit in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 03/22/2022
+ms.date: 06/09/2023
 ms.author: rolyon
 ms.reviewer: anandy
-ms.custom: oldportal;it-pro;
+ms.custom: oldportal, it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -37,7 +37,9 @@ You can remove users, groups, or devices from administrative units individually 
 
 ### Remove a single user, group, or device from administrative units
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
@@ -59,7 +61,7 @@ You can remove users, groups, or devices from administrative units individually 
 
 ### Remove users, groups, or devices from a single administrative unit
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
@@ -79,7 +81,7 @@ You can remove users, groups, or devices from administrative units individually 
 
 ### Remove users from an administrative unit in a bulk operation
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
@@ -128,26 +130,12 @@ Remove-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitId -MemberId $devic
 ```
 ## Microsoft Graph API
 
-Use the [Remove a member](/graph/api/administrativeunit-delete-members) API to remove users or groups from an administrative unit.
+Use the [Remove a member](/graph/api/administrativeunit-delete-members) API to remove users, groups, or devices from an administrative unit. For `{member-id}`, specify the user, group, or device ID.
 
-Use the [Remove a member (Beta)](/graph/api/administrativeunit-delete-members?view=graph-rest-beta&preserve-view=true) API to remove devices from an administrative unit.
-
-### Remove users from an administrative unit
+### Remove users, groups, or devices from an administrative unit
 
 ```http
-DELETE https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/{user-id}/$ref
-```
-
-### Remove groups from an administrative unit
-
-```http
-DELETE https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/{group-id}/$ref
-```
-
-### Remove devices from an administrative unit
-
-```http
-DELETE https://graph.microsoft.com/beta/administrativeUnits/{admin-unit-id}/members/{device-id}/$ref
+DELETE https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/{member-id}/$ref
 ```
 
 ## Next steps

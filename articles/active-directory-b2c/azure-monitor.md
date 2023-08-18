@@ -11,7 +11,8 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.date: 07/12/2022
+ms.date: 06/12/2023
+ms.custom: "b2c-support"
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
@@ -37,7 +38,7 @@ Watch this video to learn how to configure monitoring for Azure AD B2C using Azu
 
 ## Deployment overview
 
-Azure AD B2C uses [Azure Active Directory monitoring](../active-directory/reports-monitoring/overview-monitoring.md). Unlike Azure AD tenants, an Azure AD B2C tenant can't have a subscription associated with it. So, we need to take extra steps to enable the integration between Azure AD B2C and Log Analytics, which is where we'll send the logs.
+Azure AD B2C uses [Azure Active Directory monitoring](../active-directory/reports-monitoring/overview-monitoring.md). Unlike Azure AD tenants, an Azure AD B2C tenant can't have a subscription associated with it. So, we need to take extra steps to enable the integration between Azure AD B2C and Log Analytics, which is where we send the logs.
 To enable _Diagnostic settings_ in Azure Active Directory within your Azure AD B2C tenant, you use [Azure Lighthouse](../lighthouse/overview.md) to [delegate a resource](../lighthouse/concepts/architecture.md), which allows your Azure AD B2C (the **Service Provider**) to manage an Azure AD (the **Customer**) resource.
 
 > [!TIP]
@@ -55,7 +56,7 @@ During this deployment, you'll configure your Azure AD B2C tenant where logs are
 
 In summary, you'll use Azure Lighthouse to allow a user or group in your Azure AD B2C tenant to manage a resource group in a subscription associated with a different tenant (the Azure AD tenant). After this authorization is completed, the subscription and log analytics workspace can be selected as a target in the Diagnostic settings in Azure AD B2C.
 
-## Pre-requisites 
+## Prerequisites 
 
 - An Azure AD B2C account with [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) role on the Azure AD B2C tenant.
 
@@ -66,7 +67,7 @@ In summary, you'll use Azure Lighthouse to allow a user or group in your Azure A
 First, create, or choose a resource group that contains the destination Log Analytics workspace that will receive data from Azure AD B2C. You'll specify the resource group name when you deploy the Azure Resource Manager template.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your *Azure AD* tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
 1. [Create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) or choose an existing one. This example uses a resource group named _azure-ad-b2c-monitor_.
 
@@ -75,7 +76,7 @@ First, create, or choose a resource group that contains the destination Log Anal
 A **Log Analytics workspace** is a unique environment for Azure Monitor log data. You'll use this Log Analytics workspace to collect data from Azure AD B2C [audit logs](view-audit-logs.md), and then visualize it with queries and workbooks, or create alerts.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your *Azure AD* tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
 1. [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md). This example uses a Log Analytics workspace named _AzureAdB2C_, in a resource group named _azure-ad-b2c-monitor_.
 
@@ -88,7 +89,7 @@ In this step, you choose your Azure AD B2C tenant as a **service provider**. You
 First, get the **Tenant ID** of your Azure AD B2C directory (also known as the directory ID).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your *Azure AD B2C* tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Select **Azure Active Directory**, select **Overview**.
 1. Record the **Tenant ID**.
@@ -110,7 +111,7 @@ To make management easier, we recommend using Azure AD user _groups_ for each ro
 To create the custom authorization and delegation in Azure Lighthouse, we use an Azure Resource Manager template. This template grants Azure AD B2C access to the Azure AD resource group, which you created earlier, for example, _azure-ad-b2c-monitor_. Deploy the template from the GitHub sample by using the **Deploy to Azure** button, which opens the Azure portal and lets you configure and deploy the template directly in the portal. For these steps, make sure you're signed in to your Azure AD tenant (not the Azure AD B2C tenant).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your *Azure AD tenant*. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
 1. Use the **Deploy to Azure** button to open the Azure portal and deploy the template directly in the portal. For more information, see [create an Azure Resource Manager template](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template).
 
@@ -172,7 +173,7 @@ You're ready to [create diagnostic settings](../active-directory/reports-monitor
 
 To configure monitoring settings for Azure AD B2C activity logs:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure AD B2C administrative account. This account must be a member of the security group you specified in the [Select a security group](#32-select-a-security-group) step.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your *Azure AD B2C* administrative account. This account must be a member of the security group you specified in the [Select a security group](#32-select-a-security-group) step.
 1. Make sure you're using the directory that contains your Azure AD B2C tenant:
     1. Select the **Directories + subscriptions** icon in the portal toolbar.
     2. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
@@ -207,6 +208,8 @@ Now you can configure your Log Analytics workspace to visualize your data and co
 
 Log queries help you to fully use the value of the data collected in Azure Monitor Logs. A powerful query language allows you to join data from multiple tables, aggregate large sets of data, and perform complex operations with minimal code. Virtually any question can be answered and analysis performed as long as the supporting data has been collected, and you understand how to construct the right query. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your *Azure AD* tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. From **Log Analytics workspace** window, select **Logs**
 1. In the query editor, paste the following [Kusto Query Language](/azure/data-explorer/kusto/query/) query. This query shows policy usage by operation over the past x days. The default duration is set to 90 days (90d). Notice that the query is focused only on the operation where a token/code is issued by policy.
 
@@ -256,6 +259,8 @@ Workbooks provide a flexible canvas for data analysis and the creation of rich v
 
 Follow the instructions below to create a new workbook using a JSON Gallery Template. This workbook provides a **User Insights** and **Authentication** dashboard for Azure AD B2C tenant.
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your *Azure AD* tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. From the **Log Analytics workspace** window, select **Workbooks**.
 1. From the toolbar, select **+ New** option to create a new workbook.
 1. On the **New workbook** page, select the **Advanced Editor** using the **</>** option on the toolbar.
@@ -282,12 +287,14 @@ The workbook will display reports in the form of a dashboard.
 
 ## Create alerts
 
-Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals. You can create alerts based on specific performance metrics or when certain events occur. You can also create alerts on absence of an event, or a number of events occur within a particular time window. For example, alerts can be used to notify you when average number of sign in exceeds a certain threshold. For more information, see [Create alerts](../azure-monitor/alerts/alerts-log.md).
+Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals. You can create alerts based on specific performance metrics or when certain events occur. You can also create alerts on absence of an event, or when a number of events occur within a particular time window. For example, alerts can be used to notify you when average number of sign-ins exceeds a certain threshold. For more information, see [Create alerts](../azure-monitor/alerts/alerts-log.md).
 
-Use the following instructions to create a new Azure Alert, which will send an [email notification](../azure-monitor/alerts/action-groups.md#configure-notifications) whenever there's a 25% drop in the **Total Requests** compared to previous period. Alert will run every 5 minutes and look for the drop in the last hour compared to the hour before it. The alerts are created using Kusto query language.
+Use the following instructions to create a new Azure Alert, which will send an [email notification](../azure-monitor/alerts/action-groups.md) whenever there's a 25% drop in the **Total Requests** compared to previous period. Alert will run every 5 minutes and look for the drop in the last hour compared to the hour before it. The alerts are created using Kusto query language.
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your *Azure AD* tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. From **Log Analytics workspace**, select **Logs**.
-1. Create a new **Kusto query** by using the query below.
+1. Create a new **Kusto query** by using this query.
 
    ```kusto
    let start = ago(2h);
@@ -303,8 +310,8 @@ Use the following instructions to create a new Azure Alert, which will send an [
    | where PercentageChange <= threshold   //Trigger's alert rule if matched.
    ```
 
-1. Select **Run**, to test the query. You should see the results if there is a drop of 25% or more in the total requests within the past hour.
-1. To create an alert rule based on the query above, use the **+ New alert rule** option available in the toolbar.
+1. Select **Run**, to test the query. You should see the results if there's a drop of 25% or more in the total requests within the past hour.
+1. To create an alert rule based on this query, use the **+ New alert rule** option available in the toolbar.
 1. On the **Create an alert rule** page, select **Condition name**
 1. On the **Configure signal logic** page, set following values and then use **Done** button to save the changes.
 
@@ -339,6 +346,19 @@ workspace("AD-B2C-TENANT1").AuditLogs
 
 Azure Monitor Logs are designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure. By default, logs are retained for 30 days, but retention duration can be increased to up to two years. Learn how to [manage usage and costs with Azure Monitor Logs](../azure-monitor/logs/cost-logs.md). After you select the pricing tier, you can [Change the data retention period](../azure-monitor/logs/data-retention-archive.md).
 
+## Disable monitoring data collection
+
+To stop collecting logs to your Log Analytics workspace, delete the diagnostic settings you created. You'll continue to incur charges for retaining log data you've already collected into your workspace. If you no longer need the monitoring data you've collected, you can delete your Log Analytics workspace and the resource group you created for Azure Monitor. Deleting the Log Analytics workspace deletes all data in the workspace and prevents you from incurring additional data retention charges.
+
+## Delete Log Analytics workspace and resource group
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your *Azure AD* tenant:
+   1. Select the **Directories + subscriptions** icon in the portal toolbar.
+   1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch** button next to it.
+1. Choose the resource group that contains the Log Analytics workspace. This example uses a resource group named _azure-ad-b2c-monitor_ and a Log Analytics workspace named `AzureAdB2C`.
+1. [Delete the Logs Analytics workspace](../azure-monitor/logs/delete-workspace.md#azure-portal).
+1. Select the **Delete** button to delete the resource group.
 ## Next steps
 
 - Find more samples in the Azure AD B2C [SIEM gallery](https://aka.ms/b2csiem).

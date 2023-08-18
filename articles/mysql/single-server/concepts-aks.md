@@ -4,14 +4,16 @@ description: Learn about connecting Azure Kubernetes Service with Azure Database
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 
 # Best practices for Azure Kubernetes Service and Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Azure Kubernetes Service (AKS) provides a managed Kubernetes cluster you can use in Azure. Below are some options to consider when using AKS and Azure Database for MySQL together to create an application.
 

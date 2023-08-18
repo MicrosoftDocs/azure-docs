@@ -13,6 +13,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for PostgreSQL provides various monitoring options to provide insight into the behavior of your server.
 
 ## Metrics
@@ -23,24 +25,41 @@ Azure Database for PostgreSQL provides various metrics that give insight into th
 
 These metrics are available for Azure Database for PostgreSQL:
 
-|Metric|Metric Display Name|Unit|Description|
-|---|---|---|---|
-|cpu_percent|CPU percent|Percent|The percentage of CPU in use.|
-|memory_percent|Memory percent|Percent|The percentage of memory in use.|
-|io_consumption_percent|IO percent|Percent|The percentage of IO in use. (Not applicable for Basic tier servers.)|
-|storage_percent|Storage percentage|Percent|The percentage of storage used out of the server's maximum.|
-|storage_used|Storage used|Bytes|The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
-|storage_limit|Storage limit|Bytes|The maximum storage for this server.|
-|serverlog_storage_percent|Server Log storage percent|Percent|The percentage of server log storage used out of the server's maximum server log storage.|
-|serverlog_storage_usage|Server Log storage used|Bytes|The amount of server log storage in use.|
-|serverlog_storage_limit|Server Log storage limit|Bytes|The maximum server log storage for this server.|
-|active_connections|Active Connections|Count|The number of active connections to the server.|
-|connections_failed|Failed Connections|Count|The number of established connections that failed.|
-|network_bytes_egress|Network Out|Bytes|Network Out across active connections.|
-|network_bytes_ingress|Network In|Bytes|Network In across active connections.|
-|backup_storage_used|Backup Storage Used|Bytes|The amount of backup storage used. This metric represents the sum of storage consumed by all the full database backups, differential backups, and log backups retained based on the backup retention period set for the server. The frequency of the backups is service managed and explained in the [concepts article](concepts-backup.md). For geo-redundant storage, backup storage usage is twice that of the locally redundant storage.|
-|pg_replica_log_delay_in_bytes|Max Lag Across Replicas|Bytes|The lag in bytes between the primary and the most-lagging replica. This metric is available on the primary server only.|
-|pg_replica_log_delay_in_seconds|Replica Lag|Seconds|The time since the last replayed transaction. This metric is available for replica servers only.|
+##### `Error`
+
+|Display Name|Metric ID                 |Unit                           |Description|
+|------------|--------------------------|-------------------------------|-----------|
+|**Failed Connections**|connections_failed        |Count                          |The number of established connections that failed.|
+
+##### `Latency`
+
+|Display Name|Metric ID                 |Unit                           |Description|
+|------------|--------------------------|-------------------------------|-----------|
+|**Max Lag Across Replicas**|pg_replica_log_delay_in_bytes|Bytes                          |The lag in bytes between the primary and the most-lagging replica. This metric is available on the primary server only.|
+|**Replica Lag** |pg_replica_log_delay_in_seconds|Seconds                        |The time since the last replayed transaction. This metric is available for replica servers only.|
+
+##### `Saturation`
+
+|Display Name|Metric ID                 |Unit                           |Description|
+|------------|--------------------------|-------------------------------|-----------|
+|**Backup Storage Used**|backup_storage_used       |Bytes                          |The amount of backup storage used. This metric represents the sum of storage consumed by all the full database backups, differential backups, and log backups retained based on the backup retention period set for the server. The frequency of the backups is service managed and explained in the [concepts article](concepts-backup.md). For geo-redundant storage, backup storage usage is twice that of the locally redundant storage.|
+|**CPU percent** |cpu_percent               |Percent                        |The percentage of CPU in use.|
+|**IO percent**  |io_consumption_percent    |Percent                        |The percentage of IO in use. (Not applicable for Basic tier servers.)|
+|**Memory percent** |memory_percent            |Percent                        |The percentage of memory in use.|
+|**Server Log storage limit** |serverlog_storage_limit   |Bytes                          |The maximum server log storage for this server.|
+|**Server Log storage percent** |serverlog_storage_percent |Percent                        |The percentage of server log storage used out of the server's maximum server log storage.|
+|**Server Log storage used** |serverlog_storage_usage   |Bytes                          |The amount of server log storage in use.|
+|**Storage limit** |storage_limit             |Bytes                          |The maximum storage for this server.|
+|**Storage percentage** |storage_percent           |Percent                        |The percentage of storage used out of the server's maximum.|
+|**Storage used** |storage_used              |Bytes                          |The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
+
+##### `Traffic`
+
+|Display Name|Metric ID                 |Unit                           |Description|
+|------------|--------------------------|-------------------------------|-----------|
+|**Active Connections**|active_connections        |Count                          |The number of active connections to the server.|
+|**Network Out** |network_bytes_egress      |Bytes                          |Network Out across active connections.|
+|**Network In**  |network_bytes_ingress     |Bytes                          |Network In across active connections.|
 
 ## Server logs
 
@@ -52,7 +71,7 @@ You can enable logging on your server. These resource logs can be sent to [Azure
 
 ## Query Performance Insight
 
-[Query Performance Insight](concepts-query-performance-insight.md) works in conjunction with Query Store to provide visualizations accessible from the Azure portal. These charts enable you to identify key queries that impact performance. Query Performance Insight is accessible from the **Support + troubleshooting** section of your Azure Database for PostgreSQL server's portal page.
+[Query Performance Insight](concepts-query-performance-insight.md) works in conjunction with Query Store to provide visualizations accessible from the Azure portal. These charts enable you to identify key queries that impact performance. Query Performance Insight is accessible from the **Intelligent Performance** section of your Azure Database for PostgreSQL server's portal page.
 
 ## Performance Recommendations
 

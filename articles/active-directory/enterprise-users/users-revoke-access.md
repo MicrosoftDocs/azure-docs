@@ -1,5 +1,5 @@
 ---
-title: Revoke user access in an emergency in Azure Active Directory | Microsoft Docs
+title: Revoke user access in an emergency in Azure Active Directory
 description: How to revoke all access for a user in Azure Active Directory
 services: active-directory 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.author: barclayn
 manager: amycolannino
 ms.reviewer: krbain
 ms.date: 06/24/2022
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -96,6 +96,9 @@ As an administrator in Azure Active Directory, open PowerShell, run ``Connect-Az
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
     ```
+
+>[!NOTE]
+> For information on specific roles that can perform these steps review [Azure AD built-in roles](../roles/permissions-reference.md)
 ## When access is revoked
 
 Once admins have taken the above steps, the user can't gain new tokens for any application tied to Azure Active Directory. The elapsed time between revocation and the user losing their access depends on how the application is granting access:
@@ -110,7 +113,7 @@ Once admins have taken the above steps, the user can't gain new tokens for any a
 
   - Use [Azure AD SaaS App Provisioning](../app-provisioning/user-provisioning.md). Azure AD SaaS App Provisioning typically runs automatically every 20-40 minutes. [Configure Azure AD provisioning](../saas-apps/tutorial-list.md) to deprovision or deactivate disabled users in applications.
   
-  - For applications that don't use Azure AD SaaS App Provisioning, use [Identity Manager (MIM)](/microsoft-identity-manager/mim-how-provision-users-adds) or a 3rd party solution to automate the deprovisioning of users.  
+  - For applications that don't use Azure AD SaaS App Provisioning, use [Identity Manager (MIM)](/microsoft-identity-manager/mim-how-provision-users-adds) or a third party solution to automate the deprovisioning of users.  
   - Identify and develop a process for applications that requires manual deprovisioning. Ensure admins can quickly run the required manual tasks to deprovision the user from these apps when needed.
   
 - [Manage your devices and applications with Microsoft Intune](/mem/intune/remote-actions/device-management). Intune-managed [devices can be reset to factory settings](/mem/intune/remote-actions/devices-wipe). If the device is unmanaged, you can [wipe the corporate data from managed apps](/mem/intune/apps/apps-selective-wipe). These processes are effective for removing potentially sensitive data from end users' devices. However, for either process to be triggered, the device must be connected to the internet. If the device is offline, the device will still have access to any locally stored data.
@@ -125,5 +128,5 @@ Once admins have taken the above steps, the user can't gain new tokens for any a
 ## Next steps
 
 - [Secure access practices for Azure AD administrators](../roles/security-planning.md)
-- [Add or update user profile information](../fundamentals/active-directory-users-profile-azure-portal.md)
+- [Add or update user profile information](../fundamentals/how-to-manage-user-profile-info.md)
 - [Remove or Delete a former employee](/microsoft-365/admin/add-users/remove-former-employee)

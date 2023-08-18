@@ -1,11 +1,11 @@
 ---
-title: On-premises password writeback with self-service password reset - Azure Active Directory
+title: On-premises password writeback with self-service password reset
 description: Learn how password change or reset events in Azure Active Directory can be written back to an on-premises directory environment
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/25/2021
+ms.date: 01/29/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
@@ -24,9 +24,9 @@ Azure Active Directory (Azure AD) self-service password reset (SSPR) lets users 
 
 Password writeback is supported in environments that use the following hybrid identity models:
 
-* [Password hash synchronization](../hybrid/how-to-connect-password-hash-synchronization.md)
-* [Pass-through authentication](../hybrid/how-to-connect-pta.md)
-* [Active Directory Federation Services](../hybrid/how-to-connect-fed-management.md)
+* [Password hash synchronization](../hybrid/connect/how-to-connect-password-hash-synchronization.md)
+* [Pass-through authentication](../hybrid/connect/how-to-connect-pta.md)
+* [Active Directory Federation Services](../hybrid/connect/how-to-connect-fed-management.md)
 
 Password writeback provides the following features:
 
@@ -38,16 +38,16 @@ Password writeback provides the following features:
 * **Supports side-by-side domain-level deployment** using [Azure AD Connect](tutorial-enable-sspr-writeback.md) or [cloud sync](tutorial-enable-cloud-sync-sspr-writeback.md) to target different sets of users depending on their needs, including users who are in disconnected domains.  
 
 > [!NOTE]
-> Administrator accounts that exist within protected groups in on-premises AD can be used with password writeback. Administrators can change their password in the cloud but can't reset a forgotten password. For more information about protected groups, see [Protected accounts and groups in AD DS](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
+> The on-premises service account that handles password write-back requests cannot change the passwords for users that belong to protected groups. Administrators can change their password in the cloud but they cannot use password write-back to reset a forgotten password for their on-premises user. For more information about protected groups, see [Protected accounts and groups in AD DS](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
 
 To get started with SSPR writeback, complete either one or both of the following tutorials:
 
-- [Tutorial: Enable self-service password reset (SSPR) writeback](tutorial-enable-cloud-sync-sspr-writeback.md)
+- [Tutorial: Enable self-service password reset (SSPR) writeback](tutorial-enable-sspr-writeback.md)
 - [Tutorial: Enable Azure Active Directory Connect cloud sync self-service password reset writeback to an on-premises environment (Preview)](tutorial-enable-cloud-sync-sspr-writeback.md)
 
 ## Azure AD Connect and cloud sync side-by-side deployment
 
-You can deploy Azure AD Connect and cloud sync side-by-side in different domains to target different sets of users. This helps existing users continue to writeback password changes while adding the option in cases where users are in disconnected domains because of a company merger or split. Azure AD Connect and cloud sync can be configured in different domains so users from one domain can use Azure AD Connect while users in another domain use cloud sync. Cloud sync can also provide higher availability because it doesn't rely on a single instance of Azure AD Connect. For a feature comparison between the two deployment options, see [Comparison between Azure AD Connect and cloud sync](../cloud-sync/what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync).
+You can deploy Azure AD Connect and cloud sync side-by-side in different domains to target different sets of users. This helps existing users continue to writeback password changes while adding the option in cases where users are in disconnected domains because of a company merger or split. Azure AD Connect and cloud sync can be configured in different domains so users from one domain can use Azure AD Connect while users in another domain use cloud sync. Cloud sync can also provide higher availability because it doesn't rely on a single instance of Azure AD Connect. For a feature comparison between the two deployment options, see [Comparison between Azure AD Connect and cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync).
 
 ## How password writeback works
 
@@ -154,7 +154,7 @@ Passwords aren't written back in any of the following situations:
    * Any administrator cannot use password reset tool to reset their own password for password writeback.
 
 > [!WARNING]
-> Use of the checkbox "User must change password at next logon" in on-premises AD DS administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is supported as a preview feature of Azure AD Connect. For more information, see [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md).
+> Use of the checkbox "User must change password at next logon" in on-premises AD DS administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is supported as a preview feature of Azure AD Connect. For more information, see [Implement password hash synchronization with Azure AD Connect sync](../hybrid/connect/how-to-connect-password-hash-synchronization.md).
 
 > [!NOTE]
 > If a user has the option "Password never expires" set in Active Directory (AD), the force password change flag will not be set in Active Directory (AD), so the user will not be prompted to change the password during the next sign-in even if the option to force the user to change their password on next logon option is selected during an administrator-initiated end-user password reset.

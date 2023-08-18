@@ -4,9 +4,9 @@ description: Check startup, liveness, and readiness with Azure Container Apps he
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
-ms.date: 03/30/2022
+ms.date: 10/28/2022
 ms.author: cshoe
 ---
 
@@ -22,6 +22,9 @@ Container Apps support the following probes:
 
 
 For a full listing of the specification supported in Azure Container Apps, refer to [Azure REST API specs](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/app/resource-manager/Microsoft.App/stable/2022-03-01/CommonDefinitions.json#L119-L236).
+
+> [!NOTE]
+> TCP startup probes are not supported for Consumption workload profiles in the [Consumption + Dedicated plan structure](./plans.md#consumption-dedicated).
 
 ## HTTP probes
 
@@ -158,7 +161,15 @@ The optional `failureThreshold` setting defines the number of attempts Container
 
 ## Default configuration
 
-Container Apps offers default probe settings if no probes are defined. If your app takes an extended amount of time to start, which is very common in Java, you often need to customize the probes so your container won't crash.
+If ingress is enabled, the following default probes are automatically added to the main app container if none is defined for each type.
+
+| Probe type | Default values |
+| -- | -- |
+| Startup | Protocol: TCP<br>Port: ingress target port<br>Timeout: 1 second<br>Period: 1 second<br>Initial delay: 1 second<br>Success threshold: 1<br>Failure threshold: `timeoutSeconds` |
+| Readiness | Protocol: TCP<br>Port: ingress target port<br>Timeout: 5 seconds<br>Period: 5 seconds<br>Initial delay: 3 seconds<br>Success threshold: 1<br>Failure threshold: `timeoutSeconds / 5` |
+| Liveness | Protocol: TCP<br>Port: ingress target port |
+
+If your app takes an extended amount of time to start, which is very common in Java, you often need to customize the probes so your container won't crash.
 
 The following example demonstrates how to configure the liveness and readiness probes in order to extend the startup times.
 
@@ -184,10 +195,10 @@ The following example demonstrates how to configure the liveness and readiness p
            "port": 80
           },
           "timeoutSeconds": 5
-       }
+       }]
 ```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Monitor an app](monitor.md)
+> [Application logging](logging.md)

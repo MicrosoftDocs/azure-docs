@@ -6,11 +6,11 @@ author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 08/18/2022
 ROBOTS: NOINDEX
 ms.author: owenrichards
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-js
 #Customer intent: As an application developer, I want to learn how my Node.js Electron desktop application can get an access token and call an API that's protected by a Microsoft identity platform endpoint.
 ---
 
@@ -19,7 +19,7 @@ ms.custom: mode-api
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
-> > [Quickstart: Node.js Electron desktop app with user sign-in](desktop-app-quickstart.md?pivots=devlang-nodejs-electron)
+> > [Quickstart: Sign in users and call Microsoft Graph from a Node.js desktop app](quickstart-desktop-app-nodejs-electron-sign-in.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
@@ -37,8 +37,8 @@ ms.custom: mode-api
 > 
 > #### Step 1: Configure the application in Azure portal
 > For the code sample for this quickstart to work, you need to add a reply URL as **msal://redirect**.
-> > [!div class="nextstepaction"]
-> > [Make this change for me]()
+> 
+> <button id="makechanges" class="nextstepaction configure-app-button"> Make these changes for me </button>
 > 
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.

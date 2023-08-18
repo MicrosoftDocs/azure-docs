@@ -5,10 +5,10 @@ author: normesta
 
 ms.author: normesta
 ms.date: 11/01/2021
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: conceptual
-ms.custom: references_regions, devx-track-azurepowershell
+ms.custom: references_regions
 ---
 
 # Manage and find Azure Blob data with blob index tags
@@ -67,19 +67,21 @@ You can apply multiple tags on your blob to be more descriptive of the data.
 > "Status" = 'Unprocessed'
 > "Priority" = '01'
 
-To modify the existing index tag attributes, retrieve the existing tag attributes, modify the tag attributes, and replace with the [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation. To remove all index tags from the blob, call the `Set Blob Tags` operation with no tag attributes specified. As blob index tags are a subresource to the blob data contents, `Set Blob Tags` doesn't modify any underlying content and doesn't change the blob's last-modified-time or eTag. You can create or modify index tags for all current base blobs. Index tags are also preserved for previous versions but they aren't passed to the blob index engine, so you cannot query index tags to retrieve previous versions. Tags on snapshots or soft deleted blobs cannot be modified.
+To modify the existing index tag attributes, retrieve the existing tag attributes, modify the tag attributes, and replace with the [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation. To remove all index tags from the blob, call the `Set Blob Tags` operation with no tag attributes specified. As blob index tags are a subresource to the blob data contents, `Set Blob Tags` doesn't modify any underlying content and doesn't change the blob's last-modified-time or eTag. You can create or modify index tags for all current base blobs. Index tags are also preserved for previous versions but they aren't passed to the blob index engine, so you cannot query index tags to retrieve previous versions. Tags on snapshots or soft-deleted blobs cannot be modified.
 
 The following limits apply to blob index tags:
 
 - Each blob can have up to 10 blob index tags
 
-- Tag keys must be between one and 128 characters
+- Tag keys must be between one and 128 characters.
 
-- Tag values must be between zero and 256 characters
+- Tag values must be between zero and 256 characters.
 
-- Tag keys and values are case-sensitive
+- Tag keys and values are case-sensitive.
 
-- Tag keys and values only support string data types. Any numbers, dates, times, or special characters are saved as strings
+- Tag keys and values only support string data types. Any numbers, dates, times, or special characters are saved as strings.
+
+- If versioning is enabled, index tags are applied to a specific version of blob. If you set index tags on the current version, and a new version is created, then the tag won't be associated with the new version. The tag will be associated only with the previous version.
 
 - Tag keys and values must adhere to the following naming rules:
 
@@ -106,7 +108,11 @@ For any blobs with at least one blob index tag, the `x-ms-tag-count` is returned
 
 ## Finding data using blob index tags
 
-The indexing engine exposes your key-value attributes into a multi-dimensional index. After you set your index tags, they exist on the blob and can be retrieved immediately. It may take some time before the blob index updates. After the blob index updates, you can use the native query and discovery capabilities offered by Blob Storage.
+The indexing engine exposes your key-value attributes into a multi-dimensional index. After you set your index tags, they exist on the blob and can be retrieved immediately. 
+
+It might take some time before the blob index updates. This is true for both adding tags and editing existing ones. The amount of time required depends on the workload. For example, if a [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation takes 30 minutes to complete at a rate of 15000 to 20000 transactions per second, then it can take up to 10 minutes to index all of those blobs. At a lower rate, the indexing delay can be under a second. The distribution of traffic also affects indexing delays. For example, if a client application sets tags on blobs in sequential order under the same container, the delay could be higher than it would be if tags are applied to blobs that aren't located together.
+
+After the blob index updates, you can use the native query and discovery capabilities offered by Blob Storage.
 
 The [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) operation enables you to get a filtered set of blobs whose index tags match a given query expression. `Find Blobs by Tags` supports filtering across all containers within your storage account or you can scope the filtering to just a single container. Since all the index tag keys and values are strings, relational operators use a lexicographic sorting.
 
@@ -322,7 +328,7 @@ You're charged for the monthly average number of index tags within a storage acc
 
 This section describes known issues and conditions.
 
-- Only general-purpose v2 accounts are supported. Premium block blob, legacy blob, and accounts with a hierarchical namespace enabled aren't supported. General-purpose v1 accounts won't be supported.
+- Only general-purpose v2 accounts and premium block blob accounts are supported. Premium page blob, legacy blob, and accounts with a hierarchical namespace enabled aren't supported. General-purpose v1 accounts won't be supported.
 
 - Uploading page blobs with index tags doesn't persist the tags. Set the tags after uploading a page blob.
 
@@ -334,19 +340,9 @@ This section describes known issues and conditions.
 
 - `Copy Blob` doesn't copy blob index tags from the source blob to the new destination blob. You can specify the tags you want applied to the destination blob during the copy operation.
 
-## FAQ
+## Frequently asked questions (FAQ)
 
-**Can blob index help me filter and query content inside my blobs?**
-
-No, if you need to search within your blob data, use query acceleration or Azure search.
-
-**Are there any requirements on index tag values?**
-
-Blob index tags only support string data types and querying returns results with lexicographical ordering. For numbers, zero pad the number. For dates and times, store as an ISO 8601 compliant format.
-
-**Are blob index tags and Azure Resource Manager tags related?**
-
-No, Resource Manager tags help organize control plane resources such as subscriptions, resource groups, and storage accounts. Index tags provide blob management and discovery on the data plane.
+See [Blob index tags FAQ](storage-blob-faq.yml#blob-index-tags).
 
 ## Next steps
 

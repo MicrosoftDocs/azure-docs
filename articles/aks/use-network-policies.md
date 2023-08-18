@@ -2,10 +2,9 @@
 title: Secure pod traffic with network policy
 titleSuffix: Azure Kubernetes Service
 description: Learn how to secure traffic that flows in and out of pods by using Kubernetes network policies in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
-ms.date: 06/24/2022
-
+ms.custom: devx-track-azurecli
+ms.date: 07/14/2023
 ---
 
 # Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)
@@ -16,7 +15,7 @@ This article shows you how to install the Network Policy engine and create Kuber
 
 ## Before you begin
 
-You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Overview of Network Policy
 
@@ -30,21 +29,38 @@ These Network Policy rules are defined as YAML manifests. Network policies can b
 
 Azure provides two ways to implement Network Policy. You choose a Network Policy option when you create an AKS cluster. The policy option can't be changed after the cluster is created:
 
-* Azure's own implementation, called *Azure Network Policy Manager (NPM)*.
+* Azure's own implementation, called *Azure Network Policy Manager*.
 * *Calico Network Policies*, an open-source network and network security solution founded by [Tigera][tigera].
 
-Azure NPM for Linux uses Linux *IPTables* to enforce the specified policies. Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as IPTable filter rules.
+Azure Network Policy Manager for Linux uses Linux *IPTables* and Azure Network Policy Manager for Windows uses *Host Network Service (HNS) ACLPolicies* to enforce the specified policies. Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as IPTable/HNS ACLPolicy filter rules.
 
-## Differences between Azure NPM and Calico Network Policy and their capabilities
+## Differences between Azure Network Policy Manager and Calico Network Policy and their capabilities
 
-| Capability                               | Azure  NPM                    | Calico Network Policy                     |
+| Capability                               | Azure Network Policy Manager                    | Calico Network Policy                     |
 |------------------------------------------|----------------------------|-----------------------------|
-| Supported platforms                      | Linux                     | Linux, Windows Server 2019 and 2022  |
+| Supported platforms                      | Linux, Windows Server 2022                      | Linux, Windows Server 2019 and 2022  |
 | Supported networking options             | Azure CNI                  | Azure CNI (Linux, Windows Server 2019 and 2022) and kubenet (Linux)  |
 | Compliance with Kubernetes specification | All policy types supported |  All policy types supported |
 | Additional features                      | None                       | Extended policy model consisting of Global Network Policy, Global Network Set, and Host Endpoint. For more information on using the `calicoctl` CLI to manage these extended features, see [calicoctl user reference][calicoctl]. |
 | Support                                  | Supported by Azure support and Engineering team | Calico community support. For more information on additional paid support, see [Project Calico support options][calico-support]. |
-| Logging                                  | Logs available with **kubectl log -n kube-system <network-policy-pod>** command | For more information, see [Calico component logs][calico-logs] |
+| Logging                                  | Logs available with **kubectl log -n kube-system \<network-policy-pod\>** command | For more information, see [Calico component logs][calico-logs] |
+
+## Limitations
+
+Azure Network Policy Manager doesn't support IPv6. Otherwise, Azure Network Policy Manager fully supports the network policy spec in Linux.
+
+* In Windows, Azure Network Policy Manager doesn't support the following:
+    * named ports
+    * SCTP protocol
+    * negative match label or namespace selectors (e.g. all labels except "debug=true")
+    * "except" CIDR blocks (a CIDR with exceptions)
+
+>[!NOTE]
+> * Azure Network Policy Manager pod logs record an error if an unsupported policy is created.
+
+## Scale
+
+With Azure Network Policy Manager for Linux, we don't recommend scaling beyond 250 nodes and 20k pods. If you attempt to scale beyond these limits, you may encounter Out of Memory (OOM) kills. To increase your memory limit, contact us on [aks-acn-github].
 
 ## Create an AKS cluster and enable Network Policy
 
@@ -54,18 +70,17 @@ To see network policies in action, let's create an AKS cluster that supports net
 >
 > The network policy feature can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster.
 
-To use Azure NPM, you must use the [Azure CNI plug-in][azure-cni]. Calico Network Policy could be used with either this same Azure CNI plug-in or with the Kubenet CNI plug-in.
+To use Azure Network Policy Manager, you must use the [Azure CNI plug-in][azure-cni]. Calico Network Policy could be used with either this same Azure CNI plug-in or with the Kubenet CNI plug-in.
 
 The following example script:
 
-* Creates an AKS cluster with system-assigned identity and enables Network Policy.
-    * The _Azure NPM_ option is used. To use Calico as the Network Policy option instead, use the `--network-policy calico` parameter. Note: Calico could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
+* Creates an AKS cluster with system-assigned identity and enables Network Policy using Azure Network Policy Manager. To use Calico as the Network Policy option instead, use the `--network-policy calico` parameter. Note: Calico could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
 
 Instead of using a system-assigned identity, you can also use a user-assigned identity. For more information, see [Use managed identities](use-managed-identity.md).
 
-### Create an AKS cluster with Azure NPM enabled 
+### Create an AKS cluster with Azure Network Policy Manager enabled - Linux only 
 
-In this section, we will work on creating a cluster with Linux node pools and Azure NPM enabled. 
+In this section, we'll work on creating a cluster with Linux node pools and Azure Network Policy Manager enabled. 
 
 To begin, you should replace the values for *$RESOURCE_GROUP_NAME* and *$CLUSTER_NAME* variables. 
 
@@ -75,7 +90,7 @@ $CLUSTER_NAME=myAKSCluster
 $LOCATION=canadaeast
 ```
 
-Create the AKS cluster and specify *azure* for the `network-plugin` and `network-policy`.
+Create the AKS cluster and specify `azure` for the `network-plugin` and `network-policy`.
 
 Use the following command to create a cluster:
 ```azurecli
@@ -87,9 +102,93 @@ az aks create \
     --network-policy azure
 ```
 
+### Create an AKS cluster with Azure Network Policy Manager enabled - Windows Server 2022 (Preview)
+
+In this section, we'll work on creating a cluster with Windows node pools and Azure Network Policy Manager enabled.
+
+> [!NOTE]
+> Azure Network Policy Manager with Windows nodes is available on Windows Server 2022 only.
+>
+
+#### Install the aks-preview Azure CLI extension
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+#### Register the 'WindowsNetworkPolicyPreview' feature flag
+
+Register the `WindowsNetworkPolicyPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "WindowsNetworkPolicyPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "WindowsNetworkPolicyPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+#### Create the AKS cluster
+
+Now, you should replace the values for *$RESOURCE_GROUP_NAME*, *$CLUSTER_NAME* and *$WINDOWS_USERNAME* variables.
+
+```azurecli-interactive
+$RESOURCE_GROUP_NAME=myResourceGroup-NP
+$CLUSTER_NAME=myAKSCluster
+$WINDOWS_USERNAME=myWindowsUserName
+$LOCATION=canadaeast
+```
+
+Create a username to use as administrator credentials for your Windows Server containers on your cluster. The following command prompts you for a username. Set it to `$WINDOWS_USERNAME`(remember that the commands in this article are entered into a BASH shell).
+
+```azurecli-interactive
+echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
+```
+
+Use the following command to create a cluster:
+
+```azurecli
+az aks create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $CLUSTER_NAME \
+    --node-count 1 \
+    --windows-admin-username $WINDOWS_USERNAME \
+    --network-plugin azure \
+    --network-policy azure
+```
+
+It takes a few minutes to create the cluster. By default, your cluster is created with only a Linux node pool. If you would like to use Windows node pools, you can add one. For example:
+
+```azurecli
+az aks nodepool add \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --cluster-name $CLUSTER_NAME \
+    --os-type Windows \
+    --name npwin \
+    --node-count 1
+```
+
 ### Create an AKS cluster for Calico network policies
 
-Create the AKS cluster and specify *azure* for the network plugin, and *calico* for the Network Policy. Using *calico* as the Network Policy enables Calico networking on both Linux and Windows node pools.
+Create the AKS cluster and specify `azure` for the network plugin, and `calico` for the Network Policy. Using `calico` as the Network Policy enables Calico networking on both Linux and Windows node pools.
 
 If you plan on adding Windows node pools to your cluster, include the `windows-admin-username` and `windows-admin-password` parameters with that meet the [Windows Server password requirements][windows-server-password]. 
 
@@ -132,7 +231,7 @@ When the cluster is ready, configure `kubectl` to connect to your Kubernetes clu
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
 ```
-To begin verification of Network Policy, we will create a sample application and set traffic rules.
+To begin verification of Network Policy, we'll create a sample application and set traffic rules.
 
 Firstly, let's create a namespace called *demo* to run the example pods:
 
@@ -140,7 +239,7 @@ Firstly, let's create a namespace called *demo* to run the example pods:
 kubectl create namespace demo
 ```
 
-We will now create two pods in the cluster named *client* and *server*.
+We'll now create two pods in the cluster named *client* and *server*.
 
 >[!NOTE]
 > If you want to schedule the *client* or *server* on a particular node, add the following bit before the *--command* argument in the pod creation [kubectl run][kubectl-run] command:
@@ -162,7 +261,7 @@ kubectl run -it client -n demo --image=k8s.gcr.io/e2e-test-images/agnhost:2.33 -
 
 Now, in a separate window, run the following command to get the server IP:
 ```console
-kubectl get pod --output=wide
+kubectl get pod --output=wide -n demo
 ```
 The output should look like:
 
@@ -214,7 +313,7 @@ Now, in the client's shell, verify connectivity with the server by executing the
 /agnhost connect <server-ip>:80 --timeout=3s --protocol=tcp
 ```
 
-Connectivity with traffic will be blocked since the server is labeled with app=server, but the client is not labeled. The connect command above will yield this output: 
+Connectivity with traffic will be blocked since the server is labeled with app=server, but the client isn't labeled. The connect command above will yield this output: 
 
 ```output
 TIMEOUT
@@ -249,19 +348,20 @@ To learn more about policies, see [Kubernetes network policies][kubernetes-netwo
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/reference/calicoctl/
+[calicoctl]: https://docs.tigera.io/calico/3.25/reference/calicoctl/
 [calico-support]: https://www.tigera.io/tigera-products/calico/
-[calico-logs]: https://docs.projectcalico.org/maintenance/troubleshoot/component-logs
+[calico-logs]: https://docs.tigera.io/calico/3.25/operations/troubleshoot/component-logs
 [calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
+[aks-acn-github]: https://github.com/Azure/azure-container-networking/issues
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [use-advanced-networking]: configure-azure-cni.md
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [concepts-network]: concepts-network.md
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show
+[az-provider-register]: /cli/azure/provider#az-provider-register
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update

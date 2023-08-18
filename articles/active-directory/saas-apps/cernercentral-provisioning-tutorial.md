@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: User provisioning for Cerner Central - Azure AD'
+title: 'Tutorial: User provisioning for Cerner Central'
 description: Learn how to configure Azure Active Directory to automatically provision users to a roster in Cerner Central.
 services: active-directory
 author: ArvindHarinder1
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 11/21/2022
 ms.author: arvinh
 ---
 
@@ -24,7 +24,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A Cerner Central tenant
 
 > [!NOTE]
-> Azure Active Directory integrates with Cerner Central using the [SCIM](http://www.simplecloud.info/) protocol.
+> Azure Active Directory integrates with Cerner Central using the SCIM protocol.
 
 ## Assigning users to Cerner Central
 
@@ -47,7 +47,7 @@ Before configuring and enabling the provisioning service, you should decide what
 This section guides you through connecting your Azure AD to Cerner Central’s User Roster using Cerner's SCIM user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Cerner Central based on user and group assignment in Azure AD.
 
 > [!TIP]
-> You may also choose to enabled SAML-based Single Sign-On for Cerner Central, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features complement each other. For more information, see the [Cerner Central single sign-on tutorial](cernercentral-tutorial.md).
+> You may also choose to enable SAML-based single sign-on for Cerner Central, following the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features complement each other. For more information, see the [Cerner Central single sign-on tutorial](cernercentral-tutorial.md).
 
 ### To configure automatic user account provisioning to Cerner Central in Azure AD:
 
@@ -99,7 +99,7 @@ In order to provision user accounts to Cerner Central, you’ll need to request 
 
    * In the **Secret Token** field, enter the OAuth bearer token you generated in step #3 and click **Test Connection**.
 
-   * You should see a success notification on the upper­right side of your portal.
+   * You should see a success notification on the upper-right side of your portal.
 
 1. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox below.
 

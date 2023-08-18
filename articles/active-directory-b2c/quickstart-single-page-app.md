@@ -3,13 +3,13 @@ title: "Quickstart: Set up sign in for a single-page app (SPA)"
 titleSuffix: Azure AD B2C
 description: In this Quickstart, run a sample single-page application that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 01/13/2022
-ms.author: kengaderdus
+ms.date: 02/23/2023
+ms.author: godonnell
 ms.subservice: B2C
 ms.custom: mode-other
 ---
@@ -53,16 +53,16 @@ In this quickstart, you use a single-page application to sign in using a social 
 
 1. Browse to the URL of the application. For example, `http://localhost:6420`.
 
-    ![Single-page application sample app shown in browser](./media/quickstart-single-page-app/sample-app-spa.png)
+:::image type="content" source="./media/quickstart-single-page-app/sample-app-spa.png" alt-text="Screenshot of single-page application sample app shown in browser window." lightbox="./media/quickstart-single-page-app/sample-app-spa.png":::
 
 ## Sign in using your account
 
 1. Select **Sign In** to start the user journey.
 1. Azure AD B2C presents a sign-in page for a fictitious company called "Fabrikam" for the sample web application. To sign up using a social identity provider, select the button of the identity provider you want to use.
 
-    ![Sign In or Sign Up page showing identity provider buttons](./media/quickstart-single-page-app/sign-in-or-sign-up-spa.png)
+    :::image type="content" source="./media/quickstart-single-page-app/sign-in-or-sign-up-spa.png" alt-text="Screenshot of Sign In or Sign Up page showing identity         provider buttons" lightbox="./media/quickstart-single-page-app/sign-in-or-sign-up-spa.png":::
 
-    You authenticate (sign in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city.
+    You authenticate (sign in) using your social account credentials and authorize the application to read information from your social account. By granting access,       the application can retrieve profile information from the social account such as your name and city.
 
 1. Finish the sign-in process for the identity provider.
 
@@ -70,7 +70,7 @@ In this quickstart, you use a single-page application to sign in using a social 
 
 Select **Call API** to have your display name returned from the web API as a JSON object.
 
-![Sample application in browser showing the web API response](./media/quickstart-single-page-app/call-api-spa.png)
+:::image type="content" source="./media/quickstart-single-page-app/call-api-spa.png" alt-text="Screenshot of web API response showing in sample application in browser window." lightbox="./media/quickstart-single-page-app/sample-app-spa.png":::
 
 The sample single-page application includes an access token in the request to the protected web API resource.
 

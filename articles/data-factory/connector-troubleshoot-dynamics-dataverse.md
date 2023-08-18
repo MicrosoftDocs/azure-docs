@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 06/17/2022
+ms.date: 07/13/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -167,7 +167,7 @@ This article provides suggestions to troubleshoot common problems with the Dynam
 - **Cause**: The virtual column is not supported now. 
 
 - **Recommendation**: For the Option Set value, follow the options below to get it:
-  - You can get the object type code by referring to [How to Find the Object Type Code for Any Entity](https://powerobjects.com/tips-and-tricks/find-object-type-code-entity/) and [Dynamics 365 blog](https://dynamicscrmdotblog.wordpress.com/).
+  - You can get the object type code by referring to [How to Find the Object Type Code for Any Entity](https://powerobjects.com/tips-and-tricks/find-object-type-code-entity/).
   - You can link the StringMap entity to your target entity and get the associated values.
 
 ## The parallel copy in a Dynamics CRM data store
@@ -191,7 +191,7 @@ This article provides suggestions to troubleshoot common problems with the Dynam
 For more troubleshooting help, try these resources:
 
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
-- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)

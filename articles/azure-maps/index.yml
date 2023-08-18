@@ -8,8 +8,8 @@ metadata:
   description: Learn about Azure Maps and how to use it to provide geospatial services to your web or mobile application.
   ms.service: azure-maps
   ms.topic: landing-page
-  author: stevemunk
-  ms.author: v-munksteve
+  author: eriklindeman
+  ms.author: eriklind
   ms.date: 10/13/2021
 
 
@@ -34,7 +34,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Introduction to Azure Maps
-            url: https://sec.ch9.ms/ch9/d498/3d435d2c-ac85-421b-b3a7-5e0c7630d498/IoT_AzureMaps_high.mp4
+            url: /shows/azure-videos/an-introduction-to-azure-maps
 
   # Card
   - title: Get Started
@@ -65,8 +65,12 @@ landingContent:
             url: how-to-view-api-usage.md
 
   # Card
-  - title: Developing with Creator
+  - title: Indoor maps using Azure Maps Creator
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Maps Creator?
+            url: about-creator.md
       - linkListType: concept
         links:
           - text: Indoor map concepts
@@ -81,22 +85,28 @@ landingContent:
             url: how-to-manage-creator.md
           - text: Implement Dynamic styling for indoor maps
             url: indoor-map-dynamic-styling.md
-          - text: Use Azure Maps drawing error visualizer
-            url: drawing-error-visualizer.md
-          - text: Use the indoor map module
-            url: how-to-use-indoor-module.md
-          - text: Use Azure Digital Twins to update indoor map
-            url: ../digital-twins/how-to-integrate-maps.md
+          - text: Query datasets with WFS API
+            url: how-to-creator-wfs.md
+          - text: Custom styling for indoor maps
+            url: how-to-create-custom-styles.md
+          - text: Indoor maps wayfinding service
+            url: how-to-creator-wayfinding.md
+          - text: Edit indoor maps using the QGIS plugin
+            url: creator-qgis-plugin.md
+          - text: Create dataset using GeoJson package
+            url: how-to-dataset-geojson.md
+          - text: Create a feature stateset
+            url: how-to-creator-feature-stateset.md
       - linkListType: reference
         links:
-          - text: Conversion service
-            url: /rest/api/maps/v2/conversion
-          - text: Dataset service
-            url: /rest/api/maps/v2/dataset
-          - text: Tileset service
-            url: /rest/api/maps/v2/tileset
-          - text: Feature stateset service
-            url: /rest/api/maps/v2/feature-state
+            - text: Drawing package requirements
+              url: drawing-requirements.md
+            - text: Facility Ontology
+              url: creator-facility-ontology.md
+            - text: Dynamic maps StylesObject
+              url: schema-stateset-stylesobject.md
+            - text: Drawing error visualizer
+              url: drawing-error-visualizer.md
                     
   # Card
   - title: Developing with Web SDK
@@ -106,7 +116,7 @@ landingContent:
           - text: Getting started with web map control
             url: how-to-use-map-control.md
           - text: Azure Maps web SDK code samples
-            url: https://azuremapscodesamples.azurewebsites.net/
+            url: https://samples.azuremaps.com/
           - text: Web SDK supported browsers
             url: supported-browsers.md
       - linkListType: tutorial
@@ -210,18 +220,6 @@ landingContent:
             url: /rest/api/maps/traffic
           - text: Time Zones Service
             url: /rest/api/maps/timezone
-  
-    # Card
-  - title: Developing with Elevation service
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: How to retrieve and use elevation data
-            url: how-to-request-elevation-data.md
-      - linkListType: reference
-        links:
-          - text: Elevation Service
-            url: /rest/api/maps/elevation/
 
   # Card
   - title: Spatial Analytics

@@ -1,16 +1,13 @@
 ---
-title: Azure Traffic Manager - FAQs
-description: This article provides answers to frequently asked questions about Traffic Manager
+title: Azure Traffic Manager - FAQ
+description: This article provides answers to frequently asked questions about Traffic Manager.
 services: traffic-manager
-documentationcenter: ''
 author: greg-lindsay
 ms.service: traffic-manager
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 01/31/2022
+ms.date: 08/14/2023
 ms.author: greglin 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Traffic Manager Frequently Asked Questions (FAQ)
@@ -21,7 +18,7 @@ ms.custom: devx-track-azurepowershell
 
 As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager works at the Domain Name System (DNS) level. It sends DNS responses to direct clients to the appropriate service endpoint. Clients then connect to the service endpoint directly, not through Traffic Manager.
 
-Therefore, Traffic Manager doesn’t provide an endpoint or IP address for clients to connect to. If you want static IP address for your service, that must be configured at the service, not in Traffic Manager.
+Therefore, Traffic Manager doesn’t provide an endpoint or IP address for clients to connect to. If you want a static IP address for your service, it must be configured in the service, not in Traffic Manager.
 
 ### What types of traffic can be routed using Traffic Manager?
 As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-how-it-works.md), a Traffic Manager endpoint can be any internet facing service hosted inside or outside of Azure. Hence, Traffic Manager can route traffic that originates from the public internet to a set of endpoints that are also internet facing. If you have endpoints that are inside a private network (for example, an internal version of [Azure Load Balancer](../load-balancer/components.md#frontend-ip-configurations)) or have users making DNS requests from such internal networks, then you can’t use Traffic Manager to route this traffic.
@@ -39,6 +36,17 @@ As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-h
 Further investigation should therefore focus on the application.
 
 The HTTP host header sent from the client's browser is the most common source of problems. Make sure that the application is configured to accept the correct host header for the domain name you’re using. For endpoints using the Azure App Service, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../app-service/configure-domain-traffic-manager.md).
+
+### How can I resolve a 500 (Internal Server Error) problem when using Traffic Manager?
+
+If your client or application receives an HTTP 500 error while using Traffic Manager, this can be caused by a stale DNS query. To resolve the issue, clear the DNS cache and allow the client to issue a new DNS query.
+
+When a service endpoint is unresponsive, clients and applications that are using that endpoint don't reset until the DNS cache is refreshed. The duration of the cache is determined by the time-to-live (TTL) of the DNS record. For more information, see [Traffic Manager and the DNS cache](traffic-manager-how-it-works.md#traffic-manager-and-the-dns-cache).
+
+Also see the following related FAQs in this article:
+- [What is DNS TTL and how does it impact my users?](#what-is-dns-ttl-and-how-does-it-impact-my-users)
+- [How high or low can I set the TTL for Traffic Manager responses?](#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+- [How can I understand the volume of queries coming to my profile?](#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)  
 
 ### What is the performance impact of using Traffic Manager?
 
@@ -80,7 +88,9 @@ One of the metrics provided by Traffic Manager is the number of queries responde
 
 ### When I delete a Traffic Manager profile, what is the amount of time before the name of the profile is available for reuse?
 
-It can take up to 2 hours for the name to become available after a Traffic Manger profile is deleted.
+When you delete a Traffic Manager profile, the associated domain name is reserved for a period of time. Other Traffic Manager profiles in the same tenant can immediately reuse the name. However, a different Azure tenant is not able to use the same profile name until the reservation expires. This feature enables you to maintain authority over the namespaces that you deploy, eliminating concerns that the name might be taken by another tenant.
+
+For example, if your Traffic Manager profile name is **label1**, then **label1.trafficmanager.net** is reserved for your tenant even if you delete the profile. Child namespaces, such as **xyz.label1** or **123.abc.label1** are also reserved. When the reservation expires, the name is made available to other tenants. The name associated with a disabled profile is reserved indefinitely. For questions about the length of time a name is reserved, contact your account representative. 
 
 ## Traffic Manager Geographic traffic routing method
 
@@ -146,7 +156,7 @@ End-user devices typically use a DNS resolver to do the DNS lookup on their beha
 
 The IP addresses to associate with an endpoint can be specified in two ways. First, you can use the quad dotted decimal octet notation with a start and end addresses to specify the range (for example, 1.2.3.4-5.6.7.8 or 3.4.5.6-3.4.5.6). Second, you can use the CIDR notation to specify the range (for example, 1.2.3.0/24). You can specify multiple ranges and can use both notation types in a range set. A few restrictions apply.
 
--    You can’t have overlap of address ranges since each IP needs to be mapped to only a single endpoint
+-    You can’t overlap address ranges since each IP address needs to be mapped to only a single endpoint
 -    The start address can’t be more than the end address
 -    In the case of the CIDR notation, the IP address before the '/' should be the start address of that range (for example, 1.2.3.0/24 is valid but 1.2.3.4.4/24 is NOT valid)
 
@@ -315,9 +325,7 @@ Yes. Cloud Service 'staging' slots can be configured in Traffic Manager as Exter
 
 ### Does Traffic Manager support IPv6 endpoints?
 
-Traffic Manager doesn’t currently provide IPv6-addressable name servers. However, Traffic Manager can still be used by IPv6 clients connecting to IPv6 endpoints. A client doesn’t make DNS request directly to Traffic Manager. Instead, the client uses a recursive DNS service. An IPv6-only client sends requests to the recursive DNS service via IPv6. Then the recursive service should be able to contact the Traffic Manager name servers using IPv4.
-
-Traffic Manager responds with the DNS name or IP address of the endpoint. To support an IPv6 endpoint, there are two options. You can add the endpoint as a DNS name that has an associated AAAA record and Traffic Manager will health check that endpoint and return it as a CNAME record type in the query response. You can also add that endpoint directly using the IPv6 address and Traffic Manager will return a AAAA type record in the query response.
+Traffic Manager doesn’t currently provide IPv6-addressable name servers. However, Traffic Manager can still be used by IPv6 clients connecting to IPv6 endpoints if the client's recursive DNS server supports IPv4. A client doesn’t make DNS request directly to Traffic Manager. Instead, the client uses a recursive DNS service. An IPv6-only client sends requests to the recursive DNS service via IPv6. The recursive service must then be able to contact the Traffic Manager name servers using IPv4. Traffic Manager responds with the DNS name or IP address of the endpoint. 
 
 ### Can I use Traffic Manager with more than one Web App in the same region?
 
@@ -439,7 +447,7 @@ Traffic Manager monitoring settings are at a per profile level. If you need to u
 
 ### How can I assign HTTP headers to the Traffic Manager health checks to my endpoints?
 
-Traffic Manager allows you to specify custom headers in the HTTP(S) health checks it initiates to your endpoints. If you want to specify a custom header, you can do that at the profile level (applicable to all endpoints) or specify it at the endpoint level. If a header is defined at both levels, then the one specified at the endpoint level will override the profile level 1.
+Traffic Manager allows you to specify custom headers in the HTTP(S) health checks it initiates to your endpoints. If you want to specify a custom header, you can do that at the profile level (applicable to all endpoints) or specify it at the endpoint level. If a header is defined at both levels, then the one specified at the endpoint level overrides the profile level 1.
 One common use case for this is specifying host headers so that Traffic Manager requests may get routed correctly to an endpoint hosted in a multi-tenant environment. Another use case of this is to identify Traffic Manager requests from an endpoint's HTTP(S) request logs
 
 ### What host header do endpoint health checks use?

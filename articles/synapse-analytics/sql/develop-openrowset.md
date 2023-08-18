@@ -68,7 +68,7 @@ Caller must have `REFERENCES` permission on credential to use it to authenticate
 ## Syntax
 
 ```syntaxsql
---OPENROWSET syntax for reading Parquet or Delta Lake (preview) files
+--OPENROWSET syntax for reading Parquet or Delta Lake files
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , [DATA_SOURCE = <data source name>, ]
     FORMAT= ['PARQUET' | 'DELTA'] }  
@@ -109,7 +109,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 
 ## Arguments
 
-You have two choices for input files that contain the target data for querying. Valid values are:
+You have three choices for input files that contain the target data for querying. Valid values are:
 
 - 'CSV' - Includes any delimited text file with row/column separators. Any character can be used as a field separator, such as  TSV: FIELDTERMINATOR = tab.
 
@@ -310,6 +310,8 @@ Parquet files contain column metadata, which will be read, type mappings can be 
 
 For the CSV files, column names can be read from header row. You can specify whether header row exists using HEADER_ROW argument. If HEADER_ROW = FALSE, generic column names will be used: C1, C2, ... Cn where n is number of columns in file. Data types will be inferred from first 100 data rows. Check [reading CSV files without specifying schema](#read-csv-files-without-specifying-schema) for samples.
 
+Have in mind that if you are reading number of files at once, the schema will be inferred from the first file service gets from the storage. This can mean that some of the columns expected are omitted, all because the file used by the service to define the schema did not contain these columns. In that case, please use OPENROWSET WITH clause.
+
 > [!IMPORTANT]
 > There are cases when appropriate data type cannot be inferred due to lack of information and larger data type will be used instead. This brings performance overhead and is particularly important for character columns which will be inferred as varchar(8000). For optimal performance, please [check inferred data types](./best-practices-serverless-sql-pool.md#check-inferred-data-types) and [use appropriate data types](./best-practices-serverless-sql-pool.md#use-appropriate-data-types).
 
@@ -484,7 +486,7 @@ FROM
     OPENROWSET(
         BULK (
             'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2000/*.parquet',
-            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2010/*.parquet',
+            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2010/*.parquet'
         ),
         FORMAT='PARQUET'
     )

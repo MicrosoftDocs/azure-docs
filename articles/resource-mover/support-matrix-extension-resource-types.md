@@ -1,16 +1,22 @@
 ---
 title: Support of Extension resource types in Azure Resource Mover
 description: Supported Extension resource types  
-author: aarthiv
+author: ankitaduttaMSFT
 manager: sutalasi
-ms.service: resource-move
+ms.service: resource-mover
 ms.topic: conceptual
-ms.date: 11/17/2021
+ms.date: 03/02/2023
 ms.author: aarthiv
+ms.custom: UpdateFrequency.5
+
 ---
+
 # Support for moving extension resource types between Azure regions
-This article summarizes all the [Extension resource types ](../azure-resource-manager/management/extension-resource-types.md)that are currently supported while moving Azure resources across regions using Azure resource mover.
+
+This article summarizes all the [Extension resource types](../azure-resource-manager/management/extension-resource-types.md)that are currently supported while moving Azure resources across regions using Azure resource mover.
+
 ## Extension resource types supported
+
 Below table lists the extension resource types supported.
 
 **Extension resource type** | **Support** |**Details**
@@ -22,4 +28,5 @@ Microsoft.ManagedIdentities/Identities |User-assigned managed Identities assignm
 
 
 ## Next steps
-Try [modifying the supported extension resource type for a VM](modify-target-settings.md)
+
+Try [modifying the supported extension resource type for a VM](modify-target-settings.md).

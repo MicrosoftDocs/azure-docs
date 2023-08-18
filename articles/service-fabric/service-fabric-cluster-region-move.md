@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: ignite-2022
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -41,7 +42,7 @@ Before engaging in any regional migration, we recommend establishing a testbed a
   
    * If you do plan to keep the existing source region and you have a DNS/CNAME associated with the public IP of a Network Load Balancer that was delivering calls to your original source cluster. Set up an instance of Azure Traffic Manager and then associate the DNS name with that Azure Traffic Manager Instance. The Azure Traffic Manager could be configured to then route to the individual Network Load Balancers within each region. 
 
-4. If you do plan to keep both regions, then you will usually have some sort of “back sync”, where the source of truth is kept in some remote store, such as SQL, Cosmos DB, or Blob or File Storage, which is then synced between the regions. If this applies to your workload, then it is recommended to confirm that data is flowing between the regions as expected.  
+4. If you do plan to keep both regions, then you will usually have some sort of “back sync”, where the source of truth is kept in some remote store, such as Azure SQL, Azure Cosmos DB, or Blob or File Storage, which is then synced between the regions. If this applies to your workload, then it is recommended to confirm that data is flowing between the regions as expected.  
 
 ## Final Validation
 1. As a final validation, verify that traffic is flowing as expected and that the services in the new region (and potentially the old region) are operating as expected. 

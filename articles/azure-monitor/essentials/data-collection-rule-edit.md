@@ -2,14 +2,15 @@
 title: Tutorial - Editing Data Collection Rules
 description: This article describes how to make changes in Data Collection Rule definition using command line tools and simple API calls.
 ms.topic: tutorial
+ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
 ms.reviewer: ivankh
-ms.date: 05/31/2022
+ms.date: 07/17/2023
 ---
 
 # Tutorial: Editing Data Collection Rules
-This tutorial will describe how to edit the definition of Data Collection Rule (DCR) that has been already provisioned using command line tools. 
+This tutorial describes how to edit the definition of Data Collection Rule (DCR) that has been already provisioned using command line tools. 
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -30,7 +31,7 @@ While going through the wizard on the portal is the simplest way to set up the i
 -	Update data parsing or filtering logic for your data stream
 -	Change data destination (e.g. send data to an Azure table, as this option is not directly offered as part of the DCR-based custom log wizard)
 
-In this tutorial, you will, first, set up ingestion of a custom log, then. you will modify the KQL transformation for your custom log to include additional filtering and apply the changes to your DCR. Finally, we are going to combine all editing operations into a single PowerShell script, which can be used to edit any DCR for any of the above mentioned reasons.
+In this tutorial, you first set up ingestion of a custom log. Then you modify the KQL transformation for your custom log to include additional filtering and apply the changes to your DCR. Finally, we're going to combine all editing operations into a single PowerShell script, which can be used to edit any DCR for any of the above mentioned reasons.
 
 ## Set up new custom log
 Start by setting up a new custom log. Follow [Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)]( ../logs/tutorial-logs-ingestion-portal.md). Note the resource ID of the DCR created.
@@ -44,8 +45,8 @@ In order to update DCR, we are going to retrieve its content and save it as a fi
 2. Execute the following commands to retrieve DCR content and save it to a file. Replace `<ResourceId>` with DCR ResourceID and `<FilePath>` with the name of the file to store DCR.
 
     ```PowerShell
-    $ResourceId = “<ResourceId>” # Resource ID of the DCR to edit
-    $FilePath = “<FilePath>” # Store DCR content in this file
+    $ResourceId = "<ResourceId>" # Resource ID of the DCR to edit
+    $FilePath = "<FilePath>" # Store DCR content in this file
     $DCR = Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview") -Method GET
     $DCR.Content | ConvertFrom-Json | ConvertTo-Json -Depth 20 | Out-File -FilePath $FilePath
     ```
@@ -60,11 +61,11 @@ code "temp.dcr"
 Let’s modify the KQL transformation within DCR to drop rows where RequestType is anything, but “GET”.
 1.	Open the file created in the previous part for editing using an editor of your choice.
 2.	Locate the line containing `”transformKql”` attribute, which, if you followed the tutorial for custom log creation, should look similar to this:
-    ``` JSON
+    ```json
     "transformKql": "  source\n    | extend TimeGenerated = todatetime(Time)\n    | parse RawData with \n    ClientIP:string\n    ' ' *\n    ' ' *\n    ' [' * '] \"' RequestType:string\n    \" \" Resource:string\n    \" \" *\n    '\" ' ResponseCode:int\n    \" \" *\n    | where ResponseCode != 200\n    | project-away Time, RawData\n"
     ```
 3.	Modify KQL transformation to include additional filter by RequestType
-    ``` JSON
+    ```json
     "transformKql": "  source\n    | where RawData contains \"GET\"\n     | extend TimeGenerated = todatetime(Time)\n    | parse RawData with \n    ClientIP:string\n    ' ' *\n    ' ' *\n    ' [' * '] \"' RequestType:string\n    \" \" Resource:string\n    \" \" *\n    '\" ' ResponseCode:int\n    \" \" *\n    | where ResponseCode != 200\n    | project-away Time, RawData\n"
     ```
 4.	Save the file with modified DCR content.
@@ -74,8 +75,8 @@ Our final step is to update DCR back in the system. This is accomplished by “P
 1.	If you are using Azure Cloud Shell, save the file and close the embedded editor, or [upload modified DCR file back to the Cloud Shell environment](../../cloud-shell/using-the-shell-window.md#upload-and-download-files).
 2.	Execute the following commands to load DCR content from the file and place HTTP call to update the DCR in the system. Replace `<ResourceId>` with DCR ResourceID and `<FilePath>` with the name of the file modified in the previous part of the tutorial. You can omit first two lines if you read and write to the DCR within the same PowerShell session.
     ```PowerShell
-    $ResourceId = “<ResourceId>” # Resource ID of the DCR to edit
-    $FilePath = “<FilePath>” # Store DCR content in this file
+    $ResourceId = "<ResourceId>" # Resource ID of the DCR to edit
+    $FilePath = "<FilePath>" # Store DCR content in this file
     $DCRContent = Get-Content $FilePath -Raw 
     Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview") -Method PUT -Payload $DCRContent 
     ```
@@ -116,7 +117,7 @@ Remove-Item $FilePath
 .\DCREditor.ps1 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/foo/providers/Microsoft.Insights/dataCollectionRules/bar"
 ```
 
-DCR content will open in embedded code editor. Once editing is complete, entering "Y" on script prompt will apply changes back to the DCR.
+DCR content opens in embedded code editor. Once editing is complete, entering "Y" on script prompt applies changes back to the DCR.
 
 ## Next steps
 

@@ -21,6 +21,8 @@ In this tutorial, we'll be configuring the Azure Communication Services UI Libra
 
 >[!IMPORTANT]
 >Azure Communication Services doesn't provide a file storage service. You will need to use your own file storage service for sharing files. For the pupose of this tutorial, we will be using Azure Blob Storage.**
+>
+> This tutorial is about file sharing between ACS users in an ACS Chat. For file sharing in a Teams interoperability chat, see the documentation in the [Storybook](https://azure.github.io/communication-ui-library/?path=/docs/examples-teamsinterop-filesharing--file-sharing).  Note that for Teams Interoperability chat, we only support ACS users to receive file attachments from Teams users at this time. See [Web UI library use cases](../concepts/ui-library/ui-library-use-cases.md) for more information.
 
 ## Download code
 
@@ -64,7 +66,7 @@ Note that the tutorial above assumes that your Azure blob storage container allo
 
 For downloading the files you upload to Azure blob storage, you can use shared access signatures (SAS). A shared access signature (SAS) provides secure delegated access to resources in your storage account. With a SAS, you have granular control over how a client can access your data.
 
-The downloadable [GitHub sample](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-filesharing-chat-composite) showcases the use of SAS for creating SAS URLs to Azure Storage contents. Additionally, you can [read more about SAS](/azure/storage/common/storage-sas-overview). 
+The downloadable [GitHub sample](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-filesharing-chat-composite) showcases the use of SAS for creating SAS URLs to Azure Storage contents. Additionally, you can [read more about SAS](../../storage/common/storage-sas-overview.md). 
 
 UI Library requires a React environment to be setup. Next we will do that. If you already have a React App, you can skip this section.
 
@@ -85,11 +87,11 @@ For this quickstart, we'll be modifying files inside of the `src` folder.
 
 ### Install the Package
 
-Use the `npm install` command to install the Azure Communication Services UI Library for JavaScript.
+Use the `npm install` command to install the beta Azure Communication Services UI Library for JavaScript.
 
 ```bash
 
-npm install @azure/communication-react
+npm install @azure/communication-react@1.5.1-beta.5
 
 ```
 
@@ -238,7 +240,7 @@ const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
   const fileExtension = file.name.split('.').pop();
 
   // Following is an example of calling an Azure Function to handle file upload
-  // The https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload
+  // The https://learn.microsoft.com/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload
   // tutorial uses 'username' parameter to specify the storage container name.
   // Note that the container in the tutorial is private by default. To get default downloads working in
   // this sample, you need to change the container's access level to Public via Azure Portal.
@@ -338,6 +340,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 You may also want to:
 
 - [Add chat to your app](../quickstarts/chat/get-started.md)
-- [Creating user access tokens](../quickstarts/access-tokens.md)
+- [Creating user access tokens](../quickstarts/identity/access-tokens.md)
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
 - [Learn about authentication](../concepts/authentication.md)

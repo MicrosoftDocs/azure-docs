@@ -22,7 +22,7 @@ You can open Synapse Studio and view details of the workspace and list any of it
 
 ### Resource management
 
-You can create SQL pools, Data Explorer pools, Apache Spark pools, and Integration runtimes if you're an Azure Owner or Contributor on the workspace. When using ARM templates for automated deployment, you need to be an Azure Contributor on the resource group.
+You can create SQL pools, Data Explorer pools, and Apache Spark pools if you are an Azure Owner or Contributor on the resource group. You can create an Integration Runtime if you are an Azure Owner or Contributor on the workspace. When using ARM templates for automated deployment, you need to be an Azure Contributor on the resource group.
 
 You can pause or scale a dedicated SQL pool, configure a Spark pool, or an integration runtime if you're an Azure Owner or Contributor on the workspace or that resource.
 
@@ -30,7 +30,7 @@ You can pause or scale a dedicated SQL pool, configure a Spark pool, or an integ
 
 With access to Synapse Studio, you can create new code artifacts, such as SQL scripts, KQL scripts, notebooks, spark jobs, linked services, pipelines, dataflows, triggers, and credentials. These artifacts can be published or saved with additional permissions.  
 
-If you're a Synapse Artifact User, Synapse Artifact Publisher, Synapse Contributor, or Synapse Administrator you can list, open, and edit already published code artifacts.
+If you're a Synapse Artifact User, Synapse Artifact Publisher, Synapse Contributor, or Synapse Administrator you can list, open, and edit already published code artifacts, including scheduled pipelines.
 
 ### Execute your code
 
@@ -45,6 +45,10 @@ With Compute Operator permissions on the workspace or specific integration runti
 You can review the status of running notebooks and jobs in Apache Spark pools if you're a Synapse User.
 
 You can review logs and cancel running jobs and pipelines if you're a Synapse Compute Operator at the workspace or for a specific Spark pool or pipeline.  
+
+### Debug pipelines
+
+You can review and make changes in pipelines as a Synapse User, but if you want to be able to debug it you also need to have Synapse Credential User.
 
 ### Publish and save your code
 
@@ -79,7 +83,7 @@ Task (I want to...) |Role (I need to be...)|Synapse RBAC permission/action
 ||Azure Owner or Contributor, or Reader on the workspace|none
 |List linked services or credentials or managed private endpoints|Synapse User|read
 SQL POOLS|
-Create a dedicated SQL pool or a serverless SQL pool|Azure Owner or Contributor on the workspace|none
+Create a dedicated SQL pool or a serverless SQL pool|Azure Owner or Contributor on the resource group|none
 Manage (pause or scale, or delete) a dedicated SQL pool|Azure Owner or Contributor on the SQL pool or workspace|none
 Create a SQL script</br>|Synapse User or </br>Azure Owner or Contributor on the workspace. </br></br>*Additional SQL permissions are required to run a SQL script, publish, or commit changes*.|
 List and open any published SQL script| Synapse Artifact User or Artifact Publisher, or Synapse Contributor|artifacts/read
@@ -89,7 +93,7 @@ Publish a new or updated, or deleted SQL script|Synapse Artifact Publisher or Sy
 Commit changes to a SQL script to the Git repo|Requires Git permissions on the repo|
 Assign Active Directory Admin on the workspace (via workspace properties in the Azure Portal)|Azure Owner or Contributor on the workspace |
 DATA EXPLORER POOLS|
-Create a Data Explorer pool |Azure Owner or Contributor on the workspace|none
+Create a Data Explorer pool |Azure Owner or Contributor on the resource group|none
 Manage (pause or scale, or delete) a Data Explorer pool|Azure Owner or Contributor on the Data Explorer pool or workspace|none
 Create a KQL script</br>|Synapse User. </br></br>*Additional Data Explorer permissions are required to run a script, publish, or commit changes*.|
 List and open any published KQL script| Synapse Artifact User or Artifact Publisher, or Synapse Contributor|artifacts/read
@@ -97,9 +101,9 @@ Run a KQL script on a Data Explorer pool| Data Explorer permissions on the pool 
 Publish new, update, or delete KQL script|Synapse Artifact Publisher or Synapse Contributor|kqlScripts/write, delete
 Commit changes to a KQL script to the Git repo|Requires Git permissions on the repo|
 APACHE SPARK POOLS|
-Create an Apache Spark pool|Azure Owner or Contributor on the workspace|
+Create an Apache Spark pool|Azure Owner or Contributor on the resource group|
 Monitor Apache Spark applications| Synapse User|read
-View the logs for notebook and job execution |Synapse Monitoring Operator|
+View the logs for completed notebook and job execution |Synapse Monitoring Operator|
 Cancel any notebook or Spark job running on an Apache Spark pool|Synapse Compute Operator on the Apache Spark pool.|bigDataPools/useCompute
 Create a notebook or job definition|Synapse User or </br>Azure Owner or Contributor, or Reader on the workspace</br></br> *Additional permissions are required to run, publish, or commit changes*|read</br></br></br></br></br> 
 List and open a published notebook or job definition, including reviewing saved outputs|Synapse Artifact User or Synapse Monitoring Operator on the workspace|artifacts/read

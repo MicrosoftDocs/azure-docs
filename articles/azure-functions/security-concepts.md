@@ -1,7 +1,7 @@
 ---
 title: Securing Azure Functions
 description: Learn about how to make your function code running in Azure more secure from common attacks.
-ms.date: 4/13/2020
+ms.date: 12/13/2022
 ms.topic: conceptual
 
 #Customer intent: As a developer, I want to understand the security features and principles of Azure Functions so that I can make my cloud-based function code as secure as possible.
@@ -13,7 +13,7 @@ In many ways, planning for secure development, deployment, and operation of serv
 
 [!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
-For a set of security recommendations that follow the [Azure Security Benchmark](../security/benchmarks/overview.md), see [Azure Security Baseline for Azure Functions](security-baseline.md).
+For a set of security recommendations that follow the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction), see [Azure Security Baseline for Azure Functions](/security/benchmark/azure/baselines/functions-security-baseline).
 
 ## Secure operation 
 
@@ -25,7 +25,7 @@ Defender for Cloud integrates with your function app in the portal. It provides,
 
 ### Log and monitor
 
-One way to detect attacks is through activity monitoring and logging analytics. Functions integrates with Application Insights to collects log, performance, and error data for your function app. Application Insights automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. To learn more, see [Monitor Azure Functions](functions-monitoring.md).
+One way to detect attacks is through activity monitoring and logging analytics. Functions integrates with Application Insights to collect log, performance, and error data for your function app. Application Insights automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 
 Functions also integrates with Azure Monitor Logs to enable you to consolidate function app logs with system events for easier analysis. You can use diagnostic settings to configure streaming export of platform logs and metrics for your functions to the destination of your choice, such as a Logs Analytics workspace. To learn more, see [Monitoring Azure Functions with Azure Monitor Logs](functions-monitor-log-analytics.md). 
 
@@ -77,7 +77,7 @@ By default, keys are stored in a Blob storage container in the account provided 
 |---------|---------|---------|
 |Second storage account | `blob` | Stores keys in Blob storage of a different storage account, based on the SAS URL in  [AzureWebJobsSecretStorageSas](functions-app-settings.md#azurewebjobssecretstoragesas).  |
 |File system  | `files` | Keys are persisted on the file system, which is the default in Functions v1.x. |
-|Azure Key Vault | `keyvault` | The key vault set in [AzureWebJobsSecretStorageKeyVaultUri](functions-app-settings.md#azurewebjobssecretstoragekeyvaulturi) is used to store keys. To learn more, see [Use Key Vault references for Azure Functions](../app-service/app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json).  | 
+|Azure Key Vault | `keyvault` | The key vault set in [AzureWebJobsSecretStorageKeyVaultUri](functions-app-settings.md#azurewebjobssecretstoragekeyvaulturi) is used to store keys. | 
 |Kubernetes Secrets  |`kubernetes` | The resource set in [AzureWebJobsKubernetesSecretName](functions-app-settings.md#azurewebjobskubernetessecretname) is used to store keys. Supported only when running the Functions runtime in Kubernetes. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.|
 
 When using Key Vault for key storage, the app settings you need depend on the managed identity type. Functions runtime version 3.x only supports system-assigned managed identities.
@@ -117,7 +117,7 @@ Permissions are effective at the function app level. The Contributor role is req
 
 #### Organize functions by privilege 
 
-Connection strings and other credentials stored in application settings gives all of the functions in the function app the same set of permissions in the associated resource. Consider minimizing the number of functions with access to specific credentials by moving functions that don't use those credentials to a separate function app. You can always use techniques such as [function chaining](/learn/modules/chain-azure-functions-data-using-bindings/) to pass data between functions in different function apps.  
+Connection strings and other credentials stored in application settings gives all of the functions in the function app the same set of permissions in the associated resource. Consider minimizing the number of functions with access to specific credentials by moving functions that don't use those credentials to a separate function app. You can always use techniques such as [function chaining](/training/modules/chain-azure-functions-data-using-bindings/) to pass data between functions in different function apps.  
 
 #### Managed identities
 
@@ -191,6 +191,14 @@ Don't use wildcards in your allowed origins list. Instead, list the specific dom
 
 [!INCLUDE [functions-storage-encryption](../../includes/functions-storage-encryption.md)]
 
+### Secure related resources
+
+A function app frequently depends on additional resources, so part of securing the app is securing these external resources. At a minimum, most function apps include a dependency on Application Insights and Azure Storage. Consult the [Azure security baseline for Azure Monitor](/security/benchmark/azure/baselines/azure-monitor-security-baseline) and the [Azure security baseline for Storage](/security/benchmark/azure/baselines/storage-security-baseline) for guidance on securing these resources.
+
+[!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
+
+You should also consult the guidance for any resource types your application logic depends on, both as triggers and bindings and from your function code.
+
 ## Secure deployment
 
 Azure Functions tooling an integration make it easy to publish local function project code to Azure. It's important to understand how deployment works when considering security for an Azure Functions topology.   
@@ -221,7 +229,7 @@ By having a separate scm endpoint, you can control deployments and other advance
 
 ### Continuous security validation
 
-Since security needs to be considered a every step in the development process, it make sense to also implement security validations in a continuous deployment environment. This is sometimes called DevSecOps. Using Azure DevOps for your deployment pipeline let's you integrate validation into the deployment process. For more information, see [Learn how to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline).  
+Since security needs to be considered at every step in the development process, it makes sense to also implement security validations in a continuous deployment environment. This is sometimes called DevSecOps. Using Azure DevOps for your deployment pipeline let's you integrate validation into the deployment process. For more information, see [Learn how to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline).  
 
 ## Network security
 
@@ -230,6 +238,10 @@ Restricting network access to your function app lets you control who can access 
 ### Set access restrictions
 
 Access restrictions allow you to define lists of allow/deny rules to control traffic to your app. Rules are evaluated in priority order. If there are no rules defined, then your app will accept traffic from any address. To learn more, see [Azure App Service Access Restrictions](../app-service/app-service-ip-restrictions.md?toc=/azure/azure-functions/toc.json).
+
+### Secure the storage account
+
+When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoints. For more information, see [Restrict your storage account to a virtual network](./functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
 
 ### Private site access
 

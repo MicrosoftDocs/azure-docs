@@ -12,11 +12,11 @@ services: iot-edge
 
 # Continuous integration and continuous deployment to Azure IoT Edge devices
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 You can easily adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines. This article demonstrates how you can use Azure Pipelines to build, test, and deploy Azure IoT Edge modules using YAML. Alternatively, you can [use the classic editor](how-to-continuous-integration-continuous-deployment-classic.md).
 
-![Diagram - CI and CD branches for development and production](./media/how-to-continuous-integration-continuous-deployment/model.png)
+:::image type="content" source="./media/how-to-continuous-integration-continuous-deployment/model.png" alt-text="Diagram of continuous integration and continuous development branches for development and production.":::
 
 In this article, you learn how to use the built-in [Azure IoT Edge tasks](/azure/devops/pipelines/tasks/build/azure-iot-edge) for Azure Pipelines to create build and release pipelines for your IoT Edge solution. Each Azure IoT Edge task added to your pipeline implements one of the following four actions:
 
@@ -37,7 +37,7 @@ Unless otherwise specified, the procedures in this article do not explore all th
 ## Prerequisites
 
 * An Azure Repos repository. If you don't have one, you can [Create a new Git repo in your project](/azure/devops/repos/git/create-new-repo). For this article, we created a repository called **IoTEdgeRepo**.
-* An IoT Edge solution committed and pushed to your repository. If you want to create a new sample solution for testing this article, follow the steps in [Develop and debug modules in Visual Studio Code](how-to-vs-code-develop-module.md) or [Develop and debug C# modules in Visual Studio](./how-to-visual-studio-develop-module.md). For this article, we created a solution in our repository called **IoTEdgeSolution**, which has the code for a module named **filtermodule**.
+* An IoT Edge solution committed and pushed to your repository. If you want to create a new sample solution for testing this article, follow the steps in [Develop Azure IoT Edge modules using Visual Studio Code](tutorial-develop-for-linux.md). For this article, we created a solution in our repository called **IoTEdgeSolution**, which has the code for a module named **filtermodule**.
 
   For this article, all you need is the solution folder created by the IoT Edge templates in either Visual Studio Code or Visual Studio. You don't need to build, push, deploy, or debug this code before proceeding. You'll set up those processes in Azure Pipelines.
 
@@ -57,17 +57,17 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
 1. Sign in to your Azure DevOps organization (`https://dev.azure.com/{your organization}`) and open the project that contains your IoT Edge solution repository.
 
-   ![Open your DevOps project](./media/how-to-continuous-integration-continuous-deployment/initial-project.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment/initial-project.png" alt-text="Screenshot showing how to open your DevOps project.":::
 
 2. From the left pane menu in your project, select **Pipelines**. Select **Create Pipeline** at the center of the page. Or, if you already have build pipelines, select the **New pipeline** button in the top right.
 
-    ![Create a new build pipeline using the New pipeline button](./media/how-to-continuous-integration-continuous-deployment/add-new-pipeline.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment/add-new-pipeline.png" alt-text="Screenshot showing how to create a new build pipeline using the New pipeline button .":::
 
 3. On the **Where is your code?** page, select **Azure Repos Git `YAML`**. If you wish to use the classic editor to create your project's build pipelines, see the [classic editor guide](how-to-continuous-integration-continuous-deployment-classic.md).
 
 4. Select the repository you are creating a pipeline for.
 
-    ![Select the repository for your build pipeline](./media/how-to-continuous-integration-continuous-deployment/select-repository.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment/select-repository.png" alt-text="Screenshot showing how to select the repository for your build pipeline.":::
 
 5. On the **Configure your pipeline** page, select **Starter pipeline**. If you have a preexisting Azure Pipelines YAML file you wish to use to create this pipeline, you can select **Existing Azure Pipelines YAML file** and provide the branch and path in the repository to the file.
 
@@ -77,7 +77,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
    Select **Show assistant** to open the **Tasks** palette.
 
-    ![Select Show assistant to open Tasks palette](./media/how-to-continuous-integration-continuous-deployment/show-assistant.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment/show-assistant.png" alt-text="Screenshot that shows how to select Show assistant to open Tasks palette.":::
 
 7. To add a task, place your cursor at the end of the YAML or wherever you want the instructions for your task to be added. Search for and select **Azure IoT Edge**. Fill out the task's parameters as follows. Then, select **Add**.
 
@@ -89,7 +89,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
    For more information about this task and its parameters, see [Azure IoT Edge task](/azure/devops/pipelines/tasks/build/azure-iot-edge).
 
-   ![Use Tasks palette to add tasks to your pipeline](./media/how-to-continuous-integration-continuous-deployment/add-build-task.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment/add-build-task.png" alt-text="Screenshot of the Use Tasks palette and how to add tasks to your pipeline.":::
 
    >[!TIP]
    > After each task is added, the editor will automatically highlight the added lines. To prevent accidental overwriting, deselect the lines and provide a new space for your next task before adding additional tasks.
@@ -133,13 +133,13 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
 10. The trigger for continuous integration is enabled by default for your YAML pipeline. If you wish to edit these settings, select your pipeline and click **Edit** in the top right. Select **More actions** next to the **Run** button in the top right and go to **Triggers**. **Continuous integration** shows as enabled under your pipeline's name. If you wish to see the details for the trigger, check the **Override the YAML continuous integration trigger from here** box.
 
-    ![To review your pipeline's trigger settings, see Triggers under More actions](./media/how-to-continuous-integration-continuous-deployment/check-trigger-settings.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment/check-trigger-settings.png" alt-text="Screenshot showing how to review your pipeline's trigger settings from the Triggers menu under More actions.":::
 
 Continue to the next section to build the release pipeline.
 
-[!INCLUDE [iot-edge-create-release-pipeline-for-continuous-deployment](../../includes/iot-edge-create-release-pipeline-for-continuous-deployment.md)]
+[!INCLUDE [iot-edge-create-release-pipeline-for-continuous-deployment](includes/iot-edge-create-release-pipeline-for-continuous-deployment.md)]
 
-[!INCLUDE [iot-edge-verify-iot-edge-continuous-integration-continuous-deployment](../../includes/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment.md)]
+[!INCLUDE [iot-edge-verify-iot-edge-continuous-integration-continuous-deployment](includes/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment.md)]
 
 ## Next steps
 

@@ -3,6 +3,7 @@ title: Azure Virtual Desktop (classic) tenant host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Azure Virtual Desktop (classic) tenant environment.
 author: Heidilohr
 ms.topic: troubleshooting
+ms.custom: devx-track-arm-template
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
@@ -166,7 +167,7 @@ Example of raw error:
 
 To fix this, do the following things:
 
-1. Open the Azure Portal and go to the **Virtual networks** tab.
+1. Open the Azure portal and go to the **Virtual networks** tab.
 2. Find your VNET, then select **DNS servers**.
 3. The DNS servers menu should appear on the right side of your screen. On that menu, select **Custom**.
 4. Make sure the DNS servers listed under Custom match your domain controller or Active Directory domain. If you don't see your DNS server, you can add it by entering its value into the **Add DNS server** field.
@@ -409,7 +410,7 @@ If you're running the GitHub Azure Resource Manager template, provide values for
 - For an overview on troubleshooting Azure Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration-2019.md).
 - To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection-2019.md).
-- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](../troubleshoot-client.md)
+- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](../troubleshoot-client-windows.md)
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell-2019.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup-2019.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

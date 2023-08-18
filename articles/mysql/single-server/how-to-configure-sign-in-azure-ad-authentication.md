@@ -4,15 +4,16 @@ description: Learn about how to set up Azure Active Directory (Azure AD) for aut
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: how-to
-author: savjani
-ms.author: pariks
-ms.custom: devx-track-azurepowershell
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 
 # Use Azure Active Directory for authentication with MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article will walk you through the steps how to configure Azure Active Directory access with Azure Database for MySQL, and how to connect using an Azure AD token.
 

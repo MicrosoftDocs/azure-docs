@@ -10,17 +10,27 @@ ms.workload: security
 ms.topic: article
 ms.date: 01/25/2022
 ms.author: mbaldwin
+ms.custom: references_regions
 ---
 
 # Getting started with Azure Payment HSM
 
-To get started with Azure Payment HSM (preview), contact your Microsoft sales representative and request access [via email](mailto:paymentHSMRequest@microsoft.com). Upon approval, you'll be provided with onboarding instructions.
+This article provides steps and information necessary to get started with Azure Payment HSM.
+
+[!INCLUDE [Specialized service](../../includes/payment-hsm/specialized-service.md)]
 
 ## Availability
 
-The Azure Public Preview is currently available in **East US** and **North Europe**.
+Azure Payment HSM is currently available in the following regions:
 
-## Prerequisites 
+- East US
+- West US
+- South Central US
+- Central US
+- North Europe
+- West Europe
+
+## Prerequisites
 
 Azure Payment HSM customers must have:
 
@@ -29,13 +39,14 @@ Azure Payment HSM customers must have:
 
 ## Cost
 
-The HSM devices will be charged based on the service pricing page. All other Azure resources for networking and virtual machines will incur regular Azure costs too.
+The HSM devices will be charged based on the [Azure Payment HSM pricing page](https://azure.microsoft.com/pricing/details/payment-hsm/). All other Azure resources for networking and virtual machines will incur regular Azure costs too.
 
 ## payShield customization considerations
 
 If you are using payShield on-premises today with a custom firmware, a porting exercise is required to update the firmware to a version compatible with the Azure deployment. Please contact your Thales account manager to request a quote.
 
 Ensure that the following information is provided:
+
 - Customization hardware platform (e.g., payShield 9000 or payShield 10K)
 - Customization firmware number
 
@@ -46,6 +57,6 @@ For details on Azure Payment HSM prerequisites, support channels, and division o
 ## Next steps
 
 - Learn more about [Azure Payment HSM](overview.md)
-- See some common [deployment scenarios](deployment-scenarios.md)
-- Learn about [Certification and compliance](certification-compliance.md)
+- Find out how to [get started with Azure Payment HSM](getting-started.md)
+- Learn how to [Create a payment HSM](create-payment-hsm.md)
 - Read the [frequently asked questions](faq.yml)

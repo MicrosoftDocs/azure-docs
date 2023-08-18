@@ -1,0 +1,71 @@
+### YamlMime:Landing
+
+title: Azure Communications Gateway documentation
+summary: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect and Teams Phone Mobile services.
+
+metadata:
+  title: Azure Communications Gateway documentation
+  description: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect and Teams Phone Mobile services.
+  ms.service: communications-gateway
+  ms.topic: landing-page
+  author: rcdun
+  ms.author: rdunstan
+  ms.date: 07/17/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+
+  # Card
+  - title: Understand Azure Communications Gateway
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Communications Gateway?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Interoperability with Microsoft Teams
+            url: interoperability.md
+          - text: Mobile Control Point
+            url: mobile-control-point.md
+          - text: Emergency calling
+            url: emergency-calling.md
+          - text: Reliability
+            url: reliability-communications-gateway.md
+          - text: Security
+            url: security.md
+
+  # Card
+  - title: Learn how to deploy Azure Communications Gateway
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Onboarding and the Included Benefits
+            url: onboarding.md
+      - linkListType: deploy
+        links:
+          - text: Prepare to deploy
+            url: prepare-to-deploy.md
+          - text: Deploy
+            url: deploy.md
+          - text: Prepare for live traffic
+            url: prepare-for-live-traffic.md
+
+  # Card
+  - title: Manage Azure Communications Gateway
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Monitoring Azure Communications Gateway
+            url: monitor-azure-communications-gateway.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage enterprises and numbers in the Number Management Portal
+            url: manage-enterprise.md
+          - text: Get support or request changes
+            url: request-changes.md
+          - text: Set up user roles
+            url: provision-user-roles.md
+          - text: Plan and manage costs
+            url: plan-and-manage-costs.md

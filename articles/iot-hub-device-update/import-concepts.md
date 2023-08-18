@@ -1,16 +1,16 @@
 ---
-title: Understand Device Update for IoT Hub importing | Microsoft Docs
+title: Understand Device Update for IoT Hub importing
 description: Key concepts for importing a new update into Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 06/27/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 
 # Importing updates into Device Update for IoT Hub
 
-In order to deploy an update to devices from Device Update for IoT Hub, you first have to import that update into the Device Update service. This article provides an overview of some important concepts to understand when it comes to importing updates.
+In order to deploy an update to devices from Device Update for IoT Hub, you first have to import that update into the Device Update service. The imported update will be stored in the Device Update service and can be deployed from there to devices. This article provides an overview of some important concepts to understand when it comes to importing updates.
 
 ## Import manifest
 
@@ -28,8 +28,8 @@ For example:
   "isDeployable": false,
   "compatibility": [
     {
-      "deviceManufacturer": "Contoso",
-      "deviceModel": "Toaster"
+      "manufacturer": "Contoso",
+      "model": "Toaster"
     }
   ],
   "instructions": {
@@ -55,7 +55,7 @@ For example:
     }
   ],
   "createdDateTime": "2022-01-19T06:23:52.6996916Z",
-  "manifestVersion": "4.0"
+  "manifestVersion": "5.0"
 }
 ```
 
@@ -94,8 +94,8 @@ Here's an example of an update that can only be deployed to a device that report
 {
   "compatibility": [
     {
-      "deviceManufacturer": "Contoso",
-      "deviceModel": "Toaster"
+      "manufacturer": "Contoso",
+      "model": "Toaster"
     }
   ]
 }
@@ -190,7 +190,7 @@ The *Files* part contains the metadata of update payload files like their names,
 
 ## Create an import manifest
 
-You may use any text editor to create import manifest JSON file. There are also sample scripts for creating import manifest programmatically in [Azure/iot-hub-device-update](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) on GitHub.
+While it's possible to author an import manifest JSON manually using a text editor, the Azure Command Line Interface (CLI) simplifies the process greatly. When you're ready to try out the creation of an import manifest, you can use the [How-to guide](create-update.md#create-a-basic-device-update-import-manifest).
 
 > [!IMPORTANT]
 > An import manifest JSON filename must end with `.importmanifest.json` when imported through Azure portal.

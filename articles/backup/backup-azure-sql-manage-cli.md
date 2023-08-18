@@ -3,9 +3,10 @@ title: Manage SQL server databases in Azure VMs using Azure Backup via CLI
 description: Learn how to use CLI to manage SQL server databases in Azure VMs in the Recovery Services vault.
 ms.topic: how-to
 ms.date: 08/11/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+ms.custom: devx-track-azurecli
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Manage SQL databases in an Azure VM using Azure CLI

@@ -1,6 +1,6 @@
 ---
 
-title: PowerShell and Graph examples for group licensing - Azure AD | Microsoft Docs
+title: PowerShell and Microsoft Graph examples for group licensing
 description: PowerShell + Graph examples and scenarios for Azure Active Directory group-based licensing
 services: active-directory
 keywords: Azure AD licensing
@@ -11,13 +11,14 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.date: 12/02/2020
 ms.author: barclayn
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ---
 
-# PowerShell and Graph examples for group-based licensing in Azure AD
+# PowerShell and Microsoft Graph examples for group-based licensing in Azure AD
 
 Full functionality for group-based licensing in Azure Active Directory (Azure AD), part of Microsoft Entra, is available through the [Azure portal](https://portal.azure.com), and currently there are some useful tasks that can be performed using the existing [MSOnline PowerShell
 cmdlets](/powershell/module/msonline) and Microsoft Graph. This document provides examples of what is possible.
@@ -661,7 +662,7 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 
 To learn more about the feature set for license management through groups, see the following articles:
 
-* [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [What is group-based licensing in Azure Active Directory?](../fundamentals/licensing-whatis-azure-portal.md)
 * [Assigning licenses to a group in Azure Active Directory](./licensing-groups-assign.md)
 * [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
 * [How to migrate individual licensed users to group-based licensing in Azure Active Directory](licensing-groups-migrate-users.md)

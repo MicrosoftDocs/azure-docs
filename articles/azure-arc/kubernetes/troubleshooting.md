@@ -1,12 +1,9 @@
 ---
 title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
-services: azure-arc
-ms.service: azure-arc
-#ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 06/13/2022
+ms.date: 05/08/2023
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
-keywords: "Kubernetes, Arc, Azure, containers, GitOps, Flux"
 ---
 
 # Azure Arc-enabled Kubernetes and GitOps troubleshooting
@@ -46,49 +43,79 @@ If the Helm Chart release is present with `STATUS: deployed`, check the status o
 
 ```console
 $ kubectl -n azure-arc get deployments,pods
-NAME                                       READY  UP-TO-DATE  AVAILABLE  AGE
-deployment.apps/clusteridentityoperator     1/1       1          1       16h
-deployment.apps/config-agent                1/1       1          1       16h
-deployment.apps/cluster-metadata-operator   1/1       1          1       16h
-deployment.apps/controller-manager          1/1       1          1       16h
-deployment.apps/flux-logs-agent             1/1       1          1       16h
-deployment.apps/metrics-agent               1/1       1          1       16h
-deployment.apps/resource-sync-agent         1/1       1          1       16h
+NAME                                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/cluster-metadata-operator    1/1     1            1           3d19h
+deployment.apps/clusterconnect-agent         1/1     1            1           3d19h
+deployment.apps/clusteridentityoperator      1/1     1            1           3d19h
+deployment.apps/config-agent                 1/1     1            1           3d19h
+deployment.apps/controller-manager           1/1     1            1           3d19h
+deployment.apps/extension-events-collector   1/1     1            1           3d19h
+deployment.apps/extension-manager            1/1     1            1           3d19h
+deployment.apps/flux-logs-agent              1/1     1            1           3d19h
+deployment.apps/kube-aad-proxy               1/1     1            1           3d19h
+deployment.apps/metrics-agent                1/1     1            1           3d19h
+deployment.apps/resource-sync-agent          1/1     1            1           3d19h
 
-NAME                                            READY   STATUS  RESTART  AGE
-pod/cluster-metadata-operator-7fb54d9986-g785b  2/2     Running  0       16h
-pod/clusteridentityoperator-6d6678ffd4-tx8hr    3/3     Running  0       16h
-pod/config-agent-544c4669f9-4th92               3/3     Running  0       16h
-pod/controller-manager-fddf5c766-ftd96          3/3     Running  0       16h
-pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
-pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
-pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
+ 
+
+NAME                                              READY   STATUS    RESTARTS        AGE
+pod/cluster-metadata-operator-74747b975-9phtz     2/2     Running   0               3d19h
+pod/clusterconnect-agent-cf4c7849c-88fmf          3/3     Running   0               3d19h
+pod/clusteridentityoperator-79bdfd945f-pt2rv      2/2     Running   0               3d19h
+pod/config-agent-67bcb94b7c-d67t8                 1/2     Running   0               3d19h
+pod/controller-manager-559dd48b64-v6rmk           2/2     Running   0               3d19h
+pod/extension-events-collector-85f4fbff69-55zmt   2/2     Running   0               3d19h
+pod/extension-manager-7c7668446b-69gps            3/3     Running   0               3d19h
+pod/flux-logs-agent-fc7c6c959-vgqvm               1/1     Running   0               3d19h
+pod/kube-aad-proxy-84d668c44b-j457m               2/2     Running   0               3d19h
+pod/metrics-agent-58fb8554df-5ll67                2/2     Running   0               3d19h
+pod/resource-sync-agent-dbf5db848-c9lg8           2/2     Running   0               3d19h
 ```
 
 All pods should show `STATUS` as `Running` with either `3/3` or `2/2` under the `READY` column. Fetch logs and describe the pods returning an `Error` or `CrashLoopBackOff`. If any pods are stuck in `Pending` state, there might be insufficient resources on cluster nodes. [Scaling up your cluster](https://kubernetes.io/docs/tasks/administer-cluster/) can get these pods to transition to `Running` state.
+
+### Resource Provisioning Failed 
+If you receive this error, it indicates that there was an error due to which the resource could not be provisioned successfully. Please check the status of the Azure Arc enabled Kubernetes service at the following dashboard: [Azure status](https://azure.status.microsoft/en-us/status). If the status is healthy and you continue to face issues while onboarding, please raise a support ticket. If the status is unhealthy, please wait until the status becomes healthy and try onboarding again after deleting the existing connected cluster Azure resource.
+
+### Service Timeout 
+If you receive this error, it indicates that the service timed out while provisioning the certificates. Please check the status of the Azure Arc enabled Kubernetes service at the following dashboard: [Azure status](https://azure.status.microsoft/en-us/status). If the status is healthy and you continue to face issues while onboarding, please raise a support ticket. If the status is unhealthy, please wait until the status becomes healthy and try onboarding again after deleting the existing connected cluster Azure resource.
+
+### Overage claims error
+
+If you receive an overage claim, review the following factors in order:
+
+1. Are you using a service principal that is part of more than 200 Azure AD groups? If yes, then you must create and use another service principal that isn't a member of more than 200 groups, or remove the original service principal from some of its groups and try again.
+
+1. Have you configured outbound proxy environment? If so, make sure that the endpoint `https://<region>.obo.arc.azure.com:8084/` is allowed for outbound traffic.
+
+If neither of these apply, open a support request so we can look into the issue.
 
 ## Connecting Kubernetes clusters to Azure Arc
 
 Connecting clusters to Azure Arc requires access to an Azure subscription and `cluster-admin` access to a target cluster. If you can't reach the cluster, or if you have insufficient permissions, connecting the cluster to Azure Arc will fail. Make sure you've met all of the [prerequisites to connect a cluster](quickstart-connect-cluster.md#prerequisites).
 
-### Azure CLI is unable to download Helm chart for Azure Arc agents
+> [!TIP]
+> For a visual guide to troubleshooting these issues, see [Diagnose connection issues for Arc-enabled Kubernetes clusters](diagnose-connection-issues.md).
 
-With Helm version >= 3.7.0, you may run into the following error when using `az connectedk8s connect` to connect the cluster to Azure Arc:
+### DNS resolution issues
 
-```azurecli
-az connectedk8s connect -n AzureArcTest -g AzureArcTest
-```
+If you see an error message about an issue with the DNS resolution on your cluster, there are a few things you can try in order to diagnose and resolve the problem.
 
-```output
-Unable to pull helm chart from the registry 'mcr.microsoft.com/azurearck8s/batch1/stable/azure-arc-k8sagents:1.4.0': Error: unknown command "chart" for "helm"
-Run 'helm --help' for usage.
-```
+For more information, see [Debugging DNS Resolution](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/).
 
-To resolve this issue, you'll need to install a prior version of [Helm 3](https://helm.sh/docs/intro/install/), where the version is less than 3.7.0. After you've installed that version, run the `az connectedk8s connect` command again to connect the cluster to Azure Arc.
+### Outbound network connectivity issues
+
+Issues with outbound network connectivity from the cluster may arise for different reasons. First make sure all of the [network requirements](network-requirements.md) have been met.
+
+If you encounter this issue, and your cluster is behind an outbound proxy server, make sure you've passed proxy parameters during the onboarding of your cluster and that the proxy is configured correctly. For more information, see [Connect using an outbound proxy server](quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
+
+### Unable to retrieve MSI certificate
+
+Problems retrieving the MSI certificate are usually due to network issues. Check to make sure all of the [network requirements](network-requirements.md) have been met, then try again.
 
 ### Insufficient cluster permissions
 
-If the provided kubeconfig file doesn't have sufficient permissions to install the Azure Arc agents, the Azure CLI command will return an error.
+If the provided kubeconfig file doesn't have sufficient permissions to install the Azure Arc agents, the Azure CLI command returns an error.
 
 ```azurecli
 az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
@@ -158,7 +185,7 @@ To resolve this issue, try the following steps.
     config-agent-65d5df564f-lffqm               1/2     CrashLoopBackOff   0          1m14s
      ```
 
-3. If the certificate below isn't present, the system assigned managed identity hasn't been installed.
+3. If the `azure-identity-certificate` isn't present, the system assigned managed identity hasn't been installed.
 
    ```console
    kubectl get secret -n azure-arc -o yaml | grep name:
@@ -168,7 +195,7 @@ To resolve this issue, try the following steps.
    name: azure-identity-certificate
    ```
 
-   To resolve this issue, try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If the issue continues to happen, it could be an issue with your proxy settings. In that case, [try connecting your cluster to Azure Arc via a proxy](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy. Please also verify if all the [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements) have been met.
+   To resolve this issue, try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If the issue continues to happen, it could be an issue with your proxy settings. In that case, [try connecting your cluster to Azure Arc via a proxy](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy. Also verify that all of the [network prerequisites](network-requirements.md) have been met.
 
 4. If the `clusterconnect-agent` and the `config-agent` pods are running, but the `kube-aad-proxy` pod is missing, check your pod security policies. This pod uses the `azure-arc-kube-aad-proxy-sa` service account, which doesn't have admin permissions but requires the permission to mount host path.
 
@@ -182,7 +209,7 @@ To resolve this issue, try the following steps.
    name: kube-aad-proxy-certificate
    ```
 
-   If the certificate is missing, please contact support.
+   If the certificate is missing, [delete the deployment](quickstart-connect-cluster.md#clean-up-resources) and re-onboard with a different name for the cluster. If the problem continues, contact support.
 
 ### Helm validation error
 
@@ -196,7 +223,7 @@ az connectedk8s connect -n AzureArcTest -g AzureArcTest
 Ensure that you have the latest helm version installed before proceeding.
 This operation might take a while...
 
-Please check if the azure-arc namespace was deployed and run 'kubectl get pods -n azure-arc' to check if all the pods are in running state. A possible cause for pods stuck in pending state could be insufficientresources on the Kubernetes cluster to onboard to arc.
+Check if the azure-arc namespace was deployed, and run 'kubectl get pods -n azure-arc' to check if all the pods are in running state. A possible cause for pods stuck in pending state could be insufficientresources on the Kubernetes cluster to onboard to Azure Arc.
 ValidationError: Unable to install helm release: Error: customresourcedefinitions.apiextensions.k8s.io "connectedclusters.arc.azure.com" not found
 ```
 
@@ -242,69 +269,9 @@ az extension add --name k8s-configuration
 
 ## GitOps management
 
-### Flux v1 - General
-
-> [!NOTE]
-> Eventually Azure will stop supporting GitOps with Flux v1, so begin using [Flux v2](./tutorial-use-gitops-flux2.md) as soon as possible.
-
-To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these az commands with `--debug` parameter specified:
-
-```azurecli
-az provider show -n Microsoft.KubernetesConfiguration --debug
-az k8s-configuration create <parameters> --debug
-```
-
-### Flux v1 - Create configurations
-
-Write permissions on the Azure Arc-enabled Kubernetes resource (`Microsoft.Kubernetes/connectedClusters/Write`) are necessary and sufficient for creating configurations on that cluster.
-
-### `sourceControlConfigurations` remains `Pending` (Flux v1)
-
-```console
-kubectl -n azure-arc logs -l app.kubernetes.io/component=config-agent -c config-agent
-$ k -n pending get gitconfigs.clusterconfig.azure.com  -o yaml
-apiVersion: v1
-items:
-- apiVersion: clusterconfig.azure.com/v1beta1
-  kind: GitConfig
-  metadata:
-    creationTimestamp: "2020-04-13T20:37:25Z"
-    generation: 1
-    name: pending
-    namespace: pending
-    resourceVersion: "10088301"
-    selfLink: /apis/clusterconfig.azure.com/v1beta1/namespaces/pending/gitconfigs/pending
-    uid: d9452407-ff53-4c02-9b5a-51d55e62f704
-  spec:
-    correlationId: ""
-    deleteOperator: false
-    enableHelmOperator: false
-    giturl: git@github.com:slack/cluster-config.git
-    helmOperatorProperties: null
-    operatorClientLocation: azurearcfork8s.azurecr.io/arc-preview/fluxctl:0.1.3
-    operatorInstanceName: pending
-    operatorParams: '"--disable-registry-scanning"'
-    operatorScope: cluster
-    operatorType: flux
-  status:
-    configAppliedTime: "2020-04-13T20:38:43.081Z"
-    isSyncedWithAzure: true
-    lastPolledStatusTime: ""
-    message: 'Error: {exit status 1} occurred while doing the operation : {Installing
-      the operator} on the config'
-    operatorPropertiesHashed: ""
-    publicKey: ""
-    retryCountPublicKey: 0
-    status: Installing the operator
-kind: List
-metadata:
-  resourceVersion: ""
-  selfLink: ""
-```
-
 ### Flux v2 - General
 
-To help troubleshoot issues with `fluxConfigurations` resource (Flux v2), run these az commands with `--debug` parameter specified:
+To help troubleshoot issues with `fluxConfigurations` resource (Flux v2), run these Azure CLI commands with the `--debug` parameter specified:
 
 ```azurecli
 az provider show -n Microsoft.KubernetesConfiguration --debug
@@ -321,7 +288,7 @@ For more information, see [How do I resolve `webhook does not support dry run` e
 
 The `microsoft.flux` extension installs the Flux controllers and Azure GitOps agents into your Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters. If the extension isn't already installed in a cluster and you create a GitOps configuration resource for that cluster, the extension will be installed automatically.
 
-If you experience an error during installation, or if the extension is in a failed state, run a script to investigate. The cluster-type parameter can be set to `connectedClusters` for an Arc-enabled cluster or `managedClusters` for an AKS cluster. The name of the `microsoft.flux` extension will be "flux" if the extension was installed automatically during creation of a GitOps configuration. Look in the "statuses" object for information.
+If you experience an error during installation, or if the extension is in a failed state, run a script to investigate. The cluster-type parameter can be set to `connectedClusters` for an Arc-enabled cluster or `managedClusters` for an AKS cluster. The name of the `microsoft.flux` extension is "flux" if the extension was installed automatically during creation of a GitOps configuration. Look in the "statuses" object for information.
 
 One example:
 
@@ -383,15 +350,15 @@ kubectl delete namespaces flux-system
 
 Some other aspects to consider:
 
-* For an AKS cluster, assure that the subscription has the `Microsoft.ContainerService/AKS-ExtensionManager` feature flag enabled.
+* For an AKS cluster, ensure that the subscription has the `Microsoft.ContainerService/AKS-ExtensionManager` feature flag enabled.
 
      ```azurecli
      az feature register --namespace Microsoft.ContainerService --name AKS-ExtensionManager
      ```
 
-* Assure that the cluster doesn't have any policies that restrict creation of the `flux-system` namespace or resources in that namespace.
+* Ensure that the cluster doesn't have any policies that restrict creation of the `flux-system` namespace or resources in that namespace.
 
-With these actions accomplished, you can either [recreate a flux configuration](./tutorial-use-gitops-flux2.md), which will install the flux extension automatically, or you can reinstall the flux extension manually.
+With these actions accomplished, you can either [recreate a flux configuration](./tutorial-use-gitops-flux2.md), which installs the flux extension automatically, or you can reinstall the flux extension manually.
 
 ### Flux v2 - Installing the `microsoft.flux` extension in a cluster with Azure AD Pod Identity enabled
 
@@ -409,7 +376,7 @@ The extension status also returns as "Failed".
 
 The extension-agent pod is trying to get its token from IMDS on the cluster in order to talk to the extension service in Azure, but the token request is intercepted by the [pod identity](../../aks/use-azure-ad-pod-identity.md)).
 
-The workaround is to create an `AzurePodIdentityException` that will tell Azure AD Pod Identity to ignore the token requests from flux-extension pods.
+You can fix this issue by upgrading to the latest version of the `microsoft.flux` extension. For version 1.6.1 or earlier, the workaround is to create an `AzurePodIdentityException` that tells Azure AD Pod Identity to ignore the token requests from flux-extension pods.
 
 ```console
 apiVersion: aadpodidentity.k8s.io/v1
@@ -422,24 +389,93 @@ spec:
     app.kubernetes.io/name: flux-extension
 ```
 
+### Flux v2 - Installing the `microsoft.flux` extension in a cluster with Kubelet Identity enabled
+
+When working with Azure Kubernetes clusters, one of the authentication options is *kubelet identity* using a user-assigned managed identity. Using kubelet identity can reduce operational overhead and increases security when connecting to Azure resources such as Azure Container Registry.
+
+To let Flux use kubelet identity, add the parameter `--config useKubeletIdentity=true` when installing the Flux extension. This option is supported starting with version 1.6.1 of the extension.
+
+```console
+az k8s-extension create --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type managedClusters --name flux --extension-type microsoft.flux --config useKubeletIdentity=true
+```
+
 ### Flux v2 - `microsoft.flux` extension installation CPU and memory limits
 
-The controllers installed in your Kubernetes cluster with the Microsoft.Flux extension require the following CPU and memory resource limits to properly schedule on Kubernetes cluster nodes.
+The controllers installed in your Kubernetes cluster with the Microsoft Flux extension require CPU and memory resources to properly schedule on Kubernetes cluster nodes. This table shows the minimum memory and CPU resources that may be requested, along with the maximum limits for potential CPU and memory resource requirements.
 
-| Container Name | CPU limit | Memory limit |
+| Container Name | Minimum CPU | Minimum memory | Maximum CPU | Maximum memory |
 | -------------- | ----------- | -------- |
-| fluxconfig-agent | 50m | 150Mi |
-| fluxconfig-controller | 100m | 150Mi |
-| fluent-bit | 20m | 150Mi |
-| helm-controller | 1000m | 1Gi |
-| source-controller | 1000m | 1Gi |
-| kustomize-controller | 1000m | 1Gi | 
-| notification-controller | 1000m | 1Gi |
-| image-automation-controller | 1000m | 1Gi |
-| image-reflector-controller | 1000m | 1Gi |
+| fluxconfig-agent | 5 m | 30 Mi | 50 m | 150 Mi |
+| fluxconfig-controller | 5 m | 30 Mi | 100 m | 150 Mi |
+| fluent-bit | 5 m | 30 Mi | 20 m | 150 Mi |
+| helm-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
+| source-controller | 50 m | 64 Mi | 1000 m | 1 Gi |
+| kustomize-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
+| notification-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
+| image-automation-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
+| image-reflector-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
 
-If you have enabled a custom or built-in Azure Gatekeeper Policy, such as `Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits`, that limits the resources for containers on Kubernetes clusters, you will need to either ensure that the resource limits on the policy are greater than the limits shown above or the `flux-system` namespace is part of the `excludedNamespaces` parameter in the policy assignment.
+If you've enabled a custom or built-in Azure Gatekeeper Policy that limits the resources for containers on Kubernetes clusters, such as `Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits`, ensure that either the resource limits on the policy are greater than the limits shown above or that the `flux-system` namespace is part of the `excludedNamespaces` parameter in the policy assignment.
 
+### Flux v1
+
+> [!NOTE]
+> We recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible. Support for Flux v1-based cluster configuration resources created prior to January 1, 2024 will end on [May 24, 2025](https://azure.microsoft.com/updates/migrate-your-gitops-configurations-from-flux-v1-to-flux-v2-by-24-may-2025/). Starting on January 1, 2024, you won't be able to create new Flux v1-based cluster configuration resources.
+
+To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these Azure CLI commands with `--debug` parameter specified:
+
+```azurecli
+az provider show -n Microsoft.KubernetesConfiguration --debug
+az k8s-configuration create <parameters> --debug
+```
+
+#### Flux v1 - Create configurations
+
+Write permissions on the Azure Arc-enabled Kubernetes resource (`Microsoft.Kubernetes/connectedClusters/Write`) are necessary and sufficient for creating configurations on that cluster.
+
+#### `sourceControlConfigurations` remains `Pending` (Flux v1)
+
+```console
+kubectl -n azure-arc logs -l app.kubernetes.io/component=config-agent -c config-agent
+$ k -n pending get gitconfigs.clusterconfig.azure.com  -o yaml
+apiVersion: v1
+items:
+- apiVersion: clusterconfig.azure.com/v1beta1
+  kind: GitConfig
+  metadata:
+    creationTimestamp: "2020-04-13T20:37:25Z"
+    generation: 1
+    name: pending
+    namespace: pending
+    resourceVersion: "10088301"
+    selfLink: /apis/clusterconfig.azure.com/v1beta1/namespaces/pending/gitconfigs/pending
+    uid: d9452407-ff53-4c02-9b5a-51d55e62f704
+  spec:
+    correlationId: ""
+    deleteOperator: false
+    enableHelmOperator: false
+    giturl: git@github.com:slack/cluster-config.git
+    helmOperatorProperties: null
+    operatorClientLocation: azurearcfork8s.azurecr.io/arc-preview/fluxctl:0.1.3
+    operatorInstanceName: pending
+    operatorParams: '"--disable-registry-scanning"'
+    operatorScope: cluster
+    operatorType: flux
+  status:
+    configAppliedTime: "2020-04-13T20:38:43.081Z"
+    isSyncedWithAzure: true
+    lastPolledStatusTime: ""
+    message: 'Error: {exit status 1} occurred while doing the operation : {Installing
+      the operator} on the config'
+    operatorPropertiesHashed: ""
+    publicKey: ""
+    retryCountPublicKey: 0
+    status: Installing the operator
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
+```
 
 ## Monitoring
 
@@ -463,7 +499,7 @@ az connectedk8s proxy -n AzureArcTest -g AzureArcTest
 Hybrid connection for the target resource does not exist. Agent might not have started successfully.
 ```
 
-Be sure to use the `connectedk8s` Azure CLI extension with version >= 1.2.0, then [connect your cluster again](quickstart-connect-cluster.md) to Azure Arc. Also, verify that you've met all the [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements) needed for Arc-enabled Kubernetes.
+Be sure to use the `connectedk8s` Azure CLI extension with version >= 1.2.0, then [connect your cluster again](quickstart-connect-cluster.md) to Azure Arc. Also, verify that you've met all the [network prerequisites](network-requirements.md) needed for Arc-enabled Kubernetes.
 
 If your cluster is behind an outbound proxy or firewall, verify that websocket connections are enabled for `*.servicebus.windows.net`, which is required specifically for the [Cluster Connect](cluster-connect.md) feature.
 
@@ -501,7 +537,7 @@ This warning occurs when you use a service principal to log into Azure. The serv
     az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
     ```
 
-1. Sign in into Azure CLI using the service principal. Use the `<objectId>` value from above step to enable custom locations on the cluster:
+1. Sign in into Azure CLI using the service principal. Use the `<objectId>` value from the previous step to enable custom locations on the cluster:
 
    * To enable custom locations when connecting the cluster to Arc, run the following command:
 
@@ -517,7 +553,7 @@ This warning occurs when you use a service principal to log into Azure. The serv
 
 ## Azure Arc-enabled Open Service Mesh
 
-The steps below provide guidance on validating the deployment of all the Open Service Mesh (OSM) extension components on your cluster.
+This section shows how to validate the deployment of all the Open Service Mesh (OSM) extension components on your cluster.
 
 ### Check OSM Controller **Deployment**
 
@@ -546,7 +582,7 @@ osm-controller-b5bd66db-wglzl   0/1     Evicted   0          61m
 osm-controller-b5bd66db-wvl9w   1/1     Running   0          31m
 ```
 
-Even though one controller was _evicted_ at some point, there's another which is `READY 1/1` and `Running` with `0` restarts. If the column `READY` is anything other than `1/1`, the service mesh would be in a broken state. Column `READY` with `0/1` indicates the control plane container is crashing. Use the following command to inspect controller logs:
+Even though one controller was *Evicted* at some point, there's another which is `READY 1/1` and `Running` with `0` restarts. If the column `READY` is anything other than `1/1`, the service mesh would be in a broken state. Column `READY` with `0/1` indicates the control plane container is crashing. Use the following command to inspect controller logs:
 
 ```bash
 kubectl logs -n arc-osm-system -l app=osm-controller
@@ -636,7 +672,7 @@ kubectl get endpoints -n arc-osm-system osm-injector
 
 If the OSM Injector is healthy, you'll see output similar to the following:
 
-```
+```output
 NAME           ENDPOINTS           AGE
 osm-injector   10.240.1.172:9090   75m
 ```
@@ -691,7 +727,8 @@ kubectl get MutatingWebhookConfiguration arc-osm-webhook-osm -o json | jq '.webh
 ```
 
 A well configured **Mutating** webhook configuration will have output similar to the following:
-```
+
+```output
 {
   "name": "osm-injector",
   "namespace": "arc-osm-system",
@@ -716,7 +753,7 @@ Example output:
 1845
 ```
 
-The number in the output indicates the number of bytes, or the size of the CA Bundle. If this is empty, 0, or a number under 1000, the CA Bundle is not correctly provisioned. Without a correct CA Bundle, the `ValidatingWebhook` will throw an error.
+The number in the output indicates the number of bytes, or the size of the CA Bundle. If the output is empty, 0, or a number under 1000, the CA Bundle isn't correctly provisioned. Without a correct CA Bundle, the `ValidatingWebhook` will throw an error.
 
 ### Check the `osm-mesh-config` resource
 
@@ -808,7 +845,7 @@ metadata:
 ### Check namespaces
 
 >[!Note]
->The arc-osm-system namespace will never participate in a service mesh and will never be labeled or annotated with the key/values below.
+>The arc-osm-system namespace will never participate in a service mesh and will never be labeled or annotated with the key/values shown here.
 
 We use the `osm namespace add` command to join namespaces to a given service mesh. When a Kubernetes namespace is part of the mesh, confirm the following:
 
@@ -820,26 +857,27 @@ kubectl get namespace bookbuyer -o json | jq '.metadata.annotations'
 
 The following annotation must be present:
 
-```
+```bash
 {
   "openservicemesh.io/sidecar-injection": "enabled"
 }
 ```
 
 View the labels of the namespace `bookbuyer`:
+
 ```bash
 kubectl get namespace bookbuyer -o json | jq '.metadata.labels'
 ```
 
 The following label must be present:
 
-```
+```bash
 {
   "openservicemesh.io/monitored-by": "osm"
 }
 ```
 
-If you aren't using `osm` CLI, you could also manually add these annotations to your namespaces. If a namespace isn't annotated with `"openservicemesh.io/sidecar-injection": "enabled"`, or isn't labeled with `"openservicemesh.io/monitored-by": "osm"`, the OSM Injector will not add Envoy sidecars.
+If you aren't using `osm` CLI, you could also manually add these annotations to your namespaces. If a namespace isn't annotated with `"openservicemesh.io/sidecar-injection": "enabled"`, or isn't labeled with `"openservicemesh.io/monitored-by": "osm"`, the OSM Injector won't add Envoy sidecars.
 
 >[!Note]
 >After `osm namespace add` is called, only **new** pods will be injected with an Envoy sidecar. Existing pods must be restarted with `kubectl rollout restart deployment` command.

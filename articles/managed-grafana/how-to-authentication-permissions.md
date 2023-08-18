@@ -3,9 +3,10 @@ title: How to set up authentication and permissions in Azure Managed Grafana
 description: Learn how to set up Azure Managed Grafana authentication permissions using a system-assigned Managed identity or a Service Principal
 ms.service: managed-grafana
 ms.topic: how-to
-author: maud-lv
-ms.author: malev
-ms.date: 08/22/2022
+author: mcleanbyron
+ms.author: mcleans
+ms.date: 12/13/2022
+ms.custom: engagement-fy23
 --- 
 
 # Set up Azure Managed Grafana authentication and permissions
@@ -32,7 +33,7 @@ Open your CLI and run the `az login` command to sign in to Azure.
 az login
 ```
 
-This command will prompt your web browser to launch and load an Azure sign-in page. If the browser fails to open, use device code flow with `az login --use-device-code`. For more sign-in options, go to [sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+This command will prompt your web browser to launch and load an Azure sign-in page.
 
 ---
 
@@ -83,15 +84,17 @@ System-assigned managed identity is the default authentication method provided t
 
 1. Under **Grafana administrator role**, the box **Include myself** is checked by default. Optionally select **Add** to grant the Grafana administrator role to more members.
 
-:::image type="content" source="media/authentication/create-form-permission.png" alt-text="Screenshot of the Azure portal. Create workspace form. Permission.":::
+    :::image type="content" source="media/authentication/create-form-permission.png" alt-text="Screenshot of the Azure portal. Create workspace form. Permission.":::
 
 ##### With managed identity disabled
 
-1. Azure Managed Grafana can also access data sources with managed identity disabled. You can use a service principal for authentication, using a client ID and secret. To use this method, in the **Permissions** tab, set the box **System assigned managed identity** to **Off**.
+Azure Managed Grafana can also access data sources with managed identity disabled. You can use a service principal for authentication, using a client ID and secret.
 
-1. **Add role assignment to this identity with 'Monitoring Reader' role on target subscription** is disabled.
+1. In the **Permissions** tab, set the box **System assigned managed identity** to **Off**. The line **Add role assignment to this identity with 'Monitoring Reader' role on target subscription** is automatically grayed out.
 
 1. Under **Grafana administrator role**, if you have the Owner or User Access Administrator role for the subscription, the box **Include myself** is checked by default. Optionally select **Add** to grant the Grafana administrator role to more members. If you don't have the necessary role, you won't be able to manage Grafana access rights yourself.
+
+    :::image type="content" source="media/authentication/create-form-permission-disabled.png" alt-text="Screenshot of the Azure portal. Create workspace form. Permission tab with managed identity disabled.":::
 
 > [!NOTE]
 > Turning off system-assigned managed identity disables the Azure Monitor data source plugin for your Azure Managed Grafana instance. In this scenario, use a service principal instead of Azure Monitor to access data sources.

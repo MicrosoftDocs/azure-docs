@@ -11,19 +11,32 @@ ms.date: 10/22/2020
 
 # Monitoring Azure IoT Hub data reference
 
-See [Monitor Azure IoT Hub](monitor-iot-hub.md) for details on collecting and analyzing monitoring data for Azure IoT Hub.
+To get started with Azure monitoring, see [Monitor Azure IoT Hub](monitor-iot-hub.md) to understand how to collect and analyze monitoring data for Azure IoT Hub. 
+
+This article is a reference for implementing Azure monitoring.
+
+The major sections in this reference article:
+
+* [**Metrics**](monitor-iot-hub-reference.md#metrics): lists of IoT Hub platform metrics by topic
+* [**Metric dimensions**](monitor-iot-hub-reference.md#metric-dimensions): dimensions for routing and Event Grid metrics
+* [**Resource logs**](monitor-iot-hub-reference.md#resource-logs): logs by category types and schemas collected for Azure IoT Hub
+* [**Azure Monitor Logs tables**](monitor-iot-hub-reference.md#azure-monitor-logs-tables): discusses Azure Monitor Logs Kusto tables
+
+  Or, go directly to the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
 
 ## Metrics
 
 This section lists all the automatically collected platform metrics for Azure IoT Hub. The resource provider namespace for IoT Hub metrics is **Microsoft.Devices** and the type Namespace is **IoTHubs**.
 
-The following subsections break out the IoT Hub platform metrics by general category and list them by the display name that they appear in the Azure portal with. Information is also provided relevant to the metrics that appear in each subsection.
+The following subsections show the IoT Hub platform metrics by general category and list metrics by their display name as assigned in the Azure portal.
 
-You can also find a single table that lists all of the IoT Hub platform metrics by metric name under [Microsoft.Devices/IotHubs](../azure-monitor/essentials/metrics-supported.md#microsoftdevicesiothubs) in the Azure Monitor documentation. Be aware that this table does not provide some of the information, like [supported aggregations](#supported-aggregations) for some metrics, available in this article.
+You can also find a single table that lists all the IoT Hub platform metrics by metric name under [Microsoft.Devices/IotHubs](../azure-monitor/essentials/metrics-supported.md#microsoftdevicesiothubs) in the Azure Monitor documentation. This table doesn't provide all information, like [supported aggregations](#supported-aggregations) for some metrics, available in this article.
 
 To learn about metrics supported by other Azure services, see [Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 **Topics in this section**
+
+Select a topic to jump to its information on this page.
 
 - [Supported aggregations](#supported-aggregations)
 - [Cloud to device command metrics](#cloud-to-device-command-metrics)
@@ -34,7 +47,7 @@ To learn about metrics supported by other Azure services, see [Supported metrics
 - [Device metrics](#device-metrics)
 - [Device telemetry metrics](#device-telemetry-metrics)
 - [Device to cloud twin operations metrics](#device-to-cloud-twin-operations-metrics)
-- [Event grid metrics](#event-grid-metrics)
+- [Event Grid metrics](#event-grid-metrics)
 - [Jobs metrics](#jobs-metrics)
 - [Routing metrics](#routing-metrics)
 - [Twin query metrics](#twin-query-metrics)
@@ -45,17 +58,17 @@ The **Aggregation Type** column in each table corresponds to the default aggrega
 
    ![Screenshot showing aggregation for metrics](./media/monitor-iot-hub-reference/aggregation-type.png)
 
-For most metrics, all aggregation types are valid; however, for count metrics, those with a **Unit** column value of **Count**, only some aggregations are valid. Count metrics can be one of two types:
+For most metrics, all aggregation types are valid; however, for count metrics with a **Unit** column value of **Count**, only some aggregations are valid. Count metrics can be one of two types:
 
-* For **Single-point** count metrics, IoT Hub registers a single data point -- essentially a 1 -- every time the measured operation occurs. Azure Monitor then sums these data points over the specified granularity. Examples of **Single-point** metrics are *Telemetry messages sent* and *C2D message deliveries completed*. For these metrics, the only relevant aggregation type is Total (Sum). The portal allows you to choose minimum, maximum, and average; however, these values will always be 1.
+* For **Single-point** count metrics, IoT Hub registers a single data point (essentially a 1) every time the measured operation occurs. Azure Monitor then sums these data points over the specified granularity. Examples of **Single-point** metrics are *Telemetry messages sent* and *C2D message deliveries completed*. For these metrics, the only relevant aggregation type is Total (Sum). The portal allows you to choose minimum, maximum, and average; however, these values will always be 1.
 
-* For **Snapshot** count metrics, IoT Hub registers a total count when the measured operation occurs. Currently, there are three **Snapshot** metrics emitted by IoT Hub: *Total number of messages used*, *Total devices (preview)*, and *Connected devices (preview)*. Because these metrics present a "total" quantity every time they are emitted, summing them over the specified granularity makes no sense. Azure Monitor limits you to selecting average, minimum, and maximum for the aggregation type for these metrics.
+* For **Snapshot** count metrics, IoT Hub registers a total count when the measured operation occurs. Currently, there are three **Snapshot** metrics emitted by IoT Hub: *Total number of messages used*, *Total devices*, and *Connected devices*. Because these metrics present a "total" quantity every time they're emitted, summing them over the specified granularity makes no sense. Azure Monitor limits you to selecting average, minimum, and maximum for the aggregation type for these metrics.
 
 ### Cloud to device command metrics
 
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|C2D Messages Expired (preview)|C2DMessagesExpired|Count|Total|Number of expired cloud-to-device messages|None|
+|C2D Messages Expired|C2DMessagesExpired|Count|Total|Number of expired cloud-to-device messages|None|
 |C2D message deliveries completed|c2d.commands.egress.complete.success|Count|Total|Number of cloud-to-device message deliveries completed successfully by the device|None|
 |C2D messages abandoned|c2d.commands.egress.abandon.success|Count|Total|Number of cloud-to-device messages abandoned by the device|None|
 |C2D messages rejected|c2d.commands.egress.reject.success|Count|Total|Number of cloud-to-device messages rejected by the device|None|
@@ -90,7 +103,7 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|Configuration Metrics|configurations|Count|Total|Number of total CRUD operations performed for device configuration and IoT Edge deployment, on a set of target devices. This also includes the number of operations that modify the device twin or module twin because of these configurations.|None|
+|Configuration Metrics|configurations|Count|Total|Number of total CRUD operations performed for device configuration and IoT Edge deployment, on a set of target devices. Included are the number of operations that modify the device twin or module twin because of these configurations.|None|
 
 For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
@@ -100,7 +113,7 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 |---|---|---|---|---|---|
 |Total device data usage|deviceDataUsage|Bytes|Total|Bytes transferred to and from any devices connected to IotHub|None|
 |Total device data usage (preview)|deviceDataUsageV2|Bytes|Total|Bytes transferred to and from any devices connected to IotHub|None|
-|Total number of messages used|dailyMessageQuotaUsed|Count|Average|Number of total messages used today. This is a cumulative value that is reset to zero at 00:00 UTC every day.|None|
+|Total number of messages used|dailyMessageQuotaUsed|Count|Average|Number of total messages used today. A cumulative value that is reset to zero at 00:00 UTC every day.|None|
 
 For *Total number of messages used*, only minimum, maximum, and average aggregations are supported. For more information, see [Supported aggregations](#supported-aggregations).
 
@@ -109,22 +122,22 @@ For *Total number of messages used*, only minimum, maximum, and average aggregat
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 |Total devices (deprecated)|devices.totalDevices|Count|Total|Number of devices registered to your IoT hub|None|
-|Connected devices (deprecated) |devices.connectedDevices.allProtocol|Count|Total|Number of devices connected to your IoT hub|None|
-|Total devices (preview)|totalDeviceCount|Count|Average|Number of devices registered to your IoT hub|None|
-|Connected devices (preview)|connectedDeviceCount|Count|Average|Number of devices connected to your IoT hub|None|
+|Connected devices (deprecated)|devices.connectedDevices.allProtocol|Count|Total|Number of devices connected to your IoT hub|None|
+|Total devices|totalDeviceCount|Count|Average|Number of devices registered to your IoT hub|None|
+|Connected devices|connectedDeviceCount|Count|Average|Number of devices connected to your IoT hub|None|
 
 For *Total devices (deprecated)* and *Connected devices (deprecated)*, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
-For *Total devices (preview)* and *Connected devices (preview)*, only minimum, maximum, and average aggregations are valid. For more information, see [Supported aggregations](#supported-aggregations).
+For *Total devices* and *Connected devices*, only minimum, maximum, and average aggregations are valid. For more information, see [Supported aggregations](#supported-aggregations).
 
-*Connected devices (preview)* and *Total devices (preview)* are not exportable via diagnostic settings.
+*Total devices* and *Connected devices* aren't exportable via diagnostic settings.
 
 ### Device telemetry metrics
 
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 |Number of throttling errors|d2c.telemetry.ingress.sendThrottle|Count|Total|Number of throttling errors due to device throughput throttles|None|
-|Telemetry message send attempts|d2c.telemetry.ingress.allProtocol|Count|Total|Number of device-to-cloud telemetry messages attempted to be sent to your IoT hub|None|
+|Telemetry 'message send' attempts|d2c.telemetry.ingress.allProtocol|Count|Total|Number of device-to-cloud telemetry messages attempted to be sent to your IoT hub|None|
 |Telemetry messages sent|d2c.telemetry.ingress.success|Count|Total|Number of device-to-cloud telemetry messages sent successfully to your IoT hub|None|
 
 For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
@@ -142,12 +155,12 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
-### Event grid metrics
+### Event Grid metrics
 
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|Event Grid deliveries (preview)|EventGridDeliveries|Count|Total|The number of IoT Hub events published to Event Grid. Use the Result dimension for the number of successful and failed requests. EventType dimension shows the type of event (https://aka.ms/ioteventgrid).|Result,<br/>EventType<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
-|Event Grid latency (preview)|EventGridLatency|Milliseconds|Average|The average latency (milliseconds) from when the Iot Hub event was generated to when the event was published to Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event.|EventType<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
+|Event Grid deliveries|EventGridDeliveries|Count|Total|The number of IoT Hub events published to Event Grid. Use the Result dimension for the number of successful and failed requests. EventType dimension shows the type of event (https://aka.ms/ioteventgrid).|Result,<br/>EventType<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
+|Event Grid latency|EventGridLatency|Milliseconds|Average|The average latency (milliseconds) from when the Iot Hub event was generated to when the event was published to Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event.|EventType<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
 
 For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
@@ -174,25 +187,25 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-| Routing Deliveries (preview) |RoutingDeliveries | Count | Total |This is the routing delivery metric. Use the dimensions to identify the delivery status for a specific endpoint or for a specific routing source.| Result,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*. |
-| Routing Delivery Data Size In Bytes (preview)|RoutingDataSizeInBytesDelivered| Bytes | Total |The total number of bytes routed by IoT Hub to custom endpoint and built-in endpoint. Use the dimensions to identify data size routed to a specific endpoint or for a specific routing source.| RoutingSource,<br>EndpointType<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
-| Routing Latency (preview) |RoutingDeliveryLatency| Milliseconds | Average |This is the routing delivery latency metric. Use the dimensions to identify the latency for a specific endpoint or for a specific routing source.| RoutingSource,<br>EndpointType,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
+| Routing Deliveries (preview) |RoutingDeliveries | Count | Total |The routing delivery metric. Use the dimensions to identify the delivery status for a specific endpoint or for a specific routing source.| Result,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*. |
+| Routing Delivery Message Size In Bytes (preview)|RoutingDataSizeInBytesDelivered| Bytes | Total |The total number of bytes routed by IoT Hub to custom endpoint and built-in endpoint. Use the dimensions to identify data size routed to a specific endpoint or for a specific routing source.| RoutingSource,<br>EndpointType<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
+| Routing Delivery Latency (preview) |RoutingDeliveryLatency| Milliseconds | Average |The routing delivery latency metric. Use the dimensions to identify the latency for a specific endpoint or for a specific routing source.| RoutingSource,<br>EndpointType,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
 |Routing: blobs delivered to storage|d2c.endpoints.egress.storage.blobs|Count|Total|The number of times IoT Hub routing delivered blobs to storage endpoints.|None|
 |Routing: data delivered to storage|d2c.endpoints.egress.storage.bytes|Bytes|Total|The amount of data (bytes) IoT Hub routing delivered to storage endpoints.|None|
-|Routing: message latency for Event Hub|d2c.endpoints.latency.eventHubs|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into custom endpoints of type Event Hub. This does not include messages routes to built-in endpoint (events).|None|
+|Routing: message latency for Event Hubs|d2c.endpoints.latency.eventHubs|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into custom endpoints of type Event Hubs. Messages routes to built-in endpoint (events) aren't included.|None|
 |Routing: message latency for Service Bus Queue|d2c.endpoints.latency.serviceBusQueues|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into a Service Bus queue endpoint.|None|
 |Routing: message latency for Service Bus Topic|d2c.endpoints.latency.serviceBusTopics|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into a Service Bus topic endpoint.|None|
 |Routing: message latency for messages/events|d2c.endpoints.latency.builtIn.events|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into the built-in endpoint (messages/events) and fallback route.|None|
 |Routing: message latency for storage|d2c.endpoints.latency.storage|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into a storage endpoint.|None|
-|Routing: messages delivered to Event Hub|d2c.endpoints.egress.eventHubs|Count|Total|The number of times IoT Hub routing successfully delivered messages to custom endpoints of type Event Hub. This does not include messages routes to built-in endpoint (events).|None|
+|Routing: messages delivered to Event Hubs|d2c.endpoints.egress.eventHubs|Count|Total|The number of times IoT Hub routing successfully delivered messages to custom endpoints of type Event Hubs. Messages routes to built-in endpoint (events) aren't included.|None|
 |Routing: messages delivered to Service Bus Queue|d2c.endpoints.egress.serviceBusQueues|Count|Total|The number of times IoT Hub routing successfully delivered messages to Service Bus queue endpoints.|None|
 |Routing: messages delivered to Service Bus Topic|d2c.endpoints.egress.serviceBusTopics|Count|Total|The number of times IoT Hub routing successfully delivered messages to Service Bus topic endpoints.|None|
 |Routing: messages delivered to fallback|d2c.telemetry.egress.fallback|Count|Total|The number of times IoT Hub routing delivered messages to the endpoint associated with the fallback route.|None|
 |Routing: messages delivered to messages/events|d2c.endpoints.egress.builtIn.events|Count|Total|The number of times IoT Hub routing successfully delivered messages to the built-in endpoint (messages/events) and fallback route.|None|
 |Routing: messages delivered to storage|d2c.endpoints.egress.storage|Count|Total|The number of times IoT Hub routing successfully delivered messages to storage endpoints.|None|
 |Routing: telemetry messages delivered|d2c.telemetry.egress.success|Count|Total|The number of times messages were successfully delivered to all endpoints using IoT Hub routing. If a message is routed to multiple endpoints, this value increases by one for each successful delivery. If a message is delivered to the same endpoint multiple times, this value increases by one for each successful delivery.|None|
-|Routing: telemetry messages dropped |d2c.telemetry.egress.dropped|Count|Total|The number of times messages were dropped by IoT Hub routing due to dead endpoints. This value does not count messages delivered to fallback route as dropped messages are not delivered there.|None|
-|Routing: telemetry messages incompatible|d2c.telemetry.egress.invalid|Count|Total|The number of times IoT Hub routing failed to deliver messages due to an incompatibility with the endpoint. A message is incompatible with an endpoint when Iot Hub attempts to deliver the message to an endpoint and it fails with a non-transient error. Invalid messages are not retried. This value does not include retries.|None|
+|Routing: telemetry messages dropped |d2c.telemetry.egress.dropped|Count|Total|The number of times messages were dropped by IoT Hub routing due to dead endpoints. This value doesn't count messages delivered to fallback route as dropped messages aren't delivered there.|None|
+|Routing: telemetry messages incompatible|d2c.telemetry.egress.invalid|Count|Total|The number of times IoT Hub routing failed to deliver messages due to an incompatibility with the endpoint. A message is incompatible with an endpoint when Iot Hub attempts to deliver the message to an endpoint and it fails with a non-transient error. Invalid messages aren't retried. This value doesn't include retries.|None|
 |Routing: telemetry messages orphaned |d2c.telemetry.egress.orphaned|Count|Total|The number of times messages were orphaned by IoT Hub routing because they didn't match any routing query, when fallback route is disabled.|None|
 
 For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
@@ -209,23 +222,23 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 ## Metric dimensions
 
-Azure IoT Hub has the following dimensions associated with some of its routing and event grid metrics.
+Azure IoT Hub has the following dimensions associated with some of its routing and Event Grid metrics.
 
 |Dimension Name | Description|
 |---|---|
 ||
-|**EndpointName**| The endpoint name.|
-|**EndpointType**|One of the following: **eventHubs**, **serviceBusQueues**, **cosmosDB**, **serviceBusTopics**. **builtin**, or **blobStorage**.|
-|**EventType**| One of the following Event Grid event types: **Microsoft.Devices.DeviceCreated**. **Microsoft.Devices.DeviceDeleted**, **Microsoft.Devices.DeviceConnected**, **Microsoft.Devices.DeviceDisconnected**, or **Microsoft.Devices.DeviceTelemetry**. For more information, see [Event types](iot-hub-event-grid.md#event-types).|
+|**EndpointName**| The endpoint name|
+|**EndpointType**|**eventHubs**, **serviceBusQueues**, **cosmosDB**, **serviceBusTopics**. **builtin**, or **blobStorage**|
+|**EventType**| **Microsoft.Devices.DeviceCreated**. **Microsoft.Devices.DeviceDeleted**, **Microsoft.Devices.DeviceConnected**, **Microsoft.Devices.DeviceDisconnected**, or **Microsoft.Devices.DeviceTelemetry** <br>For more information, see [Event types](iot-hub-event-grid.md#event-types).|
 |**FailureReasonCategory**| One of the following: **invalid**, **dropped**, **orphaned**, or **null**.|
-|**Result**| Either **success** or **failure**.|
+|**Result**| Either **success** or **failure**|
 |**RoutingSource**| Device Messages<br>Twin Change Events<br>Device Lifecycle Events|
 
 To learn more about metric dimensions, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 ## Resource logs
 
-This section lists all the resource log category types and schemas collected for Azure IoT Hub. The resource provider and type for all IoT Hub logs is [Microsoft.Devices/IotHubs](../azure-monitor/essentials/resource-logs-categories.md#microsoftdevicesiothubs). Be aware that events are emitted only for errors in some categories.
+This section lists all the resource log category types and schemas collected for Azure IoT Hub. The resource provider and type for all IoT Hub logs is [Microsoft.Devices/IotHubs](../azure-monitor/essentials/resource-logs-categories.md#microsoftdevicesiothubs). Events are emitted only for errors in some categories.
 
 **Topics in this section**
 
@@ -249,10 +262,9 @@ This section lists all the resource log category types and schemas collected for
 
 ### Connections
 
-The connections category tracks device connect and disconnect events from an IoT hub as well as errors. This category is useful for identifying unauthorized connection attempts and or alerting when you lose connection to devices.
+The connections category tracks device connect and disconnect events from an IoT hub and errors. This category is useful for identifying unauthorized connection attempts and or alerting when you lose connection to devices.
 
-> [!NOTE]
-> For reliable connection status of devices check [Device heartbeat](iot-hub-devguide-identity-registry.md#device-heartbeat).
+For reliable connection status of devices, see [Monitor device connection status](monitor-device-connection-state.md).
 
 ```json
 {
@@ -275,7 +287,7 @@ For detailed information about using connections logs to monitor device connecti
 
 ### Device telemetry
 
-The device telemetry category tracks errors that occur at the IoT hub and are related to the telemetry pipeline. This category includes errors that occur when sending telemetry events (such as throttling) and receiving telemetry events (such as unauthorized reader). This category cannot catch errors caused by code running on the device itself.
+The device telemetry category tracks errors that occur at the IoT hub and are related to the telemetry pipeline. This category includes errors that occur when sending telemetry events (such as throttling) and receiving telemetry events (such as unauthorized reader). This category can't catch errors caused by code running on the device itself.
 
 ```json
 {
@@ -304,7 +316,7 @@ The cloud-to-device commands category tracks errors that occur at the IoT hub an
 * Receiving cloud-to-device messages (like delivery count exceeded errors), and
 * Receiving cloud-to-device message feedback (like feedback expired errors).
 
-This category does not catch errors when the cloud-to-device message is delivered successfully but then improperly handled by the device.
+This category doesn't catch errors when the cloud-to-device message is delivered successfully but then improperly handled by the device.
 
 ```json
 {
@@ -356,9 +368,9 @@ The file upload category tracks errors that occur at the IoT hub and are related
 
 * Failed uploads reported by the device.
 
-* Errors that occur when a file is not found in storage during IoT Hub notification message creation.
+* Errors that occur when a file isn't found in storage during IoT Hub notification message creation.
 
-This category cannot catch errors that directly occur while the device is uploading a file to storage.
+This category can't catch errors that directly occur while the device is uploading a file to storage.
 
 ```json
 {
@@ -388,7 +400,7 @@ The [message routing](./iot-hub-devguide-messages-d2c.md) category tracks errors
 * IoT Hub marks an endpoint as dead, or
 * Any errors received from an endpoint.
 
-This category does not include specific errors about the messages themselves (like device throttling errors), which are reported under the "device telemetry" category.
+This category doesn't include specific errors about the messages themselves (like device throttling errors), which are reported under the "device telemetry" category.
 
 ```json
 {
@@ -416,7 +428,7 @@ Here are more details on routing resource logs:
 
 ### Device-to-cloud twin operations
 
-The device-to-cloud twin operations category tracks device-initiated events on device twins. These operations can include get twin, update reported properties, and subscribe to desired properties.
+The device-to-cloud twin operations category tracks device-initiated events on device twins. These operations can include **get twin**, **update reported properties**, and **subscribe to desired properties**.
 
 ```json
 {
@@ -528,7 +540,7 @@ The direct methods category tracks request-response interactions sent to individ
 
 The distributed tracing category tracks the correlation IDs for messages that carry the trace context header. To fully enable these logs, client-side code must be updated by following [Analyze and diagnose IoT applications end-to-end with IoT Hub distributed tracing (preview)](iot-hub-distributed-tracing.md).
 
-Note that `correlationId` conforms to the [W3C Trace Context](https://github.com/w3c/trace-context) proposal, where it contains a `trace-id` as well as a `span-id`.
+The `correlationId` conforms to the [W3C Trace Context](https://github.com/w3c/trace-context) proposal, where it contains a `trace-id` and a `span-id`.
 
 #### IoT Hub D2C (device-to-cloud) logs
 
@@ -555,7 +567,7 @@ IoT Hub records this log when a message containing valid trace properties arrive
 }
 ```
 
-Here, `durationMs` is not calculated as IoT Hub's clock might not be in sync with the device clock, and thus a duration calculation can be misleading. We recommend writing logic using the timestamps in the `properties` section to capture spikes in device-to-cloud latency.
+Here, `durationMs` isn't calculated as IoT Hub's clock might not be in sync with the device clock, and thus a duration calculation can be misleading. We recommend writing logic using the timestamps in the `properties` section to capture spikes in device-to-cloud latency.
 
 | Property | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
@@ -566,7 +578,7 @@ Here, `durationMs` is not calculated as IoT Hub's clock might not be in sync wit
 
 #### IoT Hub ingress logs
 
-IoT Hub records this log when message containing valid trace properties writes to internal or built-in Event Hub.
+IoT Hub records this log when message containing valid trace properties writes to internal or built-in Event Hubs.
 
 ```json
 {
@@ -598,7 +610,7 @@ In the `properties` section, this log contains additional information about mess
 
 #### IoT Hub egress logs
 
-IoT Hub records this log when [routing](iot-hub-devguide-messages-d2c.md) is enabled and the message is written to an [endpoint](iot-hub-devguide-endpoints.md). If routing is not enabled, IoT Hub doesn't record this log.
+IoT Hub records this log when [routing](iot-hub-devguide-messages-d2c.md) is enabled and the message is written to an [endpoint](iot-hub-devguide-endpoints.md). If routing isn't enabled, IoT Hub doesn't record this log.
 
 ```json
 {

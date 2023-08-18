@@ -1,6 +1,6 @@
 ---
 title: List Azure AD role assignments
-description: You can now see and manage members of an Azure Active Directory administrator role in the Azure Active Directory admin center.
+description: You can now see and manage members of an Azure Active Directory administrator role in the Azure portal.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 04/15/2022
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 # List Azure AD role assignments
@@ -30,9 +30,11 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 This procedure describes how to list role assignments with organization-wide scope.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Roles and administrators** and then select a role to open it and view its properties.
 
@@ -72,7 +74,7 @@ To download all assignments for a specific role, follow these steps.
 
 This section describes how to list role assignments with single-application scope. This feature is currently in public preview.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **App registrations**, and then select the app registration to view its properties. You might have to select **All applications** to see the complete list of app registrations in your Azure AD organization.
 
@@ -138,7 +140,7 @@ This section describes how to list role assignments with organization-wide scope
 Use the [List unifiedRoleAssignments](/graph/api/rbacapplication-list-roleassignments) API to get the role assignments for a specific role definition. The following example shows how to list the role assignments for a specific role definition with the ID `3671d40a-1aac-426c-a0c1-a3821ebd8218`.
 
 ```http
-GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments&$filter=roleDefinitionId eq ‘<template-id-of-role-definition>’
+GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments?$filter=roleDefinitionId eq ‘<template-id-of-role-definition>’
 ```
 
 Response

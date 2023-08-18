@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Manage access to resources in Azure AD entitlement management
-description: Step-by-step tutorial for how to create your first access package using the Azure portal in Azure Active Directory entitlement management.
+title: Tutorial - Manage access to resources in entitlement management
+description: Step-by-step tutorial for how to create your first access package using the Azure portal in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 08/01/2022
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a IT admin, I want step-by-step instructions of the entire workflow for how to use entitlement management so that I can start to use in my organization.
 
 ---
-# Tutorial: Manage access to resources in Azure AD entitlement management
+# Tutorial: Manage access to resources in entitlement management
 
 Managing access to all the resources employees need, such as groups, applications, and sites, is an important function for organizations. You want to grant employees the right level of access they need to be productive and remove their access when it's no longer needed.
 
@@ -39,18 +39,20 @@ For a step-by-step demonstration of the process of deploying Azure Active Direct
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-This rest of this article uses the Azure portal to configure and demonstrate Azure AD entitlement management. 
+This rest of this article uses the Azure portal to configure and demonstrate entitlement management. 
 
 ## Prerequisites
 
-To use Azure AD entitlement management, you must have one of the following licenses:
+To use entitlement management, you must have one of the following licenses:
 
-- Azure AD Premium P2
+- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5 license
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
 
 ## Step 1: Set up users and group
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 A resource directory has one or more resources to share. In this step, you create a group named **Marketing resources** in the Woodgrove Bank directory that is the target resource for entitlement management. You also set up an internal requestor.
 
@@ -58,18 +60,18 @@ A resource directory has one or more resources to share. In this step, you creat
 
 ![Diagram that shows the users and groups for this tutorial.](./media/entitlement-management-access-package-first/elm-users-groups.png)
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global administrator or User administrator.  
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global administrator or User administrator.
 
 1. In the left navigation, select **Azure Active Directory**.
 
-1. [Create two users](../fundamentals/add-users-azure-active-directory.md). Use the following names or different names.
+1. [Create two users](../fundamentals/add-users.md). Use the following names or different names.
 
     | Name | Directory role |
     | --- | --- |
     | **Admin1** | Global administrator, or User administrator. This user can be the user you're currently signed in. |
     | **Requestor1** | User |
 
-4. [Create an Azure AD security group](../fundamentals/active-directory-groups-create-azure-portal.md) named **Marketing resources** with a membership type of **Assigned**. This group will be the target resource for entitlement management. The group should be empty of members to start.
+4. [Create an Azure AD security group](../fundamentals/how-to-manage-groups.md) named **Marketing resources** with a membership type of **Assigned**. This group is the target resource for entitlement management. The group should be empty of members to start.
 
 
 ## Step 2: Create an access package
@@ -84,7 +86,7 @@ An *access package* is a bundle of resources that a team or project needs and is
 
 1. In the left menu, select **Identity Governance**
 
-1. In the left menu, select **Access packages**.  If you see **Access denied**, ensure that an Azure AD Premium P2 license is present in your directory.
+1. In the left menu, select **Access packages**.  If you see **Access denied**, ensure that a Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance license is present in your directory.
 
 1. Select **New access package**.
 
@@ -141,6 +143,11 @@ An *access package* is a bundle of resources that a team or project needs and is
 1. Leave **Require approval** set to **No**.
 
 1. For **Enable requests**, select **Yes** to enable this access package to be requested as soon as it's created.
+
+1. If your organization is set up to receive verified IDs, there is an option to configure an access package to require requestors to provide a verified ID.  To learn more, see: [Configure verified ID settings for an access package in entitlement management (Preview)](entitlement-management-verified-id-settings.md)
+
+    :::image type="content" source="media/entitlement-management-access-package-first/verified-id-picker.png" alt-text="Screenshot of the Verified ID picker selection.":::
+
 
 1. Select **Next** to open the **Requestor information** tab.
 
@@ -255,31 +262,6 @@ In this step, you remove the changes you made and delete the **Marketing Campaig
 1. In Azure Active Directory, delete any users you created such as **Requestor1** and **Admin1**.
 
 1. Delete the **Marketing resources** group.
-
-## Set up group writeback in entitlement management
-
-To set up group writeback for Microsoft 365 groups in access packages, you must complete the following prerequisites:
-
-- Set up group writeback in the Azure Active Directory admin center. 
-- The Organizational Unit (OU) that will be used to set up group writeback in Azure AD Connect Configuration.
-- Complete the [group writeback enablement steps](../hybrid/how-to-connect-group-writeback-enable.md) for Azure AD Connect. 
- 
-Using group writeback, you can now sync Microsoft 365 groups that are part of access packages to on-premises Active Directory. To sync the groups, follow the steps below: 
-
-1. Create an Azure Active Directory Microsoft 365 group.
-
-1. Set the group to be written back to on-premises Active Directory. For instructions, see [Group writeback in the Azure Active Directory admin center](../enterprise-users/groups-write-back-portal.md). 
-
-1. Add the group to an access package as a resource role. See [Create a new access package](entitlement-management-access-package-create.md#resource-roles) for guidance. 
-
-1. Assign the user to the access package. See [View, add, and remove assignments for an access package](entitlement-management-access-package-assignments.md#directly-assign-a-user) for instructions to directly assign a user. 
-
-1. After you've assigned a user to the access package, confirm that the user is now a member of the on-premises group once Azure AD Connect Sync cycle completes:
-    1. View the member property of the group in the on-premises OU OR 
-    1. Review the member Of on the user object. 
-
-> [!NOTE]   
-> Azure AD Connect's default sync cycle schedule is every 30 minutes. You may need to wait until the next cycle occurs to see results on-premises or choose to run the sync cycle manually to see results sooner. 
 
 ## Next steps
 

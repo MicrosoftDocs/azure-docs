@@ -2,14 +2,14 @@
 title: "Quickstart: Configure an app to access a web API"
 description: In this quickstart, you configure an app registration representing a web API in the Microsoft identity platform to enable scoped resource access (permissions) to client applications.
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 05/05/2022
-ms.author: marsma
+ms.date: 06/29/2023
+ms.author: cwerner
 ms.custom: aaddev, contperf-fy21q1, mode-api
 ms.reviewer: lenalepa, aragra, sureshja
 #Customer intent: As an application developer, I want to know how to configure my web API's app registration with permissions client applications can use to obtain scoped access to the API.
@@ -28,6 +28,10 @@ By specifying a web API's scopes in your client app's registration, the client a
 * Completion of [Quickstart: Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
 
 ## Add permissions to access your web API
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+Access to APIs require configuration of access scopes and roles. If you want to expose your resource application web APIs to client applications, configure access scopes and roles for the API. If you want a client application to access a web API, configure permissions to access the API in the app registration.
 
 In the first scenario, you grant a client app access to your own web API, both of which you should have registered as part of the prerequisites. If you don't yet have both a client app and a web API registered, complete the steps in the two [Prerequisites](#prerequisites) articles.
 

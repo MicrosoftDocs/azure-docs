@@ -1,10 +1,10 @@
 ---
-title: Deploy a model to Azure Analysis Services by using Visual Studio | Microsoft Docs
+title: Learn how to deploy a model to Azure Analysis Services by using Visual Studio | Microsoft Docs
 description: Learn how to deploy a tabular model to an Azure Analysis Services server by using Visual Studio.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 01/27/2023
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -22,7 +22,7 @@ To get started, you need:
 * **On-premises gateway** - If one or more data sources are on-premises in your organization's network, you need to install an [On-premises data gateway](analysis-services-gateway.md). The gateway is necessary for your server in the cloud connect to your on-premises data sources to process and refresh data in the model.
 
 > [!TIP]
-> Before you deploy, make sure you can process the data in your tables. In Visual Studio, click **Model** > **Process** > **Process All**. If processing fails, you cannot successfully deploy.
+> Before you deploy, make sure you can process the data in your tables. In Visual Studio, click **Model** > **Process** > **Process All**. If processing fails, you can't successfully deploy.
 > 
 > 
 
@@ -30,20 +30,20 @@ To get started, you need:
 
 In **Azure portal** > server > **Overview** > **Server name**, copy the server name.
    
-![Get server name in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
+![Screenshot showing how to get server name in Azure.](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
 ## To deploy from Visual Studio
 
 1. In Visual Studio > **Solution Explorer**, right-click the project > **Properties**. Then in **Deployment** > **Server** paste the server name.   
    
-    ![Paste server name into deployment server property](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
+    ![Screenshot showing how to paste server name into deployment server property.](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
 2. In **Solution Explorer**, right-click **Properties**, then click **Deploy**. You may be prompted to sign in to Azure.
    
-    ![Deploy to server](./media/analysis-services-deploy/aas-deploy-deploy.png)
+    ![Screenshot showing Deploy to server.](./media/analysis-services-deploy/aas-deploy-deploy.png)
    
     Deployment status appears in both the Output window and in Deploy.
    
-    ![Deployment status](./media/analysis-services-deploy/aas-deploy-status.png)
+    ![Screenshot showing deployment status.](./media/analysis-services-deploy/aas-deploy-status.png)
 
 That's all there is to it!
 

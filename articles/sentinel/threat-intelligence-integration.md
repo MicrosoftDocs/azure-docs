@@ -1,25 +1,24 @@
 ---
-title: Threat intelligence integration in Microsoft Sentinel | Microsoft Docs
+title: Threat intelligence integration in Microsoft Sentinel
 description: Learn about the different ways threat intelligence feeds are integrated with and used by Microsoft Sentinel.
-author: yelevin
-ms.topic: how-to
-ms.date: 11/09/2021
-ms.author: yelevin
-ms.custom: ignite-fall-2021
+author: austinmccollum
+ms.topic: conceptual
+ms.date: 3/28/2022
+ms.author: austinmc
 ---
 
 # Threat intelligence integration in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Sentinel gives you a few different ways to [use threat intelligence feeds](work-with-threat-indicators.md) to enhance your security analysts' ability to detect and prioritize known threats. 
 
-You can use one of many available integrated [threat intelligence platform (TIP) products](connect-threat-intelligence-tip.md), you can [connect to TAXII servers](connect-threat-intelligence-taxii.md) to take advantage of any STIX-compatible threat intelligence source, and you can also make use of any custom solutions that can communicate directly with the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator). 
-
-You can also connect to threat intelligence sources from playbooks, in order to enrich incidents with TI information that can help direct investigation and response actions.
+- Use one of many available integrated [threat intelligence platform (TIP) products](connect-threat-intelligence-tip.md).
+- [Connect to TAXII servers](connect-threat-intelligence-taxii.md) to take advantage of any STIX-compatible threat intelligence source.
+- Connect directly to the [Microsoft Defender Threat Intelligence](connect-mdti-data-connector.md) feed.
+- Make use of any custom solutions that can communicate directly with the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator). 
+- You can also connect to threat intelligence sources from playbooks, in order to enrich incidents with TI information that can help direct investigation and response actions.
 
 > [!TIP]
-> If you have multiple workspaces in the same tenant, such as for [Managed Service Providers (MSSPs)](mssp-protect-intellectual-property.md), it may be more cost effective to connect threat indicators only to the centralized workspace.
+> If you have multiple workspaces in the same tenant, such as for [Managed Security Service Providers (MSSPs)](mssp-protect-intellectual-property.md), it may be more cost effective to connect threat indicators only to the centralized workspace.
 >
 > When you have the same set of threat indicators imported into each separate workspace, you can run cross-workspace queries to aggregate threat indicators across your workspaces. Correlate them within your MSSP incident detection, investigation, and hunting experience.
 >
@@ -32,10 +31,6 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 
 - [Learn about Accenture CTI integration with Microsoft Sentinel](https://www.accenture.com/us-en/services/security/cyber-defense).
 
-### Anomali
-
-- [Learn how to import threat intelligence from Anomali ThreatStream into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/import-anomali-threatstream-feed-into-microsoft-sentinel/ba-p/3561742#M3787)
-
 ### Cybersixgill Darkfeed
 
 - [Learn about Cybersixgill integration with Microsoft Sentinel @Cybersixgill](https://www.cybersixgill.com/partners/azure-sentinel/)
@@ -47,7 +42,7 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 
 ### Health intelligence sharing community (H-ISAC)
 
-- [Join the H-ISAC](https://h-isac.org/soltra/) to get the credentials to access this feed.
+- [Join the H-ISAC](https://h-isac.org/) to get the credentials to access this feed.
 
 ### IBM X-Force
 
@@ -61,10 +56,6 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 ### Kaspersky
 
 - [Learn about Kaspersky integration with Microsoft Sentinel](https://support.kaspersky.com/15908)
-
-### PickupSTIX
-
-- [Fill out this web form](https://www.celerium.com/pickupstix) to get the API Root, Collection IDs, Username, and Password for the free TAXII 2.1 Feeds on the PickupSTIX TAXII Server.
 
 ### Pulsedive
 
@@ -94,7 +85,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 ### Agari Phishing Defense and Brand Protection
 
-- To connect [Agari Phishing Defense and Brand Protection](https://agari.com/products/phishing-defense/), use the built-in [Agari data connector](./data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview) in Microsoft Sentinel.
+- To connect [Agari Phishing Defense and Brand Protection](https://agari.com/products/phishing-defense/), use the built-in [Agari data connector](./data-connectors-reference.md) in Microsoft Sentinel.
 
 ### Anomali ThreatStream
 
@@ -110,7 +101,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 ### GroupIB Threat Intelligence and Attribution
 
-- To connect [GroupIB Threat Intelligence and Attribution](https://www.group-ib.com/intelligence-attribution.html) to Microsoft Sentinel, GroupIB makes use of Azure Logic Apps. See the [specialized instructions](https://techcommunity.microsoft.com/t5/azure-sentinel/group-ib-threat-intelligence-and-attribution-connector-azure/ba-p/2252904) necessary to take full advantage of the complete offering.
+- To connect [GroupIB Threat Intelligence and Attribution](https://www.group-ib.com/products/threat-intelligence/) to Microsoft Sentinel, GroupIB makes use of Azure Logic Apps. See the [specialized instructions](https://techcommunity.microsoft.com/t5/azure-sentinel/group-ib-threat-intelligence-and-attribution-connector-azure/ba-p/2252904) necessary to take full advantage of the complete offering.
 
 ### MISP Open Source Threat Intelligence Platform
 
@@ -135,12 +126,19 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 ## Incident enrichment sources
 
-Besides being used to import threat indicators, threat intelligence feeds can also serve as a source to enrich the information in your incidents and provide more context to your investigations. The following feeds serve this purpose, and provide Logic App playbooks to use in your [automated incident response](automate-responses-with-playbooks.md).
+Besides being used to import threat indicators, threat intelligence feeds can also serve as a source to enrich the information in your incidents and provide more context to your investigations. The following feeds serve this purpose, and provide Logic App playbooks to use in your [automated incident response](automate-responses-with-playbooks.md). Find these enrichment sources in the **Content hub**. 
+
+For more information about how to find and manage the solutions, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
 
 ### HYAS Insight
 
-- Find and enable incident enrichment playbooks for [HYAS Insight](https://www.hyas.com/hyas-insight) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with "Enrich-Sentinel-Incident-HYAS-Insight-".
+- Find and enable incident enrichment playbooks for [HYAS Insight](https://www.hyas.com/hyas-insight) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/HYAS/Playbooks). Search for subfolders beginning with "Enrich-Sentinel-Incident-HYAS-Insight-".
 - See the HYAS Insight Logic App [connector documentation](/connectors/hyasinsight/).
+
+### Microsoft Defender Threat Intelligence
+
+- Find and enable incident enrichment playbooks for [Microsoft Defender Threat Intelligence](/defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Microsoft%20Defender%20Threat%20Intelligence/Playbooks).
+- See the [MDTI Tech Community blog post](https://aka.ms/sentinel-playbooks) for more information. 
 
 ### Recorded Future Security Intelligence Platform
 
@@ -149,18 +147,18 @@ Besides being used to import threat indicators, threat intelligence feeds can al
 
 ### ReversingLabs TitaniumCloud
 
-- Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/ReversingLabs/Playbooks/Enrich-SentinelIncident-ReversingLabs-File-Information).
+- Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/ReversingLabs/Playbooks/ReversingLabs-EnrichFileHash).
 - See the ReversingLabs Intelligence Logic App [connector documentation](/connectors/reversinglabsintelligence/).
 
 ### RiskIQ Passive Total
 
-- Find and enable incident enrichment playbooks for [RiskIQ Passive Total](https://www.riskiq.com/products/passivetotal/) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with "Enrich-SentinelIncident-RiskIQ-".
+- Find and enable incident enrichment playbooks for [RiskIQ Passive Total](https://www.riskiq.com/products/passivetotal/) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/RiskIQ/Playbooks).
 - See [more information](https://techcommunity.microsoft.com/t5/azure-sentinel/enrich-azure-sentinel-security-incidents-with-the-riskiq/ba-p/1534412) on working with RiskIQ playbooks.
 - See the RiskIQ PassiveTotal Logic App [connector documentation](/connectors/riskiqpassivetotal/).
 
 ### Virus Total
 
-- Find and enable incident enrichment playbooks for [Virus Total](https://developers.virustotal.com/v3.0/reference) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with "Get-VirusTotal" and "Get-VTURL".
+- Find and enable incident enrichment playbooks for [Virus Total](https://developers.virustotal.com/v3.0/reference) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/VirusTotal/Playbooks). Search for subfolders beginning with "Get-VTURL".
 - See the Virus Total Logic App [connector documentation](/connectors/virustotal/).
 
 ## Next steps

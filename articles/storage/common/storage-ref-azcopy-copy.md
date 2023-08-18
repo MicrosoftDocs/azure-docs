@@ -1,18 +1,19 @@
 ---
-title: azcopy copy| Microsoft Docs
+title: azcopy copy
 description: This article provides reference information for the azcopy copy command.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: reference
-ms.date: 05/26/2022
+ms.date: 11/08/2022
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
 ---
 
 # azcopy copy
 
-Copies source data to a destination location.
+Copies source data to a destination location.  
+
 
 ## Synopsis
 
@@ -22,6 +23,7 @@ Copies source data to a destination location. The supported directions are:
 - local <-> Azure Files (Share/directory SAS authentication)
 - local <-> Azure Data Lake Storage Gen2 (SAS, OAuth, or SharedKey authentication)
 - Azure Blob (SAS or public) -> Azure Blob (SAS or OAuth authentication)
+- Azure Blob (SAS or OAuth authentication) -> Azure Blob (SAS or OAuth authentication) - See [Guidelines](./storage-use-azcopy-blobs-copy.md#guidelines).
 - Azure Blob (SAS or public) -> Azure Files (SAS)
 - Azure Files (SAS) -> Azure Files (SAS)
 - Azure Files (SAS) -> Azure Blob (SAS or OAuth authentication)
@@ -47,6 +49,12 @@ If you set an environment variable by using the command line, that variable will
 ```azcopy
 azcopy copy [source] [destination] [flags]
 ```
+
+## Related conceptual articles
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Transfer data with AzCopy and Blob storage](./storage-use-azcopy-v10.md#transfer-data)
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 
 ## Examples
 
@@ -237,7 +245,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 
 `--content-type`   (string)    Specifies the content type of the file. Implies no-guess-mime-type. Returned on download.
 
-`--cpk-by-name`    (string)    Client provided key by name that lets clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key name will be fetched from Azure Key Vault and will be used to encrypt the data
+`--cpk-by-name`    (string)    Client provided key by name that gives clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key name will be fetched from Azure Key Vault and will be used to encrypt the data
 
 `--cpk-by-value`    Client provided key by name that let clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key and its hash will be fetched from environment variables
 
@@ -245,7 +253,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 
 `--disable-auto-decoding`    False by default to enable automatic decoding of illegal chars on Windows. Can be set to true to disable automatic decoding.
 
-`--dry-run`    Prints the file paths that would be copied by this command. This flag doesn't copy the actual files.
+`--dry-run`    Prints the file paths that would be copied by this command. This flag doesn't copy the actual files. The --overwrite flag has no effect. If you set the --overwrite flag to false, files in the source directory are listed even if those files exist in the destination directory.
 
 `--exclude-attributes`    (string)    (Windows only) Exclude files whose attributes match the attribute list. For example: A;S;R
 

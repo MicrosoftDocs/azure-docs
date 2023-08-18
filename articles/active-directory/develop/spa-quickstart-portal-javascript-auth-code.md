@@ -6,7 +6,7 @@ author: Dickson-Mwendia
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/16/2022
 ROBOTS: NOINDEX
@@ -20,7 +20,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
-> > [Quickstart: JavaScript single-page app with user sign-in](single-page-app-quickstart.md?pivots=devlang-javascript)
+> > [Quickstart: Sign in users in single-page apps (SPA) via the authorization code flow with Proof Key for Code Exchange (PKCE) using JavaScript](quickstart-single-page-app-javascript-sign-in.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
@@ -43,7 +43,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 >
 > <button id="makechanges" class="nextstepaction configure-app-button"> Make these changes for me </button>
 > 
-> > [!div class="alert alert-info"]
+> > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-javascript/green-check.png) Your application is configured with these attributes.
 > 
 > ### Step 2: Download the project

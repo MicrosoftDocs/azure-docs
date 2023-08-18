@@ -1,16 +1,15 @@
 ---
 title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster by using Bicep
 description: Learn how to quickly create a Kubernetes cluster using a Bicep file and deploy an application in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: quickstart
-ms.date: 08/11/2022
-ms.custom: mvc, subject-armbicep
+ms.date: 11/01/2022
+ms.custom: mvc, subject-armbicep, devx-track-bicep, devx-track-azurecli, devx-track-linux
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
 # Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Bicep
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you'll:
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you:
 
 * Deploy an AKS cluster using a Bicep file.
 * Run a sample multi-container application with a web front-end and a Redis instance in the cluster.
@@ -27,9 +26,10 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 * This article requires version 2.20.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+* This article requires an existing Azure resource group. If you need to create one, you can use the [`az group create`][az-group-create] command or the [`New-AzAksCluster`][new-az-aks-cluster] cmdlet.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -45,13 +45,14 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 ### Create an SSH key pair
 
-To access AKS nodes, you connect using an SSH key pair (public and private), which you generate using the `ssh-keygen` command. By default, these files are created in the *~/.ssh* directory. Running the `ssh-keygen` command will overwrite any SSH key pair with the same name already existing in the given location.
-
 1. Go to [https://shell.azure.com](https://shell.azure.com) to open Cloud Shell in your browser.
-
-1. Run the `ssh-keygen` command. The following example creates an SSH key pair using RSA encryption and a bit length of 4096:
+2. Create an SSH key pair using the [`az sshkey create`][az-sshkey-create] Azure CLI command or the `ssh-keygen` command.
 
     ```console
+    # Create an SSH key pair using Azure CLI
+    az sshkey create --name "mySSHKey" --resource-group "myResourceGroup"
+
+    # Create an SSH key pair using ssh-keygen
     ssh-keygen -t rsa -b 4096
     ```
 
@@ -72,27 +73,29 @@ For more AKS samples, see the [AKS quickstart templates][aks-quickstart-template
 ## Deploy the Bicep file
 
 1. Save the Bicep file as **main.bicep** to your local computer.
-1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
-    # [CLI](#tab/CLI)
+> [!IMPORTANT]
+> The Bicep file sets the `clusterName` param to the string *aks101cluster*. If you want to use a different cluster name, make sure to update the string to your preferred cluster name before saving the file to your computer.
+
+2. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az group create --name myResourceGroup --location eastus
-    az deployment group create --resource-group myResourceGroup --template-file main.bicep --parameters clusterName=<cluster-name> dnsPrefix=<dns-previs> linuxAdminUsername=<linux-admin-username> sshRSAPublicKey='<ssh-key>'
+    az deployment group create --resource-group myResourceGroup --template-file main.bicep --parameters dnsPrefix=<dns-prefix> linuxAdminUsername=<linux-admin-username> sshRSAPublicKey='<ssh-key>'
     ```
 
-    # [PowerShell](#tab/PowerShell)
+    # [Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
     New-AzResourceGroup -Name myResourceGroup -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile ./main.bicep -clusterName=<cluster-name> -dnsPrefix=<dns-prefix> -linuxAdminUsername=<linux-admin-username> -sshRSAPublicKey="<ssh-key>"
+    New-AzResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile ./main.bicep -dnsPrefix=<dns-prefix> -linuxAdminUsername=<linux-admin-username> -sshRSAPublicKey="<ssh-key>"
     ```
 
     ---
 
     Provide the following values in the commands:
 
-    * **Cluster name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
     * **DNS prefix**: Enter a unique DNS prefix for your cluster, such as *myakscluster*.
     * **Linux Admin Username**: Enter a username to connect using SSH, such as *azureuser*.
     * **SSH RSA Public Key**: Copy and paste the *public* part of your SSH key pair (by default, the contents of *~/.ssh/id_rsa.pub*).
@@ -180,7 +183,6 @@ Two [Kubernetes Services][kubernetes-service] are also created:
 * An external service to access the Azure Vote application from the internet.
 
 1. Create a file named `azure-vote.yaml`.
-    * If you use the Azure Cloud Shell, this file can be created using `code`, `vi`, or `nano` as if working on a virtual or physical system
 1. Copy in the following YAML definition:
 
     ```yaml
@@ -271,6 +273,8 @@ Two [Kubernetes Services][kubernetes-service] are also created:
         app: azure-vote-front
     ```
 
+    For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
+
 1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
     ```console
@@ -340,38 +344,32 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 In this quickstart, you deployed a Kubernetes cluster and then deployed a sample multi-container application to it.
 
-To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
+To learn more about AKS and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
 > [AKS tutorial][aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: /previous-versions/azure/dev-spaces/
 [aks-quickstart-templates]: https://azure.microsoft.com/resources/templates/?term=Azure+Kubernetes+Service
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
-[aks-monitor]: ../../azure-monitor/containers/container-insights-onboard.md
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
-[az-aks-browse]: /cli/azure/aks#az_aks_browse
-[az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
-[install-azakskubectl]: /powershell/module/az.aks/install-azakskubectl
+[install-azakskubectl]: /powershell/module/az.aks/install-azaksclitool
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
-[azure-cli-install]: /cli/azure/install-azure-cli
 [install-azure-powershell]: /powershell/azure/install-az-ps
 [connect-azaccount]: /powershell/module/az.accounts/Connect-AzAccount
-[sp-delete]: ../kubernetes-service-principal.md#additional-considerations
-[azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: ../concepts-network.md#services
 [ssh-keys]: ../../virtual-machines/linux/create-ssh-keys-detailed.md
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[new-az-aks-cluster]: /powershell/module/az.aks/new-azakscluster
+[az-sshkey-create]: /cli/azure/sshkey#az_sshkey_create

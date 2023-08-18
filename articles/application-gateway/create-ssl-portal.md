@@ -7,7 +7,7 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 06/30/2022
 ms.author: greglin
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 #Customer intent: As an IT administrator, I want to use the Azure portal to configure Application Gateway with TLS termination so I can secure my application traffic.
 ---
 
@@ -53,7 +53,7 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Use [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate. Make sure your password is 4 - 12 characters long:
+Use [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate. The supported PFX algorithms are listed at [PFXImportCertStore function](/windows/win32/api/wincrypt/nf-wincrypt-pfximportcertstore#remarks). Make sure your password is 4 - 12 characters long:
 
 
 ```powershell
@@ -115,7 +115,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Backends tab
 
-The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
+The backend pool is used to route requests to the backend servers that serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service. In this example, you'll create an empty backend pool with your application gateway and then add backend targets to the backend pool.
 
 1. On the **Backends** tab, select **Add a backend pool**.
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/18/2020
+ms.date: 08/11/2023
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, ludwignick
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
@@ -74,6 +74,7 @@ For other topics covering authentication and authorization basics:
 * See [Authentication vs. authorization](authentication-vs-authorization.md) to learn about the basic concepts of authentication and authorization in Microsoft identity platform.
 * See [Security tokens](security-tokens.md) to learn how access tokens, refresh tokens, and ID tokens are used in authentication and authorization.
 * See [Application model](application-model.md) to learn about the process of registering your application so it can integrate with Microsoft identity platform.
+* See [Secure applications and APIs by validating claims](./claims-validation.md) to learn about how to securely use token claims for authorization logic in your applications.
 
 To learn more about app sign-in flow:
 

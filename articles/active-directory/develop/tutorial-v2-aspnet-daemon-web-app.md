@@ -2,7 +2,7 @@
 title: "Tutorial: Build a multi-tenant daemon that accesses Microsoft Graph business data"
 description: In this tutorial, learn how to call an ASP.NET web API protected by Azure Active Directory from a Windows desktop (WPF) application. The WPF client authenticates a user, requests an access token, and calls the web API.
 services: active-directory
-author: jmprieur
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,8 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 12/10/2019
-ms.author: jmprieur
+ms.author: henrymbugua
+ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, has-adal-ref
 #Customer intent: As an application developer, I want to know how to set up OpenId Connect authentication in a web application built using Node.js with Express.
 ---
@@ -41,7 +42,7 @@ The app is built as an ASP.NET MVC application. It uses the OWIN OpenID Connect 
 
 The "daemon" component in this sample is an API controller, `SyncController.cs`. When the controller is called, it pulls in a list of users in the customer's Azure Active Directory (Azure AD) tenant from Microsoft Graph. `SyncController.cs` is triggered by an AJAX call in the web application. It uses the [Microsoft Authentication Library (MSAL) for .NET](msal-overview.md) to acquire an access token for Microsoft Graph.
 
-Because the app is a multi-tenant app for Microsoft business customers, it must provide a way for customers to "sign up" or "connect" the application to their company data. During the connection flow, a Global Administrator first grants *application permissions* directly to the app so that it can access company data in a non-interactive fashion, without the presence of a signed-in user. The majority of the logic in this sample shows how to achieve this connection flow by using the identity platform's [admin consent](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) endpoint.
+Because the app is a multi-tenant app for Microsoft business customers, it must provide a way for customers to "sign up" or "connect" the application to their company data. During the connection flow, a Global Administrator first grants *application permissions* directly to the app so that it can access company data in a non-interactive fashion, without the presence of a signed-in user. The majority of the logic in this sample shows how to achieve this connection flow by using the identity platform's [admin consent](./permissions-consent-overview.md#using-the-admin-consent-endpoint) endpoint.
 
 ![Diagram shows UserSync App with three local items connecting to Azure, with Start dot Auth acquiring a token interactively to connect to Azure A D, AccountController getting admin consent to connect to Azure A D, and SyncController reading user to connect to Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
@@ -88,6 +89,8 @@ If you want to use the automation:
 If you don't want to use the automation, use the steps in the following sections.
 
 ### Choose the Azure AD tenant
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.

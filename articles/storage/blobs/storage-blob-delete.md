@@ -1,21 +1,28 @@
 ---
-title: Delete and restore a blob with .NET - Azure Storage
+title: Delete and restore a blob with .NET
+titleSuffix: Azure Storage
 description: Learn how to delete and restore a blob in your Azure Storage account using the .NET client library
 services: storage
-author: normesta
+author: pauljewellmsft
 
-ms.author: normesta
-ms.date: 03/28/2022
-ms.service: storage
-ms.subservice: blobs
+ms.author: pauljewell
+ms.date: 05/11/2023
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.devlang: csharp, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
-# Delete and restore a blob in your Azure Storage account using the .NET client library
+# Delete and restore a blob with .NET
 
-This article shows how to delete blobs with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). If you've enabled blob soft delete, you can restore deleted blobs.
+This article shows how to delete blobs with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). If you've enabled [soft delete for blobs](soft-delete-blob-overview.md), you can restore deleted blobs during the retention period.
+
+## Prerequisites
+
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for .NET. To learn about setting up your project, including package installation, adding `using` directives, and creating an authorized client object, see [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to delete a blob, or to restore a soft-deleted blob. To learn more, see the authorization guidance for the following REST API operations:
+    - [Delete Blob](/rest/api/storageservices/delete-blob#authorization)
+    - [Undelete Blob](/rest/api/storageservices/undelete-blob#authorization)
 
 ## Delete a blob
 
@@ -41,6 +48,11 @@ Blob soft delete protects an individual blob and its versions, snapshots, and me
 
 You can use the Azure Storage client libraries to restore a soft-deleted blob or snapshot. 
 
+How you restore a soft-deleted blob depends on whether or not your storage account has blob versioning enabled. For more information on blob versioning, see [Blob versioning](../../storage/blobs/versioning-overview.md). See one of the following sections, depending on your scenario:
+
+- [Blob versioning is not enabled](#restore-soft-deleted-objects-when-versioning-is-disabled)
+- [Blob versioning is enabled](#restore-soft-deleted-blobs-when-versioning-is-enabled)
+
 #### Restore soft-deleted objects when versioning is disabled
 
 To restore deleted blobs when versioning is not enabled, call either of the following methods:
@@ -51,7 +63,7 @@ To restore deleted blobs when versioning is not enabled, call either of the foll
 These methods restore soft-deleted blobs and any deleted snapshots associated with them. Calling either of these methods for a blob that has not been deleted has no effect. The following example restores  all soft-deleted blobs and their snapshots in a container:
 
 ```csharp
-public static async Task UnDeleteBlobs(BlobContainerClient container)
+public static async Task UndeleteBlobs(BlobContainerClient container)
 {
     foreach (BlobItem blob in container.GetBlobs(BlobTraits.None, BlobStates.Deleted))
     {
@@ -114,9 +126,20 @@ public static void RestoreBlobsWithVersioning(BlobContainerClient container, Blo
 }
 ```
 
-## See also
+## Resources
 
-- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
+To learn more about how to delete blobs and restore deleted blobs using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for deleting blobs and restoring deleted blobs use the following REST API operations:
+
 - [Delete Blob](/rest/api/storageservices/delete-blob) (REST API)
-- [Soft delete for blobs](soft-delete-blob-overview.md)
 - [Undelete Blob](/rest/api/storageservices/undelete-blob) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+
+### See also
+
+- [Soft delete for blobs](soft-delete-blob-overview.md)
+- [Blob versioning](versioning-overview.md)

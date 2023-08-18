@@ -1,122 +1,41 @@
 ---
-title: Copy a blob with JavaScript - Azure Storage
+title: Copy a blob with JavaScript
+titleSuffix: Azure Storage
 description: Learn how to copy a blob in Azure Storage by using the JavaScript client library.
 services: storage
-author: normesta
-
-ms.author: normesta
-ms.date: 03/28/2022
-ms.service: storage
-ms.subservice: blobs
+author: pauljewellmsft
+ms.author: pauljewell
+ms.date: 05/08/2023
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
-ms.custom: "devx-track-js"
+ms.custom: devx-track-js, devguide-js
 ---
 
-# Copy a blob with Azure Storage using the JavaScript client library
+# Copy a blob with JavaScript
 
-This article demonstrates how to copy a blob in an Azure Storage account. It also shows how to abort an asynchronous copy operation. The example code uses the Azure Storage client libraries.
+This article provides an overview of copy operations using the [Azure Storage client library for JavaScript](/javascript/api/overview/azure/storage-blob-readme).
 
-The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
+## About copy operations
 
-> [!NOTE]
-> The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create.md). 
+Copy operations can be used to move data within a storage account, between storage accounts, or into a storage account from a source outside of Azure. When using the Blob Storage client libraries to copy data resources, it's important to understand the REST API operations behind the client library methods. The following table lists REST API operations that can be used to copy data resources to a storage account. The table also includes links to detailed guidance about how to perform these operations using the [Azure Storage client library for JavaScript](/javascript/api/overview/azure/storage-blob-readme).
 
-## About copying blobs
+| REST API operation | When to use | Client library methods | Guidance |
+| --- | --- | --- | --- |
+| [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) | This operation is preferred for scenarios where you want to move data into a storage account and have a URL for the source object. This operation completes synchronously. | [syncUploadFromURL](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-syncuploadfromurl) | [Copy a blob from a source object URL with JavaScript](storage-blob-copy-url-javascript.md) |
+| [Put Block From URL](/rest/api/storageservices/put-block-from-url) | For large objects, you can use [Put Block From URL](/rest/api/storageservices/put-block-from-url) to write individual blocks to Blob Storage, and then call [Put Block List](/rest/api/storageservices/put-block-list) to commit those blocks to a block blob. This operation completes synchronously. | [stageBlockFromURL](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-stageblockfromurl) | [Copy a blob from a source object URL with JavaScript](storage-blob-copy-url-javascript.md) |
+| [Copy Blob](/rest/api/storageservices/copy-blob) | This operation can be used when you want asynchronous scheduling for a copy operation. | [beginCopyFromURL](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-begincopyfromurl) | [Copy a blob with asynchronous scheduling using JavaScript](storage-blob-copy-async-javascript.md) |
 
-When you copy a blob within the same storage account, it's a synchronous operation. When you copy across accounts it's an asynchronous operation.
+For append blobs, you can use the [Append Block From URL](/rest/api/storageservices/append-block-from-url) operation to commit a new block of data to the end of an existing append blob. The following client library method wraps this operation:
 
-The source blob for a copy operation may be a block blob, an append blob, a page blob, or a snapshot. If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
+- [appendBlockFromURL](/javascript/api/@azure/storage-blob/appendblobclient#@azure-storage-blob-appendblobclient-appendblockfromurl)
 
-The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. In other words, a blob can't be the destination for multiple pending copy operations.
+For page blobs, you can use the [Put Page From URL](/rest/api/storageservices/put-page-from-url) operation to write a range of pages to a page blob where the contents are read from a URL. The following client library method wraps this operation:
 
-The entire source blob or file is always copied. Copying a range of bytes or set of blocks is not supported.
+- [uploadPagesFromURL](/javascript/api/@azure/storage-blob/pageblobclient#@azure-storage-blob-pageblobclient-uploadpagesfromurl)
 
-When a blob is copied, its system properties are copied to the destination blob with the same values.
+## Client library resources
 
-A copy operation can take any of the following forms:
-
-- Copy a source blob to a destination blob with a different name. The destination blob can be an existing blob of the same blob type (block, append, or page), or can be a new blob created by the copy operation.
-- Copy a source blob to a destination blob with the same name, effectively replacing the destination blob. Such a copy operation removes any uncommitted blocks and overwrites the destination blob's metadata.
-- Copy a source file in the Azure File service to a destination blob. The destination blob can be an existing block blob, or can be a new block blob created by the copy operation. Copying from files to page blobs or append blobs is not supported.
-- Copy a snapshot over its base blob. By promoting a snapshot to the position of the base blob, you can restore an earlier version of a blob.
-- Copy a snapshot to a destination blob with a different name. The resulting destination blob is a writeable blob and not a snapshot.
-
-## Copy a blob
-
-To copy a blob, use the [BlobClient.beginCopyFromURL method](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-begincopyfromurl). The following code example gets a [BlobClient](/javascript/api/@azure/storage-blob/blobclient) representing a previously created blob and copies it to a new blob:
-
-```javascript
-async function copyBlob(
-    blobServiceClient, 
-    sourceBlobContainerName, 
-    sourceBlobName, 
-    destinationBlobContainerName,
-    destinationBlobName) {
-
-    // create container clients
-    const sourceContainerClient = blobServiceClient.getContainerClient(sourceBlobContainerName); 
-    const destinationContainerClient = blobServiceClient.getContainerClient(destinationBlobContainerName);   
-    
-    // create blob clients
-    const sourceBlobClient = await sourceContainerClient.getBlobClient(sourceBlobName);
-    const destinationBlobClient = await destinationContainerClient.getBlobClient(destinationBlobName);
-
-    // start copy
-    const copyPoller = await destinationBlobClient.beginCopyFromURL(sourceBlobClient.url);
-    console.log('start copy from A to B');
-
-    // wait until done
-    await copyPoller.pollUntilDone();
-}
-```
-
-## Cancel a copy operation
-
-When you abort a copy operation, the destination blob's property, [copyStatus](/javascript/api/@azure/storage-blob/blobbegincopyfromurlresponse#properties), is set to [aborted](/javascript/api/@azure/storage-blob/copystatustype).
-
-```javascript
-async function copyThenAbortBlob(
-    blobServiceClient, 
-    sourceBlobContainerName, 
-    sourceBlobName, 
-    destinationBlobContainerName,
-    destinationBlobName) {
-
-    // create container clients
-    const sourceContainerClient = blobServiceClient.getContainerClient(sourceBlobContainerName); 
-    const destinationContainerClient = blobServiceClient.getContainerClient(destinationBlobContainerName);   
-    
-    // create blob clients
-    const sourceBlobClient = await sourceContainerClient.getBlobClient(sourceBlobName);
-    const destinationBlobClient = await destinationContainerClient.getBlobClient(destinationBlobName);
-
-    // start copy
-    const copyPoller = await destinationBlobClient.beginCopyFromURL(sourceBlobClient.url);
-    console.log('start copy from A to C');
-
-    // cancel operation after starting it -
-    // sample file may be too small to be canceled.
-    try {
-      await copyPoller.cancelOperation();
-      console.log('request to cancel copy from A to C');
-
-      // calls to get the result now throw PollerCancelledError
-      await copyPoller.getResult();
-    } catch (err) {
-      if (err.name === 'PollerCancelledError') {
-        console.log('The copy was cancelled.');
-      }
-    }
-}
-```
-
-## Abort a copy operation
-
-Aborting a copy operation, with [BlobClient.abortCopyFromURL](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-abortcopyfromurl) results in a destination blob of zero length. However, the metadata for the destination blob will have the new values copied from the source blob or set explicitly during the copy operation. To keep the original metadata from before the copy, make a snapshot of the destination blob before calling one of the copy methods. The final blob will be committed when the copy completes.
-
-## See also
-
-- [Copy Blob](/rest/api/storageservices/copy-blob)
-- [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob)
-- [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md)
+- [Client library reference documentation](/javascript/api/@azure/storage-blob)
+- [Client library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
+- [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob)

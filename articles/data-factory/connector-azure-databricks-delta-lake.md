@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/04/2022
+ms.date: 07/13/2023
 ---
 
 # Copy data to and from Azure Databricks Delta Lake using Azure Data Factory or Azure Synapse Analytics
@@ -56,7 +56,7 @@ During copy activity execution, if the cluster you configured has been terminate
 
 2. In the **Databricks Runtime Version** drop-down, select a Databricks runtime version.
 
-3. Turn on [Auto Optimize](/azure/databricks/delta/optimizations/auto-optimize) by adding the following properties to your [Spark configuration](/azure/databricks/clusters/configure#spark-config):
+3. Turn on [Auto Optimize](/azure/databricks/optimizations/auto-optimize) by adding the following properties to your [Spark configuration](/azure/databricks/clusters/configure#spark-config):
 
    ```
    spark.databricks.delta.optimizeWrite.enabled true

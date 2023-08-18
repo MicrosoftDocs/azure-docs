@@ -2,17 +2,17 @@
 title: Acquire and cache tokens with Microsoft Authentication Library (MSAL)
 description: Learn about acquiring and caching tokens using MSAL.
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/22/2022
-ms.author: marsma
+ms.date: 02/27/2023
+ms.author: cwerner
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref, engagement-fy23
 #Customer intent: As an application developer, I want to learn about acquiring and caching tokens so my app can support authentication and authorization.
 ---
 
@@ -26,7 +26,7 @@ You can also clear the token cache, which is achieved by removing the accounts f
 
 ## Scopes when acquiring tokens
 
-[Scopes](v2-permissions-and-consent.md) are the permissions that a web API exposes that client applications can request access to. Client applications request the user's consent for these scopes when making authentication requests to get tokens to access the web APIs. MSAL allows you to get tokens to access Azure AD for developers (v1.0) and the Microsoft identity platform APIs. v2.0 protocol uses scopes instead of resource in the requests. For more information, read [v1.0 and v2.0 comparison](../azuread-dev/azure-ad-endpoint-comparison.md). Based on the web API's configuration of the token version it accepts, the v2.0 endpoint returns the access token to MSAL.
+[Scopes](./permissions-consent-overview.md) are the permissions that a web API exposes that client applications can request access to. Client applications request the user's consent for these scopes when making authentication requests to get tokens to access the web APIs. MSAL allows you to get tokens to access Azure AD for developers (v1.0) and the Microsoft identity platform APIs. v2.0 protocol uses scopes instead of resource in the requests. Based on the web API's configuration of the token version it accepts, the v2.0 endpoint returns the access token to MSAL.
 
 Several of MSAL's token acquisition methods require a `scopes` parameter. The `scopes` parameter is a list of strings that declare the desired permissions and the resources requested. Well-known scopes are the [Microsoft Graph permissions](/graph/permissions-reference).
 
@@ -45,7 +45,7 @@ The format of the scope value varies depending on the resource (the API) receivi
 
 For Microsoft Graph only, the `user.read` scope maps to `https://graph.microsoft.com/User.Read`, and both scope formats can be used interchangeably.
 
-Certain web APIs such as the Azure Resource Manager API (https://management.core.windows.net/) expect a trailing forward slash ('/') in the audience claim (`aud`) of the access token. In this case, pass the scope as `https://management.core.windows.net//user_impersonation`, including the double forward slash ('//').
+Certain web APIs such as the Azure Resource Manager API (`https://management.core.windows.net/`) expect a trailing forward slash (`/`) in the audience claim (`aud`) of the access token. In this case, pass the scope as `https://management.core.windows.net//user_impersonation`, including the double forward slash (`//`).
 
 Other APIs might require that *no scheme or host* is included in the scope value, and expect only the app ID (a GUID) and the scope name, for example:
 
@@ -66,7 +66,7 @@ MSAL maintains a token cache (or two caches for confidential client applications
 
 ### Recommended call pattern for public client applications
 
-Application code should first try to get a token silently from the cache. If the method call returns a "UI required" error or exception, try acquiring a token by other means.
+Application source code should first try to get a token silently from the cache. If the method call returns a "UI required" error or exception, try acquiring a token by other means.
 
 There are two flows, however, in which you **should not** attempt to silently acquire a token:
 
@@ -95,7 +95,7 @@ In public client applications like desktop and mobile apps, you can:
 
 ### Confidential client applications
 
-For confidential client applications (web app, web API, or a daemon application like a Windows service), you:
+For confidential client applications (web app, web API, or a daemon application like a Windows service), you can;
 
 - Acquire tokens **for the application itself** and not for a user, using the [client credentials flow](msal-authentication-flows.md#client-credentials). This technique can be used for syncing tools, or tools that process users in general and not a specific user.
 - Use the [on-behalf-of (OBO) flow](msal-authentication-flows.md#on-behalf-of-obo) for a web API to call an API on behalf of the user. The application is identified with client credentials in order to acquire a token based on a user assertion (SAML, for example, or a JWT token). This flow is used by applications that need to access resources of a particular user in service-to-service calls.

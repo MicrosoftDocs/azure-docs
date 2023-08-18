@@ -4,7 +4,7 @@ description: Get started with multi-container apps on Azure App Service by deplo
 keywords: azure app service, web app, linux, docker, compose, multicontainer, multi-container, web app for containers, multiple containers, container, wordpress, azure db for mysql, production database with containers
 author: msangapu-msft
 ms.topic: quickstart
-ms.date: 08/23/2019
+ms.date: 11/18/2022
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli, mode-other
 ---
@@ -20,13 +20,13 @@ ms.custom: mvc, seodec18, devx-track-azurecli, mode-other
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 This article requires version 2.0.32 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Download the sample
 
-For this quickstart, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project). The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress).
+For this quickstart, you use the compose file from [Docker](https://docs.docker.com/samples/wordpress/). The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress).
 
 [!code-yml[Main](../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
@@ -93,7 +93,7 @@ When the App Service plan has been created, the Azure CLI shows information simi
 ## Create a Docker Compose app
 
 > [!NOTE]
-> Docker Compose on Azure App Services currently has a limit of 4,000 characters at this time.
+> Docker Compose on Azure App Services currently has a limit of 4,000 characters when converted to Base64 at this time.
 
 In your Cloud Shell terminal, create a multi-container [web app](overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#az-webapp-create) command. Don't forget to replace _\<app_name>_ with a unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
@@ -135,6 +135,9 @@ Browse to the deployed app at (`http://<app_name>.azurewebsites.net`). The app m
 
 > [!div class="nextstepaction"]
 > [Configure a custom container](configure-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 <!--Image references-->
 [1]: media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

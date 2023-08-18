@@ -2,15 +2,15 @@
 title: Use Azure Policy to assign managed identities (preview)
 description: Documentation for the Azure Policy that can be used to assign managed identities to Azure resources.
 services: active-directory
-author: karavar
-manager: skwan
+author: barclayn
+manager: amycolannino
 editor: barclayn
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: how-to
 ms.workload: identity
 ms.date: 05/23/2022
-ms.author: vakarand
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
@@ -46,9 +46,9 @@ The policy is designed to implement this recommendation.
 
 When executed, the policy takes the following actions:
 
-1.	Create, if not exist, a new built-in user-assigned managed identity in the subscription and each Azure region based on the VMs that are in scope of the policy. 
-2.	Once created, put a lock on the user-assigned managed identity so that it will not be accidentally deleted. 
-3.	Assign the built-in user-assigned managed identity to Virtual Machines from the subscription and region based on the VMs that are in scope of the policy. 
+1. Create, if not exist, a new built-in user-assigned managed identity in the subscription and each Azure region based on the VMs that are in scope of the policy. 
+2. Once created, put a lock on the user-assigned managed identity so that it will not be accidentally deleted. 
+3. Assign the built-in user-assigned managed identity to Virtual Machines from the subscription and region based on the VMs that are in scope of the policy. 
 > [!NOTE]
 > If the Virtual Machine has exactly 1 user-assigned managed identity already assigned, then the policy skips this VM to assign the built-in identity. This is to make sure assignment of the policy does not break applications that take a dependency on [the default behavior of the token endpoint on IMDS.](managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)
 

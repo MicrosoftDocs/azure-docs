@@ -2,8 +2,8 @@
 title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
 author: Heidilohr
-ms.topic: overview
-ms.date: 08/11/2022
+ms.topic: release-notes
+ms.date: 08/08/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -19,15 +19,136 @@ The Azure Virtual Desktop Agent updates regularly. This article is where you'll 
 
 Make sure to check back here often to keep up with new updates.
 
+## Latest agent versions
+
+New versions of the Azure Virtual Desktop Agent are installed automatically. When new versions are released, they're rolled out progressively to session hosts. This process is called *flighting* and it enables Microsoft to monitor the rollout in [validation environments](create-validation-host-pool.md) first.
+
+A rollout may take several weeks before the agent is available in all environments. Some agent versions may not reach non-validation environments, so you may see multiple versions of the agent deployed across your environments.
+
+## Version 1.0.7255.800 
+
+This update was released at the end of July 2023 and includes the following changes: 
+
+- Fixed an issue that would disable the Traversal Using Relay NAT (TURN) health check when a user disabled the Unified Datagram Protocol (UDP). 
+- Security improvements and bug fixes. 
+
+## Version 1.0.7033.1401 
+
+This update was released at the end of July 2023 and includes the following changes: 
+
+- Security improvements and bug fixes. 
+
+## Version 1.0.6713.1603
+
+This update was released at the end of July 2023 and includes the following changes:
+
+- Security improvements and bug fixes.
+
+## Version 1.0.7033.900
+
+This update was released at the beginning of July 2023 and includes the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.6713.1300/1.0.6713.1600
+
+This update was released at the beginning of June 2023 and includes the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.6713.400
+
+This update was released at the end of May 2023 and includes the following changes:
+
+- Fixed an issue that made the Remote Desktop Agent incorrectly report Hybrid Azure Active Directory (AD) Join virtual machines (VMs) as domain-joined.
+- General improvements and bug fixes.
+
+## Version 1.0.6425.1200
+
+This update was released at the beginning of May 2023 and includes the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.6425.300
+
+This update was released at the beginning of April 2023 and includes the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.6298.2100
+
+This update was released at the end of March 2023 and includes the following changes:
+
+- Health check reliability improved.
+- Reliability issues in agent upgrade fixed.
+- VM will be marked unhealthy when health check detects a required URL isn't unblocked.
+
+## Version 1.0.6129.9100
+
+This update was released in March 2023 and includes the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.6028.2200
+
+This update was released in February 2023 and includes the following changes:
+
+- Domain Trust health check is now enabled. When virtual machines fail the Domain Trust health check, they're now given the *Unavailable* status.
+- General improvements and bug fixes.
+
+## Version 1.0.5739.9000/1.0.5739.9800
+
+>[!NOTE]
+>You may see version 1.0.5739.9000 or 1.0.5739.9800 installed on session hosts depending on whether the host pool is configured to be a [validation environment](create-validation-host-pool.md). Version 1.0.5739.9000 was released to validation environments and version 1.0.5739.9800 was released to all other environments.
+>
+>Normally, all environments receive the same version. However, for this release, we had to adjust certain parameters unrelated to the Agent to allow this version to roll out to non-validation environments, which is why the non-validation version number is higher than the validation version number. Besides those changes, both versions are the same.
+
+This update was released in January 2023 and includes the following changes:
+
+- Added the RDGateway URL to URL Access Check.
+- Introduced RD Agent provisioning state for new installations.
+- Fixed error reporting in MSIX App Attach for apps with expired signatures.
+
+## Version 1.0.5555.1010
+
+This update was released in December 2022. There are no changes to the agent in this version.
+
+## Version 1.0.5555.1008
+
+This update was released in November 2022 and includes the following changes:
+
+- Increased sensitivity of AppAttachRegister monitor for improved results.
+- Fixed an error that slowed down Geneva Agent installation.
+- Version updates for Include Stack.
+- General improvements and bug fixes.
+
+## Version 1.0.5388.1701
+
+This update was released in August 2022 and includes the following changes:
+
+- Fixed a bug that prevented the Agent MSI from downloading on the first try.
+- Modified app attach on-demand registration.
+- Enhanced the AgentUpdateTelemetry parameter to help with StackFlighting data.
+- Removed unnecessary WebRTC health check.
+- Fixed an issue with the RDAgentMetadata parameter.
+
 ## Version 1.0.5100.1100
 
 This update was released in August 2022 and includes the following changes:
 
-- Agent first-party extensions architecture completed
-- Fixed Teams error related to Azure Virtual Desktop telemetry
-- RDAgentBootloader - revision update to 1.0.4.0
-- SessionHostHealthCheckReport is now centralized in a NuGet package to be shared with first-party Teams
-- Fixes to AppAttach
+- Agent first-party extensions architecture completed.
+- Fixed Teams error related to Azure Virtual Desktop telemetry.
+- RDAgentBootloader - revision update to 1.0.4.0.
+- SessionHostHealthCheckReport is now centralized in a NuGet package to be shared with first-party Teams.
+- Fixes to AppAttach.
+
+## Version 1.0.4739.1000
+
+This update was released in July 2022 and includes the following changes:
+
+- Report session load to Log Analytics for admins to get information on when MaxSessionLimit is reached.
+- Adding AADTenant ID claim to the registration token.
+- Report closing errors to diagnostics explicitly.
 
 ## Version 1.0.4574.1600
 

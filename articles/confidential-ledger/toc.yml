@@ -27,6 +27,8 @@
     href: authentication-azure-ad.md
   - name: Authenticating ledger nodes
     href: authenticate-ledger-nodes.md
+  - name: Write transaction receipts
+    href: write-transaction-receipts.md
 - name: How To Guides
   items:
   - name: Create a client certificate
@@ -35,6 +37,12 @@
     href: register-ledger-resource-provider.md
   - name: Register an ACL app with Azure AD
     href: register-application.md
+  - name: Verify write transaction receipts
+    href: verify-write-transaction-receipts.md
+  - name: Manage Azure AD token-based users
+    href: manage-azure-ad-token-based-users.md
+  - name: Manage certificate-based users
+    href: manage-certificate-based-users.md
 - name: References
   items:
 
@@ -50,8 +58,8 @@
     href: /java/api/overview/azure/data-confidentialledger-readme
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/
   - name: Pricing
     href: https://azure.microsoft.com/pricing
   - name: Region availability
@@ -62,4 +70,3 @@
     href: https://azure.microsoft.com/status/
   - name: Service updates
     href: https://azure.microsoft.com/updates/
-

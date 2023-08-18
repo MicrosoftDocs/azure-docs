@@ -2,13 +2,11 @@
 title: Configure Java apps
 description: Learn how to configure Java apps to run on Azure App Service. This article shows the most common configuration tasks.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss
-author: jasonfreeberg
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
-ms.author: jafreebe
 ms.reviewer: cephalin
-ms.custom: seodec18, devx-track-java, devx-track-azurecli
+ms.custom: seodec18, devx-track-java, devx-track-azurecli, devx-track-extended-java
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
 ---
@@ -62,7 +60,7 @@ az webapp list-runtimes --os linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
 With the [Maven Plugin for Azure Web Apps](https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), you can prepare your Maven Java project for Azure Web App easily with one command in your project root:
 
 ```shell
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.11.0:config
 ```
 
 This command adds a `azure-webapp-maven-plugin` plugin and related configuration by prompting you to select an existing Azure Web App or create a new one. Then you can deploy your Java app to Azure using the following command:
@@ -77,7 +75,7 @@ Here is a sample configuration in `pom.xml`:
 <plugin> 
   <groupId>com.microsoft.azure</groupId>  
   <artifactId>azure-webapp-maven-plugin</artifactId>  
-  <version>2.2.0</version>  
+  <version>2.11.0</version>  
   <configuration>
     <subscriptionId>111111-11111-11111-1111111</subscriptionId>
     <resourceGroup>spring-boot-xxxxxxxxxx-rg</resourceGroup>
@@ -106,11 +104,11 @@ Here is a sample configuration in `pom.xml`:
 
 #### Gradle
 
-1. Setup the [Gradle Plugin for Azure Web Apps](https://github.com/microsoft/azure-gradle-plugins/tree/master/azure-webapp-gradle-plugin) by adding the plugin to your `build.gradle`:
+1. Set up the [Gradle Plugin for Azure Web Apps](https://github.com/microsoft/azure-gradle-plugins/tree/master/azure-webapp-gradle-plugin) by adding the plugin to your `build.gradle`:
 
     ```groovy
     plugins {
-      id "com.microsoft.azure.azurewebapp" version "1.2.0"
+      id "com.microsoft.azure.azurewebapp" version "1.7.1"
     }
     ```
 
@@ -171,7 +169,7 @@ To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your 
 
 To deploy .war files to JBoss, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
-To deploy .ear files, [use FTP](deploy-ftp.md). Your .ear application will be deployed to the context root defined in your application's configuration. For example, if the context root of your app is `<context-root>myapp</context-root>`, then you can browse the site at the `/myapp` path: `http://my-app-name.azurewebsites.net/myapp`. If you want you web app to be served in the root path, ensure that your app sets the context root to the root path: `<context-root>/</context-root>`. For more information, see [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
+To deploy .ear files, [use FTP](deploy-ftp.md). Your .ear application will be deployed to the context root defined in your application's configuration. For example, if the context root of your app is `<context-root>myapp</context-root>`, then you can browse the site at the `/myapp` path: `http://my-app-name.azurewebsites.net/myapp`. If you want your web app to be served in the root path, ensure that your app sets the context root to the root path: `<context-root>/</context-root>`. For more information, see [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 
 ::: zone-end
 
@@ -208,61 +206,11 @@ The built-in Java images are based on the [Alpine Linux](https://alpine-linux.re
 
 ::: zone-end
 
-### Flight Recorder
+### Java Profiler
 
-All Java runtimes on App Service using the Azul JVMs come with the Zulu Flight Recorder. You can use this to record JVM, system, and application events and troubleshoot problems in your Java applications.
+All Java runtimes on Azure App Service come with the JDK Flight Recorder for profiling Java workloads. You can use this to record JVM, system, and application events and troubleshoot problems in your applications.
 
-::: zone pivot="platform-windows"
-
-#### Timed Recording
-
-To take a timed recording, you'll need the PID (Process ID) of the Java application. To find the PID, open a browser to your web app's SCM site at `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID (Process ID).
-
-Next, open the **Debug Console** in the top toolbar of the SCM site and run the following command. Replace `<pid>` with the process ID you copied earlier. This command will start a 30-second profiler recording of your Java application and generate a file named `timed_recording_example.jfr` in the `D:\home` directory.
-
-```
-jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="D:\home\timed_recording_example.JFR"
-```
-
-::: zone-end
-::: zone pivot="platform-linux"
-
-SSH into your App Service and run the `jcmd` command to see a list of all the Java processes running. In addition to jcmd itself, you should see your Java application running with a process ID number (pid).
-
-```shell
-078990bbcd11:/home# jcmd
-Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
-147 sun.tools.jcmd.JCmd
-116 /home/site/wwwroot/app.jar
-```
-
-Execute the command below to start a 30-second recording of the JVM. This will profile the JVM and create a JFR file named *jfr_example.jfr* in the home directory. (Replace 116 with the pid of your Java app.)
-
-```shell
-jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
-```
-
-During the 30-second interval, you can validate the recording is taking place by running `jcmd 116 JFR.check`. This will show all recordings for the given Java process.
-
-#### Continuous Recording
-
-You can use Zulu Flight Recorder to continuously profile your Java application with minimal impact on runtime performance. To do so, run the following Azure CLI command to create an App Setting named JAVA_OPTS with the necessary configuration. The contents of the JAVA_OPTS App Setting are passed to the `java` command when your app is started.
-
-```azurecli
-az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
-```
-
-Once the recording has started, you can dump the current recording data at any time using the `JFR.dump` command.
-
-```shell
-jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
-```
-
-::: zone-end
-
-#### Analyze `.jfr` files
-
-Use [FTPS](deploy-ftp.md) to download your JFR file to your local machine. To analyze the JFR file, download and install [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). For instructions on Zulu Mission Control, see the [Azul documentation](https://docs.azul.com/zmc/) and the [installation instructions](/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
+To learn more about the Java Profiler, visit the [Azure Application Insights documentation](/azure/azure-monitor/app/java-standalone-profiler).
 
 ### App logging
 
@@ -279,7 +227,7 @@ Azure Blob Storage logging for Linux based App Services can only be configured u
 
 ::: zone-end
 
-If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](../azure-monitor/app/java-2x-trace-logs.md).
+If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#explore-java-trace-logs-in-application-insights).
 
 > [!NOTE]
 > Due to known vulnerability [CVE-2021-44228](https://logging.apache.org/log4j/2.x/security.html), be sure to use Log4j version 2.16 or later.
@@ -294,6 +242,10 @@ Azure App Service supports out of the box tuning and customization through the A
 - [Add a CDN](../cdn/cdn-add-to-web-app.md)
 - [Configure the Kudu site](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
+### Copy App Content Locally
+
+Set the app setting `JAVA_COPY_ALL` to `true` to copy your app contents to the local worker from the shared file system. This helps address file-locking issues.
+
 ### Set Java runtime options
 
 To set allocated memory or other JVM runtime options, create an [app setting](configure-common.md#configure-app-settings) named `JAVA_OPTS` with the options. App Service passes this setting as an environment variable to the Java runtime when it starts.
@@ -306,7 +258,7 @@ To configure the app setting from the Maven plugin, add setting/value tags in th
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>-Xms512m -Xmx1204m</value>
+        <value>-Xms1024m -Xmx1024m</value>
     </property>
 </appSettings>
 ```
@@ -428,7 +380,7 @@ Follow the instructions in the [Secure a custom DNS name with an TLS/SSL binding
 
 [Azure KeyVault](../key-vault/general/overview.md) provides centralized secret management with access policies and audit history. You can store secrets (such as passwords or connection strings) in KeyVault and access these secrets in your application through environment variables.
 
-First, follow the instructions for [granting your app access to Key Vault](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) and [making a KeyVault reference to your secret in an Application Setting](app-service-key-vault-references.md#reference-syntax). You can validate that the reference resolves to the secret by printing the environment variable while remotely accessing the App Service terminal.
+First, follow the instructions for [granting your app access to a key vault](app-service-key-vault-references.md#grant-your-app-access-to-a-key-vault) and [making a KeyVault reference to your secret in an Application Setting](app-service-key-vault-references.md#source-app-settings-from-key-vault). You can validate that the reference resolves to the secret by printing the environment variable while remotely accessing the App Service terminal.
 
 To inject these secrets in your Spring or Tomcat configuration file, use environment variable injection syntax (`${MY_ENV_VAR}`). For Spring configuration files, see this documentation on [externalized configurations](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
@@ -440,7 +392,7 @@ By default, any public or private certificates [uploaded to App Service Linux](c
 
 More configuration may be necessary for encrypting your JDBC connection with certificates in the Java Key Store. Refer to the documentation for your chosen JDBC driver.
 
-- [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
+- [PostgreSQL](https://jdbc.postgresql.org/documentation/ssl/)
 - [SQL Server](/sql/connect/jdbc/connecting-with-ssl-encryption)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
@@ -472,11 +424,11 @@ You can interact or debug the Java Key Tool by [opening an SSH connection](confi
 
 ## Configure APM platforms
 
-This section shows how to connect Java applications deployed on Azure App Service with Azure Monitor application insights, NewRelic, and AppDynamics application performance monitoring (APM) platforms.
+This section shows how to connect Java applications deployed on Azure App Service with Azure Monitor Application Insights, NewRelic, and AppDynamics application performance monitoring (APM) platforms.
 
 ### Configure Application Insights
 
-Azure Monitor application insights is a cloud native application monitoring service that enables customers to observe failures, bottlenecks, and usage patterns to improve application performance and reduce mean time to resolution (MTTR). With a few clicks or CLI commands, you can enable monitoring for your Node.js or Java apps, auto-collecting logs, metrics, and distributed traces, eliminating the need for including an SDK in your app. See the [Application Insights documentation](../azure-monitor/app/java-standalone-config.md) for more information about the available app settings for configuring the agent.
+Azure Monitor Application Insights is a cloud native application monitoring service that enables customers to observe failures, bottlenecks, and usage patterns to improve application performance and reduce mean time to resolution (MTTR). With a few clicks or CLI commands, you can enable monitoring for your Node.js or Java apps, auto-collecting logs, metrics, and distributed traces, eliminating the need for including an SDK in your app. See the [Application Insights documentation](../azure-monitor/app/java-standalone-config.md) for more information about the available app settings for configuring the agent.
 
 #### Azure portal
 
@@ -610,7 +562,7 @@ These instructions apply to all database connections. You will need to fill plac
 
 | Database   | Driver Class Name                             | JDBC Driver                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download/)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Download](https://dev.mysql.com/downloads/connector/j/) (Select "Platform Independent") |
 | SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Download](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server#download)                                                           |
 
@@ -920,7 +872,7 @@ These instructions apply to all database connections. You will need to fill plac
 
 | Database   | Driver Class Name                             | JDBC Driver                                                                              |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download/)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Download](https://dev.mysql.com/downloads/connector/j/) (Select "Platform Independent") |
 | SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Download](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server#download)     |
 
@@ -950,10 +902,10 @@ Next, determine if the data source should be available to one application or to 
         <Resource
             name="jdbc/dbconnection"
             type="javax.sql.DataSource"
-            url="${dbuser}"
+            url="${connURL}"
             driverClassName="<insert your driver class name>"
-            username="${dbpassword}"
-            password="${connURL}"
+            username="${dbuser}"
+            password="${dbpassword}"
         />
     </Context>
     ```
@@ -1128,14 +1080,14 @@ If you choose to pin the minor version, you will need to periodically update the
 
 ### Clustering in JBoss EAP
 
-App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To enable clustering, your web app must be [integrated with a virtual network](overview-vnet-integration.md). When the web app is integrated with a virtual network, the web app will restart and JBoss EAP will automatically startup with a clustered configuration. The JBoss EAP instances will communicate over the subnet specified in the virtual network integration, using the ports shown in the `WEBSITES_PRIVATE_PORTS` environment variable at runtime. You can disable clustering by creating an app setting named `WEBSITE_DISABLE_CLUSTERING` with any value.
+App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To enable clustering, your web app must be [integrated with a virtual network](overview-vnet-integration.md). When the web app is integrated with a virtual network, the web app will restart and JBoss EAP will automatically start up with a clustered configuration. The JBoss EAP instances will communicate over the subnet specified in the virtual network integration, using the ports shown in the `WEBSITES_PRIVATE_PORTS` environment variable at runtime. You can disable clustering by creating an app setting named `WEBSITE_DISABLE_CLUSTERING` with any value.
 
 > [!NOTE]
 > If you are enabling your virtual network integration with an ARM template, you will need to manually set the property `vnetPrivatePorts` to a value of `2`. If you enable virtual network integration from the CLI or Portal, this property will be set for you automatically.  
 
 When clustering is enabled, the JBoss EAP instances use the FILE_PING JGroups discovery protocol to discover new instances and persist the cluster information like the cluster members, their identifiers, and their IP addresses. On App Service, these files are under `/home/clusterinfo/`. The first EAP instance to start will obtain read/write permissions on the cluster membership file. Other instances will read the file, find the primary node, and coordinate with that node to be included in the cluster and added to the file.
 
-The Premium V3 and Isolated V2 App Service Plan types can optionally be distributed across Availability Zones to improve resiliency and reliability for your business-critical workloads. This architecture is also known as [zone redundancy](../availability-zones/migrate-app-service.md). The JBoss EAP clustering feature is compatabile with the zone redundancy feature. 
+The Premium V3 and Isolated V2 App Service Plan types can optionally be distributed across Availability Zones to improve resiliency and reliability for your business-critical workloads. This architecture is also known as [zone redundancy](../availability-zones/migrate-app-service.md). The JBoss EAP clustering feature is compatible with the zone redundancy feature. 
 
 #### Auto-Scale Rules
 
@@ -1159,17 +1111,17 @@ JBoss EAP is only available on the Premium v3 and Isolated v2 App Service Plan t
 
 ### JDK versions and maintenance
 
-Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 8, 11, and 17. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and runnning Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](/java/openjdk/download). The table below describes the new Java versions included in the January 2022 App Service platform release:
+Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 8, 11, and 17. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and running Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](/java/openjdk/download). The table below describes the new Java versions included in the January 2022 App Service platform release:
 
 | Java Version | Linux            | Windows              |
 |--------------|------------------|----------------------|
-| Java 8       | 1.8.0_312 (Zulu) * | 1.8.0_312 (Adoptium) |
-| Java 11      | 11.0.13 (MSFT)   | 11.0.13 (MSFT)       |
-| Java 17      | 17.0.1 (MSFT)    | 17.0.1 (MSFT)        |
+| Java 8       | 1.8.0_312 (Adoptium) * | 1.8.0_312 (Adoptium) |
+| Java 11      | 11.0.13 (Microsoft)   | 11.0.13 (Microsoft)       |
+| Java 17      | 17.0.1 (Microsoft)    | 17.0.1 (Microsoft)        |
 
 \* In following releases, Java 8 on Linux will be distributed from Adoptium builds of the OpenJDK.
 
-If you are [pinned](#choosing-a-java-runtime-version) to an older minor version of Java your site may be using the [Zulu for Azure](https://www.azul.com/downloads/azure-only/zulu/) binaries provided through [Azul Systems](https://www.azul.com/). You can continue to use these binaries for your site, but any security patches or improvements will only be available in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
+If you are [pinned](#choosing-a-java-runtime-version) to an older minor version of Java, your site may be using the deprecated [Azul Zulu for Azure](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/) binaries provided through [Azul Systems](https://www.azul.com/). You can continue to use these binaries for your site, but any security patches or improvements will only be available in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
 
 Major version updates will be provided through new runtime options in Azure App Service. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
 
@@ -1181,7 +1133,7 @@ Patches and fixes for major security vulnerabilities will be released as soon as
 
 Tomcat 8.0 has reached [End of Life (EOL) as of September 30, 2018](https://tomcat.apache.org/tomcat-80-eol.html). While the runtime is still available on Azure App Service, Azure will not apply security updates to Tomcat 8.0. If possible, migrate your applications to Tomcat 8.5 or 9.0. Both Tomcat 8.5 and 9.0 are available on Azure App Service. See the [official Tomcat site](https://tomcat.apache.org/whichversion.html) for more information.
 
-Community support for Java 7 will terminate on July 29th, 2022 and [Java 7 will be retired from App Service](https://azure.microsoft.com/updates/transition-to-java-11-or-8-by-29-july-2022/) at that time. If you have a web app runnning on Java 7, please upgrade to Java 8 or 11 before July 29th.
+Community support for Java 7 will terminate on July 29th, 2022 and [Java 7 will be retired from App Service](https://azure.microsoft.com/updates/transition-to-java-11-or-8-by-29-july-2022/) at that time. If you have a web app running on Java 7, please upgrade to Java 8 or 11 before July 29th.
 
 ### Deprecation and retirement
 
@@ -1192,7 +1144,7 @@ If a supported Java runtime will be retired, Azure developers using the affected
 
 ### Local development
 
-Developers can download the Production Edition of Azul Zulu Enterprise JDK for local development from [Azul's download site](https://www.azul.com/downloads/azure-only/zulu/).
+Developers can download the Microsoft Build of OpenJDK for local development from [our download site](/java/openjdk/download).
 
 ### Development support
 

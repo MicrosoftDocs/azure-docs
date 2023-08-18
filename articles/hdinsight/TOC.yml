@@ -8,6 +8,8 @@ items:
     items:
     - name: What is Azure HDInsight?
       href: ./hdinsight-overview.md
+    - name: Before you start
+      href: ./hdinsight-overview-before-you-start.md
   - name: Tutorials
     expanded: true
     items:
@@ -47,24 +49,18 @@ items:
           href: ./hdinsight-overview-versioning.md
         - name: HDInsight versions
           href: ./hdinsight-component-versioning.md
-        - name: HDInsight version 5.0
-          href: ./hdinsight-50-component-versioning.md
+        - name: HDInsight version 5.x
+          href: ./hdinsight-5x-component-versioning.md
         - name: HDInsight version 4.0
           href: ./hdinsight-40-component-versioning.md
-        - name: HDInsight version 3.6
-          href: ./hdinsight-36-component-versioning.md
         - name: Retired HDInsight versions
           href: ./hdinsight-retired-versions.md
     - name: Enterprise Security Package
       href: ./enterprise-security-package.md
-    - name: Hortonworks release notes
-      href: ./hortonworks-release-notes.md
     - name: High availability components
       href: ./hdinsight-high-availability-components.md   
     - name: Apache Ambari in Azure HDInsight
       href: ./apache-ambari-usage.md  
-    - name: Machine learning in HDInsight
-      href: ./hdinsight-machine-learning-overview.md
     - name: Streaming at scale in HDInsight
       href: ./hdinsight-streaming-at-scale-overview.md  
     - name: Apache Hadoop architecture in HDInsight
@@ -110,6 +106,10 @@ items:
         href: ./hdinsight-hadoop-create-linux-clusters-azure-powershell.md
       - name: Create clusters using REST API
         href: ./hdinsight-hadoop-create-linux-clusters-curl-rest.md
+      - name: Subscribe to HDInsight release notes GitHub repo
+        href: ./subscribe-to-hdi-release-notes-repo.md
+      - name: View the image version of Azure HDInsight cluster
+        href: ./view-hindsight-cluster-image-version.md  
       - name: Cluster creation errors
         href: ./create-cluster-error-dictionary.md
         title: 
@@ -183,6 +183,8 @@ items:
       items:
       - name: Manage clusters using the Apache Ambari web UI
         href: ./hdinsight-hadoop-manage-ambari.md
+      - name: Disable auto logout from Ambari Web UI
+        href: ./ambari-web-ui-auto-logout.md   
       - name: Optimize with Apache Ambari
         items:
         - name: Optimize clusters
@@ -203,8 +205,12 @@ items:
         href: ./hdinsight-delete-cluster.md
       - name: Manually scale a cluster
         href: ./hdinsight-scaling-best-practices.md
-      - name: Autoscale clusters
-        href: ./hdinsight-autoscale-clusters.md
+      - name: Autoscale
+        items:
+        - name: Autoscale clusters
+          href: ./hdinsight-autoscale-clusters.md
+        - name: Custom configure Autoscale
+          href: ./how-to-custom-configure-hdinsight-autoscale.md 
       - name: Use external metadata stores
         href: ./hdinsight-use-external-metadata-stores.md
       - name: Custom Ambari DB
@@ -313,8 +319,6 @@ items:
     items:
     - name: Releases
       items:
-      - name: Ubuntu 18.04 update
-        href: ./hdinsight-ubuntu-1804-qa.md
       - name: What's new in HDInsight 4.0
         href: ./hdinsight-version-release.md
       - name: Release notes
@@ -389,10 +393,6 @@ items:
           href: ./spark/optimize-memory-usage.md
         - name: Optimize cluster configuration
           href: ./spark/optimize-cluster-configuration.md
-      - name: Migrate to Spark 2.3 or 2.4
-        href: ./spark/migrate-versions.md
-      - name: Update .NET for Apache Spark to 1.0
-        href: ./spark/spark-dotnet-version-update.md
   - name: How-to guides
     items:
     - name: Use tools
@@ -665,6 +665,8 @@ items:
       href: ./kafka/apache-kafka-streams-api.md
     - name: Use Apache Spark structured streaming
       href: ./hdinsight-apache-kafka-spark-structured-streaming.md
+    - name: Connect Kafka cluster with VM in different VNet
+      href: ./kafka/connect-kafka-cluster-with-vm-in-different-vnet.md         
   - name: Concepts
     items:
     - name: Migrate Kafka workloads to 4.0
@@ -701,12 +703,20 @@ items:
         href: ./kafka/apache-kafka-connect-vpn-gateway.md
       - name: Replicate Apache Kafka data
         href: ./kafka/apache-kafka-mirroring.md
+      - name: Use MirrorMaker2 to replicate Apache Kafka topics with Kafka
+        href: ./kafka/apache-kafka-mirror-maker-2.md
       - name: Analyze Apache Kafka logs
         href: ./kafka/apache-kafka-log-analytics-operations-management.md
-      - name: SSL Encryption and Authentication
+      - name: Secure Spark and Kafka streaming integration scenario
+        href: ./kafka/secure-spark-kafka-streaming-integration-scenario.md
+      - name: SSL Encryption and Authentication for Non ESP Kafka cluster
         href: ./kafka/apache-kafka-ssl-encryption-authentication.md
+      - name: SSL Encryption and Authentication for ESP Kafka cluster
+        href: ./kafka/apache-esp-kafka-ssl-encryption-authentication.md  
       - name: Kafka MirrorMaker 2.0 guide
-        href: ./kafka/kafka-mirrormaker-2-0-guide.md  
+        href: ./kafka/kafka-mirrormaker-2-0-guide.md
+      - name: Connect HDInsight Kafka cluster with client VM in different VNet
+        href: ./kafka/connect-kafka-with-vnet.md 
     - name: Troubleshoot
       items:
       - name: Insufficient fault domains
@@ -771,6 +781,8 @@ items:
         href: ./hbase/apache-hbase-phoenix-performance.md
       - name: Create Apache HBase cluster in Azure VNet
         href: ./hbase/apache-hbase-provision-vnet.md
+      - name: Use Apache HBase HBCK2 Tool
+        href: ./hbase/how-to-use-hbck2-tool.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot Apache HBase performance issues
@@ -875,6 +887,8 @@ items:
         href: ./interactive-query/hive-workload-management.md
     - name: Manage
       items:
+      - name: Significant version changes in HDInsight 4.0 and advantages
+        href: ./benefits-of-migrating-to-hdinsight-40.md
       - name: Copy Hive tables across Storage Accounts
         href: ./interactive-query/hive-migration-across-storage-accounts.md
       - name: Migrate default Hive metastore to external metastore on Azure HDInsight

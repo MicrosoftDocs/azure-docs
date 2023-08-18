@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 11/12/2021
+ms.date: 01/18/2023
 ---
 
 # Memory optimized compute type for Data Flows in Azure Data Factory and Azure Synapse

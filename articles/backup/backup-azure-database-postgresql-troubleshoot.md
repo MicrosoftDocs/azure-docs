@@ -3,9 +3,9 @@ title: Troubleshoot Azure Database for PostgreSQL backup
 description: Troubleshooting information for backing up Azure Database for PostgreSQL.
 ms.topic: troubleshooting
 ms.date: 06/07/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot PostgreSQL database backup using Azure Backup
@@ -117,10 +117,6 @@ The Azure Backup service uses the credentials mentioned in the key-vault to acce
 ## UserErrorMissingPermissionsOnSecretStore
 
 The Azure Backup service uses the credentials mentioned in the key-vault to access the database as a database user. The relevant key vault and the secret are [provided during configuration of backup](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases). Ensure that backup vault's MSI is given access to key vault as documented [here](backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup).
-
-## UserErrorSSLDisabled
-
-SSL needs to be enabled for connections to the server.
 
 ## UserErrorDBNotFound
 

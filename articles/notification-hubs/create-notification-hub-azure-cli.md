@@ -24,7 +24,7 @@ In this quickstart, you create a notification hub using the Azure CLI. The first
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
 > Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade).
@@ -100,7 +100,7 @@ az group create --name spnhubrg --location eastus
    One or more notification hubs can now be created in your new namespace. Run the [az notification-hub create](/cli/azure/notification-hub#az-notification-hub-create) command to create a notification hub.
 
    ```azurecli
-   az notification-hub create --resource-group spnhubrg --namespace-name spnhubns --name spfcmtutorial1nhub --location eastus --sku Free
+   az notification-hub create --resource-group spnhubrg --namespace-name spnhubns --name spfcmtutorial1nhub --location eastus
    ```
 
 2. Create a second notification hub.
@@ -108,7 +108,7 @@ az group create --name spnhubrg --location eastus
    Multiple notification hubs can be created in a single namespace. To create a second notification hub in the same namespace, run the `az notification-hub create` command again using a different hub name.
 
    ```azurecli
-   az notification-hub create --resource-group spnhubrg --namespace-name spnhubns --name mysecondnhub --location eastus --sku Free
+   az notification-hub create --resource-group spnhubrg --namespace-name spnhubns --name mysecondnhub --location eastus 
    ```
 
 3. Get a list of notification hubs.

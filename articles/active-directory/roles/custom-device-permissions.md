@@ -1,6 +1,6 @@
 ---
-title: Device management permissions for Azure AD custom roles (Preview) - Azure Active Directory
-description: Device management permissions for Azure AD custom roles (Preview) in the Azure portal, PowerShell, or Microsoft Graph API.
+title: Device management permissions for Azure AD custom roles
+description: Device management permissions for Azure AD custom roles in the Azure portal, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -8,17 +8,13 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 03/22/2022
+ms.date: 01/31/2023
 ms.author: rolyon
 ms.reviewer: 
 ms.custom: it-pro
 ---
 
-# Device management permissions for Azure AD custom roles (Preview)
-
-> [!IMPORTANT]
-> Device management permissions for Azure AD custom roles are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Device management permissions for Azure AD custom roles
 
 Device management permissions can be used in custom role definitions in Azure Active Directory (Azure AD) to grant fine-grained access such as the following:
 
@@ -44,7 +40,7 @@ The following permission is available to read BitLocker metadata and recovery ke
 
 - microsoft.directory/bitlockerKeys/key/read
 
-You can view the BitLocker recovery key by selecting a device from the **All Devices** page, and then selecting **Show Recovery Key**. For more information about reading BitLocker recovery keys, see [View or copy BitLocker keys](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
+You can view the BitLocker recovery key by selecting a device from the **All Devices** page, and then selecting **Show Recovery Key**. For more information about reading BitLocker recovery keys, see [View or copy BitLocker keys](../devices/manage-device-identities.md#view-or-copy-bitlocker-keys).
 
 ![Screenshot showing Bitlocker keys in Azure portal.](./media/custom-device-permissions/bitlocker-keys.png)
 
@@ -81,12 +77,12 @@ The following permission is available to update tenant-wide device registration 
 > [!div class="mx-tableFixed"]
 > | Permission | Description |
 > | ---------- | ----------- |
-> | microsoft.directory/devices/createdFrom/read | Read createdfrom properties of devices |
+> | microsoft.directory/devices/createdFrom/read | Read created from Internet of Things (IoT) device template links |
 > | microsoft.directory/devices/registeredOwners/read | Read registered owners of devices |
 > | microsoft.directory/devices/registeredUsers/read | Read registered users of devices |
 > | microsoft.directory/devices/standard/read | Read basic properties on devices |
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices |
-> | microsoft.directory/bitlockerKeys/metadata/read | Read bitlocker metadata on devices |
+> | microsoft.directory/bitlockerKeys/metadata/read | Read bitlocker key metadata on devices |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
 
 #### Update

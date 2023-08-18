@@ -3,15 +3,14 @@ title: 'Connect to a VM - specified private IP address: Azure portal'
 titleSuffix: Azure Bastion
 description: Learn how to connect to your virtual machines using a specified private IP address via Azure Bastion.
 author: cherylmc
-
 ms.service: bastion
 ms.topic: how-to
-ms.date: 04/26/2022
+ms.date: 06/26/2023
 ms.author: cherylmc
 
 ---
 
-# Connect to a VM via specified private IP address through the portal
+# Connect to a VM via specified private IP address
 
 IP-based connection lets you connect to your on-premises, non-Azure, and Azure virtual machines via Azure Bastion over ExpressRoute or a VPN site-to-site connection using a specified private IP address. The steps in this article show you how to configure your Bastion deployment, and then connect to an on-premises resource using IP-based connection. For more information about Azure Bastion, see the [Overview](bastion-overview.md).
 
@@ -49,7 +48,7 @@ Before you begin these steps, verify that you have the following environment set
 
 1. Select **Apply** to apply the changes. It takes a few minutes for the Bastion configuration to complete.
 
-## Connect to VM
+## Connect to VM - Azure portal
 
 1. To connect to a VM using a specified private IP address, you make the connection from Bastion to the VM, not directly from the VM page. On your Bastion page, select **Connect** to open the Connect page.
 
@@ -62,6 +61,29 @@ Before you begin these steps, verify that you have the following environment set
 1. Enter your credentials in **Username** and **Password**.
 
 1. Select **Connect** to connect to your virtual machine.  
+
+## Connect to VM - native client
+
+You can connect to VMs using a specified IP address with native client via SSH, RDP, or tunnelling. Note that this feature does not support Azure Active Directory authentication or custom port and protocol at the moment. To learn more about configuring native client support, see [Configure Bastion native client support](native-client.md). Use the following commands as examples:
+
+   **RDP:**
+   
+   ```azurecli
+   az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-address "<VMIPAddress>
+   ```
+   
+   **SSH:**
+   
+   ```azurecli
+   az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-address "<VMIPAddress>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
+   ```
+   
+   **Tunnel:**
+   
+   ```azurecli
+   az network bastion tunnel --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-ip-address "<VMIPAddress>" --resource-port "<TargetVMPort>" --port "<LocalMachinePort>"
+   ```
+
 
 ## Next steps
 

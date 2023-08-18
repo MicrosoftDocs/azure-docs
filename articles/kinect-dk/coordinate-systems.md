@@ -3,7 +3,7 @@ title: Azure Kinect DK coordinate systems
 description: Azure Kinect DK coordinate systems description associated with Azure DK sensors
 author: tesych
 ms.author: tesych
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, depth camera, tof, principles, performance, invalidation

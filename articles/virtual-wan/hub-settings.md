@@ -25,6 +25,8 @@ By default, the virtual hub router is automatically configured to deploy with a 
 
 When you deploy a new virtual hub, you can specify additional routing infrastructure units to increase the default virtual hub capacity in increments of 1 Gbps and 1000 VMs. This feature gives you the ability to secure upfront capacity without having to wait for the virtual hub to scale out when more throughput is needed. The scale unit on which the virtual hub is created becomes the minimum capacity. Creating a virtual hub without a gateway takes about 5 - 7 minutes while creating a virtual hub and a gateway can take about 30 minutes to complete. You can view routing infrastructure units, router Gbps, and number of VMs supported, in the Azure portal **Virtual hub** pages for **Create virtual hub** and **Edit virtual hub**.
 
+When increasing the virtual hub capacity, the virtual hub router will continue to support traffic at its current capacity until the scale out is complete. It may take up to 25 minutes for the virtual hub router to scale out to additional routing infrastructure units. It's also important to note the following: currently, regardless of the number of routing infrastructure units deployed, traffic may experience performance degradation if more than 1.5 Gbps is sent in a single TCP flow. 
+
 ### Configure virtual hub capacity
 
 Capacity is configured on the **Basics** tab **Virtual hub capacity** setting when you create your virtual hub.
@@ -93,7 +95,7 @@ For pricing information, see [Azure Virtual WAN pricing](https://azure.microsoft
 | 49 | 49 | 49000 |
 | 50 | 50 | 50000 |
 
-## <a name="routing-preference"></a>Virtual hub routing preference (Preview)
+## <a name="routing-preference"></a>Virtual hub routing preference
 
 A Virtual WAN virtual hub connects to virtual networks (VNets) and on-premises sites using connectivity gateways, such as site-to-site (S2S) VPN gateway, ExpressRoute (ER) gateway, point-to-site (P2S) gateway, and SD-WAN Network Virtual Appliance (NVA). The virtual hub router provides central route management and enables advanced routing scenarios using route propagation, route association, and custom route tables. When a virtual hub router makes routing decisions, it considers the configuration of such capabilities.
 

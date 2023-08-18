@@ -2,17 +2,17 @@
 title: Create an Azure portal dashboard with Azure CLI
 description: "Quickstart: Learn how to create a dashboard in the Azure portal using the Azure CLI. A dashboard is a focused and organized view of your cloud resources."
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, mode-api
-ms.date: 01/13/2022
+ms.custom: devx-track-azurecli, mode-api
+ms.date: 03/27/2023
 ---
 
 # Quickstart: Create an Azure portal dashboard with Azure CLI
 
-A dashboard in the Azure portal is a focused and organized view of your cloud resources. This article shows you how to use Azure CLI to create a dashboard. In this example, the dashboard shows the performance of a virtual machine (VM), as well as some static information and links.
+A dashboard in the Azure portal is a focused and organized view of your cloud resources. This article shows you how to use Azure CLI to create a dashboard. In this example, the dashboard shows the performance of a virtual machine (VM) that you create, as well as some static information and links.
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+In addition to the prerequisites below, you'll need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - If you have multiple Azure subscriptions, choose the appropriate subscription in which to bill the resources.
 Select a subscription by using the [az account set](/cli/azure/account#az-account-set) command:
@@ -36,7 +36,7 @@ az vm create --resource-group myResourceGroup --name myVM1 --image win2016datace
    --admin-username azureuser --admin-password 1StrongPassword$
 ```
 
-> [!Note]
+> [!NOTE]
 > This is a new username and password (not the account you use to sign in to Azure). The password must be complex. For more information, see [username requirements](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-)
 and [password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 

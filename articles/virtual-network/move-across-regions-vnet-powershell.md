@@ -1,5 +1,5 @@
 ---
-title: Move an Azure virtual network to another Azure region by using Azure PowerShell
+title: Move an Azure virtual network to another Azure region - Azure PowerShell
 description: Move an Azure virtual network from one Azure region to another by using a Resource Manager template and Azure PowerShell.
 author: asudbring
 ms.service: virtual-network

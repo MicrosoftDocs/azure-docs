@@ -2,22 +2,23 @@
 title: 'Quickstart: Deploy a Python (Django or Flask) web app to Azure'
 description: Get started with Azure App Service by deploying your first Python app to Azure App Service.
 ms.topic: quickstart
-ms.date: 08/23/2022
-author: mijacobs
-ms.author: mijacobs
+ms.date: 07/26/2023
+ms.author: msangapu
 ms.devlang: python
-ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdivchpfy22, vscode-azure-extension-update-completed
+ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdivchpfy22, vscode-azure-extension-update-completed, devx-track-azurecli, devx-track-python
 ---
 
 # Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service
 
-In this quickstart, you'll deploy a Python web app (Django or Flask) to [Azure App Service](./overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports Python 3.7 and higher apps hosted in a Linux server environment.
+In this quickstart, you'll deploy a Python web app (Django or Flask) to [Azure App Service](./overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports Python apps hosted in a Linux server environment.
 
 To complete this quickstart, you need:
-1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-1. <a href="https://www.python.org/downloads/" target="_blank">Python 3.9 or higher</a> installed locally.
 
->**Note**: This article contains current instructions on deploying a Python web app using Azure App Service. Python on Windows is no longer supported.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- <a href="https://www.python.org/downloads/" target="_blank">Python 3.9 or higher</a> installed locally.
+
+> [!NOTE]
+> This article contains current instructions on deploying a Python web app using Azure App Service. Python on Windows is no longer supported.
 
 ## 1 - Sample application
 
@@ -103,7 +104,7 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ## 2 - Create a web app in Azure
 
-To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using the [Azure portal](https://portal.azure.com/), [VS Code](https://code.visualstudio.com/) using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
+To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using [Azure portal](https://portal.azure.com/), [VS Code](https://code.visualstudio.com/), [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or Azure CLI.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -141,10 +142,10 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-azure-portal-1.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-1-240px.png" alt-text="A screenshot of how to use the search box in the top tool bar to find App Services in Azure." lightbox="./media/quickstart-python/create-app-service-azure-portal-1.png"::: |
-| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-azure-portal-2.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-2-240px.png" alt-text="A screenshot of the location of the Create button on the App Services page in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-2.png"::: |
-| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-azure-portal-3.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-3-240px.png" alt-text="A screenshot of how to fill out the form to create a new App Service in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-3.png"::: |
-| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-azure-portal-4.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-4-240px.png" alt-text="A screenshot of how to select the basic app service plan in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-4.png"::: |
-| [!INCLUDE [Create app service step 1](<./includes/quickstart-python/create-app-service-azure-portal-5.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-5-240px.png" alt-text="A screenshot of the location of the Review plus Create button in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-5.png"::: |
+| [!INCLUDE [Create app service step 2](<./includes/quickstart-python/create-app-service-azure-portal-2.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-2-240px.png" alt-text="A screenshot of the location of the Create button on the App Services page in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-2.png"::: |
+| [!INCLUDE [Create app service step 3](<./includes/quickstart-python/create-app-service-azure-portal-3.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-3-240px.png" alt-text="A screenshot of how to fill out the form to create a new App Service in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-3.png"::: |
+| [!INCLUDE [Create app service step 4](<./includes/quickstart-python/create-app-service-azure-portal-4.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-4-240px.png" alt-text="A screenshot of how to select the basic app service plan in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-4.png"::: |
+| [!INCLUDE [Create app service step 5](<./includes/quickstart-python/create-app-service-azure-portal-5.md>)] | :::image type="content" source="./media/quickstart-python/create-app-service-azure-portal-5-240px.png" alt-text="A screenshot of the location of the Review plus Create button in the Azure portal." lightbox="./media/quickstart-python/create-app-service-azure-portal-5.png"::: |
 
 ---
 
@@ -297,3 +298,6 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 > [!div class="nextstepaction"]
 > [Tutorial: Run Python app in custom container](./tutorial-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

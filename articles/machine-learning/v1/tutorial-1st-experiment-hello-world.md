@@ -10,16 +10,13 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 07/29/2022
-ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Tutorial: Get started with a Python script in Azure Machine Learning (SDK v1, part 1 of 3)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](tutorial-1st-experiment-hello-world.md)
-> * [v2 (preview)](../tutorial-1st-experiment-hello-world.md)
 
 In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is *part 1 of a three-part tutorial series*.
 
@@ -36,7 +33,8 @@ In this tutorial, you will:
 
 ## Prerequisites
 
-- Complete [Quickstart: Set up your workspace to get started with Azure Machine Learning](../quickstart-create-resources.md) to create a workspace, compute instance, and compute cluster to use in this tutorial series.
+- Complete [Create resources you need to get started](../quickstart-create-resources.md) to create a workspace and compute instance to use in this tutorial series.
+- * [Create a cloud-based compute cluster](how-to-create-attach-compute-cluster.md#create). Name it 'cpu-cluster' to match the code in this tutorial.
 
 ## Create and run a Python script
 
@@ -156,7 +154,7 @@ Here's a description of how the control script works:
 
 1. Once you're authenticated, you'll see a link in the terminal. Select the link to view the job.
 
-    [!INCLUDE [amlinclude-info](../../../includes/machine-learning-py38-ignore.md)]
+    [!INCLUDE [amlinclude-info](../includes/machine-learning-py38-ignore.md)]
 
 ## View the output
 

@@ -9,9 +9,9 @@ ms.author: tchladek
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.subservice: identity
+ms.subservice: teams-interop
 zone_pivot_groups: acs-js-csharp-java-python
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-extended-java, devx-track-js, devx-track-python, has-azure-ad-ps-ref
 ---
 # Quickstart: Set up and manage access tokens for Teams users
 
@@ -53,7 +53,7 @@ The following application settings influence the experience:
 
 For more detailed information, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md#register-an-application). 
 
-When the application is registered, you'll see an identifier in the overview. This identifier, *Application (client) ID*, is used in the next steps.
+When the application is registered, you'll see an [identifier in the overview](../concepts/troubleshooting-info.md#getting-application-id). This identifier, *Application (client) ID*, is used in the next steps.
 
 ### Step 2: Allow public client flows
 
@@ -66,7 +66,7 @@ The application must declare Teams.ManageCalls and Teams.ManageChats permissions
 1. Navigate to your Azure AD app in the Azure portal and select **API permissions**
 1. Select **Add Permissions**
 1. In the **Add Permissions** menu, select **Azure Communication Services**
-1. Select the permissions **Teams.ManageCalls** and **Teams.ManageCalls**, then select **Add permissions**
+1. Select the permissions **Teams.ManageCalls** and **Teams.ManageChats**, then select **Add permissions**
 
 ![Add Teams.ManageCalls and Teams.ManageChats permission to the Azure Active Directory application created in previous step.](./media/active-directory-permissions.png)
 
@@ -89,7 +89,7 @@ If you want to check roles in Azure portal, see [List Azure role assignments](..
 
 To construct an Administrator consent URL, the Fabrikam Azure AD Administrator does the following steps:
 
-1. In the URL *https://login.microsoftonline.com/{Tenant_ID}/adminconsent?client_id={Application_ID}*, the Administrator replaces {Tenant_ID} with the Fabrikam tenant ID, and replaces {Application_ID} with the Contoso Application ID.
+1. In the URL *https://login.microsoftonline.com/{Tenant_ID}/adminconsent?client_id={Application_ID}*, the Administrator replaces {Tenant_ID} with the Fabrikam [Tenant ID](../concepts/troubleshooting-info.md#getting-directory-id), and replaces {Application_ID} with the Contoso [Application ID](../concepts/troubleshooting-info.md#getting-application-id).
 1. The Administrator logs in and grants permissions on behalf of the organization.
 
 The service principal of the Contoso application in the Fabrikam tenant is created if consent is granted. The Fabrikam Administrator can review the consent in Azure AD by doing the following steps:
@@ -103,6 +103,24 @@ The service principal of the Contoso application in the Fabrikam tenant is creat
 1. Go to the **Permissions** pane.
 
 You can see that the status of the Communication Services Teams.ManageCalls and Teams.ManageChats permissions are *Granted for {Directory_name}*.
+
+
+If you run into the issue "The app is trying to access a service '1fd5118e-2576-4263-8130-9503064c837a'(Azure Communication Services) that your organization '{GUID}' lacks a service principal for. Contact your IT Admin to review the configuration of your service subscriptions or consent to the application to create the required service principal." your Azure Active Directory tenant lacks a service principal for the Azure Communication Services application. To fix this issue, use PowerShell as an Azure AD administrator to connect to your tenant. Replace `Tenant_ID` with an ID of your AAD tenancy. 
+
+```script
+Connect-AzureAD -TenantId "Tenant_ID"
+```
+If the command is not found, start PowerShell as an administrator and install the Azure AD package.
+
+```script
+Install-Module AzureAD
+```
+Then execute the following command to add a service principal to your tenant. Do not modify the GUID of the App ID.
+
+```script
+New-AzureADServicePrincipal -AppId "1fd5118e-2576-4263-8130-9503064c837a"
+```
+
 
 ## Developer actions
 
@@ -163,12 +181,13 @@ In this quickstart, you learned how to:
 
 
 > [!div class="nextstepaction"]
+> [Build trusted authentication service for Teams users](../samples/trusted-auth-sample.md)
 > [Make a call as a Teams users to a Teams user](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
-> [Check use cases for communication as a Teams user](../concepts/interop/custom-teams-endpoint-use-cases.md)
 
 Learn about the following concepts:
 
+- [Use cases for communication as a Teams user](../concepts/interop/custom-teams-endpoint-use-cases.md)
 - [Azure Communication Services support Teams identities](../concepts/teams-endpoint.md)
 - [Teams interoperability](../concepts/teams-interop.md)
-
-
+- [Single-tenant and multi-tenant authentication for Teams users](../concepts/interop/custom-teams-endpoint-authentication-overview.md)
+- [Create and manage Communication access tokens for Teams users in a single-page application (SPA)](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/manage-teams-identity-spa)

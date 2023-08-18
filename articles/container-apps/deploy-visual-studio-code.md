@@ -7,10 +7,10 @@ ms.author: alexwolf
 ms.service: container-apps
 ms.topic: tutorial
 ms.date: 09/01/2022
-ms.custom: vscode-azure-extension-update-completed
+ms.custom: vscode-azure-extension-update-completed, devx-track-dotnet, devx-track-linux
 ---
 
-# Tutorial: Deploy to Azure Container Apps using Visual Studio Code
+# Quickstart: Deploy to Azure Container Apps using Visual Studio Code
 
 Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
@@ -27,9 +27,9 @@ In this tutorial, you'll deploy a containerized application to Azure Container A
 
 ## Clone the project
 
-1. Begin by cloning the [sample repository]((https://github.com/azure-samples/containerapps-albumapi-javascript) to your machine using the following command.
+1. Begin by cloning the [sample repository](https://github.com/azure-samples/containerapps-albumapi-javascript) to your machine using the following command.
 
-    ```bash
+    ```git
     git clone https://github.com/Azure-Samples/containerapps-albumapi-javascript.git
     ```
 
@@ -62,7 +62,9 @@ Container images are stored inside container registries. You can create a contai
 
     This action opens the command palette and prompts you to define a container tag.
 
-1. Enter a tag for the container. Accept the default, which is the project name with the *latest* suffix.
+1. Enter a tag for the container. Accept the default, which is the project name with a run ID suffix.
+
+1. Select the Azure subscription that you want to use.
 
 1. Select **+ Create new registry**, or if you already have a registry you'd like to use, select that item and skip to creating and deploying to the container app.  
 
@@ -79,6 +81,8 @@ Container images are stored inside container registries. You can create a contai
 1. Select the location that is nearest to you. Select **Enter** to finalize the workflow, and Azure begins creating the container registry and building the image.
 
     This process may take a few moments to complete.
+
+1. Select **Linux** as the image base operating system (OS).
 
 Once the registry is created and the image is built successfully, you're ready to create the container app to host the published image.
 

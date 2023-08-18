@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 09/29/2020
+ms.date: 01/12/2023
 ms.author: mbaldwin
 
 #Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.
@@ -17,7 +17,7 @@ ms.author: mbaldwin
 
 # Common error codes for Azure Key Vault
 
-The error codes listed in the following table may be returned by an operation on Azure key vault
+The error codes listed in the following table may be returned by an operation on Azure Key Vault.
 
 | Error code | User message |
 |--|--|
@@ -25,7 +25,7 @@ The error codes listed in the following table may be returned by an operation on
 | VaultNameNotValid |  The vault name should be string of 3 to 24 characters and can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-) |
 | AccessDenied |  You may be missing permissions in access policy to do that operation. |
 | ForbiddenByFirewall |  Client address isn't authorized and caller isn't a trusted service. |
-| ConflictError |  You're requesting multiple operations on the same item, e.g., Key Vault, secret, key, certificate, or common components within a Key Vault like VNET. It's recommended to sequence operations or to implement retry logic. |
+| ConflictError |  You're requesting multiple operations on the same item, for example, Key Vault, secret, key, certificate, or common components within a Key Vault like VNET. It's recommended to sequence operations or to implement retry logic. |
 | RegionNotSupported |  Specified Azure region isn't supported for this resource. |
 | SkuNotSupported |  Specified SKU type isn't supported for this resource. |
 | ResourceNotFound |  Specified Azure resource isn't found. |

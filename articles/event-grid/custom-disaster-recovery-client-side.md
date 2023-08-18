@@ -1,95 +1,48 @@
 ---
-title: Build your own client-side disaster recovery for Azure Event Grid topics
-description: This article describes how you can build your own client-side disaster recovery for Azure Event Grid topics. 
+title: Build your own client-side failover implementation in Azure Event Grid
+description: This article describes how to build your own client-side failover implementation in Azure Event Grid resources. 
 ms.topic: tutorial
-ms.date: 06/14/2022
+ms.date: 05/02/2023
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, build-2023
 ---
 
-# Build your own client-side disaster recovery for Azure Event Grid topics
+# Client-side failover implementation in Azure Event Grid
 
-Disaster recovery focuses on recovering from a severe loss of application functionality. This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a particular region.
+Disaster recovery typically involves creating a backup resource to prevent interruptions when a region becomes unhealthy. During this process a primary and secondary region of Azure Event Grid resources will be needed in your workload.
 
-In this tutorial, you'll learn how to create an active-passive failover architecture for custom topics in Event Grid. You'll accomplish failover by mirroring your topics and subscriptions across two regions and then managing a failover when a topic becomes unhealthy. The architecture in this tutorial fails over all new traffic. it's important to be aware, with this setup, events already in flight won't be recovered until the compromised region is healthy again.
+There are different ways to recover from a severe loss of application functionality. In this article we're going to describe the checklist you'll need to follow to prepare your client to recover from a failure due to an unhealthy resource or region.
 
-> [!NOTE]
-> Event Grid supports automatic geo disaster recovery (GeoDR) on the server side now. You can still implement client-side disaster recovery logic if you want a greater control on the failover process. For details about automatic GeoDR, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md).
+Event Grid supports manual and automatic geo disaster recovery (GeoDR) on the server side. You can still implement client-side disaster recovery logic if you want a greater control on the failover process. For details about automatic GeoDR, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md).
 
-## Create a message endpoint
+The following table illustrates the client-side failover and geo disaster recovery support in Event Grid.
 
-To test your failover configuration, you'll need an endpoint to receive your events at. The endpoint isn't part of your failover infrastructure, but will act as our event handler to make it easier to test.
-
-To simplify testing, deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
-
-1. [Deploy the solution](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json) to your subscription. In the Azure portal, provide values for the parameters.
-1. The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
-`https://<your-site-name>.azurewebsites.net`
-Make sure to note this URL as you'll need it later.
-
-1. You see the site but no events have been posted to it yet.
-
-   ![Screenshot showing your web site with no events.](./media/blob-event-quickstart-portal/view-site.png)
-
-[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
+| Event Grid resource | Client-side failover support              | Geo disaster recovery (GeoDR) support |
+|---------------------|-------------------------------------------|---------------------------------------|
+| Custom Topics       | Supported                                 | Cross-Geo / Regional                  |
+| System Topics       | Not supported                             | Enabled automatically                 |
+| Domains             | Supported                                 | Cross-Geo / Regional                  |
+| Partner Namespaces  | Supported                                 | Not supported                         |
+| Namespaces          | Supported                                 | Not supported                         |
 
 
-## Create primary and secondary topics
+[!INCLUDE [mqtt-pull-preview-note](./includes/mqtt-pull-preview-note.md)]
 
-First, create two Event Grid topics. These topics will act as primary and secondary topics. By default, your events will flow through the primary topic. If there is a service outage in the primary region, your secondary will take over.
+## Client-side failover considerations
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Create and configure your **primary** Event Grid resource.
+2. Create and configure your **secondary** Event Grid resource.
+3. Keep in mind both resources must have the same configuration, subresources and capabilities enabled.
+4. Event Grid resources must be hosted in different regions.
+5. If the Event Grid resource has dependant resources like a storage resource for dead-lettering you should use the same region used in the secondary Event Grid resource.
+6. Ensure your endpoints are regularly tests to provide warranty your recovery plan resources are in place and functioning correctly.
 
-1. From the upper left corner of the main Azure menu, 
-   choose **All services** > search for **Event Grid** > select **Event Grid topics**.
+## Basic client-side failover implementation sample for custom topics
 
-   ![Screenshot showing the Event Grid topics menu.](./media/custom-disaster-recovery/select-topics-menu.png)
-
-    Select the star next to Event Grid topics to add it to resource menu for easier access in the future.
-
-1. In the Event Grid topics Menu, select **+ADD** to create the primary topic.
-
-   * Give the topic a logical name and add "-primary" as a suffix to make it easy to track.
-   * This topic's region will be your primary region.
-
-     ![Screenshot showing the Create primary topic page.](./media/custom-disaster-recovery/create-primary-topic.png)
-
-1. Once the Topic has been created, navigate to it and copy the **Topic Endpoint**. you'll need the URI later.
-
-    ![Screenshot showing the topic endpoint.](./media/custom-disaster-recovery/get-primary-topic-endpoint.png)
-
-1. Get the access key for the topic, which you'll also need later. Click on **Access keys** in the resource menu and copy Key 1.
-
-    ![Screenshot showing the topic's access key.](./media/custom-disaster-recovery/get-primary-access-key.png)
-
-1. In the **Topic** page, click **+Event Subscription** to create a subscription connecting your subscribing the event receiver website you made in the pre-requisites to the tutorial.
-
-   * Give the event subscription a logical name and add "-primary" as a suffix to make it easy to track.
-   * Select Endpoint Type Web Hook.
-   * Set the endpoint to your event receiver's event URL, which should look something like: `https://<your-event-reciever>.azurewebsites.net/api/updates`
-
-     ![Screenshot that shows the "Create Event Subscription - Basic" page with the "Name", "Endpoint Type", and "Endpoint" values highlighted.](./media/custom-disaster-recovery/create-primary-es.png)
-
-1. Repeat the same flow to create your secondary topic and subscription. This time, replace the "-primary" suffix with "-secondary" for easier tracking. Finally, make sure you put it in a different Azure Region. While you can put it anywhere you want, it's recommended that you use the [Azure Paired Regions](../availability-zones/cross-region-replication-azure.md). Putting the secondary topic and subscription in a different region ensures that your new events will flow even if the primary region goes down.
-
-You should now have:
-
-   * An event receiver website for testing.
-   * A primary topic in your primary region.
-   * A primary event subscription connecting your primary topic to the event receiver website.
-   * A secondary topic in your secondary region.
-   * A secondary event subscription connecting your primary topic to the event receiver website.
-
-## Implement client-side failover
-
-Now that you have a regionally redundant pair of topics and subscriptions setup, you're ready to implement client-side failover. There are several ways to accomplish it, but all failover implementations will have a common feature: if one topic is no longer healthy, traffic will redirect to the other topic.
-
-### Basic client-side implementation
-
-The following sample code is a simple .NET publisher that will always attempt to publish to your primary topic first. If it doesn't succeed, it will then fail over the secondary topic. In either case, it also checks the health api of the other topic by doing a GET on `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. A healthy topic should always respond with **200 OK** when a GET is made on the **/api/health** endpoint.
+The following sample code is a simple .NET publisher that attempts to publish to your primary topic first. If it doesn't succeed, it fails over the secondary topic. In either case, it also checks the health api of the other topic by doing a GET on `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. A healthy topic should always respond with **200 OK** when a GET is made on the **/api/health** endpoint.
 
 > [!NOTE]
-> The following sample code is only for demonstration purposes and is not intended for production use. 
+> The following sample code is only for demonstration purposes and is not intended for production use.
 
 ```csharp
 using System;
@@ -177,24 +130,15 @@ namespace EventGridFailoverPublisher
 
 ### Try it out
 
-Now that you have all of your components in place, you can test out your failover implementation. Run the above sample in Visual Studio code, or your favorite environment. Replace the following four values with the endpoints and keys from your topics:
+Now that you have all of your components in place, you can test out your failover implementation.
 
-   * primaryTopic - the endpoint for your primary topic.
-   * secondaryTopic - the endpoint for your secondary topic.
-   * primaryTopicKey - the key for your primary topic.
-   * secondaryTopicKey - the key for your secondary topic.
-
-Try running the event publisher. You should see your test events land in your Event Grid viewer like below.
-
-![Screenshot showing the Event Grid Viewer app.](./media/custom-disaster-recovery/event-grid-viewer.png)
-
-To make sure your failover is working, you can change a few characters in your primary topic key to make it no longer valid. Try running the publisher again. You should still see new events appear in your Event Grid viewer, however when you look at your console, you'll see that they are now being published via the secondary topic.
+To make sure your failover is working, you can change a few characters in the primary topic key to make it no longer valid. Try running the publisher again. With the following sample events will continue flowing through Event Grid, however when you look at your client, you'll see they're now being published via the secondary topic.
 
 ### Possible extensions
 
 There are many ways to extend this sample based on your needs. For high-volume scenarios, you may want to regularly check the topic's health api independently. That way, if a topic were to go down, you don't need to check it with every single publish. Once you know a topic isn't healthy, you can default to publishing to the secondary topic.
 
-Similarly, you may want to implement failback logic based on your specific needs. If publishing to the closest data center is critical for you to reduce latency, you can periodically probe the health api of a topic that has failed over. Once it's healthy again, you'll know it's safe to failback to the closer data center.
+Similarly, you may want to implement failback logic based on your specific needs. If publishing to the closest data center is critical for you to reduce latency, you can periodically probe the health api of a topic that has failed over. Once it's healthy again, it's safe to failback to the closer data center.
 
 ## Next steps
 

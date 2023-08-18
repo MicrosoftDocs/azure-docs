@@ -1,8 +1,8 @@
 ---
 title: Import and export - Azure Database for MySQL
 description: This article explains common ways to import and export databases in Azure Database for MySQL, by using tools such as MySQL Workbench.
-author: savjani
-ms.author: pariks
+author: aditivgupta
+ms.author: adig
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
@@ -13,11 +13,13 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 This article explains two common approaches to importing and exporting data to an Azure Database for MySQL server by using MySQL Workbench.
 
 For detailed and comprehensive migration guidance, see the [migration guide resources](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide). 
 
-For other migration scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
+For other migration scenarios, see the [Database Migration Guide](/data-migration/).
 
 ## Prerequisites
 
@@ -75,9 +77,9 @@ For optimal data import and export performance, we recommend that you do the fol
 There are two ways to export and import data in MySQL Workbench: from the object browser context menu or from the Navigator pane. Each method serves a different purpose.
 
 > [!NOTE]
-> If you're adding a connection to MySQL Single Server or Flexible Server on MySQL Workbench, do the following:
+> If you're adding a connection to MySQL single server or Flexible Server on MySQL Workbench, do the following:
 >
-> - For MySQL Single Server, make sure that the user name is in the format *\<username@servername>*.
+> - For MySQL single server, make sure that the user name is in the format *\<username@servername>*.
 > - For MySQL Flexible Server, use *\<username>* only. If you use *\<username@servername>* to connect, the connection will fail.
 
 ### Run the table data export and import wizards from the object browser context menu
@@ -138,7 +140,7 @@ You can use the **Data Export** pane to export your MySQL data.
 
 You can use the **Data Import** pane to import or restore exported data from the data export operation or from the mysqldump command.
 
-1. In MySQL Workbench, on the **Navigator** pane, select **Data Export/Restore**.
+1. In MySQL Workbench, on the **Navigator** pane, select **Data Import/Restore**.
 1. Select the project folder or self-contained SQL file, select the schema to import into, or select the **New** button to define a new schema.
 1. Select **Start Import** to begin the import process.
 

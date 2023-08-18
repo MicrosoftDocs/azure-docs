@@ -4,6 +4,8 @@ description: In this article, learn how to configure, initiate, and manage backu
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up an Azure VM using Azure Backup via REST API

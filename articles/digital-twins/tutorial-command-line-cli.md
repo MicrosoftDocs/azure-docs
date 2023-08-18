@@ -1,5 +1,4 @@
 ---
-# Mandatory fields.
 title: 'Tutorial: Create a graph in Azure Digital Twins (CLI)'
 titleSuffix: Azure Digital Twins
 description: Tutorial that shows how to build an Azure Digital Twins scenario using the Azure CLI
@@ -8,10 +7,10 @@ ms.author: baanders # Microsoft employees only
 ms.date: 02/25/2022
 ms.topic: tutorial
 ms.service: digital-twins
+ms.custom: devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
@@ -44,7 +43,7 @@ The tutorial uses two pre-written models that are part of the C# [end-to-end sam
 
 To get the files on your machine, use the navigation links above and copy the file bodies into local files on your machine with the same names (*Room.json* and *Floor.json*).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 [!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
 

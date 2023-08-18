@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Workday writeback in Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Workday writeback in Azure Active Directory'
 description: Learn how to configure attribute writeback from Azure AD to Workday
 services: active-directory
 author: cmmdesai
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/14/2020
+ms.date: 11/21/2022
 ms.author: chmutali
 ---
 # Tutorial: Configure attribute writeback from Azure AD to Workday
@@ -46,7 +46,7 @@ Follow these instructions to configure writeback of user email addresses and use
 
 **To configure Workday Writeback connector:**
 
-1. Go to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the Azure portal, search for and select **Azure Active Directory**.
 
@@ -62,8 +62,7 @@ Follow these instructions to configure writeback of user email addresses and use
 
 8. Complete the **Admin Credentials** section as follows:
 
-   * **Admin Username** – Enter the username of the Workday integration system account, with the tenant domain name
-        appended. Should look something like: *username\@contoso4*
+   * **Admin Username** – Enter the username of the Workday integration system account, with the tenant domain name appended. Should look something like: *username\@contoso4*
 
    * **Admin password –** Enter the password of the Workday integration system account
 
@@ -73,8 +72,7 @@ Follow these instructions to configure writeback of user email addresses and use
 
    * **Notification Email –** Enter your email address, and check the  "send email if failure occurs" checkbox.
 
-   * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at
-        the top. If it fails, double-check that the Workday URL and credentials are valid in Workday.
+   * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at the top. If it fails, double-check that the Workday URL and credentials are valid in Workday.
 
 ### Part 2: Configure writeback attribute mappings
 
@@ -145,7 +143,7 @@ If you want to delay the UserID or Email writeback so that it happens on or afte
       The expression above uses the [DateDiff](../app-provisioning/functions-for-customizing-application-data.md#datediff) function to evaluate the difference between *employeeHireDate* and today's date in UTC obtained using [Now](../app-provisioning/functions-for-customizing-application-data.md#now) function. If *employeeHireDate* is greater than or equal to today's date, then it updates the UserID. Else it returns an empty value and the [IgnoreFlowIfNullOrEmpty](../app-provisioning/functions-for-customizing-application-data.md#ignoreflowifnullorempty) function excludes this attribute from Writeback.
 
 > [!IMPORTANT]
-> For the delayed Writeback to work as expected, an operation in on-premises AD or Azure AD must trigger a change to the user just a day before the arrival or on the hire date, so that this user's profile is updated and is considered for Writeback.
+> For the delayed Writeback to work as expected, an operation in on-premises AD or Azure AD must trigger a change to the user just a day before the arrival or on the hire date, so that this user's profile is updated and is considered for Writeback. It must be a change, that updates an attribute value on the user profile, where the new attribute value is different from the old attribute value. 
 
 
 ### Handling phone number with country code and phone number
@@ -330,4 +328,3 @@ Once the Workday provisioning app configurations have been completed, you can tu
 * [Learn how to configure single sign-on between Workday and Azure Active Directory](workday-tutorial.md)
 * [Learn how to integrate other SaaS applications with Azure Active Directory](tutorial-list.md)
 * [Learn how to export and import your provisioning configurations](../app-provisioning/export-import-provisioning-configuration.md)
-

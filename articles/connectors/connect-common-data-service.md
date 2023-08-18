@@ -5,23 +5,25 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, estfan, azla
 ms.topic: how-to
-ms.date: 08/05/2022
+ms.date: 04/17/2023
+ms.custom: engagement-fy23
 tags: connectors
 ---
 
 # Connect to Microsoft Dataverse (previously Common Data Service) from workflows in Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
 > [!IMPORTANT]
 >
 > On August 30, 2022, the connector operations for Common Data Service 2.0, also known as Microsoft Dataverse 
-> (Legacy), migrate to the current Microsoft Dataverse connector. You can use the current Dataverse connector 
-> in any existing or new logic app workflows. For backward compatibility, existing workflows continue to work 
+> (Legacy), migrate to the current Microsoft Dataverse connector. Legacy operations bear the "legacy" label, 
+> while current operations bear the "preview" label. You can use the current Dataverse connector in any 
+> existing or new logic app workflows. For backward compatibility, existing workflows continue to work 
 > with the legacy Dataverse connector. However, make sure to review these workflows, and update them promptly.
 >
 > Starting October 2023, the legacy version becomes unavailable for new workflows. Existing workflows continue 
-> to work, but you *must* use the current Dataverse connector for new workflows. Starting October 31, 2023, 
-> *all* workflows must use the current Dataverse connector. Any existing workflows that still use the legacy 
-> version will stop working.
+> to work, but you *must* use the current Dataverse connector for new workflows. At that time, a timeline for the shutdown date for the legacy actions and triggers will be announced.
 >
 > Since November 2020, the Common Data Service connector was renamed Microsoft Dataverse (Legacy).
 
@@ -39,15 +41,15 @@ For technical information based on the connector's Swagger description, such as 
 
 * A [Dataverse Data Service environment and database](/power-platform/admin/environments-overview), which is a space where your organization stores, manages, and shares business data in a Dataverse database. For more information, review the following resources:
 
-  * [Learn: Create and manage Dataverse environments](/learn/modules/create-manage-environments/)
+  * [Learn: Create and manage Dataverse environments](/training/modules/create-manage-environments/)
 
   * [Power Platform - Environments overview](/power-platform/admin/environments-overview)
 
 * Basic knowledge about how to create either Consumption or Standard logic app workflows and the logic app from where you want to access the rows in your Dataverse database. To start your logic app with a Common Data Service trigger, you need a blank workflow. For more information, review the following resources:
 
-  * [Create your first Consumption logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+  * [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md)
 
-  * [Create a Standard logic app workflow](../logic-apps/create-single-tenant-workflows-azure-portal.md)
+  * [Create an example Standard logic app workflow](../logic-apps/create-single-tenant-workflows-azure-portal.md)
 
 ## Add a Dataverse trigger
 
@@ -315,5 +317,6 @@ To stop unwanted notifications, delete the `callbackregistrations` entity from t
 
 ## Next steps
 
-* [Managed connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
-* [Connector overview for Azure Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](managed.md)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)

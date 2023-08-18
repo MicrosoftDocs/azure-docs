@@ -1,11 +1,11 @@
 ---
 title: Connect to Azure Government with PowerShell
-description: Information on connecting to your subscription in Azure Government with PowerShell
+description: Information on connecting to your subscription in Azure Government with PowerShell.
 ms.service: azure-government
 ms.topic: quickstart
 ms.workload: azure-government
-ms.custom: devx-track-azurepowershell, mode-api
-ms.date: 12/07/2021
+ms.custom: mode-api
+ms.date: 01/18/2023
 ---
 
 # Quickstart: Connect to Azure Government with PowerShell
@@ -22,19 +22,19 @@ This quickstart shows how to use PowerShell to access and start managing resourc
 
 ## Prerequisites
 
-- Review [Guidance for developers](./documentation-government-developer-guide.md).<br/> This article discusses Azure Government's unique URLs and endpoints for managing your environment. You must know about these endpoints in order to connect to Azure Government. 
+- Review [Guidance for developers](./documentation-government-developer-guide.md), which discusses Azure Government's unique URLs and endpoints for managing your environment. You must know about these endpoints in order to connect to Azure Government.
 - Review [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md) and click on a service of interest to see variations between Azure Government and global Azure.
 
 ## Install PowerShell
 
-Install PowerShell on your local machine. For more information, including how to check your PowerShell version, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+Install PowerShell on your local machine. For more information, including how to check your PowerShell version, see [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
 ## Specifying Azure Government as the *environment* to connect to
 
 When you start PowerShell, you have to tell Azure PowerShell to connect to Azure Government by specifying an environment parameter. The parameter ensures that PowerShell is connecting to the correct endpoints. The collection of endpoints is determined when you log in to your account. Different APIs require different versions of the environment switch.
 
 ```powershell
-Connect-AzAccount -EnvironmentName AzureUSGovernment
+Connect-AzAccount -Environment AzureUSGovernment
 ```
 
 </br>
@@ -72,3 +72,15 @@ This quickstart showed you how to use PowerShell to connect to Azure Government.
 
 > [!div class="nextstepaction"]
 > [Azure documentation](../index.yml)
+
+For more information about Azure Government, see the following resources:
+
+- [Azure Government overview](./documentation-government-welcome.md)
+- [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md)
+- [Azure Government security](./documentation-government-plan-security.md)
+- [Azure Government compliance](./documentation-government-plan-compliance.md)
+- [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope)
+- [Azure Government DoD overview](./documentation-government-overview-dod.md)
+- [FedRAMP – Azure compliance](/azure/compliance/offerings/offering-fedramp)
+- [DoD Impact Level 5 – Azure compliance](/azure/compliance/offerings/offering-dod-il5)
+- [Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md)

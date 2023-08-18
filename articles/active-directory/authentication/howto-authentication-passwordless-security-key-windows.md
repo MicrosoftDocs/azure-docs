@@ -1,12 +1,12 @@
 ---
-title: Passwordless security key sign-in Windows - Azure Active Directory
+title: Passwordless security key sign-in Windows
 description: Learn how to enable passwordless security key sign-in to Azure Active Directory using FIDO2 security keys 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/06/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -27,11 +27,11 @@ This document focuses on enabling FIDO2 security key based passwordless authenti
 | [Combined security information registration](concept-registration-mfa-sspr-combined.md) | X | X |
 | Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | WebAuthN requires Windows 10 version 1903 or higher | X | X |
-| [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1909 or higher | X |   |
-| [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) require Windows 10 version 2004 or higher |   | X |
+| [Azure AD joined devices](../devices/concept-directory-join.md) require Windows 10 version 1909 or higher | X |   |
+| [Hybrid Azure AD joined devices](../devices/concept-hybrid-join.md) require Windows 10 version 2004 or higher |   | X |
 | Fully patched Windows Server 2016/2019 Domain Controllers. |   | X |
 | [Azure AD Hybrid Authentication Management module](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement/2.1.1.0) |   | X |
-| [Microsoft Endpoint Manager](/intune/fundamentals/what-is-intune) (Optional) | X | X |
+| [Microsoft Intune](/intune/fundamentals/what-is-intune) (Optional) | X | X |
 | Provisioning package (Optional) | X | X |
 | Group Policy (Optional) |   | X |
 
@@ -58,8 +58,8 @@ Hybrid Azure AD joined devices must run Windows 10 version 2004 or newer.
 
 Organizations may choose to use one or more of the following methods to enable the use of security keys for Windows sign-in based on their organization's requirements:
 
-- [Enable with Endpoint Manager](#enable-with-endpoint-manager)
-- [Targeted Endpoint Manager deployment](#targeted-endpoint-manager-deployment)
+- [Enable with Microsoft Intune](#enable-with-microsoft-intune)
+- [Targeted Microsoft Intune deployment](#targeted-intune-deployment)
 - [Enable with a provisioning package](#enable-with-a-provisioning-package)
 - [Enable with Group Policy (Hybrid Azure AD joined devices only)](#enable-with-group-policy)
 
@@ -68,21 +68,24 @@ Organizations may choose to use one or more of the following methods to enable t
 >
 > Organizations with **Azure AD joined devices** must do this before their devices can authenticate to on-premises resources with FIDO2 security keys.
 
-### Enable with Endpoint Manager
+### Enable with Microsoft Intune
 
-To enable the use of security keys using Endpoint Manager, complete the following steps:
+To enable the use of security keys using Intune, complete the following steps:
 
-1. Sign in to the [Microsoft Endpoint Manager admin center](https://endpoint.microsoft.com).
+1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com).
 1. Browse to **Devices** > **Enroll Devices** > **Windows enrollment** > **Windows Hello for Business**.
 1. Set **Use security keys for sign-in** to **Enabled**.
 
 Configuration of security keys for sign-in isn't dependent on configuring Windows Hello for Business.
 
-### Targeted Endpoint Manager deployment
+> [!NOTE]
+> This will not enable security keys on already provisioned devices. In that case use the next method (Targeted Intune deployment)
 
-To target specific device groups to enable the credential provider, use the following custom settings via Endpoint Manager:
+### Targeted Intune deployment
 
-1. Sign in to the [Microsoft Endpoint Manager admin center](https://endpoint.microsoft.com).
+To target specific device groups to enable the credential provider, use the following custom settings via Intune:
+
+1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com).
 1. Browse to **Devices** > **Windows** > **Configuration profiles** > **Create profile**.
 1. Configure the new profile with the following settings:
    - Platform: Windows 10 and later
@@ -95,11 +98,11 @@ To target specific device groups to enable the credential provider, use the foll
       - OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       - Data Type: Integer
       - Value: 1
-1. The remainder of the policy settings include assigning to specific users, devices, or groups. For more information, see [Assign user and device profiles in Microsoft Endpoint Manager](/intune/device-profile-assign).
+1. The remainder of the policy settings include assigning to specific users, devices, or groups. For more information, see [Assign user and device profiles in Microsoft Intune](/intune/device-profile-assign).
 
 ### Enable with a provisioning package
 
-For devices not managed by Microsoft Endpoint Manager, a provisioning package can be installed to enable the functionality. The Windows Configuration Designer app can be installed from the [Microsoft Store](https://www.microsoft.com/p/windows-configuration-designer/9nblggh4tx22). Complete the following steps to create a provisioning package:
+For devices not managed by Microsoft Intune, a provisioning package can be installed to enable the functionality. The Windows Configuration Designer app can be installed from the [Microsoft Store](https://www.microsoft.com/p/windows-configuration-designer/9nblggh4tx22). Complete the following steps to create a provisioning package:
 
 1. Launch the Windows Configuration Designer.
 1. Select **File** > **New project**.

@@ -2,7 +2,9 @@
 title: Tutorial - Create geo-replicated registry
 description: Create an Azure container registry, configure geo-replication, prepare a Docker image, and deploy it to the registry. Part one of a three-part series.
 ms.topic: tutorial
-ms.date: 06/30/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: "seodec18, mvc"
 ---
 

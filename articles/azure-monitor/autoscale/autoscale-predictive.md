@@ -1,17 +1,17 @@
 ---
-title: Use predictive autoscale to scale out before load demands in virtual machine scale sets (preview)
+title: Use predictive autoscale to scale out before load demands in virtual machine scale sets
 description: This article provides information on the new predictive autoscale feature in Azure Monitor.
 ms.topic: conceptual
 author: EdB-MSFT
 ms.author: edbaynash
 ms.subservice: autoscale
-ms.date: 07/18/2022
-ms.custom: references_regions
-ms.reviewer: riroloff
+ms.date: 10/12/2022
+ms.custom: references_regions, devx-track-arm-template
+ms.reviewer: akkumari
 ---
-# Use predictive autoscale to scale out before load demands in virtual machine scale sets (preview)
+# Use predictive autoscale to scale out before load demands in virtual machine scale sets
 
-*Predictive autoscale* uses machine learning to help manage and scale Azure Virtual Machine Scale Sets with cyclical workload patterns. It forecasts the overall CPU load to your virtual machine scale set, based on your historical CPU usage patterns. It predicts the overall CPU load by observing and learning from historical usage. This process ensures that scale-out occurs in time to meet the demand.
+Predictive autoscale uses machine learning to help manage and scale Azure Virtual Machine Scale Sets with cyclical workload patterns. It forecasts the overall CPU load to your virtual machine scale set, based on your historical CPU usage patterns. It predicts the overall CPU load by observing and learning from historical usage. This process ensures that scale-out occurs in time to meet the demand.
 
 Predictive autoscale needs a minimum of 7 days of history to provide predictions. The most accurate results come from 15 days of historical data.
 
@@ -19,19 +19,14 @@ Predictive autoscale adheres to the scaling boundaries you've set for your virtu
 
 *Forecast only* allows you to view your predicted CPU forecast without triggering the scaling action based on the prediction. You can then compare the forecast with your actual workload patterns to build confidence in the prediction models before you enable the predictive autoscale feature.
 
-## Public preview support and limitations
+## Predictive autoscale offerings
 
->[!NOTE]
-> This release is a public preview. We're testing and gathering feedback for future releases. As such, we do not provide production-level support for this feature. Support is best effort. Send feature suggestions or feedback on predicative autoscale to predautoscalesupport@microsoft.com.
+- Predictive autoscale is for workloads exhibiting cyclical CPU usage patterns.
+- Support is only available for virtual machine scale sets.
+- The *Percentage CPU* metric with the aggregation type *Average* is the only metric currently supported.
+- Predictive autoscale supports scale-out only. Configure standard autoscale to manage scaling in.
+- Predictive autoscale is only available for the Azure Commercial cloud. Azure Government clouds are not currently supported.
 
-The following limitations apply during public preview. Predictive autoscale:
-
-- Only works for workloads exhibiting cyclical CPU usage patterns.
-- Only can be enabled for virtual machine scale sets.
-- Only supports using the metric *Percentage CPU* with the aggregation type *Average*.
-- Only supports scale-out. You can't use predictive autoscale to scale in.
-
-You must enable standard (or reactive) autoscale to manage scale-in.
 
 ## Enable predictive autoscale or forecast only with the Azure portal
 
@@ -51,7 +46,7 @@ You must enable standard (or reactive) autoscale to manage scale-in.
    > [!NOTE]
    > Before you can enable predictive autoscale or forecast-only mode, you must set up the standard reactive autoscale conditions.
 
-1. To enable forecast-only mode, select it from the dropdown. Define a scale-up trigger based on *Percentage CPU*. Then select **Save**. The same process applies to enable predictive autoscale. To disable predictive autoscale or forecast-only mode, select **Disable** from the dropdown.
+1. To enable forecast-only mode, select it from the dropdown. Define a scale-out trigger based on *Percentage CPU*. Then select **Save**. The same process applies to enable predictive autoscale. To disable predictive autoscale or forecast-only mode, select **Disable** from the dropdown.
 
    :::image type="content" source="media/autoscale-predictive/enable-forecast-only-mode-3.png" alt-text="Screenshot that shows enabling forecast-only mode.":::
 
@@ -67,9 +62,9 @@ You must enable standard (or reactive) autoscale to manage scale-in.
 
     :::image type="content" source="media/autoscale-predictive/predictive-charts-6.png" alt-text="Screenshot that shows three charts for predictive autoscale." lightbox="media/autoscale-predictive/predictive-charts-6.png":::
 
-   - The top chart shows an overlaid comparison of actual versus predicted total CPU percentage. The time span of the graph shown is from the last 24 hours to the next 24 hours.
-   - The middle chart shows the number of instances running at specific times over the last 24 hours.
-   - The bottom chart shows the current Average CPU utilization over the last 24 hours.
+   - The top chart shows an overlaid comparison of actual versus predicted total CPU percentage. The time span of the graph shown is from the last 7 days to the next 24 hours.
+   - The middle chart shows the maximum number of instances running over the last 7 days.
+   - The bottom chart shows the current Average CPU utilization over the last 7 days.
 
 ## Enable using an Azure Resource Manager template
 
@@ -173,7 +168,7 @@ PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment 
 	"resources": [{
 			"type": "Microsoft.Insights/autoscalesettings",
 			"name": "cpuPredictiveAutoscale",
-			"apiVersion": "2015-04-01",
+			"apiVersion": "2022-10-01",
 			"location": "[parameters('location')]",
 			"properties": {
 				"profiles": [{
@@ -248,7 +243,7 @@ PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment 
 }
 ```
 
-**autoscale-only-parameters.json**
+**autoscale_only_parameters.json**
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -296,9 +291,9 @@ PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment 
 
 For more information on Azure Resource Manager templates, see [Resource Manager template overview](../../azure-resource-manager/templates/overview.md).
 
-## Common questions
+## Frequently asked questions
 
-This section answers common questions.
+This section answers frequently asked questions.
 
 ### Why is CPU percentage over 100 percent on predictive charts?
 The predictive chart shows the cumulative load for all machines in the scale set. If you have 5 VMs in a scale set, the maximum cumulative load for all VMs will be 500%, that is, five times the 100% maximum CPU load of each VM. 
@@ -330,7 +325,7 @@ This section addresses common errors and warnings.
 
 You receive the following error message:
 
-   *Predictive autoscale is based on the metric percentage CPU of the current resource. Choose this metric in the scale up trigger rules*.
+   *To enable predictive autoscale, create a scale out rule based on 'Percentage CPU' metric. Click here to go to the 'Configure' tab to set an autoscale rule.*
 
 :::image type="content" source="media/autoscale-predictive/error-not-enabled.png" alt-text="Screenshot that shows error message predictive autoscale is based on the metric percentage CPU of the current resource.":::
 

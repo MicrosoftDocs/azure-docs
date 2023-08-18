@@ -1,17 +1,17 @@
 ---
-title: Connect to Azure Analysis Services with Power BI | Microsoft Docs
+title: Learn how to connect to Azure Analysis Services with Power BI | Microsoft Docs
 description: Learn how to connect to an Azure Analysis Services server by using Power BI. Once connected, users can explore model data.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 01/24/2023
 ms.author: owend
 ms.reviewer: minewiskan
 
 ---
 # Connect with Power BI
 
-Once you've created a server in Azure, and deployed a tabular model to it, users in your organization are ready to connect and begin exploring data. 
+After you've created a server in Azure and deployed a tabular model to it, users in your organization are ready to connect and begin exploring data. 
 
 > [!NOTE]
 > If publishing a Power BI Desktop model to the Power BI service, on the Azure Analysis Services server, ensure the Case-Sensitive collation server property is not selected (default). The Case-Sensitive server property can be set by using SQL Server Management Studio.
@@ -34,7 +34,7 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 
 5. When prompted to enter your credentials, select **Microsoft account**, and then click **Sign in**. 
 
-    :::image type="content" source="media/analysis-services-connect-pbi/aas-sign-in.png" alt-text="Sign in to Azure AS":::
+    :::image type="content" source="media/analysis-services-connect-pbi/aas-sign-in.png" alt-text="Screenshot showing Sign in to Azure Analysis Services.":::
 
    > [!NOTE]
    > Windows and Basic authentication are not supported. 

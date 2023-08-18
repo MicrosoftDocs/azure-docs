@@ -7,8 +7,6 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/24/2022
 ms.author: cynthn 
-ms.custom: devx-track-azurepowershell
-
 ---
 # How to connect using Remote Desktop and sign on to an Azure virtual machine running Windows
 

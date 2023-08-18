@@ -1,15 +1,15 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure App Service
 description: Lists Azure Policy Regulatory Compliance controls available for Azure App Service. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 08/29/2022
+ms.date: 08/03/2023
 ms.topic: sample
 ms.service: app-service
-ms.custom: subject-policy-compliancecontrols
+ms.custom: "UpdateFrequency3, subject-policy-compliancecontrols"
 ---
 # Azure Policy Regulatory Compliance controls for Azure App Service
 
 [Regulatory Compliance in Azure Policy](../governance/policy/concepts/regulatory-compliance.md)
-provides Microsoft created and managed initiative definitions, known as _built-ins_, for the
+provides Microsoft created and managed initiative definitions, known as *built-ins*, for the
 **compliance domains** and **security controls** related to different compliance standards. This
 page lists the **compliance domains** and **security controls** for Azure App Service. You can
 assign the built-ins for a **security control** individually to help make your Azure resources
@@ -21,7 +21,163 @@ compliant with the specific standard.
 
 ## Release notes
 
+### April 2023
+
+- **App Service apps that use Java should use the latest 'Java version'**
+  - Rename of policy to "App Service apps that use Java should use a specified 'Java version'"
+  - Update policy so that it requires a version specification before assignment
+- **App Service apps that use Python should use the latest 'Python version'**
+  - Rename of policy to "App Service apps that use Python should use a specified 'Python version'"
+  - Update policy so that it requires a version specification before assignment
+- **Function apps that use Java should use the latest 'Java version'**
+  - Rename of policy to "Function apps that use Java should use a specified 'Java version'"
+  - Update policy so that it requires a version specification before assignment
+- **Function apps that use Python should use the latest 'Python version'**
+  - Rename of policy to "Function apps that use Python should use a specified 'Python version'"
+  - Update policy so that it requires a version specification before assignment
+- **App Service apps that use PHP should use the latest 'PHP version'**
+  - Rename of policy to "App Service apps that use PHP should use a specified 'PHP version'"
+  - Update policy so that it requires a version specification before assignment
+- **App Service app slots that use Python should use a specified 'Python version'**
+  - New policy created
+- **Function app slots that use Python should use a specified 'Python version'**
+  - New policy created
+- **App Service app slots that use PHP should use a specified 'PHP version'**
+  - New policy created
+- **App Service app slots that use Java should use a specified 'Java version'**
+  - New policy created
+- **Function app slots that use Java should use a specified 'Java version'**
+  - New policy created
+
+### November 2022
+
+- Deprecation of policy **App Service apps should enable outbound non-RFC 1918 traffic to Azure Virtual Network**
+  - Replaced by a policy with the same display name based on the site property to support *Deny* effect
+- Deprecation of policy **App Service app slots should enable outbound non-RFC 1918 traffic to Azure Virtual Network**
+  - Replaced by a policy with the same display name based on the site property to support *Deny* effect
+- **App Service apps should enable outbound non-RFC 1918 traffic to Azure Virtual Network**
+  - New policy created
+- **App Service app slots should enable outbound non-RFC 1918 traffic to Azure Virtual Network**
+  - New policy created
+- **App Service apps should enable configuration routing to Azure Virtual Network**
+  - New policy created
+- **App Service app slots should enable configuration routing to Azure Virtual Network**
+  - New policy created
+
+### October 2022
+
+- **Function app slots should have remote debugging turned off**
+  - New policy created
+- **App Service app slots should have remote debugging turned off**
+  - New policy created
+- **Function app slots should use latest 'HTTP Version'**
+  - New policy created
+- **Function app slots should use the latest TLS version**
+  - New policy created
+- **App Service app slots should use the latest TLS version**
+  - New policy created
+- **App Service app slots should have resource logs enabled**
+  - New policy created
+- **App Service app slots should enable outbound non-RFC 1918 traffic to Azure Virtual Network**
+  - New policy created
+- **App Service app slots should use managed identity**
+  - New policy created
+- **App Service app slots should use latest 'HTTP Version'**
+  - New policy created
+- Deprecation of policy **Configure App Services to disable public network access**
+  - Replaced by "Configure App Service apps to disable public network access"
+- Deprecation of policy **App Services should disable public network access**
+  - Replaced by "App Service apps should disable public network access" to support *Deny* effect
+- **App Service apps should disable public network access**
+  - New policy created
+- **App Service app slots should disable public network access**
+  - New policy created
+- **Configure App Service apps to disable public network access**
+  - New policy created
+- **Configure App Service app slots to disable public network access**
+  - New policy created
+- **Function apps should disable public network access**
+  - New policy created
+- **Function app slots should disable public network access**
+  - New policy created
+- **Configure Function apps to disable public network access**
+  - New policy created
+- **Configure Function app slots to disable public network access**
+  - New policy created
+- **Configure App Service app slots to turn off remote debugging**
+  - New policy created
+- **Configure Function app slots to turn off remote debugging**
+  - New policy created
+- **Configure App Service app slots to use the latest TLS version**
+  - New policy created
+- **Configure Function app slots to use the latest TLS version**
+  - New policy created
+- **App Service apps should use latest 'HTTP Version'**
+  - Update scope to include Windows apps
+- **Function apps should use latest 'HTTP Version'**
+  - Update scope to include Windows apps
+- **App Service Environment apps should not be reachable over public internet**
+  - Modify policy definition to remove check on API version
+
+### September 2022
+
+- **App Service apps should be injected into a virtual network**
+  - Update scope of policy to remove slots
+    - Creation of "App Service app slots should be injected into a virtual network" to monitor slots
+- **App Service app slots should be injected into a virtual network**
+  - New policy created
+- **Function apps should have 'Client Certificates (Incoming client certificates)' enabled**
+  - Update scope of policy to remove slots
+    - Creation of "Function app slots should have 'Client Certificates (Incoming client certificates)' enabled" to monitor slots
+- **Function app slots should have 'Client Certificates (Incoming client certificates)' enabled**
+  - New policy created
+- **Function apps should use an Azure file share for its content directory**
+  - Update scope of policy to remove slots
+    - Creation of "Function app slots should use an Azure file share for its content directory" to monitor slots
+- **Function app slots should use an Azure file share for its content directory**
+  - New policy created
+- **App Service apps should have 'Client Certificates (Incoming client certificates)' enabled**
+  - Update scope of policy to remove slots
+    - Creation of "App Service app slots should have 'Client Certificates (Incoming client certificates)' enabled" to monitor slots
+- **App Service app slots should have 'Client Certificates (Incoming client certificates)' enabled**
+  - New policy created
+- **App Service apps should use an Azure file share for its content directory**
+  - Update scope of policy to remove slots
+    - Creation of "App Service app slots should use an Azure file share for its content directory" to monitor slots
+- **App Service app slots should use an Azure file share for its content directory**
+  - New policy created 
+- **Function app slots should require FTPS only**
+  - New policy created
+- **App Service app slots should require FTPS only**
+  - New policy created
+- **Function app slots should not have CORS configured to allow every resource to access your apps**
+  - New policy created
+- **App Service app slots should not have CORS configured to allow every resource to access your app**
+  - New policy created
+- **Function apps should only be accessible over HTTPS**
+  - Update scope of policy to remove slots
+    - Creation of "Function app slots should only be accessible over HTTPS" to monitor slots
+  - Add "Deny" effect
+  - Creation of "Configure Function apps to only be accessible over HTTPS" for enforcement of policy
+- **Function app slots should only be accessible over HTTPS**
+  - New policy created
+- **Configure Function apps to only be accessible over HTTPS**
+  - New policy created
+- **Configure Function app slots to only be accessible over HTTPS**
+  - New policy created
+- **App Service apps should use a SKU that supports private link**
+  - Update list of supported SKUs of policy to include the Workflow Standard tier for Logic Apps
+- **Configure App Service apps to use the latest TLS version**
+  - New policy created
+- **Configure Function apps to use the latest TLS version**
+  - New policy created
+- **Configure App Service apps to turn off remote debugging**
+  - New policy created
+- **Configure Function apps to turn off remote debugging**
+  - New policy created
+
 ### August 2022
+
 - **App Service apps should only be accessible over HTTPS**
   - Update scope of policy to remove slots
     - Creation of "App Service app slots should only be accessible over HTTPS" to monitor slots

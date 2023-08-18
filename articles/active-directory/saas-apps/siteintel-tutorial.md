@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SiteIntel | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SiteIntel'
 description: Learn how to configure single sign-on between Azure Active Directory and SiteIntel.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/02/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -35,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * SiteIntel supports SP-initiated and IdP-initiated SSO.
-* After you configure SiteIntel, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+* After you configure SiteIntel, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
 
 ## Add SiteIntel from the gallery
 
@@ -47,6 +47,8 @@ To configure the integration of SiteIntel into Azure AD, you need to add SiteInt
 1. To add a new application, select **New application**.
 1. In the **Add from the gallery** box, enter **SiteIntel**.
 1. In the results list, select **SiteIntel**, and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD single sign-on for SiteIntel
 
@@ -152,7 +154,6 @@ When you select the **SiteIntel** tile in the Access Panel, you should be automa
 
 - [List of tutorials about how to integrate SaaS apps with Azure Active Directory ](./tutorial-list.md)
 - [What are application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-- [Try SiteIntel with Azure AD](https://aad.portal.azure.com/)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 - [How to protect SiteIntel with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

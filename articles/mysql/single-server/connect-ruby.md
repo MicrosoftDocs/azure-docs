@@ -3,19 +3,21 @@ title: 'Quickstart: Connect using Ruby - Azure Database for MySQL'
 description: This quickstart provides several Ruby code samples you can use to connect and query data from Azure Database for MySQL.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.devlang: ruby
 ms.topic: quickstart
-ms.custom: mvc, mode-other
-ms.date: 06/20/2022
+ms.custom: mvc, mode-other, devx-track-linux
+ms.date: 05/03/2023
 ---
 
 # Quickstart: Use Ruby to connect and query data in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-This quickstart demonstrates how to connect to an Azure Database for MySQL using a [Ruby](https://www.ruby-lang.org) application and the [mysql2](https://rubygems.org/gems/mysql2) gem from Windows, Ubuntu Linux, and Mac platforms. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with development using Ruby and that you are new to working with Azure Database for MySQL.
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
+This quickstart demonstrates how to connect to an Azure Database for MySQL using a [Ruby](https://www.ruby-lang.org) application and the [mysql2](https://rubygems.org/gems/mysql2) gem from Windows, Linux, and Mac platforms. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with development using Ruby and that you are new to working with Azure Database for MySQL.
 
 ## Prerequisites
 
@@ -31,7 +33,7 @@ This quickstart uses the resources created in either of these guides as a starti
 
 Install Ruby, Gem, and the MySQL2 library on your own computer.
 
-### Windows
+### [Windows](#tab/windows)
 
 1. Download and Install the 2.3 version of [Ruby](https://rubyinstaller.org/downloads/).
 2. Launch a new command prompt (cmd) from the Start menu.
@@ -40,14 +42,14 @@ Install Ruby, Gem, and the MySQL2 library on your own computer.
 5. Test the Gem installation by running the command `gem -v` to see the version installed.
 6. Build the Mysql2 module for Ruby using Gem by running the command `gem install mysql2`.
 
-### macOS
+### [macOS](#tab/macos)
 
 1. Install Ruby using Homebrew by running the command `brew install ruby`. For more installation options, see the Ruby [installation documentation](https://www.ruby-lang.org/en/documentation/installation/#homebrew).
 2. Test the Ruby installation by running the command `ruby -v` to see the version installed.
 3. Test the Gem installation by running the command `gem -v` to see the version installed.
 4. Build the Mysql2 module for Ruby using Gem by running the command `gem install mysql2`.
 
-### Linux (Ubuntu)
+### [Linux (Ubuntu/Debian)](#tab/ubuntu)
 
 1. Install Ruby by running the command `sudo apt-get install ruby-full`. For more installation options, see the Ruby [installation documentation](https://www.ruby-lang.org/en/documentation/installation/).
 2. Test the Ruby installation by running the command `ruby -v` to see the version installed.
@@ -56,6 +58,8 @@ Install Ruby, Gem, and the MySQL2 library on your own computer.
 5. Install the gcc, make, and other build tools by running the command `sudo apt-get install build-essential`.
 6. Install the MySQL client developer libraries by running the command `sudo apt-get install libmysqlclient-dev`.
 7. Build the mysql2 module for Ruby using Gem by running the command `sudo gem install mysql2`.
+
+---
 
 ## Get connection information
 
@@ -249,7 +253,7 @@ end
 
 To clean up all resources used during this quickstart, delete the resource group using the following command:
 
-```azurecli
+```azurecli-interactive
 az group delete \
     --name $AZ_RESOURCE_GROUP \
     --yes

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory integration with Amazon Web Services to connect multiple accounts | Microsoft Docs"
+title: "Tutorial: Azure Active Directory integration with Amazon Web Services to connect multiple accounts"
 description: Learn how to configure single sign-on between Azure AD and Amazon Web Services (legacy tutorial).
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -246,7 +246,7 @@ You next need to capture all the role ARNs and trusted entities for all roles ac
 
 1. Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), and then do the following:
 
-   a. Sign in to the Microsoft Graph Explorer site with the Global Admin or Co-admin credentials for your tenant.
+   a. Sign in to the Microsoft Graph Explorer site with the Global Administrator or Co-admin credentials for your tenant.
 
    b. You need sufficient permissions to create the roles. Select **modify permissions**.
 
@@ -361,7 +361,7 @@ For more information about My Apps, see [Sign in and start apps from the My Apps
 
 ## Next steps
 
-After you configure AWS you can enforce session control, which protects the exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. For more information, see [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
+After you configure AWS you can enforce session control, which protects the exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. For more information, see [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
 
 <!--Image references-->
 

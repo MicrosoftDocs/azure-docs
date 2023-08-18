@@ -4,21 +4,25 @@ description: This quickstart provides several Go code samples you can use to con
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: quickstart
-author: savjani
-ms.author: pariks
-ms.custom: mvc, mode-api
+author: SudheeshGH
+ms.author: sunaray
+ms.custom: mvc, mode-api, devx-track-go, devx-track-linux
 ms.devlang: golang
-ms.date: 06/20/2022
+ms.date: 05/03/2023
 ---
 
 # Quickstart: Use Go language to connect and query data in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 This quickstart demonstrates how to connect to an Azure Database for MySQL from Windows, Ubuntu Linux, and Apple macOS platforms by using code written in the [Go](https://go.dev/) language. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with development using Go and that you are new to working with Azure Database for MySQL.
 
 ## Prerequisites
+
 This quickstart uses the resources created in either of these guides as a starting point:
+
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
@@ -26,9 +30,11 @@ This quickstart uses the resources created in either of these guides as a starti
 > Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./how-to-manage-firewall-using-portal.md) or [Azure CLI](./how-to-manage-firewall-using-cli.md)
 
 ## Install Go and MySQL connector
+
 Install [Go](https://go.dev/doc/install) and the [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation) on your own computer. Depending on your platform, follow the steps in the appropriate section:
 
-### Windows
+### [Windows](#tab/windows)
+
 1. [Download](https://go.dev/dl/) and install Go for Microsoft Windows according to the [installation instructions](https://go.dev/doc/install).
 2. Launch the command prompt from the start menu.
 3. Make a folder for your project such. `mkdir  %USERPROFILE%\go\src\mysqlgo`.
@@ -37,6 +43,7 @@ Install [Go](https://go.dev/doc/install) and the [go-sql-driver for MySQL](https
 6. Install the [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) by running the `go get github.com/go-sql-driver/mysql` command.
 
    In summary, install Go, then run these commands in the command prompt:
+
    ```cmd
    mkdir  %USERPROFILE%\go\src\mysqlgo
    cd %USERPROFILE%\go\src\mysqlgo
@@ -44,8 +51,9 @@ Install [Go](https://go.dev/doc/install) and the [go-sql-driver for MySQL](https
    go get github.com/go-sql-driver/mysql
    ```
 
-### Linux (Ubuntu)
-1. Launch the Bash shell. 
+### [Linux (Ubuntu)](#tab/ubuntu)
+
+1. Launch the Bash shell.
 2. Install Go by running `sudo apt-get install golang-go`.
 3. Make a folder for your project in your home directory, such as `mkdir -p ~/go/src/mysqlgo/`.
 4. Change directory into the folder, such as `cd ~/go/src/mysqlgo/`.
@@ -53,15 +61,17 @@ Install [Go](https://go.dev/doc/install) and the [go-sql-driver for MySQL](https
 6. Install the [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) by running the `go get github.com/go-sql-driver/mysql` command.
 
    In summary, run these bash commands:
+
    ```bash
-   sudo apt-get install golang-go
+   sudo apt-get install golang-go git -y
    mkdir -p ~/go/src/mysqlgo/
    cd ~/go/src/mysqlgo/
    export GOPATH=~/go/
    go get github.com/go-sql-driver/mysql
    ```
 
-### Apple macOS
+### [Apple macOS](#tab/macos)
+
 1. Download and install Go according to the [installation instructions](https://go.dev/doc/install) matching your platform. 
 2. Launch the Bash shell.
 3. Make a folder for your project in your home directory, such as `mkdir -p ~/go/src/mysqlgo/`.
@@ -70,6 +80,7 @@ Install [Go](https://go.dev/doc/install) and the [go-sql-driver for MySQL](https
 6. Install the [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) by running the `go get github.com/go-sql-driver/mysql` command.
 
    In summary, install Go, then run these bash commands:
+
    ```bash
    mkdir -p ~/go/src/mysqlgo/
    cd ~/go/src/mysqlgo/
@@ -77,7 +88,10 @@ Install [Go](https://go.dev/doc/install) and the [go-sql-driver for MySQL](https
    go get github.com/go-sql-driver/mysql
    ```
 
+---
+
 ## Get connection information
+
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
@@ -85,9 +99,9 @@ Get the connection information needed to connect to the Azure Database for MySQL
 3. Click the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
  :::image type="content" source="./media/connect-go/1-server-overview-name-login.png" alt-text="Azure Database for MySQL server name":::
-   
 
-## Build and run Go code 
+## Build and run Go code
+
 1. To write Golang code, you can use a simple text editor, such as Notepad in Microsoft Windows, [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) or [Nano](https://www.nano-editor.org/) in Ubuntu, or TextEdit in macOS. If you prefer a richer Interactive Development Environment (IDE), try [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/).
 2. Paste the Go code from the sections below into text files, and then save them into your project folder with file extension \*.go (such as Windows path `%USERPROFILE%\go\src\mysqlgo\createtable.go` or Linux path `~/go/src/mysqlgo/createtable.go`).
 3. Locate the `HOST`, `DATABASE`, `USER`, and `PASSWORD` constants in the code, and then replace the example values with your own values. 
@@ -96,6 +110,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 6. Alternatively, to build the code into a native application, `go build createtable.go`, then launch `createtable.exe` to run the application.
 
 ## Connect, create table, and insert data
+
 Use the following code to connect to the server, create a table, and load the data by using an **INSERT** SQL statement. 
 
 The code imports three packages: the [sql package](https://go.dev/pkg/database/sql/), the [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) as a driver to communicate with the Azure Database for MySQL, and the [fmt package](https://go.dev/pkg/fmt/) for printed input and output on the command line.
@@ -173,6 +188,7 @@ func main() {
 ```
 
 ## Read data
+
 Use the following code to connect and read the data by using a **SELECT** SQL statement. 
 
 The code imports three packages: the [sql package](https://go.dev/pkg/database/sql/), the [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) as a driver to communicate with the Azure Database for MySQL, and the [fmt package](https://go.dev/pkg/fmt/) for printed input and output on the command line.
@@ -242,6 +258,7 @@ func main() {
 ```
 
 ## Update data
+
 Use the following code to connect and update the data using a **UPDATE** SQL statement. 
 
 The code imports three packages: the [sql package](https://go.dev/pkg/database/sql/), the [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) as a driver to communicate with the Azure Database for MySQL, and the [fmt package](https://go.dev/pkg/fmt/) for printed input and output on the command line.
@@ -297,6 +314,7 @@ func main() {
 ```
 
 ## Delete data
+
 Use the following code to connect and remove data using a **DELETE** SQL statement. 
 
 The code imports three packages: the [sql package](https://go.dev/pkg/database/sql/), the [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) as a driver to communicate with the Azure Database for MySQL, and the [fmt package](https://go.dev/pkg/fmt/) for printed input and output on the command line.
@@ -354,12 +372,13 @@ func main() {
 
 To clean up all resources used during this quickstart, delete the resource group using the following command:
 
-```azurecli
+```azurecli-interactive
 az group delete \
     --name $AZ_RESOURCE_GROUP \
     --yes
 ```
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Migrate your database using Export and Import](./concepts-migrate-import-export.md)

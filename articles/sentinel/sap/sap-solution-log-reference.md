@@ -1,25 +1,25 @@
 ---
-title: Microsoft Sentinel Solution for SAP - data reference
-description: Learn about the SAP logs, tables, and functions available from the Microsoft Sentinel Solution for SAP.
-author: MSFTandrelom
-ms.author: andrelom
+title: Microsoft Sentinel solution for SAP® applications - data reference
+description: Learn about the SAP logs, tables, and functions available from the Microsoft Sentinel solution for SAP® applications.
+author: yelevin
+ms.author: yelevin
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
-ms.date: 02/22/2022
+ms.date: 05/24/2023
 ---
 
-# Microsoft Sentinel Solution for SAP data reference (public preview)
+# Microsoft Sentinel solution for SAP® applications data reference
 
 > [!IMPORTANT]
 > Some components of the Microsoft Sentinel Threat Monitoring for SAP solution are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > Some logs, noted below, are not sent to Microsoft Sentinel by default, but you can manually add them as needed. For more information, see [Define the SAP logs that are sent to Microsoft Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
-This article describes the functions, logs, and tables available as part of the Microsoft Sentinel Solution for SAP and its data connector. It is intended for advanced SAP users.
+This article describes the functions, logs, and tables available as part of the Microsoft Sentinel solution for SAP® applications and its data connector. It is intended for advanced SAP users.
 
 ## Functions available from the SAP solution
 
-This section describes the [functions](../../azure-monitor/logs/functions.md) that are available in your workspace after you've deployed the Microsoft Sentinel Solution for SAP. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
+This section describes the [functions](../../azure-monitor/logs/functions.md) that are available in your workspace after you've deployed the Microsoft Sentinel solution for SAP® applications. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
 
 Users are *strongly encouraged* to use the functions as the subjects of their analysis whenever possible, instead of the underlying logs or tables. These functions are intended to serve as the principal user interface to the data. They form the basis for all the built-in analytics rules and workbooks available to you out of the box. This allows for changes to be made to the data infrastructure beneath the functions, without breaking user-created content.
 
@@ -288,10 +288,10 @@ SAPAuditLogAnomalies(LearningTime = 14d, DetectingTime=0h, SelectedSystems= dyna
 | MaxTime | Time of last event observed|
 | Score | the anomaly scores as produced by the anomaly model|
 
-See [Built-in SAP analytics rules for monitoring the SAP audit log](sap-solution-security-content.md#built-in-sap-analytics-rules-for-monitoring-the-sap-audit-log) for more information.
+See [Built-in SAP analytics rules for monitoring the SAP audit log](sap-solution-security-content.md#monitoring-the-sap-audit-log) for more information.
 
 ### SAPAuditLogConfigRecommend
-The **SAPAuditLogConfigRecommend** is a helper function designed to offer recommendations for the configuration of the [SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)](sap-solution-security-content.md#sap---dynamic-anomaly-based-audit-log-monitor-alerts-preview) analytics rule. See detailed explanation in the [Configuring the SAP audit log monitoring analytics rules](deployment-solution-configuration.md#configuring-the-sap-audit-log-monitoring-analytics-rules) guide.
+The **SAPAuditLogConfigRecommend** is a helper function designed to offer recommendations for the configuration of the [SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)](sap-solution-security-content.md#sap---dynamic-anomaly-based-audit-log-monitor-alerts-preview) analytics rule. Learn how to [configure the rules](configure-audit-log-rules.md).
 
 ### SAPUsersGetVIP
 
@@ -333,9 +333,9 @@ This functionality is heavily used in the Deterministic and Anomalous Audit Log 
 | The "SAP User Config" watchlist | SearchKey | Search Key |
 | The "SAP User Config" watchlist | SAPUser | The SAP User | OSS, DDIC  
 | The "SAP User Config" watchlist | Tags | string of tags assigned to user | RunObsoleteProgOK  
-| The "SAP User Config" watchlist | User AAD Object ID | Azure AD Object ID |   
+| The "SAP User Config" watchlist | User's Microsoft Azure Active Directory (Azure AD) Object ID | Azure AD Object ID |   
 | The "SAP User Config" watchlist | User Identifier | AD User Identifier |
-| The "SAP User Config" watchlist | User On-Premises Sid |  |
+| The "SAP User Config" watchlist | User on-premises Sid |  |
 | The "SAP User Config" watchlist | User Principal Name |  |
 | The "SAP User Config" watchlist | TagsList | A list of tags assigned to user | ChangeUserMasterDataOK;RunObsoleteProgOK  
 | Logic | TagsIntersect | A set of tags that matched SearchForTags | ["ChangeUserMasterDataOK","RunObsoleteProgOK"]  
@@ -391,7 +391,7 @@ For a full history of user activity, run a custom KQL query against the SAPAudit
 
 ## Logs produced by the data connector agent
 
-This section describes the SAP logs available from the Microsoft Sentinel Solution for SAP data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas. Schema field descriptions are based on the field descriptions in the relevant [SAP documentation](https://help.sap.com/).
+This section describes the SAP logs available from the Microsoft Sentinel solution for SAP® applications data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas. Schema field descriptions are based on the field descriptions in the relevant [SAP documentation](https://help.sap.com/).
 
 For best results, use the Microsoft Sentinel functions listed below to visualize, access, and query the data.
 
@@ -420,7 +420,7 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 
 - **Log purpose**: Records the progress of an application execution so that you can reconstruct it later as needed.
 
-    Available by using RFC with a custom service based on standard services of XBP interface. This log is generated per client.
+    Available by using RFC based on standard SAP table and standard services of XBP interface. This log is generated per client.
 
 #### ABAPAppLog_CL log schema
 
@@ -471,7 +471,7 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 
     - Other entities in the SAP system, such as user data, roles, addresses.
 
-    Available by using RFC with a custom service based on standard services. This log is generated per client.
+    Available by using RFC based on standard SAP tables. This log is generated per client.
 
 #### ABAPChangeDocsLog_CL log schema
 
@@ -515,7 +515,7 @@ For best results, use the Microsoft Sentinel functions listed below to visualize
 
 - **Log purpose**: Includes the Change & Transport System (CTS) logs, including the directory objects and customizations where changes were made.
 
-    Available by using RFC with a custom service based on standard tables and standard services. This log is generated with data across all clients.
+    Available by using RFC based on standard tables and standard SAP services. This log is generated with data across all clients.
 
 > [!NOTE]
 > In addition to application logging, change documents, and table recording, all changes that you make to your production system using the Change & Transport System are documented in the CTS and TMS logs.
@@ -630,7 +630,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 - **Log purpose**: Combines all background processing job logs (SM37).
 
-    Available by using RFC with a custom service based on standard services of XBP interfaces. This log is generated with data across all clients.
+    Available by using RFC based on standard SAP table and standard services of XBP interfaces. This log is generated with data across all clients.
 
 #### ABAPJobLog_CL log schema
 
@@ -724,7 +724,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 - **Log purpose**: Serves as the main log for SAP Printing with the history of spool requests. (SP01).
 
-    Available by using RFC with a custom service based on standard tables. This log is generated with data across all clients.
+    Available by using RFC based on standard SAP table. This log is generated with data across all clients.
 
 #### ABAPSpoolLog_CL log schema
 
@@ -867,7 +867,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
     For example, unmapped business processes may be simple release or approval procedures, or more complex business processes such as creating base material and then coordinating the associated departments.
 
-    Available by using RFC with a custom service based on standard tables and standard services. This log is generated per client.
+    Available by using RFC based on standard SAP tables. This log is generated per client.
 
 #### ABAPWorkflowLog_CL log schema
 
@@ -1058,16 +1058,18 @@ For best results, refer to these tables using the name in the **Sentinel functio
 | AGR_DEFINE | Role definition                                       | SAP_AGR_DEFINE  |
 | AGR_AGRS   | Roles in composite roles                              | SAP_AGR_AGRS    |
 | PAHI       | History of the system, database, and SAP parameters   | SAP_PAHI        |
-
+| SNCSYSACL (PREVIEW)| SNC Access Control List (ACL): Systems        | SAP_SNCSYSACL   |
+| USRACL (PREVIEW)| SNC Access Control List (ACL): User              | SAP_USRACL      |
 
 
 ## Next steps
 
 For more information, see:
 
-- [Deploy the Microsoft Sentinel solution for SAP](deployment-overview.md)
-- [Microsoft Sentinel Solution for SAP detailed SAP requirements](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy the Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Microsoft Sentinel solution for SAP® applications detailed SAP requirements](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
-- [Microsoft Sentinel Solution for SAP: built-in security content](sap-solution-security-content.md)
-- [Troubleshooting your Microsoft Sentinel Solution for SAP deployment](sap-deploy-troubleshoot.md)
+- [Microsoft Sentinel solution for SAP® applications: built-in security content](sap-solution-security-content.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
+- [Troubleshooting your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)

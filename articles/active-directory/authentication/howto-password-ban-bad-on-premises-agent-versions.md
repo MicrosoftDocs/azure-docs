@@ -1,12 +1,12 @@
 ---
-title: Password protection agent release history - Azure Active Directory
+title: Password protection agent release history
 description: Documents version release and behavior change history
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 06/04/2021
+ms.date: 06/02/2023
 
 ms.author: justinha
 author: justinha
@@ -16,6 +16,8 @@ ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Password Protection agent version history
+
+To download the most recent version, see [Azure AD Password Protection for Windows Server Active Directory](https://www.microsoft.com/download/details.aspx?id=57071).
 
 ## 1.2.177.1
 

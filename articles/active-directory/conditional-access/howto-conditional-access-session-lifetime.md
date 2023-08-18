@@ -1,12 +1,13 @@
 ---
-title: Configure authentication session management - Azure Active Directory
+title: Configure authentication session management
 description: Customize Azure AD authentication session configuration including user sign-in frequency and browser session persistence.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 07/18/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -58,20 +59,40 @@ Sign-in frequency previously applied to only to the first factor authentication 
 
 ### User sign-in frequency and device identities
 
-On Azure AD joined, hybrid Azure AD joined, or Azure AD registered devices, unlocking the device or signing in interactively will satisfy the sign-in frequency policy. In the following two examples user sign-in frequency is set to 1 hour:
+On Azure AD joined and hybrid Azure AD joined devices, unlocking the device, or signing in interactively will only refresh the Primary Refresh Token (PRT) every 4 hours. The last refresh timestamp recorded for PRT compared with the current timestamp must be within the time allotted in SIF policy for PRT to satisfy SIF and grant access to a PRT that has an existing MFA claim. On [Azure AD registered devices](../devices/concept-device-registration.md), unlock/sign-in would not satisfy the SIF policy because the user is not accessing an Azure AD registered device via an Azure AD account. However, the [Azure AD WAM](../develop/scenario-desktop-acquire-token-wam.md) plugin can refresh a PRT during native application authentication using WAM.
 
-Example 1:
+Note: The timestamp captured from user log-in is not necessarily the same as the last recorded timestamp of PRT refresh because of the 4-hour refresh cycle. The case when it is the same is when a PRT has expired and a user log-in refreshes it for 4 hours. In the following examples, assume SIF policy is set to 1 hour and PRT is refreshed at 00:00.
+
+Example 1: *when you continue to work on the same doc in SPO for an hour*
 
 - At 00:00, a user signs in to their Windows 10 Azure AD joined device and starts work on a document stored on SharePoint Online.
 - The user continues working on the same document on their device for an hour.
 - At 01:00, the user is prompted to sign in again based on the sign-in frequency requirement in the Conditional Access policy configured by their administrator.
 
-Example 2:
+Example 2: *when pausing work with a background task running in the browser, then interacting again after the SIF policy time has passed*
 
-- At 00:00, a user signs in to their Windows 10 Azure AD joined device and starts work on a document stored on SharePoint Online.
+- At 00:00, a user signs in to their Windows 10 Azure AD joined device and starts to upload a document to SharePoint Online.
+- At 00:10, the user gets up and takes a break locking their device. The background upload continues to SharePoint Online.
+- At 02:45, the user returns from their break and unlocks the device. The background upload shows completion.
+- At 02:45, the user is prompted to sign in when they interact again based on the sign-in frequency requirement in the Conditional Access policy configured by their administrator since the last sign-in happened at 00:00.
+
+If the client app (under activity details) is a Browser, we defer sign in frequency enforcement of events/policies on background services until the next user interaction.   
+
+Example 3: *with 4-hour refresh cycle of primary refresh token from unlock*
+
+Scenario 1 - User returns within cycle
+
+- At 00:00, a user signs into their Windows 10 Azure AD joined device and starts work on a document stored on SharePoint Online.
 - At 00:30, the user gets up and takes a break locking their device.
 - At 00:45, the user returns from their break and unlocks the device.
-- At 01:45, the user is prompted to sign in again based on the sign-in frequency requirement in the Conditional Access policy configured by their administrator since the last sign-in happened at 00:45.
+- At 01:00, the user is prompted to sign in again based on the sign-in frequency requirement in the Conditional Access policy configured by their administrator, 1 hour after the initial sign-in.
+
+Scenario 2 - User returns outside cycle
+
+- At 00:00, a user signs into their Windows 10 Azure AD joined device and starts work on a document stored on SharePoint Online.
+- At 00:30, the user gets up and takes a break locking their device.
+- At 04:45, the user returns from their break and unlocks the device.
+- At 05:45, the user is prompted to sign in again based on the sign-in frequency requirement in the Conditional Access policy configured by their administrator, 1 hour after the PRT was refreshed at 04:45 (over 4hrs after the initial sign-in at 00:00).
 
 ### Require reauthentication every time
 
@@ -81,7 +102,7 @@ Supported scenarios:
 
 - Require user reauthentication during [Intune device enrollment](/mem/intune/fundamentals/deployment-guide-enrollment), regardless of their current MFA status.
 - Require user reauthentication for risky users with the [require password change](concept-conditional-access-grant.md#require-password-change) grant control.
-- Require user reauthentication for risky sign-ins with the [require multifactor authentication](concept-conditional-access-grant.md#require-multi-factor-authentication) grant control.
+- Require user reauthentication for risky sign-ins with the [require multifactor authentication](concept-conditional-access-grant.md#require-multifactor-authentication) grant control.
 
 When administrators select **Every time**, it will require full reauthentication when the session is evaluated.
 
@@ -89,14 +110,16 @@ When administrators select **Every time**, it will require full reauthentication
 
 A persistent browser session allows users to remain signed in after closing and reopening their browser window.
 
-The Azure AD default for browser session persistence allows users on personal devices to choose whether to persist the session by showing a “Stay signed in?” prompt after successful authentication. If browser persistence is configured in AD FS using the guidance in the article [AD FS single sign-on settings](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online), we'll comply with that policy and persist the Azure AD session as well. You can also configure whether users in your tenant see the “Stay signed in?” prompt by changing the appropriate setting in the [company branding pane](../fundamentals/customize-branding.md).
+The Azure AD default for browser session persistence allows users on personal devices to choose whether to persist the session by showing a “Stay signed in?” prompt after successful authentication. If browser persistence is configured in AD FS using the guidance in the article [AD FS single sign-on settings](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online), we'll comply with that policy and persist the Azure AD session as well. You can also configure whether users in your tenant see the “Stay signed in?” prompt by changing the appropriate setting in the [company branding pane](../fundamentals/how-to-customize-branding.md).
+
+In persistent browsers, cookies stay stored in the user’s device even after a user closes the browser. These cookies could have access to Azure Active Directory artifacts, and those artifacts are useable until token expiry regardless of the Conditional Access policies placed on the resource environment. So, token caching can be in direct violation of desired security policies for authentication. While it may seem convenient to store tokens beyond the current session, doing so can create a security vulnerability by allowing unauthorized access to Azure Active Directory artifacts.
 
 ## Configuring authentication session controls
 
 Conditional Access is an Azure AD Premium capability and requires a premium license. If you would like to learn more about Conditional Access, see [What is Conditional Access in Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> If you are using the [configurable token lifetime](../develop/active-directory-configurable-token-lifetimes.md) feature currently in public preview, please note that we don’t support creating two different policies for the same user or app combination: one with this feature and another one with configurable token lifetime feature. Microsoft retired the configurable token lifetime feature for refresh and session token lifetimes on January 30, 2021 and replaced it with the Conditional Access authentication session management feature.  
+> If you are using the [configurable token lifetime](../develop/configurable-token-lifetimes.md) feature currently in public preview, please note that we don’t support creating two different policies for the same user or app combination: one with this feature and another one with configurable token lifetime feature. Microsoft retired the configurable token lifetime feature for refresh and session token lifetimes on January 30, 2021 and replaced it with the Conditional Access authentication session management feature.  
 >
 > Before enabling Sign-in Frequency, make sure other reauthentication settings are disabled in your tenant. If "Remember MFA on trusted devices" is enabled, be sure to disable it before using Sign-in frequency, as using these two settings together may lead to prompting users unexpectedly. To learn more about reauthentication prompts and session lifetime, see the article, [Optimize reauthentication prompts and understand session lifetime for Azure AD Multifactor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
@@ -106,9 +129,9 @@ To make sure that your policy works as expected, the recommended best practice i
 
 ### Policy 1: Sign-in frequency control
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-1. Select **New policy**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Choose all required conditions for customer’s environment, including the target cloud apps.
 
@@ -124,9 +147,9 @@ To make sure that your policy works as expected, the recommended best practice i
 
 ### Policy 2: Persistent browser session
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-1. Select **New policy**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Choose all required conditions.
 
@@ -137,22 +160,22 @@ To make sure that your policy works as expected, the recommended best practice i
    1. Select **Persistent browser session**.
 
       > [!NOTE]
-      > Persistent Browser Session configuration in Azure AD Conditional Access overrides the “Stay signed in?” setting in the company branding pane in the Azure portal for the same user if you have configured both policies.
+      > Persistent Browser Session configuration in Azure AD Conditional Access overrides the “Stay signed in?” setting in the company branding pane for the same user if you have configured both policies.
 
    1. Select a value from dropdown.
 1. Save your policy.
 
 ### Policy 3: Sign-in frequency control every time risky user
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-1. Select **New policy**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's [emergency access or break-glass accounts](../roles/security-emergency-access.md). 
    1. Select **Done**.
-1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
+1. Under **Target resources** > **Cloud apps** > **Include**, select **All cloud apps**.
 1. Under **Conditions** > **User risk**, set **Configure** to **Yes**. Under **Configure user risk levels needed for policy to be enforced** select **High**, then select **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require password change**, and select **Select**.
 1. Under **Session controls** > **Sign-in frequency**, select **Every time**.
@@ -167,7 +190,7 @@ Use the [What If tool](what-if-tool.md) to simulate a sign-in from the user to t
 
 ## Prompt tolerance
 
-We factor for five minutes of clock skew, so that we don’t prompt users more often than once every five minutes. If the user has done MFA in the last 5 minutes, and they hit another Conditional Access policy that requires reauthentication, we won't prompt the user. Over-promoting users for reauthentication can impact their productivity and increase the risk of users approving MFA requests they didn’t initiate. Use “Sign-in frequency – every time” only for specific business needs. 
+We factor for five minutes of clock skew, so that we don’t prompt users more often than once every five minutes. If the user has done MFA in the last 5 minutes, and they hit another Conditional Access policy that requires reauthentication, we won't prompt the user. Over-prompting users for reauthentication can impact their productivity and increase the risk of users approving MFA requests they didn’t initiate. Use “Sign-in frequency – every time” only for specific business needs. 
 
 ## Known issues
 

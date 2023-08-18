@@ -8,13 +8,14 @@ ms.subservice: mlops
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
+ms.reviewer: lagayhar
 ms.date: 05/26/2022
-ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022
+ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022, ignite-2022
 ---
 
-# How to do hyperparameter tuning in pipeline (V2) (preview)
+# How to do hyperparameter tuning in pipeline (v2)
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you'll learn how to do hyperparameter tuning in Azure Machine Learning pipeline.
 
@@ -28,8 +29,8 @@ In this article, you'll learn how to do hyperparameter tuning in Azure Machine L
 
 This section explains how to do hyperparameter tuning in Azure Machine Learning pipeline using CLI v2 and Python SDK. Both approaches share the same prerequisite: you already have a command component created and the command component takes hyperparameters as inputs. If you don't have a command component yet. Follow below links to create a command component first.
 
-- [AzureML CLI v2](how-to-create-component-pipelines-cli.md)
-- [AzureML Python SDK v2](how-to-create-component-pipeline-python.md)
+- [Azure Machine Learning CLI v2](how-to-create-component-pipelines-cli.md)
+- [Azure Machine Learning Python SDK v2](how-to-create-component-pipeline-python.md)
 
 ### CLI v2
 
@@ -53,13 +54,13 @@ Below code snippet is the source code of trial component.
 
 ### Python SDK
 
-The python SDK example can be found in [azureml-example repo](https://github.com/Azure/azureml-examples). Navigate to *azureml-examples/sdk/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep* to check the example.
+The Python SDK example can be found in [azureml-example repo](https://github.com/Azure/azureml-examples). Navigate to *azureml-examples/sdk/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep* to check the example.
 
 In Azure Machine Learning Python SDK v2, you can enable hyperparameter tuning for any command component by calling `.sweep()` method.
 
 Below code snippet shows how to enable sweep for `train_model`.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep/pipeline_with_hyperparameter_sweep.ipynb?name=enable-sweep)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep/pipeline_with_hyperparameter_sweep.ipynb?name=enable-sweep)]
 
  We first load `train_component_func` defined in `train.yml` file. When creating `train_model`, we add `c_value`, `kernel` and `coef0` into search space(line 15-17). Line 30-35 defines the primary metric, sampling algorithm etc.
 
@@ -81,10 +82,10 @@ If a child jobs failed, select the name of that child job to enter detail page o
 
 ## Sample notebooks
 
-- [Build pipeline with sweep node](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep/pipeline_with_hyperparameter_sweep.ipynb)
-- [Run hyperparameter sweep on a command job](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb)
+- [Build pipeline with sweep node](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep/pipeline_with_hyperparameter_sweep.ipynb)
+- [Run hyperparameter sweep on a command job](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb)
 
 ## Next steps
 
 - [Track an experiment](how-to-log-view-metrics.md)
-- [Deploy a trained model](how-to-deploy-managed-online-endpoints.md)
+- [Deploy a trained model](how-to-deploy-online-endpoints.md)

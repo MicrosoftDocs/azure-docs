@@ -1,21 +1,21 @@
 ---
-title: Azure Hybrid Benefit for Windows Server 
+title: Explore Azure Hybrid Benefit for Windows VMs 
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure.
 ms.service: virtual-machines
 ms.subservice: billing
 ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 4/22/2018
+ms.date: 4/18/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 
 ---
-# Azure Hybrid Benefit for Windows Server
+# Explore Azure Hybrid Benefit for Windows VMs
 
-For customers with Software Assurance, Azure Hybrid Benefit for Windows Server allows you to use your on-premises Windows Server licenses and run Windows virtual machines on Azure at a reduced cost. You can use Azure Hybrid Benefit for Windows Server to deploy new virtual machines with Windows OS. This article goes over the steps on how to deploy new VMs with Azure Hybrid Benefit for Windows Server and how you can update existing running VMs. For more information about Azure Hybrid Benefit for Windows Server licensing and cost savings, see the [Azure Hybrid Benefit for Windows Server licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+For customers with Software Assurance or subscription licenses, Azure Hybrid Benefit for Windows Server allows you to use your on-premises Windows Server licenses to get Windows virtual machines on Azure at a reduced cost. You can use Azure Hybrid Benefit for Windows Server to deploy new virtual machines with Windows OS. This article goes over the steps on how to deploy new VMs with Azure Hybrid Benefit for Windows Server and how you can update existing running VMs. For more information about Azure Hybrid Benefit for Windows Server licensing and cost savings, see the [Azure Hybrid Benefit for Windows Server licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
-Each 2-processor license or each set of 16-core licenses is entitled to two instances of up to 8 cores, or one instance of up to 16 cores. The Azure Hybrid Benefit for Standard Edition licenses can only be used once either on-premises or in Azure. Datacenter Edition benefits allow for simultaneous usage both on-premises and in Azure.
+You'll need a minimum of 8 core licenses (Datacenter or Standard edition) per virtual machine. You may also run instances larger than 8 cores by allocating licenses equal to the core-size of the instance. For example, 12 core licenses are required for a 12-core instance, however 8 core licenses are still required if you run a 4-core instance. For customers with processor licenses, each two core processor license is equivalent to 16 core licenses.
 
 Using Azure Hybrid Benefit for Windows Server with any VMs running Windows Server OS are now supported in all regions, including VMs with additional software such as SQL Server or third-party marketplace software. 
 

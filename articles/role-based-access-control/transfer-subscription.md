@@ -7,7 +7,8 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/26/2022
+ms.custom: devx-track-azurecli
+ms.date: 12/09/2022
 ms.author: rolyon
 ---
 
@@ -70,7 +71,8 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | System-assigned managed identities | Yes | Yes | [List managed identities](#list-role-assignments-for-managed-identities) | You must disable and re-enable the managed identities. You must re-create the role assignments. |
 | User-assigned managed identities | Yes | Yes | [List managed identities](#list-role-assignments-for-managed-identities) | You must delete, re-create, and attach the managed identities to the appropriate resource. You must re-create the role assignments. |
 | Azure Key Vault | Yes | Yes | [List Key Vault access policies](#list-key-vaults) | You must update the tenant ID associated with the key vaults. You must remove and add new access policies. |
-| Azure SQL databases with Azure AD authentication integration enabled | Yes | No | [Check Azure SQL databases with Azure AD authentication](#list-azure-sql-databases-with-azure-ad-authentication) | You cannot transfer an Azure SQL database with Azure AD authentication enabled to a different directory. For more information, see [Use Azure Active Directory authentication](/azure/azure-sql/database/authentication-aad-overview). | 
+| Azure SQL databases with Azure AD authentication integration enabled | Yes | No | [Check Azure SQL databases with Azure AD authentication](#list-azure-sql-databases-with-azure-ad-authentication) | You cannot transfer an Azure SQL database with Azure AD authentication enabled to a different directory. For more information, see [Use Azure Active Directory authentication](/azure/azure-sql/database/authentication-aad-overview). |
+| Azure database for MySQL with Azure AD authentication integration enabled | Yes | No |  | You cannot transfer an Azure database for MySQL (Single and Flexible server) with Azure AD authentication enabled to a different directory. | 
 | Azure Storage and Azure Data Lake Storage Gen2 | Yes | Yes |  | You must re-create any ACLs. |
 | Azure Data Lake Storage Gen1 | Yes | Yes |  | You must re-create any ACLs. |
 | Azure Files | Yes | Yes |  | You must re-create any ACLs. |
@@ -80,9 +82,12 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure Policy | Yes | No | All Azure Policy objects, including custom definitions, assignments, exemptions, and compliance data. | You must [export](../governance/policy/how-to/export-resources.md), import, and re-assign definitions. Then, create new policy assignments and any needed [policy exemptions](../governance/policy/concepts/exemption-structure.md). |
 | Azure Active Directory Domain Services | Yes | No |  | You cannot transfer an Azure AD Domain Services managed domain to a different directory. For more information, see [Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services](../active-directory-domain-services/faqs.yml) |
 | App registrations | Yes | Yes |  |  |
+| Microsoft Dev Box | Yes | No | | You cannot transfer a dev box and its associated resources to a different directory. Once a subscription moves to another tenant, you will not be able to perform any actions on your dev box |
+| Azure Deployment Environments | Yes | No | | You cannot transfer an environment and its associated resources to a different directory. Once a subscription moves to another tenant, you will not be able to perform any actions on your environment |
+| Azure Service Bus | Yes | Yes | |You must delete, re-create, and attach the managed identities to the appropriate resource. You must re-create the role assignments. |
 
 > [!WARNING]
-> If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is **not** in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
+> If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
 
 To get a list of some of the Azure resources that are impacted when you transfer a subscription, you can also run a query in [Azure Resource Graph](../governance/resource-graph/overview.md). For a sample query, see [List impacted resources when transferring an Azure subscription](../governance/resource-graph/samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription).
 
@@ -227,7 +232,7 @@ Managed identities do not get updated when a subscription is transferred to anot
 When you create a key vault, it is automatically tied to the default Azure Active Directory tenant ID for the subscription in which it is created. All access policy entries are also tied to this tenant ID. For more information, see [Moving an Azure Key Vault to another subscription](../key-vault/general/move-subscription.md).
 
 > [!WARNING]
-> If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is **not** in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
+> If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
 
 - If you have a key vault, use [az keyvault show](/cli/azure/keyvault#az-keyvault-show) to list the access policies. For more information, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-cli.md).
 

@@ -42,7 +42,7 @@
     - name: Azure PowerShell
       href: expressroute-howto-linkvnet-arm.md
     - name: Azure CLI
-      href: howto-linkvnet-cli.md
+      href: expressroute-howto-linkvnet-cli.md
   - name: Configure route filters for Microsoft peering
     items:
     - name: Azure portal
@@ -95,12 +95,16 @@
     href: expressroute-global-reach.md
   - name: About ExpressRoute encryption
     href: expressroute-about-encryption.md
+  - name: About ExpressRoute limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/expressroute/toc.json#expressroute-limits
   - name: ExpressRoute Traffic Collector
     href: traffic-collector.md
   - name: Connect Azure to public cloud
     href: expressroute-connect-azure-to-public-cloud.md
   - name: Connectivity between virtual networks
     href: virtual-network-connectivity-guidance.md
+  - name: Planned maintenance guidance
+    href: planned-maintenance.md
   - name: Cross-network connectivity
     href: cross-network-connectivity.md
   - name: BGP communities
@@ -223,6 +227,8 @@
       href: expressroute-nat.md
   - name: Troubleshoot
     items:
+    - name: Obtain correlation ID
+      href: get-correlation-id.md
     - name: Verifying ExpressRoute connectivity
       href: expressroute-troubleshooting-expressroute-overview.md
     - name: Resolving network performance issues
@@ -258,18 +264,10 @@
       href: expressroute-config-samples-nat.md
   - name: Backend Connectivity Interoperability
     items:
-    - name: Preface and Test Setup
-      href: ../networking/connectivty-interoperability-preface.md?toc=/azure/expressroute/toc.json
-    - name: Test Setup Configuration
-      href: ../networking/connectivty-interoperability-configuration.md?toc=/azure/expressroute/toc.json
     - name: Control Plane Analysis
       href: ../networking/connectivty-interoperability-control-plane.md?toc=/azure/expressroute/toc.json
-    - name: Data Plane Analysis
-      href: ../networking/connectivty-interoperability-data-plane.md?toc=/azure/expressroute/toc.json
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
-  - name: Case Studies
-    href: https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products
   - name: Networking Blog
     href: https://azure.microsoft.com/blog/topics/networking/
   - name: Pricing

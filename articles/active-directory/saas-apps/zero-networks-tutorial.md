@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/20/2021
+ms.date: 06/07/2023
 ms.author: jeedes
 
 ---
@@ -42,18 +42,20 @@ In this tutorial, you configure Azure AD SSO for the Zero Networks Admin Portal 
 
 To configure the integration of Zero Networks into Azure AD, you need to add Zero Networks from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using a work Microsoft account.
+1. Sign in to the Azure portal using a Microsoft work or school account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Zero Networks** in the search box.
-1. Select **Zero Networks** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Select **Zero Networks** from results panel and select **Create** to add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **Zero Networks** application integration page, find the **Manage** section and select **Single sign-on**.
+1. In the Azure portal, go back to **Azure Active Directory**, click **Enterprise Applications** select the **Zero Networks** application, in the **Manage** section select **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -61,10 +63,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following step.
 
-	a. In the **Sign on URL** text box, type the URL:
-    `https://portal.zeronetworks.com/#/login`
+	a. In the **Identifier (Entity ID)** text box, type the URL:
+    `https://portal.zeronetworks.com/api/v1/sso/azure/metadata`
+     
+	b. In the **Reply URL (Assertion Consumer Service URL)** text box, type the URL:
+    `https://portal.zeronetworks.com/api/v1/sso/azure/acs`
+	
+	c. In the **Sign on URL** text box, type the URL:
+    `https://portal.zeronetworks.com/#/login`      	
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Certificates** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
@@ -81,10 +89,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. Click on **Microsoft Azure** and perform the following steps.
     
     ![Screenshot shows settings of SSO configuration.](./media/zero-networks-tutorial/settings.png "Account")
-
-    1. Copy **Identifier(Entity ID)** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
-
-    1. Copy **Reply URL (Assertion Consumer Service URL)** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
 
     1. In the **Login URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 

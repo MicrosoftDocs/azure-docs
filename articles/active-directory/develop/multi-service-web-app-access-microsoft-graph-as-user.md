@@ -5,15 +5,16 @@ services: microsoft-graph, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 04/25/2022
+ms.date: 06/28/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp, javascript
 ms.custom: azureday1
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph from a web app for a signed-in user.
+ms.subservice: web-apps
 ---
 
 # Tutorial: Access Microsoft Graph from a secured app as the user
@@ -136,7 +137,7 @@ To see this code as part of a sample application, see the [sample on GitHub](htt
 
 ### Install client library packages
 
-Install the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) and [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet packages in your project by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
+Install the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) and [Microsoft.Identity.Web.GraphServiceClient](https://www.nuget.org/packages/Microsoft.Identity.Web.GraphServiceClient) NuGet packages in your project by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
 
 #### .NET Core command line
 
@@ -145,7 +146,7 @@ Open a command line, and switch to the directory that contains your project file
 Run the install commands.
 
 ```dotnetcli
-dotnet add package Microsoft.Identity.Web.MicrosoftGraph
+dotnet add package Microsoft.Identity.Web.GraphServiceClient
 
 dotnet add package Microsoft.Identity.Web
 ```
@@ -156,7 +157,7 @@ Open the project/solution in Visual Studio, and open the console by using the **
 
 Run the install commands.
 ```powershell
-Install-Package Microsoft.Identity.Web.MicrosoftGraph
+Install-Package Microsoft.Identity.Web.GraphServiceClient
 
 Install-Package Microsoft.Identity.Web
 ```
@@ -180,13 +181,26 @@ public class Startup
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"))
-                    .EnableTokenAcquisitionToCallDownstreamApi()
-                        .AddMicrosoftGraph(Configuration.GetSection("Graph"))
-                        .AddInMemoryTokenCaches();
+      services.AddOptions();
+      string[] initialScopes = Configuration.GetValue<string>("DownstreamApi:Scopes")?.Split(' ');
 
-        services.AddRazorPages();
+      services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+              .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"))
+              .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
+                      .AddMicrosoftGraph(Configuration.GetSection("DownstreamApi"))
+                      .AddInMemoryTokenCaches(); 
+
+      services.AddAuthorization(options =>
+      {
+          // By default, all incoming requests will be authorized according to the default policy
+          options.FallbackPolicy = options.DefaultPolicy;
+      });
+      services.AddRazorPages()
+          .AddMvcOptions(options => {})                
+          .AddMicrosoftIdentityUI();
+
+      services.AddControllersWithViews()
+              .AddMicrosoftIdentityUI();
     }
 }
 
@@ -202,17 +216,32 @@ public class Startup
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
-    "Domain": "fourthcoffeetest.onmicrosoft.com",
-    "TenantId": "[tenant-id]",
-    "ClientId": "[client-id]",
-    // To call an API
-    "ClientSecret": "[secret-from-portal]", // Not required by this scenario
+    "Domain": "[Enter the domain of your tenant, e.g. contoso.onmicrosoft.com]",
+    "TenantId": "[Enter 'common', or 'organizations' or the Tenant Id (Obtained from the Azure portal. Select 'Endpoints' from the 'App registrations' blade and use the GUID in any of the URLs), e.g. da41245a5-11b3-996c-00a8-4d99re19f292]",
+    "ClientId": "[Enter the Client Id (Application ID obtained from the Azure portal), e.g. ba74781c2-53c2-442a-97c2-3d60re42f403]",
+    "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
+    "ClientCertificates": [
+    ],
+    // the following is required to handle Continuous Access Evaluation challenges
+    "ClientCapabilities": [ "cp1" ],
     "CallbackPath": "/signin-oidc"
   },
+  "DownstreamApis": {
+    "MicrosoftGraph": {
+      // Specify BaseUrl if you want to use Microsoft graph in a national cloud.
+      // See https://learn.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints
+      // "BaseUrl": "https://graph.microsoft.com/v1.0",
 
-  "Graph": {
-    "BaseUrl": "https://graph.microsoft.com/v1.0",
-    "Scopes": "user.read"
+      // Set RequestAppToken this to "true" if you want to request an application token (to call graph on 
+      // behalf of the application). The scopes will then automatically
+      // be ['https://graph.microsoft.com/.default'].
+      // "RequestAppToken": false
+
+      // Set Scopes to request (unless you request an app token).
+      "Scopes": [ "User.Read" ]
+
+      // See https://aka.ms/ms-id-web/downstreamApiOptions for all the properties you can set.
+    }
   },
   "Logging": {
     "LogLevel": {
@@ -239,7 +268,7 @@ using Microsoft.Extensions.Logging;
 
 // Some code omitted for brevity.
 
-[AuthorizeForScopes(Scopes = new[] { "user.read" })]
+[AuthorizeForScopes(Scopes = new[] { "User.Read" })]
 public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
@@ -255,11 +284,11 @@ public class IndexModel : PageModel
     {
         try
         {
-            var user = await _graphServiceClient.Me.Request().GetAsync();
+            var user = await _graphServiceClient.Me.GetAsync();
             ViewData["Me"] = user;
             ViewData["name"] = user.DisplayName;
 
-            using (var photoStream = await _graphServiceClient.Me.Photo.Content.Request().GetAsync())
+            using (var photoStream = await _graphServiceClient.Me.Photo.Content.GetAsync())
             {
                 byte[] photoByte = ((MemoryStream)photoStream).ToArray();
                 ViewData["photo"] = Convert.ToBase64String(photoByte);
@@ -275,9 +304,12 @@ public class IndexModel : PageModel
 
 # [Node.js](#tab/programming-language-nodejs)
 
-The web app gets the user's access token from the incoming requests header, which is then passed down to Microsoft Graph client to make an authenticated request to the `/me` endpoint.
+Using a custom **AuthProvider** class that encapsulates authentication logic, the web app gets the user's access token from the incoming requests header. The **AuthProvider** instance detects that the web app is hosted on App Service and gets the access token from the App Service authentication/authorization module. The access token is then passed down to the Microsoft Graph SDK client to make an authenticated request to the `/me` endpoint.
 
 To see this code as part of a sample application, see *graphController.js* in the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
+
+> [!NOTE]
+> The App Service authentication/authorization is designed for more basic authentication scenarios. Later, when your web app needs to handle more complex scenarios, you can disable the App Service authentication/authorization module and the **AuthProvider** instance in the sample will fallback to use [MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node), which is the recommended library for adding authentication/authorization to Node.js applications.
 
 ```nodejs
 const graphHelper = require('../utils/graphHelper');

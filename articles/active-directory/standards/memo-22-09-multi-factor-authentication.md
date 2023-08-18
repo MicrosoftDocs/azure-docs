@@ -1,6 +1,6 @@
 ---
 title: Memo 22-09 multifactor authentication requirements overview
-description: Get guidance on meeting multifactor authentication requirements outlined in US government OMB memorandum 22-09.
+description: Get guidance on meeting multifactor authentication requirements outlined in the Office of Management and Budget memorandum 22-09.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: standards
@@ -10,158 +10,153 @@ author: gargi-sinha
 ms.author: gasinh
 manager: martinco
 ms.reviewer: martinco
-ms.date: 3/10/2022
+ms.date: 04/28/2023
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
 # Meet multifactor authentication requirements of memorandum 22-09
 
-This series of articles offers guidance for using Azure Active Directory (Azure AD) as a centralized identity management system for implementing Zero Trust principles, as described in the US federal government's Office of Management and Budget (OMB) [memorandum 22-09](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf).
+Learn about using Azure Active Directory (Azure AD) as the centralized identity management system when implementing Zero Trust principles. See, US Office of Management and Budget (OMB) [M 22-09 Memorandum for the Heads of Executive Departments and Agencies](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf).
 
-The memo requires that all employees use enterprise-managed identities to access applications, and that phishing-resistant multifactor authentication (MFA) protect those personnel from sophisticated online attacks. Phishing is the attempt to obtain and compromise credentials, such as by sending a spoofed email that leads to an inauthentic site.
+The memo requirements are that employees use enterprise-managed identities to access applications, and that multifactor authentication protects employees from sophisticated online attacks, such as phishing. This attack method attempts to obtain and compromise credentials, with links to inauthentic sites.
 
-Adoption of MFA is critical for preventing unauthorized access to accounts and data. The memo requires MFA usage with phishing-resistant methods, defined as "authentication processes designed to detect and prevent disclosure of authentication secrets and outputs to a website or application masquerading as a legitimate system." The first step is to establish what MFA methods qualify as phishing resistant.
+Multifactor authentication prevents unauthorized access to accounts and data. The memo requirements cite multifactor authentication with phishing-resistant methods: authentication processes designed to detect and prevent disclosure of authentication secrets and outputs to a website or application masquerading as a legitimate system. Therefore, establish what multifactor authentication methods qualify as phishing-resistant.
 
 ## Phishing-resistant methods
 
-U.S. Federal agencies will be approaching this guidance from different starting points. Some agencies will have already deployed modern credentials such as [FIDO2 security keys](../authentication/concept-authentication-passwordless.md#fido2-security-keys) or [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview), many are evaluating [Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md) (currently in Public Preview), some are just starting to modernize their authentication credentials. This guidance is meant to inform agencies on the multiple options available to meet phishing-resistant MFA requirements with Azure AD. The reality is that phishing-resistant MFA is needed sooner then later.  Microsoft recommends adopting phishing-resistant MFA method as soon as possible by whichever method below best matches the agency's current capability. Agencies should approach the phishing-resistant MFA requirement of the memorandum from the mindset of what can I do **now** to gain phishing-resistance for my accounts. Implementing phishing-resistant MFA will provide a significant positive impact on improving the agency's overall cybersecurity posture. The end goal here is to fully implement one or more of the modern credentials. However, if the quickest path to phishing-resistance is not a modern approach below, agencies should take that step as a starting point on their journey towards the more modern approaches.
+Some federal agencies have deployed modern credentials such as FIDO2 security keys or Windows Hello for Business. Many are evaluating Azure AD authentication with certificates. 
 
-![Table of Azure AD phishing-resistant methods.](media/memo-22-09/azure-active-directory-pr-methods.png)
+Learn more:
+
+* [FIDO2 security keys](../authentication/concept-authentication-passwordless.md#fido2-security-keys)
+* [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
+* [Overview of Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)
+
+Some agencies are modernizing their authentication credentials. There are multiple options for meeting phishing-resistant multifactor authentication requirements with Azure AD. Microsoft recommends adopting phishing-resistant multifactor authentication method that matches the agency capabilities. Consider what's possible now for phishing-resistance multifactor authentication to improve the overall cybersecurity posture. Implement modern credentials. However, if the quickest path isn't a modern approach, take the step to begin the journey toward modern approaches.
+
+   ![Diagram of Azure AD phishing-resistant multifactor authentication methods.](media/memo-22-09/azure-active-directory-pr-methods.png)
 
 ### Modern approaches
 
-- **[FIDO2 security keys](../authentication/concept-authentication-passwordless.md#fido2-security-keys)** are, according to the [Cybersecurity & Infrastructure Security Agency (CISA)](https://www.cisa.gov/mfa) the gold standard of multifactor authentication.
-
-- **[Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)** offers cloud native  certificate based authentication (without dependency on a federated identity provider). This includes smart card implementations such as Common Access Card (CAC) & Personal Identity Verification (PIV) as well as derived PIV credentials deployed to mobile devices or security keys
-
-- **[Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)** offers passwordless multifactor authentication that is phishing-resistant. For more information, see the [Windows Hello for Business Deployment Overview](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+* **FIDO2 security keys** are, according to the Cybersecurity & Infrastructure Security Agency (CISA) the gold standard of multifactor authentication
+  * See, [Passwordless authentication options for Azure AD, FIDO2 security keys](../authentication/concept-authentication-passwordless.md#fido2-security-keys)
+  * Go to cisa.gov for [More than a Password](https://www.cisa.gov/mfa)
+* **Azure AD certificate authentication** without dependency on a federated identity provider. 
+  * This solution includes smart card implementations: Common Access Card (CAC), Personal Identity Verification (PIV), and derived PIV credentials for mobile devices or security keys
+  * See, [Overview of Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)
+* **Windows Hello for Business** has phishing-resistant multifactor authentication
+  * See, [Windows Hello for Business Deployment Overview](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+  * See, [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
 
 ### Protection from external phishing
 
-**[Microsoft Authenticator](../authentication/concept-authentication-authenticator-app.md) and conditional access policies that enforce managed devices**. Managed devices are Hybrid Azure AD joined device or device marked as compliant.
+Microsoft Authenticator and Conditional Access policies enforce managed devices: hybrid Azure AD joined devices or devices marked as compliant. Install Microsoft Authenticator on devices accessing applications protected by Azure AD.
+ 
+Learn more: [Authentication methods in Azure AD - Microsoft Authenticator app](../authentication/concept-authentication-authenticator-app.md)
 
-Microsoft Authenticator can be installed on the device accessing the application protected by Azure AD or on a separate device.
+   >[!Important]
+   >To meet the phishing-resistant requirement: Manage only the devices accessing the protected application. Users allowed to use Microsoft Authenticator are in scope for Conditional Access policy requiring managed devices for access. A Conditional Access policy blocks access to the Microsoft Intune Enrollment Cloud App. Users allowed to use Microsoft Authenticator are in scope for this Conditional Access policy. Use the same group(s) to allow Microsoft Authenticator authentication in Conditional Access policies to ensure that users enabled for the authentication method are in scope for both policies. This Conditional Access policy prevents the most significant vector of phishing threats from malicious external actors. It also prevents malicious actor from phishing Microsoft Authenticator to register a credential, or join a device and enroll it in Intune to mark it as compliant.
 
->[!Important]
->
->To meet the phishing-resistant requirement with this approach:
->
->- Only the device accessing the protected application needs to be managed
->- All users allowed to use Microsoft Authenticator must be in scope for conditional access policy requiring managed device for access to all applications.
->- An additional conditional access policy is needed to block access targeting the Microsoft Intune Enrollment Cloud App. All users allowed to use Microsoft Authenticator must be in scope for this conditional access policy.
->
->Microsoft recommends that you use the same group(s) used to allow the Microsoft Authenticator App authentication method within both conditional access policies to ensure that once a user is enabled for the authentication method they are simultaneously in scope of both policies.
->
->This conditional access policy effectively prevents both:
->
->- The most significant vector of phishing threats from malicious external actors.
->- A malicious actor's ability to phish Microsoft Authenticator to register a new credential or join a device and enroll it in Intune such that it will be marked as compliant
+Learn more:
 
-For more information on deploying this method, see the following resources:
-- [Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan.md) **or** [How to: Plan your Azure AD join implementation](../devices/azureadjoin-plan.md)
-
-- [Conditional Access: Require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)
+* [Plan your hybrid Azure AD join implementation](../devices/hybrid-join-plan.md), or 
+* [How to: Plan your Azure AD join implementation](../devices/device-join-plan.md)
+* See also, [Common Conditional Access policy: Require a compliant device, hybrid Azure AD joined device, or multifactor authentication for all users](../conditional-access/howto-conditional-access-policy-compliant-device.md)
 
 >[!NOTE]
->
-> Today, Microsoft Authenticator by itself is **not** phishing-resistant. You must additionally secure the authentication with the phishing resistant properties gained from conditional access policy enforcement of managed devices.
->
->**Microsoft Authenticator native phishing resistance is in development.** Once available, Microsoft Authenticator will be natively phishing-resistant without reliance on conditional access policies that enforce Hybrid join device or device marked as compliant.
+> Microsoft Authenticator isn't phishing-resistant. Configure Conditional Access policy to require that managed devices get protection from external phishing threats.
 
 ### Legacy
 
-**Federated Identity Provider (IdP) such as Active Directory Federation Services (AD FS) that's configured with phishing-resistant method(s).** While agencies can achieve phishing resistance via federated IdP, adopting or continuing to use a federated IdP adds significant cost, complexity and risk. Microsoft encourages agencies to realize the security benefits of Azure AD as a cloud based identity provider, removing [associated risk of a federated IdP](../fundamentals/protect-m365-from-on-premises-attacks.md).
+Federated identity providers (IdPs) such as Active Directory Federation Services (AD FS) configured with phishing-resistant method(s). While agencies achieve phishing resistance with federated IdP, it adds cost, complexity, and risk. Microsoft encourages the security benefits of Azure AD an IdP, removing the associated risk of a federated IdP
 
-For more information on deploying this method, see the following resources:
+Learn more:
 
-- [Deploying Active Directory Federation Services in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
-- [Configuring AD FS for user certificate authentication](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)
+* [Protecting Microsoft 365 from on-premises attacks](../architecture/protect-m365-from-on-premises-attacks.md)
+* [Deploying AD Federation Services in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
+* [Configuring AD FS for user certificate authentication](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)
 
-### Additional phishing-resistant method considerations
+### Phishing-resistant method considerations
 
-Your current device capabilities, user personas, and other requirements might dictate specific multifactor methods. For example, if you're adopting FIDO2 security keys that have only USB-C support, they can be used only from devices with USB-C ports.
+Your current device capabilities, user personas, and other requirements might dictate multi-factor methods. For example, FIDO2 security keys with USB-C support require devices with USB-C ports. Consider the following information when evaluating phishing-resistant multifactor authentication:
 
-Consider the following when evaluating phishing-resistant MFA methods:
+* **Device types and capabilities you can support**: kiosks, laptops, mobile phones, biometric readers, USB, Bluetooth, and near-field communication devices
+* **Organizational user personas**: front-line workers, remote workers with and without company-owned hardware, administrators with privileged access workstations, and business-to-business guest users
+* **Logistics**: distribute, configure, and register multifactor authentication methods such as FIDO2 security keys, smart cards, government-furnished equipment, or Windows devices with TPM chips
+* **Federal Information Processing Standards (FIPS) 140 validation at an authenticator assurance level**: some FIDO security keys are FIPS 140 validated at levels for AAL3 set by NIST SP 800-63B 
+  * See, [Authenticator assurance levels](nist-about-authenticator-assurance-levels.md)
+  * See, [NIST authenticator assurance level 3 by using Azure AD](nist-authenticator-assurance-level-3.md)
+  * Go to nist.gov for [NIST Special Publication 800-63B, Digital Identity Guidelines](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
-- Device types and capabilities that you want to support. Examples include kiosks, laptops, mobile phones, biometric readers, USB, Bluetooth, and near-field communication devices.
+## Implementation considerations for phishing-resistant multifactor authentication
 
-- User personas within your organization. Examples include front-line workers, remote workers with and without company-owned hardware, administrators with privileged access workstations, and business-to-business guest users.
-
-- Logistics of distributing, configuring, and registering MFA methods such as FIDO2 security keys, smart cards, government-furnished equipment, or Windows devices with TPM chips.
-
-- Need for FIPS 140 validation at a specific [authenticator assurance level](nist-about-authenticator-assurance-levels.md). For example, some FIDO security keys are FIPS 140 validated at levels required for [AAL3](nist-authenticator-assurance-level-3.md), as set by [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html).
-
-## Implementation considerations for phishing-resistant MFA
-
-The following sections describe support for implementing phishing-resistant methods for both application and virtual device sign-in scenarios.
+See the following sections for support of implementing phishing-resistant methods for application and virtual device sign-in.
 
 ### Application sign-in scenarios from various clients
 
-The following table details the availability of phishing-resistant MFA scenarios, based on the device type that's used to sign in to the applications:
+The following table details the availability of phishing-resistant multifactor authentication scenarios, based on the device type that's used to sign in to the applications:
 
-| Device | AD FS as a federated identity provider configured with certificate-based authentication| Azure AD certificate-based authentication| FIDO2 security keys| Windows Hello for Business| Microsoft Authenticator with conditional access policies that enforce hybrid Azure AD join or compliant devices |
+| Device | AD FS as a federated IdP with certificate authentication| Azure AD certificate authentication| FIDO2 security keys| Windows Hello for Business| Microsoft Authenticator with Conditional Access policies enforcing hybrid Azure AD join or compliant devices |
 | - | - | - | - | - | - |
 | Windows device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
 | iOS mobile device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Not applicable| Not applicable| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
 | Android mobile device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Not applicable| Not applicable| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
-| MacOS device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Edge/Chrome | Not applicable| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
+| macOS device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Edge/Chrome | Not applicable| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
 
-To learn more, see [Browser support for FIDO2 passwordless authentication](../authentication/fido2-compatibility.md).
+Learn more: [Browser support for FIDO2 passwordless authentication](../authentication/fido2-compatibility.md)
 
 ### Virtual device sign-in scenarios that require integration
 
-To enforce the use of phishing-resistant MFA methods, integration might be necessary based on your requirements. MFA should be enforced when users access applications and devices.
-
-For each of the five phishing-resistant MFA types previously mentioned, you use the same capabilities to access the following device types:
+To enforce phishing-resistant multifactor authentication, integration might be necessary. Enforce multifactor authentication for users accessing applications and devices. For the five phishing-resistant multifactor authentication types, use the same features to access the following device types:
 
 | Target system| Integration actions |
 | - | - |
-| Azure Linux virtual machine (VM)| Enable the [Linux VM for Azure AD sign-in](../devices/howto-vm-sign-in-azure-ad-linux.md). |
-| Azure Windows VM| Enable the [Windows VM for Azure AD sign-in](../devices/howto-vm-sign-in-azure-ad-windows.md). |
-| Azure Virtual Desktop| Enable [Azure Virtual Desktop for Azure AD sign-in](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join). |
-| VMs hosted on-premises or in other clouds| Enable [Azure Arc](../../azure-arc/overview.md) on the VM and then enable Azure AD sign-in. (Currently in private preview for Linux. Support for Windows VMs hosted in these environments is on our roadmap.) |
-| Non-Microsoft virtual desktop solution| Integrate the virtual desktop solution as an app in Azure AD. |
+| Azure Linux virtual machine (VM)| Enable the [Linux VM for Azure AD sign-in](../devices/howto-vm-sign-in-azure-ad-linux.md) |
+| Azure Windows VM| Enable the [Windows VM for Azure AD sign-in](../devices/howto-vm-sign-in-azure-ad-windows.md) |
+| Azure Virtual Desktop| Enable [Azure Virtual Desktop for Azure AD sign-in](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join)|
+| VMs hosted on-premises or in other clouds| Enable [Azure Arc](../../azure-arc/overview.md) on the VM and then enable Azure AD sign-in. Currently in private preview for Linux. Support for Windows VMs hosted in these environments is on our roadmap. |
+| Non-Microsoft virtual desktop solution| Integrate the virtual desktop solution as an app in Azure AD|
 
-### Enforcing phishing-resistant MFA
+### Enforcing phishing-resistant multifactor authentication
 
-Conditional access enables you to enforce MFA for users in your tenant. With the addition of [cross-tenant access policies](../external-identities/cross-tenant-access-overview.md), you can enforce it on external users.
+Use Conditional Access to enforce multifactor authentication for users in your tenant. With the addition of cross-tenant access policies, you can enforce it on external users.
+
+Learn more: [Overview: Cross-tenant access with Azure AD External Identities](../external-identities/cross-tenant-access-overview.md)
 
 #### Enforcement across agencies
 
-[Azure AD B2B collaboration](../external-identities/what-is-b2b.md) helps you meet the requirement to facilitate integration among agencies. It does this by:
+Use Azure AD B2B collaboration to meet requirements that facilitate integration:
 
-- Limiting what other Microsoft tenants your users can access.
-- Enabling you to allow access to users whom you don't have to manage in your own tenant, but whom you can subject to your MFA and other access requirements.
+- Limit what other Microsoft tenants your users access
+- Allow access to users you don't have to manage in your tenant, but enforce multifactor authentication and other access requirements
 
-You must enforce MFA for partners and external users who access your organization's resources. This is common in many inter-agency collaboration scenarios. Azure AD provides cross-tenant access policies to help you configure MFA for external users who access your applications and resources.
+Learn more: [B2B collaboration overview](../external-identities/what-is-b2b.md)
 
-By using trust settings in cross-tenant access policies, you can trust the MFA method that the guest user's tenant is using instead of having them register an MFA method directly with your tenant. These policies can be configured on a per-organization basis. This ability requires you to understand the available MFA methods in the user's home tenant and determine if they meet the requirement for phishing resistance.
+Enforce multifactor authentication for partners and external users who access organizational resources. This action is common in inter-agency collaboration scenarios. Use Azure AD cross-tenant access policies to configure multifactor authentication for external users who access applications and resources.
+
+Configure trust settings in cross-tenant access policies to trust the multifactor authentication method the guest user tenant uses. Avoid having users register a multifactor authentication method with your tenant. Enable these policies on a per-organization basis. You can determine the multifactor authentication methods in the user home tenant and decide if they meet phishing resistance requirements.
 
 ## Password policies
 
-The memo requires organizations to change password policies that are proven ineffective, such as complex passwords that are rotated often. This includes the removal of the requirement for special characters and numbers, along with time-based password rotation policies. Instead, consider doing the following:
+The memo requires organizations to change ineffective password policies, such as complex, rotated passwords. Enforcement includes removing the requirement for special characters and numbers, with time-based password rotation policies. Instead, consider the following options:
 
-* Use [password protection](..//authentication/concept-password-ban-bad.md) to enforce a common list of weak passwords that Microsoft maintains. You can also add custom banned passwords.
+* **Password protection** to enforce a common list of weak passwords that Microsoft maintains
+  * In addition, include custom banned passwords
+  * See, [Eliminate bad passwords using Azure AD Password Protection](..//authentication/concept-password-ban-bad.md)
+* **Self-service password reset** to enable users to reset passwords, for instance after account recovery
+  * [Tutorial: Enable users to unlock their account or reset passwords using Azure AD self-service password reset](..//authentication/tutorial-enable-sspr.md)
+* **Azure AD Identity Protection** for alerts about compromised credentials
+ * [What is risk?](..//identity-protection/concept-identity-protection-risks.md)
 
-* Use [self-service password protection](..//authentication/tutorial-enable-sspr.md) to enable users to reset passwords as needed, such as after an account recovery.
+Although the memo isn't specific about policies to use with passwords, consider the standard from NIST 800-63B. 
 
-* Use [Azure AD Identity Protection](..//identity-protection/concept-identity-protection-risks.md) to be alerted about compromised credentials so you can take immediate action.
-
-Although the memo isn't specific on which policies to use with passwords, consider the standard from [NIST 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html).
+See, [NIST Special Publication 800-63B, Digital Identity Guidelines](https://pages.nist.gov/800-63-3/sp800-63b.html).
 
 ## Next steps
 
-The following articles are part of this documentation set:
-
-[Meet identity requirements of memorandum 22-09](memo-22-09-meet-identity-requirements.md)
-
-[Enterprise-wide identity management system](memo-22-09-enterprise-wide-identity-management-system.md)
-
-[Authorization](memo-22-09-authorization.md)
-
-[Other areas of Zero Trust](memo-22-09-other-areas-zero-trust.md)
-
-For more information about Zero Trust, see:
-
-[Securing identity with Zero Trust](/security/zero-trust/deploy/identity)
+* [Meet identity requirements of memorandum 22-09 with Azure AD](memo-22-09-meet-identity-requirements.md)
+* [Enterprise-wide identity management system](memo-22-09-enterprise-wide-identity-management-system.md)
+* [Meet authorization requirements of memorandum 22-09](memo-22-09-authorization.md)
+* [Other areas of Zero Trust addressed in memorandum 22-09](memo-22-09-other-areas-zero-trust.md)
+* [Securing identity with Zero Trust](/security/zero-trust/deploy/identity)

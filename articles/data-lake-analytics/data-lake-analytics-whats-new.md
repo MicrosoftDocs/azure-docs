@@ -1,14 +1,15 @@
 ---
 title: Data Lake Analytics recent changes
 description: This article provides an ongoing list of recent changes that are made to Data Lake Analytics. 
-author: xujiang1
 ms.service: data-lake-analytics
+ms.custom: devx-track-dotnet
 ms.topic: overview
-ms.author: xujiang1
-ms.date: 07/31/2020
+ms.date: 11/16/2022
 ---
 
 # What's new in Data Lake Analytics?
+
+[!INCLUDE [retirement-flag-creation](includes/retirement-flag-creation.md)]
 
 Azure Data Lake Analytics is updated on an aperiodic basis for certain components. To stay updated with the most recent update, this article provides you with information about:
 
@@ -18,7 +19,7 @@ Azure Data Lake Analytics is updated on an aperiodic basis for certain component
 
 ## Notification of key component beta preview
 
-No key component beta version available for preview. 
+No key component beta version available for preview.
 
 ## U-SQL runtime
 
@@ -32,17 +33,13 @@ The runtime version will be updated aperiodically. And the previous runtime will
 > - Choosing a runtime that is different from the default has the potential to break your U-SQL jobs. It is highly recommended not to use these non-default versions for production, but for testing only.
 > - The non-default runtime version has a fixed lifecycle. It will be automatically expired.
 
-The following version is the current default runtime version.
-
-- **release_20200707_scope_2b8d563_usql**
-
 To get understanding how to troubleshoot U-SQL runtime failures, refer to [Troubleshoot U-SQL runtime failures](runtime-troubleshoot.md).
 
 ## .NET Framework
 
 Azure Data Lake Analytics now is using the **.NET Framework v4.7.2**. 
 
-If your Azure Data Lake Analytics U-SQL script code uses custom assemblies, and those custom assemblies use .NET libraries, validate your code to check if there is any breakings.
+If your Azure Data Lake Analytics U-SQL script code uses custom assemblies, and those custom assemblies use .NET libraries, validate your code to check if there are any errors.
 
 To get understanding how to troubleshoot a .NET upgrade using [Troubleshoot a .NET upgrade](runtime-troubleshoot.md).
 
@@ -54,4 +51,3 @@ For recent update details, refer to the [Azure Data Lake Analytics release note]
 ## Next steps
 
 * Get Started with Data Lake Analytics using [Azure portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli.md)
-

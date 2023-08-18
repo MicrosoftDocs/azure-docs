@@ -1,10 +1,11 @@
 ---
 title: Deploy Azure Health Data Services FHIR service using Bicep
 description: Learn how to deploy FHIR service by using Bicep
-author: dougseven
+author: expekesheth
 ms.service: healthcare-apis
+ms.custom: devx-track-bicep
 ms.topic: tutorial
-ms.author: dseven
+ms.author: kesheth
 ms.date: 05/27/2022
 ---
 
@@ -20,7 +21,7 @@ In this article, you'll learn how to deploy FHIR service within the Azure Health
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally:
-    * [Azure PowerShell](/powershell/azure/install-az-ps).
+    * [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 # [CLI](#tab/CLI)
 

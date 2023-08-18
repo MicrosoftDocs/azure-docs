@@ -1,13 +1,13 @@
 ### YamlMime:Landing
 
 title: Azure Functions documentation 
-summary: Azure Functions is a cloud service available on-demand that provides all the continually updated infrastructure and resources needed to run your applications. You focus on the pieces of code that matter most to you, and Functions handles the rest. Functions provides serverless compute for Azure. You can use Functions to build web APIs, respond to database changes, process IoT streams, manage message queues, and more.  
+summary: Azure Functions is a cloud service available on-demand that provides all the continually updated infrastructure and resources needed to run your applications. You focus on the code that matters most to you, in the most productive language for you, and Functions handles the rest. Functions provides serverless compute for Azure. You can use Functions to build web APIs, respond to database changes, process IoT streams, manage message queues, and more.  
 
 metadata:
   title: Azure Functions documentation 
-  description: Azure Functions is a cloud service available on-demand that provides all the continually updated infrastructure and resources needed to run your applications. You focus on the pieces of code that matter most to you, and Azure Functions handles the rest. Functions provides serverless compute for Azure. You can use Azure Functions to build web APIs, respond to database changes, process IoT streams, manage message queues, and more.
+  description: Azure Functions is a cloud service available on-demand that provides all the continually updated infrastructure and resources needed to run your applications. You focus on the code that matters most to you, in the most productive language for you, and Functions handles the rest. Functions provides serverless compute for Azure. You can use Azure Functions to build web APIs, respond to database changes, process IoT streams, manage message queues, and more.
   ms.service: azure-functions 
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   author: ggailey777 
   ms.author: azfundocs 
   ms.date: 12/27/2021 
@@ -36,19 +36,19 @@ landingContent:
             url: functions-get-started.md
       - linkListType: quickstart
         links:
-          - text: Create a C# function in Azure using Visual Studio Code
-            url: create-first-function-vs-code-csharp.md
-          - text: Create a Java function in Azure from the command line
+          - text: C# 
+            url: functions-create-your-first-function-visual-studio.md
+          - text: Java
             url: create-first-function-cli-java.md
-          - text: Create a JavaScript function in Azure using Visual Studio Code
+          - text: JavaScript
             url: create-first-function-vs-code-node.md
-          - text: Create a PowerShell function in Azure using Visual Studio Code
+          - text: PowerShell
             url: create-first-function-vs-code-powershell.md
-          - text: Create a function in Azure with Python using Visual Studio Code
+          - text: Python
             url: create-first-function-vs-code-python.md
-          - text: Create a Go or Rust function in Azure using Visual Studio Code
+          - text: Rust/Go
             url: create-first-function-vs-code-other.md
-          - text: Create a function in Azure with TypeScript using Visual Studio Code
+          - text: TypeScript
             url: create-first-function-vs-code-typescript.md
   - title: Develop functions
     linkLists:
@@ -70,3 +70,11 @@ landingContent:
             url: https://www.serverlesslibrary.net/
           - text: Azure Resource Manager templates
             url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Web&term=functions
+      - linkListType: tutorial
+        links:
+          - text: Functions with Logic Apps
+            url: functions-twitter-email.md
+          - text: Develop Python functions with VS Code
+            url: create-first-function-vs-code-python.md
+          - text: Create serverless APIs using Visual Studio
+            url: openapi-apim-integrate-visual-studio.md

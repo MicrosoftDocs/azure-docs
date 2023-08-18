@@ -2,8 +2,8 @@
 title: Azure CLI samples - Azure Database for MariaDB | Microsoft Docs
 description: This article lists the Azure CLI code samples available for interacting with Azure Database for MariaDB.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-, seo-azure-cli, devx-track-azurecli
@@ -16,7 +16,7 @@ You can configure Azure SQL Database for MariaDB by using the <a href="/cli/azur
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Samples
 

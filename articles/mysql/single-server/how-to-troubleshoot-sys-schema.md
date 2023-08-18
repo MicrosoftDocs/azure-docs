@@ -3,8 +3,8 @@ title: Use the sys_schema - Azure Database for MySQL
 description: Learn how to use the sys_schema to find performance issues and maintain databases in Azure Database for MySQL.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: troubleshooting
 ms.date: 06/20/2022
 ---
@@ -12,6 +12,8 @@ ms.date: 06/20/2022
 # Tune performance and maintain databases in Azure Database for MySQL using the sys_schema
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 The MySQL performance_schema, first available in MySQL 5.5, provides instrumentation for many vital server resources such as memory allocation, stored programs, metadata locking, etc. However, the performance_schema contains more than 80 tables, and getting the necessary information often requires joining tables within the performance_schema, and tables from the information_schema. Building on both performance_schema and information_schema, the sys_schema provides a powerful collection of [user-friendly views](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) in a read-only database and is fully enabled in Azure Database for MySQL version 5.7.
 

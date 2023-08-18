@@ -6,12 +6,12 @@ ms.author: chugu
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 07/07/2022
+ms.date: 07/20/2023
 ---
 
 # Migrate on-premises SSIS workloads to SSIS in ADF or Synapse Pipelines
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## Overview
 

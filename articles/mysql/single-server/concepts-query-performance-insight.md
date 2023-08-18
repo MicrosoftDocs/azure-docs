@@ -4,14 +4,16 @@ description: This article describes the Query Performance Insight feature in Azu
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 
 # Query Performance Insight in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 **Applies to:** Azure Database for MySQL 5.7, 8.0
 
@@ -43,7 +45,7 @@ In the portal page of your Azure Database for MySQL server, select **Query Perfo
 
 The **Long running queries** tab shows the top 5 Query IDs by average duration per execution, aggregated in 15-minute intervals. You can view more Query IDs by selecting from the **Number of Queries** drop down. The chart colors may change for a specific Query ID when you do this.
 
-> [!Note]
+> [!NOTE]
 >  Displaying the Query Text is no longer supported and will show as empty. The query text is removed to avoid unauthorized access to the query text or underlying schema which can pose a security risk.
 
 The recommended steps to view the query text is shared below:
@@ -70,7 +72,7 @@ Select the **Wait Statistics** tab to view the corresponding visualizations on w
 
 Queries displayed in the wait statistics view are grouped by the queries that exhibit the largest waits during the specified time interval.
 
-> [!Note]
+> [!NOTE]
 >  Displaying the Query Text is no longer supported and will show as empty. The query text is removed to avoid unauthorized access to the query text or underlying schema which can pose a security risk.
 
 The recommended steps to view the query text is shared below:

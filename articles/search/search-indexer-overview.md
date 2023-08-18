@@ -7,8 +7,9 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: 
 ms.topic: conceptual
-ms.date: 07/27/2022
+ms.date: 12/07/2022
 ---
 
 # Indexers in Azure Cognitive Search
@@ -19,7 +20,6 @@ Indexers are cloud-only, with individual indexers for [supported data sources](#
 
 You can run indexers on demand or on a recurring data refresh schedule that runs as often as every five minutes. More frequent updates require a ['push model'](search-what-is-data-import.md) that simultaneously updates data in both Azure Cognitive Search and your external data source.
 
-
 ## Indexer scenarios and use cases
 
 You can use an indexer as the sole means for data ingestion, or in combination with other techniques. The following table summarizes the main scenarios.
@@ -28,7 +28,7 @@ You can use an indexer as the sole means for data ingestion, or in combination w
 |----------|---------|
 | Single data source | This pattern is the simplest: one data source is the sole content provider for a search index. Most supported data sources provide some form of change detection so that subsequent indexer runs pick up the difference when content is added or updated in the source. |
 | Multiple data sources | An indexer specification can have only one data source, but the search index itself can accept content from multiple sources, where each indexer run brings new content from a different data provider. Each source can contribute its share of full documents, or populate selected fields in each document. For a closer look at this scenario, see [Tutorial: Index from multiple data sources](tutorial-multiple-data-sources.md). |
-| Multiple indexers | Multiple data sources are typically paired with multiple indexers if you need to vary run time parameters, the schedule, or field mappings. </br></br>[Cross-region scale out of Cognitive Search](search-performance-optimization.md#data-sync) is another scenario. You might have copies of the same search index in different regions. To synchronize search index content, you could have multiple indexers pulling from the same data source, where each indexer targets a different search index in each region.</br></br>[Parallel indexing](search-howto-large-index.md#parallel-indexing) of very large data sets also requires a multi-indexer strategy, where each indexer targets a subset of the data. |
+| Multiple indexers | Multiple data sources are typically paired with multiple indexers if you need to vary run time parameters, the schedule, or field mappings. </br></br>[Cross-region scale out of Cognitive Search](search-reliability.md#data-sync) is another scenario. You might have copies of the same search index in different regions. To synchronize search index content, you could have multiple indexers pulling from the same data source, where each indexer targets a different search index in each region.</br></br>[Parallel indexing](search-howto-large-index.md#parallel-indexing) of very large data sets also requires a multi-indexer strategy, where each indexer targets a subset of the data. |
 | Content transformation | Indexers drive [AI enrichment](cognitive-search-concept-intro.md). Content transforms are defined in a [skillset](cognitive-search-working-with-skillsets.md) that you attach to the indexer.|
 
 <a name="supported-data-sources"></a>
@@ -47,8 +47,8 @@ Indexers crawl data stores on Azure and outside of Azure.
 + [Azure Files](search-file-storage-integration.md) (in preview)
 + [Azure MySQL](search-howto-index-mysql.md) (in preview)
 + [SharePoint in Microsoft 365](search-howto-index-sharepoint-online.md) (in preview)
-+ [Azure Cosmos DB (MongoDB API)](search-howto-index-cosmosdb-mongodb.md) (in preview)
-+ [Azure Cosmos DB (Gremlin API)](search-howto-index-cosmosdb-gremlin.md) (in preview)
++ [Azure Cosmos DB for MongoDB](search-howto-index-cosmosdb-mongodb.md) (in preview)
++ [Azure Cosmos DB for Apache Gremlin](search-howto-index-cosmosdb-gremlin.md) (in preview)
 
 Indexers accept flattened row sets, such as a table or view, or items in a container or folder. In most cases, it creates one search document per row, record, or item.
 
@@ -56,7 +56,7 @@ Indexer connections to remote data sources can be made using standard Internet c
 
 ## Stages of indexing
 
-On an initial run, when the index is empty, an indexer will read in all of the data provided in the table or container. On subsequent runs, the indexer can usually detect and retrieve just the data that has changed. For blob data, change detection is automatic. For other data sources like Azure SQL or Cosmos DB, change detection must be enabled.
+On an initial run, when the index is empty, an indexer will read in all of the data provided in the table or container. On subsequent runs, the indexer can usually detect and retrieve just the data that has changed. For blob data, change detection is automatic. For other data sources like Azure SQL or Azure Cosmos DB, change detection must be enabled.
 
 For each document it receives, an indexer implements or coordinates multiple steps, from document retrieval to a final search engine "handoff" for indexing. Optionally, an indexer also drives [skillset execution and outputs](cognitive-search-concept-intro.md), assuming a skillset is defined.
 
@@ -74,7 +74,7 @@ Depending on the data source, the indexer will try different operations to extra
 
 + When the document is a record in [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), the indexer will extract non-binary content from each field in each record.
 
-+ When the document is a record in [Cosmos DB](search-howto-index-cosmosdb.md), the indexer will extract non-binary content from fields and subfields from the Cosmos DB document.
++ When the document is a record in [Azure Cosmos DB](search-howto-index-cosmosdb.md), the indexer will extract non-binary content from fields and subfields from the Azure Cosmos DB document.
 
 ### Stage 2: Field mappings 
 
@@ -106,24 +106,30 @@ Indexers can offer features that are unique to the data source. In this respect,
 
 ### Step 1: Create a data source
 
-Indexers require a *data source* object that provides a connection string and possibly credentials. Call the [Create Data Source (REST)](/rest/api/searchservice/create-data-source) or [SearchIndexerDataSourceConnection class](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) to create the resource.
+Indexers require a *data source* object that provides a connection string and possibly credentials. Data sources are independent objects. Multiple indexers can use the same data source object to load more than one index at a time.
 
-Data sources are independent objects. Multiple indexers can use the same data source object to load more than one index at a time.
+You can create a data source using any of these approaches:
+
++ Using the Azure portal, on the **Data sources** tab of your search service pages, select **Add data source** to specify the data source definition.
++ Using the Azure portal, the [Import data wizard](search-import-data-portal.md) outputs a data source.
++ Using the REST APIs, call [Create Data Source](/rest/api/searchservice/create-data-source).
++ Using the Azure SDK for .NET, call [SearchIndexerDataSourceConnection class](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)
 
 ### Step 2: Create an index
 
-An indexer will automate some tasks related to data ingestion, but creating an index is generally not one of them. As a prerequisite, you must have a predefined index that contains corresponding target fields for any source fields in your external data source. Fields need to match by name and data type. If not, you can [define field mappings](search-indexer-field-mappings.md) to establish the association. For more information about structuring an index, see [Create an Index (REST)](/rest/api/searchservice/Create-Index) or [SearchIndex class](/dotnet/api/azure.search.documents.indexes.models.searchindex).
+An indexer will automate some tasks related to data ingestion, but creating an index is generally not one of them. As a prerequisite, you must have a predefined index that contains corresponding target fields for any source fields in your external data source. Fields need to match by name and data type. If not, you can [define field mappings](search-indexer-field-mappings.md) to establish the association. 
 
-> [!Tip]
-> Although indexers cannot generate an index for you, the **Import data** wizard in the portal can help. In most cases, the wizard can infer an index schema from existing metadata in the source, presenting a preliminary index schema which you can edit in-line while the wizard is active. Once the index is created on the service, further edits in the portal are mostly limited to adding new fields. Consider the wizard for creating, but not revising, an index. For hands-on learning, step through the [portal walkthrough](search-get-started-portal.md).
+For more information, see [Create an index](search-how-to-create-search-index.md).
 
 ### Step 3: Create and run (or schedule) the indexer
 
-By default, the first indexer execution occurs when you [create an indexer](/rest/api/searchservice/Create-Indexer) on the search service. You can set the "disabled" property in an indexer to create it without running it.
+An indexer definition consists of properties that uniquely identify the indexer, specify which data source and index to use, and provide other configuration options that influence run time behaviors, including whether the indexer runs on demand or on a schedule.
 
-Any errors or warnings about data access or skillset validation will occur during indexer execution. Until indexer execution starts, dependent objects such as data sources and skillsets are passive on the search service. 
+Any errors or warnings about data access or skillset validation will occur during indexer execution. Until indexer execution starts, dependent objects such as data sources, indexes, and skillsets are passive on the search service. 
 
-After the first indexer run, you can rerun it on demand using [Run Indexer](/rest/api/searchservice/run-indexer), or you can [define a recurring schedule](search-howto-schedule-indexers.md). 
+For more information, see [Create an indexer](search-howto-create-indexers.md)
+
+After the first indexer run, you can [rerun it on demand](search-howto-run-reset-indexers.md) or [set up a schedule](search-howto-schedule-indexers.md).
 
 You can monitor [indexer status in the portal](search-howto-monitor-indexers.md) or through [Get Indexer Status API](/rest/api/searchservice/get-indexer-status). You should also [run queries on the index](search-query-create.md) to verify the result is what you expected.
 

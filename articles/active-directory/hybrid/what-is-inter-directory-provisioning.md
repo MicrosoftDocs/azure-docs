@@ -1,5 +1,5 @@
 ---
-title: 'What is inter-directory provisioning with Azure Active Directory? | Microsoft Docs'
+title: 'What is inter-directory provisioning with Azure Active Directory?'
 description: Describes overview of identity inter-directory provisioning.
 services: active-directory
 author: billmath
@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/30/2020
+ms.date: 01/19/2023
 ms.subservice: compliance
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -25,9 +25,9 @@ Inter-directory provisioning allows us to create [hybrid identity](whatis-hybrid
 
 Azure AD currently supports three methods for accomplishing inter-directory provisioning. These methods are:
 
-- [Azure AD Connect](whatis-azure-ad-connect.md) - the Microsoft tool designed to meet and accomplish your hybrid identity, including inter-directory provisioning from Active Directory to Azure AD.
+- [Azure AD Connect cloud sync](./cloud-sync/what-is-cloud-sync.md) -a new Microsoft agent designed to meet and accomplish your hybrid identity goals.  It is provides a light-weight inter -directory provisioning experience between Active Directory and Azure AD and is configured via the portal.
 
-- [Azure AD Connect Cloud Provisioning](../cloud-sync/what-is-cloud-sync.md) -a new Microsoft agent designed to meet and accomplish your hybrid identity goals.  It is provides a light-weight inter -directory provisioning experience between Active Directory and Azure AD.
+- [Azure AD Connect](./connect/whatis-azure-ad-connect.md) - the Microsoft tool designed to meet and accomplish your hybrid identity, including inter-directory provisioning from Active Directory to Azure AD.
 
 - [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) - Microsoft's on-premises identity and access management solution that helps you manage the users, credentials, policies, and access within your organization. Additionally, MIM provides advanced inter-directory provisioning to achieve hybrid identity environments for Active Directory, Azure AD, and other directories.
 
@@ -35,14 +35,14 @@ Azure AD currently supports three methods for accomplishing inter-directory prov
 
 This capability of inter-directory provisioning offers the following significant business benefits:
 
-- [Password hash synchronization](whatis-phs.md) - A sign-in method that synchronizes a hash of a users on-premises AD password with Azure AD.
-- [Pass-through authentication](how-to-connect-pta.md) - A sign-in method that allows users to use the same password on-premises and in the cloud, but doesn't require the additional infrastructure of a federated environment.
-- [Federation integration](how-to-connect-fed-whatis.md) - can be used to configure a hybrid environment using an on-premises AD FS infrastructure. It also provides AD FS management capabilities such as certificate renewal and additional AD FS server deployments.
-- [Synchronization](how-to-connect-sync-whatis.md) - Responsible for creating users, groups, and other objects.  As well as, making sure identity information for your on-premises users and groups is matching the cloud.  This synchronization also includes password hashes.
-- [Health Monitoring](whatis-azure-ad-connect.md) - can provide robust monitoring and provide a central location in the Azure portal to view this activity. 
+- [Password hash synchronization](./connect/whatis-phs.md) - A sign-in method that synchronizes a hash of a users on-premises AD password with Azure AD.
+- [Pass-through authentication](./connect/how-to-connect-pta.md) - A sign-in method that allows users to use the same password on-premises and in the cloud, but doesn't require the additional infrastructure of a federated environment.
+- [Federation integration](./connect/how-to-connect-fed-whatis.md) - can be used to configure a hybrid environment using an on-premises AD FS infrastructure. It also provides AD FS management capabilities such as certificate renewal and additional AD FS server deployments.
+- [Synchronization](./connect/how-to-connect-sync-whatis.md) - Responsible for creating users, groups, and other objects.  As well as, making sure identity information for your on-premises users and groups is matching the cloud.  This synchronization also includes password hashes.
+- [Health Monitoring](./connect/whatis-azure-ad-connect.md) - can provide robust monitoring and provide a central location in the Azure portal to view this activity. 
 
 ## Next steps 
 - [What is identity lifecycle management](../governance/what-is-identity-lifecycle-management.md)
-- [What is provisioning?](../governance/what-is-provisioning.md)
+- [What is provisioning?](what-is-provisioning.md)
 - [What is HR driven provisioning?](../app-provisioning/what-is-hr-driven-provisioning.md)
 - [What is app provisioning?](../app-provisioning/user-provisioning.md)

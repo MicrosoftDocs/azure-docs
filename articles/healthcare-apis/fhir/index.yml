@@ -11,9 +11,9 @@ metadata:
   ms.subservice: fhir
   ms.topic: landing-page 
   ms.collection: collection
-  author: mikaelweave
-  ms.author: mikaelw
-  ms.date: 05/06/2022
+  author: msjasteppe
+  ms.author: jasteppe
+  ms.date: 06/16/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -88,7 +88,7 @@ landingContent:
           - text: Configure settings for bulk-import
             url: configure-import-data.md
           - text: Convert data
-            url: convert-data.md
+            url: overview-of-convert-data.md
           - text: Copy data to Synapse
             url: copy-to-synapse.md
           - text: Export data

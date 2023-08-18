@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Infor CloudSuite for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Infor CloudSuite for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Infor CloudSuite.
 services: active-directory
 author: twimmers
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -20,7 +20,6 @@ The objective of this tutorial is to demonstrate the steps to be performed in In
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -68,6 +67,14 @@ Before configuring and enabling automatic user provisioning, you should decide w
 5. To generate the bearer token, copy the **User Identifier** and **SCIM Password**. Paste them in notepad++ separated by a colon. Encode the string value by navigating to **Plugins > MIME Tools > Basic64 Encode**. 
 
 	:::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Screenshot of a Notepad++ document. In the Plugins menu, MIME tools is highlighted. In the MIME tools menu, Base64 encode is highlighted." border="false":::
+	
+	To generate the bearer token using PowerShell instead of Notepad++, use the following commands:
+	 ```powershell
+    $Identifier = "<User Identifier>"
+	$SCIMPassword = "<SCIM Password>"
+	$bytes = [System.Text.Encoding]::UTF8.GetBytes($($Identifier):$($SCIMPassword))
+	[Convert]::ToBase64String($bytes)
+   	 ```
 
 3.	Copy the bearer token. This value will be entered in the Secret Token field in the Provisioning tab of your Infor CloudSuite application in the Azure portal.
 
@@ -98,10 +105,7 @@ Before configuring Infor CloudSuite for automatic user provisioning with Azure A
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Infor CloudSuite based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Infor CloudSuite, following the instructions provided in the [Infor CloudSuite Single sign-on tutorial](./infor-cloud-suite-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
-
-> [!NOTE]
-> To learn more about Infor CloudSuite's SCIM endpoint, refer [this](https://docs.infor.com/mingle/12.0.x/en-us/minceolh/jho1449382121585.html#).
+> You may also choose to enable SAML-based single sign-on for Infor CloudSuite, following the instructions provided in the [Infor CloudSuite Single sign-on tutorial](./infor-cloud-suite-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features complement each other.
 
 ### To configure automatic user provisioning for Infor CloudSuite in Azure AD:
 
@@ -137,7 +141,25 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Infor CloudSuite in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Infor CloudSuite for update operations. Select the **Save** button to commit any changes.
 
-	![Infor CloudSuite User Attributes](media/infor-cloudsuite-provisioning-tutorial/userattributes.png)
+   |Attribute|Type|Supported for filtering|Required by Infor CloudSuite|
+	|---|---|---|---|
+	|userName|String|&check;|&check;
+	|active|Boolean||
+	|displayName|String||
+	|externalId|String||
+	|name.familyName|String||
+	|name.givenName|String||
+	|displayName|String||
+	|title|String||
+	|emails[type eq "work"].value|String||
+	|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String||
+	|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
+	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:actorId|String||
+	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:federationId|String||
+	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:ifsPersonId|String||
+	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:lnUser|String||
+	|urn:ietf:params:scim:schemas:extension:infor:2.0:User:userAlias|String||
+
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Infor CloudSuite**.
 
@@ -145,7 +167,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 11. Review the group attributes that are synchronized from Azure AD to Infor CloudSuite in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Infor CloudSuite for update operations. Select the **Save** button to commit any changes.
 
-	![Infor CloudSuite Group Attributes](media/infor-cloudsuite-provisioning-tutorial/groupattributes.png)
+	|Attribute|Type|Supported for filtering|Required by Infor CloudSuite|
+	|---|---|---|---|
+	|displayName|String|&check;|&check;
+	|members|Reference||
+	|externalId|String||
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -161,11 +187,20 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Infor CloudSuite.
+This operation starts the initial synchronization cycle of all users defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+## Step 6. Monitor your deployment
+Once you've configured provisioning, use the following resources to monitor your deployment:
 
-## Additional resources
+* Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
+* Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it's to completion
+* If the provisioning configuration seems to be in an unhealthy state, the application goes into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+
+
+## Change log
+02/15/2023 - Added support for custom extension user attributes **urn:ietf:params:scim:schemas:extension:infor:2.0:User:actorId**, **urn:ietf:params:scim:schemas:extension:infor:2.0:User:federationId**, **urn:ietf:params:scim:schemas:extension:infor:2.0:User:ifsPersonId**, **urn:ietf:params:scim:schemas:extension:infor:2.0:User:inUser**,  and **urn:ietf:params:scim:schemas:extension:infor:2.0:User:userAlias**.
+
+## More resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

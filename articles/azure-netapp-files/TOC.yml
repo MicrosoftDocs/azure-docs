@@ -13,10 +13,24 @@
   items:
   - name: Set up Azure NetApp Files and create an NFS volume
     href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
-# - name: Tutorials
+# - name: Tutorials 
 # - name: Samples
 - name: Concepts
   items:
+  - name: NAS volumes as a service 
+    items: 
+      - name: Understand NAS
+        href: network-attached-storage-concept.md 
+      - name: Understand NAS protocols
+        href: network-attached-storage-protocols.md
+      - name: Understand dual-protocol security style and permission behaviors
+        href: dual-protocol-permission-behaviors.md
+      - name: Understand the use of LDAP
+        href: lightweight-directory-access-protocol.md
+      - name: Understand NFS group memberships and supplemental groups
+        href: network-file-system-group-memberships.md
+      - name: Understand file locking
+        href: understand-file-locks.md  
   - name: Azure NetApp Files essentials 
     items:
     - name: Storage hierarchy of Azure NetApp Files
@@ -45,6 +59,10 @@
       href: volume-hard-quota-guidelines.md
     - name: Regional capacity quota
       href: regional-capacity-quota.md
+    - name: Understand default and individual user and group quotas
+      href: default-individual-user-group-quotas-introduction.md
+    - name: Requirements and considerations for large volumes
+      href: large-volumes-requirements-considerations.md
   - name: Performance
     items:
     - name: Performance considerations for Azure NetApp Files
@@ -57,6 +75,12 @@
       href: performance-impact-kerberos.md
     - name: Oracle database performance on Azure NetApp Files single volumes
       href: performance-oracle-single-volumes.md
+    - name: Oracle database performance on Azure NetApp Files multiple volumes
+      href: performance-oracle-multiple-volumes.md
+    - name: Azure NetApp Files datastore performance benchmarks for AVS 
+      href: performance-benchmarks-azure-vmware-solution.md
+    - name: AVS datastore performance considerations for Azure NetApp Files 
+      href: performance-azure-vmware-solution-datastore.md
     - name: Performance reference for Azure NetApp Files
       items:
       - name: Linux direct I/O best practices
@@ -81,8 +105,10 @@
           href: application-volume-group-introduction.md
         - name: Requirements and considerations for application volume group for SAP HANA
           href: application-volume-group-considerations.md
-  - name: Data protection 
+  - name: Data protection and resiliency
     items:
+    - name: Understand data protection and disaster recovery options
+      href: data-protection-disaster-recovery-options.md
     - name: How Azure NetApp Files snapshots work
       href: snapshots-introduction.md
     - name: Azure NetApp Files backup
@@ -91,12 +117,20 @@
         href: backup-introduction.md  
       - name: Requirements and considerations for Azure NetApp Files backup
         href: backup-requirements-considerations.md
-    - name: Cross-region replication
+    - name: Disaster recovery with cross-region replication
       items: 
       - name: Understand cross-region replication
         href: cross-region-replication-introduction.md
       - name: Requirements and considerations for cross-region replication
         href: cross-region-replication-requirements-considerations.md
+    - name: High availability and resiliency with availability zones and cross-zone replication
+      items: 
+      - name: Use availability zones for high availability 
+        href: use-availability-zones.md
+      - name: Understand cross-zone replication 
+        href: cross-zone-replication-introduction.md
+      - name: Requirements and considerations for cross-zone replication 
+        href: cross-zone-replication-requirements-considerations.md
     - name: Azure Application Consistent Snapshot (AzAcSnap) tool
       items: 
       - name: What is AzAcSnap?
@@ -153,6 +187,10 @@
             href: faq-security.md
           - name: Integration FAQs
             href: faq-integration.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-netapp-files-security-baseline?toc=/azure/azure-netapp-files/TOC.json
 - name: How-to guides
   items: 
   - name: Register and set up
@@ -173,8 +211,10 @@
       href: create-active-directory-connections.md
     - name: Modify Active Directory connections
       href: modify-active-directory-connections.md
-    - name: Enable AD DS LDAP authentication for NFS volumes
+    - name: Configure AD DS LDAP authentication for NFS volumes
       href: configure-ldap-over-tls.md
+    - name: Join a Linux VM to an Active Directory Domain
+      href: join-active-directory-domain.md
   - name: Manage capacity pools
     items:
     - name: Set up a capacity pool
@@ -189,7 +229,7 @@
       items:
       - name: Create an NFS volume
         href: azure-netapp-files-create-volumes.md
-      - name: Configure NFSv4.1 domain
+      - name: Configure NFSv4.1 ID domain
         href: azure-netapp-files-configure-nfsv41-domain.md
       - name: Configure NFSv4.1 Kerberos encryption
         href: configure-kerberos-encryption.md
@@ -199,6 +239,8 @@
         href: configure-nfs-clients.md
       - name: Convert an NFS volume between NFSv3 and NFSv4.1
         href: convert-nfsv3-nfsv41.md
+      - name: Disable showmount
+        href: disable-showmount.md
     - name: Manage SMB volumes
       items:
       - name: Create an SMB volume
@@ -217,8 +259,14 @@
         href: azure-netapp-files-configure-export-policy.md
       - name: Configure Unix permissions and change ownership mode
         href: configure-unix-permissions-change-ownership-mode.md
+      - name: Configure access control lists for NFSv4.1
+        href: configure-access-control-lists.md
       - name: Configure network features for a volume
         href: configure-network-features.md
+      - name: Configure customer-managed keys 
+        href: configure-customer-managed-keys.md
+      - name: Configure Virtual WAN
+        href: configure-virtual-wan.md
     - name: Mount volumes
       items:
       - name: Mount an NFS volume for Windows or Linux VMs
@@ -233,6 +281,8 @@
         href: azure-netapp-files-resize-capacity-pools-or-volumes.md
       - name: Dynamically change the service level of a volume
         href: dynamic-change-volume-service-level.md
+      - name: Manage default and individual user and group quotas for a volume
+        href: manage-default-individual-user-group-quotas.md
   - name: Manage application volume groups 
     items:
       - name: Manage application volume groups for SAP HANA
@@ -249,6 +299,8 @@
           href: application-volume-group-manage-volumes.md
         - name: Delete an application volume group
           href: application-volume-group-delete.md
+        - name: Configure application volume groups for REST API
+          href: configure-application-volume-group-sap-hana-api.md
   - name: Manage data protection  
     items:
     - name: Manage volume snapshots
@@ -277,6 +329,8 @@
           href: backup-configure-policy-based.md
         - name: Configure manual backups 
           href: backup-configure-manual.md
+      - name: Manage a backup vault
+        href: backup-vault-manage.md
       - name: Manage backup policies
         href: backup-manage-policies.md 
       - name: Search backups
@@ -287,9 +341,9 @@
         href: backup-disable.md
       - name: Delete backups 
         href: backup-delete.md 	
-    - name: Manage cross-region replication
+    - name: Manage replication
       items:
-      - name: Create volume replication
+      - name: Create cross-region replication
         href: cross-region-replication-create-peering.md
       - name: Display health and monitor status of replication relationship
         href: cross-region-replication-display-health-status.md
@@ -297,6 +351,14 @@
         href: cross-region-replication-manage-disaster-recovery.md
       - name: Delete volume replications or volumes
         href: cross-region-replication-delete.md
+      - name: Test disaster recovery
+        href: test-disaster-recovery.md
+    - name: Manage availability zones and cross-zone replication
+      items: 
+      - name: Manage availability zone volume placement
+        href: manage-availability-zone-volume-placement.md
+      - name: Create cross-zone replication 
+        href: create-cross-zone-replication.md
   - name: Develop
     items:
     - name: REST API
@@ -319,6 +381,8 @@
       href: troubleshoot-cross-region-replication.md
     - name: Troubleshoot Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+    - name: Troubleshoot file locks
+      href: troubleshoot-file-locks.md
 - name: Reference
   items:
   - name: REST
@@ -327,6 +391,10 @@
     href: /azure/templates/microsoft.netapp/allversions
   - name: Azure CLI
     href: /cli/azure/netappfiles
+  - name: Manage preview features with Terraform Cloud and AzAPI Provider
+    href: https://techcommunity.microsoft.com/t5/azure-architecture-blog/managing-azure-netapp-files-preview-features-with-terraform/ba-p/3657714
+  - name: Automated NFS volume failover using automounter
+    href: https://techcommunity.microsoft.com/t5/azure-architecture-blog/automated-nfs-volume-failover-using-automounter-with-azure/ba-p/3849750
   - name: AzAcSnap command reference 
     items: 
     - name: -c configure
@@ -348,7 +416,9 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/netapp/
   - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=netapp
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&rar=true&regions=all
+  - name: Feature availability
+    href: https://azure.github.io/azure-netapp-files/map/
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla/netapp/
   - name: Videos

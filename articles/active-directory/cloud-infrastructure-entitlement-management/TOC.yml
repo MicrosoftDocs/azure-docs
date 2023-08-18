@@ -1,13 +1,15 @@
-  - name: Permissions Management
+  - name: Microsoft Entra Permissions Management
     href: index.yml
   - name: Overview
     expanded: true
     items:
-      - name: What's Permissions Management?
+      - name: What's Microsoft Entra Permissions Management?
         href: overview.md       
   - name: How-to guides
     expanded: true
     items:
+    - name: Trial user guide - Microsoft Entra Permissions Management
+      href: permissions-management-trial-user-guide.md  
     - name: Onboard Permissions Management on the Azure AD tenant
       expanded: true
       items:
@@ -19,24 +21,25 @@
         href: onboard-azure.MD
       - name: Onboard a GCP project
         href: onboard-gcp.md
+      - name: Configure AWS IAM Identity Center as an identity provider
+        href: how-to-configure-aws-iam.md
       - name: Enable or disable the controller after onboarding is complete
         href: onboard-enable-controller-after-onboarding.md
       - name: Add an account/ subscription/ project after onboarding is complete
         href: onboard-add-account-after-onboarding.md
-    - name: View risk metrics in your authorization system
+      - name: Create folders to organize your Authorization Systems
+        href: how-to-create-folders.md
+    - name: View information about your Authorization Systems
       expanded: false
       items:
       - name: View key statistics and data about your authorization system
         href: ui-dashboard.md
       - name: View data about the activity in your authorization system
-        href: product-dashboard.md
-    - name: Configure settings for data collection
-      expanded: false
-      items:
+        href: product-dashboard.md  
       - name: View and configure settings for data collection
         href: product-data-sources.md
-      - name: Display an inventory of created resources and licenses 
-        href: product-data-inventory.md
+      - name: View current billable resources in your authorization system
+        href: product-data-billable-resources.md
     - name: Manage organizational and personal information
       expanded: false
       items:
@@ -62,8 +65,10 @@
     - name: Manage roles/policies and permission requests
       expanded: false
       items:
+      - name: View privileged role assignments in your organization
+        href: product-privileged-role-insights.md
       - name: View roles/policies and requests for permission in the Remediation dashboard
-        href: ui-remediation.md
+        href: ui-remediation.md 
       - name: View information about roles/policies
         href: how-to-view-role-policy.md
       - name: View information about active and completed tasks
@@ -87,6 +92,8 @@
     - name: Manage users, roles, and their access levels
       expanded: false
       items:
+      - name: Add or remove a user in Permissions Management
+        href: how-to-add-remove-user-to-group.md
       - name: Manage users and groups
         href: ui-user-management.md
       # - name: Define and manage users, roles, and access levels
@@ -100,14 +107,12 @@
         href: ui-audit-trail.md
       - name: Create a custom query
         href: how-to-create-custom-queries.md
-      - name: Generate an on-demand report from a query
-        href: how-to-audit-trail-results.md
       - name: Filter and query user activity
         href: product-audit-trail.md
-    - name: Set activity alerts and triggers 
+    - name: Set alerts and alert triggers 
       expanded: false
       items: 
-      - name: View information about activity triggers
+      - name: View information about alerts and alert triggers
         href: ui-triggers.md
       - name: Create and view activity alerts and alert triggers
         href: how-to-create-alert-trigger.md
@@ -131,6 +136,8 @@
     - name: Create and view reports 
       expanded: false
       items: 
+      - name: Generate an on-demand report from a query
+        href: how-to-audit-trail-results.md
       - name: View system reports in the Reports dashboard
         href: product-reports.md
       - name: View a list and description of system reports
@@ -139,18 +146,13 @@
         href: report-view-system-report.md
       - name: Create, view, and share a custom report
         href: report-create-custom-report.md
-      - name: Generate and download the Permissions analytics report
+      - name: View and download the Permissions analytics report
         href: product-permissions-analytics-reports.md
   - name: Troubleshoot
     expanded: false
     items:
     - name: Troubleshoot issues
       href: troubleshoot.md
-  - name: Training videos
-    expanded: false
-    items:
-    - name: Get started with Permissions Management training videos
-      href: training-videos.md
   - name: Reference
     expanded: false
     items:
@@ -158,4 +160,6 @@
       href: faqs.md
     - name: Glossary
       href: multi-cloud-glossary.md
+    - name: Microsoft Entra Permissions Management partners
+      href: partner-list.md
 

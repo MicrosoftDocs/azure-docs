@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes how cost alerts help you monitor usage and spending in Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2022
+ms.date: 04/05/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management

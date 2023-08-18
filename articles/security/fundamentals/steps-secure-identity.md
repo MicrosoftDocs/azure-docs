@@ -3,8 +3,8 @@ title: Secure your Azure AD identity infrastructure
 titleSuffix: Azure Active Directory
 description: This document outlines a list of important actions administrators should implement to help them secure their organization using Azure AD capabilities
 
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2022
@@ -91,7 +91,7 @@ Apps using their own legacy methods to authenticate with Azure AD and access com
 
 We recommend the following actions:
 
-1. Discover legacy authentication in your organization with Azure AD Sign-In logs and Log Analytic workbooks.
+1. Discover legacy authentication in your organization with Azure AD sign-in logs and Log Analytics workbooks.
 1. Setup SharePoint Online and Exchange Online to use modern  authentication.
 1. If you have Azure AD Premium licenses, use Conditional Access policies to block legacy authentication. For Azure AD free tier, use Azure AD Security Defaults.
 1. Block legacy authentication if you use AD FS.
@@ -250,6 +250,6 @@ We appreciate how seriously you take security and hope this document is a useful
 
 ## Next steps
 
-If you need assistance to plan and deploy the recommendations, refer to the [Azure AD project deployment plans](../../active-directory/fundamentals/active-directory-deployment-plans.md) for help.
+If you need assistance to plan and deploy the recommendations, refer to the [Azure AD project deployment plans](../../active-directory/fundamentals/deployment-plans.md) for help.
 
 If you're confident all these steps are complete, use Microsoft’s [Identity Secure Score](../../active-directory/fundamentals/identity-secure-score.md), which will keep you up to date with the [latest best practices](identity-management-best-practices.md) and security threats.

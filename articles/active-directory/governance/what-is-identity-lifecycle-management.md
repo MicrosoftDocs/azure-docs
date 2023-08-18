@@ -1,5 +1,5 @@
 ---
-title: 'What is identity lifecycle management with Azure Active Directory? | Microsoft Docs'
+title: 'What is identity lifecycle management with Azure Active Directory?'
 description: Describes overview of identity lifecycle management.
 services: active-directory
 author: billmath
@@ -51,7 +51,7 @@ So for example, if a new employee joins your organization and that employee has 
 
 ## Identity lifecycle management for guests
 
-Similar processes are also needed for guests and other users.  Azure AD entitlement management utilizes Azure AD business-to-business (B2B) to provide the lifecycle controls needed to collaborate with people outside your organization who require access to your organization's resources. With Azure AD B2B, external users authenticate to their home directory, but have a representation in your directory. The representation in your directory enables the user to be assigned access to your resources.  Entitlement management enables individuals outside your organization to request access, creating a digital identity for them as needed. These digital identities are automatically removed when the user loses access.  
+Similar processes are also needed for guests and other users.  Microsoft Entra entitlement management utilizes Azure AD business-to-business (B2B) to provide the lifecycle controls needed to collaborate with people outside your organization who require access to your organization's resources. With Azure AD B2B, external users authenticate to their home directory, but have a representation in your directory. The representation in your directory enables the user to be assigned access to your resources.  Entitlement management enables individuals outside your organization to request access, creating a digital identity for them as needed. These digital identities are automatically removed when the user loses access.  
 
 ## How does Azure AD automate identity lifecycle management?
 
@@ -65,7 +65,7 @@ Azure AD currently provides these features:
 ## Next steps 
 
 - [What is provisioning?](what-is-provisioning.md)
-- [Govern access for external users in Azure AD entitlement management](./entitlement-management-external-users.md)
+- [Govern access for external users in Microsoft Entra entitlement management](./entitlement-management-external-users.md)
 - [What is HR driven provisioning?](../app-provisioning/what-is-hr-driven-provisioning.md)
 - [What is app provisioning?](../app-provisioning/user-provisioning.md)
 - [What is inter-directory provisioning?](../hybrid/what-is-inter-directory-provisioning.md)

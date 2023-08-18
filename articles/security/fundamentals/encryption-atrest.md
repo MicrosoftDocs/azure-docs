@@ -12,7 +12,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/13/2020
+ms.date: 11/14/2022
 ms.author: mbaldwin
 
 ---
@@ -102,7 +102,7 @@ All Managed Disks, Snapshots, and Images are encrypted using Storage Service Enc
 
 #### Custom encryption at rest
 
-It is recommended that whenever possible, IaaS applications leverage Azure Disk Encryption and Encryption at Rest options provided by any consumed Azure services. In some cases, such as irregular encryption requirements or non-Azure based storage, a developer of an IaaS application may need to implement encryption at rest themselves. Developers of IaaS solutions can better integrate with Azure management and customer expectations by leveraging certain Azure components. Specifically, developers should use the Azure Key Vault service to provide secure key storage as well as provide their customers with consistent key management options with that of most Azure platform services. Additionally, custom solutions should use Azure-Managed Service Identities to enable service accounts to access encryption keys. For developer information on Azure Key Vault and Managed Service Identities, see their respective SDKs.
+It is recommended that whenever possible, IaaS applications leverage Azure Disk Encryption and Encryption at Rest options provided by any consumed Azure services. In some cases, such as irregular encryption requirements or non-Azure based storage, a developer of an IaaS application may need to implement encryption at rest themselves. Developers of IaaS solutions can better integrate with Azure management and customer expectations by leveraging certain Azure components. Specifically, developers should use the Azure Key Vault service to provide secure key storage as well as provide their customers with consistent key management options with that of most Azure platform services. Additionally, custom solutions should use Azure managed service identities to enable service accounts to access encryption keys. For developer information on Azure Key Vault and Managed Service Identities, see their respective SDKs.
 
 ## Azure resource providers encryption model support
 
@@ -110,7 +110,7 @@ Microsoft Azure Services each support one or more of the encryption at rest mode
 
 ### Azure disk encryption
 
-Any customer using Azure Infrastructure as a Service (IaaS) features can achieve encryption at rest for their IaaS VMs and disks through Azure Disk Encryption. For more information on Azure Disk encryption, see [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) or [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md).
+Any customer using Azure Infrastructure as a Service (IaaS) features can achieve encryption at rest for their IaaS VMs and disks through Azure Disk Encryption. For more information on Azure Disk encryption, see [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) or [Azure Disk Encryption for Windows VMs](../../virtual-machines/windows/disk-encryption-overview.md).
 
 #### Azure storage
 

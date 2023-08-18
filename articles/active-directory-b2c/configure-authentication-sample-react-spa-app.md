@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/25/2022
+ms.date: 04/24/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -118,8 +118,8 @@ Now that you've obtained the SPA sample, update the code with your Azure AD B2C 
 |Section  |Key  |Value  |
 |---------|---------|---------|
 | b2cPolicies | names |The user flows or custom policies that you created in [step 1](#step-1-configure-your-user-flow). |
-| b2cPolicies | authorities | Replace `your-tenant-name` with your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example, use `contoso.onmicrosoft.com`. Then, replace the policy name with the user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow). For example: `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`. |
-| b2cPolicies | authorityDomain|Your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example: `contoso.onmicrosoft.com`. |
+| b2cPolicies | authorities | Replace `your-tenant-name` with your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). For example, use `contoso.onmicrosoft.com`. Then, replace the policy name with the user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow). For example: `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`. |
+| b2cPolicies | authorityDomain|Your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). For example: `contoso.onmicrosoft.com`. |
 | Configuration | clientId | The React application ID from [step 2.3](#23-register-the-react-app). |
 | protectedResources| endpoint| The URL of the web API: `http://localhost:5000/hello`. |
 | protectedResources| scopes| The web API scopes that you created in [step 2.2](#22-configure-scopes). For example: `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/tasks-api/tasks.read"]`. |
@@ -157,7 +157,7 @@ export const msalConfig: Configuration = {
 export const protectedResources = {
   todoListApi: {
     endpoint: "http://localhost:5000/hello",
-    scopes: ["https://your-tenant-namee.onmicrosoft.com/tasks-api/tasks.read"],
+    scopes: ["https://your-tenant-name.onmicrosoft.com/tasks-api/tasks.read"],
   },
 }
 ```
@@ -167,13 +167,12 @@ export const protectedResources = {
 Now that the web API is registered and you've defined its scopes, configure the web API code to work with your Azure AD B2C tenant. Open the *3-Authorization-II/2-call-api-b2c/API* folder with Visual Studio Code. 
 
 
-In the sample folder, open the *config.json* file. This file contains information about your Azure AD B2C identity provider. The web API app uses this information to validate the access token that the web app passes as a bearer token. Update the following properties of the app settings:
+In the sample folder, open the *authConfig.js* file. This file contains information about your Azure AD B2C identity provider. The web API app uses this information to validate the access token that the web app passes as a bearer token. Update the following properties of the app settings:
 
 |Section  |Key  |Value  |
 |---------|---------|---------|
-|credentials|tenantName| Your Azure AD B2C [domain/tenant name](tenant-management.md#get-your-tenant-name). For example: `contoso.ommicrosoft.com`.|
+|credentials|tenantName| Your Azure AD B2C [domain/tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). For example: `contoso.ommicrosoft.com`.|
 |credentials|clientID| The web API application ID from step [2.1](#21-register-the-web-api-application). In the [earlier diagram](#app-registration), it's the application with **App ID: 2**.|
-|credentials| issuer| (Optional) The token issuer `iss` claim value. Azure AD B2C by default returns the token in the following format: `https://<your-tenant-name>.b2clogin.com/<your-tenant-ID>/v2.0/`. Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). Replace `<your-tenant-ID>` with your [Azure AD B2C tenant ID](tenant-management.md#get-your-tenant-id). |
 |policies|policyName|The user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow). If your application uses multiple user flows or custom policies, specify only one. For example, use the sign-up or sign-in user flow.|
 | protectedRoutes| scopes | The scopes of your web API application registration from [step 2.5](#25-grant-permissions). |
 
@@ -184,7 +183,6 @@ Your final configuration file should look like the following JSON:
     "credentials": {
         "tenantName": "<your-tenant-name>.ommicrosoft.com",
         "clientID": "<your-webapi-application-ID>",
-        "issuer": "https://<your-tenant-name>.b2clogin.com/<your-tenant-ID>/v2.0/"
     },
     "policies": {
         "policyName": "b2c_1_susi"
@@ -215,7 +213,7 @@ You're now ready to test the React scoped access to the API. In this step, run b
 
     ```console
     npm install && npm update
-    node index.js
+    npm start
     ```
 
     The console window displays the port number where the application is hosted:

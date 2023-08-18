@@ -4,14 +4,16 @@ description: Learn which stored procedures in Azure Database for MySQL are usefu
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 
 # Azure Database for MySQL management stored procedures
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Stored procedures are available on Azure Database for MySQL servers to help manage your MySQL server. This includes managing your server's connections, queries, and setting up Data-in Replication.  
 

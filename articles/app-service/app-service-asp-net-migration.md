@@ -4,11 +4,10 @@ description: A collection of .NET migration resources available to Azure App Ser
 author: msangapu-msft
 
 ms.topic: article
-ms.date: 06/28/2022
+ms.date: 06/29/2023
 ms.author: msangapu
 ms.devlang: csharp
-ms.custom: seodec18
-
+ms.custom: seodec18, devx-track-dotnet
 ---
 # .NET migration cases for Azure App Service
 
@@ -19,14 +18,14 @@ These tools are developed to support different kinds of scenarios, focused on di
 ## Migrate from multiple servers at-scale
 
 > [!NOTE]
-> [Learn how to migrate .NET apps to App Service using the .NET migration tutorial.](../migrate/tutorial-migrate-webapps.md)
+> [Learn how to migrate .NET apps to App Service using the .NET migration tutorial.](../migrate/tutorial-modernize-asp-net-appservice-code.md)
 >
 
 Azure Migrate recently announced at-scale, agentless discovery, and assessment of ASP.NET web apps. You can now easily discover ASP.NET web apps running on Internet Information Services (IIS) servers in a VMware environment and assess them for migration to Azure App Service. Assessments will help you determine the web app migration readiness, migration blockers, remediation guidance, recommended SKU, and hosting costs. At-scale migration resources for  are found below.
 
 Once you have successfully assessed readiness, you should proceed with migration of ASP.NET web apps to Azure App Services.  
 
-There are existing tools which enable migration of a standalone ASP.Net web app or multiple ASP.NET web apps hosted on a single IIS server as explained in [Migrate .NET apps to Azure App Service](../migrate/tutorial-migrate-webapps.md). With introduction of At-Scale or bulk migration feature integrated with Azure Migrate we are now opening up the possibilities to migrate multiple ASP.NET application hosted on multiple on-premises IIS servers.  
+There are existing tools which enable migration of a standalone ASP.NET web app or multiple ASP.NET web apps hosted on a single IIS server as explained in [Migrate .NET apps to Azure App Service](../migrate/tutorial-modernize-asp-net-appservice-code.md). With introduction of At-Scale or bulk migration feature integrated with Azure Migrate we are now opening up the possibilities to migrate multiple ASP.NET application hosted on multiple on-premises IIS servers.  
 
 Azure Migrate provides at-scale, agentless discovery, and assessment of ASP.NET web apps. You can discover ASP.NET web apps running on Internet Information Services (IIS) servers in a VMware environment and assess them for migration to Azure App Service. Assessments will help you determine the web app migration readiness, migration blockers, remediation guidance, recommended SKU, and hosting costs. At-scale migration resources for  are found below.
 
@@ -42,6 +41,35 @@ Bulk migration provides the following key capabilities:
 - Download CSV with details of target web app and app service plan name 
 - Track progress of migration using ARM template deployment experience 
 
+### Move .NET apps to Azure App Service
+
+Azure App Service is a cloud platform that offers a fast, easy, and cost-effective way to migrate your .NET web apps from on-premises to the cloud. Start learning today about how Azure empowers you to modernize your .NET apps with the following resources.
+
+Ready for a migration assessment? Select one of the following options to get started.
+
+- [Self-service assessment](https://azure.microsoft.com/products/app-service/migration-tools/)
+- [Partner assessment](https://aka.ms/app-service-migration-dotnet)
+
+Want to learn more? 
+
+| More resources to migrate .NET apps to the cloud |
+|----------------|
+| **Video** |
+| [.NET on Azure for Beginners](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVSBX3Lde8owu6dSgZLIXfu) |
+| [Start Your Cloud Journey with Azure App Service](https://aka.ms/cloudjourney/start/video) |
+| **Blog** |
+| [Reliable web app pattern for .NET](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/announcing-the-reliable-web-app-pattern-for-net/ba-p/3745270) |
+| [Start your cloud journey with Azure App Service](https://aka.ms/cloudjourney/start/part1) |
+| [Start your cloud journey with Azure App Service - Move your code](https://aka.ms/cloudjourney/start/part2) |
+| [Learn how to modernize your .NET apps from the pros](https://devblogs.microsoft.com/dotnet/learn-how-to-modernize-your-dotnet-apps/) |
+| **On-demand event** |
+| [Azure Developers - .NET Day](/events/learn-events/azuredeveloper-dotnetday/)
+| **Learning path** |
+| [Migrate ASP.NET Apps to Azure](/training/paths/migrate-dotnet-apps-azure/) |
+| [Host a web application with Azure App Service](/training/modules/host-a-web-app-with-azure-app-service/) |
+| [Publish a web app to Azure with Visual Studio](/training/modules/publish-azure-web-app-with-visual-studio/) |
+
+
 ### At-scale migration resources
 
 | How-tos |
@@ -50,7 +78,7 @@ Bulk migration provides the following key capabilities:
 | [Create an Azure App Service assessment](../migrate/how-to-create-azure-app-service-assessment.md)                            |
 | [Tutorial to assess web apps for migration to Azure App Service](../migrate/tutorial-assess-webapps.md)                       |
 | [Discover software inventory on on-premises servers with Azure Migrate](../migrate/how-to-discover-applications.md)           |
-| [Migrate .NET apps to App Service](../migrate/tutorial-migrate-webapps.md) |
+| [Migrate .NET apps to App Service](../migrate/tutorial-modernize-asp-net-appservice-code.md) |
 | **Blog** |
 | [Discover and assess ASP.NET apps at-scale with Azure Migrate](https://azure.microsoft.com/blog/discover-and-assess-aspnet-apps-atscale-with-azure-migrate/) |
 | **FAQ** |
@@ -76,4 +104,4 @@ The [app containerization tool](https://azure.microsoft.com/blog/accelerate-appl
 
 ## Next steps
 
-[Migrate an on-premises web application to Azure App Service](/learn/modules/migrate-app-service-migration-assistant/)
+[Migrate an on-premises web application to Azure App Service](/training/modules/migrate-app-service-migration-assistant/)

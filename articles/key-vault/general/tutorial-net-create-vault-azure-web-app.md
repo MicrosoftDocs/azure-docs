@@ -8,13 +8,11 @@ manager: rajvijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 05/06/2020
+ms.date: 01/17/2023
 ms.author: mbaldwin
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli
-
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
 #Customer intent: As a developer, I want to use Azure Key Vault to store secrets for my app to help keep them secure.
-
 ---
 
 # Tutorial: Use a managed identity to connect Key Vault to an Azure web app in .NET
@@ -292,7 +290,7 @@ using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
 ```
 
-Add the following lines before the `app.UseEndpoints` call (.NET 5.0 or earlier) or `app.MapGet` call (.NET 6.0) , updating the URI to reflect the `vaultUri` of your key vault. This code uses  [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) to authenticate to Key Vault, which uses a token from managed identity to authenticate. For more information about authenticating to Key Vault, see the [Developer's Guide](./developers-guide.md#authenticate-to-key-vault-in-code). The code also uses exponential backoff for retries in case Key Vault is being throttled. For more information about Key Vault transaction limits, see [Azure Key Vault throttling guidance](./overview-throttling.md).
+Add the following lines before the `app.UseEndpoints` call (.NET 5.0 or earlier) or `app.MapGet` call (.NET 6.0), updating the URI to reflect the `vaultUri` of your key vault. This code uses  [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) to authenticate to Key Vault, which uses a token from managed identity to authenticate. For more information about authenticating to Key Vault, see the [Developer's Guide](./developers-guide.md#authenticate-to-key-vault-in-code). The code also uses exponential backoff for retries in case Key Vault is being throttled. For more information about Key Vault transaction limits, see [Azure Key Vault throttling guidance](./overview-throttling.md).
 
 ```csharp
 SecretClientOptions options = new SecretClientOptions()

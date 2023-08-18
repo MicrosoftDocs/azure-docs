@@ -2,12 +2,14 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What are virtual machine scale sets?
+  - name: What are Virtual Machine Scale Sets?
     href: overview.md
   - name: Orchestration modes
     href: virtual-machine-scale-sets-orchestration-modes.md
   - name: Scale Set FAQ
     href: virtual-machine-scale-sets-faq.yml
+  - name: What's new
+    href: whats-new.md  
   expanded: true
 - name: Quickstarts
   items:
@@ -24,48 +26,59 @@
     href: flexible-virtual-machine-scale-sets-rest-api.md
 - name: Tutorials
   items: 
-  - name: 1 - Create / manage scale set
+  - name: Create and manage
     items:
     - name: Azure CLI
       href: tutorial-create-and-manage-cli.md
     - name: Azure PowerShell
       href: tutorial-create-and-manage-powershell.md
-  - name: 2 - Use data disks
+  - name: Connect to Instances
+    items: 
+    - name: Azure CLI
+      href: tutorial-connect-to-instances-cli.md
+    - name: Azure PowerShell
+      href: tutorial-connect-to-instances-powershell.md
+  - name: Modify a scale set
+    items:
+    - name: Azure CLI
+      href: tutorial-modify-scale-sets-cli.md
+    - name: Azure PowerShell
+      href: tutorial-modify-scale-sets-powershell.md
+  - name: Use data disks
     items:
     - name: Azure CLI
       href: tutorial-use-disks-cli.md
     - name: Azure PowerShell
       href: tutorial-use-disks-powershell.md
-  - name: 3 - Use a custom VM image
+  - name: Use a custom VM image
     items:
     - name: Azure CLI
       href: tutorial-use-custom-image-cli.md
     - name: Azure PowerShell
       href: tutorial-use-custom-image-powershell.md
-  - name: 4 - Deploy apps to a scale set
+  - name: Deploy apps to a scale set
     items:
     - name: Azure CLI
       href: tutorial-install-apps-cli.md
     - name: Azure PowerShell
       href: tutorial-install-apps-powershell.md
-    - name: Template
-      href: tutorial-install-apps-template.md
-  - name: 5 - Autoscale a scale set
+  - name: Autoscale a scale set
     items:
     - name: Azure CLI
       href: tutorial-autoscale-cli.md
     - name: Azure PowerShell
-      href: tutorial-autoscale-powershell.md
-    - name: Template
-      href: tutorial-autoscale-template.md
+      href: ../azure-monitor/autoscale/autoscale-using-powershell.md
+      maintainContext: true
 - name: Scale
   items:
+  - name: Scaling Profile
+    href: virtual-machine-scale-sets-scaling-profile.md
   - name: Autoscale
     href: virtual-machine-scale-sets-autoscale-overview.md
-  - name: Configure autoscale - Portal
+  - name: Configure autoscale
     href: virtual-machine-scale-sets-autoscale-portal.md
-  - name: Configure autoscale - ARM Template
-    href: ../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md
+  - name: Predictive autoscale
+    href: ../azure-monitor/autoscale/autoscale-predictive.md
     maintainContext: true
   - name: Troubleshoot autoscale
     href: virtual-machine-scale-sets-troubleshoot.md 
@@ -73,6 +86,8 @@
     href: virtual-machine-scale-sets-scale-in-policy.md 
   - name: Instance protection
     href: virtual-machine-scale-sets-instance-protection.md
+  - name: Attach VMs to a scale set
+    href: virtual-machine-scale-sets-attach-detach-vm.md
   - name: Working with large uniform scale sets
     href: virtual-machine-scale-sets-placement-groups.md
 - name: Availability
@@ -93,6 +108,8 @@
   items: 
   - name: Azure Spot Virtual Machines
     href: use-spot.md
+  - name: Spot Priority Mix
+    href: spot-priority-mix.md
   - name: Reserved instances
     href: ../cost-management-billing/reservations/save-compute-costs-reservations.md
   - name: Azure Hybrid Benefit
@@ -107,6 +124,8 @@
       href: azure-hybrid-benefit-linux.md
 - name: Management
   items: 
+  - name: Manage Upgrade Policies
+    href: virtual-machine-scale-sets-upgrade-policy.md
   - name: Common management tasks
     items:
     - name: Use the Azure CLI
@@ -257,11 +276,6 @@
     maintainContext: true
   - name: Use data disks with scale sets
     href: virtual-machine-scale-sets-attached-disks.md
-  - name: Server-side disk Encryption
-    href: ../virtual-machines/disk-encryption.md
-    maintainContext: true
-  - name: Azure Disk Encryption
-    href: disk-encryption-overview.md
   - name: Encrypt disks in scale sets
     items:
     - name: Use PowerShell
@@ -274,6 +288,11 @@
       href: disk-encryption-extension-sequencing.md
     - name: Key vault for Azure Disk Encryption
       href: disk-encryption-key-vault.md
+    - name: Server-side disk Encryption
+      href: ../virtual-machines/disk-encryption.md
+      maintainContext: true
+    - name: Azure Disk Encryption
+      href: disk-encryption-overview.md
 - name: Networking
   items: 
   - name: Networking Overview
@@ -349,8 +368,8 @@
     href: https://azure.microsoft.com/pricing/details/#Linux
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-virtual-machines
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing calculator

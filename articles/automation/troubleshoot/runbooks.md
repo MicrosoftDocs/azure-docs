@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation runbook issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
-ms.date: 09/16/2021
+ms.date: 03/06/2023
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
 ---
@@ -10,6 +10,28 @@ ms.custom: has-adal-ref, devx-track-azurepowershell
 # Troubleshoot runbook issues
 
  This article describes runbook issues that might occur and how to resolve them. For general information, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
+
+
+## Start-AzAutomationRunbook fails with "runbookName does not match expected pattern" error message
+
+### Issue
+When you run `Start-AzAutomationRunbook` to start specific runbooks:
+
+```powershell
+start-azautomationRunbook -Name "Test_2" -AutomationAccountName "AutomationParent" -ResourceGroupName "AutomationAccount" 
+```
+It fails with the following error:
+ 
+`Start-AzAutomationRunbook: "runbookname" does not match expected pattern '^[a-zA-Z]*-*[a-zA-Z0-9]*$'`
+ 
+### Cause
+
+The naming convention is not being followed. Ensure that your runbook name starts with a letter and can contain letters, numbers, underscores, and dashes. The naming convention requirements are now being enforced starting with the Az module version 1.9 through the portal and cmdlets.
+
+### Workaround
+
+We recommend that you follow the runbook naming convention or revert to [1.8.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.8.0) of the module where the naming convention isn't enforced.
+
 
 ## Diagnose runbook issues
 
@@ -705,6 +727,22 @@ Follow [Step 5 - Add authentication to manage Azure resources](../learn/powershe
 #### Insufficient permissions
 
 [Add permissions to Key Vault](../manage-runas-account.md#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault.
+
+## Scenario: Runbook fails with "Parameter length exceeded" error
+
+### Issue
+Your runbook uses parameters and fails with the following error:
+
+```error
+Total Length of Runbook Parameter names and values exceeds the limit of 30,000 characters. To avoid this issue, use Automation Variables to pass values to runbook.
+```
+
+### Cause
+There is a limit to the total length of characters of all Parameters that can be provided in Python 2.7, Python 3.8, and PowerShell 7.1 runbooks. The total length of all Parameter names, and Parameter values must not exceed 30,000 characters.
+
+### Resolution
+To overcome this issue, you can use Azure Automation [Variables](../shared-resources/variables.md) to pass values to runbook. You can alternatively reduce the number of characters in Parameter names and Parameter values to ensure that the total length does not exceed 30,000 characters. 
+
 
 ## Recommended documents
 

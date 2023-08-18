@@ -4,10 +4,9 @@ description: Use a Resource Manager template and PowerShell to easily create a n
 author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 03/22/2019
+ms.date: 02/24/2023
 ms.author: cynthn
-ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
-
+ms.custom: H1Hack27Feb2017
 ---
 
 # Create a Windows virtual machine from a Resource Manager template
@@ -27,7 +26,7 @@ Creating an Azure virtual machine usually includes two steps:
 - Create a resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine.
 - Create a virtual machine.
 
-The following example creates an [Azure Generation 2 VM](../generation-2.md) by default from an [Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json). Here is a copy of the template:
+The following example creates a [generation 2 VM](../generation-2.md) with [Trusted Launch](../trusted-launch.md) enabled by default from an [Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json). Here is a copy of the template:
 
 [!code-json[create-windows-vm](~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json)]
 
@@ -52,9 +51,9 @@ New-AzResourceGroupDeployment `
 
 ```
 
-If you choose to install and use the PowerShell locally instead of from the Azure Cloud shell, this tutorial requires the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally instead of from the Azure Cloud shell, this tutorial requires the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-In the previous example, you specified a template stored in GitHub. You can also download or create a template and specify the local path with the `--template-file` parameter.
+In the previous example, you specified a template stored in GitHub. You can also download or create a template and specify the local path with the `-template-file` parameter.
 
 Here are some additional resources:
 

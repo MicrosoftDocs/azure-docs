@@ -6,41 +6,50 @@ ms.date: 03/10/2021
 ms.author: rifox
 ---
 
-Get started with Azure Communication Services by using the Communication Services calling SDK to add 1 on 1 video calling to your app. You'll learn how to start and answer a video call using the Azure Communication Services Calling SDK for JavaScript.
+Get started with Azure Communication Services by using the Communication Services calling SDK to add 1 on 1 video calling to your app. You learn how to start and answer a video call using the Azure Communication Services Calling SDK for JavaScript.
 
 ## Sample Code
 
 If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
 
+> [!NOTE] 
+> Outbound calling to an Azure Communication Services user can be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-1ton--page). The UI Library enables developers to add a call client that is VoIP enabled into their application with only a couple lines of code.
+
 ## Prerequisites
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions
-- Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows). You'll need to **record your connection string** for this quickstart.
-- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows). You need to **record your connection string** for this quickstart.
+- Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../identity/access-tokens.md). You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope voip --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
+
 ### Create a new Node.js application
+
 Open your terminal or command window create a new directory for your app, and navigate to it.
 ```console
 mkdir calling-quickstart && cd calling-quickstart
 ```
+
 ### Install the package
+
 Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
 > [!IMPORTANT]
-> This quickstart uses the Azure Communication Services Calling SDK version `1.4.4`. 
+> This quickstart uses the Azure Communication Services Calling SDK version `1.4.4`.
+
 ```console
 npm install @azure/communication-common --save
 npm install @azure/communication-calling@1.4.4 --save
 ```
+
 ### Set up the app framework
 
-This quickstart uses webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
+This quickstart uses Webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
 
 ```console
 npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
@@ -48,7 +57,8 @@ npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-d
 
 Here's the code:
 
-Create an `index.html` file in the root directory of your project. We'll use this file to configure a basic layout that will allow the user to place a 1:1 video call.
+Create an `index.html` file in the root directory of your project. We use this file to configure a basic layout that allows the user to place a 1:1 video call.
+
 ```html
 <!-- index.html -->
 <!DOCTYPE html>
@@ -102,6 +112,7 @@ The following classes and interfaces handle some of the major features of the Az
 | `RemoteVideoStream`                 | Used for representing a remote video stream from a Remote Participant.        
 
 Create a file in the root directory of your project called `client.js` to contain the application logic for this quickstart. Add the following code to client.js:
+
 ```JavaScript
 // Make sure to install the necessary dependencies
 const { CallClient, VideoStreamRenderer, LocalVideoStream } = require('@azure/communication-calling');
@@ -135,7 +146,7 @@ let remoteVideosGallery = document.getElementById('remoteVideosGallery');
 let localVideoContainer = document.getElementById('localVideoContainer');
 
 /**
- * Using the CallClient, initialize a CallAgent instance with a CommunicationUserCredential which will enable us to make outgoing calls and receive incoming calls. 
+ * Using the CallClient, initialize a CallAgent instance with a CommunicationUserCredential which enable us to make outgoing calls and receive incoming calls. 
  * You can then use the CallClient.getDeviceManager() API instance to get the DeviceManager.
  */
 initializeCallAgentButton.onclick = async () => {
@@ -320,12 +331,6 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
     let remoteVideoContainer = document.createElement('div');
     remoteVideoContainer.className = 'remote-video-container';
 
-    /**
-     * isReceiving API is currently an @alpha feature. Do not use in production.
-     * To use this api please use 'alpha' release of Azure Communication Services Calling Web SDK.
-     * Create a CSS class to style your loading spinner. Take a look at our
-     * video calling quickstart, to see how to create a loading spinner.
-     *
     let loadingSpinner = document.createElement('div');
     loadingSpinner.className = 'loading-spinner';
     remoteVideoStream.on('isReceivingChanged', () => {
@@ -343,7 +348,6 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
             console.error(e);
         }
     });
-    */
 
     const createView = async () => {
         // Create a renderer view for the remote video stream.
@@ -452,6 +456,7 @@ hangUpCallButton.addEventListener("click", async () => {
 ```                                                          
 
 Create a file in the root directory of your project called `styles.css` to contain the application styling for this quickstart. Add the following code to styles.css:
+
 ```css
 /**
  * CSS for styling the loading spinner over the remote video stream
@@ -487,22 +492,29 @@ Create a file in the root directory of your project called `styles.css` to conta
 ```
 
 ## Run the code
+
 Use the `webpack-dev-server` to build and run your app. Run the following command to bundle the application host in a local webserver:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
-Open your browser and on two tabs navigate to http://localhost:8080/. You should see the following:
+
+Open your browser and on two tabs navigate to http://localhost:8080/.You should see the following screen:
+
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-a.png" alt-text="1 on 1 video calling page - a":::
 
-On the first tab, enter a valid user access token, and on the other tab enter another different valid user access token (Refer to the [user access token documentation](../../../access-tokens.md) if you don't already have tokens available to use).
-On both tabs, click on the "Initialize Call Agent" buttons. You should see the following: 
+On the first tab, enter a valid user access token, and on the other tab enter another different valid user access token.
+
+Refer to the [user access token documentation](../../../identity/access-tokens.md), if you don't already have tokens available to use.
+
+On both tabs, click on the "Initialize Call Agent" buttons. You should see the following screen:
+
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-b.png" alt-text="1 on 1 video calling page - b":::
 
-On the first tab, enter the Azure Communication Services user identity of the second tab, and click the "Start Call" button. The first tab will start the outgoing call to the second tab, and the second tab's "Accept Call" button becomes enabled:
+On the first tab, enter the Azure Communication Services user identity of the second tab, and click the "Start Call" button. The first tab starts the outgoing call to the second tab, and the second tab's "Accept Call" button becomes enabled:
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-c.png" alt-text="1 on 1 video calling page - c":::
 
-From the second tab, click on the "Accept Call" button and the call will be answered and connected. You should see the following:
+From the second tab, click on the "Accept Call" button and the call starts and connect. You should see the following screen:
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-d.png" alt-text="1 on 1 video calling page - d":::
 
 Both tabs are now successfully in a 1 to 1 video call. Both tabs can hear each other's audio and see each other video stream.

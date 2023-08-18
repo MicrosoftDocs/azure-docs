@@ -1,11 +1,10 @@
 ---
  title: include file
  description: include file
- services: virtual-machines
  author: roygara
- ms.service: virtual-machines
+ ms.service: azure-disk-storage
  ms.topic: include
- ms.date: 03/02/2021
+ ms.date: 03/30/2023
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -18,16 +17,16 @@ You must use one of the following Azure key stores to store your customer-manage
 
 You can either import [your RSA keys](../articles/key-vault/keys/hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. Azure managed disks handles the encryption and decryption in a fully transparent fashion using envelope encryption. It encrypts data using an [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 based data encryption key (DEK), which is, in turn, protected using your keys. The Storage service generates data encryption keys and encrypts them with customer-managed keys using RSA encryption. The envelope encryption allows you to rotate (change) your keys periodically as per your compliance policies without impacting your VMs. When you rotate your keys, the Storage service re-encrypts the data encryption keys with the new customer-managed keys. 
 
-Managed Disks and the key vault or managed HSM must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions.
+Managed Disks and the Key Vault or managed HSM must be in the same Azure region, but they can be in different subscriptions. They must also be in the same Azure Active Directory (Azure AD) tenant, unless you're using [Encrypt managed disks with cross-tenant customer-managed keys (preview)](../articles/virtual-machines/disks-cross-tenant-customer-managed-keys.md).
 
 #### Full control of your keys
 
 You must grant access to managed disks in your Key Vault or managed HSM to use your keys for encrypting and decrypting the DEK. This allows you full control of your data and keys. You can disable your keys or revoke access to managed disks at any time. You can also audit the encryption key usage with Azure Key Vault monitoring to ensure that only managed disks or other trusted Azure services are accessing your keys.
 
-When a key is either disabled, deleted, or expired, any VMs with disks using that key will automatically shut down. After this, the VMs will not be usable unless the key is enabled again or you assign a new key.
-
-> [!NOTE]
-> It is generally expected that Disk I/O (read or write operations) will start to fail 1 hour after a key is either disabled, deleted, or expired.
+> [!IMPORTANT]
+> When a key is either disabled, deleted, or expired, any VMs with either OS or data disks using that key will automatically shut down. After the automated shut down, VMs won't boot until the key is enabled again, or you assign a new key.
+> 
+> Generally, disk I/O (read or write operations) start to fail one hour after a key is either disabled, deleted, or expired.
 
 The following diagram shows how managed disks use Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
 

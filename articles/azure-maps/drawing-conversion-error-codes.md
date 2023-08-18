@@ -1,8 +1,9 @@
 ---
 title: Azure Maps Drawing Conversion errors and warnings
+titleSuffix:  Microsoft Azure Maps Creator
 description: Learn about the Conversion errors and warnings you may meet while you're using the Azure Maps Conversion service. Read the recommendations on how to resolve the errors and the warnings, with some examples.
-author: stevemunk
-ms.author: v-munksteve
+author: brendansco 
+ms.author: brendanc 
 ms.date: 05/21/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -12,9 +13,9 @@ services: azure-maps
 
 # Drawing conversion errors and warnings
 
-The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) lets you convert uploaded Drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements](drawing-requirements.md). If one or more requirements aren't met, then the Conversion service will return errors or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. It also provides some examples of drawings that can cause the Conversion service to return these codes.
+The Azure Maps [Conversion service] lets you convert uploaded drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements]. If one or more requirements aren't met, then the Conversion service returns errors or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. It also provides some examples of drawings that can cause the Conversion service to return these codes.
 
-The Conversion service will succeed if there are any conversion warnings. However, it's recommended that you review and resolve all warnings. A warning means part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in latter processes.
+The Conversion service succeeds if there are any conversion warnings. However, it's recommended that you review and resolve all warnings. A warning means part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in latter processes.
 
 ## General Warnings
 
@@ -22,21 +23,21 @@ The Conversion service will succeed if there are any conversion warnings. Howeve
 
 #### *Description for geometryWarning*
 
-A **geometryWarning** occurs when the drawing contains an invalid entity. An invalid entity is an entity that doesn't conform to geometric constraints. Examples of an invalid entity are a self-intersecting polygon or a non-closed PolyLine in a layer that only supports closed geometry.
+A **geometryWarning** occurs when the drawing contains an invalid entity. An invalid entity is an entity that doesn't conform to geometric constraints. Examples of an invalid entity are a self-intersecting polygon or an open PolyLine in a layer that only supports closed geometry.
 
 The Conversion service is unable to create a map feature from an invalid entity and instead ignores it.
 
 #### *Examples for geometryWarning*
 
-* The two images below show examples of self-intersecting polygons.
+* The following two images show examples of self-intersecting polygons.
 
      ![Example of a self-intersecting polygon, example one.](./media/drawing-conversion-error-codes/geometry-warning-1.png)
 
      ![Example of a self-intersecting polygon, example two.](./media/drawing-conversion-error-codes/geometry-warning-2.png)
 
-* Below is an image that shows a non-closed PolyLine. Assume that the layer only supports closed geometry.
+* The following image shows an open PolyLine. Assume that the layer only supports closed geometry.
 
-    ![Example of a non-closed PolyLine](./media/drawing-conversion-error-codes/geometry-warning-3.png)
+    ![Example of an open PolyLine](./media/drawing-conversion-error-codes/geometry-warning-3.png)
 
 #### *How to fix geometryWarning*
 
@@ -46,13 +47,13 @@ Inspect the **geometryWarning** for each entity to verify that it follows geomet
 
 #### *Description for unexpectedGeometryInLayer*
 
-An **unexpectedGeometryInLayer** warning occurs when the drawing contains geometry that is incompatible with the expected geometry type for a given layer. When the Conversion service returns an **unexpectedGeometryInLayer** warning, it will ignore that geometry.
+An **unexpectedGeometryInLayer** warning occurs when the drawing contains geometry that is incompatible with the expected geometry type for a given layer. When the Conversion service returns an **unexpectedGeometryInLayer** warning, it ignores that geometry.
 
 #### *Example for unexpectedGeometryInLayer*
 
-The image below shows a non-closed PolyLine. Assume that the layer only supports closed geometry.
+The following image shows an open PolyLine. Assume that the layer only supports closed geometry.
 
-![Example of a non-closed PolyLine](./media/drawing-conversion-error-codes/geometry-warning-3.png)
+![Example of an open PolyLine](./media/drawing-conversion-error-codes/geometry-warning-3.png)
 
 #### *How to fix unexpectedGeometryInLayer*
 
@@ -66,13 +67,13 @@ The **unsupportedFeatureRepresentation** warning occurs when the drawing contain
 
 #### *Example for unsupportedFeatureRepresentation*
 
-The image below shows an unsupported entity type as a multi-line text object on a label layer.
+The following image shows an unsupported entity type as a multi-line text object on a label layer.
   
 ![Example of a multi-line text object on label layer](./media/drawing-conversion-error-codes/multi-line.png)
 
 #### *How to fix unsupportedFeatureRepresentation*
 
-Ensure that your DWG files contain only the supported entity types. Supported types are listed under the [Drawing files requirements section in the Drawing package requirements article](drawing-requirements.md#drawing-package-requirements).
+Ensure that your DWG files contain only the supported entity types. Supported types are listed under the [Drawing files requirements] section in the drawing package requirements article.
 
 ### **automaticRepairPerformed**
 
@@ -86,13 +87,13 @@ The **automaticRepairPerformed** warning occurs when the Conversion service auto
 
     ![Example of a self-intersecting polygon repaired](./media/drawing-conversion-error-codes/automatic-repair-1.png)
 
-* The image below shows how the Conversion service snapped the first and last vertex of a non-closed PolyLine to create a closed PolyLine, where the first and last vertex were less than 1 mm apart.  
+* The following image shows the Conversion service snapping the first and last vertex of an open PolyLine to create a closed PolyLine, where the first and last vertex were less than 1 mm apart.  
 
     ![Example of a snapped PolyLine](./media/drawing-conversion-error-codes/automatic-repair-2.png)
 
-* The image below shows how, in a layer that supports only closed PolyLines, the Conversion service repaired multiple non-closed PolyLines. To avoid discarding the non-closed PolyLines, the service combined them into a single closed PolyLine.
+* The following image shows how, in a layer that supports only closed PolyLines, the Conversion service repaired multiple open PolyLines. To avoid discarding the open PolyLines, the service combined them into a single closed PolyLine.
 
-    ![Example of non-closed Polylines combined into a single closed PolyLine](./media/drawing-conversion-error-codes/automatic-repair-3.png)
+    ![Example of open Polylines combined into a single closed PolyLine](./media/drawing-conversion-error-codes/automatic-repair-3.png)
 
 #### *How to fix automaticRepairPerformed*
 
@@ -115,7 +116,7 @@ The **redundantAttribution** warning occurs when the manifest contains redundant
 
 #### *Examples for redundantAttribution*
 
-* The JSON snippet below contains two or more `unitProperties` objects with the same `name`.
+* The following JSON example contains two or more `unitProperties` objects with the same `name`.
 
     ```json
     "unitProperties": [
@@ -134,7 +135,7 @@ The **redundantAttribution** warning occurs when the manifest contains redundant
     ]
     ```
 
-* In the JSON snippet below, two or more `zoneProperties` objects have the same `name`.
+* In the following JSON snippet, two or more `zoneProperties` objects have the same `name`.
 
     ```json
      "zoneProperties": [
@@ -182,7 +183,7 @@ The **wallOutsideLevel** warning occurs when the drawing contains a Wall geometr
 
 #### *Example for wallOutsideLevel*
 
-* The image below shows an interior wall, in red, outside the yellow level boundary.
+* The following image shows an interior wall, in red, outside the yellow level boundary.
 
     ![Example of interior wall outside the level boundary](./media/drawing-conversion-error-codes/wall-outside-level.png)
 
@@ -300,7 +301,7 @@ To fix a **labelWarning**, ensure that:
 
 An **invalidArchiveFormat** error occurs when the drawing package is in an invalid archive format such as GZIP or 7-Zip. Only the ZIP archive format is supported.
 
-An **invalidArchiveFormat** error will also occur if the ZIP archive is empty.
+An **invalidArchiveFormat** error also occurs if the ZIP archive is empty.
 
 #### *How to fix invalidArchiveFormat*
 
@@ -318,15 +319,15 @@ An **invalidUserData** error occurs when the Conversion service is unable to rea
 
 #### *Example scenario for invalidUserData*
 
-You attempted to upload a Drawing package with an incorrect `udid` parameter.
+You attempted to upload a drawing package with an incorrect `udid` parameter.
 
 #### *How to fix invalidUserData*
 
 To fix an **invalidUserData** error, verify that:
 
 * You've provided a correct `udid` for the uploaded package.
-* Azure Maps Creator has been enabled for the Azure Maps account you used for uploading the Drawing package.
-* The API request to the Conversion service contains the subscription key to the Azure Maps account you used for uploading the Drawing package.
+* Azure Maps Creator has been enabled for the Azure Maps account you used for uploading the drawing package.
+* The API request to the Conversion service contains the subscription key to the Azure Maps account you used for uploading the drawing package.
 
 ### **dwgError**
 
@@ -355,7 +356,7 @@ To fix a **dwgError**, inspect your _manifest.json_ file confirm that:
 
 An **invalidJsonFormat** error occurs when the _manifest.json_ file can't be read.
 
-The _manifest.json_file can't be read because of JSON formatting or syntax errors. To learn more about how JSON format and syntax, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://tools.ietf.org/html/rfc7159)
+The _manifest.json_file can't be read because of JSON formatting or syntax errors. To learn more about how JSON format and syntax, see [The JavaScript Object Notation (JSON) Data Interchange Format].
 
 #### *How to fix invalidJsonFormat*
 
@@ -369,7 +370,7 @@ A **missingRequiredField** error occurs when the _manifest.json_ file is missing
 
 #### *How to fix missingRequiredField*
 
-To fix a **missingRequiredField** error, verify that the manifest contains all required properties. For a full list of required manifest object, see the [manifest section in the Drawing package requirements](drawing-requirements.md#manifest-file-requirements)  
+To fix a **missingRequiredField** error, verify that the manifest contains all required properties. For a full list of required manifest object, see the [manifest section in the Drawing package requirements].
 
 ### **missingManifest**
 
@@ -395,7 +396,7 @@ The **conflict** error occurs when the _manifest.json_ file contains conflicting
 
 #### *Example scenario for conflict*
 
-The Conversion service will return a **conflict** error  when more than one level is defined with the same level ordinal. The following JSON snippet shows two levels defined with the same ordinal.
+The Conversion service returns a **conflict** error  when more than one level is defined with the same level ordinal. The following JSON snippet shows two levels defined with the same ordinal.
 
 ```JSON
 "buildingLevels":
@@ -432,7 +433,7 @@ The **invalidGeoreference** error occurs because of one or more of the following
 
 #### *Example scenario for invalidGeoreference*
 
-In the JSON snippet below, the latitude is above the upper limit.
+In the following JSON snippet, the latitude is above the upper limit.
 
 ```json
 "georeference"
@@ -447,12 +448,12 @@ In the JSON snippet below, the latitude is above the upper limit.
 
 To fix an **invalidGeoreference** error, verify that the georeferenced values are within range.
 
->[!IMPORTANT]
->In GeoJSON, the coordinates order is longitude and latitude. If you don't use the correct order, you may accidentally refer a latitude or longitude value that is out of range.
+> [!IMPORTANT]
+> In GeoJSON, the coordinates order is longitude and latitude. If you don't use the correct order, you may accidentally refer a latitude or longitude value that is out of range.
 
 ## Wall errors
 
-### **wallError**
+### **wallError**s
 
 #### *Description for wallError*
 
@@ -483,7 +484,7 @@ The **verticalPenetrationError** occurs because of one or more of the following 
 
 #### *Example scenario for verticalPenetrationError*
 
-The image below shows a vertical penetration area with no overlapping vertical penetration areas on levels above or below it.
+The following image shows a vertical penetration area with no overlapping vertical penetration areas on levels above or below it.
 
 ![Example of a vertical penetration 1](./media/drawing-conversion-error-codes/vrt-2.png)
 
@@ -493,15 +494,24 @@ The following image shows a vertical penetration area that overlaps more than on
 
 #### How to fix verticalPenetrationError
 
-To fix a **verticalPenetrationError** error, read about how to use a vertical penetration feature in the [Drawing package requirements](drawing-requirements.md) article.
+To fix a **verticalPenetrationError** error, read about how to use a vertical penetration feature in the [Drawing package requirements] article.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to use Azure Maps Drawing error visualizer](drawing-error-visualizer.md)
+> [How to use Azure Maps Drawing error visualizer]
 
 > [!div class="nextstepaction"]
-> [Drawing Package Guide](drawing-package-guide.md)
+> [Drawing Package Guide]
 
 > [!div class="nextstepaction"]
-> [Creator for indoor mapping](creator-indoor-maps.md)
+> [Creator for indoor mapping]
+
+[Conversion service]: /rest/api/maps/v2/conversion
+[Creator for indoor mapping]: creator-indoor-maps.md
+[Drawing files requirements]: drawing-requirements.md#drawing-package-requirements
+[Drawing Package Guide]: drawing-package-guide.md
+[Drawing package requirements]: drawing-requirements.md
+[How to use Azure Maps Drawing error visualizer]: drawing-error-visualizer.md
+[manifest section in the Drawing package requirements]: drawing-requirements.md#manifest-file-requirements
+[The JavaScript Object Notation (JSON) Data Interchange Format]: https://tools.ietf.org/html/rfc7159

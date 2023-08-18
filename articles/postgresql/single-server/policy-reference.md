@@ -7,12 +7,14 @@ ms.topic: reference
 ms.author: jonels
 author: jonels-msft
 ms.custom: subject-policy-reference
-ms.date: 08/16/2022
+ms.date: 08/08/2023
 ---
 
 # Azure Policy built-in definitions for Azure Database for PostgreSQL
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 This page is an index of [Azure Policy](../../governance/policy/overview.md) built-in policy
 definitions for Azure Database for PostgreSQL. For additional Azure Policy built-ins for other

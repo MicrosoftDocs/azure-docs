@@ -1,11 +1,11 @@
 ---
-title: Add API connectors to self-service sign-up flows - Azure AD
+title: Add API connectors to self-service sign-up flows
 description: Configure a web API to be used in a user flow.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: article
-ms.date: 07/13/2021
+ms.topic: how-to
+ms.date: 01/16/2023
 
 ms.author: mimart
 author: msmimart
@@ -25,18 +25,20 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 
 ## Create an API connector
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
 4. Select **All API connectors**, and then select **New API connector**.
 
-    :::image type="content" source="media/self-service-sign-up-add-api-connector/api-connector-new.png" alt-text="Providing the basic configuration like target URL and display name for an API connector during the creation experience.":::
+    :::image type="content" source="media/self-service-sign-up-add-api-connector/api-connector-new.png" alt-text="Screenshot of adding a new API connector to External Identities.":::
 
 5. Provide a display name for the call. For example, **Check approval status**.
 6. Provide the **Endpoint URL** for the API call.
 7. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](self-service-sign-up-secure-api-connector.md).
 
-    :::image type="content" source="media/self-service-sign-up-add-api-connector/api-connector-config.png" alt-text="Providing authentication configuration for an API connector during the creation experience.":::
+    :::image type="content" source="media/self-service-sign-up-add-api-connector/api-connector-config.png" alt-text="Screenshot of configuring an API connector.":::
 
 8. Select **Save**.
 
@@ -91,7 +93,7 @@ Additionally, the claims are typically sent in all request:
 
 Follow these steps to add an API connector to a self-service sign-up user flow.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
 4. Select **User flows**, and then select the user flow you want to add the API connector to.
@@ -129,7 +131,7 @@ Content-type: application/json
 }
 ```
 
-The exact claims sent to the API depends on which information is provided by the identity provider. 'email' is always sent.
+The exact claims sent to the API depend on which information is provided by the identity provider. 'email' is always sent.
 
 ### Expected response types from the web API at this step
 
@@ -187,7 +189,7 @@ Content-type: application/json
  "ui_locales":"en-US"
 }
 ```
-The exact claims sent to the API depends on which information is collected from the user or is provided by the identity provider.
+The exact claims sent to the API depend on which information is collected from the user or is provided by the identity provider.
 
 ### Expected response types from the web API at this step
 
@@ -212,7 +214,7 @@ A blocking response exits the user flow. It can be purposely issued by the API t
 See an example of a [blocking response](#example-of-a-blocking-response).
 
 ### Validation-error response
- When the API responds with a validation-error response, the user flow stays on the attribute collection page and a `userMessage` is displayed to the user. The user can then edit and resubmit the form. This type of response can be used for input validation.
+ When the API responds with a validation-error response, the user flow stays on the attribute collection page, and a `userMessage` is displayed to the user. The user can then edit and resubmit the form. This type of response can be used for input validation.
 
 See an example of a [validation-error response](#example-of-a-validation-error-response).
 
@@ -237,7 +239,7 @@ Content-type: application/json
 | version                                            | String            | Yes      | The version of your API.                                                                                                                                                                                                                                                                |
 | action                                             | String            | Yes      | Value must be `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | No       | Values can be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attributes** for a user flow. Values can be returned in the token if selected as an **Application claim**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`, it is *optional*. Returned values can overwrite values collected from a user.  |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim doesn't need to contain `_<extensions-app-id>_`, it's *optional*. Returned values can overwrite values collected from a user.  |
 
 ### Example of a blocking response
 
@@ -248,7 +250,7 @@ Content-type: application/json
 {
     "version": "1.0.0",
     "action": "ShowBlockPage",
-    "userMessage": "There was a problem with your request. You are not able to sign up at this time.",
+    "userMessage": "There was an error with your request. Please try again or contact support.",
 }
 
 ```
@@ -305,7 +307,7 @@ Ensure that:
 * Your API implements an authentication method outlined in [secure your API Connector](self-service-sign-up-secure-api-connector.md).
 * Your API responds as quickly as possible to ensure a fluid user experience.
     * Azure AD will wait for a maximum of *20 seconds* to receive a response. If none is received, it will make *one more attempt (retry)* at calling your API.
-    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../../azure-functions/functions-scale.md)
+    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../../azure-functions/functions-scale.md#overview-of-plans)
 * Ensure high availability of your API.
 * Monitor and optimize performance of downstream APIs, databases, or other dependencies of your API.
 * Your endpoints must comply with the Azure AD TLS and cipher security requirements. For more information, see [TLS and cipher suite requirements](../../active-directory-b2c/https-cipher-tls-requirements.md). 

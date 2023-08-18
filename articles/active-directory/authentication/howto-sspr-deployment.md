@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/05/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: gargi-sinha
@@ -38,6 +38,9 @@ To quickly see SSPR in action and then come back to understand additional deploy
 > [!div class="nextstepaction"]
 > [Enable self-service password reset (SSPR)](tutorial-enable-sspr.md)
 
+> [!TIP]
+> As a companion to this article, we recommend using the [Plan your self-service password reset deployment guide](https://go.microsoft.com/fwlink/?linkid=2221501) when signed in to the Microsoft 365 Admin Center. This guide will customize your experience based on your environment. To review best practices without signing in and activating automated setup features, go to the [M365 Setup portal](https://go.microsoft.com/fwlink/?linkid=2221600). 
+
 ## Learn about SSPR
 
 Learn more about SSPR. See [How it works: Azure AD self-service password reset](./concept-sspr-howitworks.md).
@@ -68,6 +71,9 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 
 * An account with Global Administrator privileges.
 
+### Guided walkthrough
+
+For a guided walkthrough of many of the recommendations in this article, see the [Plan your self-service password reset deployment](https://go.microsoft.com/fwlink/?linkid=2221501) guide when signed in to the Microsoft 365 Admin Center.  To review best practices without signing in and activating automated setup features, go to the [M365 Setup portal](https://go.microsoft.com/fwlink/?linkid=2221600).
 
 ### Training resources
 
@@ -85,13 +91,13 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 |Tutorials |[Complete an Azure AD self-service password reset pilot roll out](./tutorial-enable-sspr.md) |
 | |[Enabling password writeback](./tutorial-enable-sspr-writeback.md) |
 | |[Azure AD password reset from the login screen for Windows 10](./howto-sspr-windows.md) |
-| FAQ|[Password management frequently asked questions](./active-directory-passwords-faq.yml) |
+| FAQ|[Password management frequently asked questions](./passwords-faq.yml) |
 
 ### Solution architecture
 
 The following example describes the password reset solution architecture for common hybrid environments.
 
-![diagram of solution architecture](./media/howto-sspr-deployment//solutions-architecture.png)
+![Diagram of solution architecture](./media/howto-sspr-deployment//solutions-architecture.png)
 
 Description of workflow
 
@@ -101,7 +107,7 @@ To reset the password, users go to the [password reset portal](https://aka.ms/ss
 
 * For hybrid users, SSPR writes back the password to the on-prem Active Directory via the Azure AD Connect service. 
 
-Note: For users who have [Password hash synchronization (PHS)](../hybrid/whatis-phs.md) disabled, SSPR stores the passwords in the on-prem Active Directory only.
+Note: For users who have [Password hash synchronization (PHS)](../hybrid/connect/whatis-phs.md) disabled, SSPR stores the passwords in the on-prem Active Directory only.
 
 ### Best practices
 
@@ -125,7 +131,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
+When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right stakeholders](../architecture/deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
 
 #### Required administrator roles
 
@@ -138,9 +144,9 @@ When technology projects fail, they typically do so due to mismatched expectatio
 
 ### Plan a pilot
 
-We recommend that the initial configuration of SSPR is in a test environment. Start with a pilot group by enabling SSPR for a subset of users in your organization. See [Best practices for a pilot](../fundamentals/active-directory-deployment-plans.md).
+We recommend that the initial configuration of SSPR is in a test environment. Start with a pilot group by enabling SSPR for a subset of users in your organization. See [Best practices for a pilot](../architecture/deployment-plans.md).
 
-To create a group, see how to [create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md). 
+To create a group, see how to [create a group and add members in Azure Active Directory](../fundamentals/how-to-manage-groups.md). 
 
 ## Plan configuration
 
@@ -194,6 +200,7 @@ Configure both the **Notify users on password resets** and the **Notify all admi
 > - Public: msonlineservicesteam@microsoft.com
 > - China: msonlineservicesteam@oe.21vianet.com 
 > - Government: msonlineservicesteam@azureadnotifications.us
+> 
 > If you observe issues in receiving notifications, please check your spam settings. 
 
 ### Customization settings
@@ -217,14 +224,14 @@ By default, Azure AD unlocks accounts when it performs a password reset.
 
 Administrator accounts have elevated permissions. The on-premises enterprise or domain administrators can't reset their passwords through SSPR. On-premises admin accounts have the following restrictions:
 
-* can only change their password in their on-prem environment.
-* can never use the secret questions and answers as a method to reset their password.
+* Can only change their password in their on-prem environment.
+* Can never use the secret questions and answers as a method to reset their password.
 
 We recommend that you don't sync your on-prem Active Directory admin accounts with Azure AD.
 
 ### Environments with multiple identity management systems
 
-Some environments have multiple identity management systems. On-premises identity managers like Oracle AM and SiteMinder, require synchronization with AD for passwords. You can do this using a tool like the Password Change Notification Service (PCNS) with Microsoft Identity Manager (MIM). To find information on this more complex scenario, see the article [Deploy the MIM Password Change Notification Service on a domain controller](/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
+Some environments have multiple identity management systems. On-premises identity managers like Oracle IAM and SiteMinder, require synchronization with AD for passwords. You can do this using a tool like the Password Change Notification Service (PCNS) with Microsoft Identity Manager (MIM). To find information on this more complex scenario, see the article [Deploy the MIM Password Change Notification Service on a domain controller](/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
 
 ## Plan Testing and Support
 
@@ -232,7 +239,7 @@ At each stage of your deployment from initial pilot groups through organization-
 
 ### Plan testing
 
-To ensure that your deployment works as expected, plan a set of test cases to validate the implementation. To assess the test cases, you need a non-administrator test user with a password. If you need to create a user, see [Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+To ensure that your deployment works as expected, plan a set of test cases to validate the implementation. To assess the test cases, you need a non-administrator test user with a password. If you need to create a user, see [Add new users to Azure Active Directory](../fundamentals/add-users.md).
 
 The following table includes useful test scenarios you can use to document your organizations expected results based on your policies.
 <br>
@@ -254,7 +261,7 @@ You can also refer to [Complete out an Azure AD self-service password reset pilo
 
 ### Plan support
 
-While SSPR does not typically create user issues, it is important to prepare support staff to deal with issues that may arise. While an administrator can reset the password for end users through the Azure AD portal, it is better to help resolve the issue via a self-service support process.
+While SSPR does not typically create user issues, it is important to prepare support staff to deal with issues that may arise. While an administrator can reset the password for end users through the Azure portal, it is better to help resolve the issue via a self-service support process.
 
 To enable your support team's success, you can create a FAQ based on questions you receive from your users. Here are a few examples:
 
@@ -264,15 +271,15 @@ To enable your support team's success, you can create a FAQ based on questions y
 | User isn't receiving a text or call on their office or cell phone| A user is trying to verify their identity via text or call but isn't receiving a text/call. |
 | User can't access the password reset portal| A user wants to reset their password but isn't enabled for password reset and can't access the page to update passwords. |
 | User can't set a new password| A user completes verification during the password reset flow but can't set a new password. |
-| User doesn't see a Reset Password link on a Windows 10 device| A user is trying to reset password from the Windows 10 lock screen, but the device is either not joined to Azure AD, or the Microsoft Endpoint Manager device policy isn't enabled |
+| User doesn't see a Reset Password link on a Windows 10 device| A user is trying to reset password from the Windows 10 lock screen, but the device is either not joined to Azure AD, or the Microsoft Intune device policy isn't enabled |
 
 ### Plan rollback
 
 To roll back the deployment:
 
-* for a single user, remove the user from the security group 
+* For a single user, remove the user from the security group 
 
-* for a group, remove the group from SSPR configuration
+* For a group, remove the group from SSPR configuration
 
 * For everyone, disable SSPR for the Azure AD tenant
 
@@ -315,7 +322,7 @@ Azure AD can provide additional information on your SSPR performance through aud
 You can use pre-built reports on Azure portal to measure the SSPR performance. If you're appropriately licensed, you can also create custom queries. For more information, see [Reporting options for Azure AD password management](./howto-sspr-reporting.md)
 
 > [!NOTE]
->  You must be [a global administrator](../roles/permissions-reference.md), and you must opt-in for this data to be gathered for your organization. To opt in, you must visit the Reporting tab or the audit logs on the Azure Portal at least once. Until then, the data doesn't collect for your organization.
+>  You must be [a global administrator](../roles/permissions-reference.md), and you must opt-in for this data to be gathered for your organization. To opt in, you must visit the Reporting tab or the audit logs on the Azure portal at least once. Until then, the data doesn't collect for your organization.
 
 Audit logs for registration and password reset are available for 30 days. If security auditing within your corporation requires longer retention, the logs need to be exported and consumed into a SIEM tool such as [Microsoft Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or ArcSight.
 
@@ -329,7 +336,7 @@ Audit logs for registration and password reset are available for 30 days. If sec
 
 * Refer to [Troubleshoot self-service password reset](./troubleshoot-sspr.md) 
 
-* Follow [Password management frequently asked questions](./active-directory-passwords-faq.yml) 
+* Follow [Password management frequently asked questions](./passwords-faq.yml) 
 
 ### Helpful documentation
 

@@ -1,5 +1,5 @@
 ---
-title: Delegate application management administrator permissions - Azure AD | Microsoft Docs
+title: Delegate application management administrator permissions
 description: Grant permissions for application access management in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 03/30/2023
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -43,7 +43,7 @@ By default in Azure AD, all users can register applications and manage all aspec
 
 ### Grant individual permissions to create and consent to applications when the default ability is disabled
 
-Assign the Application Developer role to grant the ability to create application registrations when the **Users can register applications** setting is set to No. This role also grants permission to consent on one's own behalf when the **Users can consent to apps accessing company data on their behalf** setting is set to No.
+Assign the [Application Developer role](../roles/permissions-reference.md#application-developer) to grant the ability to create application registrations when the **Users can register applications** setting is set to No. This role also grants permission to consent on one's own behalf when the **Users can consent to apps accessing company data on their behalf** setting is set to No.
 
 ## Assign application owners
 
@@ -58,7 +58,7 @@ Azure AD has a set of built-in admin roles for granting access to manage configu
 
 For more information and to view the description for these roles, see [Azure AD built-in roles](permissions-reference.md).
 
-Follow the instructions in the [Assign roles to users with Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md) how-to guide to assign the Application Administrator or Cloud Application Administrator roles.
+Follow the instructions in the [Assign roles to users with Azure Active Directory](../fundamentals/how-subscriptions-associated-directory.md) how-to guide to assign the Application Administrator or Cloud Application Administrator roles.
 
 > [!IMPORTANT]
 > Application Administrators and Cloud Application Administrators can add credentials to an application and use those credentials to impersonate the application’s identity. The application may have permissions that are an elevation of privilege over the admin role's permissions. An admin in this role could potentially create or update users or other objects while impersonating the application, depending on the application's permissions.
@@ -79,6 +79,31 @@ Tips when creating and using custom roles for delegating application management:
 - App registrations the user has access to using role assignments only show up in the ‘All applications’ tab on the App registration page. They do not show up in the ‘Owned applications’ tab.
 
 For more information on the basics of custom roles, see the [custom roles overview](custom-overview.md), as well as how to [create a custom role](custom-create.md) and how to [assign a role](custom-assign-powershell.md).
+
+## Troubleshoot
+
+### Symptom - Access denied when you try to register an application
+
+When you try to register an application in Azure AD, you get a message similar to the following:
+
+```
+Access denied
+You do not have access
+You don't have permission to register applications in the <directoryName> directory. To request access, contact your administrator.
+```
+
+:::image type="content" source="media/delegate-app-roles/app-registrations-access-denied.png" alt-text="Screenshot of access denied message when trying to create a new app registration." lightbox="media/delegate-app-roles/app-registrations-access-denied.png":::
+
+**Cause**
+
+You can't register the application in the directory because your directory administrator has [restricted who can create applications](#restrict-who-can-create-applications).
+
+**Solution**
+
+Contact your administrator to do one of the following:
+
+- Grant you permissions to create and consent to applications by [assigning you the Application Developer role](#grant-individual-permissions-to-create-and-consent-to-applications-when-the-default-ability-is-disabled).
+- Create the application registration for you and [assign you as the application owner](#assign-application-owners).
 
 ## Next steps
 

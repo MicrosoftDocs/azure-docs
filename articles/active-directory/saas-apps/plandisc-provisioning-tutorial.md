@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure Plandisc for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Plandisc for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Plandisc.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 16244680-205d-4763-960a-9bc7a6e915bc
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/09/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

@@ -5,10 +5,9 @@ author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: overview
-ms.workload: infrastructure
-ms.date: 11/14/2019
+ms.date: 02/27/2023
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, engagement-fy23
 ---
 
 # Virtual machines in Azure
@@ -28,7 +27,7 @@ Azure virtual machines can be used in various ways. Some examples are:
 The number of virtual machines that your application uses can scale up and out to whatever is required to meet your needs.
 
 ## What do I need to think about before creating a virtual machine?
-There is always a multitude of [design considerations](/azure/architecture/reference-architectures/n-tier/linux-vm) when you build out an application infrastructure in Azure. These aspects of a virtual machine are important to think about before you start:
+There's always a multitude of [design considerations](/azure/architecture/reference-architectures/n-tier/linux-vm) when you build out an application infrastructure in Azure. These aspects of a virtual machine are important to think about before you start:
 
 * The names of your application resources
 * The location where the resources are stored
@@ -52,23 +51,22 @@ This table shows some of the ways you can get a list of available locations.
 
 ## Availability
 There are multiple options to manage the availability of your virtual machines in Azure. 
-- **[Availability Zones](../availability-zones/az-overview.md)** are physically separated zones within an Azure region. Availability zones guarantee you will have virtual machine Connectivity to at least one instance at least 99.99% of the time when you have two or more instances deployed across two or more Availability Zones in the same Azure region. 
-- **[Virtual machine scale sets](../virtual-machine-scale-sets/overview.md)** let you create and manage a group of load balanced virtual machines. The number of virtual machine instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many virtual machines. Virtual machines in a scale set can also be deployed into multiple availability zones, a single availability zone, or regionally.
-- **[Proximity Placement Groups](co-location.md)** are a grouping construct used to ensure Azure compute resources are physically located close to each other. Proximity placement groups are useful for workloads where low latency is a requirement.
+- **[Availability Zones](../availability-zones/az-overview.md)** are physically separated zones within an Azure region. Availability zones guarantee virtual machine connectivity to at least one instance at least 99.99% of the time when you've two or more instances deployed across two or more Availability Zones in the same Azure region. 
+- **[Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md)** let you create and manage a group of load balanced virtual machines. The number of virtual machine instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many virtual machines. Virtual machines in a scale set can also be deployed into multiple availability zones, a single availability zone, or regionally.
 
 Fore more information see [Availability options for Azure virtual machines](availability.md) and [SLA for Azure virtual machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/). 
 
-## Virtual machine size
+## Sizes and pricing
 The [size](sizes.md) of the virtual machine that you use is determined by the workload that you want to run. The size that you choose then determines factors such as processing power, memory, storage capacity, and network bandwidth. Azure offers a wide variety of sizes to support many types of uses.
 
 Azure charges an [hourly price](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) based on the virtual machine’s size and operating system. For partial hours, Azure charges only for the minutes used. Storage is priced and charged separately.
 
-## Virtual machine limits
-Your subscription has default [quota limits](../azure-resource-manager/management/azure-subscription-service-limits.md) in place that could impact the deployment of many virtual machines for your project. The current limit on a per subscription basis is 20 virtual machines per region. Limits can be raised by [filing a support ticket requesting an increase](../azure-portal/supportability/regional-quota-requests.md)
+## Virtual machine total core limits
+Your subscription has default [quota limits](../azure-resource-manager/management/azure-subscription-service-limits.md) in place that could impact the deployment of many virtual machines for your project. The current limit on a per subscription basis is 20 virtual machine total cores per region. Limits can be raised by [filing a support ticket requesting an increase](../azure-portal/supportability/regional-quota-requests.md)
 
 ## Managed Disks
 
-Managed Disks handles Azure Storage account creation and management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You specify the disk size and the performance tier (Standard or Premium), and Azure creates and manages the disk. As you add disks or scale the virtual machine up and down, you don't have to worry about the storage being used. If you're creating new virtual machines, [use the Azure CLI](linux/quick-create-cli.md) or the Azure portal to create virtual machines with Managed OS and data disks. If you have virtual machines with unmanaged disks, you can [convert your virtual machines to be backed with Managed Disks](linux/convert-unmanaged-to-managed-disks.md).
+Managed Disks handles Azure Storage account creation and management in the background for you, and ensures that you don't have to worry about the scalability limits of the storage account. You specify the disk size and the performance tier (Standard or Premium), and Azure creates and manages the disk. As you add disks or scale the virtual machine up and down, you don't have to worry about the storage being used. If you're creating new virtual machines, [use the Azure CLI](linux/quick-create-cli.md) or the Azure portal to create virtual machines with Managed OS and data disks. If you have virtual machines with unmanaged disks, you can [convert your virtual machines to be backed with Managed Disks](linux/convert-unmanaged-to-managed-disks.md).
 
 You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of virtual machines in the same subscription. For more information about Managed Disks, see the [Managed Disks Overview](managed-disks-overview.md).
 
@@ -84,32 +82,14 @@ This table shows some ways that you can find the information for an image.
 | REST APIs |[List image publishers](/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[List image offers](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[List image skus](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 | Azure CLI |[az vm image list-publishers](/cli/azure/vm/image) --location *location*<BR>[az vm image list-offers](/cli/azure/vm/image) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](/cli/azure/vm) --location *location* --publisher *publisherName* --offer *offerName*|
 
-Microsoft works closely with partners to ensure the images available are updated and optimized for an Azure runtime.  For more information on Azure partner offers, see the following links:
-
-* Linux on Azure - [Endorsed Distributions](linux/endorsed-distros.md)
-* SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=suse)
-* Red Hat - [Azure Marketplace - Red Hat Enterprise Linux](https://azuremarketplace.microsoft.com/marketplace/apps?search=Red%20Hat%20Enterprise%20Linux)
-* Canonical - [Azure Marketplace - Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&filters=partners&search=canonical)
-* Debian - [Azure Marketplace - Debian](https://azuremarketplace.microsoft.com/marketplace/apps?search=Debian&page=1)
-* FreeBSD - [Azure Marketplace - FreeBSD](https://azuremarketplace.microsoft.com/marketplace/apps?search=freebsd&page=1)
-* Flatcar - [Azure Marketplace - Flatcar Container Linux](https://azuremarketplace.microsoft.com/marketplace/apps?search=Flatcar&page=1)
-* RancherOS - [Azure Marketplace - RancherOS](https://azuremarketplace.microsoft.com/marketplace/apps/rancher.rancheros)
-* Bitnami - [Bitnami Library for Azure](https://azure.bitnami.com/)
-* Mesosphere - [Azure Marketplace - Mesosphere DC/OS on Azure](https://azure.microsoft.com/services/kubernetes-service/mesosphere/)
-* Docker - [Azure Marketplace - Docker images](https://azuremarketplace.microsoft.com/marketplace/apps?search=docker&page=1&filters=virtual-machine-images)
-* Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azuremarketplace.microsoft.com/marketplace/apps/cloudbees.cloudbees-core-contact)
+Microsoft works closely with partners to ensure the images available are updated and optimized for an Azure runtime.  For more information on Azure partner offers, see the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=partners%3Bvirtual-machine-images&page=1)
 
 
 ## Cloud-init 
 
-To achieve a proper DevOps culture, all infrastructures must be code.  When all the infrastructure lives in code it can easily be recreated.  Azure works with all the major automation tooling like Ansible, Chef, SaltStack, and Puppet.  Azure also has its own tooling for automation:
+Azure supports for [cloud-init](https://cloud-init.io/) across most Linux distributions that support it.  we're actively working with our Linux partners in order to have cloud-init enabled images available in the Azure Marketplace. These images will make your cloud-init deployments and configurations work seamlessly with virtual machines and virtual machine scale sets.
 
-* [Azure Templates](linux/create-ssh-secured-vm-from-template.md)
-* [Azure `VMaccess`](extensions/vmaccess.md)
-
-Azure supports for [cloud-init](https://cloud-init.io/) across most Linux Distros that support it.  We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images will make your cloud-init deployments and configurations work seamlessly with virtual machines and virtual machine scale sets.
-
-* [Using cloud-init on Azure Linux virtual machines](linux/using-cloud-init.md)
+For more information, see [Using cloud-init on Azure Linux virtual machines](linux/using-cloud-init.md).
 
 ## Storage
 * [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md)
@@ -122,6 +102,43 @@ Azure supports for [cloud-init](https://cloud-init.io/) across most Linux Distro
 * [Opening ports to a Linux virtual machine in Azure](linux/nsg-quickstart.md)
 * [Create a Fully Qualified Domain Name in the Azure portal](create-fqdn.md)
 
+## Service disruptions
+
+At Microsoft, we work hard to make sure that our services are always available to you when you need them. Forces beyond our control sometimes impact us in ways that cause unplanned service disruptions.
+
+Microsoft provides a Service Level Agreement (SLA) for its services as a commitment for uptime and connectivity. The SLA for individual Azure services can be found at [Azure Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+
+Azure already has many built-in platform features that support highly available applications. For more about these services, read [Disaster recovery and high availability for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery).
+
+This article covers a true disaster recovery scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption. These are rare occurrences, but you must prepare for the possibility that there is an outage of an entire region. If an entire region experiences a service disruption, the locally redundant copies of your data would temporarily be unavailable. If you have enabled geo-replication, three additional copies of your Azure Storage blobs and tables are stored in a different region. In the event of a complete regional outage or a disaster in which the primary region isn't recoverable, Azure remaps all of the DNS entries to the geo-replicated region.
+
+To help you handle these rare occurrences, we provide the following guidance for Azure virtual machines in the case of a service disruption of the entire region where your Azure virtual machine application is deployed.
+
+### Option 1: Initiate a failover by using Azure Site Recovery
+You can configure Azure Site Recovery for your VMs so that you can recover your application with a single click in matter of minutes. You can replicate to Azure region of your choice and not restricted to paired regions. You can get started by [replicating your virtual machines](../site-recovery/azure-to-azure-quickstart.md). You can [create a recovery plan](../site-recovery/site-recovery-create-recovery-plans.md) so that you can automate the entire failover process for your application. You can [test your failovers](../site-recovery/site-recovery-test-failover-to-azure.md) beforehand without impacting production application or the ongoing replication. In the event of a primary region disruption, you just [initiate a failover](../site-recovery/site-recovery-failover.md) and bring your application in target region.
+
+
+### Option 2: Wait for recovery
+In this case, no action on your part is required. Know that we're working diligently to restore service availability. You can see the current service status on our [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
+
+This is the best option if you have not set up Azure Site Recovery, read-access geo-redundant storage, or geo-redundant storage prior to the disruption. If you have set up geo-redundant storage or read-access geo-redundant storage for the storage account where your VM virtual hard drives (VHDs) are stored, you can look to recover the base image VHD and try to provision a new VM from it. This isn't a preferred option because there are no guarantees of synchronization of data. Consequently, this option isn't guaranteed to work.
+
+
+> [!NOTE]
+> Be aware that you don't have any control over this process, and it will only occur for region-wide service disruptions. Because of this, you must also rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [Data strategies for disaster recovery](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
+>
+>
+
+### Resources for service disruptions
+
+- Start [protecting your applications running on Azure virtual machines](../site-recovery/azure-to-azure-quickstart.md) using Azure Site Recovery
+
+- To learn more about how to implement a disaster recovery and high availability strategy, see [Disaster recovery and high availability for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery).
+
+- To develop a detailed technical understanding of a cloud platform’s capabilities, see [Azure resiliency technical guidance](../data-lake-store/data-lake-store-disaster-recovery-guidance.md).
+
+
+- If the instructions aren't clear, or if you would like Microsoft to do the operations on your behalf, contact [Customer Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## Data residency
 

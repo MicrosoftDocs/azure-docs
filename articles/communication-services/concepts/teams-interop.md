@@ -2,7 +2,7 @@
 title: Teams interoperability
 titleSuffix: An Azure Communication Services concept document
 description: Teams interoperability
-author: chpalm
+author: tophpalmer
 ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
@@ -81,13 +81,16 @@ All usage of Azure Communication Service APIs and SDKs increments [Azure Communi
 
 If your Azure application has a user spend 10 minutes in a meeting with a user of Microsoft Teams, those two users combined consumed 20 calling minutes. The 10 minutes exercised through the custom application and using Azure APIs and SDKs will be billed to your resource. However, the 10 minutes consumed by the user in the native Teams application is covered by the applicable Teams license and is not metered by Azure.
 
+## Trademark and brand guideline
+Third parties must follow the [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks) when using Microsoft Teams trademarks or product logos in advertising or promotional materials. In general, wordmarks can be used to truthfully convey information about your product or service, as long as customers and the public will not be confused into believing Microsoft is affiliated with or endorses your product or service. However, our logos, app, product icons, illustrations, photographs, videos, and designs can never be used without an express license. To get more details about branding, read [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks).
+
 ## Teams in Government Clouds (GCC)
 Azure Communication Services interoperability isn't compatible with Teams deployments using [Microsoft 365 government clouds (GCC)](/MicrosoftTeams/plan-for-government-gcc) at this time.
 
 ## Next steps
 
 Find more details for External user interoperability:
-- [Get access tokens for external user](../quickstarts/access-tokens.md)
+- [Get access tokens for external user](../quickstarts/identity/access-tokens.md)
 - [Join Teams meeting call as a external user](../quickstarts/voice-video-calling/get-started-teams-interop.md)
 - [Join Teams meeting chat as a external user](../quickstarts/chat/meeting-interop.md)
 

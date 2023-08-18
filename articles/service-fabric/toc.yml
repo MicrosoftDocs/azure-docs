@@ -6,6 +6,8 @@
     href: overview-managed-cluster.md
   - name: What is Service Fabric?
     href: service-fabric-overview.md
+  - name: What's new for Service Fabric?
+    href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -178,6 +180,8 @@
         href: service-fabric-docker-compose.md
       - name: Probes
         href: probes-codepackage.md
+      - name: Container image management
+        href: container-image-management.md
     - name: Reliable Services
       items:
       - name: Reliable Services overview
@@ -409,6 +413,8 @@
     href: concepts-managed-identity.md
   - name: Configure container repository credentials
     href: configure-container-repository-credentials.md
+  - name: Managed cluster deny assignment policy
+    href: managed-cluster-deny-assignment.md
 
 - name: How-to guides
   items:
@@ -440,6 +446,8 @@
       href: how-to-managed-cluster-ephemeral-os-disks.md
     - name: Configure managed cluster upgrade options
       href: how-to-managed-cluster-upgrades.md
+    - name: Configure maintenance control on a managed cluster
+      href: how-to-managed-cluster-maintenance-control.md
     - name: Deploy application secrets to a managed cluster
       href: how-to-managed-cluster-application-secrets.md
     - name: Deploy an application to a managed cluster using Azure Resource Manager
@@ -456,6 +464,12 @@
       href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Use managed identity with an application
       href: how-to-managed-cluster-managed-identity-service-fabric-app-code.md
+    - name: Deploy custom image
+      href: how-to-deploy-custom-image.md
+    - name: Use NAT gateways
+      href: how-to-managed-cluster-nat-gateway.md
+    - name: Use public IP prefix in a managed cluster
+      href: how-to-managed-cluster-public-ip-prefix.md
   - name: Set up your development environment
     items:
     - name: Windows
@@ -532,6 +546,8 @@
           href: service-fabric-managed-disk.md
         - name: Set up Azure Active Directory authentication
           href: service-fabric-cluster-creation-setup-aad.md
+        - name: Set up Azure Active Directory authentication in Azure portal
+          href: service-fabric-cluster-creation-setup-azure-ad-via-portal.md
         - name: Create a custom cluster template
           href: service-fabric-cluster-creation-create-template.md
         - name: Create using Resource Manager
@@ -548,6 +564,8 @@
           href: service-fabric-cluster-programmatic-scaling.md
         - name: Scale up primary node type
           href: service-fabric-scale-up-primary-node-type.md
+        - name: Scale up non-primary node type
+          href: service-fabric-scale-up-non-primary-node-type.md
         - name: Add a node type
           href: virtual-machine-scale-set-scale-node-type-scale-out.md
         - name: Remove a node type

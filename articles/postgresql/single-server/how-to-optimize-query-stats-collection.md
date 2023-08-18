@@ -13,9 +13,11 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 This article describes how to optimize query statistics collection on an Azure Database for PostgreSQL server.
 
-## Use pg_stats_statements
+## Use pg_stat_statements
 
 **Pg_stat_statements** is a PostgreSQL extension that can be enabled in Azure Database for PostgreSQL. The extension provides a means to track execution statistics for all SQL statements executed by a server. This module hooks into every query execution and comes with a non-trivial performance cost. Enabling **pg_stat_statements** forces query text writes to files on disk.
 
@@ -33,7 +35,7 @@ To set `pg_stat_statements.track = NONE`:
 
 ## Use the Query Store
 
-The [Query Store](concepts-query-store.md) feature in Azure Database for PostgreSQL provides a more effective method to track query statistics. We recommend this feature as an alternative to using *pg_stats_statements*.
+The [Query Store](concepts-query-store.md) feature in Azure Database for PostgreSQL provides a more effective method to track query statistics. We recommend this feature as an alternative to using *pg_stat_statements*.
 
 ## Next steps
 

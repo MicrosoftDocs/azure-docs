@@ -1,5 +1,5 @@
 ---
-title: How to manage groups - Azure Active Directory | Microsoft Docs
+title: How to manage groups
 description: Instructions about how to manage Azure AD groups and group membership.
 services: active-directory
 author: shlipsey3
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 08/29/2022
+ms.date: 10/14/2022
 ms.author: sarahlipsey
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"                      
@@ -24,6 +24,9 @@ This article covers basic group scenarios where a single group is added to a sin
 Before adding groups and members, [learn about groups and membership types](concept-learn-about-groups.md) to help you decide which options to use when you create a group.
 
 ## Create a basic group and add members
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 You can create a basic group and add your members at the same time using the Azure Active Directory (Azure AD) portal. Azure AD roles that can manage groups include **Groups Administrator**, **User Administrator**, **Privileged Role Administrator**, or **Global Administrator**. Review the [appropriate Azure AD roles for managing groups](../roles/delegate-by-task.md#groups)
 
 To create a basic group and add members:
@@ -70,7 +73,7 @@ Members and owners can be added to and removed from existing Azure AD groups. Th
 
 Need to add multiple members at one time? Learn about the [add members in bulk](../enterprise-users/groups-bulk-import-members.md) option.
 
-### Add members or owners of a group:
+### Add members or owners of a group
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -88,7 +91,7 @@ Need to add multiple members at one time? Learn about the [add members in bulk](
 
     The **Group Overview** page updates to show the number of members who are now added to the group.
 
-### Remove members or owners of a group:
+### Remove members or owners of a group
 
 1. Go to **Azure Active Directory** > **Groups**.
 
@@ -101,6 +104,7 @@ Need to add multiple members at one time? Learn about the [add members in bulk](
     ![Screenshot of group members with a name selected and the Remove button highlighted.](media/how-to-manage-groups/groups-remove-member.png)
 
 ## Edit group settings
+
 Using Azure AD, you can edit a group's name, description, or membership type. You'll need the **Groups Administrator** or **User Administrator** role to edit a group's settings.
 
 To edit your group settings:
@@ -128,7 +132,7 @@ To edit your group settings:
     - **Object ID.** You can't change the Object ID, but you can copy it to use in your PowerShell commands for the group. For more info about using PowerShell cmdlets, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-v2-cmdlets.md).
 
 ## Add or remove a group from another group
-You can add an existing Security group to another Security group (also known as nested groups), creating a member group (subgroup) and a parent group. The member group inherits the attributes and properties of the parent group, saving you configuration time. You'll need the **Groups Administrator** or **User Administrator** role to edit group membership.
+You can add an existing Security group to another Security group (also known as nested groups). Depending on the group types, you can add a group as a member of another group, just like a user, which applies settings like roles and access to the nested groups. You'll need the **Groups Administrator** or **User Administrator** role to edit group membership.
 
 We currently don't support:
 - Adding groups to a group synced with on-premises Active Directory.
@@ -157,7 +161,7 @@ We currently don't support:
 
 1.  Locate the group you want your group to be a member of and choose **Select**. 
 
-    For this exercise, we're adding "MDM policy - West" to the "MDM policy - All org" group, so "MDM - policy - West" inherits all the properties and configurations of the "MDM policy - All org" group.
+    For this exercise, we're adding "MDM policy - West" to the "MDM policy - All org" group. The "MDM - policy - West" group will have the same access as the "MDM policy - All org" group.
 
     ![Screenshot of making a group the member of another group with 'Group membership' from the side menu and 'Add membership' option highlighted.](media/how-to-manage-groups/nested-groups-selected.png)
 
@@ -166,7 +170,7 @@ Now you can review the "MDM policy - West - Group memberships" page to see the g
 For a more detailed view of the group and member relationship, select the parent group name (MDM policy - All org) and take a look at the "MDM policy - West" page details.
 
 ### Remove a group from another group
-You can remove an existing Security group from another Security group; however, removing the group also removes any inherited attributes and properties for its members.
+You can remove an existing Security group from another Security group; however, removing the group also removes any inherited access for its members.
 
 1. On the **Groups - All groups** page, search for and select the group you need to remove as a member of another group.
 
@@ -181,6 +185,7 @@ You can remove an existing Security group from another Security group; however, 
     ![Screenshot of the 'Group membership' page showing both the member and the group details with 'Remove membership' option highlighted.](media/how-to-manage-groups/remove-nested-group.png)
 
 ## Delete a group
+
 You can delete an Azure AD group for any number of reasons, but typically it will be because you:
 
 - Chose the incorrect **Group type** option.
@@ -189,7 +194,7 @@ You can delete an Azure AD group for any number of reasons, but typically it wil
 
 - No longer need the group.
 
-To delete a group you'll need the **Groups Administrator** or **User Administrator** role.
+To delete a group, you'll need the **Groups Administrator** or **User Administrator** role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -211,4 +216,4 @@ To delete a group you'll need the **Groups Administrator** or **User Administrat
 
 - [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../enterprise-users/licensing-group-advanced.md#limitations-and-known-issues)
 
-- [Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+- [Associate or add an Azure subscription to Azure Active Directory](./how-subscriptions-associated-directory.md)

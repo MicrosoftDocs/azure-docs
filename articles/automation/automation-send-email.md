@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want understand runbooks so that I can use it to automate e-mails.
 ---
 
-# Send an email from am Automation runbook
+# Send an email from an Automation runbook
 
 You can send an email from a runbook with [SendGrid](https://sendgrid.com/solutions) using PowerShell. 
 
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * An Azure Automation account with at least one user-assigned managed identity. For more information, see [Enable managed identities](./quickstarts/enable-managed-identity.md).
 * Az modules: `Az.Accounts` and `Az.KeyVault` imported into the Automation account. For more information, see [Import Az modules](./shared-resources/modules.md#import-az-modules).
-* The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your machine. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+* The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your machine. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
 ## Create an Azure Key Vault
 

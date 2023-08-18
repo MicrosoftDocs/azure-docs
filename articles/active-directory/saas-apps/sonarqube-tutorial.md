@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/25/2021
+ms.date: 06/28/2023
 ms.author: jeedes
 ---
 
@@ -50,6 +50,8 @@ To configure the integration of SonarQube into Azure AD, you need to add SonarQu
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **SonarQube** in the search box.
 1. Select **SonarQube** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for SonarQube
 
@@ -159,7 +161,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	h. In **SAML user name attribute** text box, enter the value `http://schemas.microsoft.com/identity/claims/displayname`.
 
-	i. In **SAML user email attribute** text box, enter the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+	i. In **SAML user email attribute** text box, enter the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
 	j. Click **Save**.
 
@@ -179,4 +181,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-* Once you configure SonarQube, you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+* Once you configure SonarQube, you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

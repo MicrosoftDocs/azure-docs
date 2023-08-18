@@ -1,5 +1,5 @@
 ---
-title: Rules for dynamically populated groups membership - Azure AD | Microsoft Docs
+title: Rules for dynamically populated groups membership
 description: How to create membership rules to automatically populate groups, and a rule reference.
 services: active-directory
 documentationcenter: ''
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/18/2022
+ms.date: 06/07/2023
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -20,8 +20,8 @@ ms.collection: M365-identity-device-management
 
 You can create attribute-based rules to enable dynamic membership for a group in Azure Active Directory (Azure AD), part of Microsoft Entra. Dynamic group membership adds and removes group members automatically using membership rules based on member attributes. This article details the properties and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Microsoft 365 groups.
 
-When the attributes of a user or a device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they're added as a member of that group. If they no longer satisfy the rule, they're removed. You can't manually add or remove a member of a dynamic group.
 
+When the attributes of a user or a device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they're added as a member of that group. If they no longer satisfy the rule, they're removed. You can't manually add or remove a member of a dynamic group.
 - You can create a dynamic group for devices or for users, but you can't create a rule that contains both users and devices.
 - You can't create a device group based on the user attributes of the device owner. Device membership rules can reference only device attributes.
 
@@ -96,6 +96,7 @@ dirSyncEnabled |true false |user.dirSyncEnabled -eq true
 | department |Any string value or *null* | user.department -eq "value" |
 | displayName |Any string value | user.displayName -eq "value" |
 | employeeId |Any string value | user.employeeId -eq "value"<br>user.employeeId -ne *null* |
+| employeeHireDate (Preview) |Any DateTimeOffset value or keyword system.now | user.employeeHireDate -eq "value" |
 | facsimileTelephoneNumber |Any string value or *null* | user.facsimileTelephoneNumber -eq "value" |
 | givenName |Any string value or *null* | user.givenName -eq "value" |
 | jobTitle |Any string value or *null* | user.jobTitle -eq "value" |
@@ -104,7 +105,7 @@ dirSyncEnabled |true false |user.dirSyncEnabled -eq true
 | memberOf | Any string value (valid group object ID) | user.memberof -any (group.objectId -in ['value']) |
 | mobile |Any string value or *null* | user.mobile -eq "value" |
 | objectId |GUID of the user object | user.objectId -eq "11111111-1111-1111-1111-111111111111" |
-| onPremisesDistinguishedName (preview)| Any string value or *null* | user.onPremisesDistinguishedName -eq "value" |
+| onPremisesDistinguishedName | Any string value or *null* | user.onPremisesDistinguishedName -eq "value" |
 | onPremisesSecurityIdentifier | On-premises security identifier (SID) for users who were synchronized from on-premises to the cloud. | user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111" |
 | passwordPolicies |None<br>DisableStrongPassword<br>DisablePasswordExpiration<br>DisablePasswordExpiration, DisableStrongPassword | user.passwordPolicies -eq "DisableStrongPassword" |
 | physicalDeliveryOfficeName |Any string value or *null* | user.physicalDeliveryOfficeName -eq "value" |
@@ -154,9 +155,20 @@ If you want to compare the value of a user attribute against multiple values, yo
 ```
    user.department -in ["50001","50002","50003","50005","50006","50007","50008","50016","50020","50024","50038","50039","51100"]
 ```
+### Using the -le and -ge operators
 
+You can use the less than (-le) or greater than (-ge) operators when using the employeeHireDate attribute in dynamic group rules.  
+Examples:
+
+```
+user.employeehiredate -ge system.now -plus p1d 
+
+user.employeehiredate -le 2020-06-10T18:13:20Z 
+
+```
 
 ### Using the -match operator 
+
 The **-match** operator is used for matching any regular expression. Examples:
 
 ```
@@ -281,7 +293,7 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 The following expression selects all users who have no assigned service plan:
 
 ```
-user.assignedPlans -all (assignedPlan.servicePlanId -eq "")
+user.assignedPlans -all (assignedPlan.servicePlanId -ne null)
 ```
 
 ### Using the underscore (\_) syntax
@@ -346,13 +358,13 @@ device.objectId -ne null
 
 ## Extension properties and custom extension properties
 
-Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](/graph/api/resources/onpremisesextensionattributes) can be synced from on-premises Window Server Active Directory or updated using Microsoft Graph and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
+Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](/graph/api/resources/onpremisesextensionattributes) can be synced from on-premises Window Server Active Directory or updated using Microsoft Graph and take the format of "ExtensionAttributeX", where X equals 1 - 15. Multi-value extension properties aren't supported in dynamic membership rules. Here's an example of a rule that uses an extension attribute as a property:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-[Custom extension properties](../hybrid/how-to-connect-sync-feature-directory-extensions.md) can be synced from on-premises Windows Server Active Directory, from a connected SaaS application, or created using Microsoft Graph, and are of the format of `user.extension_[GUID]_[Attribute]`, where:
+[Custom extension properties](../hybrid/connect/how-to-connect-sync-feature-directory-extensions.md) can be synced from on-premises Windows Server Active Directory, from a connected SaaS application, or created using Microsoft Graph, and are of the format of `user.extension_[GUID]_[Attribute]`, where:
 
 - [GUID] is the stripped version of the unique identifier in Azure AD for the application that created the property. It contains only characters 0-9 and A-Z
 - [Attribute] is the name of the property as it was created
@@ -367,7 +379,7 @@ Custom extension properties are also called directory or Azure AD extension prop
 
 The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name. Also, you can now select **Get custom extension properties** link in the dynamic user group rule builder to enter a unique app ID and receive the full list of custom extension properties to use when creating a dynamic membership rule. This list can also be refreshed to get any new custom extension properties for that app. Extension attributes and custom extension properties must be from applications in your tenant.  
 
-For more information, see [Use the attributes in dynamic groups](../hybrid/how-to-connect-sync-feature-directory-extensions.md#use-the-attributes-in-dynamic-groups) in the article [Azure AD Connect sync: Directory extensions](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
+For more information, see [Use the attributes in dynamic groups](../hybrid/connect/how-to-connect-sync-feature-directory-extensions.md#use-the-attributes-in-dynamic-groups) in the article [Azure AD Connect sync: Directory extensions](../hybrid/connect/how-to-connect-sync-feature-directory-extensions.md).
 
 ## Rules for devices
 
@@ -379,7 +391,10 @@ You can also create a rule that selects device objects for membership in a group
 > [!NOTE]
 > systemlabels is a read-only attribute that cannot be set with Intune.
 >
-> For Windows 10, the correct format of the deviceOSVersion attribute is as follows: (device.deviceOSVersion -startsWith "10.0.1"). The formatting can be validated with the Get-MsolDevice PowerShell cmdlet.
+> For Windows 10, the correct format of the deviceOSVersion attribute is as follows: (device.deviceOSVersion -startsWith "10.0.1"). The formatting can be validated with the Get-MgDevice PowerShell cmdlet:
+> ```
+> Get-MgDevice -Search "displayName:YourMachineNameHere" -ConsistencyLevel eventual | Select-Object -ExpandProperty 'OperatingSystemVersion'
+> ```
 
 The following device attributes can be used.
 
@@ -396,7 +411,7 @@ The following device attributes can be used.
  deviceOSVersion | any string value | device.deviceOSVersion -eq "9.1"<br>device.deviceOSVersion -startsWith "10.0.1"
  deviceOwnership | Personal, Company, Unknown | device.deviceOwnership -eq "Company"
  devicePhysicalIds | any string value used by Autopilot, such as all Autopilot devices, OrderID, or PurchaseOrderID  | device.devicePhysicalIDs -any _ -contains "[ZTDId]"<br>(device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881"<br>(device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342"
- deviceTrustType | AzureAD, ServerAD, Workplace | device.deviceOwnership -eq "AzureAD"
+ deviceTrustType | AzureAD, ServerAD, Workplace | device.deviceTrustType -eq "AzureAD"
  enrollmentProfileName | Apple Device Enrollment Profile name, Android Enterprise Corporate-owned dedicated device Enrollment Profile name, or Windows Autopilot profile name | device.enrollmentProfileName -eq "DEP iPhones"
  extensionAttribute1 | any string value | device.extensionAttribute1 -eq "some string value"
  extensionAttribute2 | any string value | device.extensionAttribute2 -eq "some string value"
@@ -429,8 +444,8 @@ The following device attributes can be used.
 
 These articles provide additional information on groups in Azure Active Directory.
 
-- [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Create a new group and adding members](../fundamentals/active-directory-groups-create-azure-portal.md)
-- [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
-- [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [See existing groups](../fundamentals/groups-view-azure-portal.md)
+- [Create a new group and adding members](../fundamentals/how-to-manage-groups.md)
+- [Manage settings of a group](../fundamentals/how-to-manage-groups.md)
+- [Manage memberships of a group](../fundamentals/how-to-manage-groups.md)
 - [Manage dynamic rules for users in a group](groups-create-rule.md)

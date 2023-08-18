@@ -4,6 +4,7 @@ description: A tutorial to walk through how to use Azure Web PubSub service and 
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
+ms.custom: devx-track-azurecli
 ms.topic: tutorial 
 ms.date: 11/01/2021
 ---
@@ -21,7 +22,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This setup requires version 2.22.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -514,7 +515,7 @@ This will be useful if you want to stream a large amount of data to other client
     
     ```javascript
     const WebSocket = require('ws');
-    const fetch = require('node-fetch');
+    const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
     async function main() {
       let res = await fetch(`http://localhost:8080/negotiate`);

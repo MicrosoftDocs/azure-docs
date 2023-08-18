@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/26/2018
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Configure Concur for automatic user provisioning
@@ -45,7 +45,7 @@ Before configuring and enabling the provisioning service, you need to decide wha
 This section guides you through connecting your Azure AD to Concur's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in Concur based on user and group assignment in Azure AD.
 
 > [!Tip] 
-> You may also choose to enabled SAML-based Single Sign-On for Concur, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+> You may also choose to enabled SAML-based Single Sign-On for Concur, following the instructions provided in the [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 ### To configure user account provisioning:
 

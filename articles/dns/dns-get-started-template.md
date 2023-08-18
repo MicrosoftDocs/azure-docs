@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Create an Azure DNS zone and record - Azure Resource Manager template (ARM template)'
 titleSuffix: Azure DNS
-description: Learn how to create a DNS zone and record in Azure DNS. This is a step-by-step quickstart to create and manage your first DNS zone and record using Azure Resource Manager template (ARM template).
+description: Learn how to create a DNS zone and record in Azure DNS. This article is a step-by-step quickstart to create and manage your first DNS zone and record using Azure Resource Manager template (ARM template).
 services: dns
 author: duongau
 ms.author: duau
-ms.date: 6/2/2021
+ms.date: 09/27/2022
 ms.topic: quickstart
 ms.service: dns
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using Azure ARM template so I can use Azure DNS for my name resolution.
 ---
 
@@ -112,7 +112,7 @@ The host name `www.2lwynbseszpam.azurequickstart.org` resolves to `1.2.3.4` and 
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the DNS zone, delete the resource group. This removes the DNS zone and all the related resources.
+When you no longer need the resources that you created with the DNS zone, delete the resource group. This action removes the DNS zone and all the related resources.
 
 To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
 

@@ -3,7 +3,7 @@ title: Understand IoT Plug and Play device models | Microsoft Docs
 description: Understand the Digital Twins Definition Language (DTDL) modeling language for IoT Plug and Play devices. The article describes primitive and complex datatypes, reuse patterns that use components and inheritance, and semantic types. The article provides guidance on the choice of device twin model identifier and tooling support for model authoring.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/09/2021
+ms.date: 11/17/2022
 ms.topic: conceptual
 ms.service: iot-develop
 services: iot-develop
@@ -126,7 +126,10 @@ The thermostat model has a single interface. Later examples in this article show
 
 This article describes how to design and author your own models and covers topics such as data types, model structure, and tools.
 
-To learn more, see the [Digital Twins Definition Language v2](https://github.com/Azure/opendigitaltwins-dtdl) specification.
+To learn more, see the [Digital Twins Definition Language](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md) specification.
+
+> [!NOTE]
+> IoT Central currently supports [DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) with an [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
 ## Model structure
 
@@ -190,19 +193,19 @@ The following example shows part of a simple model that doesn't use components:
 ...
 ```
 
-Tools such as Azure IoT Explorer and the IoT Central device template designer label a standalone interface like the the thermostat as a _default component_.
+Tools such as Azure IoT Explorer and the IoT Central device template designer label a standalone interface like the thermostat as a _default component_.
 
-The following screenshot shows how the model displays in the Azure IoT explorer tool:
+The following screenshot shows how the model displays in the Azure IoT Explorer tool:
 
-:::image type="content" source="media/concepts-modeling-guide/default-component.png" alt-text="Default component in Azure IoT explorer":::
+:::image type="content" source="media/concepts-modeling-guide/default-component.png" alt-text="Screenshot that shows the default component in the Azure IoT explorer tool.":::
 
 The following screenshot shows how the model displays as the default component in the IoT Central device template designer. Select **View identity** to see the DTMI of the model:
 
-:::image type="content" source="media/concepts-modeling-guide/iot-central-model.png" alt-text="Screenshot showing Thermostat model in IoT Central designer":::
+:::image type="content" source="media/concepts-modeling-guide/iot-central-model.png" alt-text="Screenshot showing Thermostat model in IoT Central device template designer tool.":::
 
 The model ID is stored in a device twin property as the following screenshot shows:
 
-:::image type="content" source="media/concepts-modeling-guide/twin-model-id.png" alt-text="Model ID in digital twin property":::
+:::image type="content" source="media/concepts-modeling-guide/twin-model-id.png" alt-text="Screenshot of the Azure IoT Explorer tool that shows the model ID in a digital twin property.":::
 
 A DTDL model without components is a useful simplification for a device or an IoT Edge module with a single set of telemetry, properties, and commands. A model that doesn't use components makes it easy to migrate an existing device or module to be an IoT Plug and Play device or module - you create a DTDL model that describes your actual device or module without the need to define any components.
 
@@ -211,7 +214,10 @@ A DTDL model without components is a useful simplification for a device or an Io
 
 ### Reuse
 
-There are two ways to reuse interface definitions. Use multiple components in a model to reference other interface definitions. Use inheritance to extend existing interface definitions.
+There are two ways to reuse interface definitions.
+
+- Use multiple components in a model to reference other interface definitions.
+- Use inheritance to extend existing interface definitions.
 
 ### Multiple components
 
@@ -294,13 +300,13 @@ The following screenshots show how this model appears in IoT Central. The proper
 
 To learn how to write device code that interacts with components, see [IoT Plug and Play device developer guide](concepts-developer-guide-device.md).
 
-To learn how to write service code that intercats with components on a device, see [IoT Plug and Play service developer guide](concepts-developer-guide-service.md).
+To learn how to write service code that interacts with components on a device, see [IoT Plug and Play service developer guide](concepts-developer-guide-service.md).
 
 ### Inheritance
 
 Inheritance lets you reuse capabilities in a base interfaces to extend the capabilities of an interface. For example, several device models can share common capabilities such as a serial number:
 
-:::image type="content" source="media/concepts-modeling-guide/inheritance.png" alt-text="Example of inheritance in a device model showing a Thermostat and a Flow Controller that share capabilities from a base interface." border="false":::
+:::image type="content" source="media/concepts-modeling-guide/inheritance.png" alt-text="Diagram that shows an example of inheritance in a device model. A Thermostat interface and a Flow Controller interface both share capabilities from a base interface." border="false":::
 
 The following snippet shows a DTML model that uses the `extends` keyword to define the inheritance relationship shown in the previous diagram:
 
@@ -347,7 +353,7 @@ The following snippet shows a DTML model that uses the `extends` keyword to defi
 
 The following screenshot shows this model in the IoT Central device template environment:
 
-:::image type="content" source="media/concepts-modeling-guide/iot-central-inheritance.png" alt-text="Screenshot showing interface inheritance in IoT Central":::
+:::image type="content" source="media/concepts-modeling-guide/iot-central-inheritance.png" alt-text="Screenshot showing interface inheritance in IoT Central.":::
 
 When you write device or service-side code, your code doesn't need to do anything special to handle inherited interfaces. In the example shown in this section, your device code reports the serial number as if it's part of the thermostat interface.
 
@@ -357,7 +363,7 @@ You can combine components and inheritance when you create a model. The followin
 
 :::image type="content" source="media/concepts-modeling-guide/inheritance-components.png" alt-text="Diagram showing a model that uses both components and inheritance." border="false":::
 
-The following snippet shows a DTML model that uses the `extends` and `component` keywords to define the inheritance relationship  and component usage shown in the previous diagram:
+The following snippet shows a DTML model that uses the `extends` and `component` keywords to define the inheritance relationship and component usage shown in the previous diagram:
 
 ```json
 [
@@ -407,7 +413,7 @@ The following snippet shows a DTML model that uses the `extends` and `component`
 
 ## Data types
 
-Use data types to define telemetry, properties, and command parameters. Data types can be primitive or complex. Complex datatypes use primitives or other complex types. The maximum depth for complex types is five levels.
+Use data types to define telemetry, properties, and command parameters. Data types can be primitive or complex. Complex data types use primitives or other complex types. The maximum depth for complex types is five levels.
 
 ### Primitive types
 
@@ -437,9 +443,9 @@ The following snippet shows an example telemetry definition that uses the `doubl
 }
 ```
 
-### Complex datatypes
+### Complex data types
 
-Complex datatypes are one of *array*, *enumeration*, *map*, *object*, or one of the geospatial types.
+Complex data types are one of *array*, *enumeration*, *map*, *object*, or one of the geospatial types.
 
 #### Arrays
 
@@ -560,7 +566,7 @@ Because the geospatial types are array-based, they can't currently be used in pr
 
 ## Semantic types
 
-The datatype of a property or telemetry definition specifies the format of the data that a device exchanges with a service. The semantic type provides information about telemetry and properties that an application can use to determine how to process or display a value. Each semantic type has one or more associated units. For example, celsius and fahrenheit are units for the temperature semantic type. IoT Central dashboards and analytics can use the semantic type information to determine how to plot telemetry or property values and display units. To learn how you can use the model parser to read the semantic types, see [Understand the digital twins model parser](concepts-model-parser.md).
+The data type of a property or telemetry definition specifies the format of the data that a device exchanges with a service. The semantic type provides information about telemetry and properties that an application can use to determine how to process or display a value. Each semantic type has one or more associated units. For example, celsius and fahrenheit are units for the temperature semantic type. IoT Central dashboards and analytics can use the semantic type information to determine how to plot telemetry or property values and display units. To learn how you can use the model parser to read the semantic types, see [Understand the digital twins model parser](concepts-model-parser.md).
 
 The following snippet shows an example telemetry definition that includes semantic type information. The semantic type `Temperature` is added to the `@type` array, and the `unit` value, `degreeCelsius` is one of the valid units for the semantic type:
 
@@ -635,33 +641,21 @@ DTML device models are JSON documents that you can create in a text editor. Howe
 
 To learn more, see [Define a new IoT device type in your Azure IoT Central application](../iot-central/core/howto-set-up-template.md).
 
-There are DTDL authoring extensions for both VS Code and Visual Studio 2019.
+There's a DTDL authoring extension for VS Code.
 
 To install the DTDL extension for VS Code, go to [DTDL editor for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl). You can also search for **DTDL** in the **Extensions** view in VS Code.
 
-When you've installed the extension, use it to help you author DTDL model files in VS code:
+When you've installed the extension, use it to help you author DTDL model files in VS Code:
 
 - The extension provides syntax validation in DTDL model files, highlighting errors as shown on the following screenshot:
 
-    :::image type="content" source="media/concepts-modeling-guide/model-validation.png" alt-text="Model validation in VS Code":::
+    :::image type="content" source="media/concepts-modeling-guide/model-validation.png" alt-text="Screenshot that shows DTDL model validation in VS Code.":::
 
 - Use intellisense and autocomplete when you're editing DTDL models:
 
-    :::image type="content" source="media/concepts-modeling-guide/model-intellisense.png" alt-text="Use intellisense for DTDL models in VS Code":::
+    :::image type="content" source="media/concepts-modeling-guide/model-intellisense.png" alt-text="Screenshot that shows intellisense for DTDL models in VS Code.":::
 
 - Create a new DTDL interface. The **DTDL: Create Interface** command creates a JSON file with a new interface. The interface includes example telemetry, property, and command definitions.
-
-To install the DTDL extension for Visual Studio 2019, go to [DTDL Language Support for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16dtdllanguagesupport). You can also search for **DTDL** in **Manage Extensions** in Visual Studio.
-
-When you've installed the extension, use it to help you author DTDL model files in Visual Studio:
-
-- The extension provides syntax validation in DTDL model files, highlighting errors as shown on the following screenshot:
-
-    :::image type="content" source="media/concepts-modeling-guide/model-validation-2.png" alt-text="Model validation in Visual Studio":::
-
-- Use intellisense and autocomplete when you're editing DTDL models:
-
-    :::image type="content" source="media/concepts-modeling-guide/model-intellisense-2.png" alt-text="Use intellisense for DTDL models in Visual Studio":::
 
 ### Publish
 
@@ -674,6 +668,9 @@ To learn more, see [Device models repository](concepts-model-repository.md).
 ### Use
 
 Applications, such as IoT Central, use device models. In IoT Central, a model is part of the device template that describes the capabilities of the device. IoT Central uses the device template to dynamically build a UI for the device, including dashboards and analytics.
+
+> [!NOTE]
+> IoT Central defines some extensions to the DTDL language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
 A custom solution can use the [digital twins model parser](concepts-model-parser.md) to understand the capabilities of a device that implements the model. To learn more, see [Use IoT Plug and Play models in an IoT solution](concepts-model-discovery.md).
 
@@ -689,7 +686,7 @@ IoT Central implements more versioning rules for device models. If you version a
 
 The following list summarizes some key constraints and limits on models:
 
-- Currently, the maximum depth for arrays, maps, and objects is five levels of depth.
+- Currently, the maximum depth for arrays, maps, and objects is five levels.
 - You can't use arrays in property definitions.
 - You can extend interfaces to a depth of 10 levels.
 - An interface can extend at most two other interfaces.
@@ -697,7 +694,7 @@ The following list summarizes some key constraints and limits on models:
 
 ## Next steps
 
-Now that you've learned about device modeling, here are some additional resources:
+Now that you've learned about device modeling, here are some more resources:
 
-- [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
+- [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md)
 - [Model repositories](./concepts-model-repository.md)

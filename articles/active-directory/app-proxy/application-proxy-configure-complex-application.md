@@ -16,20 +16,20 @@ ms.reviewer: dhruvinshah
 # Understanding Azure Active Directory Application Proxy Complex application scenario (Preview)
 
 When applications are made up of multiple individual web application using different domain suffixes or different ports or paths in the URL, the individual web application instances must be published in separate Azure AD Application Proxy apps and the following problems might arise:
-1.	Pre-authentication- The client must separately acquire an access token or cookie for each Azure AD Application Proxy app. This might lead to additional redirects to login.microsoftonline.com and CORS issues.
-2.	CORS issues- Cross-origin resource sharing calls (OPTIONS request) might be triggered to validate if the caller web app is allowed to access the URL of the targeted web app. These will be blocked by the Azure AD Application Proxy Cloud service, since these requests cannot contain authentication information.
-3.	Poor app management- Multiple enterprise apps are created to enable access to a private app adding friction to the app management experience.
+1. Pre-authentication- The client must separately acquire an access token or cookie for each Azure AD Application Proxy app. This might lead to additional redirects to login.microsoftonline.com and CORS issues.
+2. CORS issues- Cross-origin resource sharing calls (OPTIONS request) might be triggered to validate if the caller web app is allowed to access the URL of the targeted web app. These will be blocked by the Azure AD Application Proxy Cloud service, since these requests cannot contain authentication information.
+3. Poor app management- Multiple enterprise apps are created to enable access to a private app adding friction to the app management experience.
 
 The following figure shows an example for complex application domain structure.
 
-![Diagram of domain structure for a complex application showing resource sharing between primary and secondary application.](./media/application-proxy-configure-complex-application/complex-app-structure.png)
+:::image type="content" source="./media/application-proxy-configure-complex-application/complex-app-structure-1.png" alt-text="Diagram of domain structure for a complex application showing resource sharing between primary and secondary application.":::
 
 With [Azure AD Application Proxy](application-proxy.md), you can address this issue by using complex application publishing that is made up of multiple URLs across various domains. 
 
-![Diagram of a Complex application with multiple application segments definition.](./media/application-proxy-configure-complex-application/complex-app-flow.png)
+:::image type="content" source="./media/application-proxy-configure-complex-application/complex-app-flow-1.png" alt-text="Diagram of a Complex application with multiple application segments definition.":::
 
 A complex app has multiple app segments, with each app segment being a pair of an internal & external URL.
-There is one conditional access policy associated with the app and access to any of the external URLs work with pre-authentication with the same set of policies that are enforced for all.
+There is one Conditional Access policy associated with the app and access to any of the external URLs work with pre-authentication with the same set of policies that are enforced for all.
 
 This solution that allows user to:
 
@@ -42,7 +42,7 @@ This article provides you with the information you need to configure wildcard ap
 ## Characteristics of application segment(s) for complex application. 
 1. Application segments can be configured only for a wildcard application.
 2. External and alternate URL should match the wildcard external and alternate URL domain of the application respectively.
-3. Application segment URL’s (internal and external) need to maintain uniqueness across complex applications.
+3. Application segment URLs (internal and external) need to maintain uniqueness across complex applications.
 4. CORS Rules (optional) can be configured per application segment.
 5. Access will only be granted to defined application segments for a complex application.
     - Note - If all application segments are deleted, a complex application will behave as a wildcard application opening access to all valid URL by specified domain. 
@@ -51,67 +51,53 @@ This article provides you with the information you need to configure wildcard ap
 
 ## Pre-requisites
 Before you get started with Application Proxy Complex application scenario apps, make sure your environment is ready with the following settings and configurations:
-- You need to enable Application Proxy and install a connector that has line of site to your applications. See the tutorial [Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) to learn how to prepare your on-premises environment, install and register a connector, and test the connector.
+- You need to enable Application Proxy and install a connector that has line of sight to your applications. See the tutorial [Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) to learn how to prepare your on-premises environment, install and register a connector, and test the connector.
 
 
 ## Configure application segment(s) for complex application. 
 
-To configure (and update) Application Segments for a complex app using the API, you first [create a wildcard application](application-proxy-wildcard.md#create-a-wildcard-application), and then update the application's onPremisesPublishing property to configure the application segments and respective CORS settings.
-
 > [!NOTE]
-> One application segment is supported in preview. Support for multiple application segment to be announced soon.
+> Two application segment per complex distributed application are supported for [Microsoft Azure AD premium subscription](https://azure.microsoft.com/pricing/details/active-directory). License requirement for more than two application segments per complex application to be announced soon.
 
-If successful, this method returns a `204 No Content` response code and does not return anything in the response body.
-## Example
+To publish complex distributed app through Application Proxy with application segments:
 
-##### Request
-Here is an example of the request.
+1. [Create a wildcard application.](application-proxy-wildcard.md#create-a-wildcard-application)
+
+1. On the Application Proxy Basic settings page, select "Add application segments".
+
+    :::image type="content" source="./media/application-proxy-configure-complex-application/add-application-segments.png" alt-text="Screenshot of link to add an application segment.":::
+
+3. On the Manage and configure application segments page, select "+ Add app segment"
+
+    :::image type="content" source="./media/application-proxy-configure-complex-application/add-application-segment-1.png" alt-text="Screenshot of Manage and configure application segment blade.":::
+
+4. In the Internal Url field, enter the internal URL for your app.
+
+5. In the External Url field, drop down the list and select the custom domain you want to use.
+
+6. Add CORS Rules (optional).  For more information see [Configuring CORS Rule](/graph/api/resources/corsconfiguration_v2?view=graph-rest-beta).
+
+7. Select Create.
+
+    :::image type="content" source="./media/application-proxy-configure-complex-application/create-app-segment.png" alt-text="Screenshot of add or edit application segment context plane.":::
+
+Your application is now set up to use the configured application segments. Be sure to assign users to your application before you test or release it.
+
+To edit/update an application segment, select respective application segment from the list in Manage and configure application segments page. Upload a certificate for the updated domain, if necessary, and update the DNS record. 
+
+## DNS updates
+
+When using custom domains, you need to create a DNS entry with a CNAME record for the external URL (for example,  `*.adventure-works.com`) pointing to the external URL of the application proxy endpoint. For wildcard applications, the CNAME record needs to point to the relevant external URL:
+
+> `<yourAADTenantId>.tenant.runtime.msappproxy.net`
+
+Alternatively, a DNS entry with a CNAME record for every individual application segment can be created as follows:
+
+> `'External URL of application segment'` > `'<External URL without domain>-<tenantname>.msapproxy.net'` <br>
+for example in above instance  >`'home.contoso.ashcorp.us'` points to > `home-ashcorp1.msappproxy.net`
 
 
-```http
-PATCH https://graph.microsoft.com/beta/applications/{<object-id-of--the-complex-app-under-APP-Registrations}
-Content-type: application/json
-
-{
-    "onPremisesPublishing": {
-		"onPremisesApplicationSegments": [
-			{
-				"externalUrl": "https://home.contoso.net/",
-				"internalUrl": "https://home.test.com/",
-				"alternateUrl": "",
-				"corsConfigurations": []
-			},
-			{
-				"externalUrl": "https://assets.constoso.net/",
-				"internalUrl": "https://assets.test.com",
-				"alternateUrl": "",
-				"corsConfigurations": [
-					{
-						"resource": "/",
-						"allowedOrigins": [
-							"https://home.contoso.net/"
-						],
-						"allowedHeaders": [
-							"*"
-						],
-						"allowedMethods": [
-							"*"
-						],
-						"maxAgeInSeconds": 0
-					}
-				]
-			}	
-		]
-	}
-}
-
-```
-##### Response
-
-```http
-HTTP/1.1 204 No Content
-```
-
+For more detailed instructions for Application Proxy, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md).
 
 ## See also
 - [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md) 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SuccessFactors | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SuccessFactors'
 description: Learn how to configure single sign-on between Azure Active Directory and SuccessFactors.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/26/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -45,6 +45,8 @@ To configure the integration of SuccessFactors into Azure AD, you need to add Su
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **SuccessFactors** in the search box.
 1. Select **SuccessFactors** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 
 ## Configure and test Azure AD SSO for SuccessFactors
@@ -105,7 +107,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     - `https://<companyname>.sapsf.cn/<companyname>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [SuccessFactors Client support team](https://www.sap.com/support.html) to get these values.
+	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [SuccessFactors Client support team](https://www.sap.com/services-support.html) to get these values.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -210,7 +212,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To enable Azure AD users to sign in to SuccessFactors, they must be provisioned into SuccessFactors. In the case of SuccessFactors, provisioning is a manual task.
 
-To get users created in SuccessFactors, you need to contact the [SuccessFactors support team](https://www.sap.com/support.html).
+To get users created in SuccessFactors, you need to contact the [SuccessFactors support team](https://www.sap.com/services-support.html).
 
 ## Test SSO 
 

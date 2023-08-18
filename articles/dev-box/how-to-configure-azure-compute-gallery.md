@@ -1,153 +1,182 @@
 ---
-title: Configure an Azure Compute Gallery
+title: Configure Azure Compute Gallery
 titleSuffix: Microsoft Dev Box
-description: 'Learn how to create a repository for managing and sharing Dev Box images.'
+description: Learn how to create an Azure Compute Gallery repository for managing and sharing Dev Box images.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 07/28/2022
+ms.date: 04/25/2023
 ms.topic: how-to
 ---
 
-# Configure an Azure Compute Gallery
+# Configure Azure Compute Gallery for Microsoft Dev Box
 
- An Azure Compute Gallery is a repository in Azure for managing and sharing images. It's stored in your Azure subscription and helps you build structure and organization around your image resources. You can use Azure Compute Gallery to provide custom images for your dev box users.
+Azure Compute Gallery is a service for managing and sharing images. A gallery is a repository that's stored in your Azure subscription and helps you build structure and organization around your image resources. You can use a gallery to provide custom images for your dev box users.
 
 Advantages of using a gallery include:
+
 - You maintain the images in a single location and use them across dev centers, projects, and pools.
-- Development teams can use the *latest* image version of an image definition to ensure they always receive the most recent image when creating dev boxes.
-- Development teams can use a specific image version to standardize on a supported image version until a newer version is validated.
+- Development teams can use the latest version of an image definition to ensure that they always receive the most recent image when creating dev boxes.
+- Development teams can standardize on a supported image version until a newer version is validated.
 
+To learn more about Azure Compute Gallery and how to create galleries, see:
 
-You can learn more about Azure Compute Galleries and how to create them here:
-- [Store and share images in an Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) 
-- [Create a gallery for storing and sharing resources](../virtual-machines/create-gallery.md#create-a-gallery-for-storing-and-sharing-resources) 
+- [Store and share images in Azure Compute Gallery](../virtual-machines/shared-image-galleries.md)
+- [Create a gallery for storing and sharing resources](../virtual-machines/create-gallery.md#create-a-gallery-for-storing-and-sharing-resources)
 
-## Pre-requisites
-- A dev center. If don't have an available dev center, follow these steps: [Create a dev center](./quickstart-configure-dev-box-service.md#create-a-dev-center). 
-- An Azure Compute Gallery. In order to use this gallery to configure Dev Box definitions, it must have at least [one image definition and one image version](../virtual-machines/image-version.md). 
-    - The image definition must have [Trusted Launch enabled as the Security Type](../virtual-machines/trusted-launch.md). You configure the security type when creating the image definition. 
-    - The image version must meet the [Windows 365 image requirements](/windows-365/enterprise/device-images#image-requirements).
-        - Generation 2
-        - Hyper-V v2
-        - Windows OS
-        - Generalized image
+## Prerequisites
 
-    :::image type="content" source="media/how-to-configure-azure-compute-gallery/image-definition.png" alt-text="Screenshot showing the Windows 365 image requirement settings.":::
+- A dev center. If you don't have one available, follow the steps in [Create a dev center](quickstart-configure-dev-box-service.md#1-create-a-dev-center).
+- A compute gallery. Images stored in a compute gallery can be used in a dev box definition, provided they meet the requirements listed in the [Compute gallery image requirements](#compute-gallery-image-requirements) section.
+ 
+> [!NOTE]
+> Microsoft Dev Box doesn't support community galleries.
 
-> [!IMPORTANT]
-> If you have existing images that do not meet the Windows 365 image requirements, those images will not be listed for image creation.
+## Compute gallery image requirements 
 
-## Provide permissions for services to access the gallery
-When using an Azure Compute Gallery image to create a dev box definition, the Windows 365 service validates the image to ensure that it  meets the requirements to be provisioned for a dev box. In addition, the Dev Box service replicates the image to the regions specified in the attached network connections so the images are present in the region required for dev box creation.
+A gallery used to configure dev box definitions must have at least [one image definition and one image version](../virtual-machines/image-version.md).
 
-To allow the services to perform these actions, you must provide permissions to your gallery as follows:
+The image version must meet the following requirements:
+- Generation 2.
+- Hyper-V v2.
+- Windows OS.
+    - Windows 10 Enterprise version 20H2 or later.
+    - Windows 11 Enterprise 21H2 or later.
+- Generalized VM image.
+    - You must create the image using these three sysprep options: `/generalize /oobe /mode:vm`. </br>
+      For more information, see: [Sysprep Command-Line Options](/windows-hardware/manufacture/desktop/sysprep-command-line-options?view=windows-11#modevm&preserve-view=true).
+    - To speed up the Dev Box creation time, you can disable the reserved storage state feature in the image by using the following command: `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`. </br>
+      For more information, see: [DISM Storage reserve command-line options](/windows-hardware/manufacture/desktop/dism-storage-reserve?view=windows-11#set-reservedstoragestate&preserve-view=true).
+- Single-session virtual machine (VM) images. (Multiple-session VM images aren't supported.)
+- No recovery partition.
+    - For information about how to remove a recovery partition, see the [Windows Server command: delete partition](/windows-server/administration/windows-commands/delete-partition).
+- Default 64-GB OS disk size. The OS disk size is automatically adjusted to the size specified in the SKU description of the Windows 365 license.
+- The image definition must have [trusted launch enabled as the security type](../virtual-machines/trusted-launch.md). You configure the security type when you create the image definition.
 
-### Add a user assigned identity to dev center
-1. Use these steps to [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).  
+    :::image type="content" source="media/how-to-configure-azure-compute-gallery/image-definition.png" alt-text="Screenshot that shows Windows 365 image requirement settings.":::
+
+> [!NOTE]
+> - Dev Box image requirements exceed [Windows 365 image requirements](/windows-365/enterprise/device-images) and include settings to optimize dev box creation time and performance. 
+> - Images that do not meet Windows 365 requirements will not be listed for creation.
+
+## Provide permissions for services to access a gallery
+
+When you use an Azure Compute Gallery image to create a dev box definition, the Windows 365 service validates the image to ensure that it meets the requirements to be provisioned for a dev box. The Dev Box service replicates the image to the regions specified in the attached network connections, so the images are present in the region that's required for dev box creation.
+
+To allow the services to perform these actions, you must provide permissions to your gallery as follows.
+
+### Add a user-assigned identity to the dev center
+
+1. [Follow the steps to create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity). 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the search box, type *Dev box* and select **Dev centers** from the list.
-1. Open your DevCenter and select **Identity** from the left menu.
+1. In the search box, enter **dev box**. In the list of results, select **Dev centers**.
+1. Open your dev center. On the left menu, select **Identity**.
 1. On the **User assigned** tab, select **+ Add**.
-1. In Add user assigned managed identity, select the user-assigned managed identity that you created in step 1 and then select **Add**.
+1. In **Add user assigned managed identity**, select the user-assigned managed identity that you created in step 1, and then select **Add**.
 
-   :::image type="content" source="media/how-to-configure-azure-compute-gallery/assign-managed-id.png" alt-text="Screenshot showing the Add user assigned managed identity pane, with the managed ID highlighted."::: 
+   :::image type="content" source="media/how-to-configure-azure-compute-gallery/assign-managed-id.png" alt-text="Screenshot that shows the pane for adding a user-assigned managed identity.":::
 
-### How does the Dev Box service assign permissions?
-The Dev Box service behaves differently depending how you attach your gallery.
-- When you use the Azure portal to attach the gallery to your Dev center, the Dev Box service creates the necessary role assignments automatically when you attach the gallery.
-- When you use the CLI to attach the gallery to your Dev center, you must manually create the Windows 365 Service Principal and dev center Managed Identity role assignments before attempting to attach the gallery.
+### Assign roles
 
-Follow these steps to manually assign each role:
+The Dev Box service behaves differently depending how you attach your gallery:
 
-#### Windows 365 Service Principal
+- When you use the Azure portal to attach the gallery to your dev center, the Dev Box service creates the necessary role assignments automatically after you attach the gallery.
+- When you use the Azure CLI to attach the gallery to your dev center, you must manually create the Windows 365 service principal and the dev center's managed identity role assignments before you attach the gallery.
+
+Use the following steps to manually assign each role.
+
+#### Windows 365 service principal
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, type *Azure Compute Gallery* and select the gallery you want to attach to the dev center.
+1. In the search box, enter **Azure Compute Gallery**. In the list of results, select the gallery that you want to attach to the dev center.
 
-1. Select the **Access Control (IAM)** menu item.
+1. On the left menu, select **Access Control (IAM)**.
 
-1. Select **+ Add** > **Add role assignment**.
+1. Select **Add** > **Add role assignment**.
 
-1. On the Role tab, select **Reader**, and then select **Next**.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. On the Members tab, select **+ Select Members**.
+   | Setting | Value |
+   | --- | --- |
+   | **Role** | Select **Reader**. |
+   | **Assign access to** | Select **User, group, or service principal**. |
+   | **Members** | Search for and select **Windows 365**. |
 
-1. In Select members, search for *Windows 365*, select **Windows 365** from the list, and then select **Select**. 
+#### Managed identity for the dev center
 
-1. On the Members tab, select **Next**.
+1. In the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries), open the gallery that you want to attach to the dev center. You can also search for **Azure Compute Gallery** to find your gallery.
 
-1. On the Review + assign tab, select **Review + assign**.
+1. On the left menu, select **Access Control (IAM)**.
 
-#### Dev center Managed Identity
-1. Open the gallery you want to attach to the dev center from the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2Fgalleries). You can also search for Azure Compute Galleries to find your gallery.
+1. Select **Add** > **Add role assignment**.
 
-1. Select **Access Control (IAM)** from the left menu.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. Select **+ Add** > **Add role assignment**.
+   | Setting | Value |
+   | --- | --- |
+   | **Role** | Select **Contributor**. |
+   | **Assign access to** | Select **Managed Identity**. |
+   | **Members** | Search for and select the user-assigned managed identity that you created when you [added a user-assigned identity to the dev center](#add-a-user-assigned-identity-to-the-dev-center). |
 
-1. On the Role tab, select the **Owner** role, and then select **Next**.
-
-1. On the Members tab, under **Assign access to**, select **Managed Identity**, and then select **+ Select Members**.
-
-1. In Select managed identities, search for and select the user assigned managed identity you created in "Create a Dev center Managed Identity" and then select 
-**Select**.
-
-1. On the Members tab, select **Next**.
-
-1. On the Review + assign tab, select **Review + assign**.
-
-You can use the same managed identity in multiple DevCenters and Azure Compute Galleries. Any DevCenter with the managed identity added will have the necessary permissions to the images in the Azure Compute Gallery you've added the owner role assignment to.
+You can use the same managed identity in multiple dev centers and compute galleries. Any dev center with the managed identity added has the necessary permissions to the images in the gallery that you've added the Owner role assignment to.
 
 ## Attach a gallery to a dev center
-In order to use the images from a gallery in dev box definitions, you must first associate it with the dev center.
+
+To use the images from a gallery in dev box definitions, you must first associate the gallery with the dev center by attaching it:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box, type *Dev box* and select **Dev centers** from the list.
- 
-3.  Select the dev center you want to attach the gallery to.
- 
-:::image type="content" source="media/how-to-configure-azure-compute-gallery/devcenter-grid.png" alt-text="Screenshot showing the list of existing dev centers.":::
+2. In the search box, enter **dev box**. In the list of results, select **Dev centers**.
 
-4. From the left menu, select **Azure compute galleries** to list the galleries attached to this dev center.
- 
-:::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-grid-empty.png" alt-text="Screenshot showing the Azure compute galleries page. There are no existing Azure compute galleries.":::
+3. Select the dev center that you want to attach the gallery to.
+
+   :::image type="content" source="media/how-to-configure-azure-compute-gallery/devcenter-grid.png" alt-text="Screenshot that shows a list of existing dev centers.":::
+
+4. On the left menu, select **Azure compute galleries** to list the galleries that are attached to this dev center.
+
+   :::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-grid-empty.png" alt-text="Screenshot that shows the page for compute galleries, with no galleries listed.":::
 
 5. Select **+ Add** to select a gallery to attach.
 
-6. In Add Azure compute gallery, select your gallery. If you have access to more than one gallery with the same name, the subscription name is shown in parentheses.
- 
-:::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-add.png" alt-text="Screenshot showing the Select a Gallery to add option.":::
+6. In **Add Azure compute gallery**, select your gallery. If you have access to more than one gallery that has the same name, the subscription name appears in parentheses.
 
-7. If there's a name conflict in the dev center, then you must provide a unique name to use for this gallery.
+   :::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-add.png" alt-text="Screenshot that shows the area for selecting a gallery.":::
+
+7. If there's a name conflict in the dev center, you must provide a unique name to use for this gallery.
 
 8. Select **Add**.
   
-:::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-grid.png" alt-text="Screenshot showing the Azure compute galleries page with example galleries listed.":::
+9. Confirm that your gallery now appears on the **Azure compute galleries** page.
 
-After successful addition, the images in the gallery will be available to select from when creating and updating dev box definitions.
+   :::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-grid.png" alt-text="Screenshot that shows the page for compute galleries page with example galleries listed.":::
+
+After you successfully add a gallery, the images in it will be available to select from when you're creating and updating dev box definitions.
 
 ## Remove a gallery from a dev center
-You can detach galleries from dev centers so that their images can no longer be used to create dev box definitions in the dev center. Galleries that are being actively used in dev box definitions cannot be removed from the dev center. The associated dev box definition must be deleted or updated to use an image from a different gallery before you can remove the gallery.
+
+You can detach galleries from dev centers so that their images can no longer be used to create dev box definitions.
+
+> [!NOTE]
+> You can't remove galleries that are being actively used in dev box definitions. Before you can remove such a gallery, you must delete the associated dev box definition or update the definition to use an image from a different gallery.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box, type *Dev box* and select **Dev centers** from the list.
- 
-3. Select the dev center you want to remove the gallery from.
+2. In the search box, enter **dev box**. In the list of results, select **Dev centers**.
 
-4. From the left menu, select **Azure compute galleries** to list the galleries attached to this dev center.
+3. Select the dev center that you want to remove the gallery from.
 
-5. Select the gallery you want to remove, and then select **Remove**.
+4. On the left menu, select **Azure compute galleries** to list the galleries that are attached to this dev center.
 
-   :::image type="content" source="media/how-to-configure-azure-compute-gallery/remove-gallery-from-devcenter.png" alt-text="Screenshot showing the Azure compute galleries page with a gallery selected and the Remove button highlighted.":::
+5. Select the gallery that you want to remove, and then select **Remove**.
 
-6. Select **Continue** from the confirmation dialog.
+   :::image type="content" source="media/how-to-configure-azure-compute-gallery/remove-gallery-from-devcenter.png" alt-text="Screenshot that shows the page for compute galleries, a selected gallery, and the Remove button.":::
 
-The gallery will be detached from the dev center. The gallery and its images won't be deleted, and you can reattach it if necessary. 
+6. In the confirmation dialog, select **Continue**.
+
+The gallery is detached from the dev center. The gallery and its images aren't deleted, and you can reattach it if necessary.
 
 ## Next steps
-Learn more about Microsoft Dev Box:
-- [Microsoft Dev Box key concepts](./concept-dev-box-concepts.md)
+
+- Learn more about [key concepts in Microsoft Dev Box ](./concept-dev-box-concepts.md).

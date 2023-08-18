@@ -26,7 +26,7 @@ The following table indicates when and how you register bindings.
 
 By default, extension bundles are used by Java, JavaScript, PowerShell, Python, C# script, and Custom Handler function apps to work with binding extensions. In cases where extension bundles can't be used, you can explicitly install binding extensions with your function app project. Extension bundles are supported for version 2.x and later version of the Functions runtime.
 
-Extension bundles are a way to add a pre-defined set of compatible set of binding extensions to your function app. Extension bundles are versioned. Each version contains a specific set of binding extensions that are verified to work together. Select a bundle version based on the extensions that you need in your app.
+Extension bundles are a way to add a pre-defined set of compatible binding extensions to your function app. Extension bundles are versioned. Each version contains a specific set of binding extensions that are verified to work together. Select a bundle version based on the extensions that you need in your app.
 
 When you create a non-.NET Functions project from tooling or in the portal, extension bundles are already enabled in the app's *host.json* file. 
 
@@ -34,22 +34,22 @@ An extension bundle reference is defined by the `extensionBundle` section in a *
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-The following table lists the currently available versions of the default *Microsoft.Azure.Functions.ExtensionBundle* bundle and links to the extensions they include.
+The following table lists the currently available version ranges of the default *Microsoft.Azure.Functions.ExtensionBundle* bundles and links to the extensions they include.
 
 | Bundle version | Version in host.json | Included extensions |
 | --- | --- | --- |
-| 1.x | `[1.*, 2.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle |
-| 2.x | `[2.*, 3.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v2.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle |
-| 3.x | `[3.3.0, 4.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/4f5934a18989353e36d771d0a964f14e6cd17ac3/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle<sup>1</sup> |
+| 1.x | `[1.*, 2.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
+| 2.x | `[2.*, 3.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v2.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
+| 3.x | `[3.3.0, 4.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/4f5934a18989353e36d771d0a964f14e6cd17ac3/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
+| 4.x | `[4.0.0, 5.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v4.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
 
-<sup>1</sup> Version 3.x of the extension bundle currently doesn't include the [Table Storage bindings](./functions-bindings-storage-table.md). If your app requires Table Storage, you'll need to continue using the 2.x version for now.
 
 > [!NOTE]
-> Even though host.json supports custom ranges for `version`, you should use a version value from this table.
+> Even though host.json supports custom ranges for `version`, you should use a version range value from this table, such as  `[3.3.0, 4.0.0)`.
 
 ## Explicitly install extensions
 
-For compiled C# class library projects ([in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md)), you install the NuGet packages for the extensions that you need as you normally would. For examples see either the [Visual Studio Code developer guide](functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or the [Visual Studio developer guide](functions-develop-vs.md#add-bindings).  
+For compiled C# class library projects ([in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md)), you install the NuGet packages for the extensions that you need as you normally would. For examples see either the [Visual Studio Code developer guide](functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or the [Visual Studio developer guide](functions-develop-vs.md#add-bindings).  
 
 For non-.NET languages and C# script, when you can't use extension bundles you need to manually install required binding extensions in your local project. The easiest way is to use Azure Functions Core Tools. To learn more, see [Install extensions](functions-run-local.md#install-extensions).  
 

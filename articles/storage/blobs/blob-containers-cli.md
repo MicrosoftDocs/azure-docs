@@ -5,11 +5,12 @@ description: Learn how to manage Azure storage containers using Azure CLI
 services: storage
 author: stevenmatthew
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 02/05/2022
 ms.author: shaas
-ms.subservice: blobs
+ms.devlang: azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Manage blob containers using Azure CLI
@@ -24,7 +25,7 @@ In this how-to article, you learn to use the Azure CLI with Bash to work with co
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 - It's always a good idea to install the latest version of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -32,7 +33,7 @@ In this how-to article, you learn to use the Azure CLI with Bash to work with co
 
 You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using the storage account access key. Using Azure AD credentials is recommended, and this article's examples use Azure AD exclusively.
 
-Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Azure AD credentials. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Azure AD credentials. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
 
 Run the `login` command to open a browser and connect to your Azure subscription.
 
@@ -355,6 +356,9 @@ az storage container generate-sas \
     --account-name $storageAccount
 ```
 
+> [!NOTE]
+> The SAS token returned by the Azure CLI does not include the delimiter character ('?') for the URL query string. If you are appending the SAS token to a resource URL, remember to append the delimiter character to the resource URL before appending the SAS token.
+
 ## Next steps
 
 In this how-to article, you learned how to manage containers in Blob Storage. To learn more about working with blob storage by using Azure CLI, select an option below.
@@ -363,4 +367,4 @@ In this how-to article, you learned how to manage containers in Blob Storage. To
 > [Manage block blobs with Azure CLI](blob-cli.md)
 
 > [!div class="nextstepaction"]
-> [Azure CLI samples for Blob storage](storage-samples-blobs-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Azure CLI samples for Blob storage](storage-samples-blobs-cli.md?toc=/azure/storage/blobs/toc.json)

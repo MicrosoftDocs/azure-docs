@@ -12,8 +12,9 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/26/2022
+ms.date: 08/10/2023
 ms.author: ramakk
+ms.custom: references_regions
 ---
 # Guidelines for Azure NetApp Files network planning
 
@@ -23,7 +24,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 ## Configurable network features  
 
- Register for the [**configurable network features**](configure-network-features.md) to create volumes with standard network features. You can create new volumes choosing *Standard* or *Basic* network features in supported regions. In regions where the Standard network features aren't supported, the volume defaults to using the Basic network features.  
+ In supported regions, you can create new volumes or modify existing volumes to use *Standard* or *Basic* network features. In regions where the Standard network features aren't supported, the volume defaults to using the Basic network features. For more information, see [Configure network features](configure-network-features.md).
 
 * ***Standard***  
     Selecting this setting enables higher IP limits and standard VNet features such as [network security groups](../virtual-network/network-security-groups-overview.md) and [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) on delegated subnets, and additional connectivity patterns as indicated in this article.
@@ -33,38 +34,87 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 ### Supported regions 
 
-Azure NetApp Files Standard network features are supported for the following regions:
+<a name="regions-standard-network-features"></a>Azure NetApp Files *Standard network features* are supported for the following regions:
 
 *   Australia Central
 *   Australia Central 2
 *   Australia East
 *   Australia Southeast
+*   Brazil South
 *   Canada Central
+*   Canada East
+*   Central India
 *   Central US
 *   East Asia
 *   East US
 *   East US 2
 *	France Central
+*   Germany North
 *   Germany West Central
 *   Japan East
+*   Japan West
+*   Korea Central
 *	North Central US
 *   North Europe
 *   Norway East
+*   Norway West 
+*   Qatar Central
+*   South Africa North
 *	South Central US
+*   South India 
 *   Southeast Asia
+*   Sweden Central
 *   Switzerland North
+*   Switzerland West
+*   UAE Central
+*   UAE North
 *   UK South
+*   UK West
 *	West Europe
 *   West US
 *   West US 2
 *	West US 3 
 
-## Considerations  
+<a name="regions-edit-network-features"></a>The option to *[edit network features for existing volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes)* is supported for the following regions:
+
+* Australia Central
+* Australia Central 2
+* Australia East
+* Australia Southeast 
+* Brazil South
+* Canada Central
+* Central India
+* East Asia
+* East US 
+* East US 2 
+* France Central 
+* Germany North
+* Germany West Central 
+* Japan East 
+* Japan West
+* Korea Central
+* North Central US
+* North Europe 
+* Norway East
+* Norway West 
+* Qatar Central 
+* South Africa North
+* South India
+* Southeast Asia 
+* Sweden Central
+* Switzerland North 
+* Switzerland West 
+* UAE Central
+* UAE North 
+* West Europe 
+* West US 
+* West US 2  
+* West US 3 
+
+
+## Considerations
 
 You should understand a few considerations when you plan for Azure NetApp Files network.
-
-> [!IMPORTANT]
-> [!INCLUDE [Standard network features pricing](includes/standard-networking-pricing.md)]
 
 ### Constraints
 
@@ -75,18 +125,15 @@ The following table describes what’s supported for each network features confi
 |     Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |     [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)    |     1000    |
 |     Azure NetApp Files delegated subnets per VNet    |     1    |     1    |
 |     [Network Security Groups](../virtual-network/network-security-groups-overview.md) (NSGs) on Azure NetApp Files delegated   subnets    |     Yes    |     No    |
-|     [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) (UDRs) on Azure NetApp Files delegated   subnets    |     Yes    |     No    |
-|     Connectivity to [Private Endpoints](../private-link/private-endpoint-overview.md)    |     No    |     No    |
-|     Connectivity to [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)    |     No    |     No    |
-|     Azure policies (for   example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
+|     [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) (UDRs) on Azure NetApp Files delegated subnets    |     Yes    |     No    |
+|     Connectivity to [Private Endpoints](../private-link/private-endpoint-overview.md)    |     Yes*    |     No    |
+|     Connectivity to [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)    |     Yes  |     No    |
+|     Azure policies (for example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
-|     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only   supported)    |     No <br> (IPv4 only supported)    |
+|     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)   |
+|    Traffic routed via NVA from peered VNet | Yes    | No |
 
-> [!IMPORTANT]
-> Upgrade from Basic to Standard network feature is not currently supported.
-
-> [!IMPORTANT]
-> Conversion between Basic and Standard networking features is not currently supported.
+\* Applying Azure network security groups on the private link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless Private endpoint network policy is enabled on the subnet. It's recommended to keep this option disabled.
 
 ### Supported network topologies
 
@@ -98,14 +145,16 @@ The following table describes the network topologies supported by each network f
 |     Connectivity to volume in a peered VNet (Same region)    |     Yes    |     Yes    |
 |     Connectivity to volume in a peered VNet (Cross region or global peering)    |     Yes*    |     No    |
 |     Connectivity to a volume over ExpressRoute gateway    |     Yes    |     Yes    |
-|     ExpressRoute (ER) FastPath    |     Yes    |     No    |
-|     Connectivity from on-premises to a volume in a spoke VNet   over ExpressRoute gateway and VNet peering with gateway transit    |     Yes    |     Yes    |
-|     Connectivity from on-premises to a volume in a spoke VNet   over VPN gateway    |     Yes    |     Yes    |
-|     Connectivity from on-premises to a volume in a spoke VNet   over VPN gateway and VNet peering with gateway transit    |     Yes    |     Yes    |
+|     [ExpressRoute (ER) FastPath](../expressroute/about-fastpath.md)    |     Yes    |     No    |
+|     Connectivity from on-premises to a volume in a spoke VNet over ExpressRoute gateway and VNet peering with gateway transit    |     Yes    |     Yes    |
+|     Connectivity from on-premises to a volume in a spoke VNet over VPN gateway    |     Yes    |     Yes    |
+|     Connectivity from on-premises to a volume in a spoke VNet over VPN gateway and VNet peering with gateway transit    |     Yes    |     Yes    |
 |     Connectivity over Active/Passive VPN gateways    |     Yes    |     Yes    |
 |     Connectivity over Active/Active VPN gateways    |     Yes    |     No    |
-|     Connectivity over Active/Active Zone Redundant gateways    |     No    |     No    |
-|     Connectivity over Virtual WAN (VWAN)    |    No    |     No    |
+|     Connectivity over Active/Active Zone Redundant gateways    |     Yes    |     No    |
+| Connectivity over Active/Passive Zone Redundant gateways | Yes | Yes |
+|     [Connectivity over Virtual WAN (VWAN)](configure-virtual-wan.md)    |    Yes    |     No    |
+
 
 \* This option will incur a charge on ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/). For more general information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md). 
 
@@ -127,16 +176,25 @@ If you use a new VNet, you can create a subnet and delegate the subnet to Azure 
 
 If the VNet is peered with another VNet, you can't expand the VNet address space. For that reason, the new delegated subnet needs to be created within the VNet address space. If you need to extend the address space, you must delete the VNet peering before expanding the address space.
 
+>[!IMPORTANT]
+>The address space size of the Azure NetApp Files VNet should be larger than its delegated subnet. If it is not, Azure NetApp Files volume creation will fail in some scenarios.
+>
+> It's also recommended that the size of the delegated subnet be at least /25 for SAP workloads and /26 for other workload scenarios.
+
 ### UDRs and NSGs
 
-User-defined routes (UDRs) and Network security groups (NSGs) are only supported on Azure NetApp Files delegated subnets that have at least one volume created with the Standard network features.  
+If the subnet has a combination of volumes with the Standard and Basic network features, user-defined routes (UDRs) and network security groups (NSGs) applied on the delegated subnets will only apply to the volumes with the Standard network features.
 
 > [!NOTE]
-> Associating NSGs at the network interface level is not supported for the Azure NetApp Files network interfaces. 
+> Associating NSGs at the network interface level is not supported for the Azure NetApp Files network interfaces.
 
-If the subnet has a combination of volumes with the Standard and Basic network features (or for existing volumes not registered for the feature), UDRs and NSGs applied on the delegated subnets will only apply to the volumes with the Standard network features.
+Configuring UDRs on the source VM subnets with the address prefix of delegated subnet and next hop as NVA isn't supported for volumes with the Basic network features. Such a setting will result in connectivity issues.
 
-Configuring user-defined routes (UDRs) on the source VM subnets with address prefix of delegated subnet and next hop as NVA isn't supported for volumes with the Basic network features. Such a setting will result in connectivity issues.
+> [!NOTE]
+> To access an Azure NetApp Files volume from an on-premises network via a VNet gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the VNet gateway to include the `/32` IPv4 address of the Azure NetApp Files volume listed and point to the firewall as the next hop. Using an aggregate address space that includes the Azure NetApp Files volume IP address will not forward the Azure NetApp Files traffic to the firewall. 
+
+>[!NOTE]
+>If you want to configure a UDR route in the VM VNet, to control the routing of packets destined for a VNet-peered Azure NetApp Files standard volume, the UDR prefix must be more specific or equal to the delegated subnet size of the Azure NetApp Files volume. If the UDR prefix is of size greater than the delegated subnet size, it will not be effective. 
 
 ## Azure native environments
 
@@ -194,3 +252,4 @@ In the topology illustrated above, the on-premises network is connected to a hub
 * [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 * [Configure network features for an Azure NetApp Files volume](configure-network-features.md) 
 * [Virtual network peering](../virtual-network/virtual-network-peering-overview.md)
+* [Configure Virtual WAN for Azure NetApp Files](configure-virtual-wan.md)

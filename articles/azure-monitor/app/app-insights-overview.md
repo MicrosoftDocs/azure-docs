@@ -2,233 +2,198 @@
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
 ms.topic: overview
-ms.date: 01/10/2022
-ms.custom: mvc
+ms.date: 05/12/2023
 ---
-
+ 
 # Application Insights overview
 
-Application Insights is a feature of [Azure Monitor](../overview.md) that provides extensible application performance management (APM) and monitoring for live web apps. Developers and DevOps professionals can use Application Insights to:
+Application Insights is an extension of [Azure Monitor](../overview.md) and provides application performance monitoring (APM) features. APM tools are useful to monitor applications from development, through test, and into production in the following ways:
 
-- Automatically detect performance anomalies.
-- Help diagnose issues by using powerful analytics tools.
-- See what users actually do with apps.
-- Help continuously improve app performance and usability.
+- *Proactively* understand how an application is performing.
+- *Reactively* review application execution data to determine the cause of an incident.
 
-Application Insights:
+:::image type="content" source="media/overview-dashboard/0001-dashboard.png" alt-text="Screenshot that shows Application Insights in the Azure portal." lightbox="media/overview-dashboard/0001-dashboard.png":::
 
-- Supports a wide variety of platforms, including .NET, Node.js, Java, and Python.
-- Works for apps hosted on-premises, hybrid, or on any public cloud.
-- Integrates with DevOps processes.
-- Has connection points to many development tools.
-- Can monitor and analyze telemetry from mobile apps by integrating with Visual Studio [App Center](https://appcenter.ms/).
+Along with collecting [metrics](standard-metrics.md) and application [telemetry](data-model-complete.md) data, which describe application activities and health, you can use Application Insights to collect and store application [trace logging data](asp-net-trace-logs.md).
 
-<a name="how-does-application-insights-work"></a>
-## How Application Insights works
+The [log trace](asp-net-trace-logs.md) is associated with other telemetry to give a detailed view of the activity. Adding trace logging to existing apps only requires providing a destination for the logs. You rarely need to change the logging framework.
 
-To use Application Insights, you either install a small instrumentation package (SDK) in your app, or enable Application Insights by using the Application Insights agent. For languages and platforms that support the Application Insights agent, see [Supported languages](./platforms.md).
+Application Insights provides other features including, but not limited to:
 
-You can instrument the web app, any background components, and the JavaScript in the web pages themselves. The app and its components don't have to be hosted in Azure.
+- [Live Metrics](live-stream.md): Observe activity from your deployed application in real time with no effect on the host environment.
+- [Availability](availability-overview.md): Also known as synthetic transaction monitoring. Probe the external endpoints of your applications to test the overall availability and responsiveness over time.
+- [GitHub or Azure DevOps integration](work-item-integration.md): Create [GitHub](/training/paths/github-administration-products/) or [Azure DevOps](/azure/devops/) work items in the context of Application Insights data.
+- [Usage](usage-overview.md): Understand which features are popular with users and how users interact and use your application.
+- [Smart detection](proactive-diagnostics.md): Detect failures and anomalies automatically through proactive telemetry analysis.
 
-The instrumentation monitors your app and directs the telemetry data to an Application Insights resource by using a unique instrumentation key. The impact on your app's performance is small. Tracking calls are non-blocking, and are batched and sent in a separate thread. 
+Application Insights supports [distributed tracing](distributed-tracing-telemetry-correlation.md), which is also known as distributed component correlation. This feature allows [searching for](diagnostic-search.md) and [visualizing](transaction-diagnostics.md) an end-to-end flow of a specific execution or transaction. The ability to trace activity from end to end is important for applications that were built as distributed components or [microservices](/azure/architecture/guide/architecture-styles/microservices).
 
-You can pull in telemetry like performance counters, Azure diagnostics, or Docker logs from host environments. You can also set up web tests that periodically send synthetic requests to your web service. All these telemetry streams are integrated into Azure Monitor. In the Azure portal, you can apply powerful analytics and search tools to the raw data.
+The [Application Map](app-map.md) allows a high-level, top-down view of the application architecture and at-a-glance visual references to component health and responsiveness.
 
-The following diagram shows how Application Insights instrumentation in an app sends telemetry to an Application Insights resource.
+To understand the number of Application Insights resources required to cover your application or components across environments, see the [Application Insights deployment planning guide](separate-resources.md).
 
-![Diagram that shows Application Insights instrumentation in an app sending telemetry to an Application Insights resource.](./media/app-insights-overview/diagram.png)
+## How do I use Application Insights?
 
-## How to use Application Insights
+Application Insights is enabled through either [autoinstrumentation](codeless-overview.md) (agent) or by adding the [Application Insights SDK](sdk-support-guidance.md) or [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md) to your application code. [Many languages](#supported-languages) are supported. The applications could be on Azure, on-premises, or hosted by another cloud. To figure out which type of instrumentation is best for you, see [How do I instrument an application?](#how-do-i-instrument-an-application).
 
-There are several ways to get started with Application Insights. Begin with whatever works best for you, and you can add others later.
+The Application Insights agent or SDK preprocesses telemetry and metrics before sending the data to Azure. Then it's ingested and processed further before it's stored in Azure Monitor Logs (Log Analytics). For this reason, an Azure account is required to use Application Insights.
 
-### Prerequisites
+The easiest way to get started consuming Application insights is through the Azure portal and the built-in visual experiences. Advanced users can [query the underlying data](../logs/log-query-overview.md) directly to [build custom visualizations](tutorial-app-dashboards.md) through Azure Monitor [dashboards](overview-dashboard.md) and [workbooks](../visualize/workbooks-overview.md).
 
-- You need an Azure account. Application Insights is hosted in Azure, and sends its telemetry to Azure for analysis and presentation. If you don't have an Azure subscription, you can [sign up for free](https://azure.microsoft.com/free). If your organization already has an Azure subscription, an administrator can [add you to it](../../active-directory/fundamentals/add-users-azure-active-directory.md).
+Consider starting with the [Application Map](app-map.md) for a high-level view. Use the [Search](diagnostic-search.md) experience to quickly narrow down telemetry and data by type and date-time. Or you can search within data (for example, with Log Traces) and filter to a given correlated operation of interest.
 
-- The basic [Application Insights pricing plan](https://azure.microsoft.com/pricing/details/application-insights/) has no charge until your app has substantial usage. 
+Two views are especially useful:
 
-### Get started
+- [Performance view](tutorial-performance.md): Get deep insights into how your application or API and downstream dependencies are performing. You can also find a representative sample to [explore end to end](transaction-diagnostics.md).
+- [Failure view](tutorial-runtime-exceptions.md): Understand which components or actions are generating failures and triage errors and exceptions. The built-in views are helpful to track application health proactively and for reactive root-cause analysis.
 
-To use Application Insights at run time, you can instrument your web app on the server. This approach is ideal for apps that are already deployed, because it avoids any updates to the app code.
+[Create Azure Monitor alerts](tutorial-alert.md) to signal potential issues in case your application or components parts deviate from the established baseline.
 
-See the following articles for details and instructions:
+Application Insights pricing is based on consumption. You only pay for what you use. For more information on pricing, see:
 
-- [Application monitoring for Azure App Service overview](./azure-web-apps.md)
-- [Deploy the Azure Monitor Application Insights Agent on Azure virtual machines and Azure virtual machine scale sets](./azure-vm-vmss-apps.md)
-- [Deploy Azure Monitor Application Insights Agent for on-premises servers](./status-monitor-v2-overview.md)
-- [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](java-in-process-agent.md)
+- [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)
+- [Optimize costs in Azure Monitor](../best-practices-cost.md)
 
-You can also add Application Insights to your app code at development time. This approach lets you customize and add to telemetry collection.
+## How do I instrument an application?
 
-See the following articles for details and instructions:
+[Autoinstrumentation](codeless-overview.md) is the preferred instrumentation method. It requires no developer investment and eliminates future overhead related to [updating the SDK](sdk-support-guidance.md). It's also the only way to instrument an application in which you don't have access to the source code.
 
-- [Configure Application Insights for your ASP.NET website](./asp-net.md)
-- [Application Insights for ASP.NET Core applications](./asp-net-core.md)
-- [Application Insights for .NET console applications](./console.md)
-- [Application Insights for web pages](./javascript.md)
-- [Monitor your Node.js services and apps with Application Insights](./nodejs.md)
-- [Set up Azure Monitor for your Python application](./opencensus-python.md)
+You only need to install the Application Insights SDK if:
 
-For all supported languages, platforms, and frameworks, see [Supported languages](./platforms.md).
+- You require [custom events and metrics](api-custom-events-metrics.md).
+- You require control over the flow of telemetry.
+- [Autoinstrumentation](codeless-overview.md) isn't available, typically because of language or platform limitations.
 
-### Monitor
+To use the SDK, you install a small instrumentation package in your app and then instrument the web app, any background components, and JavaScript within the webpages. The app and its components don't have to be hosted in Azure.
 
-After you set up Application Insights, monitor your app.
+The instrumentation monitors your app and directs the telemetry data to an Application Insights resource by using a unique token. The effect on your app's performance is small. Tracking calls are nonblocking and batched to be sent in a separate thread.
 
-- Set up [availability web tests](./monitor-web-app-availability.md).
-- Use the default [application dashboard](./overview-dashboard.md) for your team room, to track load, responsiveness, and performance. Monitor your dependencies, page loads, and AJAX calls.
-- Discover which requests are the slowest and fail most often.
-- Watch [Live Stream](./live-stream.md) when you deploy a new release, to know immediately about any degradation.
+### [.NET](#tab/net)
 
-### Detect and diagnose
+Integrated autoinstrumentation is available for [Azure App Service .NET](azure-web-apps-net.md), [Azure App Service .NET Core](azure-web-apps-net-core.md), [Azure Functions](../../azure-functions/functions-monitoring.md), and [Azure Virtual Machines](azure-vm-vmss-apps.md).
 
-When you receive an alert or discover a problem:
+The [Azure Monitor Application Insights agent](application-insights-asp-net-agent.md) is available for workloads running in on-premises virtual machines.
 
-- Assess how many users are affected.
-- Correlate failures with exceptions, dependency calls, and traces.
-- Examine profiler, snapshots, stack dumps, and trace logs.
+For a detailed view of all autoinstrumentation supported environments, languages, and resource providers, see [What is autoinstrumentation for Azure Monitor Application Insights?](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
-### Measure, learn, and build
+For other scenarios, the [Application Insights SDK](/dotnet/api/overview/azure/insights) is required.
 
-- Plan to measure how customers use new user experience or business features.
-- Write custom telemetry into your code.
-- [Measure the effectiveness](./usage-overview.md) of each new feature that you deploy.
-- Base the next development cycle on evidence from your telemetry.
+A preview [OpenTelemetry](opentelemetry-enable.md?tabs=net) offering is also available.
 
-## What Application Insights monitors
+### [Java](#tab/java)
 
-Application Insights helps development teams understand app performance and usage. Application Insights monitors:
+Integrated autoinstrumentation is available for Java Apps hosted on [Azure App Service](azure-web-apps-java.md) and [Azure Functions](monitor-functions.md).
 
-- Request rates, response times, and failure rates
+Autoinstrumentation is available for any environment by using [Azure Monitor OpenTelemetry-based autoinstrumentation for Java applications](opentelemetry-enable.md?tabs=java).
 
-  Find out which pages are most popular, at what times of day, and where users are. See which pages perform best. If response times and failure rates are high when there are more requests, there might be a resourcing problem.
+### [Node.js](#tab/nodejs)
 
-- Dependency rates, response times, and failure rates, to show whether external services are slowing down performance
+Autoinstrumentation is available for [Azure App Service](azure-web-apps-nodejs.md).
 
-- Exceptions
+The [Application Insights SDK](nodejs.md) is an alternative. We also have a preview [OpenTelemetry](opentelemetry-enable.md?tabs=nodejs) offering available.
 
-  Analyze the aggregated statistics, or pick specific instances and drill into the stack trace and related requests. Application Insights reports both server and browser exceptions.
+### [JavaScript](#tab/javascript)
 
-- Page views and load performance reported by users' browsers
+JavaScript requires the [Application Insights SDK](javascript.md).
 
-- AJAX calls from web pages, including rates, response times, and failure rates
+### [Python](#tab/python)
 
-- User and session counts
+Python applications can be monitored by using [OpenCensus Python SDK via the Azure Monitor exporters](opencensus-python.md).
 
-- Performance counters from Windows or Linux server machines, such as CPU, memory, and network usage
+An extension is available for monitoring [Azure Functions](opencensus-python.md#integrate-with-azure-functions).
 
-- Host diagnostics from Docker or Azure
+A preview [OpenTelemetry](opentelemetry-enable.md?tabs=python) offering is also available.
 
-- Diagnostic trace logs from apps, so you can correlate trace events with requests
+---
 
-- Custom events and metrics in client or server code that track business events, like items sold
+---------------------------
+## Supported languages
 
-<a name="where-do-i-see-my-telemetry"></a>
-## Where to see Application Insights data
+This section outlines supported scenarios.
 
-There are many ways to explore Application Insights telemetry. For more information, see the following articles:
+* [C#|VB (.NET)](./asp-net.md)
+* [Java](./opentelemetry-enable.md?tabs=java)
+* [JavaScript](./javascript.md)
+* [Node.js](./nodejs.md)
+* [Python](./opencensus-python.md)
 
-- [Smart detection in Application Insights](../alerts/proactive-diagnostics.md)
+### Supported platforms and frameworks
 
-  Set up automatic alerts that adapt to your app's normal telemetry patterns and trigger when something is outside the usual pattern. You can also set alerts on specified levels of custom or standard metrics. For more information, see [Create, view, and manage log alerts using Azure Monitor](../alerts/alerts-log.md).
+This section lists all supported platforms and frameworks.
 
-- [Application Map: Triage distributed applications](./app-map.md)
+#### Azure service integration (portal enablement, Azure Resource Manager deployments)
+* [Azure Virtual Machines and Azure Virtual Machine Scale Sets](./azure-vm-vmss-apps.md)
+* [Azure App Service](./azure-web-apps.md)
+* [Azure Functions](../../azure-functions/functions-monitoring.md)
+* [Azure Spring Apps](../../spring-apps/how-to-application-insights.md)
+* [Azure Cloud Services](./azure-web-apps-net-core.md), including both web and worker roles
 
-  Explore the components of your app, with key metrics and alerts.
+#### Autoinstrumentation (enable without code changes)
+* [ASP.NET: For web apps hosted with IIS](./application-insights-asp-net-agent.md)
+* [ASP.NET Core: For web apps hosted with IIS](./application-insights-asp-net-agent.md)
+* [Java](./opentelemetry-enable.md?tabs=java)
 
-- [Profile live Azure App Service apps with Application Insights](./profiler.md)
+#### Manual instrumentation/SDK (some code changes required)
+* [ASP.NET](./asp-net.md)
+* [ASP.NET Core](./asp-net-core.md)
+* [Node.js](./nodejs.md)
+* [Python](./opencensus-python.md)
+* [JavaScript: Web](./javascript.md)
+  * [React](./javascript-framework-extensions.md)
+  * [React Native](./javascript-framework-extensions.md)
+  * [Angular](./javascript-framework-extensions.md)
 
-  Inspect the execution profiles of sampled requests.
+> [!NOTE]
+> OpenTelemetry-based instrumentation is available in preview for [C#, Node.js, and Python](opentelemetry-enable.md). Review the limitations noted at the beginning of each language's official documentation. If you require a full-feature experience, use the existing Application Insights SDKs.
 
-- [Usage analysis with Application Insights](./usage-overview.md)
+### Logging frameworks
+* [ILogger](./ilogger.md)
+* [Log4Net, NLog, or System.Diagnostics.Trace](./asp-net-trace-logs.md)
+* [Log4J, Logback, or java.util.logging](./opentelemetry-add-modify.md?tabs=java#logs)
+* [LogStash plug-in](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
+* [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 
-  Analyze user segmentation and retention.
+### Export and data analysis
+* [Power BI](https://powerbi.microsoft.com/blog/explore-your-application-insights-data-with-power-bi/)
+* [Power BI for workspace-based resources](../logs/log-powerbi.md)
 
-- [Use Search in Application Insights](./diagnostic-search.md)
+### Unsupported SDKs
+Several other community-supported Application Insights SDKs exist. Azure Monitor only provides support when you use the supported instrumentation options listed in this article.
 
-  Apply transaction search for instance data. Search and filter events such as requests, exceptions, dependency calls, log traces, and page views.
+We're constantly assessing opportunities to expand our support for other languages. For the latest SDK news, see [Azure updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights).
 
-- [Advanced features of the Azure metrics explorer](../essentials/metrics-charts.md)
+---------------------------
 
-  Explore, filter, and segment aggregated data such as request, failure, and exception rates, response times, and page load times.
+## Frequently asked questions
 
-- [Application Insights overview dashboard](./overview-dashboard.md)
-
-  Combine data from multiple resources and share with others. Use the dashboard for multi-component apps and for continuous display in the team room.
-
-- [Live Metrics Stream: Monitor and diagnose with one-second latency](./live-stream.md)
-
-  When you deploy a new build, watch these near-realtime performance indicators to make sure everything works as expected.
-
-- [Log queries in Azure Monitor](../logs/log-query-overview.md)
-
-  Ask questions about your app's performance and usage by using the powerful Kusto query language (KQL).
-
-- [Debug your applications with Application Insights in Visual Studio](./visual-studio.md)
-
-  See performance data in the code, and go to code from stack traces.
-
-- [Debug snapshots on exceptions in .NET apps](./snapshot-debugger.md)
-
-  Use the Snapshot Debugger to debug snapshots sampled from live operations, with parameter values.
-
-- [Feed Power BI from Application Insights](./export-power-bi.md)
-
-  Integrate usage metrics with other business intelligence.
-
-- [Use the Application Insights REST API to build custom solutions](https://dev.applicationinsights.io/)
-
-  Write code to run queries over your metrics and raw data.
-
-- [Export telemetry from Application Insights](./export-telemetry.md)
-
-  Use continuous export to bulk export raw data to storage as soon as it arrives.
-
-## Next steps
-
-- [Instrument your web pages](./javascript.md) for page view, AJAX, and other client-side telemetry.
-- [Analyze mobile app usage](../app/mobile-center-quickstart.md) by integrating with Visual Studio App Center.
-- [Monitor availability with URL ping tests](./monitor-web-app-availability.md) to your website from Application Insights servers.
+Review [frequently asked questions](../faq.yml).
 
 ## Troubleshooting
 
-### FAQ
+Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/welcome-azure-monitor) for Application Insights.
 
-Review [frequently asked questions](../faq.yml).
+## Help and support
+
+### Azure technical support
+
+For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
+
 ### Microsoft Q&A questions forum
 
-Post questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
+Post general questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
 
 ### Stack Overflow
 
-Post coding questions to [Stack Overflow]() using an Application Insights tag.
+Post coding questions to [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-application-insights) by using an Application Insights tag.
 
-### User Voice
+### Feedback Community
 
-Leave product feedback for the engineering team on [UserVoice](https://feedback.azure.com/d365community/forum/8849e04d-1325-ec11-b6e6-000d3a4f09d0).
+Leave product feedback for the engineering team in the [Feedback Community](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
 
-<!-- ## Support and feedback
-* Questions and Issues:
-  * [Troubleshooting][qna]
-  * [Microsoft Q&A question page](/answers/topics/azure-monitor.html)
-  * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
-* Your suggestions:
-  * [UserVoice](https://feedback.azure.com/d365community/forum/8849e04d-1325-ec11-b6e6-000d3a4f09d0)
-* Blog:
-  * [Application Insights blog](https://azure.microsoft.com/blog/tag/application-insights) -->
+## Next steps
 
-<!--Link references-->
-
-[android]: ../app/mobile-center-quickstart.md
-[azure]: ../../insights-perf-analytics.md
-[client]: ./javascript.md
-[desktop]: ./windows-desktop.md
-[greenbrown]: ./asp-net.md
-[ios]: ../app/mobile-center-quickstart.md
-[java]: ./java-in-process-agent.md
-[knowUsers]: app-insights-web-track-usage.md
-[platforms]: ./platforms.md
-[portal]: https://portal.azure.com/
-[qna]: ../faq.yml
-[redfield]: ./status-monitor-v2-overview.md
+- [Create a resource](create-workspace-resource.md)
+- [Autoinstrumentation overview](codeless-overview.md)
+- [Overview dashboard](overview-dashboard.md)
+- [Availability overview](availability-overview.md)
+- [Application Map](app-map.md)

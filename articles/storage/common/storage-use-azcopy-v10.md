@@ -1,12 +1,12 @@
 ---
-title: Copy or move data to Azure Storage by using AzCopy v10 | Microsoft Docs
+title: Copy or move data to Azure Storage by using AzCopy v10
 description: AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer data.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 06/14/2022
+ms.date: 09/29/2022
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: contperf-fy21q2
 ---
 
@@ -28,12 +28,13 @@ First, download the AzCopy V10 executable file to any directory on your computer
 - [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
 - [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [Linux ARM64 Preview](https://aka.ms/downloadazcopy-v10-linux-arm64) (tar)
+- [Linux ARM64](https://aka.ms/downloadazcopy-v10-linux-arm64) (tar)
 - [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+- [macOS ARM64 Preview](https://aka.ms/downloadazcopy-v10-mac-arm64) (zip)
 
 These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution.
 
-For detailed information on AzCopy releases see the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases).
+For detailed information on AzCopy releases, see the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases).
 
 > [!NOTE]
 > If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
@@ -130,6 +131,7 @@ The following table lists all AzCopy v10 commands. Each command links to a refer
 |[azcopy make](storage-ref-azcopy-make.md?toc=/azure/storage/blobs/toc.json)|Creates a container or file share.|
 |[azcopy remove](storage-ref-azcopy-remove.md?toc=/azure/storage/blobs/toc.json)|Delete blobs or files from an Azure storage account.|
 |[azcopy sync](storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json)|Replicates the source location to the destination location.|
+|[azcopy set-properties](storage-ref-azcopy-set-properties.md?toc=/azure/storage/blobs/toc.json)|Change the access tier of one or more blobs and replace (overwrite) the metadata, and index tags of one or more blobs.|
 
 > [!NOTE]
 > AzCopy does not have a command to rename files.
@@ -146,24 +148,38 @@ To obtain the link, run this command:
 
 | Operating system  | Command |
 |--------|-----------|
-| **Linux** | `curl -s -D- https://aka.ms/downloadazcopy-v10-linux | grep ^Location` |
-| **Windows (PowerShell Core 7)** | `(Invoke-WebRequest https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue -SkipHttpErrorCheck).headers.location[0]` |
-| **Windows (PowerShell 5.1)** | `(Invoke-WebRequest https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue ).headers.location` |
-
+| **Linux** | `curl -s -D- https://aka.ms/downloadazcopy-v10-linux \| grep ^Location` |
+| **Windows PowerShell** | `(Invoke-WebRequest -Uri https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction SilentlyContinue).headers.location` |
+| **PowerShell 6.1+** | `(Invoke-WebRequest -Uri https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction SilentlyContinue -SkipHttpErrorCheck).headers.location` |
 
 > [!NOTE]
 > For Linux, `--strip-components=1` on the `tar` command removes the top-level folder that contains the version name, and instead extracts the binary directly into the current folder. This allows the script to be updated with a new version of `azcopy` by only updating the `wget` URL.
 
 The URL appears in the output of this command. Your script can then download AzCopy by using that URL.
 
-| Operating system  | Command |
-|--------|-----------|
-| **Linux** | `wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1` |
-| **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
+**Linux**
+```bash
+wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1
+```
+**Windows PowerShell** 
+```PowerShell
+Invoke-WebRequest -Uri 'https://azcopyvnext.azureedge.net/release20220315/azcopy_windows_amd64_10.14.1.zip' -OutFile 'azcopyv10.zip'
+Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\'
+$AzCopy = (Get-ChildItem -path '.\' -Recurse -File -Filter 'azcopy.exe').FullName
+# Invoke AzCopy 
+& $AzCopy
+```
+**PowerShell 6.1+**
+```PowerShell
+Invoke-WebRequest -Uri 'https://azcopyvnext.azureedge.net/release20220315/azcopy_windows_amd64_10.14.1.zip' -OutFile 'azcopyv10.zip'
+$AzCopy = (Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\' -PassThru | where-object {$_.Name -eq 'azcopy.exe'}).FullName
+# Invoke AzCopy
+& $AzCopy
+``` 
 
 #### Escape special characters in SAS tokens
 
-In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an additional `%` character next to existing `%` characters in the SAS token string.
+In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an extra `%` character next to existing `%` characters in the SAS token string.
 
 #### Run scripts by using Jenkins
 
@@ -175,7 +191,7 @@ If you plan to use [Jenkins](https://jenkins.io/) to run scripts, make sure to p
 
 ## Use in Azure Storage Explorer
 
-[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) uses AzCopy to perform all of its data transfer operations. You can use [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) if you want to leverage the performance advantages of AzCopy, but you prefer to use a graphical user interface rather than the command line to interact with your files.
+[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) uses AzCopy to perform all of its data transfer operations. You can use [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) if you want to apply the performance advantages of AzCopy, but you prefer to use a graphical user interface rather than the command line to interact with your files.
 
 Storage Explorer uses your account key to perform operations, so after you sign into Storage Explorer, you won't need to provide additional authorization credentials.
 
@@ -193,13 +209,16 @@ See any of the following resources:
 
 - [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)
 
-## Use a previous version
+## Use a previous version (deprecated)
 
 If you need to use the previous version of AzCopy, see either of the following links:
 
 - [AzCopy on Windows (v8)](/previous-versions/azure/storage/storage-use-azcopy)
 
 - [AzCopy on Linux (v7)](/previous-versions/azure/storage/storage-use-azcopy-linux)
+
+> [!NOTE]
+> These versions AzCopy are been deprecated. Microsoft recommends using AzCopy v10.
 
 ## Next steps
 

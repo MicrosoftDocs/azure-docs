@@ -2,16 +2,11 @@
 title: "Custom roles: Online SQL Server to SQL Managed Instance migrations using ADS"
 titleSuffix: Azure Database Migration Service
 description: Learn to use the custom roles for SQL Server to Azure SQL Managed Instance migrations.
-services: database-migration
 author: krepko7
 ms.author: kirepko
-manager: sushants
-ms.reviewer: 
-ms.service: dms
-ms.workload: data-services
-ms.custom: ""
-ms.topic: conceptual
 ms.date: 05/02/2022
+ms.service: dms
+ms.topic: conceptual
 ---
 
 # Custom roles for SQL Server to Azure SQL Managed Instance migrations using ADS
@@ -119,4 +114,4 @@ To assign a role to users/APP ID, open the Azure portal, perform the following s
 
 ## Next steps
 
-* Review the migration guidance for your scenario in the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).
+* Review the migration guidance for your scenario in the Microsoft [Database Migration Guide](/data-migration/).

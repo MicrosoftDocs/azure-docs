@@ -3,15 +3,16 @@ title: How to enable zone redundancy in Azure Managed Grafana
 description: Learn how to create a zone-redundant Managed Grafana instance. 
 ms.service: managed-grafana
 ms.topic: how-to
-author: maud-lv
-ms.author: malev
-ms.date: 03/08/2022
+author: mcleanbyron
+ms.author: mcleans
+ms.custom: engagement-fy23
+ms.date: 02/28/2023
 
 --- 
 
 # Enable zone redundancy in Azure Managed Grafana
 
-Azure Managed Grafana offers a zone-redundant option to protect your instance against datacenter failure. Enabling zone redundancy for Managed Grafana lets you deploy your Managed Grafana resources across a minimum of three [Azure availability zones](/azure/availability-zones/az-overview#azure-regions-with-availability-zones) within the same Azure region.
+Azure Managed Grafana offers a zone-redundant option to protect your instance against datacenter failure. Enabling zone redundancy for Managed Grafana lets you deploy your Managed Grafana resources across a minimum of three [Azure availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones) within the same Azure region.
 
 In this how-to guide, learn how to enable zone redundancy for Azure Managed Grafana during the creation of your Managed Grafana instance.
 
@@ -66,28 +67,13 @@ Create a workspace and enable zone redundancy with the Azure portal or the CLI.
 
 1. Set **Zone redundancy** to **Enable**. Zone redundancy automatically provisions and manages a standby replica of the Managed Grafana instance in a different availability zone within one region. There's an [additional charge](https://azure.microsoft.com/pricing/details/managed-grafana/#pricing) for this option.
 
-    :::image type="content" source="media/quickstart-portal/create-form-basics-with-redundancy.png" alt-text="Screenshot of the Azure portal. Create workspace form. Basics.":::
+    :::image type="content" source="media/zone-redundancy/create-form-basics.png" alt-text="Screenshot of the Azure portal. Create workspace form. Basics.":::
 
-1. Select **Next : Advanced >** to access API key creation and statics IP address options. **Enable API key creation** and **Deterministic outbound IP** options are set to **Disable** by default. Optionally enable API key creation and enable a static IP address.
+1. Keep all other options set to their default values and select **Review + create**.
 
-    :::image type="content" source="media/quickstart-portal/create-form-advanced.png" alt-text="Screenshot of the Azure portal. Create workspace form. Advanced.":::
+1. On the page, zone redundancy is shown as set to enabled. After validation runs, select **Create**. Your Azure Managed Grafana resource is deploying.
 
-1. Select **Next : Permission >** to control access rights for your Grafana instance and data sources:
-   1. **System assigned managed identity** is set to **On**.
-
-   1. The box **Add role assignment to this identity with 'Monitoring Reader' role on target subscription** is checked.
-
-   1. The box **Include myself** under **Grafana administrator role** is checked by default. This !grants you the Grafana administrator role, and lets you manage access rights. You can give this right to more members by selecting **Add**. If this option is grayed out, ask someone with the Owner role on the subscription to assign you the Grafana Admin role.
-
-    :::image type="content" source="media/quickstart-portal/create-form-permission.png" alt-text="Screenshot of the Azure portal. Create workspace form. Permission.":::
-
-1. Optionally select **Next : Tags** and add tags to categorize resources.
-
-    :::image type="content" source="media/quickstart-portal/create-form-tags.png" alt-text="Screenshot of the Azure portal. Create workspace form. Tags.":::
-
-1. Select **Next : Review + create >**. After validation runs, select **Create**. Your Azure Managed Grafana resource is deploying.
-
-    :::image type="content" source="media/quickstart-portal/create-form-validation-with-redundancy.png" alt-text="Screenshot of the Azure portal. Create workspace form. Validation.":::
+    :::image type="content" source="media/zone-redundancy/create-form-validation.png" alt-text="Screenshot of the Azure portal. Create workspace form review page showing that zone redundancy is set to Enabled.":::
 
  ### [Azure CLI](#tab/azure-cli)
 
@@ -125,7 +111,7 @@ Once the deployment is complete, you'll see a note in the output of the command 
 
 In the Azure portal, under **Settings**, go to **Configuration** and check if **Zone redundancy** is listed as enabled or disabled.
 
-   :::image type="content" source="media/quickstart-portal/configuration.png" alt-text="Screenshot of the Azure portal. Check zone redundancy.":::
+   :::image type="content" source="media/zone-redundancy/configuration-status.png" alt-text="Screenshot of the Azure portal. Check zone redundancy.":::
 
 ## Next steps
 

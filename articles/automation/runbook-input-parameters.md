@@ -3,7 +3,7 @@ title: Configure runbook input parameters in Azure Automation
 description: This article tells how to configure runbook input parameters, which allow data to be passed to a runbook when it's started.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2021
+ms.date: 05/26/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -60,6 +60,11 @@ In this case, you can pass the following value to the parameter.
 ```powershell
 @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 ```
+For PowerShell 7.1 runbooks, provide array input parameters in below format:
+
+| **Name** | **Value** |
+| --- | --- |
+| TESTPARAMETER | does,this,even,work |
 
 > [!NOTE]
 > When you do not pass a value to an optional String parameter with a null default value, the value of the parameter is an empty string instead of Null.
@@ -68,7 +73,7 @@ In this case, you can pass the following value to the parameter.
 
 To illustrate the configuration of input parameters for a graphical runbook, let's create a runbook that outputs details about virtual machines, either a single VM or all VMs within a resource group. For details, see [My first graphical runbook](./learn/powershell-runbook-managed-identity.md).
 
-A graphical runbook uses these these major runbook activities:
+A graphical runbook uses these major runbook activities:
 
 * Configuration of the Azure Run As account to authenticate with Azure. 
 * Definition of a [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet to get VM properties.
@@ -111,6 +116,9 @@ Unlike PowerShell, PowerShell Workflow, and graphical runbooks, Python runbooks 
 For an example of how to use input parameters in a Python runbook, see
 [My first Python runbook in Azure Automation](./learn/automation-tutorial-runbook-textual-python-3.md).
 
+>[!NOTE]
+>Arguments with spaces are currently not supported. As a workaround, you could use \\\t in addition to \\\n.
+
 ## Assign values to input parameters in runbooks
 
 This section describes several ways to pass values to input parameters in runbooks. You can assign parameter values when you:
@@ -145,7 +153,7 @@ In the label beneath the input box, you can see the properties that have been se
      Start-AzAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
    ```
 
-* **Azure classic deployment model cmdlets:** You can start an automation runbook that was created in a default resource group by using [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure.service/start-azureautomationrunbook).
+* **Azure classic deployment model cmdlets:** You can start an automation runbook that was created in a default resource group by using [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
   
    ```powershell
      $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}

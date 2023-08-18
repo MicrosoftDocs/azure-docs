@@ -1,6 +1,6 @@
 ---
-title: Change request settings for an access package in Azure AD entitlement management - Azure Active Directory
-description: Learn how to change request settings for an access package in Azure Active Directory entitlement management.
+title: Change request settings for an access package in entitlement management - Microsoft Entra
+description: Learn how to change request settings for an access package in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 07/01/2021
+ms.date: 05/31/2023
 ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# Change request settings for an access package in Azure AD entitlement management
+# Change request settings for an access package in entitlement management
 
 As an access package manager, you can change the users who can request an access package at any time by editing a policy for access package assignment requests, or adding a new policy to the access package. This article describes how to change the request settings for an existing access package assignment policy.
 
@@ -102,7 +102,7 @@ Follow these steps if you want to allow users in your directory to be able to re
 
 1. Click **Select** to add the users and groups.
 
-1. If you want to require approval, use the steps in [Change approval settings for an access package in Azure AD entitlement management](entitlement-management-access-package-approval-policy.md) to configure approval settings.
+1. If you want to require approval, use the steps in [Change approval settings for an access package in entitlement management](entitlement-management-access-package-approval-policy.md) to configure approval settings.
 
 1. Go to the [Enable requests](#enable-requests) section.
  
@@ -127,7 +127,7 @@ Follow these steps if you want to allow users not in your directory to request t
     | --- | --- |
     | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
     | **All configured connected organizations** | Choose this option if all users from all your configured connected organizations can request this access package. Only users from configured connected organizations can request access packages that are shown to users from all configured organizations. |
-    | **All users (All connected organizations + any new external users)** | Choose this option if any user on the internet should be able to request this access package.  If they don’t belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. The automatically created connected organization will be in a **proposed** state. For more information about the proposed state, see [State properties of connected organizations](entitlement-management-organization.md#state-properties-of-connected-organizations). |
+    | **All users (All connected organizations + any new external users)** | Choose this option if any user on the internet should be able to request this access package.  If they don’t belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. The automatically created connected organization will be in a **proposed** state. For more information about the proposed state, see [State property of connected organizations](entitlement-management-organization.md#state-property-of-connected-organizations). |
 
     A connected organization is an external Azure AD directory or domain that you have a relationship with.
 
@@ -144,7 +144,7 @@ Follow these steps if you want to allow users not in your directory to request t
     > [!NOTE]
     > All users from the selected connected organizations can request this access package. For a connected organization that has an Azure AD directory, users from all verified domains associated with the Azure AD directory can request, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).
 
-1. If you want to require approval, use the steps in [Change approval settings for an access package in Azure AD entitlement management](entitlement-management-access-package-approval-policy.md) to configure approval settings.
+1. If you want to require approval, use the steps in [Change approval settings for an access package in entitlement management](entitlement-management-access-package-approval-policy.md) to configure approval settings.
  
 1. Go to the [Enable requests](#enable-requests) section.
 
@@ -202,16 +202,55 @@ To change the request and approval settings for an access package, you need to o
 
 1. Click **Next**.
 
-1. If you want to require requestors to provide additional information when requesting access to an access package, use the steps in [Change approval and requestor information settings for an access package in Azure AD entitlement management](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval)
+1. If you want to require requestors to provide additional information when requesting access to an access package, use the steps in [Change approval and requestor information settings for an access package in entitlement management](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval)
  to configure requestor information.
 
 1. Configure lifecycle settings.
 
 1. If you are editing a policy click **Update**. If you are adding a new policy, click **Create**.
 
-## Creating an access package assignment policy programmatically
+## Create an access package assignment policy programmatically
 
-You can also create a policy using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application in a catalog role or with the `EntitlementManagement.ReadWrite.All` permission, can call the [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-1.0&preserve-view=true) API.
+There are two ways to create an access package assignment policy programmatically, through Microsoft Graph and through the PowerShell cmdlets for Microsoft Graph.
+
+### Create an access package assignment policy through Graph
+
+You can create a policy using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application in a catalog role or with the `EntitlementManagement.ReadWrite.All` permission, can call the [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-1.0&preserve-view=true) API.
+
+### Create an access package assignment policy through PowerShell
+
+You can also create an access package in PowerShell with the cmdlets from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.16.0 or a later 1.x.x module version, or Microsoft Graph PowerShell cmdlets beta module version 2.1.x or later beta module version.  This script illustrates using the Graph `beta` profile and Microsoft Graph PowerShell cmdlets module version 1.x.x.
+
+This script below illustrates using the `beta` profile, to create a policy for direct assignment to an access package. In this policy, only the administrator can assign access, and there are no access reviews. See [Create an automatic assignment policy](entitlement-management-access-package-auto-assignment-policy.md#create-an-access-package-assignment-policy-through-powershell) for an example of how to create an automatic assignment policy, and [create an accessPackageAssignmentPolicy](/graph/api/entitlementmanagement-post-assignmentpolicies?tabs=http&view=graph-rest-beta&preserve-view=true) for more examples.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
+Select-MgProfile -Name "beta"
+
+$apid = "cdd5f06b-752a-4c9f-97a6-82f4eda6c76d"
+
+$pparams = @{
+    AccessPackageId = $apid
+    DisplayName = "direct"
+    Description = "direct assignments by administrator"
+    AccessReviewSettings = $null
+    RequestorSettings = @{
+        ScopeType = "NoSubjects"
+        AcceptRequests = $true
+        AllowedRequestors = @(
+        )
+    }
+    RequestApprovalSettings = @{
+        IsApprovalRequired = $false
+        IsApprovalRequiredForExtension = $false
+        IsRequestorJustificationRequired = $false
+        ApprovalMode = "NoApproval"
+        ApprovalStages = @(
+        )
+    }
+}
+New-MgEntitlementManagementAccessPackageAssignmentPolicy -BodyParameter $pparams
+```
 
 ## Prevent requests from users with incompatible access
 

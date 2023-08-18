@@ -52,8 +52,8 @@ Authorization: Bearer  <token>
 {
     "includeQRCode": true,
     "callback": {
-    "url": "https://www.contoso.com/api/verifier/presentationCallbac",
-    "state": "11111111-2222-2222-2222-333333333333",
+      "url": "https://www.contoso.com/api/verifier/presentationCallback",
+      "state": "11111111-2222-2222-2222-333333333333",
       "headers": {
         "api-key": "an-api-key-can-go-here"
       }
@@ -109,8 +109,8 @@ The payload contains the following properties.
 
 |Parameter |Type  | Description |
 |---------|---------|---------|
-| `includeQRCode` |  Boolean | Determines whether a QR code is included in the response of this request. Present the QR code and ask the user to scan it. Scanning the QR code launches the authenticator app with this presentation request. Possible values are `true` (default) or `false`. When you set the value to `false`, use the return `url` property to render a deep link.  |
-| `includeReceipt` |  Boolean | Determines whether a receipt should be included in the response of this request. Possible values are `true` or `false` (default). The receipt contains the original payload sent from the authenticator to the Verifiable Credentials service. The receipt is useful for troubleshooting or if you have the need to ge the full details of the payload. There's otherwise no need be set this value to `true `by default. In the `OpenId Connect SIOP` request, the receipt contains the ID token from the original request. |
+| `includeQRCode` |  Boolean | Optional. Determines whether a QR code is included in the response of this request. Present the QR code and ask the user to scan it. Scanning the QR code launches the authenticator app with this presentation request. Possible values are `true` (default) or `false`. When you set the value to `false`, use the return `url` property to render a deep link.  |
+| `includeReceipt` |  Boolean | Optional. Determines whether a receipt should be included in the response of this request. Possible values are `true` or `false` (default). The receipt contains the original payload sent from the authenticator to the Verifiable Credentials service. The receipt is useful for troubleshooting or if you have the need to ge the full details of the payload. There's otherwise no need be set this value to `true `by default. In the `OpenId Connect SIOP` request, the receipt contains the ID token from the original request. |
 | `authority` | string|  Your decentralized identifier (DID) of your verifier Azure AD tenant. For more information, see [Gather tenant details to set up your sample application](verifiable-credentials-configure-verifier.md#gather-tenant-details-to-set-up-your-sample-application).|
 | `registration` | [RequestRegistration](#requestregistration-type)|  Provides information about the verifier. |
 |`callback`|  [Callback](#callback-type)| Mandatory. Allows the developer to update the UI during the verifiable credential presentation process. When the user completes the process, continue the process after the results are returned to the application.|
@@ -123,7 +123,10 @@ The `RequestRegistration` type provides information registration for the issuer.
 
 |Property |Type |Description |
 |---------|---------|---------|
-| `clientName` | string|  A display name of the issuer of the verifiable credential. This name will be presented to the user in the authenticator app. |
+| `clientName` | string|  A display name of the verifier of the verifiable credential. This name will be presented to the user in the authenticator app. |
+| `purpose` | string|  Optional. A string that is displayed to inform the user why the verifiable credentials are being requested. |
+| `logoUrl` | URL|  Optional. A URL for a logotype of the verifier. This is not used by the Authenticator app. |
+| `termsOfServiceUrl` | URL|  Optional. A URL to the terms of service for the verifier. This is not used by the Authenticator app. |
 
 The following screenshot shows the `clientName` property and the display name of the `authority` (the verifier) in the presentation request.
 
@@ -146,18 +149,18 @@ The `RequestCredential` provides information about the requested credentials the
 |Property |Type |Description |
 |---------|---------|---------|
 | `type`| string| The verifiable credential type. The `type` must match the type as defined in the `issuer` verifiable credential manifest (for example, `VerifiedCredentialExpert`). To get the issuer manifest, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md). Copy the **Issue credential URL**, open it in a web browser, and check the **id** property. |
-| `purpose`| string | Provide information about the purpose of requesting this verifiable credential. |
-| `acceptedIssuers`| string collection | A collection of issuers' DIDs that could issue the type of verifiable credential that subjects can present. To get your issuer DID, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md), and copy the value of the **Decentralized identifier (DID)**. If the `acceptedIssuers` collection is empty, then the presentation request will accept a credential type issued by any issuer. |
+| `purpose`| string | Optional. Provide information about the purpose of requesting this verifiable credential. This is not used by the Authenticator app. |
+| `acceptedIssuers`| string collection | Optional. A collection of issuers' DIDs that could issue the type of verifiable credential that subjects can present. To get your issuer DID, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md), and copy the value of the **Decentralized identifier (DID)**. If the `acceptedIssuers` collection is empty or not present, then the presentation request will accept a credential type issued by any issuer. |
 | `configuration.validation` | [Configuration.Validation](#configurationvalidation-type) | Optional settings for presentation validation.|
 
 ### Configuration.Validation type
 
-The `Configuration.Validation` provides information about the presented credentials should be validated. It contains the following properties:
+The `Configuration.Validation` provides information about how the presented credentials should be validated. It contains the following properties:
 
 |Property |Type |Description |
 |---------|---------|---------|
-| `allowRevoked` |  Boolean | Determines if a revoked credential should be accepted. Default is `false` (it shouldn't be accepted). |
-| `validateLinkedDomain` |  Boolean | Determines if the linked domain should be validated. Default is `false`. Setting this flag to `false` means you as a Relying Party application accept credentials from unverified linked domain. Setting this flag to `true` means the linked domain will be validated and only verified domains will be accepted. |
+| `allowRevoked` |  Boolean | Optional. Determines if a revoked credential should be accepted. Default is `false` (it shouldn't be accepted). |
+| `validateLinkedDomain` |  Boolean | Optional. Determines if the linked domain should be validated. Default is `false`. Setting this flag to `false` means you as a Relying Party application accept credentials from an unverified linked domain. Setting this flag to `true` means the linked domain will be validated and only verified domains will be accepted. |
 
 ## Successful response
 
@@ -197,7 +200,7 @@ The callback endpoint is called when a user scans the QR code, uses the deep lin
 | `requestStatus` |string |The status returned when the request was retrieved by the authenticator app. Possible values: <ul><li>`request_retrieved`: The user scanned the QR code or selected the link that starts the presentation flow.</li><li>`presentation_verified`: The verifiable credential validation completed successfully.</li></ul>    |
 | `state` |string| Returns the state value that you passed in the original payload.   |
 | `subject`|string | The verifiable credential user DID.|
-| `issuers`| array |Returns an array of verifiable credentials requested. For each verifiable credential, it provides: </li><li>The verifiable credential type(s).</li><li>The issuer's DID</li><li>The claims retrieved.</li><li>The verifiable credential issuer's domain. </li><li>The verifiable credential issuer's domain validation status. </li></ul> |
+| `verifiedCredentialsData`| array |Returns an array of verifiable credentials requested. For each verifiable credential, it provides: </li><li>The verifiable credential type(s).</li><li>The issuer's DID</li><li>The claims retrieved.</li><li>The verifiable credential issuer's domain. </li><li>The verifiable credential issuer's domain validation status. </li></ul> |
 | `receipt`| string | Optional. The receipt contains the original payload sent from the wallet to the Verifiable Credentials service. The receipt should be used for troubleshooting/debugging only. The format in the receipt isn't fix and can change based on the wallet and version used.|
 
 The following example demonstrates a callback payload when the authenticator app starts the presentation request:

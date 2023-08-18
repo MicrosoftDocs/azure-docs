@@ -6,7 +6,7 @@ author: cherylmc
 manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 09/02/2020
+ms.date: 02/13/2023
 ms.author: radwiv
 ms.reviewer: chadmat;genli
 ---

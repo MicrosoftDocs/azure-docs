@@ -1,12 +1,12 @@
 ---
-title: Enable combined security information registration - Azure Active Directory
+title: Enable combined security information registration
 description: Learn how to simplify the end-user experience with combined Azure AD Multi-Factor Authentication and self-service password reset registration.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/1/2022
+ms.date: 06/08/2023
 
 ms.author: justinha
 author: justinha
@@ -17,38 +17,11 @@ ms.collection: M365-identity-device-management
 ---
 # Enable combined security information registration in Azure Active Directory
 
-Before combined registration, users registered authentication methods for Azure AD Multi-Factor Authentication and self-service password reset (SSPR) separately. People were confused that similar methods were used for Azure AD Multi-Factor Authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both Azure AD Multi-Factor Authentication and SSPR.
+Before combined registration, users registered authentication methods for Azure AD Multi-Factor Authentication and self-service password reset (SSPR) separately. Users were confused that similar methods were used for Azure AD Multi-Factor Authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both Azure AD Multi-Factor Authentication and SSPR.
 
-> [!NOTE]
-> Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. Tenants created after this date will be unable to utilize the legacy registration workflows.
-> 
-> After Sept. 30th, 2022, all users will register security information through the combined registration experience. 
-
-To make sure you understand the functionality and effects before you enable the new experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
+To help you understand the functionality and effects of the new experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
 
 ![Combined security information registration enhanced experience](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
-
-## Enable combined registration
-
-To enable combined registration, complete these steps:
-
-1. Sign in to the Azure portal as a user administrator or global administrator.
-2. Go to **Azure Active Directory** > **User settings** > **Manage user feature settings**.
-3. Under **Users can use the combined security information registration experience**, choose to enable for a **Selected** group of users or for **All** users.
-
-   ![Enable the combined security info experience for users](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info.png)
-
-> [!NOTE]
-> After you enable combined registration, users who register or confirm their phone number or mobile app through the new experience can use them for Azure AD Multi-Factor Authentication and SSPR, if those methods are enabled in the Azure AD Multi-Factor Authentication and SSPR policies.
->
-> If you then disable this experience, users who go to the previous SSPR registration page at `https://aka.ms/ssprsetup` are required to perform multi-factor authentication before they can access the page.
-
-If you have configured the *Site to Zone Assignment List* in Internet Explorer, the following sites have to be in the same zone:
-
-* *[https://login.microsoftonline.com](https://login.microsoftonline.com)*
-* *[https://Login.windows.net](https://login.windows.net)*
-* *[https://mysignins.microsoft.com](https://mysignins.microsoft.com)*
-* *[https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)*
 
 ## Conditional Access policies for combined registration
 
@@ -68,20 +41,19 @@ Complete the following steps to create a policy that applies to all selected use
 1. In the **Azure portal**, browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **+ New policy**.
 1. Enter a name for this policy, such as *Combined Security Info Registration on Trusted Networks*.
-1. Under **Assignments**, select **Users or workload identities**.. Choose the users and groups you want this policy to apply to, then select **Done**.
+1. Under **Assignments**, select **Users**. Choose the users and groups you want this policy to apply to.
 
    > [!WARNING]
    > Users must be enabled for combined registration.
 
 1. Under **Cloud apps or actions**, select **User actions**. Check **Register security information**, then select **Done**.
 
-    ![Create a conditional access policy to control security info registration](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
+    ![Create a Conditional Access policy to control security info registration](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
 1. Under **Conditions** > **Locations**, configure the following options:
    1. Configure **Yes**.
    1. Include **Any location**.
    1. Exclude **All trusted locations**.
-1. Select **Done** on the *Locations* window, then select **Done** on the *Conditions* window.
 1. Under **Access controls** > **Grant**, choose **Block access**, then **Select**.
 1. Set **Enable policy** to **On**.
 1. To finalize the policy, select **Create**.
@@ -90,6 +62,6 @@ Complete the following steps to create a policy that applies to all selected use
 
 If you need help, see [troubleshoot combined security info registration](howto-registration-mfa-sspr-combined-troubleshoot.md) or learn [What is the location condition in Azure AD Conditional Access?](../conditional-access/location-condition.md)
 
-Once users are enabled for combined registration, you can then [enable self-service password reset](tutorial-enable-sspr.md) and [enable Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+Review how you can [enable self-service password reset](tutorial-enable-sspr.md) and [enable Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md) in your tenant.
 
 If needed, learn how to [force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-user-authentication-options).

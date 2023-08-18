@@ -3,11 +3,11 @@ title: Configure SSL - Azure Database for MySQL
 description: Instructions for how to properly configure Azure Database for MySQL and associated applications to correctly use SSL connections
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.devlang: csharp, golang, java, javascript, php, python, ruby
-ms.custom: "devx-track-python, devx-track-csharp"
+ms.custom: devx-track-csharp
 ms.date: 06/20/2022
 ---
 
@@ -15,14 +15,16 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 Azure Database for MySQL supports connecting your Azure Database for MySQL server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
 
 ## Step 1: Obtain SSL certificate
 
-Download the certificate needed to communicate over SSL with your Azure Database for MySQL server from [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and save the certificate file to your local drive (this tutorial uses c:\ssl for example).
+Download the certificate needed to communicate over SSL with your Azure Database for MySQL server from [https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and save the certificate file to your local drive (this tutorial uses c:\ssl for example).
 **For Microsoft Internet Explorer and Microsoft Edge:** After the download has completed, rename the certificate to BaltimoreCyberTrustRoot.crt.pem.
 
-See the following links for certificates for servers in sovereign clouds: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
+See the following links for certificates for servers in sovereign clouds: [Azure Government](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt.pem), [Microsoft Azure operated by 21Vianet](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
 ## Step 2: Bind SSL
 
@@ -36,7 +38,7 @@ Configure MySQL Workbench to connect securely over SSL.
 
 1. Update the **Use SSL** field to "Require".
 
-1. In the **SSL CA File:** field, enter the file location of the **BaltimoreCyberTrustRoot.crt.pem**.
+1. In the **SSL CA File:** field, enter the file location of the **DigiCertGlobalRootG2.crt.pem**.
 
    :::image type="content" source="./media/how-to-configure-ssl/mysql-workbench-ssl.png" alt-text="Save SSL configuration":::
 
@@ -47,7 +49,7 @@ For existing connections, you can bind SSL by right-clicking on the connection i
 Another way to bind the SSL certificate is to use the MySQL command-line interface by executing the following commands.
 
 ```bash
-mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p --ssl-mode=REQUIRED --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
+mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p --ssl-mode=REQUIRED --ssl-ca=c:\ssl\DigiCertGlobalRootG2.crt.pem
 ```
 
 > [!NOTE]
@@ -89,9 +91,9 @@ Refer to the list of [compatible drivers](concepts-compatibility.md) supported b
 
 ```php
 $conn = mysqli_init();
-mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/BaltimoreCyberTrustRoot.crt.pem", NULL, NULL);
+mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootG2.crt.pem", NULL, NULL);
 mysqli_real_connect($conn, 'mydemoserver.mysql.database.azure.com', 'myadmin@mydemoserver', 'yourpassword', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL);
-if (mysqli_connect_errno($conn)) {
+if (mysqli_connect_errno()) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
@@ -100,7 +102,7 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 
 ```phppdo
 $options = array(
-    PDO::MYSQL_ATTR_SSL_CA => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
+    PDO::MYSQL_ATTR_SSL_CA => '/var/www/html/DigiCertGlobalRootG2.crt.pem'
 );
 $db = new PDO('mysql:host=mydemoserver.mysql.database.azure.com;port=3306;dbname=databasename', 'username@mydemoserver', 'yourpassword', $options);
 ```
@@ -113,7 +115,7 @@ try:
                                    password='yourpassword',
                                    database='quickstartdb',
                                    host='mydemoserver.mysql.database.azure.com',
-                                   ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.pem')
+                                   ssl_ca='/var/www/html/DigiCertGlobalRootG2.crt.pem')
 except mysql.connector.Error as err:
     print(err)
 ```
@@ -125,7 +127,7 @@ conn = pymysql.connect(user='myadmin@mydemoserver',
                        password='yourpassword',
                        database='quickstartdb',
                        host='mydemoserver.mysql.database.azure.com',
-                       ssl={'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'})
+                       ssl={'ca': '/var/www/html/DigiCertGlobalRootG2.crt.pem'})
 ```
 
 ### Django (PyMySQL)
@@ -140,7 +142,7 @@ DATABASES = {
         'HOST': 'mydemoserver.mysql.database.azure.com',
         'PORT': '3306',
         'OPTIONS': {
-            'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}
+            'ssl': {'ca': '/var/www/html/DigiCertGlobalRootG2.crt.pem'}
         }
     }
 }
@@ -154,7 +156,7 @@ client = Mysql2::Client.new(
         :username => 'myadmin@mydemoserver',
         :password => 'yourpassword',
         :database => 'quickstartdb',
-        :sslca => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
+        :sslca => '/var/www/html/DigiCertGlobalRootG2.crt.pem'
     )
 ```
 
@@ -162,7 +164,7 @@ client = Mysql2::Client.new(
 
 ```go
 rootCertPool := x509.NewCertPool()
-pem, _ := ioutil.ReadFile("/var/www/html/BaltimoreCyberTrustRoot.crt.pem")
+pem, _ := ioutil.ReadFile("/var/www/html/DigiCertGlobalRootG2.crt.pem")
 if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
     log.Fatal("Failed to append PEM.")
 }
@@ -245,7 +247,7 @@ var builder = new MySqlConnectionStringBuilder
     Password = "yourpassword",
     Database = "quickstartdb",
     SslMode = MySqlSslMode.VerifyCA,
-    SslCa = "BaltimoreCyberTrustRoot.crt.pem",
+    SslCa = "DigiCertGlobalRootG2.crt.pem",
 };
 using (var connection = new MySqlConnection(builder.ConnectionString))
 {
@@ -258,7 +260,7 @@ using (var connection = new MySqlConnection(builder.ConnectionString))
 ```node
 var fs = require('fs');
 var mysql = require('mysql');
-const serverCa = [fs.readFileSync("/var/www/html/BaltimoreCyberTrustRoot.crt.pem", "utf8")];
+const serverCa = [fs.readFileSync("/var/www/html/DigiCertGlobalRootG2.crt.pem", "utf8")];
 var conn=mysql.createConnection({
     host:"mydemoserver.mysql.database.azure.com",
     user:"myadmin@mydemoserver",

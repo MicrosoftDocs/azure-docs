@@ -1,11 +1,11 @@
 ---
-title: 'Quickstart: Create an Azure DB for MariaDB - Bicep'
+title: 'Quickstart: Create an Azure Database for MariaDB - Bicep'
 description: In this Quickstart article, learn how to create an Azure Database for MariaDB server using Bicep.
 author: rothja
 ms.author: jroth
 ms.service: mariadb
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 06/24/2022
 ---
 

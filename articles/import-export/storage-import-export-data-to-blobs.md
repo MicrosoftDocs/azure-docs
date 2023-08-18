@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: azure-import-export
 ms.topic: tutorial
-ms.date: 03/14/2022
+ms.date: 02/01/2023
 ms.author: alkohli
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
 ---
@@ -49,13 +49,13 @@ This step generates a journal file. The journal file stores basic information su
 Perform the following steps to prepare the drives.
 
 1. Connect your disk drives to the Windows system via SATA connectors.
-2. Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
+2. Create a single NTFS volume on each drive. Assign a drive letter to the volume. Don't use mountpoints.
 3. Enable BitLocker encryption on the NTFS volume. If using a Windows Server system, use the instructions in [How to enable BitLocker on Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 4. Copy data to encrypted volume. Use drag and drop or Robocopy or any such copy tool. A journal (*.jrn*) file is created in the same folder where you run the tool.
 
    If the drive is locked and you need to unlock the drive, the steps to unlock may be different depending on your use case.
 
-   * If you have added data to a pre-encrypted drive (WAImportExport tool was not used for encryption), use the BitLocker key (a numerical password that you specify) in the popup to unlock the drive.
+   * If you have added data to a pre-encrypted drive (WAImportExport tool wasn't used for encryption), use the BitLocker key (a numerical password that you specify) in the popup to unlock the drive.
 
    * If you have added data to a drive that was encrypted by WAImportExport tool, use the following command to unlock the drive:
 
@@ -85,9 +85,9 @@ Perform the following steps to prepare the drives.
     |/bk:     |The BitLocker key for the drive. Its numerical password from output of `manage-bde -protectors -get D:`      |
     |/srcdir:     |The drive letter of the disk to be shipped followed by `:\`. For example, `D:\`.         |
     |/dstdir:     |The name of the destination container in Azure Storage.         |
-    |/blobtype:     |This option specifies the type of blobs you want to import the data to. For block blobs, the blob type is `BlockBlob` and for page blobs, it is `PageBlob`.         |
-    |/skipwrite:     | Specifies that there is no new data required to be copied and existing data on the disk is to be prepared.          |
-    |/enablecontentmd5:     |The option when enabled, ensures that MD5 is computed and set as `Content-md5` property on each blob. Use this option only if you want to use the `Content-md5` field after the data is uploaded to Azure. <br> This option does not affect the data integrity check (that occurs by default). The setting does increase the time taken to upload data to cloud.          |
+    |/blobtype:     |This option specifies the type of blobs you want to import the data to. For block blobs, the blob type is `BlockBlob` and for page blobs, it's `PageBlob`.         |
+    |/skipwrite:     | Specifies that there's no new data required to be copied and existing data on the disk is to be prepared.          |
+    |/enablecontentmd5:     |The option when enabled, ensures that MD5 is computed and set as `Content-md5` property on each blob. Use this option only if you want to use the `Content-md5` field after the data is uploaded to Azure. <br> This option doesn't affect the data integrity check (that occurs by default). The setting does increase the time taken to upload data to cloud.          |
 
     > [!NOTE]
     > - If you import a blob with the same name as an existing blob in the destination container, the imported blob will overwrite the existing blob. In earlier tool versions (before 1.5.0.300), the imported blob was renamed by default, and a \Disposition parameter let you specify whether to rename, overwrite, or disregard the blob in the import.
@@ -97,7 +97,7 @@ Perform the following steps to prepare the drives.
 
    A journal file with the provided name is created for every run of the command line. 
 
-   Together with the journal file, a `<Journal file name>_DriveInfo_<Drive serial ID>.xml` file is also created in the same folder where the tool resides. The .xml file is used in place of the journal file when creating a job if the journal file is too big.
+   Together with the journal file, a `<Journal file name>_DriveInfo_<Drive serial ID>.xml` file is also created in the same folder where the tool resides. The .xml file is used in place of the journal file when creating a job if the journal file is too large.
 
 > [!IMPORTANT]
 > * Do not modify the journal files or the data on the disk drives, and don't reformat any disks, after completing disk preparation.
@@ -106,21 +106,16 @@ Perform the following steps to prepare the drives.
 
 ## Step 2: Create an import job
 
-# [Portal (Preview)](#tab/azure-portal-preview)
+# [Portal](#tab/azure-portal-preview)
 
 [!INCLUDE [storage-import-export-preview-import-steps.md](../../includes/storage-import-export-preview-import-steps.md)]
-
-
-# [Portal (Classic)](#tab/azure-portal)
-
-[!INCLUDE [storage-import-export-classic-import-steps.md](../../includes/storage-import-export-classic-import-steps.md)]
 
 
 # [Azure CLI](#tab/azure-cli)
 
 Use the following steps to create an import job in the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ### Create a job
 

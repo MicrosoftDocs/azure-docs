@@ -89,7 +89,7 @@ Add the following keys to the app settings:
 
 ### 3.1 Add an OpenID Connect identity provider
 
-Once you've added the app ID and secrete, use the following steps to add the Azure AD B2C as OpenId Connect identity provider.
+Once you've added the app ID and secret, use the following steps to add the Azure AD B2C as OpenId Connect identity provider.
 
 1. Add an `auth` section of the [configuration file](../static-web-apps/configuration.md) with a configuration block for the OIDC providers, and your provider definition.
 
@@ -120,7 +120,7 @@ Once you've added the app ID and secrete, use the following steps to add the Azu
    }
    ```
 
-1. Replace `<TENANT_NAME>` with the first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com`).
+1. Replace `<TENANT_NAME>` with the first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com`).
 1. Replace `<POLICY_NAME>` with the user flows or custom policy you created in [step 1](#step-1-configure-your-user-flow).
 
 ## Step 4: Check the Azure Static Web APP
@@ -136,10 +136,9 @@ Once you've added the app ID and secrete, use the following steps to add the Azu
       const { clientPrincipal } = payload;
       return clientPrincipal;
     }
-  
+    
     await getUserInfo();
     ```
-
 
 > [!TIP]
 > If you can't run the above JavaScript code in your browser, navigate to the following URL `https://<app-name>.azurewebsites.net/.auth/me`. Replace the `<app-name>` with your Azure Web App.

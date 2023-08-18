@@ -44,6 +44,8 @@
       href: tutorial-load-balancer-port-forwarding-portal.md
     - name: Create a multiple VMs inbound NAT rule
       href: tutorial-nat-rule-multi-instance-portal.md
+    - name: Migrate Inbound NAT Pools to NAT Rules
+      href: load-balancer-nat-pool-migration.md
   - name: Scaling and availability
     items:
     - name: Load balance a VM within a specific availability zone
@@ -58,6 +60,8 @@
       href: tutorial-cross-region-powershell.md
     - name: Create cross-region load balancer - Azure CLI
       href: tutorial-cross-region-cli.md
+    - name: Deploy cross-region load balancer - ARM template
+      href: tutorial-deploy-cross-region-load-balancer-template.md
   - name: Gateway load balancer
     items:
     - name: Create gateway load balancer - Portal
@@ -76,24 +80,8 @@
     items:
     - name: Create a public load balancer with an IP-based backend - Portal
       href: tutorial-load-balancer-ip-backend-portal.md
-- name: Samples
-  items:
-  - name: Azure CLI
-    items:
-    - name: Overview
-      href: cli-samples.md
-    - name: Load balance traffic to VMs for high availability
-      href: ./scripts/load-balancer-linux-cli-sample-nlb.md
-    - name: Load balance VMs across availability zones
-      href: ./scripts/load-balancer-linux-cli-sample-zone-redundant-frontend.md
-    - name: Load balance VMs within a specific availability zone
-      href: ./scripts/load-balancer-linux-cli-sample-zonal-frontend.md
-    - name: Load balance multiple websites on VMs
-      href: ./scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
-  - name: Python
-    href: python-samples.md
+  - name: Deploy public load balancer with DDoS protection
+    href: tutorial-protect-load-balancer.md
 - name: Concepts
   items:
   - name: What's new?
@@ -156,12 +144,16 @@
       href: /security/benchmark/azure/baselines/azure-load-balancer-security-baseline?toc=/azure/load-balancer/TOC.json
 - name: How-to
   items:
-  - name: Manage health probes
-    href: manage-probes-how-to.md
   - name: Backend Pool management
     href: backend-pool-management.md
   - name: Retrieve metadata using the Azure IMDS
     href: howto-load-balancer-imds.md
+  - name: Health probes
+    items:
+    - name: Manage health probes
+      href: manage-probes-how-to.md
+    - name: Create a custom HTTP/HTTPS health probe
+      href: create-custom-http-health-probe-howto.md
   - name: Load Balancer metrics
     items:
     - name: Get Load Balancer metrics with Azure Monitor CLI
@@ -188,8 +180,10 @@
       href: egress-only.md
   - name: Virtual machine scale sets
     items:
-    - name: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set
-      href: update-load-balancer-with-vm-scale-set.md
+    - name: Configure inbound NAT rules for Virtual Machine Scale Sets
+      href: configure-inbound-NAT-rules-vm-scale-set.md
+    - name: Add multiple Virtual Machine Scale Set instances behind one Azure Load Balancer
+      href: load-balancer-multiple-virtual-machine-scale-set.md
     - name: Use with an existing Azure Load Balancer - Portal
       href: configure-vm-scale-set-portal.md
     - name: Use with an existing Azure Load Balancer - PowerShell
@@ -198,12 +192,16 @@
       href: configure-vm-scale-set-cli.md
   - name: Upgrade from a basic to standard load balancer
     items:
+    - name: Upgrade options and guidance
+      href: load-balancer-basic-upgrade-guidance.md
     - name: Upgrade a basic public load balancer
       href: upgrade-basic-standard.md
     - name: Upgrade an internal load balancer - Outbound connections not required
       href: upgrade-basicinternal-standard.md
     - name: Upgrade an internal load balancer - Outbound connections required
       href: upgrade-internalbasic-to-publicstandard.md
+    - name: Upgrade from Basic to Standard for Virtual Machine Scale Sets
+      href: upgrade-basic-standard-virtual-machine-scale-sets.md
   - name: Using multiple IP configurations
     items:
     - name: Azure portal
@@ -214,9 +212,9 @@
       href: load-balancer-multiple-ip-powershell.md
   - name: Move across regions
     items:
-    - name: Public Load Balancer - Portal
+    - name: Public load balancer - Portal
       href: move-across-regions-external-load-balancer-portal.md
-    - name: Public Load Balancer - PowerShell
+    - name: Public load balancer - PowerShell
       href: move-across-regions-external-load-balancer-powershell.md
     - name: Internal load balancer - Portal
       href: move-across-regions-internal-load-balancer-portal.md
@@ -224,6 +222,8 @@
       href: move-across-regions-internal-load-balancer-powershell.md
   - name: IPv6
     items:
+    - name: Configure DHCPv6 for Linux VMs
+      href: load-balancer-ipv6-for-linux.md
     - name: Public Load Balancer
       items:
       - name: Standard Public Load Balancer with IPv6 - PowerShell
@@ -246,6 +246,8 @@
     items:
     - name: Troubleshoot Azure Load Balancer
       href: load-balancer-troubleshoot.md
+    - name: Testing inbound frontend IP address reachability
+      href: load-balancer-test-frontend-reachability.md
     - name: Health Probe status
       href: load-balancer-troubleshoot-health-probe-status.md
     - name: Backend pool (VM) traffic
@@ -263,7 +265,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=load-balancer
   - name: Azure PowerShell
-    href: /powershell/module/az.network
+    href: /powershell/module/az.network#load-balancer
   - name: Azure CLI
     href: /cli/azure/network/lb
   - name: .NET
@@ -283,8 +285,8 @@
     displayName: ARM
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-load-balancer
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-load-balancer
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Azure Load Balancer feedback

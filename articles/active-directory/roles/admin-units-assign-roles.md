@@ -1,5 +1,5 @@
 ---
-title: Assign or list Azure AD roles with administrative unit scope - Azure Active Directory | Microsoft Docs
+title: Assign or list Azure AD roles with administrative unit scope
 description: Use administrative units to restrict the scope of role assignments in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 07/15/2022
+ms.date: 11/15/2022
 ms.author: rolyon
 ms.reviewer: anandy
-ms.custom: oldportal;it-pro;
+ms.custom: oldportal, it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -46,10 +46,11 @@ The following Azure AD roles can be assigned with administrative unit scope. Add
 | [Helpdesk Administrator](permissions-reference.md#helpdesk-administrator) | Can reset passwords for non-administrators in the assigned administrative unit only. |
 | [License Administrator](permissions-reference.md#license-administrator) | Can assign, remove, and update license assignments within the administrative unit only. |
 | [Password Administrator](permissions-reference.md#password-administrator) | Can reset passwords for non-administrators within the assigned administrative unit only. |
+| [Printer Administrator](permissions-reference.md#printer-administrator) | Can manage printers and printer connectors. For more information, see [Delegate administration of printers in Universal Print](/universal-print/portal/delegated-admin#scoped-admin-vs-tenant-printer-admin). |
 | [SharePoint Administrator](permissions-reference.md#sharepoint-administrator) | Can manage Microsoft 365 groups in the assigned administrative unit only. For SharePoint sites associated with Microsoft 365 groups in an administrative unit, can also update site properties (site name, URL, and external sharing policy) using the Microsoft 365 admin center. Cannot use the SharePoint admin center or SharePoint APIs to manage sites. |
 | [Teams Administrator](permissions-reference.md#teams-administrator) | Can manage Microsoft 365 groups in the assigned administrative unit only.  Can manage team members in the Microsoft 365 admin center for teams associated with groups in the assigned administrative unit only.  Cannot use the Teams admin center. |
 | [Teams Devices Administrator](permissions-reference.md#teams-devices-administrator) | Can perform management related tasks on Teams certified devices. |
-| [User Administrator](permissions-reference.md#user-administrator) | Can manage all aspects of users and groups, including resetting passwords for limited admins within the assigned administrative unit only. |
+| [User Administrator](permissions-reference.md#user-administrator) | Can manage all aspects of users and groups, including resetting passwords for limited admins within the assigned administrative unit only. Cannot currently manage users' profile photographs. |
 | [&lt;Custom role&gt;](custom-create.md) | Can perform actions that apply to users, groups, or devices, according to the definition of the custom role. |
 
 Certain role permissions apply only to non-administrator users when assigned with the scope of an administrative unit. In other words, administrative unit scoped [Helpdesk Administrators](permissions-reference.md#helpdesk-administrator) can reset passwords for users in the administrative unit only if those users do not have administrator roles. The following list of permissions are restricted when the target of an action is another administrator:
@@ -78,7 +79,9 @@ You can assign an Azure AD role with an administrative unit scope by using the A
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Administrative units** and then select the administrative unit that you want to assign a user role scope to. 
 
@@ -136,7 +139,7 @@ You can view a list of Azure AD role assignments with administrative unit scope 
 
 You can view all the role assignments created with an administrative unit scope in the [Administrative units section of Azure AD](https://portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Administrative units** and then select the administrative unit for the list of role assignments you want to view. 
 

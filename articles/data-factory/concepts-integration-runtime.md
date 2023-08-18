@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/15/2022
+ms.date: 04/12/2023
 ---
 
 # Integration runtime in Azure Data Factory 

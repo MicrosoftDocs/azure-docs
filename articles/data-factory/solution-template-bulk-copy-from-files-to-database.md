@@ -7,7 +7,7 @@ ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 07/20/2023
 ---
 
 # Bulk copy from files to database
@@ -33,32 +33,24 @@ The template defines the following two parameters:
 
 ## How to use this solution template
 
-1. Go to the **Bulk Copy from Files to Database** template. Create a **New** connection to the source Gen2 store. Be aware that "GetMetadataDataset" and "SourceDataset" are references to the same connection of your source file store.
+1. Open the Azure Data Factory Studio and select the **Author** tab with the pencil icon.
+1. Hover over the **Pipelines** section and select the ellipsis that appears to the right side.  Select **Pipeline from template** then.
+   :::image type="content" source="media/how-to-send-notifications-to-teams/pipeline-from-template.png" alt-text="Screenshot of the data factory user interface showing the Pipeline from template button.":::
+1. Select the **Bulk Copy from Files to Database** template, then select **Continue**. 
+   :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/bulk-copy-files-to-database-template.png" alt-text="Screenshot of the Bulk copy files to database template in the template browser.":::
+1. Create a **New** connection to the source Gen2 store as your source, and one to the database for your sink. Then select **Use this template**.
 
-    :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/source-connection.png" alt-text="Create a new connection to the source data store":::
-
-2. Create a **New** connection to the sink data store that you're copying data to.
-
-    :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/destination-connection.png" alt-text="Create a new connection to the sink data store":::
-    
-3. Select **Use this template**.
-
-    :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/use-template.png" alt-text="Use this template":::
-    
-4. You would see a pipeline created as shown in the following example:
+    :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/select-source-and-sink.png" alt-text="Screenshot of the template editor with source and sink data sources highlighted.":::  
+  
+1. A new pipeline is created as shown in the following example:
 
     :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png" alt-text="Review the pipeline":::
 
-    > [!NOTE]
-    > If you chose **Azure Synapse Analytics** as the data destination in **step 2** mentioned above, you must enter a connection to Azure Blob storage for staging, as required by Azure Synapse Analytics Polybase. As the following screenshot shows, the template will automatically generate a *Storage Path* for your Blob storage. Check if the container has been created after the pipeline run.
-        
-    :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/staging-account.png" alt-text="Polybase setting":::
-
-5. Select **Debug**, enter the **Parameters**, and then select **Finish**.
+1. Select **Debug**, enter the **Parameters**, and then select **Finish**.
 
     :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/debug-run.png" alt-text="Click **Debug**":::
 
-6. When the pipeline run completes successfully, you would see results similar to the following example:
+1. When the pipeline run completes successfully, you will see results similar to the following example:
 
     :::image type="content" source="media/solution-template-bulk-copy-from-files-to-database/run-succeeded.png" alt-text="Review the result":::
 

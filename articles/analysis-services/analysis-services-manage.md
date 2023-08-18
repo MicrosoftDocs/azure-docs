@@ -2,7 +2,7 @@
 title: Manage Azure Analysis Services | Microsoft Docs
 description: This article describes the tools used to manage administration and management tasks for an Azure Analysis Services server.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 02/02/2022
 ms.author: owend
@@ -52,8 +52,6 @@ To get all the latest features, and the smoothest experience when connecting to 
 
 
 ## External open source tools
-
-**Tabular Editor** - An open-source tool for creating, maintaining, and managing tabular models using an intuitive, lightweight editor. A hierarchical view shows all objects in your tabular model. Objects are organized by display folders with support for multi-select property editing and DAX syntax highlighting. XMLA read-only is required for query operations. Read-write is required for metadata operations. To learn more, see [tabulareditor.github.io](https://tabulareditor.github.io/).
 
 **ALM Toolkit** - An open-source schema compare tool for Analysis Services tabular models and Power BI datasets, most often used for application lifecycle management (ALM) scenarios. Perform deployment across environments and retain incremental refresh historical data. Diff and merge metadata files, branches and repos. Reuse common definitions between datasets. Read-only is required for query operations. Read-write is required for metadata operations. To learn more, see [alm-toolkit.com](http://alm-toolkit.com/).
 

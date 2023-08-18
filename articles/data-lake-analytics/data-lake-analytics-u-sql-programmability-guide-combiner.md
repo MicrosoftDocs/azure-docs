@@ -2,14 +2,15 @@
 title: U-SQL user defined combiner programmability guide for Azure Data Lake
 description: Learn about the U-SQL UDO programmability guide - user defined combiner.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 06/30/2017
+ms.date: 01/27/2023
 ---
 
 # Use user-defined combiner
 
 ## U-SQL UDO: user-defined combiner
+
 User-defined combiner, or UDC, enables you to combine rows from left and right rowsets, based on custom logic. User-defined combiner is used with COMBINE expression.
 
 ## How to define and use user-defined combiner
@@ -61,9 +62,9 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-The **SqlUserDefinedCombiner** attribute indicates that the type should be registered as a user-defined combiner. This class cannot be inherited.
+The **SqlUserDefinedCombiner** attribute indicates that the type should be registered as a user-defined combiner. This class can't be inherited.
 
-**SqlUserDefinedCombiner** is used to define the Combiner mode property. It is an optional attribute for a user-defined combiner definition.
+**SqlUserDefinedCombiner** is used to define the Combiner mode property. It's an optional attribute for a user-defined combiner definition.
 
 CombinerMode     Mode
 
@@ -127,7 +128,7 @@ var myRowset =
                           }).ToList();
 ```
 
-After enumerating both rowsets, we are going to loop through all rows. For each row in the left rowset, we are going to find all rows that satisfy the condition of our combiner.
+After enumerating both rowsets, we're going to loop through all rows. For each row in the left rowset, we're going to find all rows that satisfy the condition of our combiner.
 
 The output values must be set with `IUpdatableRow` output.
 
@@ -191,9 +192,9 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-In this use-case scenario, we are building an analytics report for the retailer. The goal is to find all products that cost more than $20,000 and that sell through the website faster than through the regular retailer within a certain time frame.
+In this use-case scenario, we're building an analytics report for the retailer. The goal is to find all products that cost more than $20,000 and that sell through the website faster than through the regular retailer within a certain time frame.
 
-Here is the base U-SQL script. You can compare the logic between a regular JOIN and a combiner:
+Here's the base U-SQL script. You can compare the logic between a regular JOIN and a combiner:
 
 ```sql
 DECLARE @LocalURI string = @"\usql-programmability\";

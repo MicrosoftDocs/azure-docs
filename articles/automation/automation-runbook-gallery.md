@@ -3,7 +3,7 @@ title: Use Azure Automation runbooks and modules in PowerShell Gallery
 description: This article tells how to use runbooks and modules from Microsoft GitHub repos and the PowerShell Gallery.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/29/2021
+ms.date: 10/27/2022
 ms.topic: conceptual
 ---
 # Use existing runbooks and modules
@@ -18,7 +18,7 @@ Rather than creating your own runbooks and modules in Azure Automation, you can 
 > [!NOTE]
 >- The **Browse gallery** option in the Azure portal has an enhanced user experience.
 >- In **Process Automation** > **Runbook** blade, you can import runbooks either by **Import a runbook** or **Browse gallery**  option and the **Runbooks** page displays two new columns - **Runtime version** and **Runbook type**.
- 
+
 1. In the Azure portal, open your Automation account.
 1. Select **Runbooks** blade under **Process Automation**.
 1. Click **Import a runbook** in the **Runbooks** page.
@@ -29,7 +29,7 @@ Rather than creating your own runbooks and modules in Azure Automation, you can 
 1. Select the file.
 1. Enter the **Name**, **Runtime version**, and **Description**.
 1. Click **Import**.
-   
+
    :::image type="content" source="./media/automation-runbook-gallery/import-runbook-upload-runbook-file.png" alt-text="Screenshot of selecting a runbook from file or gallery.":::
 
 1. Alternatively,  Select **Browse Gallery** in the **Runbooks** page to browse the available runbooks.
@@ -40,7 +40,7 @@ Rather than creating your own runbooks and modules in Azure Automation, you can 
 
    :::image type="content" source="./media/automation-runbook-gallery/browse-gallery-github.png" alt-text="Browsing runbook gallery." lightbox="./media/automation-runbook-gallery/browse-gallery-github-expanded.png":::
 
-1. Click **Select** to select a chosen runbook. 
+1. Click **Select** to select a chosen runbook.
 1. In the **Import a runbook** page, enter the **Name** and select the **Runtime versions**.
 1. The  **Runbook type** and **Description** are auto populated.
 1. Click **Import**.
@@ -49,7 +49,7 @@ Rather than creating your own runbooks and modules in Azure Automation, you can 
 
 7. The runbook appears on the **Runbooks** tab for the Automation account.
 
- 
+
 ## Runbooks in the PowerShell Gallery
 
 > [!IMPORTANT]
@@ -70,7 +70,7 @@ PowerShell modules contain cmdlets that you can use in your runbooks. Existing m
 
 You can also find modules to import in the Azure portal. They're listed for your Automation Account in the **Modules** under **Shared resources**.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Do not include the keyword "AzureRm" in any script designed to be executed with the Az module. Inclusion of the keyword, even in a comment, may cause the AzureRm to load and then conflict with the Az module.
 
 ## Common scenarios available in the PowerShell Gallery
@@ -97,7 +97,7 @@ You can add new PowerShell or Python runbooks to the Runbook gallery with this G
    >[!NOTE]
    >Check out existing runbooks in the gallery for things like formatting, headers, and existing tags that you might use (like `Azure Automation` or `Linux Azure Virtual Machines`).
 
-To suggest changes to an existing runbook, file a pull request against it. 
+To suggest changes to an existing runbook, file a pull request against it.
 
 If you decide to clone and edit an existing runbook, best practice is to give it a different name. If you re-use the old name, it will show up twice in the Runbook gallery listing.
 
@@ -106,7 +106,7 @@ If you decide to clone and edit an existing runbook, best practice is to give it
 
 ### Add a PowerShell runbook to the PowerShell gallery
 
-Microsoft encourages you to add runbooks to the PowerShell Gallery that you think would be useful to other customers. The PowerShell Gallery accepts PowerShell modules and PowerShell scripts. You can add a runbook by [uploading it to the PowerShell Gallery](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package).
+Microsoft encourages you to add runbooks to the PowerShell Gallery that you think would be useful to other customers. The PowerShell Gallery accepts PowerShell modules and PowerShell scripts. You can add a runbook by [uploading it to the PowerShell Gallery](/powershell/gallery/how-to/publishing-packages/publishing-a-package).
 
 ## Import a module from the Modules gallery in the Azure portal
 

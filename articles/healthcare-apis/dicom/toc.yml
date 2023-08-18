@@ -13,9 +13,16 @@ items:
       href: get-started-with-dicom.md
     - name: Deploy DICOM service using Portal
       href: deploy-dicom-services-in-azure.md
+    - name: Get started using DICOM data in analytics workloads
+      href: get-started-with-analytics-dicom.md
 - name: How-to guides
   expanded: true
   items:
+  - name: Develop Applications
+    expanded: false
+    items:
+    - name: Using DICOM Service for digital pathology
+      href: dicom-digital-pathology.md
   - name: Access DICOM service
     expanded: false
     items:
@@ -32,14 +39,16 @@ items:
       href: dicom-configure-azure-rbac.md#assign-roles-for-the-dicom-service
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
-  - name: Diagnostic logging
+  - name: Audit and diagnostic logging
     expanded: false
     items: 
-    - name: Enable diagnostic logging in the DICOM service
+    - name: Enable audit and diagnostic logging in the DICOM service
       href: enable-diagnostic-logging.md
   - name: Operations
     expanded: false
     items:
+    - name: Export DICOM Files
+      href: export-dicom-files.md
     - name: Pull DICOM changes using the Change Feed
       href: pull-dicom-changes-from-change-feed.md
   - name: Using Azure Active Directory (Azure AD) for DICOM service
@@ -52,8 +61,6 @@ items:
 - name: Concepts
   expanded: true
   items:
-    - name: DICOMcast overview
-      href: dicom-cast-overview.md
     - name: DICOM Change Feed Overview
       href: dicom-change-feed-overview.md
     - name: DICOM Extended Query Tags overview
@@ -67,15 +74,20 @@ items:
       href: dicom-services-faqs.yml
     - name: API versioning for DICOM service
       href: api-versioning-dicom-service.md
+    - name: DICOM Service API v2 Changes
+      href: dicom-service-v2-api-changes.md
     - name: DICOM Conformance Statement
-      href: dicom-services-conformance-statement.md
+      expanded: true
+      items: 
+        - name: V2
+          href: dicom-services-conformance-statement-v2.md
+        - name: V1
+          href: dicom-services-conformance-statement.md
 - name: References
   expanded: true
   items:
     - name: DICOM service open-source projects
       href: references-for-dicom-service.md
-    - name: DICOMcast access request
-      href: dicom-cast-access-request.md
 
 
 

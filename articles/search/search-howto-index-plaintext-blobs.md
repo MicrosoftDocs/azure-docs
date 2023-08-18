@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 09/13/2022
 ---
 
 # How to index plain text blobs and files in Azure Cognitive Search

@@ -1,8 +1,8 @@
 ---
 title: Manage high availability - Azure portal - Azure Database for PostgreSQL - Flexible Server
 description: This article describes how to enable or disable high availability in Azure Database for PostgreSQL - Flexible Server through the Azure portal.
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -33,7 +33,7 @@ This section provides details specifically for HA-related fields. You can follow
     :::image type="content" source="./media/how-to-manage-high-availability-portal/subscription-region.png" alt-text="Screenshot of subscription and region selection.":::
 
 2.  Choose your **availability zone**. This is useful if you want to collocate your application in the same availability zone as the database to reduce latency. Choose **No Preference** if you want the flexible server to deploy the primary server on any availability zone. Note that only if you choose the availability zone for the primary in a zone-redundant HA deployment, you will be allowed to choose the standby availability zone.
-    ![AZ selection]()
+
      :::image type="content" source="./media/how-to-manage-high-availability-portal/zone-selection.png" alt-text="Screenshot of availability zone selection.":::  
 
 3.  Click the checkbox for **Enable high availability**. That will open up an option to choose high availability mode. If the region does not support AZs, then only same-zone mode is enabled.
@@ -145,7 +145,7 @@ Follow these steps to perform a planned failover from your primary to the standb
 
 There are Azure regions that do not support availability zones. If you have already deployed non-HA servers, you cannot directly enable zone redundant HA on the server, but you can perform restore and enable HA in that server.  Following steps shows how to enable Zone redundant HA for that server.
 
-1. From the overview page of the server, click **Restore** to [perform a PITR](how-to-restore-server-portal.md#restoring-to-the-latest-restore-point). Choose **Latest restore point**. 
+1. From the overview page of the server, click **Restore** to [perform a PITR](how-to-restore-server-portal.md#restore-to-the-latest-restore-point). Choose **Latest restore point**. 
 2. Choose a server name, availability zone.
 3. Click **Review+Create**".
 4. A new Flexible server will be created from the backup. 

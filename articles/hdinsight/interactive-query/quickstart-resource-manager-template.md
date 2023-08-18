@@ -3,8 +3,8 @@ title: 'Quickstart: Create Interactive Query cluster using template - Azure HDIn
 description: This quickstart shows how to use Resource Manager template to create an Interactive Query cluster in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
-ms.date: 03/13/2020
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.date: 12/28/2022
 #Customer intent: As a developer new to Interactive Query on Azure, I need to see how to create an Interactive Query cluster.
 ---
 
@@ -47,8 +47,8 @@ Two Azure resources are defined in the template:
     |Resource group|From the drop-down list, select your existing resource group, or select **Create new**.|
     |Location|The value will autopopulate with the location used for the resource group.|
     |Cluster Name|Enter a globally unique name. For this template, use only lowercase letters, and numbers.|
-    |Cluster Login User Name|Provide the username, default is **admin**.|
-    |Cluster Login Password|Provide a password. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ' " ` ). |
+    |Cluster Login User Name|Provide the username, default is `admin`.|
+    |Cluster Login Password|Provide a password. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ```' ` "``` ). |
     |Ssh User Name|Provide the username, default is sshuser|
     |Ssh Password|Provide the password.|
 
@@ -66,7 +66,7 @@ After you complete the quickstart, you may want to delete the cluster. With HDIn
 
 From the Azure portal, navigate to your cluster, and select **Delete**.
 
-[Delete Resource Manager template HBase](./media/quickstart-resource-manager-template/azure-portal-delete-hive.png)
+![Delete Resource Manager template HBase](./media/quickstart-resource-manager-template/azure-portal-delete-hive.png)
 
 You can also select the resource group name to open the resource group page, and then select **Delete resource group**. By deleting the resource group, you delete both the HDInsight cluster, and the default storage account.
 

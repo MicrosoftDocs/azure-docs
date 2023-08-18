@@ -16,7 +16,7 @@ ms.date: 07/21/2022
 
 This quickstart shows how to design, develop, and deploy automated workflows that integrate apps, data, systems, and services across enterprises and organizations by using multi-tenant [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio. Although you can perform these tasks in the Azure portal, Visual Studio lets you add your logic apps to source control, publish different versions, and create Azure Resource Manager templates for different deployment environments. For more information about multi-tenant versus single-tenant model, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
-If you're new to Azure Logic Apps and just want the basic concepts, try the [quickstart for creating a logic app workflow in the Azure portal](quickstart-create-first-logic-app-workflow.md). The workflow designer works similarly in both the Azure portal and Visual Studio.
+If you're new to Azure Logic Apps and just want the basic concepts, try the [quickstart for creating an example Consumption logic app workflow in the Azure portal](quickstart-create-example-consumption-workflow.md). The workflow designer works similarly in both the Azure portal and Visual Studio.
 
 In this quickstart, you create the same logic app workflow with Visual Studio as the Azure portal quickstart. You can also learn to [create an example logic app workflow in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md), and [create and manage logic app workflows using the Azure CLI](quickstart-logic-apps-azure-cli.md). This logic app workflow monitors a website's RSS feed and sends email for each new item in that feed. Your finished logic app workflow looks like the following high-level workflow:
 
@@ -30,7 +30,7 @@ In this quickstart, you create the same logic app workflow with Visual Studio as
 
 * Download and install these tools, if you don't have them already:
 
-  * [Visual Studio 2019, 2017, or 2015 - Community edition](https://aka.ms/download-visual-studio). This quickstart uses Visual Studio Community 2017. Currently, Visual Studio 2022 doesn't include support for the Azure Logic Apps extension.
+  * [Visual Studio 2019, 2017, or 2015 - Community edition](https://aka.ms/download-visual-studio), which is free. The Azure Logic Apps extension is currently unavailable for Visual Studio 2022. This quickstart uses Visual Studio Community 2017.
 
     > [!IMPORTANT]
     > If you use Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload. 
@@ -166,7 +166,7 @@ Next, add an RSS [trigger](../logic-apps/logic-apps-overview.md#logic-app-concep
 
    ![Screenshot showing workflow designer with RSS trigger selected.](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 
-1. After the trigger appears in the designer, finish building the logic app by following the workflow steps in the [Azure portal quickstart](../logic-apps/quickstart-create-first-logic-app-workflow.md#add-rss-trigger), then return to this article. When you're done, your logic app looks like this example:
+1. After the trigger appears in the designer, finish building the logic app workflow by following the workflow steps in the [Azure portal quickstart](../logic-apps/quickstart-create-example-consumption-workflow.md#add-rss-trigger), then return to this article. When you're done, your logic app looks like this example:
 
    ![Screenshot showing finished logic app workflow.](./media/quickstart-create-logic-apps-with-visual-studio/finished-logic-app-workflow.png)
 

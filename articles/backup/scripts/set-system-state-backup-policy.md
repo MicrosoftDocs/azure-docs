@@ -3,6 +3,8 @@ title: Script Sample - Create a new or modify the current system state backup po
 description: Learn about how to use a script to create a new or modify the current system state backup policy.
 ms.topic: sample
 ms.date: 06/23/2021
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 #  PowerShell Script to create a new or modify the current system state backup policy

@@ -2,15 +2,15 @@
 title: Protect against consent phishing
 description: Learn ways of mitigating against application-based consent phishing attacks using Azure Active Directory.
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/17/2022
-ms.custom: template-concept
-ms.author: davidmu
+ms.custom: template-concept, enterprise-apps-article
+ms.author: jomondi
 ms.reviewer: tilarso
 
 #Customer intent: As a developer, I want to learn how to protect against application-based consent phishing attacks so I can protect my users from malicious threat actors.
@@ -35,7 +35,7 @@ Administrators, users, or Microsoft security researchers may flag OAuth applicat
 When Azure AD disables an OAuth application, the following actions occur:
 
 - The malicious application and related service principals are placed into a fully disabled state. Any new token requests or requests for refresh tokens are denied, but existing access tokens are still valid until their expiration.
-- The disabled state is surfaced through an exposed property called *disabledByMicrosoftStatus* on the related [application](/graph/api/resources/application) and [service principal](/graph/api/resources/serviceprincipal) resource types in Microsoft Graph.
+- These applications will show `DisabledDueToViolationOfServicesAgreement` on the `disabledByMicrosoftStatus` property on the related [application](/graph/api/resources/application) and [service principal](/graph/api/resources/serviceprincipal) resource types in Microsoft Graph. To prevent them from being instantiated in your organization again in the future, you cannot delete these objects.
 - An email is sent to a global administrator when a user in an organization consented to an application before it was disabled. The email specifies the action taken and recommended steps they can do to investigate and improve their security posture.
 
 ## Recommended response and remediation
@@ -53,7 +53,7 @@ If the organization has been impacted by an application disabled by Microsoft, t
 Administrators should be in control of application use by providing the right insights and capabilities to control how applications are allowed and used within organizations. While attackers never rest, there are steps organizations can take to improve the security posture. Some best practices to follow include:
 
 - Educate your organization on how our permissions and consent framework works:
-  - Understand the data and the permissions an application is asking for and understand how [permissions and consent](../develop/v2-permissions-and-consent.md) works within the platform.
+  - Understand the data and the permissions an application is asking for and understand how [permissions and consent](../develop/permissions-consent-overview.md) works within the platform.
   - Make sure that administrators know how to [manage and evaluate consent requests](./manage-consent-requests.md).
   - Routinely [audit applications and consented permissions](../../security/fundamentals/steps-secure-identity.md#audit-apps-and-consented-permissions) in the organization to make sure that applications are accessing only the data they need and are adhering to the principles of least privilege.
 - Know how to spot and block common consent phishing tactics:
@@ -62,9 +62,9 @@ Administrators should be in control of application use by providing the right in
   - Block [consent phishing emails with Microsoft Defender for Office 365](/microsoft-365/security/office-365-security/set-up-anti-phishing-policies#impersonation-settings-in-anti-phishing-policies-in-microsoft-defender-for-office-365) by protecting against phishing campaigns where an attacker is impersonating a known user in the organization.
   - Configure Microsoft Defender for Cloud Apps policies to help manage abnormal application activity in the organization. For example, [activity policies](/cloud-app-security/user-activity-policies), [anomaly detection](/cloud-app-security/anomaly-detection-policy), and [OAuth app policies](/cloud-app-security/app-permission-policy).
   - Investigate and hunt for consent phishing attacks by following the guidance on [advanced hunting with Microsoft 365 Defender](/microsoft-365/security/defender/advanced-hunting-overview).
-- Allow access to trusted applications and protect against those applications that aren't:
-  - Use applications that have been publisher verified. [Publisher verification](../develop/publisher-verification-overview.md) helps administrators and users understand the authenticity of application developers through a Microsoft supported vetting process.
-  - [Configure user consent settings](./configure-user-consent.md?tabs=azure-portal) to allow users to only consent to specific trusted applications, such as applications developed by the organization or from verified publishers.
+- Allow access to trusted applications that meet certain criteria and protect against those applications that don't:
+  - [Configure user consent settings](./configure-user-consent.md?tabs=azure-portal) to allow users to only consent to applications that meet certain criteria, such as applications developed by your organization or from verified publishers and only for low risk permissions you select.
+  - Use applications that have been publisher verified. [Publisher verification](../develop/publisher-verification-overview.md) helps administrators and users understand the authenticity of application developers through a Microsoft supported vetting process. Even if an application does have a verified publisher, it is still important to review the consent prompt to understand and evaluate the request. For example, reviewing the permissions being requested to ensure they align with the scenario the app is requesting them to enable, additional app and publisher details on the consent prompt, etc.
   - Create proactive [application governance](/microsoft-365/compliance/app-governance-manage-app-governance) policies to monitor third-party application behavior on the Microsoft 365 platform to address common suspicious application behaviors.
 
 ## Next steps
@@ -72,3 +72,4 @@ Administrators should be in control of application use by providing the right in
 - [Application consent grant investigation](/security/compass/incident-response-playbook-app-consent)
 - [Managing access to applications](./what-is-access-management.md)
 - [Restrict user consent operations in Azure AD](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations)
+- [Compromised and malicious applications investigation](/security/compass/incident-response-playbook-compromised-malicious-app)

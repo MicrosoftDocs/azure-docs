@@ -1,14 +1,13 @@
 ---
-title: Azure data transfer options for large datasets, moderate to high network bandwidth| Microsoft Docs
+title: Azure data transfer options for large datasets, moderate to high network bandwidth
 description: Learn how to choose an Azure solution for data transfer when you have moderate to high network bandwidth in your environment and you are planning to transfer large datasets.
 services: storage
-author: alkohli
+author: stevenmatthew
 
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 06/28/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Data transfer for large datasets with moderate to high network bandwidth
@@ -60,7 +59,7 @@ If using offline data transfer, use the following table to understand the differ
 |                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy            |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    **Data size**                    |    Up to 35 TBs                 |    Up to 80 TBs per device                       |    Up to 800 TB per device               |    Variable                            |
-|    **Data type**                    |    Azure Blobs                  |    Azure Blobs<br>Azure Files                    |    Azure Blobs<br>Azure Files            |    Azure Blobs<br>Azure Files          |
+|    **Data type**                    |    Azure Blobs<br>Azure Files*   |    Azure Blobs<br>Azure Files                    |    Azure Blobs<br>Azure Files            |    Azure Blobs<br>Azure Files          |
 |    **Form factor**                  |    5 SSDs per order             |    1 X 50-lbs. desktop-sized device per order    |    1 X ~500-lbs. large device per order    |    Up to 10 HDDs/SSDs per order        |
 |    **Initial setup time**               |    Low <br>(15 mins)            |    Low to moderate <br> (<30 mins)               |    Moderate<br>(1-2 hours)               |    Moderate to difficult<br>(variable) |
 |    **Send data to Azure**           |    Yes                          |    Yes                                           |    Yes                                   |    Yes                                 |
@@ -72,6 +71,8 @@ If using offline data transfer, use the following table to understand the differ
 |    **Shipping**                     |    Microsoft managed            |    Microsoft managed                             |    Microsoft managed                     |    Customer managed                    |
 | **Use when data moves**     |Within a commerce boundary|Within a commerce boundary|Within a commerce boundary|Across geographic boundaries, e.g. US to EU|
 |    **Pricing**                          |    [Pricing](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Pricing](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
+
+*\* Data Box Disk does not support Large File Shares and does not preserve file metadata*
 
 If using online data transfer, use the table in the following section for high network bandwidth.
 

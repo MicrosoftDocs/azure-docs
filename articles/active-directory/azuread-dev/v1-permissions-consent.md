@@ -1,5 +1,5 @@
 ---
-title: Permissions in Azure Active Directory | Microsoft docs
+title: Permissions in Azure Active Directory
 description: Learn about permissions in Azure Active Directory and how to use them.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: jesakowi
-ms.custom: aaddev
+ms.custom: aaddev, has-azure-ad-ps-ref
 ROBOTS: NOINDEX
 ---
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) makes extensive use of permissions for both OA
 Azure AD defines two kinds of permissions:
 
 * **Delegated permissions** - Are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests and the app is delegated permission to act as the signed-in user when making calls to an API. Depending on the API, the user may not be able to consent to the API directly and would instead [require an administrator to provide "admin consent"](../develop/howto-convert-app-to-be-multi-tenant.md).
-* **Application permissions** - Are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons. Application permissions can only be [consented to by administrators](../develop/v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) because they are typically powerful and allow access to data across user-boundaries, or data that would otherwise be restricted to administrators. Users who are defined as owners of the resource application (i.e. the API which publishes the permissions) are also allowed to grant application permissions for the APIs they own.
+* **Application permissions** - Are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons. Application permissions can only be [consented to by administrators](../develop/permissions-consent-overview.md) because they are typically powerful and allow access to data across user-boundaries, or data that would otherwise be restricted to administrators. Users who are defined as owners of the resource application (i.e. the API which publishes the permissions) are also allowed to grant application permissions for the APIs they own.
 
 Effective permissions are the permissions that your app will have when making requests to an API. 
 
@@ -71,12 +71,12 @@ Applications in Azure AD rely on consent in order to gain access to necessary re
 * **Static user consent** - Occurs automatically during the [OAuth 2.0 authorize flow](v1-protocols-oauth-code.md#request-an-authorization-code) when you specify the resource that your app wants to interact with. In the static user consent scenario, your app must have already specified all the permissions it needs in the app's configuration in the Azure portal. If the user (or administrator, as appropriate) has not granted consent for this app, then Azure AD will prompt the user to provide consent at this time. 
 
     Learn more about registering an Azure AD app that requests access to a static set of APIs.
-* **Dynamic user consent** - Is a feature of the v2 Azure AD app model. In this scenario, your app requests a set of permissions that it needs in the [OAuth 2.0 authorize flow for v2 apps](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent). If the user has not consented already, they will be prompted to consent at this time. [Learn more about dynamic consent](./azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+* **Dynamic user consent** - Is a feature of the v2 Azure AD app model. In this scenario, your app requests a set of permissions that it needs in the [OAuth 2.0 authorize flow for v2 apps](../develop/permissions-consent-overview.md#requesting-individual-user-consent). If the user has not consented already, they will be prompted to consent at this time. [Learn more about dynamic consent](./azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
     > [!IMPORTANT]
     > Dynamic consent can be convenient, but presents a big challenge for permissions that require admin consent, since the admin consent experience doesn't know about those permissions at consent time. If you require admin privileged permissions or if your app uses dynamic consent, you must register all of the permissions in the Azure portal (not just the subset of permissions that require admin consent). This enables tenant admins to consent on behalf of all their users.
   
-* **Admin consent** - Is required when your app needs access to certain high-privilege permissions. Admin consent ensures that administrators have some additional controls before authorizing apps or users to access highly privileged data from the organization. [Learn more about how to grant admin consent](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
+* **Admin consent** - Is required when your app needs access to certain high-privilege permissions. Admin consent ensures that administrators have some additional controls before authorizing apps or users to access highly privileged data from the organization. [Learn more about how to grant admin consent](../develop/permissions-consent-overview.md).
 
 ## Best practices
 

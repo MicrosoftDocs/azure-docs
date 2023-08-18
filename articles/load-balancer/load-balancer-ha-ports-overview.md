@@ -4,12 +4,11 @@ titleSuffix: Azure Load Balancer
 description: Learn about high availability ports load balancing on an internal load balancer. 
 author: mbender-ms
 ms.service: load-balancer
-ms.topic: article
-ms.custom: seodec18
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/14/2022
+ms.date: 05/03/2023
 ms.author: mbender
+ms.custom: template-concept, seodec18, engagement-fy23
 ---
 
 # High availability ports overview
@@ -49,13 +48,9 @@ The following diagram presents a hub-and-spoke virtual network deployment. The s
 
 You can also use HA ports for applications that require load balancing of large numbers of ports. You can simplify these scenarios by using an internal [standard load balancer](./load-balancer-overview.md) with HA ports. A single load-balancing rule replaces multiple individual load-balancing rules, one for each port.
 
-## Region availability
-
-The HA ports feature is available in all the global Azure regions.
-
 ## Supported configurations
 
-### A single, non-floating IP (non-Direct Server Return) HA-ports configuration on an internal standard load balancer
+### A single, nonfloating IP (non-Direct Server Return) HA-ports configuration on an internal standard load balancer
 
 This configuration is a basic HA ports configuration. Use the following steps to configure an HA ports load-balancing rule on a single frontend IP address:
 
@@ -71,7 +66,7 @@ However, you can configure a public Standard Load Balancer for the back-end inst
 
 You can similarly configure your load balancer to use a load-balancing rule with **HA Port** with a single front end by setting the **Floating IP** to **Enabled**. 
 
-With this configuration, you can add more floating IP load-balancing rules and/or a public load balancer. However, you can't use a non-floating IP, HA-ports load-balancing configuration on top of this configuration.
+With this configuration, you can add more floating IP load-balancing rules and/or a public load balancer. However, you can't use a nonfloating IP, HA-ports load-balancing configuration on top of this configuration.
 
 ### Multiple HA-ports configurations on an internal standard load balancer
 
@@ -93,7 +88,7 @@ You can configure **one** public standard load balancer resource for the backend
 
 - The combining of an HA ports load-balancing rule and a non-HA ports load-balancing rule pointing to the same backend **ipconfiguration(s)** isn't supported on a single front-end IP configuration unless both have Floating IP enabled.
 
-- IP fragmenting isn't supported. If a packet is already fragmented, it's forwarded based on the two-tuple [distribution mode](distribution-mode-concepts.md) when enabled on HA ports load-balancing rules.
+- IP fragmenting isn't supported. 
 
 - Flow symmetry for NVA scenarios with a backend instance and a single IP/single NIC configuration is supported only when used as shown in the diagram above. Flow symmetry isn't provided in any other scenario. Two or more load balancer resources and their rules make independent decisions and aren't coordinated. Flow symmetry isn't available with the use of multiple IP configurations. Flow symmetry isn't available when placing the NVA between a public and internal load balancer. We recommend the use of a single IP/single NIC configuration referenced in the architecture above.
 

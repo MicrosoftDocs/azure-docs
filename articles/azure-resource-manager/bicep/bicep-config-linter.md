@@ -2,7 +2,8 @@
 title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
 ms.topic: conceptual
-ms.date: 08/01/2022
+ms.custom: devx-track-bicep
+ms.date: 03/16/2023
 ---
 
 # Add linter settings in the Bicep config file
@@ -29,7 +30,28 @@ The following example shows the rules that are available for configuration.
         "artifacts-parameters": {
           "level": "warning"
         },
+        "decompiler-cleanup": {
+          "level": "warning"
+        },
+        "max-outputs": {
+          "level": "warning"
+        },
+        "max-params": {
+          "level": "warning"
+        },
+        "max-resources": {
+          "level": "warning"
+        },
+        "max-variables": {
+          "level": "warning"
+        },
         "no-hardcoded-env-urls": {
+          "level": "warning"
+        },
+        "no-hardcoded-location": {
+          "level": "warning"
+        },
+        "no-loc-expr-outside-params": {
           "level": "warning"
         },
         "no-unnecessary-dependson": {
@@ -59,10 +81,29 @@ The following example shows the rules that are available for configuration.
         "secure-parameter-default": {
           "level": "warning"
         },
-        "simplify-interpolation": {
+        "secure-params-in-nested-deploy": {
           "level": "warning"
         },
         "secure-secrets-in-params": {
+          "level": "warning"
+        },
+        "simplify-interpolation": {
+          "level": "warning"
+        },
+        "simplify-json-null": {
+          "level": "warning"
+        },
+        "use-parent-property": {
+          "level": "warning"
+        },
+        "use-recent-api-versions": {
+          "level": "warning",
+          "maxAllowedAgeInDays": 730
+        },
+        "use-resource-id-functions": {
+          "level": "warning"
+        },
+        "use-resource-symbol-reference": {
           "level": "warning"
         },
         "use-stable-resource-identifiers": {

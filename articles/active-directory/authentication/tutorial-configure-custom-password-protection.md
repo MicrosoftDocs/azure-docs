@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -35,7 +35,7 @@ To complete this tutorial, you need the following resources and privileges:
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An account with *global administrator* privileges.
 * A non-administrator user with a password you know, such as *testuser*. You test a password change event using this account in this tutorial.
-    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users.md).
     * To test the password change operation using a banned password, the Azure AD tenant must be [configured for self-service password reset](tutorial-enable-sspr.md).
 
 ## What are banned password lists?
@@ -59,6 +59,8 @@ When a user attempts to reset a password to something that's on the global or cu
 The custom banned password list is limited to a maximum of 1000 terms. It's not designed for blocking large lists of passwords. To maximize the benefits of the custom banned password list, review the [custom banned password list concepts](concept-password-ban-bad.md#custom-banned-password-list) and [password evaluation algorithm overview](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
 ## Configure custom banned passwords
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 Let's enable the custom banned password list and add some entries. You can add additional entries to the custom banned password list at any time.
 

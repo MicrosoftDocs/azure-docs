@@ -4,7 +4,7 @@ description: This tutorial walks through setting up your development machine and
 author: fcabrera
 
 ms.author: fcabrera
-ms.date: 03/01/2020
+ms.date: 11/15/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Tutorial: Develop IoT Edge modules with Linux containers using IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 Use Visual Studio 2019 to develop, debug and deploy code to devices running IoT Edge for Linux on Windows.
 
@@ -36,7 +36,7 @@ This article assumes that you use a machine running Windows as your development 
 
 * Install [IoT Edge for Linux on Windows (EFLOW)](./how-to-provision-single-device-linux-on-windows-x509.md)
 * Quickstart: [Deploy your first IoT Edge module to a Windows device](./quickstart.md)
-* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/3.1).
+* [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 Install Visual Studio on your development machine. Make sure you include the **Azure development** and **Desktop development with C#** workloads in your Visual Studio 2019 installation. You can [Modify Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019&preserve-view=true) to add the required workloads.
 
@@ -62,7 +62,7 @@ Cloud resources:
 1. If your version is older than what's available on Visual Studio Marketplace, update your tools in Visual Studio as shown in the following section.
 
 > [!NOTE]
-> If you are using Visual Studio 2022, [Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2022&preserve-view=true) is retired. To deploy Azure IoT Edge modules, use [Azure CLI](how-to-deploy-modules-cli.md?view=iotedge-2020-11&preserve-view=true) or [Azure portal](how-to-deploy-modules-portal.md?view=iotedge-2020-11&preserve-view=true).
+> If you are using Visual Studio 2022, [Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2022&preserve-view=true) is retired. To deploy Azure IoT Edge modules, use [Azure CLI](how-to-deploy-modules-cli.md) or [Azure portal](how-to-deploy-modules-portal.md).
 
 ### Update your tools
 
@@ -81,7 +81,7 @@ This tutorial walks through the development of an IoT Edge module. An *IoT Edge 
 
 When developing IoT Edge modules, it's important to understand the difference between the development machine and the target IoT Edge device where the module will eventually be deployed. The container that you build to hold your module code must match the operating system (OS) of the *target device*. For example, the most common scenario is someone developing a module on a Windows computer intending to target a Linux device running IoT Edge. In that case, the container operating system would be Linux. As you go through this tutorial, keep in mind the difference between the *development machine OS* and the *container OS*. For this tutorial, you'll be using your Windows host for development and the IoT Edge for Linux on Windows (EFLOW) VM for building and deploying the modules. 
 
-This tutorial targets devices running IoT Edge with Linux containers. You can use your preferred operating system as long as your development machine runs Linux containers. We recommend using Visual Studio to develop with Linux containers, so that's what this tutorial will use. You can use Visual Studio Code as well, although there are differences in support between the two tools. For more information, refer to [Tutorial: Develop IoT Edge modules with Linux containers](./tutorial-develop-for-linux.md).
+This tutorial targets devices running IoT Edge with Linux containers. You can use your preferred operating system as long as your development machine runs Linux containers. We recommend using Visual Studio to develop with Linux containers, so that's what this tutorial will use. You can use Visual Studio Code as well, although there are differences in support between the two tools. For more information, refer to [Develop Azure IoT Edge modules using Visual Studio Code](./tutorial-develop-for-linux.md).
 
 
 ## Set up docker-cli and Docker engine remote connection
@@ -172,7 +172,7 @@ The second step is to configure the EFLOW virtual machine Docker engine to accep
    172.31.24.105 
    ```
 
-1. Using the obtained IP address, connect to the EFLOW VM Docker engine, and run the Hello-World sample container.Replace \<EFLOW-VM-IP\> with the EFLOW VM IP address obtained in the previous step.
+1. Using the obtained IP address, connect to the EFLOW VM Docker engine, and run the Hello-World sample container. Replace \<EFLOW-VM-IP\> with the EFLOW VM IP address obtained in the previous step.
    ```powershell
    docker -H tcp://<EFLOW-VM-IP>:2375 run --rm hello-world
    ```
@@ -233,7 +233,7 @@ The IoT Edge project template in Visual Studio creates a solution that can be de
 
 Now, you have an IoT Edge project and an IoT Edge module in your Visual Studio solution.
 
-The module folder contains a file for your module code, named either `program.cs` or `main.c` depending on the language you chose. This folder also contains a file named `module.json` that describes the metadata of your module. Various Docker files provide the information needed to build your module as a Windows or Linux container.
+The module folder contains a file for your module code, named either `Program.cs` or `main.c` depending on the language you chose. This folder also contains a file named `module.json` that describes the metadata of your module. Various Docker files provide the information needed to build your module as a Windows or Linux container.
 
 The project folder contains a list of all the modules included in that project. Right now it should show only one module, but you can add more.
 
@@ -252,7 +252,7 @@ The IoT Edge extension defaults to the latest stable version of the IoT Edge run
 1. Re-generate your deployment manifest with the new runtime version. Right-click the name of your project and select **Generate deployment for IoT Edge**.
 
 > [!WARNING]
-> If you are chaging the IoT Edge runtime version, make sure the _deploymnet templates_ reflect the necessary changes. Currently there's a known issue with Azure IoT Edge Tools, that won't change the _"schemVersion"_ inside the _"properties.desired"_ object of _"$edgeHub"_ module (last section of the json file). 
+> If you are changing the IoT Edge runtime version, make sure the _deployment templates_ reflect the necessary changes. Currently, there's a known issue with Azure IoT Edge Tools that won't change the _"schemVersion"_ inside the _"properties.desired"_ object of _"$edgeHub"_ module (last section of the json file). 
 
 
 ### Set up Visual Studio 2019 remote Docker engine instance
@@ -367,7 +367,7 @@ Typically, you'll want to test and debug each module before running it within an
       $moduleId = Invoke-EflowVmCommand "sudo docker ps -aqf name=<iot-edge-module-name>"
       ```
 
-   1. Check that the $moduleId is correct – If the variable is empty, make sure you’re using the correct module name
+   1. Check that the $moduleId is correct - If the variable is empty, make sure you're using the correct module name
 
    1. Start the SSH service inside the Linux container
       
@@ -382,7 +382,7 @@ Typically, you'll want to test and debug each module before running it within an
    >[!WARNING]
    >For security reasons, every time the EFLOW VM reboots, the IP table rule will delete and go back to the original settings. Also, the module SSH service will have to be started again manually.
 
-1. After successfully starting SSH service, select **Debug** -> **Attach to Process**, set Connection Type to SSH, and Connection target to the IP address of your EFLOW VM. If you don’t know the EFLOW VM IP, you can use the `Get-EflowVmAddr` PowerShell cmdlet. First, type the IP and then press enter. In the pop-up window, input the following configurations:
+1. After successfully starting SSH service, select **Debug** -> **Attach to Process**, set Connection Type to SSH, and Connection target to the IP address of your EFLOW VM. If you don't know the EFLOW VM IP, you can use the `Get-EflowVmAddr` PowerShell cmdlet. First, type the IP and then press enter. In the pop-up window, input the following configurations:
 
    | Field               | Value                                                             |
    |---------------------|-------------------------------------------------------------------|
@@ -402,7 +402,7 @@ Typically, you'll want to test and debug each module before running it within an
 
 1. Set a breakpoint to inspect the module.
 
-   * If developing in C#, set a breakpoint in the `PipeMessage()` function in **Program.cs**.
+   * If developing in C#, set a breakpoint in the `PipeMessage()` function in **ModuleBackgroundService.cs**.
    * If using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**.
 
 1. The output of the **SimulatedTemperatureSensor** should be redirected to **input1** of the custom Linux C# module. The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window.
@@ -417,15 +417,11 @@ If you plan to continue to the next recommended article, you can keep the resour
 
 Otherwise, you can delete the local configurations and the Azure resources that you used in this article to avoid charges.
 
-[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
+[!INCLUDE [iot-edge-clean-up-cloud-resources](includes/iot-edge-clean-up-cloud-resources.md)]
 
 ## Next steps
 
-In this tutorial, you set up Visual Studio on your development machine and deployed and debugged your first IoT Edge module from it. Now that you know the basic concepts, try adding functionality to a module so that it can analyze the data passing through it. Choose your preferred language:
+In this tutorial, you set up Visual Studio on your development machine and deployed and debugged your first IoT Edge module from it. Now that you know the basic concepts, try adding functionality to a module so that it can analyze the data passing through it.
 
 > [!div class="nextstepaction"]
-> [C](tutorial-c-module.md)
-> [C#](tutorial-csharp-module.md)
-> [Java](tutorial-java-module.md)
-> [Node.js](tutorial-node-module.md)
-> [Python](tutorial-python-module.md)
+> [Develop Azure IoT Edge modules using Visual Studio Code](tutorial-develop-for-linux.md)

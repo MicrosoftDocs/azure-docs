@@ -1,27 +1,32 @@
 ---
-title: Delete and restore a blob container with JavaScript - Azure Storage 
+title: Delete and restore a blob container with JavaScript
+titleSuffix: Azure Storage 
 description: Learn how to delete and restore a blob container in your Azure Storage account using the JavaScript client library.
 services: storage
-author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 03/28/2022
-ms.author: normesta
-ms.subservice: blobs
+ms.date: 11/30/2022
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devguide-js
 ---
 
-# Delete and restore a container in Azure Storage with JavaScript
+# Delete and restore a blob container with JavaScript
 
-This article shows how to delete containers with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). If you've enabled container soft delete, you can restore deleted containers.
+This article shows how to delete containers with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).  If you've enabled [container soft delete](soft-delete-container-overview.md), you can restore deleted containers.
 
-The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
+## Prerequisites
+
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to delete a blob container, or to restore a soft-deleted container. To learn more, see the authorization guidance for the following REST API operations:
+    - [Delete Container](/rest/api/storageservices/delete-container#authorization)
+    - [Restore Container](/rest/api/storageservices/restore-container#authorization)
 
 ## Delete a container
 
-To delete a container in JavaScript, use one of the following methods:
+To delete a container in JavaScript, create a [BlobServiceClient](storage-blob-javascript-get-started.md#create-a-blobserviceclient-object) or [ContainerClient](storage-blob-javascript-get-started.md#create-a-containerclient-object) then use one of the following methods:
 
 - BlobServiceClient.[deleteContainer](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-deletecontainer#@azure-storage-blob-blobserviceclient-deletecontainer)
 - ContainerClient.[delete](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-deletecontainer)
@@ -31,7 +36,7 @@ After you delete a container, you can't create a container with the same name fo
 
 ## Delete container with BlobServiceClient
 
-The following example deletes the specified container. Use the **BlobServiceClient** for the container:
+The following example deletes the specified container. Use the [BlobServiceClient](storage-blob-javascript-get-started.md#create-a-blobserviceclient-object) to delete a container:
 
 ```javascript
 // delete container immediately on blobServiceClient
@@ -46,7 +51,7 @@ async function deleteContainerImmediately(blobServiceClient, containerName) {
 
 ## Delete container with ContainerClient
 
-The following example shows how to delete all of the containers whose name starts with a specified prefix.
+The following example shows how to delete all of the containers whose name starts with a specified prefix using a [ContainerClient](storage-blob-javascript-get-started.md#create-a-containerclient-object).
 
 ```javascript
 async function deleteContainersWithPrefix(blobServiceClient, blobNamePrefix){
@@ -73,7 +78,7 @@ async function deleteContainersWithPrefix(blobServiceClient, blobNamePrefix){
 
 ## Restore a deleted container
 
-When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify. You can restore a soft deleted container by calling.
+When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify. You can restore a soft-deleted container using a [BlobServiceClient](storage-blob-javascript-get-started.md#create-a-blobserviceclient-object) object:
 
 - BlobServiceClient.[undeleteContainer](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-deletecontainert#@azure-storage-blob-blobserviceclient-undeletecontainer)
 
@@ -118,9 +123,24 @@ async function undeleteContainer(blobServiceClient, containerName) {
 }
 ```
 
-## See also
+## Resources
 
-- [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md)
+To learn more about deleting a container using the Azure Blob Storage client library for JavaScript, see the following resources.
+
+### REST API operations
+
+The Azure SDK for JavaScript contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar JavaScript paradigms. The client library methods for deleting or restoring a container use the following REST API operations:
+
+- [Delete Container](/rest/api/storageservices/delete-container) (REST API)
+- [Restore Container](/rest/api/storageservices/restore-container) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/delete-containers.js)
+
+[!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
+
+### See also
+
 - [Soft delete for containers](soft-delete-container-overview.md)
 - [Enable and manage soft delete for containers](soft-delete-container-enable.md)
-- [Restore Container](/rest/api/storageservices/restore-container)

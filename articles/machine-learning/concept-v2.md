@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.author: balapv
 author: balapv
 ms.reviewer: sgilley
-ms.date: 04/29/2022
-ms.custom: cliv2, sdkv2, event-tier1-build-2022
+ms.date: 11/04/2022
+ms.custom: cliv2, sdkv2, event-tier1-build-2022, ignite-2022, devx-track-python
 #Customer intent: As a data scientist, I want to know whether to use v1 or v2 of CLI, SDK.
 ---
 
 # What is Azure Machine Learning CLI & Python SDK v2?
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-Azure Machine Learning CLI v2 and Azure Machine Learning Python SDK v2 (preview) introduce a consistency of features and terminology across the interfaces.  In order to create this consistency, the syntax of commands differs, in some cases significantly, from the first versions (v1).
+Azure Machine Learning CLI v2 and Azure Machine Learning Python SDK v2 introduce a consistency of features and terminology across the interfaces.  In order to create this consistency, the syntax of commands differs, in some cases significantly, from the first versions (v1).
 
 ## Azure Machine Learning CLI v2
 
-The Azure Machine Learning CLI v2 (CLI v2) is the latest extension for the [Azure CLI](/cli/azure/what-is-azure-cli). The CLI v2 provides commands in the format *az ml __\<noun\> \<verb\> \<options\>__* to create and maintain Azure ML assets and workflows. The assets or workflows themselves are defined using a YAML file. The YAML file defines the configuration of the asset or workflow – what is it, where should it run, and so on.
+The Azure Machine Learning CLI v2 (CLI v2) is the latest extension for the [Azure CLI](/cli/azure/what-is-azure-cli). The CLI v2 provides commands in the format *az ml __\<noun\> \<verb\> \<options\>__* to create and maintain Azure Machine Learning assets and workflows. The assets or workflows themselves are defined using a YAML file. The YAML file defines the configuration of the asset or workflow – what is it, where should it run, and so on.
 
 A few examples of CLI v2 commands:
 
@@ -35,9 +35,9 @@ A few examples of CLI v2 commands:
 
 The CLI v2 is useful in the following scenarios:
 
-* On board to Azure ML without the need to learn a specific programming language
+* On board to Azure Machine Learning without the need to learn a specific programming language
 
-    The YAML file defines the configuration of the asset or workflow – what is it, where should it run, and so on. Any custom logic/IP used, say data preparation, model training, model scoring can remain in script files, which are referred to in the YAML, but not part of the YAML itself. Azure ML supports script files in python, R, Java, Julia or C#. All you need to learn is YAML format and command lines to use Azure ML. You can stick with script files of your choice.
+    The YAML file defines the configuration of the asset or workflow – what is it, where should it run, and so on. Any custom logic/IP used, say data preparation, model training, model scoring can remain in script files, which are referred to in the YAML, but not part of the YAML itself. Azure Machine Learning supports script files in python, R, Java, Julia or C#. All you need to learn is YAML format and command lines to use Azure Machine Learning. You can stick with script files of your choice.
 
 * Ease of deployment and automation
 
@@ -45,26 +45,21 @@ The CLI v2 is useful in the following scenarios:
 
 * Managed inference deployments
 
-    Azure ML offers [endpoints](concept-endpoints.md) to streamline model deployments for both real-time and batch inference deployments. This functionality is available only via CLI v2 and SDK v2 (preview).
+    Azure Machine Learning offers [endpoints](concept-endpoints.md) to streamline model deployments for both real-time and batch inference deployments. This functionality is available only via CLI v2 and SDK v2.
 
 * Reusable components in pipelines
 
-    Azure ML introduces [components](concept-component.md) for managing and reusing common logic across pipelines. This functionality is available only via CLI v2 and SDK v2.
+    Azure Machine Learning introduces [components](concept-component.md) for managing and reusing common logic across pipelines. This functionality is available only via CLI v2 and SDK v2.
 
 
-## Azure Machine Learning Python SDK v2 (preview)
+## Azure Machine Learning Python SDK v2
 
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure ML Python SDK v2 is an updated Python SDK package, which allows users to:
+Azure Machine Learning Python SDK v2 is an updated Python SDK package, which allows users to:
 
 * Submit training jobs
 * Manage data, models, environments
 * Perform managed inferencing (real time and batch)
-* Stitch together multiple tasks and production workflows using Azure ML pipelines
+* Stitch together multiple tasks and production workflows using Azure Machine Learning pipelines
 
 The SDK v2 is on par with CLI v2 functionality and is consistent in how assets (nouns) and actions (verbs) are used between SDK and CLI.  For example, to list an asset, the `list` action can be used in both CLI and SDK. The same `list` action can be used to list a compute, model, environment, and so on.
 
@@ -74,7 +69,7 @@ The SDK v2 is useful in the following scenarios:
 
 * Use Python functions to build a single step or a complex workflow
 
-    SDK v2 allows you to build a single command or a chain of commands like python functions - the command has a name, parameters, expects input, and returns output.
+    SDK v2 allows you to build a single command or a chain of commands like Python functions - the command has a name, parameters, expects input, and returns output.
 
 * Move from simple to complex concepts incrementally
 
@@ -87,11 +82,11 @@ The SDK v2 is useful in the following scenarios:
 
 * Reusable components in pipelines
 
-    Azure ML introduces [components](concept-component.md) for managing and reusing common logic across pipelines. This functionality is available only via CLI v2 and SDK v2.
+    Azure Machine Learning introduces [components](concept-component.md) for managing and reusing common logic across pipelines. This functionality is available only via CLI v2 and SDK v2.
 
 * Managed inferencing
 
-    Azure ML offers [endpoints](concept-endpoints.md) to streamline model deployments for both real-time and batch inference deployments. This functionality is available only via CLI v2 and SDK v2.
+    Azure Machine Learning offers [endpoints](concept-endpoints.md) to streamline model deployments for both real-time and batch inference deployments. This functionality is available only via CLI v2 and SDK v2.
 
 ## Should I use v1 or v2?
 
@@ -102,8 +97,9 @@ The Azure Machine Learning CLI v1 has been deprecated. We recommend you to use C
 * You were a CLI v1 user
 * You want to use new features like - reusable components, managed inferencing
 * You don't want to use a Python SDK - CLI v2 allows you to use YAML with scripts in python, R, Java, Julia or C#
-* You were a user of R SDK previously - Azure ML won't support an SDK in `R`. However, the CLI v2 has support for `R` scripts.
+* You were a user of R SDK previously - Azure Machine Learning won't support an SDK in `R`. However, the CLI v2 has support for `R` scripts.
 * You want to use command line based automation/deployments
+* You don't need Spark Jobs. This feature is currently available in preview in CLI v2.
 
 ### SDK v2
 
@@ -112,19 +108,18 @@ The Azure Machine Learning Python SDK v1 doesn't have a planned deprecation date
 * You want to use new features like - reusable components, managed inferencing
 * You're starting a new workflow or pipeline - all new features and future investments will be introduced in v2
 * You want to take advantage of the improved usability of the Python SDK v2 - ability to compose jobs and pipelines using Python functions, easy evolution from simple to complex tasks etc.
-* You don't need features like AutoML in pipelines, Parallel Run Steps, Scheduling Pipelines and Spark Jobs. These features are not yet available in SDK v2.
 
 ## Next steps
 
-* [How to migrate from v1 to v2](how-to-migrate-from-v1.md)
+* [How to upgrade from v1 to v2](how-to-migrate-from-v1.md)
 * Get started with CLI v2
 
     * [Install and set up CLI (v2)](how-to-configure-cli.md)
-    * [Train models with the CLI (v2)](how-to-train-cli.md)
-    * [Deploy and score models with managed online endpoint](how-to-deploy-managed-online-endpoints.md)
+    * [Train models with the CLI (v2)](how-to-train-model.md)
+    * [Deploy and score models with online endpoints](how-to-deploy-online-endpoints.md)
     
 * Get started with SDK v2
 
     * [Install and set up SDK (v2)](https://aka.ms/sdk-v2-install)
-    * [Train models with the Azure ML Python SDK v2 (preview)](how-to-train-sdk.md)
-    * [Tutorial: Create production ML pipelines with Python SDK v2 (preview) in a Jupyter notebook](tutorial-pipeline-python-sdk.md)
+    * [Train models with the Azure Machine Learning Python SDK v2](how-to-train-model.md)
+    * [Tutorial: Create production ML pipelines with Python SDK v2 in a Jupyter notebook](tutorial-pipeline-python-sdk.md)

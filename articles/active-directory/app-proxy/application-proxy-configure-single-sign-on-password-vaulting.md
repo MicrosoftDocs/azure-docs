@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -17,11 +17,13 @@ ms.reviewer: ashishj
 
 Azure Active Directory Application Proxy helps you improve productivity by publishing on-premises applications so that remote employees can securely access them, too. In the Azure portal, you can also set up single sign-on (SSO) to these apps. Your users only need to authenticate with Azure AD, and they can access your enterprise application without having to sign in again.
 
-Application Proxy supports several [single sign-on modes](../manage-apps/sso-options.md#choosing-a-single-sign-on-method). Password-based sign-on is intended for applications that use a username/password combination for authentication. When you configure password-based sign-on for your application, your users have to sign in to the on-premises application once. After that, Azure Active Directory stores the sign-in information and automatically provides it to the application when your users access it remotely.
+Application Proxy supports several [single sign-on modes](../manage-apps/plan-sso-deployment.md#choosing-a-single-sign-on-method). Password-based sign-on is intended for applications that use a username/password combination for authentication. When you configure password-based sign-on for your application, your users have to sign in to the on-premises application once. After that, Azure Active Directory stores the sign-in information and automatically provides it to the application when your users access it remotely.
 
 You should already have published and tested your app with Application Proxy. If not, follow the steps in [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md) then come back here.
 
 ## Set up password vaulting for your application
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 1. Select **Azure Active Directory** > **Enterprise applications** > **All applications**.

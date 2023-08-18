@@ -1,24 +1,20 @@
 ---
-title: What is Azure Synapse Link for SQL? (Preview)
-description: Learn about Azure Synapse Link for SQL, the benefit it offers and price
+title: What is Azure Synapse Link for SQL?
+description: Learn about Azure Synapse Link for SQL, the benefits it offers, and price.
 services: synapse-analytics 
 author: SnehaGunda
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 04/18/2022
+ms.date: 11/16/2022
 ms.author: sngun
 ms.reviewer: sngun
 ---
 
-# What is Azure Synapse Link for SQL? (Preview)
+# What is Azure Synapse Link for SQL?
 
 Azure Synapse Link for SQL enables near real time analytics over operational data in Azure SQL Database or SQL Server 2022. With a seamless integration between operational stores including Azure SQL Database and SQL Server 2022 and Azure Synapse Analytics, Azure Synapse Link for SQL enables you to run analytics, business intelligence and machine learning scenarios on your operational data with minimum impact on source databases with a new change feed technology.
-
-> [!IMPORTANT]
-> Azure Synapse Link for Azure SQL is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The following image shows the Azure Synapse Link integration with Azure SQL DB, SQL Server 2022, and Azure Synapse Analytics:
 
@@ -39,7 +35,7 @@ You can now get rich insights by analyzing operational data in Azure SQL Databas
 
 ## Next steps
 
-* [Azure Synapse Link for Azure SQL Database (Preview)](sql-database-synapse-link.md).
-* [Azure Synapse Link for SQL Server 2022 (Preview)](sql-server-2022-synapse-link.md).
-* How to [Configure Azure Synapse Link for SQL Server 2022 (Preview)](connect-synapse-link-sql-server-2022.md).
-* How to [Configure Azure Synapse Link for Azure SQL Database (Preview)](connect-synapse-link-sql-database.md).
+* [Azure Synapse Link for Azure SQL Database](sql-database-synapse-link.md).
+* [Azure Synapse Link for SQL Server 2022](sql-server-2022-synapse-link.md).
+* How to [Configure Azure Synapse Link for SQL Server 2022](connect-synapse-link-sql-server-2022.md).
+* How to [Configure Azure Synapse Link for Azure SQL Database](connect-synapse-link-sql-database.md).

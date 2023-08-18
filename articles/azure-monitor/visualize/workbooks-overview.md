@@ -5,7 +5,7 @@ services: azure-monitor
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.date: 06/21/2023
 ms.reviewer: gardnerjr 
 ---
 
@@ -21,6 +21,9 @@ Workbooks are helpful for scenarios such as:
 - Explaining to your team how a recently provisioned VM is performing. You can show metrics for key counters and other log events.
 - Sharing the results of a resizing experiment of your VM with other members of your team. You can explain the goals for the experiment with text. Then you can show each usage metric and the analytics queries used to evaluate the experiment, along with clear call-outs for whether each metric was above or below target.
 - Reporting the impact of an outage on the usage of your VM. You can combine data, text explanation, and a discussion of next steps to prevent outages in the future.
+
+Watch this video to see how you can use Azure Workbooks to get insights and visualize your data.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5a1su]
 
 ## The gallery
 

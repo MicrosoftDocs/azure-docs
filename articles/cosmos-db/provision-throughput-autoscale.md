@@ -1,16 +1,16 @@
 ---
-title: Create Azure Cosmos containers and databases in autoscale mode.
-description: Learn about the benefits, use cases, and how to provision Azure Cosmos databases and containers in autoscale mode.
+title: Create Azure Cosmos DB containers and databases in autoscale mode.
+description: Learn about the benefits, use cases, and how to provision Azure Cosmos DB databases and containers in autoscale mode.
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/01/2022
-ms.custom: "seo-nov-2020"
+ms.custom: seo-nov-2020, ignite-2022
 ---
 
-# Create Azure Cosmos containers and databases with autoscale throughput
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+# Create Azure Cosmos DB containers and databases with autoscale throughput
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 In Azure Cosmos DB, you can configure either standard (manual) or autoscale provisioned throughput on your databases and containers. Autoscale provisioned throughput in Azure Cosmos DB allows you to **scale the throughput (RU/s) of your database or container automatically and instantly**. The throughput is scaled based on the usage, without impacting the availability, latency, throughput, or performance of the workload.
 
@@ -18,7 +18,7 @@ Autoscale provisioned throughput is well suited for mission-critical workloads t
 
 ## Benefits of autoscale
 
-Azure Cosmos databases and containers that are configured with autoscale provisioned throughput have the following benefits:
+Azure Cosmos DB databases and containers that are configured with autoscale provisioned throughput have the following benefits:
 
 * **Simple:** Autoscale removes the complexity of managing RU/s with custom scripting or manually scaling capacity. 
 
@@ -38,7 +38,7 @@ The use cases of autoscale include:
 
 * **Infrequently used applications:** If you have an application that's only used for a few hours several times a day, week, or month — such as a low-volume application/web/blog site — autoscale adjusts the capacity to handle peak usage and scales down when it's over. 
 
-* **Development and test workloads:** If you or your team use Azure Cosmos databases and containers during work hours, but don't need them on nights or weekends, autoscale helps save cost by scaling down to a minimum when not in use. 
+* **Development and test workloads:** If you or your team use Azure Cosmos DB databases and containers during work hours, but don't need them on nights or weekends, autoscale helps save cost by scaling down to a minimum when not in use. 
 
 * **Scheduled production workloads/queries:** If you have a series of scheduled requests, operations, or queries that you want to run during idle periods, you can do that easily with autoscale. When you need to run the workload, the throughput will automatically scale to what's needed and scale down afterward. 
 
@@ -58,11 +58,11 @@ Use the [Azure portal](how-to-provision-autoscale-throughput.md#enable-autoscale
 
 ## <a id="autoscale-limits"></a> Throughput and storage limits for autoscale
 
-For any value of `Tmax`, the database or container can store a total of `0.01 * Tmax GB`. After this amount of storage is reached, the maximum RU/s will be automatically increased based on the new storage value, with no impact to your application. 
+For any value of `Tmax`, the database or container can store a total of `0.1 * Tmax GB`. After this amount of storage is reached, the maximum RU/s will be automatically increased based on the new storage value, with no impact to your application. 
 
-For example, if you start with a maximum RU/s of 50,000 RU/s (scales between 5000 - 50,000 RU/s), you can store up to 500 GB of data. If you exceed 500 GB - e.g. storage is now 600 GB, the new maximum RU/s will be 60,000 RU/s (scales between 6000 - 60,000 RU/s).
+For example, if you start with a maximum RU/s of 50,000 RU/s (scales between 5000 - 50,000 RU/s), you can store up to 5000 GB of data. If you exceed 5000 GB - e.g. storage is now 6000 GB, the new maximum RU/s will be 60,000 RU/s (scales between 6000 - 60,000 RU/s).
 
-When you use database level throughput with autoscale, you can have the first 25 containers share an autoscale maximum RU/s of 1000 (scales between 100 - 1000 RU/s), as long as you don't exceed 10 GB of storage. See this [documentation](autoscale-faq.yml#can-i-change-the-max-ru-s-on-the-database-or-container--) for more information.
+When you use database level throughput with autoscale, you can have the first 25 containers share an autoscale maximum RU/s of 1000 (scales between 100 - 1000 RU/s), as long as you don't exceed 100 GB of storage. See this [documentation](autoscale-faq.yml#can-i-change-the-maximum-ru-s-on-a-database-or-container--) for more information.
 
 ## Comparison – containers configured with manual vs autoscale throughput
 For more detail, see this [documentation](how-to-choose-offer.md) on how to choose between standard (manual) and autoscale throughput.  
@@ -79,10 +79,8 @@ For more detail, see this [documentation](how-to-choose-offer.md) on how to choo
 
 * Review the [autoscale FAQ](autoscale-faq.yml).
 * Learn how to [choose between manual and autoscale throughput](how-to-choose-offer.md).
-* Learn how to [provision autoscale throughput on an Azure Cosmos database or container](how-to-provision-autoscale-throughput.md).
+* Learn how to [provision autoscale throughput on an Azure Cosmos DB database or container](how-to-provision-autoscale-throughput.md).
 * Learn more about [partitioning](partitioning-overview.md) in Azure Cosmos DB.
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
-
-

@@ -8,7 +8,7 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
-ms.date: 09/09/2021
+ms.date: 08/10/2023
 ---
 
 # Execute Azure Machine Learning pipelines in Azure Data Factory and Synapse Analytics
@@ -19,7 +19,7 @@ Run your Azure Machine Learning pipelines as a step in your Azure Data Factory a
 
 The below video features a six-minute introduction and demonstration of this feature.
 
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/How-to-execute-Azure-Machine-Learning-service-pipelines-in-Azure-Data-Factory/player]
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/How-to-execute-Azure-Machine-Learning-service-pipelines-in-Azure-Data-Factory/player]
 
 ## Create a Machine Learning Execute Pipeline activity with UI
 

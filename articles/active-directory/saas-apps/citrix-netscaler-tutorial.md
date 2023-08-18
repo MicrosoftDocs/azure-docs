@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on integration with Citrix ADC SAML Connector for Azure AD (Kerberos-based authentication)'
 description: Learn how to configure single sign-on (SSO) between Azure Active Directory and Citrix ADC SAML Connector for Azure AD by using Kerberos-based authentication.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/08/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -57,6 +57,8 @@ To integrate Citrix ADC SAML Connector for Azure AD with Azure AD, first add Cit
 
 1. In the results, select **Citrix ADC SAML Connector for Azure AD**, and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Citrix ADC SAML Connector for Azure AD
 
 Configure and test Azure AD SSO with Citrix ADC SAML Connector for Azure AD by using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Citrix ADC SAML Connector for Azure AD.
@@ -102,7 +104,7 @@ To enable Azure AD SSO by using the Azure portal, complete these steps:
 
 	> [!NOTE]
 	> * The URLs that are used in this section aren't real values. Update these values with the actual values for Identifier, Reply URL, and Sign-on URL. Contact the [Citrix ADC SAML Connector for Azure AD client support team](https://www.citrix.com/contact/technical-support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-    > * To set up SSO, the URLs must be accessible from public websites. You must enable the firewall or other security settings on the Citrix ADC SAML Connector for Azure AD side to enble Azure AD to post the token at the configured URL.
+    > * To set up SSO, the URLs must be accessible from public websites. You must enable the firewall or other security settings on the Citrix ADC SAML Connector for Azure AD side to enable Azure AD to post the token at the configured URL.
 
 1. On the **Set up Single Sign-On with SAML** pane, in the **SAML Signing Certificate** section, for **App Federation Metadata Url**, copy the URL and save it in Notepad.
 

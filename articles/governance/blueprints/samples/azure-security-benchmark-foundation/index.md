@@ -59,7 +59,7 @@ foundation. This environment is composed of:
   need to be configured after deployment to open connectivity.)
 - [Azure Network Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md)
   to monitor, diagnose, and view metrics of resources in the Azure virtual network.
-- [Azure DDoS Protection Standard](../../../../ddos-protection/ddos-protection-overview.md)
+- [Azure DDoS Protection](../../../../ddos-protection/ddos-protection-overview.md)
   to protect Azure resources against DDoS attacks.
 - [Azure Bastion](../../../../bastion/bastion-overview.md) to provide seamless and
   secure connectivity to a virtual machine that does not require a public IP address, agent, or
