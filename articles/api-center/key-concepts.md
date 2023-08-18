@@ -17,9 +17,11 @@ This article explains key concepts of [Azure API Center](overview.md). API Cente
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
+## Data model
+
 The following diagram shows the main entities in API Center and how they relate to each other. See the following sections for more information about each entity.
 
-:::image type="content" source="media/key-concepts/api-center-data-model.svg" alt-text="Diagram that shows the data model in API Center.":::
+:::image type="content" source="media/key-concepts/api-center-data-model.svg" alt-text="Diagram that shows the data model in API Center." border="false":::
 
 ## API
 

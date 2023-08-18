@@ -73,9 +73,6 @@ You organize your APIs and other entities in by setting values of metadata prope
 
 Here you define two example properties: *Line of business* and *Public-facing*; if you prefer, define other properties of your own. When you add or update APIs, deployments, and environments, you'll set values for these properties and any common built-in properties.
 
-> [!NOTE]
-> You can add properties in the schema at any time and apply them to APIs and other entities in your API Center. However, you can't delete properties that are already assigned to entities. You can change the assignment of a property to an entity, for example from required to optional, but you can't change the type of a property after it's assigned.
-
 > [!IMPORTANT]
 > Take care not to include any sensitive, confidential, or personal information in the titles (names) of metadata properties you define. These titles are visible in monitoring logs that are used by Microsoft to improve the functionality of the service. However, other metadata details and values are your protected customer data. 
 
@@ -108,6 +105,9 @@ Here you define two example properties: *Line of business* and *Public-facing*; 
 1. Select **View schema > API** to see both built-in properties and the properties that you added to the schema for APIs.
 
     :::image type="content" source="media/set-up-api-center/metadata-schema.png" alt-text="Screenshot of metadata schema in the portal.":::
+
+> [!NOTE]
+> You can add properties in the schema at any time and apply them to APIs and other entities in your API Center. However, you can't delete properties that are already assigned to entities. You can change the assignment of a property to an entity, for example from required to optional, but you can't change the type of a property after it's assigned.
 
 ## Add APIs
 
@@ -183,6 +183,7 @@ Here you add a version to one of your APIs:
         |**Version lifecycle**  | Make a selection from the dropdown, such as **Production**. | Lifecycle stage of the API version. |
     
     1. Under **API definition**, optionally select **+ Add** to associate one or more specification files with the API version. For example, you might add a new OpenAPI specification file for the API version.  
+
         |Setting|Value|Description|
         |-------|-----|-----------|
         | **Format** | For the Demo Conference API, select **OpenAPI**. | Specification format for the API.|
