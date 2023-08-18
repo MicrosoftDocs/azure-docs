@@ -78,17 +78,19 @@ With TCP ingress enabled, your container app:
 - Is accessible to other container apps in the same environment via its name (defined by the `name` property in the Container Apps resource) and exposed port number.
 - Is accessible externally via its fully qualified domain name (FQDN) and exposed port number if the ingress is set to "external".
 
-## Additional TCP Ports (preview)
+## <a name="additional-tcp-ports"></a>Additional TCP ports (preview)
 
-In addition to the main HTTP/TCP port for your container apps, you may also add additional TCP ports to enable applications which may require more than 1 port. This feature is in preview.
+In addition to the main HTTP/TCP port for your container apps, you may expose additional TCP ports to enable applications that accept TCP connections on multiple ports. This feature is in preview.
 
 The following apply to additional TCP ports:
 - Additional TCP ports can only be external if the app itself is set as external and the container app is using a custom VNet.
-- If the additional TCP ports are set to external, each app must have a unique exposed port. If the additional ports are internal, the same port can be shared by multiple apps.
-- There is a max of 5 additional ports. If additional ports are required, please open a support request.
-- You may have the main port exposed as HTTP. All additional ports will be TCP.
+- Any externally exposed additional TCP ports must be unique across the entire Container Apps environment. This includes all external additional TCP ports, external main TCP ports, and 80/443 ports used by built-in HTTP ingress. If the additional ports are internal, the same port can be shared by multiple apps.
+- If an exposed port is not provided, the exposed port will default to match the target port.
+- Each target port must be unique, and the same target port cannot be exposed on different exposed ports.
+- There is a maximum of 5 additional ports per app. If additional ports are required, please open a support request.
+- Only the main ingress port supports built-in HTTP features such as CORS and session affinity. When running HTTP on top of the additional TCP ports, these built-in features are not supported.
 
-Visit the [how to article on ingress](ingress-how-to.md#use-additional-tcp-ports-preview) for more information on how to enable additional ports for your container apps.
+Visit the [how to article on ingress](ingress-how-to.md#use-additional-tcp-ports) for more information on how to enable additional ports for your container apps.
 
 ## Domain names
 

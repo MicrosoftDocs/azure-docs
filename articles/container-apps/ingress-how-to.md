@@ -162,16 +162,17 @@ Disable ingress for your container app by omitting the `ingress` configuration p
 
 ::: zone-end
 
+## <a name="use-additional-tcp-ports"></a>Use additional TCP ports (preview)
 ## Use additional TCP ports (preview)
 
-You can add additional TCP ports to your application. To learn more, see the [ingress concept article](ingress-overview.md#additional-tcp-ports-preview).
+You can expose additional TCP ports from your application. To learn more, see the [ingress concept article](ingress-overview.md#additional-tcp-ports).
 
 
 ::: zone pivot="azure-cli"
 
 # [Azure CLI](#tab/azure-cli)
 
-Adding additional tcp ports can be done through the CLI by referencing a yaml file with your TCP port configurations.
+Adding additional TCP ports can be done through the CLI by referencing a YAML file with your TCP port configurations.
 
 ```azurecli
 az containerapp update 
