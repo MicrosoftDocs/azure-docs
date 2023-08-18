@@ -302,19 +302,19 @@ In this demonstration, we have used Apache NiFi instance installed on an Ubuntu 
 
 To use Managed Identity authentication with the PutAzureDataLakeStorage processor in NiFi. You're required to ensure Ubuntu VM on which NiFi is installed has a managed identity assigned to it, or assign a managed identity to the Ubuntu VM.
 
-:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-nifiui-kafka-consumption.png" alt-text="Screenshot showing how to create a flow in Apache NiFi - Step 1." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-nifiui-kafka-consumption.png":::
+:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-nifi-ui-kafka-consumption.png" alt-text="Screenshot showing how to create a flow in Apache NiFi - Step 1." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-nifi-ui-kafka-consumption.png":::
 
 Once you have assigned a managed identity to the Azure VM, you need to make sure that the VM can connect to the IMDS (Instance Metadata Service) endpoint. The IMDS endpoint is available at the IP address shown in this example. You need to update your network security group rules to allow outbound traffic from the Ubuntu VM to this IP address.
 
-:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-2-nifiui-kafka-consumption.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step2." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-2-nifiui-kafka-consumption.png":::
+:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-2-nifi-ui-kafka-consumption.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step2." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-2-nifi-ui-kafka-consumption.png":::
 
 **Run the flow:**
 
-:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-3-nifiui-kafka-consumption-nifi-flow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step3." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-3-nifiui-kafka-consumption-nifi-flow.png":::
+:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-3-nifi-ui-kafka-consumption-nifi-flow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step3." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-3-nifi-ui-kafka-consumption-nifi-flow.png":::
 
 [**Using Processor ConsumerKafka_2_0's properties setting:**](https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-kafka-2-0-nar/1.22.0/org.apache.nifi.processors.kafka.pubsub.ConsumeKafka_2_0/index.html)
 
-:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-4-nifiui-kafka-consumption-nifi-flow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step4." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-4-nifiui-kafka-consumption-nifi-flow.png":::
+:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-4-nifi-ui-kafka-consumption-nifi-flow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step4." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-4-nifi-ui-kafka-consumption-nifi-flow.png":::
 
 :::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-5-nifi-ui-kafka-consumption-nifi-flow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step5." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-5-nifi-ui-kafka-consumption-nifi-flow.png":::
 
@@ -324,11 +324,11 @@ Once you have assigned a managed identity to the Azure VM, you need to make sure
 
 [**Using PutAzureDataLakeStorage credential setting:**](https://nifi.apache.org/docs/nifi-docs/components/org.apache.nifi/nifi-azure-nar/1.22.0/org.apache.nifi.services.azure.storage.ADLSCredentialsControllerService/index.html)
 
-:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-7-nifiui-kafka-consumption-nifi-flow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step7." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-7-nifiui-kafka-consumption-nifi-flow.png":::
+:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-6-7-nifi-ui-kafka-consumption-nifi-flow.png" alt-text="Screenshot showing how to create a flow in Apache NiFi-Step7." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-6-7-nifi-ui-kafka-consumption-nifi-flow.png":::
 
 ### Lets check output in ADLS gen2
 
-:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-7-result-adls-gen2.png" alt-text="Validating the output in ADLS Gen2." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-7-result-adls-gen2.png":::
+:::image type="content" source="./media/use-apache-nifi-with-datastream-api/step-7-result-azure-data-lake-storage-gen2.png" alt-text="Validating the output in ADLS Gen2." border="true" lightbox="./media/use-apache-nifi-with-datastream-api/step-7-result-azure-data-lake-storage-gen2.png":::
 
 ## Reference
 
