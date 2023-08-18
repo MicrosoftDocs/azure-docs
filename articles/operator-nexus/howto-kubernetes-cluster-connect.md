@@ -45,7 +45,7 @@ To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by cr
 
     ```bash
     RESOURCE_GROUP="myResourceGroup"
-    CLUSTER_NAME="myNexusAKSCluster"
+    CLUSTER_NAME="myNexusK8sCluster"
     SUBSCRIPTION_ID="<Subscription ID>"
     USER_NAME="azureuser"
     SSH_PRIVATE_KEY_FILE="<vm_ssh_id_rsa>"
@@ -115,7 +115,7 @@ Before you can connect to the cluster nodes, you need to find the IP address of 
 
     ```bash
     RESOURCE_GROUP="myResourceGroup"
-    CLUSTER_NAME="myNexusAKSCluster"
+    CLUSTER_NAME="myNexusK8sCluster"
     SUBSCRIPTION_ID="<Subscription ID>"
     ```
 

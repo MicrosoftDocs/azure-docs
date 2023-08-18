@@ -13,7 +13,7 @@ To access your cluster, you need to set up the cluster connect `kubeconfig`. Aft
 
 1. Set `CLUSTER_NAME`, `RESOURCE_GROUP` and `SUBSCRIPTION_ID` variables.
     ```bash
-    CLUSTER_NAME="myNexusAKSCluster"
+    CLUSTER_NAME="myNexusK8sCluster"
     RESOURCE_GROUP="myResourceGroup"
     SUBSCRIPTION_ID=<set the correct subscription_id>
     ```
