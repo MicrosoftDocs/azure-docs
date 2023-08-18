@@ -107,7 +107,7 @@ Users who create or import a certificate in AKV must have authorized access to A
 
 1. Create a certificate policy file.
 
-    Once the certificate policy file is executed as below, it creates a valid signing certificate compatible with **notation** in AKV. The EKU listed is for code-signing, but isn't required for notation to sign artifacts. The subject is used later as trust identity that user trust during verification.
+    Once the certificate policy file is executed as below, it creates a valid signing certificate compatible with [Notary Project certificate requirement](https://github.com/notaryproject/specifications/blob/v1.0.0/specs/signature-specification.md#certificate-requirements) in AKV. The EKU listed is for code-signing, but isn't required for notation to sign artifacts. The subject is used later as trust identity that user trust during verification.
 
     ```bash
     cat <<EOF > ./my_policy.json
