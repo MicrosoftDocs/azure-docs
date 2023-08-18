@@ -49,7 +49,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Navigate to **Microsoft Azure AD SCIM** section of the page. 
 
-	![Screenshot of the Vbrick Rev User Security Settings with the Microsoft AD SCIM section called out.](./media/vbrick-rev-cloud-provisioning-tutorial/enable-ad-scim.png)
+	![Screenshot of the Vbrick Rev User Security Settings with the Microsoft AD SCIM section called out.](./media/vbrick-rev-cloud-provisioning-tutorial/enable-azure-ad-scim.png)
 
 1. Enable **Microsoft Azure AD SCIM** and click on **Generate Token** button. 
     ![Screenshot of the Vbrick Rev User Security Settings with the Microsoft AD SCIM enable.](./media/vbrick-rev-cloud-provisioning-tutorial/rev-scim-manage.png)
