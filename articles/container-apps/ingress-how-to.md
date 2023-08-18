@@ -180,6 +180,41 @@ az containerapp update
     --yaml <your-yaml-file>
 ```
 
+The following is an example YAML file you can reference in the above CLI command.
+
+```yml
+location: northcentralus
+name: multiport-example
+properties:
+  configuration:
+    activeRevisionsMode: Single
+    ingress:
+      additionalPortMappings:
+      - exposedPort: 21025
+        external: true
+        targetPort: 1025
+      allowInsecure: false
+      external: true
+      targetPort: 1080
+      traffic:
+      - latestRevision: true
+        weight: 100
+      transport: http
+  managedEnvironmentId: <env id>
+  template:
+    containers:
+    - image: maildev/maildev
+      name: maildev
+      resources:
+        cpu: 0.25
+        memory: 0.5Gi
+    scale:
+      maxReplicas: 1
+      minReplicas: 1
+  workloadProfileName: Consumption
+type: Microsoft.App/containerApps
+```
+
 ::: zone-end
 
 ::: zone pivot="azure-portal"
