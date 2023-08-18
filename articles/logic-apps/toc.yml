@@ -321,7 +321,7 @@
     - name: EDIFACT
       href: logic-apps-enterprise-integration-edifact.md
     - name: File system
-      href: logic-apps-using-file-connector.md
+      href: ../connectors/file-system.md
     - name: Flat file
       href: logic-apps-enterprise-integration-flatfile.md
     - name: FTP
