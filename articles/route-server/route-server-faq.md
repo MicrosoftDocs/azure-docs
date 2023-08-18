@@ -120,7 +120,7 @@ You can still use Route Server to direct traffic between subnets in different vi
 
 No, Azure Route Server provides transit only between ExpressRoute and Site-to-Site (S2S) VPN gateway connections (when enabling the *branch-to-branch* setting).
 
-### Can I create an Azure Route Servre in a spoke VNet that's connected to a Virtual WAN hub?
+### Can I create an Azure Route Server in a spoke VNet that's connected to a Virtual WAN hub?
 
 No. The spoke VNet can't have a Route Server if it's connected to the virtual WAN hub.
 
