@@ -3,7 +3,7 @@ author: KarlErickson
 ms.author: xiada
 ms.service: spring-apps
 ms.topic: include
-ms.date: 07/11/2023
+ms.date: 08/31/2023
 ---
 
 <!--
@@ -25,7 +25,7 @@ You can delete the Azure resource group, which includes all the resources in the
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-Use the following command to delete all the Azure resources used in this sample application.
+Use the following command to delete all the Azure resources used in this sample application:
 
 ```bash
 azd down
