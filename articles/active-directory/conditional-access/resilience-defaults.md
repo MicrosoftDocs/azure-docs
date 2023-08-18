@@ -81,7 +81,7 @@ You can configure Conditional Access resilience defaults from the Azure portal, 
 
 ### Azure portal
 
-1. Sign in to the **[Azure portal](https://portal.azure.com)** as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**
 1. Create a new policy or select an existing policy
 1. Open the Session control settings

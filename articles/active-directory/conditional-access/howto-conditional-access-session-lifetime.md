@@ -129,7 +129,7 @@ To make sure that your policy works as expected, the recommended best practice i
 
 ### Policy 1: Sign-in frequency control
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
@@ -147,7 +147,7 @@ To make sure that your policy works as expected, the recommended best practice i
 
 ### Policy 2: Persistent browser session
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
@@ -167,7 +167,7 @@ To make sure that your policy works as expected, the recommended best practice i
 
 ### Policy 3: Sign-in frequency control every time risky user
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.

@@ -33,7 +33,7 @@ To complete the scenario in this quickstart, you need:
 
 The goal of this step is to get an impression of the sign-in experience without a Conditional Access policy.
 
-1. Sign in to the **[Azure portal](https://portal.azure.com)** as your test user.
+1. Sign in to the [Azure portal](https://portal.azure.com) as your test user.
 1. Sign out.
 
 ## Create your terms of use
@@ -42,7 +42,7 @@ This section provides you with the steps to create a sample ToU. When you create
 
 1. In Microsoft Word, create a new document.
 1. Type **My terms of use**, and then save the document on your computer as **mytou.pdf**.
-1. Sign in to the **[Azure portal](https://portal.azure.com)** as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 
 
@@ -89,7 +89,7 @@ The scenario in this quickstart uses:
 
 In the previous section, you created a Conditional Access policy requiring terms of use be accepted. 
 
-To test your policy, try to sign in to the **[Azure portal](https://portal.azure.com)** using your test account. You should see a dialog that requires you to accept your terms of use.
+To test your policy, try to sign in to the [Azure portal](https://portal.azure.com) using your test account. You should see a dialog that requires you to accept your terms of use.
 
 :::image type="content" source="./media/require-tou/57.png" alt-text="Screenshot of a dialog box titled Identity Security Protection terms of use, with Decline and Accept buttons and a button labeled My TOU." border="false":::
 
