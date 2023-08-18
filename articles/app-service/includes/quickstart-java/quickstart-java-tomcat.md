@@ -30,7 +30,7 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
 Execute the following Maven command in the Cloud Shell prompt to create a new app named `helloworld`:
 
 ```azurecli-interactive
-mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-Dversion=1.0-SNAPSHOT"
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-DarchetypeVersion=1.3" "-Dversion=1.0-SNAPSHOT"
 ```
 
 Then change your working directory to the project folder:
@@ -46,7 +46,7 @@ The deployment process to Azure App Service uses your Azure credentials from the
 Run the Maven command shown next to configure the deployment. This command helps you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.11.1:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.12.0:config
 ```
 
 1. For **Create new run configuration**, type **Y**, then **Enter**.
