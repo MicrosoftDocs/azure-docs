@@ -56,7 +56,7 @@ Update your `.csproj` project file to use the latest extension version. The foll
 
 ## Update the extension bundle
 
-By default, [extension bundles](./functions-bindings-register.md#extension-bundles) are used by Java, JavaScript, PowerShell, Python, C# script, and Custom Handler function apps to work with binding extensions. The Azure Cosmos DB version 4 extension is part of the Microsoft Azure Functions version 4 extension bundle.
+By default, [extension bundles](./functions-bindings-register.md#extension-bundles) are used by non-.NET function apps to install binding extensions. The Azure Cosmos DB version 4 extension is part of the Microsoft Azure Functions version 4 extension bundle.
 
 To update your application to use the latest extension bundle, update your `host.json`. The following `host.json` file uses version 4 of the Microsoft Azure Functions extension bundle.
 
@@ -120,7 +120,7 @@ The following table only includes attributes that changed or were removed from t
 
 ::: zone pivot="programming-language-csharp"
 
-## Modify your Function code
+## Modify your function code
 
 The Azure Functions extension version 4 is built on top of the Azure Cosmos DB .NET SDK version 3, which removed support for the [`Document` class](../cosmos-db/nosql/migrate-dotnet-v3.md#major-name-changes-from-v2-sdk-to-v3-sdk). Instead of receiving a list of `Document` objects with each function invocation, which you must then deserialize into your own object type, you can now directly receive a list of objects of your own type.
 
@@ -171,7 +171,7 @@ namespace CosmosDBSamples
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
 
-## Modify your Function code
+## Modify your function code
 
 After you update your `host.json` to use the correct extension bundle version and modify your `function.json` to use the correct attribute names, there are no further code changes required.
 
