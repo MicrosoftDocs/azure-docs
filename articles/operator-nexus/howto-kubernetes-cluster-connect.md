@@ -77,15 +77,15 @@ To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by cr
 
 ### Direct access to cluster nodes
 
-Another option for securely connecting to an Azure Operator Nexus Kubernetes cluster node is to setup a direct access to the cluster's CNI network from Azure. Using this approach, you can SSH into the cluster nodes, also execute kubectl commands against the cluster using the `kubeconfig` file. Reach out to your network administrator to setup this direct connection from Azure to the cluster's CNI network.
+Another option for securely connecting to an Azure Operator Nexus Kubernetes cluster node is to set up a direct access to the cluster's CNI network from Azure. Using this approach, you can SSH into the cluster nodes, also execute kubectl commands against the cluster using the `kubeconfig` file. Reach out to your network administrator to set up this direct connection from Azure to the cluster's CNI network.
 
 ## Disconnected mode access
 
-When the ExpressRoute is in a disconnected mode, you won't be able to access the cluster's kube-api server using the `az connectedk8s proxy` CLI command. Similarly, the `az ssh` CLI command won't work for accessing the worker nodes, which can be crucial for troubleshooting or maintenance tasks.
+When the ExpressRoute is in a disconnected mode, you can't access the cluster's kube-api server using the `az connectedk8s proxy` CLI command. Similarly, the `az ssh` CLI command doesn't work for accessing the worker nodes, which can be crucial for troubleshooting or maintenance tasks.
 
-However, you can still ensure a secure and effective connection to your cluster. To do so, establish direct access to the cluster's CNI (Container Network Interface) from within your on-premises infrastructure. This setup enables you to SSH into the cluster nodes and execute `kubectl` commands using the `kubeconfig` file.
+However, you can still ensure a secure and effective connection to your cluster. To do so, establish direct access to the cluster's CNI (Container Network Interface) from within your on-premises infrastructure. This direct access enables you to SSH into the cluster nodes, and lets you execute `kubectl` commands using the `kubeconfig` file.
 
-Reach out to your network administrator to setup this direct connection to the cluster's CNI network.
+Reach out to your network administrator to set up this direct connection to the cluster's CNI network.
 
 ## IP address of the cluster nodes
 
