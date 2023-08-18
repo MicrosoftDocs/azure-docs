@@ -39,7 +39,7 @@ More details on eligible subscription types are as follows:
 
 
 ## Azure subscription billing locations where Saudi Arabia phone numbers are available
-| Country |
+| Country/Region |
 | :---------- |
 |Australia|
 |Canada|
@@ -52,7 +52,7 @@ More details on eligible subscription types are as follows:
 |United States|
 
 
-## Find information about other countries
+## Find information about other countries/regions
 
 [!INCLUDE [Country Dropdown](../../includes/country-dropdown.md)]
 
