@@ -16,7 +16,7 @@ monikerRange: 'doc-intel-3.1.0'
 
 # Document Intelligence custom classification model
 
-**This article applies to:** ![Document Intelligence checkmark](media/yes-icon.png) **The latest [GA SDK](sdk-overview.md) supported by Document Intelligence REST API version [2023-07-31](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)**.
+**This article applies to:** ![Document Intelligence checkmark](media/yes-icon.png) **The latest [GA SDK](sdk-overview-v3-1.md) supported by Document Intelligence REST API version [2023-07-31](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)**.
 
 > [!IMPORTANT]
 >

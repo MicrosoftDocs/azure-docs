@@ -1,6 +1,6 @@
 ---
 title: Set up Hyper-V disaster recovery by using Azure Site Recovery  
-description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (without SCVMM) to Azure by using Site Recovery.
+description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (without SCVMM) to Azure by using Site Recovery and MARS.
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 05/04/2023
@@ -50,7 +50,7 @@ It's important to prepare the infrastructure before you set up disaster recovery
 
 ### Source settings
 
-To set up the source environment, you create a Hyper-V site. You add to the site the Hyper-V hosts that contain VMs you want to replicate. Then, you download and install the Azure Site Recovery provider and the Azure Recovery Services agent on each host, and register the Hyper-V site in the vault.
+To set up the source environment, you create a Hyper-V site. You add to the site the Hyper-V hosts that contain VMs you want to replicate. Then, you download and install the Azure Site Recovery provider and the Microsoft Azure Recovery Services (MARS) agent for Azure Site Recovery on each host, and register the Hyper-V site in the vault.
 
 1. On **Prepare infrastructure**, on the **Source settings** tab, complete these steps:
     1. For **Are you Using System Center VMM to manage Hyper-V hosts?**, select **No**.
@@ -70,7 +70,7 @@ Site Recovery checks for compatible Azure storage accounts and networks in your 
 
 #### Install the provider
 
-Install the downloaded setup file (*AzureSiteRecoveryProvider.exe*) on each Hyper-V host that you want to add to the Hyper-V site. Setup installs the Site Recovery provider and the Recovery Services agent on each Hyper-V host.
+Install the downloaded setup file (*AzureSiteRecoveryProvider.exe*) on each Hyper-V host that you want to add to the Hyper-V site. Setup installs the Site Recovery provider and the Recovery Services agent (MARS for Azure Site Recovery) on each Hyper-V host.
 
 1. Run the setup file.
 1. In the Azure Site Recovery provider setup wizard, for **Microsoft Update**, opt in to use Microsoft Update to check for provider updates.
