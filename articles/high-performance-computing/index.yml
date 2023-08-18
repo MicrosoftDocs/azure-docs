@@ -145,7 +145,7 @@ additionalContent:
       summary: Tell us what you’re solving for. An Azure HPC expert will help you find the best solution. # < 160 chars (Optional; Remove if not applicable.)
       items:
       # Card
-      - title: Landing Zone Accelarators
+      - title: Landing Zone Accelerators
         links:
           - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/azure-hpc-landing-zone-accelerator
             text: Infra Landing Zone 
@@ -164,17 +164,17 @@ additionalContent:
       - title: HPC FastTrack
         links:
           - url: https://gearup.microsoft.com/program/fasttrack?tab=overview&subtab=fasttrack-for-azure
-            text: Azure FastTrack
+            text: Azure FastTrack \n\n
 
 
 # HPC Resourcess
     - title: HPC Resources # < 60 chars (optional)
-      summary: Explore our marketplace, innovate with our partners to accelarate your HPC workloads with cloud flexibility, capability, and scalability. # < 160 chars (optional)
+      summary: Explore our marketplace, innovate with our partners to accelerate your HPC workloads with cloud flexibility, capability, and scalability. # < 160 chars (optional)
       items:
         # Card
         - title: Microsoft HPC Channels
           links:
-            - url: https://azure.microsoft.com/en-us/blog/tag/high-performance-computing/?s=HPC
+            - url: https://azure.microsoft.com/blog/tag/high-performance-computing/?s=HPC
               text: HPC Blog Posts on Azure.com
             - url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
               text: HPC TechCommunity Blog Reads
@@ -192,7 +192,7 @@ additionalContent:
             - url: https://insidehpc.com/2023/03/azure-amd-and-the-power-of-cloud-based-hpc-for-sustainability-rd-projects/
               text: Azure and AMD for Sustainability    
         # Card
-        - title: Explore MarketPlace
+        - title: Explore Marketplace
           links:
             - url: https://www.aka.ms/hpc-saves-the-day
               text: HPC saves the day!
@@ -201,7 +201,7 @@ additionalContent:
             - url: https://www.bigcompute.org/blog/high-performance-computing-for-randd
               text: HPC for Innovation in R&D          
             - url: https://idcdocserv.com/US50583623
-              text: HPC for Product Modeling
+              text: HPC for Product Modeling \n\n
 
 
 # Video Playlists and other links
