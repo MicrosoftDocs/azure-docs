@@ -75,42 +75,23 @@ To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by cr
         --private-key-file $SSH_PRIVATE_KEY_FILE
     ```
 
-### Azure jumpbox
+### Direct access to cluster nodes
 
-Another option for securely connecting to an Azure Operator Nexus Kubernetes cluster node is to use a Azure jumpbox. In this approach, a stand-alone Azure VM is set up as a secure gateway to connect to the Azure Operator Nexus Kubernetes cluster nodes.
-
-To access a cluster node from Azure via a jumpbox, it's necessary to create a new VM in your Azure environment to act as the jumpbox. This jumpbox must establish network connections with both, the cluster's CNI network and the user's workstation. The user needs an SSH key for the K8s VM to authenticate their access.
-
-It's important to ensure that the jumpbox is configured securely and that it's regularly updated with the latest security patches. Additionally, access to the jumpbox should be tightly controlled to prevent unauthorized access. The user must also have an SSH private key to authenticate their access to the on-premises VM.
+Another option for securely connecting to an Azure Operator Nexus Kubernetes cluster node is to setup a direct access to the cluster's CNI network from Azure. Using this approach, you can SSH into the cluster nodes, also execute kubectl commands against the cluster using the `kubeconfig` file. Reach out to your network administrator to setup this direct connection from Azure to the cluster's CNI network.
 
 ## Disconnected mode access
 
-While the ExpressRoute is in disconnected mode, it's not possible to connect to the cluster's kube-api server using the `az connectedk8s proxy` CLI command or the `az ssh` CLI command into the worker nodes for troubleshooting or maintenance tasks.
+When the ExpressRoute is in a disconnected mode, you won't be able to access the cluster's kube-api server using the `az connectedk8s proxy` CLI command. Similarly, the `az ssh` CLI command won't work for accessing the worker nodes, which can be crucial for troubleshooting or maintenance tasks.
 
-However, it's possible to connect to the cluster nodes using the local jumpbox VM within the same virtual network as the cluster nodes. This VM serves as a reliable bridge for connectivity.
+However, you can still ensure a secure and effective connection to your cluster. To do so, establish direct access to the cluster's CNI (Container Network Interface) from within your on-premises infrastructure. This setup enables you to SSH into the cluster nodes and execute kubectl commands using the kubeconfig file.
 
-There are two networks that can be used to connect to the cluster nodes:
+Reach out to your network administrator to setup this direct connection to the cluster's CNI network.
 
-* CNI network
-* L3 network (attached as `OSDevice`)
-
-During the cluster creation process, an L3 network (Tenant-defined L3 isolation domain) can be attached to the agent pool as an `OSDevice`, which can then be used for connecting. For more information on how to attach an L3 network as an `OSDevice` during cluster creation, see the [QuickStart](./quickstarts-kubernetes-cluster-deployment-bicep.md) guide.
-
-<!-- > [!NOTE]
-> For understanding purposes, the L3 network (attached as an `OSDevice`) will be referred to as the 'OAM network' in this article.
--->
-
-The L3 network is the recommended network to use for connectivity during disconnected mode. The 'Container Network Interface (CNI)' is used for critical cluster functions and shouldn't be used for general connectivity. While there's no difference in the connectivity experience between the two networks, it's recommended to use the L3 network for all noncritical connectivity needs.
-
-The L3 network can only be attached to the agent pool during the cluster creation process. The L3 network isn't attached to the control plane nodes, so you can't connect to the control plane nodes using the L3 network. In those cases, you can use the CNI network to connect to the control plane nodes.
-
-It's not recommended to SSH into the control plane nodes unless it's necessary. However, you may be required to SSH into get the `kubeconfig` file for the cluster. If the local jumpbox is connected to the CNI network, you can use the `kubeconfig` file to execute kubectl against the cluster instead of SSH into the control plane nodes.
-
-### IP address of the cluster nodes
+## IP address of the cluster nodes
 
 Before you can connect to the cluster nodes, you need to find the IP address of the nodes. The IP address of the nodes can be found using the Azure portal or the Azure CLI.
 
-#### Using the Azure CLI
+### Using the Azure CLI
 
 1. Set the RESOURCE_GROUP, CLUSTER_NAME, and SUBSCRIPTION_ID variables to match your environment.
 
@@ -143,7 +124,7 @@ Before you can connect to the cluster nodes, you need to find the IP address of 
     }
     ```
 
-#### Using the Azure portal
+### Using the Azure portal
 
 To find the IP address of the VM for SSH, follow these steps:
 
