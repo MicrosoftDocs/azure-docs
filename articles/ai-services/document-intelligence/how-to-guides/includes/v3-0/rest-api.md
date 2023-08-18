@@ -168,7 +168,7 @@ Before you run the following command, make these changes:
 
 * Replace `{POST response}` with the Operation-location header from the [POST response](#post-response).
 
-* Replace `FR_KEY` with the variable for your environment variable if differs from the name in the code.
+* Replace `FR_KEY` with the variable for your environment variable if it differs from the name in the code.
 
 * Replace `{json-tool}` with your JSON formatting tool.
 
