@@ -14,8 +14,6 @@ ms.topic: how-to
 
 This article describes how to view, add, edit and delete a dynamic scope (preview).
 
-## Prerequisites
-
 [!INCLUDE [dynamic-scope-prerequisites.md](includes/dynamic-scope-prerequisites.md)]
 
 ## Add a Dynamic scope (preview)
