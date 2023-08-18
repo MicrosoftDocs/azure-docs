@@ -25,7 +25,7 @@ To create a PostgreSQL server using Kubernetes tools, you will need to have the 
 
 ## Overview
 
-To create a PostgreSQL server, you need to create a Kubernetes secret to store your postgres administrator login and password securely and a PostgreSQL server custom resource based on the _postgresqls_ custom resource definitions.
+To create a PostgreSQL server, you need to create a Kubernetes secret to store your postgres administrator login and password securely and a PostgreSQL server custom resource based on the `postgresqls` custom resource definitions.
 
 ## Create a yaml file
 
