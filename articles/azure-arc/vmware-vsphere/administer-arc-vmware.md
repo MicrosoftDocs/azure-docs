@@ -1,9 +1,8 @@
 ---
 title:  Perform ongoing administration for Arc-enabled VMware vSphere
-description: Learn how to perform day 2 administrator operations related to Azure Arc-enabled VMware vSphere
+description: Learn how to perform administrator operations related to Azure Arc-enabled VMware vSphere
 ms.topic: how-to 
-ms.date: 09/15/2022
-
+ms.date: 08/18/2023
 ---
 
 # Perform ongoing administration for Arc-enabled VMware vSphere
@@ -68,7 +67,7 @@ There are two different sets of credentials stored on the Arc resource bridge. Y
 - **Account for Arc resource bridge**. This account is used for deploying the Arc resource bridge VM and will be used for upgrade.
 - **Account for VMware cluster extension**. This account is used to discover inventory and perform all VM operations through Azure Arc-enabled VMware vSphere
 
-To update the credentials of the account for Arc resource bridge, run the following Azure CLI commands . Run the commands from a workstation that can access cluster configuration IP address of the Arc resource bridge locally:
+To update the credentials of the account for Arc resource bridge, run the following Azure CLI commands. Run the commands from a workstation that can access cluster configuration IP address of the Arc resource bridge locally:
 
 ```azurecli
 az account set -s <subscription id>
@@ -107,4 +106,4 @@ az arcappliance logs vmware --out-dir <path to specified output directory> --ip 
 ## Next steps
 
 - [Troubleshoot common issues related to resource bridge](../resource-bridge/troubleshoot-resource-bridge.md)
-- [Understand disaster recovery operations for resource bridge](disaster-recovery.md)
+- [Understand disaster recovery operations for resource bridge](recover-from-resource-bridge-deletion.md)
