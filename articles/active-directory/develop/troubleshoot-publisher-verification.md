@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 08/11/2023
+ms.date: 08/17/2023
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: xurobert
@@ -28,11 +28,11 @@ If you're unable to complete the process or are experiencing unexpected behavior
 ## Common Issues
 Below are some common issues that may occur during the process. 
 
-- **I don’t know my Microsoft Partner Network ID (MPN ID) or I don’t know who the primary contact for the account is.** 
-    1. Navigate to the [MPN enrollment page](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new).
+- **I don’t know my Cloud Partner Program ID (Partner One ID) or I don’t know who the primary contact for the account is.** 
+    1. Navigate to the [Cloud Partner Program enrollment page](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new).
     2. Sign in with a user account in the org's primary Azure AD tenant. 
-    3. If an MPN account already exists, this is recognized and you are added to the account. 
-    4. Navigate to the [partner profile page](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) where the MPN ID and primary account contact will be listed.
+    3. If an Cloud Partner Program account already exists, this is recognized and you are added to the account. 
+    4. Navigate to the [partner profile page](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) where the Partner One ID and primary account contact will be listed.
 
 - **I don’t know who my Azure AD Global Administrator (also known as company admin or tenant admin) is, how do I find them? What about the Application Administrator or Cloud Application Administrator?**
     1. Sign in to the [Azure portal](https://portal.azure.com) using a user account in your organization's primary tenant.
@@ -40,10 +40,10 @@ Below are some common issues that may occur during the process.
     3. Select the desired admin role.
     4. The list of users assigned that role will be displayed.
 
-- **I don't know who the admin(s) for my MPN account are**
-    Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and filter the user list to see what users are in various admin roles.
+- **I don't know who the admin(s) for my CPP account are**
+    Go to the [CPP User Management page](https://partner.microsoft.com/pcv/users) and filter the user list to see what users are in various admin roles.
 
-- **I am getting an error saying that my MPN ID is invalid or that I do not have access to it.**
+- **I am getting an error saying that my Partner One ID is invalid or that I do not have access to it.**
     Follow the [remediation guidance](#mpnaccountnotfoundornoaccess).
 
 - **When I sign in to the Azure portal, I do not see any apps registered. Why?** 
@@ -84,7 +84,7 @@ Response
 204 No Content 
 ```
 > [!NOTE]
-> *verifiedPublisherID* is your MPN ID. 
+> *verifiedPublisherID* is your Partner One ID. 
 
 ### Unset Verified Publisher 
 
@@ -142,23 +142,23 @@ The following is a list of the potential error codes you may receive, either whe
 
 ### MPNAccountNotFoundOrNoAccess
 
-The MPN ID you provided (`MPNID`) doesn't exist, or you don't have access to it. Provide a valid MPN ID and try again.
+The Partner One ID you provided (`MPNID`) doesn't exist, or you don't have access to it. Provide a valid Partner One ID and try again.
     
-Most commonly caused by the signed-in user not being a member of the proper role for the MPN account in Partner Center- see [requirements](publisher-verification-overview.md#requirements) for a list of eligible roles and see [common issues](#common-issues) for more information. Can also be caused by the tenant the app is registered in not being added to the MPN account, or an invalid MPN ID.
+Most commonly caused by the signed-in user not being a member of the proper role for the CPP account in Partner Center- see [requirements](publisher-verification-overview.md#requirements) for a list of eligible roles and see [common issues](#common-issues) for more information. Can also be caused by the tenant the app is registered in not being added to the CPP account, or an invalid Partner One ID.
 
 **Remediation Steps**
 1. Go to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) and verify that: 
 
-    - The MPN ID is correct. 
+    - The Partner One ID is correct. 
     - There are no errors or “pending actions” shown, and the verification status under Legal business profile and Partner info both say “authorized” or “success”.
-2. Go to the [MPN tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you're signing with a user account from is on the list of associated tenants. To add another tenant, follow the [multi-tenant-account instructions](/partner-center/multi-tenant-account). All Global Admins of any tenant you add will be granted Global Administrator privileges on your Partner Center account.
-3. Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and confirm the user you're signing in as is either a Global Administrator, MPN Admin, or Accounts Admin. To add a user to a role in Partner Center, follow the instructions for [creating user accounts and setting permissions](/partner-center/create-user-accounts-and-set-permissions).
+2. Go to the [CPP tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you're signing with a user account from is on the list of associated tenants. To add another tenant, follow the [multi-tenant-account instructions](/partner-center/multi-tenant-account). All Global Admins of any tenant you add will be granted Global Administrator privileges on your Partner Center account.
+3. Go to the [CPP User Management page](https://partner.microsoft.com/pcv/users) and confirm the user you're signing in as is either a Global Administrator, MPN Admin, or Accounts Admin. To add a user to a role in Partner Center, follow the instructions for [creating user accounts and setting permissions](/partner-center/create-user-accounts-and-set-permissions).
 
 ### MPNGlobalAccountNotFound
 
-The MPN ID you provided (`MPNID`) isn't valid. Provide a valid MPN ID and try again.
+The Partner One ID you provided (`MPNID`) isn't valid. Provide a valid Partner One ID and try again.
     
-Most commonly caused when an MPN ID is provided which corresponds to a Partner Location Account (PLA). Only Partner Global Accounts are supported. See [Partner Center account structure](/partner-center/account-structure) for more details.
+Most commonly caused when an Partner One ID is provided which corresponds to a Partner Location Account (PLA). Only Partner Global Accounts are supported. See [Partner Center account structure](/partner-center/account-structure) for more details.
 
 **Remediation Steps**
 1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) > Identifiers blade > Microsoft Cloud Partners Program Tab
@@ -166,9 +166,9 @@ Most commonly caused when an MPN ID is provided which corresponds to a Partner L
 
 ### MPNAccountInvalid
 
-The MPN ID you provided (`MPNID`) isn't valid. Provide a valid MPN ID and try again.
+The Partner One ID you provided (`MPNID`) isn't valid. Provide a valid Partner One ID and try again.
     
-Most commonly caused by the wrong MPN ID being provided.
+Most commonly caused by the wrong Partner One ID being provided.
 
 **Remediation Steps**
 1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) > Identifiers blade > Microsoft Cloud Partners Program Tab
@@ -176,9 +176,9 @@ Most commonly caused by the wrong MPN ID being provided.
 
 ### MPNAccountNotVetted
 
-The MPN ID (`MPNID`) you provided hasn't completed the vetting process. Complete this process in Partner Center and try again. 
+The Partner One ID (`MPNID`) you provided hasn't completed the vetting process. Complete this process in Partner Center and try again. 
     
-Most commonly caused by when the MPN account hasn't completed the [verification](/partner-center/verification-responses) process.
+Most commonly caused by when the CPP account hasn't completed the [verification](/partner-center/verification-responses) process.
 
 **Remediation Steps**
 1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) and verify that there are no errors or **pending actions** shown, and that the verification status under Legal business profile and Partner info both say **authorized** or **success**.
@@ -186,9 +186,9 @@ Most commonly caused by when the MPN account hasn't completed the [verification]
 
 ### NoPublisherIdOnAssociatedMPNAccount
 
-The MPN ID you provided (`MPNID`) isn't valid. Provide a valid MPN ID and try again. 
+The Partner One ID you provided (`MPNID`) isn't valid. Provide a valid Partner One ID and try again. 
    
-Most commonly caused by the wrong MPN ID being provided.
+Most commonly caused by the wrong Partner One ID being provided.
 
 **Remediation Steps**
 1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) > Identifiers blade > Microsoft Cloud Partners Program Tab
@@ -196,9 +196,9 @@ Most commonly caused by the wrong MPN ID being provided.
 
 ### MPNIdDoesNotMatchAssociatedMPNAccount
 
-The MPN ID you provided (`MPNID`) isn't valid. Provide a valid MPN ID and try again.
+The Partner One ID you provided (`MPNID`) isn't valid. Provide a valid Partner One ID and try again.
     
-Most commonly caused by the wrong MPN ID being provided.
+Most commonly caused by the wrong Partner One ID being provided.
 
 **Remediation Steps**
 1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) > Identifiers blade > Microsoft Cloud Partners Program Tab
@@ -265,7 +265,7 @@ See [requirements](publisher-verification-overview.md) for a list of allowed dom
 
 You aren't authorized to set the verified publisher property on application (<`AppId`).
   
-Most commonly caused by the signed-in user not being a member of the proper role for the MPN account in Azure AD- see [requirements](publisher-verification-overview.md#requirements) for a list of eligible roles and see [common issues](#common-issues) for more information.
+Most commonly caused by the signed-in user not being a member of the proper role for the CPP account in Azure AD- see [requirements](publisher-verification-overview.md#requirements) for a list of eligible roles and see [common issues](#common-issues) for more information.
 
 **Remediation Steps**
 1. Sign in to the [Azure AD Portal](https://aad.portal.azure.com) using a user account in your organization's primary tenant.
@@ -276,9 +276,9 @@ Most commonly caused by the signed-in user not being a member of the proper role
 
 ### MPNIdWasNotProvided
 
-The MPN ID wasn't provided in the request body or the request content type wasn't "application/json".
+The Partner One ID wasn't provided in the request body or the request content type wasn't "application/json".
 
-Most commonly caused when the verification is being performed via Graph API, and the MPN ID wasn’t provided in the request. 
+Most commonly caused when the verification is being performed via Graph API, and the Partner One ID wasn’t provided in the request. 
 
 **Remediation Steps**
 1. Navigate to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) > Identifiers blade > Microsoft Cloud Partners Program Tab
@@ -331,6 +331,6 @@ If you've reviewed all of the previous information and are still receiving an er
 - ObjectId of target application
 - AppId of target application
 - TenantId where app is registered
-- MPN ID
+- Partner One ID
 - REST request being made 
 - Error code and message being returned

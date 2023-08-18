@@ -110,6 +110,8 @@ additionalContent:
           links:
             - text: Protect my service from DDoS attacks
               url: ../../ddos-protection/ddos-protection-overview.md
+            - text: Protect against PaperCut vulnerability
+              url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/protect-against-papercut-vulnerability-with-azure-firewall/ba-p/3859945
             - text: Securely access my PaaS Services in Azure
               url: ../../private-link/private-link-overview.md
             - text: Create a private interface to connect to a service
