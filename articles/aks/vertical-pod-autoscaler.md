@@ -42,7 +42,9 @@ Vertical Pod autoscaling supports a maximum of 500 `VerticalPodAutoscaler` objec
 
 ## VPA overview
 
-### VPA object
+### API object
+
+The Vertical Pod Autoscaler is an API resource in the Kubernetes autoscaling API group. The version supported is 0.11 can be found in the [Kubernetes autoscaler repo][github-autoscaler-repo-v011].
 
 The VPA object consists of three components:
 
@@ -57,10 +59,6 @@ The VPA object consists of three components:
 VPA admission controller is a binary that registers itself as a Mutating Admission Webhook. With each pod created, it gets a request from the apiserver and it evaluates if there's a matching VPA configuration, or find a corresponding one and use the current recommendation to set resource requests in the pod. VPA admission controller uses the `gencerts.sh` script to create the `vpa-tls-certs` secret. The webhook certificates are auto-renewed.
 
 For high availability, AKS supports two admission controller replicas.
-
-### API Object
-
-The Vertical Pod Autoscaler is an API resource in the Kubernetes autoscaling API group. The version supported is 0.11 can be found in the [Kubernetes autoscaler repo][github-autoscaler-repo-v011].
 
 ### VPA object operation modes
 
