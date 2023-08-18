@@ -104,6 +104,9 @@ Yes,
 
 In Azure, VNet peering and connected groups are two methods of establishing connectivity between virtual networks (VNets). While VNet peering works by creating a 1:1 mapping between each peered VNet, connected groups use a new construct that establishes connectivity without such a mapping. In a connected group, all virtual networks are connected without individual peering relationships.  For example, if VNetA, VNetB, and VNetC are part of the same connected group, connectivity is enabled between each VNet without the need for individual peering relationships.
 
+### Do security admin rules apply to Azure Private Endpoints?
+
+Currently, security admin rules don't apply to Azure Private Endpoints that fall under the scope of a virtual network managed by Azure Virtual Network Manager.
 ### How can I explicitly allow Azure SQL Managed Instance traffic before having deny rules?
 
 Azure SQL Managed Instance has some network requirements. If your security admin rules can block the network requirements, you can use the below sample rules to allow SQLMI traffic with higher priority than the deny rules that can block the traffic of SQL Managed Instance.

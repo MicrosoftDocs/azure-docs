@@ -10,10 +10,9 @@ ms.date: 05/18/2023
 ms.author: cmulligan
 author: csmulligan
 manager: celestedg
-ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019"
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
-
-# Customer intent: As a tenant administrator, I want to learn about B2B collaboration guest user properties and states before and after invitation redemption. 
+# Customer intent: As a tenant administrator, I want to learn about B2B collaboration guest user properties and states before and after invitation redemption.
 ---
 
 # Properties of an Azure Active Directory B2B collaboration user
