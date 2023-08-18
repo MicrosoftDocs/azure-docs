@@ -221,11 +221,11 @@ For example, an organization may keep files in SharePoint sites like the lunch m
 
 ### Configure authentication contexts
 
-Authentication contexts are managed in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Authentication context**.
+Authentication contexts are managed under **Azure Active Directory** > **Security** > **Conditional Access** > **Authentication context**.
 
-![Manage authentication context in the Azure portal](./media/concept-conditional-access-cloud-apps/conditional-access-authentication-context-get-started.png)
+![Manage authentication context](./media/concept-conditional-access-cloud-apps/conditional-access-authentication-context-get-started.png)
 
-Create new authentication context definitions by selecting **New authentication context** in the Azure portal. Organizations are limited to a total of 25 authentication context definitions. Configure the following attributes:
+Create new authentication context definitions by selecting **New authentication context**. Organizations are limited to a total of 25 authentication context definitions. Configure the following attributes:
 
 - **Display name** is the name that is used to identify the authentication context in Azure AD and across applications that consume authentication contexts. We recommend names that can be used across resources, like "trusted devices", to reduce the number of authentication contexts needed. Having a reduced set limits the number of redirects and provides a better end to end-user experience.
 - **Description** provides more information about the policies it's used by Azure AD administrators and those applying authentication contexts to resources.
