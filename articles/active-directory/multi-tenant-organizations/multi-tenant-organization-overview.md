@@ -184,7 +184,7 @@ If you want to add more than five tenants or 100,000 internal users per tenant, 
 
 ## License requirements
 
-To participate in public preview of multi-tenant organization capabilities, you must have Azure AD Premium P1 licenses in all multi-tenant organization tenants. To find the right license for your requirements, see [Compare generally available features of Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+The multi-tenant organization capability is in preview, and you can start using it if you have Azure AD Premium P1 licenses or above in all multi-tenant organization tenants. Licensing terms will be released at general availability. To find the right license for your requirements, see [Compare generally available features of Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Next steps
 
