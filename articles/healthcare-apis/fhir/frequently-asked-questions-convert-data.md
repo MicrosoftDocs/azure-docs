@@ -33,7 +33,7 @@ There's an example published in the [Azure Data Factory Template Gallery](../../
 >
 > In a scenario with batch processing of HL7v2 messages, this template does not take sequencing into account. Post processing will be needed if sequencing is a requirement. 
 
-## How can I persist the data into the FHIR service?
+## How can I persist the converted data into the FHIR service using Postman?
 
 You can use the FHIR service's APIs to persist the converted data into the FHIR service by using `POST {{fhirUrl}}/{{FHIR resource type}}` with the request body containing the FHIR resource to be persisted in JSON format. 
 
