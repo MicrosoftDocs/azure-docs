@@ -13,7 +13,7 @@ On August 21, 2023, we rolled out major changes to Azure Arc-enabled VMware vSph
 > [!NOTE]
 > If you're a new to Arc-enabled VMware vSphere (preview), you will be able to leverage the new capabilities by default. To get started with the preview, see [Quickstart: Connect VMware vCenter Server to Azure Arc by using the helper script](quick-start-connect-vcenter-to-arc-using-script.md). 
 
-If you have the earlier version of preview installed already, switch to the switch to the new version by following the below steps:
+If you have the earlier version of preview installed already, switch to the new version by following the below steps:
 
 ## Switch to the new preview version (Existing preview customer)
 
@@ -28,14 +28,14 @@ If you have the earlier version of preview installed already, switch to the swit
 
 3. Select **Remove from Azure**.  
 
-    ![VM Inventory view](./media/vm-inventory-view.png)
+    :::image type="VM Inventory view" source="media/vm-inventory-view-inline.png" alt-text="Screenshot of VM Inventory view." lightbox="media/article-folder-name/vm-inventory-view-expanded.png":::
 
 4. After successful removal from Azure, enable the same resources again in Azure.
 
 5. Once the resources are re-enabled, the VMs are auto switched to the new preview version. The VM resources will now be represented as **Machine - Azure Arc (VMware)**.
 
-    ![New VM browser view](./media/new-vm-browse-view.png)
-
+    ![Screenshot of New VM browser view](./media/new-vm-browse-view.png)
+    :::image type="VM Inventory view" source="media/new-vm-browse-view-inline.png" alt-text="Screenshot of VM Inventory view." lightbox="media/article-folder-name/new-vm-browse-view-expanded.png":::
  
 ## Next steps
 
