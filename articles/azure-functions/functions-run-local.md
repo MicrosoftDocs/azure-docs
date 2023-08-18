@@ -169,10 +169,28 @@ While Functions provides templates that make it easy to create functions, adding
 [!INCLUDE [functions-add-output-binding-example-all-langs](../../includes/functions-add-output-binding-example-all-langs.md)]
 The following considerations apply when adding bindings to a function:
 
-+ When you add bindings that connect to a service, you must also add an app setting that references a connection string or managed identity to the local.settings.json file. For more information, see [Work with app settings locally](#local-settings). 
++ When you add bindings that connect to a service, you must also add an application setting that references a connection string or managed identity to the local.settings.json file. For more information, see [Work with app settings locally](#local-settings).  
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell"
++ When you add a supported binding, the extension should already be installed when your app uses extension bundle. For more information, see [extension bundles](functions-bindings-register.md#extension-bundles).
+::: zone-end  
 ::: zone pivot="programming-language-csharp"  
 + When you add a binding that requires a new binding extension, you must also add a reference to that specific binding extension in your C# project. 
 ::: zone-end  
+::: zone pivot="programming-language-csharp" 
+For more information, including links to example binding code that you can refer to, see [Add bindings to a function](add-bindings-existing-function.md?tabs=csharp#manually-add-bindings-based-on-examples).  
+::: zone-end  
+::: zone pivot="programming-language-java"
+For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=java#manually-add-bindings-based-on-examples).  
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=javascript#manually-add-bindings-based-on-examples).   
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=powershell#manually-add-bindings-based-on-examples).   
+::: zone-end  
+::: zone pivot="programming-language-python"  
+For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=python#manually-add-bindings-based-on-examples).   
+::: zone-end
 
 ## <a name="start"></a>Run functions locally
 
