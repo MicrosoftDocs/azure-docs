@@ -38,6 +38,8 @@ landingContent:
              url: concepts-nexus-kubernetes-cluster.md
            - text: Observability
              url: concepts-observability.md
+           - text: Security
+             url: concepts-security.md  
            - text: Frequently asked questions
              url: azure-operator-nexus-faq.md
 #     - linkListType: how-to-guide

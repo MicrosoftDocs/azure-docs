@@ -35,8 +35,10 @@ Granting permission to an IP address is called a firewall rule. If a connection 
 
 You can consider enabling connections from all Azure data center IP addresses if a fixed outgoing IP address isn't available for your Azure service.
 
-> [!IMPORTANT]  
-> The **Allow public access from Azure services and resources within Azure** option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. When selecting this option, ensure your login and user permissions limit access to only authorized users.
+> [!IMPORTANT]
+> - The **Allow public access from Azure services and resources within Azure** option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. When selecting this option, ensure your login and user permissions limit access to only authorized users.
+>    - You can create a maximum of 500 IP firewall rules.
+>    
 
 Learn how to enable and manage public access (allowed IP addresses) using the [Azure portal](how-to-manage-firewall-portal.md) or [Azure CLI](how-to-manage-firewall-cli.md).
 
@@ -61,3 +63,5 @@ Consider the following points when access to the Microsoft Azure Database for My
 
 - Learn how to enable public access (allowed IP addresses) using the [Azure portal](how-to-manage-firewall-portal.md) or [Azure CLI](how-to-manage-firewall-cli.md)
 - Learn how to [use TLS](how-to-connect-tls-ssl.md)
+
+
