@@ -53,24 +53,24 @@ Use the following steps to create a new VM.
 
 1. Run the following command to change the `Cores` or `MemoryMb` values for a VM you deploy to your device.
  
-Consider the following requirements and restrictions:
+   Consider the following requirements and restrictions:
    1. The `Name` for these sizes cannot be modified.
    1. `GpuCount` can only be a value compatible with the number of GPUs on your device, which is 1 or 2.
    1. Make sure to modify the correct GPU custom size that corresponds with the GPU on your device.
    1. Once a VM is deployed with a custom size, you cannot modify that custom size again. To make a change, you will have to remove that VM first.
    1. Once an operation kicks off, wait at least five minutes before you deploy any other VMs or workloads; this command takes about 5 minutes to complete.
 
-   ```azurepowershell
-   Set-HcsVMCustomSizes -CustomVMSizesJson <string> [-JsonFormat]
-   ```
+      ```azurepowershell
+      Set-HcsVMCustomSizes -CustomVMSizesJson <string> [-JsonFormat]
+      ```
 
-   Here's example output where `Custom_NonGPU` is modified to have four cores and 4096 MiB of memory. 
+      Here's example output where `Custom_NonGPU` is modified to have four cores and 4096 MiB of memory. 
 
-   ```Output
-   [DBE-BNVGF33.microsoftdatabox.com]: PS>Set-HcsVMCustomSizes -CustomVMSizesJson "[{'Name':'Custom_NonGPU','Cores':4,'MemoryMb':4096},{'Name':'Custom_GPU_T4_v3','Cores':8,'MemoryMb':28672,'GpuCount':2}]"
+      ```Output
+      DBE-BNVGF33.microsoftdatabox.com]: PS>Set-HcsVMCustomSizes -CustomVMSizesJson "[{'Name':'Custom_NonGPU','Cores':4,'MemoryMb':4096},{'Name':'Custom_GPU_T4_v3','Cores':8,'MemoryMb':28672,'GpuCount':2}]"
 
-   [{'Name':'Custom_NonGPU','Cores':4,'MemoryMb':4096},{'Name':'Custom_GPU_T4_v3','Cores':8,'MemoryMb':28672,'GpuCount':2}] 
-   ```
+      [{'Name':'Custom_NonGPU','Cores':4,'MemoryMb':4096},{'Name':'Custom_GPU_T4_v3','Cores':8,'MemoryMb':28672,'GpuCount':2}] 
+      ```
 
 1. Run the following command again to verify that the changes propagated successfully. 
 
@@ -82,4 +82,4 @@ In Azure portal, the VM size dropdown should also update with the new VM options
 
 ## Next steps
 
- - [azure-stack-edge-gpu-virtual-machine-sizes.md](azure-stack-edge-gpu-virtual-machine-sizes.md).
+ - [VM sizes and types for Azure Stack Edge Pro](azure-stack-edge-gpu-virtual-machine-sizes.md).
