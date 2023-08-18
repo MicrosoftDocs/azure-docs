@@ -18,7 +18,7 @@ This article explains the concept of Azure Log Analytics workspace soft-delete a
 - To delete a Log Analytics workspace into a soft-delete state or permanently, you need `microsoft.operationalinsights/workspaces/delete` permissions to the workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
 - To recover a Log Analytics workspace in a soft-delete state, you need `Microsoft.OperationalInsights/workspaces/write` permissions to the workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
 
-## Considerations when you delete a workspace into a soft-delete state
+## Considerations when you delete a workspace
 
 When you delete a Log Analytics workspace into a soft-delete state, a soft-delete operation is performed to allow the recovery of the workspace, including its data and connected agents, within 14 days. This process occurs whether the deletion was accidental or intentional.
 
@@ -52,10 +52,9 @@ You can delete a workspace by using [PowerShell](/powershell/module/azurerm.oper
 1. In the Azure portal, select **All services**. In the list of resources, enter **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
 1. In the list of Log Analytics workspaces, select a workspace. Select **Delete**.
 1. A confirmation page appears that shows the data ingestion to the workspace over the past week.
-1. If you want to permanently delete the workspace and remove the option to later recover it, select the **Delete the workspace permanently** checkbox.
 1. Enter the name of the workspace to confirm and then select **Delete**.
 
-   ![Screenshot that shows confirming the deletion of a workspace.](media/delete-workspace/workspace-delete.png)
+   :::image type="content" source="media/delete-workspace/workspace-delete.png" alt-text="Screenshot that shows confirming the deletion of a workspace." lightbox="media/delete-workspace/workspace-delete.png":::
 
 ### [REST API](#tab/rest-api)
 
@@ -83,49 +82,11 @@ az monitor log-analytics workspace delete --resource-group MyResourceGroup --wor
 
 ---
 
-## Delete a workspace permanently
-The soft-delete method might not fit in some scenarios, such as development and testing, where you need to repeat a deployment with the same settings and workspace name. In such cases, you can permanently delete your workspace and "override" the soft-delete period. The permanent workspace delete operation releases the workspace name. You can create a new workspace by using the same name.
-
-> [!IMPORTANT]
-> Use the permanent workspace delete operation with caution because it's irreversible. You won't be able to recover your workspace and its data.
-
-### [Azure portal](#tab/azure-portal)
-
-To permanently delete a workspace by using the Azure portal: 
-
-1. Select the **Delete the workspace permanently** checkbox before you select **Delete**.
-
-### [REST API](#tab/rest-api)
-
-To permanently delete a workspace by using the REST API, call the [Workspaces - Delete API](/rest/api/loganalytics/workspaces/delete) and add the `force` URI parameter:
-
-```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}?api-version=2022-10-01&force={force}
-```
-
-### [PowerShell](#tab/powershell)
-
-To permanently delete a workspace by using PowerShell, add a `-ForceDelete` tag to permanently delete your workspace. The `-ForceDelete` option is currently available with Az.OperationalInsights 2.3.0 or higher.
-
-```powershell
-PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete
-```
-
-### [CLI](tab/cli)
-
-To permanently delete a workspace by using CLI, run the [az monitor log-analytics workspace delete](cli/azure/monitor/log-analytics/workspace##az-monitor-log-analytics-workspace-delete) command and add the `--force` parameter.
-
-```azurecli
-az monitor log-analytics workspace delete --force --resource-group MyResourceGroup --workspace-name MyWorkspace
-```
-
----
-
-## Recover a workspace
+## Recover a workspace in a soft-delete state
 
 When you delete a Log Analytics workspace accidentally or intentionally, the service places the workspace in a soft-delete state and makes it inaccessible to any operation. The name of the deleted workspace is preserved during the soft-delete period. It can't be used to create a new workspace. After the soft-delete period, the workspace is nonrecoverable, it's scheduled for permanent deletion, and its name is released and can be used to create a new workspace.
 
-You can recover your workspace during the soft-delete period, including its data, configuration, and connected agents. You must have Contributor permissions to the subscription and resource group where the workspace was located before the soft-delete operation. The workspace recovery is performed by re-creating the Log Analytics workspace with the details of the deleted workspace, including:
+You can recover your workspace during the soft-delete period, including its data, configuration, and connected agents. The workspace recovery is performed by re-creating the Log Analytics workspace with the details of the deleted workspace, including:
 
 - Subscription ID
 - Resource group name
@@ -151,7 +112,7 @@ The workspace and all its data are brought back after the recovery operation. Ho
 
 ### [REST API](#tab/rest-api)
 
-To recover the workspace, create it again with the same name, in the same subscription, resource group and location by calling the [Workspaces - Create Or Update API](/rest/api/loganalytics/workspaces/create-or-update). The name is kept for 14 days and cannot be used for another workspace.
+To recover the workspace, create it again with the same name, in the same subscription, resource group and location. To create it again, call the [Workspaces - Create Or Update API](/rest/api/loganalytics/workspaces/create-or-update).
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}?api-version=2022-10-01
@@ -159,12 +120,66 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{
 
 ### [PowerShell](#tab/powershell)
 
+To recover a workspace in a soft delete state, run the [Restore-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/restore-azoperationalinsightsworkspace) cmdlet.
+
 ```PowerShell
 PS C:\>Select-AzSubscription "subscription-name-the-workspace-was-in"
 PS C:\>Restore-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name-the-workspace-was-in" -Name "deleted-workspace-name" -Location "region-name-the-workspace-was-in"
 ```
 
 ### [CLI](tab/cli)
+
+To recover a workspace in a soft delete state, run the [az monitor log-analytics workspace recover](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-recover) command:
+
+
+```azurecli
+az monitor log-analytics workspace recover --resource-group MyResourceGroup -n MyWorkspace
+```
+
+---
+
+## Delete a workspace permanently
+The soft-delete method might not fit in some scenarios, such as development and testing, where you need to repeat a deployment with the same settings and workspace name. In such cases, you can permanently delete your workspace and "override" the soft-delete period. The permanent workspace delete operation releases the workspace name. You can create a new workspace by using the same name.
+
+> [!IMPORTANT]
+> Use the permanent workspace delete operation with caution because it's irreversible. You won't be able to recover your workspace and its data.
+
+### [Azure portal](#tab/azure-portal)
+
+To permanently delete a workspace by using the Azure portal: 
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the Azure portal, select **All services**. In the list of resources, enter **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
+1. In the list of Log Analytics workspaces, select a workspace. Select **Delete**.
+1. A confirmation page appears that shows the data ingestion to the workspace over the past week.
+1. Select the **Delete the workspace permanently** checkbox.
+1. Enter the name of the workspace to confirm and then select **Delete**.
+
+   :::image type="content" source="media/delete-workspace/workspace-delete.png" alt-text="Screenshot that shows confirming the deletion of a workspace." lightbox="media/delete-workspace/workspace-delete.png":::
+
+### [REST API](#tab/rest-api)
+
+To permanently delete a workspace by using the REST API, call the [Workspaces - Delete API](/rest/api/loganalytics/workspaces/delete) and add the `force` URI parameter:
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}?api-version=2022-10-01&force={force}
+```
+
+### [PowerShell](#tab/powershell)
+
+To permanently delete a workspace by using PowerShell, add a `-ForceDelete` tag to permanently delete your workspace. The `-ForceDelete` option is currently available with Az.OperationalInsights 2.3.0 or higher.
+
+```powershell
+PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete
+```
+
+### [CLI](tab/cli)
+
+To permanently delete a workspace by using CLI, run the [az monitor log-analytics workspace delete](cli/azure/monitor/log-analytics/workspace##az-monitor-log-analytics-workspace-delete) command and add the `--force` parameter.
+
+```azurecli
+az monitor log-analytics workspace delete --force --resource-group MyResourceGroup --workspace-name MyWorkspace
+```
 
 ---
 
