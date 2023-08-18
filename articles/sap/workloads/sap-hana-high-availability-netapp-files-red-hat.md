@@ -613,7 +613,7 @@ In this example each cluster node has its own HANA NFS filesystems /hana/shared,
 
    Check the status of cluster and all the resources
    > [!NOTE]
-   > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+   > This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
    
     ```bash
     sudo pcs status
