@@ -472,11 +472,12 @@ sections:
         answer: While the HTTP(S) traffic can be served through L4 proxy protocols as well, we do not recommend doing so. The L7 proxy solution of Application Gateway offers greater control and security over the HTTP(S) protocols through advanced features such Rewrites, Session Affinity, Redirection, WebSockets, WAF and more.
           
       - question: What are the property names for Layer 4 proxy?
-        answer: The resource properties for Layer 4 features are different from the Layer 7 ones. Accordingly, when using REST API or CLI, you will need to use the following properties 
-        table here
-        link here
-        link here
-        Note here
+        answer: |
+         The resource properties for Layer 4 features are different from the Layer 7 ones. Accordingly, when using REST API or CLI, you will need to use the following properties 
+         table here
+         link here
+         link here
+         Note here
 
       - question: Can I use a TCP/TLS listener with an HTTP(S) backend betting?
         answer: No. You can't cross-link Layer 4 and Layer 7 properties. Therefore, a routing rule will only allow you to link a Layer 4-type listener to a Layer 4-type Backend setting.
