@@ -24,12 +24,12 @@ The following procedure creates a virtual network with a subnet.
     |---|---|
     | **Project details** |  |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **test-rg** in Name. </br> Select **OK**. |
+    | Resource group | Select **test-rg** |
     | **Instance details** |  |
     | Name | Enter **vnet-1**. |
     | Region | Select **East US 2**. |
 
-    :::image type="content" source="./media/virtual-network-create/create-virtual-network-basics.png" alt-text="Screenshot of the Basics tab of Create virtual network in the Azure portal":::
+    :::image type="content" source="./media/virtual-network-create-with-bastion/create-virtual-network-basics.png" alt-text="Screenshot of the Basics tab of Create virtual network in the Azure portal":::
 
 1. Select **Next** to proceed to the **Security** tab.
 
