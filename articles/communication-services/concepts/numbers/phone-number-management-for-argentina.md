@@ -40,7 +40,7 @@ More details on eligible subscription types are as follows:
 
 
 ## Azure subscription billing locations where Argentina phone numbers are available
-| Country |
+| Country/region |
 | :---------- |
 |Australia|
 |Canada|
