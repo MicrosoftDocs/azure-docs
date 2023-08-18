@@ -41,14 +41,14 @@ Follow these steps to configure your client to monitor errors:
 
 - For the primary region and any backup regions your code will need to know:
 
-      a. Base URI for the resource
+      * Base URI for the resource
 
-      b. Regional access key or Azure Active Directory access
+      * Regional access key or Azure Active Directory access
 
 - Configure your code so that you monitor connectivity errors (typically connection timeouts and service unavailability errors).
 
-      a. Given that networks yield transient errors, for single connectivity issue occurrences, the suggestion is to retry.
+      * Given that networks yield transient errors, for single connectivity issue occurrences, the suggestion is to retry.
 
-      b. For persistent connectivity issues, redirect traffic to the backup resource in the region(s) you've created.
+      * For persistent connectivity issues, redirect traffic to the backup resource in the region(s) you've created.
 
 If you have fine-tuned a model in your primary region, you will need to retrain the base model in the secondary region(s) using the same training data. And then follow the above steps.
