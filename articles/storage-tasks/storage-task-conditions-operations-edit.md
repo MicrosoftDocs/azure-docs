@@ -61,18 +61,11 @@ The following example specifies a value of `.log` along with the **Ends with** o
 
 #### Use a wildcard in string values
 
-Values can include either `*` or `?` wildcard values.
+You can use the `*` and `?` wildcard characters in the value of a string property. The `*` character represents zero or more characters while a `?` character represents exactly one character.
 
-- `?` represents a single (exactly one) characters, including space
-- `*` represents a multiple (zero or more) characters, including space
+For example, if you want your clause to evaluate to true only for blobs that are Word documents, you would use the string `*.docx`. However, if you want only documents are named with a single character such as `1.docx` or `2.docx`, then you would use the string `?.docx`.  
 
-Provide an example for using `*`.
-
-Provide an example for using `?`.
-
-Explain that you can escape characters by using a `\`
-
-Provide an example of escaping characters by using a `\`.
+You can use the `*` or `?` anywhere in a string. You can escape these characters by adding a `\` just before the character.
 
 #### Reference a value from object metadata
 
