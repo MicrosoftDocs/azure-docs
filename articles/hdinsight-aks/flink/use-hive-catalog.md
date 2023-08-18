@@ -56,7 +56,8 @@ Produce the messages to the Kafka topic.
 :::image type="content" source="./media/use-hive-catalog/produce-messages-to-kafka-topic.png" alt-text="Screenshot showing how to produce messages to Kafka topic." lightbox="./media/use-hive-catalog/produce-messages-to-kafka-topic.png":::
 
 Other commands:
-> [!NOTE] You're required to replace bootstrap-server with your own kafka brokers host name or IP
+> [!NOTE]
+> You're required to replace bootstrap-server with your own kafka brokers host name or IP
 ```
 --- delete topic
 ./kafka-topics.sh --delete --topic user_orders --bootstrap-server wn0-contsk:9092
@@ -236,7 +237,7 @@ INSERT INTO mysql_user_orders (order_date, customer_id, customer_name, price, pr
  SELECT order_date, CAST(user_id AS INT), user_name, price, CAST(product_id AS INT), order_status
  FROM kafka_user_orders;
 ```
-:::image type="content" source="./media/use-hive-catalog/sink-user-transaction.png" alt-text="Screenshot showing how to sink user transaction." lightbox="./media/use-hive-catalog/sink-user-transaction.png"::::::
+:::image type="content" source="./media/use-hive-catalog/sink-user-transaction.png" alt-text="Screenshot showing how to sink user transaction." lightbox="./media/use-hive-catalog/sink-user-transaction.png":::
 
 :::image type="content" source="./media/use-hive-catalog/flink-ui.png" alt-text="Screenshot showing Flink UI.":::
 
@@ -268,11 +269,11 @@ INSERT INTO mysql_user_orders (order_date, customer_id, customer_name, price, pr
 SELECT order_date, CAST(user_id AS INT), user_name, price, CAST(product_id AS INT), order_status
 FROM kafka_user_orders where product_id = 104;
 ```
-:::image type="content" source="./media/use-hive-catalog/orders-table.png" alt-text="Screenshot showing how to check orders table" lightbox="./media/use-hive-catalog/orders-table.png"
+:::image type="content" source="./media/use-hive-catalog/orders-table.png" alt-text="Screenshot showing how to check orders table." lightbox="./media/use-hive-catalog/orders-table.png"
 
 ### Check `product_id = 104` record is added in order table on MySQL on Azure Cloud Shell
 
-:::image type="content" source="./media/use-hive-catalog/record-added-to-order-table.png" alt-text="Screenshot showing the records added to the order table.png.":::
+:::image type="content" source="./media/use-hive-catalog/record-added-to-order-table.png" alt-text="Screenshot showing the records added to the order table.":::
 
 ### Reference
 * [Apache Hive](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/table/hive/overview/)
