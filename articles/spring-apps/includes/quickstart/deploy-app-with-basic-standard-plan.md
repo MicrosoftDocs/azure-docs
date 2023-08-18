@@ -18,7 +18,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ### [Azure portal](#tab/Azure-portal)
 
-[!INCLUDE [prepare-spring-project](../../includes/quickstart/prepare-spring-project.md)]
+[!INCLUDE [prepare-spring-project](prepare-spring-project.md)]
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
@@ -63,7 +63,7 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 ### 3.2. Create an Azure Spring Apps instance
 
-[!INCLUDE [provision-spring-apps](../../includes/quickstart/provision-basic-azure-spring-apps.md)]
+[!INCLUDE [provision-spring-apps](provision-basic-azure-spring-apps.md)]
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
