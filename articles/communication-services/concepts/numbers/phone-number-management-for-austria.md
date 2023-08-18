@@ -42,12 +42,12 @@ More details on eligible subscription types are as follows:
 
 
 ## Azure subscription billing locations where Austria phone numbers are available
-| Country |
+| Country/Region |
 | :---------- |
 |Austria|
 
 
-## Find information about other countries
+## Find information about other countries/regions
 
 [!INCLUDE [Country Dropdown](../../includes/country-dropdown.md)]
 
