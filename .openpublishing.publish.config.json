@@ -417,7 +417,7 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-v1",
+      "path_to_root": "azureml-examples-archive",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "v1-archive",
       "branch_mapping": {}
