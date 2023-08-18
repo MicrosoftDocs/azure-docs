@@ -101,7 +101,7 @@ If you have an existing certificate, see [import a certificate in AKV](../key-va
 
 ### Set up access policy in AKV
 
-Users who create or import a certificate in AKV must have authorized access to AKV with `Create` or `Import` certificate permissions, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy) to learn how to assign policy to a user. The same users that sign the container image requires additional `Sign` permission under key permission group, and `Get` permission under certificate permission group are required.
+Users who create a self-signed certificate in AKV must have authorized access to AKV with at least `Create` permission under certificate permission group, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy) to learn how to assign policy to a user. The same users that sign the container image requires additional `Sign` permission under key permission group, and `Get` permission under certificate permission group are required.
 
 ### Create a self-signed certificate (Azure CLI)
 
