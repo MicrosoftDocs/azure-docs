@@ -526,17 +526,6 @@ Follow these steps to create your App Service resources and publish your project
 
 :::zone target="docs" pivot="development-environment-azd"
 
-To publish your web app, you must create and configure a new App Service and deploy your app to it.
-
-In addition to the App Service itself, the following resources are also required to host the app:
-
-- A new [resource group](/azure/azure-resource-manager/management/overview#terminology) to contain all of the Azure resources for the service.
-- A new [Hosting Plan](/azure/app-service/overview-hosting-plans) that specifies the location, size, and features of the web server farm that hosts your app.
-
-The `azd` template includes Bicep or Terraform files in the `infra` folder to create these resources for you. After they are created, `azd` can also deploy the app.
-
-Follow these steps to create the resources and publish your project using `azd`:
-
 1. Sign into your Azure account by using the az login command and following the prompt:
 
     ```bash
@@ -549,7 +538,7 @@ Follow these steps to create the resources and publish your project using `azd`:
     azd up
     ```
 
-    The command might take a few minutes to complete. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command might take a few minutes to complete. `azd up` uses the Bicep files in your projects to create the resource group, App Service Plan, and hosting app. It also performs certain configurations such as enabling logging and deploys your compiled app code. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
 3. Open a web browser and navigate to the URL:
 
@@ -805,7 +794,7 @@ Save your changes, then redeploy the app using the `azd up` command again:
 azd up
 ```
 
-`azd` will skip the provisioning resources step this time and only redeploy your code, since there have been no changes to the Bicep files.
+`azd up` will skip the provisioning resources step this time and only redeploy your code, since there have been no changes to the Bicep files.
 
 Once deployment has completed, the browser will open to the updated updated ASP.NET Core 7.0 web app.
 
