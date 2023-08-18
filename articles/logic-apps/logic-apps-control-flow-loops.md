@@ -16,7 +16,7 @@ Azure Logic Apps includes the following loop actions that you can use in your wo
 
 * To repeat one or more actions on an array, add the [**For each** action](#foreach-loop) to your workflow.
 
-  If you have a trigger that receives an array and want to run an iteration for each array item, you can *debatch* that array with the [**SplitOn** trigger property](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
+  Alternatively, if you have a trigger that receives an array and want to run an iteration for each array item, you can *debatch* that array with the [**SplitOn** trigger property](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 * To repeat one or more actions until a condition gets met or a state changes, add the [Until action](#until-loop) to your workflow.
 
@@ -225,8 +225,8 @@ If you're working with your workflow's JSON definition, you can use the `Sequent
 
 <a name="until-loop"></a>
 
-## "Until" loop
-  
+## Until
+
 To run and repeat actions until a condition gets met or a state changes, put those actions in an "Until" loop. Your logic app first runs any and all actions inside the loop, and then checks the condition or state. If the condition is met, the loop stops. Otherwise, the loop repeats. For the default and maximum limits on the number of "Until" loops that a logic app run can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Here are some common scenarios where you can use an "Until" loop:
