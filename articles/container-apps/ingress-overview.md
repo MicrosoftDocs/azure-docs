@@ -64,7 +64,7 @@ HTTP ingress adds headers to pass metadata about the client request to your cont
 | `X-Forwarded-Proto` | Protocol used by the client to connect with the Container Apps service. | `http` or `https` |
 | `X-Forwarded-For` | The IP address of the client that sent the request. |  |
 | `X-Forwarded-Host` | The host name the client used to connect with the Container Apps service. |  |
-| `X-Forwarded-Client-Cert` | The client certificate if `clientCertificateMode` is set. | Semicolon seperated list of Hash, Cert, and Chain. For example: `Hash=....;Cert="...";Chain="...";` |
+| `X-Forwarded-Client-Cert` | The client certificate if `clientCertificateMode` is set. | Semicolon separated list of Hash, Cert, and Chain. For example: `Hash=....;Cert="...";Chain="...";` |
 
 ### <a name="tcp"></a>TCP
 
@@ -96,7 +96,7 @@ Visit the [how to article on ingress](ingress-how-to.md#use-additional-tcp-ports
 
 You can access your app in the following ways:
 
-- The default fully-qualified domain name (FQDN):  Each app in a Container Apps environment is automatically assigned an FQDN based on the environment's DNS suffix. To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
+- The default fully qualified domain name (FQDN):  Each app in a Container Apps environment is automatically assigned an FQDN based on the environment's DNS suffix. To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
 - A custom domain name:  You can configure a custom DNS domain for your Container Apps environment.  For more information, see [Custom domain names and certificates](./custom-domains-certificates.md).
 - The app name: You can use the app name for communication between apps in the same environment.
 
