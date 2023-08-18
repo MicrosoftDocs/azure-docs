@@ -1,11 +1,11 @@
 ---
-title: Guest Management Issues
+title: Troubleshoot Guest Management Issues
 description: Learn about how to troubleshoot the guest management issues for Arc-enabled VMware vSphere.
 ms.topic: reference
 ms.date: 08/18/2023
 # Customer intent: As a VI admin, I want to understand the troubleshooting process for guest management issues.
 ---
-# Guest Management for Linux VMs
+# roubleshoot Guest Management for Linux VMs
 
 This article provides information on how to troubleshoot and resolve the issues that may occur while you enable guest management on Arc-enabled VMware vSphere virtual machines.  
 
@@ -15,12 +15,12 @@ This article provides information on how to troubleshoot and resolve the issues 
 
 **Resolution**: Before you enable Guest Management on a domain-joined Linux VM using active directory credentials, follow these steps to set the configuration on the VM:
 
-In the SSSD configuration file (typically, */etc/sssd/sssd.conf*), add the following under the section for the domain:
+1. In the SSSD configuration file (typically, */etc/sssd/sssd.conf*), add the following under the section for the domain:
 
-> [domain/contoso.com]
-> ad_gpo_map_batch = +vmtoolsd
+      > [domain/contoso.com]
+      > ad_gpo_map_batch = +vmtoolsd
 
-After making the changes to SSSD configuration, restart the SSSD process. If SSSD is running as a system process, run `sudo systemctl restart sssd` to restart it.
+2. After making the changes to SSSD configuration, restart the SSSD process. If SSSD is running as a system process, run `sudo systemctl restart sssd` to restart it.
 
 ### Additional information
 
@@ -28,7 +28,7 @@ The parameter `ad_gpo_map_batch` according to the [sssd manpage](https://jhrozek
 
 A comma-separated list of Pluggable Authentication Module (PAM) service names for which GPO-based access control is evaluated based on the BatchLogonRight and DenyBatchLogonRight policy settings.
 
-It's possible to add another PAM service name to the default set by using **+service_name** or to explicitly remove a PAM service name from the default set by using **-service_name**. For example, in order to replace a default PAM service name for this sign in (for example, **crond**) with a custom PAM service name (for example, **my_pam_service**), use this configuration:
+It's possible to add another PAM service name to the default set by using **+service_name** or to explicitly remove a PAM service name from the default set by using **-service_name**. For example, to replace a default PAM service name for this sign in (for example, **crond**) with a custom PAM service name (for example, **my_pam_service**), use this configuration:
 
 `ad_gpo_map_batch = +my_pam_service, -crond`
 
