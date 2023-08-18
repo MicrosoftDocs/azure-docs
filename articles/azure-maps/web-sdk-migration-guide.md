@@ -57,9 +57,10 @@ Comprehensive testing is essential during migration. Conduct thorough testing of
 
 Consider a gradual rollout strategy for the updated version. Release the migrated version to a smaller group of users or in a controlled environment before making it available to your entire user base.
 
-By following these steps and considering best practices, you can successfully migrate your application from Azure Maps WebSDK v1 to v3. Embrace the new capabilities and improvements offered by the latest version while ensuring a smooth and seamless transition for your users.
+By following these steps and considering best practices, you can successfully migrate your application from Azure Maps WebSDK v1 to v3. Embrace the new capabilities and improvements offered by the latest version while ensuring a smooth and seamless transition for your users. For more information, see [Azure Maps Web SDK best practices].
 
 [Azure Active Directory Authentication]: how-to-secure-spa-users.md
+[Azure Maps Web SDK best practices]: web-sdk-best-practices.md
 [content delivery network]: /azure/cdn/cdn-overview
 [Manage Authentication in Azure Maps]: how-to-manage-authentication.md
 [npm]: https://www.npmjs.com/package/azure-maps-control
