@@ -17,15 +17,15 @@ All actions that are related to managed clusters should be done through the mana
 
 This feature ensures that the correct, supported APIs are used when performing delete operations to avoid any errors.
 
-You can learn more about deny assignments in the [Azure role-based access control (RBAC) documentation](..role-based-access-control/deny-assignments).
+You can learn more about deny assignments in the [Azure role-based access control (RBAC) documentation](../role-based-access-control/deny-assignments.md).
 
 ## Best practices
 
 The following are some best practices to minimize the threat of desyncing your cluster's resources:
-* Instead of deleting virtual machine scale sets directly from the managed resource group, use NodeType level APIs to delete the NodeType or virtual machine scale set. Options include the Node blade on the Azure portal and [Azure PowerShell](https://learn.microsoft.com/powershell/module/az.servicefabric/remove-azservicefabricmanagednodetype?view=azps-10.2.0&viewFallbackFrom=azps-9.7.0).
+* Instead of deleting virtual machine scale sets directly from the managed resource group, use NodeType level APIs to delete the NodeType or virtual machine scale set. Options include the Node blade on the Azure portal and [Azure PowerShell](/powershell/module/az.servicefabric/remove-azservicefabricmanagednodetype).
 * Use the correct APIs to restart or reimage your scale sets:
-  * [Virtual machine scale set restarts](https://learn.microsoft.com/powershell/module/az.servicefabric/restart-azservicefabricmanagednodetype?view=azps-10.1.0)
-  * [Virtual machine scale set reimage](https://learn.microsoft.com/powershell/module/az.servicefabric/set-azservicefabricmanagednodetype?view=azps-10.1.0)
+  * [Virtual machine scale set restarts](/powershell/module/az.servicefabric/restart-azservicefabricmanagednodetype)
+  * [Virtual machine scale set reimage](/powershell/module/az.servicefabric/set-azservicefabricmanagednodetype)
 
 ## Next steps
 
