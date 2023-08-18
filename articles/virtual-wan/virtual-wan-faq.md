@@ -232,7 +232,7 @@ A Network Virtual Appliance (NVA) can be deployed inside a virtual hub. For step
 
 No. The spoke VNet can't have a virtual network gateway if it's connected to the virtual hub.
 
-### Can a spoke VNet have a Route Server?
+### Can a spoke VNet have an Azure Route Server?
 
 No. The spoke VNet can't have a Route Server if it's connected to the virtual WAN hub.
 
