@@ -111,9 +111,9 @@ Here are the primary benefits of a multi-tenant organization:
 
 :::image type="content" source="./media/common/multi-tenant-organization-topology.png" alt-text="Diagram that shows a multi-tenant organization topology and cross-tenant access settings." lightbox="./media/common/multi-tenant-organization-topology.png":::
 
-For more information, see [What is a multi-tenant organization?](./multi-tenant-organization-overview.md).
+For more information, see [What is a multi-tenant organization in Azure Active Directory?](./multi-tenant-organization-overview.md).
 
-## Compare Azure AD capabilities
+## Compare multi-tenant capabilities
 
 Depending on the needs of your organization, you can use any combination of B2B direct connect, B2B collaboration, cross-tenant synchronization, and multi-tenant organization capabilities. B2B direct connect and B2B collaboration are independent capabilities, while cross-tenant synchronization and multi-tenant organization capabilities are independent of each other, though both rely on underlying B2B collaboration.
 
@@ -160,5 +160,5 @@ To better understand multi-tenant organization scenario related Azure AD capabil
 
 ## Next steps
 
-- [What is a multi-tenant organization?](multi-tenant-organization-overview.md)
+- [What is a multi-tenant organization in Azure Active Directory?](multi-tenant-organization-overview.md)
 - [What is cross-tenant synchronization?](cross-tenant-synchronization-overview.md)

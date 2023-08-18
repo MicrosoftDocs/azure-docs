@@ -1,5 +1,5 @@
 ---
-title: What is a multi-tenant organization? (Preview)
+title: What is a multi-tenant organization in Azure Active Directory? (Preview)
 description: Learn about multi-tenant organizations in Azure Active Directory and Microsoft 365.
 services: active-directory
 author: rolyon
@@ -15,7 +15,7 @@ ms.custom: it-pro
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
-# What is a multi-tenant organization? (Preview)
+# What is a multi-tenant organization in Azure Active Directory? (Preview)
 
 > [!IMPORTANT]
 > Multi-tenant organization is currently in PREVIEW.
