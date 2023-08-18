@@ -205,11 +205,11 @@ In this step, you fork a demo project to deploy.
 
 :::zone target="docs" pivot="development-environment-azd"
 
-The [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) (`azd`) is an open-source tool designed to streamline and automate the process of moving your application from a local development environment to Azure. (`azd`) uses extensible [templates](/azure/developer/azure-developer-cli/get-started) that include reusable infrastructure as code (Bicep or Terraform) assets and the app source code. These templates are used to provision resources in Azure and deploy the app code.
+The [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) (`azd`) is an open-source tool designed to streamline and automate the process of moving your application from a local development environment to Azure. (`azd`) uses extensible [templates](/azure/developer/azure-developer-cli/get-started) that include reusable infrastructure as code (Bicep or Terraform) assets and the app source code. These templates are used to provision resources in Azure and deploy the app code and generally live on GitHub.
 
-Retrieve and initialize the template for this quickstart using the following steps:
+Retrieve and initialize [the ASP.NET web app template](tbd) for this quickstart using the following steps:
 
-1. Open a terminal window on your machine to an empty working directory. Initialize the `azd` template for this quickstart using the `azd init` command.
+1. Open a terminal window on your machine to an empty working directory. Initialize the `azd` template using the `azd init` command.
 
     ```bash
     azd init --template <tbd-template-name>
