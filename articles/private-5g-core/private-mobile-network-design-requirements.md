@@ -58,7 +58,7 @@ Unless your packet core has Network Address Translation (NAT) enabled, a local l
 There are multiple ways to set up your network for use with AP5GC. The exact setup varies depending on your needs and hardware. This section provides some sample network topologies on ASE Pro GPU hardware.
 
 - Layer 3 network with N6 Network Address Translation (NAT)  
-  This network topology has your ASE connected to a layer 2 device that provides connectivity to the mobile network core and access gateways (routers connecting your ASE to your data and access networks respectively). This topology supports up to six data networks. This solution is commonly used because it supports layer 3 routing when required.  
+  This network topology has your ASE connected to a layer 2 device that provides connectivity to the mobile network core and access gateways (routers connecting your ASE to your data and access networks respectively). This topology supports up to six data networks. This solution is commonly used because it simplifies layer 3 routing.  
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-n6-nat.png" alt-text="Diagram of a layer 3 network with N6 Network Address Translation (N A T)." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-n6-nat.png":::
 
 - Layer 3 network without Network Address Translation (NAT)  
