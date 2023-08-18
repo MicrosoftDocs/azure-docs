@@ -1,98 +1,156 @@
 ---
 title: Add loops to repeat actions
-description: Create loops that repeat workflow actions or process arrays in Azure Logic Apps.
+description: Create loops to repeat actions or process arrays in workflows using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 08/18/2023
 ---
 
-# Create loops that repeat workflow actions or process arrays in Azure Logic Apps
+# Create loops that repeat actions or process arrays in workflows with Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-To process an array in your logic app workflow, you can create a [For each loop](#foreach-loop). This loop repeats one or more actions on each item in the array. For the limit on the number of array items that a "For each" loop can process, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Azure Logic Apps includes the following loop actions that you can use in your workflow:
 
-To repeat actions until a condition gets met or a state changes, you can create an [Until loop](#until-loop). Your workflow first runs all the actions inside the loop, and then checks the condition or state. If the condition is met, the loop stops. Otherwise, the loop repeats. For the default and maximum limits on the number of "Until" loops that a workflow can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+* To repeat one or more actions on an array, add the [**For each** action](#foreach-loop) to your workflow.
 
-> [!TIP]
-> If you have a trigger that receives an array and want to run a workflow for each array item, you can *debatch* that array 
-> with the [**SplitOn** trigger property](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
+  If you have a trigger that receives an array and want to run an iteration for each array item, you can *debatch* that array with the [**SplitOn** trigger property](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
+
+* To repeat one or more actions until a condition gets met or a state changes, add the [Until action](#until-loop) to your workflow.
+
+  Your workflow first runs all the actions inside the loop, and then checks the condition or state. If the condition is met, the loop stops. Otherwise, the loop repeats. For the default and maximum limits on the number of **Until** loops that a workflow can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). 
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
 * Basic knowledge about [logic app workflows](../logic-apps/logic-apps-overview.md)
 
 <a name="foreach-loop"></a>
 
-## "For each" loop
+## For each
 
-A "For each" loop repeats one or more actions on each array item and works only on arrays. Here are some considerations when you use "For each" loops:
+The **For each** action repeats one or more actions on each array item and works only on arrays.
 
-* The "For each" loop can process a limited number of array items. For this limit, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Here are some considerations to remember when you use a **For each** action:
 
-* By default, iterations in a "For each" loop run at the same time, or in parallel. This behavior differs from [Power Automate's **Apply to each** loop](/power-automate/apply-to-each) where iterations run one at a time, or sequentially. However, you can [set up sequential "For each" loop iterations](#sequential-foreach-loop). For example, if you want to pause the next iteration in a "Foreach" loop by using the [Delay action](../connectors/connectors-native-delay.md), you need to set the loop to run sequentially.
+* The **For each** action can process a limited number of array items. For this limit, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-  The exception to the default behavior are nested loops where iterations always run sequentially, not in parallel. To run operations in parallel for items in a nested loop, create and [call a child logic app workflow](../logic-apps/logic-apps-http-endpoint.md).
+* By default, iterations in a **For each** action run at the same time in parallel.
 
-* To get predictable results from operations on variables during each loop iteration, run those loops sequentially. For example, when a concurrently running loop ends, the increment, decrement, and append to variable operations return predictable results. However, during each iteration in the concurrently running loop, these operations might return unpredictable results. 
+  This behavior differs from [Power Automate's **Apply to each** loop](/power-automate/apply-to-each) where iterations run one at a time, or sequentially. However, you can [set up sequential **For each** iterations](#sequential-foreach-loop). For example, if you want to pause the next iteration in a **For each** action by using the [Delay action](../connectors/connectors-native-delay.md), you need to set up each iteration to run sequentially.
 
-* Actions in a "For each" loop use the [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) expression to reference and process each item in the array. If you specify data that's not in an array, 
-the logic app workflow fails.
+  The exception to the default behavior are nested **For each** actions where iterations always run sequentially, not in parallel. To run operations in parallel for items in a nested loop, create and [call a child logic app workflow](../logic-apps/logic-apps-http-endpoint.md).
 
-This example logic app workflow sends a daily summary for a website RSS feed. The workflow uses a "For each" loop that sends an email for each new item.
+* To get predictable results from operations on variables during each iteration, run the iterations sequentially. For example, when a concurrently running iteration ends, the **Increment variable**, **Decrement variable**, and **Append to variable** operations return predictable results. However, during each iteration in the concurrently running loop, these operations might return unpredictable results.
 
-1. [Create this example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md) with an Outlook.com account or a work or school account.
+* Actions in a **For each** loop use the [`item()` function](../logic-apps/workflow-definition-language-functions-reference.md#item) to reference and process each item in the array. If you specify data that's not in an array, the workflow fails.
 
-2. Between the RSS trigger and send email action, add a "For each" loop.
+The following example workflow sends a daily summary for a website RSS feed. The workflow uses a **For each** action that sends an email for each new item.
 
-   1. To add a loop between steps, move your pointer over the arrow between those steps. Select the **plus sign** (**+**) that appears, then select **Add an action**.
+Follow the steps based on whether you create a Consumption or Standard logic app workflow.
 
-      ![Select "Add an action"](media/logic-apps-control-flow-loops/add-for-each-loop.png)
+### [Consumption](#tab/consumption)
 
-   1. Under the search box, select **All**. In the search box, enter **for each**. From the actions list, 
-   select the Control action named **For each**.
+1. In the [Azure portal](https://portal.azure.com), create an example Consumption logic app workflow with the following steps in the specfied order:
 
-      ![Add "For each" loop](media/logic-apps-control-flow-loops/select-for-each.png)
+* The **RSS** trigger named **When a feed item is published** 
 
-3. Now build the loop. Under **Select an output from previous steps** 
-after the **Add dynamic content** list appears, 
-select the **Feed links** array, which is output from the RSS trigger. 
+  For more information, [follow these general steps to add a trigger](create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
-   ![Select from dynamic content list](media/logic-apps-control-flow-loops/for-each-loop-dynamic-content-list.png)
+* The **Outlook.com** or **Office 365 Outlook** action named **Send an email**
 
-   > [!NOTE] 
-   > You can select *only* array outputs from the previous step.
+  For more information, [follow these general steps to add an action](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   The selected array now appears here:
+1. [Follow the same general steps](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) to add the **For each** action between the RSS trigger and **Send an email** action in your workflow.
 
-   ![Select array](media/logic-apps-control-flow-loops/for-each-loop-select-array.png)
+1. Now build the loop:
 
-4. To run an action on each array item, drag the **Send an email** action into the loop.
+   1. Select inside the **Select an output from previous steps** box so that the dynamic content list opens.
 
-   Your workflow might look something like this example:
+   1. In the **Add dynamic content** list, from the **When a feed item is published** section, select **Feed links**, which is an array output from the RSS trigger.
 
-   ![Add steps to "Foreach" loop](media/logic-apps-control-flow-loops/for-each-loop-with-step.png)
+      > [!NOTE]
+      >
+      > If the **Feed links** output doesn't appear, next to the trigger section label, select **See more**. 
+      > From the dynamic content list, you can select *only* outputs from previous steps.
 
-5. Save your workflow. To manually test your logic app, on the designer toolbar, select **Run Trigger** > **Run**.
+      ![Screenshot shows Azure portal, Consumption workflow designer, action named For each, and opened dynamic content list.](media/logic-apps-control-flow-loops/for-each-select-feed-links-consumption.png)
+
+      When you're done, the selected array output appears as in the following example:
+
+      ![Screenshot shows Consumption workflow, action named For each, and selected array output.](media/logic-apps-control-flow-loops/for-each-selected-array-consumption.png)
+
+   1. To run an existing action on each array item, drag the **Send an email** action into the **For each** loop.
+
+      Now, your workflow looks like the following example:
+
+      ![Screenshot shows Consumption workflow, action named For each, and action named Send an email, now inside For each loop.](media/logic-apps-control-flow-loops/for-each-with-last-action-consumption.png)
+
+1. When you're done, save your workflow.
+
+1. To manually test your workflow, on the designer toolbar, select **Run Trigger** > **Run**.
+
+### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com), create an example Standard logic app workflow with the following steps in the specfied order:
+
+* The **RSS** trigger named **When a feed item is published** 
+
+  For more information, [follow these general steps to add a trigger](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+
+* The **Outlook.com** or **Office 365 Outlook** action named **Send an email**
+
+  For more information, [follow these general steps to add an action](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+
+1. [Follow the same general steps](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to add the **For each** action between the RSS trigger and **Send an email** action in your workflow.
+
+1. Now build the loop:
+
+   1. On the designer, make sure that the **For each** action is selected.
+
+   1. On the action information pane, select inside the **Select an output from previous steps** box so that the options for the dynamic content list (lightning icon) and expression editor (formula icon) appear. Select the dynamic content list option.
+
+      ![Screenshot shows Azure portal, Standard workflow designer, action named For each, and selected lightning icon.](media/logic-apps-control-flow-loops/for-each-open-dynamic-content.png)
+
+   1. In the **Add dynamic content** list, from the **When a feed item is published** section, select **Feed links**, which is an array output from the RSS trigger.
+
+      > [!NOTE]
+      >
+      > If the **Feed links** output doesn't appear, next to the trigger section label, select **See more**. 
+      > From the dynamic content list, you can select *only* outputs from previous steps.
+
+      ![Screenshot shows Azure portal, Standard workflow designer, action named For each, and opened dynamic content list.](media/logic-apps-control-flow-loops/for-each-select-feed-links-standard.png)
+
+      When you're done, the selected array output appears as in the following example:
+
+      ![Screenshot shows Standard workflow, action named For each, and selected array output.](media/logic-apps-control-flow-loops/for-each-selected-array-standard.png)
+
+   1. To run an existing action on each array item, drag the **Send an email** action into the **For each** loop.
+
+      Now, your workflow looks like the following example:
+
+      ![Screenshot shows Standard workflow, action named For each, and action named Send an email, now inside For each loop.](media/logic-apps-control-flow-loops/for-each-with-last-action-standard.png)
+
+1. When you're done, save your workflow.
+
+1. To manually test your workflow, on the workflow menu, select **Overview**. On the **Overview** toolbar, select **Run** > **Run**.
+
+---
 
 <a name="for-each-json"></a>
 
-## "Foreach" loop definition (JSON)
+## For each action definition (JSON)
 
-If you're working in code view for your logic app, 
-you can define the `Foreach` loop in your 
-logic app's JSON definition instead, for example:
+If you're working in your workflow's code view, you can define the `Foreach` loop in your workflow's JSON definition instead, for example:
 
 ``` json
 "actions": {
-   "myForEachLoopName": {
-      "type": "Foreach",
+   "For_each": {
       "actions": {
-         "Send_an_email": {
+         "Send_an_email_(V2)": {
             "type": "ApiConnection",
             "inputs": {
                "body": {
@@ -101,23 +159,21 @@ logic app's JSON definition instead, for example:
                   "To": "me@contoso.com"
                },
                "host": {
-                  "api": {
-                     "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
-                  },
                   "connection": {
                      "name": "@parameters('$connections')['office365']['connectionId']"
                   }
                },
                "method": "post",
-               "path": "/Mail"
+               "path": "/v2/Mail"
             },
             "runAfter": {}
          }
       },
       "foreach": "@triggerBody()?['links']",
-      "runAfter": {}
+      "runAfter": {},
+      "type": "Foreach"
    }
-}
+},
 ```
 
 <a name="sequential-foreach-loop"></a>
@@ -138,7 +194,7 @@ loops or variables inside loops where you expect predictable results.
 Move the **Degree of Parallelism** slider to **1**, 
 and choose **Done**.
 
-   ![Turn on concurrency control](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
+   ![Turn on concurrency control](media/logic-apps-control-flow-loops/for-each-sequential-consumption.png)
 
 If you're working with your logic app's JSON definition, 
 you can use the `Sequential` option by adding the 
