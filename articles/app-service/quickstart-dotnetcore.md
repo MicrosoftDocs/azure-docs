@@ -102,7 +102,17 @@ If you have already installed Visual Studio 2022:
 
 :::zone-end
 
+:::zone target="docs" pivot="development-environment-vs, development-environment-azure-portal, development-environment-ps, development-environment-vscode, development-environment-cli"
+
 ## 1. Create an ASP.NET web app
+
+:::zone-end
+
+:::zone target="docs" pivot="development-environment-azd"
+
+## 1. Initialize the ASP.NET web app template
+
+:::zone-end
 
 :::zone target="docs" pivot="development-environment-vs"
 
@@ -202,7 +212,7 @@ Retrieve and initialize the template for this quickstart using the following ste
 1. Open a terminal window on your machine to an empty working directory. Initialize the `azd` template for this quickstart using the `azd init` command.
 
     ```bash
-    azd init --<tbd-template-name>
+    azd init --template <tbd-template-name>
     ```
     When prompted for an environment name, enter `dev`.
     
