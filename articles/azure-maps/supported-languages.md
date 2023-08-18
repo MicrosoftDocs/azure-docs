@@ -95,9 +95,9 @@ Azure Maps have been localized in variety languages across its services. The fol
 
 ## Azure Maps v2 supported languages
 
-Azure Maps have been localized in variety languages across its services. The following table provides the supported language codes for the routing v2 service.
+Azure Maps have been localized in variety languages across its services. The following table provides the supported language codes for the routing v2 service. The routing column in the following table includes routes for driving and walking.
 
-| Culture        | Language (Bing Maps)                       | Routing | Truck Routing |
+| Culture        | Language                                   | Routing | Truck Routing |
 |----------------|--------------------------------------------|:-------:|:-------------:|
 | af             | Afrikaans                                  | ✓       | ✓             |
 | am             | Amharic                                    | ✓       |               |
@@ -214,7 +214,7 @@ Azure Maps have been localized in variety languages across its services. The fol
 
 Make sure you set up the **View** parameter as required for the REST APIs and the SDKs, which your services are using.
 
-Azure Maps **View** parameter (also referred to as "user region parameter") is a two letter ISO-3166 Country Code that will show the correct maps for that country/region specifying which set of geopolitically disputed content is returned via Azure Maps services, including borders and labels displayed on the map.
+Azure Maps **View** parameter (also referred to as "user region parameter") is a two letter ISO-3166 Country Code that shows the correct maps for that country/region specifying which set of geopolitically disputed content is returned via Azure Maps services, including borders and labels displayed on the map.
 
 ### REST APIs
   
