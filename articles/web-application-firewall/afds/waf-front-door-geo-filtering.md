@@ -251,7 +251,7 @@ You can configure a geo-filtering policy for your Azure Front Door instance by u
 | TM | Turkmenistan|
 | TN | Tunisia|
 | TO | Tonga|
-| TR | Turkey|
+| TR | Türkiye|
 | TT | Trinidad and Tobago|
 | TV | Tuvalu|
 | TW | Taiwan|
