@@ -143,9 +143,10 @@ Use the following steps to connect your service instances:
 1. Select **Create** to finish the app creation and select the app to view details.
 
 1. Select **Configuration** from the navigation pane and configure the following properties at the **Environment variables** tab.
-    - **SPRING_DATASOURCE_URL**: *jdbc:postgresql://my-demo-psql.postgres.database.azure.com:5432/todo?sslmode=require*
-    - **SPRING_DATASOURCE_USERNAME**: *myadmin*
-    - **SPRING_DATASOURCE_PASSWORD**: Enter your password
+
+   - **SPRING_DATASOURCE_URL**: *jdbc:postgresql://my-demo-psql.postgres.database.azure.com:5432/todo?sslmode=require*
+   - **SPRING_DATASOURCE_USERNAME**: *myadmin*
+   - **SPRING_DATASOURCE_PASSWORD**: Enter your password
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-configuration.png" alt-text="Screenshot of the Azure portal that shows the app Configuration page." lightbox="../../media/quickstart-deploy-web-app/app-configuration.png":::
 
@@ -173,8 +174,8 @@ Use the following steps to connect your service instances:
 
    The following list describes the command interactions:
 
-    - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press <kbd>ENTER</kbd>.
-    - **Please select an Azure location to use**: Use arrows to move, type to filter, then press <kbd>ENTER</kbd>.
+   - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press <kbd>ENTER</kbd>.
+   - **Please select an Azure location to use**: Use arrows to move, type to filter, then press <kbd>ENTER</kbd>.
 
    The console outputs messages similar to the ones below:
 
@@ -205,12 +206,12 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
 
    The following list describes the command interactions:
 
-    - **Select child modules to configure**: Select the module to configure, then enter the number of the *SimpleTodo Web* module.
-    - **OAuth2 login**: Authorize the login to Azure based on the OAuth2 protocol.
-    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press <kbd>ENTER</kbd> directly.
-    - **Select Azure Spring Apps**: Select the number of the Azure Spring Apps instance you created. If you use the default number, press <kbd>ENTER</kbd> directly.
-    - **Expose public access for this app?**: Press <kbd>y</kbd>.
-    - **Confirm to save all the above configurations (Y/n)**: Press <kbd>y</kbd>. If you press <kbd>n</kbd>, the configuration isn't saved in the POM files.
+   - **Select child modules to configure**: Select the module to configure, then enter the number of the *SimpleTodo Web* module.
+   - **OAuth2 login**: Authorize the login to Azure based on the OAuth2 protocol.
+   - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press <kbd>ENTER</kbd> directly.
+   - **Select Azure Spring Apps**: Select the number of the Azure Spring Apps instance you created. If you use the default number, press <kbd>ENTER</kbd> directly.
+   - **Expose public access for this app?**: Press <kbd>y</kbd>.
+   - **Confirm to save all the above configurations (Y/n)**: Press <kbd>y</kbd>. If you press <kbd>n</kbd>, the configuration isn't saved in the POM files.
 
 1. Use the following command to deploy the app:
 
@@ -220,7 +221,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
 
    The following list describes the command interactions:
 
-    - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
+   - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
 
    After the command is executed, you can see output similar to the following example, which indicates that the deployment was successful:
 

@@ -3,7 +3,7 @@ author: KarlErickson
 ms.author: xiada
 ms.service: spring-apps
 ms.topic: include
-ms.date: 07/11/2023
+ms.date: 08/31/2023
 ---
 
 <!--
@@ -47,6 +47,7 @@ Although you use the Azure portal in later steps, you must use the Bash command 
 Use the following steps to initialize the web application from the Azure Developer CLI templates:
 
 1. Open a terminal, create a new folder, and then change directory into it.
+
 1. Use the following command to initialize the project:
 
    ```bash
