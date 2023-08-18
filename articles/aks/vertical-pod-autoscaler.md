@@ -3,7 +3,7 @@ title: Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 08/02/2023
+ms.date: 08/18/2023
 ---
 
 # Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
@@ -40,6 +40,16 @@ Vertical Pod autoscaling supports a maximum of 500 `VerticalPodAutoscaler` objec
 
 * `kubectl` should be connected to the cluster you want to install VPA.
 
+## VPA components
+
+The VPA object consists of three components:
+
+- **Recommender** - it monitors the current and past resource consumption and, based on it, provides recommended values for the containers' cpu and memory requests.
+
+- **Updater** - it checks which of the managed pods have correct resources set and, if not, kills them so that they can be recreated by their controllers with the updated requests.
+
+- **Admission Plugin** - it sets the correct resource requests on new pods (either just created or recreated by their controller due to the Updater's activity).
+
 ## VPA admission controller
 
 VPA admission controller is a binary that registers itself as a Mutating Admission Webhook. With each pod created, it gets a request from the apiserver and it evaluates if there's a matching VPA configuration, or find a corresponding one and use the current recommendation to set resource requests in the pod. VPA admission controller uses the `gencerts.sh` script to create the `vpa-tls-certs` secret. The webhook certificates are auto-renewed.
@@ -49,6 +59,15 @@ For high availability, AKS supports two admission controller replicas.
 ## API Object
 
 The Vertical Pod Autoscaler is an API resource in the Kubernetes autoscaling API group. The version supported is 0.11 can be found in the [Kubernetes autoscaler repo][github-autoscaler-repo-v011].
+
+## VPA object operation modes
+
+A Vertical Pod Autoscaler resource is inserted for each controller that you want to have automatically computed resource requirements. This is most commonly a *deployment*. There are four modes in which VPAs operate:
+
+* `Auto` - VPA assigns resource requests during pod creation as well as update existing pods using the preferred update mechanism. Currently, this is equivalent to `Recreate`. Once restart free ("in-place") update of pod requests is available, it may be used as the preferred update mechanism by the `Auto` mode.
+* `Recreate` - VPA assigns resource requests during pod creation as well as update existing pods by evicting them when the requested resources differ significantly from the new recommendation (respecting the Pod Disruption Budget, if defined). This mode should be used rarely, only if you need to ensure that the pods are restarted whenever the resource request changes. Otherwise, the `Auto` mode is preferred, which may take advantage of restart-free updates once they are available.
+* `Initial` - VPA only assigns resource requests during pod creation and never changes afterwards.
+* `Off` - VPA doesn't automatically change the resource requirements of the pods. The recommendations are calculated and can be inspected in the VPA object.
 
 ## Deployment pattern for new users
 
