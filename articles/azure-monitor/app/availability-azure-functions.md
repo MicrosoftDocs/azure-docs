@@ -47,18 +47,18 @@ You can use Log Analytics to view your availability results, dependencies, and m
 
 The following example demonstrates a web availability test that requires a simple URL ping using the `getStringAsync()` method.
 
-    ```csharp
-    using System.Net.Http; 
+```csharp
+using System.Net.Http;
 
-    public async static Task RunAvailabilityTestAsync(ILogger log) 
-    { 
-        using (var httpClient = new HttpClient()) 
-        { 
-            // TODO: Replace with your business logic 
-            await httpClient.GetStringAsync("https://www.bing.com/"); 
-        } 
-    } 
-    ```
+public async static Task RunAvailabilityTestAsync(ILogger log)
+{
+    using (var httpClient = new HttpClient())
+    {
+        // TODO: Replace with your business logic
+        await httpClient.GetStringAsync("https://www.bing.com/");
+    }
+}
+```
 
 For advanced scenarios where the business logic must be adjusted to access the URL, such as obtaining tokens, setting parameters, and other test cases, custom code is necessary.
 
