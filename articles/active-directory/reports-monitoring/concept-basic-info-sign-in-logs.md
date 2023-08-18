@@ -1,23 +1,24 @@
 ---
-title: Basic info in the Azure AD sign-in logs
-description: Learn what the basic info in the sign-in logs is about.
+title: Sign-in log activity details on the Basic info tab
+description: Learn about the details available on the Basic info tab of the Azure AD sign-in log activity details.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
 ms.service: active-directory
-ms.topic: reference
+ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2022
+ms.date: 08/18/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
-
-ms.collection: M365-identity-device-management
 ---
 
-# Basic info in the Azure AD sign-in logs
+# Sign-in log activity details on the Basic info tab
 
-Azure AD logs all sign-ins into an Azure tenant for compliance. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly. [Learn how to access, view, and analyze Azure AD sign-in logs](concept-sign-ins.md)
+Azure AD logs all sign-ins into an Azure tenant for compliance. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly.
+
+- [Learn about the sign-in logs](concept-sign-ins.md).
+- [Customize and analyze the sign-in logs](howto-customize-analyze-sign-in-logs.md)
 
 This article explains the values on the Basic info tab of the sign-ins log.
 
@@ -30,8 +31,6 @@ In Azure AD, a resource access has three relevant components:
 - **What** – The target (Resource) accessed by the identity.
 
 Each component has an associated unique identifier (ID). Below is an example of user using the Microsoft Azure classic deployment model to access the Azure portal.
-
-
 
 ### Tenant
 

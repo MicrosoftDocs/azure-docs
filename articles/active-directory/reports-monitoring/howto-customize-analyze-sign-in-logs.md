@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/16/2023
+ms.date: 08/18/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -116,36 +116,38 @@ Now that your sign-in logs table is formatted for your needs, you can more effec
 
 Customizing the columns and adjusting the filter helps to look at logs with similar characteristics. Sometimes you need to look at the details of an individual log. Select a log to open the **Activity Details** panel. There are several tabs in the panel to explore. 
 
+:::image type="content" source="media/howto-customize-analyze-sign-in-logs/sign-in-activity-details.png" alt-text="Screenshot of the sign-in activity details." lightbox="media/howto-customize-analyze-sign-in-logs/sign-in-activity-details-expanded.png":::
+
 ### Basic info
 
 The Basic info tab contains most of the details that are also displayed in the table. You can launch the Sign-in Diagnostic from the Basic info tab. For more information, see [How to use the Sign-in Diagnostic](howto-use-sign-in-diagnostics.md).
 
-<!--- update the following screenshot to be current and show common details --->
+#### Sign-in error codes
 
-![Open audit logs](./media/reference-basic-info-sign-in-logs/sign-in-details-basic-info.png)
+If a sign-in failed, you can get more information about the reason in the Basic info tab of the related log item. The error code and associated failure reason appear in the details. For more information, see [How to troubleshoot sign-in errors.](howto-troubleshoot-sign-in-errors.md).
+
+![Screenshot of the sign-in error code on the basics tab.](media/howto-customize-analyze-sign-in-logs/sign-in-error-code.png)
 
 ### Location and Device info
 
-The location tab displays the location and IP address of the user. The Device info tab provides details on the browser and operating system used to sign in. This tab also provides details on if the device is compliant, managed, or hybrid Azure AD joined.
+The **Location** and **Device info** tabs display general information about the location and IP address of the user. The Device info tab provides details on the browser and operating system used to sign in. This tab also provides details on if the device is compliant, managed, or hybrid Azure AD joined.
 
 ### Authentication details
 
 The **Authentication Details** tab in the details of a sign-in log provides the following information for each authentication attempt:
 
 - A list of authentication policies applied, such as Conditional Access or Security Defaults.
-- A list of session lifetime policies applied, such as Sign-in frequency or Remember MFA.
 - The sequence of authentication methods used to sign-in.
 - If the authentication attempt was successful and the reason why.
 
 This information allows you to troubleshoot each step in a user’s sign-in. Use these details to track:
 
 - The volume of sign-ins protected by MFA. 
-- The reason for the authentication prompt, based on the session lifetime policies.
 - Usage and success rates for each authentication method.
 - Usage of passwordless authentication methods, such as Passwordless Phone Sign-in, FIDO2, and Windows Hello for Business.
 - How frequently authentication requirements are satisfied by token claims, such as when users aren't interactively prompted to enter a password or enter an SMS OTP.
 
-![Screenshot of the Authentication Details tab](media/concept-sign-ins/authentication-details-tab.png)
+![Screenshot of the Authentication Details tab.](media/howto-customize-analyze-sign-in-logs/sign-in-activity-details-authentication.png)
 
 When analyzing authentication details, take note of the following details:
 
@@ -154,16 +156,6 @@ When analyzing authentication details, take note of the following details:
     - A **satisfied by claim in the token** message is incorrectly displayed when sign-in events are initially logged. 
     - The **Primary authentication** row isn't initially logged.
 - If you're unsure of a detail in the logs, gather the **Request ID** and **Correlation ID** to use for further analyzing or troubleshooting.
-
-### Sign-in error codes
-
-If a sign-in failed, you can get more information about the reason in the **Basic info** section of the related log item. The error code and associated failure reason appear in the details. Because of the complexity of some Azure AD environments, we can't document every possible error code and resolution. Some errors may require [submitting a support request](../fundamentals/how-to-get-support.md) to resolve the issue.
-
-![Screenshot of a sign-in error code.](./media/concept-sign-ins/error-code.png)
-
-For a list of error codes related to Azure AD authentication and authorization, see the [Azure AD authentication and authorization error codes](../develop/reference-error-codes.md) article. In some cases, the [sign-in error lookup tool](https://login.microsoftonline.com/error) may provide remediation steps. Enter the **Error code** provided in the sign-in log details into the tool and select the **Submit** button. 
-
-![Screenshot of the error code lookup tool.](./media/concept-sign-ins/error-code-lookup-tool.png)
 
 ## Next steps
 
