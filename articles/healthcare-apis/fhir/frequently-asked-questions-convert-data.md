@@ -28,6 +28,11 @@ There's an example published in the [Azure Data Factory Template Gallery](../../
 
 :::image type="content" source="media/convert-data/frequently-asked-questions-convert-data/azure-data-factory-template-gallery.png" alt-text="Screenshot of the Azure Data Factory Template Gallery." lightbox="media/convert-data/frequently-asked-questions-convert-data/azure-data-factory-template-gallery.png"::: 
 
+> [!IMPORTANT]
+> The purpose of this template is to help you get started with an ETL pipeline. Any steps in this pipeline can be removed, added, edited, or customized to fit your needs.  
+>
+> In a scenario with batch processing of HL7v2 messages, this template does not take sequencing into account. Post processing will be needed if sequencing is a requirement. 
+
 ## How can I persist the data into the FHIR service?
 
 You can use the FHIR service's APIs to persist the converted data into the FHIR service by using `POST {{fhirUrl}}/{{FHIR resource type}}` with the request body containing the FHIR resource to be persisted in JSON format. 
