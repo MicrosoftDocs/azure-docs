@@ -29,7 +29,7 @@ The following procedure creates a virtual network with a subnet.
     | Name | Enter **vnet-1**. |
     | Region | Select **East US 2**. |
 
-    :::image type="content" source="./media/virtual-network-create/create-virtual-network-basics.png" alt-text="Screenshot of Basics tab of Create virtual network in the Azure portal":::
+    :::image type="content" source="./media/virtual-network-create/create-virtual-network-basics.png" alt-text="Screenshot of the Basics tab of Create virtual network in the Azure portal":::
 
 1. Select **Next** to proceed to the **Security** tab.
 
@@ -47,7 +47,7 @@ The following procedure creates a virtual network with a subnet.
     | Starting address | Leave the default of **10.0.0.0**. |
     | Subnet size | Leave the default of **/24(256 addresses)**. |
 
-    :::image type="content" source="./media/virtual-network-create/address-subnet-space.png" alt-text="Screenshot of default subnet rename and configuration.":::
+    :::image type="content" source="./media/virtual-network-create/address-subnet-space.png" alt-text="Screenshot of default subnet re-name and configuration.":::
 
 1. Select **Save**.
 
