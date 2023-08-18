@@ -6,8 +6,7 @@ author: mrayyan
 manager: alexokun
 
 ms.service: azure-communication-services
-ms.subservice: azure-communication-services
-ms.date: 05/25/2023
+ms.date: 07/20/2023
 ms.topic: include
 ms.custom: include file
 ms.author: t-siddiquim
