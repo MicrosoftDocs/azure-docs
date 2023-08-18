@@ -462,7 +462,52 @@ sections:
           For more information, see [Configure end-to-end TLS by using Application Gateway with the portal](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-backend-servers).
           
           If you're using the V2 SKU of the Application Gateway/WAF service, you don't have to upload the new certificate in the HTTP settings since V2 SKU uses "trusted root certificates", and no action needs to be taken here.
+
+  - name: Configuration - layer 4 proxy
+    questions:
+      - question: Does Application Gateway’s Layer 7 and Layer 4 use the same frontend IP addresses?
+        answer: Yes. Both Layer 7 and Layer 4 routing through application gateway use the same frontend IP configuration. This way, you can direct all your clients to a single IP address (public or private) and the same gateway resource will route them based on the configured listener protocols and the ports.
+
+      - question: Can I use TCP or TLS proxy for HTTP(S) traffic?
+        answer: While the HTTP(S) traffic can be served through L4 proxy protocols as well, we do not recommend doing so. The L7 proxy solution of Application Gateway offers greater control and security over the HTTP(S) protocols through advanced features such Rewrites, Session Affinity, Redirection, WebSockets, WAF and more.
           
+      - question: What are the property names for Layer 4 proxy?
+        answer: The resource properties for Layer 4 features are different from the Layer 7 ones. Accordingly, when using REST API or CLI, you will need to use the following properties 
+        table here
+        link here
+        link here
+        Note here
+
+      - question: Can I use a TCP/TLS listener with an HTTP(S) backend betting?
+        answer: No. You can't cross-link Layer 4 and Layer 7 properties. Therefore, a routing rule will only allow you to link a Layer 4-type listener to a Layer 4-type Backend setting.
+
+      - question: Can L7 and L4 properties have same names?
+        answer: You can't use the same name for an L7 (httpListeners) and L4 (listeners). This applies to other L4 properties such as backendSettingsCollection and routingRules also.
+
+      - question: Can I add Private endpoint to a Backend pool when using Layer 4 (TCP or TLS protocols)?
+        answer: Absolutely. Similar to Layer 7 proxy, you can add a private endpoint to the backend pool of your application gateway. This private endpoint must be deployed in an adjacent subnet of the same virtual network of your application gateway.
+
+      - question: Does Application Gateway use Keepalive connection for backend servers?
+        answer: It does not use Keepalive for backend connections. For each incoming request on the frontend listener connection, Application Gateway initiates a new backend connection to fulfill that request.
+
+      - question: Which IP address does the backend server see when a connection is established with Application Gateway?
+        answer: The backend server sees the IP address of the application gateway. Currently, we do not support “Client IP preservation” through which the backend application can be made aware of the original client’s IP address.
+
+      - question: How can I set the SSL policy for TLS listeners?
+        answer: The same SSL policy configuration is applicable for both Layer 7 (HTTPS) as well as Layer 4 (TLS). Currently, we do not support SSL Profile (listener-specific SSL policy or Mutual Authentication) for TLS listeners.
+
+      - question: Does Application Gateway support session affinity for Layer 4 routing?
+        answer: No. Routing a client to the same backend server is not supported at the moment. The connections will be distributed in a round-robin manner to the servers in a backend pool.
+
+      - question: Does the autoscale feature work with Layer 4 proxy?
+        answer: Yes, the autoscale feature will operate for spikes and reductions in traffic for TLS or TCP protocol as well.
+
+      - question: Is Web Application Firewall (WAF) supported for Layer 4 traffic?
+        answer: The Web Application Firewall (WAF) capabilities will not work for Layer 4 usage.
+
+      - question: Does Application Gateway’s Layer 4 proxy support UDP protocol?
+        answer: No. UDP support is not available at this time.
+
   - name: Configuration - ingress controller for AKS
     questions:
       - question: What is an Ingress Controller?
