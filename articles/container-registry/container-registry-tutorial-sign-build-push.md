@@ -13,6 +13,9 @@ ms.date: 4/23/2023
 
 When you sign container images, you ensure their authenticity and integrity. This is done by adding a digital signature to the container image, which can be validated against during deployment to ensure that they are from trusted image publishers and have not been tampered with. [Notation](https://github.com/notaryproject/notation) is an open source supply chain tool developed by [Notary Project](https://notaryproject.dev/), which supports signing and verifying container images and other artifacts.  The Azure Key Vault (AKV) is used to store a signing certificate that can be utilized by Notation with the Notation AKV plugin (azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach and discover these signatures to container images.
 
+> [!IMPORTANT]
+> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+
 In this tutorial:
 
 > [!div class="checklist"]
@@ -242,3 +245,5 @@ To verify the container image, you need to add the root certificate that signs t
     notation verify $IMAGE
     ```
    Upon successful verification of the image using the trust policy, the sha256 digest of the verified image is returned in a successful output message.
+
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
