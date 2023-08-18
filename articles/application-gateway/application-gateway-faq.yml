@@ -481,10 +481,11 @@ sections:
           | routingRule               | To associate a layer 4 listener with a layer 4 backend setting |
           | backendSettingsCollection | For TLS or TCP based backend settings |
           
-          - [REST API](/rest/api/application-gateway/application-gateways/create-or-update.md)
-          - [CLI](/cli/azure/network/application-gateway?view=azure-cli-latest.md)
+          - [REST API](/rest/api/application-gateway/application-gateways/create-or-update)
+          - [CLI](/cli/azure/network/application-gateway?view=azure-cli-latest)
           
-          - You can't use any layer 4 properties for HTTP or HTTPS protocol settings.
+          > [!NOTE] 
+          > You can't use any layer 4 properties for HTTP or HTTPS protocol settings.
 
       - question: Can I use a TCP/TLS listener with an HTTP(S) backend betting?
         answer: No. You can't cross-link Layer 4 and Layer 7 properties. Therefore, a routing rule will only allow you to link a Layer 4-type listener to a Layer 4-type Backend setting.
