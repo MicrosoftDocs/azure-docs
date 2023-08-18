@@ -95,13 +95,13 @@ In this tutorial:
     IMAGE_SOURCE=https://github.com/wabbit-networks/net-monitor.git#main
     ```
 
-## Set up access policy in AKV
-
-Users who create or import a certificate in AKV must have authorized access to AKV with `Create` or `Import` certificate permissions, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy) to learn how to assign policy to a user. The same users that sign the container image requires additional `Sign` permission under key permission group, and `Get` permission under certificate permission group are required.
-
 ## Create a self-signed signing certificate in AKV
 
 If you have an existing certificate, see [import a certificate in AKV](../key-vault/certificates/tutorial-import-certificate.md). The following steps show how to create a self-signed signing certificate for testing purpose.
+
+### Set up access policy in AKV
+
+Users who create or import a certificate in AKV must have authorized access to AKV with `Create` or `Import` certificate permissions, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy) to learn how to assign policy to a user. The same users that sign the container image requires additional `Sign` permission under key permission group, and `Get` permission under certificate permission group are required.
 
 ### Create a self-signed certificate (Azure CLI)
 
