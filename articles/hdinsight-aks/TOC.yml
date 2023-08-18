@@ -164,29 +164,29 @@ items:
     items:
     - name: General
       items:
-      - name: Flink Command Line Interface (CLI)
+      - name:  Flink Command Line Interface (CLI)
         href: ./flink/use-flink-cli-to-submit-jobs.md
-      - name: Access CLI with Azure portal
+      - name: Access CLI  Azure portal
         href: ./flink/flink-webssh-on-portal-to-flink-sql.md
-      - name: Azure Cosmos DB (Apache Cassandra)
+      - name:  Azure Cosmos DB (Apache Cassandra)
         href: ./flink/cosmos-db-for-apache-cassandra.md
-      - name: Azure Event Hubs
+      - name:  Azure Event Hubs
         href: ./flink/flink-how-to-setup-event-hub.md  
-      - name: Delta Connectors
+      - name:  Delta Connectors
         href: ./flink/use-flink-delta-connector.md  
-      - name: Elastic and Kibana
+      - name:  Elastic & Kibana
         href: ./flink/sink-kafka-to-kibana.md
-      - name: HDInsight Kafka
+      - name:  HDInsight Kafka
         href: ./flink/process-and-consume-data.md
     - name: Flink SQL
       items:
-      - name: CDC - Azure PostgresSQL and FlinkSQL 
-        href: ./flink/monitor-changes-postgres-table-using-flink.md
-      - name: CDC - SQL Server and FlinkSQL 
+      - name:  CDC - Azure PostgreSQL & FlinkSQL 
+        href: ./flink/monitor-changes-postgres-table-flink.md
+      - name: Using CDC - SQL Server & FlinkSQL 
         href: ./flink/sink-sql-server-table-using-flink-sql.md
-      - name: Use Kafka table on FlinkSQL
-        href: ./flink/create-kafka-table-using-kafka-sql-connector.md
-      - name: Hive Catalog and FlinkSQL
+      - name: Using Kafka table on FlinkSQL
+        href: ./flink/create-kafka-table-flink-kafka-sql-connector.md
+      - name: Using Hive Catalog & FlinkSQL
         href: ./flink/use-hive-catalog.md
       - name: Flink-Iceberg Catalog
         href: ./flink/flink-catalog-iceberg-hive.md
@@ -194,15 +194,15 @@ items:
         href: ./flink/flink-catalog-delta-hive.md
     - name: Flink Streaming
       items:
-      - name: ADLS Gen2 - Write with DataStream API
-        href: ./flink/assign-kafka-topic-event-message-to-adslgen2.md
-      - name: Apache NiFi with DataStream API
-        href: ./flink/using-apache-nifi-with-dstream-api.md
-      - name: CDC - SQL Server and DataStream API
-        href: ./flink/cdc-connectors-for-apache-flink.md
-      - name: Hivemetastore with Flink DataStream
-        href: ./flink/using-hms-dstream.md
-      - name: HBase - Write with DataStream API
+      - name: Using ADLSGen2 - Write with DStream API
+        href: ./flink/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md
+      - name: Using Apache NiFi with DStream API
+        href: ./flink/use-apache-nifi-with-datastream-api.md
+      - name: Using CDC - SQL Server & DStream API
+        href: ./flink/change-data-capture-connectors-for-apache-flink.md
+      - name: Using Hivemetastore with Flink DataStream
+        href: ./flink/use-hive-metastore-datastream.md
+      - name: Using HBase - Write with DStream API
         href: ./flink/use-flink-to-sink-kafka-message-into-hbase.md
       - name: MongoDB as a source and Sink with DataStream API
         href: ./flink/datastream-api-mongodb.md
