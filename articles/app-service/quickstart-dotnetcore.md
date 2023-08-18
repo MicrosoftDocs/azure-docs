@@ -201,14 +201,14 @@ Azure Developer CLI (`azd`) workflows are based around `azd` templates that incl
 
     ```bash
     azd init --template-name
-    ``````
+    ```
     When prompted for an environment name, enter `dev`.
     
 2. From the same terminal session, run the application locally using the `dotnet run` command.
 
     ```bash
     dotnet run --urls=https://localhost:5001/
-    ``````
+    ```
 
 3. Open a web browser and navigate to the app at `https://localhost:5001`. The ASP.NET Core 7.0 web app template is displayed on the page.
 
