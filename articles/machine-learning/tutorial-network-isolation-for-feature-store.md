@@ -1,5 +1,5 @@
 ---
-title: "Tutorial #6: Enable materialization and backfill feature data (preview)"
+title: "Tutorial #6: Network isolation for feature store (preview)"
 titleSuffix: Azure ML managed Feature Store - Basics
 description: Managed Feature Store tutorial part 6. 
 services: machine-learning
