@@ -12,14 +12,20 @@ items:
   items:
   - name: Planning
     href: elastic-san-planning.md
+  - name: Networking
+    href: elastic-san-networking-concepts.md
   - name: Scale targets
     href: elastic-san-scale-targets.md
   - name: Performance
     href: elastic-san-performance.md
+  - name: Clustered applications
+    href: elastic-san-shared-volumes.md
 - name: How to
   items:
   - name: Deploy an Elastic SAN
     href: elastic-san-create.md
+  - name: Configure networking
+    href: elastic-san-networking.md
   - name: Connect to an Elastic SAN volume - Windows
     href: elastic-san-connect-windows.md
   - name: Connect to an Elastic SAN volume - Linux
@@ -28,8 +34,6 @@ items:
     href: elastic-san-connect-aks.md
   - name: Expand an Elastic SAN
     href: elastic-san-expand.md
-  - name: Configure virtual networks
-    href: elastic-san-networking.md
   - name: Delete an Elastic SAN
     href: elastic-san-delete.md
 - name: Samples
