@@ -4,7 +4,7 @@ description: Learn how to install Azure Container Storage Preview on an Azure Ku
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 08/14/2023
+ms.date: 08/18/2023
 ms.author: kendownie
 ms.custom: devx-track-azurecli
 ---
@@ -48,7 +48,7 @@ Follow these instructions to install Azure Container Storage on your AKS cluster
    | -g   | --resource-group | The resource group name.|
    | -c   | --cluster-name | The name of the cluster where Azure Container Storage is to be installed.|
    | -n   | --nodepool-name | The name of the nodepool. Defaults to the first nodepool in the cluster.|
-   | -r   | --release-train | The release train for the installation. Defaults to prod.|
+   | -r   | --release-train | The release train for the installation. Defaults to stable.|
    
    For example:
 
