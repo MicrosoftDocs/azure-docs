@@ -23,7 +23,7 @@ This article explains how to feed data from Log Analytics into Power BI to produ
 - To export the query to a .txt file that you can use in Power BI Desktop, you need [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 - To create a new dataset based on your query directly in the Power BI service:
   - You need a Power BI account.
-  - You must give permission in Azure for the Power BI service to write logs. For more information, see [Prerequisites to configure Azure Log Analytics for Power BI](/power-bi/transform-model/log-analytics/desktop-log-analytics-configure#set-permissions).
+  - You must give permission in Azure for the Power BI service to write logs. For more information, see [Prerequisites to configure Azure Log Analytics for Power BI](/power-bi/transform-model/log-analytics/desktop-log-analytics-configure#prerequisites).
 
 ## Permissions required
 
