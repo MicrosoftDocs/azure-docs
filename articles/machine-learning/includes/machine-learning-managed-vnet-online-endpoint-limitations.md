@@ -16,4 +16,4 @@ ms.author: mopeakande
 - When you use network isolation with a deployment, you can use resources (Azure Container Registry (ACR), Storage account, Key Vault, and Application Insights) from a different resource group or subscription than that of your workspace. However, these resources must belong to the same tenant as your workspace.
 
 > [!NOTE]
-> Network isolation described here is about data plane operations, that is, how to secure inbound and outbound traffic for scoring requests, or in other words, model serving. Control plane operations such as requests to create, update, delete, or retrieve the authentication keys etc are sent to the Azure Resource Manager over the public network.
+> Network isolation described in this article applies to data plane operations, that is, operations that result from scoring requests (or model serving). Control plane operations (such as requests to create, update, delete, or retrieve authentication keys) are sent to the Azure Resource Manager over the public network.

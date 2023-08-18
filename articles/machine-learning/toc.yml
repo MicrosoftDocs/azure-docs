@@ -849,7 +849,7 @@
             - name: Network isolation with managed online endpoints
               displayName: network, vnet, secure
               href: concept-secure-online-endpoint.md
-            - name: Secure managed online endpoints with network isolation
+            - name: Secure your managed online endpoints with network isolation
               displayName: network, vnet, secure
               href: how-to-secure-online-endpoint.md
             - name: Access Azure resources from online endpoints

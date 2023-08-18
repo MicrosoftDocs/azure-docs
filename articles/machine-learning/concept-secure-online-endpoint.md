@@ -28,6 +28,9 @@ The following architecture diagram shows how communications flow through private
 
 :::image type="content" source="media/concept-secure-online-endpoint/endpoint-network-isolation-with-workspace-managed-vnet.png" alt-text="Diagram showing inbound communication via a workspace private endpoint and outbound communication via private endpoints of a workspace managed VNet." lightbox="media/concept-secure-online-endpoint/endpoint-network-isolation-with-workspace-managed-vnet.png":::
 
+> [!NOTE]
+> This article focuses on network isolation using the workspace's managed VNet. For a description of the legacy method for network isolation, in which Azure Machine Learning creates a managed VNet for each deployment in an endpoint, see the [Appendix](#appendix).
+
 ## Limitations
 
 [!INCLUDE [machine-learning-managed-vnet-online-endpoint-limitations](includes/machine-learning-managed-vnet-online-endpoint-limitations.md)]
@@ -127,14 +130,14 @@ Alternatively, you can configure the VNet to **allow only approved outbound**, s
 
 ### Secure outbound access with legacy network isolation method
 
-For managed online endpoints, you can also secure outbound communication between deployments and resources by using an Azure Machine Learning VNet for each deployment in the endpoint. The secure outbound communication is also handled by using private endpoints to those service instances.
+For managed online endpoints, you can also secure outbound communication between deployments and resources by using an Azure Machine Learning managed VNet for each deployment in the endpoint. The secure outbound communication is also handled by using private endpoints to those service instances.
 
 > [!NOTE]
 > We strongly recommend that you use the approach described in [Secure outbound access with managed workspace VNet](#secure-outbound-access-with-managed-workspace-vnet) instead of this legacy method.
 
 To restrict communication between a deployment and external resources, including the Azure resources it uses, you should ensure that:
 
-- The deployment's `egress_public_network_access` flag is `disabled`. This flag ensures that the download of the model, code, and images needed by the deployment are secured with a private endpoint. Once you've created the deployment, you cannot update (enable or disable) the `egress_public_network_access` flag. Attempting to change the flag while updating the deployment will fail with an error.
+- The deployment's `egress_public_network_access` flag is `disabled`. This flag ensures that the download of the model, code, and images needed by the deployment are secured with a private endpoint. Once you've created the deployment, you can't update (enable or disable) the `egress_public_network_access` flag. Attempting to change the flag while updating the deployment fails with an error.
 
 - The workspace has a private link that allows access to Azure resources via a private endpoint. Because the workspace has a `public_network_access` flag that can be either enabled or disabled, if you plan on using a managed online deployment that uses __public outbound__, then you must also [configure the workspace to allow public access](how-to-configure-private-link.md#enable-public-access). This is because outbound communication from the online deployment is to the _workspace API_. When the deployment is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
 
@@ -144,15 +147,14 @@ When you have multiple deployments, and you configure the `egress_public_network
 - The Azure Storage blob that is associated with the workspace
 - The Azure Container Registry for the workspace
 
-For example, if you set the `egress_public_network_access` flag to `disabled` for two deployments of a managed online endpoint, a total of six private endpoints are created. Each deployment would have three private endpoints to communicate with the workspace, blob, and container registry.
+For example, if you set the `egress_public_network_access` flag to `disabled` for two deployments of a managed online endpoint, a total of six private endpoints are created. Each deployment would use three private endpoints to communicate with the workspace, blob, and container registry.
 
 > [!IMPORTANT]
 > Azure Machine Learning does not support peering between a deployment's managed VNet and your client VNet. For secure access to resources needed by the deployment, we use private endpoints to communicate with the resources.
 
-The following diagram shows incoming scoring requests from a client's virtual network flowing through the workspace's private endpoint to the managed online endpoint. The diagram also shows a deployment in an independent VNet that has three private endpoints for outbound communication with the Azure Machine Learning workspace, the Azure Storage blob associated with the workspace, and the Azure Container Registry for the workspace.
+The following diagram shows incoming scoring requests from a client's virtual network flowing through the workspace's private endpoint to the managed online endpoint. The diagram also shows two online deployments, each in its own Azure Machine Learning managed VNet. Each VNet has three private endpoints for outbound communication with the Azure Machine Learning workspace, the Azure Storage blob associated with the workspace, and the Azure Container Registry for the workspace.
 
-<!-- update the architecture diagram to include multiple deployments. Then update the explanation for the new diagram -->
-:::image type="content" source="./media/how-to-secure-online-endpoint/endpoint-network-isolation-ingress-egress.png" alt-text="Diagram of overall ingress/egress communication.":::
+:::image type="content" source="./media/how-to-secure-online-endpoint/endpoint-network-isolation-legacy.png" alt-text="Diagram of overall network isolation with the legacy method." lightbox="media/how-to-secure-online-endpoint/endpoint-network-isolation-legacy.png":::
 
 To disable the `egress_public_network_access` and create the private endpoints:
 
