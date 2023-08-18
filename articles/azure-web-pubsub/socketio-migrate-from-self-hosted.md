@@ -12,9 +12,6 @@ ms.topic: how-to
 
 In this article, you migrate a Socket.IO chat app to Azure by using Azure Web PubSub for Socket.IO.
 
->[!NOTE]
-> Web PubSub for Socket.IO is in private preview and is available to selected customers only. To register your interest, [send email to the product team](mailto:awps@microsoft.com).
-
 ## Prerequisites
 
 > [!div class="checklist"]
@@ -49,12 +46,14 @@ For the migration process in this guide, you use a sample chat app provided on [
     const { useAzureSocketIO } = require("@azure/web-pubsub-socket.io");
     ```
 
-4. Locate in your server-side code where you created the Socket.IO server, and append `useAzureSocketIO(wpsOptions)`:
+4. Locate in your server-side code where you created the Socket.IO server, and wrap it with `useAzureSocketIO()`:
 
     ```javascript
     const io = require("socket.io")();
-    useAzureSocketIO(io, wpsOptions);
-
+    useAzureSocketIO(io, {
+        hub: "eio_hub", // The hub name can be any valid string.
+        connectionString: process.argv[2]
+    });
     ```
 
    >[!IMPORTANT]

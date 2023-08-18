@@ -17,13 +17,15 @@ Use this article to find solutions to common problems with the service. Addition
 
 If you suspect that the problems are with the Socket.IO library, refer to the [Socket.IO library's documentation](https://socket.io/docs/v4/troubleshooting-connection-issues/).
 
-## Server side: Improper package import
+## Server side
 
-### Possible error
+### Improper package import
+
+#### Possible error
 
 `TypeError: (intermediate value).useAzureSocketIO is not a function`
 
-### Root cause
+#### Root cause
 
 If you use TypeScript in your project, you might observe this error. It's due to improper package import.
 
@@ -34,7 +36,7 @@ import * as wpsExt from "@azure/web-pubsub-socket.io"
 
 If a package isn't used or referenced after importing, the default behavior of the TypeScript compiler is not to emit the package in the compiled *.js* file.
 
-### Solution
+#### Solution
 
 Use `import "@azure/web-pubsub-socket.io"` instead. This import statement forces the TypeScript compiler to include a package in the compiled *.js* file, even if the package isn't referenced anywhere in the source code. [Read more](https://github.com/Microsoft/TypeScript/wiki/FAQ#why-are-imports-being-elided-in-my-emit) about this frequently asked question from the TypeScript community.
 
@@ -44,13 +46,15 @@ Use `import "@azure/web-pubsub-socket.io"` instead. This import statement forces
 import "@azure/web-pubsub-socket.io"
 ```
 
-## Client side: Incorrect path option
+## Client side
 
-### Possible error
+### Incorrect path option
+
+#### Possible error
 
 `GET <web-pubsub-endpoint>/socket.io/?EIO=4&transport=polling&t=OcmE4Ni` 404 Not Found
 
-### Root cause
+#### Root cause
 
 The Socket.IO client was created without a correct `path` option.
 
@@ -59,7 +63,7 @@ The Socket.IO client was created without a correct `path` option.
 const socket = io(endpoint)
 ```
 
-### Solution 
+#### Solution 
 
 Add the correct `path` option with the value `/clients/socketio/hubs/eio_hub`.
 
@@ -70,13 +74,13 @@ const socket = io(endpoint, {
 });
 ```
 
-## Client side: Incorrect Web PubSub for Socket.IO endpoint
+### Incorrect Web PubSub for Socket.IO endpoint
 
-### Possible error
+#### Possible error
 
 `GET <non-web-pubsub-endpoint>/socket.io/?EIO=4&transport=polling&t=OcmE4Ni` 404 Not Found
 
-### Root cause
+#### Root cause
 
 The Socket.IO client was created without a correct Web PubSub for Socket.IO endpoint. For example:
 
@@ -91,7 +95,7 @@ const socket = io(endpoint, {
 
 When you use Web PubSub for Socket.IO, your clients establish connections with an Azure service. When you create a Socket.IO client, you need to use the endpoint for your Web PubSub for Socket.IO resource.  
 
-### Solution
+#### Solution
 
 Let Socket.IO client use the endpoint for your Web PubSub for Socket.IO resource.
 

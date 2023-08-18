@@ -33,7 +33,7 @@ The engineering effort and time in getting a real-time communication channel in 
 
 ## What Web PubSub for Socket.IO aims to solve for developers
 
-Although developers often report that setting up a reliable and scalable app that's built with the Socket.IO library is challenging, developers can use the intuitive APIs and the wide range of clients that the library supports. Web PubSub for Socket.IO builds on the value that the library brings, while relieving developers of the complexity in managing persistent connections reliably and at scale.
+Although developers often report that setting up a reliable and scalable app that's built with the Socket.IO library is challenging, developers can benefit from the intuitive APIs and the wide range of clients that the library supports. Web PubSub for Socket.IO builds on the value that the library brings, while relieving developers of the complexity in managing persistent connections reliably and at scale.
 
 In practice, developers can continue to use the Socket.IO library's APIs without needing to provision server resources to maintain WebSocket or long-polling-based connections, which can be resource intensive. Also, developers don't need to manage and deploy an adapter component. The app server needs to send only a single operation, and Web PubSub for Socket.IO broadcasts the messages to relevant clients.
 
