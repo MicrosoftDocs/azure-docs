@@ -48,8 +48,8 @@ to find out which plans make user & group provisioning for Azure AD available.
 
 In the **[User management](https://login.tailscale.com/admin/settings/user-management/)** page of the admin console,
 
-- Click **Enable Provisioning**.
-- Copy the generated key to the clipboard.
+1. Click **Enable Provisioning**.
+1. Copy the generated key to the clipboard.
 
 Save the key information in a secure spot. This is the Secret Token you will need to use it when you configure provisioning in Azure AD.
 
