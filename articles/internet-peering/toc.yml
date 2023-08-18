@@ -13,7 +13,7 @@
   - name: Prerequisites to set up peering with Microsoft
     href: prerequisites.md
   - name: Azure Peering Service partner overview
-    href: maps-partner-overview.md
+    href: peering-service-partner-overview.md
   - name: Peering registered prefix requirements
     href: peering-registered-prefix-requirements.md
   - name: Internet peering FAQ
