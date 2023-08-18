@@ -41,32 +41,23 @@ You can configure and bind your Communication Services and Azure AI services thr
 ## Pre-requisites 
 - Azure account with an active subscription and access to Azure portal, for details see [Create an account for free.](https://azure.microsoft.com/free/)
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). 
-- A Azure Cognitive Services resource.
+- An Azure Cognitive Services resource.
 
 ### Connecting through the Azure portal
 
-1. Open your Azure Communication Services resource and click on the Cognitive Services tab. 
-
-[![Screenshot of Azure Communcation Services resource highlighting Cognitive Services tab](INSERT IMAGE)]
-
+1. Open your Azure Communication Services resource and click on the Cognitive Services tab.
 2. If system-assigned managed identity is not enabled, there are two ways to enable it.
-
    2.1 In the Cognitive Services tab, click on "Enable Managed Identity" button.
-
+   
 [![Screenshot of Enable Managed Identity button](INSERT IMAGE)]
 
 or
 
-  2.1 Navigate to the Identity tab 
-
-[![Screenshot of Identity tab](INSERT image)]
-
-  2.2 Turn the Status toggle On and then click Save.
-  [![Screenshot of status toggle](INSERT IMAGE HERE)]
+  2.1 Navigate to the identity tab.
   
-  2.3 Click "Yes" on the confirmation dialog.
-  [![Screenshot of confirmation dialog]](INSER IMAGE HERE)]
-  
+  2.2 Enable system assigned identity. This action begins the creation of the identity; A pop-up notification appears notifying you that the request is being processed.
+  [![Screen shot of enable managed identiy](./media/enable-system-identity.png)](./media/enable-system-identity.png)
+
   2.4 Once the identity is enable you should see something similar.
   [![Screenshot of enabled identity](INSERT IMAGE HERE)]
 
