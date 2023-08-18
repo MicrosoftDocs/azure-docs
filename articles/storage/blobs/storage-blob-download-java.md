@@ -55,6 +55,21 @@ The following example downloads a blob by opening a `BlobInputStream` and readin
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobDownload.java" id="Snippet_ReadBlobStream":::
 
+## Download a block blob with configuration options
+
+You can define client library configuration options when downloading a blob. These options can be tuned to improve performance and enhance reliability. The following code examples show how to use [BlobUploadFromFileOptions](/java/api/com.azure.storage.blob.options.blobuploadfromfileoptions) to define configuration options when calling an upload method. If you're not uploading from a file, you can set similar options using [BlobParallelUploadOptions](/java/api/com.azure.storage.blob.options.blobparalleluploadoptions) on an upload method.
+
+### Specify data transfer options on upload
+
+You can configure values in [ParallelTransferOptions](/java/api/com.azure.storage.common.paralleltransferoptions) to improve performance for data transfer operations. The following values can be tuned for downloads based on the needs of your app:
+
+- `blockSize`: The maximum block size to transfer for each request. You can set this value by using the [setBlockSizeLong](/java/api/com.azure.storage.common.paralleltransferoptions#com-azure-storage-common-paralleltransferoptions-setblocksizelong(java-lang-long)) method.
+- `maxConcurrency`: The maximum number of parallel requests issued at any given time as a part of a single parallel transfer. You can set this value by using the [setMaxConcurrency](/java/api/com.azure.storage.common.paralleltransferoptions#com-azure-storage-common-paralleltransferoptions-setmaxconcurrency(java-lang-integer)) method.
+
+The following code example shows how to set values for `ParallelTransferOptions` and include the options as part of a [BlobDownloadToFileOptions](/java/api/com.azure.storage.blob.options.blobdownloadtofileoptions) instance. The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
+
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobDownload.java" id="Snippet_DownloadBlobWithTransferOptions":::
+
 ## Resources
 
 To learn more about how to download blobs using the Azure Blob Storage client library for Java, see the following resources.
