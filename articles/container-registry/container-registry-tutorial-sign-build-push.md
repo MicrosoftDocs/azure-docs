@@ -116,6 +116,12 @@ Users who create or import a certificate in AKV must have authorized access to A
         "certificateTransparency": null,
         "name": "Self"
         },
+        "keyProperties": {
+          "exportable": false,
+          "keySize": 2048,
+          "keyType": "RSA",
+          "reuseKey": true
+        },
         "x509CertificateProperties": {
         "ekus": [
             "1.3.6.1.5.5.7.3.3"
