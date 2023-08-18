@@ -20,7 +20,7 @@ REVIEW Engineering: not reviewed
 EDIT PASS: started
 
 Initial doc score: 93
-Current doc score: 100 (3269 words and 0 issues)
+Current doc score: 100 (3365 words and 0 issues)
 
 !########################################################
 -->
@@ -351,9 +351,9 @@ Follow the steps in this section to view endpoints accessible to your Storage Mo
 
    1. On the **Storage endpoints** page, the default **Storage endpoints** view displays the names of any provisioned source endpoints and a summary of their associated properties. To view provisioned destination endpoint, select **Target endpoints**. You can filter the results further by selecting the **Protocol** or **Host** filters and the relevant option.
 
-      :::image type="content" source="media/endpoint-manage/endpoint-filter.png" alt-text="Screenshot of the Storage Endpoints page within the Azure portal showing the endpoint details and the location of the target endpoint filters." lightbox="media/endpoint-manage/endpoint-filter-lrg.png":::
+      :::image type="content" source="media/endpoint-manage/endpoint-filter.png" alt-text="Screenshot of the Storage Endpoints page within the Azure portal showing endpoint details and the target endpoint filters location." lightbox="media/endpoint-manage/endpoint-filter-lrg.png":::
 
-   At this time, the Azure Portal doesn't provide the ability to to directly modify provisioned endpoints. An endpoint's description, however, can be modified using Azure PowerShell by following [this example](endpoint-manage.md?tabs=powershell#view-and-edit-an-endpoints-properties). Endpoint resources that require updating within the Azure Portal should be deleted and recreated.
+   At this time, the Azure portal doesn't support the direct modification of provisioned endpoints. An endpoint's description, however, can be modified using Azure PowerShell by following [this example](endpoint-manage.md?tabs=powershell#view-and-edit-an-endpoints-properties). Endpoint resources that require updating within the Azure portal should be deleted and recreated.
 
 ### [PowerShell](#tab/powershell)
 
