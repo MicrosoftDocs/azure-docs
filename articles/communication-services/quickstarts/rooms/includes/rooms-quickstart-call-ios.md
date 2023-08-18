@@ -13,13 +13,13 @@ ms.author: t-siddiquim
 ---
 
 
-## Join a room call
+## Join a Room call
 
 To follow along with this quickstart, you can download the Room Call quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/join-room-call).
 
 
 ## Setting up
-### Creating the Xcode Project
+### Creating the Xcode project
 In Xcode, create a new iOS project and select the Single View App template. This tutorial uses the [SwiftUI framework](https://developer.apple.com/xcode/swiftui/), so you should set the Language to Swift and the User Interface to SwiftUI.
 
 :::image type="content" source="../../voice-video-calling/media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the New Project window within Xcode.":::
@@ -27,7 +27,7 @@ In Xcode, create a new iOS project and select the Single View App template. This
 ### Installing CocoaPods
 Please use this guide to [install CocoaPods](https://guides.cocoapods.org/using/getting-started.html) on your Mac. 
 
-### Install the Package and Dependencies with CocoaPods
+### Install the package and dependencies with CocoaPods
 1. To create a Podfile for your application open the terminal and navigate to the project folder and run pod init.
 
 2. Add the following code to the Podfile and save:
@@ -46,7 +46,7 @@ end
 4. Open the .xcworkspace with Xcode.
 
 
-### Request Access to the Microphone and Camera
+### Request access to the Microphone and Camera
 To access the device's microphone and camera, you need to update your app's Information Property List with an `NSMicrophoneUsageDescription` and `NSCameraUsageDescription`. You set the associated value to a string that will be included in the dialog the system uses to request access from the user.
 
 Right-click the `Info.plist` entry of the project tree and select Open As > Source Code. Add the following lines the top level `<dict>` section, and then save the file.
@@ -58,7 +58,7 @@ Right-click the `Info.plist` entry of the project tree and select Open As > Sour
 <string>Need camera access for video calling</string>
 ```
 
-### Set up the App framework
+### Set up the app framework
 Open your project's `ContentView.swift` file and add an import declaration to the top of the file to import the `AzureCommunicationCalling` library and `AVFoundation`. AVFoundation is used to capture audio permission from code.
 
 ```Swift
@@ -66,7 +66,7 @@ import AzureCommunicationCalling
 import AVFoundation
 ```
 
-## Object Model
+## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK for iOS.
 
 | Name                         | Description                                                                                                                                                                        |
@@ -214,7 +214,7 @@ do {
 }
 ```
 
-### Initialize the CallAgent and Access the Device Manager
+### Initialize the CallAgent and access the Device Manager
 To create a CallAgent instance from a CallClient, use the `callClient.createCallAgent` method that asynchronously returns a CallAgent object once it's initialized. DeviceManager lets you enumerate local devices that can be used in a call to transmit audio/video streams. It also allows you to request permission from a user to access microphone/camera. 
 
 ```Swift
@@ -239,7 +239,7 @@ self.callClient?.createCallAgent(userCredential: userCredential!) { (agent, erro
 }
 ```
 
-### Ask for Permissions
+### Ask for permissions
 We need to add the following code to the `onAppear` callback to ask for permissions for audio and video.
 
 ```Swift
@@ -252,7 +252,7 @@ AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
 }
 ```
 
-## Joining a Room Call
+## Joining a Room call
 The `joinRoomCall` method is set as the action that will be performed when the Join Room Call button is tapped. In this quickstart, calls are audio only by default but can have video enabled once a Room has been joined.
 
 ```Swift
@@ -300,7 +300,7 @@ func setCallAndObserver(call:Call!, error:Error?) {
 }
 ```
 
-## Leaving a Room Call
+## Leaving a Room call
 The `leaveRoomCall` method is set as the action that will be performed when the Leave Room Call button is tapped. It handles leaving a call and cleans up any resources that were created.
 
 ```swift
@@ -324,7 +324,7 @@ private func leaveRoomCall() {
 }
 ```
 
-## Broadcasting Video
+## Broadcasting video
 During a Room call we can use `startVideo` or `stopVideo` to start or stop sending `LocalVideoStream` to remote participants.
 
 ```Swift
@@ -361,7 +361,7 @@ func toggleLocalVideo() {
 }
 ```
 
-## Muting Local Audio
+## Muting local audio
 During a Room call we can use `mute` or `unMute` to mute or unmute our microphone.
 
 ```swift
@@ -382,7 +382,7 @@ func toggleMute() {
 }
 ```
 
-## Handling Call Updates
+## Handling call updates
 To deal with call updates, implement an `CallHandler` to handle update events. Put the following implementation in `CallHandler.swift`.
 
 ```Swift
@@ -408,7 +408,7 @@ final class CallHandler: NSObject, CallAgentDelegate {
 }
 ```
 
-We need to create a instance of `CallHandler` by adding the following code to the `onAppear` callback in `ContentView.swift`:
+We need to create an instance of `CallHandler` by adding the following code to the `onAppear` callback in `ContentView.swift`:
 
 ```Swift
 self.callHandler = CallHandler.getOrCreateInstance()
@@ -421,7 +421,7 @@ Set a delegate to the CallAgent after the CallAgent being successfully created:
 self.callAgent!.delegate = callHandler
 ```
 
-## Remote Participant Management
+## Remote participant management
 All remote participants are represented by the `RemoteParticipant` type and are available through the `remoteParticipants` collection on a call instance. We can implement a `Participant` class to manage the updates on remote video streams of remote participants amongst other things.
 
 ```swift
@@ -556,7 +556,7 @@ class Utilities {
 ```
 
 
-## Remote Participant Video Streams
+## Remote participant video streams
 We can create a `ParticipantView` to handle the rendering of video streams of remote participants. Put the implementation in `ParticipantView.swift`
 
 ```Swift
@@ -629,7 +629,7 @@ struct RenderInboundVideoView: UIViewRepresentable {
 }
 ```
 
-## Subscribe to Events
+## Subscribe to events
 We can implement a `CallObserver` class to subscribe to a collection of events to be notified when values, like `remoteParticipants`, change during the call.
 
 ```Swift
@@ -752,7 +752,7 @@ public class CallObserver : NSObject, CallDelegate
 }
 ```
 
-## Run the Code
+## Run the code
 You can build and run your app on iOS simulator by selecting Product > Run or by using the (⌘-R) keyboard shortcut.
 
 

@@ -393,19 +393,16 @@ Use the `webpack-dev-server` to build and run your app. Run the following comman
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
-Open your browser navigate to http://localhost:8080/.
-
-On the first input field, enter a valid user access token.
-
-Click on the "Initialize Call Agent" and enter your Room ID. 
-
-Click "Join Room Call"
+1. Open your browser navigate to http://localhost:8080/.
+2. On the first input field, enter a valid user access token.
+3. Click on the "Initialize Call Agent" and enter your Room ID. 
+4. Click "Join Room Call"
 
 You have now successfully joined a Rooms call!
 
 
 
-## Understanding joining a Room Call
+## Understanding joining a Room call
 
 All the code that you have added in your QuickStart app allowed you to successfully start and join a room call. Here is more information about what more methods/handlers you can access for Rooms to extend functionality in your application.
 

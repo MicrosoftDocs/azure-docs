@@ -12,13 +12,13 @@ ms.custom: include file
 ms.author: t-siddiquim
 ---
 
-## Sample App
+## Sample app
 
 
 To follow along with this quickstart, you can download the Room Call quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/RoomsCallQuickstart).
 
 
-## Setting up Project
+## Setting up project
 
 
 ## Create an Android app with an empty activity
@@ -91,7 +91,7 @@ To request permissions required to make a call, you must first declare the permi
 
 ### Set up the layout for the app
 
-You need a text input for the room Id, a button for placing the call, and extra button for hanging up the call.
+You need a text input for the room ID, a button for placing the call, and extra button for hanging up the call.
 
 Go to `app/src/main/res/layout/activity_main.xml`, and replace the content of file with the following code:
 
@@ -134,7 +134,7 @@ Go to `app/src/main/res/layout/activity_main.xml`, and replace the content of fi
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Room Id"
+        android:hint="Room ID"
         android:inputType="textPersonName"
         android:layout_marginTop="100dp"
         android:layout_marginHorizontal="20dp"
@@ -352,10 +352,10 @@ private val userToken = "<ACS_USER_TOKEN>"
 
 Run the project on an emulator or a physical device.
 
-You should see a field to enter your Room Id and a button to start the Room Call. Enter your Room Id and verify the Call status has changed along with your Role.
+You should see a field to enter your Room ID and a button to start the Room Call. Enter your Room ID and verify the Call status has changed along with your Role.
 
 
-## Understanding joining a Room Call
+## Understanding joining a Room call
 
 All the code that you have added in your QuickStart app allowed you to successfully start and join a room call. We need to dive deep into how it all works and what more methods/handlers you can access for Rooms.
 
