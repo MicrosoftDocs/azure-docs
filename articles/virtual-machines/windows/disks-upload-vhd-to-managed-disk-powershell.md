@@ -3,7 +3,7 @@ title: Upload a VHD to Azure or copy a disk across regions - Azure PowerShell
 description: Learn how to upload a VHD to an Azure managed disk and copy a managed disk across regions, using Azure PowerShell, via direct upload.    
 author: roygara
 ms.author: rogarana
-ms.date: 03/31/2023
+ms.date: 08/18/2023
 ms.topic: how-to
 ms.service: azure-disk-storage
 ms.tgt_pltfrm: linux
@@ -119,10 +119,11 @@ Now, on your local shell, create an empty standard HDD for uploading by specifyi
 
 Replace `<yourdiskname>`, `<yourresourcegroupname>`, and `<yourregion>` then run the following commands:
 
-> [!TIP]
+> [!IMPORTANT]
 > If you're creating an OS disk, add `-HyperVGeneration '<yourGeneration>'` to `New-AzDiskConfig`.
 > 
 > If you're using Azure AD to secure your uploads, add `-dataAccessAuthMode 'AzureActiveDirectory'` to `New-AzDiskConfig`.  
+> When uploading to an Ultra Disk or Premium SSD v2 you need to select the correct sector size of the target disk. If you're using a VHDX file with a 4k logical sector size, the target disk must be set to 4k. If you're using a VHD file with a 512 logical sector size, the target disk must be set to 512.
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length

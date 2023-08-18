@@ -4,7 +4,7 @@ description: Learn how to upload a VHD to an Azure managed disk and copy a manag
 services: "virtual-machines,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 08/16/2023
+ms.date: 08/18/2023
 ms.topic: how-to
 ms.service: azure-disk-storage
 ms.custom: devx-track-azurecli
@@ -70,10 +70,11 @@ Create an empty standard HDD for uploading by specifying both the **-–for-uplo
 
 Replace `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>` with values of your choosing. The `--upload-size-bytes` parameter contains an example value of `34359738880`, replace it with a value appropriate for you.
 
-> [!TIP]
+> [!IMPORTANT]
 > If you're creating an OS disk, add `--hyper-v-generation <yourGeneration>` to `az disk create`.
 > 
 > If you're using Azure AD to secure disk uploads, add `-dataAccessAuthmode 'AzureActiveDirectory'`.
+> When uploading to an Ultra Disk or Premium SSD v2 you need to select the correct sector size of the target disk. If you're using a VHDX file with a 4k logical sector size, the target disk must be set to 4k. If you're using a VHD file with a 512 logical sector size, the target disk must be set to 512.
 
 ```azurecli
 az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --os-type Linux --for-upload --upload-size-bytes 34359738880 --sku standard_lrs

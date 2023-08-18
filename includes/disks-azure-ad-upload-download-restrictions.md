@@ -10,4 +10,3 @@
 ---
 - VHDs can't be uploaded to empty snapshots.
 - Azure Backup doesn't currently support disks secured with Azure AD.
-- When uploading to an Ultra Disk or Premium SSD v2
