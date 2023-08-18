@@ -81,5 +81,7 @@ As you maintain code in a repository, deployment takes place on the server rathe
 - **Azure Developer CLI (AZD)**
   - [Get started using Azure Developer CLI](/azure/developer/azure-developer-cli/get-started?tabs=localinstall&pivots=programming-language-nodejs)
 
-> [!div class="nextstepaction"]
-> [Defile scale rules](scale-app.md)
+## Next steps
+
+- [Deploy to Azure Container Apps using Visual Studio](deploy-visual-studio.md)
+- [Deploy to Azure Container Apps using Visual Studio Code](deploy-visual-studio-code.md)
