@@ -312,6 +312,10 @@
           href: standard-premium/how-to-monitor-metrics.md
         - name: View Front Door reports
           href: standard-premium/how-to-reports.md
+      - name: Integrations
+        items:
+        - name: Azure Storage
+          href: afd-create-a-storage-account-with-afd.md
     - name : Classic
       items:
       - name: Migrate to Standard or Premium tier
