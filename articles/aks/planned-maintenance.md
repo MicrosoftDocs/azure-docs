@@ -12,13 +12,13 @@ author: nickomang
 
 # Use Planned Maintenance to schedule and control upgrades for your Azure Kubernetes Service (AKS) cluster 
 
-Your AKS cluster has regular maintenance performed on it automatically. There are two types of regular maintenance - AKS initiated and those that you initiate. Planned Maintenance feature allows you to run both these maintenance in a cadence of your choice thereby minimizing any workload impact. 
+Your AKS cluster has regular maintenance performed on it automatically. There are two types of regular maintenance - AKS initiated and those that you initiate. Planned Maintenance feature allows you to run both types of maintenance in a cadence of your choice thereby minimizing any workload impact. 
 
-AKS intiated maintenance refers to the AKS releases, which are weekly rounds of fixes and feature and component updates that affect your clusters.The other type of maintenance that you initiate on a regular basis are [cluster auto-upgrades][aks-upgrade] and [node operating system auto security patching][node-image-auto-upgrade].
+AKS intiated maintenance refers to the AKS releases. These releases are weekly rounds of fixes and feature and component updates that affect your clusters. The type of maintenance that you initiate regularly are [cluster auto-upgrades][aks-upgrade] and [Node OS automatic security updates][node-image-auto-upgrade].
 
 There are currently three available configuration types: `default`, `aksManagedAutoUpgradeSchedule`, `aksManagedNodeOSUpgradeSchedule`:
 
-- `default` corresponds to a basic configuration that is used to control AKS releases, these releases can take up to two weeks to roll out to all regions from the initial time of shipping due to Azure Safe Deployment Practices (SDP). Choose `default` to schedule these updates in such a way that it is least disruptive for you. You can monitor the status of an ongoing AKS release by region from the [weekly releases release tracker][release-tracker].  
+- `default` corresponds to a basic configuration that is used to control AKS releases, these releases can take up to two weeks to roll out to all regions from the initial time of shipping due to Azure Safe Deployment Practices (SDP). Choose `default` to schedule these updates in such a way that it's least disruptive for you. You can monitor the status of an ongoing AKS release by region from the [weekly releases tracker][release-tracker].  
 
 - `aksManagedAutoUpgradeSchedule` controls when cluster upgrades scheduled by your designated auto-upgrade channel are performed. More finely controlled cadence and recurrence settings are possible than in a `default` configuration. For more information on cluster auto-upgrade, see [Automatically upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
 
@@ -34,7 +34,7 @@ Be sure to upgrade Azure CLI to the latest version using [`az upgrade`](/cli/azu
 
 ## Creating a maintenance window
 
-To create a maintenance window, you can use the `az aks maintenanceconfiguration add` command using the  `--name` value `default`, `aksManagedAutoUpgradeSchedule`, or `aksManagedNodeOSUpgradeSchedule`. The name value should reflect the desired configuration type. Using any other name will cause your maintenance window not to run.
+To create a maintenance window, you can use the `az aks maintenanceconfiguration add` command using the  `--name` value `default`, `aksManagedAutoUpgradeSchedule`, or `aksManagedNodeOSUpgradeSchedule`. The name value should reflect the desired configuration type. Using any other name causes your maintenance window not to run.
 
 > [!NOTE]
 > When using auto-upgrade, to ensure proper functionality, use a maintenance window with a duration of four hours or more.
@@ -302,15 +302,15 @@ az aks maintenanceconfiguration delete -g myResourceGroup --cluster-name myAKSCl
 
 * How can you tell if a maintenance event occurred?
 
-   For releases, check your cluster's region and look up release information in [weekly releases][release-tracker] and validate if this matches your maintenance schedule or not. To view the status of your auto upgrades, look up [activity logs][monitor-aks] on your cluster. You may also look up specific upgrade related events as mentioned in [Upgrade an AKS cluster][aks-upgrade]. AKS also emits upgrade related Event Grid events. To learn more, see [AKS as an Event Grid source][aks-eventgrid].
+  For releases, check your cluster's region and look up release information in [weekly releases][release-tracker] and validate if it matches your maintenance schedule or not. To view the status of your auto upgrades, look up [activity logs][monitor-aks] on your cluster. You may also look up specific upgrade related events as mentioned in [Upgrade an AKS cluster][aks-upgrade]. AKS also emits upgrade related Event Grid events. To learn more, see [AKS as an Event Grid source][aks-eventgrid].
 
 * Can you use more than one maintenance configuration at the same time?
    
-   Yes, you can run all three configurations i.e `default`, `aksManagedAutoUpgradeSchedule`, `aksManagedNodeOSUpgradeSchedule`simultenously.  In case the windows overlap AKS will decide the running order. 
+  Yes, you can run all three configurations i.e `default`, `aksManagedAutoUpgradeSchedule`, `aksManagedNodeOSUpgradeSchedule`simultaneously.  In case the windows overlap AKS decides the running order. 
 
 *  Are there any best practices for the maintenance configurations?
    
-   We recommend setting the Node OS security patching schedule[node-image-auto-upgrade] to a weekly cadence if you are using `NodeImage` channel since a new node image gets shipped every week and daily if you opt in for `SecurityPatch` channel to receive daily security updates. Set the auto-upgrade Schedule[auto-upgrade] to a monthly cadence to stay on top of the kubernetes N-2 [support policy][aks-support-policy]. 
+  We recommend setting the Node OS security updates schedule[node-image-auto-upgrade] to a weekly cadence if you're using `NodeImage` channel since a new node image gets shipped every week and daily if you opt in for `SecurityPatch` channel to receive daily security updates. Set the auto-upgrade Schedule[auto-upgrade] to a monthly cadence to stay on top of the kubernetes N-2 [support policy][aks-support-policy]. 
 
 ## Next steps
 
