@@ -1,4 +1,4 @@
----Azure Cosmos DB for MongoDB vCore
+---
 title: Migrate MongoDB offline to Azure Cosmos DB for MongoDB vCore, using MongoDB native tools
 description: Learn how MongoDB native tools can be used to migrate small datasets from MongoDB instances to Azure Cosmos DB for MongoDB vCore
 author: sandnair
