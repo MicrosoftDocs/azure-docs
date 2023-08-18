@@ -5,7 +5,6 @@ description: Getting started guide to implement Komprise Intelligent Data Manage
 author: timkresler
 ms.author: timkresler
 ms.date: 06/01/2023
-ms.topic: conceptual
 ms.service: azure-storage
 ms.topic: quickstart
 ---
@@ -18,7 +17,7 @@ Moving data can be intimidating.  There are often numerous challenges, beginning
 
 Komprise makes it easy to move your data to Azure storage services like Azure Files, Azure NetApp Files, Azure Blob Storage or other ISV NAS solutions. 
 
-Learn more about other ISV NAS in the [verified partner solutions article](https://docs.microsoft.com/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview)
+Learn more about other ISV NAS in the [verified partner solutions article](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview)
 
 This article reviews where to get started, considerations and recommendations when moving data to Azure. Use the following links to connect to what is important.
 - [Know First, Move Smarter Analyze, Tier, Move What Matters](#know-first-move-smarter-analyze-tier-move-what-matters)
@@ -68,17 +67,17 @@ Learn more  at [Komprise Deep Analytics](https://www.komprise.com/use-cases/deep
 Use all this information when selecting the appropriate Azure storage service. Komprise helps identify key factors like shares, protocol, logical size, file count, data type and performance type. 
 
 - Azure Files
-    - [Azure Files Documentation Site](https://docs.microsoft.com/azure/storage/files/)
-    - [Planning for an Azure Files deployment](https://docs.microsoft.com/azure/storage/files/storage-files-planning)
+    - [Azure Files Documentation Site](/azure/storage/files/)
+    - [Planning for an Azure Files deployment](/azure/storage/files/storage-files-planning)
 - Azure Block Blob
-    - [Azure Blob Documentation Site](https://docs.microsoft.com/azure/storage/blobs/)
-    - [Access Tiers for Azure Blob](https://docs.microsoft.com/azure/storage/blobs/access-tiers-overview?source=recommendations)
+    - [Azure Blob Documentation Site](/azure/storage/blobs/)
+    - [Access Tiers for Azure Blob](/azure/storage/blobs/access-tiers-overview?source=recommendations)
 - Azure Storage Accounts
-    - [Azure Storage Account Overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json)
-    - [Create a Storage Account](https://docs.microsoft.com/azure/storage/common/storage-account-create)
+    - [Azure Storage Account Overview](/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json)
+    - [Create a Storage Account](/azure/storage/common/storage-account-create)
 - Azure NetApp Files
-    - [Azure NetApp Files Documentation Site](https://docs.microsoft.com/azure/azure-netapp-files/)
-    - [Service Levels for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)
+    - [Azure NetApp Files Documentation Site](/azure/azure-netapp-files/)
+    - [Service Levels for Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels)
 
 ## Assessing Network and Storage Performance
 
@@ -96,12 +95,12 @@ The Komprise Assessment of Customer Environment (ACE) is easy to deploy and run.
 If you're using a public network connection, consider changing to a private VPN or contracting with an Azure Express Route service provider. Making this change can improve security, performance, and providing greater opportunity to identify and resolve any connectivity issues.
 
 To learn more about Express Routes:
-- [What is Azure ExpressRoute?](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)
-- [ExpressRoute connectivity models](https://docs.microsoft.com/azure/expressroute/expressroute-connectivity-models)
-- [Extend an on-premises network using ExpressRoute](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute)
+- [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
+- [ExpressRoute connectivity models](/azure/expressroute/expressroute-connectivity-models)
+- [Extend an on-premises network using ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute)
 
 Other performance items to investigate with secure networks: 
-- Existing Azure ExpressRoute customers, review [circuit usage](https://docs.microsoft.com/azure/expressroute/expressroute-monitoring-metrics-alerts#circuits-metrics) in the Azure portal
+- Existing Azure ExpressRoute customers, review [circuit usage](/azure/expressroute/expressroute-monitoring-metrics-alerts#circuits-metrics) in the Azure portal
 - Work with your ISP and request reports showing existing daily and monthly utilization
 
 ## Intelligent Data Management Architecture
@@ -149,11 +148,11 @@ Example of adding Azure Files as a migration destination on the Sources tab:
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-add-server-destination.png" alt-text="Screenshot of the Add Destination to Sources page":::
 
 ## Getting Started with Azure
-Microsoft offers a framework to get you started with Azure. The [Cloud Adoption Framework](https://docs.microsoft.com/azure/architecture/cloud-adoption/) (CAF) is a detailed approach to enterprise digital transformation and a comprehensive guide to planning a production-grade cloud adoption. The CAF includes a step-by-step [Azure setup guide](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-setup-guide/) to help you get up and run quickly and securely. You can find an interactive version in the [Azure portal](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade). You'll find sample architectures, specific best practices for deploying applications and free training resources to put you on the path to Azure expertise.
+Microsoft offers a framework to get you started with Azure. The [Cloud Adoption Framework](/azure/architecture/cloud-adoption/) (CAF) is a detailed approach to enterprise digital transformation and a comprehensive guide to planning a production-grade cloud adoption. The CAF includes a step-by-step [Azure setup guide](/azure/cloud-adoption-framework/ready/azure-setup-guide/) to help you get up and run quickly and securely. You can find an interactive version in the [Azure portal](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade). You'll find sample architectures, specific best practices for deploying applications and free training resources to put you on the path to Azure expertise.
 
 Before starting your project, the target service must be deployed. You can learn more here:
-- How to create [Azure File Share](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)
-- How to create an [SMB volume](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) or [NFS export](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes) in Azure NetApp Files
+- How to create [Azure File Share](/azure/storage/files/storage-how-to-create-file-share)
+- How to create an [SMB volume](/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) or [NFS export](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in Azure NetApp Files
 
 The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) for speed, scalability, and resilience. Alternatively, you may set up the environment in your Azure subscription using [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management).
 
@@ -170,7 +169,7 @@ You can also click on the default Storage accounts icon
     b. Provide a unique name for your storage account.
     c. Choose the region.
     d. Select Standard or Premium performance, depending on your needs. If you select Premium, select File shares under Premium account type.
-    e. Choose the [Redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) that meets your data protection requirements
+    e. Choose the [Redundancy](/azure/storage/common/storage-redundancy) that meets your data protection requirements
 
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-create-storage-account.png" alt-text="Screenshot of the Azure Create Storage Account Dialog":::
 
@@ -193,16 +192,16 @@ You can also click on the default Storage accounts icon
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-azure-file-share-properties.png" alt-text="Screenshot of Azure File Share Properties dialog":::
 
 8.	(Optional) You can add extra layers of security to your deployment
-    a. Configure role-based access to limit who can make changes to your storage account. For more information, see [Built-in roles for management operations](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider#built-in-roles-for-management-operations)
-    b. Restrict access to the account to specific network segments with [storage firewall settings](https://docs.microsoft.com/azure/storage/common/storage-network-security). Configure firewall settings to prevent access from outside of your corporate network
+    a. Configure role-based access to limit who can make changes to your storage account. For more information, see [Built-in roles for management operations](/azure/storage/common/authorization-resource-provider#built-in-roles-for-management-operations)
+    b. Restrict access to the account to specific network segments with [storage firewall settings](/azure/storage/common/storage-network-security). Configure firewall settings to prevent access from outside of your corporate network
 
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-network-security.png" alt-text="Screenshot of Azure Network Security dialog":::
 
-c. Set a [delete lock](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) on the account to prevent accidental deletion of the storage account.
+c. Set a [delete lock](/azure/azure-resource-manager/management/lock-resources) on the account to prevent accidental deletion of the storage account.
     
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-delete-lock.png" alt-text="Screenshot of Azure Delete Lock dialog":::
 
-d. Review this document for other [security best practices](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)
+d. Review this document for other [security best practices](/azure/storage/blobs/security-recommendations)
 
 
 ## Migration Guide
@@ -305,7 +304,7 @@ Get Komprise full suite listing on [Azure Marketplace](https://azuremarketplac
 ### Education
 
 Various resources are available to learn more:
-- [Storage migration overview](https://docs.microsoft.com/azure/storage/common/storage-migration-overview)
-- Features supported by Komprise Intelligent Data Management in [migration tools comparison matrix](https://docs.microsoft.com/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison)
+- [Storage migration overview](/azure/storage/common/storage-migration-overview)
+- Features supported by Komprise Intelligent Data Management in [migration tools comparison matrix](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison)
 - [Komprise compatibility matrix](https://www.komprise.com/partners/microsoft-azure/)
 
