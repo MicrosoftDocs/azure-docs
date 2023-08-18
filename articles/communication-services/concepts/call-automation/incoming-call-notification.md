@@ -1,5 +1,5 @@
 ---
-title: Incoming Call Concepts
+title: Incoming call concepts
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Azure Communication Services IncomingCall notification
 author: jasonshave
@@ -16,7 +16,7 @@ Azure Communication Services Call Automation enables developers to create applic
 
 ## Calling scenarios
 
-Before setting up your environment, it is important to understand the scenarios that can trigger an `IncomingCall` event. To trigger an `IncomingCall` event, a call must be made to either an Azure Communication Services identity or a Public Switched Telephone Network (PSTN) number associated with your Azure Communication Services resource. The following are examples of these resources:
+Before setting up your environment, it's important to understand the scenarios that can trigger an `IncomingCall` event. To trigger an `IncomingCall` event, a call must be made to either an Azure Communication Services identity or a Public Switched Telephone Network (PSTN) number associated with your Azure Communication Services resource. The following are examples of these resources:
 
 1. An Azure Communication Services identity
 2. A PSTN phone number owned by your Azure Communication Services resource
@@ -30,7 +30,7 @@ Given these examples, the following scenarios trigger an `IncomingCall` event se
 | Public PSTN | PSTN number owned by your Azure Communication Services resource  | Call, Redirect, Add Participant, Transfer
 
 > [!NOTE]
-> It is important to understand that an Azure Communication Services identity can represent either a user or an application. While the platform does not have a built-in feature to explicitly assign an identity to a user or application, your application or supporting infrastructure can accomplish this. To learn more about this topic, please refer to the [identity concepts guide](../identity-model.md).
+> It's important to understand that an Azure Communication Services identity can represent either a user or an application. While the platform does not have a built-in feature to explicitly assign an identity to a user or application, your application or supporting infrastructure can accomplish this. To learn more about this topic, refer to the [identity concepts guide](../identity-model.md).
 
 ## Register an Event Grid resource provider
 
@@ -45,7 +45,7 @@ If you haven't previously used Event Grid in your Azure subscription, you might 
 
 ## Receiving an incoming call notification from Event Grid
 
-In Azure Communication Services, receiving an `IncomingCall` notification is made possible through an Event Grid subscription. As the receiver of the notification, you have the flexibility to choose how to handle it. Since the Call Automation API leverages Webhook callbacks for events, it is common to use a 'Webhook' Event Grid subscription. However, the service offers various subscription types, and you have the liberty to choose the most suitable one for your needs.
+In Azure Communication Services, receiving an `IncomingCall` notification is made possible through an Event Grid subscription. As the receiver of the notification, you have the flexibility to choose how to handle it. Since the Call Automation API leverages Webhook callbacks for events, it's common to use a 'Webhook' Event Grid subscription. However, the service offers various subscription types, and you have the liberty to choose the most suitable one for your needs.
 
 This architecture has the following benefits:
 
@@ -53,18 +53,18 @@ This architecture has the following benefits:
 - PSTN number assignment and routing logic can exist in your application versus being statically configured online.
 - As identified in the [calling scenarios](#calling-scenarios) section, your application can be notified even when users make calls between each other. You can then combine this scenario together with the [Call Recording APIs](../voice-video-calling/call-recording.md) to meet compliance needs.
 
-For a sample payload of the event and more information on other calling events published to Event Grid, please refer to this [guide](../../../event-grid/communication-services-voice-video-events.md#microsoftcommunicationincomingcall).
+For a sample payload of the event and more information on other calling events published to Event Grid, refer to this [guide](../../../event-grid/communication-services-voice-video-events.md#microsoftcommunicationincomingcall).
 
 Here is an example of an Event Grid Webhook subscription where the event type filter is listening only to the `IncomingCall` event.
 
 ![Image showing IncomingCall subscription.](./media/subscribe-incoming-call-event-grid.png)
 
-## Call Routing Options with Call Automation and Event Grid
+## Call routing options with Call Automation and Event Grid
 
-In Call Automation and Event Grid, call routing can be tailored to your specific needs. By utilizing [advanced filters](../../../event-grid/event-filtering.md) within your Event Grid subscription, you can subscribe to an `IncomingCall` notification that pertains to a specific source/destination phone number or an Azure Communication Services identity. This notification can then be directed to an endpoint, such as a Webhook subscription. Using the Call Automation SDK, the endpoint application can then make a decision to **redirect** the call to another Azure Communication Services identity or to the PSTN.
+In Call Automation and Event Grid, call routing can be tailored to your specific needs. By using [advanced filters](../../../event-grid/event-filtering.md) within your Event Grid subscription, you can subscribe to an `IncomingCall` notification that pertains to a specific source/destination phone number or an Azure Communication Services identity. This notification can then be directed to an endpoint, such as a Webhook subscription. Using the Call Automation SDK, the endpoint application can then make a decision to **redirect** the call to another Azure Communication Services identity or to the PSTN.
 
 > [!NOTE]
-> To ensure that your application receives only the necessary events, it is recommended to configure filtering in Event Grid. This is particularly crucial in scenarios that generate `IncomingCall` events, such as redirecting an inbound PSTN call to an Azure Communication Services endpoint. If a filter is not used, your Event Grid subscription will receive two `IncomingCall` events - one for the PSTN call and one for the Azure Communication Services user - even though you intended to receive only the first notification. Neglecting to handle such scenarios using filters or other mechanisms in your application can result in infinite loops and other undesirable behavior.
+> To ensure that your application receives only the necessary events, it is recommended to configure filtering in Event Grid. This is particularly crucial in scenarios that generate `IncomingCall` events, such as redirecting an inbound PSTN call to an Azure Communication Services endpoint. If a filter isn't used, your Event Grid subscription receives two `IncomingCall` events - one for the PSTN call and one for the Azure Communication Services user - even though you intended to receive only the first notification. Neglecting to handle such scenarios using filters or other mechanisms in your application can result in infinite loops and other undesirable behavior.
 
 Here is an example of an advanced filter on an Event Grid subscription watching for the `data.to.PhoneNumber.Value` string starting with a PSTN phone number of `+18005551212.
 
