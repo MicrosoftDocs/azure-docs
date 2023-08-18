@@ -48,11 +48,11 @@ The File System connector has different versions, based on [logic app type and h
 
     - In multi-tenant Azure Logic Apps, you need to meet the following requirements, if you haven't already:
     
-      1. [Install the on-premises data gateway on a local computer](logic-apps-gateway-install.md).
+      1. [Install the on-premises data gateway on a local computer](../logic-apps/logic-apps-gateway-install.md).
 
          The File System managed connector requires that your gateway installation and file system server must exist in the same Windows domain.
 
-      1. [Create an on-premises data gateway resource in Azure](logic-apps-gateway-connection.md).
+      1. [Create an on-premises data gateway resource in Azure](../logic-apps/logic-apps-gateway-connection.md).
 
       1. After you add a File System managed connector trigger or action to your workflow, select the data gateway resource that you previously created so you can connect to your file system.
 
