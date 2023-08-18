@@ -3,7 +3,7 @@ title: Configure runbook input parameters in Azure Automation
 description: This article tells how to configure runbook input parameters, which allow data to be passed to a runbook when it's started.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/26/2023
+ms.date: 08/18/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -75,7 +75,7 @@ To illustrate the configuration of input parameters for a graphical runbook, let
 
 A graphical runbook uses these major runbook activities:
 
-* Configuration of the Azure Run As account to authenticate with Azure. 
+* Authenticate with Azure using managed identity configured for automation account. 
 * Definition of a [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet to get VM properties.
 * Use of the [Write-Output](/powershell/module/microsoft.powershell.utility/write-output) activity to output the VM names. 
 
