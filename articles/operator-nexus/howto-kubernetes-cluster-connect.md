@@ -13,7 +13,7 @@ ms.custom: template-how-to-pattern
 
 This article provides instructions on how to connect to Azure Operator Nexus Kubernetes cluster and its nodes. It includes details on how to connect to the cluster from both Azure and on-premises environments, and how to do so when the ExpressRoute is in both connected and disconnected modes.
 
-In Azure, connected mode and disconnected mode refer to the state of an ExpressRoute circuit. ExpressRoute is a service provided by Azure that enables organizations to establish a private, high-throughput connection between their on-premises infrastructure and Azure datacenters.
+In Azure, connected mode and disconnected mode refer to the state of an ExpressRoute circuit. [ExpressRoute](../expressroute/expressroute-introduction.md) is a service provided by Azure that enables organizations to establish a private, high-throughput connection between their on-premises infrastructure and Azure datacenters.
 
 * Connected Mode: In connected mode, the ExpressRoute circuit is fully operational and provides a private connection between your on-premises infrastructure and Azure services. This mode is ideal for scenarios where you need constant connectivity to Azure.
 * Disconnected Mode: In disconnected mode, the ExpressRoute circuit is partially or fully down and is unable to provide connectivity to Azure services. This mode is useful when you want to perform maintenance on the circuit or need to temporarily disconnect from Azure.
@@ -60,9 +60,9 @@ To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by cr
 3. Sample output:
 
     ```bash
-    "mynexusk8scluster-0aeaccf8-agentpool1-md-dfvzz"
-    "mynexusk8scluster-0aeaccf8-agentpool1-md-gvqmj"
-    "mynexusk8scluster-0aeaccf8-control-plane-hrmzr"
+    "mynexusk8scluster-0b32128d-agentpool1-md-7h9t4"
+    "mynexusk8scluster-0b32128d-agentpool1-md-c6xbs"
+    "mynexusk8scluster-0b32128d-control-plane-qq5jm"
     ```
 
 4. Run the following command to SSH into the cluster node.
@@ -129,16 +129,16 @@ Before you can connect to the cluster nodes, you need to find the IP address of 
 
     ```json
     {
-      "name": "mynexusk8scluster-593806e9-agentpool1-md-dw57z",
-      "ipv4Address": "<IP address>"
+      "name": "mynexusk8scluster-0b32128d-agentpool1-md-7h9t4",
+      "ipv4Address": "10.5.54.47"
     }
     {
-      "name": "mynexusk8scluster-593806e9-agentpool1-md-zmxp9",
-      "ipv4Address": "<IP address>"
+      "name": "mynexusk8scluster-0b32128d-agentpool1-md-c6xbs",
+      "ipv4Address": "10.5.54.48"
     }
     {
-      "name": "mynexusk8scluster-593806e9-control-plane-xm7rt",
-      "ipv4Address": "<IP address>"
+      "name": "mynexusk8scluster-0b32128d-control-plane-qq5jm",
+      "ipv4Address": "10.5.54.46"
     }
     ```
 
