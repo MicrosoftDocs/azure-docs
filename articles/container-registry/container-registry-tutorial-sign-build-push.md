@@ -136,7 +136,7 @@ If you have an existing certificate, see [import a certificate in AKV](../key-va
     az keyvault certificate create -n $KEY_NAME --vault-name $AKV_NAME -p @my_policy.json
     ```
 
-## Build, push and sign a container image
+## Sign a container image
 
 1. Build and push a new image with ACR Tasks.
 
@@ -173,7 +173,7 @@ If you have an existing certificate, see [import a certificate in AKV](../key-va
    notation ls $IMAGE
    ```
 
-## Verify the container image using Notation CLI
+## Verify a container image using Notation CLI
 
 To verify the container image, you need to add the root certificate that signs the signing certificate to a trust store and create trust policies for verification. For a self-signed certificate used in this tutorial, the root certificate is the self-signed certificate itself.
 
