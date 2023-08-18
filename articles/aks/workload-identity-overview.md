@@ -31,14 +31,14 @@ In the Azure Identity client libraries, choose one of the following approaches:
 
 The following table provides the **minimum** package version required for each language's client library.
 
-| Language   | Library                                                                                                          | Minimum Version | Example                                                                                           |
-|------------|------------------------------------------------------------------------------------------------------------------|-----------------|---------------------------------------------------------------------------------------------------|
-| .NET       | [Azure.Identity](/dotnet/api/overview/azure/identity-readme)                                                     | 1.9.0           | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/dotnet) |
-| C++        | [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md) | 1.6.0-beta.1    | N/A                                                                                          |
-| Go         | [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity)                                | 1.3.0           | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/go)     |
-| Java       | [azure-identity](/java/api/overview/azure/identity-readme)                                                       | 1.9.0           | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/java)   |
-| JavaScript | [@azure/identity](/javascript/api/overview/azure/identity-readme)                                                | 3.2.0           | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/node)   |
-| Python     | [azure-identity](/python/api/overview/azure/identity-readme)                                                     | 1.13.0          | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/python) |
+| Language   | Library                                                                                                          | Minimum Version | Example                                                                                                                           |
+|------------|------------------------------------------------------------------------------------------------------------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| .NET       | [Azure.Identity](/dotnet/api/overview/azure/identity-readme)                                                     | 1.9.0           | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/dotnet)                                 |
+| C++        | [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md) | 1.6.0-beta.1    | [Link](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/samples/workload_identity_credential.cpp) |
+| Go         | [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity)                                | 1.3.0           | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/go)                                     |
+| Java       | [azure-identity](/java/api/overview/azure/identity-readme)                                                       | 1.9.0           | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/java)                                   |
+| JavaScript | [@azure/identity](/javascript/api/overview/azure/identity-readme)                                                | 3.2.0           | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/node)                                   |
+| Python     | [azure-identity](/python/api/overview/azure/identity-readme)                                                     | 1.13.0          | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/python)                                 |
 
 &dagger; In the C++ library, `WorkloadIdentityCredential` isn't part of the `DefaultAzureCredential` authentication flow.
 
