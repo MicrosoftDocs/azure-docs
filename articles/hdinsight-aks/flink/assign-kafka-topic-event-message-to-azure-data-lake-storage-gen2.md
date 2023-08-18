@@ -170,8 +170,8 @@ We are using Maven to package a jar onto local and submitting to Flink, and usin
 
 We are seeing the `click_events` streaming into ADLS Gen2
 
-:::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/validate-stream-adls-gen2-1.png" alt-text="Screenshot showing ADLS Gen2 output.":::
-:::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/validate-stream-adls-gen2-2.png" alt-text="Screenshot showing Flink click event output.":::
+:::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/validate-stream-azure-data-lake-storage-gen2-1.png" alt-text="Screenshot showing ADLS Gen2 output.":::
+:::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/validate-stream-azure-data-lake-storage-gen2-2.png" alt-text="Screenshot showing Flink click event output.":::
 
 You can specify a rolling policy that rolls the in-progress part file on any of the following three conditions:
 
