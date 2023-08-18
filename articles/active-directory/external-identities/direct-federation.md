@@ -11,7 +11,7 @@ ms.date: 03/15/2023
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.custom: "it-pro"
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -125,7 +125,7 @@ Next, your partner organization needs to configure their IdP with the required c
 
 ### SAML 2.0 configuration
 
-Azure AD B2B can be configured to federate with IdPs that use the SAML protocol with specific requirements listed in this section. For more information about setting up a trust between your SAML IdP and Azure AD, see  [Use a SAML 2.0 Identity Provider (IdP) for SSO](../hybrid/how-to-connect-fed-saml-idp.md).  
+Azure AD B2B can be configured to federate with IdPs that use the SAML protocol with specific requirements listed in this section. For more information about setting up a trust between your SAML IdP and Azure AD, see  [Use a SAML 2.0 Identity Provider (IdP) for SSO](../hybrid/connect/how-to-connect-fed-saml-idp.md).  
 
 > [!NOTE]
 > The target domain for SAML/WS-Fed IdP federation must not be DNS-verified in Azure AD. See the [Frequently asked questions](#frequently-asked-questions) section for details.

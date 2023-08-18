@@ -429,6 +429,8 @@ items:
       items:
       - name: Control and steer calls
         href: how-tos/call-automation/actions-for-call-control.md
+      - name: Control mid call media actions
+        href: how-tos/call-automation/control-mid-call-media-actions.md
       - name: Customize voice prompts to users with play action 
         href: how-tos/call-automation/play-action.md
       - name: Gather user input with recognize action 

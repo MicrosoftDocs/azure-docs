@@ -976,7 +976,7 @@ Now you're ready to create the cluster resources:
 
    1. Create the HANA instance resource.  
       > [!NOTE]
-      > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.  
+      > This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.  
  
       If you're building a RHEL **7.x** cluster, use the following commands:    
       ```bash

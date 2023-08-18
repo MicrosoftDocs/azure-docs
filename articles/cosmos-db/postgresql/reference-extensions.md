@@ -1,13 +1,13 @@
 ---
 title: Extensions – Azure Cosmos DB for PostgreSQL
 description: Describes the ability to extend the functionality of your database by using extensions in Azure Cosmos DB for PostgreSQL
-ms.author: jonels
-author: jonels-msft
+ms.author: nlarin
+author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 02/25/2023
+ms.date: 08/09/2023
 ---
 # PostgreSQL extensions in Azure Cosmos DB for PostgreSQL
 
@@ -42,7 +42,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** | **PG 15** |
 > |---|---|---|---|---|
-> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5.12 | 10.2.9 | 11.3.0 | 11.3.0 | 11.3.0 |
+> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5.12 | 10.2.9 | 11.3.0 | 12.0.0 | 12.0.0 |
 
 ### Data types extensions
 
