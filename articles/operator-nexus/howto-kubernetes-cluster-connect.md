@@ -77,9 +77,9 @@ To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by cr
 
 ### Azure jumpbox
 
-Another option for securely connecting to an Azure Operator Nexus Kubernetes cluster node is to use a jumpbox. In this approach, a stand-alone Azure VM is set up as a secure gateway to connect to the Azure Operator Nexus Kubernetes cluster nodes.
+Another option for securely connecting to an Azure Operator Nexus Kubernetes cluster node is to use a Azure jumpbox. In this approach, a stand-alone Azure VM is set up as a secure gateway to connect to the Azure Operator Nexus Kubernetes cluster nodes.
 
-To access a cluster node from Azure via a jumpbox, it's necessary to create a new cluster VM in your Azure environment to act as the jumpbox. This jumpbox must establish network connections with both, the cluster's L3 OAM and the user's workstation. Additionally, a NetworkCloud VM with L3 OAM and CNI network should be created to establish a connection with the cluster VM. It's important to note that the NetworkCloud and cluster VMs must be on the same isolation domain for connectivity. The user needs an SSH key for the K8s VM to authenticate their access.
+To access a cluster node from Azure via a jumpbox, it's necessary to create a new VM in your Azure environment to act as the jumpbox. This jumpbox must establish network connections with both, the cluster's CNI network and the user's workstation. The user needs an SSH key for the K8s VM to authenticate their access.
 
 It's important to ensure that the jumpbox is configured securely and that it's regularly updated with the latest security patches. Additionally, access to the jumpbox should be tightly controlled to prevent unauthorized access. The user must also have an SSH private key to authenticate their access to the on-premises VM.
 
