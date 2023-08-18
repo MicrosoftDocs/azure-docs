@@ -43,7 +43,9 @@ With the following steps, we illustrate how you can create Flink-Iceberg Catalog
   'property-version'='1',
   'warehouse'='abfs://container@storage_account.dfs.core.windows.net/ieberg-output’;
 ```
-> [!NOTE] In the above step, the container and storage account *need not be same* as specified during the cluster creation. In case you want to specify another storage account, you can update `core-site.xml` with `fs.azure.account.key.<account_name>.dfs.core.windows.net: <azure_storage_key>` using configuration management.
+> [!NOTE]
+> - In the above step, the container and storage account *need not be same* as specified during the cluster creation.
+> - In case you want to specify another storage account, you can update `core-site.xml` with `fs.azure.account.key.<account_name>.dfs.core.windows.net: <azure_storage_key>` using configuration management.
 
 ```sql
   USE CATALOG hive_catalog;
