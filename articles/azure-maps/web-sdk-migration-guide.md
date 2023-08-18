@@ -27,7 +27,7 @@ If you're using CDN ([content delivery network]), update the references to the s
 
 ```html
 <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" >
-<script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script\>
+<script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
 ```
 
 #### v3
