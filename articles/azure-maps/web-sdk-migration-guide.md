@@ -39,7 +39,7 @@ If you're using CDN ([content delivery network]), update the references to the s
 
 ### npm
 
-If you're using [npm], update the to the latest Azure Maps control with the following command:
+If you're using [npm], update the to the latest Azure Maps control by running the following command:
 
 ```shell
 npm install azure-maps-control@latest
