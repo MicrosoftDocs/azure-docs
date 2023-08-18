@@ -43,7 +43,7 @@ More details on eligible subscription types are as follows:
 
 
 ## Azure subscription billing locations where Switzerland phone numbers are available
-| Country |
+| Country/Region |
 | :---------- |
 |Switzerland|
 |United States*|
@@ -51,7 +51,7 @@ More details on eligible subscription types are as follows:
 \* Alphanumeric Sender ID
 
 
-## Find information about other countries
+## Find information about other countries/regions
 
 [!INCLUDE [Country Dropdown](../../includes/country-dropdown.md)]
 
