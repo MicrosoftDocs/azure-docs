@@ -40,7 +40,7 @@ More details on eligible subscription types are as follows:
 
 
 ## Azure subscription billing locations where Alphanumeric Sender ID is available
-| Country |
+| Country/Region |
 | :---------- |
 |Australia|
 |Austria|
@@ -61,7 +61,7 @@ More details on eligible subscription types are as follows:
 |United States|
 
 
-## Find information about other countries
+## Find information about other countries/regions
 
 [!INCLUDE [Country Dropdown](../../includes/country-dropdown.md)]
 
