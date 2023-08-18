@@ -235,7 +235,7 @@ For a list of supported languages and regional views, see [Localization support 
 
 Beginning with Azure Maps Web SDK 3.0, the Web SDK includes full compatibility with [WebGL 2], a powerful graphics technology that enables hardware-accelerated rendering in modern web browsers. By using WebGL 2, developers can harness the capabilities of modern GPUs to render complex maps and visualizations more efficiently, resulting in improved performance and visual quality.
 
-![Map image showing WebGL 2 Compatibility.](./media/how-to-use-map-control/webgl2-compatability.png)
+![Map image showing WebGL 2 Compatibility.](./media/how-to-use-map-control/webgl-2-compatability.png)
 
 ```html
 <!DOCTYPE html>
@@ -323,7 +323,7 @@ Beginning with Azure Maps Web SDK 3.0, the Web SDK includes full compatibility w
                 }
             }
         </script>
-    </body>
+    </body>    
 </html>
 ```
 
