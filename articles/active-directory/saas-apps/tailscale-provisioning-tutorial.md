@@ -40,7 +40,18 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Tailscale](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Tailscale to support provisioning with Azure AD
-Contact Tailscale support to configure Tailscale to support provisioning with Azure AD.
+
+You need to be an [Owner, Admin, or IT admin](https://tailscale.com/kb/1138/user-roles/) in Tailscale to complete these steps. See [Tailscale plans](https://tailscale.com/pricing/)
+to find out which plans make user & group provisioning for Azure AD available.
+
+### Generate a SCIM API key in Tailscale.
+
+In the **[User management](https://login.tailscale.com/admin/settings/user-management/)** page of the admin console,
+
+1. Click **Enable Provisioning**.
+1. Copy the generated key to the clipboard.
+
+Save the key information in a secure spot. This is the Secret Token you will need to use it when you configure provisioning in Azure AD.
 
 ## Step 3. Add Tailscale from the Azure AD application gallery
 
@@ -57,7 +68,7 @@ The Azure AD provisioning service allows you to scope who is provisioned based o
 
 ## Step 5. Configure automatic user provisioning to Tailscale 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in TestApp based on user assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in Tailscale based on user assignments in Azure AD.
 
 ### To configure automatic user provisioning for Tailscale in Azure AD:
 
