@@ -6,8 +6,8 @@ author: timkresler
 ms.author: timkresler
 ms.date: 06/01/2023
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.topic: quickstart
 ---
 
 # Quickstart Analyze and Migrate to Azure with Komprise
@@ -21,15 +21,15 @@ Komprise makes it easy to move your data to Azure storage services like Azure Fi
 Learn more about other ISV NAS in the [verified partner solutions article](https://docs.microsoft.com/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview)
 
 This article reviews where to get started, considerations and recommendations when moving data to Azure. Use the following links to connect to what is important.
-- [Know First, Move Smarter Analyze, Tier, Move What Matters](##know-kirst,-move-smarter-analyze,-tier,-move-what-matters)
-- [Assessing Network and Storage Performance](##assessing-setwork-and-storage-performance)
-- [Intelligent Data Management Architecture](##intelligent-data-management-architecture)
-- [Getting Started with Komprise](##getting-started-with-komprise) 
-- [Getting Started with Azure](##getting-started-with-azure)
-- [Migration Guide](##migration-guide)
-- [Deployment Instructions for Migrating Object Data](##deployment-instructions-for-migrating-object-data)
-- [Migration API](##migration-api)
-- [Next Steps](##next-steps)
+- [Know First, Move Smarter Analyze, Tier, Move What Matters](#know-first-move-smarter-analyze-tier-move-what-matters)
+- [Assessing Network and Storage Performance](#assessing-network-and-storage-performance)
+- [Intelligent Data Management Architecture](#intelligent-data-management-architecture)
+- [Getting Started with Komprise](#getting-started-with-komprise) 
+- [Getting Started with Azure](#getting-started-with-azure)
+- [Migration Guide](#migration-guide)
+- [Deployment Instructions for Migrating Object Data](#deployment-instructions-for-migrating-object-data)
+- [Migration API](#migration-api)
+- [Next Steps](#next-steps)
 
 ## Where to Start
 
