@@ -41,7 +41,7 @@ More details on eligible subscription types are as follows:
 
 
 ## Azure subscription billing locations where Denmark phone numbers are available
-| Country |
+| Country/region |
 | :---------- |
 |Denmark|
 |Ireland|
@@ -49,7 +49,7 @@ More details on eligible subscription types are as follows:
 |Sweden|
 |United States|
 
-## Find information about other countries
+## Find information about other countries/regions
 
 [!INCLUDE [Country Dropdown](../../includes/country-dropdown.md)]
 
