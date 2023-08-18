@@ -180,7 +180,7 @@ az containerapp update
     --yaml <your-yaml-file>
 ```
 
-The following is an example YAML file you can reference in the above CLI command.
+The following is an example YAML file you can reference in the above CLI command. The configuration for the additional TCP ports is under `additionalPortMappings`.
 
 ```yml
 location: northcentralus
