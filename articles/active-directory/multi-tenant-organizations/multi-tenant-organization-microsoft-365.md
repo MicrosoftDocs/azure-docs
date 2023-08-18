@@ -55,9 +55,9 @@ One of the simpler ways to achieve a collaborating user set in each multi-tenant
 
 :::image type="content" source="./media/multi-tenant-organization-microsoft-365/multi-tenant-user-sync.png" alt-text="Diagram that shows users synchronized across multiple tenants." lightbox="./media/multi-tenant-organization-microsoft-365/multi-tenant-user-sync.png":::
 
-Microsoft 365 admin center facilitates orchestration of such a collaborating user set across multi-tenant organization tenants, see [Synchronize users in multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/sync-users-multi-tenant-orgs?branch=mikeplum-mto).
+Microsoft 365 admin center facilitates orchestration of such a collaborating user set across multi-tenant organization tenants. For more information, see [Synchronize users in multi-tenant organizations in Microsoft 365 (Preview)](/microsoft-365/enterprise/sync-users-multi-tenant-orgs?branch=mikeplum-mto).
 
-Alternatively, pair-wise configuration of inbound and outbound cross-tenant synchronization can be used to orchestrate such collating user set across multi-tenant organization tenants, see [What is a cross-tenant synchronization](cross-tenant-synchronization-overview.md).
+Alternatively, pair-wise configuration of inbound and outbound cross-tenant synchronization can be used to orchestrate such collating user set across multi-tenant organization tenants. For more information, see [What is a cross-tenant synchronization](cross-tenant-synchronization-overview.md).
 
 ## B2B member users
 

@@ -1,6 +1,6 @@
 ---
-title: What is a multi-tenant organization in Azure Active Directory? (Preview)
-description: Learn about multi-tenant organizations in Azure Active Directory.
+title: What is a multi-tenant organization? (Preview)
+description: Learn about multi-tenant organizations in Azure Active Directory and Microsoft 365.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -15,7 +15,7 @@ ms.custom: it-pro
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
-# What is a multi-tenant organization in Azure Active Directory? (Preview)
+# What is a multi-tenant organization? (Preview)
 
 > [!IMPORTANT]
 > Multi-tenant organization is currently in PREVIEW.
@@ -104,19 +104,19 @@ To ease the setup of homogenous cross-tenant access settings applied to partner 
 
 To facilitate the management of a multi-tenant organization, any given multi-tenant organization tenant has an associated role and state.
 
-| Role | Description |
+| Tenant role | Description |
 | --- | --- |
 | Owner | One tenant creates the multi-tenant organization. The multi-tenant organization creating tenant receives the role of owner. The privilege of the owner tenant is to add tenants into a pending state as well as to remove tenants from the multi-tenant organization. Also, an owner tenant can change the role of other multi-tenant organization tenants. |
 | Member | Following the addition of pending tenants to the multi-tenant organization, pending tenants need to join the multi-tenant organization to turn their state from pending to active. Joined tenants typically start in the member role. Any member tenant has the privilege to leave the multi-tenant organization. |
 
-| State | Description |
+| Tenant state | Description |
 | --- | --- |
 | Pending | A pending tenant has yet to join a multi-tenant organization. While listed in an administrator’s view of the multi-tenant organization, a pending tenant isn't yet part of the multi-tenant organization, and as such is hidden from an end user’s view of a multi-tenant organization. |
 | Active | Following the addition of pending tenants to the multi-tenant organization, pending tenants need to join the multi-tenant organization to turn their state from pending to active. Joined tenants typically start in the member role. Any member tenant has the privilege to leave the multi-tenant organization. |
 
 ## Constraints
 
-The multi-tenant organization capability has been designed to the following constraints:
+The multi-tenant organization capability has been designed with the following constraints:
 
 - Any given tenant can only create or join a single multi-tenant organization.
 - Any multi-tenant organization must have at least one active owner tenant.
