@@ -2,6 +2,8 @@
 title: 'Tutorial: Secure app with a custom domain and certificate'
 description: Learn how to secure your brand with App Service using a custom domain and enabling App Service managed certificate.
 ms.topic: tutorial
+author: msangapu-msft
+ms.author: msangapu
 ms.date: 01/31/2023
 ---
 

@@ -200,7 +200,7 @@ The following table lists more numbers for different countries.
 | Sri Lanka            | +94 117750440   |
 | Sweden               | +46 701924176   |
 | Taiwan               | +886 277515260  |
-| Turkey               | +90 8505404893  |
+| Türkiye              | +90 8505404893  |
 | Ukraine              | +380 443332393  |
 | United Arab Emirates | +971 44015046   |
 | Vietnam              | +84 2039990161  |
