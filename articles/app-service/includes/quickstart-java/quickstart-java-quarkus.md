@@ -154,7 +154,7 @@ With all the configuration ready in your *pom.xml* file, you can deploy your Jav
 
 Once deployment is completed, your application is ready at `http://<appName>.azurewebsites.net/` (`http://quarkus-hello-azure-1690375364238.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
 
-![Screenshot of Maven Hello World web app running in Azure App Service.](../../media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
+![Screenshot of Maven Hello World web app running in Azure App Service.](../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png)
 
 **Congratulations!** You've deployed your first Java app to App Service.
 
