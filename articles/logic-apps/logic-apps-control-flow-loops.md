@@ -38,7 +38,7 @@ Here are some considerations to remember when you use a **For each** action:
 
 * The **For each** action can process a limited number of array items. For this limit, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-* By default, iterations in a **For each** action run at the same time in parallel.
+* By default, the cycles or iterations in a **For each** action run at the same time in parallel.
 
   This behavior differs from [Power Automate's **Apply to each** loop](/power-automate/apply-to-each) where iterations run one at a time, or sequentially. However, you can [set up sequential **For each** iterations](#sequential-foreach-loop). For example, if you want to pause the next iteration in a **For each** action by using the [Delay action](../connectors/connectors-native-delay.md), you need to set up each iteration to run sequentially.
 
@@ -178,37 +178,46 @@ If you're working in your workflow's code view, you can define the `Foreach` loo
 
 <a name="sequential-foreach-loop"></a>
 
-## "Foreach" loop: Sequential
+## For each: Run sequentially
 
-By default, cycles in a "Foreach" loop run in parallel. 
-To run each cycle sequentially, set the loop's **Sequential** option. 
-"Foreach" loops must run sequentially when you have nested 
-loops or variables inside loops where you expect predictable results. 
+By default, the iterations in a **For each** loop run at the same time in parallel. However, when you have nested loops or variables inside the loops where you expect predictable results, you must run the those loops one at a time or sequentially.
 
-1. In the loop's upper right corner, choose **ellipses** (**...**) > **Settings**.
+### [Consumption](#tab/standard)
 
-   ![On "Foreach" loop, choose "..." > "Settings"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
+1. In the **For each** action's upper right corner, select **ellipses** (**...**) > **Settings**.
 
-1. Under **Concurrency Control**, turn the 
-**Concurrency Control** setting to **On**. 
-Move the **Degree of Parallelism** slider to **1**, 
-and choose **Done**.
+1. Under **Concurrency Control**, change the setting from **Off** to **On**.
 
-   ![Turn on concurrency control](media/logic-apps-control-flow-loops/for-each-sequential-consumption.png)
+1. Move the **Degree of Parallelism** slider to **1**, and select **Done**.
 
-If you're working with your logic app's JSON definition, 
-you can use the `Sequential` option by adding the 
+   ![Screenshot shows Consumption workflow, action named For each, concurrency control setting turned on, and degree of parallelism slider set to 1.](media/logic-apps-control-flow-loops/for-each-sequential-consumption.png)
+
+### [Standard](#tab/standard)
+
+1. On the **For each** action's information pane, under **General**, select **Settings**.
+
+1. Under **Concurrency Control**, change the setting from **Off** to **On**.
+
+1. Move the **Degree of Parallelism** slider to **1**.
+
+   ![Screenshot shows Standard workflow, action named For each, concurrency control setting turned on, and degree of parallelism slider set to 1.](media/logic-apps-control-flow-loops/for-each-sequential-standard.png)
+
+---
+
+### For each action definition (JSON): Run sequentially
+
+If you're working with your workflow's JSON definition, you can use the `Sequential` option by adding the 
 `operationOptions` parameter, for example:
 
 ``` json
 "actions": {
-   "myForEachLoopName": {
-      "type": "Foreach",
+   "For_each": {
       "actions": {
-         "Send_an_email": { }
+         "Send_an_email_(V2)": { }
       },
       "foreach": "@triggerBody()?['links']",
       "runAfter": {},
+      "type": "Foreach",
       "operationOptions": "Sequential"
    }
 }
