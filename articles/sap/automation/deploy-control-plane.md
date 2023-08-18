@@ -149,8 +149,7 @@ You can't perform a control plane deployment from Windows.
 
 Open [Azure DevOps](https://dev.azure.com) and go to your Azure DevOps project.
 
-> [!NOTE]
-> Ensure that the `Deployment_Configuration_Path` variable in the `SDAF-General` variable group is set to the folder that contains your configuration files. For this example, you can use `samples/WORKSPACES`.
+Ensure that the `Deployment_Configuration_Path` variable in the `SDAF-General` variable group is set to the folder that contains your configuration files. For this example, you can use `samples/WORKSPACES`.
 
 The deployment uses the configuration defined in the Terraform variable files located in the `WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE` and `WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY` folders.
 
