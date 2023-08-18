@@ -99,7 +99,7 @@ The following IP addresses must be used by all the data networks in the site:
 
 The following IP addresses must be used by all the data networks in the site:
 
-- One IP address for all data networks on port 65 on the Azure Stack Edge Pro GPU device.
+- One IP address for all data networks on port 5 on the Azure Stack Edge Pro GPU device.
 - One IP address for all data networks on port 6 on the Azure Stack Edge Pro GPU device.
 
 :::zone-end
