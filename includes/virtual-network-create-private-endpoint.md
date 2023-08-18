@@ -29,7 +29,7 @@ The following procedure creates a virtual network with a subnet.
     | Name | Enter **vnet-1**. |
     | Region | Select **East US 2**. |
 
-    :::image type="content" source="./media/virtual-network-create-with-bastion/create-virtual-network-basics.png" alt-text="Screenshot of the Basics tab of Create virtual network in the Azure portal":::
+    :::image type="content" source="./media/virtual-network-create-with-bastion/create-virtual-network-basics.png" alt-text="Screenshot of the Basics tab of Create virtual network in the Azure portal." lightbox="./media/virtual-network-create-with-bastion/create-virtual-network-basics.png":::
 
 1. Select **Next** to proceed to the **Security** tab.
 
