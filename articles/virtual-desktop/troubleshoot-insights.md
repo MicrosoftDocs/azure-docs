@@ -106,6 +106,8 @@ If this article doesn't have the data point you need to resolve an issue, you ca
 - To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](troubleshoot-set-up-overview.md).
 - You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 
+---
+
 ## Known issues and limitations
 
 The following are issues and limitations we're aware of and working to fix:
@@ -117,8 +119,6 @@ The following are issues and limitations we're aware of and working to fix:
 - Available sessions count doesn't reflect scaling policies on the host pool. 	
 - Do you see contradicting or unexpected connection times? While rare, a connection's completion event can go missing and can impact some visuals and metrics.
 - Time to connect includes the time it takes users to enter their credentials; this correlates to the experience but in some cases can show false peaks.
-
----
 
 ## Next steps
 
