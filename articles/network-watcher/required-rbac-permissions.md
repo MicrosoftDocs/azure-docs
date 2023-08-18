@@ -1,13 +1,11 @@
 ---
 title: Azure RBAC permissions required to use Azure Network Watcher capabilities
 description: Learn which Azure role-based access control (Azure RBAC) permissions are required to use Azure Network Watcher capabilities.
-services: network-watcher
 author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: conceptual
-ms.date: 04/03/2023
-ms.author: halkazwini
-ms.custom: template-concept, engagement-fy23
+ms.date: 08/18/2023
 ---
 
 # Azure role-based access control permissions required to use Network Watcher capabilities
@@ -25,12 +23,13 @@ Azure role-based access control (Azure RBAC) enables you to assign only the spec
 | Microsoft.Network/networkWatchers/write                             | Create or update a network watcher                             |
 | Microsoft.Network/networkWatchers/delete                            | Delete a network watcher                                       |
 
-## NSG flow logs
+## Flow logs
 
 | Action                                                              | Description                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/configureFlowLog/action           | Configure a flow Log                                           |
 | Microsoft.Network/networkWatchers/queryFlowLogStatus/action         | Query status for a flow log                                    |
+Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action | Fetch shared access signatures (SAS) enabling [secure access to storage account](../storage/common/storage-sas-overview.md) and write to the storage account |
 
 ## Connection troubleshoot
 
@@ -98,15 +97,15 @@ Microsoft.Network/networkWatchers/packetCaptures/queryStatus/read | View the sta
 
 Network Watcher capabilities also require the following actions:
 
-| Action(s)                                                           | Description                                                    |
-| ---------                                                           | -------------                                                  |
-| Microsoft.Authorization/\*/Read                                     | Used to fetch Azure role assignments and policy definitions          |
-| Microsoft.Resources/subscriptions/resourceGroups/Read               | Used to enumerate all the resource groups in a subscription    |
-| Microsoft.Storage/storageAccounts/Read                              | Used to get the properties for the specified storage account   |
-| Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Used to fetch shared access signatures (SAS) enabling [secure access to storage account](../storage/common/storage-sas-overview.md) and write to the storage account |
-| Microsoft.Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| Used to log in to the VM, do a packet capture and upload it to storage account|
-| Microsoft.Compute/virtualMachines/extensions/Read </br> Microsoft.Compute/virtualMachines/extensions/Write| Used to check if Network Watcher extension is present, and install if necessary |
-| Microsoft.Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write| Used to access virtual machine scale sets, do packet captures and upload them to storage account|
-| Microsoft.Compute/virtualMachineScaleSets/extensions/Read, </br> Microsoft.Compute/virtualMachineScaleSets/extensions/Write| Used to check if Network Watcher extension is present, and install if necessary |
-| Microsoft.Insights/alertRules/*                                     | Used to set up metric alerts                                     |
-| Microsoft.Support/*                                                 | Used to create and update support tickets from Network Watcher |
+| Action(s)                                                           | Description       |
+| ---------                                                           | -------------        |
+| Microsoft.Authorization/\*/Read                                     | Fetch Azure role assignments and policy definitions   |
+| Microsoft.Resources/subscriptions/resourceGroups/Read               | Enumerate all the resource groups in a subscription    |
+| Microsoft.Storage/storageAccounts/Read                              | Get the properties for the specified storage account   |
+| Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action | Used to fetch shared access signatures (SAS) enabling [secure access to storage account](../storage/common/storage-sas-overview.md) and write to the storage account |
+| Microsoft.Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| Log in to the VM, do a packet capture and upload it to storage account |
+| Microsoft.Compute/virtualMachines/extensions/Read, </br> Microsoft.Compute/virtualMachines/extensions/Write | Check if Network Watcher extension is present, and install if necessary |
+| Microsoft.Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write | Access virtual machine scale sets, do packet captures and upload them to storage account |
+| Microsoft.Compute/virtualMachineScaleSets/extensions/Read, </br> Microsoft.Compute/virtualMachineScaleSets/extensions/Write| Check if Network Watcher extension is present, and install if necessary |
+| Microsoft.Insights/alertRules/*                                     | Set up metric alerts      |
+| Microsoft.Support/*                                                 | Create and update support tickets from Network Watcher |

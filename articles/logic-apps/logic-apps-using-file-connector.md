@@ -1,11 +1,11 @@
 ---
 title: Connect to on-premises file systems
-description: Connect to file systems on premises from workflows in Azure Logic Apps using the File System connector.
+description: Connect to file systems on premises from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/08/2022
+ms.date: 08/17/2023
 ---
 
 # Connect to on-premises file systems from workflows in Azure Logic Apps
@@ -18,7 +18,7 @@ This how-to guide shows how to access an on-premises file share from a workflow 
 - List files in folders or root folders.
 - Get file content and metadata.
 
-In this article, the example scenarios demonstrate the following tasks:
+In this how-to guide, the example scenarios demonstrate the following tasks:
 
 - Trigger a workflow when a file is created or added to a file share, and then send an email.
 - Trigger a workflow when copying a file from a Dropbox account to a file share, and then send an email.
@@ -71,6 +71,7 @@ The File System connector has different versions, based on [logic app type and h
 * To follow the example scenario in this how-to guide, you need an email account from a provider that's supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review other supported email connectors](/connectors/connector-reference/connector-reference-logicapps-connectors). This example uses the Office 365 Outlook connector with a work or school account. If you use another email account, the overall steps are the same, but your UI might slightly differ.
 
   > [!IMPORTANT]
+  >
   > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
   > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
   > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
@@ -88,11 +89,9 @@ The File System connector has different versions, based on [logic app type and h
 
 1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
 
-1. On the designer, under the search box, select **Standard**. In the search box, enter **file system**.
+1. In the designer, [follow these general steps to add the **File System** trigger that you want to your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
-1. From the triggers list, select the [File System trigger](/connectors/filesystem/#triggers) that you want. This example continues with the trigger named **When a file is created**.
-
-   ![Screenshot showing Azure portal, designer for Consumption logic app workflow, search box with "file system", and File System trigger selected.](media/logic-apps-using-file-connector/select-file-system-trigger-consumption.png)
+   For more information, see [File System triggers](/connectors/filesystem/#triggers). This example continues with the trigger named **When a file is created**.
 
 1. In the connection information box, provide the following information as required:
 
@@ -123,34 +122,34 @@ The File System connector has different versions, based on [logic app type and h
 
       For this example, select the folder path on your file system server to check for a newly created file. Specify the number of files to return and how often you want to check.
 
-      ![Screenshot showing Consumption workflow designer and the "When a file is created" trigger.](media/logic-apps-using-file-connector/trigger-file-system-when-file-created-consumption.png)
+      ![Screenshot showing Consumption workflow designer and the trigger named When a file is created.](media/logic-apps-using-file-connector/trigger-file-system-when-file-created-consumption.png)
 
    1. To test your workflow, add an Outlook action that sends you an email when a file is created on the file system in specified folder. Enter the email recipients, subject, and body. For testing, you can use your own email address.
 
-      ![Screenshot showing Consumption workflow designer, managed connector "When a file is created" trigger, and "Send an email" action.](media/logic-apps-using-file-connector/trigger-file-system-send-email-consumption.png)
+      ![Screenshot showing Consumption workflow designer, managed connector trigger named When a file is created, and action named Send an email.](media/logic-apps-using-file-connector/trigger-file-system-send-email-consumption.png)
 
       > [!TIP]
       >
-      > To add outputs from previous steps in the workflow, click inside the trigger's edit boxes. 
+      > To add outputs from previous steps in the workflow, select inside the trigger's edit boxes. 
       > When the dynamic content list appears, select from the available outputs.
 
-1. Save your logic app. Test your workflow by uploading a file and triggering the workflow.
+1. When you're done, save your workflow.
 
-   If successful, your workflow sends an email about the new file.
+1. To test your workflow, upload a file, which triggers the workflow.
+
+If successful, your workflow sends an email about the new file.
 
 ### [Standard](#tab/standard)
 
 #### Built-in connector trigger
 
-These steps apply only to Standard logic apps in an App Service Environment v3 with Windows plans only.
+The following steps apply only to Standard logic app workflows in an App Service Environment v3 with Windows plans only.
 
 1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
 
-1. On the designer, under the search box, select **Built-in**. In the search box, enter **file system**.
+1. In the designer, [follow these general steps to add the **File System** built-in trigger that you want to your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-1. From the triggers list, select the [File System trigger](/azure/logic-apps/connectors/built-in/reference/filesystem/#triggers) that you want. This example continues with the trigger named **When a file is added**.
-
-   ![Screenshot showing Azure portal, designer for Standard logic app workflow, search box with "file system", and "When a file is added" selected.](media/logic-apps-using-file-connector/select-file-system-trigger-built-in-standard.png)
+   For more information, see [File System triggers](/azure/logic-apps/connectors/built-in/reference/filesystem/#triggers). This example continues with the trigger named **When a file is added**.
 
 1. In the connection information box, provide the following information as required:
 
@@ -175,30 +174,31 @@ These steps apply only to Standard logic apps in an App Service Environment v3 w
 
       For this example, select the folder path on your file system server to check for a newly added file. Specify how often you want to check.
 
-      ![Screenshot showing Standard workflow designer and "When a file is added" trigger information.](media/logic-apps-using-file-connector/trigger-when-file-added-built-in-standard.png)
+      ![Screenshot showing Standard workflow designer and information for the trigger named When a file is added.](media/logic-apps-using-file-connector/trigger-when-file-added-built-in-standard.png)
 
    1. To test your workflow, add an Outlook action that sends you an email when a file is added to the file system in specified folder. Enter the email recipients, subject, and body. For testing, you can use your own email address.
 
-      ![Screenshot showing Standard workflow designer, managed connector "When a file is added" trigger, and "Send an email" action.](media/logic-apps-using-file-connector/trigger-send-email-built-in-standard.png)
+      ![Screenshot showing Standard workflow designer, managed connector trigger named When a file is added, and action named Send an email.](media/logic-apps-using-file-connector/trigger-send-email-built-in-standard.png)
 
       > [!TIP]
       >
-      > To add outputs from previous steps in the workflow, click inside the trigger's edit boxes. 
-      > When the dynamic content list appears, select from the available outputs.
+      > To add outputs from previous steps in the workflow, select inside the trigger's edit boxes. 
+      > After the dynamic content list and expression editor options appear, select the dynamic content 
+      > list (lightning icon). When the dynamic content list appears, select from the available outputs.
 
-1. Save your logic app. Test your workflow by uploading a file and triggering the workflow.
+1. When you're done, save your workflow.
 
-   If successful, your workflow sends an email about the new file.
+1. To test your workflow, upload a file, which triggers the workflow.
+
+If successful, your workflow sends an email about the new file.
 
 #### Managed connector trigger
 
 1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
 
-1. On the designer, under the search box, select **Azure**. In the search box, enter **file system**.
+1. In the designer, [follow these general steps to add the **File System** managed trigger that you want to your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-1. From the triggers list, select the [File System trigger](/connectors/filesystem/#triggers/#triggers) that you want. This example continues with the trigger named **When a file is created**.
-
-   ![Screenshot showing Azure portal, designer for Standard logic app workflow, search box with "file system", and the "When a file is created" trigger selected.](media/logic-apps-using-file-connector/select-file-system-trigger-managed-standard.png)
+   For more information, see [File System triggers](/connectors/filesystem/#triggers). This example continues with the trigger named **When a file is created**.
 
 1. In the connection information box, provide the following information as required:
 
@@ -225,20 +225,23 @@ These steps apply only to Standard logic apps in an App Service Environment v3 w
 
       For this example, select the folder path on your file system server to check for a newly created file. Specify the number of files to return and how often you want to check.
 
-      ![Screenshot showing Standard workflow designer and "When a file is created" trigger information.](media/logic-apps-using-file-connector/trigger-when-file-created-managed-standard.png)
+      ![Screenshot showing Standard workflow designer and managed connector trigger named When a file is created.](media/logic-apps-using-file-connector/trigger-when-file-created-managed-standard.png)
 
    1. To test your workflow, add an Outlook action that sends you an email when a file is created on the file system in specified folder. Enter the email recipients, subject, and body. For testing, you can use your own email address.
 
-      ![Screenshot showing Standard workflow designer, managed connector "When a file is created" trigger, and "Send an email" action.](media/logic-apps-using-file-connector/trigger-send-email-managed-standard.png)
+      ![Screenshot showing Standard workflow designer, managed connector trigger named When a file is created, and action named Send an email.](media/logic-apps-using-file-connector/trigger-send-email-managed-standard.png)
 
       > [!TIP]
       >
-      > To add outputs from previous steps in the workflow, click inside the trigger's edit boxes. 
-      > When the dynamic content list appears, select from the available outputs.
+      > To add outputs from previous steps in the workflow, select inside the trigger's edit boxes. 
+      > After the dynamic content list and expression editor options appear, select the dynamic content 
+      > list (lightning icon). When the dynamic content list appears, select from the available outputs.
 
-1. Save your logic app. Test your workflow by uploading a file and triggering the workflow.
+1. When you're done, save your workflow.
 
-   If successful, your workflow sends an email about the new file.
+1. To test your workflow, upload a file, which triggers the workflow.
+
+If successful, your workflow sends an email about the new file.
 
 ---
 
@@ -252,17 +255,9 @@ The example logic app workflow starts with the [Dropbox trigger](/connectors/dro
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. Find and select the [File System action](/connectors/filesystem/#actions) that you want to use. This example continues with the action named **Create file**.
+1. In the designer, [follow these general steps to add the **File System** action that you want to your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   1. Under the trigger or action where you want to add the File System action, select **New step**.
-
-      Or, to add an action between existing steps, move your pointer over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
-
-1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **file system**.
-
-1. From the actions list, select the File System action named **Create file**.
-
-   ![Screenshot showing Azure portal, designer for Consumption logic app workflow, search box with "file system", and "Create file" action selected.](media/logic-apps-using-file-connector/select-file-system-action-consumption.png)
+   For more information, see [File System triggers](/connectors/filesystem/#actions). This example continues with the action named **Create file**.
 
 1. In the connection information box, provide the following information as required:
 
@@ -293,20 +288,22 @@ The example logic app workflow starts with the [Dropbox trigger](/connectors/dro
 
       For this example, select the folder path on your file system server to use, which is the root folder here. Enter the file name and content, based on the file uploaded to Dropbox.
 
-      ![Screenshot showing Consumption workflow designer and the File System managed connector "Create file" action.](media/logic-apps-using-file-connector/action-file-system-create-file-consumption.png)
+      ![Screenshot showing Consumption workflow designer and the File System managed connector action named Create file.](media/logic-apps-using-file-connector/action-file-system-create-file-consumption.png)
 
       > [!TIP]
       >
-      > To add outputs from previous steps in the workflow, click inside the action's edit boxes. 
+      > To add outputs from previous steps in the workflow, select inside the action's edit boxes. 
       > When the dynamic content list appears, select from the available outputs.
 
    1. To test your workflow, add an Outlook action that sends you an email when the File System action creates a file. Enter the email recipients, subject, and body. For testing, you can use your own email address.
 
       ![Screenshot showing Consumption workflow designer, managed connector "Create file" action, and "Send an email" action.](media/logic-apps-using-file-connector/action-file-system-send-email-consumption.png)
 
-1. Save your logic app. Test your workflow by uploading a file to Dropbox.
+1. When you're done, save your workflow.
 
-   If successful, your workflow creates a file on your file system server, based on the uploaded file in DropBox, and sends an email about the created file.
+1. To test your workflow, upload a file, which triggers the workflow.
+
+If successful, your workflow creates a file on your file system server, based on the uploaded file in DropBox, and sends an email about the created file.
 
 ### [Standard](#tab/standard)
 
@@ -316,17 +313,9 @@ These steps apply only to Standard logic apps in an App Service Environment v3 w
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. Find and select the [File System action](/azure/logic-apps/connectors/built-in/reference/filesystem/#actions) that you want to use. This example continues with the action named **Create file**.
+1. In the designer, [follow these general steps to add the **File System** action that you want to your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-   1. Under the trigger or action where you want to add the action, select the plus sign (**+**), and then select **Add an action**.
-
-      Or, to add an action between existing steps, select the plus sign (**+**) on the connecting arrow, and then select **Add an action**.
-
-   1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **file system**.
-
-   1. From the actions list, select the File System action named **Create file**.
-
-      ![Screenshot showing Azure portal, designer for Standard logic app workflow, search box with "file system", and built-in connector "Create file" action selected.](media/logic-apps-using-file-connector/select-file-system-action-built-in-standard.png)
+   For more information, see [File System actions](/azure/logic-apps/connectors/built-in/reference/filesystem/#actions). This example continues with the action named **Create file**.
 
 1. In the connection information box, provide the following information as required:
 
@@ -351,33 +340,31 @@ These steps apply only to Standard logic apps in an App Service Environment v3 w
 
       1. To specify the content from the file created on Dropbox, from the **Add a parameter** list, select **File content**.
 
-      1. Click inside the **File Content** parameter box. appears, click inside the edit box. From the dynamic content list that appears, in the **When a file is created** section, select **File Content**.
+      1. After the **File content** parameter appears on the action information pane, select inside the parameter's edit box.
 
-         ![Screenshot showing Standard workflow designer and the File System built-in connector "Create file" action.](media/logic-apps-using-file-connector/action-file-system-create-file-built-in-standard.png)
+      1. After the dynamic content list and expression editor options appear, select the dynamic content list (lightning icon). From the list that appears, under the **When a file is created** trigger section, select **File Content**.
+
+      When you're done, the **File Content** trigger output appears in the **File content** parameter:
+
+      ![Screenshot showing Standard workflow designer and the File System built-in connector "Create file" action.](media/logic-apps-using-file-connector/action-file-system-create-file-built-in-standard.png)
 
    1. To test your workflow, add an Outlook action that sends you an email when the File System action creates a file. Enter the email recipients, subject, and body. For testing, you can use your own email address.
 
       ![Screenshot showing Standard workflow designer, built-in connector "Create file" action, and "Send an email" action.](media/logic-apps-using-file-connector/action-file-system-send-email-built-in-standard.png)
 
-1. Save your logic app. Test your workflow by uploading a file to Dropbox.
+1. When you're done, save your workflow.
 
-   If successful, your workflow creates a file on your file system server, based on the uploaded file in DropBox, and sends an email about the created file.
+1. To test your workflow, upload a file, which triggers the workflow.
+
+If successful, your workflow creates a file on your file system server, based on the uploaded file in DropBox, and sends an email about the created file.
 
 #### Managed connector action
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. Find and select the [File System action](/connectors/filesystem/#actions) that you want to use. This example continues with the action named **Create file**.
+1. In the designer, [follow these general steps to add the **File System** action that you want to your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-   1. Under the trigger or action where you want to add the action, select the plus sign (**+**), and then select **Add an action**.
-
-      Or, to add an action between existing steps, select the plus sign (**+**) on the connecting arrow, and then select **Add an action**.
-
-   1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter **file system**.
-
-   1. From the actions list, select the File System action named **Create file**.
-
-      ![Screenshot showing Azure portal, designer for Standard logic app workflow, search box with "file system", and managed connector "Create file" action selected.](media/logic-apps-using-file-connector/select-file-system-action-managed-standard.png)
+   For more information, see [File System actions](/connectors/filesystem/#actions). This example continues with the action named **Create file**.
 
 1. In the connection information box, provide the following information as required:
 
@@ -404,17 +391,23 @@ These steps apply only to Standard logic apps in an App Service Environment v3 w
 
       1. To specify the content from the file created on Dropbox, from the **Add a parameter** list, select **File content**.
 
-      1. Click inside the **File Content** parameter box. appears, click inside the edit box. From the dynamic content list that appears, in the **When a file is created** section, select **File Content**.
+      1. After the **File content** parameter appears on the action information pane, select inside the parameter's edit box.
 
-         ![Screenshot showing Standard workflow designer and the File System managed connector "Create file" action.](media/logic-apps-using-file-connector/action-file-system-create-file-managed-standard.png)
+      1. After the dynamic content list and expression editor options appear, select the dynamic content list (lightning icon). From the list that appears, under the **When a file is created** trigger section, select **File Content**.
+
+      When you're done, the **File Content** trigger output appears in the **File content** parameter:
+
+      ![Screenshot showing Standard workflow designer and the File System managed connector "Create file" action.](media/logic-apps-using-file-connector/action-file-system-create-file-managed-standard.png)
 
    1. To test your workflow, add an Outlook action that sends you an email when the File System action creates a file. Enter the email recipients, subject, and body. For testing, you can use your own email address.
 
       ![Screenshot showing Standard workflow designer, managed connector "Create file" action, and "Send an email" action.](media/logic-apps-using-file-connector/action-file-system-send-email-managed-standard.png)
 
-1. Save your logic app. Test your workflow by uploading a file to Dropbox.
+1. When you're done, save your workflow.
 
-   If successful, your workflow creates a file on your file system server, based on the uploaded file in DropBox, and sends an email about the created file.
+1. To test your workflow, upload a file, which triggers the workflow.
+
+If successful, your workflow creates a file on your file system server, based on the uploaded file in DropBox, and sends an email about the created file.
 
 ---
 
