@@ -1,5 +1,5 @@
 ---
-title: How to enable Microsoft Defender for Containers 
+title: How to enable Microsoft Defender for Containers components
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: how-to
 author: dcurwin
@@ -9,7 +9,7 @@ zone_pivot_groups: k8s-host
 ms.date: 06/29/2023
 ---
 
-# Enable Microsoft Defender for Containers
+# How to enable Microsoft Defender for Containers components
 
 Microsoft Defender for Containers is the cloud-native solution for securing your containers.
 
@@ -25,7 +25,14 @@ Defender for Containers protects your clusters whether they're running in:
 
 Learn about this plan in [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
-You can learn more by watching these videos from the Defender for Cloud in the Field video series:
+You can first learn how to connect and protect your containers in these articles:
+
+- [Protect your Azure containers with Defender for Containers](tutorial-enable-containers-azure.md)
+- [Protect your on-premises Kubernetes clusters with Defender for Containers](tutorial-enable-containers-arc.md)
+- [Protect your Amazon Web Service (AWS) accounts containers with Defender for Containers](tutorial-enable-container-aws.md)
+- [Protect your Google Cloud Platform (GCP) project containers with Defender for Containers](tutorial-enable-container-gcp.md)
+
+You can also learn more by watching these videos from the Defender for Cloud in the Field video series:
 
 - [Microsoft Defender for Containers in a multicloud environment](episode-nine.md)
 - [Protect Containers in GCP with Defender for Containers](episode-ten.md)
@@ -82,7 +89,7 @@ A full list of supported alerts is available in the [reference table of all Defe
     :::image type="content" source="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png" alt-text="Sample alert from Microsoft Defender for Kubernetes." lightbox="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png":::
 
 ::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-container-gke"
-[!INCLUDE [Remove the extension](./includes/defender-for-containers-remove-extension.md)]
+[!INCLUDE [Remove the agent](./includes/defender-for-containers-remove-extension.md)]
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks"
@@ -94,10 +101,10 @@ A full list of supported alerts is available in the [reference table of all Defe
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks"
-[!INCLUDE [Remove the profile](./includes/defender-for-containers-remove-profile.md)]
+[!INCLUDE [Remove the agent](./includes/defender-for-containers-remove-profile.md)]
 ::: zone-end
 
-## Learn More
+## Learn more
 
 You can check out the following blogs:
 

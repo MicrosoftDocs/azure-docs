@@ -22,7 +22,7 @@ When the desired version is set to a specific version, the bootstrapper job will
    ```
 1. To get a list of the containers in the pods, run 
 
-   ```console 
+   ```console
    kubectl get pods <pod name> --namespace <namespace> -o jsonpath='{.spec.containers[*].name}*'
    ```
 1. To get the logs for a container, run  

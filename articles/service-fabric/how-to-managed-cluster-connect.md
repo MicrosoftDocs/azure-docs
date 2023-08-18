@@ -12,6 +12,10 @@ ms.date: 07/11/2022
 
 Once you have deployed a cluster via [Portal, Azure Resource Managed template](quickstart-managed-cluster-template.md), or [PowerShell](tutorial-managed-cluster-deploy.md) there are various ways to connect to and view your managed cluster. 
 
+Connecting to a Service Fabric Explorer (SFX) endpoint on a managed cluster will result in a certificate error 'NET::ERR_CERT_AUTHORITY_INVALID' regardless of certificate being used or cluster configuration. This is because the cluster nodes are using the managed 'cluster' certificate when binding FabricGateway (19000) and FabricHttpGateway (19080) TCP ports and is by design.
+
+![Screenshot of Service Fabric Explorer certificate error.](media/how-to-managed-cluster-connect/sfx-your-connection-isnt-private.png)
+
 ## Use the Azure portal
 
 To navigate to your managed cluster resource:

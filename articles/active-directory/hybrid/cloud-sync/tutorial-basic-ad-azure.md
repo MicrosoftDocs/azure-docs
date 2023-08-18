@@ -190,6 +190,9 @@ Now that you have our Active Directory environment, you need to a test account. 
 
 
 ## Create an Azure AD tenant
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Now you need to create an Azure AD tenant so that you can synchronize our users to the cloud.  To create a new Azure AD tenant, do the following.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and sign in with an account that has an Azure subscription.

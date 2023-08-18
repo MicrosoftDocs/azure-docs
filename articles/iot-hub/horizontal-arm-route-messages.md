@@ -59,7 +59,7 @@ This section provides the steps to deploy the template, create a virtual device,
 
     [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-auto-route-messages%2Fazuredeploy.json)
 
-1. Open a command window and go to the folder where you unzipped the IoT C# SDK. Find the folder with the arm-read-write.csproj file. You create the environment variables in this command window. Log into the [Azure portal](https://portal.azure.com) to get the keys. Select **Resource Groups** then select the resource group used for this quickstart.
+1. Open a command window and go to the folder where you unzipped the IoT C# SDK. Find the folder with the arm-read-write.csproj file. You create the environment variables in this command window. Sign in to the [Azure portal](https://portal.azure.com) to get the keys. Select **Resource Groups** then select the resource group used for this quickstart.
 
    ![Select the resource group](./media/horizontal-arm-route-messages/01-select-resource-group.png)
 
@@ -119,7 +119,7 @@ This section provides the steps to deploy the template, create a virtual device,
 
 ## Review deployed resources
 
-1. Log in to the [Azure portal](https://portal.azure.com) and select the Resource Group, then select the storage account.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select the Resource Group, then select the storage account.
 
 1. Drill down into the storage account until you find files.
 
@@ -138,7 +138,7 @@ You have deployed an ARM template to create an IoT hub and a storage account, an
 
 ## Clean up resources
 
-To remove the resources added during this quickstart, log into the [Azure portal](https://portal.azure.com). Select **Resource Groups**, then find the resource group you used for this quickstart. Select the resource group and then select *Delete*. It will delete all of the resources in the group.
+To remove the resources added during this quickstart, sign in to the [Azure portal](https://portal.azure.com). Select **Resource Groups**, then find the resource group you used for this quickstart. Select the resource group and then select *Delete*. It will delete all of the resources in the group.
 
 ## Next steps
 

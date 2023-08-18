@@ -25,7 +25,7 @@ This quickstart shows you how to create an ExpressRoute circuit using the Azure 
 
 ### Sign in to the Azure portal
 
-From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
+From a browser, sign in to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 
 ### Create a new ExpressRoute circuit
 

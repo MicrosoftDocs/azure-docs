@@ -139,7 +139,6 @@ Azure Database for MySQL – Flexible Server supports the provisioning of additi
 The minimum IOPS are 360 across all compute sizes and the maximum IOPS is determined by the selected compute size. To learn more about the maximum IOPS per compute size refer to the [table](#service-tiers-size-and-server-types).
 
 > [!Important]
-> **Complimentary IOPS** are equal to MINIMUM("Max uncached disk throughput: IOPS/MBps" of compute size, 300 + storage provisioned in GiB * 3)<br>
 > **Minimum IOPS are 360 across all compute sizes<br>
 > **Maximum IOPS are determined by the selected compute size. 
 

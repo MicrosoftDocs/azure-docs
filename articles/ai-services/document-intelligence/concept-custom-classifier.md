@@ -1,5 +1,5 @@
 ---
-title: Custom classification model - Document Intelligence
+title: Custom classification model - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: Use the custom classification model to train a model to identify and split the documents you process within your application.
 author: vkurpad
@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
 ms.custom: references_regions
-monikerRange: 'doc-intel-3.0.0'
+monikerRange: 'doc-intel-3.1.0'
 ---
 
 
 # Document Intelligence custom classification model
 
-**This article applies to:** ![Document Intelligence checkmark](media/yes-icon.png) **The latest [public preview SDK](sdk-preview.md) supported by Document Intelligence REST API version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)**.
+**This article applies to:** ![Document Intelligence checkmark](media/yes-icon.png) **The latest [GA SDK](sdk-overview-v3-1.md) supported by Document Intelligence REST API version [2023-07-31](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)**.
 
 > [!IMPORTANT]
 >
-> Custom classification model is currently in public preview. Features, approaches, and processes may change, prior to General Availability (GA), based on user feedback.
+> Custom classification model is now generally available!
 >
 
-Custom classification models are deep-learning-model types that combine layout and language features to accurately detect and identify documents you process within your application. Custom classification models can classify each page in an input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
+Custom classification models are deep-learning-model types that combine layout and language features to accurately detect and identify documents you process within your application. Custom classification models perform classification of an input file one page at a time to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
 
 ## Model capabilities
 
@@ -35,7 +35,9 @@ Custom classification models can analyze a single- or multi-file documents to id
 
 * A single file containing multiple instances of the same document. For instance, a collection of scanned invoices.
 
-Training a custom classifier requires at least two distinct classes and a minimum of five samples per class.
+Training a custom classifier requires at least two distinct classes and a minimum of five samples per class. The model response contains the page ranges for each of the classes of documents identified. 
+
+The model classifies each page of the input document to one of the classes in the labeled dataset. Use the confidence score from the response to set the threshold for your application. 
 
 ### Compare custom classification and composed models
 
@@ -57,12 +59,12 @@ Custom classification models require a minimum of five samples per class to trai
 
 ## Training a model
 
-Custom classification models are only available in the [v3.0 API](v3-migration-guide.md) starting with API version ```2023-02-28-preview```. [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier.
+Custom classification models are only available in the [v3.1 API](v3-1-migration-guide.md) version ```2023-07-31```. [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier.
 
 When using the REST API, if you've organized your documents by folders, you can use the ```azureBlobSource``` property of the request to train a classification model.
 
 ```rest
-https://{endpoint}/formrecognizer/documentClassifiers:build?api-version=2023-02-28-preview
+https://{endpoint}/formrecognizer/documentClassifiers:build?api-version=2023-07-31
 
 {
   "classifierId": "demo2.1",
@@ -129,6 +131,43 @@ File list `car-maint.jsonl` contains the following files.
 {"file":"sample1/car-maint/Commercial Motor Vehicle - Lamna.pdf"}
 {"file":"sample1/car-maint/Commercial Motor Vehicle - Liberty.pdf"}
 {"file":"sample1/car-maint/Commercial Motor Vehicle - Trey.pdf"}
+```
+
+## Model response
+
+Analyze an input file with the document classification model
+
+```rest
+https://{service-endpoint}/formrecognizer/documentClassifiers/{classifier}:analyze?api-version=2023-07-31
+```
+
+The response contains the identified documents with the associated page ranges in the documents section of the response.
+
+```json
+{
+  ...
+    
+    "documents": [
+      {
+        "docType": "formA",
+        "boundingRegions": [
+          { "pageNumber": 1, "polygon": [...] },
+          { "pageNumber": 2, "polygon": [...] }
+        ],
+        "confidence": 0.97,
+        "spans": []
+      },
+      {
+        "docType": "formB",
+        "boundingRegions": [
+          { "pageNumber": 3, "polygon": [...] }
+        ],
+        "confidence": 0.97,
+        "spans": []
+      }, ...
+    ]
+  }
+
 ```
 
 ## Next steps

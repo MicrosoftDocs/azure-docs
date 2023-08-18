@@ -58,10 +58,10 @@ Follow these steps to create a new console application and install the Speech SD
         speechConfig->SetSpeechRecognitionLanguage("en-US");
     
         auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
-        auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
+        auto speechRecognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
     
         std::cout << "Speak into your microphone.\n";
-        auto result = recognizer->RecognizeOnceAsync().get();
+        auto result = speechRecognizer->RecognizeOnceAsync().get();
     
         if (result->Reason == ResultReason::RecognizedSpeech)
         {
@@ -110,7 +110,7 @@ Follow these steps to create a new console application and install the Speech SD
 [Build and run](/cpp/build/vscpp-step-2-build) your new console application to start speech recognition from a microphone.
 
 > [!IMPORTANT]
-> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+> Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 Speak into your microphone when prompted. What you speak should be output as text: 
 

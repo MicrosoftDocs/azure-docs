@@ -26,7 +26,7 @@ The following documentation provides information about the various device option
 
 ## Configure device options in Azure AD Connect
 
-1.	Run Azure AD Connect. In the **Additional tasks** page, select **Configure device options**.  Click **Next**.
+1. Run Azure AD Connect. In the **Additional tasks** page, select **Configure device options**.  Click **Next**.
     ![Configure device options](./media/how-to-connect-device-options/deviceoptions.png) 
 
     The **Overview** page displays the details.
@@ -35,10 +35,10 @@ The following documentation provides information about the various device option
     >[!NOTE]
     > The new Configure device options is available only in version 1.1.819.0 and newer.
 
-2.	After providing the credentials for Azure AD, you can chose the operation to be performed on the Device options page.
+2. After providing the credentials for Azure AD, you can chose the operation to be performed on the Device options page.
     ![Device operations](./media/how-to-connect-device-options/deviceoptionsselection.png)
 
 ## Next steps
 
-* [Configure Hybrid Azure AD join](../../devices/hybrid-azuread-join-plan.md)
+* [Configure Hybrid Azure AD join](../../devices/hybrid-join-plan.md)
 * [Configure / Disable device writeback](how-to-connect-device-writeback.md)

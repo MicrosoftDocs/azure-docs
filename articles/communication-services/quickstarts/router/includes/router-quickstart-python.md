@@ -139,7 +139,7 @@ worker = router_client.create_worker(
     router_worker = RouterWorker(
         total_capacity = 1,
         queue_assignments = {
-            queue.id: {}
+            "queue-1": {}
         },
         labels = {
             "Some-Skill": 11
@@ -157,7 +157,7 @@ We should get a [RouterWorkerOfferIssued][offer_issued_event] from our [Event Gr
 However, we could also wait a few seconds and then query the worker directly against the JobRouter API to see if an offer was issued to it.
 
 ```python
-time.sleep(3)
+time.sleep(10)
 worker = router_client.get_worker(worker_id = worker.id)
 for offer in worker.offers:
     print(f"Worker {worker.id} has an active offer for job {offer.job_id}")
@@ -193,6 +193,7 @@ print(f"Worker {worker.id} has closed job {accept.job_id}")
 ## Delete the job
 
 Once the job has been closed, we can delete the job so that we can re-create the job with the same ID if we run this sample again
+
 ```python
 router_client.delete_job(accept.job_id)
 print(f"Deleting {accept.job_id}")
@@ -205,10 +206,12 @@ To run the code, make sure you are on the directory where your `router-quickstar
 ```console
 python router-quickstart.py
 
-Worker worker-1 has an active offer for job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 is assigned job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 has completed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
-Worker worker-1 has closed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
+Azure Communication Services - Job Router Quickstart
+Worker worker-1 has an active offer for job job-1
+Worker worker-1 is assigned job job-1
+Worker worker-1 has completed job job-1
+Worker worker-1 has closed job job-1
+Deleting job job-1
 ```
 
 > [!NOTE]
@@ -216,7 +219,7 @@ Worker worker-1 has closed job 6b83c5ad-5a92-4aa8-b986-3989c791be91
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [Python SDK reference](/python/api/overview/azure/communication.jobrouter-readme) or [REST API reference](/rest/api/communication/jobrouter/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [Python SDK reference](/python/api/overview/azure/communication-jobrouter-readme?view=azure-python-preview) or [REST API reference](/rest/api/communication/jobrouter/job-router).
 
 <!-- LINKS -->
 

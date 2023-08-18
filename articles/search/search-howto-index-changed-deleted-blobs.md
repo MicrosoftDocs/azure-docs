@@ -60,7 +60,7 @@ In Cognitive Search, set a native blob soft deletion detection policy on the dat
 
 ### [**Azure portal**](#tab/portal)
 
-1. [Sign in to Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the Cognitive Search service Overview page, go to **New Data Source**, a visual editor for specifying a data source definition. 
 

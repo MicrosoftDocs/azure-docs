@@ -32,7 +32,7 @@ If you leave the property unspecified, your search service attempts to use the f
 
 ### [**Azure portal**](#tab/portal)
 
-1. [Sign in to Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Create an [Azure AI multi-service resource](../ai-services/multi-service-resource.md?pivots=azportal) in the [same region](#same-region-requirement) as your search service.
 
@@ -118,7 +118,7 @@ Enrichments are a billable feature. If you no longer need to call Azure AI servi
 
 ### [**Azure portal**](#tab/portal-remove)
 
-1. [Sign in to Azure portal](https://portal.azure.com) and open the search service **Overview** page.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the search service **Overview** page.
 
 1. Under **Skillsets**, select the skillset containing the key you want to remove.
 

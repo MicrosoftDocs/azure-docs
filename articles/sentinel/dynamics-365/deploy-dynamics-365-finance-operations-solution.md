@@ -34,7 +34,7 @@ Before you begin, verify that:
 
     :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png" alt-text="Screenshot of the Finance and Operations environment version information." lightbox="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png":::
 
-1. To collect your environment URL, select **Log on to environment** and save the URL in the browser to use [when you deploy the ARM template](#deploy-the-data-connector). For example: https://sentineldevc055b257489f70f5devaos.axcloud.dynamics.com. 
+1. To collect your environment URL, select **Log on to environment** and save the URL in the browser to use [when you deploy the ARM template](#deploy-the-data-connector). For example: ``` https://sentineldevc055b257489f70f5devaos.axcloud.dynamics.com ```. 
 
     > [!NOTE]
     > The URL may look different, depending on the environment you use, for example, you could be using a sandbox, or a cloud hosted environment. Remove any trailing slashes: `/`. 

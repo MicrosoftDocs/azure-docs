@@ -14,7 +14,7 @@ manager: amycolannino
 ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, has-azure-ad-ps-ref
 ---
 
 # Certificate user IDs 
@@ -35,8 +35,7 @@ The values stored in **certificateUserIds** should be in the format described in
 
 ## Roles to update certificateUserIds
 
-For cloud-only users, only users with roles **Global Administrators**, **Privileged Authentication Administrator** can write into certificateUserIds.
-For synched users, AD users with role **Hybrid Identity Administrator** can write into the attribute.
+For cloud-only users, only users with roles **Global Administrators**, **Privileged Authentication Administrator** can write into certificateUserIds. Cloud-only users can use both UX and MSGraph to write into certificateUserIds. For synched users, AD users with role **Hybrid Identity Administrator** can write into the attribute. Only Azure ADConnect can be used to update CertificateUserIds by syncing the value from on-prem for synched users. 
 
 >[!NOTE]
 >Active Directory Administrators (including accounts with delegated administrative privilege over synched user accounts as well as administrative rights over the Azure >AD Connect Servers) can make changes that impact the certificateUserIds value in Azure AD for any synched accounts.
@@ -209,7 +208,7 @@ To synchronize X509:\<RFC822>RFC822Name, create an outbound synchronization rule
 > [!NOTE]
 > Make sure you use the latest version of [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). 
 
-For more information about declarative provisioning expressions, see [Azure AD Connect: Declarative Provisioning Expressions](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
+For more information about declarative provisioning expressions, see [Azure AD Connect: Declarative Provisioning Expressions](../hybrid/connect/concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
 
 ## Synchronize alternativeSecurityId attribute from AD to Azure AD CBA CertificateUserIds
 

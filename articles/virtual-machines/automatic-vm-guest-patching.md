@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 10/20/2021
 ms.author: maulikshah
 ms.reviewer: mimckitt
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ---
 # Automatic VM guest patching for Azure VMs
 

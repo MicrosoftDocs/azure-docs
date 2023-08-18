@@ -582,8 +582,7 @@ The **Security admin** can use PIM to create an eligible assignment for the Back
 
 To create an eligible assignment, follow the steps:
 
-
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to security tenant of Resource Guard, and in the search, enter **Privileged Identity Management**.
 1. In the left pane, select **Manage and go to Azure Resources**.
 1. Select the resource (the Resource Guard or the containing subscription/RG) to which you want to assign the Contributor role.

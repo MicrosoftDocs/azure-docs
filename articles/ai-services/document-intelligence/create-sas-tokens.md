@@ -65,7 +65,7 @@ To get started, you need:
 
 ## Upload your documents
 
-1. Go to the [Azure portal](https://portal.azure.com/#home).
+1. Sign in to the [Azure portal](https://portal.azure.com).
     * Select **Your storage account** → **Data storage** → **Containers**.
 
    :::image type="content" source="media/sas-tokens/data-storage-menu.png" alt-text="Screenshot that shows the Data storage menu in the Azure portal.":::
@@ -81,15 +81,15 @@ To get started, you need:
     :::image type="content" source="media/sas-tokens/upload-blob-window.png" alt-text="Screenshot that shows the Upload blob window in the Azure portal.":::
 
    > [!NOTE]
-   > By default, the REST API uses form documents located at the root of your container. You can also use data organized in subfolders if specified in the API call. For more information, see [Organize your data in subfolders](how-to-guides/build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true#organize-your-data-in-subfolders-optional).
+   > By default, the REST API uses documents located at the root of your container. You can also use data organized in subfolders if specified in the API call. For more information, see [Organize your data in subfolders](how-to-guides/build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true#organize-your-data-in-subfolders-optional).
 
 ## Use the Azure portal
 
 The Azure portal is a web-based console that enables you to manage your Azure subscription and resources using a graphical user interface (GUI).
 
-1. Go to the [Azure portal](https://portal.azure.com/#home) and navigate as follows:
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-    * **Your storage account** → **containers** → **your container**.
+1. Navigate to **Your storage account** > **containers** > **your container**.
 
 1. Select **Generate SAS** from the menu near the top of the page.
 
@@ -166,7 +166,7 @@ The SAS URL includes a special set of [query parameters](/rest/api/storageservic
 
 ### REST API
 
-To use your SAS URL with the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/BuildDocumentModel), add the SAS URL to the request body:
+To use your SAS URL with the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/BuildDocumentModel), add the SAS URL to the request body:
 
   ```json
   {
