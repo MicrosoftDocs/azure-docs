@@ -547,10 +547,6 @@
           href: migrate-version-3-version-4.md
         - name: Migrate v1.x to v4.x
           href: migrate-version-1-version-4.md
-        - name: Migrate extension versions
-          items:
-          - name: Migrate Azure Cosmos DB extension 3.x to 4.x
-            href: migrate-cosmos-db-version-3-version-4.md
     - name: Monitor
       items:
         - name: Monitor function apps with Azure Monitor
@@ -759,6 +755,9 @@
                   displayName: Azure Cosmos DB
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
+                  displayName: Azure Cosmos DB
+                - name: Migrate Azure Cosmos DB extension 3.x to 4.x
+                  href: migrate-cosmos-db-version-3-version-4.md
                   displayName: Azure Cosmos DB
         - name: Azure Data Explorer
           items:
