@@ -460,7 +460,7 @@
         - name: Connect to services
           items:
             - name: How to connect to services
-              displayName: bindings,integrate
+              displayName: bindings,integrate,add bindings
               href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md

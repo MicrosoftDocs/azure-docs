@@ -10,8 +10,6 @@ ms.author: glenga
 
 + [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0), and optionally [.NET 7.0 SDK](https://dotnet.microsoft.com/download/dotnet/7.0) when targeting .NET 7.0.
 
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools) version 4.x.
-
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
 + [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.  

@@ -2,7 +2,7 @@
 title: Connect functions to other Azure services 
 description: Learn how to add bindings that connect to other Azure services to an existing function in your Azure Functions project.
 ms.topic: how-to
-ms.date: 04/29/2020
+ms.date: 08/18/2023
 ms.custom: vscode-azure-extension-update-not-needed
 zone_pivot_groups: programming-languages-set-functions-lang-workers    
 #Customer intent: As a developer, I need to know how to add a binding to an existing function so that I can integrate external services to my function.
@@ -14,7 +14,7 @@ When you create a function, language-specific trigger code is added in your proj
 
 ## Local development       
 
-When you develop functions locally, you need to update the function code to add bindings. For languages that use function.json, [using Visual Studio Code](#visual-studio-code) can make it easier to add bindings to a function.  
+When you develop functions locally, you need to update the function code to add bindings. For languages that use function.json, [Visual Studio Code](#visual-studio-code) provides tooling to add bindings to a function.  
 
 ### Manually add bindings based on examples
 
@@ -37,6 +37,8 @@ You need to update the function code and add a definition to the function.json c
 
 ---
 ::: zone-end
+[!INCLUDE [functions-add-output-binding-example-all-langs](../../includes/functions-add-output-binding-example-all-langs.md)]
+
 Use the following table to find examples of specific binding types that you can use to guide you in updating an existing function. First, choose the language tab that corresponds to your project. 
 
 [!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]

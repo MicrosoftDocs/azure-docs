@@ -78,6 +78,8 @@ Creates a new function in the current project based on a template.
 func new
 ``` 
 
+When you run `func new` without the `--template` option, you're prompted to choose a template. In version 1.x, you're also required to choose the language. 
+
 The `func new` action supports the following options:
 
 | Option     | Description                            |
