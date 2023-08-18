@@ -102,7 +102,7 @@ Every Resource Manager resource, including an Azure storage account, must belong
 
 ### Storage account type parameters
 
-When you create a storage account using PowerShell, the Azure CLI, Bicep, or Azure Templates, the storage account type is specified by the `kind` parameter (for example, `StorageV2`). The performance tier and redundancy configuration are specified together by the `sku` or `SkuName` parameter (for example, `Standard_GRS`). The following table shows which values to use for the `sku` or `SkuName` and `kind` parameters to create a particular type of storage account with the desired redundancy configuration.
+When you create a storage account using PowerShell, the Azure CLI, Bicep, or Azure Templates, the storage account type is specified by the `kind` parameter (for example, `StorageV2`). The performance tier and redundancy configuration are specified together by the `sku` or `SkuName` parameter (for example, `Standard_GRS`). The following table shows which values to use for the `kind` parameter and the `sku` or `SkuName` parameter to create a particular type of storage account with the desired redundancy configuration.
 
 | Type of storage account | Supported redundancy configurations | Supported values for the kind parameter | Supported values for the sku or SkuName parameter | Supports hierarchical namespace |
 |--|--|--|--|--|
