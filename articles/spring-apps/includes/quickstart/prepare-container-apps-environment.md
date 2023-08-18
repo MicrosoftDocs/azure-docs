@@ -38,7 +38,7 @@ For clarity of structure, a separate markdown file is used to describe how to cr
 
 1. Select the **Workload profiles (Preview)** tab, and then select **Add workload profile** to add a workload profile.
 
-1. On the **Add workload profile(Preview)** page, add the following information:
+1. On the **Add workload profile (Preview)** page, add the following information:
 
    - **Workload profile name**: *my-wlp*
    - **Workload profile size**: Select **Dedicated-D4**
