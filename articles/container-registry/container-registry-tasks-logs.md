@@ -67,7 +67,7 @@ To view run logs in the portal:
 
 ![View task run login portal](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
-To view a log using the Azure CLI, run [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) and specify a run ID, a task name, or a specific image create by a build task. If a task name is specified, the command shows the log for the last created run.
+To view a log using the Azure CLI, run [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) and specify a run ID, a task name, specific image created by a build task. If a task name is specified, the command shows the log for the last created run.
 
 The following example outputs the log for the run with ID *cf4*:
 

@@ -4,7 +4,6 @@ description: Learn best practice guidelines and how to them when using metrics a
 recommendations: false
 author: normesta
 ms.service: storage
-ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 07/30/2021

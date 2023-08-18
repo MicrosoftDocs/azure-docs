@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 08/10/2023
 ---
 
 # Pricing example: Transform data in blob store with mapping data flows

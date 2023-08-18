@@ -2,14 +2,14 @@
 title: Authenticate from an application - Azure Relay 
 description: This article provides information about authenticating an application with Azure Active Directory to access Azure Relay resources. 
 ms.topic: article
-ms.date: 07/22/2022
+ms.date: 08/10/2023
 ---
 
 # Authenticate and authorize an application with Azure Active Directory to access Azure Relay entities 
 Azure Relay supports using Azure Active Directory (Azure AD) to authorize requests to Azure Relay entities (Hybrid Connections, WCF Relays). With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, group, or application service principal. To learn more about roles and role assignments, see [Understanding the different roles](../role-based-access-control/overview.md).   
 
 > [!NOTE]
-> This feature is generally available in all regions except Microsoft Azure operated by 21Vianet (Azure China).
+> This feature is generally available in all regions except Microsoft Azure operated by 21Vianet.
 
 
 [!INCLUDE [relay-roles](./includes/relay-roles.md)]
@@ -30,7 +30,7 @@ For step-by-step instructions to register your application with Azure AD, see [Q
 > Make note of the **Directory (tenant) ID** and the **Application (client) ID**. You will need these values to run the sample application.
 
 ### Create a client secret   
-The application needs a client secret to prove its identity when requesting a token. In the same article linked above, see the [Add a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret) section to create a client secret. 
+The application needs a client secret to prove its identity when requesting a token. In the same article linked earlier, see the [Add a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret) section to create a client secret. 
 
 > [!IMPORTANT]
 > Make note of the **Client Secret**. You will need it to run the sample application.
@@ -44,14 +44,14 @@ Assign one of the Azure Relay roles to the application's service principal at th
 1. Run the application locally on your computer per the instructions from the [README article](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections/dotnet/rolebasedaccesscontrol#rolebasedaccesscontrol-hybrid-connection-sample).
 
     > [!NOTE]
-    > Follow the same steps above to run the [sample console application for WCF Relay](https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay/RoleBasedAccessControl). 
+    > Follow the same steps to run the [sample console application for WCF Relay](https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay/RoleBasedAccessControl). 
 
 #### Highlighted code from the sample
 Here's the code from the sample that shows how to use Azure AD authentication to connect to the Azure Relay service.  
 
 1. Create a [TokenProvider](/dotnet/api/microsoft.azure.relay.tokenprovider) object by using the `TokenProvider.CreateAzureActiveDirectoryTokenProvider` method. 
 
-    If you haven't already created an app registration, see the [Register your application with Azure AD](#register-your-application-with-an-azure-ad-tenant) section to create it and then create a client secret as mentioned in the [Create a client secret](#create-a-client-secret) section.
+    If you haven't already created an app registration, see the [Register your application with Azure AD](#register-your-application-with-an-azure-ad-tenant) section to create it, and then create a client secret as mentioned in the [Create a client secret](#create-a-client-secret) section.
 
     If you want to use an existing app registration, follow these instructions to get **Application (client) ID** and **Directory (tenant) ID**. 
 
@@ -59,7 +59,7 @@ Here's the code from the sample that shows how to use Azure AD authentication to
     1. Search for and select **Azure Active Directory** using the search bar at the top.
     1. On the **Azure Active Directory** page, select **App registrations** in the **Manage** section on the left menu. 
     1. Select your app registration. 
-    1. On the page for your app registration, you will see the values for **Application (client) ID** and **Directory (tenant) ID**. 
+    1. On the page for your app registration, you see the values for **Application (client) ID** and **Directory (tenant) ID**. 
     
     To get the **client secret**, follow these steps:
     1. On the page your app registration, select **Certificates & secrets** on the left menu. 

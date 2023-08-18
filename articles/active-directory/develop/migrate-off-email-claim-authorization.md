@@ -43,7 +43,7 @@ This risk of unauthorized access has only been found in multi-tenant apps, as a 
 
 To secure applications from mistakes with unverified email addresses, all new multi-tenant applications are automatically opted-in to a new default behavior that removes email addresses with unverified domain owners from tokens as of June 2023. This behavior is not enabled for single-tenant applications and multi-tenant applications with previous sign-in activity with domain-owner unverified email addresses. 
 
-Depending on your scenario, you may determine that your application's tokens should continue receiving unverified emails. While not recommended for most applications, you may disable the default behavior by setting the `removeUnverifiedEmailClaim` property in the [Authentication Behaviors Microsoft Graph API](/graph/api/resources/authenticationbehaviors).
+Depending on your scenario, you may determine that your application's tokens should continue receiving unverified emails. While not recommended for most applications, you may disable the default behavior by setting the `removeUnverifiedEmailClaim` property in the [authenticationBehaviors object of the applications API in Microsoft Graph](/graph/applications-authenticationbehaviors).
 
 By setting `removeUnverifiedEmailClaim` to `false`, your application will receive `email` claims that are potentially unverified and subject users to account takeover risk. If you're disabling this behavior in order to not break user login flows, it's highly recommended to migrate to a uniquely identifying token claim mapping as soon as possible, as described in the guidance below. 
 

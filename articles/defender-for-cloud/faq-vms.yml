@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: 'Microsoft Defender for Cloud FAQ - Questions about virtual machines'
+  title: Common questions -  Virtual Machines (VM)
   description: Frequently asked questions about virtual machines in Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats
   services: defender-for-cloud
   ms.author: dacurwin
@@ -8,8 +8,8 @@ metadata:
   manager: raynew
   ms.topic: faq
   ms.custom: ignite-2022
-  ms.date: 01/08/2023
-title: FAQ - Questions about virtual machines
+  ms.date: 06/20/2023
+title: Common questions about virtual machines
 summary: |
 
 sections:

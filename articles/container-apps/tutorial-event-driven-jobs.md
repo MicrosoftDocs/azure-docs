@@ -4,7 +4,7 @@ description: Learn to create a job that processes queue messages with Azure Cont
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: build-2023
+ms.custom: build-2023, devx-track-azurecli
 ms.topic: conceptual
 ms.date: 05/05/2023
 ms.author: cshoe
@@ -116,7 +116,7 @@ To deploy the job, you must first build a container image for the job and push i
         --resource-group "$RESOURCE_GROUP" \
         --environment "$ENVIRONMENT" \
         --trigger-type "Event" \
-        --replica-timeout "60" \
+        --replica-timeout "1800" \
         --replica-retry-limit "1" \
         --replica-completion-count "1" \
         --parallelism "1" \

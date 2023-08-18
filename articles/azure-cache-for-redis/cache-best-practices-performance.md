@@ -5,7 +5,7 @@ description: Learn how to test the performance of Azure Cache for Redis.
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 04/06/2022
+ms.date: 06/19/2023
 ms.author: franlanglois
 ---
 
@@ -90,7 +90,7 @@ redis-benchmark -h yourcache.region.redisenterprise.cache.azure.net -p 10000 -a 
 
 The following tables show the maximum throughput values that were observed while testing various sizes of Standard, Premium, Enterprise, and Enterprise Flash caches. We used `redis-benchmark` from an IaaS Azure VM against the Azure Cache for Redis endpoint. The throughput numbers are only for GET commands. Typically, SET commands have a lower throughput. These numbers are optimized for throughput. Real-world throughput under acceptable latency conditions may be lower.
 
-The following configuration was used to benchmark throughput:
+The following configuration was used to benchmark throughput for the Basic, Standard, and Premium tiers:
 
 ```dos
 redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n 1000000 -d 1024 -P 50  -c 50
@@ -130,29 +130,37 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n
 
 The Enterprise and Enterprise Flash tiers offer a choice of cluster policy: _Enterprise_ and _OSS_. Enterprise cluster policy is a simpler configuration that doesn't require the client to support clustering. OSS cluster policy, on the other hand, uses the [Redis cluster protocol](https://redis.io/docs/management/scaling) to support higher throughputs. We recommend using OSS cluster policy in most cases. For more information, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise). Benchmarks for both cluster policies are shown in the following tables.
 
+The following configuration was used to benchmark throughput for the Enterprise and Enterprise flash tiers:
+
+```dos
+redis-benchmark -h yourcache.region.redisenterprise.cache.azure.net -p 10000 -a yourAccesskey -t GET -n 10000000 -d 1024 -P 50 -c 50 --threads 32
+```
+> [!NOTE]
+> This configuration is nearly identical to the one used to benchmark the Basic, Standard, and Premium tiers. The previous configuration, however, did not fully utilize the greater compute performance of the Enterprise tiers. Additional requests and threads were added to this configuration in order to demonstrate full performance.
+
 #### Enterprise Cluster Policy
 
 | Instance | Size | vCPUs | Expected network bandwidth (Mbps)| GET requests per second without SSL (1-kB value size) | GET requests per second with SSL (1-kB value size) |
 |:---:| --- | ---:|---:| ---:| ---:|
-| E10 |  12 GB |  4 | 4,000 | 300,000 | 200,000 |
-| E20 |  25 GB |  4 | 4,000 | 550,000 | 390,000 |
-| E50 |  50 GB |  8 | 8,000 | 950,000 | 530,000 |
-| E100 |  100 GB |  16 | 10,000 | 1,300,000 | 580,000 |
-| F300 | 384 GB | 8 | 3,200 | 650,000 | 310,000 |
-| F700 | 715 GB | 16 | 6,400 | 650,000 | 350,000 |
-| F1500 | 1455 GB | 32 | 12,800 | 650,000 | 360,000 |
+| E10 |  12 GB |  4 | 4,000 | 300,000 | 207,000 |
+| E20 |  25 GB |  4 | 4,000 | 680,000 | 480,000 |
+| E50 |  50 GB |  8 | 8,000 | 1,200,000 | 900,000 |
+| E100 |  100 GB |  16 | 10,000 | 1,700,000 | 1,650,000 |
+| F300 | 384 GB | 8 | 3,200 | 500,000 | 390,000 |
+| F700 | 715 GB | 16 | 6,400 | 500,000 | 370,000 |
+| F1500 | 1455 GB | 32 | 12,800 | 530,000 | 390,000 |
 
 #### OSS Cluster Policy
 
 | Instance | Size | vCPUs | Expected network bandwidth (Mbps)| GET requests per second without SSL (1-kB value size) | GET requests per second with SSL (1-kB value size) |
 |:---:| --- | ---:|---:| ---:| ---:|
-| E10 |  12 GB |  4 | 4,000 | 1,300,000 | 800,000 |
-| E20 |  25 GB |  4 | 4,000 | 1,000,000 | 710,000 |
-| E50 |  50 GB |  8 | 8,000 | 2,000,000 | 950,000 |
-| E100 |  100 GB |  16 | 10,000 | 2,000,000 | 960,000 |
-| F300 | 384 GB | 8 | 3,200 | 1,300,000 | 610,000 |
-| F700 | 715 GB | 16 | 6,400 | 1,300,000 | 680,000 |
-| F1500 | 1455 GB | 32 | 12,800 | 1,300,000 | 620,000 |
+| E10 |  12 GB |  4 | 4,000 | 1,400,000 | 1,000,000 |
+| E20 |  25 GB |  4 | 4,000 | 1,200,000 | 900,000 |
+| E50 |  50 GB |  8 | 8,000 | 2,300,000 | 1,700,000 |
+| E100 |  100 GB |  16 | 10,000 | 3,000,000 | 2,500,000 |
+| F300 | 384 GB | 8 | 3,200 | 1,500,000 | 1,200,000 |
+| F700 | 715 GB | 16 | 6,400 | 1,600,000 | 1,200,000 |
+| F1500 | 1455 GB | 32 | 12,800 | 1,600,000 | 1,110,000 |
 
 ### Enterprise & Enterprise Flash Tiers - Scaled Out
 
@@ -164,31 +172,31 @@ The following tables show the GET requests per second at different capacities, u
 
 | Instance | Capacity 2 | Capacity 4 | Capacity 6 |
 |:---:| ---:| ---:| ---:|
-| E10 | 200,000 | 530,000 | 570,000 |
-| E20 | 390,000 | 520,000 | 580,000 |
-| E50 | 530,000 | 580,000 | 580,000 |
-| E100 | 580,000 | 580,000 | 580,000 |
+| E10 | 200,000 | 830,000 | 930,000 |
+| E20 | 480,000 | 710,000 | 950,000 |
+| E50 | 900,000 | 1,110,000 | 1,200,000 |
+| E100 | 1,600,000 | 1,120,000 | 1,200,000 |
 
 | Instance | Capacity 3 | Capacity 9 |
 |:---:| ---:| ---:|
-| F300 | 310,000 | 530,000 |
-| F700 | 350,000 | 550,000 |
-| F1500 | 360,000 | 550,000 |
+| F300 | 390,000 | 640,000 |
+| F700 | 370,000 | 610,000 |
+| F1500 | 390,000 | 670,000 |
 
 #### Scaling out - OSS cluster policy
 
 | Instance | Capacity 2 | Capacity 4 | Capacity 6 |
 |:---:| ---:| ---:| ---:|
-| E10 | 800,000 | 720,000 | 1,280,000 |
-| E20 | 710,000 | 950,000 | 1,250,000 |
-| E50 | 950,000 | 1,260,000 | 1,300,000 |
-| E100 | 960,000 | 1,840,000 | 1,930,000|
+| E10 | 1,000,000 | 1,900,000 | 2,500,000 |
+| E20 | 900,000 | 1,700,000 | 2,300,000 |
+| E50 | 1,700,000 | 3,000,000 | 3,900,000 |
+| E100 | 2,500,000 | 4,400,000 | 4,900,000|
 
 | Instance | Capacity 3 | Capacity 9 |
-|:---:||:---:| ---:| ---:|
- F300 | 610,000 | 970,000 |
-| F700 | 680,000 | 1,280,000 |
-| F1500 | 620,000 | 1,850,000 |
+|:---:|:---:| ---:| ---:|
+| F300 | 1,200,000 | 2,600,000 |
+| F700 | 1,200,000 | 2,600,000 |
+| F1500 | 1,100,000 | 2,800,000 |
 
 ## Next steps
 

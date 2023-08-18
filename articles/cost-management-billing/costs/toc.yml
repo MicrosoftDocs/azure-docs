@@ -147,6 +147,8 @@
       href: ../reservations/how-to-view-csp-reservations.md
     - name: Exchange and refund reservations
       href: ../reservations/exchange-and-refund-azure-reservations.md
+    - name: View reservation and savings plan amortized costs
+      href: ../reservations/view-amortized-costs.md
     - name: Charge back reservations costs
       href: ../reservations/exchange-and-refund-azure-reservations.md
     - name: Renew a reservation

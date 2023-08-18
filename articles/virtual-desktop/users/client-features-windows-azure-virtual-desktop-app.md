@@ -131,11 +131,11 @@ There are several keyboard shortcuts you can use to help use some of the feature
 | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>HOME</kbd> | Activates the connection bar when in full-screen mode and the connection bar isn't pinned. |
 | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>PAUSE</kbd> | Switches the client between full-screen mode and window mode. |
 
-Most common Windows keyboard shortcuts, such as <kbd>CTRL</kbd>+<kbd>C</kbd> for copy and <kbd>CTRL</kbd>+<kbd>Z</kbd> for undo, are the same when using Azure Virtual Desktop. There are some keyboard shortcuts that are different so Windows knows when to use them in Azure Virtual Desktop or on your local device. These are:
+Most common Windows keyboard shortcuts, such as <kbd>CTRL</kbd>+<kbd>C</kbd> for copy and <kbd>CTRL</kbd>+<kbd>Z</kbd> for undo, are the same when using Azure Virtual Desktop. When you're using a remote desktop or app in windowed mode, there are some keyboard shortcuts that are different so Windows knows when to use them in Azure Virtual Desktop or on your local device. These are:
 
 | Windows shortcut | Azure Virtual Desktop shortcut | Description |
 |--|--|--|
-| <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>DELETE</kbd> | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>END</kbd> | Shows the Windows Security dialog box. |
+| <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>DELETE</kbd> | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>END</kbd> | Shows the Windows Security dialog box. Also applicable in fullscreen mode. |
 | <kbd>ALT</kbd>+<kbd>TAB</kbd> | <kbd>ALT</kbd>+<kbd>PAGE UP</kbd> | Switches between programs from left to right. |
 | <kbd>ALT</kbd>+<kbd>SHIFT</kbd>+<kbd>TAB</kbd> | <kbd>ALT</kbd>+<kbd>PAGE DOWN</kbd> | Switches between programs from right to left. |
 | <kbd>WINDOWS</kbd> key, or <br /><kbd>CTRL</kbd>+<kbd>ESC</kbd> | <kbd>ALT</kbd>+<kbd>HOME</kbd> | Shows the Start menu. |
@@ -208,9 +208,9 @@ You can view your remote desktops and apps as either a tile view (default) or li
 
 1. If you want to switch to Tile view, select **List**, then select **Tile view**.
 
-## Enable Windows Insider releases
+## Enable Insider releases
 
-If you want to help us test new builds before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available.
+If you want to help us test new builds of the Azure Virtual Desktop app before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available.
 
 > [!NOTE]
 > Insider releases shouldn't be used in production.
@@ -227,7 +227,7 @@ Insider releases are made available in the Azure Virtual Desktop Store app once 
 
 1. Open the **Azure Virtual Desktop** app. The title in the top left-hand corner should be **Azure Virtual Desktop (Insider)**:
 
-   :::image type="content" source="../media/client-features-windows-azure-virtual-desktop-app/azure-virtual-desktop-app-windows-insider.png" alt-text="A screenshot of the Azure Virtual Desktop Store app with Insider features enabled. The title is highlighted in a red box.":::
+   :::image type="content" source="../media/client-features-windows-azure-virtual-desktop-app/azure-virtual-desktop-app-insider.png" alt-text="A screenshot of the Azure Virtual Desktop Store app with Insider features enabled. The title is highlighted in a red box.":::
 
 If you already have configured the Azure Virtual Desktop Store app to use Insider releases, you can check for updates to ensure you have the latest Insider release by checking for updates in the normal way. For more information, see [Update the Azure Virtual Desktop app](#update-the-azure-virtual-desktop-app).
 
@@ -243,7 +243,7 @@ To deploy the Azure Virtual Desktop Store app in an enterprise, you can use Micr
 
 ### URI to subscribe to a workspace
 
-The Azure Virtual Desktop Store app supports Uniform Resource Identifier (URI) schemes to invoke the Remote Desktop client with specific commands, parameters, and values for use with Azure Virtual Desktop. For example, you can subscribe to a workspace or connect to a particular desktop or Remote App.
+The Azure Virtual Desktop Store app supports Uniform Resource Identifier (URI) schemes to invoke the Remote Desktop client with specific commands, parameters, and values for use with Azure Virtual Desktop. For example, you can subscribe to a workspace or connect to a particular desktop or RemoteApp.
 
 For more information, see [Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop](../uri-scheme.md).
 

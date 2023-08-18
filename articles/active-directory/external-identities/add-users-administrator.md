@@ -22,11 +22,11 @@ As a user who is assigned any of the limited administrator directory roles, you 
 After you add a guest user to the directory, you can either send the guest user a direct link to a shared app, or the guest user can select the redemption URL in the invitation email. For more information about the redemption process, see [B2B collaboration invitation redemption](redemption-experience.md).
 
 > [!IMPORTANT]
-> You should follow the steps in [How-to: Add your organization's privacy info in Azure Active Directory](../fundamentals/active-directory-properties-area.md) to add the URL of your organization's privacy statement. As part of the first time invitation redemption process, an invited user must consent to your privacy terms to continue. 
+> You should follow the steps in [How-to: Add your organization's privacy info in Azure Active Directory](../fundamentals/properties-area.md) to add the URL of your organization's privacy statement. As part of the first time invitation redemption process, an invited user must consent to your privacy terms to continue. 
 
 The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Instructions for the legacy create user process can be found in the [Add or delete users](../fundamentals/add-users-azure-active-directory.md) article.
+Instructions for the legacy create user process can be found in the [Add or delete users](../fundamentals/add-users.md) article.
 
 ## Before you begin
 
@@ -34,9 +34,11 @@ Make sure your organization's external collaboration settings are configured suc
 
 ## Add guest users to the directory
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To add B2B collaboration users to the directory, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the **User Administrator** role. A role with Guest Inviter privileges can also invite external users.
+1. Sign in to the [Azure portal](https://portal.azure.com) in the **User Administrator** role. A role with Guest Inviter privileges can also invite external users.
 
 1. Navigate to **Azure Active Directory** > **Users**.
 
@@ -96,7 +98,7 @@ You can assign external users to a group, or Azure AD role when the account is c
 
 The final tab captures several key details from the user creation process. Review the details and select the **Invite** button if everything looks good. An email invitation is automatically sent to the user. After you send the invitation, the user account is automatically added to the directory as a guest.
 
- ![Screenshot showing the user list including the new Guest user.](media/add-users-administrator//guest-user-type.png)
+ ![Screenshot showing the user list including the new Guest user.](media/add-users-administrator/guest-user-type.png)
 
 ### External user invitations
 <a name="resend-invitations-to-guest-users"></a>

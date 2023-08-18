@@ -10,7 +10,7 @@ ms.service: azure-maps
 
 # Add a symbol layer to a map
 
-Connect a symbol to a data source, and use it to render an icon or a text at a given point. 
+Connect a symbol to a data source, and use it to render an icon or a text at a given point.
 
 Symbol layers are rendered using WebGL. Use a symbol layer to render large collections of points on the map. Compared to HTML marker, the symbol layer renders a large number of point data on the map, with better performance. However, the symbol layer doesn't support traditional CSS and HTML elements for styling.  
 
@@ -29,7 +29,7 @@ The maps image sprite manager loads custom images used by the symbol layer. It s
 
 Before you can add a symbol layer to the map, you need to take a couple of steps. First, create a data source, and add it to the map. Create a symbol layer. Then, pass in the data source to the symbol layer, to retrieve the data from the data source. Finally, add data into the data source, so that there's something to be rendered.
 
-The code below demonstrates what should be added to the map after it has loaded. This sample renders a single point on the map using a symbol layer.
+The following code demonstrates what should be added to the map after it has loaded. This sample renders a single point on the map using a symbol layer.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -96,8 +96,7 @@ function InitMap()
 :::image type="content" source="./media/map-add-pin/add-symbol-layer.png" alt-text="A screenshot of map with a pin added using the symbol layer.":::
 
 <!-------------------------------------------
-<iframe height='500' scrolling='no' title='Switch pin location' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>Switch pin location</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ------------------------------------->
 
 > [!TIP]
@@ -161,22 +160,20 @@ function InitMap()
 :::image type="content" source="./media/map-add-pin/add-custom-icon-to-symbol-layer.png" alt-text="A screenshot of map with a pin added using the symbol layer with a custom icon.":::
 
 <!-------------------------------------------
-<iframe height='500' scrolling='no' title='Custom Symbol Image Icon' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>Custom Symbol Image Icon</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ------------------------------------->
 
 > [!TIP]
-> The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. For more information, see the [How to use image templates](how-to-use-image-templates-web-sdk.md) document.
+> The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. For more information, see the [How to use image templates] document.
 
 ## Customize a symbol layer
 
-The symbol layer has many styling options available. The [Symbol Layer Options] sample shows how the different options of the symbol layer that affects rendering.
+The symbol layer has many styling options available. The [Symbol Layer Options] sample shows how the different options of the symbol layer that affects rendering. For the source code for this sample, see [Symbol Layer Options source code].
 
 :::image type="content" source="./media/map-add-pin/symbol-layer-options.png" alt-text="A screenshot of map with a panel on the left side of the map with the various symbol options that can be interactively set.":::
 
 <!-------------------------------------------
-<iframe height='700' scrolling='no' title='Symbol Layer Options' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/PxVXje/'>Symbol Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result]
 ------------------------------------->
 
 > [!TIP]
@@ -210,7 +207,7 @@ See the following articles for more code samples to add to your maps:
 > [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [How to use image templates](how-to-use-image-templates-web-sdk.md)
+> [How to use image templates]
 
 > [!div class="nextstepaction"]
 > [Add a line layer](map-add-line-layer.md)
@@ -225,3 +222,5 @@ See the following articles for more code samples to add to your maps:
 > [Add HTML Makers](map-add-bubble-layer.md)
 
 [Symbol Layer Options]: https://samples.azuremaps.com/?search=symbol%20layer&sample=symbol-layer-options
+[Symbol Layer Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Symbol%20Layer/Symbol%20Layer%20Options/Symbol%20Layer%20Options.html
+[How to use image templates]: how-to-use-image-templates-web-sdk.md

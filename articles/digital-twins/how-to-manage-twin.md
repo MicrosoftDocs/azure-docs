@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 05/15/2023
+ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -117,7 +117,7 @@ Only properties that have been set at least once are returned when you retrieve 
 
 To retrieve multiple twins using a single API call, see the Query API examples in [Query the twin graph](how-to-query-graph.md).
 
-Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) that defines a Moon:
+Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md)) that defines a Moon:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Moon.json":::
 

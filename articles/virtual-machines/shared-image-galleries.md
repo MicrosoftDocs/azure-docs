@@ -171,7 +171,7 @@ You can create Azure Compute Gallery resource using templates. There are several
 * [Can I move my existing image to an Azure Compute Gallery?](#can-i-move-my-existing-image-to-an-azure-compute-gallery)
 * [Can I create an image version from a specialized disk?](#can-i-create-an-image-version-from-a-specialized-disk)
 * [Can I move the Azure Compute Gallery resource to a different subscription after it has been created?](#can-i-move-the-azure-compute-gallery-resource-to-a-different-subscription-after-it-has-been-created)
-* [Can I replicate my image versions across clouds such as Azure China 21Vianet, Azure Germany, or Azure Government Cloud?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud)
+* [Can I replicate my image versions across clouds such as Microsoft Azure operated by 21Vianet, Azure Germany, or Azure Government Cloud?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-operated-by-21vianet-or-azure-germany-or-azure-government-cloud)
 * [Can I replicate my image versions across subscriptions?](#can-i-replicate-my-image-versions-across-subscriptions)
 * [Can I share image versions across Azure AD tenants?](#can-i-share-image-versions-across-azure-ad-tenants)
 * [How long does it take to replicate image versions across the target regions?](#how-long-does-it-take-to-replicate-image-versions-across-the-target-regions)
@@ -241,7 +241,7 @@ Yes, can create a VM from a [specialized image](windows/create-vm-specialized.md
 No, you can't move the gallery image resource to a different subscription. You can replicate the image versions in the gallery to other regions or copy an [image from another gallery](image-version.md).
 
 
-### Can I replicate my image versions across clouds such as Azure China 21Vianet or Azure Germany or Azure Government Cloud?
+### Can I replicate my image versions across clouds such as Azure operated by 21Vianet or Azure Germany or Azure Government Cloud?
 
 No, you can't replicate image versions across clouds.
 

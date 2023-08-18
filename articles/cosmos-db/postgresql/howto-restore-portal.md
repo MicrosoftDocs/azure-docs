@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 06/12/2023
 ---
 
 # Point-in-time restore of a cluster in Azure Cosmos DB for PostgreSQL
@@ -18,9 +18,6 @@ This article provides step-by-step procedures to perform [point-in-time
 recoveries](concepts-backup.md#restore) for a
 cluster using backups. You can restore either to the earliest backup or to
 a custom restore point within your retention period.
-
-> [!IMPORTANT]
-> If the **Restore** option isn't present for your cluster, open an Azure support request to restore your cluster.
 
 ## Restore to the earliest restore point
 
@@ -59,12 +56,10 @@ back up and running:
 
 * If the new server is meant to replace the original server, redirect clients
   and client applications to the new server
-* Ensure an appropriate server-level firewall is in place for
-  users to connect. These rules aren't copied from the original cluster.
-* Adjust PostgreSQL server parameters as needed. The parameters aren't copied
-  from the original cluster.
-* Ensure appropriate logins and database level permissions are in place.
-* Configure alerts, as appropriate.
+* Ensure appropriate [networking settings for private or public access](./concepts-security-overview.md#network-security) are in place for
+  users to connect. These settings aren't copied from the original cluster.
+* Ensure appropriate [logins](./howto-create-users.md) and database level permissions are in place.
+* Configure [alerts](./howto-alert-on-metric.md#suggested-alerts), as appropriate.
 
 ## Next steps
 

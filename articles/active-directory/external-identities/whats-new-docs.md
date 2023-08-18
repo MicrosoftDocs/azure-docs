@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory External Identities"
 description: "New and updated documentation for the Azure Active Directory External Identities."
-ms.date: 06/01/2023
+ms.date: 08/01/2023
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -15,6 +15,29 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory External Identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the External Identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
 
+## July 2023
+
+### New article
+
+- [Sponsors field for B2B users (preview)](b2b-sponsors.md)
+
+### Updated articles
+
+- [Bulk invite users via PowerShell](bulk-invite-powershell.md) - Editorial and link updates
+- [Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md) - Text corrections and screenshot updates
+- [Invite internal users to B2B](invite-internal-users.md) - Text corrections and screenshot updates
+- [Grant B2B users access to local apps](hybrid-cloud-to-on-premises.md) - Text corrections
+- [Tenant restrictions V2](tenant-restrictions-v2.md) - Note update
+- [Leave an organization](leave-the-organization.md) - Screenshot update
+- [Use audit logs and access reviews](auditing-and-reporting.md) - B2B sponsors feature update
+
+## June 2023
+
+### Updated articles
+
+- [Set up tenant restrictions V2 (Preview)](tenant-restrictions-v2.md) - Microsoft Teams updates
+- [Invite guest users to an app](add-users-information-worker.md) - Link and structure updates
+
 ## May 2023
 
 ### New article
@@ -23,26 +46,7 @@ Welcome to what's new in Azure Active Directory External Identities documentatio
 
 ### Updated articles
 
-- [Overview: Cross-tenant access with Azure AD External Identities](cross-tenant-access-overview.md) Graph API links were updated.
-- [Reset redemption status for a guest user](reset-redemption-status.md) Screenshots were updated.
+- [Overview: Cross-tenant access with Azure AD External Identities](cross-tenant-access-overview.md) - Graph API links updates
+- [Reset redemption status for a guest user](reset-redemption-status.md) - Screenshot updates
 
-## April 2023
-
-### Updated articles
-
-- [Allow or block domains](allow-deny-list.md) Screenshots were updated. 
-- [Authentication and Conditional Access](authentication-conditional-access.md) Links to other articles were updated.
-- [Code and Azure PowerShell samples](code-samples.md) Minor text updates.
-- [Azure Active Directory](default-account.md) Minor text updates.
-
-## March 2023
-
-### Updated articles
-
-- [Invite internal users to B2B collaboration](invite-internal-users.md)
-- [Federation with SAML/WS-Fed identity providers for guest users](direct-federation.md)
-- [Add Azure Active Directory (Azure AD) as an identity provider for External Identities](default-account.md)
-- [Quickstart: Add a guest user with PowerShell](b2b-quickstart-invite-powershell.md)
-- [Billing model for Azure AD External Identities](external-identities-pricing.md)
-- [Tutorial: Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)
 

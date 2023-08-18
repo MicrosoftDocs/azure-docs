@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: event-hubs
 author: spelluru
-ms.service: event-hubs
+ms.service: stream-analytics
 ms.topic: include
 ms.date: 02/27/2023
 ms.author: spelluru
@@ -17,7 +17,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an event hub
 
-Before Stream Analytics can analyze the fraudulent calls data stream, the data needs to be sent to Azure. In this tutorial, you'll send data to Azure by using  [Azure Event Hubs](../../event-hubs/event-hubs-about.md).
+You need to send some sample data to an event hub before Stream Analytics can analyze the fraudulent calls data stream. In this tutorial, you send data to Azure by using  [Azure Event Hubs](../../event-hubs/event-hubs-about.md).
 
 Use the following steps to create an event hub and send call data to that event hub:
 
@@ -54,7 +54,7 @@ Before an application can send data to Azure Event Hubs, the event hub must have
 
     :::image type="content" source="media/event-generator-app/select-event-hub.png" alt-text="Screenshot showing the selection of an event hub on the Event Hubs page."::: 
 1. On the **Event Hubs instance** page, select **Shared access policies** under **Settings** on the left menu, and then select **+ Add** on the command bar. 
-2. Name the policy **MyPolicy**, select **Manage**, and then select **Create**.
+2. Specify **MyPolicy** for **Name**, select **Manage**, and then select **Create**.
 
     :::image type="content" source="media/event-generator-app/create-event-hub-access-policy.png" alt-text="Screenshot showing Shared access policies page for an event hub."::: 
 3. Once the policy is created, select the policy name to open the policy. Find the **Connection string–primary key**. Select the **copy** button next to the connection string.
@@ -88,7 +88,7 @@ Before you start the TelcoGenerator app, you should configure it to send data to
 
    This command takes the following parameters:
    * Number of call data records per hour.
-   * Percentage of fraud probability, which is how often the app should simulate a fraudulent call. The value 0.2 means that about 20% of the call records will look fraudulent.
+   * Percentage of fraud probability, which is how often the app should simulate a fraudulent call. The value 0.2 means that about 20% of the call records look fraudulent.
    * Duration in hours, which is the number of hours that the app should run. You can also stop the app at any time by ending the process (**Ctrl+C**) at the command line.
 
    After a few seconds, the app starts displaying phone call records on the screen as it sends them to the event hub. The phone call data contains the following fields:

@@ -75,6 +75,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-ciam-dotnet-tutorial",
+      "url": "https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "main",
@@ -411,12 +417,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-vj",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "vijetajo-patch-2",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "azureml-examples-batch-pup",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "santiagxf/batch-pup",
@@ -653,6 +653,12 @@
     {
       "path_to_root": "cosmosdb-cassandra-python-sample",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-cassandra-python-getting-started",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-nosql-query-samples",
+      "url": "https://github.com/Azure-Samples/cosmos-db-nosql-query-samples",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -1009,7 +1015,13 @@
       "url": "https://github.com/Azure/actions-workflow-samples",
       "branch": "master",
       "branch_mapping": {}
-    }  
+    },
+    {
+      "path_to_root": "azure-proactive-resiliency-library",
+      "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library",
+      "branch": "main",
+      "branch_mapping": {}
+    }
   ],
   "branch_target_mapping": {
     "live": ["Publish", "PDF"],
@@ -1045,7 +1057,6 @@
   ".openpublishing.redirection.baremetal-infrastructure.json",
   ".openpublishing.redirection.defender-for-cloud.json",
   ".openpublishing.redirection.defender-for-iot.json",
-  ".openpublishing.redirection.healthcare-apis.json",
   ".openpublishing.redirection.iot-hub-device-update.json",
   ".openpublishing.redirection.json",
   ".openpublishing.redirection.key-vault.json",
@@ -1055,15 +1066,18 @@
   ".openpublishing.redirection.sql-database.json",
   ".openpublishing.redirection.virtual-desktop.json",
   ".openpublishing.redirection.devops-project.json",
-  "articles/applied-ai-services/.openpublishing.redirection.applied-ai-old.json",
-  "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
+  ".openpublishing.redirection.sentinel.json",
+  "articles/ai-services/.openpublishing.redirection.ai-services-from-applied.json",
+  "articles/ai-services/.openpublishing.redirection.ai-services-from-cog.json",
+  "articles/ai-services/.openpublishing.redirection.applied-ai-old.json",
+  "articles/ai-services/.openpublishing.redirection.applied-ai-services.json",
+  "articles/ai-services/.openpublishing.redirection.cognitive-services.json",
   "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
   "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
   "articles/azure-relay/.openpublishing.redirection.relay.json",
   "articles/azure-video-analyzer/.openpublishing.redirection.azure-video-analyzer.json",
   "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json",
   "articles/cloud-shell/.openpublishing.redirection.cloud-shell.json",
-  "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json",
   "articles/communication-services/.openpublishing.redirection.communication-services.json",
   "articles/confidential-computing/.openpublishing.redirection.json",
   "articles/container-apps/.openpublishing.redirection.container-apps.json",
@@ -1076,6 +1090,7 @@
   "articles/event-grid/.openpublishing.redirection.event-grid.json",
   "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
   "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
+  "articles/healthcare-apis/.openpublishing.redirection.healthcare-apis.json",
   "articles/iot-accelerators/.openpublishing.redirection.iot-accelerators.json",
   "articles/iot-central/.openpublishing.redirection.iot-central.json",
   "articles/iot-develop/.openpublishing.redirection.iot-develop.json",

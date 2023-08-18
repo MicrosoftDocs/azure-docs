@@ -4,9 +4,9 @@ metadata:
   description: 'Answers to common questions about'
   ms.topic: faq
   ms.service: backup
-  ms.date: 04/20/2023
-  author: jyothisuri
-  ms.author: jsuri
+  ms.date: 07/20/2023
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
 
 title: Azure Backup - Frequently asked questions
 summary: This article answers common questions about the Azure Backup service.
@@ -28,8 +28,8 @@ sections:
       - question: |
           How many datasources/items can be protected in a vault?
         answer: |
-          You can protect up to 2000 datasources/items across all workloads (such as IaaS VM, SQL, AFS) in a vault.
-          For example, if you've already protected 500 VMs and 400 Azure Files shares in the vault, you can only protect up to 1100 SQL databases in it.
+          Protection of up to 2000 datasources/items across all workloads (such as IaaS VM, SQL, AFS) is the recommended limit per vault.
+          For example, if you have already protected 500 VMs and 400 Azure Files shares in the vault, we would recommend protecting up to 1100 SQL databases in it.
           
       - question: |
           How many policies can I create per vault?
@@ -54,7 +54,7 @@ sections:
       - question: |
           Can I change the storage redundancy setting after a backup?
         answer: |
-          The storage replication type by default is set to geo-redundant storage (GRS). Once you configure the backup, the option to modify is disabled and can't be changed.
+          The storage replication type by default is set to geo-redundant storage (GRS). Once you configure the backup, the option to modify is in disabled state and can't be changed.
           
           ![Storage replication type](./media/backup-azure-backup-faq/storage-replication-type.png)
           
@@ -92,6 +92,17 @@ sections:
           >[!IMPORTANT]
           >Ensure that you perform the following actions after moving the subscription:<ul><li>If the vault uses CMK (customer managed keys), you must update the vault. This enables the vault to recreate and reconfigure the vault managed identity and CMK (which will reside in the new tenant), otherwise the backups/restore operation will fail.</li><li>You must reconfigure the RBAC permissions in the subscription as the existing permissions can’t be moved.</li></ul>
           
+      - question: |
+          What are the various vaults supported for backup and restore?
+        answer: |
+          [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) and [Backup vault](backup-vault-overview.md) are both supported in Azure Backup, and target the backup and restore of different datasources. You need to create the appropriate vault based on the datasource type that you want to protect.
+
+          The following table lists the various datasources that each vault supports:
+
+          | Recovery Services vault | Backup vault |
+          | --- | --- |
+          | Supported datasources: <br><br> - Azure Virtual Machine <br> - SQL in Azure VM <br> - Azure Files <br> - SAP HANA in Azure VM <br> - Azure Backup Server <br> - Azure Backup agent <br> - DPM    |   Supported datasources: <br><br> - Azure Disks <br> - Azure Blobs <br> - Azure Database for PostgreSQL server <br> - Kubernetes services (preview) |
+
   - name: Azure Backup agent
     questions:
       - question: |
@@ -107,9 +118,9 @@ sections:
         answer: |
           Yes.
           
-          - You can back up Windows Server or Windows machines up to three times a day. You can set the scheduling policy to daily or weekly schedules.
+          - You can back up Windows Server or Windows machines up to three times a day using MARS backup. You can set the scheduling policy to daily or weekly schedules.
           - You can back up DPM up to twice a day. You can set the scheduling policy to daily, weekly, monthly, and yearly.
-          - You back up Azure VMs once a day.
+          - You can back up Azure VMs once a day using Standard backup policy.
           
       - question: |
           What operating systems are supported for backup?

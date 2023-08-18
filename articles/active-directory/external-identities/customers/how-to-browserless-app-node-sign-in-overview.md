@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/09/2023
-ms.custom: developer
-
+ms.custom: developer, devx-track-js
 #Customer intent: As a dev, devops, I want to learn about how to build a Node.js browserless application to authenticate users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
@@ -44,7 +43,7 @@ The device code flow is an OAuth2.0 grant flow that allows users to sign in to i
 - Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
 
-If you want to run a sample Node.js browserless application rather than building it from scratch, complete the steps in [Sign in users in a sample Node.js browserless application by using the Device Code flow](how-to-browserless-app-node-sample-sign-in.md)
+If you want to run a sample Node.js browserless application rather than building it from scratch, complete the steps in [Sign in users in a sample Node.js browserless application by using the Device Code flow](./sample-browserless-app-node-sign-in.md)
 
 ## Next steps
 
@@ -52,4 +51,3 @@ Learn how to prepare your Azure AD for customers tenant:
 
 > [!div class="nextstepaction"]
 > [Prepare your Azure AD for customers tenant >](how-to-browserless-app-node-sign-in-prepare-tenant.md)
-

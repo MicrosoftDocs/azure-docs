@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/16/2023
+ms.date: 07/21/2023
 ms.author: jfields
 ---
 
@@ -19,21 +19,21 @@ This article describes how to enable Microsoft Entra Permissions Management in y
 > [!NOTE]
 > To complete this task, you must have *Microsoft Entra Permissions Management Administrator* permissions. You can't enable Permissions Management as a user from another tenant who has signed in via B2B or via Azure Lighthouse.
 
-:::image type="content" source="media/onboard-enable-tenant/dashboard.png" alt-text="A preview of what the permissions management dashboard looks like." lightbox="media/onboard-enable-tenant/dashboard.png":::
+:::image type="content" source="media/onboard-enable-tenant/dashboard.png" alt-text="Screenshot of the Entra Permissions Management dashboard." lightbox="media/onboard-enable-tenant/dashboard.png":::
 
 ## Prerequisites
 
 To enable Permissions Management in your organization:
 
 - You must have an Azure AD tenant. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
-- You must be eligible for or have an active assignment to the global administrator role as a user in that tenant.
+- You must be eligible for or have an active assignment to the *Permissions Management Administrator* role as a user in that tenant.
 
 ## How to enable Permissions Management on your Azure AD tenant
 
 1. In your browser:
     1. Go to [Entra services](https://entra.microsoft.com) and use your credentials to sign in to [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
-    1. If you aren't already authenticated, sign in as a global administrator user.
-    1. If needed, activate the global administrator role in your Azure AD tenant.
+    1. If you aren't already authenticated, sign in as a *Permissions Management Administrator* user.
+    1. If needed, activate the *Permissions Management Administrator* role in your Azure AD tenant.
     1. In the Azure portal, select **Permissions Management**, and then select the link to purchase a license or begin a trial.
 
 

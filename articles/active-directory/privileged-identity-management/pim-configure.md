@@ -3,7 +3,7 @@ title: What is Privileged Identity Management?
 description: Provides an overview of Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: amsliu
+author: billmath
 manager: amycolannino
 editor: ''
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
 ms.date: 11/4/2022
-ms.author: amsliu
+ms.author: billmath
 ms.reviewer: ilyal
 ms.custom: pim,azuread-video-2020,contperf-fy21q3-portal, content-engagement
 ms.collection: M365-identity-device-management
@@ -34,10 +34,8 @@ Organizations want to minimize the number of people who have access to secure in
 However, users still need to carry out privileged operations in Azure AD, Azure, Microsoft 365, or SaaS apps. Organizations can give users just-in-time privileged access to Azure and Azure AD resources and can oversee what those users are doing with their privileged access.
 
 ## License requirements
+[!INCLUDE [entra-id-license-pim.md](../../../includes/entra-id-license-pim.md)]
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
-
-For information about licenses for users, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
 ## What does it do?
 
@@ -127,7 +125,7 @@ For more information, check out the following articles: [Activate Azure AD roles
 
 Delegated approvers receive email notifications when a role request is pending their approval. Approvers can view, approve or deny these pending requests in PIM. After the request has been approved, the member can start using the role. For example, if a user or a group was assigned with Contribution role to a resource group, they'll be able to manage that particular resource group.
 
-For more information, check out the following articles: [Approve or deny requests for Azure AD roles](azure-ad-pim-approval-workflow.md), [Approve or deny requests for Azure resource roles](pim-resource-roles-approval-workflow.md), and [Approve activation requests for PIM for Groups](groups-approval-workflow.md)
+For more information, check out the following articles: [Approve or deny requests for Azure AD roles](./pim-approval-workflow.md), [Approve or deny requests for Azure resource roles](pim-resource-roles-approval-workflow.md), and [Approve activation requests for PIM for Groups](groups-approval-workflow.md)
 
 ### Extend and renew assignments
 
@@ -198,5 +196,5 @@ When you use B2B collaboration, you can invite an external user to your organiza
 ## Next steps
 
 - [License requirements to use Privileged Identity Management](subscription-requirements.md)
-- [Securing privileged access for hybrid and cloud deployments in Azure AD](../roles/security-planning.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Securing privileged access for hybrid and cloud deployments in Azure AD](../roles/security-planning.md?toc=/azure/active-directory/privileged-identity-management/toc.json)
 - [Deploy Privileged Identity Management](pim-deployment-plan.md)

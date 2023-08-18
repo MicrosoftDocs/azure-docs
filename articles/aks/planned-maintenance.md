@@ -5,8 +5,8 @@ description: Learn how to use Planned Maintenance to schedule and control cluste
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 01/17/2023
-ms.author: qpetraroia
-author: qpetraroia
+ms.author: nickoman
+author: nickomang
 ---
 
 # Use Planned Maintenance to schedule and control upgrades for your Azure Kubernetes Service (AKS) cluster (preview)
@@ -15,7 +15,7 @@ Your AKS cluster has regular maintenance performed on it automatically. By defau
 
 There are currently three available configuration types: `default`, `aksManagedAutoUpgradeSchedule`, `aksManagedNodeOSUpgradeSchedule`:
 
-- `default` corresponds to a basic configuration that will update your control plane and your kube-system pods on a Virtual Machine Scale Sets instance. It's a legacy configuration that is mostly suitable for basic scheduling of [weekly releases][release-tracker].
+- `default` corresponds to a basic configuration that is mostly suitable for basic scheduling of [weekly releases][release-tracker].
 
 - `aksManagedAutoUpgradeSchedule` controls when cluster upgrades scheduled by your designated auto-upgrade channel are performed. More finely controlled cadence and recurrence settings are possible than in a `default` configuration. For more information on cluster auto-upgrade, see [Automatically upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
 
@@ -28,6 +28,8 @@ To configure Planned Maintenance using pre-created configurations, see [Use Plan
 ## Before you begin
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
+
+Be sure to upgrade Azure CLI to the latest version using [`az upgrade`](/cli/azure/update-azure-cli#manual-update).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

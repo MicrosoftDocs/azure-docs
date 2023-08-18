@@ -1,5 +1,5 @@
 ---
-author: karlerickson
+author: KarlErickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include

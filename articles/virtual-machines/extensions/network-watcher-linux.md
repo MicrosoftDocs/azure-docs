@@ -7,8 +7,8 @@ ms.subservice: extensions
 ms.author: halkazwini
 author: halkazwini
 ms.collection: linux
-ms.date: 06/09/2023
-ms.custom: template-concept, engagement-fy23, devx-track-azurecli
+ms.date: 06/29/2023
+ms.custom: template-concept, engagement-fy23, devx-track-azurecli, devx-track-linux
 ---
 
 # Network Watcher Agent virtual machine extension for Linux
@@ -35,6 +35,7 @@ The Network Watcher Agent extension can be configured for the following Linux di
 | SUSE Linux Enterprise Server | 12 and 15 |
 | OpenSUSE Leap | 42.3+ |
 | CentOS | 6.10 and 7 |
+| Azure Linux | 2.0 |
 
 > [!NOTE]
 > - Red Hat Enterprise Linux (RHEL) 6.X and Oracle Linux 6.x have reached their end-of-life (EOL). RHEL 6.10 has available [extended life cycle (ELS) support](https://www.redhat.com/en/resources/els-datasheet) through [June 30, 2024]( https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).

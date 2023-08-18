@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli
+ms.custom: mimckitt, devx-track-azurecli, devx-track-linux
 ---
 # Tutorial: Modify a Virtual Machine Scale Set using Azure CLI
 Throughout the lifecycle of your applications, you may need to modify or update your Virtual Machine Scale Set. These updates may include how to update the configuration of the scale set, or change the application configuration. This article describes how to modify an existing scale set using the Azure CLI.

@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -47,7 +47,7 @@ If both permissions are assigned, the /create permission will take precedence. T
 
 Create permissions grant access to the **New registration** command.
 
-[These permissions grant access to the New Registration portal command](./media/custom-available-permissions/new-custom-role.png)
+![These permissions grant access to the New Registration portal command](./media/custom-available-permissions/new-custom-role.png)
 
 There are two permissions available for granting the ability to delete app registrations:
 

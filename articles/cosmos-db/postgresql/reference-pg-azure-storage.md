@@ -6,53 +6,20 @@ author: AvijitkGupta
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 05/30/2023
+ms.date: 06/16/2023
 ---
 
 # pg_azure_storage extension
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-The pg_azure_storage extension allows you to load data in multiple file formats directly from Azure blob storage to your Azure Cosmos DB for PostgreSQL cluster. Containers with access level “Private” or “Blob” requires adding private access key.
+The pg_azure_storage extension allows you to load data in multiple file formats directly from Azure blob storage to your Azure Cosmos DB for PostgreSQL cluster. Enabling the extension also unlocks new capabilities of the [COPY](reference-copy-command.md) command. Containers with access level “Private” or “Blob” requires adding private access key.
 
-You can create the extension from psql by running:
+You can create the extension by running:
 
 ```postgresql
 SELECT create_extension('azure_storage');
 ```
-
-## COPY FROM
-
-`COPY FROM` copies data from a file, hosted on a file system or within `Azure blob storage`, to an SQL table (appending the data to whatever is in the table already). The command is helpful in dealing with large datasets, significantly reducing the time and resources required for data transfer.
-
-```postgresql
-COPY table_name [ ( column_name [, ...] ) ]
-FROM { 'filename' | PROGRAM 'command' | STDIN | Azure_blob_url}
-    [ [ WITH ] ( option [, ...] ) ]
-    [ WHERE condition ]
-```
-> [!NOTE]
-> Syntax and options supported remains likewise to Postgres Native [COPY](https://www.postgresql.org/docs/current/sql-copy.html) command, with following exceptions:
->
-> - `FREEZE [ boolean ]`
-> - `HEADER MATCH`
->
-> `COPY TO` syntax is yet not supported.
-
-### Arguments
-#### Azure_blob_url
-Allows unstructured data to be stored and accessed at a massive scale in block blobs. Objects in blob storage can be accessed from anywhere in the world via HTTPS. The storage client libraries are available for multiple languages, including .NET, Java, Node.js, Python, PHP, and Ruby.
-
-### Option
-#### format
-Specifies the format of destination file. Currently the extension supports following formats
-
-| **Format** | **Description**                                          |
-|------------|----------------------------------------------------------|
-| csv        | Comma-separated values format used by PostgreSQL COPY    |
-| tsv        | Tab-separated values, the default PostgreSQL COPY format |
-| binary     | Binary PostgreSQL COPY format                            |
-| text       | A file containing a single text value (for example, large JSON or XML)                            |
 
 ## azure_storage.account_add
 Function allows adding access to a storage account.
@@ -574,7 +541,8 @@ LIMIT 5;
 
 ## Next steps
 
-Learn more about analyzing the dataset, along with alternative options.
+> [!div class="nextstepaction"]
+> [How to use Azure Blob Storage with the COPY command](reference-copy-command.md)
 
 > [!div class="nextstepaction"]
 > [How to ingest data using pg_azure_storage](howto-ingest-azure-blob-storage.md)

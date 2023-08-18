@@ -8,7 +8,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 04/25/2023
 ms.topic: how-to
-#Customer intent: As a dev infrastructure manager, I want to be able to manage dev box pools so that I can provide appropriate dev boxes to my users.
+#Customer intent: As a platform engineer, I want to be able to manage dev box pools so that I can provide appropriate dev boxes to my users.
 ---
 
 # Manage a dev box pool
@@ -25,11 +25,11 @@ To manage a dev box pool, you need the following permissions:
 
 ## Create a dev box pool
 
-A dev box pool is a collection of dev boxes that you manage together. You must have a pool before users can create a dev box.  
+A dev box pool is a collection of dev boxes that you manage together. You must have a pool before users can create a dev box. 
 
 The following steps show you how to create a dev box pool that's associated with a project. You'll use an existing dev box definition and network connection in the dev center to configure the pool.
 
-If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure Microsoft Dev Box Preview](quickstart-configure-dev-box-service.md) to create them.
+If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure Microsoft Dev Box ](quickstart-configure-dev-box-service.md) to create them.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

@@ -4,8 +4,8 @@ titleSuffix: Azure Storage
 description: View code samples that use the Azure File Share client library for Java version 8.
 services: storage
 author: pauljewellmsft
-ms.service: storage
-ms.subservice: files
+ms.service: azure-file-storage
+ms.custom: devx-track-extended-java
 ms.topic: how-to
 ms.date: 04/26/2023
 ms.author: pauljewell

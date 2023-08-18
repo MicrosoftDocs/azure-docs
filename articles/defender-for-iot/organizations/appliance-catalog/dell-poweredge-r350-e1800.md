@@ -87,8 +87,14 @@ The following image shows a view of the Dell PowerEdge R350 back panel:
 |----|---|----|
 |2| 450-AMJH | Dual, Hot-Plug, Power Supply, 700W MM HLAC (200-220Vac) Titanium, Redundant (1+1), by LiteOn, NAF|
 
-## Optional Expansion Modules
+## Optional Storage Controllers
+Multi-disk RAID arrays combine multiple physical drives into one logical drive for increased redundancy and performance. The optional modules below have been tested in our lab for compatibility and sustained performance:
 
+|Quantity|PN|Description|
+|----|---|----|
+|1| 405-ABBT	|	PERC H755 Controller Card (RAID10) |
+
+## Optional port expansion
 Optional modules for additional monitoring ports can be installed:
 
 |Location |Type |Specifications |
@@ -121,13 +127,12 @@ To install the Dell PowerEdge R350 appliance, you'll need:
 
 - A BIOS configuration XML
 
-### Configure the Dell BIOS
+### Setup the BIOS and RAID array
 
- An integrated iDRAC manages the Dell appliance with Lifecycle Controller (LC). The LC is embedded in every Dell PowerEdge server and provides functionality that helps you deploy, update, monitor, and maintain your Dell PowerEdge appliances. 
+This procedure describes how to configure the BIOS configuration for an unconfigured sensor appliance.
+In the event that any of the steps below are missing in the BIOS, please make sure that the hardware matches the specifications above.
 
-To establish the communication between the Dell appliance and the management computer, you need to define the iDRAC IP address and the management computer's IP address on the same subnet.
-
-When the connection is established, the BIOS is configurable.
+Dell BIOS iDRAC is a system management software designed to give administrators control of Dell hardware remotely. It allows administrators to monitor system performance, configure settings, and troubleshoot hardware issues from a web browser. It can also be used to update system BIOS and firmware. The BIOS can be setup locally or remotely. To setup the BIOS remotely from a management computer, you need to define the iDRAC IP address and the management computer's IP address on the same subnet.
 
 **To configure the iDRAC IP address**:
 

@@ -2,6 +2,7 @@
 title: Azure Functions Scenarios 
 description: Identify key scenarios that use Azure Functions to provide serverless compute resources in aa Azure cloud-based topology. 
 ms.topic: conceptual
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 05/15/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -140,7 +141,7 @@ public static async Task Run(
 
 Besides data processing, Azure Functions can be used to infer on models. 
 
-For example, a function that calls a TensorFlow model or submits it to Azure AI Cognitive Services can process and classify a stream of images.
+For example, a function that calls a TensorFlow model or submits it to Azure AI services can process and classify a stream of images.
 
 Functions can also connect to other services to help process data and perform other AI-related tasks, like [text summarization](https://github.com/Azure-Samples/function-csharp-ai-textsummarize).
 

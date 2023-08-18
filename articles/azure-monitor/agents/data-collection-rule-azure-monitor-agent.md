@@ -2,10 +2,10 @@
 title: Collect events and performance counters from virtual machines with Azure Monitor Agent
 description: Describes how to collect events and performance data from virtual machines by using Azure Monitor Agent.
 ms.topic: conceptual
-ms.date: 12/11/2022
+ms.date: 7/19/2023
 author: guywild
 ms.author: guywild
-ms.reviewer: shseth
+ms.reviewer: jeffwo
 
 ---
 

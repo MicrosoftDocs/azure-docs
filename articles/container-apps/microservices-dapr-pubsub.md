@@ -219,7 +219,7 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 1. Copy the `checkout` container app name from the terminal output.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 
@@ -431,7 +431,7 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 1. Copy the `checkout` container app name from the terminal output.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 
@@ -643,7 +643,7 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
 
 1. Copy the `checkout` container app name from the terminal output.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com) and search for the container app resource by name.
+1. Sign in to the [Azure portal](https://portal.azure.com) and search for the container app resource by name.
 
 1. In the Container Apps dashboard, select **Monitoring** > **Log stream**.
 

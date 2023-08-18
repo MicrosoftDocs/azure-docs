@@ -5,16 +5,13 @@ author: boris-bazilevskiy
 manager: nmurav
 services: azure-communication-services
 ms.author: bobazile
-ms.date: 06/01/2023
+ms.date: 06/22/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
 ---
 
 # Azure direct routing infrastructure requirements 
-
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-[!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
  
 This article describes infrastructure, licensing, and Session Border Controller (SBC) connectivity details that you want to keep in mind as your plan your Azure direct routing deployment.
 

@@ -25,7 +25,7 @@ Learn how to configure the code for your web app that signs in users.
 <!-- This section can be in an include for web app and web APIs -->
 The following Microsoft libraries are used to protect a web app (and a web API):
 
-[!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
+[!INCLUDE [develop-libraries-webapp](./includes/libraries/libraries-webapp.md)]
 
 Select the tab that corresponds to the platform you're interested in:
 

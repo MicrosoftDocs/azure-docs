@@ -267,7 +267,7 @@ App Service logs actions by the Docker host as well as activities from within t
 
 There are several ways to access Docker logs:
 
-- [In Azure portal](#in-azure-portal)
+- [In the Azure portal](#in-azure-portal)
 - [From the Kudu console](#from-the-kudu-console)
 - [With the Kudu API](#with-the-kudu-api)
 - [Send logs to Azure monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)

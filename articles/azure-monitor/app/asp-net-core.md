@@ -48,7 +48,7 @@ You need:
 
 - A functioning ASP.NET Core application. If you need to create an ASP.NET Core application, follow this [ASP.NET Core tutorial](/aspnet/core/getting-started/).
 - A reference to a supported version of the [Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) NuGet package.
-- A valid Application Insights connection string. This string is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get a connection string, see [Create an Application Insights resource](./create-new-resource.md).
+- A valid Application Insights connection string. This string is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get a connection string, see [Create an Application Insights resource](./create-workspace-resource.md).
 
 ## Enable Application Insights server-side telemetry (Visual Studio)
 
@@ -197,7 +197,7 @@ HttpContext.Features.Get<RequestTelemetry>().Properties["myProp"] = someData
 
 ## Enable client-side telemetry for web applications
 
-The preceding steps are enough to help you start collecting server-side telemetry. If your application has client-side components, follow the next steps to start collecting [usage telemetry](./usage-overview.md) JavaScript (Web) SDK Loader Script injection by configuration.
+The preceding steps are enough to help you start collecting server-side telemetry. If your application has client-side components, follow the next steps to start collecting [usage telemetry](./usage-overview.md) using JavaScript (Web) SDK Loader Script injection by configuration.
 
 1. In `_ViewImports.cshtml`, add injection:
 

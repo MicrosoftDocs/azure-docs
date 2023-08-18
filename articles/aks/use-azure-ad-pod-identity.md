@@ -3,7 +3,7 @@ title: Use Azure Active Directory pod-managed identities in Azure Kubernetes Ser
 description: Learn how to use Azure AD pod-managed identities in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 04/28/2023
+ms.date: 08/15/2023
 ---
 
 # Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)
@@ -16,7 +16,7 @@ Azure Active Directory (Azure AD) pod-managed identities use Kubernetes primitiv
 > Kubernetes native capabilities to federate with any external identity providers on behalf of the
 > application.
 >
-> The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022, and the project will be archived in Sept. 2023. For more information, see the [deprecation notice](https://github.com/Azure/aad-pod-identity#-announcement). The AKS Managed add-on begins deprecation in Sept. 2023.
+> The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022, and the project will be archived in Sept. 2023. For more information, see the [deprecation notice](https://github.com/Azure/aad-pod-identity#-announcement). The AKS Managed add-on begins deprecation in Sept. 2024.
 >
 > To disable the AKS Managed add-on, use the following command: `az feature unregister --namespace "Microsoft.ContainerService" --name "EnablePodIdentityPreview"`.
 
@@ -301,6 +301,18 @@ metadata:
   labels:
     aadpodidbinding: myMultiIdentitySelector
 ...
+```
+
+## Disable pod-managed identity on an existing cluster
+
+To disable pod-managed identity on an existing cluster, remove the pod-managed identities from the cluster. Then disable the feature on the cluster.
+
+```azurecli
+az aks pod-identity delete --name ${POD_IDENTITY_NAME} --namespace ${POD_IDENTITY_NAMESPACE} --resource-group myResourceGroup --cluster-name myAKSCluster
+```
+
+```azurecli
+az aks update --resource-group myResourceGroup --name myAKSCluster --disable-pod-identity
 ```
 
 ## Clean up
