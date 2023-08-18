@@ -19,7 +19,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) provides support for verifying an email address for self-service password reset (SSPR). Use the Azure AD SSPR technical profile to generate and send a code to an email address, and then verify the code. The Azure AD SSPR technical profile may also return an error message. The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message displays on a self-asserted page.
+Azure Active Directory B2C (Azure AD B2C) provides support for verifying an email address for self-service password reset (SSPR). Use the Azure AD SSPR technical profile to generate and send a code to an email address, and then verify the code. The Azure AD SSPR technical profile may also return an error message. The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message displays on a self-asserted page. 
 
 This technical profile:
 
