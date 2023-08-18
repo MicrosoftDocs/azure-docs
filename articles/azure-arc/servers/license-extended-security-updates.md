@@ -25,7 +25,7 @@ If you choose to license based on virtual cores, the licensing requires a minimu
 
 1. The Windows Server was licensed on a virtualization basis. In most cases, customers elect the Standard edition for virtual core-based licenses.
 
-An additional scenario ([scenario 1, below](#scenario-1-8-modern-32-core-hosts-not-windows-server-2012-while-each-of-these-hosts-are-running-4-8-core-vms-only-one-vm-on-each-host-is-running-windows-server-2012-r2)) is a candidate for VM/Virtual core licensing when the WS2012 VMs are running on a newer Windows Server host (that is, Windows Server 2016 or later).
+An additional scenario (scenario 1, below) is a candidate for VM/Virtual core licensing when the WS2012 VMs are running on a newer Windows Server host (that is, Windows Server 2016 or later).
 
 > [!IMPORTANT]
 > In all cases, customers are required to attest to their conformance with SA or SPLA. There is no exception for these requirements. Software Assurance or an equivalent Server Subscription is required for customers to purchase Extended Security Updates on-premises and in hosted environments. Customers will be able to purchase Extended Security Updates via Enterprise Agreement (EA), Enterprise Subscription Agreement (EAS), a Server & Cloud Enrollment (SCE), and Enrollment for Education Solutions (EES). On Azure, customers do not need Software Assurance to get free Extended Security Updates, but Software Assurance or Server Subscription is required to take advantage of the Azure Hybrid Benefit.
