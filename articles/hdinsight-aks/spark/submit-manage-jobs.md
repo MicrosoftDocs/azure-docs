@@ -80,10 +80,7 @@ Jupyter Notebook is an interactive notebook environment that supports various pr
     new_dframe.index = new_dframe['name']
     print(new_dframe.loc['sam'])
     ```
-
-
-    :::image type="content" source="./media/submit-manage-jobs/jupyter-notebook-edit.png" alt-text="Diagram showing Jupyter notebook edited.":::
-
+ 
 1. Plot a graph with Salary and age as the X and Y axes
 1. In the same notebook, paste the following code in an empty cell of the Jupyter Notebook, and then press **SHIFT + ENTER** to run the code.
 
@@ -173,10 +170,6 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
 ## Using Spark submit jobs
 
 1. Create a file using the following command `#vim samplefile.py'
-
-   :::image type="content" source="./media/submit-manage-jobs/view-vim-file.png" alt-text="Diagram showing vim file." lightbox="./media/submit-manage-jobs/view-vim-file.png":::
-    
-
 1. This command opens the vim file
 1. Paste the following code into the vim file
    ```
@@ -222,17 +215,15 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
    print(new_dframe.loc['sam'])
    ```
     
-1. Save the file with the following method
+1. Save the file with the following method.
     1. Press Escape button
     1. Enter the command `:wq`
     
-1. Run the following command to run the job:
+1. Run the following command to run the job.
 
     `/spark-submit  --master yarn --deploy-mode cluster <filepath>/samplefile.py`
 
     :::image type="content" source="./media/submit-manage-jobs/run-spark-submit-job.png" alt-text="Screenshot showing how to run Spark submit job." lightbox="./media/submit-manage-jobs/view-vim-file.png":::
-
-    :::image type="content" source="./media/submit-manage-jobs/yarn-output.png" alt-text="Screenshot showing Yarn output." lightbox="./media/submit-manage-jobs/yarn-output.png":::
 
 ## Monitor queries on a Spark cluster in HDInsight on AKS
 
@@ -242,11 +233,11 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
 
     :::image type="content" source="./media/submit-manage-jobs/select-spark-ui.png" alt-text="Screenshot showing Spark UI." lightbox="./media/submit-manage-jobs/select-spark-ui.png":::
 
-1. Select the recent run from the UI using the same application ID
+1. Select the recent run from the UI using the same application ID.
    
     :::image type="content" source="./media/submit-manage-jobs/run-spark-ui.png" alt-text="Screenshot showing how to run Spark UI." lightbox="./media/submit-manage-jobs/run-spark-ui.png":::
    
-1. View the DAG cycles and the stages of the job in the Spark History server UI
+1. View the Directed Acyclic Graph cycles and the stages of the job in the Spark History server UI.
 
     :::image type="content" source="./media/submit-manage-jobs/view-dag-cycle.png" alt-text="Diagram showing DAG cycle." lightbox="./media/submit-manage-jobs/view-dag-cycle.png":::
 
@@ -257,7 +248,7 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
 
     :::image type="content" source="./media/submit-manage-jobs/open-livy-session-ui.png" alt-text="Diagram showing how to open Livy session UI." lightbox="./media/submit-manage-jobs/open-livy-session-ui.png":::
 
-1. View the driver logs by clicking on the driver option under logs
+1. View the driver logs by clicking on the driver option under logs.
 
 **Yarn UI**
 
@@ -267,6 +258,6 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
    
 1. You can track the job you recently ran by the same application ID.
      
-1. Click on the Application ID in Yarn to view detailed logs of the job
+1. Click on the Application ID in Yarn to view detailed logs of the job.
 
 
