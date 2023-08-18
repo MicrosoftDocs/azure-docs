@@ -38,6 +38,10 @@
           items:
             - name: Connect using Studio 3T
               href: connect-using-robomongo.md
+    - name: Troubleshooting and performance
+      items:
+        - name: Troubleshoot common issues
+          href: troubleshoot-common-issues.md
     - name: Scale cluster
       href: how-to-scale-cluster.md
     - name: Restore cluster
