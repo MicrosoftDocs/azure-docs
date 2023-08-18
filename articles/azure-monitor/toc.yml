@@ -488,7 +488,8 @@ items:
         href: vm/tutorial-monitor-vm-guest.md
   - name: Monitor containers
     items:
-    - name: Monitor Azure Kubernetes Service (AKS)
+    - name: Monitor Kubernetes
+      displayName: containers
       href: containers/monitor-kubernetes.md
     - name: Prometheus
       items:

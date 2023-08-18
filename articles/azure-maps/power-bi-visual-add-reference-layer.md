@@ -28,8 +28,6 @@ The following are all settings in the **Format** pane that are available in the 
 |----------------------|---------------|
 | Reference layer data | The data GeoJSON file to upload to the visual as another layer within the map. The **+ Add local file** button opens a file dialog the user can use to select a GeoJSON file that has a `.json` or `.geojson` file extension. |
 
-> [!NOTE]
-> In this preview of the Azure Maps Power BI visual, the reference layer will only load the first 5,000 shape features to the map. This limit will be increased in a future update.
 
 ## Styling data in a reference layer
 
