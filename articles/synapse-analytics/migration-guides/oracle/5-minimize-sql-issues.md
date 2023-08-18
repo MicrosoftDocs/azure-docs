@@ -161,7 +161,7 @@ There are some SQL DML syntax differences between Oracle SQL and Azure Synapse T
 
 - Oracle outer join syntax: although more recent versions of Oracle support ANSI outer join syntax, older Oracle systems use a proprietary syntax for outer joins that uses a plus sign (`+`) within the SQL statement. If you're migrating an older Oracle environment, you might encounter the older syntax. For example:
 
-  ```SQL
+  ```sql
   SELECT
       d.deptno, e.job
   FROM
@@ -172,11 +172,11 @@ There are some SQL DML syntax differences between Oracle SQL and Azure Synapse T
       AND e.job (+) = 'CLERK'
   GROUP BY
       d.deptno, e.job;
-	```
+  ```
 
   The equivalent ANSI standard syntax is:
 
-  ```SQL
+  ```sql
   SELECT
       d.deptno, e.job
   FROM

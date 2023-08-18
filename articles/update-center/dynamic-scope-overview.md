@@ -29,6 +29,9 @@ The criteria will be evaluated at the scheduled run time, which will be the fina
   > [!NOTE]
   > You can associate one dynamic scope to one schedule.
 
+
+[!INCLUDE [dynamic-scope-prerequisites.md](includes/dynamic-scope-prerequisites.md)]
+
 ## Permissions
 
 For dynamic scoping (preview) and configuration assignment, ensure that you have the following permissions:
@@ -36,15 +39,18 @@ For dynamic scoping (preview) and configuration assignment, ensure that you have
 - Write permissions to create or modify a schedule.
 - Read permissions to assign or read a schedule.
 
+## Service limits
 
-## Prerequisites for Azure VMs
+The following are the Dynamic scope (preview) limits for **each dynamic scope**.
 
-- Patch Orchestration must be set to Customer Managed Schedules (Preview). This sets patch mode to AutomaticByPlatform and the **BypassPlatformSafetyChecksOnUserSchedule** = *True*.
-- Associate a Schedule with the VM.
+| Resource    | Limit          |
+|----------|----------------------------|
+| Resource associations     | 1000  |
+| Number of tag filters | 50 |
+| Number of Resource Group filters    | 50 |
 
 > [!NOTE]
-> For Arc VMs, there are no patch orchestration pre-requisites. However, you must associate a schedule with the VM for Schedule patching. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](prerequsite-for-schedule-patching.md).
-
+> The above limits are for Dynamic scope (preview) in the Guest scope only.
 
 ## Next steps
 

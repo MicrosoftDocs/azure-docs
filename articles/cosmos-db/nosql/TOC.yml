@@ -518,6 +518,9 @@
       href: query/toc.yml
     - name: Materialized views (preview)
       href: materialized-views.md
+    - name: Index and query geospatial data
+      displayName: geospatial, geojson, spatial, index, query, geography, geometry
+      href: how-to-geospatial-index-query.md
     - name: Throughput (Request units)
       items:
         - name: Provisioned throughput
@@ -805,8 +808,10 @@
               href: ../how-to-always-encrypted.md
             - name: Self-serve minimum TLS version enforcement
               href: ../self-serve-minimum-tls-enforcement.md
-            - name: Configure customer-managed keys with Azure key vault
+            - name: Configure customer-managed keys with Azure Key Vault
               href: ../how-to-setup-customer-managed-keys.md
+            - name: Configure customer-managed keys on existing accounts with Azure Key Vault
+              href: ../how-to-setup-customer-managed-keys-existing-accounts.md
             - name: CMK troubleshooting guide
               href: ../cmk-troubleshooting-guide.md
             - name: Configure customer-managed keys with Azure managed HSM key vault
@@ -918,6 +923,8 @@
           href: migrate-hbase-to-cosmos-db.md
     - name: Integrate with other Azure services
       items:
+        - name: RAG with Azure OpenAI
+          href: ../rag-data-openai.md
         - name: Change feed Ecommerce solution
           href: changefeed-ecommerce-solution.md
         - name: Azure App Service
@@ -972,6 +979,8 @@
           href: sdk-java-spring-data-v2.md
         - name: Spring Data Connector v3
           href: sdk-java-spring-data-v3.md
+        - name: Spring Data Connector v5
+          href: sdk-java-spring-data-v5.md
         - name: Spark 3.x OLTP Connector
           href: sdk-java-spark-v3.md
         - name: Spark 2.x LTS OLTP Connector

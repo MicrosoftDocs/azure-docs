@@ -44,10 +44,10 @@ To complete this tutorial, you need the following resources and privileges:
 * An account with *Conditional Access Administrator*, *Security Administrator*, or *Global Administrator* privileges. Some MFA settings can also be managed by an *Authentication Policy Administrator*. For more information, see [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
 
 * A non-administrator account with a password that you know. For this tutorial, we created such an account, named *testuser*. In this tutorial, you test the end-user experience of configuring and using Azure AD Multi-Factor Authentication.
-    * If you need information about creating a user account, see [Add or delete users using Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+    * If you need information about creating a user account, see [Add or delete users using Azure Active Directory](../fundamentals/add-users.md).
 
 * A group that the non-administrator user is a member of. For this tutorial, we created such a group, named *MFA-Test-Group*. In this tutorial, you enable Azure AD Multi-Factor Authentication for this group.
-    * If you need more information about creating a group, see [Create a basic group and add members using Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
+    * If you need more information about creating a group, see [Create a basic group and add members using Azure Active Directory](../fundamentals/how-to-manage-groups.md).
 
 ## Create a Conditional Access policy
 
@@ -188,7 +188,7 @@ If you no longer want to use the Conditional Access policy that you configured a
 
 1. Search for and select **Azure Active Directory**, and then select **Security** from the menu on the left-hand side.
 
-1. Select **Conditional access**, and then select the policy that you created, such as **MFA Pilot**.
+1. Select **Conditional Access**, and then select the policy that you created, such as **MFA Pilot**.
 
 1. select **Delete**, and then confirm that you want to delete the policy.
 

@@ -1,6 +1,6 @@
 ---
 title: Using rank to display search results
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Shows how to use the Bing RankingResponse answer to display search results in rank order.
 services: cognitive-services
 author: aahill
