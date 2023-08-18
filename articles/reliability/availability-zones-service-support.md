@@ -30,7 +30,7 @@ The following regions currently support availability zones:
 |---|---|---|---|---|
 | Brazil South | France Central | Qatar Central | South Africa North | Australia East |
 | Canada Central | Italy North* | UAE North | | Central India |
-| Central US |  Germany West Central | | | Japan East |
+| Central US |  Germany West Central | Israel Central* | | Japan East |
 | East US | Norway East | | | Korea Central |
 | East US 2 | North Europe  | | | Southeast Asia |
 | South Central US | UK South | | | East Asia |
@@ -150,6 +150,7 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 | [Azure Monitor](../azure-monitor/logs/availability-zones.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Monitor: Application Insights](../azure-monitor/logs/availability-zones.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Monitor: Log Analytics](../azure-monitor/logs/availability-zones.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure NAT Gateway](../nat-gateway/nat-availability-zones.md) | ![An icon that signifies this service is zonal](media/icon-zonal.svg) | 
 | [Azure Network Watcher](../network-watcher/frequently-asked-questions.yml) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Network Watcher: Traffic Analytics](../network-watcher/frequently-asked-questions.yml) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Notification Hubs](../notification-hubs/availability-zones.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |

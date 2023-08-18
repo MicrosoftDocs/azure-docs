@@ -24,17 +24,17 @@ Use the following steps to clone and run the app locally.
    git clone https://github.com/Azure-Samples/ASA-Samples-Web-Application.git
    ```
 
-2. Use the following command to build the sample project:
+2. Use the following command to build the sample project with Maven:
 
    ```bash
    cd ASA-Samples-Web-Application
    ./mvnw clean package
    ```
 
-3. Use the following command to run the sample application by using Maven:
+3. Use the following command to run the sample application:
 
    ```bash
-   java -jar web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
+   java -jar web/target/simple-todo-web-0.0.2-SNAPSHOT.jar
    ```
 
 4. Go to `http://localhost:8080` in your browser to access the application.

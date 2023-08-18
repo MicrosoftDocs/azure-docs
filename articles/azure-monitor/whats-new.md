@@ -16,6 +16,32 @@ This article lists significant changes to Azure Monitor documentation.
 >
 > !["An rss icon"](./media//whats-new/rss.png)  https://aka.ms/azmon/rss
 
+## July 2023
+
+|Subservice| Article | Description |
+|---|---|---|
+Agents|[Azure Monitor Agent Health (Preview)](agents/azure-monitor-agent-health.md)|Introduced a new Azure Monitor Agent Health workbook, which monitors the health of agents deployed across your organization. |
+Alerts|[Manage your alert instances](alerts/alerts-manage-alert-instances.md)|View alerts as a timeline (preview)|
+Alerts|[Upgrade to the Log Alerts API from the legacy Log Analytics alerts API](alerts/alerts-log-api-switch.md)|Changes to the log alert rule creation experience|
+Application-Insights|[Migrate to workspace-based Application Insights resources](app/convert-classic-resource.md)|We now support migrating classic components to workspace-based components via PowerShell cmdlet. |
+Application-Insights|[EventCounters introduction](app/eventcounters.md)|Code samples have been provided for the latest .NET versions.|
+Application-Insights|[Enable a framework extension for Application Insights JavaScript SDK](app/javascript-framework-extensions.md)|We've added a section for the React Native Manual Device Plugin, and clarified exception tracking and device info collection.|
+Application-Insights|[Migrate availability tests](app/availability-test-migration.md)|Migrate your classic URL ping tests to the new standard availability tests using this prescriptive guidance.|
+Application-Insights|[Enable a framework extension for Application Insights JavaScript SDK](app/javascript-framework-extensions.md)|The  'What does the plug-in enable?' and 'Add configuration' sections have been rewritten to align across all of our JavaScript documentation.|
+Application-Insights|[Microsoft Azure Monitor Application Insights JavaScript SDK configuration](app/javascript-sdk-configuration.md)|The  'What does the plug-in enable?' and 'Add configuration' sections have been rewritten to align across all of our JavaScript documentation.|
+Application-Insights|[Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](app/opentelemetry-enable.md)|Clarification of the term "Distro" has been provided.|
+Application-Insights|[Data Collection Basics of Azure Monitor Application Insights](app/opentelemetry-overview.md)|We've added a new article to clarify both manual and automatic instrumentation options to enable Application Insights.|
+Application-Insights|[Enable a framework extension for Application Insights JavaScript SDK](app/javascript-framework-extensions.md)|The "Explore your data" section has been improved.|
+Application-Insights|[Sampling overrides (preview) - Azure Monitor Application Insights for Java](app/java-standalone-sampling-overrides.md)|We've documented steps for troubleshooting sampling.|
+Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Additional Azure tables now support low-cost basic logs, including tables for the Bare Metal Machines, Managed Lustre, Nexus Clusters, and Nexus Storage Appliances services. |
+Logs|[Create and manage a dedicated cluster in Azure Monitor Logs](logs/logs-dedicated-clusters.md)|The minimum ingestion commitment for a dedicated cluster is now 100 GB per day (previously 500 GB). |
+Logs|[Query Basic Logs in Azure Monitor](logs/basic-logs-query.md)|Basic log queries are now billable.|
+Logs|[Restore logs in Azure Monitor](logs/restore.md)|Restored logs are now billable.|
+Logs|[Run search jobs in Azure Monitor](logs/search-jobs.md)|Search jobs are now billable.|
+Logs|[Tutorial: Ingest events from Azure Event Hubs into Azure Monitor Logs (Preview)](logs/ingest-logs-event-hub.md)|New article that explains how to ingest data directly from Azure Event Hubs, Azure's big data streaming platform, into Azure Monitor Logs.|
+Optimization-Insights|[Monitor and analyze runtime behavior with Code Optimizations (Preview)](insights/code-optimizations.md)|PM added a demo video for Code Optimizations|
+Virtual-Machines|[Migrate from deprecated VM insights policies](vm/vminsights-migrate-deprecated-policies.md)|We're deprecating the VM insights DCR deployment policies and replacing them with new policies because of a race condition issue.This article explains how to migrate from deprecated VM insights policies to their replacement policies.|
+
 ## June 2023
 
 |Subservice| Article | Description |

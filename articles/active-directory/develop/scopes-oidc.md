@@ -14,7 +14,7 @@ ms.reviewer: jawoods, ludwignick, phsignor
 ---
 # Scopes and permissions in the Microsoft identity platform
 
-The Microsoft identity platform implements the [OAuth 2.0](active-directory-v2-protocols.md) authorization protocol. OAuth 2.0 is a method through which a third-party app can access web-hosted resources on behalf of a user. Any web-hosted resource that integrates with the Microsoft identity platform has a resource identifier, or *application ID URI*.
+The Microsoft identity platform implements the [OAuth 2.0](./v2-protocols.md) authorization protocol. OAuth 2.0 is a method through which a third-party app can access web-hosted resources on behalf of a user. Any web-hosted resource that integrates with the Microsoft identity platform has a resource identifier, or *application ID URI*.
 
 In this article, you'll learn about scopes and permissions in the identity platform.
 
@@ -63,7 +63,7 @@ If you request the OpenID Connect scopes and a token, you'll get a token to call
 
 ### openid
 
-If an app signs in by using [OpenID Connect](active-directory-v2-protocols.md), it must request the `openid` scope. The `openid` scope appears on the work account consent page as the **Sign you in** permission.
+If an app signs in by using [OpenID Connect](./v2-protocols.md), it must request the `openid` scope. The `openid` scope appears on the work account consent page as the **Sign you in** permission.
 
 By using this permission, an app can receive a unique identifier for the user in the form of the `sub` claim. The permission also gives the app access to the UserInfo endpoint. The `openid` scope can be used at the Microsoft identity platform token endpoint to acquire ID tokens. The app can use these tokens for authentication.
 
@@ -88,11 +88,11 @@ When a user approves the `offline_access` scope, your app can receive refresh to
 > [!NOTE]
 > This permission currently appears on all consent pages, even for flows that don't provide a refresh token (such as the [implicit flow](v2-oauth2-implicit-grant-flow.md)). This setup addresses scenarios where a client can begin within the implicit flow and then move to the code flow where a refresh token is expected.
 
-On the Microsoft identity platform (requests made to the v2.0 endpoint), your app must explicitly request the `offline_access` scope, to receive refresh tokens. So when you redeem an authorization code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md), you'll receive only an access token from the `/token` endpoint. 
+On the Microsoft identity platform (requests made to the v2.0 endpoint), your app must explicitly request the `offline_access` scope, to receive refresh tokens. So when you redeem an authorization code in the [OAuth 2.0 authorization code flow](./v2-protocols.md), you'll receive only an access token from the `/token` endpoint. 
 
 The access token is valid for a short time. It usually expires in one hour. At that point, your app needs to redirect the user back to the `/authorize` endpoint to get a new authorization code. During this redirect, depending on the type of app, the user might need to enter their credentials again or consent again to permissions.
 
-For more information about how to get and use refresh tokens, see the [Microsoft identity platform protocol reference](active-directory-v2-protocols.md).
+For more information about how to get and use refresh tokens, see the [Microsoft identity platform protocol reference](./v2-protocols.md).
 
 ## The .default scope
 
@@ -156,7 +156,7 @@ This code example produces a consent page for all registered permissions if the 
 
 Another use of `.default` is to request app roles (also known as application permissions) in a non-interactive application like a daemon app that uses the [client credentials](v2-oauth2-client-creds-grant-flow.md) grant flow to call a web API.
 
-To define app roles (application permissions) for a web API, see [Add app roles in your application](howto-add-app-roles-in-azure-ad-apps.md).
+To define app roles (application permissions) for a web API, see [Add app roles in your application](./howto-add-app-roles-in-apps.md).
 
 Client credentials requests in your client service *must* include `scope={resource}/.default`. Here, `{resource}` is the web API that your app intends to call, and wishes to obtain an access token for. Issuing a client credentials request by using individual application permissions (roles) is *not* supported. All the app roles (application permissions) that have been granted for that web API are included in the returned access token.
 

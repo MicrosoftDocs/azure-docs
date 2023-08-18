@@ -94,7 +94,7 @@ Expose _application permissions_ instead of delegated permissions if your API sh
 
 #### Expose application permissions (app roles)
 
-To expose application permissions, follow the steps in [Add app roles to your app](howto-add-app-roles-in-azure-ad-apps.md).
+To expose application permissions, follow the steps in [Add app roles to your app](./howto-add-app-roles-in-apps.md).
 
 In the **Create app role** pane under **Allowed member types**, select **Applications**. Or, add the role by using the **Application manifest editor** as described in the article.
 

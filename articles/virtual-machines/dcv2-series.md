@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The DCsv2-series virtual machines help protect the confidentiality and integrity of your data and code while it’s processed in the public cloud. DCsv2-series leverage Intel® Software Guard Extensions, which enable customers to use secure enclaves for protection.
+The DCsv2-series virtual machines help protect the confidentiality and integrity of your data and code while it’s processed in the public cloud. DCsv2-series leverage Intel® Software Guard Extensions (SGX), which enable customers to use [secure enclaves](../confidential-computing/confidential-computing-enclaves.md) for protection.
 
 These machines are backed by 3.7 GHz Intel® Xeon E-2288G (Coffee Lake) with SGX technology. With Intel® Turbo Boost Max Technology 3.0 these machines can go up to 5.0 GHz. 
 

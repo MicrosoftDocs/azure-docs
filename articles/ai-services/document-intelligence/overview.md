@@ -1,5 +1,5 @@
 ---
-title: What is Azure AI Document Intelligence?
+title: What is Azure AI Document Intelligence (formerly Form Recognizer)?
 titleSuffix: Azure AI services
 description: Azure AI Document Intelligence is a machine-learning based OCR and intelligent document processing service to automate extraction of key data from forms and documents.
 author: laujan
@@ -23,7 +23,11 @@ monikerRange: '<=doc-intel-3.1.0'
 > [!NOTE]
 > Form Recognizer is now **Azure AI Document Intelligence**!
 >
-> As of July 2023, Azure AI services encompass all of what were previously known as Cognitive Services and Azure Applied AI Services. There are no changes to pricing. The names *Cognitive Services* and *Azure Applied AI* continue to be used in Azure billing, cost analysis, price list, and price APIs. There are no breaking changes to application programming interfaces (APIs) or SDKs.
+> * As of July 2023, Azure AI services encompass all of what were previously known as Cognitive Services and Azure Applied AI Services.
+> * There are no changes to pricing.
+> * The names *Cognitive Services* and *Azure Applied AI* continue to be used in Azure billing, cost analysis, price list, and price APIs.
+> * There are no breaking changes to application programming interfaces (APIs) or SDKs.
+> * Some platforms are still awaiting the renaming update. All mention of Form Recognizer or Document Intelligence in our documentation refers to the same Azure service.
 
 ::: moniker range=">=doc-intel-3.0.0"
  [!INCLUDE [applies to v3.1, v3.0, and v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
@@ -248,7 +252,7 @@ You can use Document Intelligence to automate document processing in application
 
 | About | Development options |
 |----------|--------------|
-|Extract contract agreement and party details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=contract)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)
+|Extract contract agreement and party details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=contract)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
@@ -270,7 +274,7 @@ You can use Document Intelligence to automate document processing in application
 
 | About | Description |Automation use cases |Development options |
 |----------|--------------|-----------|--------------------------|
-|[**Custom model**](concept-custom.md) | Extracts information from forms and documents into structured data based on a model created from a set of representative training document sets.|Extract distinct data from forms and documents specific to your business and use cases.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/BuildDocumentModel)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|
+|[**Custom model**](concept-custom.md) | Extracts information from forms and documents into structured data based on a model created from a set of representative training document sets.|Extract distinct data from forms and documents specific to your business and use cases.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/BuildDocumentModel)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|
 
 > [!div class="nextstepaction"]
 > [Return to custom model types](#custom-models)
@@ -285,7 +289,7 @@ You can use Document Intelligence to automate document processing in application
 
 | About | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
-|[**Custom Template model**](concept-custom-template.md) | The custom template model extracts labeled values and fields from structured and semi-structured documents.</br> | Extract key data from highly structured documents with defined visual templates or common visual layouts, forms.| &#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/BuildDocumentModel)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)
+|[**Custom Template model**](concept-custom-template.md) | The custom template model extracts labeled values and fields from structured and semi-structured documents.</br> | Extract key data from highly structured documents with defined visual templates or common visual layouts, forms.| &#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/BuildDocumentModel)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)
 
 > [!div class="nextstepaction"]
 > [Return to custom model types](#custom-models)
@@ -300,7 +304,7 @@ You can use Document Intelligence to automate document processing in application
 
 | About | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
- |[**Custom Neural model**](concept-custom-neural.md)| The custom neural model is used to extract labeled data from structured (surveys, questionnaires), semi-structured (invoices, purchase orders), and unstructured documents (contracts, letters).|Extract text data, checkboxes, and tabular fields from structured and unstructured documents.|[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/BuildDocumentModel)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)
+ |[**Custom Neural model**](concept-custom-neural.md)| The custom neural model is used to extract labeled data from structured (surveys, questionnaires), semi-structured (invoices, purchase orders), and unstructured documents (contracts, letters).|Extract text data, checkboxes, and tabular fields from structured and unstructured documents.|[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/BuildDocumentModel)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)
 
 > [!div class="nextstepaction"]
 > [Return to custom model types](#custom-models)
@@ -333,7 +337,7 @@ You can use Document Intelligence to automate document processing in application
 
 | About | Development options |
 |----------|--------------|
-|Extract mortgage interest information and details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)
+|Extract mortgage interest information and details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
@@ -344,7 +348,7 @@ You can use Document Intelligence to automate document processing in application
 
 | About | Development options |
 |----------|--------------|
-|Extract student loan information and details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098E)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)
+|Extract student loan information and details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098E)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
@@ -355,7 +359,7 @@ You can use Document Intelligence to automate document processing in application
 
 | About | Development options |
 |----------|--------------|
-|Extract tuition information and details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098T)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)
+|Extract tuition information and details.|&#9679; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.1098T)</br>&#9679; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
 
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)

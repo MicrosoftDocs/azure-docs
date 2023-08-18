@@ -2,6 +2,7 @@
 author: billmath
 ms.service: active-directory
 ms.subservice: cloud-provisioning
+ms.custom: has-azure-ad-ps-ref
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath

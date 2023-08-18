@@ -35,6 +35,7 @@ The following table lists common networking scenarios and topologies and their s
 | Use a connection broker, such as Parsec, for high-framerate gaming scenarios | Not recommended | This scenario isn’t directly supported with Azure Lab Services and would run into the same challenges as accessing lab VMs by private IP address. |
 | *Cyber field* scenario, consisting of a set of vulnerable VMs on the network for lab users to discover and hack into (ethical hacking)  | Yes | This scenario works with advanced networking for lab plans. Learn about the [ethical hacking class type](./class-type-ethical-hacking.md). |
 | Enable using Azure Bastion for lab VMs  | No | Azure Bastion isn't supported in Azure Lab Services. |
+| Set up line-of-sight to domain controller | Not recommended | Line-of-sight from a lab to a domain controller is required to Hybrid Azure AD join or AD domain join VMs; however, we currently do *not* recommend that lab VMs be Azure AD joined/registered, Hybrid Azure AD joined, or AD domain joined due to product limitations. |
 
 ## Next steps
 

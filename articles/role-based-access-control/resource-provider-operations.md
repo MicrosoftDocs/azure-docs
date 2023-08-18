@@ -25,6 +25,7 @@ Click the resource provider name in the following table to see the list of opera
 | [Microsoft.Addons](#microsoftaddons) |
 | [Microsoft.Marketplace](#microsoftmarketplace) |
 | [Microsoft.MarketplaceOrdering](#microsoftmarketplaceordering) |
+| [Microsoft.Quota](#microsoftquota) |
 | [Microsoft.ResourceHealth](#microsoftresourcehealth) |
 | [Microsoft.Support](#microsoftsupport) |
 | **Compute** |
