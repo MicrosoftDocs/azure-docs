@@ -27,6 +27,8 @@ When a workflow is deleted, it enters a soft-delete state. During this period, y
 
 ## Delete a workflow by using the Azure portal
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the search bar near the top of the page, enter **Identity Governance**. Then select **Identity Governance** in the results.

@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.date: 06/12/2023
 ms.author: barclayn
 ms.reviewer: krbain
-ms.custom: "it-pro;seo-update-azuread-jan"
+ms.custom: it-pro, seo-update-azuread-jan, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -42,6 +42,8 @@ Groups created in | Security group default behavior | Microsoft 365 group defaul
     An example of this scenario is two users who both have SharePoint Online sites that they set up independently. They want to give each other's teams access to their sites. To accomplish this, they can create one group in Azure AD, and in SharePoint Online each of them selects that group to provide access to their sites. When someone wants access, they request it from the MyApps Groups Access Panel, and after approval they get access to both SharePoint Online sites automatically. Later, one of them decides that all people accessing the site should also get access to a particular SaaS application. The administrator of the SaaS application can add access rights for the application to the SharePoint Online site. From then on, any requests that get approved give access to the two SharePoint Online sites and also to this SaaS application.
 
 ## Make a group available for user self-service
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's been assigned the Global Administrator or Groups Administrator role for the directory.
 
@@ -102,11 +104,8 @@ To configure the _Users can create security groups in Azure portals, API or Powe
 
 These articles provide additional information on Azure Active Directory.
 
-* [Manage access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md)
+* [Manage access to resources with Azure Active Directory groups](../fundamentals/concept-learn-about-groups.md)
 * [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md)
 * [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md)
+* [What is Azure Active Directory?](../fundamentals/whatis.md)
 * [Integrate your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
-
-
-

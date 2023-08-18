@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/02/2023
 ms.author: dkulkarni
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, devx-track-linux
 ---
 
 # Azure Hybrid Benefit for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines

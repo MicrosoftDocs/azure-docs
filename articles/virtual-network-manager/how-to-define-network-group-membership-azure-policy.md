@@ -111,6 +111,9 @@ The advanced editor can be used to select virtual networks during the creation o
    ```
 1. After a few minutes, select your network group and select **Group Members** under **Settings**. You should only see myVNet01-WestUS and myVNet01-EastUS.
 
+> [!IMPORTANT]
+> Any Azure Policies you create through with virtual network manager will live in the Azure Policy services area. They will not be remove from your Azure Policy assignments and definitions when a virtual network manager instance is delete. This requires removal of the policies manually. [Learn to remove Azure Policies](../governance/policy/tutorials/create-and-manage.md#clean-up-resources)
+
 ### Edit an existing policy
 
 1. Select the network group created in the previous section. Then select the **Policies** tab.
@@ -214,7 +217,7 @@ Both `"allOf"` and `"anyOf"` are used in the code. Since the **AND** operator is
 
 ### Example 3: Using custom tag values with advanced editor
 
-In this example, a conditional statement is created that finds virtual networks where the name includes **myVNet** AND the **environment** tag includes **production**.
+In this example, a conditional statement is created that finds virtual networks where the name includes **myVNet** AND the **environment** tag equals **production**.
 
 * Advanced editor:
 
@@ -228,7 +231,7 @@ In this example, a conditional statement is created that finds virtual networks 
             },      
             {
                "field": "tags['environment']",
-               "contains": "production"
+               "equals": "production"
             }
           ]    
      }

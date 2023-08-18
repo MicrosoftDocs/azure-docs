@@ -7,7 +7,7 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: allensu
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-linux
 ---
 
 # Name resolution for resources in Azure virtual networks
@@ -370,5 +370,3 @@ Azure Resource Manager deployment model:
 * [Manage a virtual network](manage-virtual-network.md)
 
 * [Manage a network interface](virtual-network-network-interface.md)
-
-

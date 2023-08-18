@@ -26,7 +26,7 @@ To use custom text analytics for health, you'll need to [create an Azure storage
 
 # [Azure portal](#tab/portal)
 
-Your Language resource must have identity management, to enable it using [Azure portal](https://portal.azure.com/):
+Your Language resource must have identity management. To enable it using the [Azure portal](https://portal.azure.com):
 
 1. Go to your Language resource
 2. From left hand menu, under **Resource Management** section, select **Identity**
@@ -46,7 +46,7 @@ Your Language resource must have identity management, to enable it using [Langua
 
 Make sure to enable **Custom text classification / Custom Named Entity Recognition / Custom text analytics for health** feature from Azure portal.
 
-1. Go to your Language resource in [Azure portal](https://portal.azure.com/)
+1. Go to your Language resource in the [Azure portal](https://portal.azure.com).
 2. From the left side menu, under **Resource Management** section, select **Features**
 3. Enable the **Custom text classification / Custom Named Entity Recognition / Custom text analytics** feature
 4. Connect your storage account

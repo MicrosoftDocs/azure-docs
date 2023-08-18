@@ -1,5 +1,5 @@
 ---
-title: "JavaScript tutorial: Search integration overview"
+title: "Add search to web sites (JavaScript tutorial)"
 titleSuffix: Azure Cognitive Search
 description: Technical overview and setup for adding search to a website and deploying to an Azure Static Web Apps. 
 manager: nitinme
@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/26/2022
+ms.date: 07/18/2023
 ms.custom: devx-track-js
 ms.devlang: javascript
 ---
@@ -42,10 +42,9 @@ Install the following for your local development environment.
     - Select latest runtime and version from this [list of supported language versions](../azure-functions/functions-versions.md?pivots=programming-language-javascript&tabs=azure-cli%2clinux%2cin-process%2cv4#languages).
     - If you have a different version of Node.js installed on your local computer, consider using [Node Version Manager](https://github.com/nvm-sh/nvm) (nvm) or a Docker container.  
 - [Git](https://git-scm.com/downloads)
-- [PowerShell](/powershell/scripting/install/installing-powershell)
 - [Visual Studio Code](https://code.visualstudio.com/) and the following extensions
     - [Azure Static Web App](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 
-    - Use the integrated PowerShell terminal for all PowerShell commands.
+    - Use the integrated terminal for command line operations.
 
 - Optional:
     - This tutorial doesn't run the Azure Function API locally. If you intend to run it locally, you need to install [azure-functions-core-tools](../azure-functions/functions-run-local.md?tabs=linux%2ccsharp%2cbash) globally with the following bash command: 

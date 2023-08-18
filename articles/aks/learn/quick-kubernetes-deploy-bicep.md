@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster by using Bi
 description: Learn how to quickly create a Kubernetes cluster using a Bicep file and deploy an application in Azure Kubernetes Service (AKS)
 ms.topic: quickstart
 ms.date: 11/01/2022
-ms.custom: mvc, subject-armbicep, devx-track-bicep, devx-track-azurecli
+ms.custom: mvc, subject-armbicep, devx-track-bicep, devx-track-azurecli, devx-track-linux
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 

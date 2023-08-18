@@ -16,7 +16,7 @@ ms.date: 05/10/2023
 
 [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
 
-Use vector search in Azure Cosmos DB for MongoDB vCore to seamlessly integrate your AI-based applications, including apps that you built by using [Azure OpenAI embeddings](../../../ai-services/openai/tutorials/embeddings.md), with your data that's stored in Azure Cosmos DB. Vector search enables you to efficiently store, index, and query high-dimensional vector data that's stored directly in Azure Cosmos DB for MongoDB vCore. It eliminates the need to transfer your data to more expensive alternatives for vector search capabilities.
+Use vector search in Azure Cosmos DB for MongoDB vCore to seamlessly integrate your AI-based applications with your data that's stored in Azure Cosmos DB. This integration can include apps that you built by using [Azure OpenAI embeddings](../../../ai-services/openai/tutorials/embeddings.md). Vector search enables you to efficiently store, index, and query high-dimensional vector data that's stored directly in Azure Cosmos DB for MongoDB vCore. It eliminates the need to transfer your data to more expensive alternatives for vector search capabilities.
 
 ## What is vector search?
 
@@ -53,7 +53,7 @@ To create a vector index, use the following `createIndexes` template:
 | `index_name` | string | Unique name of the index. |
 | `path_to_property` | string | Path to the property that contains the vector. This path can be a top-level property or a dot notation path to the property. If a dot notation path is used, then all the nonleaf elements can't be arrays. |
 | `kind` | string | Type of vector index to create. Currently, `vector-ivf` is the only supported index option. |
-| `numLists` | integer | This integer is the number of clusters that the inverted file (IVF) index uses to group the vector data. We recommend that `numLists` be set to `rowCount()/1000` for up to 1 million rows and to `sqrt(rowCount)` for more than 1 million rows. |
+| `numLists` | integer | This integer is the number of clusters that the inverted file (IVF) index uses to group the vector data. We recommend that `numLists` is set to `rowCount()/1000` for up to 1 million rows and to `sqrt(rowCount)` for more than 1 million rows. |
 | `similarity` | string | Similarity metric to use with the IVF index. Possible options are `COS` (cosine distance), `L2` (Euclidean distance), and `IP` (inner product). |
 | `dimensions` | integer | Number of dimensions for vector similarity. The maximum number of supported dimensions is `2000`. |
 
@@ -65,6 +65,8 @@ The following examples show you how to index vectors, add documents that have ve
 
 ```javascript
 use test;
+
+db.createCollection("exampleCollection");
 
 db.runCommand({
   createIndexes: 'exampleCollection',

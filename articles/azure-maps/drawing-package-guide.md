@@ -308,21 +308,7 @@ The following example is taken from the [sample drawing package v2]. The facilit
 
 :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/facility-levels.png" alt-text="Screenshot showing the facility levels tab of the Azure Maps Creator onboarding tool.":::
 
-### DWG layers
-
-The `dwgLayers` object is used to specify the DWG layer names where feature classes can be found. To receive a properly converted facility, it's important to provide the correct layer names. For example, a DWG wall layer must be provided as a wall layer and not as a unit layer. The drawing can have other layers such as furniture or plumbing; but, the Azure Maps Conversion service ignores anything not specified in the manifest.
-Defining text properties enables you to associate text entities that fall inside the bounds of a feature. Once defined they can be used to style and display elements on your indoor map
-
-:::image type="content" source="./media/creator-indoor-maps/onboarding-tool/dwg-layers.png" alt-text="Screenshot showing the 'create a new manifest' screen of the onboarding tool.":::
-
-> [!IMPORTANT]
-> The following feature class should be defined (not case sensitive) in order to use [wayfinding]. `Wall` will be treated as an obstruction for a given path request. `Stair` and `Elevator` will be treated as level connectors to navigate across floors:
->
-> 1. Wall
-> 2. Stair
-> 3. Elevator
-
-### georeference
+### Georeference
 
 Georeferencing is used to specify the exterior profile, location and rotation of the facility.
 
@@ -334,13 +320,23 @@ The **Anchor Point Angle** is specified in degrees between true north and the dr
 
 :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/georeference.png" alt-text="Screenshot showing the default settings in the georeference tab of the Azure Maps Creator onboarding tool. The default settings are zero for all anchor points including longitude, latitude and angle.":::
 
-You position the facility's location by entering either an address or longitude and latitude values. You can also pan the map to make minor adjustments to the facility's location.
+### DWG layers
 
-:::image type="content" source="./media/creator-indoor-maps/onboarding-tool/georeference-location-defined.png" alt-text="Screenshot showing the georeference tab of the Azure Maps Creator onboarding tool with values entered for longitude and latitude.":::
+The `dwgLayers` object is used to specify the DWG layer names where feature classes can be found. To receive a properly converted facility, it's important to provide the correct layer names. For example, a DWG wall layer must be provided as a wall layer and not as a unit layer. The drawing can have other layers such as furniture or plumbing; but, the Azure Maps Conversion service ignores anything not specified in the manifest.
+Defining text properties enables you to associate text entities that fall inside the bounds of a feature. Once defined they can be used to style and display elements on your indoor map
 
-### Review and download
+:::image type="content" source="./media/creator-indoor-maps/onboarding-tool/dwg-layers.png" alt-text="Screenshot showing the 'create a new manifest' screen of the onboarding tool.":::
 
-When finished, select the **Review + Download** button to view the manifest. When you finished verifying that it's ready, select the **Download** button to save it locally so that you can include it in the drawing package to import into your Azure Maps Creator resource.
+> [!IMPORTANT]
+> The following feature classes should be defined (not case sensitive) in order to use [wayfinding]. `Wall` will be treated as an obstruction for a given path request. `Stair` and `Elevator` will be treated as level connectors to navigate across floors:
+>
+> * Wall
+> * Stair
+> * Elevator
+
+### Download
+
+When finished, select the **Download** button to view the manifest. When you finished verifying that it's ready, select the **Download** button to save it locally so that you can include it in the drawing package to import into your Azure Maps Creator resource.
 
 :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/review-download.png" alt-text="Screenshot showing the manifest JSON.":::
 

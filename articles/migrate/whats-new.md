@@ -6,7 +6,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 07/10/2023
+ms.date: 07/26/2023
 ms.custom: mvc, engagement-fy23
 ---
 
@@ -15,6 +15,7 @@ ms.custom: mvc, engagement-fy23
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
 ## Update (July 2023)
+- Discover Azure Migrate from Operations Manager console: Operations Manager 2019 UR3 and later allows you to discover Azure Migrate from console. You can now generate a complete inventory of your on-premises environment without appliance. This can be used in Azure Migrate to assess machines at scale. [Learn more](https://support.microsoft.com/topic/discover-azure-migrate-for-operations-manager-04b33766-f824-4e99-9065-3109411ede63).
 - Public Preview: Upgrade your Windows OS during Migration using the Migration and modernization tool in your VMware environment. [Learn more](how-to-upgrade-windows.md).
 
 ## Update (June 2023)
@@ -67,7 +68,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 ## Update (October 2022)
 
-- Support for export of errors and notifications from the portal for software inventory and agentless dependency.
+- Support for export of errors and notifications from the portal for software inventory and agentless dependency. [Learn more](troubleshoot-dependencies.md)
 
 ## Update (September 2022)
 
@@ -98,7 +99,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 ## Update (February 2022)
 - General Availability: Migrate Windows and Linux Hyper-V virtual machines with large data disks (up to 32 TB in size).
-- Azure Migrate is now supported in Azure China. [Learn more](/azure/china/overview-operations#azure-operations-in-china).
+- Azure Migrate is now supported in Microsoft Azure operated by 21Vianet. [Learn more](/azure/china/overview-operations#azure-operations-in-china).
 - Public preview of at-scale, software inventory, and agentless dependency analysis for Hyper-V virtual machines and bare metal servers or servers running on other clouds like AWS, GCP etc.
 
 

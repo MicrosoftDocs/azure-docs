@@ -61,7 +61,7 @@ Once you confirm that pronoun data is available in the *Get_Workers* response, g
 
 To retrieve pronouns from Workday, update your Azure AD provisioning app to query Workday using v38.1 of the Workday Web Services. We recommend testing this configuration first in your test/sandbox environment before implementing the change in production. 
 
-1. Sign-in to Azure portal as administrator. 
+1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 1. Open your *Workday to AD User provisioning* app OR *Workday to Azure AD User provisioning* app. 
 1. In the **Admin Credentials** section, update the **Tenant URL** to include the Workday Web Service version v38.1 as shown.
 

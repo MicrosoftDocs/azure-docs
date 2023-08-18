@@ -46,7 +46,7 @@ Before you create your Azure AD B2C tenant, you need to take the following consi
 >[!NOTE]
 >If you're unable to create Azure AD B2C tenant, [review your user settings page](tenant-management-check-tenant-creation-permission.md) to ensure that tenant creation isn't switched off. If tenant creation is switched on, ask your *Global Administrator* to assign you a **Tenant Creator** role.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/). 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 
 1. Make sure you're using the Azure Active Directory (Azure AD) tenant that contains your subscription: 
@@ -95,7 +95,7 @@ You can link multiple Azure AD B2C tenants to a single Azure subscription for bi
 
 Azure AD B2C allows you to activate Go-Local add-on on an existing tenant as long as your tenant stores data in a country/region that has local data residence option. To opt-in to Go-Local add-on, use the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/). 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 1. Make sure you're using the directory that contains your Azure AD B2C tenant: 
 
@@ -135,7 +135,7 @@ You only need to perform this operation once. Before performing these steps, mak
 1. In the **All services** search box, search for **Azure AD B2C**, hover over the search result, and then select the star icon in the tooltip. **Azure AD B2C** now appears in the Azure portal under **Favorites**.
 1. If you want to change the position of your new favorite, go to the Azure portal menu, select **Azure AD B2C**, and then drag it up or down to the desired position.
 
-    ![Azure AD B2C, Favorites menu, Microsoft Azure portal](media/tutorial-create-tenant/portal-08-b2c-favorite.png)
+    ![Azure AD B2C, Favorites menu, Azure portal](media/tutorial-create-tenant/portal-08-b2c-favorite.png)
 
 ## Next steps
 

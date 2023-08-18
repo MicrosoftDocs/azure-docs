@@ -25,9 +25,11 @@ Follow the steps in this article to approve or deny requests for Azure resource 
 
 ## View pending requests
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 As a delegated approver, you'll receive an email notification when an Azure resource role request is pending your approval. You can view these pending requests in Privileged Identity Management.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Open **Azure AD Privileged Identity Management**.
 
@@ -74,4 +76,4 @@ Here's some information about workflow notifications:
 ## Next steps
 
 - [Email notifications in Privileged Identity Management](pim-email-notifications.md)
-- [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md)
+- [Approve or deny requests for Azure AD roles in Privileged Identity Management](./pim-approval-workflow.md)

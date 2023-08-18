@@ -2,8 +2,8 @@
 title: Upgrade a packet core instance - ARM template
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to upgrade a packet core instance using an Azure Resource Manager template (ARM template). 
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 05/16/2022
@@ -128,9 +128,6 @@ If you encountered issues after the upgrade, you can roll back the packet core i
 In this step, you'll roll back your packet core using a REST API request. Follow [Rollback - Azure portal](upgrade-packet-core-azure-portal.md#rollback) if you want to roll back using the Azure portal instead.
 
 If any of the configuration you set while your packet core instance was running a newer version isn't supported in the version that you want to roll back to, you'll need to revert to the previous configuration before you're able to perform a rollback. Check the packet core release notes for information on when new features were introduced.
-
-> [!NOTE]
-> You can roll back your packet core instance to version [PMN-2211-0](azure-private-5g-core-release-notes-2211.md) or later.
 
 1. Ensure you have a backup of your deployment information. If you need to back up again, follow [Back up deployment information](#back-up-deployment-information).
 1. Perform a [rollback POST request](/rest/api/mobilenetwork/packet-core-control-planes/rollback?tabs=HTTP).
