@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Prepare a vanilla JavaScript single-page app (SPA) for authentication in a customer tenant 
-description: Learn how to prepare a vanilla JavaScript single-page app (SPA) for authentication and authorization with your Azure Active Directory (AD) for customers tenant.
+title: Tutorial - Prepare a Vanilla JavaScript single-page app (SPA) for authentication in a customer tenant 
+description: Learn how to prepare a Vanilla JavaScript single-page app (SPA) for authentication and authorization with your Azure Active Directory (AD) for customers tenant.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
@@ -10,32 +10,32 @@ ms.service: active-directory
 ms.subservice: ciam
 ms.custom: devx-track-js
 ms.topic: tutorial
-ms.date: 06/09/2023
-#Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure AD for customers tenant.
+ms.date: 08/17/2023
+#Customer intent: As a developer, I want to learn how to configure Vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure AD for customers tenant.
 ---
 
-# Tutorial: Prepare a vanilla JavaScript single-page app for authentication in a customer tenant
+# Tutorial: Prepare a Vanilla JavaScript single-page app for authentication in a customer tenant
 
-In the [previous article](./how-to-single-page-app-vanillajs-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (AD) for customers tenant. This article shows you how to create a vanilla JavaScript (JS) single-page app (SPA) and configure it to sign in and sign out users with your customer tenant.
+In the [previous article](tutorial-single-page-app-vanillajs-prepare-tenant.md), you registered an application and configured user flows in your Azure Active Directory (AD) for customers tenant. This article shows you how to create a Vanilla JavaScript (JS) single-page app (SPA) and configure it to sign in and sign out users with your customer tenant.
 
 In this tutorial;
 
 > [!div class="checklist"]
-> * Create a vanilla JavaScript project in Visual Studio Code
+> * Create a Vanilla JavaScript project in Visual Studio Code
 > * Install required packages
 > * Add code to *server.js* to create a server
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Prepare your customer tenant to authenticate a vanilla JavaScript single-page app](how-to-single-page-app-vanillajs-prepare-tenant.md).
-* Although any integrated development environment (IDE) that supports vanilla JS applications can be used, **Visual Studio Code** is recommended for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+* Completion of the prerequisites and steps in [Prepare your customer tenant to authenticate a Vanilla JavaScript single-page app](tutorial-single-page-app-vanillajs-prepare-tenant.md).
+* Although any integrated development environment (IDE) that supports Vanilla JS applications can be used, **Visual Studio Code** is recommended for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
 * [Node.js](https://nodejs.org/en/download/).
 
-## Create a new vanilla JS project and install dependencies
+## Create a new Vanilla JS project and install dependencies
 
 1. Open Visual Studio Code, select **File** > **Open Folder...**. Navigate to and select the location in which to create your project.
 1. Open a new terminal by selecting **Terminal** > **New Terminal**.
-1. Run the following command to create a new vanilla JS project:
+1. Run the following command to create a new Vanilla JS project:
 
     ```powershell
     npm init -y
@@ -47,6 +47,7 @@ In this tutorial;
             └── authConfig.js
             └── authPopup.js
             └── authRedirect.js
+            └── claimUtils.js
             └── index.html
             └── signout.html
             └── styles.css
@@ -113,4 +114,4 @@ In this code, the **app** variable is initialized with the **express** module an
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure SPA for authentication](how-to-single-page-app-vanillajs-configure-authentication.md)
+> [Configure SPA for authentication](tutorial-single-page-app-vanillajs-configure-authentication.md)
