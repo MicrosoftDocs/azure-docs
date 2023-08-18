@@ -31,7 +31,7 @@ Kubernetes application-based container offers can't be deployed on AKS for Azure
 
 ## Select and deploy a Kubernetes application
 
-### From the AKS portal
+### From an AKS cluster
 
 1. In the [Azure portal](https://portal.azure.com/), you can deploy a Kubernetes application from an existing cluster by navigating to **Marketplace** or selecting **Extensions + applications**, then selecting **+ Add**.
 
@@ -47,7 +47,7 @@ Kubernetes application-based container offers can't be deployed on AKS for Azure
 
    :::image type="content" source="./media/deploy-marketplace/plan-pricing.png" alt-text="Screenshot of the offer purchasing page in the Azure portal, showing plan and pricing information.":::
 
-1. Follow each page in the wizard, all the way through **Review + Create**. Fill in information for your resource group, your cluster, and any configuration options that the application requires. 
+1. Follow each page in the wizard, all the way through **Review + Create**. Fill in information for your resource group, your cluster, and any configuration options that the application requires.
 
    :::image type="content" source="./media/deploy-marketplace/review-create.png" alt-text="Screenshot of the Azure portal wizard for deploying a new offer, with the selector for creating a cluster or using an existing one.":::
 
@@ -55,7 +55,7 @@ Kubernetes application-based container offers can't be deployed on AKS for Azure
 
    :::image type="content" source="./media/deploy-marketplace/deploying.png" alt-text="Screenshot of the Azure portal deployments screen, showing that the Kubernetes offer is currently being deployed.":::
 
-### From the Marketplace portal
+### Search in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com/), search for **Marketplace** on the top search bar. In the results, under **Services**, select **Marketplace**.
 
