@@ -255,7 +255,7 @@ When resizing a VM, it's important to choose the right SKU based on the signals 
 
 For more information on choosing the right SKU, you can use the following resources:
 - [Sizes for VMs in Azure](sizes.md): This article lists all the VM sizes available in Azure.
-- [Azure VM Selector](https://azure.microsoft.com/en-us/pricing/vm-selector/): This tool helps you find the right VM SKU based on your workload type, OS and software, and deployment region.
+- [Azure VM Selector](https://azure.microsoft.com/pricing/vm-selector/): This tool helps you find the right VM SKU based on your workload type, OS and software, and deployment region.
 
 
 
@@ -275,6 +275,6 @@ For a work-around, see [How do I migrate from a VM size with local temp disk to 
 
 - For more scalability, run multiple VM instances and scale out.
 - For more SKU selection information, see [Sizes for virtual machines in Azure](sizes.md).
-- To determine VM sizes by workload type, OS and software, or deployment region, see [Azure VM Selector](https://azure.microsoft.com/en-us/pricing/vm-selector/).
+- To determine VM sizes by workload type, OS and software, or deployment region, see [Azure VM Selector](https://azure.microsoft.com/pricing/vm-selector/).
 - For more information on Virtual Machine Scale Sets (VMSS) sizes, see [Automatically scale machines in a VMSS](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).
-- For more cost management planning information, see the [Plan and manage your Azure costs](https://learn.microsoft.com/en-us/training/modules/plan-manage-azure-costs/1-introduction) module.
+- For more cost management planning information, see the [Plan and manage your Azure costs](https://learn.microsoft.com/training/modules/plan-manage-azure-costs/1-introduction) module.
