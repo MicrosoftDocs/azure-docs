@@ -637,20 +637,20 @@
               href: network-observability-managed-cli.md
     - name: Upgrade
       items:
-        - name: Planned Maintenance for AKS weekly releases
-          href: aks-planned-maintenance-weekly-releases.md
-        - name: Use planned maintenance to schedule and control upgrades
-          href: planned-maintenance.md
         - name: Upgrade an AKS cluster
           href: upgrade-cluster.md
-        - name: Automatically upgrade an AKS cluster
-          href: auto-upgrade-cluster.md
-        - name: Automatically upgrade AKS cluster node operating system images
-          href: auto-upgrade-node-image.md
         - name: Upgrade the node image
           href: node-image-upgrade.md
-        - name: Upgrade the node image automatically with GitHub Actions
-          href: node-upgrade-github-actions.md
+        - name: Automate and schedule upgrade events
+          items:
+            - name: Automatically upgrade an AKS cluster
+              href: auto-upgrade-cluster.md
+            - name: Automatically upgrade AKS cluster node operating system images
+              href: auto-upgrade-node-image.md
+            - name: Upgrade the node image automatically with GitHub Actions
+              href: node-upgrade-github-actions.md
+            - name: Use planned maintenance to schedule and control upgrades
+              href: planned-maintenance.md
         - name: Process node OS updates
           href: node-updates-kured.md
     - name: Azure Linux container host for AKS
