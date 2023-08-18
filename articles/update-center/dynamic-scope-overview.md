@@ -30,8 +30,6 @@ The criteria will be evaluated at the scheduled run time, which will be the fina
   > You can associate one dynamic scope to one schedule.
 
 
-## Prerequisites
-
 [!INCLUDE [dynamic-scope-prerequisites.md](includes/dynamic-scope-prerequisites.md)]
 
 ## Permissions
