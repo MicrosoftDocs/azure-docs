@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 05/01/2023
 ms.custom: ignite-fall-2022, references_regions
 ---
+test
 
 # Deploy and manage a Kubernetes application from Azure Marketplace
 
