@@ -303,7 +303,7 @@ public class mssqlSinkToKafka {
  
  -  Check changes on Kafka for the updated ID 107
  
-    :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/check-changes-on-kafka-for id-107.png" alt-text="Screenshot showing changes in Kafka for updated ID 107.":::
+    :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/check-changes-on-kafka-for-id-107.png" alt-text="Screenshot showing changes in Kafka for updated ID 107.":::
   
   -  Delete `product_id=107` on sqlserver
 
