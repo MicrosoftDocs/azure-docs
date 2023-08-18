@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 08/18/2023
 ms.author: normesta
 
 ---
