@@ -19,7 +19,7 @@ This article explains how to feed data from Log Analytics into Power BI to produ
 
 ## Prerequisites
 
-- To use the Power BI (as an M query) option, you need [Power BI Desktop](https://powerbi.microsoft.com/get-started).
+- To use the Power BI (as an M query) option, you need [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 - To use the Power BI (new Dataset) option:
   - You need a Power BI account.
   - You must give permission in Azure for the Power BI service to write logs. For more information, see [Prerequisites](/power-bi/transform-model/log-analytics/desktop-log-analytics-configure#set-permissions).
