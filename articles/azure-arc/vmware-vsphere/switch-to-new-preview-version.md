@@ -28,13 +28,12 @@ If you have the earlier version of preview installed already, switch to the new 
 
 3. Select **Remove from Azure**.  
 
-    :::image type="VM Inventory view" source="media/switch-to-new-preview-version.vm-inventory-view-inline.png" alt-text="Screenshot of VM Inventory view." lightbox="media/switch-to-new-preview-version/vm-inventory-view-expanded.png":::
+    :::image type="VM Inventory view" source="media/switch-to-new-preview-version/vm-inventory-view-inline.png" alt-text="Screenshot of VM Inventory view." lightbox="media/switch-to-new-preview-version/vm-inventory-view-expanded.png":::
 
 4. After successful removal from Azure, enable the same resources again in Azure.
 
 5. Once the resources are re-enabled, the VMs are auto switched to the new preview version. The VM resources will now be represented as **Machine - Azure Arc (VMware)**.
 
-    ![Screenshot of New VM browser view](./media/new-vm-browse-view.png)
     :::image type=" New VM browse view" source="media/switch-to-new-preview-version/new-vm-browse-view-inline.png" alt-text="Screenshot of New VM browse view." lightbox="media/switch-to-new-preview-version/new-vm-browse-view-expanded.png":::
  
 ## Next steps
