@@ -66,7 +66,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
     | Name | Enter **vnet-1**. |
     | Region | Select **East US 2**. |
 
-    :::image type="content" source="./media/virtual-network-create-with-nat-bastion/create-virtual-network-basics.png" alt-text="Screenshot of Basics tab of Create virtual network in the Azure portal":::
+    :::image type="content" source="./media/virtual-network-create-with-nat-bastion/create-virtual-network-basics.png" alt-text="Screenshot of Basics tab of Create virtual network in the Azure portal.":::
 
 1. Select **Next** to proceed to the **Security** tab.
 
