@@ -43,7 +43,7 @@ More details on eligible subscription types are as follows:
 
 
 ## Azure subscription billing locations where Norway phone numbers are available
-| Country |
+| Country/Region |
 | :---------- |
 |Norway|
 |France|
@@ -51,7 +51,7 @@ More details on eligible subscription types are as follows:
 
 
 
-## Find information about other countries
+## Find information about other countries/regions
 
 [!INCLUDE [Country Dropdown](../../includes/country-dropdown.md)]
 
