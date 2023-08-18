@@ -85,25 +85,26 @@ It's important to ensure that the jumpbox is configured securely and that it's r
 
 ## Disconnected mode access
 
-While cluster is in disconnected mode, it's not possible to connect to the cluster's kube-api server using the `az connectedk8s proxy` CLI command or the `az ssh` CLI command into the worker nodes for troubleshooting or maintenance tasks.
+While the ExpressRoute is in disconnected mode, it's not possible to connect to the cluster's kube-api server using the `az connectedk8s proxy` CLI command or the `az ssh` CLI command into the worker nodes for troubleshooting or maintenance tasks.
 
 However, it's possible to connect to the cluster nodes using the local jumpbox VM within the same virtual network as the cluster nodes. This VM serves as a reliable bridge for connectivity.
 
 There are two networks that can be used to connect to the cluster nodes:
 
-* CSN network
-* L3 network (attached as an `OSDevice`)
+* CNI network
+* L3 network (attached as `OSDevice`)
 
-During the cluster creation process, an L3 network (Tenant-defined L3 isolation domain) can be attached to the agent pool as an `OSDevice`, which can then be used for OAM purposes. For more information on how to attach an L3 network as an `OSDevice` during cluster creation, see the [QuickStart](./quickstarts-kubernetes-cluster-deployment-bicep.md) guide.
+During the cluster creation process, an L3 network (Tenant-defined L3 isolation domain) can be attached to the agent pool as an `OSDevice`, which can then be used for connecting. For more information on how to attach an L3 network as an `OSDevice` during cluster creation, see the [QuickStart](./quickstarts-kubernetes-cluster-deployment-bicep.md) guide.
 
-> [!NOTE]
+<!-- > [!NOTE]
 > For understanding purposes, the L3 network (attached as an `OSDevice`) will be referred to as the 'OAM network' in this article.
+-->
 
-The OAM network is the recommended network to use for connectivity during disconnected mode. The cloud services network (CSN) is used for critical cluster functions and shouldn't be used for general connectivity. While there's no difference in the connectivity experience between the two networks, it's recommended to use the OAM network for all noncritical connectivity needs.
+The L3 network is the recommended network to use for connectivity during disconnected mode. The 'Container Network Interface (CNI)' is used for critical cluster functions and shouldn't be used for general connectivity. While there's no difference in the connectivity experience between the two networks, it's recommended to use the L3 network for all noncritical connectivity needs.
 
-The OAM network can only be attached to the agent pool during the cluster creation process. The OAM network isn't attached to the control plane nodes, so you can't connect to the control plane nodes using the OAM network. In those cases, you can use the CSN network to connect to the control plane nodes.
+The L3 network can only be attached to the agent pool during the cluster creation process. The L3 network isn't attached to the control plane nodes, so you can't connect to the control plane nodes using the L3 network. In those cases, you can use the CNI network to connect to the control plane nodes.
 
-It's not recommended to log into the control plane nodes unless it's necessary. However, you may be required to sign-in to get the kubeconfig file for the cluster. If the local jumpbox is connected to the CNI network, you can use the kubeconfig file to execute kubectl against the cluster instead of logging into the control plane nodes.
+It's not recommended to SSH into the control plane nodes unless it's necessary. However, you may be required to SSH into get the `kubeconfig` file for the cluster. If the local jumpbox is connected to the CNI network, you can use the `kubeconfig` file to execute kubectl against the cluster instead of SSH into the control plane nodes.
 
 ### IP address of the cluster nodes
 
@@ -151,13 +152,14 @@ To find the IP address of the VM for SSH, follow these steps:
 :::image type="content" source="media/k8s/search-k8s-service.png" alt-text="Screenshot of browsing Nexus Kubernetes service":::
 3. Look for the specific 'Nexus Kubernetes cluster' resource you need to use the search.
 :::image type="content" source="media/k8s/search-k8s-cluster.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster":::
+4. Once you've found the right resource by matching its name with the cluster name, Select the resource to go to the 'Kubernetes Cluster' home page.
 :::image type="content" source="media/k8s/k8s-cluster-home.png" alt-text="Screenshot of Nexus Kubernetes cluster home page":::
 4. Once you've found the right resource by matching its name with the cluster name, go to the 'Kubernetes Cluster Nodes' section in the left menu.
 :::image type="content" source="media/k8s/k8s-cluster-nodes.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster nodes":::
 5. Select on the Kubernetes node name you're interested in to see its details.
 6. Check the 'Attached Networks' tab to find the IP address of the node's 'Layer 3 Network' that used as CNI network.
 :::image type="content" source="media/k8s/cp-network-attachment.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster node networks":::
-7. If you attached a L3 network for OAM purpose, you can find the IP address of the node's 'Layer 3 Network' that used as OAM network.
+7. If you attached a L3 network as OSDevice, you can find the IP address of the node's 'Layer 3 Network'.
 :::image type="content" source="media/k8s/agent-pool-network-attachment.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster node IP":::
 
 ## Next steps
