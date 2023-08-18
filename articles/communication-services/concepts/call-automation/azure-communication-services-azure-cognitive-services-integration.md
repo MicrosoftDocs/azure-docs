@@ -47,52 +47,32 @@ You can configure and bind your Communication Services and Azure AI services thr
 
 1. Open your Azure Communication Services resource and click on the Cognitive Services tab.
 2. If system-assigned managed identity is not enabled, there are two ways to enable it.
-   2.1 In the Cognitive Services tab, click on "Enable Managed Identity" button.
+
+   2.1. In the Cognitive Services tab, click on "Enable Managed Identity" button.
    
-[![Screenshot of Enable Managed Identity button](INSERT IMAGE)]
+[![Screenshot of Enable Managed Identity button](./media/enabled-identity.png)](./media/enabled-identity.png)
 
 or
 
-  2.1 Navigate to the identity tab.
+  2.2. Navigate to the identity tab.
   
-  2.2 Enable system assigned identity. This action begins the creation of the identity; A pop-up notification appears notifying you that the request is being processed.
+  2.3. Enable system assigned identity. This action begins the creation of the identity; A pop-up notification appears notifying you that the request is being processed.
   [![Screen shot of enable managed identiy](./media/enable-system-identity.png)](./media/enable-system-identity.png)
 
-  2.4 Once the identity is enable you should see something similar.
-  [![Screenshot of enabled identity](INSERT IMAGE HERE)]
+  2.4. Once the identity is enable you should see something similar.
+  [![Screenshot of enabled identity](./media/identity-saved.png)](./media/identity-saved.png)
 
 3. After, the identity is enabled the Cognitive Service tab should show a button 'Connect cognitive service' to connect the two services.
-[![Screenshot of Connect cognitive services button](INSERT IMAGE HERE)]
+[![Screenshot of Connect cognitive services button](./media/cog-svc.png)](./media/cog-svc.png)
 
 4. Click on 'Connect cognitive service', select the Subscription, Resource Group and Resource and click "Connect" in the context pane that opens up.
-   [![Screenshot of Subscription, Resource Group and Resource in pane](INSERT IMAGE HERE)]
+   [![Screenshot of Subscription, Resource Group and Resource in pane](./media/choose-options.png)](./media/choose-options.png)
 5. If connection is successful, you should see a green banner confirming successful connection.
 
-   [![Screenshot of successful connection](INSERT IMAGE HERE)]
+   [![Screenshot of successful connection](./media/connected.png)](./media/connected.png)
 
 6. Now in the Cognitive Service tab you should see your connected services showing up. 
-
-### Option 2: Add role through Azure Communication Services Identity tab
-
-1. Navigate to your Azure Communication Services resource in the Azure portal.
-2. Select Identity tab.
-3. Click on "Azure role assignments".
-
-[![ACS role assignment](./media/add-role-acs.png)](./media/add-role-acs.png#lightbox)
-
-4.  Click the "Add role assignment (Preview)" button, which opens the "Add role assignment (Preview)" tab.
-5.  Select the "Resource group" for "Scope".
-6.  Select the "Subscription".
-7.  Select the "Resource Group" containing the Cognitive Service. 
-8.  Select the "Role" "Cognitive Services User".
-
-[![ACS role information](./media/acs-roles-cognitive-services.png)](./media/acs-roles-cognitive-services.png#lightbox)
-
-10.  Click Save.
-
-Your Communication Service has now been linked to your Azure Cognitive Service resource. 
-
-<a name='azure-cognitive-services-regions-supported'></a>
+[![Screenshot of connected cognitive service on main page](./media/new-entry-created.png)](./media/new-entry-created.png)
 
 ## Azure AI services regions supported
 
