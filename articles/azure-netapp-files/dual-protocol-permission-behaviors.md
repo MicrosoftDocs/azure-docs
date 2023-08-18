@@ -85,11 +85,8 @@ The following table breaks down the different name mapping permutations and how 
 | NFSv4.x | UNIX | Numeric ID to UNIX user name | UNIX <br> (mode-bits or NFSv4.x ACLs) |
 | NFS3/4.x | NTFS | UNIX to Windows | NTFS ACLs <br> (based on mapped Windows user SID) |
 
-> [!NOTE] 
-> NFSv4.x ACLs can be applied using an NFSv4.x administrative client and honored by NFSv3 clients by [switching between protocols](convert-nfsv3-nfsv41.md).
-
-Name-mapping rules in Azure NetApp Files can currently be controlled only by using LDAP. There is no option to create explicit name mapping rules within the service.
-
+> [!NOTE]
+> Name-mapping rules in Azure NetApp Files can currently be controlled only by using LDAP. There is no option to create explicit name mapping rules within the service.
 ## Name services with dual-protocol volumes
 
 Regardless of what NAS protocol is used, dual-protocol volumes use name-mapping concepts to handle permissions properly. As such, name services play a critical role in maintaining functionality in environments that use both SMB and NFS for access to volumes.

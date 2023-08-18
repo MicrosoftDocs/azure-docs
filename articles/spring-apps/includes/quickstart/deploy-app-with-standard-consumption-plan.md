@@ -161,7 +161,7 @@ Azure Spring Apps creates an empty welcome application and provides its URL in t
 
 :::image type="content" source="../../media/quickstart/app-welcome-page.png" alt-text="Screenshot of the welcome page for a Spring app in an Azure Spring Apps instance." lightbox="../../media/quickstart/app-welcome-page.png":::
 
-### 3.5.2. Create an app with dedicated workload profile
+### 3.5.2. (Optional) Create an app with dedicated workload profile
 
 Dedicated workload profiles support running apps with customized hardware and increased cost predictability.
 

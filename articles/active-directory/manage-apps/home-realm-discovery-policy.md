@@ -11,8 +11,7 @@ ms.workload: identity
 ms.date: 01/02/2023
 ms.author: jomondi
 ms.reviewer: sreyanth, ludwignick
-ms.custom: enterprise-apps
-
+ms.custom: enterprise-apps, has-azure-ad-ps-ref
 ---
 # Home Realm Discovery for an application
 
