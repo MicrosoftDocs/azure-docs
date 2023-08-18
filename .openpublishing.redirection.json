@@ -23254,6 +23254,51 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/develop/api-find-an-api-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/quickstart-configure-app-expose-web-apis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/consent-framework-links.md",
+            "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/authentication-protocols.md",
+            "redirect_url": "/azure/active-directory/develop/v2-oauth2-auth-code-flow",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/delegated-and-app-perms.md",
+            "redirect_url": "/azure/active-directory/develop/permissions-consent-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/perms-for-given-api.md",
+            "redirect_url": "/azure/active-directory/develop/scopes-oidc",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/setup-multi-tenant-app.md",
+            "redirect_url": "/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/registration-config-specific-application-property-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/registration-config-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/registration-config-sso-how-to.md",
+            "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
             "redirect_url": "/azure/orbital/overview",
             "redirect_document_id": false

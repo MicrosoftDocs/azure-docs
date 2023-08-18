@@ -9,8 +9,6 @@ ms.topic: how-to
 ---
 
 # How to migrate a self-hosted Socket.IO app to be fully managed on Azure
->[!NOTE]
-> Web PubSub for Socket.IO is in "Private Preview" and is available to selected customers only. To register your interest, please write to us awps@microsoft.com.
 
 ## Prerequisites
 > [!div class="checklist"]
