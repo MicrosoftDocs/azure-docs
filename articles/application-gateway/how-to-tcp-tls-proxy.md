@@ -6,15 +6,17 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 08/21/2023
 ms.author: greglin
 ---
 
 # Direct SQL traffic with Azure Application Gateway (Preview)
 
-To try out the Layer 4 features of Azure Application Gateway, in this quick start article we will use the Azure portal to create an Azure Application Gateway with SQL Server on Azure VMs as backend server. We will also test the connectivity through an SQL client to make sure that the configuration works correctly. This simple setup will guide you to create a listener with required port, a backend setting using layer 4 protocol, a routing rule, and add SQL VM to a backend pool. This article is divided into three parts.
+To try out the Layer 4 features of Azure Application Gateway, in this quick start article we use the Azure portal to create an Azure Application Gateway with SQL Server on Azure VMs as backend server. We also test the connectivity through an SQL client to make sure that the configuration works correctly. This simple setup guides you to create a listener with required port, a backend setting using layer 4 protocol, a routing rule, and add SQL VM to a backend pool. This article is divided into three parts.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Application Gateway IPv6 frontend is currently in PREVIEW.<br>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Sign in to Azure
 

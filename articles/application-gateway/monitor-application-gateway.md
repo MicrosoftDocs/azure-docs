@@ -90,7 +90,7 @@ For a list of the platform metrics collected for Azure Application Gateway, see 
 
 For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
-<!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about how to use metrics explorer specifically for your service. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
+<!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about how to use metrics explorer specifically for your service. Remember that the UI is subject to change quite often so you need to maintain these screenshots yourself if you add them in. -->
 
 ## Analyzing logs
 
@@ -107,7 +107,7 @@ For a list of the types of resource logs collected for Azure Application Gateway
 
 For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure Application Gateway data reference](monitor-application-gateway-reference.md#azure-monitor-logs-tables).  
 
-<!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about log usage or what logs are most important. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
+<!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about log usage or what logs are most important. Remember that the UI is subject to change quite often so you need to maintain these screenshots yourself if you add them in. -->
 
 ### Sample Kusto queries
 
@@ -115,7 +115,7 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 <!-- Add sample Log Analytics Kusto queries for your service. -->
 
 > [!IMPORTANT]
-> When you select **Logs** from the Application Gateway menu, Log Analytics is opened with the query scope set to the current Application Gateway. This means that log queries will only include data from that resource. If you want to run a query that includes data from other Application Gateways or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
+> When you select **Logs** from the Application Gateway menu, Log Analytics is opened with the query scope set to the current Application Gateway. This means that log queries only include data from that resource. If you want to run a query that includes data from other Application Gateways or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
 
 <!-- REQUIRED: Include queries that are helpful for figuring out the health and state of your service. Ideally, use some of these queries in the alerts section. It's possible that some of your queries may be in the Log Analytics UI (sample or example queries). Check if so.  -->
 
@@ -194,7 +194,7 @@ The following tables list common and recommended alert rules for Application Gat
 |:---|:---|:---|
 |Metric|Compute Unit utilization crosses 75% of average usage|Compute unit is the measure of compute utilization of your Application Gateway. Check your average compute unit usage in the last one month and set alert if it crosses 75% of it.|
 |Metric|Capacity Unit utilization crosses 75% of peak usage|Capacity units represent overall gateway utilization in terms of throughput, compute, and connection count. Check your maximum capacity unit usage in the last one month and set alert if it crosses 75% of it.|
-|Metric|Unhealthy host count crosses threshold|Indicates number of backend servers that application gateway is unable to probe successfully. This will catch issues where Application gateway instances are unable to connect to the backend. Alert if this number goes above 20% of backend capacity.|
+|Metric|Unhealthy host count crosses threshold|Indicates number of backend servers that application gateway is unable to probe successfully. This catches issues where Application gateway instances are unable to connect to the backend. Alert if this number goes above 20% of backend capacity.|
 |Metric|Response status (4xx, 5xx) crosses threshold|When Application Gateway response status is 4xx or 5xx. There could be occasional 4xx or 5xx response seen due to transient issues. You should observe the gateway in production to determine static threshold or use dynamic threshold for the alert.|
 |Metric|Failed requests crosses threshold|When Failed requests metric crosses threshold. You should observe the gateway in production to determine static threshold or use dynamic threshold for the alert.|
 |Metric|Backend last byte response time crosses threshold|Indicates the time interval between start of establishing a connection to backend server and receiving the last byte of the response body. Create an alert if the backend response latency is more that certain threshold from usual.|
