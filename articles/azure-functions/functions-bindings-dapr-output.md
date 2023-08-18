@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
-The Dapr output binding allows you to send a value to a Dapr output binding during a function extension.
+The Dapr output binding allows you to send a value to a Dapr output binding during a function execution.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
 

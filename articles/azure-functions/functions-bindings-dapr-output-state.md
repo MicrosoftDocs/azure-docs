@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
-The Dapr state output binding allows you to save a value to a Dapr state during a function extension.
+The Dapr state output binding allows you to save a value to a Dapr state during a function execution.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
 
