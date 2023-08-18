@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: mopeakande
 author: dem108
 ms.author: sehan
-ms.date: 08/15/2023
+ms.date: 08/18/2023
 ms.custom: event-tier1-build-2022, devx-track-azurecli
 ---
 
@@ -20,7 +20,7 @@ ms.custom: event-tier1-build-2022, devx-track-azurecli
 In this article, you'll secure a managed online endpoint, using a workspace configured for network isolation. The workspace uses a **managed virtual network** that **allows internet outbound** communication. You'll create a managed online endpoint that uses the workspace's private endpoint for secure inbound communication. You'll also create a deployment that uses the private endpoints of the managed virtual network (VNet) for outbound communication.
 
 > [!NOTE]
-> This article uses the recommended [network isolation method](concept-secure-online-endpoint.md) that is based on the workspace managed VNet. For an example that uses the legacy method for network isolation, see the deployment files [deploy-moe-vnet.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet.sh) (for deployment using a generic model) and [deploy-moe-vnet-mlflow.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-mlflow.sh) ( for deployment using an MLflow model) in the azureml-examples GitHub repo.
+> This article uses the recommended [network isolation method](concept-secure-online-endpoint.md) that is based on the workspace managed VNet. For examples that use the legacy method for network isolation, see the deployment files [deploy-moe-vnet.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet.sh) (for deployment using a generic model) and [deploy-moe-vnet-mlflow.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-mlflow.sh) (for deployment using an MLflow model) in the azureml-examples GitHub repo.
 
 ## Prerequisites
 
@@ -28,22 +28,20 @@ To begin, you need an Azure subscription, CLI or SDK to interact with Azure Mach
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* You must install and configure the Azure CLI and `ml` extension or the Azure Machine Learning Python SDK v2. For more information, see the following articles:
 
-    * [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
-    * [Install the Python SDK v2](https://aka.ms/sdk-v2-install).
+* install and configure the [Azure CLI](/cli/azure/) and the `ml` extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
+    >[!TIP]
+    > Azure Machine Learning managed virtual network was introduced on May 23rd, 2023. If you have an older version of the ml extension, you may need to update it for the examples in this article work. To update the extension, use the following Azure CLI command:
+    >
+    > ```azurecli
+    > az extension update -n ml
+    > ```
 
-* You must have an Azure Resource Group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your `ml` extension per the above article.
+* The CLI examples in this article assume that you're using the Bash (or compatible) shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about).
+
+* You must have an Azure Resource Group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you've configured your `ml` extension.
 
 * If you want to use a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp) to create and manage online endpoints and online deployments, the identity should have the proper permissions. For details about the required permissions, see [Set up service authentication](./how-to-identity-based-service-authentication.md#workspace). For example, you need to assign the proper RBAC permission for Azure Key Vault on the identity.
-
-There are additional prerequisites for a workspace and its related entities.
-
-* You must have an Azure Machine Learning workspace, and the workspace must use a **managed virtual network** that **allows internet outbound**. If you don't have one, follow the steps in [Configure a managed virtual network to allow internet outbound](how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-internet-outbound) to create a new workspace or to upgrade your existing workspace to use a manged virtual network.
-
-* The workspace has its `public_network_access` flag that can be either enabled or disabled. If you plan on using managed online endpoint deployments that use __public outbound__, then you must also [configure the workspace to allow public access](how-to-configure-private-link.md#enable-public-access). This is because outbound communication from managed online endpoint deployment is to the _workspace API_. When the deployment is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
-
-* When the workspace is configured with a private endpoint, the Azure Container Registry for the workspace must be configured for __Premium__ tier. For more information, see [Azure Container Registry service tiers](../container-registry/container-registry-skus.md).
 
 ## Limitations
 
@@ -51,56 +49,96 @@ There are additional prerequisites for a workspace and its related entities.
 
 ## Prepare your system
 
-1. Create the environment variables used by this example by running the following commands. Replace `<YOUR_SUBSCRIPTION_ID>` with your Azure subscription ID. Replace `<YOUR_RESOURCE_GROUP>` with the resource group that contains your workspace. Replace `<LOCATION>` with the location of your Azure workspace. Replace `<YOUR_ENDPOINT_NAME>` with the name to use for the endpoint.
-
-    > [!NOTE]
-    > As mentioned earlier in the prerequisites, you'll be using a workspace that has a managed VNet configured to allow internet outbound. Be sure to use this workspace for your configuration.
-
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-vnet.sh" id="set_env_vars":::
-
-1. Configure the defaults for the CLI so that you can avoid passing in the values for your subscription, workspace, location, and resource group multiple times.
+1. Create the environment variables used by this example by running the following commands. Replace `<YOUR_WORKSPACE_NAME>` with the name to use for your workspace. Replace `<YOUR_RESOURCEGROUP_NAME>` with the resource group that will contain your workspace.
+    > [!TIP]
+    > before creating a new workspace, you must create an Azure Resource Group to contain it. For more information, see [Manage Azure Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-cli).
 
     ```azurecli
-    az account set --subscription <subscription ID>
-    az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
+    export RESOURCEGROUP_NAME="<YOUR_RESOURCEGROUP_NAME>"
+    export WORKSPACE_NAME="<YOUR_WORKSPACE_NAME>"
     ```
 
-1. Clone the examples repository to get the example files for the deployment, then go to the repository's `/home/samples/azureml-examples/cli/` directory.
+1. Create your workspace. The `-m allow_internet_outbound` parameter configures a managed VNet for the workspace.
+
+    ```azurecli
+    az ml workspace create -g $RESOURCEGROUP_NAME -n $WORKSPACE_NAME -m allow_internet_outbound
+    ```
+
+    For more information on how to create a new workspace or to upgrade your existing workspace to use a manged virtual network, see [Configure a managed virtual network to allow internet outbound](how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-internet-outbound).
+
+    The workspace has its `public_network_access` flag that can be either enabled or disabled. If you plan on using managed online endpoint deployments that use __public outbound__, then you must also [configure the workspace to allow public access](how-to-configure-private-link.md#enable-public-access). This is because outbound communication from managed online endpoint deployment is to the _workspace API_. When the deployment is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
+
+    When the workspace is configured with a private endpoint, the Azure Container Registry for the workspace must be configured for __Premium__ tier. For more information, see [Azure Container Registry service tiers](../container-registry/container-registry-skus.md).
+
+1. Configure the defaults for the CLI so that you can avoid passing in the values for your workspace and resource group multiple times.
+
+    ```azurecli
+    az configure --defaults workspace=$WORKSPACE_NAME group=$RESOURCEGROUP_NAME
+    ```
+
+1. Clone the examples repository to get the example files for the endpoint and deployment, then go to the repository's `/cli` directory.
 
     ```azurecli
     git clone --depth 1 https://github.com/Azure/azureml-examples
-    cd /home/samples/azureml-examples/cli/
+    cd /cli
     ```
 
-<!-- The commands in this tutorial are in the files `deploy-local-endpoint.sh` and `deploy-managed-online-endpoint.sh` in the `cli` directory, and the YAML configuration files are in the `endpoints/online/managed/sample/` subdirectory. -->
+The commands in this tutorial are in the file `deploy-managed-online-endpoint-workspacevnet.sh` in the `cli` directory, and the YAML configuration files are in the `endpoints/online/managed/sample/` subdirectory.
 
 ## Create a secured managed online endpoint
 
-This example assumes that your workspace is configured for network isolation with a **managed virtual network** that **allows internet outbound**. In this workspace, you can create an endpoint with the `public_network_access` disabled so that the endpoint uses the workspace's private endpoint for inbound communication. 
+Now that you've configured your workspace for network isolation with a **managed virtual network** that **allows internet outbound**, you can create an endpoint in this workspace and set the endpoint's `public_network_access` to disabled so that the endpoint uses the workspace's private endpoint for inbound communication.
 Any deployments of the endpoint will use the private endpoints of the managed VNet for outbound communication.
+
+1. Set the endpoint's name.
+
+    ```azurecli
+    export ENDPOINT_NAME="<YOUR_ENDPOINT_NAME>"
+    ```
 
 1. Create an endpoint with `public_network_access` disabled.
 
     ```azurecli
-    az ml online-endpoint create --name $ENDPOINT_NAME -f $ENDPOINT_FILE_PATH --set public_network_access="disabled"
+    az ml online-endpoint create --name $ENDPOINT_NAME -f endpoints/online/managed/vnet/sample/endpoint.yml
     ```
 
 1. Create a deployment in the workspace managed VNet.
 
     ```azurecli
-    az ml online-deployment create --name blue --endpoint $ENDPOINT_NAME -f $DEPLOYMENT_FILE_PATH --all-traffic
+    az ml online-deployment create --name blue --endpoint $ENDPOINT_NAME -f endpoints/online/managed/sample/blue-deployment.yml --all-traffic    
     ```
 
-1. Make a scoring request with the endpoint.
+1. Get the status of the deployment.
 
     ```azurecli
-    # Try scoring using the CLI
-    az ml online-endpoint invoke --name $ENDPOINT_NAME --request-file $SAMPLE_REQUEST_PATH
+    az ml online-endpoint show -n $ENDPOINT_NAME
     ```
 
-1. Deleting the endpoint if you no longer need it.
+1. Test the endpoint with a scoring request, using the CLI.
 
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-vnet.sh" id="delete_endpoint":::
+    ```azurecli
+    az ml online-endpoint invoke --name $ENDPOINT_NAME --request-file endpoints/online/model-1/sample-request.json
+    ```
+
+1. Test the endpoint using curl.
+
+    ```azurecli
+    ENDPOINT_KEY=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -o tsv --query primaryKey)
+    SCORING_URI=$(az ml online-endpoint show -n $ENDPOINT_NAME -o tsv --query scoring_uri)
+    curl --request POST "$SCORING_URI" --header "Authorization: Bearer $ENDPOINT_KEY" --header 'Content-Type: application/json' --data @endpoints/online/model-1/sample-request.json
+    ```
+
+1. Get deployment logs.
+
+    ```azurecli
+    az ml online-deployment get-logs --name blue --endpoint $ENDPOINT_NAME
+    ```
+
+1. Delete the endpoint if you no longer need it.
+
+    ```azurecli
+    az ml online-endpoint delete --name $ENDPOINT_NAME --yes --no-wait
+    ```
 
 1. Delete all the resources created in this article. Replace `<resource-group-name>` with the name of the resource group used in this example:
 
