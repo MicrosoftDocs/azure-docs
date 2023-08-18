@@ -392,7 +392,7 @@ The v3.1 API introduces new and updated capabilities:
 
   * Document Intelligence SDK version `4.0.0 GA` release
     * **Document Intelligence SDKs version 4.0.0 (.NET/C#, Java, JavaScript) and version 3.2.0 (Python) are generally available and ready for use in production applications!**
-    * For more information on Document Intelligence SDKs, see the [**SDK overview**](sdk-overview.md).
+    * For more information on Document Intelligence SDKs, see the [**SDK overview**](sdk-overview-v3-1.md).
     * Update your applications using your programming language's **migration guide**.
 
 ---
