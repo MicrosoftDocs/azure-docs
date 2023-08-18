@@ -27,7 +27,7 @@ ms.custom: devx-track-js
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/).
 - The latest LTS version of [Node.js](https://nodejs.org/).
 - An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true) for tips and options for putting together your training data set. For this project, you can use the files under the *Train* folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract *sample_data.zip*.
-- An Azure AI services or Document Intelligence resource. <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Document Intelligence resource" target="_blank">Create a Document Intelligence resource. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+- An Azure AI services or Document Intelligence resource. <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Document Intelligence resource" target="_blank">Create a Document Intelligence resource.</a> You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 - The key and endpoint from the resource you create to connect your application to the Azure Document Intelligence service.
 
   1. After your resource deploys, select **Go to resource**.
@@ -42,16 +42,16 @@ Create an application and install the client library.
 
 1. In a console window, create a directory for your app, and navigate to it.
 
-```console
-mkdir myapp
-cd myapp
-```
+   ```console
+   mkdir myapp
+   cd myapp
+   ```
 
 1. Run the `npm init` command to create a node application with a *package.json* file.
 
-```console
-npm init
-```
+   ```console
+   npm init
+   ```
 
 ### Install the client library
 
@@ -67,9 +67,9 @@ npm init
 
    [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_imports)]
 
-Create variables for your resource's Azure endpoint and key.
+1. Create variables for your resource's Azure endpoint and key.
 
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_creds)]
+   [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_creds)]
 
 > [!IMPORTANT]
 > Go to the Azure portal. If the Document Intelligence resource you created in the Prerequisites section deployed successfully, under **Next Steps** select **Go to Resource**. You can find your key and endpoint in **Resource management** under **Keys and Endpoint**.

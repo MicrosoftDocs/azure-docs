@@ -18,7 +18,7 @@ ms.author: lajanuar
 >
 > This project targets Azure AI Document Intelligence API version 2.1 using cURL to execute REST API calls.
 
-| [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Azure REST API reference](/rest/api/azure/) |
+[Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Azure REST API reference](/rest/api/azure/)
 
 ## Prerequisites
 
