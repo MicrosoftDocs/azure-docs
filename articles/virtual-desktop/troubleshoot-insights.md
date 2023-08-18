@@ -44,7 +44,7 @@ If your data isn't displaying properly, check the following common solutions:
       - [Log Analytics Firewall Requirements](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements). 
 - Not seeing data from recent activity? You may want to wait for 15 minutes and refresh the feed. Azure Monitor has a 15-minute latency period for populating log data. To learn more, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
 
-If you're not missing any information but your data still isn't displaying properly, there may be an issue in the query or the data sources. Review [known issues and limitations](#known-issues-and-limitations). 
+If you're not missing any information but your data still isn't displaying properly, there may be an issue in the query or the data sources. For more information, see [known issues and limitations](#known-issues-and-limitations). 
 
 # [Azure Monitor Agent (preview)](#tab/monitor)
 
