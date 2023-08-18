@@ -12,9 +12,10 @@ ms.date: 08/17/2023
 ms.author: jfields
 ---
 
-In Microsoft Entra and Microsoft Entra Permissions Management, assigned roles give users different levels of access to monitor and take action in multicloud environments. Here, review a list of identities assigned to a privileged role and learn more about the level of permissions given to users assigned roles in your organization.
 
 # [Microsoft Entra Admin Center built-in roles](../azure/active-directory/roles/permissions-reference.md)
+
+In Microsoft Entra and Microsoft Entra Permissions Management, assigned roles give users different levels of access to monitor and take action in multicloud environments. In the Microsoft Entra Admin Center, review a list of identities assigned to a privileged role and learn more about the level of permissions given to users assigned roles in your organization.
 
 - **Global Administrator**: Manages all aspects of Entra Admin Center and Microsoft services that use Entra Admin Center identities. 
 - **Billing Administrator**: Performs common billing related tasks like updating payment information. 
@@ -23,7 +24,7 @@ In Microsoft Entra and Microsoft Entra Permissions Management, assigned roles gi
 # Permissions Management roles and permissions levels
 
 ## Enabling Permissions Management
-- To activate a trial or purchase license, you must have *Global Administrator* or *Billing Administrator* permissions.
+- To activate a trial or purchase a license, you must have *Global Administrator* or *Billing Administrator* permissions.
 
 ## Onboarding your Amazon Web Service (AWS), Microsoft Entra, or Google Cloud Platform (GCP) environments
 
