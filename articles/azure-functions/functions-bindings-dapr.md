@@ -2,7 +2,7 @@
 title: Dapr extension for Azure Functions
 description: Learn to use the Dapr trigger and bindings in Azure Functions.
 ms.topic: reference
-ms.date: 08/07/2023
+ms.date: 08/17/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 The Dapr extension for Azure Functions is a set of tools and services that allow developers to easily integrate Azure Functions with the [Distributed Application Runtime (Dapr)](https://docs.dapr.io/) platform. 
 
-Azure Functions is an event-driven programming where [triggers and bindings](./functions-triggers-bindings.md) are key features, with which you can easily build event-driven serverless applications. Dapr provides a set of building blocks and best practices for building distributed applications, including microservices, state management, pub/sub messaging, and more.
+Azure Functions is an event-driven compute service that provides a set of [triggers and bindings](./functions-triggers-bindings.md) to easily connect with other Azure services. Dapr provides a set of building blocks and best practices for building distributed applications, including microservices, state management, pub/sub messaging, and more.
 
 With the integration between Dapr and Functions, you can build functions that react to events from Dapr or external systems.
 
@@ -204,16 +204,6 @@ Learn how to use the Dapr Functions extension via the provided samples.
 [dapr-kafka]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dapr-kafka
 [dapr-python]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/python-azurefunction
 [dapr-python-2]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/python-azurefunction
-
-::: zone-end
-
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
-
-## Demo
-
-Learn how to use the Dapr Functions portal from a demo presented during the Dapr Community Call.
-
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HaupRpC-UIc?start=690" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ::: zone-end
 

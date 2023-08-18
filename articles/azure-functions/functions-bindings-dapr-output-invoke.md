@@ -1,8 +1,8 @@
 ---
 title: Dapr Invoke output binding for Azure Functions
-description: Learn how to provide Dapr Invoke output binding data to an Azure Function.
+description: Learn how to send data to a Dapr Invoke output binding during function execution in Azure Functions.
 ms.topic: reference
-ms.date: 04/17/2023
+ms.date: 08/17/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
-The Dapr invoke output binding allows you to invoke another Dapr application via an Azure Function.
+The Dapr invoke output binding allows you to invoke another Dapr application during a function execution.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
 

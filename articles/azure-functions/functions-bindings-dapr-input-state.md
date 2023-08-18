@@ -1,8 +1,8 @@
 ---
 title: Dapr State input binding for Azure Functions
-description: Learn how to provide Dapr State input binding data to an Azure Function.
+description: Learn how to provide Dapr State input binding data during a function execution in Azure Functions.
 ms.topic: reference
-ms.date: 04/17/2023
+ms.date: 08/17/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
-The Dapr state input binding allows you to pull in Dapr state for an execution to an Azure Function.
+The Dapr state input binding allows you to access Dapr state during a function execution.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
 
