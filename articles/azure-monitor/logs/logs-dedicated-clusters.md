@@ -651,7 +651,7 @@ Authorization: Bearer <token>
   - If you create a cluster and get an error "region-name doesn't support Double Encryption for clusters.", you can still create the cluster without Double encryption by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
   - Double encryption setting can't be changed after the cluster has been created.
 
-- Deleting a workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-a-workspace) the workspace during the [soft-delete](./delete-workspace.md#soft-delete-behavior) period, workspace returns to previous state and remains linked to cluster.
+- Deleting a workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-a-workspace-in-a-soft-delete-state) the workspace during the [soft-delete](./delete-workspace.md#delete-a-workspace-into-a-soft-delete-state) period, workspace returns to previous state and remains linked to cluster.
 
 - During the commitment period, you can change to a higher commitment tier, which restarts the 31-day commitment period. You can't move back to pay-as-you-go or to a lower commitment tier until after you finish the commitment period.
 
