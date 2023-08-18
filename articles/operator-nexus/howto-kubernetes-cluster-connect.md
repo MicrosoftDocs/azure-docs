@@ -60,9 +60,9 @@ To use `az arc ssh`, users need to manually connect the cluster VMs to Arc by cr
 3. Sample output:
 
     ```bash
-    "mynexusakscluster-0aeaccf8-agentpool1-md-dfvzz"
-    "mynexusakscluster-0aeaccf8-agentpool1-md-gvqmj"
-    "mynexusakscluster-0aeaccf8-control-plane-hrmzr"
+    "mynexusk8scluster-0aeaccf8-agentpool1-md-dfvzz"
+    "mynexusk8scluster-0aeaccf8-agentpool1-md-gvqmj"
+    "mynexusk8scluster-0aeaccf8-control-plane-hrmzr"
     ```
 
 4. Run the following command to SSH into the cluster node.
@@ -129,15 +129,15 @@ Before you can connect to the cluster nodes, you need to find the IP address of 
 
     ```json
     {
-      "name": "mynexusakscluster-593806e9-agentpool1-md-dw57z",
+      "name": "mynexusk8scluster-593806e9-agentpool1-md-dw57z",
       "ipv4Address": "<IP address>"
     }
     {
-      "name": "mynexusakscluster-593806e9-agentpool1-md-zmxp9",
+      "name": "mynexusk8scluster-593806e9-agentpool1-md-zmxp9",
       "ipv4Address": "<IP address>"
     }
     {
-      "name": "mynexusakscluster-593806e9-control-plane-xm7rt",
+      "name": "mynexusk8scluster-593806e9-control-plane-xm7rt",
       "ipv4Address": "<IP address>"
     }
     ```
