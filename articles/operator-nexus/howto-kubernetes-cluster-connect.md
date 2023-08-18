@@ -83,7 +83,7 @@ Another option for securely connecting to an Azure Operator Nexus Kubernetes clu
 
 When the ExpressRoute is in a disconnected mode, you won't be able to access the cluster's kube-api server using the `az connectedk8s proxy` CLI command. Similarly, the `az ssh` CLI command won't work for accessing the worker nodes, which can be crucial for troubleshooting or maintenance tasks.
 
-However, you can still ensure a secure and effective connection to your cluster. To do so, establish direct access to the cluster's CNI (Container Network Interface) from within your on-premises infrastructure. This setup enables you to SSH into the cluster nodes and execute kubectl commands using the kubeconfig file.
+However, you can still ensure a secure and effective connection to your cluster. To do so, establish direct access to the cluster's CNI (Container Network Interface) from within your on-premises infrastructure. This setup enables you to SSH into the cluster nodes and execute `kubectl` commands using the `kubeconfig` file.
 
 Reach out to your network administrator to setup this direct connection to the cluster's CNI network.
 
