@@ -55,7 +55,7 @@ In this tutorial:
         https://github.com/Azure/notation-azure-kv/releases/download/v1.0.0/notation-azure-kv_1.0.0_linux_amd64.tar.gz 
     
     # Extract to the plugin directory
-    tar xvzf notation-azure-kv.tar.gz -C ~/.config/notation/plugins/azure-kv ./notation-azure-kv
+    tar xvzf notation-azure-kv.tar.gz -C ~/.config/notation/plugins/azure-kv
     ```
 
 3. List the available plugins.
