@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 In this tutorial, you migrate a dataset in MongoDB hosted in an Azure Virtual Machine to Azure Cosmos DB for MongoDB vCore by using MongoDB native tools. The MongoDB native tools are a set of binaries that facilitate data manipulation on an existing MongoDB instance. The focus of this doc is on migrating data out of a MongoDB instance using *mongoexport/mongoimport* or *mongodump/mongorestore*. Since the native tools connect to MongoDB using connection strings, you can run the tools anywhere, however we recommend running these tools within the same network as the MongoDB instance to avoid firewall issues. 
 
-The MongoDB native tools can move data only as fast as the host hardware allows; the native tools can be the simplest solution for small datasets where total migration time isn't a concern. [MongoDB Spark connector](https://docs.mongodb.com/spark-connector/current/), [Azure Data Migration Service (DMS)](../../dms/tutorial-mongodb-cosmos-db.md), or [Azure Data Factory (ADF)](../../data-factory/connector-azure-cosmos-db-mongodb-api.md) can be better alternatives if you need a scalable migration pipeline.
+The MongoDB native tools can move data only as fast as the host hardware allows; the native tools can be the simplest solution for small datasets where total migration time isn't a concern. [MongoDB Spark connector](https://docs.mongodb.com/spark-connector/current/), [Azure Data Migration Service (DMS)](../../../dms/tutorial-mongodb-cosmos-db.md), or [Azure Data Factory (ADF)](../../../data-factory/connector-azure-cosmos-db-mongodb-api.md) can be better alternatives if you need a scalable migration pipeline.
 
 
 ## Prerequisites
@@ -117,14 +117,8 @@ The rest of this section guides you through using the pair of tools you selected
 1. **Monitor** the terminal output from *mongorestore*. You should see that it prints lines to the terminal updating on the migration status:
 
 
-## Additional resources
-
-* [Azure Cosmos DB for MongoDB vCore service information](https://azure.microsoft.com/services/cosmos-db/)
-* [MongoDB database tools documentation](https://docs.mongodb.com/database-tools/)
-* Trying to do capacity planning for a migration to Azure Cosmos DB for MongoDB vCore?
-    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
-    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB for MongoDB vCore capacity planner](estimate-ru-capacity-planner.md)
-
 ## Next steps
 
-* Review  migration guidance for additional scenarios in the Microsoft [Database Migration Guide](/data-migration/).
+- Read more about [feature compatibility with MongoDB](compatibility.md).
+- Get started by [creating an account](quickstart-portal.md).
+
