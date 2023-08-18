@@ -15,7 +15,7 @@ Thank you for choosing the Azure Maps Web SDK for your mapping needs. This migra
 
 ## Understand the changes
 
-Before you start the migration process, it's important to familiarize yourself with the key changes and improvements introduced in WebSDK v3. Review the [release notes] to grasp the scope of the new features.
+Before you start the migration process, it's important to familiarize yourself with the key changes and improvements introduced in Web SDK v3. Review the [release notes] to grasp the scope of the new features.
 
 ## Updating the Web SDK version
 
