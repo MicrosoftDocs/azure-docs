@@ -16,8 +16,6 @@ ms.author: mbullwin
 
 Use this tutorial to detect anomalies among multiple variables in Azure Synapse Analytics in very large datasets and databases. This solution is perfect for scenarios like equipment predictive maintenance. The underlying power comes from the integration with [SynapseML](https://microsoft.github.io/SynapseML/), an open-source library that aims to simplify the creation of massively scalable machine learning pipelines. It can be installed and used on any Spark 3 infrastructure including your **local machine**, **Databricks**, **Synapse Analytics**, and others.
 
-For more information, see [SynapseML estimator for Multivariate Anomaly Detector](https://microsoft.github.io/SynapseML/docs/documentation/estimators/estimators_cognitive/#fitmultivariateanomaly).
-
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
@@ -262,8 +260,6 @@ If you have the need to run training code and inference code in separate noteboo
 ### About Anomaly Detector
 
 * Learn about [what is Multivariate Anomaly Detector](../overview.md).
-* SynapseML documentation with [Multivariate Anomaly Detector feature](https://microsoft.github.io/SynapseML/docs/documentation/estimators/estimators_cognitive/#fitmultivariateanomaly).
-* Recipe: [Azure AI services - Multivariate Anomaly Detector](https://microsoft.github.io/SynapseML/docs/features/cognitive_services/CognitiveServices%20-%20Multivariate%20Anomaly%20Detection/).
 * Need support? [Join the Anomaly Detector Community](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2Ci-wb6-iNDoBoNxrnEk9VURjNXUU1VREpOT0U1UEdURkc0OVRLSkZBNC4u).
 
 ### About Synapse

@@ -20,7 +20,7 @@ ms.custom: devx-track-csharp
 >
 > This project targets Document Intelligence REST API version 3.1.
 
-[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)|[API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) | [Supported REST API versions](../../../sdk-overview.md)
+[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)|[API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) | [Supported REST API versions](../../../sdk-overview-v3-1.md)
 
 ## Prerequisites
 
@@ -67,11 +67,11 @@ ms.custom: devx-track-csharp
 
 1. In the **Configure your new project** page, under **Project name** enter *formRecognizer_app*. Then select **Next**.
 
-   :::image type="content" source="../../../media/quickstarts/configure-new-project.png" alt-text="Screenshot of Visual Studio's configure new project dialog window.":::
+   :::image type="content" source="../../../media/quickstarts/configure-new-project-console.png" alt-text="Screenshot of Visual Studio's configure new project page.":::
 
 1. In the **Additional information** page, select **.NET 6.0 (Long-term support)**, and then select **Create**.
 
-    :::image type="content" source="../../../media/quickstarts/additional-information.png" alt-text="Screenshot of Visual Studio's additional information dialog window.":::
+    :::image type="content" source="../../../media/quickstarts/additional-information.png" alt-text="Screenshot of Visual Studio's additional information page.":::
 
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=setup) -->
@@ -80,7 +80,7 @@ ms.custom: devx-track-csharp
 
  1. Right-click on your **formRecognizer_quickstart** project and select **Manage NuGet Packages...** .
 
-    :::image type="content" source="../../../media/quickstarts/select-nuget-package.png" alt-text="Screenshot of select NuGet package window in Visual Studio.":::
+    :::image type="content" source="../../../media/quickstarts/select-nuget-package-console.png" alt-text="Screenshot of select NuGet package window in Visual Studio.":::
 
  1. Select the **Browse** tab and type *Azure.AI.FormRecognizer*.
 

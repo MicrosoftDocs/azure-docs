@@ -5,7 +5,7 @@ ms.date: 08/08/2023
 ms.topic: reference
 author: tamram
 ms.author: tamram
-ms.service: storage
+ms.service: azure-storage
 ms.custom: subject-policy-reference
 ---
 

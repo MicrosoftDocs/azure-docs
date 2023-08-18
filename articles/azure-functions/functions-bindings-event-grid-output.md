@@ -3,7 +3,7 @@ title: Azure Event Grid output binding for Azure Functions
 description: Learn to send an Event Grid event in Azure Functions.
 
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 08/10/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -167,6 +167,8 @@ When using the Connection property, the `topicEndpointUri` must be specified as 
 }
 ```
 When deployed, use the application settings to store this information.
+
+## Authenticating the Event Grid output binding
 
 [!INCLUDE [functions-event-grid-connections](../../includes/functions-event-grid-connections.md)]
 
