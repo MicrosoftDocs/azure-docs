@@ -30,7 +30,7 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
 Execute the following Maven command in the Cloud Shell prompt to create a new app named `helloworld`:
 
 ```azurecli-interactive
-mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-DarchetypeVersion=1.3" "-Dversion=1.0-SNAPSHOT"
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-DarchetypeVersion=1.4" "-Dversion=1.0-SNAPSHOT"
 ```
 
 Then change your working directory to the project folder:
