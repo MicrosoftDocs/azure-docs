@@ -94,6 +94,14 @@ If you have already installed Visual Studio 2022:
 
 :::zone-end
 
+:::zone target="docs" pivot="development-environment-azd"
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- The [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
+- <a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">The latest .NET 7.0 SDK.</a>
+
+:::zone-end
+
 ## 1. Create an ASP.NET web app
 
 :::zone target="docs" pivot="development-environment-vs"
@@ -182,6 +190,29 @@ In this step, you fork a demo project to deploy.
 1. Select **Create fork**.
 
 -----
+    
+:::zone-end
+
+:::zone target="docs" pivot="development-environment-azd"
+
+Azure Developer CLI (`azd`) workflows are based around `azd` templates that include the app source code and infrastructure files to provision the Azure hosting resources. Retrieve and initialize the template for this quickstart using the following steps:
+
+1. Open a terminal window on your machine to an empty working directory. Initialize the `azd` template for this quickstart using the `azd init` command.
+
+    ```bash
+    azd init --template-name
+    ``````
+    When prompted for an environment name, enter `dev`.
+    
+2. From the same terminal session, run the application locally using the `dotnet run` command.
+
+    ```bash
+    dotnet run --urls=https://localhost:5001/
+    ``````
+
+3. Open a web browser and navigate to the app at `https://localhost:5001`. The ASP.NET Core 7.0 web app template is displayed on the page.
+
+    :::image type="content" source="media/quickstart-dotnetcore/local-web-app-net.png" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 7.0 in local browser." lightbox="media/quickstart-dotnetcore/local-web-app-net.png" border="true":::
     
 :::zone-end
 
@@ -481,6 +512,41 @@ Follow these steps to create your App Service resources and publish your project
 
 :::zone-end
 
+:::zone target="docs" pivot="development-environment-azd"
+
+To publish your web app, you must create and configure a new App Service and deploy your app to it.
+
+In addition to the App Service itself, the following resources are also required to host the app:
+
+- A new [resource group](/azure/azure-resource-manager/management/overview#terminology) to contain all of the Azure resources for the service.
+- A new [Hosting Plan](/azure/app-service/overview-hosting-plans) that specifies the location, size, and features of the web server farm that hosts your app.
+
+The `azd` template includes Bicep or Terraform files in the `infra` folder to create these resources for you. After they are created, `azd` can also deploy the app.
+
+Follow these steps to create the resources and publish your project using `azd`:
+
+1. Sign into your Azure account by using the az login command and following the prompt:
+
+    ```bash
+    azd auth login
+    ```
+
+2. Create the Azure resources and deploy your app using the `azd up` command:
+
+    ```bash
+    azd up
+    ```
+
+    The command might take a few minutes to complete. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+
+3. Open a web browser and navigate to the URL:
+
+    You see the ASP.NET Core 7.0 web app displayed in the page.
+
+    :::image type="content" source="media/quickstart-dotnet/browse-dotnet-48.png" lightbox="media/quickstart-dotnet/browse-dotnet-48.png" border="true" alt-text="Screenshot of the deployed .NET Framework 4.8 sample app.":::
+    
+:::zone-end
+
 ## 3. Update the app and redeploy
 
 Follow these steps to update and redeploy your web app:
@@ -707,6 +773,34 @@ You see the updated ASP.NET Core 7.0 web app displayed in the page.
     
 :::zone-end
 
+
+<!-- markdownlint-disable MD044 -->
+:::zone target="docs" pivot="development-environment-azd"
+<!-- markdownlint-enable MD044 -->
+
+In the local directory, open the *Index.cshtml* file. Replace the first `<div>` element:
+
+```razor
+<div class="jumbotron">
+    <h1>.NET 💜 Azure</h1>
+    <p class="lead">Example .NET app to Azure App Service.</p>
+</div>
+```
+
+Save your changes, then redeploy the app using the `azd up` command again:
+
+```azurecli
+azd up
+```
+
+`azd` will skip the provisioning resources step this time and only redeploy your code, since there have been no changes to the Bicep files.
+
+Once deployment has completed, the browser will open to the updated updated ASP.NET Core 7.0 web app.
+
+:::image type="content" source="media/quickstart-dotnetcore/updated-azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/updated-azure-web-app-net.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 7.0 web app in Azure.":::
+
+:::zone-end
+
 ## 4. Manage the Azure app
 
 To manage your web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
@@ -747,6 +841,12 @@ The **Overview** page for your web app, contains options for basic management li
 :::zone target="docs" pivot="development-environment-azure-portal"
 <!-- markdownlint-enable MD044 -->
 [!INCLUDE [Clean-up Portal web app resources](../../includes/clean-up-section-portal-web-app.md)]
+:::zone-end
+<!-- markdownlint-enable MD044 -->
+
+:::zone target="docs" pivot="development-environment-azd"
+<!-- markdownlint-enable MD044 -->
+[!INCLUDE [Clean-up Azure Developer CLI web app resources](../../includes/clean-up-section-azure-developer-cli.md)]
 :::zone-end
 <!-- markdownlint-enable MD044 -->
 

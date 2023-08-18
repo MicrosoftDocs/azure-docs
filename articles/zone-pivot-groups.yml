@@ -1072,6 +1072,8 @@ groups:
     title: Azure PowerShell
   - id: development-environment-azure-portal
     title: Azure portal
+  - id: development-environment-azd
+    title: Azure Developer ClI
 - id: app-service-ide-oss
   title: Development environment
   prompt: Choose a development environment
