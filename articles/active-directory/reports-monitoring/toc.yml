@@ -32,10 +32,8 @@ items:
       href: howto-access-activity-logs.md
     - name: Access logs with Microsoft Graph  
       href: quickstart-access-log-with-graph-api.md
-    - name: Filter audit logs
-      href: quickstart-filter-audit-log.md
-    - name: Customize and filter sign-in logs
-      href: howto-customize-filter-sign-in-logs.md
+    - name: Customize and filter activity logs
+      href: howto-customize-filter-logs.md
     - name: Analyze sign-ins 
       href: quickstart-analyze-sign-in.md
     - name: Download logs

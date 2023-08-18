@@ -13,30 +13,30 @@ ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
 
-# Sign-in log activity details on the Basic info tab
+# Learn about the sign-in log activity details
 
-Azure AD logs all sign-ins into an Azure tenant for compliance. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly.
+Azure AD logs all sign-ins into an Azure tenant for compliance purposes. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly.
 
 - [Learn about the sign-in logs](concept-sign-ins.md).
-- [Customize and analyze the sign-in logs](howto-customize-analyze-sign-in-logs.md)
+- [Customize and filter the sign-in logs](howto-customize-filter-sign-in-logs.md)
 
 This article explains the values on the Basic info tab of the sign-ins log.
 
-### Basic info
+## Basic info tab
 
 The Basic info tab contains most of the details that are also displayed in the table. You can launch the Sign-in Diagnostic from the Basic info tab. For more information, see [How to use the Sign-in Diagnostic](howto-use-sign-in-diagnostics.md).
 
-#### Sign-in error codes
+### Sign-in error codes
 
 If a sign-in failed, you can get more information about the reason in the Basic info tab of the related log item. The error code and associated failure reason appear in the details. For more information, see [How to troubleshoot sign-in errors.](howto-troubleshoot-sign-in-errors.md).
 
-![Screenshot of the sign-in error code on the basics tab.](media/howto-customize-analyze-logs/sign-in-error-code.png)
+![Screenshot of the sign-in error code on the basics tab.](media/concept-sign-in-log-activity-details/sign-in-error-code.png)
 
-### Location and Device info
+## Location and Device info
 
 The **Location** and **Device info** tabs display general information about the location and IP address of the user. The Device info tab provides details on the browser and operating system used to sign in. This tab also provides details on if the device is compliant, managed, or hybrid Azure AD joined.
 
-### Authentication details
+## Authentication details
 
 The **Authentication Details** tab in the details of a sign-in log provides the following information for each authentication attempt:
 
@@ -51,7 +51,7 @@ This information allows you to troubleshoot each step in a user’s sign-in. Use
 - Usage of passwordless authentication methods, such as Passwordless Phone Sign-in, FIDO2, and Windows Hello for Business.
 - How frequently authentication requirements are satisfied by token claims, such as when users aren't interactively prompted to enter a password or enter an SMS OTP.
 
-![Screenshot of the Authentication Details tab.](media/howto-customize-analyze-logs/sign-in-activity-details-authentication.png)
+![Screenshot of the Authentication Details tab.](media/concept-sign-in-log-activity-details/sign-in-activity-details-authentication.png)
 
 When analyzing authentication details, take note of the following details:
 

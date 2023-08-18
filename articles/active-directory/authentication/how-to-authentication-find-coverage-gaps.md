@@ -29,7 +29,7 @@ There are different ways to check if your admins are covered by an MFA policy.
 
   ![Screenshot of the sign-in log.](./media/how-to-authentication-find-coverage-gaps/auth-requirement.png)
 
-  Click **Authentication details** for [details about the MFA requirements](../reports-monitoring/concept-sign-ins.md#authentication-details).
+  When viewing the details of a specific sign-in, select the **Authentication details** tab for details about the MFA requirements. For more information, see [Sign-in log activity details](../reports-monitoring/concept-sign-in-log-activity-details.md).
   
   ![Screenshot of the authentication activity details.](./media/how-to-authentication-find-coverage-gaps/details.png)
 

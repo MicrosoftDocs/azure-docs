@@ -78,7 +78,7 @@ Once you apply a filter, you may to either enter a specific detail - such as a R
 
 ![Screenshot of the filter options with a field to enter filter details open.](./media/howto-customize-filter-logs/sign-in-logs-filter-options.png)
 
-You can filter on several details. The following table describes some commonly used filters. Not all filter options are described. Special considerations on some filters are provided after the table.
+You can filter on several details. The following table describes some commonly used filters. Not all filter options are described.
 
 | Filter | Description |
 | --- | --- |
@@ -91,11 +91,9 @@ You can filter on several details. The following table describes some commonly u
 | IP address | The IP address of the client used for the sign-in |
 | Conditional Access | Options are *Not applied*, *Success*, and *Failure* |
 
-### Analyze the sign-in logs
+Now that your sign-in logs table is formatted for your needs, you can more effectively analyze the data. Further analysis and retention of sign-in data can be accomplished by exporting the logs to other tools. 
 
-Now that your sign-in logs table is formatted for your needs, you can more effectively analyze the data. Some common scenarios are described here, but they aren't the only ways to analyze sign-in data. Further analysis and retention of sign-in data can be accomplished by exporting the logs to other tools. 
-
-Customizing the columns and adjusting the filter helps to look at logs with similar characteristics. Sometimes you need to look at the details of an individual log. Select a log to open the **Activity Details** panel. There are several tabs in the panel to explore. 
+Customizing the columns and adjusting the filter helps to look at logs with similar characteristics. To look at the details of a sign-in select a row in the table to open the **Activity Details** panel. There are several tabs in the panel to explore. For more information, see [Sign-in log activity details](concept-sign-in-log-activity-details.md).
 
 :::image type="content" source="media/howto-customize-filter-logs/sign-in-activity-details.png" alt-text="Screenshot of the sign-in activity details." lightbox="media/howto-customize-filter-logs/sign-in-activity-details-expanded.png":::
 
@@ -114,7 +112,7 @@ Customizing the columns and adjusting the filter helps to look at logs with simi
 
 ## Audit logs
 
-With the information in the Azure AD audit logs, you access all records of system activities for compliance purposes. Audit logs can be accessed from the **Monitoring and health** section where you can sort and filter on every category and activity. You can also access audit logs in the area of the portal for the service you're investigating.
+With the information in the Azure AD audit logs, you can access all records of system activities for compliance purposes. Audit logs can be accessed from the **Monitoring and health** section of Azure AD, where you can sort and filter on every category and activity. You can also access audit logs in the area of the portal for the service you're investigating.
 
 ![Screenshot of the audit logs option on the side menu.](media/howto-customize-filter-logs/audit-logs-nav.png)
 
@@ -128,11 +126,12 @@ Audit logs can be customized like the sign-in logs. There aren't as many column 
 
 ### Filter the audit logs
 
-When you filter the logs by **Service** the **Category** and **Activity** details automatically change. In some cases, there may only be one Category or Activity. For a detailed table of all potential combinations of these details, see [Audit activities](reference-audit-activities.md).
+When you filter the logs by **Service**, the **Category** and **Activity** details automatically change. In some cases, there may only be one Category or Activity. For a detailed table of all potential combinations of these details, see [Audit activities](reference-audit-activities.md).
 
 ![Screenshot of the audit log activities filter with Conditional Access as the service.](media/howto-customize-filter-logs/audit-log-activities-filter.png)
 
 ## Next steps
 
+- [Analyze a sing-in error](quickstart-analyze-sign-in.md)
 - [Troubleshoot sign-in errors](howto-troubleshoot-sign-in-errors.md)
 - [Explore all audit log categories and activities](reference-audit-activities.md)
