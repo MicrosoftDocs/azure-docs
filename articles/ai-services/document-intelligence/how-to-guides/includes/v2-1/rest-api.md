@@ -626,11 +626,7 @@ curl -v -X GET https://{endpoint}/formrecognizer/v2.1/prebuilt/businessCard/anal
 
 You receive a `200 (Success)` response with JSON output.
 
-<<<<<<< HEAD
-The `"readResults"` node contains all of the recognized text. Results organize text by page, then by line, then by individual words. The `"documentResults"` node contains the business-card-specific values that the model discovered. The `"documentResults"` node is where you find useful contact information like the company name, first name, last name, phone number, and other information.
-=======
 The `"readResults"` node contains all of the recognized text. The response organizes text by page, then by line, then by individual words. The `"documentResults"` node contains the business-card-specific values that the model discovered. The `"documentResults"` node is where you find useful contact information like the company name, first name, last name, phone number, and so on.
->>>>>>> 5fae2ad1491a4bccc63d01185fadc0ae974898f1
 
 :::image type="content" source="../../../media/business-card-english.jpg" alt-text="Photograph shows a business card from a company called Contoso.":::
 
@@ -1209,11 +1205,7 @@ https://westus.api.cognitive.microsoft.com/formrecognizer/v2.1/custom/models/77d
 
 ### Train a model with labels
 
-<<<<<<< HEAD
-To train with labels, you need to have special label information files (*\<filename>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Document Intelligence Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. After you get them, you can call the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) API, with the `"useLabelFile"` parameter set to `true` in the JSON body.
-=======
-To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Document Intelligence Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync)** API, with the `"useLabelFile"` parameter set to `true` in the JSON body.
->>>>>>> 5fae2ad1491a4bccc63d01185fadc0ae974898f1
+To train with labels, you need to have special label information files (*\<filename>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Document Intelligence Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. After you get them, call the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) API, with the `"useLabelFile"` parameter set to `true` in the JSON body.
 
 Before you run the command, make these changes:
 
