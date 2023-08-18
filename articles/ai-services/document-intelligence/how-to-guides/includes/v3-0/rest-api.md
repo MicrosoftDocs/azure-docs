@@ -85,7 +85,7 @@ curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/{modelID}:analyze?ap
 
 ### POST response
 
-You receive a `202 (Success)` response that includes an **Operation-location** header. You use the value of this header to retrieve the response results.
+You receive a `202 (Success)` response that includes an **Operation-Location** header. You use the value of this header to retrieve the response results.
 
 :::image type="content" source="../../../media/how-to/rest-get-response.png" alt-text="{alt-text}":::
 
@@ -162,11 +162,11 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 
 Before you run the following command, make these changes:
 
-1. Replace `{POST response}` with the Operation-location header from the [POST response](#post-response).
+1. Replace `{POST response}` with the Operation-Location header from the [POST response](#post-response).
 
 1. Replace `FR_KEY` with the variable name for your environment variable if it differs.
 
-* Replace `{POST response}` with the Operation-location header from the [POST response](#post-response).
+* Replace `{POST response}` with the Operation-Location header from the [POST response](#post-response).
 
 * Replace `FR_KEY` with the variable for your environment variable if it differs from the name in the code.
 
