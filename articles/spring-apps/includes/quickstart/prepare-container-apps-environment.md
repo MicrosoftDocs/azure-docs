@@ -14,7 +14,7 @@ For clarity of structure, a separate markdown file is used to describe how to cr
 
 -->
 
-### [Consumption Workload](#tab/Consumption-workload)
+### [Consumption workload](#tab/Consumption-workload)
 
 1. Fill out the **Basics** tab with the following information:
 
@@ -26,7 +26,7 @@ For clarity of structure, a separate markdown file is used to describe how to cr
 
 1. Select **Create** to create the Container Apps Environment.
 
-### [Dedicated Workload](#tab/Ddedicated-workload)
+### [Dedicated workload](#tab/Dedicated-workload)
 
 1. Fill out the **Basics** tab with the following information:
 
