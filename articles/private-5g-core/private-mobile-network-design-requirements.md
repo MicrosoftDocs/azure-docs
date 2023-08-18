@@ -74,7 +74,7 @@ There are multiple ways to set up your network for use with AP5GC. The exact set
   - This topology requires that the N6 interface is split into one subnet for each data network or one subnet for all data networks. This option therefore requires careful planning and configuration to prevent overlapping data network IP ranges or UE IP ranges.  
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png" alt-text="Diagram of layer 3 network topology with multiple data networks." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png":::
 
-- Layer 3 network with VLAN and physical Core/Access separation
+- Layer 3 network with VLAN and physical access/core separation
   - You can also separate ASE traffic into VLANs, whether or not you choose to add layer 3 gateways to your network. There are multiple benefits to segmenting traffic into separate VLANs, including more flexible network management and increased security.
   - For example, you could configure separate VLANs for management, access and data traffic, or a separate VLAN for each attached data network.
   - VLANs must be configured on the local layer 2 or layer 3 network equipment. Multiple VLANs will be carried on a single link from ASE port 5 (access network) and/or 6 (core network), so you must configure each of those links as a VLAN trunk.
