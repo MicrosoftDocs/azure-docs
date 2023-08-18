@@ -45,7 +45,7 @@ cd petstore-ee7
 mvn clean install
 ```
 
-If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you won't make any Git commits in this quickstart, detached HEAD state is appropriate.
+If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you won't make any Git commit in this quickstart, detached HEAD state is appropriate.
 
 ## 3 - Configure the Maven plugin
 

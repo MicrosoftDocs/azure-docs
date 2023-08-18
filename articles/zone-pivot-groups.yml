@@ -1078,9 +1078,9 @@ groups:
   prompt: Choose how you want to host your Java app
   pivots:
   - id: java-maven-tomcat
-    title: Apache Tomcat
+    title: Tomcat
   - id: java-maven-quarkus
-    title: Java EE (Quarkus)
+    title: Quarkus
   - id: java-maven-jboss
     title: JBoss EAP
 - id: app-service-containers-windows-linux
