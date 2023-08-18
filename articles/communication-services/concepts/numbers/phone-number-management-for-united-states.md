@@ -40,7 +40,7 @@ More details on eligible subscription types are as follows:
 
 
 ## Azure subscription billing locations where United States phone numbers are available
-| Country |
+| Country/Region |
 | :---------- |
 |Canada|
 |Denmark|
@@ -51,7 +51,7 @@ More details on eligible subscription types are as follows:
 |United Kingdom|
 |United States|
 
-## Find information about other countries
+## Find information about other countries/regions
 
 [!INCLUDE [Country Dropdown](../../includes/country-dropdown.md)]
 
