@@ -794,6 +794,8 @@ items:
         href: https://azure.microsoft.com/pricing/details/communication-services/
       - name: Learn about inbound calls
         href: concepts/call-automation/incoming-call-notification.md
+      - name: Connecting Azure Communication Services to Azure Cognitive Services
+        href: concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md
       - name: Play audio in call
         href: concepts/call-automation/play-action.md
       - name: Gathering user input 
