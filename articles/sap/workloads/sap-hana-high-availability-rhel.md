@@ -584,7 +584,7 @@ Create the HANA topology. Run the following commands on one of the Pacemaker clu
 Next, create the HANA resources.
 
 > [!NOTE]
-> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 If building a cluster on **RHEL 7.x**, use the following commands:  
 
@@ -843,7 +843,7 @@ Resource Group: g_ip_HN1_03
 ### Test the Azure fencing agent
 
 > [!NOTE]
-> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.  
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.  
 
 Resource state before starting the test:
 

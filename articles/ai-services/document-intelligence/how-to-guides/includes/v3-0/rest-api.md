@@ -14,7 +14,7 @@ ms.author: lajanuar
 >
 > * This project targets Azure AI Document Intelligence API version **3.0** using cURL to execute REST API calls.
 
-| [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported SDKs](../../../sdk-overview.md)
+| [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) | [Supported SDKs](../../../sdk-overview-v3-1.md)
 
 ## Prerequisites
 
@@ -168,7 +168,7 @@ Before you run the following command, make these changes:
 
 * Replace `{POST response}` with the Operation-location header from the [POST response](#post-response).
 
-* Replace `FR_KEY` with the variable for your environment variable if differs from the name in the code.
+* Replace `FR_KEY` with the variable for your environment variable if it differs from the name in the code.
 
 * Replace `{json-tool}` with your JSON formatting tool.
 

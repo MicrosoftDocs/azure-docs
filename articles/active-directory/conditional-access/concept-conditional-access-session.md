@@ -75,7 +75,7 @@ For more information, see the article [Configure authentication session manageme
 
 - **Disable** only work when **All cloud apps** are selected, no conditions are selected, and **Disable** is selected under **Session** > **Customize continuous access evaluation** in a Conditional Access policy. You can choose to disable all users or specific users and groups.
 
-:::image type="content" source="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png" alt-text="CAE Settings in a new Conditional Access policy in the Azure portal." lightbox="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png":::
+:::image type="content" source="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png" alt-text="A screenshot showing CAE Settings in a new Conditional Access policy." lightbox="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png":::
 
 ## Disable resilience defaults
 
