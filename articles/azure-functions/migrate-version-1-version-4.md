@@ -42,6 +42,8 @@ zone_pivot_groups: programming-languages-set-functions
 
 This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime. Because project upgrade instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
 
+If you are running version 1.x of the runtime in Azure Stack Hub, see [Considerations for Azure Stack Hub](#considerations-for-azure-stack-hub) first.
+
 ## Identify function apps to upgrade
 
 Use the following PowerShell script to generate a list of function apps in your subscription that currently target version 1.x:
@@ -453,6 +455,13 @@ In version 2.x, the following changes were made:
 * Because of [.NET Core limitations](https://github.com/Azure/azure-functions-host/issues/3414), support for F# script (`.fsx` files) functions has been removed. Compiled F# functions (.fs) are still supported.
 
 * The URL format of Event Grid trigger webhooks has been changed to follow this pattern: `https://{app}/runtime/webhooks/{triggerName}`.
+
+## Considerations for Azure Stack Hub
+
+[App Service on Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-overview) does not support version 4.x of Azure Functions. When you are planning a migration off of version 1.x in Azure Stack Hub, you can choose one of the following options:
+
+- Migrate to version 4.x hosted in public cloud Azure Functions using the instructions in this article. Instead of upgrading your existing app, you would create a new app using version 4.x and then deploy your modified project to it.
+- Switch to [WebJobs](../app-service/webjobs-create.md) hosted on an App Service plan in Azure Stack Hub.
 
 ## Next steps
 
