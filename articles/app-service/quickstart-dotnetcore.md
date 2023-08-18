@@ -195,12 +195,14 @@ In this step, you fork a demo project to deploy.
 
 :::zone target="docs" pivot="development-environment-azd"
 
-Azure Developer CLI (`azd`) workflows are based around `azd` templates that include the app source code and infrastructure files to provision the Azure hosting resources. Retrieve and initialize the template for this quickstart using the following steps:
+The [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) (`azd`) is an open-source tool designed to streamline and automate the process of moving your application from a local development environment to Azure. (`azd`) uses extensible [templates](/azure/developer/azure-developer-cli/get-started) that include reusable infrastructure as code (Bicep or Terraform) assets and the app source code. These templates are used to provision resources in Azure and deploy the app code.
+
+Retrieve and initialize the template for this quickstart using the following steps:
 
 1. Open a terminal window on your machine to an empty working directory. Initialize the `azd` template for this quickstart using the `azd init` command.
 
     ```bash
-    azd init --template-name
+    azd init --<tbd-template-name>
     ```
     When prompted for an environment name, enter `dev`.
     
