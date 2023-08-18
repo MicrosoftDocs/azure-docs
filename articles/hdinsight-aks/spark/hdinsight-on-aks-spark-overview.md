@@ -12,7 +12,7 @@ Apache Spark is a parallel processing framework that supports in-memory processi
 
 Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly. In-memory computing is faster than disk-based applications, such as Hadoop, which shares data through Hadoop distributed file system (HDFS). Spark allows integrategration with the Scala and Python programming languages to let you manipulate distributed data sets like local collections. There's no need to structure everything as map and reduce operations.
 
-:::image type="content" source="./media/spark-overview/spark-overview.png" alt-text="Diagram showing Spark overview in HDInsight on AKS." border="true"::: 
+:::image type="content" source="./media/spark-overview/spark-overview.png" alt-text="Diagram showing Spark overview in HDInsight on AKS."::: 
 
 
 ## HDInsight Spark in AKS
