@@ -20,9 +20,9 @@ Before you install the Vision SDK for Python, make sure to satisfy the [platform
 
 **Choose your tool or IDE**
 
-# [PyPI](#tab/pypi)
+# [Terminal](#tab/terminal)
 
-### Install from PyPI
+### Install from terminal
 
 To install the Vision SDK for Python, run this command in a terminal.
 
