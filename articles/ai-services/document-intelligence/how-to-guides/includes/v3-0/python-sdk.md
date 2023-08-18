@@ -112,7 +112,7 @@ def format_polygon(polygon):
 
 
 def analyze_read():
-    # sample form document
+    # sample document
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png"
 
     document_analysis_client = DocumentAnalysisClient(
@@ -191,7 +191,7 @@ def format_polygon(polygon):
 
 
 def analyze_layout():
-    # sample form document
+    # sample document
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png"
 
     document_analysis_client = DocumentAnalysisClient(
@@ -441,7 +441,7 @@ def format_address_value(address_value):
 
 
 def analyze_tax_us_w2():
-    # sample form document
+    # sample document
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/w2.png"
 
     document_analysis_client = DocumentAnalysisClient(
