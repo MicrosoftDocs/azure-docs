@@ -16,7 +16,7 @@ ms.author: lajanuar
 
 > [!NOTE]
 >
-> This project targets Azure AI Document Intelligence API version **2.1** using cURL to execute REST API calls.
+> This project targets Azure AI Document Intelligence API version 2.1 using cURL to execute REST API calls.
 
 | [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Azure REST API reference](/rest/api/azure/) |
 
@@ -62,10 +62,10 @@ Before you run the command, make these changes:
 curl -v -i POST "https://{endpoint}/formrecognizer/v2.1/layout/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{​​​​​​​'source': '{your-document-url}'}​​​​​​​​"
 ```
 
-You receive a `202 (Success)` response that includes an `Operation-Location` header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
+You receive a `202 (Success)` response that includes a read-only `Operation-Location` header. The value of this header contains a `resultID` that can be queried to get the status of the asynchronous operation and retrieve the results using a GET request with your same resource subscription key:
 
 ```output
-https://cognitiveservice/formrecognizer/v2.1/layout/analyzeResults/{resultId}
+https://<span></span>cognitiveservice/formrecognizer/v2.1/layout/analyzeResults/{resultId}.
 ```
 
 In the following example, as part of the URL, the string after `analyzeResults/` is the result ID.
@@ -76,9 +76,7 @@ https://cognitiveservice/formrecognizer/v2/layout/analyzeResults/54f0b076-4e38-4
 
 ### Get layout results
 
-After you've called the [Analyze Layout](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) API, call the **[Get Analyze Layout Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeLayoutResult)** API to get the status of the operation and the extracted data.
-
-Before you run the command, make these changes:
+After you called the [Analyze Layout](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) API, poll the [Get Analyze Layout Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeLayoutResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace `{key}` with the key you copied from the previous step.
@@ -94,8 +92,8 @@ You receive a `200 (success)` response with JSON content.
 See the following invoice image and its corresponding JSON output.
 
 - The `"readResults"` node contains every line of text with its respective bounding box placement on the page.
-- The `selectionMarks` node shows every selection mark and whether its status is `selected` or `unselected`. Selection marks include checkboxes and radio buttons.
-- The `"pageResults"` section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and other information are extracted.
+- The `selectionMarks` node shows every selection mark (checkbox, radio mark) and whether its status is `selected` or `unselected`.
+- The `"pageResults"` section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
 
 :::image type="content" source="../../../media/contoso-invoice.png" alt-text="Photograph of Contoso project statement document with a table.":::
 
@@ -222,7 +220,7 @@ This response body output has been shortened for simplicity. See the [full sampl
 
 ## Analyze receipts
 
-This section demonstrates how to analyze and extract common fields from US receipts by using a pretrained receipt model. For more information about receipt analysis, see the [Document Intelligence receipt model](../../../concept-receipt.md). To start analyzing a receipt, call the [Analyze Receipt](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync) API by using the cURL command. Before you run the command, make these changes:
+This section demonstrates how to analyze and extract common fields from US receipts, using a pretrained receipt model. For more information about receipt analysis, see the [Document Intelligence receipt model](../../../concept-receipt.md). To start analyzing a receipt, call the [Analyze Receipt](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync) API using the cURL command. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace `{your receipt URL}` with the URL address of a receipt image.
@@ -258,7 +256,7 @@ curl -X GET "https://{endpoint}/formrecognizer/v2.1/prebuilt/receipt/analyzeResu
 
 You receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation isn't complete, the value of `"status"` is `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
-The `"readResults"` node contains all of the recognized text (if you set the optional *includeTextDetails* parameter to `true`). Results organize text by page, then by line, then by individual words. The `"documentResults"` node contains the receipt-specific values that the model discovered. The  `"documentResults"` node is where you find useful key/value pairs like the tax, total, merchant address, and so on.
+The `"readResults"` node contains all of the recognized text, if you set the optional `includeTextDetails` parameter to `true`). The response organizes text by page, then by line, then by individual words. The `"documentResults"` node contains the receipt-specific values that the model discovered. The  `"documentResults"` node is where you find useful key/value pairs like the tax, total, merchant address, and so on.
 
 See the following receipt image and its corresponding JSON output.
 
@@ -593,7 +591,7 @@ This response body output has been shortened for readability. See the [full samp
 
 ## Analyze business cards
 
-This section demonstrates how to analyze and extract common fields from English business cards by using a pretrained model. For more information about business card analysis, see the [Business cards conceptual guide](../../../concept-business-card.md). To start analyzing a business card, you call the **[Analyze Business Card](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)** API using the cURL command. Before you run the command, make these changes:
+This section demonstrates how to analyze and extract common fields from English business cards, using a pretrained model. For more information about business card analysis, see the [Document Intelligence business card model](../../../concept-business-card.md). To start analyzing a business card, you call the [Analyze Business Card](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync) API using the cURL command. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace `{your business card URL}` with the URL address of a receipt image.
@@ -628,7 +626,11 @@ curl -v -X GET https://{endpoint}/formrecognizer/v2.1/prebuilt/businessCard/anal
 
 You receive a `200 (Success)` response with JSON output.
 
+<<<<<<< HEAD
 The `"readResults"` node contains all of the recognized text. Results organize text by page, then by line, then by individual words. The `"documentResults"` node contains the business-card-specific values that the model discovered. The `"documentResults"` node is where you find useful contact information like the company name, first name, last name, phone number, and other information.
+=======
+The `"readResults"` node contains all of the recognized text. The response organizes text by page, then by line, then by individual words. The `"documentResults"` node contains the business-card-specific values that the model discovered. The `"documentResults"` node is where you find useful contact information like the company name, first name, last name, phone number, and so on.
+>>>>>>> 5fae2ad1491a4bccc63d01185fadc0ae974898f1
 
 :::image type="content" source="../../../media/business-card-english.jpg" alt-text="Photograph shows a business card from a company called Contoso.":::
 
@@ -1207,13 +1209,17 @@ https://westus.api.cognitive.microsoft.com/formrecognizer/v2.1/custom/models/77d
 
 ### Train a model with labels
 
+<<<<<<< HEAD
 To train with labels, you need to have special label information files (*\<filename>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Document Intelligence Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. After you get them, you can call the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) API, with the `"useLabelFile"` parameter set to `true` in the JSON body.
+=======
+To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Document Intelligence Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync)** API, with the `"useLabelFile"` parameter set to `true` in the JSON body.
+>>>>>>> 5fae2ad1491a4bccc63d01185fadc0ae974898f1
 
 Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace `{key}` with the key you copied from the previous step.
-1. Replace `{SAS URL}` with the Azure Blob storage container's shared access signature (SAS) URL. 
+1. Replace `{SAS URL}` with the Azure Blob storage container's shared access signature (SAS) URL.
 
 To retrieve the SAS URL for your custom model training data:
 
