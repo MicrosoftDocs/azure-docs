@@ -104,9 +104,9 @@ This issue can happen if:
 
 ## Authorized users don't show up in Grafana Users configuration
 
-After you add a user to a Managed Grafana's built-in RBAC role, such as Grafana Viewer, you don't see that user listed in the Grafana's **Configuration** UI page right away. This is *by design*. Managed Grafana's RBAC roles are stored in the Azure AD (AAD). For performance reasons, Managed Grafana doesn't automatically synchronize users assigned to the built-in roles to every instance. There is no notification for changes in RBAC assignments. Querying AAD periodically to get current assignments adds a lot of extra load to the AAD service.
+After you add a user to a Managed Grafana's built-in RBAC role, such as Grafana Viewer, you don't see that user listed in the Grafana's **Configuration** UI page right away. This behavior is *by design*. Managed Grafana's RBAC roles are stored in the Azure AD (AAD). For performance reasons, Managed Grafana doesn't automatically synchronize users assigned to the built-in roles to every instance. There is no notification for changes in RBAC assignments. Querying AAD periodically to get current assignments adds much extra load to the AAD service.
 
-There is no "fix" for this per se since it's an expected behavior. After a user signs into your Grafana instance, the user shows up in the **Users** tab under Grafana **Configuration**. You can see the corresponding role that user has been assigned to.
+There's no "fix" for this in itself. After a user signs into your Grafana instance, the user shows up in the **Users** tab under Grafana **Configuration**. You can see the corresponding role that user has been assigned to.
 
 ## Azure Managed Grafana dashboard panel doesn't display any data
 
