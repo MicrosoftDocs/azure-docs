@@ -13,32 +13,32 @@ zone_pivot_groups: programming-languages-set-functions
 Azure Functions Core Tools lets you develop and test your functions on your local computer. When you're ready, you can also use Core Tools to deploy your code project to Azure and work with application settings.
 
 ::: zone pivot="programming-language-csharp"
-You are viewing the C# version of this article. Make sure to select your preferred Functions programming language at the top of the article.
+You're viewing the C# version of this article. Make sure to select your preferred Functions programming language at the top of the article.
  
 If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-csharp.md).
 ::: zone-end
 ::: zone pivot="programming-language-java"
-You are viewing the Java version of this article. Make sure to select your preferred Functions programming language at the top of the article.
+You're viewing the Java version of this article. Make sure to select your preferred Functions programming language at the top of the article.
 
 If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-java.md).
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
-You are viewing the JavaScript version of this article. Make sure to select your preferred Functions programming language at the top of the article.
+You're viewing the JavaScript version of this article. Make sure to select your preferred Functions programming language at the top of the article.
  
 If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-node.md).
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-You are viewing the PowerShell version of this article. Make sure to select your preferred Functions programming language at the top of the article.
+You're viewing the PowerShell version of this article. Make sure to select your preferred Functions programming language at the top of the article.
  
 If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-powershell.md).
 ::: zone-end
 ::: zone pivot="programming-language-python"
-You are viewing the Python version of this article. Make sure to select your preferred Functions programming language at the top of the article.
+You're viewing the Python version of this article. Make sure to select your preferred Functions programming language at the top of the article.
  
 If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-python.md).
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
-You are viewing the TypeScript version of this article. Make sure to select your preferred Functions programming language at the top of the article.
+You're viewing the TypeScript version of this article. Make sure to select your preferred Functions programming language at the top of the article.
  
 If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-typescript.md).
 ::: zone-end
@@ -221,8 +221,6 @@ Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 </pre>
 
-### Considerations when running locally
-
 Keep in mind the following considerations when running your functions locally:
 
 + By default, authorization isn't enforced locally for HTTP endpoints. This means that all local HTTP requests are handled as `authLevel = "anonymous"`. For more information, see the [HTTP binding article](functions-bindings-http-webhook-trigger.md#authorization-keys). You can use the `--enableAuth` option to require authorization when running locally. For more information, see [`func start`](./functions-core-tools-reference.md?tabs=v2#func-start)
@@ -233,7 +231,7 @@ Keep in mind the following considerations when running your functions locally:
 
 + When you include your Application Insights connection information in the local.settings.json file, local log data is written to the specific Application Insights instance. To keep local telemetry data separate from production data, consider using a separate Application Insights instance for development and testing.
 
-### Passing test data to a function
+## Pass data to local functions
 
 To test your functions locally, you [start the Functions host](#start) and call endpoints on the local server using HTTP requests. The endpoint you call depends on the type of function.
 
@@ -242,17 +240,17 @@ To test your functions locally, you [start the Functions host](#start) and call 
 
 For more general information on testing functions, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md).
 
-#### HTTP and webhook triggered functions
+### HTTP triggered functions
 
-You call the following endpoint to locally run HTTP and webhook triggered functions:
+To start an HTTP triggered function, you call the following endpoint:
 
 ```
-http://localhost:{port}/api/{function_name}
+http://localhost:<PORT>/api/<FUNCTION_NAME>
 ```
 
-Make sure to use the same server name and port that the Functions host is listening on. You see an endpoint like this in the output generated when starting the Function host. You can call this URL using any HTTP method supported by the trigger.
+In this URL template, `<FUNCTION_NAME>` is the name of the function or route and `<PORT>` is the local port on which func.exe is listening.  
 
-The following cURL command triggers the `MyHttpTrigger` quickstart function from a GET request with the _name_ parameter passed in the query string.
+For example, the following cURL command triggers the `MyHttpTrigger` quickstart function from a GET request with the _name_ parameter passed in the query string.
 
 ```
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
@@ -270,13 +268,17 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data "{'name':'Azu
 ```
 ---
 
-You can make GET requests from a browser passing data in the query string. For all other HTTP methods, you must use cURL, Fiddler, Postman, or a similar HTTP testing tool that supports POST requests.
+Considerations when calling HTTP endpoints locally:
 
-#### Non-HTTP triggered functions
++ You can make GET requests from a browser passing data in the query string. For all other HTTP methods, you must use cURL, Fiddler, Postman, or a similar HTTP testing tool that supports POST requests.
+
++ Make sure to use the same server name and port that the Functions host is listening on. You see an endpoint like this in the output generated when starting the Function host. You can call this URL using any HTTP method supported by the trigger.
+
+### Non-HTTP triggered functions
 
 For all functions other than HTTP and Event Grid triggers, you can test your functions locally using REST by calling a special endpoint called an _administration endpoint_. Calling this endpoint with an HTTP POST request on the local server triggers the function. You can call the `functions` administrator endpoint (`http://localhost:{port}/admin/functions/`) to get URLs for all available functions, both HTTP triggered and non-HTTP triggered.
 
-When you run your functions locally using Core Tools, authentication and authorization is bypassed. However, when you try to call the same administrator endpoints on your function app in Azure, you must provide an access key. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). 
+When you run your functions locally using Core Tools, authentication and authorization are bypassed. However, when you try to call the same administrator endpoints on your function app in Azure, you must provide an access key. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). 
 
 >[!IMPORTANT]
 >Access keys are valuable shared secrets. When used locally, they must be securely stored outside of source control. Because authentication and authorization isn't required by Functions when running locally, you should avoid using and storing access keys unless your scenarios require it.
@@ -321,13 +323,11 @@ The Azure Functions Core Tools supports two types of deployment:
 | Azure Container Apps | `func azurecontainerapps deploy` | Deploys a containerized function app to an existing Container Apps environment. |
 | Kubernetes cluster | `func kubernetes deploy` | Deploys your Linux function app as a custom Docker container to a Kubernetes cluster. | 
 
-### Authenticating with Azure
-
 You must have either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell) installed locally to be able to publish to Azure from Core Tools. By default, Core Tools uses these tools to authenticate with your Azure account. 
 
 If you don't have these tools installed, you need to instead [get a valid access token](/cli/azure/account#az-account-get-access-token) to use during deployment. You can present an access token using the `--access-token` option in the deployment commands.  
 
-### <a name="project-file-deployment"></a>Deploy project files
+## <a name="project-file-deployment"></a>Deploy project files
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 To publish your local code to a function app in Azure, use the [`func azure functionapp publish publish`](./functions-core-tools-reference.md#func-azure-functionapp-publish) command, as in the following example:
@@ -365,23 +365,32 @@ The following considerations apply to this kind of deployment:
 + To publish to a specific named slot in your function app, use the [`--slot` option](functions-core-tools-reference.md#func-azure-functionapp-publish). 
 ::: zone-end
 
-### Azure Container Apps deployment 
+## Deploy containers
 
-Functions lets you deploy a [containerized function app](functions-create-container-registry.md) to an Azure Container Apps environment. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). Use the following [`func azurecontainerapps deploy`](./functions-core-tools-reference.md#func-azurecontainerapps-deploy) command to deploy an existing container image to a Container Apps environment:
+Core Tools lets you deploy your [containerized function app](functions-create-container-registry.md) to both managed Azure Container Apps environments and Kubernetes clusters that you manage. 
+
+### [Container Apps](#tab/container-apps)    
+
+Use the following [`func azurecontainerapps deploy`](./functions-core-tools-reference.md#func-azurecontainerapps-deploy) command to deploy an existing container image to a Container Apps environment:
 
 ```command
 func azurecontainerapps deploy --name <APP_NAME> --environment <ENVIRONMENT_NAME> --storage-account <STORAGE_CONNECTION> --resource-group <RESOURCE_GROUP> --image-name <IMAGE_NAME> [--registry-password] [--registry-server] [--registry-username]
 
 ```
 
-When you deploy to an Azure Container Apps environment, the environment and storage account must already exist. You don't need to create a separate function app resource.  The storage account connection string you provide is used by the deployed function app. 
+When you deploy to an Azure Container Apps environment, the following considerations apply:
 
-> [!IMPORTANT]
-> Storage connection strings and other service credentials are important secrets. Make sure to securely store any script files using `func azurecontainerapps deploy` and don't store them in any publicly accessible source control systems.
++ The environment and storage account must already exist. The storage account connection string you provide is used by the deployed function app.
 
-### Kubernetes cluster
++ You don't need to create a separate function app resource when deploying to Container Apps.   
 
-Core Tools can also be used to deploy a [containerized function app](functions-create-container-registry.md) to a Kubernetes cluster that you manage. The following [`func kubernetes deploy`](./functions-core-tools-reference.md#func-kubernetes-deploy) command uses the Dockerfile to generate a container in the specified registry and deploy it to the default Kubernetes cluster. 
++ Storage connection strings and other service credentials are important secrets. Make sure to securely store any script files using `func azurecontainerapps deploy` and don't store them in any publicly accessible source control systems. You can [encrypt the local.settings.json file](#encrypt-the-local-settings-file) for added security.
+
+For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). 
+
+### [Kubernetes cluster](#tab/kubernetes)
+
+The following [`func kubernetes deploy`](./functions-core-tools-reference.md#func-kubernetes-deploy) command uses the Dockerfile to generate a container in the specified registry and deploy it to the default Kubernetes cluster. 
 
 ```command
 func kubernetes deploy --name <DEPLOYMENT_NAME> --registry <REGISTRY_USERNAME> 
@@ -414,7 +423,7 @@ The following considerations apply when working with the local settings file:
 + The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-python.md#environment-variables).
 ::: zone-end
 
-+ When no valid storage connection string is set for [`AzureWebJobsStorage`] and a local storage emulator isn't being used, an error is shown. You can use Core Tools to [download a specific connection string](#download-a-storage-connection-string) from any of your Azure Storage accounts.
++ When no valid storage connection string is set for [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage) and a local storage emulator isn't being used, an error is shown. You can use Core Tools to [download a specific connection string](#download-a-storage-connection-string) from any of your Azure Storage accounts.
 
 ### Download application settings
 
@@ -466,7 +475,7 @@ func settings decrypt
 
 When the settings file is encrypted and decrypted, the file's `IsEncrypted` setting also gets updated.
 
-## Binding extensions
+## Working with binding extensions
 
 [Functions triggers and bindings](functions-triggers-bindings.md) are implemented as .NET extension (NuGet) packages. To be able to use a specific binding extension, that extension must be installed in the project.
 
@@ -475,7 +484,7 @@ This section doesn't apply to version 1.x of the Functions runtime. In version 1
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-For compiled C# project, add references to the specific NuGet packages for the binding extensions required by your functions. C# script (.csx) project should use [extension bundles](functions-bindings-register.md#extension-bundles).
+For C# class library projects, add references to the specific NuGet packages for the binding extensions required by your functions. C# script (.csx) project must use [extension bundles](functions-bindings-register.md#extension-bundles).
 ::: zone-end
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 Functions provides _extension bundles_ to make is easy to work with binding extensions in your project. Extension bundles, which are versioned and defined in the host.json file, install a complete set of compatible binding extension packages for your app. Your host.json should already have extension bundles enabled. If for some reason you need to add or update the extension bundle in the host.json file, see [Extension bundles](functions-bindings-register.md#extension-bundles).
@@ -530,12 +539,6 @@ Learn how to [develop, test, and publish Azure functions by using Azure Function
 
 <!-- LINKS -->
 
-[Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure portal]: https://portal.azure.com 
-[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
-[`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
-[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
 [extension bundles]: functions-bindings-register.md#extension-bundles
 [func azure functionapp publish]: functions-core-tools-reference.md?tabs=v2#func-azure-functionapp-publish
-[func init]: functions-core-tools-reference.md?tabs=v2#func-init
 
