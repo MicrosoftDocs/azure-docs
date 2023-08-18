@@ -43,7 +43,7 @@ For documents and datasets with long text, you should use the available [data pr
 
 ## Data formats and file types
 
-Azure OpenAI on your data supports the following filetypes (16 MB size limit per file):
+Azure OpenAI on your data supports the following filetypes:
 
 * `.txt`
 * `.md`
@@ -52,7 +52,7 @@ Azure OpenAI on your data supports the following filetypes (16 MB size limit per
 * Microsoft PowerPoint files
 * PDF
 
-There are some caveats about document structure and how it might affect the quality of responses from the model: 
+There is an [upload limit](../quotas-limits.md), and there are some caveats about document structure and how it might affect the quality of responses from the model: 
 
 * The model provides the best citation titles from markdown (`.md`) files. 
 
