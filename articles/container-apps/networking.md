@@ -316,7 +316,7 @@ For external environments, the resource group contains a public IP address used 
 
 In addition to the standard [Azure Container Apps billing](./billing.md), you're billed for:
 
-- One standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for ingress in external environments and one standard Load Balancer.
+- One standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for egress if using an internal or external environment, plus one standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for ingress if using an external environment. If you need more public IPs for egress due to SNAT issues, [open a support ticket to request an override](https://azure.microsoft.com/support/create-ticket/).
 
 - The cost of data processed (in GBs) includes both ingress and egress for management operations.
 

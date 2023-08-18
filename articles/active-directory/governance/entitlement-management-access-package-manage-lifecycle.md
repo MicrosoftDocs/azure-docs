@@ -30,7 +30,7 @@ Entitlement management allows you to gain visibility into the state of a guest u
 - **Blank** - The lifecycle for the guest user isn't determined. This happens when the guest user had an access package assigned before managing user lifecycle was possible.
 
 > [!NOTE]
-> When a guest user is set as **Governed**, based on ELM tenant settings their account will be deleted or disabled in specified days after their last access package assignment expires.  Learn more about ELM settings here: [Manage external access with Azure Active Directory entitlement management](../fundamentals/6-secure-access-entitlement-managment.md).
+> When a guest user is set as **Governed**, based on ELM tenant settings their account will be deleted or disabled in specified days after their last access package assignment expires.  Learn more about ELM settings here: [Manage external access with Azure Active Directory entitlement management](../architecture/6-secure-access-entitlement-managment.md).
 
 You can directly convert ungoverned users to be governed by using the **Mark Guests as Governed (preview)** functionality in the top menu bar.
 
@@ -52,7 +52,7 @@ To manage user lifecycle, you'd follow these steps:
 
 ## Manage guest user lifecycle programmatically 
 
-To manage user lifecycle programatically using Microsoft Graph, see: [accessPackageSubject resource type](/graph/api/resources/accesspackagesubject).
+To manage user lifecycle programatically using Microsoft Graph, see: [accessPackageSubject resource type](/graph/api/resources/accesspackagesubject). For bulk conversion, see: [ConvertTo-EmGovernedGuest.ps1](https://github.com/JefTek/EntraIdentitySamples/blob/main/PowerShell/IdentityGovernance/GovernedGuests/ConvertTo-EmGovernedGuest.ps1).
 
 
 
