@@ -32,7 +32,7 @@ This tutorial is the first part of a four-part series. Here, you learn how to:
 This tutorial series has two tracks:
 
 * The SDK-only track uses only Python SDKs. Choose this track for pure, Python-based development and deployment.
-* The SDK and CLI track uses the Python SDK for feature set development and testing only, and it uses the CLI for CRUD operations (create, update, and delete). This track is useful in continuous integration and continuous delivery (CI/CD) or GitOps scenarios, where CLI/YAML is preferred.
+* The SDK and CLI track uses the Python SDK for feature set development and testing only, and it uses the CLI for CRUD (create, read, update, and delete) operations. This track is useful in continuous integration and continuous delivery (CI/CD) or GitOps scenarios, where CLI/YAML is preferred.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -75,7 +75,7 @@ This tutorial uses an Azure Machine Learning Spark notebook for development.
 1. On the **Configure session** panel, select **Python packages**.
 
 1. Upload the Conda file:
-   1. Select **Upload Conda file**.
+   1. On the **Python packages** tab, select **Upload Conda file**.
    1. Browse to the directory that hosts the Conda file.
    1. Select **conda.yml**, and then select **Open**.
 
@@ -231,7 +231,7 @@ As a best practice, entities help enforce use of the same join key definition ac
 
 1. Initialize the feature store CRUD client.
 
-   As explained earlier in this tutorial, `MLClient` is used for creating, updating, and deleting a feature store asset. The notebook code cell sample shown here searches for the feature store that you created in an earlier step. Here, you can't reuse the same `ml_client` value that you used earlier in this tutorial, because it's scoped at the resource group level. Proper scoping is a prerequisite for feature store creation. 
+   As explained earlier in this tutorial, `MLClient` is used for creating, reading, updating, and deleting a feature store asset. The notebook code cell sample shown here searches for the feature store that you created in an earlier step. Here, you can't reuse the same `ml_client` value that you used earlier in this tutorial, because it's scoped at the resource group level. Proper scoping is a prerequisite for feature store creation. 
 
    In this code sample, the client is scoped at feature store level.
 
@@ -247,7 +247,7 @@ As a best practice, entities help enforce use of the same join key definition ac
 
 1. Initialize the feature store CRUD client.
 
-   As explained earlier in this tutorial, `MLClient` is used for creating, updating, and deleting a feature store asset. The notebook code cell sample shown here searches for the feature store that you created in an earlier step. Here, you can't reuse the same `ml_client` value that you used earlier in this tutorial, because it's scoped at the resource group level. Proper scoping is a prerequisite for feature store creation.
+   As explained earlier in this tutorial, `MLClient` is used for creating, reading, updating, and deleting a feature store asset. The notebook code cell sample shown here searches for the feature store that you created in an earlier step. Here, you can't reuse the same `ml_client` value that you used earlier in this tutorial, because it's scoped at the resource group level. Proper scoping is a prerequisite for feature store creation.
 
    In this code sample, the client is scoped at the feature store level, and it registers the `account` entity with the feature store. Additionally, it creates an account entity that has the join key `accountID` of type `string`.
 

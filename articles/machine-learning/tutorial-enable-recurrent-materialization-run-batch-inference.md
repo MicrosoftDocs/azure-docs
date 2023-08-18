@@ -44,8 +44,8 @@ Before you proceed with the following procedures, be sure to complete the first,
 
    1. Configure the session:
   
-      1. When the status bar displays **Configure session**, select it.
-      1. Select **Upload conda file**.
+      1. When the toolbar displays **Configure session**, select it.
+      1. On the **Python packages** tab, select **Upload conda file**.
       1. Upload the *conda.yml* file that you [uploaded in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment).
       1. Optionally, increase the session time-out (idle time) to avoid frequent prerequisite reruns.
 

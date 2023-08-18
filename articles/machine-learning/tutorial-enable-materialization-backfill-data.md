@@ -59,8 +59,8 @@ You can create a new notebook and execute the instructions in this tutorial step
 
 1. Configure the session:
 
-   1. Select **Configure session**.
-   1. Select **Upload Conda file**.
+   1. On the toolbar, select **Configure session**.
+   1. On the **Python packages** tab, select **Upload Conda file**.
    1. Upload the *conda.yml* file that you [uploaded in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment).
    1. Increase the session time-out (idle time) to avoid frequent prerequisite reruns.
 
@@ -193,8 +193,8 @@ This UAI is assigned to the feature store shortly. It requires these permissions
 | Scope                                      | Role                            |
 |------------------------------------------------|--------------------------------------------|
 | Feature store                                  | Azure Machine Learning Data Scientist role |
-| Storage account of the offline store on the feature store | Blob storage Data Contributor role         |
-| Storage accounts of the source data                | Blob storage Data Reader role              |
+| Storage account of the offline store on the feature store | Storage Blob Data Contributor role         |
+| Storage accounts of the source data                | Storage Blob Data Reader role              |
 
 The next CLI commands assign the first two roles to the UAI. In this example, the "storage accounts of the source data" scope doesn't apply because you read the sample data from a public access blob storage. To use your own data sources, you must assign the required roles to the UAI. To learn more about access control, see [Manage access control for managed feature store](./how-to-setup-access-control-feature-store.md).
 
@@ -210,9 +210,9 @@ The next CLI commands assign the first two roles to the UAI. In this example, th
 
 ---
 
-### Grant the blob Data Reader role access to your user account in the offline store
+### Grant the Storage Blob Data Reader role access to your user account in the offline store
 
-If the feature data is materialized, you need the blob Data Reader role to read feature data from the offline materialization store.
+If the feature data is materialized, you need the Storage Blob Data Reader role to read feature data from the offline materialization store.
 
 Obtain your Azure AD object ID value from the Azure portal, as described in [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id).
 
@@ -220,7 +220,7 @@ To learn more about access control, see [Manage access control for managed featu
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/2. Enable materialization and backfill feature data.ipynb?name=grant-rbac-to-user-identity)]
 
-The following steps grant the blob Data Reader role access to your user account:
+The following steps grant the Storage Blob Data Reader role access to your user account:
 
 1. Attach the offline materialization store and UAI, to enable the offline store on the feature store.
 

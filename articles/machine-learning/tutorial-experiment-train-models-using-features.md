@@ -46,8 +46,8 @@ Before you proceed with the following procedures, be sure to complete the first 
 
    1. Configure the session:
 
-      1. When the status bar displays **Configure session**, select it.
-      1. Select **Upload conda file**.
+      1. When the toolbar displays **Configure session**, select it.
+      1. On the **Python packages** tab, select **Upload Conda file**.
       1. Upload the *conda.yml* file that you [uploaded in the first tutorial](./tutorial-get-started-with-feature-store.md#prepare-the-notebook-environment).
       1. Optionally, increase the session time-out (idle time) to avoid frequent prerequisite reruns.
 
@@ -178,7 +178,7 @@ In the following steps, you select a list of features, run a training pipeline, 
 
    The first tutorial covered this step, when you registered the `transactions` feature set. Because you also have an `accounts` feature set, you can browse through the available features:
 
-   1. Go to the [Azure Machine Learning global landing page](https://ml.azure.com/home?flight=FeatureStores).
+   1. Go to the [Azure Machine Learning global landing page](https://ml.azure.com/home).
    1. On the left pane, select **Feature stores**.
    1. In the list of feature stores, select the feature store that you created earlier.
 
@@ -214,13 +214,13 @@ In this procedure, you manually trigger the training pipeline. In a production s
 
    The training pipeline has these steps:
 
-   1. Generate training data. For its input, this built-in component takes the feature retrieval specification, the observation data, and the time-stamp column name. It then generates the training data as output. It runs these steps as a managed Spark job.
+   1. Feature retrieval: For its input, this built-in component takes the feature retrieval specification, the observation data, and the time-stamp column name. It then generates the training data as output. It runs these steps as a managed Spark job.
 
-   1. Based on the training data, train the model and then generate a model (not yet registered).
+   1. Training: Based on the training data, this step trains the model and then generates a model (not yet registered).
 
-   1. Evaluate whether the model performance and quality fall within a threshold. (In this tutorial, it's a placeholder step for illustration purposes.)
+   1. Evaluation: This step validates whether the model performance and quality fall within a threshold. (In this tutorial, it's a placeholder step for illustration purposes.)
 
-   1. Register the model.
+   1. Register the model: This step registers the model.
 
       > [!NOTE]
       > In the second tutorial, you ran a backfill job to materialize data for the `transactions` feature set. The feature retrieval step reads feature values from the offline store for this feature set. The behavior is the same, even if you use the `get_offline_features()` API.
