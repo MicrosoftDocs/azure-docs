@@ -10,7 +10,7 @@ ms.date: 08/18/2023
 
 # Reliability in Azure Deployment Environments 
 
-This article describes reliability support in Azure Deployment Environments, and covers intra-regional resiliency with availability zones and inter region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/well-architected/resiliency/overview).
+This article describes reliability support in Azure Deployment Environments, and covers intra-regional resiliency with availability zones and inter region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/well-architected/resiliency/overview).
 
 ## Availability zone support 
 
