@@ -6,7 +6,8 @@ author: dariagrigoriu
 ms.assetid: f3359464-fa44-4f4a-9ea6-7821060e8d0d
 ms.topic: article
 ms.date: 07/01/2016
-ms.author: dariac
+author: msangapu-msft
+ms.author: msangapu
 ms.custom: seodec18, devx-track-js
 ---
 # Best Practices for Azure App Service
