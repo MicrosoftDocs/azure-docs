@@ -221,7 +221,7 @@ type: Microsoft.App/containerApps
 
 # [Portal](#tab/portal)
 
-This feature is not supported in the Azure Portal.
+This feature is not supported in the Azure portal.
 
 ::: zone-end
 
