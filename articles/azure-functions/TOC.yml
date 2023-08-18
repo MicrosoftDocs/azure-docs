@@ -756,9 +756,9 @@
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
-                - name: Migrate Azure Cosmos DB extension 3.x to 4.x
-                  href: migrate-cosmos-db-version-3-version-4.md
-                  displayName: Azure Cosmos DB
+            - name: Migrate version 3.x to 4.x
+              href: migrate-cosmos-db-version-3-version-4.md
+              displayName: Azure Cosmos DB
         - name: Azure Data Explorer
           items:
             - name: Overview
