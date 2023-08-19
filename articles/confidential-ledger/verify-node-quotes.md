@@ -9,6 +9,8 @@ ms.custom: devx-track-linux
 ms.topic: how-to
 ---
 
+# Verify the validity of an ACL node quote
+
 An Azure Confidential Ledger node executes on top of a Trusted Execution Environment(TEE), such as Intel SGX, which guarantees the confidentiality of the data while in process. The trustworthiness of the platform and the binaries running inside it is guaranteed through a remote attestation process. An Azure Confidential Ledger requires a node to present a quote before joining the network. The quote report data contains the cryptographic hash of the node's identity public key and the MRENCLAVE value. The node is allowed to join the network if the quote is found to be valid and the MRENCLAVE value is one of the allowed values in the auditable governance.
 
 ## Pre-requisites
