@@ -15,18 +15,19 @@ An Azure Confidential Ledger node executes on top of a Trusted Execution Environ
 
 ## Pre-requisites
 
-- CCF Python package(https://pypi.org/project/ccf/) or install CCF(https://microsoft.github.io/CCF/main/build_apps/install_bin.html)
-- An Azure Azure Confidential Ledger instance
+- Install [CCF](https://microsoft.github.io/CCF/main/build_apps/install_bin.html) or the [CCF Python package](https://pypi.org/project/ccf/).
+- An Azure Azure Confidential Ledger instance.
 
 ## Verify node quote
 
-The node quote can be downloaded from `https://<ledgername>.confidential-ledger.azure.com` and verified by using the `oeverify` tool or with the `verify_quote.sh` script. The script is installed as part of the CCF installation or the CCF Python package. For complete details about the script and the supported parameters, refer to verify_quote.sh(https://microsoft.github.io/CCF/main/use_apps/verify_quote.html) at Github.
+The node quote can be downloaded from `https://<ledgername>.confidential-ledger.azure.com` and verified by using the `oeverify` tool that ships with the [Open Enclave SDK](https://github.com/openenclave/openenclave/blob/master/tools/oeverify/README.md) or with the `verify_quote.sh` script. It is installed with the CCF installation or the CCF Python package. For complete details about the script and the supported parameters, refer to [verify_quote.sh](https://microsoft.github.io/CCF/main/use_apps/verify_quote.html) at Github.
 
 ```bash
-$ verify_quote.sh https://<ledgername>.confidential-ledger.azure.com
+$ verify_quote.sh https://<ledgername>.confidential-ledger.azure.com:443
 ```
 The script checks if the cryptographic hash of the node's identity public key (DER encoded) matches the SGX report data and that the MRENCLAVE value present in the quote is trusted. A list of trusted MRENCLAVE values in the network can be downloaded from the `https://<ledgername>.confidential-ledger.azure.com/node/code` endpoint. An optional mrenclave parameter can be supplied to check if the node is running the trusted code. If supplied, the mreclave value in the quote must match it exactly.
 
 ## Next steps
 
-- [Register an ACL app with Azure AD](register-application.md)
+* [Overview of Microsoft Azure confidential ledger](overview.md)
+* [Azure confidential ledger architecture](architecture.md)
