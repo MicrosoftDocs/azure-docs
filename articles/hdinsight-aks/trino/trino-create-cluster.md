@@ -112,7 +112,7 @@ Once the cluster pool deployment completes, continue to use the Azure portal to 
 
 1. On the **Integrations** page, provide the following information:
 
-   :::image type="content" source="./media/trino-create-cluster/trino-intergations-tab.png" alt-text="Screenshot showing integrations options.":::
+   :::image type="content" source="./media/trino-create-cluster/trino-integrations-tab.png.png" alt-text="Screenshot showing integrations options.":::
    
      |Property|Description|
      |---|---|
