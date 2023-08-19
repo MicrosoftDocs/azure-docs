@@ -13,7 +13,7 @@ ms.date: 08/18/2023
 
 # Retrieval Augmented Generation (RAG) in Azure Cognitive Search
 
-Retrieval Augmentation Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT with an information retrieval system that provides the data. The addition of an information retrieval system gives you full control over what data is used by the LLM. For an enterprise solution, it means that you can deploy natural language processing that finds, analyzes, summarizes, describes, and translates your enterprise content obtained from documents, images, audio, and video.
+Retrieval Augmentation Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT with an information retrieval system that provides the data. Adding an information retrieval system gives you full control over what data is used by the LLM. For an enterprise solution, it means that you can deploy natural language processing that finds, analyzes, summarizes, describes, and translates your enterprise content obtained from documents, images, audio, and video.
 
 The decision about which information retrieval system to use is critical because it determines the inputs to the LLM.
 
@@ -21,11 +21,11 @@ The information retrieval system should provide:
 
 + Indexing strategies for loading and refreshing the corpus, at volume, for all of your content, at the frequency you require.
 
-+ Query capabilities and relevance tuning. Can the system return relevant results, in the short-form formats that meet the requirements of LLM inputs on token length.
++ Query capabilities and relevance tuning. Can the system return *relevant* results, in the short-form formats necessary for meeting the token length requirements of LLM inputs.
 
 + Security, global reach, and reliability for both data and operations.
 
-Azure Cognitive Search is a [proven solution](https://github.com/Azure-Samples/azure-search-openai-demo) for a RAG architecture because it provides indexing and query capabilities, with the infrastructure and security of the Azure cloud.
+Azure Cognitive Search is a [proven solution](https://github.com/Azure-Samples/azure-search-openai-demo) for a RAG architecture because it provides indexing and query capabilities, with the infrastructure and security of the Azure cloud. Through code and other components, you can design a coordinated RAG solution that includes all of the elements for generative AI over your proprietary content.
 
 <!-- [From its initial conception](META-LINK) to the many implementations that have followed, RAG has helped developers overcome the challenges of fine-tuning an LLM for specialized tasks by providing an alternative pattern that supplements, or replaces, the domain knowledge that a general purpose LLM draws from. -->
 
@@ -38,18 +38,18 @@ RAG patterns that include Cognitive Search have the elements indicated in the fo
 
 :::image type="content" source="media/retrieval-augmented-generation-overview/architecture-diagram.png" alt-text="Architecture diagram of information retrieval with search and ChatGPT." border="true" lightbox="media/retrieval-augmented-generation-overview/architecture-diagram.png":::
 
-+ App UX (web app)
++ App UX (web app) for the user experience
 + App server or orchestrator (integration and coordination layer)
 + Azure Cognitive Search (information retrieval system)
 + Azure OpenAI (LLM for generative AI)
 
-The web app sets the user experience, providing the presentation, context, and user interaction. Questions or prompts from a user start here. The input goes first to information retrieval to get the payload, but it's also passed on to the LLM for context and intent. If you want to start with the end in mind, the ["Chat with your data"](https://entgptsearch.azurewebsites.net/) sample app shows you a web front end that's been configured to a use prompt template for scoping the question-and-answer interaction over a fictitious health plan.
+The web app sets the user experience, providing the presentation, context, and user interaction. Questions or prompts from a user start here. Inputs pass through the integration layer, going first to information retrieval to get the payload, but also go to the LLM for context and intent. If you want to start with the end in mind, the ["Chat with your data"](https://entgptsearch.azurewebsites.net/) sample app shows you a web front end that's been configured to a use prompt template for scoping the question-and-answer interaction over a fictitious health plan.
 
 The app server or orchestrator is the integration code that coordinates the handoffs between information retrieval and the LLM. One option is to use LangChain to coordinate the workflow. LangChain provides an integration module that makes your chain sequence Cognitive-Search-aware.
 
-The information retrieval system provides the searchable index, query logic, and the payload (query response). The query is executed using the existing search engine in Cognitive Search, which can handle keyword (or term) and vector queries. The index is created in advance, based on a schema you define, and loaded with your content.
+The information retrieval system provides the searchable index, query logic, and the payload (query response). The query is executed using the existing search engine in Cognitive Search, which can handle keyword (or term) and vector queries. The index is created in advance, based on a schema you define, and loaded with your content that's sourced from files, databases, or storage.
 
-The LLM receives the original prompt, plus the results from Cognitive Search. The LLM analyzes the results and formulates a response. If the LLM is ChatGPT, the user interaction might be a take-turn conversation. If you're using Davinci, the prompt might be a fully composed answer. An Azure solution most likely uses Azure OpenAI, but there's no hard dependency on this specific service.
+The LLM receives the original prompt, plus the results from Cognitive Search. The LLM analyzes the results and formulates a response. If the LLM is ChatGPT, the user interaction might be a back and forth conversation. If you're using Davinci, the prompt might be a fully composed answer. An Azure solution most likely uses Azure OpenAI, but there's no hard dependency on this specific service.
 
 Cognitive Search doesn't provide LLM integration, web front ends, or vector encoding (embeddings) out of the box, so you need to write code that handles those parts of the solution. You can review demo source ([Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo)) for a blueprint of what a full solution entails.
 
@@ -59,22 +59,22 @@ In Cognitive Search, all searchable content is stored in a search index that's h
 
 When you set up the data for your RAG solution, you use the features that create and load an index in Cognitive Search. An index includes fields that replicate or represent your source content. An index field might be simple transference (a title or description in a source document becomes a title or description field in a search index), or a field might contain the output of an external process, such as vectorization and skills processing that generates a text description of an image.
 
-The following table identifies which indexing features are useful for each content type.
+One way to approach indexing is through a content-first approach. The following table identifies which indexing features are useful for each content type. 
 
 | Content type | Indexed as | Features |
 |--------------|------------|----------|
-| text | tokens, unaltered text | Indexers (automates several steps). Push model. Analyzers. Synonyms. |
-| text | vectors <sup>1</sup> | Text can be vectorized externally and then indexed as vectors. Use the built-in support for indexing vector data, through fields that are defined for that purpose.
-| image | tokens, unaltered text <sup>2</sup> | Skills for OCR and Image Analysis process images for text recognition or image characteristics. Image information is converted to searchable text and added to the index.  |
-| image | vectors <sup>1</sup> | Images can be vectorized. Use the built-in support for indexing vector data, through fields that are defined for that purpose. |
-| video | vectors <sup>1</sup> | Video files can be vectorized externally and then indexed as vectors. Use the built-in support for indexing vector data, through fields that are defined for that purpose. |
-| audio | vectors <sup>1</sup> | Audio files can be vectorized externally and then indexed as vectors. Use the built-in support for indexing vector data, through fields that are defined for that purpose. |
+| text | tokens, unaltered text | Indexers can pull content from other Azure resources. You can also push content to an index. To modify text in flight, use analyzers and normalizers to add lexical processing during indexing. Synonym maps are useful if source documents are missing terminology that might be used in a query. |
+| text | vectors <sup>1</sup> | Text can be vectorized externally and then [indexed as vector fields](vector-search-how-to-create-index.md) in your index. |
+| image | tokens, unaltered text <sup>2</sup> | Skills for OCR and Image Analysis process images for text recognition or image characteristics. Image information is converted to searchable text and added to the index. Skills have an indexer requirement. |
+| image | vectors <sup>1</sup> | Images can be vectorized externally and then [indexed as vector fields](vector-search-how-to-create-index.md) in your index. |
+| video | vectors <sup>1</sup> | Video files can be vectorized externally and then [indexed as vector fields](vector-search-how-to-create-index.md) in your index. |
+| audio | vectors <sup>1</sup> | Audio files can be vectorized externally and then [indexed as vector fields](vector-search-how-to-create-index.md) in your index. |
 
- <sup>1</sup> Vector support is in public preview. It currently requires that you call other libraries or models for data chunking and vectorization. See this repo for samples that call Azure OpenAI embedding models to vectorize content and queries, and that demonstrate data chunking.
+ <sup>1</sup> [Vector support](vector-search-overview.md) is in public preview. It currently requires that you call other libraries or models for data chunking and vectorization. See [this repo](https://github.com/Azure/cognitive-search-vector-pr) for samples that call Azure OpenAI embedding models to vectorize content and queries, and that demonstrate data chunking.
 
-<sup>2</sup> Skills are built-in support for AI enrichment. For OCR and Image Analysis, the indexing pipeline makes an internal call to the Azure AI Vision APIs. These skills pass an extracted image to Azure AI for processing, and receive the output as text that's indexed by Cognitive Search.
+<sup>2</sup> [Skills](cognitive-search-working-with-skillsets.md) are built-in support for [AI enrichment](cognitive-search-concept-intro.md). For OCR and Image Analysis, the indexing pipeline makes an internal call to the Azure AI Vision APIs. These skills pass an extracted image to Azure AI for processing, and receive the output as text that's indexed by Cognitive Search.
 
-Vectors provide the best accommodation for dissimilar content (multiple file formats and languages) because content is expressed universally as mathematic representations. Vectors also support similarity search: matching on what is most similar to the vector query. Compared to keyword search (or term search) that matches at the token level, similarity search is more nuanced. It's a better choice if there's ambiguity or interpretation requirements in the content or in queries.
+Vectors provide the best accommodation for dissimilar content (multiple file formats and languages) because content is expressed universally as mathematic representations. Vectors also support similarity search: matching on the coordinates that are most similar to the vector query. Compared to keyword search (or term search) that matches at the token level, similarity search is more nuanced. It's a better choice if there's ambiguity or interpretation requirements in the content or in queries.
 
 ## Query layer
 
@@ -88,7 +88,7 @@ There's no query type in Cognitive Search - not even semantic search or vector s
 + Vector search, where the query string is one or more vectors
 + Hybrid search, combination of any or all of the above. Vector and non-vector queries execute in parallel and returned in a unified result sets.
 
-### Control the query response
+### Structure the query response
 
 A query's response provides the input to the LLM, so the quality of your search results is critical to success.
 
@@ -96,16 +96,20 @@ composition or structure of the results (retrievable fields, rows, filters)
   select for fields
   rows is either what matches, up to $top or k-matches if vector search
 content (fields, captions, maybe answers)
+
+### Improve relevance
+
 relevance tuning and ranking (what content gets included)
-   scoring profiles, semantic ranking
 
-## LLM
+scoring profiles, semantic ranking
 
-ChatGPT for a context-building conversation
+## Integration code and LLMs
 
-Davinci for analysis
+Choose an LLM:
 
-## Integration code
++ ChatGPT for a context-building conversation
+
++ Davinci for analysis
 
 sends search results
 
@@ -119,7 +123,7 @@ prompt engineering, prompt template
 
 + Review this demo to see a RAG solution in action, and to study the code that builds the experience.
 
-+ Review indexing strategies to determine data ingestion and refresh.
++ Review indexing strategies to determine how you want to ingest and refresh data. Decide whether to use vector search, keyword search, or hybrid search. The kind of content you need to search over, and the type of queries you want to run, will determine index design.
 
 + Review query and relevance.
 
