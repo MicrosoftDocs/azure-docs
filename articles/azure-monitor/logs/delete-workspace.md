@@ -189,7 +189,7 @@ Use the following section to troubleshoot issues with deleting or recovering a L
 
 ### I'm not sure if the workspace I deleted can be recovered
 
-If you aren't sure if a deleted workspace is in a soft-delete state and can be recovered, in the Azure portal, select [Open recycle bin](#recover-a-workspace-in-a-soft-delete-state?tabs=azure-portal) on the **Log Analytics workspaces** page to see a list of soft-deleted workspaces per subscription. Permanently deleted workspaces aren't included in the list.
+If you aren't sure if a deleted workspace is in a soft-delete state and can be recovered, in the Azure portal, select [Open recycle bin](?tabs=azure-portal#recover-a-workspace-in-a-soft-delete-state) on the **Log Analytics workspaces** page to see a list of soft-deleted workspaces per subscription. Permanently deleted workspaces aren't included in the list.
 
 ### Resolve the "This workspace name is already in use" or "conflict" error message
 
@@ -210,7 +210,7 @@ If you get a 204 response code with "Resource not found" when you delete a works
 
 ### I'm receiving error code 404 when attempting to recover my workspace 
 
-If you deleted your resource group and your workspace was included, you can see the deleted workspace on the [Open recycle bin](#recover-a-workspace?tabs=azure-portal) page in the Azure portal. The recovery operation will fail with the error code 404 because the resource group doesn't exist. Re-create your resource group and try the recovery again.
+If you deleted your resource group and your workspace was included, you can see the deleted workspace on the [Open recycle bin](?tabs=azure-portal#recover-a-workspace) page in the Azure portal. The recovery operation will fail with the error code 404 because the resource group doesn't exist. Re-create your resource group and try the recovery again.
 
 ## Next steps
 
