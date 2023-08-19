@@ -25,7 +25,7 @@ The information retrieval system should provide:
 
 + Security, global reach, and reliability for both data and operations.
 
-Azure Cognitive Search is a [proven solution](DEMO-GH-REPO) for a RAG architecture because it provides indexing and query capabilities, with the infrastructure and security of the Azure cloud.
+Azure Cognitive Search is a [proven solution](https://github.com/Azure-Samples/azure-search-openai-demo) for a RAG architecture because it provides indexing and query capabilities, with the infrastructure and security of the Azure cloud.
 
 <!-- [From its initial conception](META-LINK) to the many implementations that have followed, RAG has helped developers overcome the challenges of fine-tuning an LLM for specialized tasks by providing an alternative pattern that supplements, or replaces, the domain knowledge that a general purpose LLM draws from. -->
 
@@ -36,25 +36,22 @@ Azure Cognitive Search is a [proven solution](DEMO-GH-REPO) for a RAG architectu
 
 RAG patterns that include Cognitive Search have the elements indicated in the following illustration.
 
-:::image type="content" source="media/retrieval-augmented-generation-overview/architecture-diagram.png" alt-text="Architecture diagram of information retrieval with search and ChatGPT." border="true lightbox="media/retrieval-augmented-generation-overview/architecture-diagram.png":::
+:::image type="content" source="media/retrieval-augmented-generation-overview/architecture-diagram.png" alt-text="Architecture diagram of information retrieval with search and ChatGPT." border="true" lightbox="media/retrieval-augmented-generation-overview/architecture-diagram.png":::
 
 + App UX (web app)
 + App server or orchestrator (integration and coordination layer)
 + Azure Cognitive Search (information retrieval system)
 + Azure OpenAI (LLM for generative AI)
 
-The web app sets the user experience, providing the presentation, context, and user interaction. Questions or prompts from a user start here. The input goes first to information retrieval, but it's also passed on to the LLM for context and intent. If you want to start with the end in mind, the [entgptsearch.azurewebsites.net/](https://entgptsearch.azurewebsites.net/) sample app shows you a web front end that's been configured to a use prompt template for scoping the question-and-answer interaction over content. In this case, the content is a fictitious health plan.
+The web app sets the user experience, providing the presentation, context, and user interaction. Questions or prompts from a user start here. The input goes first to information retrieval to get the payload, but it's also passed on to the LLM for context and intent. If you want to start with the end in mind, the ["Chat with your data"](https://entgptsearch.azurewebsites.net/) sample app shows you a web front end that's been configured to a use prompt template for scoping the question-and-answer interaction over a fictitious health plan.
 
-The app server or orchestrator is the integration code that coordinates the handoffs between information retrieval and the LLM. One option is to use LangChain to coordinate the workflow.
+The app server or orchestrator is the integration code that coordinates the handoffs between information retrieval and the LLM. One option is to use LangChain to coordinate the workflow. LangChain provides an integration module that makes your chain sequence Cognitive-Search-aware.
 
-The information retrieval system provides the searchable index and query logic. The query is executed using the existing search engine in Cognitive Search, which can handle keyword (or term) and vector queries. The index is created in advance, based on a schema you define, and loaded with content that you provide.
+The information retrieval system provides the searchable index, query logic, and the payload (query response). The query is executed using the existing search engine in Cognitive Search, which can handle keyword (or term) and vector queries. The index is created in advance, based on a schema you define, and loaded with your content.
 
-The LLM receives the original prompt and the results from Cognitive Search. The LLM analyzes the results and formulates a response. If the LLM is ChatGPT, the user interaction might be a take-turn conversation. If you're using Davinci, the prompt might be a fully composed answer. An Azure solution most likely uses Azure OpenAI, but there's no hard dependency on this specific service.
+The LLM receives the original prompt, plus the results from Cognitive Search. The LLM analyzes the results and formulates a response. If the LLM is ChatGPT, the user interaction might be a take-turn conversation. If you're using Davinci, the prompt might be a fully composed answer. An Azure solution most likely uses Azure OpenAI, but there's no hard dependency on this specific service.
 
-Cognitive Search doesn't provide LLM integration, web front ends, or vector encoding (embeddings) out of the box, so you need to write code that handles those parts of the solution. You can review the [https://aka.ms/entgptsearch](https://aka.ms/entgptsearch) demo for a blueprint of what a full solution entails.
-
-> [!NOTE]
-> Some Cognitive Search features are intended for a human interaction and aren't useful in a RAG pattern. Specfically, you can avoid autocomplete and suggestions. Other features like facets and orderby might be useful, but would be uncommon in a RAG scenario.
+Cognitive Search doesn't provide LLM integration, web front ends, or vector encoding (embeddings) out of the box, so you need to write code that handles those parts of the solution. You can review demo source ([Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo)) for a blueprint of what a full solution entails.
 
 ## Searchable content in Cognitive Search
 
@@ -118,11 +115,18 @@ prompt engineering, prompt template
 
 ## How to get started
 
-+ Use Azure AI Studio and "bring your own data" to experiment with prompts and an existing search index
++ Use Azure AI Studio and "bring your own data" to experiment with prompts and an existing search index. This step helps you decide what model to use, and whether your existing index needs modification.
 
-+ Review this demo
++ Review this demo to see a RAG solution in action, and to study the code that builds the experience.
 
-+ Use this accelerator
++ Review indexing strategies to determine data ingestion and refresh.
+
++ Review query and relevance.
+
++ Use this accelerator to create your own RAG solution.
+
+> [!NOTE]
+> Some Cognitive Search features are intended for human interaction and aren't useful in a RAG pattern. Specfically, you can skip autocomplete and suggestions. Other features like facets and orderby might be useful, but would be uncommon in a RAG scenario.
 
 <!-- Vanity URL for this article
 https://aka.ms/what-is-rag -->
