@@ -112,7 +112,7 @@ Once the cluster pool deployment completes, continue to use the Azure portal to 
 
 1. On the **Integrations** page, provide the following information:
 
-   :::image type="content" source="./media/trino-create-cluster/trino-integrations-tab.png.png" alt-text="Screenshot showing integrations options.":::
+   :::image type="content" source="./media/trino-create-cluster/trino-integrations-tab.png" alt-text="Screenshot showing integrations options.":::
    
      |Property|Description|
      |---|---|
@@ -141,7 +141,7 @@ Once the cluster pool deployment completes, continue to use the Azure portal to 
 
    :::image type="content" source="./media/trino-create-cluster/custom-deployment-complete.png" alt-text="Screenshot showing custom deployment complete.":::
 
-   If you navigate away from the page, you can check the status of the deployment by clicking Notifications icon ![Notifications icon shown in the Azure portal](./media/portal-elements/notifications.png) in the Azure portal.
+   If you navigate away from the page, you can check the status of the deployment by clicking Notifications icon.
 
    > [!TIP]
    > For troubleshooting any deployment errors, you can refer to this [page](../create-cluster-error-dictionary.md).
