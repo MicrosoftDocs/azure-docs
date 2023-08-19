@@ -22,9 +22,9 @@ In this sample, we'll cover off what this sample does and what you need as pre-r
 
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Make an outbound call C#]()]
+[!INCLUDE [ACS Call Automation OpenAI C# sample]()]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Make an outbound call C#]()]
+[!INCLUDE [ACS Call Automation OpenAI java sample]()]
 ::: zone-end
