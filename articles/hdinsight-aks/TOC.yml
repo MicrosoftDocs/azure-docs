@@ -86,7 +86,7 @@ items:
   - name: Connect and query
     items:
     - name: Authentication
-      href: ./trino/trino-auth.md    
+      href: ./trino/trino-authentication.md    
     - name: Trino CLI
       href: ./trino/trino-ui-cli.md
     - name: Trino Web SSH
