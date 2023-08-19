@@ -63,3 +63,11 @@ devtunnel host
     - Execute the app: mvn exec:java
 - Access the Swagger UI at http://localhost:8080/swagger-ui.html
     - Try the GET /outboundCall to run the Sample Application
+
+
+Once that's completed you should have a running application. The best way to test this is to place a call to your ACS phone number and talk to your intelligent agent.
+
+## Next steps
+- Learn more about [Call Automation](../../concepts/call-automation/call-automation.md).
+- Learn more about [playing custom messages](../../how-tos/call-automation/play-action.md).
+- Learn more about [recognizing user input](../../how-tos/call-automation/recognize-action.md).
