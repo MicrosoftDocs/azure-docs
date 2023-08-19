@@ -47,7 +47,7 @@ let captionsCallFeature: SDK.CaptionsCallFeature = teamsCall.feature(SDK.Feature
 You need to get and cast the Teams Captions object to utilize Teams Captions specific features
 ``` typescript
 let teamsCaptions: SDK.TeamsCaptions;
-if (captionsCallFeature.captions.captionsType === 'TeamsCaptions') {
+if (captionsCallFeature.captions.kind === 'TeamsCaptions') {
     teamsCaptions = captionsCallFeature.captions as SDK.TeamsCaptions;
 }
 ```
