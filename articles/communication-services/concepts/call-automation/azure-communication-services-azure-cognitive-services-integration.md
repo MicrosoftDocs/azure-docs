@@ -30,7 +30,7 @@ BYO Azure AI services can be easily integrated into any application regardless o
 
 ### Build applications that can play and recognize speech 
 
-With the ability to, connect your Azure AI services to Azure Communication Services, you can enable custom play functionality, using [Text-to-Speech](../../../../articles/cognitive-services/Speech-Service/text-to-speech.md) and [SSML](../../../../articles/cognitive-services/Speech-Service/speech-synthesis-markup.md) configuration, to play more customized and natural sounding audio to users. Through the Azure AI services connection, you can also use the Speech-To-Text service to incorporate recognition of voice responses that can be converted into actionable tasks through business logic in the application. These functions can be further enhanced through the ability to create custom models within Azure AI services that are bespoke to your domain and region through the ability to choose which languages are spoken and recognized, custom voices and custom models built based on your experience. 
+With the ability to, connect your Azure AI services to Azure Communication Services, you can enable custom play functionality, using [Text-to-Speech](../../../../articles/cognitive-services/Speech-Service/text-to-speech.md) and [SSML](../../../../articles/cognitive-services/Speech-Service/speech-synthesis-markup.md) configuration, to play more customized and natural sounding audio to users. Through the Azure AI services connection, you can also use the Speech-To-Text service to incorporate recognition of voice responses that can be converted into actionable tasks through business logic in the application. These functions can be further enhanced through the ability to create custom models within Azure AI services that are bespoke to your domain and region, through the ability to choose which languages are spoken and recognized, custom voices and custom models built based on your experience. 
 
 ## Run time flow
 [![Screen shot of integration run time flow](./media/run-time-flow.png)](./media/run-time-flow.png#lightbox)
@@ -38,15 +38,15 @@ With the ability to, connect your Azure AI services to Azure Communication Servi
 ## Azure portal experience
 You can configure and bind your Communication Services and Azure AI services through the Azure portal. 
 
-## Pre-requisites 
+## Prerequisites 
 - Azure account with an active subscription and access to Azure portal, for details see [Create an account for free.](https://azure.microsoft.com/free/)
-- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). 
+- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). 
 - An Azure Cognitive Services resource.
 
 ### Connecting through the Azure portal
 
 1. Open your Azure Communication Services resource and click on the Cognitive Services tab.
-2. If system-assigned managed identity is not enabled, there are two ways to enable it.
+2. If system-assigned managed identity isn't enabled, there are two ways to enable it.
 
    2.1. In the Cognitive Services tab, click on "Enable Managed Identity" button.
    
@@ -59,13 +59,13 @@ or
   2.3. Enable system assigned identity. This action begins the creation of the identity; A pop-up notification appears notifying you that the request is being processed.
   [![Screen shot of enable managed identiy](./media/enable-system-identity.png)](./media/enable-system-identity.png)
 
-  2.4. Once the identity is enable you should see something similar.
+  2.4. Once the identity is enabled you should see something similar.
   [![Screenshot of enabled identity](./media/identity-saved.png)](./media/identity-saved.png)
 
-3. After, the identity is enabled the Cognitive Service tab should show a button 'Connect cognitive service' to connect the two services.
+3. When managed identity is enabled the Cognitive Service tab should show a button 'Connect cognitive service' to connect the two services.
 [![Screenshot of Connect cognitive services button](./media/cog-svc.png)](./media/cog-svc.png)
 
-4. Click on 'Connect cognitive service', select the Subscription, Resource Group and Resource and click "Connect" in the context pane that opens up.
+4. Click on 'Connect cognitive service', select the Subscription, Resource Group and Resource and click 'Connect' in the context pane that opens up.
    [![Screenshot of Subscription, Resource Group and Resource in pane](./media/choose-options.png)](./media/choose-options.png)
 5. If connection is successful, you should see a green banner confirming successful connection.
 
@@ -76,7 +76,7 @@ or
 
 ## Azure AI services regions supported
 
-This integration between Azure Communication Services and Azure AI services is only supported in the following regions at this point in time:
+This integration between Azure Communication Services and Azure AI services is only supported in the following regions:
 - westus
 - westus2
 - westus3
