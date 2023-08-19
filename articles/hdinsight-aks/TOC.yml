@@ -82,7 +82,7 @@ items:
   - name: What is Trino?
     href: ./trino/trino-overview.md
   - name: Create Trino cluster
-    href: ./trino/trino-create-cluster-portal.md
+    href: ./trino/trino-create-cluster.md
   - name: Connect and query
     items:
     - name: Authentication

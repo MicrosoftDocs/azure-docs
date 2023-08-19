@@ -72,7 +72,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a Trino cluster
-            url: ./trino/trino-create-cluster-portal.md
+            url: ./trino/trino-create-cluster.md
       - linkListType: tutorial
         links:
           - text: Connect to a Hive Metastore
