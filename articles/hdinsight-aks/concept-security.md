@@ -89,7 +89,7 @@ Protecting data is important for meeting organizational security and compliance 
 ## Compliance
 
 Azure compliance offerings are based on various types of assurances, including formal certifications. Also, attestations, validations, and authorizations. Assessments produced by independent third-party auditing firms.
-Contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. For HDInsight on AKS compliance information, see the Microsoft [Trust Center](https://www.microsoft.com/trust-center?rtc=1) and the [Overview of Microsoft Azure compliance](/samples/browse/redirectedfrom=TechNet-Gallery).
+Contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. For HDInsight on AKS compliance information, see the Microsoft [Trust Center](https://www.microsoft.com/trust-center?rtc=1) and the [Overview of Microsoft Azure compliance](/samples/browse/).
 
 ## Shared responsibility model
 
@@ -103,7 +103,7 @@ The following table provides links to resources for each type of security soluti
 |-|-|-|
 |Data Access Security	|[Configure access control lists ACLs](../storage/blobs/data-lake-storage-access-control.md) for Azure Data Lake Storage Gen2	|Customer|
 |	|Enable the [Secure transfer required](../storage/common/storage-require-secure-transfer.md) property on storage|Customer|
-| |Configure [Azure Storage firewalls](../storage/common/storage-network-security?tabs=azure-portal.md) and virtual networks|Customer|
+| |Configure [Azure Storage firewalls](../storage/common/storage-network-security.md) and virtual networks|Customer|
 |Operating system security|Create clusters with most recent HDInsight on AKS versions|Customer|
 |Network security| Configure a [virtual network](../hdinsight/hdinsight-plan-virtual-network-deployment.md)||
 | | Configure [Traffic using Firewall rules](./secure-traffic-by-firewall.md)|Customer|
