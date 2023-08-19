@@ -13,19 +13,17 @@ ms.date: 08/18/2023
 
 # Retrieval Augmented Generation (RAG) in Azure Cognitive Search
 
-Retrieval Augmentation Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT with an information retrieval system that provides the data. Adding an information retrieval system gives you full control over what data is used by the LLM. For an enterprise solution, it means that you can deploy natural language processing that finds, analyzes, summarizes, describes, and translates your enterprise content obtained from documents, images, audio, and video.
+Retrieval Augmentation Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT with an information retrieval system that provides the data. Adding an information retrieval system gives you full control over the data used by an LLM. For an enterprise solution, RAG means that you can constrain natural language processing to *your enterprise content* sourced from documents, images, audio, and video.
 
-The decision about which information retrieval system to use is critical because it determines the inputs to the LLM.
+The decision about which information retrieval system to use is critical because it determines the inputs to the LLM. The information retrieval system should provide:
 
-The information retrieval system should provide:
++ Indexing strategies for loading and refreshing the corpus, at scale, for all of your content, at the frequency you require.
 
-+ Indexing strategies for loading and refreshing the corpus, at volume, for all of your content, at the frequency you require.
-
-+ Query capabilities and relevance tuning. Can the system return *relevant* results, in the short-form formats necessary for meeting the token length requirements of LLM inputs.
++ Query capabilities and relevance tuning. The system should return *relevant* results, in the short-form formats necessary for meeting the token length requirements of LLM inputs.
 
 + Security, global reach, and reliability for both data and operations.
 
-Azure Cognitive Search is a [proven solution](https://github.com/Azure-Samples/azure-search-openai-demo) for a RAG architecture because it provides indexing and query capabilities, with the infrastructure and security of the Azure cloud. Through code and other components, you can design a coordinated RAG solution that includes all of the elements for generative AI over your proprietary content.
+Azure Cognitive Search is a [proven solution](https://github.com/Azure-Samples/azure-search-openai-demo) for a RAG architecture because it provides indexing and query capabilities, with the infrastructure and security of the Azure cloud. Through code and other components, you can design a comprehensive RAG solution that includes all of the elements for generative AI over your proprietary content.
 
 <!-- [From its initial conception](META-LINK) to the many implementations that have followed, RAG has helped developers overcome the challenges of fine-tuning an LLM for specialized tasks by providing an alternative pattern that supplements, or replaces, the domain knowledge that a general purpose LLM draws from. -->
 
@@ -43,7 +41,7 @@ RAG patterns that include Cognitive Search have the elements indicated in the fo
 + Azure Cognitive Search (information retrieval system)
 + Azure OpenAI (LLM for generative AI)
 
-The web app sets the user experience, providing the presentation, context, and user interaction. Questions or prompts from a user start here. Inputs pass through the integration layer, going first to information retrieval to get the payload, but also go to the LLM for context and intent. If you want to start with the end in mind, the ["Chat with your data"](https://entgptsearch.azurewebsites.net/) sample app shows you a web front end that's been configured to a use prompt template for scoping the question-and-answer interaction over a fictitious health plan.
+The web app sets the user experience, providing the presentation, context, and user interaction. Questions or prompts from a user start here. Inputs pass through the integration layer, going first to information retrieval to get the payload, but also go to the LLM for context and intent. 
 
 The app server or orchestrator is the integration code that coordinates the handoffs between information retrieval and the LLM. One option is to use LangChain to coordinate the workflow. LangChain provides an integration module that makes your chain sequence Cognitive-Search-aware.
 
@@ -53,11 +51,14 @@ The LLM receives the original prompt, plus the results from Cognitive Search. Th
 
 Cognitive Search doesn't provide LLM integration, web front ends, or vector encoding (embeddings) out of the box, so you need to write code that handles those parts of the solution. You can review demo source ([Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo)) for a blueprint of what a full solution entails.
 
+> [!TIP]
+> If you want to start with the end in mind, the ["Chat with your data"](https://entgptsearch.azurewebsites.net/) sample app shows you a web front end that's been configured to a use prompt template for scoping the question-and-answer interaction over a fictitious health plan.
+
 ## Searchable content in Cognitive Search
 
 In Cognitive Search, all searchable content is stored in a search index that's hosted on your search service in the cloud. A search index is designed for fast queries with millisecond response times, so its internal data structures exist to support that objective. To that end, a search index stores indexed content, and not whole content files like entire PDFs or images. Internally, the data structures include inverted indexes of tokenized text, vector indexes for embeddings, and unaltered text for cases where verbatim matching is required (for example, in filters, fuzzy search, regular expression queries).
 
-When you set up the data for your RAG solution, you use the features that create and load an index in Cognitive Search. An index includes fields that replicate or represent your source content. An index field might be simple transference (a title or description in a source document becomes a title or description field in a search index), or a field might contain the output of an external process, such as vectorization and skills processing that generates a text description of an image.
+When you set up the data for your RAG solution, you use the features that create and load an index in Cognitive Search. An index includes fields that transfer or represent your source content. An index field might be simple transference (a title or description in a source document becomes a title or description field in a search index), or a field might contain the output of an external process, such as vectorization or skill processing that generates a text description of an image.
 
 One way to approach indexing is through a content-first approach. The following table identifies which indexing features are useful for each content type. 
 
@@ -99,9 +100,14 @@ content (fields, captions, maybe answers)
 
 ### Improve relevance
 
-relevance tuning and ranking (what content gets included)
+When you're working with complex processes, a large amount of data, and expectations for millisecond responses, you'll need to ensure that each step adds value and improves the quality of the end result. On the information retrieval side, *relevance tuning* is an activity that improves the quality of the results sent to the LLM.
 
-scoring profiles, semantic ranking
+Relevance applies to keyword (non-vector) search and to hybrid queries (over the non-vector fields). In Cognitive Search, there's no relevance tuning for similarity search and vector queries. 
+
+Approaches to relevance tuning include:
+
++ Scoring profiles that boost the search score if matches are found in a specific search field or on other criteria
++ Semantic ranking that re-ranks a BM25 results set, using semantic models from Bing to reorder results for a better semantic fit to the original query.
 
 ## Integration code and LLMs
 
@@ -111,11 +117,11 @@ Choose an LLM:
 
 + Davinci for analysis
 
-sends search results
+sends search results as prompts
 
-parametric and non-parametric
+prompt engineering, prompt template -- how does it fit in
 
-prompt engineering, prompt template
+parametric and non-parametric (how important is it, and do we need to talk about it? if yes, how, and in what section.  I don't think it goes in this section, but I also don't know.)
 
 ## How to get started
 
@@ -135,7 +141,7 @@ prompt engineering, prompt template
 <!-- Vanity URL for this article
 https://aka.ms/what-is-rag -->
 
-<!-- ## Why use RAG?  FROM AML
+<!-- ## Why use RAG?  FROM AML DOCS
 
 Traditionally, a base model is trained with point-in-time data to ensure its effectiveness in performing specific tasks and adapting to the desired domain. However, sometimes you need to work with newer or more current data. Two approaches can supplement the base model: fine-tuning or further training of the base model with new data, or RAG that uses prompt engineering to supplement or guide the model in real time. 
 
