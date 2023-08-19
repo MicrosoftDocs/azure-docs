@@ -77,7 +77,7 @@ On version 1.x of the Functions runtime, your C# function app targets .NET Frame
 [!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 
 > [!TIP]
-> **Unless your app depends on a library or API only available to .NET Framework, we recommend upgrading to .NET 6 on the isolated worker model.** Many apps on version 1.x target .NET Framework only because that is what was available when they were created. Additional capabilities are available to more recent versions of .NET, and if your app is not forced to stay on .NET Framework due to a dependency, you should upgrade.
+> **Unless your app depends on a library or API only available to .NET Framework, we recommend upgrading to .NET 6 on the isolated worker model.** Many apps on version 1.x target .NET Framework only because that is what was available when they were created. Additional capabilities are available to more recent versions of .NET, and if your app is not forced to stay on .NET Framework due to a dependency, you should upgrade. .NET 6 is the fully released version with the longest support window from .NET. 
 >
 > Migrating to the isolated worker model will require additional code changes as part of this migration, but it will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. The [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 

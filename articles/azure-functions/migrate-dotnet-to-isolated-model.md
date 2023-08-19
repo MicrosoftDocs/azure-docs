@@ -49,7 +49,7 @@ On version 4.x of the Functions runtime, your .NET function app targets .NET 6 w
 [!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 
 > [!TIP]
-> **We recommend upgrading to .NET 6 on the isolated worker model.** This provides a quick upgrade path with the longest support window from .NET.
+> **We recommend upgrading to .NET 6 on the isolated worker model.** This provides a quick upgrade path to the fully released version with the longest support window from .NET.
 
 ## Prepare for migration
 

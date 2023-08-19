@@ -23,7 +23,7 @@ Use the following table to compare feature and functional differences between th
 
 | Feature/behavior |  In-process<sup>3</sup> | Isolated worker process  |
 | ---- | ---- | ---- |
-| [Supported .NET versions](#supported-versions) | Long Term Support (LTS) versions | Long Term Support (LTS) versions,<br/>Standard Term Support (STS) versions,<br/>.NET Framework |
+| [Supported .NET versions](#supported-versions) | Long Term Support (LTS) versions<sup>6</sup> | Long Term Support (LTS) versions<sup>6</sup>,<br/>Standard Term Support (STS) versions,<br/>.NET Framework |
 | Core packages | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
 | Binding extension packages | [Microsoft.Azure.WebJobs.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | [Microsoft.Azure.Functions.Worker.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
 | Durable Functions | [Supported](durable/durable-functions-overview.md) | [Supported](durable/durable-functions-isolated-create-first-csharp.md?pivots=code-editor-visualstudio) (Support does not yet include Durable Entities) | 
@@ -48,6 +48,8 @@ Use the following table to compare feature and functional differences between th
 <sup>4</sup> Service SDK types include types from the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet) such as [BlobClient](/dotnet/api/azure.storage.blobs.blobclient). For the isolated process model, Service Bus triggers do not yet support message settlement scenarios.
 
 <sup>5</sup> ASP.NET Core types are not supported for .NET Framework.
+
+<sup>6</sup> The isolated worker model supports .NET 8 as a preview, currently for Linux applications only. .NET 8 is not yet available for the in-process model. See the [Azure Functions Roadmap Update post](https://aka.ms/azure-functions-dotnet-roadmap) for more information about .NET 8 plans.
 
 [HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
