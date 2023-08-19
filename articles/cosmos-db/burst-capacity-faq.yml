@@ -47,7 +47,7 @@ sections:
       - question: |
           Does burst capacity consume Azure Cosmos DB reserved capacity?
         answer: |
-          No. Burst capacity is free throughput.          
+          No.          
       - question: |
           How can I enable burst capacity on an account programatically?
         answer: |
