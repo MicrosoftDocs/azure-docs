@@ -11,7 +11,7 @@ ms.date: 08/04/2023
  
 Azure HDInsight on AKS provides a configuration method called  Script Actions that invoke custom scripts to customize the cluster. These scripts can be used to install more packages/jars and change configuration settings. The Script actions can be used only during cluster creation. Post cluster creation script actions are in the roadmap. Currently Script Actions are available only with Spark clusters.
 
-## Understand script actions 
+## Understand script actions
 
 A script action is Bash script that runs on the service components in an HDInsight on AKS cluster. 
 
@@ -57,4 +57,5 @@ The following diagram illustrates when script action runs during the creation pr
 > * These scripts are invoked in the order in which they were specified, and not parallelly.
 
 ### Next steps
+
 * How to [manage script actions](./manage-script-actions.md)

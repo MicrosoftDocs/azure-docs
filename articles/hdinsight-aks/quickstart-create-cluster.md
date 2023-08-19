@@ -3,7 +3,7 @@ title: Create cluster pool and cluster
 description: Creating a cluster pool and cluster in HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: quickstart
-ms.date: 08/08/2023
+ms.date: 08/19/2023
 ---
 
 # Create cluster pool and cluster
@@ -28,15 +28,15 @@ Ensure that you have completed the [subscription prerequisites](prerequisites-su
    
 1. In the Azure portal search bar, type "HDInsight on AKS cluster pool" and select "Azure HDInsight on AKS cluster pools" from the drop-down list.
   
-   :::image type="content" source="./media/quickstart-create-cluster/search-bar.png" alt-text="Diagram showing search bar in Azure portal.":::
+   :::image type="content" source="./media/quickstart-create-cluster/search-bar.png" alt-text="Diagram showing search bar in Azure portal." border="true" lightbox="./media/quickstart-create-cluster/search-bar.png" 
   
 1. Click **+ Create**.
 
-   :::image type="content" source="./media/quickstart-create-cluster/create-button.png" alt-text="Diagram showing create button.":::
+   :::image type="content" source="./media/quickstart-create-cluster/create-button.png" alt-text="Diagram showing create button." border="true" lightbox="./media/quickstart-create-cluster/create-button.png":::
   
 1. In the **Basics** tab, enter the following information:
 
-     :::image type="content" source="./media/quickstart-create-cluster/cluster-pool-basic-tab.png" alt-text="Diagram showing cluster pool creation basic tab.":::
+     :::image type="content" source="./media/quickstart-create-cluster/cluster-pool-basic-tab.png" alt-text="Diagram showing cluster pool creation basic tab." border="true" lightbox="./media/quickstart-create-cluster/cluster-pool-basic-tab.png":::
 
      |Property|Description|
      |---|---|
@@ -53,7 +53,7 @@ Ensure that you have completed the [subscription prerequisites](prerequisites-su
         
 1. On the **Security + networking** page, provide the following information:
       
-     :::image type="content" source="./media/quickstart-create-cluster/cluster-pool-security-tab.png" alt-text="Diagram showing cluster pool creation network and security tab.":::
+     :::image type="content" source="./media/quickstart-create-cluster/cluster-pool-security-tab.png" alt-text="Diagram showing cluster pool creation network and security tab." border="true" lightbox="./media/quickstart-create-cluster/cluster-pool-security-tab.png":::
 
      |Property|Description|
      |---|---|
@@ -187,7 +187,7 @@ For a quickstart, refer to the following steps.
 
    The **Deployment is in process** page is displayed while the cluster is being created, and the **"Your deployment is complete"**  page is displayed once the cluster is fully deployed and ready for use.
 
-   :::image type="content" source="./media/quickstart-create-cluster/custom-deployment-complete.png" alt-text="Screenshot showing custom deployment complete.":::
+   :::icon type="content" source="./media/quickstart-create-cluster/custom-deployment-complete.png" alt-text="Screenshot showing custom deployment complete.":::
 
    > [!TIP]
    > For troubleshooting any deployment errors, you can refer to this [page](./create-cluster-error-dictionary.md).
