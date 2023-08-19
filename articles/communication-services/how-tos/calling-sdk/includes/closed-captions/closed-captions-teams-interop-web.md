@@ -25,7 +25,7 @@ ms.author: kpunjabi
 | Name | Description |
 | ---- | ----------- |
 | CaptionsCallFeature | API for Captions |
-| CallCaptions | Base class for captions | 
+| CaptionsCommon | Base class for captions | 
 | StartCaptionOptions | Closed caption options like spoken language |
 | TeamsCaptionHandler | Callback definition for handling CaptionsReceivedEventType event |
 | TeamsCaptionsInfo | Data structure received for each CaptionsReceivedEventType event |
