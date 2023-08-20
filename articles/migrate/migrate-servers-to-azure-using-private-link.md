@@ -207,7 +207,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
 1. In **Replication storage account**, select the Azure storage account in which replicated data will be stored in Azure.  
 
-1. Next, [**create a private endpoint for the storage account**](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account-1) and [**grant permissions to the Recovery Services vault managed identity**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault) to access the storage account required by Azure Migrate. This is mandatory before you proceed. 
+1. Next, [**create a private endpoint for the storage account**](https://learn.microsoft.com/azure/migrate/migrate-servers-to-azure-using-private-link?pivots=agentlessvmware#create-a-private-endpoint-for-the-storage-account) and [**grant permissions to the Recovery Services vault managed identity**](https://learn.microsoft.com/azure/migrate/migrate-servers-to-azure-using-private-link?pivots=agentbased#grant-access-permissions-to-the-recovery-services-vault-1) to access the storage account required by Azure Migrate. This is mandatory before you proceed. 
 
     -  For Hyper-V VM migrations to Azure, if the replication storage account is of *Premium* type, you must select another storage account of *Standard* type for the cache storage account. In this case, you must create private endpoints for both the replication and cache storage account.
 
