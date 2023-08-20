@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/27/2023
+ms.date: 08/21/2023
 ms.author: phjensen
 ---
 
@@ -23,6 +23,25 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).  
 
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
+
+## Aug-2023
+
+### AzAcSnap 9 (Build: 1AE5640)
+
+AzAcSnap 9 is being released with the following fixes and improvements:
+
+- Fixes and Improvements:
+  - Configure (`-c configure`) changes:
+    - Allows for a blank value for `authFile` in the configuration file when using System Managed Identity.
+- Features moved to GA (generally available):
+  - IBM Db2 Database support.
+  - System Managed Identity support for easier setup while improving security posture.
+- Features added to [Preview](azacsnap-preview.md):
+  - None.
+- Features removed:
+  - Azure Key Vault support has been removed from Preview, it is not needed now AzAcSnap supports a System Managed Identity directly.
+
+Download the [AzAcSnap 7](https://aka.ms/azacsnap-7) installer.
 
 ## Jun-2023
 
