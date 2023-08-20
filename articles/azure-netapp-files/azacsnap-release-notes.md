@@ -41,7 +41,7 @@ AzAcSnap 9 is being released with the following fixes and improvements:
 - Features removed:
   - Azure Key Vault support has been removed from Preview, it is not needed now AzAcSnap supports a System Managed Identity directly.
 
-Download the [AzAcSnap 7](https://aka.ms/azacsnap-7) installer.
+Download the [AzAcSnap 9](https://aka.ms/azacsnap-9) installer.
 
 ## Jun-2023
 
