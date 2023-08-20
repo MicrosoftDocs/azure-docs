@@ -78,8 +78,8 @@ To export device inventory data, select the **Import/Export file** :::image type
 Save the exported file locally.
 
 > [!NOTE]
-> The date format on the on-premises management console is always set to DD/MM/YY.
-> We recommend that you use the same date format on any machine where you'll be opening exported inventory files to ensure that dates in the exported inventory files are shown correctly. 
+> The date format on the on-premises management console is always set to DD/MM/YYYY.
+> We recommend that you use the same date format on any machine where you'll be opening exported inventory files to ensure that dates in the exported inventory files are shown correctly.
 >
 
 ## Add to and enhance device inventory data
