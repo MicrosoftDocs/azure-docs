@@ -24,8 +24,8 @@ This Azure Communication Services Call Automation AI sample demonstrates how to 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource).
-- A [phone number](../../quickstarts/telephony/get-phone-number) in your Azure Communication Services resource that can make outbound calls. NB: phone numbers aren't available in free subscriptions.
+- A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
+- A [phone number](../../quickstarts/telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. NB: phone numbers aren't available in free subscriptions.
 - [Java Development Kit (JDK) Microsoft.OpenJDK.17](https://learn.microsoft.com/java/openjdk/download)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 - Create and host an Azure Dev Tunnel. Instructions [here](https://learn.microsoft.com/azure/developer/dev-tunnels/get-started)
