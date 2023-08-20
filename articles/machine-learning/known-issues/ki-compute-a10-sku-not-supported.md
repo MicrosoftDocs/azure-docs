@@ -26,7 +26,7 @@ While trying to create a compute instance with A10 SKU, you'll encounter a provi
 
 ## Solutions and workarounds
 
-A10 AKUs aren't supported for compute instances. Use a different SKU.
+A10 AKUs aren't supported for compute instances. Consult this list of supported SKUs: [Supported VM series and sizes](https://learn.microsoft.com/azure/machine-learning/concept-compute-target?view=azureml-api-2#supported-vm-series-and-sizes)
 
 ## Next steps
 
