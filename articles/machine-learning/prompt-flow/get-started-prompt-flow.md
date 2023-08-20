@@ -16,8 +16,6 @@ ms.date: 06/30/2023
 
 This article walks you through the main user journey of using Prompt flow in Azure Machine Learning studio. You'll learn how to enable Prompt flow in your Azure Machine Learning workspace, create and develop your first prompt flow, test and evaluate it, then deploy it to production.
 
-A quick video tutorial can be found here: [Prompt flow get started video tutorial](https://www.youtube.com/watch?v=kYqRtjDBci8).
-
 > [!IMPORTANT]
 > Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -83,11 +81,14 @@ In **Flows** tab of Prompt flow home page, select **Create** to create your firs
 
 The built-in samples are shown in the gallery.
 
-In this guide, we'll use **Web Classification** sample to walk you through the main user journey, so select **View detail** on Web Classification tile to preview the sample.
+In this guide, we'll use **Web Classification** sample to walk you through the main user journey. You can select **View detail** on Web Classification tile to preview the sample. Then a preview window is popped up. You can browse the sample introduction to see if the sample is similar to your scenario. Or you can just click **Clone** to clone the sample directly, then check the flow, test it, modify it.
 
 :::image type="content" source="./media/get-started-prompt-flow/sample-in-gallery.png" alt-text="Screenshot of create from galley highlighting web classification. " lightbox = "./media/get-started-prompt-flow/sample-in-gallery.png":::
 
-Then a preview window is popped up. You can browse the sample introduction to see if the sample is similar to your scenario. You can select Clone to clone the sample, then check the flow, test it, modify it.
+After clicking **Clone**, as shown in the right pannel, the new flow will be saved in a specific folder within your workspace file share storage. You can customize the folder name acccording to your preferences. 
+
+:::image type="content" source="./media/get-started-prompt-flow/specify-flow-folder-name.png" alt-text="Screenshot of specify the flow folder name when creating a flow. " lightbox = "./media/get-started-prompt-flow/specify-flow-folder-name.png":::
+
 
 ### Authoring page
 
@@ -97,7 +98,15 @@ At the left, it's the flatten view, the main working area where you can author t
 
 :::image type="content" source="./media/get-started-prompt-flow/flatten-view.png" alt-text="Screenshot of web classification highlighting the main working area." lightbox = "./media/get-started-prompt-flow/flatten-view.png":::
 
-At the right, it's the graph view for visualization only. You can zoom in, zoom out, auto layout, etc.
+The top right corner shows the folder structure of the flow. Each flow has a folder that contains a flow.dag.yaml file, source code files, and system folders. You can export or import a flow easily for testing, deployment, or collaborative purposes.
+
+:::image type="content" source="./media/get-started-prompt-flow/folder-structure-view.png" alt-text="Screenshot of web classification highlighting the folder structure area." lightbox = "./media/get-started-prompt-flow/folder-structure-view.png":::
+
+In addition to inline editting the node in flatten view, you can also turn on the **Raw file mode** toggle and click the file name to edit the file in the openning file tab.
+
+:::image type="content" source="./media/get-started-prompt-flow/file-edit-tab.png" alt-text="Screenshot of the file edit tab under raw file mode." lightbox = "./media/get-started-prompt-flow/file-edit-tab.png":::
+
+In the bottom right corner, it's the graph view for visualization only. You can zoom in, zoom out, auto layout, etc.
 
 :::image type="content" source="./media/get-started-prompt-flow/graph-view.png" alt-text="Screenshot of web classification highlighting graph view area." lightbox = "./media/get-started-prompt-flow/graph-view.png":::
 
@@ -173,51 +182,57 @@ You need to prepare test data first. We support csv and txt file for now.
 
 Go to [GitHub](https://aka.ms/web-classification-data) to download raw file for Web Classification sample.
 
-### Bulk test
+### Batch run
 
-Select **Bulk test** button, then a right panel pops up. It's a wizard that guides you to submit a bulk test and to select the evaluation method (optional).​​​​​​​
+Select **Batch run** button, then a right panel pops up. It's a wizard that guides you to submit a batch run and to select the evaluation method (optional).​​​​​​​
 
-:::image type="content" source="./media/get-started-prompt-flow/bulk-test-entry-point.png" alt-text="Screenshot of Web classification showing the bulk test button." lightbox = "./media/get-started-prompt-flow/bulk-test-entry-point.png":::
+:::image type="content" source="./media/get-started-prompt-flow/batch-run-entry-point.png" alt-text="Screenshot of Web classification showing the batch run button." lightbox = "./media/get-started-prompt-flow/batch-run-entry-point.png":::
 
-You need to set a bulk test name, description, then select a runtime first.
+You need to set a batch run name, description, then select a runtime first.
 
-Then select **Upload new data** to upload the data you just downloaded. After uploading the data or if your colleagues in the workspace already created a dataset, you can choose the dataset from the drop-down and preview first 50 rows.
+Then select **Upload new data** to upload the data you just downloaded. After uploading the data or if your colleagues in the workspace already created a dataset, you can choose the dataset from the drop-down and preview first 5 rows. The dataset selection drop down supports search and autosuggestion.
 
-:::image type="content" source="./media/get-started-prompt-flow/upload-new-data-bulk-test.png" alt-text="Screenshot of Bulk test and evaluate, highlighting upload new data." lightbox = "./media/get-started-prompt-flow/upload-new-data-bulk-test.png":::
 
-The dataset selection drop down supports search and autosuggestion.
+In addition, the **input mapping** supports mapping your flow input to a specific data column in your dataset, which means that you can use any column as the input, even if the column names do not match.
+
+:::image type="content" source="./media/get-started-prompt-flow/upload-new-data-batch-run.png" alt-text="Screenshot of Batch run and evaluate, highlighting upload new data." lightbox = "./media/get-started-prompt-flow/upload-new-data-batch-run.png":::
+
+After that, you can select the **Review+submit** button to do batch run directly, or you can select **Next** to use an evaluation method to evaluate your flow.
 
 ### Evaluate
+Turn on the toggle in evaluation settings tab. The evaluation methods are also flows that use Python or LLM etc., to calculate metrics like accuracy, relevance score. The built-in evaluation flows and customized ones are listed in the drop-down.
 
-Select **Next**, then you can use an evaluation method to evaluate your flow. The evaluation methods are also flows that use Python or LLM etc., to calculate metrics like accuracy, relevance score. The built-in evaluation flows and customized ones are listed in the drop-down.
+:::image type="content" source="./media/get-started-prompt-flow/accuracy.png" alt-text="Screenshot of Web classification showing the batch run and evaluate on the evaluation settings." lightbox = "./media/get-started-prompt-flow/accuracy.png":::
 
-:::image type="content" source="./media/get-started-prompt-flow/accuracy.png" alt-text="Screenshot of Web classification showing the bulk test and evaluate on the evaluation settings." lightbox = "./media/get-started-prompt-flow/accuracy.png":::
-
-Since Web classification is a classification scenario, it's suitable to select the **Classification Accuracy Evaluation** to evaluate.
+Since Web classification is a classification scenario, it's suitable to select the **Classification Accuracy Eval** to evaluate.
 
 If you're interested in how the metrics are defined for built-in evaluation methods, you can preview the evaluation flows by selecting **View details**.
 
-After selecting **Classification Accuracy Evaluation** as evaluation method, you can set interface mapping to map the ground truth to flow input and category to flow output.
+After selecting **Classification Accuracy Eval** as evaluation method, you can set interface mapping to map the ground truth to flow input and category to flow output.
 
-Then select **Submit** to submit a bulk test and the selected evaluation.
+Then select **Review+submit** to submit a batch run and the selected evaluation.
 
-### Check evaluation results
+### Check results
 
-When completed, select the link, go to bulk test detail page.
+When completed, select the link, go to batch run detail page.
 
-:::image type="content" source="./media/get-started-prompt-flow/bulk-test-status.png" alt-text="Screenshot of Web classification showing a successful bulk run and link to detail page." lightbox = "./media/get-started-prompt-flow/bulk-test-status.png":::
+:::image type="content" source="./media/get-started-prompt-flow/batch-run-status.png" alt-text="Screenshot of Web classification showing a successful batch run and link to detail page." lightbox = "./media/get-started-prompt-flow/batch-run-status.png":::
 
-Select **Refresh** until the evaluation run is completed.
+Select **Refresh** until the run is completed. The upper area displays the batch run information, the lower section shows the evaluation run. By clicking the link of run name, you can view the snapshot of a run and overview the output result.
 
-:::image type="content" source="./media/get-started-prompt-flow/refresh-until-the-evaluation-run-is-completed.png" alt-text="Screenshot of Web classification bulk test detail page." lightbox = "./media//get-started-prompt-flow/refresh-until-the-evaluation-run-is-completed.png":::
+:::image type="content" source="./media/get-started-prompt-flow/refresh-until-the-evaluation-run-is-completed.png" alt-text="Screenshot of Web classification batch run detail page." lightbox = "./media//get-started-prompt-flow/refresh-until-the-evaluation-run-is-completed.png":::
 
-Then go to the **Metrics** tab, check accuracy.
+Go to the **Outputs** tab, you can view the result of your batch run.
 
-:::image type="content" source="./media/get-started-prompt-flow/check-metrics.png" alt-text="Screenshot of Web classification bulk test detail page on the metrics tab." lightbox = "./media/get-started-prompt-flow/check-metrics.png":::
+:::image type="content" source="./media/get-started-prompt-flow/check-outputs.png" alt-text="Screenshot of Web classification batch run details page on the outputs tab." lightbox = "./media/get-started-prompt-flow/check-outputs.png":::
+
+If you have added an evaluation method to evaluate your flow, go to the **Metrics** tab, check the evaluation metrics.
+
+:::image type="content" source="./media/get-started-prompt-flow/check-metrics.png" alt-text="Screenshot of Web classification batch run detail page on the metrics tab." lightbox = "./media/get-started-prompt-flow/check-metrics.png":::
 
 To understand in which case the flow classifies incorrectly, you need to see the evaluation results for each row of data. Go to **Outputs** tab, select the evaluation run, you can see in the table below for most cases the flow classifies correctly except for few rows.
 
-:::image type="content" source="./media/get-started-prompt-flow/check-outputs-for-each-row-of-data.png" alt-text="Screenshot of Web classification bulk test detail page on the output tab." lightbox = "./media/get-started-prompt-flow/check-outputs-for-each-row-of-data.png":::
+:::image type="content" source="./media/get-started-prompt-flow/check-outputs-for-each-row-of-data.png" alt-text="Screenshot of Web classification batch run detail page on the output tab." lightbox = "./media/get-started-prompt-flow/check-outputs-for-each-row-of-data.png":::
 
 You can adjust column width, hide/unhide columns, and export table to csv file for further investigation. 
 
@@ -229,15 +244,15 @@ After you build a flow and test it properly, you may want to deploy it as an end
 
 ### Configure the endpoint
 
-When you are in the bulk test **Overview** tab, select bulk test link.
+When you are in the batch run **Overview** tab, select batch run link.
 
-:::image type="content" source="./media/get-started-prompt-flow/bulk-test-run.png" alt-text="Screenshot of Web classification bulk test detail page highlighting the bulk test link." lightbox = "./media/get-started-prompt-flow/bulk-test-run.png":::
+:::image type="content" source="./media/get-started-prompt-flow/batch-run.png" alt-text="Screenshot of Web classification batch run detail page highlighting the batch run link." lightbox = "./media/get-started-prompt-flow/batch-run.png":::
 
-Then you're directed to the bulk test detail page, select **Deploy**. A wizard pops up to allow you to configure the endpoint. Specify an endpoint name, use the default settings, set connections, and select a virtual machine, select **Deploy** to start the deployment.
+Then you're directed to the batch run detail page, select **Deploy**. A wizard pops up to allow you to configure the endpoint. Specify an endpoint name, use the default settings, set connections, and select a virtual machine, select **Deploy** to start the deployment.
 
 :::image type="content" source="./media/get-started-prompt-flow/endpoint-creation.png" alt-text="Screenshot of endpoint configuration wizard." lightbox = "./media/get-started-prompt-flow/endpoint-creation.png":::
 
-If you're a Workspace Owner or Subscription Owner, see [Deploy a flow as a managed online endpoint for real-time inference](how-to-deploy-for-real-time-inference.md#grant-permissions-to-the-endpoint) to grant permissions to the endpoint. If not, go ask your Workspace Owner or Subscription Owner to it for you.
+If you're a Workspace Owner or Subscription Owner, see [Deploy a flow as a managed online endpoint for real-time inference](how-to-deploy-for-real-time-inference.md#grant-permissions-to-the-endpoint) to grant permissions to the endpoint. If not, go ask your Workspace Owner or Subscription Owner to do it for you.
 
 ### Test the endpoint
 
