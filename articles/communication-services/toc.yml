@@ -534,7 +534,7 @@ items:
   - name: Call Automation
     items:
     - name: Call Automation AI sample
-      href: sammples/call-automation-ai.md
+      href: samples/call-automation-ai.md
 - name: Concepts 
   items:
   - name: Identity
