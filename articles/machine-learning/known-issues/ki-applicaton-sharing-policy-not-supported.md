@@ -28,7 +28,7 @@ When creating a compute instance, the documentation lists an `applicationSharing
 
 - Personal only the creator can access applications on this compute instance.
 - Shared, any workspace user can access applications on this instance depending on their assigned role.
--
+
 Neither of these configurations have any effect on the compute instance.
 
 ## Solutions and workarounds
