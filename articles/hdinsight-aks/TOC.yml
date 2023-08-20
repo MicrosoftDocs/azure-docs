@@ -219,11 +219,11 @@ items:
   - name: What is Apache Spark in HDInsight on AKS?
     href: ./spark/hdinsight-on-aks-spark-overview.md
   - name: Create Spark cluster
-    href: ./spark/hdinsight-on-aks-spark-create-cluster-portal.md
+    href: ./spark/create-spark-cluster.md
   - name: How-to guides
     items:
     - name: Submit and Manage Jobs
-      href: ./spark/submit-and-manage-jobs.md
+      href: ./spark/submit-manage-jobs.md
     - name: Configuration management
       href: ./spark/configuration-management.md
     - name: Library management 
@@ -233,7 +233,7 @@ items:
     - name: Use Delta Lake scenario in Azure HDInsight on AKS Spark cluster
       href: ./spark/azure-hdinsight-spark-on-aks-delta-lake.md
     - name: Use ML Notebook on Spark
-      href: ./spark/use-ml-notebook-on-spark.md
+      href: ./spark/use-machine-learning-notebook-on-spark.md
     - name: Use Hive metastore  
       href: spark/use-hive-metastore.md
 - name: Resources
