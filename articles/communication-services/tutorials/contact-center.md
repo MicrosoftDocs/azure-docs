@@ -80,8 +80,8 @@ A conversation between a user and a bot can be handed off to an agent in Teams. 
 
 Voice call answered by an Azure-hosted agent
 
-*TBD: Ash*
+*TBD:* [@ashwinder] please contribute
 
 Voice interactions with Teams phone system
 
-*TBD: Vishesh*
+*TBD:* [@ovishesh] please contribute
