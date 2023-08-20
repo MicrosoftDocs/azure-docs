@@ -2,7 +2,6 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: Kunaal Punjabi
 manager: visho
 ms.service: azure-communication-services
 ms.subservice: call-automation
@@ -25,7 +24,7 @@ This Azure Communication Services Call Automation AI sample demonstrates how to 
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/)
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource **connection string** for this sample.
-- A Calling-enabled telephone number. [Get a phone number](../../quickstarts/telephony/get-phone-number?tabs=windows&pivots=platform-azp).
+- A Calling-enabled telephone number. [Get a phone number](../../quickstarts/telephony/get-phone-number.md).
 - Azure Dev Tunnels CLI. For details, see  [Enable dev tunnel](https://docs.tunnels.api.visualstudio.com/cli)
 - Create an Azure Cognitive Services resource. For details, see [Create an Azure Cognitive Services Resource](https://learn.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)
 - An Azure OpenAI Resource and Deployed Model. See [instructions](https://learn.microsoft.com/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal).
