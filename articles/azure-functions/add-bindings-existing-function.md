@@ -4,7 +4,7 @@ description: Learn how to add bindings that connect to other Azure services to a
 ms.topic: how-to
 ms.date: 08/18/2023
 ms.custom: vscode-azure-extension-update-not-needed
-zone_pivot_groups: programming-languages-set-functions-lang-workers    
+zone_pivot_groups: programming-languages-set-functions    
 #Customer intent: As a developer, I need to know how to add a binding to an existing function so that I can integrate external services to my function.
 ---
 

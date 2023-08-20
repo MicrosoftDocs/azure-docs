@@ -2,7 +2,7 @@
 title: Azure Functions Core Tools reference 
 description: Reference documentation that supports the Azure Functions Core Tools (func.exe).
 ms.topic: reference
-ms.date: 07/30/2023
+ms.date: 08/20/2023
 ---
 
 # Azure Functions Core Tools reference
@@ -96,7 +96,7 @@ To learn more, see [Create a function](functions-run-local.md#create-func).
 
 *Version 1.x only.*
 
-Enables you to invoke a function directly, which is similar to running a function using the **Test** tab in the Azure portal. This action is only supported in version 1.x. For later versions, use `func start` and [call the function endpoint directly](functions-run-local.md#passing-test-data-to-a-function).
+Enables you to invoke a function directly, which is similar to running a function using the **Test** tab in the Azure portal. This action is only supported in version 1.x. For later versions, use `func start` and [call the function endpoint directly](functions-run-local.md#pass-data-to-local-functions).
 
 ```command
 func run
@@ -148,7 +148,7 @@ func start
 | **`--timeout`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
 
-With the project running, you can [verify individual function endpoints](functions-run-local.md#passing-test-data-to-a-function).
+With the project running, you can [verify individual function endpoints](functions-run-local.md#pass-data-to-local-functions).
 
 # [v1.x](#tab/v1)
 

@@ -43,7 +43,7 @@ You're viewing the TypeScript version of this article. Make sure to select your 
 If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-typescript.md).
 ::: zone-end
 
-The current release [version of Core Tools](#core-tools-versions) is:
+The current release [version of Core Tools](#v2) is:
 ```
 4.0.5198
 ```
@@ -180,17 +180,21 @@ The following considerations apply when adding bindings to a function:
 For more information, including links to example binding code that you can refer to, see [Add bindings to a function](add-bindings-existing-function.md?tabs=csharp#manually-add-bindings-based-on-examples).  
 ::: zone-end  
 ::: zone pivot="programming-language-java"
-For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=java#manually-add-bindings-based-on-examples).  
+For more information, including links to example binding code that you can refer to, see [Add bindings to a function](add-bindings-existing-function.md?tabs=java#manually-add-bindings-based-on-examples).  
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-typescript"
-For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=javascript#manually-add-bindings-based-on-examples).   
+::: zone pivot="programming-language-javascript"
+For more information, including links to example binding code that you can refer to, see [Add bindings to a function](add-bindings-existing-function.md?tabs=javascript#manually-add-bindings-based-on-examples).   
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=powershell#manually-add-bindings-based-on-examples).   
+For more information, including links to example binding code that you can refer to, see [Add bindings to a function](add-bindings-existing-function.md?tabs=powershell#manually-add-bindings-based-on-examples).   
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=python#manually-add-bindings-based-on-examples).   
+For more information, including links to example binding code that you can refer to, see [Add bindings to a function](add-bindings-existing-function.md?tabs=python#manually-add-bindings-based-on-examples).   
 ::: zone-end
+::: zone pivot="programming-language-typescript"
+For more information, including links to example binding code that you can refer to, see [Add bindings to a function](add-bindings-existing-function.md?tabs=typescript#manually-add-bindings-based-on-examples).   
+::: zone-end 
+
 
 ## <a name="start"></a>Run functions locally
 
