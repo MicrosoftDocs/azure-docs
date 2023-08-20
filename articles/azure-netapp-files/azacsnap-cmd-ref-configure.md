@@ -168,9 +168,13 @@ When you add *HLI Storage* to a database section, the following values are requi
 
 When you add *ANF Storage* to a database section, the following values are required:
 
-- **Service Principal Authentication filename** = the `authfile.json` file generated in the Cloud Shell when configuring
+- **Service Principal Authentication filename** (JSON field: authFile)
+  - To use a System Managed Identity leave empty with no value and press [Enter] to go to the next field.
+    - An example to setup an Azure System Managed Identity can be found on the [AzAcSnap Installation](azacsnap-installation.md).
+  - To use a Service Principal then use name of the authentication file (for example, `authfile.json`) generated in the Cloud Shell when configuring
     communication with Azure NetApp Files storage.
-- **Full ANF Storage Volume Resource ID** = the full Resource ID of the Volume being snapshot.  This string can be retrieved from:
+    - An example to setup a Service Principal can be found on the [AzAcSnap Installation](azacsnap-installation.md).
+- **Full ANF Storage Volume Resource ID** (JSON field: resourceId) = the full Resource ID of the Volume being snapshot.  This string can be retrieved from:
     Azure portal –> ANF –> Volume –> Settings/Properties –> Resource ID
 
 ---
