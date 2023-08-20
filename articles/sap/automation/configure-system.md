@@ -43,14 +43,14 @@ To configure this topology, define the database tier values and define `scs_serv
 
 ### High Availability
 
-The Distributed (Highly Available) deployment is similar to the Distributed architecture. In this deployment, the database and/or SAP Central Services can both be configured using a highly available configuration using two virtual machines each with Pacemaker clusters or in case of Windows with Windows Failover clustering.
+The Distributed (Highly Available) deployment is similar to the Distributed architecture. In this deployment, the database and/or SAP Central Services can both be configured using a highly available configuration using two virtual machines each with Pacemaker clusters or Windows Failover clustering.
 
 To configure this topology, define the database tier values and set `database_high_availability` to true. Set `scs_server_count = 1` and `scs_high_availability` = true and 
 `application_server_count` >= 1
 
 ## Environment parameters
 
-The table below contains the parameters that define the environment settings.
+This section  contains the parameters that define the environment settings.
 
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -65,7 +65,7 @@ The table below contains the parameters that define the environment settings.
 
 ## Resource group parameters
 
-The table below contains the parameters that define the resource group.
+This section  contains the parameters that define the resource group.
 
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -113,10 +113,10 @@ The database tier defines the infrastructure for the database tier, supported da
 > | `database_vm_db_nic_ips`           | Defines the IP addresses for the database servers (database subnet).                | Optional     |                    |
 > | `database_vm_db_nic_secondary_ips` | Defines the secondary IP addresses for the database servers (database subnet).      | Optional     |                    |
 > | `database_vm_admin_nic_ips`        | Defines the IP addresses for the database servers (admin subnet).                   | Optional     |                    |
-> | `database_vm_image`	               | Defines the Virtual machine image to use, see below.                                | Optional	    |                    |
+> | `database_vm_image`	               | Defines the Virtual machine image to use.                                           | Optional	    |                    |
 > | `database_vm_authentication_type`  | Defines the authentication type (key/password).                                     | Optional	    |                    |
 > | `database_use_avset`               | Controls if the database servers are placed in availability sets.                   | Optional	    | default is false   |
-> | `database_use_ppg`                 | Controls if the database servers will be placed in proximity placement groups.      | Optional	    | default is true    |
+> | `database_use_ppg`                 | Controls if the database servers are placed in proximity placement groups.          | Optional	    | default is true    |
 > | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs.                          | Optional	    | Primarily used with ANF pinning |
 > | `hana_dual_nics`                   | Controls if the HANA database servers will have dual network interfaces.            | Optional	    | default is true   |
 
@@ -168,7 +168,7 @@ The application tier defines the infrastructure for the application tier, which 
 > | `scs_server_app_admin_nic_ips`         | List of IP addresses for the SCS servers (admin subnet).                 | Optional  |  |
 > | `scs_server_loadbalancer_ips`          | List of IP addresses for the scs load balancer (app subnet).             | Optional  |  |
 > | `scs_server_use_ppg`                   | Controls if the SCS servers are placed in availability sets.             | Optional  |         |
-> | `scs_server_use_avset`	               | Controls if the SCS servers will be placed in proximity placement groups.| Optional  |         |
+> | `scs_server_use_avset`	               | Controls if the SCS servers are placed in proximity placement groups.    | Optional  |         |
 > | `scs_server_tags`	                     | Defines a list of tags to be applied to the SCS servers.                 | Optional  |         |
 
 ### Application server parameters
@@ -185,7 +185,7 @@ The application tier defines the infrastructure for the application tier, which 
 > | `application_server_nic_secondary_ips[]`  | List of secondary IP addresses for the application servers (app subnet).     | Optional   |  |
 > | `application_server_app_admin_nic_ips`    | List of IP addresses for the application server (admin subnet).              | Optional   |  |
 > | `application_server_use_ppg`              | Controls if application servers are placed in availability sets.             | Optional   | |
-> | `application_server_use_avset`            | Controls if application servers will be placed in proximity placement        | Optional   | |
+> | `application_server_use_avset`            | Controls if application servers are placed in proximity placement groups.    | Optional   | |
 > | `application_server_tags`	                | Defines a list of tags to be applied to the application servers.             | Optional   | |
 
 ### Web dispatcher parameters
@@ -198,12 +198,12 @@ The application tier defines the infrastructure for the application tier, which 
 > | `webdispatcher_server_sku`	               | Defines the Virtual machine SKU to use.                                        | Optional  |        |
 > | `webdispatcher_server_image`	             | Defines the Virtual machine image to use.                                      | Optional  |        |
 > | `webdispatcher_server_zones`	             | Defines the availability zones to which the web dispatchers are deployed.      | Optional  |        |
-> | `webdispatcher_server_app_nic_ips[]`       | List of IP addresses for the web dispatcher server (app/web subnet).           | Optional  |  |
-> | `webdispatcher_server_nic_secondary_ips[]` | List of secondary IP addresses for the web dispatcher server (app/web subnet). | Optional  |  |
-> | `webdispatcher_server_app_admin_nic_ips`   | List of IP addresses for the web dispatcher server (admin subnet).             | Optional  |  |
-> | `webdispatcher_server_use_ppg`             | Controls if web dispatchers are placed in availability sets.                   | Optional   | |
-> | `webdispatcher_server_use_avset`           | Controls if web dispatchers will be placed in proximity placement              | Optional   | |
-> | `webdispatcher_server_tags`	               | Defines a list of tags to be applied to the web dispatcher servers.            | Optional  | |
+> | `webdispatcher_server_app_nic_ips[]`       | List of IP addresses for the web dispatcher server (app/web subnet).           | Optional  |        |
+> | `webdispatcher_server_nic_secondary_ips[]` | List of secondary IP addresses for the web dispatcher server (app/web subnet). | Optional  |        |
+> | `webdispatcher_server_app_admin_nic_ips`   | List of IP addresses for the web dispatcher server (admin subnet).             | Optional  |        |
+> | `webdispatcher_server_use_ppg`             | Controls if web dispatchers are placed in availability sets.                   | Optional  |        |
+> | `webdispatcher_server_use_avset`           | Controls if web dispatchers are placed in proximity placement groups.          | Optional  |        |
+> | `webdispatcher_server_tags`	               | Defines a list of tags to be applied to the web dispatcher servers.            | Optional  |        |
 
 ## Network parameters
 
@@ -215,7 +215,7 @@ The automation framework can either deploy the virtual network and the subnets (
 
 Ensure that the virtual network address space is large enough to host all the resources.
 
-The table below contains the networking parameters.
+This section  contains the networking parameters.
 
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -251,9 +251,9 @@ The table below contains the networking parameters.
 
 ## Key Vault Parameters
 
-If you don't want to use the workload zone key vault but another one, this can be added in the system's tfvars file.
+If you don't want to use the workload zone key vault but another one, you can define the key vault's Azure resource identifier in the system's tfvars file.
 
-The table below defines the parameters used for defining the Key Vault information.
+This section  defines the parameters used for defining the Key Vault information.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                            | Description                                                                    | Type         | Notes                               |
@@ -265,9 +265,9 @@ The table below defines the parameters used for defining the Key Vault informati
 
 ### Anchor virtual machine parameters
 
-The SAP on Azure Deployment Automation Framework supports having an Anchor virtual machine. The anchor virtual machine will be the first virtual machine to be deployed and is used to anchor the proximity placement group.
+The SAP on Azure Deployment Automation Framework supports having an Anchor virtual machine. The anchor virtual machine is the first virtual machine to be deployed and is used to anchor the proximity placement group.
 
-The table below contains the parameters related to the anchor virtual machine.
+This section  contains the parameters related to the anchor virtual machine.
 
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -319,7 +319,8 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > | `license_type`                                 | Specifies the license type for the virtual machines. | Possible values are `RHEL_BYOS` and `SLES_BYOS`. For Windows the possible values are `None`, `Windows_Client` and `Windows_Server`. |
 > | `use_zonal_markers`                            | Specifies if zonal Virtual Machines will include a zonal identifier. 'xooscs_z1_00l###' vs  'xooscs00l###'| Default value is true. |
 > | `proximityplacementgroup_names`                | Specifies the names of the proximity placement groups |  |
-> | `proximityplacementgroup_arm_ids`              | Specifies the Azure resource identifiers of existing proximity placement groups|  |
+> | `proximityplacementgroup_arm_ids`              | Specifies the Azure resource identifiers of existing proximity placement groups |  |
+> | `use_simple_mount`                             | Specifies if Simple mounts are used (Applicable for SLES 15 SP# or newer)       | Optional |
 
 
 ## NFS support
@@ -389,7 +390,7 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 
 ## Terraform parameters
 
-The table below contains the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts.
+This section  contains the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts.
 
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -413,9 +414,9 @@ High availability configurations use Pacemaker with Azure fencing agents.
 
 ### Fencing agent configuration 
 
-SDAF supports using either managed identities or service principals for fencing agents. The following section describe how to configure each option.
+SDAF supports using either managed identities or service principals for fencing agents. The following section describes how to configure each option.
 
-By defining the variable 'use_msi_for_clusters' to true the fencing agent will use managed identities. This is the recommended option.
+Setting the variable 'use_msi_for_clusters' to true makes the fencing agent use managed identities.
 
 If you want to use a service principal for the fencing agent set that variable to false.
 
