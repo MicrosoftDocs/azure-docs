@@ -41,8 +41,6 @@ The following limitations currently govern the use of NRT rules:
 
     1. The query defined in an NRT rule can reference **only one table**. Queries can, however, refer to multiple watchlists.
 
-    1. You cannot use unions or joins.
-
     1. Because this rule type is in near real time, we have reduced the built-in delay to a minimum (two minutes).
 
     1. Since NRT rules use the ingestion time rather than the event generation time (represented by the TimeGenerated field), you can safely ignore the data source delay and the ingestion time latency (see above).
