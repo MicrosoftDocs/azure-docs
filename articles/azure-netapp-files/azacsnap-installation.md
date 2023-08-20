@@ -42,7 +42,7 @@ tools.
 
    # [Azure NetApp Files](#tab/azure-netapp-files)
     
-   1. **For Azure NetApp Files (for more information, see separate section)**: Customer must generate the service principal authentication file.
+   1. **For Azure NetApp Files (for more information, see separate section)**: Customer must either setup a System Managed Identity or generate the Service Principal authentication file.
       
       > [!IMPORTANT]
       > When validating communication with Azure NetApp Files, communication might fail or time-out. Check to ensure firewall rules are not blocking outbound traffic from the system running AzAcSnap to the following addresses and TCP/IP ports:
@@ -98,7 +98,58 @@ This section explains how to enable communication with storage. Ensure the stora
 
 # [Azure NetApp Files (with Virtual Machine)](#tab/azure-netapp-files)
 
-Create RBAC Service Principal
+### Azure System Managed Identity
+
+From AzAcSnap 9, it's possible to use a System Managed Identity instead of a Service Principal for operation.  Using this feature avoids the need to store Service Principal credentials on a VM.  The steps to follow to set up an Azure Managed Identity using the Azure Portal Cloud Shell are as follows.
+
+1. Within an Azure Cloud Shell session with Bash, use the following example to set the shell variables appropriately and apply to the subscription where you want to create the Azure Managed Identity:
+
+   ```azurecli-interactive
+   export SUBSCRIPTION="99z999zz-99z9-99zz-99zz-9z9zz999zz99"
+   export VM_NAME="MyVM"
+   export RESOURCE_GROUP="MyResourceGroup"
+   export ROLE="Contributor"
+   export SCOPE="/subscriptions/${SUBSCRIPTION}/resourceGroups/${RESOURCE_GROUP}"
+   ```
+
+   > [!NOTE]
+   > Set the `SUBSCRIPTION`, `VM_NAME`, and `RESOURCE_GROUP` to your site specific values.
+
+1. Set the Cloud Shell to the correct subscription:
+
+   ```azurecli-interactive
+   az account set -s "${SUBSCRIPTION}"
+   ```
+
+1. Create the managed identity for the virtual machine.  The following command will set or show (if already set) the AzAcSnap virtual machine Managed Identity.
+
+   ```azurecli-interactive
+   az vm identity assign --name "${VM_NAME}" --resource-group "${RESOURCE_GROUP}"
+   ```
+
+1. Get the Principal ID for use to assign a role:
+
+   ```azurecli-interactive
+   PRINCIPAL_ID=$(az resource list -n ${VM_NAME} --query [*].identity.principalId --out tsv)
+   ```
+
+1. Assign the ‘Contributor’ role to the Principal ID:
+
+   ```azurecli-interactive
+   az role assignment create --assignee "${PRINCIPAL_ID}" --role "${ROLE}" --scope "${SCOPE}"
+   ```
+
+#### Optional RBAC
+
+It’s possible to limit the permissions for the Managed Identity using a custom role definition.  Create a suitable role definition for the virtual machine to be able to manage snapshots (example permissions settings can be found in [Tips and tricks for using Azure Application Consistent Snapshot tool](azacsnap-tips.md).
+
+Then assign the role to the Azure Virtual Machine Principal ID (also displayed as ., SystemAssignedIdentity):
+
+```azurecli-interactive
+az role assignment create --assignee ${PRINCIPAL_ID} --role "AzAcSnap on ANF" --scope "${SCOPE}"
+```
+
+### Generate Service Principal file
 
 1. Within an Azure Cloud Shell session, make sure you're logged on at the subscription where you want
   to be associated with the service principal by default:
