@@ -10,7 +10,7 @@ ms.date: 08/14/2023
 ms.custom: known-issue
 ---
 
-# Known issue  - Compute instance | Jupyter R Kernel doesn't start in new compute instance images 
+# Known issue  - Jupyter R Kernel doesn't start in new compute instance images 
 
 When trying to launch an R kernel in JupyterLab or a notebook in a new compute instance, the kernel fails to start with `Error: .onLoad failed in loadNamespace()`
 

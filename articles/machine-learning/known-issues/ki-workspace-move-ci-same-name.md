@@ -10,7 +10,7 @@ ms.date: 08/14/2023
 ms.custom: known-issue
 ---
 
-# Known issue  - Compute instance | Creating compute instance after a workspace move results in an Etag conflict error.
+# Known issue  - Creating compute instance after a workspace move results in an Etag conflict error.
 
 After a moving a workspace to a different subscription or resource group, creating a compute instance with the same name as a previous compute instance will fail with an Etag conflict error.
 

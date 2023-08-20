@@ -10,7 +10,7 @@ ms.date: 08/04/2023
 ms.custom: known-issue
 ---
 
-# Known issue  - Compute instance | Slowness in compute instance terminal from a mounted path
+# Known issue  - Slowness in compute instance terminal from a mounted path
 
 While using the compute instance terminal inside a mounted path of a data folder, any commands executed from the terminal result in slowness. This issue is restricted to the terminal; running the commands from SDK using a notebook works as expected.
 

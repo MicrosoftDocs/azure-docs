@@ -10,7 +10,7 @@ ms.date: 08/04/2023
 ms.custom: known-issue
 ---
 
-# Known issue  - AutoML | Error retrieving generated code FilesharePermissionFailure: Unable to copy files to fileshare because authorization failed.
+# Known issue  - FilesharePermissionFailure error retrieving generated code : Unable to copy files to fileshare because authorization failed.
 
 When a workspace has a public IP but the storage is private, then the workspace can't interact with the storage account directly. 
 

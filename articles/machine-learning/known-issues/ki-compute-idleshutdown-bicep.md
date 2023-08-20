@@ -10,7 +10,7 @@ ms.date: 08/04/2023
 ms.custom: known-issue
 ---
 
-# Known issue  - Compute | Idleshutdown property in bicep template causes error
+# Known issue  - Idleshutdown property in Bicep template causes error
 
 When creating an Azure Machine Learning compute instance through Bicep, using the `idleTimeBeforeShutdown` property as described in the API reference [Microsoft.MachineLearningServices workspaces/computes API reference](/azure/templates/microsoft.machinelearningservices/workspaces/computes?pivots=deployment-language-bicep) results in an error.
 

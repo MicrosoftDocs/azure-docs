@@ -10,7 +10,7 @@ ms.date: 08/04/2023
 ms.custom: known-issue
 ---
 
-# Known issue  - Workspace RP | Create workspace with bring your own storage scenario doesn't work in SDK V2 
+# Known issue  - Create workspace with bring your own storage scenario doesn't work in SDK V2 
 
 
 When following the document [Manage Azure Machine Learning workspaces in the portal or with the Python SDK (v2)](../how-to-manage-workspace.md) using a bring-your-own-storage scenario, the procedure fails if the storage is in a different subscription than the workspace.

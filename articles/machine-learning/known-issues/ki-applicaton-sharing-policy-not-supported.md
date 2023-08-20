@@ -10,7 +10,7 @@ ms.date: 08/14/2023
 ms.custom: known-issue
 ---
 
-# Known issue  - Compute Instance | Application Sharing Policy isn't supported
+# Known issue  - The ApplicationSharingPolicy property isn't supported for compute instances
 
 Configuring the `applicationSharingPolicy` property for a compute instance has no effect as that property isn't supported
 

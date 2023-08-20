@@ -10,7 +10,7 @@ ms.date: 08/14/2023
 ms.custom: known-issue
 ---
 
-# Known issue  - Compute | Provisioning error when creating a compute instance with A10 SKU
+# Known issue  - Provisioning error when creating a compute instance with A10 SKU
 
 [!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
 
