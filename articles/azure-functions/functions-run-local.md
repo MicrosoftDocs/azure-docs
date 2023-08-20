@@ -416,6 +416,8 @@ func kubernetes deploy --name <DEPLOYMENT_NAME> --registry <REGISTRY_USERNAME>
 
 Azure Functions on Kubernetes using KEDA is an open-source effort that you can use free of cost. Best-effort support is provided by contributors and from the community. To learn more, see [Deploying a function app to Kubernetes](functions-kubernetes-keda.md#deploying-a-function-app-to-kubernetes). 
 
+---  
+
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
 The following considerations apply when working with the local settings file:
