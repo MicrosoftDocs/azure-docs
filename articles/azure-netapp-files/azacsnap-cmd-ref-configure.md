@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 08/19/2022
+ms.date: 08/21/2023
 ms.author: phjensen
 ---
 
@@ -129,6 +129,18 @@ When you add an *Oracle database* to the configuration, the following values are
 - **Oracle DB Server's Address** = The database server hostname or IP address.
 - **SID** = The database System ID.
 - **Oracle Connect String** = The Connect String used by `sqlplus` to connect to Oracle and enable/disable backup mode.
+
+# [IBM Db2](#tab/db2)
+
+When adding a *Db2 database* to the configuration, the following values are required:
+
+- **Db2 Server's Address** = The database server hostname or IP address.
+  - If Db2 Server Address (serverAddress) matches '127.0.0.1' or 'localhost' then azacsnap will execute all `db2` commands locally (refer "Local connectivity").  Otherwise AzAcSnap will use the serverAddress as the host to connect to via SSH using the "Instance User" as the SSH login name, this can be validated with `ssh <instanceUser>@<serverAddress>` replacing instanceUser and serverAddress with the respective values (refer "Remote connectivity").
+- **Instance User** = The database System Instance User.
+- **SID** = The database System ID.
+
+> [!IMPORTANT]
+> Setting the Db2 Server Address (serverAddress) aligns directly with the method used to communicate with Db2, ensure this is set correctly as described.
 
 ---
 
