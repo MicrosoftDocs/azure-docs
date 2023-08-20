@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 08/21/2023
 ms.author: phjensen
 ---
 
@@ -37,7 +37,7 @@ tools.
 1. **OS is patched**: See patching and SMT setup in [How to install and configure SAP HANA (Large Instances) on Azure](../virtual-machines/workloads/sap/hana-installation.md#operating-system).
 1. **Time Synchronization is set up**. The customer will need to provide an NTP compatible time
     server, and configure the OS accordingly.
-1. **HANA is installed** : See HANA installation instructions in [SAP NetWeaver Installation on HANA database](/archive/blogs/saponsqlserver/sap-netweaver-installation-on-hana-database).
+1. **Database is installed** : Refer to separate instructions for each supported database.
 1. **[Enable communication with storage](#enable-communication-with-storage)** (for more information, see separate section): Select the storage back-end you're using for your deployment.
 
    # [Azure NetApp Files](#tab/azure-netapp-files)
@@ -770,6 +770,209 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
             > or by exporting it before each run (for example, `export TNS_ADMIN="/home/orasnap/ORACLE19c" ; cd /home/orasnap/bin ; 
             > ./azacsnap --configfile ORACLE19c.json -c backup --volume data --prefix hourly-ora19c --retention 12`)
 
+
+# [IBM Db2](#tab/db2)
+
+The snapshot tools issue commands to the IBM Db2 database using the command line processor `db2` to enable and disable backup mode.  
+
+After putting the database in backup mode, `azacsnap` will query the IBM Db2 database to get a list of "protected paths", which are part of the database where backup-mode is active.  This list is output into an external file, which is in the same location and basename as the log file, but with a ".\<DBName>-protected-paths" extension (output filename detailed in the AzAcSnap log file).
+
+AzAcSnap uses the IBM Db2 command line processor `db2` to issue SQL commands, such as `SET WRITE SUSPEND` or `SET WRITE RESUME`.  Therefore AzAcSnap should be installed in one of the following two ways:
+
+  1. Installed onto the database server, then complete the setup with "[Local connectivity](#local-connectivity)".
+  1. Installed onto a centralized backup system, then complete the setup with "[Remote connectivity](#remote-connectivity)".
+
+#### Local connectivity
+
+If AzAcSnap has been installed onto the database server, then be sure to add the `azacsnap` user to the correct Linux group and import the Db2 instance user's profile per the following example setup.
+
+##### `azacsnap` user permissions
+
+The `azacsnap` user should belong to the same Db2 group as the database instance user.  Here we are getting the group membership of the IBM Db2 installation's database instance user `db2tst`.
+
+```bash
+id db2tst
+```
+
+```output
+uid=1101(db2tst) gid=1001(db2iadm1) groups=1001(db2iadm1)
+```
+
+From the output we can confirm the `db2tst` user has been added to the `db2iadm1` group, therefore add the `azacsnap` user to the group.
+
+```bash
+usermod -a -G db2iadm1 azacsnap
+```
+
+##### `azacsnap` user profile
+
+The `azacsnap` user will need to be able to execute the `db2` command.  By default the `db2` command will not be in the `azacsnap` user's $PATH, therefore add the following to the user's `.bashrc` file using your own IBM Db2 installation value for `INSTHOME`.
+
+```output
+# The following four lines have been added to allow this user to run the DB2 command line processor.
+INSTHOME="/db2inst/db2tst"
+if [ -f ${INSTHOME}/sqllib/db2profile ]; then
+    . ${INSTHOME}/sqllib/db2profile
+fi
+```
+
+Test the user can run the `db2` command line processor.
+
+```bash
+su - azacsnap
+db2
+```
+
+```output
+(c) Copyright IBM Corporation 1993,2007
+Command Line Processor for DB2 Client 11.5.7.0
+
+You can issue database manager commands and SQL statements from the command
+prompt. For example:
+    db2 => connect to sample
+    db2 => bind sample.bnd
+
+For general help, type: ?.
+For command help, type: ? command, where command can be
+the first few keywords of a database manager command. For example:
+ ? CATALOG DATABASE for help on the CATALOG DATABASE command
+ ? CATALOG          for help on all of the CATALOG commands.
+
+To exit db2 interactive mode, type QUIT at the command prompt. Outside
+interactive mode, all commands must be prefixed with 'db2'.
+To list the current command option settings, type LIST COMMAND OPTIONS.
+
+For more detailed help, refer to the Online Reference Manual.
+```
+
+```sql
+db2 => quit
+DB20000I  The QUIT command completed successfully.
+```
+
+Now configure azacsnap to user localhost.
+Once this is working correctly go on to configure (`azacsnap -c configure`) with the `serverAddress=localhost` and test (`azacsnap -c test --test db2`) azacsnap database connectivity.
+
+
+#### Remote connectivity
+
+If AzAcSnap has been installed following option 2, then be sure to allow SSH access to the Db2 database instance per the following example setup.
+
+
+Log in to the AzAcSnap system as the `azacsnap` user and generate a public/private SSH key pair.
+
+```bash
+ssh-keygen
+```
+
+```output
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/azacsnap/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/azacsnap/.ssh/id_rsa.
+Your public key has been saved in /home/azacsnap/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:4cr+0yN8/dawBeHtdmlfPnlm1wRMTO/mNYxarwyEFLU azacsnap@db2-02
+The key's randomart image is:
++---[RSA 2048]----+
+|         ... o.  |
+|          . . +. |
+|        .. E + o.|
+|       ....   B..|
+|        S. . o *=|
+|     . .  . o o=X|
+|      o. . +  .XB|
+|     .  + + + +oX|
+|      ...+ . =.o+|
++----[SHA256]-----+
+```
+
+Get the contents of the public key.
+
+```bash
+cat .ssh/id_rsa.pub
+```
+
+```output
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCb4HedCPdIeft4DUp7jwSDUNef52zH8xVfu5sSErWUw3hhRQ7KV5sLqtxom7an2a0COeO13gjCiTpwfO7UXH47dUgbz+KfwDaBdQoZdsp8ed1WI6vgCRuY4sb+rY7eiqbJrLnJrmgdwZkV+HSOvZGnKEV4Y837UHn0BYcAckX8DiRl7gkrbZUPcpkQYHGy9bMmXO+tUuxLM0wBrzvGcPPZ azacsnap@db2-02
+```
+
+Log in to the IBM Db2 system as the Db2 Instance User.
+
+Add the contents of the AzAcSnap user's public key to the Db2 Instance Users `authorized_keys` file.
+
+```bash
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCb4HedCPdIeft4DUp7jwSDUNef52zH8xVfu5sSErWUw3hhRQ7KV5sLqtxom7an2a0COeO13gjCiTpwfO7UXH47dUgbz+KfwDaBdQoZdsp8ed1WI6vgCRuY4sb+rY7eiqbJrLnJrmgdwZkV+HSOvZGnKEV4Y837UHn0BYcAckX8DiRl7gkrbZUPcpkQYHGy9bMmXO+tUuxLM0wBrzvGcPPZ azacsnap@db2-02" >> ~/.ssh/authorized_keys
+```
+
+Log in to the AzAcSnap system as the `azacsnap` user and test SSH access.
+
+```bash
+ssh <InstanceUser>@<ServerAddress>
+```
+
+```output
+[InstanceUser@ServerName ~]$
+```
+
+Test the user can run the `db2` command line processor.
+
+```bash
+db2
+```
+
+```output
+(c) Copyright IBM Corporation 1993,2007
+Command Line Processor for DB2 Client 11.5.7.0
+
+You can issue database manager commands and SQL statements from the command
+prompt. For example:
+    db2 => connect to sample
+    db2 => bind sample.bnd
+
+For general help, type: ?.
+For command help, type: ? command, where command can be
+the first few keywords of a database manager command. For example:
+ ? CATALOG DATABASE for help on the CATALOG DATABASE command
+ ? CATALOG          for help on all of the CATALOG commands.
+
+To exit db2 interactive mode, type QUIT at the command prompt. Outside
+interactive mode, all commands must be prefixed with 'db2'.
+To list the current command option settings, type LIST COMMAND OPTIONS.
+
+For more detailed help, refer to the Online Reference Manual.
+```
+
+```sql
+db2 => quit
+DB20000I  The QUIT command completed successfully.
+```
+
+```bash
+[prj@db2-02 ~]$ exit
+
+```output
+logout
+Connection to <serverAddress> closed.
+```
+
+Once this is working correctly go on to configure (`azacsnap -c configure`) with the Db2 server's external IP address and test (`azacsnap -c test --test db2`) azacsnap database connectivity.
+
+Run the `azacsnap` test command
+
+```bash
+cd ~/bin
+azacsnap -c test --test db2 --configfile Db2.json
+```
+
+```output
+BEGIN : Test process started for 'db2'
+BEGIN : Db2 DB tests
+PASSED: Successful connectivity to Db2 DB version v11.5.7.0
+END   : Test process complete for 'db2'
+```
+
 ---
 
 ## Installing the snapshot tools
@@ -1191,6 +1394,10 @@ The following changes must be applied to the Oracle Database to allow for monito
    SHOW ERRORS
    QUIT
    ```
+
+# [IBM Db2](#tab/db2)
+
+No special database configuration is required for Db2 as we are using the Instance User's local operating system environment.
 
 ---
 
