@@ -52,7 +52,7 @@ You can exchange your reservation from the [Azure portal](https://portal.azure.c
 1. Review and complete the transaction.  
     [![Example image showing the VM product to purchase with an exchange, completing the return](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png)](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png#lightbox)
 
-To refund a reservation, go to **Reservation Details** and select **Refund**.
+To refund a reservation, go into the Reservationthat you are looking to cancel and select **Return**.
 
 ## Exchange multiple reservations
 
