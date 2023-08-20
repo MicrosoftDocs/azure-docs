@@ -58,8 +58,6 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
 
     In addition, the query itself has the following requirements:
 
-    - The query itself can refer to only one table, and cannot contain unions or joins.
-
     - You can't run the query across workspaces.
 
     - Due to the size limits of the alerts, your query should make use of `project` statements to include only the necessary fields from your table. Otherwise, the information you want to surface could end up being truncated.
