@@ -38,7 +38,7 @@ To complete this tutorial, you need to:
 
 ## Choose the proper MongoDB native tool
 
-![Diagram of selecting the best MongoDB native tool.](./media/tutorial-mongotools-cosmos-db/mongodb-native-tool-selection-table.png)
+![Table for selecting the best MongoDB native tool.](./media/tutorial-mongotools-cosmos-db/mongodb-native-tool-selection-table.png)
 
 * *mongoexport/mongoimport* is the best pair of migration tools for migrating a subset of your MongoDB database.
     * *mongoexport* exports your existing data to a human-readable JSON or CSV file. *mongoexport* takes an argument specifying the subset of your existing data to export. 

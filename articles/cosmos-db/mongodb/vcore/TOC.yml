@@ -41,7 +41,7 @@
         - name: Migration options
           href: migration-options.md
         - name: Migrate using MongoDB tools
-          href: migrate-with-mongotools.md
+          href: migrate-with-mongo-tools.md
     - name: Troubleshooting and performance
       items:
         - name: Troubleshoot common issues
