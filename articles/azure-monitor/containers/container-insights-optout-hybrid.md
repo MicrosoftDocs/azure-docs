@@ -1,14 +1,14 @@
 ---
-title: How to stop monitoring your hybrid Kubernetes cluster | Microsoft Docs
+title: Disable Container insights on your hybrid Kubernetes cluster
 description: This article describes how you can stop monitoring of your hybrid Kubernetes cluster with Container insights.
 ms.topic: conceptual
 ms.date: 08/21/2023
 ms.reviewer: aul
 ---
 
-# How to stop monitoring your hybrid cluster
+# Disable Container insights on your hybrid Kubernetes cluster
 
-After you enable monitoring of your Kubernetes cluster, you can stop monitoring the cluster with Container insights if you decide you no longer want to monitor it. This article shows how to accomplish this for the following environments:
+This article shows how to disable Container insights this for the following Kubernetes environments:
 
 - AKS Engine on Azure and Azure Stack
 - OpenShift version 4 and higher
