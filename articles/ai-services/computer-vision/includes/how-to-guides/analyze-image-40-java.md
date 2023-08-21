@@ -152,6 +152,6 @@ In addition to those errors, the SDK has a few other error messages, including:
   * `Missing Image Analysis options: You must set at least one visual feature (or model name) for the 'analyze' operation. Or set segmentation mode for the 'segment' operation`
   * `Invalid combination of Image Analysis options: You cannot set both visual features (or model name), and segmentation mode`
 
-Make sure the [ImageAnalysisOptions](TBD) object is set correctly to fix these errors. 
+Make sure the [ImageAnalysisOptions](TBD) object is set correctly to fix these errors.
 
 To help resolve issues, look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository and run the closest sample to your scenario. Search the [GitHub issues](https://github.com/Azure-Samples/azure-ai-vision-sdk/issues) to see if your issue was already address. If not, create a new one.
