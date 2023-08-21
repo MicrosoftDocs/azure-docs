@@ -28,7 +28,7 @@ The metrics generated from the logging data are available in [Azure Monitor metr
 
 ## Create a Cluster
 
-The Cluster resource represents an on-premises deployment of the platform
+The Infrastructure Cluster resource represents an on-premises deployment of the platform
 within the Cluster Manager. All other platform-specific resources are
 dependent upon it for their lifecycle.
 

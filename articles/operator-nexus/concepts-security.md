@@ -23,7 +23,7 @@ Azure Operator Nexus realizes the above by leveraging Microsoft cloud-native sec
 
 ## Platform-wide protection via Microsoft Defender for Cloud
 
-[Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) is a cloud-native application protection platform (CNAPP) that provides the security capabilities needed to harden your resources, manage your security posture, protect against cyberattacks, and streamline security management. These are some of the key features of Defender for Cloud that apply to the Azure Operator Nexus platform:
+[Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) is a cloud-native application protection platform (CNAPP) that provides the security capabilities needed to harden your resources, manage your security posture, protect against cyber attacks, and streamline security management. These are some of the key features of Defender for Cloud that apply to the Azure Operator Nexus platform:
 
 * **Vulnerability assessment for virtual machines and container registries** - Easily enable vulnerability assessment solutions to discover, manage, and resolve vulnerabilities. View, investigate, and remediate the findings directly from within Defender for Cloud.
 * **Hybrid cloud security** – Get a unified view of security across all your on-premises and cloud workloads. Apply security policies and continuously assess the security of your hybrid cloud workloads to ensure compliance with security standards. Collect, search, and analyze security data from multiple sources, including firewalls and other partner solutions.
@@ -47,6 +47,6 @@ You have the option to enable Defender for Containers protection within Defender
 
 ## Cloud security is a shared responsibility
 
-It is important to understand that in a cloud environment, security is a [shared responsibility](../security/fundamentals/shared-responsibility.md) between you and the cloud provider. The responsibilities vary depending on the type of cloud service your workloads run on, whether it is Software as a Service (SaaS), Platform as a Service (PaaS), or Infrastructure as a Service (IaaS), as well as where the workloads are hosted – within the cloud provider’s or your own on-premises datacenters.
+It is important to understand that in a cloud environment, security is a [shared responsibility](../security/fundamentals/shared-responsibility.md) between you and the cloud provider. The responsibilities vary depending on the type of cloud service your workloads run on, whether it is Software as a Service (SaaS), Platform as a Service (PaaS), or Infrastructure as a Service (IaaS), as well as where the workloads are hosted – within the cloud provider’s or your own on-premises data centers.
 
-Azure Operator Nexus workloads run on servers in your datacenters, so you are in control of changes to your on-premises environment. Microsoft periodically makes new platform releases available that contain security and other updates. You must then decide when to apply these releases to your environment as appropriate for your organization’s business needs.
+Azure Operator Nexus workloads run on servers in your data centers, so you are in control of changes to your on-premises environment. Microsoft periodically makes new platform releases available that contain security and other updates. You must then decide when to apply these releases to your environment as appropriate for your organization’s business needs.

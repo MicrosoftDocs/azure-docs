@@ -286,7 +286,7 @@ Expected output:
 
 ## IP extended community
 
-The `IPExtendedCommunity`resource allows operators to manipulate routes  based on  route targets. Operators use it to specify conditions and actions for adding/removing routes as they're propagated up-stream/down-stream or tag them with specific extended community values. The operator must create an ARM resource of the type `I`PExtendedCommunityList` by providing a list of community values and specific properties. ExtendedCommunityLists are used in specifying match conditions and the action properties for route policies.
+The `IPExtendedCommunity`resource allows operators to manipulate routes  based on  route targets. Operators use it to specify conditions and actions for adding/removing routes as they're propagated up-stream/down-stream or tag them with specific extended community values. The operator must create an ARM resource of the type `IPExtendedCommunityList` by providing a list of community values and specific properties. ExtendedCommunityLists are used in specifying match conditions and the action properties for route policies.
 
 ### Parameters for IP extended community
 

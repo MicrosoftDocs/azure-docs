@@ -13,7 +13,6 @@ ms.custom: template-concept
 
 This article introduces you to the Operator Nexus components represented as Azure resources in Azure Resource Manager.
 
-<!--- IMG ![Resource Types](Docs/media/resource-types.png) IMG --->
 :::image type="content" source="media/resource-types.png" alt-text="Screenshot of Resource Types.":::
 
 Figure: Resource model
@@ -44,17 +43,17 @@ You can manage the lifecycle of a Network Fabric via Azure using any of the supp
 
 ### Network racks
 
-Network Rack resource is a representation of your on-premises Racks from the networking perspective. The number of network racks in an Operator Nexus instance depends on the Network Fabric SKU which was chosen while creation. 
+Network Rack resource is a representation of your on-premises racks from the networking perspective. The number of network racks in an Operator Nexus instance depends on the Network Fabric SKU which was chosen while creation. 
 
 Each network rack consists of Network Devices which are part of that rack. For example - Customer Edge (CE) routers, Top of Rack (ToR) Switches, Management Switches, Network Packet Brokers (NPB).
 
-The Network Rack also models the connectivity to the operator's Physical Edge switches (PEs) and the ToRs on the other Racks via Network to Network Interconnect (NNI) resource.
+The Network Rack also models the connectivity to the operator's Physical Edge switches (PEs) and the ToRs on the other racks via Network to Network Interconnect (NNI) resource.
 
 The lifecycle of Network Rack resources is tied to the Network Fabric resource. The Network Racks are automatically created when you create the Network Fabric and the number of racks depends on the SKU which was chosen. When the Network Fabric resource is deleted, all the associated Network Racks are also deleted along with it.
 
 ### Network devices
 
-Network Devices represent the Customer Edge (CE) routers, Top of Rack (ToR) Switches, Management Switches, Network Packet Brokers (NPB) which are deployed as part of the Network Fabric instance. Each Network Device resource is associated to a specific Network Rack where it is deployed.
+Network Devices represent the Customer Edge (CE) routers, Top of Rack (ToR) Switches, Management Switches, and Network Packet Brokers (NPB) which are deployed as part of the Network Fabric instance. Each Network Device resource is associated to a specific Network Rack where it is deployed.
 
 Each network device resource has a SKU, Role, Host Name, and Serial Number as properties, and can have multiple network interfaces associated. Network Interfaces contain the IPv4 and IPv6 addresses, physical identifier, interface type, and the associated connections. Network Interfaces also has the administrativeState property which indicates whether the interface is enabled or disabled.
 
@@ -84,27 +83,27 @@ There are two types of Layer 3 networks that you can create:
 * Internal Network
 * External Network
 
-Internal networks enable layer 3 east-west connectivity across racks within the Operator Nexus instance and external networks enable layer 3 north-south connectivity from the Operator Nexus instance to networks outside the instance. A Layer 3 isolation domain must be configured with at least one internal network and external networks are optional.
+Internal networks enable layer 3 east-west connectivity across racks within the Operator Nexus instance and external networks enable layer 3 north-south connectivity from the Operator Nexus instance to networks outside the instance. A Layer 3 isolation domain must be configured with at least one internal network; external networks are optional.
 
 ### Cluster manager
 
-The Cluster Manager (CM) is hosted on Azure and manages the lifecycle of all on-premises clusters.
+The Cluster Manager (CM) is hosted on Azure and manages the lifecycle of all on-premises infrastructure (also referred to as infra)clusters.
 Like NFC, a CM can manage multiple Operator Nexus instances.
 The CM and the NFC are hosted in the same Azure subscription.
 
-### Cluster
+### Infrastructure Cluster
 
-The Cluster (or Compute Cluster) resource models a collection of racks, bare metal machines, storage, and networking.
-Each cluster is mapped to the on-premises Network Fabric. A cluster provides a holistic view of the deployed compute capacity.
-Cluster capacity examples include the number of vCPUs, the amount of memory, and the amount of storage space. A cluster is also the basic unit for compute and storage upgrades.
+The Infrastructure Cluster (or Compute Cluster or infra cluster) resource models a collection of racks, bare metal machines, storage, and networking.
+Each infra cluster is mapped to the on-premises Network Fabric. The cluster provides a holistic view of the deployed compute capacity.
+Infra cluster capacity examples include the number of vCPUs, the amount of memory, and the amount of storage space. A cluster is also the basic unit for compute and storage upgrades.
 
 ### Rack
 
-The Rack (or a compute rack) resource represents the compute servers (Bare Metal Machines), management servers, management switch and ToRs. The Rack is created, updated or deleted as part of the Cluster lifecycle management.
+The Rack (or a compute rack) resource represents the compute servers (Bare Metal Machines), management servers, management switch and ToRs. The Rack is created, updated or deleted as part of the infra cluster lifecycle management.
 
 ### Storage appliance
 
-Storage Appliances represent storage arrays used for persistent data storage in the Operator Nexus instance. All user and consumer data is stored in these appliances local to your premises. This local storage complies with some of the most stringent local data storage requirements.
+Storage Appliances represent storage arrays used for persistent data storage in the Operator Nexus instance. All user and consumer data is stored in these local on-premises appliances. This local storage complies with some of the most stringent local data storage requirements.
 
 ### Bare Metal Machine
 
@@ -134,4 +133,4 @@ You can use VMs to host your Virtualized Network Function (VNF) workloads.
 
 ### Nexus Kubernetes cluster
 
-Nexus Kubernetes cluster is Azure Kubernetes Service cluster modified to run on your on-premises Operator Nexus instance. The Nexus Kubernetes cluster is designed to host your Containerized Network Function (CNF) workloads.
+Nexus Kubernetes cluster is a Kubernetes cluster modified to run on your on-premises Operator Nexus instance. The Nexus Kubernetes cluster is designed to host your Containerized Network Function (CNF) workloads.
