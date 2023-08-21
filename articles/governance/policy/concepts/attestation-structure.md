@@ -11,7 +11,7 @@ author: davidsmatlak
 Attestations are used by Azure Policy to set compliance states of resources or scopes targeted by [manual policies](effects.md#manual). They also allow users to provide additional metadata or link to evidence which accompanies the attested compliance state.  
 
 > [!NOTE]
-> Attestations are available only through the [Azure Resource Manager (ARM) API](/rest/api/policy/attestations).
+> Attestations can be created and managed only through Azure Policy [Azure Resource Manager (ARM) API](/rest/api/policy/attestations), [PowerShell](/powershell/module/az.policyinsights) or [Azure CLI](/cli/azure/policy/attestation). 
 
 ## Best practices
 
