@@ -70,7 +70,7 @@ Prior BIG-IP experience isn't necessary, but you need:
     * F5 BIG-IP APM standalone
     * F5 BIG-IP APM add-on license on a BIG-IP F5 BIG-IP&reg; Local Traffic Manager&trade; (LTM)
     * 90-day BIG-IP [Free Trial](https://www.f5.com/trial/big-ip-trial.php) license
-* User identities [synchronized](../hybrid/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD, or created in Azure AD and flowed back to your on-premises directory
+* User identities [synchronized](../hybrid/connect/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD, or created in Azure AD and flowed back to your on-premises directory
 * An account with Azure AD Application Admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
 * An [SSL Web certificate](./f5-bigip-deployment-guide.md) for publishing services over HTTPS, or use the default BIG-IP certificates while testing
 * A Kerberos application, or go to active-directory-wp.com to learn to configure [SSO with IIS on Windows](https://active-directory-wp.com/docs/Networking/Single_Sign_On/SSO_with_IIS_on_Windows.html).

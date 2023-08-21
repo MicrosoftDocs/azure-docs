@@ -149,7 +149,7 @@ You have a choice of operating systems (OS) that you can use for session hosts t
 > [!IMPORTANT]
 > - The following items are not supported:
 >   - 32-bit operating systems.
->   - N, KN, LTSC versions of Windows, or other SKUs not listed in the previous table.
+>   - N, KN, LTSC, and other editions of Windows operating systems not listed in the previous table.
 >   - [Ultra disks](../virtual-machines/disks-types.md#ultra-disks) for the OS disk type.
 >   - [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md).
 >   - [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md).

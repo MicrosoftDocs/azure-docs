@@ -40,7 +40,7 @@ On version 3.x of the Functions runtime, your C# function app targets .NET Core 
 > [!TIP]
 > **If you're migrating from .NET 5 (on the isolated worker model), we recommend upgrading to .NET 6 on the isolated worker model.** This provides a quick upgrade path with the longest support window from .NET.
 >
-> **If you're migrating from .NET Core 3.1 (on the in-process model), we recommend upgrading to .NET 6 on the in-process model.** This provides a quick upgrade path. However, you might also consider upgrading to .NET 6 on the isolated worker model. Switching to the isolated worker model will require additional code changes as part of this migration, but it will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. The [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
+> **If you're migrating from .NET Core 3.1 (on the in-process model), we recommend upgrading to .NET 6 on the in-process model.** This provides a quick upgrade path. However, you might also consider upgrading to .NET 6 on the isolated worker model. Switching to the isolated worker model will require additional code changes as part of this migration, but it will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you are moving to an LTS or STS version of .NET using the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 
 ::: zone-end
 
@@ -72,7 +72,7 @@ Upgrading instructions are language dependent. If you don't see your language, c
 Choose the tab that matches your target version of .NET and the desired process model (in-process or isolated worker process).
 
 > [!TIP]
-> The [.NET Upgrade Assistant] can be used to automatically make many of the changes mentioned in the following sections.
+> If you are moving to an LTS or STS version of .NET using the isolated worker model, the [.NET Upgrade Assistant] can be used to automatically make many of the changes mentioned in the following sections.
 
 ### .csproj file
 

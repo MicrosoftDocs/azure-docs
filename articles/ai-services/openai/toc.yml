@@ -20,9 +20,9 @@ items:
       href: faq.yml
 - name: Quickstarts
   items:
-    - name: GPT-3
+    - name: Completions
       href: quickstart.md
-    - name: GPT-35-Turbo & GPT-4 
+    - name: Chat
       href: chatgpt-quickstart.md  
       displayName: ChatGPT, chatgpt
     - name: DALL-E (preview)
