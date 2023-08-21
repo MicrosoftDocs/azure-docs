@@ -1,7 +1,7 @@
 ---
 title: Enable periodic assessment using policy
-description: This article describes how to manage the update settings for your Windows and Linux machines managed by update management center (preview).
-ms.service: update-management-center
+description: This article describes how to manage the update settings for your Windows and Linux machines managed by Azure Update Manager (preview).
+ms.service: update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 04/21/2022
@@ -10,7 +10,7 @@ ms.topic: conceptual
 
 # Automate assessment at scale using Policy to see latest update status
 
-This article describes how to enable Periodic Assessment for your machines at scale using Azure Policy. Periodic Assessment is a setting on your machine that enables you to see the latest updates available for your machines and removes the hassle of performing assessment manually every time you need to check the update status. Once you enable this setting, update management center (preview) fetches updates on your machine once every 24 hours.
+This article describes how to enable Periodic Assessment for your machines at scale using Azure Policy. Periodic Assessment is a setting on your machine that enables you to see the latest updates available for your machines and removes the hassle of performing assessment manually every time you need to check the update status. Once you enable this setting, Update Manager (preview) fetches updates on your machine once every 24 hours.
 
 
 ## Enable Periodic assessment for your Azure machines using Policy

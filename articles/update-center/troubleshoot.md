@@ -1,16 +1,16 @@
 ---
-title: Troubleshoot known issues with update management center (preview)
-description: The article provides details on the known issues and troubleshooting any problems with update management center (preview).
-ms.service: update-management-center
+title: Troubleshoot known issues with Azure Update Manager (preview)
+description: The article provides details on the known issues and troubleshooting any problems with Azure Update Manager (preview).
+ms.service: update-manager
 ms.date: 05/30/2023
 ms.topic: conceptual
 ms.author: sudhirsneha
 author: SnehaSudhirG
 ---
 
-# Troubleshoot issues with update management center (preview)
+# Troubleshoot issues with Azure Update Manager (preview)
 
-This article describes the errors that might occur when you deploy or use update management center (preview), how to resolve them and the known issues and limitations of scheduled patching.  
+This article describes the errors that might occur when you deploy or use Update Manager (preview), how to resolve them and the known issues and limitations of scheduled patching.  
 
 
 ## General troubleshooting
@@ -151,5 +151,5 @@ Setting a longer time range for maximum duration when triggering an [on-demand u
 
 ## Next steps
 
-* To learn more about Azure Update management center (preview), see the [Overview](overview.md).
-* To view logged results from all your machines, see [Querying logs and results from update management center (preview)](query-logs.md).
+* To learn more about Azure Update Manager (preview), see the [Overview](overview.md).
+* To view logged results from all your machines, see [Querying logs and results from update Manager (preview)](query-logs.md).
