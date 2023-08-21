@@ -16,6 +16,8 @@
       items:
         - name: Node.js
           href: tutorial-nodejs-web-app.md
+    - name: Build AI Apps with Vector Search
+      href: tutorial-vector-search-in-ai-apps.md
 - name: Concepts
   items:
     - name: Vector search
