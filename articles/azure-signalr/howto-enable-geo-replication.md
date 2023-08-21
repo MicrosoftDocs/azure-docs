@@ -85,8 +85,8 @@ The diagram below provides a brief illustration of the SignalR Replicas' functio
 
 ![Screenshot of the arch of Azure SignalR replica. ](./media/howto-enable-geo-replication/signalr-replica-arch.png  "Replica Arch")
 
-1. The client initiates a negotiation with the app server and receives a redirection to the Azure SignalR service. It then resolves the SignalR service's Fully Qualified Domain Name (FQDN) — `contoso.service.signalr.net`. This FQDN points to a Traffic Manager, which returns the  Canonical Name (CNAME) of the nearest regional SignalR instance.
-2. With this CNAME, the client establishes a connection to the regional instance(Replica).
+1. The client negotiates with the app server and receives a redirection to the Azure SignalR service. It then resolves the SignalR service's Fully Qualified Domain Name (FQDN) — `contoso.service.signalr.net`. This FQDN points to a Traffic Manager, which returns the Canonical Name (CNAME) of the nearest regional SignalR instance.
+2. With this CNAME, the client establishes a connection to the regional instance (Replica).
 3. The two replicas will synchronize data with each other. Messages sent to one replica would be transferred to other replicas if necessary.
 4. In case a replica fails the health check conducted by the Traffic Manager (TM), the TM will exclude the failed instance's endpoint from its domain resolution process. For details, refer to below [Resiliency and Disaster Recovery](#resiliency-and-disaster-recovery)
 
@@ -95,7 +95,7 @@ The diagram below provides a brief illustration of the SignalR Replicas' functio
 
 ## Resiliency and Disaster Recovery
 
-Azure SignalR Service utilizes a traffic manager for health checks and DNS resolution towards its replicas. Under normal circumstances, when all replicas are functioning properly, clients will be directed  to the closest replica. For instance:
+Azure SignalR Service utilizes a traffic manager for health checks and DNS resolution towards its replicas. Under normal circumstances, when all replicas are functioning properly, clients will be directed to the closest replica. For instance:
 
 - Clients close to `eastus` will be directed to the replica located in `eastus`.
 - Similarly, clients close to `westus` will be directed to the replica in `westus`.
