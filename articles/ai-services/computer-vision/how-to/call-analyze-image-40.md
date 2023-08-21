@@ -30,15 +30,15 @@ This article demonstrates how to call the Image Analysis 4.0 API to return infor
 
 ::: zone-end
 
-::: zone pivot="programming-language-cpp"
-
-[!INCLUDE [C++ SDK](../includes/how-to-guides/analyze-image-40-cpp.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-java"
 
 [!INCLUDE [Java SDK](../includes/how-to-guides/analyze-image-40-java.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+[!INCLUDE [C++ SDK](../includes/how-to-guides/analyze-image-40-cpp.md)]
 
 ::: zone-end
 
