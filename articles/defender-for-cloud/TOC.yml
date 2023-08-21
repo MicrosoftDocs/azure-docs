@@ -672,7 +672,7 @@
       href: defender-for-storage-malware-scan.md
     - name: Sensitive data threat detection
       href: defender-for-storage-data-sensitivity.md
-    - name: Enable and configure with Defender for Storage
+    - name: Enable and configure Defender for Storage
       items:
       - name: Protect your storage with Defender for Storage
         href: tutorial-enable-storage-plan.md
