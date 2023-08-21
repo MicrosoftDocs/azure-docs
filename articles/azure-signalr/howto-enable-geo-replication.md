@@ -104,7 +104,7 @@ In the event of a **regional outage** in eastus (illustrated below), the traffic
 
 Once the issue in `eastus` is resolved and the region is back online, the heartbeat will succeed. Clients in `eastus` will then, once again, be directed to the replica in their region. This transition is smooth as the connected clients will not be impacted until those existing connections are closed. 
 
-![Screenshot of Azure SignalR replica failover recovery. ](./media/howto-enable-geo-replication/signalr-replica-failover-recover.png  "Replica Failover Recover")
+![Screenshot of Azure SignalR replica failover recovery. ](./media/howto-enable-geo-replication/signalr-replica-failover-recovery.png  "Replica Failover Recover")
 
 
 This failover and recovery process is **automatic** and requires no manual intervention.
