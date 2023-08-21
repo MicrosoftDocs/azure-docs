@@ -13,13 +13,13 @@ The Trino CLI provides a terminal-based, interactive shell for running queries.
 ## Install on Windows
 For Windows, the Trino CLI is installed via an MSI, which gives you access to the CLI through the Windows Command Prompt (CMD) or PowerShell. When installing for Windows Subsystem for Linux (WSL), see [Install on Linux](#install-on-linux).
 
-**Requirements**
+### Requirements
 
 * [Java 8 or 11](/java/openjdk/install).
 
 * Add java.exe to PATH or define JAVA_HOME environment variable pointing to JRE installation directory, such that `%JAVA_HOME%\bin\java.exe` exists.
 
-**Install or update**
+### Install or update
 
 The MSI package is used for installing or updating the HDInsight on AKS Trino CLI on Windows.
 
@@ -27,7 +27,7 @@ Download and install the latest release of the Trino CLI. When the installer ask
 
 Download Trino CLI: https://aka.ms/InstallTrinoCLIWindows
 
-**Run the Trino CLI**
+### Run the Trino CLI
 
 You can now run the Trino CLI using “trino-cli” in command prompt, and connect to cluster:
 ```cmd
@@ -38,7 +38,7 @@ trino-cli --server <cluster_endpoint>
 > If you run on headless OS (no web browser), Trino CLI will prompt to use device code for authentication. You can also specify command line parameter `--auth AzureDeviceCode` to force using device code. In this case, you need to open a browser on another device/OS, input the code displayed and authenticate, and then come back to CLI.
 
 
-**Troubleshooting**
+### Troubleshooting
 
 Here are some common problems seen when installing the Trino CLI on Windows.
 
@@ -51,7 +51,7 @@ In order to get the MSI, your proxy needs to allow HTTPS connections to the foll
 * https://aka.ms/
 * https://hdionaksresources.blob.core.windows.net/
 
-**Uninstall**
+### Uninstall
 
 You can uninstall the Trino CLI from the Windows "Apps and Features" list. To uninstall:
 
@@ -66,13 +66,13 @@ Once on this screen, type Trino into the program search bar. The program to unin
 
 The Trino CLI provides a terminal-based, interactive shell for running queries. You may manually install the Trino CLI on Linux by selecting the Install script option.
 
-**Requirements**
+### Requirements
 
 * [Java 8 or 11](/java/openjdk/install).
 
 * Add java to PATH or define JAVA_HOME environment variable pointing to JRE installation directory, such that $JAVA_HOME/bin/java exists.
 
-**Install or update**
+### Install or update
 
 Both installing and updating the CLI requires rerunning the install script. Install the CLI by running curl.
 
@@ -82,7 +82,7 @@ curl -L https://aka.ms/InstallTrinoCli | bash
 
 The script can also be downloaded and run locally. You may have to restart your shell in order for changes to take effect.
 
-**Run the Trino CLI**
+### Run the Trino CLI
 
 You can now run the Trino CLI with the “trino-cli” command from the shell, and connect to the cluster:
 ```bash
@@ -92,7 +92,7 @@ trino-cli --server <cluster_endpoint>
 > [!NOTE]
 > If you run on headless OS (no web browser) Trino CLI will prompt to use device code for authentication. You can also specify command line parameter `--auth AzureDeviceCode` to force using device code. In this case you need to open a browser on another device/OS, input the code displayed and authenticate, and then come back to CLI.
 
-**Troubleshooting**
+### Troubleshooting
 
 Here are some common problems seen during a manual installation.
 

@@ -29,6 +29,6 @@ The Trino coordinator is the server that is responsible for parsing statements, 
 
 A Trino worker is a server in a Trino installation, which is responsible for executing tasks and processing data. Worker nodes fetch data from connectors and exchange intermediate data with each other. The coordinator is responsible for fetching results from the workers and returning the final results to the client.
 
-:::image type="content" source="./media/trino-overview/trino-architecture.png" alt-text="Screenshot showing Trino architecture":::
+:::image type="content" source="./media/trino-overview/trino-architecture.png" alt-text="Diagram showing Trino architecture.":::
 
 

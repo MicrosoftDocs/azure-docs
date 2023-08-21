@@ -1,5 +1,5 @@
 ---
-title: Trino JDBC Driver
+title: Trino JDBC driver
 description: Using the Trino JDBC driver.
 ms.service: hdinsight-aks
 ms.topic: how-to

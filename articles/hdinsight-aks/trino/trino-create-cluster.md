@@ -27,7 +27,7 @@ Once the cluster pool deployment completes, continue to use the Azure portal to 
 
 1. In the Azure portal, type *HDInsight cluster pools*/*HDInsight* and select **Azure HDInsight on AKS cluster pools** to go to the cluster pools page. On the HDInsight on AKS cluster pools page, select the cluster pool in which you want to add a new Trino cluster.
 
-   :::image type="content" source="./media/trino-create-cluster/search-bar.png" alt-text="Diagram showing search bar in Azure portal.":::
+   :::image type="content" source="./media/trino-create-cluster/search-bar.png" alt-text="Screenshot showing search bar in Azure portal.":::
 
 1. On the specific cluster pool page, click **+ New cluster** at the top left and then provide the following information:
   

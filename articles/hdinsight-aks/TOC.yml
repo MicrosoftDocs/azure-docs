@@ -88,7 +88,7 @@ items:
     - name: Authentication
       href: ./trino/trino-authentication.md    
     - name: Trino CLI
-      href: ./trino/trino-ui-cli.md
+      href: ./trino/trino-ui-command-line-interface.md
     - name: Trino Web SSH
       href: ./trino/trino-ui-web-ssh.md      
     - name: Trino JDBC driver

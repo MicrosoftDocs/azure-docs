@@ -28,7 +28,7 @@ This article describes how you can run queries on your Trino cluster using web s
 
 1. Type `trino-cli` command to run Trino CLI and connect to this cluster. Follow the command displayed to authenticate using device code.
   
-   :::image type="content" source="./media/trino-ui-web-ssh/cmd-trino-cli.png" alt-text="Screenshot showing login to trino cli using Web SSH.":::
+   :::image type="content" source="./media/trino-ui-web-ssh/cmd-trino-cli.png" alt-text="Screenshot showing login to trino CLI using Web SSH.":::
 
 Now, you can run queries.
 
