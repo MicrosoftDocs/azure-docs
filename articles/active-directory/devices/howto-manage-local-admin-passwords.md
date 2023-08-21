@@ -85,7 +85,7 @@ Other than the built-in Azure AD roles of Cloud Device Administrator, Intune Adm
 
 To enable Windows LAPS with Azure AD, you must take actions in Azure AD and the devices you wish to manage. We recommend organizations [manage Windows LAPS using Microsoft Intune](/mem/intune/protect/windows-laps-policy). However, if your devices are Azure AD joined but you're not using Microsoft Intune or Microsoft Intune isn't supported (like for Windows Server 2019/2022), you can still deploy Windows LAPS for Azure AD manually. For more information, see the article [Configure Windows LAPS policy settings](/windows-server/identity/laps/laps-management-policy-settings).
 
-1. Sign in to the **Azure portal** as a [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator).
+1. Sign in to the **Azure portal** as at least a [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator).
 1. Browse to **Azure Active Directory** > **Devices** > **Device settings**
 1. Select **Yes** for the Enable Local Administrator Password Solution (LAPS) setting and select **Save**. You may also use the Microsoft Graph API [Update deviceRegistrationPolicy](/graph/api/deviceregistrationpolicy-update?view=graph-rest-beta&preserve-view=true).
 1. Configure a client-side policy and set the **BackUpDirectory** to be Azure AD.
