@@ -29,8 +29,8 @@ You can update to the latest version using the following update paths:
 
 | Current version     | Update to | Then apply |
 | --------------------| -----------| -----------|
-|2205 and earlier     |2207        |2303
-|2207 and later       |2303        |
+|2205 and earlier     |2207        |2304
+|2207 and later       |2304        |
 
 ## What's new
 
