@@ -44,7 +44,7 @@ Select the **Get map configuration list** button to get a list of every map conf
 :::image type="content" source="./media/creator-indoor-maps/style-editor/select-the-map-configuration.png" alt-text="A screenshot of the open style dialog box in the visual style editor with the Select map configuration drop-down list highlighted.":::
 
 > [!NOTE]
-> If the map configuration was created as part of a custom style and has a user provided alias, that alias appears in the map configuration drop-down list, otherwise the `mapConfigurationId` appears. The default map configuration ID for any given tileset can be found by using the [tileset get] HTTP request and passing in the tileset ID:
+> If the map configuration was created as part of a custom style and has a user provided alias, that alias appears in the map configuration drop-down list, otherwise just the mapConfigurationId appears. The default map configuration ID for any given tileset can be found by using the [tileset get] HTTP request and passing in the tileset ID:
 >
 > ```http
 > https://{geography}.atlas.microsoft.com/tilesets/{tilesetId}?2022-09-01-preview
@@ -56,7 +56,7 @@ Select the **Get map configuration list** button to get a list of every map conf
 > "defaultMapConfigurationId": "68d74ad9-4f84-99ce-06bb-19f487e8e692"
 > ```
 
-Once the map configuration drop-down list is populated with the IDs of all the map configurations in your creator resource, select the desired map configuration, then the drop-down list of style + tileset tuples appears. The *style + tileset* tuples consists of the `styleId` followed by the plus (**+**) sign then the `tilesetId`.
+Once you have select the desired map configuration, the drop-down list of styles appears.
 
 Once you've selected the desired style, select the **Load selected style** button.
 
@@ -68,8 +68,8 @@ Once you've selected the desired style, select the **Load selected style** butto
 |---|---------------------------------------------------------------------------------------------|
 | 1 | Your Azure Maps account [subscription key]                               |
 | 2 | Select the geography of the Azure Maps account.                                             |
-| 3 | A list of map configuration aliases. If a given map configuration has no alias, the `mapConfigurationId` is shown instead. |
-| 4 | This value is created from a combination of the style and tileset. If the style has an alias it's shown, if not the `styleId` is shown. The `tilesetId` is always shown for the tileset value. |
+| 3 | A list of map configuration IDs and aliases. |
+| 4 | A list of styles associated with the selected map configuration. |
 
 ### Modify style
 
