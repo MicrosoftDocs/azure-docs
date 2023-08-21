@@ -13,7 +13,7 @@ Autoinstrumentation enables [Application Insights](app-insights-overview.md) to 
 
 If your language and platform are supported, select the corresponding link in the [Supported environments, languages, and resource providers table](#supported-environments-languages-and-resource-providers) for more detailed information. In many cases, autoinstrumentation is enabled by default.
 
-# What are the autoinstrumentation advantages?
+## What are the autoinstrumentation advantages?
 
 > [!div class="checklist"]
 > - Code changes aren't required.
