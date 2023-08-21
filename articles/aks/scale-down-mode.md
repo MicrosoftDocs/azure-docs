@@ -45,7 +45,7 @@ By scaling the node pool and changing the node count to 5, we'll deallocate 15 n
 az aks nodepool scale --node-count 5 --name nodepool2 --cluster-name myAKSCluster --resource-group myResourceGroup
 ```
 
-To deallocate Windows nodes during scale-down, run the following command. The default behavior is consistent with Linux nodes, where nodes are [deleted during scale-down](using-scale-down-mode-to-delete-nodes-on-scale-down).
+To deallocate Windows nodes during scale-down, run the following command. The default behavior is consistent with Linux nodes, where nodes are [deleted during scale-down](#using-scale-down-mode-to-delete-nodes-on-scale-down).
 
 ```azurecli-interactive
 az aks nodepool add --node-count 20 --scale-down-mode Deallocate --os-type Windows --node-osdisk-type Managed --max-pods 10 --name npwin2 --cluster-name myAKSCluster --resource-group myResourceGroup
