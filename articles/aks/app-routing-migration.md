@@ -16,6 +16,9 @@ In this article, you'll learn how to migrate your Azure Kubernetes Service (AKS)
 
 Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions to [Install Azure CLI][install-azure-cli]. Run `az --version` to find the version, and run `az upgrade` to upgrade the version if not already on the latest.
 
+> [!NOTE]
+> These steps detail migrating from an unsupported configuration. As such, AKS cannot offer support for issues that arise during the migration process.
+
 ## Update your cluster's add-ons, ingresses, and IP usage
 
 1. Enable the application routing add-on.
@@ -24,7 +27,7 @@ Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions
     az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons web_application_routing
     ```
 
-2. Update your ingresses, setting `ingressClassName` to `nginx`. Removing the `kubernetes.io/ingress.class` annotation, and add `approuting.kubernetes.azure.com/resources` with a value of `nginx`. You'll also need to update the host to one that you own, as the application routing add-on doesn't have a managed cluster DNS zone.
+2. Update your ingresses, setting `ingressClassName` to `nginx`. Removing the `kubernetes.io/ingress.class` annotation, and add `approuting.kubernetes.azure.com/resources` with a value of `nginx`. You'll also need to update the host to one that you own, as the application routing add-on doesn't have a managed cluster DNS zone. If you don't have a DNS zone, follow instructions to [create][app-routing-dns-create] and [configure][app-routing-dns-configure] one.
 
     Initially, your ingress configuration will look something like this:
 
@@ -116,6 +119,8 @@ After migrating to the application routing add-on, learn how to [monitor ingress
 <!-- INTERNAL LINKS -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [ingress-https]: ./ingress-tls.md
+[app-routing-dns-create]: ./app-routing.md?tabs=without-osm#create-an-azure-dns-zone
+[app-routing-dns-configure]: ./app-routing.md?tabs=without-osm#configure-the-add-on-to-use-azure-dns-to-manage-dns-zones
 
 <!-- EXTERNAL LINKS -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/
