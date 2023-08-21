@@ -21,11 +21,11 @@ Some of the key features that Trino offers -
 
 There are two types of Trino servers: coordinators and workers. 
 
-**Coordinator**
+## Coordinator
 
 The Trino coordinator is the server that is responsible for parsing statements, planning queries, and managing Trino worker nodes. It's the “brain” of a Trino installation and is also the node to which a client connects to submit statements for execution. The coordinator keeps track of the activity on each worker and coordinates the execution of a query. The coordinator creates a logical model of a query, which involves a series of stages, which is translated into a series of connected tasks runs on a cluster of Trino workers.
 
-**Worker**
+## Worker
 
 A Trino worker is a server in a Trino installation, which is responsible for executing tasks and processing data. Worker nodes fetch data from connectors and exchange intermediate data with each other. The coordinator is responsible for fetching results from the workers and returning the final results to the client.
 
