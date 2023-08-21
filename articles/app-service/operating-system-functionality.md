@@ -1,7 +1,8 @@
 ---
 title: Operating system functionality
 description: Learn about the OS functionality in Azure App Service on Windows. Find out what types of file, network, and registry access your app gets. 
-
+author: msangapu-msft
+ms.author: msangapu
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 01/21/2022

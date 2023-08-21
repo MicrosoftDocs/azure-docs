@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 06/26/2023
+ms.date: 08/21/2023
 ---
 
 ## Latest client versions
@@ -11,8 +11,22 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.8.4         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
-| Beta    | 10.8.4         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+| Public  | 10.9.0         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
+| Beta    | 10.9.0         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+
+## Updates for version 10.9.0
+
+Date published: August 16, 2023
+
+In this release,  we added two new features for Azure Virtual Desktop and addressed a number of reported bugs and incidents. 
+
+- Added support for RDP Shortpath for public networks for Azure Virtual Desktop connections.
+- Integrated an Azure Virtual Desktop account profile switcher into the Connection Center.
+- Improved diagnostics sent during Azure Virtual Desktop connections.
+- Added support for video mirroring in Teams redirection.
+
+>[!NOTE]
+>This release isn't compatible with macOS 10.14 and macOS 10.15.
 
 ## Updates for Version 10.8.4
 
