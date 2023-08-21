@@ -245,9 +245,9 @@ Object migration provides options to choose the destination Azure storage tier (
 
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-migration-overview.png" alt-text="Screenshot of Komprise Migration Management Overview" lightbox="./media/komprise-quick-start-guide-v2/screenshot-migration-overview.png":::
 
-    mode (for users and applications). This step makes sure no changes happen on the source.
+mode (for users and applications). This step makes sure no changes happen on the source.
 
-    Once the final migration finishes, transition all users and applications to the destination share. Switching over to the new file service usually requires changing the configuration of DNS servers and DFS servers or changing the mount points to the new destination.
+Once the final migration finishes, transition all users and applications to the destination share. Switching over to the new file service usually requires changing the configuration of DNS servers and DFS servers or changing the mount points to the new destination.
 
 6.	As the last step, mark the migration completed.
 
@@ -269,18 +269,18 @@ To get started, sign-in to the director and do the following:
 
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-add-object-destination.png" alt-text="Screenshot of Komprise Add Object Destination Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-add-object-destination.png":::
 
-        a. With Add Account, discover all the containers by entering:
-        - Storage account name
-        - Primary access key
-        - Display Name
+a. With Add Account, discover all the containers by entering:
+- Storage account name
+- Primary access key
+- Display Name
 
 Required information can be found in [Azure portal](https://portal.azure.com/) by navigating to the Access keys item under Settings for the storage account. If the keys aren't showing, select on the Show keys.
 
-        b. Or, specify a container by entering:
-        - Container Name
-        - Storage Account Name
-        - Primary Access Key
-        - Display Name
+b. Or, specify a container by entering:
+- Container Name
+- Storage Account Name
+- Primary Access Key
+- Display Name
 
 The container name represents the destination container for the migration and needs to be created before migration. Other required information can be found in [Azure portal](https://portal.azure.com/) by navigating to the Access keys item under Settings for the storage account. If the keys aren't showing, select on the Show keys.
 
