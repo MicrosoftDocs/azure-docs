@@ -31,7 +31,7 @@ Azure managed Prometheus rule groups follow the structure and terminology of the
 
 ### Limiting rules to a specific cluster
 
-You can optionally limit the rules in a rule group to query data originating from a specific cluster, by adding a cluster scope to your rule group, and/or by using the rule group `clusterName` property.
+You can optionally limit the rules in a rule group to query data originating from a single specific cluster, by adding a cluster scope to your rule group, and/or by using the rule group `clusterName` property.
 You should limit rules to a single cluster if your Azure Monitor workspace contains a large amount of data from multiple clusters. In such a case, there's a concern that running a single set of rules on all the data may cause performance or throttling issues. By using the cluster scope, you can create multiple rule groups, each configured with the same rules, with each group covering a different cluster. 
 
 To limit your rule group to a cluster scope, you should add the Azure Resource ID of your cluster to the rule group **scopes[]** list. **The scopes list must still include the Azure Monitor workspace resource ID**. The following cluster resource types are supported as a cluster scope:
@@ -76,7 +76,7 @@ The basic steps are as follows:
 2. Deploy the template using any deployment method, such as [Azure portal](../../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md), or [Rest API](../../azure-resource-manager/templates/deploy-rest.md).
 
 ### Template example for a Prometheus rule group
-Following is a sample template that creates a Prometheus rule group, including one recording rule and one alert rule. This template creates a resource of type `Microsoft.AlertsManagement/prometheusRuleGroups`. The rules are executed in the order they appear within a group. 
+Following is a sample template that creates a Prometheus rule group, including one recording rule and one alert rule. This template creates a resource of type `Microsoft.AlertsManagement/prometheusRuleGroups`. The scope of this group is limited to a single AKS cluster. The rules are executed in the order they appear within a group. 
 
 ``` json
 {
@@ -93,7 +93,8 @@ Following is a sample template that creates a Prometheus rule group, including o
            "properties": {
                 "description": "Sample Prometheus Rule Group",
                 "scopes": [
-                    "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.monitor/accounts/<azure-monitor-workspace-name>"
+                    "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.monitor/accounts/<azure-monitor-workspace-name>",
+                    "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.containerservice/managedclusters/<myClusterName>"
                 ],
                 "enabled": true,
                 "clusterName": "<myCLusterName>",
@@ -148,11 +149,11 @@ The rule group contains the following properties.
 | `name` | True | string | Prometheus rule group name |
 | `type` | True | string | `Microsoft.AlertsManagement/prometheusRuleGroups` |
 | `apiVersion` | True | string | `2023-03-01` |
-| `location` | True | string | Resource location from regions supported in the preview |
-| `properties.description` | False | string | Rule group description |
-| `properties.scopes` | True | string[] | Target Azure Monitor workspace. Only one scope currently supported |
+| `location` | True | string | Resource location from regions supported in the preview. |
+| `properties.description` | False | string | Rule group description. |
+| `properties.scopes` | True | string[] | Must include the target Azure Monitor workspace Id. Can optionally include one additional cluster Id. |
 | `properties.enabled` | False | boolean | Enable/disable group. Default is true. |
-| `properties.clusterName` | False | string | Apply rule to data from a specific cluster. Default is apply to all data in workspace. |
+| `properties.clusterName` | False | string | Must match the `cluster` label that is added to metrics scraped from your target cluster. By default, set to the last part (resource name) of cluster ID that appears in scopes[]. |
 | `properties.interval` | False | string | Group evaluation interval. Default = PT1M |
 
 ### Recording rules
