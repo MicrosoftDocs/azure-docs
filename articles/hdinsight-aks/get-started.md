@@ -68,8 +68,7 @@ When you click on one of these templates, it launches Custom deployment page in 
 
    :::image type="content" source="./media/one-click-deployment/custom-deployment-complete.png" alt-text="Screenshot showing custom deployment complete.":::
    
-   :::image type="content" source="./media/portal-elements/notifications.png" alt-text="Screenshot showing notifications icon in the Azure portal.":::
-   
+     
 > [!TIP]
 >
 > For troubleshooting any deployment errors, you can refer this [page](./create-cluster-error-dictionary.md).
