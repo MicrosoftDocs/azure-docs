@@ -2563,15 +2563,6 @@ groups:
     title: Microsoft Graph PowerShell
   - id: ms-graph
     title: Microsoft Graph
-# Owner:
-- id: deploy-python-web-app-postgresql
-  title: Workflows
-  prompt: Choose your path
-  pivots:
-  - id: deploy-portal
-    title: Azure portal
-  - id: deploy-azd
-    title: Azure Developer CLI
 # Owner: daknappe (Azure Virtual Desktop)
 - id: azure-virtual-desktop-host-pool-types
   title: Azure Virtual Desktop host pool management type
