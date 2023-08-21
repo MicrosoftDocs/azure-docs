@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Elastic SAN (preview) with the Azure p
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/21/2023
 ms.author: rogarana
 ms.custom: references_regions, ignite-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -47,7 +47,7 @@ Replace all placeholder text with your own values when assigning values to varia
 | Placeholder                      | Description |
 |----------------------------------|-------------|
 | `<ResourceGroupName>`            | The name of the resource group where the resources are to be deployed. |
-| `<ElasticSanName>`               | The name of the Elastic SAN to be created. |
+| `<ElasticSanName>`               | The name of the Elastic SAN to be created.<br>*The Elastic SAN name must be between 3 and 24 characters long. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.* |
 | `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to be created. |
 | `<VolumeName>`                   | The name of the Elastic SAN Volume to be created. |
 | `<Location>`                     | The region where new resources will be created. |
@@ -75,7 +75,7 @@ Replace all placeholder text with your own values when assigning values to varia
 | Placeholder                      | Description |
 |----------------------------------|-------------|
 | `<ResourceGroupName>`            | The name of the resource group where the resources are to be deployed. |
-| `<ElasticSanName>`               | The name of the Elastic SAN to be created. |
+| `<ElasticSanName>`               | The name of the Elastic SAN to be created.<br>*The Elastic SAN name must be between 3 and 24 characters long. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.* |
 | `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to be created. |
 | `<VolumeName>`                   | The name of the Elastic SAN Volume to be created. |
 | `<Location>`                     | The region where new resources will be created. |
