@@ -35,7 +35,7 @@ ms.author: lajanuar
 
 - An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true) for tips and options for putting together your training data set. For this project, you can use the files in the *Train* folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract *sample_data.zip*.
 
-## Setting up
+## Set up your programming environment
 
 To set up your programming environment, create a Gradle project and install the client library.
 
@@ -118,19 +118,15 @@ Use the preceding method to get the URL of a receipt image as well.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_maincalls)]
 
-## Object model
+## Use the Object model
 
 With Document Intelligence, you can create two different client types. The first, `FormRecognizerClient`, queries the service to recognized form fields and content. The second, `FormTrainingClient`, creates and manages custom models to improve recognition.
-
-### FormRecognizerClient
 
 `FormRecognizerClient` provides operations for the following tasks:
 
 - Recognize form fields and content by using custom models trained to analyze your custom forms. These values are returned in a collection of `RecognizedForm` objects. See [Analyze custom forms](#analyze-forms-with-a-custom-model).
 - Recognize form content, including tables, lines, and words, without the need to train a model. Form content is returned in a collection of `FormPage` objects. See [Analyze layout](#analyze-layout).
 - Recognize common fields from US receipts, business cards, invoices, and ID documents using a pretrained model on the Document Intelligence service.
-
-### FormTrainingClient
 
 `FormTrainingClient` provides operations for:
 
@@ -163,9 +159,9 @@ The returned value is a collection of `FormPage` objects. There's one object for
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_print)]
 
-### Output
+The result looks like the following output.
 
-```console
+```output
 Get form content...
 ----Recognizing content ----
 Has width: 8.500000 and height: 11.000000, measured with unit: inch.
@@ -201,7 +197,7 @@ The next block of code iterates through the individual items detected on the rec
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print_items)]
 
-### Output
+The result looks like the following output.
 
 ```console
 Analyze receipt...
@@ -286,7 +282,7 @@ Finally, this method returns the unique ID of the model.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_train_return)]
 
-### Output
+The result looks like the following output.
 
 ```console
 Train Model with training data...
@@ -316,7 +312,7 @@ The returned `CustomFormModel` indicates the fields the model can extract, along
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_print)]
 
-### Output
+The result looks like the following output.
 
 ```console
 Train Model with training data...
@@ -354,7 +350,7 @@ The returned value is a collection of `RecognizedForm` objects. There's one obje
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_print)]
 
-### Output
+The result looks like the following output.
 
 ```console
 Analyze PDF form...
@@ -381,7 +377,7 @@ The following code block checks how many models you saved in your Document Intel
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_count)]
 
-#### Output
+The result looks like the following output.
 
 ```console
 The account has 12 custom models, and we can have at most 250 custom models
@@ -393,7 +389,7 @@ The following code blocklists the current models in your account and prints thei
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_list)]
 
-#### Output
+The result looks like the following output.
 
 This response has been truncated for readability.
 

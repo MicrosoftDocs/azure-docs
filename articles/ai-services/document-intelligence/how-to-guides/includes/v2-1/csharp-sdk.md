@@ -34,7 +34,7 @@ ms.custom: devx-track-csharp
   1. In the left navigation menu, select **Keys and Endpoint**.
   1. Copy one of the keys and the **Endpoint** for use later in this article.
 
-## Setting up
+## Set up your programming environment
 
 In a console window, use the `dotnet new` command to create a new console app with the name `formrecognizer-project`. This command creates a simple "Hello World" C# project with a single source file: *program.cs*.
 
@@ -83,19 +83,15 @@ In the application's `Main` method, add a call to the asynchronous tasks used in
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_main)]
 
-## Object model
+## Use the Object model
 
 With Document Intelligence, you can create two different client types. The first, `FormRecognizerClient`, queries the service to recognize form fields and content. The second, `FormTrainingClient`, creates and manages custom models to improve recognition.
-
-### FormRecognizerClient
 
 `FormRecognizerClient` provides the following operations:
 
 - Recognize form fields and content by using custom models trained to analyze your custom forms. These values are returned in a collection of `RecognizedForm` objects. See [Analyze custom forms](#analyze-forms-with-a-custom-model).
 - Recognize form content, including tables, lines, and words, without the need to train a model.  Form content is returned in a collection of `FormPage` objects. See [Analyze layout](#analyze-layout).
 - Recognize common fields from US receipts, business cards, invoices, and ID documents using a pretrained model on the Document Intelligence service.
-
-### FormTrainingClient
 
 `FormTrainingClient` provides operations for:
 
@@ -152,9 +148,9 @@ The rest of this task prints the content information to the console.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_getcontent_print)]
 
-### Output
+The result looks like the following output.
 
-```console
+```output
 Form Page 1 has 18 lines.
     Line 0 has 1 word, and text: 'Contoso'.
     Line 1 has 1 word, and text: 'Address:'.
@@ -202,7 +198,7 @@ The returned value is a collection of `RecognizedForm` objects. There's one obje
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_print)]
 
-### Output
+The result looks like the following output.
 
 ```console
 Form Page 1 has 18 lines.
@@ -312,11 +308,9 @@ Finally, return the trained model ID for use in later steps.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_train_return)]
 
-### Output
+This output has been truncated for readability.
 
-This response has been truncated for readability.
-
-```console
+```output
 Merchant Name: 'Contoso Contoso', with confidence 0.516
 Transaction Date: '6/10/2019 12:00:00 AM', with confidence 0.985
 Item:
@@ -378,11 +372,9 @@ The returned `CustomFormModel` indicates the fields that the model can extract, 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_trainlabels_response)]
 
-### Output
+This output has been truncated for readability.
 
-This response has been truncated for readability.
-
-```console
+```output
 Form Page 1 has 18 lines.
     Line 0 has 1 word, and text: 'Contoso'.
     Line 1 has 1 word, and text: 'Address:'.
@@ -438,9 +430,7 @@ The returned value is a collection of `RecognizedForm` objects. There's one obje
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_analyze_response)]
 
-### Output
-
-This response has been truncated for readability.
+This output response has been truncated for readability.
 
 ```console
 Custom Model Info:
@@ -524,11 +514,9 @@ The following code blocklists the current models in your account and prints thei
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_list)]
 
-### Output
+This output has been truncated for readability.
 
-This response has been truncated for readability.
-
-```console
+```output
 Custom Model Info:
     Model Id: 05932d5a-a2f8-4030-a2ef-4e5ed7112515
     Model Status: Creating
@@ -552,11 +540,9 @@ The following code block trains a new model, just like in the [Train a model](#t
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_get)]
 
-### Output
+This output has been truncated for readability.
 
-This response has been truncated for readability.
-
-```console
+```output
 Custom Model Info:
     Model Id: 150828c4-2eb2-487e-a728-60d5d504bd16
     Model Status: Ready
@@ -649,6 +635,6 @@ For this project, you used the Document Intelligence .NET client library to trai
 > [!div class="nextstepaction"]
 > [Build a training data set](../../build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true)
 
-* [What is Document Intelligence?](../../../overview.md)
+- [What is Document Intelligence?](../../../overview.md)
 
-* The sample code for this project is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/csharp-sdk-quickstart.cs).
+- The sample code for this project is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/csharp-sdk-quickstart.cs).

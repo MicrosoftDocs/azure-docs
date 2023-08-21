@@ -48,9 +48,7 @@ ms.author: lajanuar
 
 A POST request is used to analyze documents with a prebuilt or custom model. A GET request is used to retrieve the result of a document analysis call. The `modelId` is used with POST and `resultId` with GET operations.
 
-### Analyze document (POST Request)
-
-Using the following table as a reference, replace `{modelID}` and `{document-url}` with your desired values:
+Use the following table as a reference. Replace `{modelID}` and `{document-url}` with your desired values:
 
 | Model   | {modelID}   | description | {document-url} |
 | --- | --- |--|--|
@@ -93,8 +91,6 @@ You receive a `202 (Success)` response that includes an `Operation-location` hea
 After you call the [Analyze document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) API, call the [Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data.
 
 <!-- markdownlint-disable MD024 -->
-
-#### Format the cURL JSON response
 
 The cURL command line tool doesn't format API responses that contain JSON content, which can make the content difficult to read. To format the JSON response, include the pipe character followed by a JSON formatting tool with your GET request.
 

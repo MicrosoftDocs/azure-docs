@@ -12,4 +12,4 @@ Examine the `"confidence"` values for each key/value result under the `"pageResu
 - If the confidence scores for the read operation are low, try to improve the quality of your input documents. For more information, see [Input requirements](../concept-model-overview.md#input-requirements).
 - If the confidence scores for the key/value extraction operation are low, ensure that the documents being analyzed are of the same type as documents used in the training set. If the documents in the training set have variations in appearance, consider splitting them into different folders and training one model for each variation.
 
-The confidence scores you target depends on your use case, but generally it's a good practice to target a score of 80% or higher. For more sensitive cases, like reading medical records or billing statements, a score of 100% is recommended.
+The confidence scores you target depends on your use case, but generally it's a good practice to target a score of 80 percent or higher. For more sensitive cases, like reading medical records or billing statements, we recommend a score of 100 percent.

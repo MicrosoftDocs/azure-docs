@@ -31,7 +31,7 @@ ms.custom: devx-track-python
   1. In the left navigation menu, select **Keys and Endpoint**.
   1. Copy one of the keys and the **Endpoint** for use later in this article.
 
-## Set up your environment
+## Set up your programming environment
 
 Install the client library and create a Python application.
 
@@ -54,19 +54,15 @@ Install the client library and create a Python application.
 
    [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_creds)]
 
-## Object model
+## Use the Object model
 
 With Document Intelligence, you can create two different client types. The first, `form_recognizer_client`, queries the service to recognize form fields and content. The second, `form_training_client`, creates and manages custom models to improve recognition.
-
-### FormRecognizerClient
 
 `form_recognizer_client` provides the following operations:
 
 - Recognize form fields and content by using custom models trained to analyze your custom forms.
 - Recognize form content, including tables, lines, and words, without the need to train a model.
 - Recognize common fields from receipts by using a pretrained receipt model on the Document Intelligence service.
-
-### FormTrainingClient
 
 `form_training_client` provides operations to:
 
@@ -112,9 +108,7 @@ To analyze the content of a file at a given URL, use the `begin_recognize_conten
 > [!TIP]
 > You can also get content from local images with the [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) methods, such as `begin_recognize_content`.
 
-### Output
-
-```console
+```output
 Table found on page 1:
 Cell text: Invoice Number
 Location: [Point(x=0.5075, y=2.8088), Point(x=1.9061, y=2.8088), Point(x=1.9061, y=3.3219), Point(x=0.5075, y=3.3219)]
@@ -144,9 +138,7 @@ This section demonstrates how to analyze and extract common fields from US recei
 > [!TIP]
 > You can also analyze local receipt images with the [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) methods, such as `begin_recognize_receipts`.
 
-### Output
-
-```console
+```output
 ReceiptType: Itemized has confidence 0.659
 MerchantName: Contoso Contoso has confidence 0.516
 MerchantAddress: 123 Main Street Redmond, WA 98052 has confidence 0.986
@@ -214,11 +206,9 @@ The following code uses the training client with the `begin_training` function t
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_train)]
 
-### Output
-
 Here's the output for a model trained with the training data available from the [Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training).
 
-```console
+```output
 Model ID: 628739de-779c-473d-8214-d35c72d3d4f7
 Status: ready
 Training started on: 2020-08-20 23:16:51+00:00
@@ -257,11 +247,9 @@ You can also train custom models by manually labeling the training documents. Tr
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_trainlabels)]
 
-### Output
-
 Here's the output for a model trained with the training data available from the [Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training).
 
-```console
+```output
 Model ID: ae636292-0b14-4e26-81a7-a0bfcbaf7c91
 
 Status: ready
@@ -306,11 +294,9 @@ You use the `begin_recognize_custom_forms_from_url` method. The returned value i
 > [!TIP]
 > You can also analyze local images. See the [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) methods, such as `begin_recognize_custom_forms`. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) for scenarios involving local images.
 
-### Output
-
 The model from the previous example renders the following output:
 
-```console
+```output
 Form type: form-ae636292-0b14-4e26-81a7-a0bfcbaf7c91
 Field 'Merchant' has label 'Merchant' with value 'Invoice For:' and a confidence score of 0.116
 Field 'CompanyAddress' has label 'CompanyAddress' with value '1 Redmond way Suite 6000 Redmond, WA' and a confidence score of 0.258
@@ -339,7 +325,7 @@ The following code block checks how many models you saved in your Document Intel
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_count)]
 
-### Output
+The result looks like the following output.
 
 ```console
 Our account has 5 custom models, and we can have at most 5000 custom models
@@ -351,11 +337,11 @@ The following code blocklists the current models in your account and prints thei
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_list)]
 
-### Output
+The result looks like the following output.
 
 Here's a sample output for the test account.
 
-```console
+```output
 We have models with the following ids:
 453cc2e6-e3eb-4e9f-aab6-e1ac7b87e09e
 628739de-779c-473d-8214-d35c72d3d4f7
@@ -370,11 +356,9 @@ The following code block uses the model ID saved from the previous section and u
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_getmodel)]
 
-### Output
-
 Here's the sample output for the custom model created in the previous example.
 
-```console
+```output
 Model ID: ae636292-0b14-4e26-81a7-a0bfcbaf7c91
 Status: ready
 Training started on: 2020-08-20 23:20:56+00:00

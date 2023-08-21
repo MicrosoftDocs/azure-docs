@@ -17,7 +17,7 @@ ms.custom: devx-track-js
 
 > [!IMPORTANT]
 >
-> This project targets Document Intelligence REST API version **2.1**.
+> This project targets Document Intelligence REST API version 2.1.
 
 [Reference documentation](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
@@ -34,7 +34,7 @@ ms.custom: devx-track-js
   1. In the left navigation menu, select **Keys and Endpoint**.
   1. Copy one of the keys and the **Endpoint** for use later in this article.
 
-## Setting up
+## Set up your programming environment
 
 Create an application and install the client library.
 
@@ -76,19 +76,15 @@ Create an application and install the client library.
 >
 > Remember to remove the key from your code when you're done. Never post it publicly. For production, use secure methods to store and access your credentials. For more information, see Azure AI services [security](../../../../../ai-services/security-features.md).
 
-## Object model
+## Use the Object model
 
 With Document Intelligence, you can create two different client types. The first, `FormRecognizerClient`, queries the service to recognized form fields and content. The second, `FormTrainingClient`, creates and manages custom models to improve recognition.
-
-### FormRecognizerClient
 
 `FormRecognizerClient` provides the following operations:
 
 - Recognize form fields and content by using custom models trained to analyze your custom forms. These values are returned in a collection of `RecognizedForm` objects.
 - Recognize form content, including tables, lines and words, without the need to train a model. Form content is returned in a collection of `FormPage` objects.
 - Recognize common fields from US receipts, business cards, invoices, and ID documents by using a pretrained model on the Document Intelligence service.
-
-### FormTrainingClient
 
 `FormTrainingClient` provides operations for:
 
@@ -129,9 +125,7 @@ You can use Document Intelligence to analyze tables, lines, and words in documen
 > [!TIP]
 > You can also get content from a local file with [FormRecognizerClient](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient) methods, such as `beginRecognizeContent`.
 
-### Output
-
-```console
+```output
 Page 1: width 8.5 and height 11 with unit inch
 cell [0,0] has text Invoice Number
 cell [0,1] has text Invoice Date
@@ -156,9 +150,7 @@ To analyze receipts from a URI, use the `beginRecognizeReceiptsFromUrl` method. 
 > [!TIP]
 > You can also analyze local receipt images with [FormRecognizerClient](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient) methods, such as `beginRecognizeReceipts`.
 
-### Output
-
-```console
+```output
 status: notStarted
 status: running
 status: succeeded
@@ -216,11 +208,9 @@ The following function trains a model on a given set of documents and prints the
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_train)]
 
-### Output
-
 Here's the output for a model trained with the training data available from the [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer). This sample result has been truncated for readability.
 
-```console
+```output
 training status: creating
 training status: ready
 Model ID: 9d893595-1690-4cf2-a4b1-fbac0fb11909
@@ -257,8 +247,6 @@ Document errors:
 You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Document Intelligence Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. After you get them, you can call the `beginTraining` method with the `uselabels` parameter set to `true`.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_trainlabels)]
-
-### Output
 
 Here's the output for a model trained with the training data available from the [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples). This sample result has been truncated for readability.
 
@@ -303,8 +291,6 @@ You use the `beginRecognizeCustomFormsFromUrl` method. The returned value is a c
 
 > [!TIP]
 > You can also analyze local files with [FormRecognizerClient](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient) methods, such as `beginRecognizeCustomForms`.
-
-### Output
 
 ```console
 status: notStarted
@@ -358,9 +344,9 @@ The following code block provides a full list of available models in your accoun
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_list)]
 
-### Output
+The result looks like the following output.
 
-```console
+```output
 model 0:
 {
   modelId: '453cc2e6-e3eb-4e9f-aab6-e1ac7b87e09e',
@@ -397,9 +383,9 @@ This code block provides a paginated list of models and model IDs.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_listpages)]
 
-### Output
+The result looks like the following output.
 
-```console
+```output
 model 1: 453cc2e6-e3eb-4e9f-aab6-e1ac7b87e09e
 model 2: 628739de-779c-473d-8214-d35c72d3d4f7
 model 3: 789b1b37-4cc3-4e36-8665-9dde68618072
@@ -417,9 +403,9 @@ You can also delete a model from your account by referencing its ID. This functi
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_delete)]
 
-### Output
+The result looks like the following output.
 
-```console
+```output
 Model with id 789b1b37-4cc3-4e36-8665-9dde68618072 has been deleted
 ```
 
@@ -439,8 +425,6 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 - [Azure CLI](../../../../../ai-services/multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Troubleshooting
-
-### Enable logs
 
 You can set the following environment variable to see debug logs when using this library.
 

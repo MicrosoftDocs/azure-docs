@@ -117,7 +117,7 @@ ms.custom: devx-track-csharp
 
     :::image type="content" source="../../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot of run your Visual Studio program.":::
 
-## Read model
+## Use the Read model
 
 ```csharp
 using Azure;
@@ -184,11 +184,9 @@ foreach (DocumentLanguage language in result.Languages)
 > [!div class="nextstepaction"]
 <!-- > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-read) -->
 
-### Read model output
-
 Visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/read-model-output.md).
 
-## Layout model
+## Use the Layout model
 
 ```csharp
 using Azure;
@@ -287,11 +285,9 @@ for (int i = 0; i < result.Tables.Count; i++)
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-layout) -->
 
-### Layout model output
-
 Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/layout-model-output.md).
 
-## General document model
+## Use the General document model
 
 ```csharp
 using Azure;
@@ -392,11 +388,9 @@ for (int i = 0; i < result.Tables.Count; i++)
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-general-document) -->
 
-### General document model output
-
 Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/general-document-model-output.md).
 
-## W-2 tax model
+## Use the W-2 tax model
 
 ```csharp
 
@@ -509,11 +503,9 @@ for (int i = 0; i < result.Documents.Count; i++)
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-w2-tax) -->
 
-### W-2 model output
-
 Visit the Azure samples repository on GitHub to view the [W-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/w2-tax-model-output.md).
 
-## Invoice model
+## Use the Invoice model
 
 ```csharp
 using Azure;
@@ -624,11 +616,9 @@ for (int i = 0; i < result.Documents.Count; i++)
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-invoice) -->
 
-### Invoice model output
-
 Visit the Azure samples repository on GitHub to view the [invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/general-document-model-output.md).
 
-## Receipt model
+## Use the Receipt model
 
 ```csharp
 
@@ -721,8 +711,6 @@ foreach (AnalyzedDocument receipt in receipts.Documents)
 
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-reecipt) -->
-
-### Receipt model output
 
 Visit the Azure samples repository on GitHub to view the [receipt model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/receipt-model-output.md).
 
@@ -835,11 +823,9 @@ if (identityDocument.Fields.TryGetValue("Sex", out DocumentField sexfield))
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-id-document) -->
 
-### ID document model output
-
 Visit the Azure samples repository on GitHub to view the [id-document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/id-document-model-output.md).
 
-## Business card model
+## Use the Business card model
 
 ```csharp
 using Azure;
@@ -1045,7 +1031,5 @@ foreach (AnalyzedDocument businessCard in businessCards.Documents)
 
 <!-- > [!div class="nextstepaction"]
 > [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=csharp&Product=FormRecognizer&Page=how-to&Section=run-business-card) -->
-
-### Business card model output
 
 Visit the Azure samples repository on GitHub to view the [business card model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/business-card-model-output.md).
