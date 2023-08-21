@@ -78,13 +78,33 @@ tools.
       > [!NOTE]
       > These examples are for non-SSL communication to SAP HANA.
  
-    # [Oracle](#tab/oracle)
+   # [Oracle](#tab/oracle)
    
    Set up an appropriate Oracle database and Oracle Wallet following the instructions in the Enable communication with database](#enable-communication-with-database) section.
 
    1. After set up the connection can be tested from the command line as follows using these examples:
 
       1. `sqlplus /@<ORACLE_USER> as SYSBACKUP`
+
+   # [IBM Db2](#tab/db2)
+
+   Set up an appropriate IBM Db2 connection method following the instructions in the Enable communication with database](#enable-communication-with-database) section.
+
+   1. After set up the connection can be tested from the command line as follows using these examples:
+
+      1. Installed onto the database server, then complete the set up with "[Db2 local connectivity](#db2-local-connectivity)".
+
+         `db2 "QUIT"`
+     
+      1. Installed onto a centralized back-up system, then complete the set up with "[Db2 remote connectivity](#db2-remote-connectivity)".
+
+         `ssh <InstanceUser>@<ServerAddress> 'db2 "QUIT"'`
+
+   1. Both of the commands run in step 1 should produce the output:
+
+      ```output
+      DB20000I  The QUIT command completed successfully.
+      ```
 
    ---
 
@@ -827,10 +847,10 @@ After putting the database in back-up mode, `azacsnap` will query the IBM Db2 da
 
 AzAcSnap uses the IBM Db2 command line processor `db2` to issue SQL commands, such as `SET WRITE SUSPEND` or `SET WRITE RESUME`.  Therefore AzAcSnap should be installed in one of the following two ways:
 
-  1. Installed onto the database server, then complete the set up with "[Local connectivity](#local-connectivity)".
-  1. Installed onto a centralized back-up system, then complete the set up with "[Remote connectivity](#remote-connectivity)".
+  1. Installed onto the database server, then complete the set up with "[Db2 local connectivity](#db2-local-connectivity)".
+  1. Installed onto a centralized back-up system, then complete the set up with "[Db2 remote connectivity](#db2-remote-connectivity)".
 
-#### Local connectivity
+#### Db2 local connectivity
 
 If AzAcSnap has been installed onto the database server, then be sure to add the `azacsnap` user to the correct Linux group and import the Db2 instance user's profile per the following example set up.
 
@@ -901,7 +921,7 @@ DB20000I  The QUIT command completed successfully.
 Now configure azacsnap to user localhost.  Once this preliminary test as the `azacsnap` user is working correctly, go on to configure (`azacsnap -c configure`) with the `serverAddress=localhost` and test (`azacsnap -c test --test db2`) azacsnap database connectivity.
 
 
-#### Remote connectivity
+#### Db2 remote connectivity
 
 If AzAcSnap has been installed following option 2, then be sure to allow SSH access to the Db2 database instance per the following example set up.
 
