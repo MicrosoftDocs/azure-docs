@@ -17,10 +17,10 @@ ms.custom: event-tier1-build-2022, devx-track-azurecli
 
 [!INCLUDE [machine-learning-dev-v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you'll secure a managed online endpoint, using a workspace configured for network isolation. The workspace uses a **managed virtual network** that **allows internet outbound** communication. You'll create a managed online endpoint that uses the workspace's private endpoint for secure inbound communication. You'll also create a deployment that uses the private endpoints of the managed virtual network (VNet) for outbound communication.
+In this article, you'll secure a managed online endpoint, using a workspace configured for network isolation. The workspace uses a **managed virtual network** that **allows only approved outbound** communication. You'll create a managed online endpoint that uses the workspace's private endpoint for secure inbound communication. You'll also create a deployment that uses the private endpoints of the managed virtual network (VNet) for outbound communication.
 
 > [!NOTE]
-> This article uses the recommended [network isolation method](concept-secure-online-endpoint.md) that is based on the workspace managed VNet. For examples that use the legacy method for network isolation, see the deployment files [deploy-moe-vnet.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet.sh) (for deployment using a generic model) and [deploy-moe-vnet-mlflow.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-mlflow.sh) (for deployment using an MLflow model) in the azureml-examples GitHub repo.
+> This article uses the recommended [network isolation method](concept-secure-online-endpoint.md) that is based on the workspace managed VNet. For examples that use the legacy method for network isolation, see the deployment files [deploy-moe-vnet-legacy.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-legacy.sh) (for deployment using a generic model) and [deploy-moe-vnet-mlflow-legacy.sh](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-moe-vnet-mlflow-legacy.sh) (for deployment using an MLflow model) in the azureml-examples GitHub repo.
 
 ## Prerequisites
 
@@ -58,11 +58,16 @@ To begin, you need an Azure subscription, CLI or SDK to interact with Azure Mach
     export WORKSPACE_NAME="<YOUR_WORKSPACE_NAME>"
     ```
 
-1. Create your workspace. The `-m allow_internet_outbound` parameter configures a managed VNet for the workspace.
+1. Create your workspace. The `-m allow_only_approved_outbound` parameter configures a managed VNet for the workspace and blocks outbound traffic except to approved destinations.
 
-    ```azurecli
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="create_workspace_allow_only_approved_outbound" :::
+
+    Alternatively, if you'd like to allow the deployment to send outbound traffic to the internet, use the following code instead:
+
+    <!-- ```azurecli
     az ml workspace create -g $RESOURCEGROUP_NAME -n $WORKSPACE_NAME -m allow_internet_outbound
-    ```
+    ``` -->
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="create_workspace_internet_outbound" :::
 
     For more information on how to create a new workspace or to upgrade your existing workspace to use a manged virtual network, see [Configure a managed virtual network to allow internet outbound](how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-internet-outbound).
 
@@ -87,58 +92,41 @@ The commands in this tutorial are in the file `deploy-managed-online-endpoint-wo
 
 ## Create a secured managed online endpoint
 
-Now that you've configured your workspace for network isolation with a **managed virtual network** that **allows internet outbound**, you can create an endpoint in this workspace and set the endpoint's `public_network_access` to disabled so that the endpoint uses the workspace's private endpoint for inbound communication.
+To create a secured managed online endpoint, create the endpoint in your workspace and set the endpoint's `public_network_access` to disabled to control inbound communication. The endpoint will then have to use the the workspace's private endpoint for inbound communication.
+
 Any deployments of the endpoint will use the private endpoints of the managed VNet for outbound communication.
 
 1. Set the endpoint's name.
 
-    ```azurecli
-    export ENDPOINT_NAME="<YOUR_ENDPOINT_NAME>"
-    ```
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="set_endpoint_name" :::
 
-1. Create an endpoint with `public_network_access` disabled.
+1. Create an endpoint with `public_network_access` disabled to block inbound traffic.
 
-    ```azurecli
-    az ml online-endpoint create --name $ENDPOINT_NAME -f endpoints/online/managed/vnet/sample/endpoint.yml
-    ```
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="create_endpoint_inbound_blocked" :::
+
+    Alternatively, if you'd like to allow the endpoint to receive scoring requests from the internet, use the following code instead:
+
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="create_endpoint_inbound_allowed" :::
 
 1. Create a deployment in the workspace managed VNet.
 
-    ```azurecli
-    az ml online-deployment create --name blue --endpoint $ENDPOINT_NAME -f endpoints/online/managed/sample/blue-deployment.yml --all-traffic    
-    ```
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="create_deployment" :::
 
 1. Get the status of the deployment.
 
-    ```azurecli
-    az ml online-endpoint show -n $ENDPOINT_NAME
-    ```
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="get_status" :::
 
 1. Test the endpoint with a scoring request, using the CLI.
 
-    ```azurecli
-    az ml online-endpoint invoke --name $ENDPOINT_NAME --request-file endpoints/online/model-1/sample-request.json
-    ```
-
-1. Test the endpoint using curl.
-
-    ```azurecli
-    ENDPOINT_KEY=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME -o tsv --query primaryKey)
-    SCORING_URI=$(az ml online-endpoint show -n $ENDPOINT_NAME -o tsv --query scoring_uri)
-    curl --request POST "$SCORING_URI" --header "Authorization: Bearer $ENDPOINT_KEY" --header 'Content-Type: application/json' --data @endpoints/online/model-1/sample-request.json
-    ```
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="test_endpoint" :::
 
 1. Get deployment logs.
 
-    ```azurecli
-    az ml online-deployment get-logs --name blue --endpoint $ENDPOINT_NAME
-    ```
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="get_logs" :::
 
 1. Delete the endpoint if you no longer need it.
 
-    ```azurecli
-    az ml online-endpoint delete --name $ENDPOINT_NAME --yes --no-wait
-    ```
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="delete_endpoint" :::
 
 1. Delete all the resources created in this article. Replace `<resource-group-name>` with the name of the resource group used in this example:
 
