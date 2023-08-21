@@ -36,7 +36,7 @@ The location found using the public IP address a client provides to Azure Active
 
 ## Named locations
 
-Locations exist in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. Named locations are defined by IPv4 and IPv6 address ranges or by countries/regions. 
+Locations exist under **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. Named locations are defined by IPv4 and IPv6 address ranges or by countries/regions. 
 
 > [!VIDEO https://www.youtube.com/embed/P80SffTIThY]
 
@@ -48,7 +48,7 @@ To define a named location by IPv4/IPv6 address ranges, you need to provide:
 - One or more IP ranges.
 - Optionally **Mark as trusted location**.
 
-![New IP locations in the Azure portal](./media/location-condition/new-trusted-location.png)
+![New IP locations](./media/location-condition/new-trusted-location.png)
 
 Named locations defined by IPv4/IPv6 address ranges are subject to the following limitations: 
 
@@ -79,7 +79,7 @@ To define a named location by country/region, you need to provide:
 - Add one or more countries/regions.
 - Optionally choose to **Include unknown countries/regions**.
 
-![Country as a location in the Azure portal](./media/location-condition/new-named-location-country-region.png)
+![Country as a location](./media/location-condition/new-named-location-country-region.png)
 
 If you select **Determine location by IP address**, the system collects the IP address of the device the user is signing into. When a user signs in, Azure AD resolves the user's IPv4 or [IPv6](/troubleshoot/azure/active-directory/azure-ad-ipv6-support) address (starting April 3, 2023) to a country or region, and the mapping updates periodically. Organizations can use named locations defined by countries/regions to block traffic from countries/regions where they don't do business. 
 

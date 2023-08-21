@@ -9,10 +9,10 @@ ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: troubleshooting
 ms.date: 01/29/2023
 ms.author: justinha
-
 ---
 # Known issues: Service principal alerts in Azure Active Directory Domain Services
 
