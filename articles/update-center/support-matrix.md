@@ -1,7 +1,7 @@
 ---
 title: Azure Update Manager (preview) support matrix
 description: Provides a summary of supported regions and operating system settings.
-ms.service: update-manager
+ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 07/11/2023

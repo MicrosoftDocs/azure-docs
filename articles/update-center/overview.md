@@ -1,7 +1,7 @@
 ---
 title: Azure Update Manager (preview) overview
 description: The article tells what Azure Update Manager (preview) in Azure is and the system updates for your Windows and Linux machines in Azure, on-premises, and other cloud environments.
-ms.service: update-manager
+ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 07/05/2023

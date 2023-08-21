@@ -1,7 +1,7 @@
 ---
 title: Check update compliance in Azure Update Manager (preview)
 description: The article details how to use Azure Update Manager (preview) in the Azure portal to assess update compliance for supported machines.
-ms.service: update-manager
+ms.service: azure-update-manager
 ms.date: 05/31/2023
 ms.topic: conceptual
 author: SnehaSudhir 
