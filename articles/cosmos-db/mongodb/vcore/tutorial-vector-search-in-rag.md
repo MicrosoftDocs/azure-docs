@@ -4,7 +4,7 @@ titleSuffix: AI Apps with Azure Cosmos DB vCore Vector Search
 description: Enhance AI-powered Applications with Retrieval Augmented Generation (RAG) using Azure Cosmos DB vCore Vector Search.
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
-ms.topic: how-to
+ms.topic: tutorial
 author: sandnair
 ms.author: sandnair
 ms.reviewer: sandnair
