@@ -242,7 +242,7 @@ Property|	Type|	Description
 |:-----| :----| :----|
 ID |	string|	User defined ID of the seasonal field
 farmId|	string|	User defined ID of the farm that seasonal field is associated with.
-partyId|	string|	Id of the party it belongs to.
+partyId|	string|	ID of the party it belongs to.
 seasonId|	string|	User defined ID of the season that seasonal field is associated with.
 fieldId|	string|	User defined ID of the field that seasonal field is associated with.
 name|	string|	User defined name of the seasonal field.
@@ -298,7 +298,7 @@ Property|	Type|	Description
 |:-----| :----| :----|
 | ID |	string|	User defined ID of the field.
 farmId|	string|	User defined ID of the farm that  field is associated with.
-partyId|	string|	Id of the party it belongs to.
+partyId|	string|	ID of the party it belongs to.
 name|	string|	User defined name of the field.
 actionType|	string|	Indicates the change that triggered publishing of the event. Applicable values are created, updated, deleted.
 properties|	Object| It contains user defined key-value pairs.
@@ -394,7 +394,7 @@ PrescriptionChanged event has the following data object
 |Property | Type| Description|
 |:-----| :----| :----|
 prescriptionMapId|string|	User-defined ID of the associated prescription map.
-partyId| string|Id of the party it belongs to.
+partyId| string|ID of the party it belongs to.
 | ID |	string|	User-defined ID of the prescription.
 actionType|	string|	Indicates the change triggered during publishing of the event. Applicable values are Created, Updated, Deleted
 status| string|	Contains the user-defined status of the prescription.
@@ -448,7 +448,7 @@ NutrientAnalysisChanged event has the following data object:
 |:-----| :----| :----|
 parentId| string| ID of the parent nutrient analysis belongs to.
 parentType|	string|	Type of the parent nutrient analysis belongs to. Applicable value(s) are PlantTissueAnalysis.
-partyId| string|Id of the party it belongs to.
+partyId| string|ID of the party it belongs to.
 | ID |	string|	User-defined ID of nutrient analysis.
 actionType|	string|	Indicates the change that is triggered during publishing of the event. Applicable values are Created, Updated, Deleted.
 properties|	object|	It contains user-defined key-value pairs.
