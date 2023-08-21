@@ -19,7 +19,7 @@ ms.custom: it-pro
 
 > [!IMPORTANT]
 > Multi-tenant organization is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> See the [Product Terms](https://aka.ms/EntraPreviewsTermsOfUse) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The multi-tenant organization capability is designed for organizations that own multiple Azure Active Directory (Azure AD) tenants and want to streamline intra-organization cross-tenant collaboration in Microsoft 365. It's built on the premise of reciprocal provisioning of B2B member users across multi-tenant organization tenants.
 

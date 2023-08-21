@@ -19,7 +19,7 @@ ms.custom: it-pro
 
 > [!IMPORTANT]
 > Multi-tenant organization is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> See the [Product Terms](https://aka.ms/EntraPreviewsTermsOfUse) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This article discusses known issues to be aware of when you work with multi-tenant organization functionality across Azure AD and Microsoft 365. To provide feedback about the multi-tenant organization functionality on UserVoice, see [Azure Active Directory (Azure AD) UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789?category_id=360892). We watch UserVoice closely so that we can improve the service.
 
