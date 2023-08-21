@@ -62,7 +62,7 @@ Following are some of the important points to consider with respect to Azure Pre
 
 ## Supported OS versions
 
-Windows Server 2016, 2019 and highe are supported (use the latest data center images).
+Windows Servers 2016, 2019 and higher are supported (use the latest data center images).
 
 We strongly recommend using at least **Windows Server 2019 Datacenter**, as:
 - Windows 2019 Failover Cluster Service is Azure aware
