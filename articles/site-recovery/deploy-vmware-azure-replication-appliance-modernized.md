@@ -59,7 +59,7 @@ Go to **Recovery Services Vault** > **Getting Started**. In VMware machines to A
 
 :::image type="Recovery Services Vault Modernized" source="./media/deploy-vmware-azure-replication-appliance-modernized/prepare-infra.png" alt-text="Screenshot showing recovery services vault modernized.":::
 
-To set up a new appliance, you can use an OVF template (recommended) or PowerShell. Ensure you meet all the [hardware ](#hardware-requirements) and [software requirements](#software-requirements), and any other prerequisites.
+To set up a new appliance, you can use an OVF template (recommended) or PowerShell. Ensure you meet all the [hardware](./replication-appliance-support-matrix.md#hardware-requirements) and [software requirements](./replication-appliance-support-matrix.md#software-requirements), and any other prerequisites.
 
 ## Create Azure Site Recovery replication appliance
 
@@ -122,13 +122,13 @@ If there is any organizational restrictions, you can manually set up the Site Re
 
     All Azure Site Recovery services will use these settings to connect to the internet. Only HTTP proxy is supported.
 
-2. Ensure the [required URLs](#allow-urls) are allowed and are reachable from the Azure Site Recovery replication appliance for continuous connectivity.
+2. Ensure the [required URLs](./replication-appliance-support-matrix.md#allow-urls) are allowed and are reachable from the Azure Site Recovery replication appliance for continuous connectivity.
 
 3. Once the prerequisites have been checked, in the next step information about all the appliance components will be fetched. Review the status of all components and then select **Continue**. After saving the details, proceed to choose the appliance connectivity.
 
 4. After saving connectivity details, Select **Continue** to proceed to registration with Microsoft Azure.
 
-5. Ensure the [prerequisites](#pre-requisites) are met, proceed with registration.
+5. Ensure the [prerequisites](./replication-appliance-support-matrix.md#pre-requisites) are met, proceed with registration.
 
     :::image type="Register appliance" source="./media/deploy-vmware-azure-replication-appliance-modernized/app-setup-register.png" alt-text="Screenshot showing register appliance.":::
 
