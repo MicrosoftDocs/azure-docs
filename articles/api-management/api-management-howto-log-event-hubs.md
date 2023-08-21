@@ -147,9 +147,9 @@ resource ehLoggerWithSystemAssignedIdentity 'Microsoft.ApiManagement/service/log
     loggerType: 'azureEventHub'
     description: 'Event hub logger with system-assigned managed identity'
     credentials: {
-      endpointAddress: '<EventHubsNamespace>.servicebus.windows.net/<EventHubName>'
+      endpointAddress: '<EventHubsNamespace>.servicebus.windows.net'
       identityClientId: 'systemAssigned'
-      name: 'ApimEventHub'
+      name: '<EventHubName>'
     }
   }
 }
