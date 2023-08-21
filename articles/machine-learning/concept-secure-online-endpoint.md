@@ -22,8 +22,6 @@ When deploying a machine learning model to a managed online endpoint, you can se
 
 You can secure inbound scoring requests from clients to an _online endpoint_ and secure outbound communications between a _deployment_, the Azure resources it uses, and private resources. Security for inbound and outbound communication are configured separately. For more information on endpoints and deployments, see [What are endpoints and deployments](concept-endpoints-online.md).
 
-<!-- ## Security with managed workspace virtual network -->
-
 The following architecture diagram shows how communications flow through private endpoints to the managed online endpoint. Incoming scoring requests from a client's virtual network (VNet) flow through the workspace's private endpoint to the managed online endpoint. Outbound communication from deployments to services is handled through private endpoints from the workspace's managed VNet to those service instances.
 
 :::image type="content" source="media/concept-secure-online-endpoint/endpoint-network-isolation-with-workspace-managed-vnet.png" alt-text="Diagram showing inbound communication via a workspace private endpoint and outbound communication via private endpoints of a workspace managed VNet." lightbox="media/concept-secure-online-endpoint/endpoint-network-isolation-with-workspace-managed-vnet.png":::
@@ -154,7 +152,7 @@ For example, if you set the `egress_public_network_access` flag to `disabled` fo
 
 The following diagram shows incoming scoring requests from a client's virtual network flowing through the workspace's private endpoint to the managed online endpoint. The diagram also shows two online deployments, each in its own Azure Machine Learning managed VNet. Each VNet has three private endpoints for outbound communication with the Azure Machine Learning workspace, the Azure Storage blob associated with the workspace, and the Azure Container Registry for the workspace.
 
-:::image type="content" source="./media/how-to-secure-online-endpoint/endpoint-network-isolation-legacy.png" alt-text="Diagram of overall network isolation with the legacy method." lightbox="media/how-to-secure-online-endpoint/endpoint-network-isolation-legacy.png":::
+:::image type="content" source="./media/concept-secure-online-endpoint/endpoint-network-isolation-legacy.png" alt-text="Diagram of overall network isolation with the legacy method." lightbox="media/concept-secure-online-endpoint/endpoint-network-isolation-legacy.png":::
 
 To disable the `egress_public_network_access` and create the private endpoints:
 
