@@ -1,16 +1,16 @@
 ---
-title: Troubleshoot Custom image templates (preview) - Azure Virtual Desktop
+title: Troubleshoot Custom image templates - Azure Virtual Desktop
 description: Troubleshoot Custom image templates in Azure Virtual Desktop.
 ms.topic: troubleshooting
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 04/05/2023
+ms.date: 08/21/2023
 ---
 
-# Troubleshoot Custom image templates in Azure Virtual Desktop (preview)
+# Troubleshoot Custom image templates in Azure Virtual Desktop
 
 > [!IMPORTANT]
-> Custom image templates in Azure Virtual Desktop is currently in PREVIEW.
+> Custom image templates in Azure Virtual Desktop is currently in PREVIEW in Azure US Gov and Azure operated by 21Vianet.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Custom image templates in Azure Virtual Desktop enable you to easily create a custom image that you can use when deploying session host virtual machines (VMs). This article helps troubleshoot some issues you could run into.
@@ -43,3 +43,7 @@ The generation for the source image is shown when you select the image you want 
 ## PrivateLinkService Network Policy is not disabled for the given subnet
 
 If you receive the error message starting **PrivateLinkService Network Policy is not disabled for the given subnet**, you need to disable the *private service policy* on the subnet. For more information, see [Disable private service policy on the subnet](../virtual-machines/windows/image-builder-vnet.md#disable-private-service-policy-on-the-subnet).
+
+## Unable to remove the Microsoft Store app 
+
+Removing or uninstalling the Microsoft Store app is not supported. Learn how to [Configure access to the Microsoft Store](/windows/configuration/stop-employees-from-using-microsoft-store).
