@@ -8,10 +8,10 @@ manager: mwongerapk
 ms.author: shermanouko
 ms.service: active-directory
 ms.workload: identity
+ms.custom: devx-track-dotnet
 ms.subservice: ciam
 ms.topic: tutorial
 ms.date: 07/27/2023
-
 #Customer intent: As a dev, I want to learn how to test a protected web API registered in the Azure AD for customers tenant.
 ---
 

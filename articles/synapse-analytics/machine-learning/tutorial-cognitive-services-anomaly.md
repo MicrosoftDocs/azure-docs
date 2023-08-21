@@ -108,5 +108,4 @@ You can now run all cells to perform anomaly detection. Select **Run All**. [Lea
 - [Tutorial: Sentiment analysis with Azure AI services](tutorial-cognitive-services-sentiment.md)
 - [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL pools](tutorial-sql-pool-model-scoring-wizard.md)
 - [Tutorial: Use Multivariate Anomaly Detector in Azure Synapse Analytics](../../ai-services/Anomaly-Detector/tutorials/multivariate-anomaly-detection-synapse.md)
-- [SynapseML anomaly detection](https://microsoft.github.io/SynapseML/docs/documentation/transformers/transformers_cognitive/#anomaly-detection)
 - [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)

@@ -348,7 +348,7 @@ $accessToken = Invoke-RestMethod $url -Method 'POST' -Headers $headers -ContentT
 Write-Output $accessToken.access_token
 ```
 
-### Using system-assigned managed identity in Azure PowerShell
+### Using system-assigned managed identity to access Azure Key Vault in Azure PowerShell
 
 For more information, see [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret).
 

@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 07/23/2023
+ms.date: 08/01/2023
 ms.author: greglin
 ---
 
@@ -53,15 +53,15 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
       --version v1.10.1 \
       # --set installCRDs=true
      
-    #To automatically install and manage the CRDs as part of your Helm release, 
-    #   you must add the --set installCRDs=true flag to your Helm installation command.
+    # To automatically install and manage the CRDs as part of your Helm release, 
+    # you must add the --set installCRDs=true flag to your Helm installation command.
     ```
 
 2. ClusterIssuer Resource
 
     Create a `ClusterIssuer` resource. This is required by `cert-manager` to represent the `Lets Encrypt` certificate authority where the signed certificate is obtained.
 
-   The non-namespaced `ClusterIssuer` resource enables cert-manager to issue certificates that can be consumed from multiple namespaces. `Let’s Encrypt` uses the ACME protocol to verify that you control a given domain name and to issue a certificate. More details on configuring `ClusterIssuer` properties [here](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer` instructs `cert-manager` to issue certificates using the `Lets Encrypt` staging environment used for testing (the root certificate not present in browser/client trust stores).
+    Cert-manager uses the non-namespaced `ClusterIssuer` resource to issue certificates that can be consumed from multiple namespaces. `Let’s Encrypt` uses the ACME protocol to verify that you control a given domain name and to issue a certificate. More details on configuring `ClusterIssuer` properties [here](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer` instructs `cert-manager` to issue certificates using the `Lets Encrypt` staging environment used for testing (the root certificate not present in browser/client trust stores).
 
     The default challenge type in the following YAML is `http01`. Other challenges are documented on [letsencrypt.org - Challenge Types](https://letsencrypt.org/docs/challenge-types/)
 
@@ -103,18 +103,14 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
 
     Create an Ingress resource to Expose the `guestbook` application using the Application Gateway with the Lets Encrypt Certificate.
 
-    Ensure your Application Gateway has a public Frontend IP configuration with a DNS name (either using the
-    default `azure.com` domain, or provision a `Azure DNS Zone` service, and assign your own custom domain).
-    Note the annotation `certmanager.k8s.io/cluster-issuer: letsencrypt-staging`, which tells cert-manager to process the
-    tagged Ingress resource.
+    Ensure your Application Gateway has a public Frontend IP configuration with a DNS name (either using the default `azure.com` domain, or provision a `Azure DNS Zone` service, and assign your own custom domain). The annotation `certmanager.k8s.io/cluster-issuer: letsencrypt-staging`, which tells cert-manager to process the tagged Ingress resource.
 
     > [!IMPORTANT] 
-    > Update `<PLACEHOLDERS.COM>` in the following YAML with your own domain (or the Application Gateway one, for example
-    'kh-aks-ingress.westeurope.cloudapp.azure.com')
+    > Update `<PLACEHOLDERS.COM>` in the following YAML with your own domain (or the Application Gateway one, for example 'kh-aks-ingress.westeurope.cloudapp.azure.com')
 
     ```bash
     kubectl apply -f - <<EOF
-    apiVersion: extensions/v1beta1
+    apiVersion: networking.k8s.io/v1
     kind: Ingress
     metadata:
     name: guestbook-letsencrypt-staging
