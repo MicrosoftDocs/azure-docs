@@ -16,7 +16,7 @@ You can configure input parameters for PowerShell, PowerShell Workflow, graphica
 
 You assign values to the input parameters for a runbook when you start it. You can start a runbook from the Azure portal, a web service, or PowerShell. You can also start one as a child runbook that is called inline in another runbook.
 
-### Configure input parameters in PowerShell runbooks
+## Configure input parameters in PowerShell runbooks
 
 PowerShell and PowerShell Workflow runbooks in Azure Automation support input parameters that are defined through the following properties. 
 
