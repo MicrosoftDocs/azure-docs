@@ -102,7 +102,7 @@ In the event of a **regional outage** in eastus (illustrated below), the traffic
 
 ![Screenshot of Azure SignalR replica failover. ](./media/howto-enable-geo-replication/signalr-replica-failover.png  "Replica Failover")
 
-Once the issue in `eastus` is resolved and the region is back online, the heartbeat will succeed. Clients in `eastus` will then, once again, be directed to the replica in their region. This transition is smooth as the connected clients will not be impacted until those existing connections are closed. 
+Once the issue in `eastus` is resolved and the region is back online, the health check will succeed. Clients in `eastus` will then, once again, be directed to the replica in their region. This transition is smooth as the connected clients will not be impacted until those existing connections are closed. 
 
 ![Screenshot of Azure SignalR replica failover recovery. ](./media/howto-enable-geo-replication/signalr-replica-failover-recovery.png  "Replica Failover Recover")
 
@@ -114,7 +114,7 @@ For those using **app servers**, the failoever and recovery work the same way as
 
 ## Impact on performance after adding replicas
 
-After introducing replicas, clients will naturally distribute based on their geographical locations. While SignalR takes on the responsibility to synchronize data across these replicas, you'll be pleased to know that the associated overhead is minimal for most common use cases. Specifically, if your application typically broadcasts to larger groups (size >10) or a single connection, the synchronization cost is barely noticeable. Only in scenarios where communication is directed at smaller groups (size < 10) or individual users might the synchronization overhead become more discernible.
+After introducing replicas, clients will naturally distribute based on their geographical locations. While SignalR takes on the responsibility to synchronize data across these replicas, you'll be pleased to know that the associated overhead is minimal for most common use cases. Specifically, if your application typically broadcasts to larger groups (size >10) or a single connection, the synchronization cost is barely noticeable. If you're messaging small groups (less than 10 people) or individual users, you might notice a bit more synchronization overhead.
 
 To ensure effective failover management, it is recommended to set each replica's unit size to handle all traffic. Alternatively, you could enable [autoscaling](signalr-howto-scale-autoscale.md) to manage this.
 
