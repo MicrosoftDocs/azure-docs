@@ -37,7 +37,7 @@ Although you use the Azure portal in later steps, you must use the Bash command 
 1. Use the following command to run the sample application by using Maven:
 
    ```bash
-   java -jar web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
+   java -jar web/target/simple-todo-web-0.0.2-SNAPSHOT.jar
    ```
 
 1. Go to `http://localhost:8080` in your browser to access the application.
@@ -165,6 +165,12 @@ Use the following steps to connect your service instances:
    azd auth login
    ```
 
+1. Use the following command to enable the Azure Spring Apps feature:
+
+   ```bash
+   azd config set alpha.springapp on
+   ```
+
 1. Run the following command to provision the template's infrastructure to Azure:
 
    ```bash
@@ -175,28 +181,6 @@ Use the following steps to connect your service instances:
 
    - **Please select an Azure Subscription to use**: Use arrows to move, type to filter, then press <kbd>ENTER</kbd>.
    - **Please select an Azure location to use**: Use arrows to move, type to filter, then press <kbd>ENTER</kbd>.
-
-   > [!NOTE]
-   > You can use this template only with the following Azure locations:
-   >
-   > - Australia East
-   > - Brazil South
-   > - Canada Central
-   > - Central US
-   > - East Asia
-   > - East US
-   > - East US 2
-   > - Germany West Central
-   > - Japan East
-   > - Korea Central
-   > - North Central US
-   > - North Europe
-   > - South Central US
-   > - UK South
-   > - West Europe
-   > - West US
-   >
-   > If you attempt to use the template with an unsupported region, the provision step fails.
 
 ---
 

@@ -29,7 +29,7 @@ Examples in this article are formatted for the Bash shell. If you prefer another
 ## Deploy to new virtual network
 
 > [!NOTE]
-> If you are using  port 29 to have only 3 IP addresses, we recommend always to go one range above or below. For example, use port 28 so you can have at least 1 or more IP buffer per container group. By doing this, you can avoid containers in stuck, not able start or not able to stop states.
+> If you are using subnet IP range /29 to have only 3 IP addresses. we recommend always to go one range above (never below). For example, use subnet IP range /28 so you can have at least 1 or more IP buffer per container group. By doing this, you can avoid containers in stuck, not able to start, restart or even not able to stop states.
 
 To deploy to a new virtual network and have Azure create the network resources for you automatically, specify the following when you execute [az container create][az-container-create]:
 
