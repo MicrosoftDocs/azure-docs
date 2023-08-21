@@ -62,11 +62,8 @@ To begin, you need an Azure subscription, CLI or SDK to interact with Azure Mach
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="create_workspace_allow_only_approved_outbound" :::
 
-    Alternatively, if you'd like to allow the deployment to send outbound traffic to the internet, use the following code instead:
+    Alternatively, if you'd like to allow the deployment to send outbound traffic to the internet, uncomment the following code and run it instead.
 
-    <!-- ```azurecli
-    az ml workspace create -g $RESOURCEGROUP_NAME -n $WORKSPACE_NAME -m allow_internet_outbound
-    ``` -->
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="create_workspace_internet_outbound" :::
 
     For more information on how to create a new workspace or to upgrade your existing workspace to use a manged virtual network, see [Configure a managed virtual network to allow internet outbound](how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-internet-outbound).
@@ -104,7 +101,7 @@ Any deployments of the endpoint will use the private endpoints of the managed VN
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="create_endpoint_inbound_blocked" :::
 
-    Alternatively, if you'd like to allow the endpoint to receive scoring requests from the internet, use the following code instead:
+    Alternatively, if you'd like to allow the endpoint to receive scoring requests from the internet, uncomment the following code and run it instead.
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-workspacevnet.sh" ID="create_endpoint_inbound_allowed" :::
 
