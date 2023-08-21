@@ -20,7 +20,7 @@ Date published: August 16, 2023
 
 In this release,  we added two new features for Azure Virtual Desktop and addressed a number of reported bugs and incidents. 
 
-- Added support for RDP Shortpath for Public Networks for Azure Virtual Desktop connections.
+- Added support for RDP Shortpath for public networks for Azure Virtual Desktop connections.
 - Integrated an Azure Virtual Desktop account profile switcher into the Connection Center.
 - Improved diagnostics sent during Azure Virtual Desktop connections.
 - Added support for video mirroring in Teams redirection.
