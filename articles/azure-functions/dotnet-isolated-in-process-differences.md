@@ -34,7 +34,7 @@ Use the following table to compare feature and functional differences between th
 | Dependency injection | [Supported](functions-dotnet-dependency-injection.md)  | [Supported](dotnet-isolated-process-guide.md#dependency-injection) (improved model consistent with .NET ecosystem) |
 | Middleware | Not supported | [Supported](dotnet-isolated-process-guide.md#middleware) |
 | Logging | [ILogger] passed to the function<br/>[ILogger&lt;T&gt;] via [dependency injection](functions-dotnet-dependency-injection.md) | [ILogger&lt;T&gt;]/[ILogger] obtained from [FunctionContext](/dotnet/api/microsoft.azure.functions.worker.functioncontext) or via [dependency injection](dotnet-isolated-process-guide.md#dependency-injection)|
-| Application Insights dependencies | [Supported](functions-monitoring.md#dependencies) | [Supported (public preview)](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights) |
+| Application Insights dependencies | [Supported](functions-monitoring.md#dependencies) | [Supported](./dotnet-isolated-process-guide.md#application-insights) |
 | Cancellation tokens | [Supported](functions-dotnet-class-library.md#cancellation-tokens) | [Supported](dotnet-isolated-process-guide.md#cancellation-tokens) |
 | Cold start times<sup>2</sup> | (Baseline) | Additionally includes process launch |
 | ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | [Supported](dotnet-isolated-process-guide.md#readytorun) | 
@@ -45,7 +45,7 @@ Use the following table to compare feature and functional differences between th
 
 <sup>3</sup> C# Script functions also run in-process and use the same libraries as in-process class library functions. For more information, see the [Azure Functions C# script (.csx) developer reference](functions-reference-csharp.md). 
 
-<sup>4</sup> Service SDK types include types from the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet) such as [BlobClient](/dotnet/api/azure.storage.blobs.blobclient). For the isolated process model, support from some extensions is currently in preview, and Service Bus triggers do not yet support message settlement scenarios.
+<sup>4</sup> Service SDK types include types from the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet) such as [BlobClient](/dotnet/api/azure.storage.blobs.blobclient). For the isolated process model, Service Bus triggers do not yet support message settlement scenarios.
 
 <sup>5</sup> ASP.NET Core types are not supported for .NET Framework.
 
