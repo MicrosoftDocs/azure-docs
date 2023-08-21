@@ -2,12 +2,12 @@
 title: Review TrackAvailability() test results
 description: This article explains how to review data logged by TrackAvailability() tests
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 08/20/2023
 ---
 
 # Review TrackAvailability() test results
 
-This article explains how to review [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) test results in the Azure portal and query the data using [Log Analytics](../logs/log-analytics-overview.md#overview-of-log-analytics-in-azure-monitor).
+This article explains how to review [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) test results in the Azure portal and query the data using [Log Analytics](../logs/log-analytics-overview.md#overview-of-log-analytics-in-azure-monitor). [Standard tests](availability-standard-tests.md) **should always be used if possible** as they require little investment, no maintenance, and have few prerequisites.
 
 ## Prerequisites
 
@@ -16,9 +16,8 @@ This article explains how to review [TrackAvailability()](/dotnet/api/microsoft.
 > - Access to the source code of a [function app](../../azure-functions/functions-how-to-use-azure-function-app-settings.md) in Azure Functions
 > - Developer expertise capable of authoring [custom code](#basic-code-sample) for [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability), tailored to your specific business needs
 
-> [!NOTE]
-> - [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) requires that you make a developer investment in custom code.
-> - [Standard tests](availability-standard-tests.md) **should always be used if possible** as they require little investment, no maintenance, and have few prerequisites.
+> [!IMPORTANT]
+> [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) requires making a developer investment in writing and maintanining potentially complex custom code.
 
 ## Check availability
 
