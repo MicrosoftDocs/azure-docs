@@ -83,24 +83,24 @@ The diagram below provides a brief illustration of the SignalR Replicas' functio
 
 ![Screenshot of the arch of Azure SignalR replica. ](./media/howto-enable-geo-replication/signalr-replica-arch.png  "Replica Arch")
 
-Fig.1 All replicas are healthy
-
 1. The client resolves the Fully Qualified Domain Name (FQDN) `contoso.service.signalr.net` of the SignalR service. This FQDN points to a Traffic Manager, which returns the  Canonical Name (CNAME) of the nearest regional SignalR instance.
 2. With this CNAME, the client establishes a connection to the regional instance.
 3. The two replicas will synchronize data with each other. Messages sent to one replica would be transferred to other replicas if necessary.
-4. In case a replica fails the health check conducted by the Traffic Manager (TM), the TM will exclude the failed instance's endpoint from its domain resolution process. For details, check below ## Resiliency and Disaster Recovery
+4. In case a replica fails the health check conducted by the Traffic Manager (TM), the TM will exclude the failed instance's endpoint from its domain resolution process. For details, refer to below [Resiliency and Disaster Recovery](#resiliency-and-disaster-recovery)
 
 > [!NOTE]
 > * In the data plane, a primary Azure SignalR resource functions identically to its replicas
 
 ## Resiliency and Disaster Recovery
 
-Azure SignalR Service employs a traffic manager to manage health check heartbeats for all replica instances. Under normal circumstances like Fig.1, if all replicas are functioning properly, clients will be routed to the closest replica. For instance:
+Azure SignalR Service employs a traffic manager to manage health check heartbeats for all replica instances. Under normal circumstances, if all replicas are functioning properly, clients will be routed to the closest replica. For instance:
 
 - Clients close to `eastus` will be directed to the replica located in `eastus`.
 - Similarly, clients close to `westus` will be directed to the replica in `westus`.
 
-If there is a regional outage in `eastus` like Fig.2, the traffic manager will identify the failure in heartbeat to this region. In response, this faulty replica's DNS will be excluded from the traffic manager's DNS resolution results. After a DNS Time-to-Live (TTL) duration, which is set to 90 seconds, clients in `eastus` will be rerouted to connect with the replica in `westus`.
+If there is a regional outage in `eastus` like below, the traffic manager will identify the failure in heartbeat to this region. In response, this faulty replica's DNS will be excluded from the traffic manager's DNS resolution results. After a DNS Time-to-Live (TTL) duration, which is set to 90 seconds, clients in `eastus` will be rerouted to connect with the replica in `westus`.
+
+![Screenshot of Azure SignalR replica failover. ](./media/howto-enable-geo-replication/signalr-replica-failover.png  "Replica Failover")
 
 Once the issue in `eastus` is resolved and the region is back online, the heartbeat will be restored. Clients in `eastus` will then, once again, be routed to the replica in their region. This transition is smooth as the connected clients will not be impacted until those existing connections are closed. 
 
