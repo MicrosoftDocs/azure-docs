@@ -44,7 +44,7 @@ Select the **Get map configuration list** button to get a list of every map conf
 :::image type="content" source="./media/creator-indoor-maps/style-editor/select-the-map-configuration.png" alt-text="A screenshot of the open style dialog box in the visual style editor with the Select map configuration drop-down list highlighted.":::
 
 > [!NOTE]
-> If the map configuration was created as part of a custom style and has a user provided alias, that alias appears in the map configuration drop-down list, otherwise just the mapConfigurationId appears. The default map configuration ID for any given tileset can be found by using the [tileset get] HTTP request and passing in the tileset ID:
+> If the map configuration was created as part of a custom style and has a user provided alias, that alias appears in the map configuration drop-down list, otherwise just the `mapConfigurationId`` appears. The default map configuration ID for any given tileset can be found by using the [tileset get] HTTP request and passing in the tileset ID:
 >
 > ```http
 > https://{geography}.atlas.microsoft.com/tilesets/{tilesetId}?2022-09-01-preview
@@ -56,7 +56,7 @@ Select the **Get map configuration list** button to get a list of every map conf
 > "defaultMapConfigurationId": "68d74ad9-4f84-99ce-06bb-19f487e8e692"
 > ```
 
-Once you have select the desired map configuration, the drop-down list of styles appears.
+Once the desired map configuration is selected, the drop-down list of styles appears.
 
 Once you've selected the desired style, select the **Load selected style** button.
 
@@ -121,7 +121,7 @@ Some important things to know about aliases:
 
 Once you have entered values into each required field, select the **Upload map configuration** button to save the style and map configuration data to your Creator resource.
 
-Once you have successfully uploaded your custom styles you will see the **Upload complete** dialog showing you the values for Style ID, Map configuration ID and the map configuration alias. For more information, see [custom styling] and [map configuration].
+Once you have successfully uploaded your custom styles you'll see the **Upload complete** dialog showing you the values for Style ID, Map configuration ID and the map configuration alias. For more information, see [custom styling] and [map configuration].
 
 :::image type="content" source="./media/creator-indoor-maps/style-editor/upload-complete.png" alt-text="A screenshot of the upload complete dialog box in the visual style editor showing values for the Style ID, Map configuration ID and the map configuration alias.":::
 
