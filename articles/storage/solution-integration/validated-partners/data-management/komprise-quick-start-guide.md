@@ -194,15 +194,16 @@ You can also click on the default Storage accounts icon
 
 8.	(Optional) You can add extra layers of security to your deployment
     a. Configure role-based access to limit who can make changes to your storage account. For more information, see [Built-in roles for management operations](/azure/storage/common/authorization-resource-provider#built-in-roles-for-management-operations)
+    
     b. Restrict access to the account to specific network segments with [storage firewall settings](/azure/storage/common/storage-network-security). Configure firewall settings to prevent access from outside of your corporate network
 
     :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-network-security.png" alt-text="Screenshot of Azure Network Security dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-network-security.png":::
 
-c. Set a [delete lock](/azure/azure-resource-manager/management/lock-resources) on the account to prevent accidental deletion of the storage account.
+    c. Set a [delete lock](/azure/azure-resource-manager/management/lock-resources) on the account to prevent accidental deletion of the storage account.
     
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-delete-lock.png" alt-text="Screenshot of Azure Delete Lock dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-delete-lock.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-delete-lock.png" alt-text="Screenshot of Azure Delete Lock dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-delete-lock.png":::
 
-d. Review this document for other [security best practices](/azure/storage/blobs/security-recommendations)
+    d. Review this document for other [security best practices](/azure/storage/blobs/security-recommendations)
 
 
 ## Migration guide
@@ -269,8 +270,11 @@ To get started, sign-in to the director and do the following:
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-add-object-destination.png" alt-text="Screenshot of Komprise Add Object Destination Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-add-object-destination.png":::
 
 a. With Add Account, discover all the containers by entering:
+
     - Storage account name
+    
     - Primary access key
+    
     - Display Name
 
 Required information can be found in [Azure portal](https://portal.azure.com/) by navigating to the Access keys item under Settings for the storage account. If the keys aren't showing, select on the Show keys.
