@@ -25,12 +25,12 @@ The decision about which information retrieval system to use is critical because
 
 Azure Cognitive Search is a [proven solution](https://github.com/Azure-Samples/azure-search-openai-demo) for a RAG architecture because it provides indexing and query capabilities, with the infrastructure and security of the Azure cloud. Through code and other components, you can design a comprehensive RAG solution that includes all of the elements for generative AI over your proprietary content.
 
-<!-- [From its initial conception](META-LINK) to the many implementations that have followed, RAG has helped developers overcome the challenges of fine-tuning an LLM for specialized tasks by providing an alternative pattern that supplements, or replaces, the domain knowledge that a general purpose LLM draws from. -->
+<!-- Is there a way to work in a link to the meta blog post?  It's a good article.  Maybe something like:  [From its initial conception](https://ai.meta.com/blog/retrieval-augmented-generation-streamlining-the-creation-of-intelligent-natural-language-processing-models/) to the many implementations that have followed, RAG has helped developers overcome the challenges of fine-tuning an LLM for specialized tasks by providing an alternative pattern that supplements, or replaces, the domain knowledge that a general purpose LLM draws from. -->
 
 > [!NOTE]
 > New to LLM and RAG concepts? This [video clip](https://youtu.be/2meEvuWAyXs?t=404) from a Microsoft presentation offers a simple explanation.
 
-## RAG architecture
+## RAG pattern for Cognitive Search
 
 RAG patterns that include Cognitive Search have the elements indicated in the following illustration.
 
