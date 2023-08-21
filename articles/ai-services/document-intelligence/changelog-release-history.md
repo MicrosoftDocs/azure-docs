@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 08/17/2023
 ms.author: lajanuar
 monikerRange: '<=doc-intel-3.1.0'
 ---
@@ -47,7 +47,7 @@ This reference article provides a version-based description of Document Intellig
 
 [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
 
-[**Package (MVN)**](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer)
+[**Package (MVN)**](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0)
 
 [**ReadMe**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/README.md)
 
