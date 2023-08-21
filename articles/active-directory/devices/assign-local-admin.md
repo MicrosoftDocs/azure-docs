@@ -44,9 +44,9 @@ To view and update the membership of the [Global Administrator](/azure/active-di
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-In the Azure portal, you can manage the [Azure AD Joined Device Local Administrator](/azure/active-directory/roles/permissions-reference#azure-ad-joined-device-local-administrator) role from **Device settings**. 
+You can manage the [Azure AD Joined Device Local Administrator](/azure/active-directory/roles/permissions-reference#azure-ad-joined-device-local-administrator) role from **Device settings**. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator).
 1. Browse to **Azure Active Directory** > **Devices** > **Device settings**.
 1. Select **Manage Additional local administrators on all Azure AD joined devices**.
 1. Select **Add assignments** then choose the other administrators you want to add and select **Add**.
@@ -111,5 +111,5 @@ Additionally, you can also add users using the command prompt:
 
 ## Next steps
 
-- To get an overview of how to manage device in the Azure portal, see [managing devices using the Azure portal](manage-device-identities.md).
+- To get an overview of how to manage devices, see [managing devices using the Azure portal](manage-device-identities.md).
 - To learn more about device-based Conditional Access, see [Conditional Access: Require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md).
