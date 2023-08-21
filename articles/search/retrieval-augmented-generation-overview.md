@@ -13,7 +13,7 @@ ms.date: 08/18/2023
 
 # Retrieval Augmented Generation (RAG) in Azure Cognitive Search
 
-Retrieval Augmentation Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT with an information retrieval system that provides the data. Adding an information retrieval system gives you more control over the data used by an LLM. For an enterprise solution, RAG means that you can constraint natural language processing to *your enterprise content* sourced from documents, images, audio, and video.
+Retrieval Augmentation Generation (RAG) is an architecture that augments the capabilities of a Large Language Model (LLM) like ChatGPT with an information retrieval system that provides the data. Adding an information retrieval system gives you more control over the data used by an LLM. For an enterprise solution, RAG means that you can constrain natural language processing to *your enterprise content* sourced from documents, images, audio, and video.
 
 The decision about which information retrieval system to use is critical because it determines the inputs to the LLM. The information retrieval system should provide:
 
@@ -87,7 +87,7 @@ There's no query type in Cognitive Search - not even semantic search or vector s
 | [Filters](search-filters.md) and [facets](search-faceted-navigation.md) over text or numeric (non-vector) fields | Reduces the search surface area based on inclusion or exclusion criteria. | Adds precision to your queries. |
 | [Semantic search](semantic-how-to-query-request.md) | Re-ranks a BM25 result set using semantic models. Produces short-form captions and answers that are useful as LLM inputs. | Easier than scoring profiles, and depending on your content, a more reliable technique for relevance tuning. |
   [Vector search](vector-search-how-to-query.md) | Query execution over vector fields for similarity search, where the query string is one or more vectors. | Vectors can represent all types of content, in any language. |
-| [Hybrid search](vector-search-ranking.md#hybrid-search) | Combines any or all of the above query techniques. Vector and non-vector queries execute in parallel and are returned in a unified result sets. | The most significant gains in precision and recall are through hybrid queries. |
+| [Hybrid search](vector-search-ranking.md#hybrid-search) | Combines any or all of the above query techniques. Vector and non-vector queries execute in parallel and are returned in a unified result set. | The most significant gains in precision and recall are through hybrid queries. |
 
 ### Structure the query response
 
@@ -124,7 +124,7 @@ sends search results as prompts
 
 prompt engineering, prompt template -- how does it fit in
 
-terminology - is it important to introduce parameteric and non-parametric verbiage? if yes, does this work: RAG draws from both the LLM domain and what the LLM stores in parameters (referred to as parametric memory), and the search corpus accessed through an information retreival system (referred to as nonparametric memory). 
+terminology - is it important to introduce parametric and non-parametric verbiage? if yes, does this work: RAG draws from both the LLM domain and what the LLM stores in parameters (referred to as parametric memory), and the search corpus accessed through an information retrieval system (referred to as nonparametric memory). 
 
 ## How to get started
 
