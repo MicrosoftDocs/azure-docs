@@ -46,14 +46,14 @@ Use one of these sets of sample code to create an Elastic SAN that uses locally 
 
 | Placeholder                      | Description |
 |----------------------------------|-------------|
-| `<ResourceGroupName>`            | The name of the resource group where the resources are to be deployed. |
+| `<ResourceGroupName>`            | The name of the resource group where the resources will be deployed. |
 | `<ElasticSanName>`               | The name of the Elastic SAN to be created.<br>*The Elastic SAN name must be between 3 and 24 characters long. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.* |
 | `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to be created. |
 | `<VolumeName>`                   | The name of the Elastic SAN Volume to be created. |
-| `<Location>`                     | The region where new resources will be created. |
-| `<Zone>`                         | The availability zone where the Elastic SAN will be created if it will use locally-redundant storage.<br> *Must be `1`, `2`, or `3`. Specify the same availability zone as the zone that will host your workload.* |
+| `<Location>`                     | The region where the new resources will be created. |
+| `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN will use locally-redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
 
-The following command creates an Elastic SAN that uses locally-redundant storage.
+The following command creates an Elastic SAN that uses **locally-redundant** storage.
 
 ```azurepowershell
 # Define some variables.
@@ -68,7 +68,7 @@ $Zone       = <Zone>
 New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -AvailabilityZone $Zone -Location $Location -BaseSizeTib 100 -ExtendedCapacitySizeTiB 20 -SkuName Premium_LRS
 ```
 
-The following command creates an Elastic SAN that uses zone-redundant storage.
+The following command creates an Elastic SAN that uses **zone-redundant** storage.
 
 ```azurepowershell
 # Define some variables.
@@ -88,14 +88,14 @@ Use one of these sets of sample code to create an Elastic SAN that uses locally 
 
 | Placeholder                      | Description |
 |----------------------------------|-------------|
-| `<ResourceGroupName>`            | The name of the resource group where the resources are to be deployed. |
+| `<ResourceGroupName>`            | The name of the resource group where the resources will be deployed. |
 | `<ElasticSanName>`               | The name of the Elastic SAN to be created.<br>*The Elastic SAN name must be between 3 and 24 characters long. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.* |
 | `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to be created. |
 | `<VolumeName>`                   | The name of the Elastic SAN Volume to be created. |
-| `<Location>`                     | The region where new resources will be created. |
-| `<Zone>`                         | The availability zone where the Elastic SAN will be created if it will use locally-redundant storage.<br> *Must be `1`, `2`, or `3`. Specify the same availability zone as the zone that will host your workload.* |
+| `<Location>`                     | The region where the new resources will be created. |
+| `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN will use locally-redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
 
-The following command creates an Elastic SAN that uses locally-redundant storage.
+The following command creates an Elastic SAN that uses **locally-redundant** storage.
 
 ```azurecli
 # Define some variables.
@@ -109,7 +109,7 @@ Zone=<Zone>
 az elastic-san create -n $EsanName -g $RgName -l $Location --base-size-tib 100 --extended-capacity-size-tib 20 --sku "{name:Premium_LRS,tier:Premium}" --availability-zones $Zone
 ```
 
-The following command creates an Elastic SAN that uses zone-redundant storage.
+The following command creates an Elastic SAN that uses **zone-redundant** storage.
 
 ```azurecli
 # Define some variables.
