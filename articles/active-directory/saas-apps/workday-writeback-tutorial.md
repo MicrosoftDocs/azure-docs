@@ -46,7 +46,7 @@ Follow these instructions to configure writeback of user email addresses and use
 
 **To configure Workday Writeback connector:**
 
-1. Go to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the Azure portal, search for and select **Azure Active Directory**.
 
@@ -62,8 +62,7 @@ Follow these instructions to configure writeback of user email addresses and use
 
 8. Complete the **Admin Credentials** section as follows:
 
-   * **Admin Username** – Enter the username of the Workday integration system account, with the tenant domain name
-        appended. Should look something like: *username\@contoso4*
+   * **Admin Username** – Enter the username of the Workday integration system account, with the tenant domain name appended. Should look something like: *username\@contoso4*
 
    * **Admin password –** Enter the password of the Workday integration system account
 
@@ -73,8 +72,7 @@ Follow these instructions to configure writeback of user email addresses and use
 
    * **Notification Email –** Enter your email address, and check the  "send email if failure occurs" checkbox.
 
-   * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at
-        the top. If it fails, double-check that the Workday URL and credentials are valid in Workday.
+   * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at the top. If it fails, double-check that the Workday URL and credentials are valid in Workday.
 
 ### Part 2: Configure writeback attribute mappings
 
@@ -330,4 +328,3 @@ Once the Workday provisioning app configurations have been completed, you can tu
 * [Learn how to configure single sign-on between Workday and Azure Active Directory](workday-tutorial.md)
 * [Learn how to integrate other SaaS applications with Azure Active Directory](tutorial-list.md)
 * [Learn how to export and import your provisioning configurations](../app-provisioning/export-import-provisioning-configuration.md)
-

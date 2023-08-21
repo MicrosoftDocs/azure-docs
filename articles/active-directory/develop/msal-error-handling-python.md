@@ -16,7 +16,7 @@ ms.custom: aaddev, devx-track-python
 ---
 # Handle errors and exceptions in MSAL for Python
 
-[!INCLUDE [Active directory error handling introduction](../../../includes/active-directory-develop-error-handling-introduction.md)]
+[!INCLUDE [Active directory error handling introduction](./includes/error-handling-and-tips/error-handling-introduction.md)]
 
 ## Error handling in MSAL for Python
 
@@ -54,7 +54,7 @@ When an error is returned, the `"error_description"` key also contains a human-r
 
 In MSAL for Python, exceptions are rare because most errors are handled by returning an error value. The `ValueError` exception is only thrown when there's an issue with how you're attempting to use the library, such as when API parameter(s) are malformed.
 
-[!INCLUDE [Active directory error handling claims challenges](../../../includes/active-directory-develop-error-handling-claims-challenges.md)]
+[!INCLUDE [Active directory error handling claims challenges](./includes/error-handling-and-tips/error-handling-claims-challenges.md)]
 
 
 ## Retrying after errors and exceptions

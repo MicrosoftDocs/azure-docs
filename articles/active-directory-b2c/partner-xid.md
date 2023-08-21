@@ -122,10 +122,10 @@ Get the custom policy starter packs from GitHub, then update the XML files in th
       <Domain>X-ID</Domain>
       <DisplayName>X-ID</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="X-ID-Oauth2">
+        <TechnicalProfile Id="X-ID-OIDC">
           <DisplayName>X-ID</DisplayName>
           <Description>Login with your X-ID account</Description>
-          <Protocol Name="OAuth2" />
+          <Protocol Name="OpenIdConnect" />
           <Metadata>
             <Item Key="METADATA">https://oidc-uat.x-id.io/.well-known/openid-configuration</Item>
             <!-- Update the Client ID below to the X-ID Application ID -->
@@ -182,8 +182,8 @@ Get the custom policy starter packs from GitHub, then update the XML files in th
         </InputClaims>
         <OutputClaims>
           <!-- Claims parsed from your REST API -->
-          <OutputClaim ClaimTypeReferenceId="last_name" PartnerClaimType="givenName" />
-          <OutputClaim ClaimTypeReferenceId="first_name" PartnerClaimType="surname" />
+          <OutputClaim ClaimTypeReferenceId="last_name" />
+          <OutputClaim ClaimTypeReferenceId="first_name" />
           <OutputClaim ClaimTypeReferenceId="previous_name" />
           <OutputClaim ClaimTypeReferenceId="year" />
           <OutputClaim ClaimTypeReferenceId="month" />
@@ -227,7 +227,7 @@ Add the new identity provider to the user journey.
 3. Set the value of **TargetClaimsExchangeId** to a friendly name.
 4. Add a **ClaimsExchange** element. 
 5. Set the **ID** to the value of the target claims exchange ID. This change links the xID button to `X-IDExchange` action. 
-6. Update the **TechnicalProfileReferenceId** value to the technical profile ID you created (`X-ID-Oauth2`).
+6. Update the **TechnicalProfileReferenceId** value to the technical profile ID you created (`X-ID-OIDC`).
 7. Add an Orchestration step to call xID UserInfo endpoint to return claims about the authenticated user `X-ID-Userdata`.
 
 The following XML demonstrates the user journey orchestration with xID identity provider.
@@ -245,7 +245,7 @@ The following XML demonstrates the user journey orchestration with xID identity 
 
         <OrchestrationStep Order="2" Type="ClaimsExchange">
           <ClaimsExchanges>
-            <ClaimsExchange Id="X-IDExchange" TechnicalProfileReferenceId="X-ID-Oauth2" />
+            <ClaimsExchange Id="X-IDExchange" TechnicalProfileReferenceId="X-ID-OIDC" />
           </ClaimsExchanges>
         </OrchestrationStep>
 

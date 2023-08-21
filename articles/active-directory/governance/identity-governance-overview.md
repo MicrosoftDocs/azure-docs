@@ -1,6 +1,6 @@
 ---
-title: Identity Governance - Microsoft Entra
-description: Microsoft Entra Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.
+title: Microsoft Entra ID Governance
+description: Microsoft Entra ID Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.
 services: active-directory
 documentationcenter: ''
 author: owinfreyATL
@@ -17,11 +17,11 @@ ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
 
-# What is Microsoft Entra Identity Governance?
+# What is Microsoft Entra ID Governance?
 
-Microsoft Entra Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility. It provides you with capabilities to ensure that the right people have the right access to the right resources. These and related Azure AD and Enterprise Mobility + Security features allows you to mitigate access risk by protecting, monitoring, and auditing access to critical assets while ensuring employee and business partner productivity.  
+Microsoft Entra ID Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility. It provides you with capabilities to ensure that the right people have the right access to the right resources. These and related Azure AD and Enterprise Mobility + Security features allows you to mitigate access risk by protecting, monitoring, and auditing access to critical assets while ensuring employee and business partner productivity.  
 
-Identity Governance gives organizations the ability to do the following tasks across employees, business partners and vendors, and across services and applications both on-premises and in clouds:
+ID Governance gives organizations the ability to do the following tasks across employees, business partners and vendors, and across services and applications both on-premises and in clouds:
 
 - Govern the identity lifecycle
 - Govern access lifecycle
@@ -80,12 +80,15 @@ In addition to the features listed above, additional Microsoft Entra features fr
 |Lifecycle Workflows|Admins can enable the automation of the lifecycle process based user conditions.|[Lifecycle Workflows](what-are-lifecycle-workflows.md)|
 |Access requests|End users can request group membership or application access. End users, including guests from other organizations, can request access to access packages.|[Entitlement management](entitlement-management-overview.md)|
 |Workflow|Resource owners can define the approvers and escalation approvers for access requests and approvers for role activation requests.  |[Entitlement management](entitlement-management-overview.md) and [PIM](../privileged-identity-management/pim-configure.md)|
-|Policy and role management|Admin can define conditional access policies for run-time access to applications.  Resource owners can define policies for user's access via access packages.|[Conditional access](../conditional-access/overview.md) and [Entitlement management](entitlement-management-overview.md) policies|
-|Access certification|Admins can enable recurring access recertification for: SaaS apps, on-premises apps, cloud group memberships, Azure AD or Azure Resource role assignments. Automatically remove resource access, block guest access and delete guest accounts.|[Access reviews](access-reviews-overview.md), also surfaced in [PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)|
+|Policy and role management|Admin can define Conditional Access policies for run-time access to applications.  Resource owners can define policies for user's access via access packages.|[Conditional Access](../conditional-access/overview.md) and [Entitlement management](entitlement-management-overview.md) policies|
+|Access certification|Admins can enable recurring access recertification for: SaaS apps, on-premises apps, cloud group memberships, Azure AD or Azure Resource role assignments. Automatically remove resource access, block guest access and delete guest accounts.|[Access reviews](access-reviews-overview.md), also surfaced in [PIM](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md)|
 |Fulfillment and provisioning|Automatic provisioning and deprovisioning into Azure AD connected apps, including via SCIM, LDAP, SQL and into SharePoint Online sites. |[user provisioning](../app-provisioning/user-provisioning.md)|
 |Reporting and analytics|Admins can retrieve audit logs of recent user provisioning and sign on activity. Integration with Azure Monitor and 'who has access' via access packages.|[Azure AD reports](../reports-monitoring/overview-reports.md) and [monitoring](../reports-monitoring/overview-monitoring.md)|
 |Privileged access|Just-in-time and scheduled access, alerting, approval workflows for Azure AD roles (including custom roles) and Azure Resource roles.|[Azure AD PIM](../privileged-identity-management/pim-configure.md)|
 |Auditing|Admins can be alerted of creation of admin accounts.|[Microsoft Entra PIM alerts](../privileged-identity-management/pim-how-to-configure-security-alerts.md)|
+
+## License requirements
+[!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
 
 ## Getting started
 
@@ -104,6 +107,8 @@ While there's no perfect solution or recommendation for every customer, the foll
 - [Plan an access reviews deployment to manage resource access lifecycle](deploy-access-reviews.md)
 - [Identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Securing privileged access](../roles/security-planning.md)
+
+You may also wish to engage with one of Microsoft's [services and integration partners](services-and-integration-partners.md) to plan your deployment or integrate with the applications and other systems in your environment.
 
 ## Simplifying identity governance tasks with automation
 

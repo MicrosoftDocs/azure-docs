@@ -118,7 +118,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 Notes:
 
-* These instructions assume you are using the new [Single Sign On/Just-in-Time Provisioning feature from Veracode](https://docs.veracode.com/r/Signing_On). To activate this feature if it is not already active, please contact Veracode Support.  
+* These instructions assume you are using the new [Single Sign On/Just-in-Time Provisioning feature from Veracode](https://docs.veracode.com/r/about_saml). To activate this feature if it is not already active, please contact Veracode Support.  
 * These instructions are valid for all [Veracode regions](https://docs.veracode.com/r/Region_Domains_for_Veracode_APIs).
 
 1. In a different web browser window, sign in to your Veracode company site as an administrator. 

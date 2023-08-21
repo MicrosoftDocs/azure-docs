@@ -3,7 +3,7 @@ title: Use an Azure AD workload identities on Azure Kubernetes Service (AKS)
 description: Learn about Azure Active Directory workload identity for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 ms.topic: article
 ms.custom: build-2023
-ms.date: 05/23/2023
+ms.date: 08/18/2023
 ---
 
 # Use Azure AD workload identity with Azure Kubernetes Service (AKS)
@@ -25,19 +25,22 @@ This article helps you understand this new authentication feature, and reviews t
 
 In the Azure Identity client libraries, choose one of the following approaches:
 
-- Use `DefaultAzureCredential`, which will attempt to use the `WorkloadIdentityCredential`.
+- Use `DefaultAzureCredential`, which will attempt to use the `WorkloadIdentityCredential`. &dagger;
 - Create a `ChainedTokenCredential` instance that includes `WorkloadIdentityCredential`.
 - Use `WorkloadIdentityCredential` directly.
 
 The following table provides the **minimum** package version required for each language's client library.
 
-| Language   | Library                                                                                      | Minimum Version | Example                                                                                           |
-|------------|----------------------------------------------------------------------------------------------|-----------------|---------------------------------------------------------------------------------------------------|
-| .NET       | [Azure.Identity](/dotnet/api/overview/azure/identity-readme)      | 1.9.0    | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/dotnet) |
-| Go         | [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity)            | 1.3.0    | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/go)     |
-| Java       | [azure-identity](/java/api/overview/azure/identity-readme)        | 1.9.0    | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/java)   |
-| JavaScript | [@azure/identity](/javascript/api/overview/azure/identity-readme) | 3.2.0    | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/node)   |
-| Python     | [azure-identity](/python/api/overview/azure/identity-readme)      | 1.13.0        | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/python) |
+| Language   | Library                                                                                                          | Minimum Version | Example                                                                                                                           |
+|------------|------------------------------------------------------------------------------------------------------------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| .NET       | [Azure.Identity](/dotnet/api/overview/azure/identity-readme)                                                     | 1.9.0           | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/dotnet)                                 |
+| C++        | [azure-identity-cpp](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md) | 1.6.0-beta.1    | [Link](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/samples/workload_identity_credential.cpp) |
+| Go         | [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity)                                | 1.3.0           | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/go)                                     |
+| Java       | [azure-identity](/java/api/overview/azure/identity-readme)                                                       | 1.9.0           | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/java)                                   |
+| JavaScript | [@azure/identity](/javascript/api/overview/azure/identity-readme)                                                | 3.2.0           | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/node)                                   |
+| Python     | [azure-identity](/python/api/overview/azure/identity-readme)                                                     | 1.13.0          | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/python)                                 |
+
+&dagger; In the C++ library, `WorkloadIdentityCredential` isn't part of the `DefaultAzureCredential` authentication flow.
 
 ## Microsoft Authentication Library (MSAL)
 
@@ -45,11 +48,11 @@ The following client libraries are the **minimum** version required
 
 | Language | Library | Image | Example | Has Windows |
 |-----------|-----------|----------|----------|----------|
-| .NET | [microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | ghcr.io/azure/azure-workload-identity/msal-net | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-net/akvdotnet) | Yes |
-| Go | [microsoft-authentication-library-for-go](https://github.com/AzureAD/microsoft-authentication-library-for-go) | ghcr.io/azure/azure-workload-identity/msal-go | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-go) | Yes |
-| Java | [microsoft-authentication-library-for-java](https://github.com/AzureAD/microsoft-authentication-library-for-java) | ghcr.io/azure/azure-workload-identity/msal-java | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-java) | No |
-| JavaScript | [microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) | ghcr.io/azure/azure-workload-identity/msal-node | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-node) | No |
-| Python | [microsoft-authentication-library-for-python](https://github.com/AzureAD/microsoft-authentication-library-for-python) | ghcr.io/azure/azure-workload-identity/msal-python | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-python) | No |
+| .NET | [microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | ghcr.io/azure/azure-workload-identity/msal-net:latest | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-net/akvdotnet) | Yes |
+| Go | [microsoft-authentication-library-for-go](https://github.com/AzureAD/microsoft-authentication-library-for-go) | ghcr.io/azure/azure-workload-identity/msal-go:latest | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-go) | Yes |
+| Java | [microsoft-authentication-library-for-java](https://github.com/AzureAD/microsoft-authentication-library-for-java) | ghcr.io/azure/azure-workload-identity/msal-java:latest | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-java) | No |
+| JavaScript | [microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) | ghcr.io/azure/azure-workload-identity/msal-node:latest | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-node) | No |
+| Python | [microsoft-authentication-library-for-python](https://github.com/AzureAD/microsoft-authentication-library-for-python) | ghcr.io/azure/azure-workload-identity/msal-python:latest | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-python) | No |
 
 ## Limitations
 
@@ -93,6 +96,8 @@ If you've used [Azure AD pod-managed identity][use-azure-ad-pod-identity], think
 
 ### Service account annotations
 
+All annotations are optional. If the annotation is not specified, the default value will be used.
+
 |Annotation |Description |Default |
 |-----------|------------|--------|
 |`azure.workload.identity/client-id` |Represents the Azure AD application<br> client ID to be used with the pod. ||
@@ -109,6 +114,8 @@ If you've used [Azure AD pod-managed identity][use-azure-ad-pod-identity], think
 |`azure.workload.identity/use` | This label is required in the pod template spec. Only pods with this label will be mutated by the azure-workload-identity mutating admission webhook to inject the Azure specific environment variables and the projected service account token volume. |true |Yes |
 
 ### Pod annotations
+
+All annotations are optional. If the annotation is not specified, the default value will be used.
 
 |Annotation |Description |Default |
 |-----------|------------|--------|

@@ -5,12 +5,12 @@ description: Learn how to create an account shared access signature (SAS) using 
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 06/09/2023
 ms.author: pauljewell
 ms.reviewer: dineshm
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 ---
@@ -46,9 +46,11 @@ For available permissions, see [AccountSasPermissions](/python/api/azure-storage
 
 ## Use an account SAS from a client
 
-To use the account SAS to access service-level APIs for the Blob service, create a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) object using the account SAS and the Blob Storage endpoint for your storage account. You can also use the account SAS to authorize a [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) object or [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) object.
+To use the account SAS to access service-level APIs for the Blob service, create a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) object using the account SAS and the Blob Storage endpoint for your storage account.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_use_account_sas":::
+
+You can also use an account SAS to authorize and work with a [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) object or [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) object, if those resource types are granted access as part of the signature values.
 
 ## Resources
 

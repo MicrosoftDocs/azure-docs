@@ -1,7 +1,8 @@
 ---
 title: Configure a custom container
 description: Learn how to configure a custom container in Azure App Service. This article shows the most common configuration tasks. 
-
+author: msangapu-msft
+ms.author: msangapu
 ms.topic: how-to
 ms.date: 01/04/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -267,7 +268,7 @@ App Service logs actions by the Docker host as well as activities from within t
 
 There are several ways to access Docker logs:
 
-- [In Azure portal](#in-azure-portal)
+- [In the Azure portal](#in-azure-portal)
 - [From the Kudu console](#from-the-kudu-console)
 - [With the Kudu API](#with-the-kudu-api)
 - [Send logs to Azure monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)

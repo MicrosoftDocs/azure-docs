@@ -18,7 +18,7 @@ ms.custom: aaddev, curation-claims
 
 The authorization server issues ID tokens that contain claims that carry information about the user. They can be sent alongside or instead of an access token. Information in ID tokens enables the client to verify that a user is who they claim to be. 
 
-Third-party applications are intended to understand ID tokens. ID tokens shouldn't be used for authorization purposes. Access tokens are used for authorization. The claims provided by ID tokens can be used for UX inside your application, as keys in a database, and providing access to the client application. For more information about the claims used in an ID token, see the [ID token claims reference](id-token-claims-reference.md).
+Third-party applications are intended to understand ID tokens. ID tokens shouldn't be used for authorization purposes. Access tokens are used for authorization. The claims provided by ID tokens can be used for UX inside your application, as keys in a database, and providing access to the client application. For more information about the claims used in an ID token, see the [ID token claims reference](id-token-claims-reference.md). For more information about claims-based authorization, see [Secure applications and APIs by validating claims](./claims-validation.md).
 
 ## Token formats
 
@@ -63,8 +63,8 @@ The following JWT claims should be validated in the ID token after validating th
 
 ## See also
 * [ID token claims reference](id-token-claims-reference.md)
-* [OAuth 2.0 and OpenID Connect protocols](active-directory-v2-protocols.md)
-* [Optional claims](active-directory-optional-claims.md)
+* [OAuth 2.0 and OpenID Connect protocols](./v2-protocols.md)
+* [Optional claims](./optional-claims.md)
 
 ## Next steps
 

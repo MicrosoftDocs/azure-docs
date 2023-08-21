@@ -30,9 +30,7 @@ GitOps is enabled in an Azure Arc-enabled Kubernetes or AKS cluster as a `Micros
 
 ### Version support
 
-The most recent version of the Flux v2 extension (`microsoft.flux`) and the two previous versions (N-2) are supported. We generally recommend that you use the [most recent version](extensions-release.md#flux-gitops) of the extension.
-
-Starting with [`microsoft.flux` version 1.7.0](extensions-release.md#170-march-2023), ARM64-based clusters are supported.
+The most recent version of the Flux v2 extension (`microsoft.flux`) and the two previous versions (N-2) are supported. We generally recommend that you use the [most recent version](extensions-release.md#flux-gitops) of the extension. Starting with `microsoft.flux` version 1.7.0, ARM64-based clusters are supported.
 
 > [!NOTE]
 > If you have been using Flux v1, we recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible.
@@ -234,7 +232,7 @@ If you use `azblob` source, here are the blob-specific command arguments.
 | `--sp_client_cert_send_chain` | String | Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate |
 | `--account_key` | String | The Azure Blob Shared Key for authentication |
 | `--sas_token` | String | The Azure Blob SAS Token for authentication |
-| `--mi_client_id` | String | The client ID of the managed identity for authentication with Azure Blob |
+| `--managed-identity-client-id` | String | The client ID of the managed identity for authentication with Azure Blob |
 
 > [!IMPORTANT]
 > When using managed identity authentication for AKS clusters and `azblob` source, the managed identity must be assigned at minimum the [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) role. Authentication using a managed identity is not yet available for Azure Arc-enabled Kubernetes clusters.

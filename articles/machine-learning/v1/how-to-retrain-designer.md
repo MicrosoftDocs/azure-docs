@@ -10,7 +10,7 @@ author: likebupt
 ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: designer
+ms.custom: UpdateFrequency5, designer
 ---
 
 # Use pipeline parameters to retrain models in the designer
@@ -31,7 +31,7 @@ In this article, you learn how to:
 * An Azure Machine Learning workspace
 * Complete part 1 of this how-to series, [Transform data in the designer](how-to-designer-transform-data.md)
 
-[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../includes/machine-learning-missing-ui.md)]
 
 This article also assumes that you have some knowledge of building pipelines in the designer. For a guided introduction, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
 

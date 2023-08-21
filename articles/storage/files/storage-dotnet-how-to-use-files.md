@@ -3,11 +3,10 @@ title: Develop for Azure Files with .NET
 titleSuffix: Azure Storage
 description: Learn how to develop .NET applications and services that use Azure Files to store data.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.author: kendownie
-ms.subservice: files
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---
@@ -195,7 +194,7 @@ The following code example shows how to use the .NET client library to enable me
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_UseMetrics":::
 
-If you encounter any problems, refer to [Troubleshoot Azure Files](files-troubleshoot.md).
+If you encounter any problems, refer to [Troubleshoot Azure Files](/troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json).
 
 ## Next steps
 
@@ -209,7 +208,7 @@ For more information about Azure Files, see the following resources:
 ### Tooling support for File storage
 
 - [Get started with AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json)
-- [Troubleshoot Azure Files](files-troubleshoot.md)
+- [Troubleshoot Azure Files](/troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json)
 
 ### Reference
 

@@ -13,10 +13,27 @@ Azure Functions integrates with Application Insights to better enable you to mon
 
 You can use Application Insights without any custom configuration. The default configuration can result in high volumes of data. If you're using a Visual Studio Azure subscription, you might hit your data cap for Application Insights. For information about Application Insights costs, see [Application Insights billing](../azure-monitor/logs/cost-logs.md#application-insights-billing). For more information, see [Solutions with high-volume of telemetry](#solutions-with-high-volume-of-telemetry).
 
-Later in this article, you learn how to configure and customize the data that your functions send to Application Insights. For a function app, logging is configured in the *[host.json]* file.
+Later in this article, you learn how to configure and customize the data that your functions send to Application Insights. Common logging configuration can be set in the *[host.json]* file. By default, these settings also govern custom logs emitted by your code, though in some cases this behavior can be disabled in favor of options that give you more control over logging. See [Custom application logs](#custom-application-logs) for more information.
 
 > [!NOTE]
 > You can use specially configured application settings to represent specific settings in a *host.json* file for a specific environment. This lets you effectively change *host.json* settings without having to republish the *host.json* file in your project. For more information, see [Override host.json values](functions-host-json.md#override-hostjson-values).
+
+## Custom application logs
+
+By default, custom application logs you write are sent to the Functions host, which then sends them to Application Insights through the ["Worker" category](#configure-categories). Some language stacks allow you to instead send the logs directly to Application Insights, giving you full control over how logs you write are emitted. The logging pipeline changes from `worker -> Functions host -> Application Insights` to `worker -> Application Insights`.
+
+The following table summarizes the options available to each stack:
+
+| Language stack | Configuration of custom logs |
+|-|-|
+| .NET (in-process model) | `host.json` |
+| .NET (isolated model) | By default: `host.json`<br/>Option to send logs directly: [Configure Application Insights in the HostBuilder](./dotnet-isolated-process-guide.md#application-insights) |
+| Node.JS | `host.json` |
+| Python | `host.json` |
+| Java | By default: `host.json`<br/>Option to send logs directly: [Configure the Application Insights Java agent](../azure-monitor/app/monitor-functions.md#distributed-tracing-for-java-applications) |
+| PowerShell | `host.json` |
+
+When custom application logs are sent directly, the host no longer be emits them, and `host.json` no longer controls their behavior. Similarly, the options exposed by each stack only apply to custom logs, and they do not change the behavior of the other runtime logs described in this article. To control the behavior of all logs, you may need to make changes for both configurations.
 
 ## Configure categories
 

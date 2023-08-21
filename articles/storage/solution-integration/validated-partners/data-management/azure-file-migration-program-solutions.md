@@ -5,8 +5,8 @@ author: dukicn
 ms.author: nikoduki
 ms.topic: conceptual
 ms.date: 03/24/2022
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Comparison Matrix for Azure Storage Migration Program participants

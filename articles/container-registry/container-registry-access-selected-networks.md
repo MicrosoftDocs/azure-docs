@@ -140,7 +140,6 @@ To allow the AKS cluster to access the registry, you have these options:
 [az-acr-update]: /cli/azure/acr#az_acr_update
 [quickstart-portal]: container-registry-get-started-portal.md
 [quickstart-cli]: container-registry-get-started-azure-cli.md
-[azure-portal]: https://portal.azure.com
 
 [acr-access-selected-networks]: ./media/container-registry-access-selected-networks/acr-access-selected-networks.png
 [acr-access-disabled]: ./media/container-registry-access-selected-networks/acr-access-disabled.png

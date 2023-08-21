@@ -45,12 +45,14 @@ This rest of this article uses the Azure portal to configure and demonstrate ent
 
 To use entitlement management, you must have one of the following licenses:
 
-- Azure AD Premium P2
+- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5 license
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
 
 ## Step 1: Set up users and group
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 A resource directory has one or more resources to share. In this step, you create a group named **Marketing resources** in the Woodgrove Bank directory that is the target resource for entitlement management. You also set up an internal requestor.
 
@@ -58,18 +60,18 @@ A resource directory has one or more resources to share. In this step, you creat
 
 ![Diagram that shows the users and groups for this tutorial.](./media/entitlement-management-access-package-first/elm-users-groups.png)
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global administrator or User administrator.  
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global administrator or User administrator.
 
 1. In the left navigation, select **Azure Active Directory**.
 
-1. [Create two users](../fundamentals/add-users-azure-active-directory.md). Use the following names or different names.
+1. [Create two users](../fundamentals/add-users.md). Use the following names or different names.
 
     | Name | Directory role |
     | --- | --- |
     | **Admin1** | Global administrator, or User administrator. This user can be the user you're currently signed in. |
     | **Requestor1** | User |
 
-4. [Create an Azure AD security group](../fundamentals/active-directory-groups-create-azure-portal.md) named **Marketing resources** with a membership type of **Assigned**. This group is the target resource for entitlement management. The group should be empty of members to start.
+4. [Create an Azure AD security group](../fundamentals/how-to-manage-groups.md) named **Marketing resources** with a membership type of **Assigned**. This group is the target resource for entitlement management. The group should be empty of members to start.
 
 
 ## Step 2: Create an access package
@@ -84,7 +86,7 @@ An *access package* is a bundle of resources that a team or project needs and is
 
 1. In the left menu, select **Identity Governance**
 
-1. In the left menu, select **Access packages**.  If you see **Access denied**, ensure that an Azure AD Premium P2 license is present in your directory.
+1. In the left menu, select **Access packages**.  If you see **Access denied**, ensure that a Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance license is present in your directory.
 
 1. Select **New access package**.
 

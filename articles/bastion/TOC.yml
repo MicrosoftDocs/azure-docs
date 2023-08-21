@@ -51,6 +51,8 @@
     items:
     - name: View or upgrade SKU
       href: upgrade-sku.md
+    - name: Configure native client support
+      href: native-client.md
     - name: Configure host scaling
       items:
       - name: Azure portal
@@ -76,7 +78,11 @@
       - name: SSH connection
         href: bastion-connect-vm-ssh-linux.md
   - name: Connect to a VM - native client
-    href: connect-native-client-windows.md
+    items:
+    - name: Connect from Windows client
+      href: connect-vm-native-client-windows.md
+    - name: Connect from Linux client
+      href: connect-vm-native-client-linux.md
   - name: Connect to a VM - IP address
     href: connect-ip-address.md
   - name: Connect to a VM scale set

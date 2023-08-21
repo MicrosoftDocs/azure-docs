@@ -59,13 +59,13 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** textbox, type a value using the following pattern:
+    1. In the **Identifier** textbox, type a value using the following pattern:
     `urn:hashicorp:HCP-SSO-<HCP_ORG_ID>-samlp`
 
-    b. In the **Reply URL** textbox, type a URL using the following pattern:
+    1. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://auth.hashicorp.com/login/callback?connection=HCP-SSO-<ORG_ID>-samlp`
 
-    c. In the **Sign on URL** textbox, type a URL using the following pattern:
+    1. In the **Sign on URL** textbox, type a URL using the following pattern:
     `https://portal.cloud.hashicorp.com/sign-in?conn-id=HCP-SSO-<HCP_ORG_ID>-samlp`
 
     > [!NOTE]
@@ -85,7 +85,7 @@ To configure single sign-on on the **HashiCorp Cloud Platform (HCP)** side, you 
 
 ## Test SSO 
 
-In the previous [Create and assign Azure AD test user](#create-and-assign-azure-ad-test-user) section, you created a user called B.Simon and assigned it to the HashiCorp Cloud Platform (HCP) app within the Azure Portal. This can now be used for testing the SSO connection. You may also use any account that is already associated with the HashiCorp Cloud Platform (HCP) app in the Azure Portal. 
+In the previous [Create and assign Azure AD test user](#create-and-assign-azure-ad-test-user) section, you created a user called B.Simon and assigned it to the HashiCorp Cloud Platform (HCP) app within the Azure portal. This can now be used for testing the SSO connection. You may also use any account that is already associated with the HashiCorp Cloud Platform (HCP) app in the Azure portal. 
 
 ## Additional resources
 

@@ -174,8 +174,6 @@ To learn more about IP address pricing in Azure, review the [IP address pricing]
 
 * VPN gateways can't be used in a virtual network with IPv6 enabled, either directly or peered with "UseRemoteGateway".
 
-* Public IPv6 addresses are locked at an idle timeout of 4 minutes.
-
 * Azure doesn't support IPv6 communication for containers.
 
 * Use of IPv6-only virtual machines or virtual machines scale sets aren't supported. Each NIC must include at least one IPv4 IP configuration (dual-stack).

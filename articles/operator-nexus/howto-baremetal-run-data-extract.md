@@ -3,7 +3,7 @@ title: Troubleshoot bare metal machine issues using the `az networkcloud baremet
 description: Step by step guide on using the `az networkcloud baremetalmachine run-data-extract` to extract data from a bare metal machine for troubleshooting and diagnostic purposes.
 author: eak13
 ms.author: ekarandjeff
-ms.service: azure
+ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 05/15/2023
 ms.custom: template-how-to
@@ -34,6 +34,10 @@ The current list of supported commands are
   - `TTYLog` - Storage TTYLog data
   - `Debug` - debug logs
 
+- Collect Microsoft Defender for Endpoints (MDE) agent information\
+  Command Name: `mde-agent-information`\
+  Arguments: None
+
 The command syntax is:
 
 ```azurecli-interactive
@@ -55,6 +59,16 @@ az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" 
   --resource-group "resourceGroupName" \
   --subscription "subscription" \
   --commands '[{"arguments":["SysInfo", "TTYLog"],"command":"hardware-support-data-collection"}]' \
+  --limit-time-seconds 600
+```
+
+This example executes the `mde-agent-information` command without arguments.
+
+```azurecli
+az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
+  --resource-group "resourceGroupName" \
+  --subscription "subscription" \
+  --commands '[{"command":"mde-agent-information"}]' \
   --limit-time-seconds 600
 ```
 
@@ -88,4 +102,21 @@ Collection successfully exported to /hostfs/tmp/runcommand/hardware-support-data
 ================================
 Script execution result can be found in storage account:
 https://cm2p9bctvhxnst.blob.core.windows.net/bmm-run-command-output/dd84df50-7b02-4d10-a2be-46782cbf4eef-action-bmmdataextcmd.tar.gz?se=2023-04-14T01%3A00%3A15Zandsig=ZJcsNoBzvOkUNL0IQ3XGtbJSaZxYqmtd%2BM6rmxDFqXE%3Dandsp=randspr=httpsandsr=bandst=2023-04-13T21%3A00%3A15Zandsv=2019-12-12
+```
+
+Data is collected with the `mde-agent-information` command and formatted as JSON
+to `/hostfs/tmp/runcommand/mde-agent-information.json`. The JSON file is found
+in the data extract zip file located in the storage account.
+
+```azurecli
+====Action Command Output====
+Executing mde-agent-information command
+MDE agent is running, proceeding with data extract
+Getting MDE agent information for bareMetalMachine
+Writing to /hostfs/tmp/runcommand
+
+
+================================
+Script execution result can be found in storage account:
+ https://cmzhnh6bdsfsdwpbst.blob.core.windows.net/bmm-run-command-output/f5962f18-2228-450b-8cf7-cb8344fdss63b0-action-bmmdataextcmd.tar.gz?se=2023-07-26T19%3A07%3A22Z&sig=X9K3VoNWRFP78OKqFjvYoxubp65BbNTq%2BGnlHclI9Og%3D&sp=r&spr=https&sr=b&st=2023-07-26T15%3A07%3A22Z&sv=2019-12-12
 ```

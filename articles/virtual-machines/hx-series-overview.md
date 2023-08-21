@@ -75,19 +75,19 @@ lstopo-no-graphics --no-io --no-legend --of txt
 <details>
 <summary>Click to view lstopo output for Standard_HX176-96rs</summary>
 
-![lstopo output for HX-64 VM](./media/hpc/architecture/hx/hx-96-lstopo.png)
+![lstopo output for HX-96 VM](./media/hpc/architecture/hx/hx-96-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HX176-48rs</summary>
 
-![lstopo output for HX-32 VM](./media/hpc/architecture/hx/hx-48-lstopo.png)
+![lstopo output for HX-48 VM](./media/hpc/architecture/hx/hx-48-lstopo.png)
 </details>
 
 <details>
 <summary>Click to view lstopo output for Standard_HX176-24rs</summary>
 
-![lstopo output for HX-16 VM](./media/hpc/architecture/hx/hx-24-lstopo.png)
+![lstopo output for HX-24 VM](./media/hpc/architecture/hx/hx-24-lstopo.png)
 </details>
 
 ## InfiniBand networking
@@ -127,14 +127,20 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 | Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)                      | 
 
 > [!NOTE] 
-> These VMs support only Generation 2.
-> There is no official kernel level support from AMD on CentOS. Support starts at RHEL 8.6 and a derivative of RHEL which is Alma Linux 8.6.
-> Windows Server 2012 R2 is not supported on HX and other VMs with more than 64 (virtual or physical) cores. For more information, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Windows Server 2022 is required for 144 and 176 core sizes, Windows Server 2016 also works for 24, 48, and 96 core sizes, Windows Server works for only 24 and 48 core sizes.  
+> * These VMs support only Generation 2.
+> * There is no official kernel level support from AMD on CentOS. Support starts at RHEL 8.6 and a derivative of RHEL which is Alma Linux 8.6.
+> * Windows Server 2012 R2 is not supported on HX and other VMs with more than 64 (virtual or physical) cores. For more information, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Windows Server 2022 is required for 144 and 176 core sizes, Windows Server 2016 also works for 24, 48, and 96 core sizes, Windows Server works for only 24 and 48 core sizes.  
 
 > [!IMPORTANT] 
-> Recommended image URN: almalinux:almalinux-hpc:8_7-hpc-gen2:8.7.2023060101, To deploy this image over Azure CLI, esnure the following parameters are included **--plan 8_7-hpc-gen2 --product almalinux-hpc --publisher almalinux**. For scaling tests please use the recommended URN along with the new [HPC-X tarball] (https://github.com/Azure/azhpc-images/blob/c8db6de3328a691812e58ff56acb5c0661c4d488/alma/alma-8.x/alma-8.6-hpc/install_mpis.sh#L16).
+> Recommended image URN: almalinux:almalinux-hpc:8_7-hpc-gen2:8.7.2023060101, To deploy this image over Azure CLI, ensure the following parameters are included **--plan 8_7-hpc-gen2 --product almalinux-hpc --publisher almalinux**. For scaling tests please use the recommended URN along with the new [HPC-X tarball](https://github.com/Azure/azhpc-images/blob/c8db6de3328a691812e58ff56acb5c0661c4d488/alma/alma-8.x/alma-8.6-hpc/install_mpis.sh#L16).
+
+> [!NOTE]
+> * NDR support is added in UCX 1.13 or later. Older UCX versions will report the above runtime error. UCX Error: Invalid active speed `[1677010492.951559] [updsb-vm-0:2754 :0]       ib_iface.c:1549 UCX ERROR Invalid active_speed on mlx5_ib0:1: 128`.
+> * Ibstat shows low speed (SDR): Older Mellanox OFED (MOFED) versions do not support NDR and it may report slower IB speeds. Please use MOFED versions MOFED 5.6-1.0.3.3 or above.
 
 ## Next steps
 
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
+
+

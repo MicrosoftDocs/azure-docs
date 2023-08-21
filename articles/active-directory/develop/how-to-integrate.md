@@ -18,7 +18,7 @@ ROBOTS: NOINDEX
 
 # Integrating with the Microsoft identity platform
 
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-devguide](../../../includes/devguide.md)]
 
 In this article, you learn about the benefits of integrating your application with the Microsoft identity platform and get resources for integration. The Microsoft identity platform and Azure Active Directory (AD) provides organizations with enterprise-grade identity management for cloud applications. The Microsoft identity platform integration gives your users a streamlined sign-in experience, and helps your application conform to IT policy.
 
@@ -76,7 +76,7 @@ Integration with the Microsoft identity platform comes with benefits that do not
 
 ### Easy development
 
-**Industry standard protocols.**  Microsoft is committed to supporting industry standards. The Microsoft identity platform supports the industry-standard OAuth 2.0 and OpenID Connect 1.0 protocols. Learn more about the [Microsoft identity platform authentication protocols](active-directory-v2-protocols.md).
+**Industry standard protocols.**  Microsoft is committed to supporting industry standards. The Microsoft identity platform supports the industry-standard OAuth 2.0 and OpenID Connect 1.0 protocols. Learn more about the [Microsoft identity platform authentication protocols](./v2-protocols.md).
 
 **Open source libraries.**  Microsoft provides fully supported open source libraries for popular languages and platforms to speed development. The source code is licensed under Apache 2.0, and you are free to fork and contribute back to the projects. Learn more about the [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md).
 

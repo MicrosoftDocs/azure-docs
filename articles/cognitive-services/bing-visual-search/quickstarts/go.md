@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Get image insights using the REST API and Go - Bing Visual Search"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Learn how to upload an image using the Bing Visual Search API and Go, and then get insights about the image.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: mode-api
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Go
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Visual Search API using the Go programming language. A POST request uploads an image to the API endpoint. The results include URLs and descriptive information about images similar to the uploaded image.
 
@@ -113,7 +113,7 @@ The following code declares the main function and assigns the required variables
 1. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. 
 2. For `batchNumber`, assign a GUID, which is required for the leading and trailing boundaries of the POST data. 
 3. For `fileName`, assign the image file to use for the POST. 
-4. For `endpoint`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+4. For `endpoint`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ```go
 func main() {
@@ -297,4 +297,4 @@ The results identify images similar to the image contained in the POST body. The
 
 > [!div class="nextstepaction"]
 > [What is the Bing Visual Search API?](../overview.md)
-> [Bing Web Search quickstart in Go](../../Bing-Web-Search/quickstarts/go.md)
+> [Bing Web Search quickstart in Go](../../bing-web-search/quickstarts/go.md)

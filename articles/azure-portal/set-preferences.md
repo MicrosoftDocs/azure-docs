@@ -102,12 +102,6 @@ The theme that you choose affects the background and font colors that appear in 
 
 Alternatively, you can choose a theme from the **High contrast theme** section. These themes can make the Azure portal easier to read, especially if you have a visual impairment. Selecting either the white or black high-contrast theme will override any other theme selections.
 
-### Focus navigation
-
-Choose whether or not to enable focus navigation.
-
-If enabled, only one screen at a time will be visible as you step through a process in the portal. If disabled, as you move through the steps of a process, you'll be able to move between them through a horizontal scroll bar.
-
 ### Startup page
 
 Choose one of the following options for the page you'll see when you first sign in to the Azure portal.

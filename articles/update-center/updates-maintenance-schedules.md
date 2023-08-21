@@ -2,7 +2,7 @@
 title: Updates and maintenance in update management center (preview).
 description: The article describes the updates and maintenance options available in Update management center (preview).
 ms.service: update-management-center
-ms.date: 05/22/2023
+ms.date: 05/23/2023
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha
@@ -25,6 +25,7 @@ Update management center (preview) provides you the flexibility to take an immed
 ## Update Now/One-time update
 
 Update management center (preview) allows you to secure your machines immediately by installing updates on demand. To perform the on-demand updates, see [Check and install one time updates](deploy-updates.md#install-updates-on-single-vm).
+
 
 ## Scheduled patching
 You can create a schedule on a daily, weekly or hourly cadence as per your requirement, specify the machines that must be updated as part of the schedule, and the updates that you must install. The schedule will then automatically install the updates as per the specifications.

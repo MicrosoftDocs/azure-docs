@@ -49,6 +49,9 @@ az group create \
 
 A virtual network and subnet is required for to host the private IP address for the private endpoint. You create a bastion host to connect securely to the virtual machine to test the private endpoint. You create the virtual machine in a later section.
 
+>[!NOTE]
+>[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
 Create a virtual network with **[az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)**.
 
 ```azurecli-interactive

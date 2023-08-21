@@ -5,20 +5,23 @@ ms.service: iot-central
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/22/2022
+ms.date: 07/24/2023
 ms.topic: how-to
 ms.custom: contperf-fy23q1
 ---
 
 # Manage devices in bulk in your Azure IoT Central application
 
-You can use Azure IoT Central to manage your connected devices at scale through jobs. Jobs let you do bulk updates to device and cloud properties and run commands. You can also use CSV files to import and export devices in bulk. This article shows you how to get started with using jobs in your own application and how to use the import and export features.
+You can use Azure IoT Central to manage your connected devices at scale through jobs. Jobs let you do bulk updates to device and cloud properties and run commands. This article shows you how to use jobs in your own application and how to use the import and export features.
 
-To learn how to manage jobs by using the IoT Central REST API, see [How to use the IoT Central REST API to manage devices.](../core/howto-manage-jobs-with-rest-api.md)
+To learn how to manage jobs by using the IoT Central REST API, see [How to use the IoT Central REST API to manage devices](../core/howto-manage-jobs-with-rest-api.md).
+
+> [!TIP]
+> When you create a recurring job, sign in to your application using a Microsoft account or Azure Active Directory account. If you sign in using an Azure Active Directory group, it's possible that the Azure Active Directory token associated with the group will expire at some point in the future and cause the job to fail.
 
 ## Create and run a job
 
-The following example shows you how to create and run a job to set the light threshold for a group of devices. You use the job wizard to create and run jobs. You can save a job to run later.
+The following example shows you how to create and run a job to set the light threshold for a group of devices. You use the job wizard to create and run jobs. You can save a job to run later:
 
 1. On the left pane, select **Jobs**.
 
@@ -157,7 +160,7 @@ To register a large number of devices to your application, you can bulk import d
 | Column | Description |
 | - | - |
 | IOTC_DEVICEID | The device ID is a unique identified this device will use to connect. The device ID can contain letters, numbers, and the `-` character without any spaces. The maximum length is 128 characters. |
-| IOTC_DEVICENAME | Optional. The device name is a friendly name that will be displayed throughout the application. If not specified, the same as the device ID. The maximum length is 148 characters. |
+| IOTC_DEVICENAME | Optional. The device name is a friendly name that will be displayed throughout the application. If not specified, the device name is the same as the device ID. The maximum length is 148 characters. |
 
 To bulk-register devices in your application:
 
@@ -178,7 +181,7 @@ To bulk-register devices in your application:
 
 1. Once the import completes, a success message is shown in the **Device Operations** panel.
 
-    :::image type="content" source="media/howto-manage-devices-in-bulk/bulk-import.png" alt-text="Screenshot showing import success." lightbox="media/howto-manage-devices-in-bulk/bulk-import.png":::
+    :::image type="content" source="media/howto-manage-devices-in-bulk/bulk-import.png" alt-text="Screenshot that shows a successful device import." lightbox="media/howto-manage-devices-in-bulk/bulk-import.png":::
 
 If the device import operation fails, you see an error message on the **Device Operations** panel. A log file capturing all the errors is generated that you can download.
 

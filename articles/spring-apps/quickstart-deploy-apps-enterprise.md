@@ -6,7 +6,7 @@ ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 05/31/2022
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan
@@ -96,13 +96,13 @@ Use the following steps to provision an Azure Spring Apps service instance.
 1. Use the following commands to retrieve the Resource ID for your Log Analytics Workspace and Azure Spring Apps service instance:
 
    ```azurecli
-   LOG_ANALYTICS_RESOURCE_ID=$(az monitor log-analytics workspace show \
+   export LOG_ANALYTICS_RESOURCE_ID=$(az monitor log-analytics workspace show \
        --resource-group <resource-group-name> \
        --workspace-name <workspace-name> \
        --query id \
        --output tsv)
 
-   AZURE_SPRING_APPS_RESOURCE_ID=$(az spring show \
+   export AZURE_SPRING_APPS_RESOURCE_ID=$(az spring show \
        --resource-group <resource-group-name> \
        --name <Azure-Spring-Apps-service-instance-name> \
        --query id \
@@ -240,7 +240,7 @@ Use the following steps to deploy and build applications. For these steps, make 
        --resource-group <resource-group-name> \
        --name quickstart-builder \
        --service <Azure-Spring-Apps-service-instance-name> \
-       --builder-file azure/builder.json
+       --builder-file azure-spring-apps-enterprise/resources/json/tbs/builder.json
    ```
 
 1. Use the following command to build and deploy the payment service:
@@ -319,7 +319,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 1. Use the following commands to configure Spring Cloud Gateway API information:
 
    ```azurecli
-   GATEWAY_URL=$(az spring gateway show \
+   export GATEWAY_URL=$(az spring gateway show \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> \
        --query properties.url \
@@ -343,7 +343,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
        --name cart-routes \
        --service <Azure-Spring-Apps-service-instance-name> \
        --app-name cart-service \
-       --routes-file azure/routes/cart-service.json
+       --routes-file azure-spring-apps-enterprise/resources/json/routes/cart-service.json
    ```
 
 1. Use the following command to create routes for the order service:
@@ -354,7 +354,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
        --name order-routes \
        --service <Azure-Spring-Apps-service-instance-name> \
        --app-name order-service \
-       --routes-file azure/routes/order-service.json
+       --routes-file azure-spring-apps-enterprise/resources/json/routes/order-service.json
    ```
 
 1. Use the following command to create routes for the catalog service:
@@ -365,7 +365,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
        --name catalog-routes \
        --service <Azure-Spring-Apps-service-instance-name> \
        --app-name catalog-service \
-       --routes-file azure/routes/catalog-service.json
+       --routes-file azure-spring-apps-enterprise/resources/json/routes/catalog-service.json
    ```
 
 1. Use the following command to create routes for the frontend:
@@ -376,13 +376,13 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
        --name frontend-routes \
        --service <Azure-Spring-Apps-service-instance-name> \
        --app-name frontend \
-       --routes-file azure/routes/frontend.json
+       --routes-file azure-spring-apps-enterprise/resources/json/routes/frontend.json
    ```
 
 1. Use the following commands to retrieve the URL for Spring Cloud Gateway:
 
    ```azurecli
-   GATEWAY_URL=$(az spring gateway show \
+   export GATEWAY_URL=$(az spring gateway show \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> \
        --query properties.url \
@@ -409,7 +409,7 @@ Use the following steps to configure API Portal.
 1. Use the following commands to retrieve the URL for API Portal:
 
    ```azurecli
-   PORTAL_URL=$(az spring api-portal show \
+   export PORTAL_URL=$(az spring api-portal show \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> \
        --query properties.url \

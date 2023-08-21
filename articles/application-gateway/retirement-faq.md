@@ -16,19 +16,19 @@ On April 28,2023 we announced retirement of Application gateway V1 on 28 April 2
 
 ### What is the official date Application Gateway V1 is cut off from creation?
 
-New Customers are not allowed to create v1 from 1 July 2023. However, any existing V1 customers can continue to create resources until August 2024 and manage V1 resources until the retirement date of 28 April 2026.
+New Customers will not be allowed to create V1 from 1 July 2023 onwards. However, any existing V1 customers can continue to create resources in existing subscriptions until August 2024 and manage V1 resources until the retirement date of 28 April 2026.
 
 ### What happens to existing Application Gateway V1 after 28 April 2026?
 
-Once the deadline arrives V1 gateways are not supported. Any V1 SKU resources that are still active are stopped, and force deleted.
+Once the deadline arrives V1 gateways aren't supported. Any V1 SKU resources that are still active are stopped, and force deleted.
 
 ### What is the definition of a new customer on Application Gateway V1 SKU?
 
-Customers who did not have Application Gateway V1 SKU in their subscriptions in the month of June 2023 are considered as new customers. These customers won’t be able to create new V1 gateways from 1 July 2023.
+Customers who didn't have Application Gateway V1 SKU in their subscriptions as of 4 July 2023 are considered as new customers. These customers won’t be able to create new V1 gateways in subscriptions which didn't have an existing V1 gateway as of 4 July 2023 going forward.
 
 ### What is the definition of an existing customer on Application Gateway V1 SKU?
 
-Customers who had active or stopped but allocated Application Gateway V1 SKU in their subscriptions in the month of June 2023, are considered existing customers. These customers get until August 28, 2024 to create new V1 application gateways and until April 28,2026 to migrate their V1 gateways to V2.
+Customers who had active or stopped but allocated Application Gateway V1 SKU in their subscriptions as of  4 July 2023, are considered existing customers. These customers get until August 28, 2024 to create new V1 application gateways in their existing subscriptions and until April 28,2026 to migrate their V1 gateways to V2.
 
 ### Does this migration plan affect any of my existing workloads that run on Application Gateway V1 SKU?
 
@@ -46,8 +46,8 @@ If you have an Application Gateway V1, [Migration from v1 to v2](./migrate-v1-v2
 
 ### Can Microsoft migrate this data for me?
 
-No, Microsoft cannot migrate user's data on their behalf. Users must do the migration themselves by using the self-serve options provided.
-Application Gateway v1 is built on legacy components and customers have deployed the gateways in many different ways in their architecture ,due to which customer involvement is required for migration.This also allows users to plan the migration during a maintenance window, which can help to ensure that the migration is successful with minimal downtime for the user's applications.
+No, Microsoft can't migrate user's data on their behalf. Users must do the migration themselves by using the self-serve options provided.
+Application Gateway v1 is built on legacy components and customers have deployed the gateways in many different ways in their architecture , due to which customer involvement is required for migration. This also allows users to plan the migration during a maintenance window, which can help to ensure that the migration is successful with minimal downtime for the user's applications.
 
 ### What is the time required for migration?
 
@@ -73,15 +73,15 @@ No. The Azure PowerShell script only migrates the configuration. Actual traffic 
 
 ### Is the new v2 gateway created by the Azure PowerShell script sized appropriately to handle all of the traffic that is currently served by my v1 gateway?
 
-The Azure PowerShell script creates a new v2 gateway with an appropriate size to handle the traffic on your existing v1 gateway. Autoscaling is disabled by default, but you can enable AutoScaling when you run the script.
+The Azure PowerShell script creates a new v2 gateway with an appropriate size to handle the traffic on your existing v1 gateway. Auto-scaling is disabled by default, but you can enable Auto-Scaling when you run the script.
 
 ### I configured my v1 gateway  to send logs to Azure storage. Does the script replicate this configuration for v2 as well?
 
 No. The script doesn't  replicate this configuration for v2. You must add the log configuration separately to the migrated v2 gateway.
 
-### Does this script support certificates uploaded to Azure Key Vault ?
+### Does this script support certificate uploaded to Azure Key Vault?
 
-No. Currently the script doesn't support certificates in Key Vault. 
+Yes. You can download the certificate from Keyvault and provide it as input to the migration script .
 
 ### I ran into some issues with using this script. How can I get help?
 

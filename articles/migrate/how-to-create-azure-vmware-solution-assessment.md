@@ -4,6 +4,7 @@ description: Describes how to create an AVS assessment with Azure Migrate
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 04/06/2022
 ---
