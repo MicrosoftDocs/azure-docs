@@ -56,6 +56,13 @@ After creation, you would be able to view/edit your replica on the portal by cli
 > * Geo-replication is a feature available in premium tier.
 > * A replica is considered a separate resource when it comes to billing. See [Pricing](concept-billing-model.md#how-replica-is-billed) for more details. 
 
+## Pricing and resource unit
+Each replica has its **own** `unit` and `autoscale settings`.
+
+Replica is a feature of [Premium tier](https://azure.microsoft.com/pricing/details/web-pubsub-service/) of Azure Web Pubsub Service. Each replica is billed **separately** according to its own unit and outbound traffic. Free message quota is also calculated separately.
+
+In the preceding example, Contoso added one replica in Canada Central. Contoso would pay for the replica in Canada Central according to its unit and message in Premium Price.
+
 ## Delete a replica
 After you've created a replica for a Web PubSub resource, you can delete it at any time if it's no longer needed. 
 
@@ -64,16 +71,6 @@ To delete a replica in the Azure portal:
 1. Navigate to your Web PubSub resource, and select **Replicas** blade. Click the replica you want to delete.
 2. Click Delete button on the replica overview blade.
 
-## Impact on performance after enabling geo-replication feature
-After a replica is created, your clients will be distributed across selected Azure regions based on their geographical locations. Web PubSub service handles synchronizing data across these replicas automatically and this synchronization incurs a low level of cost. The cost is negligible if your use case primarily involves `sendToGroup()` where the group has more than 100 connections. However, the cost may become more apparent when sending to smaller groups (connection count < 10) or a single user. 
-
-For more performance evaluation, refer to [Performance](concept-performance.md).
-
-## Best practices
-To ensure effective failover management, it is recommended to enable [autoscaling](howto-scale-autoscale.md) for the resource and its replicas. If there are two replicas in a Web PubSub resource and one of the replicas is not available due to an outage, the available replica will receive all the traffic and handle all the WebSocket connections. Auto-scaling can scale up to meet the demand automatically.
-> [!NOTE]
-> * Autoscaling for replica is configured on its own resource level. Scaling primary resource won't change the unit size of the replica.
-
 ## Understand how the geo-replication feature works
 
 ![Screenshot of the arch of Azure Web PubSub replica. ](./media/howto-enable-geo-replication/web-pubsub-replica-arch.png  "Replica Arch")
@@ -81,9 +78,36 @@ To ensure effective failover management, it is recommended to enable [autoscalin
 1. The client resolves the Fully Qualified Domain Name (FQDN) `contoso.webpubsub.azure.com` of the Web PubSub service. This FQDN points to a Traffic Manager, which returns the  Canonical Name (CNAME) of the nearest regional Web PubSub instance.
 2. With this CNAME, the client establishes a websocket connection to the regional instance.
 3. The two replicas will synchronize data with each other. Messages sent to one replica would be transferred to other replicas if necessary.
-4. In case a replica fails the health check conducted by the Traffic Manager (TM), the TM will exclude the failed instance's endpoint from its domain resolution results.
+4. In case a replica fails the health check conducted by the Traffic Manager (TM), the TM will exclude the failed instance's endpoint from its domain resolution results. For details, refer to below [Resiliency and Disaster Recovery](#resiliency-and-disaster-recovery)
 
 > [!NOTE]
 > * In the data plane, a primary Azure Web PubSub resource functions identically to its replicas
 
 ----
+
+## Resiliency and Disaster Recovery
+
+Azure Web PubSub Service utilizes a traffic manager for health checks and DNS resolution towards its replicas. Under normal circumstances, when all replicas are functioning properly, clients will be directed  to the closest replica. For instance:
+
+- Clients close to `eastus` will be directed to the replica located in `eastus`.
+- Similarly, clients close to `westus` will be directed to the replica in `westus`.
+
+In the event of a **regional outage** in eastus (illustrated below), the traffic manager will detect the health check failure for that region. Then, this faulty replica's DNS will be excluded from the traffic manager's DNS resolution results. After a DNS Time-to-Live (TTL) duration, which is set to 90 seconds, clients in `eastus` will be redirected to connect with the replica in `westus`.
+
+![Screenshot of Azure Web PubSub replica failover. ](./media/howto-enable-geo-replication/web-pubsub-replica-failover.png  "Replica Failover")
+
+Once the issue in `eastus` is resolved and the region is back online, the health check will succeed. Clients in `eastus` will then, once again, be directed to the replica in their region. This transition is smooth as the connected clients will not be impacted until those existing connections are closed. 
+
+![Screenshot of Azure Web PubSub replica failover recovery. ](./media/howto-enable-geo-replication/web-pubsub-replica-failover-recovery.png  "Replica Failover Recover")
+
+
+This failover and recovery process is **automatic** and requires no manual intervention.
+
+## Impact on performance after enabling geo-replication feature
+After introducing replicas, clients will naturally distribute based on their geographical locations. While Web PubSub takes on the responsibility to synchronize data across these replicas, you'll be pleased to know that the associated overhead is minimal for most common use cases. 
+
+Specifically, if your application typically broadcasts to larger groups (size >10) or a single connection, the synchronization cost is barely noticeable. If you're messaging small groups (size < 10), you might notice a bit more synchronization overhead.
+
+To ensure effective failover management, it is recommended to set each replica's unit size to handle all traffic. Alternatively, you could enable [autoscaling](howto-scale-autoscale.md) to manage this.
+
+For more performance evaluation, refer to [Performance](concept-performance.md).
