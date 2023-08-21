@@ -33,7 +33,7 @@ If you're using the base models, you should configure your client code to monito
 
 Follow these steps to configure your client to monitor errors:
 
-- Use the [Products by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all&rar=true) page to choose the datacenters and regions that are right for you.
+- Use the [models](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability) page to choose the datacenters and regions that are right for you.
 
 - Select a primary and one (or more) secondary/backup regions from the list.
 
