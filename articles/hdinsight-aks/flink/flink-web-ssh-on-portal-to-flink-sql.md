@@ -27,7 +27,7 @@ You're required to change directory to `/opt/flink-webssh/bin` and then execute 
 
 :::image type="content" source="./media/flink-webssh-client/sql-client-file-msdata.png" alt-text="Screenshot how to find sql client file.":::
 
-:::image type="content" source="./media/flink-webssh-client/run-sql-client-msdata.png" alt-text="Screenshot show inghow to run SQL client."::: 
+:::image type="content" source="./media/flink-webssh-client/run-sql-client-msdata.png" alt-text="Screenshot showing how to run SQL client."::: 
 
 You're now on SQL Client on Flink
 
@@ -46,7 +46,7 @@ Submitting a job means to upload the job’s JAR to the SSH pod and initiating t
 
 - Upload the fat job jar from ABFS to webssh.
 - Based on your use case, you're required to edit client configurations at `conf/flink-conf.yaml`
-  :::image type="content" source="./media/flink-webssh-client/flink-conf-yaml.png" alt-text="Screenshot showing how to configure the flink config yaml on CLI":::
+  :::image type="content" source="./media/flink-webssh-client/flink-conf-yaml.png" alt-text="Screenshot showing how to configure the Flink config yaml on CLI.":::
 - Let us run StateMachineExample.jar
 
   ```
@@ -55,7 +55,7 @@ Submitting a job means to upload the job’s JAR to the SSH pod and initiating t
       ./examples/streaming/StateMachineExample.jar
   ```
 > [!NOTE]
-> Submitting the job using --detached will make the command return after the submission is done. The output contains the ID of the newly submitted job.
+> Submitting the job using `--detached` will make the command return after the submission is done. The output contains the ID of the newly submitted job.
 
 ## Reference
 

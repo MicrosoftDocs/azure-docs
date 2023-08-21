@@ -3,7 +3,7 @@ title: Table API and SQL - HDInsight on AKS - Apache Flink
 description: Learn about Table API and SQL in HDInsight on AKS - Flink
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 07/29/2023
+ms.date: 08/16/2023
 ---
 
 # Table API and SQL in HDInsight on AKS - Apache Flink
@@ -141,7 +141,9 @@ The *HiveCatalog* serves two purposes; as persistent storage for pure Flink meta
 You can refer this article on how to use CLI and get started with Flink SQL Client from [Secure Shell](../flink/flink-webssh-on-portal-to-flink-sql.md) on Azure portal.
 
 - Start `sql-client.sh` session
+  
   :::image type="content" source="./media//flink-table-sql-api/default-catalog.png" alt-text="Screenshot showing default hive catalog.":::
+
   Default_catalog is the default in-memory catalog
 - Let us now check default database of in-memory catalog
   :::image type="content" source="./media//flink-table-sql-api/default-database-inmemorycatalogs.png" alt-text="Screenshot showing default in-memory catalogs.":::
@@ -161,7 +163,7 @@ You can refer this article on how to use CLI and get started with Flink SQL Clie
 
 - Follow the instructions on [How to Create and Register Flink Databases to Catalog](#how-to-create-and-register-flink-databases-to-catalogs)
 - Let us create Flink Table of connector type Hive without Partition
-- 
+
   ```sql
   CREATE TABLE hive_table(x int, days STRING) WITH ( 'connector' = 'hive', 'sink.partition-commit.delay'='1 s', 'sink.partition-commit.policy.kind'='metastore,success-file');
   ```

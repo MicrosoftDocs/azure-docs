@@ -1,6 +1,6 @@
 ---
-title: How to Use Flink CLI to submit jobs.
-description: Learn how to Use Flink CLI to submit jobs.
+title: How to Use Flink CLI to submit jobs
+description: Learn how to Use Flink CLI to submit jobs
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/04/2023
@@ -18,8 +18,8 @@ To install Flink CLI on linux, you will need **linux VM** to execute the install
 > This does NOT work on Windows **GIT BASH**, you need to install [WSL](https://learn.microsoft.com/windows/wsl/install) to make this work on Windows. 
 
 ### Requirements
-1. Install JRE 11.  If not installed, follow the steps from here https://learn.microsoft.com/java/openjdk/download
-2. Add java to PATH or define JAVA_HOME environment variable pointing to JRE installation directory, such that $JAVA_HOME/bin/java exists.
+* Install JRE 11.  If not installed, follow the steps from here https://learn.microsoft.com/java/openjdk/download
+* Add java to PATH or define JAVA_HOME environment variable pointing to JRE installation directory, such that `$JAVA_HOME/bin/java` exists.
 
 ### Install or update
 
