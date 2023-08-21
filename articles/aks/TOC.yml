@@ -527,7 +527,7 @@
                   href: app-routing.md
                 - name: Monitor using Prometheus and Grafana
                   href: app-routing-nginx-prometheus.md
-                - name: Migrate from HTTP Application Routing to the application routing add-on
+                - name: Migrate from HTTP application routing to the application routing add-on
                   href: app-routing-migration.md
             - name: Use Application Gateway Ingress Controller add-on
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
