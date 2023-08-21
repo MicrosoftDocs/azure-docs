@@ -224,7 +224,7 @@ You can also completely disable public access to your Azure Container Registry i
 1. In the Azure portal container registry, select **Networking**.
 2. Select the **Public access** tab, select **Disabled**, and then select **Allow trusted Microsoft services to access this container registry**.
 
-   :::image type="content" source="media/convert-data/configure-settings-convert-data/configure-private-network-container-registry.png" alt-text="Screenshot of the "Networking" pane for disabling public network access to an Azure Container Registry instance." lightbox="media/convert-data/configure-settings-convert-data/fhir-acr-add-registry.png"::: 
+   :::image type="content" source="media/convert-data/configure-settings-convert-data/configure-private-network-container-registry.png" alt-text="Screenshot of the "Networking" pane for disabling public network access to an Azure Container Registry instance." lightbox="media/convert-data/configure-settings-convert-data/configure-private-network-container-registry.png"::: 
 
 ### Verify the $convert-data operation
 
