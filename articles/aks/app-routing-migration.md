@@ -1,6 +1,6 @@
 ---
 title: Migrate from HTTPS application routing to the application routing add-on
-description: Learn how to migrate from the retired HTTP application routing feature to the application routing add-on.
+description: Learn how to migrate from the HTTP application routing feature to the application routing add-on.
 ms.topic: how-to
 ms.author: nickoman
 author: nickomang
