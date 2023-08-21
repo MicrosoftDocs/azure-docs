@@ -90,7 +90,7 @@ The bandwidth metrics have changes to `availableBitrate` in audio send and video
 | Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
 | `id` | Statistics ID | It's used to identify statistics across the events, especially when there are multiple statistics with the same media type and direction in an event. |
-| `codecName` | Codec name | OPUS, G722|
+| `codecName` | Codec name | OPUS, G722.|
 | `bitrate` | Audio send bit rate (bits per second) | General values are in the 24-Kbps range (36-128 Kbps is typical). |
 | `jitterInMs` | Packet jitter (milliseconds) | Lower is better. |
 | `packetsPerSecond` | Packet rate (packets per second) | |
@@ -120,7 +120,7 @@ The bandwidth metrics have changes to `availableBitrate` in audio send and video
 | Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
 | `id` | Statistics ID | It's used to identify statistics across the events, especially when there are multiple statistics with the same media type and direction in an event. |
-| `codecName` | Codec name | H264, VP8, VP9 |
+| `codecName` | Codec name | H264, VP8, VP9. |
 | `bitrate` | Video send bitrate (bits per second) | |
 | `jitterInMs` | Packet jitter (milliseconds) | Lower is better. |
 | `packetsPerSecond` | Packet rate (packets per second) | |
@@ -144,7 +144,7 @@ The bandwidth metrics have changes to `availableBitrate` in audio send and video
 | Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
 | `id` | Statistics ID | It's used to identify statistics across the events, especially when there are multiple statistics with the same media type and direction in an event. |
-| `codecName` | Codec name | H264, VP8, VP9 |
+| `codecName` | Codec name | H264, VP8, VP9. |
 | `bitrate` | Video receive bitrate (bits per second) | |
 | `jitterInMs` | Packet jitter (milliseconds) | Lower is better. |
 | `packetsPerSecond` | Packet rate (packets per second) | |
@@ -174,7 +174,7 @@ Currently, statistics fields are the same as *video receive metrics*.
 
 ### Using media quality statistics on SDK versions earlier than 1.8.0
 
-If you're using an Azure Communication Services SDK version earlier than 1.8.0, see below for documentation on how to use this functionality.
+If you're using an Azure Communication Services SDK version earlier than 1.8.0, this section describes how to use this functionality.
 
 As a developer, you can invoke the `startCollector` method with optional `mediaStatsSubscriptionOptions`.
 
@@ -220,8 +220,8 @@ mediaStatsFeature.disposeAllCollectors();
 | `audioSendCodecName`        | Sent codec                   | Audio codec used.                                                                                                                                                                     | Information only.                                            |
 | `audioSendRtt`              | Send round-trip time         | Round-trip time between your system and the Azure Communication Services server. Results are in milliseconds.                                                                                                   | We recommend a round-trip time of 200 ms or less.          |
 | `audioSendPairRtt`          | Send pair round-trip time    | Round-trip time for the entire transport. Results are in milliseconds.                                                                                                                           | We recommend a round-trip time of 200 ms or less.          |
-| `audioRecvPairRtt`          | Receive pair round-trip Time | Round-trip time for the entire transport. Results are in milliseconds.                                                                                                                            | We recommend a round-trip time of 200 ms or less.          |
-| `audioSendAudioInputLevel`  | Input level for the microphone   | Sent audio playout level. If source data is between 0 and 1, the media stack multiplies it with `0xFFFF`. It depends on the microphone. Used to confirm if the microphone is silent (no incoming energy). | Microphone input level.                                      |
+| `audioRecvPairRtt`          | Receive pair round-trip time | Round-trip time for the entire transport. Results are in milliseconds.                                                                                                                            | We recommend a round-trip time of 200 ms or less.          |
+| `audioSendAudioInputLevel`  | Input level for the microphone   | Sent audio playout level. If source data is between 0 and 1, the media stack multiplies it with `0xFFFF`. It depends on the microphone. Use this metric to confirm if the microphone is silent (no incoming energy). | Microphone input level.                                      |
 | `audioRecvAudioOutputLevel` | Speaker output level        | Received audio playout level. If the source data is between 0 and 1, the media stack multiplies it with `0xFFFF`.                                                                                 | Speaker output level.                                        |
 
 ### Video quality metrics
@@ -231,7 +231,7 @@ mediaStatsFeature.disposeAllCollectors();
 | `videoSendFrameRateSent`         | Sent frame rate                  | Number of video frames sent. Results are frames per second.                                                                               | Higher is better. Possible values: 25-30 fps (360p or higher); <br>8-15 fps (270p or lower). |
 | `videoSendFrameWidthSent`        | Sent width                       | Video width resolution sent.                                                                                                             | Higher is better. Possible values:<br>1920, 1280, 960, 640, 480, 320.                             |
 | `videoSendFrameHeightSent`       | Sent height                      | Video height sent. Higher is better.                                                                                                      | Higher is better. Possible values:<br>1080, 720, 540, 360, 270, 240.                              |
-| `videoSendBitrate`               | Sent bitrate                     | Amount of video bitrate being sent. Results are bits per second.                                                                    |                                                                                                  |
+| `videoSendBitrate`               | Sent bitrate                     | Amount of video bitrate sent. Results are bits per second.                                                                    |                                                                                                  |
 | `videoSendPackets`               | Sent packets                     | The number of video packets sent. Results are packets per second (over the last second).                                                 | Information only.                                                                                 |
 | `VideoSendCodecName`             | Sent codec                       | Video codec used for encoding video.                                                                                                      | Possible values: VP8 (1:1 calls) and H264.                                                                         |
 | `videoRecvJitterBufferMs`        | Received jitter                  | The jitter buffer is used for smooth playout. This value is how long the packets of the frame stay in the jitter buffer (in milliseconds).                                                                | Lower is better.                                                                                 |
@@ -256,11 +256,11 @@ mediaStatsFeature.disposeAllCollectors();
 
 | Metric name                            | Purpose                          | Details                                                          | Comments                              |
 | -------------------------------------- | -------------------------------- | ---------------------------------------------------------------- | ------------------------------------- |
-| `screenSharingSendFrameRateSent`         | Sent frame rate                  | Number of video frames sent. Higher is better.                    | 1-30 FPS (content aware, variable).    |
+| `screenSharingSendFrameRateSent`         | Sent frame rate                  | Number of video frames sent. Higher is better.                    | 1-30 fps (content aware, variable).    |
 | `screenSharingSendFrameWidthSent`        | Sent width                       | Video resolution sent. Higher is better.                          | 1920 pixels (content aware, variable). |
 | `screenSharingSendFrameHeightSent`       | Sent height                      | Video resolution sent. Higher is better.                          | 1080 pixels (content aware, variable). |
 | `screenSharingSendCodecName`             | Sent codec                       | Codec used for encoding a screen share.                             | Information only.                      |
-| `screenSharingRecvFrameRateReceived`     | Received frame rate              | Number of video frames received. Lower is better.                | 1-30 FPS.                              |
+| `screenSharingRecvFrameRateReceived`     | Received frame rate              | Number of video frames received. Lower is better.                | 1-30 fps.                              |
 | `screenSharingRecvFrameWidthReceived`    | Received width                   | Video resolution received. Higher is better.                      | 1920 pixels (content aware, variable). |
 | `screenSharingRecvFrameHeightReceived`   | Received height                  | Video resolution sent. Higher is better.                          | 1080 pixels (content aware, variable). |
 | `screenSharingRecvCodecName`             | Received codec                   | Codec used for decoding the video stream.                             | Information only.                      |

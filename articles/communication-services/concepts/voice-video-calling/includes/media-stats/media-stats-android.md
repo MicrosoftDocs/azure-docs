@@ -23,7 +23,7 @@ MediaStatsCallFeature mediaStatsCallFeature = call.feature(Features.MEDIA_STATS)
 The `MediaStatsCallFeature` object has the following API structure:
 
 - The `OnSampleReportedListener` event listens for periodic reports of the media statistics.
-- `setSampleIntervalInSeconds(int value)` sets the interval (in seconds) of the media statistics report generation. If it's not specified, the SDK uses defaults.
+- `setSampleIntervalInSeconds(int value)` sets the interval, in seconds, of the media statistics report generation. If it's not specified, the SDK uses defaults.
 - A `MediaStatsReport` object contains the definition of the outgoing and incoming media statistics, categorized by audio, video, and screen share.
   - `getOutgoingMediaStats()`: The list of media statistics for outgoing media.
     - `getAudio()`: The list of media statistics for outgoing audio.
