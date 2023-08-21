@@ -88,7 +88,7 @@ Any user signing into Azure AD via web page can use flag sign-ins for review. Me
 
 ## Who can review flagged sign-ins?
 
-Reviewing flagged sign-in events requires permissions to read the sign-in report events in the Azure portal. For more information, see [How to access activity logs](how-to-access-activity-logs.md#prerequisites).
+Reviewing flagged sign-in events requires permissions to read the sign-in report events in the Azure portal. For more information, see [How to access activity logs](howto-access-activity-logs.md#prerequisites).
 
 
 To flag sign-in failures, you don't need extra permissions.

@@ -18,7 +18,7 @@ ms.reviewer: besiler
 Azure AD logs all sign-ins into an Azure tenant for compliance purposes. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly.
 
 - [Learn about the sign-in logs](concept-sign-ins.md).
-- [Customize and filter the sign-in logs](howto-customize-filter-sign-in-logs.md)
+- [Customize and filter the sign-in logs](howto-customize-filter-logs.md)
 
 This article explains the values on the Basic info tab of the sign-ins log.
 
@@ -60,6 +60,7 @@ When analyzing authentication details, take note of the following details:
     - A **satisfied by claim in the token** message is incorrectly displayed when sign-in events are initially logged. 
     - The **Primary authentication** row isn't initially logged.
 - If you're unsure of a detail in the logs, gather the **Request ID** and **Correlation ID** to use for further analyzing or troubleshooting.
+- If Conditional Access policies for authentication or session lifetime are applied, they are listed above the sign-in attempts. If you don't see either of these, those policies aren't currently applied. For more information, see [Conditional Access session controls](../conditional-access/concept-conditional-access-session.md).
 
 
 ## Unique identifiers 
