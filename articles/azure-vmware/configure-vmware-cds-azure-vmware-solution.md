@@ -14,24 +14,24 @@ ms.date: 06/12/2023
 
 # Configure VMware Cloud Director Service in Azure VMware Solution
 
-In this article, learn how to implement VMware Cloud director service in Azure VMware Solution.  
+In this article, learn how to implement [VMware Cloud Director Service](./https://docs.vmware.com/en/VMware-Cloud-Director-service/index.html) in Azure VMware Solution.  
 
 ## Prerequisites
--	Deploy a VMware Cloud Director Service Instance in your preferred region using the process described here. How Do I Create a VMware Cloud Director Instance
-
+-	Deploy a VMware Cloud Director Service Instance in your preferred region using the process described here. [How Do I Create a VMware Cloud Director Instance](./https://docs.vmware.com/en/VMware-Cloud-Director-service/services/using-vmware-cloud-director-service/GUID-26D98BA1-CF4B-4A57-971E-E58A0B482EBB.html#GUID-26D98BA1-CF4B-4A57-971E-E58A0B482EBB).
+  
 >[!Note] 
 > VMware Cloud Director Instances can establish connections to AVS SDDC in locations where the latency is within 150 ms.
 
  - Plan and deploy Azure VMware solution private cloud using the following links.
     - [Plan Azure VMware solution private cloud SDDC.](plan-private-cloud-deployment.md)
     - [Deploy and configure Azure VMware Solution - Azure VMware Solution.](deploy-azure-vmware-solution?tabs=azure-portal.md) 
--	Once you're able to access both VMware cloud director instance and Azure VMware solution SDDC, then proceed with the following steps.
+-	Once you're able to access both VMware cloud director instance and Azure VMware solution SDDC, then proceed with the next section.
 
 ## Plan and prepare Azure VMware solution private cloud for VMware Reverse proxy
 
-- Reverse proxy VM is deployed in Azure VMware solution SDDC and it needs outbound connectivity to your VMware Cloud director Service. [Plan how you would provide this internet connectivity](concepts-design-public-internet-access.md) 
+- Reverse proxy VM is deployed in Azure VMware solution SDDC and it needs outbound connectivity to your VMware Cloud director Service. [Plan how you would provide this internet connectivity.](concepts-design-public-internet-access.md) 
 
-- In this example, we're using public IP on NSX-T edge with a SNAT rule to provide outbound access for reverse proxy VM. 
+- In this example, public IP on NSX-T edge with a SNAT rule is used to provide outbound access for the reverse proxy VM. 
 - In the Azure Portal, activate and configure a public IP to the NSX Microsoft Edge for the VMware Cloud Director instance. For more information, see [Enable Public IP to the NSX Edge for Azure VMware Solution](enable-public-ip-nsx-edge.md)
 - Log in to Azure private cloud and Navigate to Internet connectivity under workload networking.
 - Click **+Add** to configure public IP.
@@ -39,9 +39,6 @@ In this article, learn how to implement VMware Cloud director service in Azure V
 - Click on the configure.
 
  :::image type="content" source="media/vmware-cds-avs/pic1.png" alt-text="Diagram showing how to configure public IP using Azure portal." border="false" lightbox="media/vmware-cds-avs/pic1.png":::
-
-
- ![Figure: Diagram showing how to configure public IP using Azure portal](media/vmware-cds-avs/pic1.png)
 
 - Click on the checkbox for "I confirm statement" and then click on **Save**.  
 
@@ -59,29 +56,28 @@ In this article, learn how to implement VMware Cloud director service in Azure V
  ![Create Tier-1 Gateway](./media/vmware-cds-avs/pic2.png)
 
 
-
 - Next step is to create segment. 
-    - Create a segment in NSX-T linked to desired tier-1 and provide CIDR for subnet.
+    - Add a segment in NSX-T. Provdie Name of the segment, select Connected gateway and Transport Zone. Provide subnet in the form of CIDR.
+
     ![Create NSX-T segment for reverse proxy VM.](./media/vmware-cds-avs/pic3.png)
 
--	Optionally configure DHCP configuration on the segment and provide an address range. You can skip this step if you use static IPs. Reverse proxy VM will be deployed on this segment in next section and will obtain IP address using DHCP.
+-	Optionally enable segment for DHCP by creating DHCP profile and setting DHCP config. You can skip this step if you use static IPs. Reverse proxy VM will be deployed on this segment in next section and will obtain IP address using DHCP.
     ![Configure DHCP profile](./media/vmware-cds-avs/pic4.png)
     ![Set DHCP config](./media/vmware-cds-avs/pic5.png)
 
-- Add NAT rules for outbound configuration as follows. 
-    - Create NOSNAT rule, 
-        - source IP is the NSX-T segment you created to deploy reverse proxy VM in above steps. You can use a specific IP as well.
-        - Under destination port, use private cloud network CIDR. In this example /16 is being used. 
-    - Create SNAT rule
-        - source IP is the NSX-T segment you created earlier. You can use a specific IP as well.
-        - Under translated IP, provide a public IP address, which you configured using PIP in the earlier section. 
-        - Set priority higher as compared to the NOSNAT rule.
-    - These two rules are required to provide an outbound access to VMware reverse proxy VM to reach VMware cloud director service and to reach management components of Azure VMware solution SDDC such as vCenter and NSX-T that are deployed in the management plane.
-
-o	Click Save.  
+- Add NAT rules for outbound configuration as follows. Add two NAT rules to provide an outbound access to VMware reverse proxy VM to reach VMware cloud director service and to reach management components of Azure VMware solution SDDC such as vCenter and NSX-T that are deployed in the management plane.
+    - Create **NOSNAT** rule, 
+        - Provide name of the rule and select source IP. You can use CIDR format or specific IP address.
+        - Under destination port, use private cloud network CIDR. 
+    - Create **SNAT** rule
+        - Provide name and select source IP.
+        - Under translated IP, provide a public IP address.
+        - Set priority of this rule higher as compared to the NOSNAT rule.
+    - Click Save.
+    - 
 ![Verify NAT rules are created.](./media/vmware-cds-avs/pic6.png)
 
-- Ensure Tier-1 gateway connected to source segment is advertising NAT IPs under Route Advertisement.
+- Ensure Tier-1 gateway connected to the source segment is advertising NAT IPs under Route Advertisement.
 
 - Configure gateway firewall rules as appropriate for further security as per your organization guidelines.
 
@@ -91,14 +87,15 @@ o	Click Save.
 
 ### Prerequisites on VMware cloud service
 
-- Verify that you're assigned the network administrator service role. See Managing Roles and Permissions in Using VMware Cloud Services Console.
-- If you're accessing VMware Cloud Director service through VMware Cloud Partner Navigator, verify that you're a Provider Service Manager user and that you have been assigned the provider:**admin** and provider:**network service** roles. See [How do I change the roles of users in my organization](provide url) in the VMware Cloud Partner Navigator documentation.
+- Verify that you're assigned the network administrator service role. See [Managing Roles and Permissions](./https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-84E54AD5-A53F-416C-AEBE-783927CD66C1.html) and make changs Using VMware Cloud Services Console.
+- If you're accessing VMware Cloud Director service through VMware Cloud Partner Navigator, verify that you're a Provider Service Manager user and that you have been assigned the provider:**admin** and provider:**network service** roles.
+- See [How do I change the roles of users in my organization](./https://docs.vmware.com/en/VMware-Cloud-Partner-Navigator/services/Cloud-Partner-Navigator-Using-Provider/GUID-BF0ED645-1124-4828-9842-18F5C71019AE.html) in the VMware Cloud Partner Navigator documentation.
 - Verify that the SDDC uses NSX for networking.
 
 ### Procedure
 - Log in to VMware Cloud Director service.
 - Click Cloud Director Instances.
-- In the card of the VMware Cloud Director instance for which you want to configure a reverse proxy service, click Actions > Generate VMware Reverse Proxy OVА. 
+- In the card of the VMware Cloud Director instance for which you want to configure a reverse proxy service, click **Actions > Generate VMware Reverse Proxy OVА**. 
 - The “Generate VMware Reverse proxy OVA” Wizard opens. Fill in the required information.
 - Enter Network Name
     - Network name is the name of the NSX-T segment you created in previous section for reverse proxy VM.
@@ -109,7 +106,7 @@ o	Click Save.
 
 ![Obtain VMware credentials using Azure portal](./media/vmware-cds-avs/pic7.png)
 
-- To find FQDN of vCenter of your Azure VMware solution private cloud, login to the vCenter using VMware credential provided on Azure portal. In vSphere Client, select vCenter, which display FSDN of the vCenter server. In the example below FDN of vCenter is “vc.f31ca07da35f4b42abe08e.uksouth.avs.azure.com”.
+- To find FQDN of vCenter of your Azure VMware solution private cloud, login to the vCenter using VMware credential provided on Azure portal. In vSphere Client, select vCenter, which display FQDN of the vCenter server. In the example below FDN of vCenter is “vc.f31ca07da35f4b42abe08e.uksouth.avs.azure.com”.
 
 
 - To obtain FQDN of NSX-T, replace vc with nsx. NSX-T FQDN in this example would be,  “nsx.f31ca07da35f4b42abe08e.uksouth.avs.azure.com”
@@ -133,10 +130,11 @@ Use new lines to separate list entries.
 - Click Generate VMware Reverse Proxy OVА.
 
 - On the Activity Log tab, locate the task for generating an OVА and check its status.
+- Once the status of the task is displayed as Success, click the vertical ellipsis icon and select View files.
  
 ![Activity log to see the progress and status of OVA generation](./media/vmware-cds-avs/pic11.png)
 
-- Once the status of the task is displayed as Success, click the vertical ellipsis icon and select View files.
+
 - Download the reverse proxy OVA.
 
 ## Deploy Reverse proxy VM
@@ -157,7 +155,7 @@ Use new lines to separate list entries.
 
 - Next step is to associate Azure VMware Solution SDDC with the VMware Cloud Director Instance. This process configures the provider portal.
 
-## Associate Azure solution private cloud SDDC with VMware Cloud Director Instance  via Reverse proxy
+## Associate Azure solution private cloud SDDC with VMware Cloud Director Instance via Reverse proxy
 
 1.	Log in to VMware Cloud Director service.
 2.	Click Cloud Director Instances.
