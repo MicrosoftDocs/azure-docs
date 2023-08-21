@@ -128,7 +128,7 @@ This project has two primary initiatives:
 
 For more information, see:
 
-* [Deploy Azure AD-joined VMs in Azure Virtual Desktop](../../virtual-desktop/deploy-azure-ad-joined-vm.md)
+* [Deploy Azure AD-joined VMs in Azure Virtual Desktop](../../virtual-desktop/azure-ad-joined-session-hosts.md)
 
 * [Windows 365 planning guide](/windows-365/enterprise/planning-guide)
 
@@ -186,11 +186,11 @@ When you plan your migration to Azure AD, consider migrating the apps that use m
 
 After you move SaaS applications that were federated to Azure AD, there are a few steps to decommission the on-premises federation system:
 
-* [Move application authentication to Azure Active Directory](../manage-apps/migrate-adfs-apps-to-azure.md)
+* [Move application authentication to Azure Active Directory](../manage-apps/migrate-adfs-apps-stages.md)
 
 * [Migrate from Azure AD Multi-Factor Authentication Server to Azure AD Multi-Factor Authentication](../authentication/how-to-migrate-mfa-server-to-azure-mfa.md)
 
-* [Migrate from federation to cloud authentication](../hybrid/migrate-from-federation-to-cloud-authentication.md)
+* [Migrate from federation to cloud authentication](../hybrid/connect/migrate-from-federation-to-cloud-authentication.md)
 
 * [Move remote access to internal applications](#move-remote-access-to-internal-applications), if you're using Azure AD Application Proxy
 

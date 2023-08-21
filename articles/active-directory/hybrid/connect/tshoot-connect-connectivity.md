@@ -15,7 +15,7 @@ ms.subservice: hybrid
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, has-azure-ad-ps-ref
 ---
 # Troubleshoot Azure AD Connect connectivity issues
 

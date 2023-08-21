@@ -18,6 +18,7 @@ keywords:
 ## August 2023
 
 - You can now deploy Azure OpenAI on your data to [Power Virtual Agents](/azure/ai-services/openai/concepts/use-your-data#deploying-the-model).
+- [Azure OpenAI on your data](./concepts/use-your-data.md#virtual-network-support--private-network-support) now supports private endpoints.
 
 ## July 2023
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/15/2022
+ms.date: 08/11/2023
 ms.author: cwerner
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
@@ -45,8 +45,8 @@ The authority you specify in your code needs to be consistent with the **Support
 The authority can be:
 
 - An Azure AD cloud authority.
-- An Azure AD B2C authority. See [B2C specifics](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics).
-- An Active Directory Federation Services (AD FS) authority. See [AD FS support](https://aka.ms/msal-net-adfs-support).
+- An Azure AD B2C authority. See [B2C specifics](msal-net-b2c-considerations.md).
+- An Active Directory Federation Services (AD FS) authority. See [AD FS support](msal-net-adfs-support.md).
 
 Azure AD cloud authorities have two parts:
 
@@ -129,7 +129,7 @@ You can override the redirect URI by using the `RedirectUri` property (for examp
 - `RedirectUriOnAndroid` = "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
 - `RedirectUriOnIos` = $"msauth.{Bundle.ID}://auth";
 
-For more iOS details, see [Migrate iOS applications that use Microsoft Authenticator from ADAL.NET to MSAL.NET](msal-net-migration-ios-broker.md) and [Leveraging the broker on iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
+For more iOS details, see [Migrate iOS applications that use Microsoft Authenticator from ADAL.NET to MSAL.NET](msal-net-migration-ios-broker.md) and [Leveraging the broker on iOS](msal-net-use-brokers-with-xamarin-apps.md).
 For more Android details, see [Brokered auth in Android](msal-android-single-sign-on.md).
 
 ### Redirect URI for confidential client apps
