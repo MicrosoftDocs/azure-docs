@@ -137,16 +137,10 @@
     href: business-continuity-management-program.md
   - name: Cross-region replication
     href: cross-region-replication-azure.md
-  - name: Use Azure Site Recovery
-    href: ../site-recovery/index.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-  - name: Use Azure Backup
-    href: ../backup/index.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
 - name: Reliability Guidance
   items:
     - name: Overview
       href: reliability-guidance-overview.md
-    - name: Reliability in Microsoft Azure Well-Architected Framework
-      href: /azure/architecture/framework/resiliency?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Reliability by service
       items:
       - name: Azure API Management
@@ -310,6 +304,6 @@
   - name: Azure Reliability feature page
     href: https://azure.microsoft.com/explore/reliability/#overview
   - name: Reliability in Microsoft Azure Well-Architected Framework
-    href: /azure/architecture/framework/resiliency/
+    href: /azure/well-architected/
   - name: Reliability terminology
     href: glossary.md
