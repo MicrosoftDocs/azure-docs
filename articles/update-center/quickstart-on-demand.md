@@ -40,7 +40,7 @@ For the assessed machines that are reporting updates, you can configure [hotpatc
 
 To configure the settings on your machines, follow these steps:
 
-1. In **Update management center (Preview)|Getting started**, in **On-demand assessment and updates**, select **Update settings**.
+1. In **Update Manager (preview)|Getting started**, in **On-demand assessment and updates**, select **Update settings**.
 
     In the **Change update settings** page, by default **Properties** is selected. 
 1. Select from the list of update settings to apply them to the selected machines.
@@ -57,7 +57,7 @@ To configure the settings on your machines, follow these steps:
 
 As per the last assessment performed on the selected machines, you can now select resources and machines to install the updates
 
-1. In the **Update management center(Preview)|Getting started** page, in **On-demand assessment and updates**, select **Install updates by machines**.
+1. In the **Update Manager (preview)|Getting started** page, in **On-demand assessment and updates**, select **Install updates by machines**.
 
 1. In the **Install one-time updates** page, select one or more machines from the list in the **Machines** tab and click **Next**.
 
@@ -72,7 +72,7 @@ As per the last assessment performed on the selected machines, you can now selec
 
 1. In **Review + install**, verify the update deployment options and select **Install**.
 
-A notification confirms that the installation of updates is in progress and after completion, you can view the results in the **Update management center**, **History** page.
+A notification confirms that the installation of updates is in progress and after completion, you can view the results in the **Update Manager**, **History** page.
 
 ## Next steps
 

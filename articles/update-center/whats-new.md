@@ -1,7 +1,7 @@
 ---
 title: What's new in Azure Update Manager (preview)
 description: Learn about what's new and recent updates in the Azure Update Manager (preview) service.
-ms.service: update-manager
+ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -43,7 +43,7 @@ A new patch orchestration - **Customer Managed Schedules (Preview)** is introduc
 
 ### New region support
 
-Update management center (Preview) now supports new five regions for Azure Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
+Update Manager (preview) now supports new five regions for Azure Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
 
 ## October 2022
 
