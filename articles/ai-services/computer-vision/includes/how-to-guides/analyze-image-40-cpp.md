@@ -26,11 +26,11 @@ The SDK example assumes that you defined the environment variables `VISION_KEY` 
 
 At the start of your code, use one of the static constructor methods [VisionServiceOptions::FromEndpoint](/cpp/cognitive-services/vision/service-visionserviceoptions#fromendpoint-1) to create a *VisionServiceOptions* object. For example:
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=vision_service_options)]
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=vision_service_options)]
 
 Where we used this helper function to read the value of an environment variable:
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=get_env_var)]
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=get_env_var)]
 
 
 ## Select the image to analyze
@@ -39,7 +39,7 @@ The code in this guide uses remote images referenced by URL. You may want to try
 
 Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource::FromUrl](/cpp/cognitive-services/vision/input-visionsource#fromurl).
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=vision_source)]
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=vision_source)]
 
 > [!TIP]
 > You can also analyze a local image by passing in the full-path image file name. See [VisionSource::FromFile](/cpp/cognitive-services/vision/input-visionsource#fromfile).
@@ -59,7 +59,7 @@ Visual features 'Captions' and 'DenseCaptions' are only supported in the followi
 
 Create a new [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions) object. Then specify an `std::vector` of visual features you'd like to extract, by calling the [SetFeatures](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setfeatures) method. [ImageAnalysisFeature](/cpp/cognitive-services/vision/azure-ai-vision-imageanalysis-namespace#enum-imageanalysisfeature) enum defines the supported values.
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=visual_features)]
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=visual_features)]
 
 
 ### Set model name when using a custom model
@@ -69,7 +69,7 @@ You can also do image analysis with a custom trained model. To create and train 
 
 To use a custom model, create the [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions) object and call the [SetModelName](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setmodelname) method.  You don't need to call any other methods on **ImageAnalysisOptions**. There's no need to call [SetFeatures](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setfeatures) as you do with standard model, since your custom model already implies the visual features the service extracts.
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/3/3.cpp?name=model_name)]
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/custom-model/custom-model.cpp?name=model_name)]
 
 
 ### Specify languages
@@ -81,7 +81,7 @@ Language option only applies when you're using the standard model.
 
 Call the [SetLanguage](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setlanguage) method on your **ImageAnalysisOptions** object to specify a language.
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=language)]
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=language)]
 
 
 ### Select gender neutral captions
@@ -93,7 +93,7 @@ Gender neutral caption option only applies when you're using the standard model.
 
 Call the [SetGenderNeutralCaption](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setgenderneutralcaption) method of your **ImageAnalysisOptions** object with **true** as the argument, to enable gender neutral captions.
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=gender_neutral_caption)]
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=gender_neutral_caption)]
 
 ### Select smart cropping aspect ratios
 
@@ -104,7 +104,7 @@ Smart cropping aspect rations only applies when you're using the standard model.
 
 Call the [SetCroppingAspectRatios](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions#setcroppingaspectratios) method of your **ImageAnalysisOptions** with an `std::vector` of aspect ratios. For example, to set aspect ratios of 0.9 and 1.33:
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=cropping_aspect_rations)]
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=cropping_aspect_rations)]
 
 
 ## Get results from the service
@@ -124,11 +124,11 @@ This section shows you how to make an analysis call to the service using the sta
 
 1. If failed, you can construct the [ImageAnalysisErrorDetails](/cpp/cognitive-services/vision/imageanalysis-imageanalysiserrordetails) object to get information on the failure.
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=analyze)]
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=analyze)]
 
 The code uses the following helper method to display the coordinates of a bounding polygon:
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=polygon_to_string)]
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/how-to/how-to.cpp?name=polygon_to_string)]
 
 
 ### Get results using custom model
@@ -138,7 +138,7 @@ This section shows you how to make an analysis call to the service, when using a
 
 The code is similar to the standard model case. The only difference is that results from the custom model are available by calling the **GetCustomTags** and/or **GetCustomObjects** methods of the [ImageAnalysisResult](/cpp/cognitive-services/vision/imageanalysis-imageanalysisresult) object.
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/3/3.cpp?name=analyze)]
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/custom-model/custom-model.cpp?name=analyze)]
 
 
 ## Error codes

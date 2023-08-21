@@ -51,7 +51,7 @@ Use the Image Analysis client SDK for Python to analyze a remote image to read t
 > [!TIP]
 > The code shows analyzing an image URL. You can also analyze a local image file, or an image from a memory buffer. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for more details.
 
-[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/2/main.py?name=snippet_single)]
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/quick-start/main.py?name=snippet_single)]
 
 1. Then run the application with the `python` command on your quickstart file.
 

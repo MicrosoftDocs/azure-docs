@@ -58,7 +58,7 @@ From the project directory, open the _ImageAnalysisQuickstart.cpp_ file that was
 > [!TIP]
 > The code shows analyzing an image URL. You can also analyze a local image file, or an image from a memory buffer. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for more details.
 
-[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/2/2.cpp?name=snippet_single)]
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/quick-start/quick-start.cpp?name=snippet_single)]
 
 
 Then, compile and run the application by selecting **Start Debugging** from the **Debug** menu at the top of the IDE window (or press **F5**). You should see output similar to the one shown here.

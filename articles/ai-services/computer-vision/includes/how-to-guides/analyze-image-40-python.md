@@ -27,7 +27,7 @@ The SDK example assumes that you defined the environment variables `VISION_KEY` 
 
 Start by creating a [VisionServiceOptions](/python/api/azure-ai-vision/azure.ai.vision.visionserviceoptions) object using one of the constructors. For example:
 
-[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/main.py?name=vision_service_options)]
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=vision_service_options)]
 
 
 ## Select the image to analyze
@@ -37,7 +37,7 @@ The code in this guide uses remote images referenced by URL. You may want to try
 
 In your script, create a new [VisionSource](/python/api/azure-ai-vision/azure.ai.vision.visionsource) object from the URL of the image you want to analyze.
 
-[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/main.py?name=vision_source)]
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=vision_source)]
 
 > [!TIP]
 > You can also analyze a local image by passing in the full-path image file name to the **VisionSource** constructor instead of the image URL.
@@ -56,7 +56,7 @@ Visual features 'Captions' and 'DenseCaptions' are only supported in the followi
 
 Create a new [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object and specify the visual features you'd like to extract, by setting the [features](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-features) property. [ImageAnalysisFeature](/python/api/azure-ai-vision/azure.ai.vision.enums.imageanalysisfeature) enum defines the supported values.
 
-[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/main.py?name=visual_features)]
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=visual_features)]
 
 
 ### Set model name when using a custom model
@@ -65,7 +65,7 @@ You can also do image analysis with a custom trained model. To create and train 
 
 To use a custom model, create the [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object and set the [model_name](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-model-name) property. You don't need to set any other properties on **ImageAnalysisOptions**. There's no need to set the [features](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-features) property, as you do with the standard model, since your custom model already implies the visual features the service extracts.
 
-[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/3/main.py?name=model_name)]
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/custom-model/main.py?name=model_name)]
 
 
 ### Specify languages
@@ -76,7 +76,7 @@ Language option only applies when you're using the standard model.
 
 Use the [language](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-language) property of your **ImageAnalysisOptions** object to specify a language.
 
-[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/main.py?name=language)]
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=language)]
 
 
 ### Select gender neutral captions
@@ -88,7 +88,7 @@ Gender neutral caption option only applies when you're using the standard model.
 
 Set the [gender_neutral_caption](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-gender-neutral-caption) property of your **ImageAnalysisOptions** object to true to enable gender neutral captions.
 
-[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/main.py?name=gender_neutral_caption)]
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=gender_neutral_caption)]
 
 
 ### Select smart cropping aspect ratios
@@ -100,7 +100,7 @@ Smart cropping aspect rations only applies when you're using the standard model.
 
 Set the [cropping_aspect_ratios](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-cropping-aspect-ratios) property of your **ImageAnalysisOptions** to a list of aspect ratios. For example, to set aspect ration of 0.9 and 1.33:
 
-[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/main.py?name=cropping_aspect_rations)]
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=cropping_aspect_rations)]
 
 
 ## Get results from the service
@@ -120,7 +120,7 @@ This section shows you how to make an analysis call to the service using the sta
 
 1. If failed, you can construct the [ImageAnalysisErrorDetails](/python/api/azure-ai-vision/azure.ai.vision.imageanalysiserrordetails) object to get information on the failure.
 
-[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/main.py?name=analyze)]
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/how-to/main.py?name=analyze)]
 
 
 ### Get results using custom model
@@ -130,7 +130,7 @@ This section shows you how to make an analysis call to the service, when using a
 
 The code is similar to the standard model case. The only difference is that results from the custom model are available on the **custom_tags** and/or **custom_objects** properties of the [ImageAnalysisResult](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisresult) object.
 
-[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/3/main.py?name=analyze)]
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/custom-model/main.py?name=analyze)]
 
 
 ## Error codes

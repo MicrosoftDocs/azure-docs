@@ -27,7 +27,7 @@ The SDK example assumes that you defined the environment variables `VISION_KEY` 
 
 Start by creating a [VisionServiceOptions](/dotnet/api/azure.ai.vision.common.visionserviceoptions) object using one of the constructors. For example:
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=vision_service_options)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=vision_service_options)]
 
 
 ## Select the image to analyze
@@ -39,7 +39,7 @@ Create a new **VisionSource** object from the URL of the image you want to analy
 
 **VisionSource** implements **IDisposable**, therefore create the object with a **using** statement or explicitly call **Dispose** method after analysis completes.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=vision_source)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=vision_source)]
 
 > [!TIP]
 > You can also analyze a local image by passing in the full-path image file name. See [VisionSource.FromFile](/dotnet/api/azure.ai.vision.common.visionsource.fromfile).
@@ -59,7 +59,7 @@ Visual features 'Captions' and 'DenseCaptions' are only supported in the followi
 
 Create a new [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and specify the visual features you'd like to extract, by setting the [Features](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.features#azure-ai-vision-imageanalysis-imageanalysisoptions-features) property. [ImageAnalysisFeature](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisfeature) enum defines the supported values.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=visual_features)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=visual_features)]
 
 
 ### Set model name when using a custom model
@@ -69,7 +69,7 @@ You can also do image analysis with a custom trained model. To create and train 
 
 To use a custom model, create the [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and set the [ModelName](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.modelname#azure-ai-vision-imageanalysis-imageanalysisoptions-modelname) property. You don't need to set any other properties on **ImageAnalysisOptions**. There's no need to set the [Features](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.features#azure-ai-vision-imageanalysis-imageanalysisoptions-features) property, as you do with the standard model, since your custom model already implies the visual features the service extracts.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/3/Program.cs?name=model_name)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/custom-model/program.cs?name=model_name)]
 
 
 ### Specify languages
@@ -81,7 +81,7 @@ Language option only applies when you're using the standard model.
 
 Use the [Language](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.language) property of your **ImageAnalysisOptions** object to specify a language.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=language)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/programcs?name=language)]
 
 
 ### Select gender neutral captions
@@ -93,7 +93,7 @@ Gender neutral caption option only applies when you're using the standard model.
 
 Set the [GenderNeutralCaption](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.genderneutralcaption) property of your **ImageAnalysisOptions** object to true to enable gender neutral captions.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=gender_neutral_caption)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=gender_neutral_caption)]
 
 
 ### Select smart cropping aspect ratios
@@ -105,7 +105,7 @@ Smart cropping aspect rations only applies when you're using the standard model.
 
 Set the [CroppingAspectRatios](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.croppingaspectratios) property of your **ImageAnalysisOptions** to a list of aspect ratios. For example, to set aspect ratios of 0.9 and 1.33:
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=cropping_aspect_rations)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=cropping_aspect_rations)]
 
 
 ## Get results from the service
@@ -125,7 +125,7 @@ This section shows you how to make an analysis call to the service using the sta
 
 1. If failed, you can construct the [ImageAnalysisErrorDetails](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisresultdetails) object to get information on the failure.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=analyze)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/how-to/program.cs?name=analyze)]
 
 
 ### Get results using custom model
@@ -135,7 +135,7 @@ This section shows you how to make an analysis call to the service, when using a
 
 The code is similar to the standard model case. The only difference is that results from the custom model are available on the **CustomTags** and/or **CustomObjects** properties of the [ImageAnalysisResult](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisresult) object.
 
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/3/Program.cs?name=analyze)]
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/custom-model/program.cs?name=analyze)]
 
 
 ## Error codes
