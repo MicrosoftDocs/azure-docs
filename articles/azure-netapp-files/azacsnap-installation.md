@@ -25,8 +25,8 @@ This article provides a guide for installation of the Azure Application Consiste
 
 ## Introduction
 
-The downloadable self-installer is designed to make the snapshot tools easy to set up and run with non-root user privileges (for example, azacsnap). The installer will set up the user and put the snapshot tools into the users `$HOME/bin` subdirectory (default = `/home/azacsnap/bin`).
-The self-installer tries to determine the correct settings and paths for all the files based on the configuration of the user performing the installation (for example, root). If the pre-requisite steps (enable communication with storage and SAP HANA) were run as root, then the installation will copy the private key and `hdbuserstore` to the backup user’s location. The steps to enable communication with the storage back-end and SAP HANA can be manually done by a knowledgeable administrator after the installation.
+The downloadable self-installer is designed to make the snapshot tools easy to set up and run with non-root user privileges (for example, azacsnap). The installer sets up the user and puts the snapshot tools into the users `$HOME/bin` subdirectory (default = `/home/azacsnap/bin`).
+The self-installer tries to determine the correct settings and paths for all the files based on the configuration of the user performing the installation (for example, root). If the prerequisite steps (enable communication with storage and SAP HANA) were run as root, then the installation copies the private key and `hdbuserstore` to the back-up user’s location. The steps to enable communication with the storage back-end and SAP HANA can be manually done by a knowledgeable administrator after the installation.
 
 ## Prerequisites for installation
 
@@ -34,15 +34,14 @@ Follow the guidelines to set up and execute the snapshots and disaster recovery 
 is recommended the following steps are completed as root before installing and using the snapshot
 tools.
 
-1. **OS is patched**: See patching and SMT setup in [How to install and configure SAP HANA (Large Instances) on Azure](../virtual-machines/workloads/sap/hana-installation.md#operating-system).
-1. **Time Synchronization is set up**. The customer will need to provide an NTP compatible time
-    server, and configure the OS accordingly.
+1. **OS is patched**: See patching and SMT set up in [How to install and configure SAP HANA (Large Instances) on Azure](../virtual-machines/workloads/sap/hana-installation.md#operating-system).
+1. **Time Synchronization is set up**. The customer needs to provide an NTP compatible time server, and configure the OS accordingly.
 1. **Database is installed** : Refer to separate instructions for each supported database.
 1. **[Enable communication with storage](#enable-communication-with-storage)** (for more information, see separate section): Select the storage back-end you're using for your deployment.
 
    # [Azure NetApp Files](#tab/azure-netapp-files)
     
-   1. **For Azure NetApp Files (for more information, see separate section)**: Customer must either setup a System Managed Identity or generate the Service Principal authentication file.
+   1. **For Azure NetApp Files (for more information, see separate section)**: Customer must either set up a System Managed Identity or generate the Service Principal authentication file.
       
       > [!IMPORTANT]
       > When validating communication with Azure NetApp Files, communication might fail or time-out. Check to ensure firewall rules are not blocking outbound traffic from the system running AzAcSnap to the following addresses and TCP/IP ports:
@@ -51,14 +50,12 @@ tools.
       
    # [Azure Large Instance (Bare Metal)](#tab/azure-large-instance)
       
-   1. **For Azure Large Instance (for more information, see separate section)**: Set up SSH with a
-      private/public key pair.  Provide the public key for each node, where the snapshot tools are
-      planned to be executed, to Microsoft Operations for setup on the storage back-end.
+   1. **For Azure Large Instance (for more information, see separate section)**: Generate an SSH private/public key pair.  For each node where the snapshot tools will be run, provide the generated public key to Microsoft Operations so they can install on the storage back-end.
 
-      Test this by using SSH to connect to one of the nodes (for example, `ssh -l <Storage UserName> <Storage IP Address>`).
+      Test connectivity by using SSH to connect to one of the nodes (for example, `ssh -l <Storage UserName> <Storage IP Address>`).
       Type `exit` to logout of the storage prompt.
 
-      Microsoft  operations will  provide  the  storage  user  and  storage  IP at  the  time  of provisioning.
+      Microsoft Operations provides the storage user and storage IP at the time of provisioning.
       
       ---
 
@@ -121,7 +118,7 @@ From AzAcSnap 9, it's possible to use a System Managed Identity instead of a Ser
    az account set -s "${SUBSCRIPTION}"
    ```
 
-1. Create the managed identity for the virtual machine.  The following command will set or show (if already set) the AzAcSnap virtual machine Managed Identity.
+1. Create the managed identity for the virtual machine.  The following command sets, or shows if already set, the AzAcSnap virtual machine Managed Identity.
 
    ```azurecli-interactive
    az vm identity assign --name "${VM_NAME}" --resource-group "${RESOURCE_GROUP}"
@@ -143,7 +140,7 @@ From AzAcSnap 9, it's possible to use a System Managed Identity instead of a Ser
 
 It’s possible to limit the permissions for the Managed Identity using a custom role definition.  Create a suitable role definition for the virtual machine to be able to manage snapshots (example permissions settings can be found in [Tips and tricks for using Azure Application Consistent Snapshot tool](azacsnap-tips.md).
 
-Then assign the role to the Azure Virtual Machine Principal ID (also displayed as ., SystemAssignedIdentity):
+Then assign the role to the Azure Virtual Machine Principal ID (also displayed as `SystemAssignedIdentity`):
 
 ```azurecli-interactive
 az role assignment create --assignee ${PRINCIPAL_ID} --role "AzAcSnap on ANF" --scope "${SCOPE}"
@@ -158,19 +155,19 @@ az role assignment create --assignee ${PRINCIPAL_ID} --role "AzAcSnap on ANF" --
     az account show
     ```
 
-1. If the subscription isn't correct, use the following command:
+1. If the subscription isn't correct, use the `az account set` command:
 
     ```azurecli-interactive
     az account set -s <subscription name or id>
     ```
 
-1. Create a service principal using Azure CLI per the following example:
+1. Create a service principal using Azure CLI per this example:
 
     ```azurecli-interactive
     az ad sp create-for-rbac --name "AzAcSnap" --role Contributor --scopes /subscriptions/{subscription-id} --sdk-auth
     ```
 
-    1. This should generate an output like the following example:
+    1. This command should generate an output like this example:
 
         ```output
         {
@@ -195,12 +192,12 @@ az role assignment create --assignee ${PRINCIPAL_ID} --role "AzAcSnap on ANF" --
    command and secure the file with appropriate system permissions.
    
    > [!WARNING]
-   > Make sure the format of the JSON file is exactly as described above.  Especially with the URLs enclosed in double quotes (").
+   > Make sure the format of the JSON file is exactly as described in the step to "Create a service principal using Azure CLI".  Ensure the URLs are enclosed in double quotes (").
 
 # [Azure Large Instance (Bare Metal)](#tab/azure-large-instance)
 
 Communication with the storage back-end executes over an encrypted SSH channel. The following
-example steps are to provide guidance on setup of SSH for this communication.
+example steps are to provide guidance on set up of SSH for this communication.
 
 1. Modify the `/etc/ssh/ssh_config` file
 
@@ -240,7 +237,7 @@ example steps are to provide guidance on setup of SSH for this communication.
 
 1. Create a private/public key pair
 
-    Using the following example command to generate the key pair, do not enter a password when generating a key.
+    Using the following example command to generate the key pair, don't enter a password when generating a key.
 
     ```bash
     ssh-keygen -t rsa –b 5120 -C ""
@@ -276,7 +273,7 @@ This section explains how to enable communication with the database. Ensure the 
 > If deploying to a centralized virtual machine, then it will need to have the SAP HANA client installed and set up so the AzAcSnap user can run `hdbsql` and `hdbuserstore` commands. The SAP HANA Client can downloaded from https://tools.hana.ondemand.com/#hanatools.
 
 The snapshot tools communicate with SAP HANA and need a user with appropriate permissions to
-initiate and release the database save-point. The following example shows the setup of the SAP
+initiate and release the database save-point. The following example shows the set up of the SAP
 HANA v2 user and the `hdbuserstore` for communication to the SAP HANA database.
 
 The following example commands set up a user (AZACSNAP) in the SYSTEMDB on SAP HANA 2.
@@ -327,7 +324,7 @@ database, change the IP address, usernames, and passwords as appropriate:
     > [!NOTE]
     > Check with corporate policy before making this change.
 
-   This example disables the password expiration for the AZACSNAP user, without this change the user's password will expire preventing snapshots to be taken correctly.  
+   This example disables the password expiration for the AZACSNAP user, without this change the user's password can expire preventing snapshots to be taken correctly.  
 
    ```sql
    hdbsql SYSTEMDB=> ALTER USER AZACSNAP DISABLE PASSWORD LIFETIME;
@@ -360,8 +357,8 @@ database, change the IP address, usernames, and passwords as appropriate:
 
 ### Using SSL for communication with SAP HANA
 
-The `azacsnap` tool utilizes SAP HANA's `hdbsql` command to communicate with SAP HANA. This
-includes the use of SSL options when encrypting communication with SAP HANA. `azacsnap` uses
+The `azacsnap` tool utilizes SAP HANA's `hdbsql` command to communicate with SAP HANA. Using `hdbsql` allows the 
+the use of SSL options to encrypt communication with SAP HANA. `azacsnap` uses the
 `hdbsql` command's SSL options as follows.
 
 The following are always used when using the `azacsnap --ssl` option:
@@ -395,8 +392,8 @@ as specified in the `azacsnap` configuration file.
   - For commoncrypto:
     - `mv sapcli.pse <securityPath>/<SID>_keystore`
 
-When `azacsnap` calls `hdbsql`, it will add `-sslkeystore=<securityPath>/<SID>_keystore`
-to the command line.
+When `azacsnap` calls `hdbsql`, it adds `-sslkeystore=<securityPath>/<SID>_keystore`
+to the `hdbsql` command line.
 
 #### Trust Store files
 
@@ -440,7 +437,7 @@ multiple parameters passed on the command line.
 
 # [Oracle](#tab/oracle)
 
-The snapshot tools communicate with the Oracle database and need a user with appropriate permissions to enable/disable backup mode.  After putting the database in backup mode, `azacsnap` will query the Oracle database to get a list of files, which have backup-mode as active.  This file list is output into an external file, which is in the same location and basename as the log file, but with a ".protected-tables" extension (output filename detailed in the AzAcSnap log file). 
+The snapshot tools communicate with the Oracle database and need a user with appropriate permissions to enable/disable back-up mode.  After `azacsnap` puts the database in back-up mode, `azacsnap` will query the Oracle database to get a list of files, which have back-up mode as active.  This file list is output into an external file, which is in the same location and basename as the log file, but with a `.protected-tables` filename extension (output filename detailed in the AzAcSnap log file). 
 
 The following examples show the set up of the Oracle database user, the use of `mkstore` to create an Oracle Wallet, and the `sqlplus` configuration files required for communication to the Oracle database. 
 
@@ -473,7 +470,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
     User created.
     ```
 
-1. Grant the user permissions - This example sets the permission for the AZACSNAP user to allow for putting the database in backup mode.
+1. Grant the user permissions - This example sets the permission for the AZACSNAP user to allow for putting the database in back-up mode.
 
     ```sql
     SQL> GRANT CREATE SESSION TO azacsnap;
@@ -530,7 +527,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
    SQL> ALTER PROFILE default LIMIT PASSWORD_LIFE_TIME unlimited;
    ```
    
-   After making this change, there should be no password expiry date for user's with the DEFAULT profile.
+   After this change is made to the database setting, there should be no password expiry date for user's with the DEFAULT profile.
 
    ```sql
    SQL> SELECT username, account_status,expiry_date,profile FROM dba_users WHERE username='AZACSNAP';
@@ -544,10 +541,10 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
 
 
 1. The Oracle Wallet provides a method to manage database credentials across multiple domains. This capability is accomplished by using a database 
-   connection string in the datasource definition, which is resolved by an entry in the wallet. When used correctly, the Oracle Wallet makes having
+   connection string in the datasource definition, which is resolved with an entry in the wallet. When used correctly, the Oracle Wallet makes having
    passwords in the datasource configuration unnecessary.
    
-   This makes it possible to use the Oracle Transparent Network Substrate (TNS) administrative file with a connection string alias, thus hiding 
+   This set up makes it possible to use the Oracle Transparent Network Substrate (TNS) administrative file with a connection string alias, thus hiding 
    details of the database connection string. If the connection information changes, it's a matter of changing the `tnsnames.ora` file instead of 
    potentially many datasource definitions.
    
@@ -581,7 +578,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
       1. Create the Linux user to generate the Oracle Wallet and associated `*.ora` files using the output from the previous step.
 
          > [!NOTE]
-         > In these examples we are using the `bash` shell.  If you're using a different shell (for example, csh), then ensure environment 
+         > In these examples we're using the `bash` shell.  If you're using a different shell (for example, csh), then ensure environment 
          > variables have been set correctly.
 
          ```bash
@@ -709,7 +706,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
          > If deploying to a centralized virtual machine, then it will need to have the Oracle instant client installed and set up so 
          > the AzAcSnap user can run `sqlplus` commands.  
          > The Oracle Instant Client can downloaded from https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html.
-            > In order for SQL\*Plus to run correctly, download both the required package (for example, Basic Light Package) and the optional SQL\*Plus tools package.
+         > In order for SQL\*Plus to run correctly, download both the required package (for example, Basic Light Package) and the optional SQL\*Plus tools package.
 
       1. Complete the following steps on the system running AzAcSnap.
       
@@ -783,7 +780,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
        
          1. Test the set up with AzAcSnap
        
-            After configuring AzAcSnap (for example, `azacsnap -c configure --configuration new`) with the Oracle connect string (for example, `/@AZACSNAP`), 
+            After you configure AzAcSnap (for example, `azacsnap -c configure --configuration new`) with the Oracle connect string (for example, `/@AZACSNAP`), 
             it should be possible to connect to the Oracle database.
             
             Check the `$TNS_ADMIN` variable is set for the correct Oracle target system
@@ -824,22 +821,22 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
 
 # [IBM Db2](#tab/db2)
 
-The snapshot tools issue commands to the IBM Db2 database using the command line processor `db2` to enable and disable backup mode.  
+The snapshot tools issue commands to the IBM Db2 database using the command line processor `db2` to enable and disable back-up mode.  
 
-After putting the database in backup mode, `azacsnap` will query the IBM Db2 database to get a list of "protected paths", which are part of the database where backup-mode is active.  This list is output into an external file, which is in the same location and basename as the log file, but with a ".\<DBName>-protected-paths" extension (output filename detailed in the AzAcSnap log file).
+After putting the database in back-up mode, `azacsnap` will query the IBM Db2 database to get a list of "protected paths", which are part of the database where back-up mode is active.  This list is output into an external file, which is in the same location and basename as the log file, but with a `.\<DBName>-protected-paths` extension (output filename detailed in the AzAcSnap log file).
 
 AzAcSnap uses the IBM Db2 command line processor `db2` to issue SQL commands, such as `SET WRITE SUSPEND` or `SET WRITE RESUME`.  Therefore AzAcSnap should be installed in one of the following two ways:
 
-  1. Installed onto the database server, then complete the setup with "[Local connectivity](#local-connectivity)".
-  1. Installed onto a centralized backup system, then complete the setup with "[Remote connectivity](#remote-connectivity)".
+  1. Installed onto the database server, then complete the set up with "[Local connectivity](#local-connectivity)".
+  1. Installed onto a centralized back-up system, then complete the set up with "[Remote connectivity](#remote-connectivity)".
 
 #### Local connectivity
 
-If AzAcSnap has been installed onto the database server, then be sure to add the `azacsnap` user to the correct Linux group and import the Db2 instance user's profile per the following example setup.
+If AzAcSnap has been installed onto the database server, then be sure to add the `azacsnap` user to the correct Linux group and import the Db2 instance user's profile per the following example set up.
 
 ##### `azacsnap` user permissions
 
-The `azacsnap` user should belong to the same Db2 group as the database instance user.  Here we are getting the group membership of the IBM Db2 installation's database instance user `db2tst`.
+The `azacsnap` user should belong to the same Db2 group as the database instance user.  Here we're getting the group membership of the IBM Db2 installation's database instance user `db2tst`.
 
 ```bash
 id db2tst
@@ -849,7 +846,7 @@ id db2tst
 uid=1101(db2tst) gid=1001(db2iadm1) groups=1001(db2iadm1)
 ```
 
-From the output we can confirm the `db2tst` user has been added to the `db2iadm1` group, therefore add the `azacsnap` user to the group.
+From the output, we can confirm the `db2tst` user has been added to the `db2iadm1` group, therefore add the `azacsnap` user to the group.
 
 ```bash
 usermod -a -G db2iadm1 azacsnap
@@ -857,7 +854,7 @@ usermod -a -G db2iadm1 azacsnap
 
 ##### `azacsnap` user profile
 
-The `azacsnap` user will need to be able to execute the `db2` command.  By default the `db2` command will not be in the `azacsnap` user's $PATH, therefore add the following to the user's `.bashrc` file using your own IBM Db2 installation value for `INSTHOME`.
+The `azacsnap` user needs to be able to execute the `db2` command.  By default the `db2` command won't be in the `azacsnap` user's $PATH, therefore add the following to the user's `.bashrc` file using your own IBM Db2 installation value for `INSTHOME`.
 
 ```output
 # The following four lines have been added to allow this user to run the DB2 command line processor.
@@ -901,14 +898,12 @@ db2 => quit
 DB20000I  The QUIT command completed successfully.
 ```
 
-Now configure azacsnap to user localhost.
-Once this is working correctly go on to configure (`azacsnap -c configure`) with the `serverAddress=localhost` and test (`azacsnap -c test --test db2`) azacsnap database connectivity.
+Now configure azacsnap to user localhost.  Once this preliminary test as the `azacsnap` user is working correctly, go on to configure (`azacsnap -c configure`) with the `serverAddress=localhost` and test (`azacsnap -c test --test db2`) azacsnap database connectivity.
 
 
 #### Remote connectivity
 
-If AzAcSnap has been installed following option 2, then be sure to allow SSH access to the Db2 database instance per the following example setup.
-
+If AzAcSnap has been installed following option 2, then be sure to allow SSH access to the Db2 database instance per the following example set up.
 
 Log in to the AzAcSnap system as the `azacsnap` user and generate a public/private SSH key pair.
 
@@ -1029,27 +1024,26 @@ END   : Test process complete for 'db2'
 ## Installing the snapshot tools
 
 The downloadable self-installer is designed to make the snapshot tools easy to set up and run with
-non-root user privileges (for example, azacsnap). The installer will set up the user and put the snapshot tools
+non-root user privileges (for example, azacsnap). The installer sets up the user and puts the snapshot tools
 into the users `$HOME/bin` subdirectory (default = `/home/azacsnap/bin`).
 
 The self-installer tries to determine the correct settings and paths for all the files based on the
-configuration of the user performing the installation (for example, root). If the previous setup steps (Enable
-communication with storage and SAP HANA) were run as root, then the installation will copy the
-private key and the `hdbuserstore` to the backup user's location. The steps to enable communication with the storage back-end
-and SAP HANA can be manually done by a knowledgeable administrator after the installation.
+configuration of the user performing the installation (for example, root). If the previous set up steps (Enable
+communication with storage and SAP HANA) were run as root, then the installation copies the
+private key and the `hdbuserstore` to the back-up user's location. The steps to enable communication with the storage back-end
+and database can be manually done by a knowledgeable administrator after the installation.
 
 > [!NOTE]
 > For earlier SAP HANA on Azure Large Instance installations, the directory of pre-installed
 snapshot tools was `/hana/shared/<SID>/exe/linuxx86_64/hdb`.
 
-With the [pre-requisite steps](#prerequisites-for-installation) completed, it’s now possible to install the snapshot tools using the self-installer as follows:
+With the [prerequisite steps](#prerequisites-for-installation) completed, it’s now possible to install the snapshot tools using the self-installer as follows:
 
 1. Copy the downloaded self-installer to the target system.
 1. Execute the self-installer as the `root` user, see the following example. If necessary, make the
     file executable using the `chmod +x *.run` command.
 
-Running the self-installer command without any arguments will display help on using the installer to
-install the snapshot tools as follows:
+Running the self-installer command without any arguments displays help on using the installer as follows:
 
 ```bash
 chmod +x azacsnap_installer_v5.0.run
@@ -1075,25 +1069,24 @@ Examples of a target directory are ./tmp or /usr/local/bin
 
 > [!NOTE]
 > The self-installer has an option to extract (-X) the snapshot tools from the bundle without
-performing any user creation and setup. This allows an experienced administrator to
-complete the setup steps manually, or to copy the commands to upgrade an existing
+performing any user creation and set up. This allows an experienced administrator to
+complete the set up steps manually, or to copy the commands to upgrade an existing
 installation.
 
 ### Easy installation of snapshot tools (default)
 
 The installer has been designed to quickly install the snapshot tools for SAP HANA on Azure. By default, if the
-installer is run with only the -I option, it will do the following steps:
+installer is run with only the -I option, it does the following steps:
 
-1. Create Snapshot user 'azacsnap', home directory, and set group membership.
+1. Create Snapshot user `azacsnap`, home directory, and set group membership.
 1. Configure the azacsnap user's login `~/.profile`.
-1. Search filesystem for directories to add to azacsnap's `$PATH`, these are typically the paths to
-    the SAP HANA tools, such as `hdbsql` and `hdbuserstore`.
+1. Search filesystem for directories to add to azacsnap's `$PATH`.  This task allows the user who runs azacsnap to use SAP HANA commands, such as `hdbsql` and `hdbuserstore`.
 1. Search filesystem for directories to add to azacsnap's `$LD_LIBRARY_PATH`. Many commands
-    require a library path to be set in order to execute correctly, this configures it for the
+    require a library path to be set in order to execute correctly, this task configures it for the
     installed user.
-1. Copy the SSH keys for back-end storage for azacsnap from the "root" user (the user running the install). This assumes the "root" user has 
+1. Copy the SSH keys for back-end storage for azacsnap from the "root" user (the user running the install). This task assumes the "root" user has 
     already configured connectivity to the storage (for more information, see section [Enable communication with storage](#enable-communication-with-storage)).
-3. Copy the SAP HANA connection secure user store for the target user, azacsnap. This
+3. Copy the SAP HANA connection secure user store for the target user, azacsnap. This task
     assumes the "root" user has already configured the secure user store (for more information, see section "Enable communication with SAP HANA").
 1. The snapshot tools are extracted into `/home/azacsnap/bin/`.
 1. The commands in `/home/azacsnap/bin/` have their permissions set (ownership and executable bit, etc.).
@@ -1310,7 +1303,7 @@ The following output shows the steps to complete after running the installer wit
 1. Run your first snapshot backup
     1. `azacsnap -c backup –-volume data--prefix=hana_test --retention=1`
 
-Step 2 will be necessary if "[Enable communication with database](#enable-communication-with-database)" wasn't done before the
+Step 2 is necessary if "[Enable communication with database](#enable-communication-with-database)" wasn't done before the
 installation.
 
 > [!NOTE]
@@ -1324,7 +1317,7 @@ This section explains how to configure the data base.
 
 ### SAP HANA Configuration
 
-There are some recommended changes to be applied to SAP HANA to ensure protection of the log backups and catalog. By default, the `basepath_logbackup` and `basepath_catalogbackup` will output their files to the `$(DIR_INSTANCE)/backup/log` directory, and it's unlikely this path is on a volume which `azacsnap` is configured to snapshot these files won't be protected with storage snapshots.
+There are some recommended changes to be applied to SAP HANA to ensure protection of the log back-ups and catalog. By default, the `basepath_logbackup` and `basepath_catalogbackup` are set so SAP HANA will put related files into the `$(DIR_INSTANCE)/backup/log` directory.  It's unlikely this location is on a volume which `azacsnap` is configured to snapshot, therefore these files won't be protected with storage snapshots.
 
 The following `hdbsql` command examples demonstrate setting the log and catalog paths to locations, which are on storage volumes that can be snapshot by `azacsnap`. Be sure to check the values on the command line match the local SAP HANA configuration.
 
@@ -1349,7 +1342,7 @@ drwxr-x--- 4 h80adm sapsys 4096 Jan 17 06:55 /hana/logbackups/H80/catalog
 ```
 
 If the path needs to be created, the following example creates the path and sets the correct
-ownership and permissions. These commands will need to be run as root.
+ownership and permissions. These commands need to be run as root.
 
 ```bash
 mkdir /hana/logbackups/H80/catalog
@@ -1362,7 +1355,7 @@ ls -ld /hana/logbackups/H80/catalog
 drwxr-x--- 4 h80adm sapsys 4096 Jan 17 06:55 /hana/logbackups/H80/catalog
 ```
 
-The following example will change the SAP HANA setting.
+The following example changes the SAP HANA setting.
 
 ```bash
 hdbsql -jaxC -n <HANA_ip_address>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> "ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('persistence', 'basepath_catalogbackup') = '/hana/logbackups/H80/catalog' WITH RECONFIGURE"
@@ -1370,8 +1363,8 @@ hdbsql -jaxC -n <HANA_ip_address>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD
 
 ### Check log and catalog backup locations
 
-After making the changes to the log and catalog backup locations, confirm the settings are correct with the following command.
-In this example, the settings that have been set following the example will display as SYSTEM settings.
+After making the changes to the log and catalog back-up locations, confirm the settings are correct with the following command.
+In this example, the settings that have been set following the example are displayed as SYSTEM settings.
 
 > This query also returns the DEFAULT settings for comparison.
 
@@ -1393,9 +1386,9 @@ global.ini,SYSTEM,,,persistence,basepath_logvolumes,/hana/log/H80
 
 ### Configure log backup timeout
 
-The default setting for SAP HANA to perform a log backup is 900 seconds (15 minutes). It's
+The default setting for SAP HANA to perform a log back-up is 900 seconds (15 minutes). It's
 recommended to reduce this value to 300 seconds (for example, 5 minutes).  Then it's possible to run regular
-backups of these files (for example, every 10 minutes).  This is done by adding the log_backups volumes to the OTHER volume section of the
+back-ups of these files (for example, every 10 minutes).  These back-ups can be taken by adding the log_backups volumes to the OTHER volume section of the
 configuration file.
 
 ```bash
@@ -1404,8 +1397,8 @@ hdbsql -jaxC -n <HANA_ip_address>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD
 
 #### Check log backup timeout
 
-After making the change to the log backup timeout, check to ensure this has been set as follows.
-In this example, the settings that have been set will display as the SYSTEM settings, but this
+After making the change to the log back-up timeout, check to ensure the timeout is set as follows.
+In this example, the settings that have been set are displayed as SYSTEM settings, but this
 query also returns the DEFAULT settings for comparison.
 
 ```bash
@@ -1448,7 +1441,7 @@ The following changes must be applied to the Oracle Database to allow for monito
 
 # [IBM Db2](#tab/db2)
 
-No special database configuration is required for Db2 as we are using the Instance User's local operating system environment.
+No special database configuration is required for Db2 as we're using the Instance User's local operating system environment.
 
 ---
 
