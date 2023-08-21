@@ -75,8 +75,8 @@ To delete a replica in the Azure portal:
 
 ![Screenshot of the arch of Azure Web PubSub replica. ](./media/howto-enable-geo-replication/web-pubsub-replica-arch.png  "Replica Arch")
 
-1. The client resolves the Fully Qualified Domain Name (FQDN) `contoso.webpubsub.azure.com` of the Web PubSub service. This FQDN points to a Traffic Manager, which returns the  Canonical Name (CNAME) of the nearest regional Web PubSub instance.
-2. With this CNAME, the client establishes a websocket connection to the regional instance.
+1. The client resolves the Fully Qualified Domain Name (FQDN) `contoso.webpubsub.azure.com` of the Web PubSub service. This FQDN points to a Traffic Manager, which returns the Canonical Name (CNAME) of the nearest regional Web PubSub instance.
+2. With this CNAME, the client establishes a websocket connection to the regional instance (replica).
 3. The two replicas will synchronize data with each other. Messages sent to one replica would be transferred to other replicas if necessary.
 4. In case a replica fails the health check conducted by the Traffic Manager (TM), the TM will exclude the failed instance's endpoint from its domain resolution results. For details, refer to below [Resiliency and Disaster Recovery](#resiliency-and-disaster-recovery)
 
