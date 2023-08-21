@@ -64,7 +64,7 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
 
 1. Open **Azure Resource Graph Explorer**.
 
-    :::image type="content" source="./media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png" alt-text="Screenshot showing launching the Azure Resource Graph Explorer** recommendation page"  lightbox="media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png":::
+    :::image type="content" source="./media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png" alt-text="Screenshot showing launching the Azure Resource Graph Explorer** recommendation page."  lightbox="media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png":::
 
 1. Enter the following query and select **Run query**.
 
