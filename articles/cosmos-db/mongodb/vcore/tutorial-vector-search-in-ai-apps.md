@@ -34,11 +34,11 @@ Retrieval Augmented Generation harnesses external knowledge and models to effici
 
 RAG's power is truly harnessed through the native vector search capability within Azure Cosmos DB for MongoDB vCore. This enables a seamless fusion of AI-focused applications with stored data in Azure Cosmos DB. Vector search optimally stores, indexes, and searches high-dimensional vector data directly within Azure Cosmos DB for MongoDB vCore alongside other application data. This eliminates the need to migrate data to costlier alternatives for vector search functionality.
 
-## Code Samples and Tutorials
+## Code samples and tutorials
 
-1.	[**.NET Retail Chatbot Demo**](https://github.com/AzureCosmosDB/VectorSearchAiAssistant/tree/mongovcorev2): Learn how to build a chatbot using .NET that demonstrates RAG's potential in a retail context.
-2.	[**.NET Tutorial - Recipe Chatbot**](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-MongoDBvCore): Walk through creating a recipe chatbot using .NET, showcasing RAG's application in a culinary scenario.
-3.	[**Python Notebook Tutorial**](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Python/CosmosDB-MongoDB-vCore) - Azure Product Chatbot: Explore a Python notebook tutorial that guides you through constructing an Azure product chatbot, highlighting RAG's benefits.
+- [**.NET Retail Chatbot Demo**](https://github.com/AzureCosmosDB/VectorSearchAiAssistant/tree/mongovcorev2): Learn how to build a chatbot using .NET that demonstrates RAG's potential in a retail context.
+- [**.NET Tutorial - Recipe Chatbot**](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-MongoDBvCore): Walk through creating a recipe chatbot using .NET, showcasing RAG's application in a culinary scenario.
+- [**Python Notebook Tutorial**](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Python/CosmosDB-MongoDB-vCore) - Azure Product Chatbot: Explore a Python notebook tutorial that guides you through constructing an Azure product chatbot, highlighting RAG's benefits.
 
 
 ## Next steps
