@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 06/30/2023
+ms.date: 08/03/2023
 ms.author: jasteppe
 ---
 
@@ -120,12 +120,17 @@ The outcome of FHIR conversion is a FHIR Bundle as a batch.
 
 In this article, you learned about the `$convert-data` operation and how to use the endpoint for converting health data to FHIR R4 by using the FHIR service in the Azure Health Data Service. 
 
-To learn how to configure settings for `$convert-data` using the Azure portal, see:
+To learn how to configure settings for `$convert-data` using the Azure portal, see
  
 > [!div class="nextstepaction"]
 > [Configure settings for $convert-data using the Azure portal](configure-settings-convert-data.md)
 
-To learn about the frequently asked questions (FAQs) for the `$convert-data` operation, see
+To learn how to troubleshoot `$convert-data`, see 
+
+> [!div class="nextstepaction"]
+> [Troubleshoot $convert-data](troubleshoot-convert-data.md)
+
+To learn about the frequently asked questions (FAQs) for `$convert-data`, see
  
 > [!div class="nextstepaction"]
 > [Frequently asked questions about $convert-data](frequently-asked-questions-convert-data.md)

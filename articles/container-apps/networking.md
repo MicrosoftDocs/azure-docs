@@ -27,7 +27,7 @@ There are two environments in Container Apps: the Consumption only environment s
 
 | Environment Type | Description |
 |-----------|-------------|
-| Workload profiles environment (preview) | Supports user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /27. <br /> <br /> As workload profiles are currently in preview, the number of supported regions is limited. To learn more, visit the [workload profiles overview](./workload-profiles-overview.md#supported-regions).|
+| Workload profiles environment (preview) | Supports user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /27. <br /> <br /> As workload profiles are currently in preview, the number of supported regions is limited. To learn more, visit the [workload profiles overview](./workload-profiles-overview.md).|
 | Consumption only environment | Doesn't support user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /23. |
 
 ## Accessibility Levels
@@ -204,6 +204,54 @@ With the workload profiles environment (preview), you can fully secure your ingr
 - Integrate your Container Apps with an Application Gateway. For steps, see [here](./waf-app-gateway.md).
 - Configure UDR to route all traffic through Azure Firewall. For steps, see [here](./user-defined-routes.md).
 
+## <a name="mtls"></a> Environment level network encryption - preview
+
+Azure Container Apps supports environment level network encryption using mutual transport layer security (mTLS). When end-to-end encryption is required, mTLS will encrypt data transmitted between applications within an environment. Applications within a Container Apps environment are automatically authenticated. However, Container Apps currently does not support authorization for access control between applications using the built-in mTLS.
+
+When your apps are communicating with a client outside of the environment, two-way authentication with mTLS is supported, to learn more see [configure client certificates](client-certificate-authorization.md).
+
+> [!NOTE]
+> Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+
+# [Azure CLI](#tab/azure-cli)
+
+You can enable mTLS using the following commands.
+
+On create:
+```azurecli
+az containerapp env create \
+    --name <environment-name> \
+    --resource-group <resource-group> \
+    --location <location> \
+    --enable-mtls
+```
+
+For an existing container app:
+```azurecli
+az containerapp env update \
+    --name <environment-name> \
+    --resource-group <resource-group> \
+    --enable-mtls
+```
+
+# [ARM template](#tab/arm-template)
+
+You can enable mTLS in the ARM template for Container Apps environments using the following configuration.
+
+```json
+{
+  ...
+  "properties": {
+       "peerAuthentication":{
+            "mtls": {
+                "enabled": "true|false"
+            }
+        }
+  ...
+}
+```
+---
+
 ## DNS
 
 -	**Custom DNS**: If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or Firewall, don't block the `168.63.129.16` address, otherwise, your Container Apps environment won't function.
@@ -225,7 +273,7 @@ The name of the resource group created in the Azure subscription where your envi
 
 In addition to the [Azure Container Apps billing](./billing.md), you're billed for:
 
-- One standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for egress. If you need more IPs for egress due to SNAT issues, [open a support ticket to request an override](https://azure.microsoft.com/support/create-ticket/).
+- One standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for egress if using an internal or external environment, plus one standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for ingress if using an external environment. If you need more public IPs for egress due to SNAT issues, [open a support ticket to request an override](https://azure.microsoft.com/support/create-ticket/).
 
 - Two standard [Load Balancers](https://azure.microsoft.com/pricing/details/load-balancer/) if using an internal environment, or one standard [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) if using an external environment. Each load balancer has fewer than six rules. The cost of data processed (GB) includes both ingress and egress for management operations.
 

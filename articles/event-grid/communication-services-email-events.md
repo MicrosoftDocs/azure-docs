@@ -46,7 +46,7 @@ This section contains an example of what that data would look like for each even
   "eventType": "Microsoft.Communication.EmailDeliveryReportReceived",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2020-09-18T00:22:20+00:00"
+  "eventTime": "2020-09-18T00:22:20.822Z"
 }]
 ```
 
@@ -78,7 +78,7 @@ This section contains an example of what that data would look like for each even
   "eventType": "Microsoft.Communication.EmailEngagementTrackingReportReceived",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2022-09-06T22:34:52.1303612+00:00"
+  "eventTime": "2022-09-06T22:34:52.688Z"
 }]
 ```
 

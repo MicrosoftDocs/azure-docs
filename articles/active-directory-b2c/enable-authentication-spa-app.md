@@ -215,7 +215,7 @@ To specify your Azure AD B2C user flows, do the following:
 
 1. Replace `B2C_1_SUSI` with your sign-in Azure AD B2C Policy name.
 1. Replace `B2C_1_EditProfile` with your edit profile Azure AD B2C policy name.
-1. Replace all instances of `contoso` with your [Azure AD B2C tenant name](./ tenant-management-read-tenant-name.md#get-your-tenant-name).
+1. Replace all instances of `contoso` with your [Azure AD B2C tenant name](./tenant-management-read-tenant-name.md#get-your-tenant-name).
 
 ## Step 7: Use the MSAL to sign in the user
 

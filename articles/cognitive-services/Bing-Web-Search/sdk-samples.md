@@ -1,6 +1,6 @@
 ---
 title: Bing Web Search SDK samples
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use the Bing Web Search SDK to add search capabilities to your Python, Node.js, C#, or Java application.
 services: cognitive-services
 author: aahill

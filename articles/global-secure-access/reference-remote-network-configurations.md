@@ -64,6 +64,7 @@ You can use any values *except* for the following reserved ASNs:
 
 - Azure reserved ASNs: 12076, 65517,65518, 65519, 65520, 8076, 8075
 - IANA reserved ASNs: 23456, >= 64496 && <= 64511, >= 65535 && <= 65551, 4294967295
+- 65486
 
 ### Valid enums
 
