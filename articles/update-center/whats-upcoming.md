@@ -10,7 +10,7 @@ ms.date: 06/01/2023
 
 # What's upcoming in Azure Update Manager (preview)
 
-The primary [what's New in Update management center (preview)](whats-new.md) contains updates of feature releases and this article lists all the upcoming features.
+The primary [what's New in Azure Update Manager (preview)](whats-new.md) contains updates of feature releases and this article lists all the upcoming features.
 
 ## Expanded support for Operating system and VM images
  
