@@ -19,7 +19,6 @@ This article explains how to feed data from Log Analytics into Power BI to produ
 
 ## Prerequisites
 
-- You need a Log Analytics workspace that has some data. If needed, [create a diagnostic setting to send data to a Log Analytics workspace](../essentials/diagnostic-settings.md#create-diagnostic-settings).
 - To export the query to a .txt file that you can use in Power BI Desktop, you need [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 - To create a new dataset based on your query directly in the Power BI service:
   - You need a Power BI account.
@@ -28,7 +27,7 @@ This article explains how to feed data from Log Analytics into Power BI to produ
 ## Permissions required
 
 - To export the query to a .txt file that you can use in Power BI Desktop, you need `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
-- To create a new dataset based on your query directly in the Power BI service, you need `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. For more information, see [Set permissions](/power-bi/developer/azure-pbie-diag-logs).
+- To create a new dataset based on your query directly in the Power BI service, you need `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
 
 ## Create Power BI datasets and reports from Log Analytics queries
 
