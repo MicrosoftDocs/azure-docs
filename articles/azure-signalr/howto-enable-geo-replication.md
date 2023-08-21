@@ -64,8 +64,10 @@ After creation, you would be able to view/edit your replica on the portal by cli
 
 ![Screenshot of overview blade of Azure SignalR replica resource. ](./media/howto-enable-geo-replication/signalr-replica-overview.png  "Replica Overview")
 
-## Pricing
-Replica is a feature of [Premium tier](https://azure.microsoft.com/pricing/details/signalr-service/) of Azure SignalR Service. Each replica is billed **separately** according to its own units and outbound traffic. Free message quota is also calculated separately.
+## Pricing and resource unit
+Each replica has its **own** `unit` and `autoscale settings`.
+
+Replica is a feature of [Premium tier](https://azure.microsoft.com/pricing/details/signalr-service/) of Azure SignalR Service. Each replica is billed **separately** according to its own unit and outbound traffic. Free message quota is also calculated separately.
 
 In the preceding example, Contoso added one replica in Canada Central. Contoso would pay for the replica in Canada Central according to its unit and message in Premium Price.
 
