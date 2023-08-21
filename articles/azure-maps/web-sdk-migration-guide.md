@@ -39,7 +39,7 @@ If you're using CDN ([content delivery network]), update the references to the s
 
 ### npm
 
-Install the latest [npm] package using the following command:
+If you're using [npm], update the to the latest Azure Maps control by running the following command:
 
 ```shell
 npm install azure-maps-control@latest
@@ -59,6 +59,13 @@ Consider a gradual rollout strategy for the updated version. Release the migrate
 
 By following these steps and considering best practices, you can successfully migrate your application from Azure Maps WebSDK v1 to v3. Embrace the new capabilities and improvements offered by the latest version while ensuring a smooth and seamless transition for your users. For more information, see [Azure Maps Web SDK best practices].
 
+## Next steps
+
+Learn more about the Azure Maps Power BI visual:
+
+> [!div class="nextstepaction"]
+> [Use the Azure Maps map control]
+
 [Azure Active Directory Authentication]: how-to-secure-spa-users.md
 [Azure Maps Web SDK best practices]: web-sdk-best-practices.md
 [content delivery network]: /azure/cdn/cdn-overview
@@ -66,3 +73,4 @@ By following these steps and considering best practices, you can successfully mi
 [npm]: https://www.npmjs.com/package/azure-maps-control
 [release notes]: release-notes-map-control.md
 [Shared Key Authentication]: how-to-secure-sas-app.md
+[Use the Azure Maps map control]: how-to-use-map-control.md
