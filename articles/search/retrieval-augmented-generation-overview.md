@@ -139,7 +139,7 @@ terminology - is it important to introduce parametric and non-parametric verbiag
 + Use this accelerator to create your own RAG solution.
 
 > [!NOTE]
-> Some Cognitive Search features are intended for human interaction and aren't useful in a RAG pattern. Specfically, you can skip autocomplete and suggestions. Other features like facets and orderby might be useful, but would be uncommon in a RAG scenario.
+> Some Cognitive Search features are intended for human interaction and aren't useful in a RAG pattern. Specifically, you can skip autocomplete and suggestions. Other features like facets and orderby might be useful, but would be uncommon in a RAG scenario.
 
 <!-- Vanity URL for this article
 https://aka.ms/what-is-rag -->
