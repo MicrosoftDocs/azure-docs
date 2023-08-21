@@ -43,7 +43,8 @@ MANA DPDK requires the following set of drivers:
 
 ## Example: Check for MANA
 
-> [!NOTE] This article assumes the pciutils package containing the lspci command is installed on the system.
+> [!NOTE] 
+> This article assumes the pciutils package containing the lspci command is installed on the system.
 
 ```bash
 # check for pci devices with ID:
@@ -60,7 +61,8 @@ fi
 
 ## Example: DPDK installation (Ubuntu 22.04)
 
-> [!NOTE] This article assumes compatible kernel and rdma-core are installed on the system.
+> [!NOTE] 
+> This article assumes compatible kernel and rdma-core are installed on the system.
 
 ```bash
 DEBIAN_FRONTEND=noninteractive sudo apt-get install -q -y build-essential libudev-dev libnl-3-dev libnl-route-3-dev ninja-build libssl-dev libelf-dev python3-pip meson libnuma-dev
@@ -81,7 +83,8 @@ popd
 
 Note the following example code for running DPDK with MANA. The direct-to-vf 'netvsc' configuration on Azure is recommended for maximum performance with MANA.
 
-> [!NOTE] DPDK requires either 2MB or 1GB hugepages to be enabled
+> [!NOTE]
+> DPDK requires either 2MB or 1GB hugepages to be enabled
 
 ```bash
 # Enable 2MB hugepages.
