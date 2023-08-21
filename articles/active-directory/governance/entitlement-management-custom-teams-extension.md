@@ -39,7 +39,7 @@ Prerequisite roles: Global administrator, Identity Governance administrator, or 
 
 To create a Logic App and custom extension in a catalog, you'd follow these steps:
 
-1. Navigate To Entra portal [Identity Governance - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmEntitlement)
+1. Navigate To Microsoft Entra admin center [Identity Governance - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmEntitlement)
 
 1. In the left menu, select **Catalogs**. 
 
