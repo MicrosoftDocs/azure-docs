@@ -19,10 +19,10 @@ The setup procedure for MANA DPDK is outlined in the [example code.](#example-te
 
 ## Introduction
 
-Legacy Azure Linux VMs rely on the mlx4 or mlx5 drivers and the accompanying hardware for accelerated networking. Azure DPDK users would select specific interfaces to include or exclude by passing bus addresses to the DPDK EAL. The setup procedure for MANA DPDK differs slightly, since the assumption of 1 bus address per Accelerated Networking interface no longer holds true. Rather than using a PCI bus address, the MANA PMD uses the MAC address to determine which interface it should bind to.
+Legacy Azure Linux VMs rely on the mlx4 or mlx5 drivers and the accompanying hardware for accelerated networking. Azure DPDK users would select specific interfaces to include or exclude by passing bus addresses to the DPDK EAL. The setup procedure for MANA DPDK differs slightly, since the assumption of one bus address per Accelerated Networking interface no longer holds true. Rather than using a PCI bus address, the MANA PMD uses the MAC address to determine which interface it should bind to.
 
 ## MANA DPDK EAL Arguments
-The MANA PMD will probe all devices and ports on the system when no `--vdev` argument is present; the `--vdev` argument is not mandatory. In testing environments it is often desireable to leave one (primary) interface available for servicing the SSH connection to the VM. To use DPDK with a subset of the available VFs, users should pass both the bus address of the MANA device and the MAC address of the interfaces in the `--vdev` argument. For more detail, example code is available to demonstrate [DPDK EAL initialization on MANA](#example-testpmd-setup-and-netvsc-test).
+The MANA PMD probes all devices and ports on the system when no `--vdev` argument is present; the `--vdev` argument is not mandatory. In testing environments it's often desirable to leave one (primary) interface available for servicing the SSH connection to the VM. To use DPDK with a subset of the available VFs, users should pass both the bus address of the MANA device and the MAC address of the interfaces in the `--vdev` argument. For more detail, example code is available to demonstrate [DPDK EAL initialization on MANA](#example-testpmd-setup-and-netvsc-test).
 
 For general information about the DPDK Environment Abstraction Layer (EAL):
 - [DPDK EAL Arguments for Linux](https://doc.dpdk.org/guides/prog_guide/env_abstraction_layer.html#eal-in-a-linux-userland-execution-environment)
@@ -147,4 +147,4 @@ Cause: Cannot init EAL: Permission denied
 
 ### Low throughput with use of --vdev="net_vdev_netvsc0,iface=eth1"
 
-Failover configuration of either the `net_failsafe` or `net_vdev_netvsc` poll-mode-drivers is not recommended for high performance on Azure. The netvsc configuration with DPDK version 20.11 or higher may give better results. For optimal performance, ensure your Linux kernel, rdma-core, and DPDK packages meet the listed requirements for DPDK and MANA.
+Failover configuration of either the `net_failsafe` or `net_vdev_netvsc` poll-mode-drivers isn't recommended for high performance on Azure. The netvsc configuration with DPDK version 20.11 or higher may give better results. For optimal performance, ensure your Linux kernel, rdma-core, and DPDK packages meet the listed requirements for DPDK and MANA.
