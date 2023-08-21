@@ -42,7 +42,7 @@ Then, subscribe to the `addOnSampleReportedListener` event to get regular update
 
 ```java
 mediaStatsCallFeature.addOnSampleReportedListener(handleSampleReportedListener);
-// Optional: Set the interval for media statistics report generation
+// Optionally, set the interval for media statistics report generation
 mediaStatsCallFeature.setSampleReportedIntervalInSeconds(15);
 
 private void handleSampleReportedListener(MediaStatsReportEvent args) {
@@ -90,4 +90,4 @@ private void handleSampleReportedListener(MediaStatsReportEvent args) {
 }
 ```
 
-[!INCLUDE [native matrics](media-stats-native-metrics.md)]
+[!INCLUDE [native metrics](media-stats-native-metrics.md)]
