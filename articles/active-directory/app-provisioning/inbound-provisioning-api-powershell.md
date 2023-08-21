@@ -180,7 +180,7 @@ To illustrate the procedure, let's use the CSV file `Samples/csv-with-2-records.
 
 This section explains how to send the generated bulk request payload to your inbound provisioning API endpoint. 
 
-1. Log in to your Entra portal as *Application Administrator* or *Global Administrator*.
+1. Log in to your Microsoft Entra admin center as *Application Administrator* or *Global Administrator*.
 1. Copy the `ServicePrincipalId` associated with your provisioning app from **Provisioning App** > **Properties** > **Object ID**.
 
    :::image type="content" border="true" source="./media/inbound-provisioning-api-powershell/object-id.png" alt-text="Screenshot of the Object ID." lightbox="./media/inbound-provisioning-api-powershell/object-id.png":::
@@ -204,7 +204,7 @@ This section explains how to send the generated bulk request payload to your inb
     $ThumbPrint = $ClientCertificate.ThumbPrint
     ```
     The generated certificate is stored **Current User\Personal\Certificates**. You can view it using the **Control Panel** -> **Manage user certificates** option. 
-1. To associate this certificate with a valid service principal, log in to your Entra portal as *Application Administrator*.
+1. To associate this certificate with a valid service principal, log in to your Microsoft Entra admin center as *Application Administrator*.
 1. Open [the service principal you configured](inbound-provisioning-api-grant-access.md#configure-a-service-principal) under **App Registrations**.
 1. Copy the **Object ID** from the **Overview** blade. Use the value to replace the string `<AppObjectId>`. Copy the **Application (client) Id**. We will use it later and it is referenced as `<AppClientId>`.
 1. Run the following command to upload your certificate to the registered service principal. 
@@ -358,7 +358,7 @@ PS > CSV2SCIM.ps1 -Path <path-to-csv-file>
 
 > [!NOTE]
 > The `AttributeMapping` and `ValidateAttributeMapping` command-line parameters refer to the mapping of CSV column attributes to the standard SCIM schema elements. 
-It doesn't refer to the attribute mappings that you perform in the Entra portal provisioning app between source SCIM schema elements and target Azure AD/on-premises AD attributes. 
+It doesn't refer to the attribute mappings that you perform in the Microsoft Entra admin center provisioning app between source SCIM schema elements and target Azure AD/on-premises AD attributes. 
 
 | Parameter |    Description | Processing remarks |
 |----------|----------------|--------------------|

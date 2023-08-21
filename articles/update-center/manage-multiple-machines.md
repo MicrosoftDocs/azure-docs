@@ -1,14 +1,14 @@
 ---
-title: Manage multiple machines in update management center (preview)
-description: The article details how to use Update management center (preview) in Azure to manage multiple supported machines and view their compliance state in the Azure portal.
-ms.service: update-management-center
+title: Manage multiple machines in Azure Update Manager (preview)
+description: The article details how to use Azure Update Manager (preview) in Azure to manage multiple supported machines and view their compliance state in the Azure portal.
+ms.service: update-manager
 ms.date: 05/02/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ---
 
-# Manage multiple machines with update management center (Preview)
+# Manage multiple machines with Azure Update Manager (preview)
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
@@ -16,7 +16,7 @@ ms.author: sudhirsneha
 > - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch orchestration to **Customer Managed Schedules (Preview)**. If you fail to update the patch orchestration, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.[Learn more](prerequsite-for-schedule-patching.md).
 
 
-This article describes the various features that update management center (Preview) offers to manage the system updates on your machines. Using the update management center (preview), you can:
+This article describes the various features that update management center (Preview) offers to manage the system updates on your machines. Using the Update Manager (preview), you can:
 
 - Quickly assess the status of available operating system updates.
 - Deploy updates.
@@ -41,7 +41,7 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
 
    - **Update status of machines**—shows the update status information for assessed machines that had applicable or needed updates. You can filter the results based on classification types. By default, all [classifications](../automation/update-management/overview.md#update-classifications) are selected and as per the classification selection, the tile is updated.
 
-      The graph provides a snapshot for all your machines in your subscription, regardless of whether you have used update management center (preview) for that machine. This assessment data comes from Azure Resource Graph, and it stores the data for seven days. 
+      The graph provides a snapshot for all your machines in your subscription, regardless of whether you have used Update Manager (preview) for that machine. This assessment data comes from Azure Resource Graph, and it stores the data for seven days. 
 
       From the assessment data available, machines are classified into the following categories:
 
@@ -81,11 +81,11 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
 
 ## Summary of machine status
 
-Update management center (preview) in Azure enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to update management center (preview). The section shows how you can filter information to understand the update status of your machine resources, and for multiple machines, initiate an update assessment, update deployment, and manage their update settings. 
+Update Manager (preview) in Azure enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to Update Manager (preview). The section shows how you can filter information to understand the update status of your machine resources, and for multiple machines, initiate an update assessment, update deployment, and manage their update settings. 
 
- In the update management center (preview) page, select **Machines** from the left menu.
+ In the Update Manager (preview) page, select **Machines** from the left menu.
 
-   :::image type="content" source="./media/manage-multiple-machines/update-center-machines-page-inline.png" alt-text="Screenshot of update management center(preview) Machines page in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-machines-page-expanded.png":::
+   :::image type="content" source="./media/manage-multiple-machines/update-center-machines-page-inline.png" alt-text="Screenshot of Update Manager(preview) Machines page in the Azure portal." lightbox="./media/manage-multiple-machines/update-center-machines-page-expanded.png":::
 
    On the page, the table lists all the machines in the specified subscription, and for each machine it helps you understand the following details that show up based on the latest assessment.
    - **Update status**—the total number of updates available identified as applicable to the machine's OS.
@@ -139,7 +139,7 @@ You can create a recurring update deployment for your machines. Select your mach
 
 ## Update deployment history
 
-Update management center (preview) enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to Update management center (preview). You can filter information to understand the update assessment and deployment history for multiple machines. In Update management center (preview), select **History** from the left menu.
+Update Manager (preview) enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to Update Manager (preview). You can filter information to understand the update assessment and deployment history for multiple machines. In Update Manager (preview), select **History** from the left menu.
 
 
 ## Update deployment history by machines
@@ -178,9 +178,9 @@ When you select any one maintenance run ID record, you can view an expanded stat
 
 The update assessment and deployment data are available for querying in Azure Resource Graph. You can apply this data to scenarios that include security compliance, security operations, and troubleshooting. Select **Go to resource graph** to go to the Azure Resource Graph Explorer. It enables running Resource Graph queries directly in the Azure portal. Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for Python, and more. For more information, see [First query with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md).
 
-When the Resource Graph Explorer opens, it is automatically populated with the same query used to generate the results presented in the table on the **History** page in Update management center (preview). Ensure that you review the [query Update logs](query-logs.md) article to learn about the log records and their properties, and the sample queries included. 
+When the Resource Graph Explorer opens, it is automatically populated with the same query used to generate the results presented in the table on the **History** page in Update Manager (preview). Ensure that you review the [query Update logs](query-logs.md) article to learn about the log records and their properties, and the sample queries included. 
 
 ## Next steps
 
 * To set up and manage recurring deployment schedules, see [Schedule recurring updates](scheduled-patching.md)
-* To view update assessment and deployment logs generated by update management center (preview), see [query logs](query-logs.md).
+* To view update assessment and deployment logs generated by update manager (preview), see [query logs](query-logs.md).
