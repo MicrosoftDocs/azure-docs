@@ -37,10 +37,12 @@ MANA DPDK requires the following set of drivers:
 
 > [!NOTE]
 > MANA DPDK is not available for Windows; it will only work on Linux VMs.
-## Example: Check for MANA
-```bash
-# NOTE: this example assumes lspci is installed
 
+## Example: Check for MANA
+
+> [!NOTE] This article assumes the pciutils package containing the lspci command is installed on the system.
+
+```bash
 # check for pci devices with ID:
 #   vendor: Microsoft Corporation (1414)
 #   class:  Ethernet Controller (0200)
@@ -54,8 +56,10 @@ fi
 ```
 
 ## Example: DPDK installation (Ubuntu 22.04)
+
+> [!NOTE] This article assumes compatible kernel and rdma-core are installed on the system.
+
 ```bash
-# NOTE: assumes compatible kernel and rdma-core are installed
 DEBIAN_FRONTEND=noninteractive sudo apt-get install -q -y build-essential libudev-dev libnl-3-dev libnl-route-3-dev ninja-build libssl-dev libelf-dev python3-pip meson libnuma-dev
 
 pip3 install pyelftools
@@ -74,9 +78,9 @@ popd
 
 Note the following example code for running DPDK with MANA. The direct-to-vf 'netvsc' configuration on Azure is recommended for maximum performance with MANA.
 
-```bash
+> [!NOTE] DPDK requires either 2MB or 1GB hugepages to be enabled
 
-# NOTE: DPDK requires either 2MB or 1GB hugepages to be enabled
+```bash
 # Enable 2MB hugepages.
 echo 1024 | tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
 
