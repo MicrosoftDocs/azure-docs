@@ -116,7 +116,7 @@ IP addresses are broken down into the following types:
 | Type | Description |
 |--|--|
 | Public inbound IP address | Used for traffic in an external deployment, and management traffic in both internal and external deployments. |
-| Outbound public IP | Used as the "from" IP for outbound connections that leave the virtual network. These connections aren't routed down a VPN. Outbound IPs may change over time. Using a NAT gateway or other proxy for outbound traffic from a Container Apps environment is only supported in a [workload profile environment](workload-profiles-overview.md). |
+| Outbound public IP | Used as the "from" IP for outbound connections that leave the virtual network. These connections aren't routed down a VPN. Outbound IPs may change over time. Using a NAT gateway or other proxy for outbound traffic from a Container Apps environment is only supported in a [workload profiles environment](workload-profiles-overview.md). |
 | Internal load balancer IP address | This address only exists in an [internal environment](#accessibility-levels). |
 
 ## Subnet
@@ -125,15 +125,15 @@ Virtual network integration depends on a dedicated subnet. How IP addresses are 
 
 Selecting your subnet size carefully. Subnet sizes can't be modified after you create a Container Apps environment.
 
-Different environment types have different subnet requirements: 
+Different environment types have different subnet requirements:
 
-### Workload profile environment
+### Workload profiles environment
 
 - `/27` is the minimum subnet size required for virtual network integration.
 
 - Your subnet must be delegated to `Microsoft.App/environments`.
 
-- The Container Apps runtime automatically reserves 11 IP addresses for integration with the subnet. When your apps are running in workload profile environment, the number of IP addresses required for infrastructure integration doesn't vary based on the scale demands of the environment. Instead, IP addresses are allocated according to the following rules:
+- The Container Apps runtime automatically reserves 11 IP addresses for integration with the subnet. When your apps are running in workload profiles environment, the number of IP addresses required for infrastructure integration doesn't vary based on the scale demands of the environment. Instead, IP addresses are allocated according to the following rules:
 
   - More IP addresses are allocated depending on your environment's workload profile:
 
@@ -164,7 +164,7 @@ Subnet address ranges can't overlap with the following ranges reserved by Azure 
 - 172.31.0.0/16
 - 192.0.2.0/24
 
-In addition, a workload profile environment reserves the following addresses:
+In addition, a workload profiles environment reserves the following addresses:
 
 - 100.100.0.0/17
 - 100.100.128.0/19
@@ -173,7 +173,7 @@ In addition, a workload profile environment reserves the following addresses:
 
 ## Routes
 
-User Defined Routes (UDR) and controlled egress through a NAT Gateway are only supported in a workload profile environment.
+User Defined Routes (UDR) and controlled egress through a NAT Gateway are only supported in a workload profiles environment.
 
 ### User defined routes (UDR) - preview
 
@@ -192,7 +192,7 @@ Azure creates a default route table for your virtual networks upon create. By im
 
 #### Configuring UDR with Azure Firewall (preview)
 
-UDR is only supported in a workload profile environment. The following application and network rules must be added to the allowlist for your firewall depending on which resources you're using.
+UDR is only supported in a workload profiles environment. The following application and network rules must be added to the allowlist for your firewall depending on which resources you're using.
 
 > [!NOTE]
 > For a guide on how to setup UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the [how to for Container Apps and Azure Firewall](./user-defined-routes.md).
@@ -223,7 +223,7 @@ Network rules allow or deny traffic based on the network and transport layer. Th
 
 ### NAT gateway integration (preview)
 
-You can use NAT Gateway to simplify outbound connectivity for your outbound internet traffic in your virtual network in workload profile environment.
+You can use NAT Gateway to simplify outbound connectivity for your outbound internet traffic in your virtual network in workload profiles environment.
 
 When you enable a NAT Gateway on your subnet, the NAT Gateway provides a static public IP address to your environment. All outbound traffic from your container app is routed through the NAT Gateway's static public IP address.
 
@@ -231,9 +231,9 @@ When you enable a NAT Gateway on your subnet, the NAT Gateway provides a static 
 
 :::image type="content" source="media/networking/locked-down-network.png" alt-text="Diagram of how to fully lock down your network for Container Apps.":::
 
-You can fully secure your ingress and egress networking traffic workload profile environment by taking the following actions:
+You can fully secure your ingress and egress networking traffic workload profiles environment by taking the following actions:
 
-- Create your internal container app environment in a workload profile environment. For steps, refer to [Manage workload profiles with the Azure CLI](./workload-profiles-manage-cli.md).
+- Create your internal container app environment in a workload profiles environment. For steps, refer to [Manage workload profiles with the Azure CLI](./workload-profiles-manage-cli.md).
 
 - Integrate your Container Apps with an [Application Gateway](./waf-app-gateway.md).
 
@@ -308,7 +308,7 @@ The static IP address of the Container Apps environment is available in the Azur
 
 When you deploy an internal or an external environment into your own network, a new resource group is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform. Don't modify the services in this group or the resource group itself.
 
-### Workload profile environment
+### Workload profiles environment
 
 The name of the resource group created in the Azure subscription where your environment is hosted is prefixed with `ME_` by default, and the resource group name *can* be customized as you create your container app environment.
 

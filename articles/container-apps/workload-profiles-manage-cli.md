@@ -13,7 +13,7 @@ zone_pivot_groups: container-apps-vnet-types
 
 # Manage workload profiles with the Azure CLI
 
-Learn to manage a workload profile environment using the Azure CLI.
+Learn to manage a workload profiles environment using the Azure CLI.
 
 ## Supported regions
 
@@ -52,7 +52,7 @@ When you create an environment with a custom VNet, you have full control over th
 
 ::: zone-end
 
-Use the following commands to create a workload profile environment.
+Use the following commands to create a workload profiles environment.
 
 ::: zone pivot="aca-vnet-custom"
 

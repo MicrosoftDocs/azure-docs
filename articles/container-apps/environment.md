@@ -18,7 +18,7 @@ Environments include the following features:
 
 | Feature | Description |
 |---|---|
-| Type | There are [two different types](#types) of Container Apps environments: Workload profile environments and Consumption only environments. Workload proriles are only available under the [Dedicated plan](plans.md). |
+| Type | There are [two different types](#types) of Container Apps environments: Workload profiles environments and Consumption only environments. Workload proriles are only available under the [Dedicated plan](plans.md). |
 | Virtual network | A virtual network supports each environment, which enforces the environment's secure boundaries. As you create an environment, a virtual network that has [limited network capabilities](networking.md) is created for you, or you can provide your own. Adding an [existing virtual network](vnet-custom.md) gives you fine-grained control over your network. |
 | Multiple container apps | When multiple container apps are in the same environment, they share the same virtual network and write logs to the same logging destination. |
 | Multi-service integration | You can add [Azure Functions](https://aka.ms/functionsonaca) and [Azure Spring Apps](https://aka.ms/asaonaca) to your Azure Container Apps environment. |

@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Workload profiles in Azure Container Apps
 
-Workload profiles determine the amount of compute and memory resources available to the container apps deployed in an environment.
+A workload profile determines the amount of compute and memory resources available to the container apps deployed in an environment.
 
 Profiles are configured to fit the different needs of your applications.
 

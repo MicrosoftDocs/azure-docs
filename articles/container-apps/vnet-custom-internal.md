@@ -21,7 +21,7 @@ The following example shows you how to create a Container Apps environment in an
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
 
 > [!NOTE]
-> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps when using the Consumption only environment. When using the Workload Profiles environment, a `/27` or larger is required. To learn more about subnet sizing, see the [networking environment overview](./networking.md#subnet).
+> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps when using the Consumption only environment. When using the workload profiles environment, a `/27` or larger is required. To learn more about subnet sizing, see the [networking environment overview](./networking.md#subnet).
 
 7. Select the **Networking** tab to create a VNET.
 8. Select **Yes** next to *Use your own virtual network*.
