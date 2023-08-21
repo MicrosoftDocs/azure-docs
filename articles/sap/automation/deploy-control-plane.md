@@ -1,6 +1,6 @@
 ---
 title: Deploy the control plane for SAP on the Azure Deployment Automation Framework
-description: Overview of the Control Plan deployment process within the SAP on Azure Deployment Automation Framework.
+description: Overview of the control plane deployment process in the SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 # Deploy the control plane
 
-The control plane deployment for [SAP on the Azure Deployment Automation Framework](deployment-framework.md) consists of the following components:
+The control plane deployment for [SAP on the Azure Deployment Automation Framework](deployment-framework.md) consists of the:
 
 - Deployer
 - SAP library
@@ -153,7 +153,7 @@ Ensure that the `Deployment_Configuration_Path` variable in the `SDAF-General` v
 
 The deployment uses the configuration defined in the Terraform variable files located in the `WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE` and `WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY` folders.
 
-Run the pipeline by selecting the `Deploy control plane` pipeline from the Pipelines section. Enter the configuration names for the deployer and the SAP library. Use `MGMT-WEEU-DEP00-INFRASTRUCTURE` as the deployer configuration name and `MGMT-WEEU-SAP_LIBRARY` as the SAP library configuration name.
+Run the pipeline by selecting the `Deploy control plane` pipeline from the **Pipelines** section. Enter the configuration names for the deployer and the SAP library. Use `MGMT-WEEU-DEP00-INFRASTRUCTURE` as the deployer configuration name and `MGMT-WEEU-SAP_LIBRARY` as the SAP library configuration name.
 
 :::image type="content" source="media/devops/automation-run-pipeline.png" alt-text="Screenshot that shows the Azure DevOps Run pipeline dialog.":::
 
@@ -249,9 +249,9 @@ cd sap-automation/deploy/scripts
 ./configure_deployer.sh
 ```
 
-The script installs Terraform and Ansible and configure the deployer.
+The script installs Terraform and Ansible and configures the deployer.
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure SAP Workload Zone](configure-workload-zone.md)
+> [Configure SAP workload zone](configure-workload-zone.md)

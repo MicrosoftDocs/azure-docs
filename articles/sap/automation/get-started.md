@@ -27,9 +27,9 @@ Some of the prerequisites might already be installed in your deployment environm
 
 ## Use the SAP on Azure Deployment Automation Framework from Azure DevOps Services
 
-Using Azure DevOps streamlines the deployment process by providing pipelines that can be executed to perform the infrastructure deployment and the configuration and SAP installation activities.
+Using Azure DevOps streamlines the deployment process. Azure DevOps provides pipelines that you can run to perform the infrastructure deployment and the configuration and SAP installation activities.
 
-You can use Azure Repos to store your configuration files and Azure Pipelines to deploy and configure the infrastructure and the SAP application.
+You can use Azure Repos to store your configuration files. Use Azure Pipelines to deploy and configure the infrastructure and the SAP application.
 
 ### Sign up for Azure DevOps Services
 
@@ -74,7 +74,7 @@ chmod +x ./configure_deployer.sh
 
 ## Samples
 
-The `~/Azure_SAP_Automated_Deployment/samples` folder contains a set of sample configuration files to start testing the deployment automation framework. You can copy them by following these steps:
+The `~/Azure_SAP_Automated_Deployment/samples` folder contains a set of sample configuration files to start testing the deployment automation framework. You can copy them by using the following commands:
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment

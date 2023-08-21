@@ -1,6 +1,6 @@
 ---
 title: SAP system deployment for the automation framework
-description: Overview of the SAP system deployment process within SAP on the Azure Deployment Automation Framework.
+description: Overview of the SAP system deployment process in SAP on the Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -180,7 +180,7 @@ You can track the progress in the Azure DevOps Services portal. After the deploy
 
 The deployment creates an Ansible hosts file (`SID_hosts.yaml`) and an Ansible parameter file (`sap-parameters.yaml`). These files are required input for the Ansible playbooks.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> Learn [about workload zone deployment with automation framework](software.md)
+> [Workload zone deployment with automation framework](software.md)

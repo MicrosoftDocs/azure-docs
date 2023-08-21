@@ -25,7 +25,7 @@ The [automation framework](https://github.com/Azure/sap-automation) has two main
 You use the control plane of the SAP on Azure Deployment Automation Framework to deploy the SAP infrastructure and the SAP application. The deployment uses Terraform templates to create the [infrastructure as a service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas)-defined infrastructure to host the SAP applications.
 
 > [!NOTE]
-> This automation framework is based on Microsoft best practices and principles for SAP on Azure. See [Get started with SAP automation framework on Azure](get-started.md) to understand how to use certified virtual machines (VMs) and storage solutions for stability, reliability, and performance.
+> This automation framework is based on Microsoft best practices and principles for SAP on Azure. To understand how to use certified virtual machines (VMs) and storage solutions for stability, reliability, and performance, see [Get started with SAP automation framework on Azure](get-started.md).
 >
 > This automation framework also follows the [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/).
 
@@ -52,7 +52,7 @@ The control plane provides the following services:
 - Persistent storage for the downloaded SAP software
 - Azure Key Vault for secure storage for deployment credentials
 - Private DNS zone (optional)
-- Configuration Web Application
+- Configuration for web applications
 
 The control plane is typically a regional resource deployed into the hub subscription in a [hub-and-spoke architecture](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 
@@ -82,7 +82,7 @@ The software acquisition is using an SAP application manifest file that contains
 - List of the product IDs for the SAP application components.
 - Set of template files used to provide the parameters for the unattended installation.
 
-The SAP software download playbook processes the manifest file and the dependent manifest files and downloads the SAP software from SAP by using the specified SAP user account. The software is downloaded to the SAP library storage account and is available for the installation process. 
+The SAP software download playbook processes the manifest file and the dependent manifest files and downloads the SAP software from SAP by using the specified SAP user account. The software is downloaded to the SAP library storage account and is available for the installation process.
 
 As part of the download process, the application manifest and the supporting templates are also persisted in the storage account. The application manifest and the dependent manifests are aggregated into a single manifest file that's used by the installation process.
 

@@ -168,7 +168,7 @@ You can track the progress in the Azure DevOps Services portal. After the deploy
 > [!TIP]
 > If the scripts fail to run, it can sometimes help to clear the local cache files by removing the `~/.sap_deployment_automation/` and `~/.terraform.d/` directories before you run the scripts again.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> Learn [about SAP system deployment with the automation framework](configure-system.md)
+> [SAP system deployment with the automation framework](configure-system.md)
