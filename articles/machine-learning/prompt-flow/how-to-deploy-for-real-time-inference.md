@@ -112,6 +112,8 @@ In this step, you can specify the following properties:
 |Inference data collection| If you enable this, the flow inputs and outputs will be auto collected in an AzureML data asset, and can be used for later monitoring. Learn more about [model monitroing.](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-monitor-model-performance?view=azureml-api-2&tabs=azure-cli)|
 |Application Insights diagnostics| If you enable this, system metrics during inference time (such as token count, flow latency, flow request, and etc) will be collected into workspace default Application Insights. Learn more about [prompt flow serving metrcis](view-flow-metrics-during-inference-time).|
 
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/deploy-wizard-deployment.png" alt-text="Screenshot of the deployment step in the deploy wizard." lightbox = "./media/how-to-deploy-for-real-time-inference/deploy-wizard-deployment.png":::
+
 ### Outputs
 
 In this step, you can view all flow outputs, and specify which outputs will be included in the response of the endpoint you deploy. By default all flow outputs are selected.
