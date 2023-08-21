@@ -15,7 +15,7 @@ ms.date: 09/14/2023
 
  
 
-Hello! We have news to share - __Azure Database for MySQL - Single Server is on the retirement path__ and Azure Database for MySQL - Single Server is scheduled for retirement by __September 16, 2024__.
+Hello! We have news to share - __Azure Database for MariaDB is on the retirement path__ and Azure Database for MySQL - Single Server is scheduled for retirement by __September 16, 2024__.
 
 As part of this retirement, we will no longer support creating new Single Server instances from the Azure portal beginning __January 16, 2023__. If you still need to create Single Server instances to meet business continuity needs, you can leverage [Azure CLI](/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-cli). Additionally, you can still use your Terraform template to create single server instances. You will still be able to create read replicas for your existing single server instance from the __Replication blade__ and this will continue to be supported till the sunset date of __September 16, 2024__.
 
