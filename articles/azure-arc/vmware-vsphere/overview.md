@@ -18,7 +18,7 @@ Arc-enabled VMware vSphere (preview) allows you to:
 
 - Empower developers and application teams to self-serve VM operations on-demand using [Azure role-based access control](../../role-based-access-control/overview.md) (RBAC).
 
-- Install the Arc-connected machine agent at scale on VMware VMs to [govern, protect, configure, and monitor](/azure-arc/servers/overview#supported-cloud-operations) them.
+- Install the Arc-connected machine agent at scale on VMware VMs to [govern, protect, configure, and monitor](../servers/overview.md#supported-cloud-operations) them.
 
 - Browse your VMware vSphere resources (VMs, templates, networks, and storage) in Azure, providing you with a single pane view for your infrastructure across both environments.
 

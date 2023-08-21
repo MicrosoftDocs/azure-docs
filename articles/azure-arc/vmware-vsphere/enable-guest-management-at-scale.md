@@ -20,8 +20,8 @@ Ensure the following before you install Arc agents at scale for VMware VMs:
 - The user account must have permissions listed in Azure Arc VMware Administrator role.
 - All the target machines are:
     - Powered on and the resource bridge has network connectivity to the host running the VM.
-    - Running a [supported operating system](/azure-arc/servers/prerequisites#supported-operating-systems).
-    - Able to connect through the firewall to communicate over the internet, and [these URLs](/azure-arc/servers/network-requirements#urls) aren't blocked.
+    - Running a [supported operating system](../servers/prerequisites.md#supported-operating-systems).
+    - Able to connect through the firewall to communicate over the internet, and [these URLs](../servers/network-requirements.md#urls) aren't blocked.
 
       > [!NOTE]
       > If you're using a Linux VM, the account must not prompt for login on sudo commands. To override the prompt, from a terminal, run `sudo visudo`, and add `<username> ALL=(ALL) NOPASSWD:ALL` at the end of the file. Ensure you replace `<username>`. 
