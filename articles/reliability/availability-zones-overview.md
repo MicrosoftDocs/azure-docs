@@ -4,7 +4,7 @@ description: Learn about regions and availability zones and how they work to hel
 ms.service: reliability
 ms.subservice: availability-zones
 ms.topic: conceptual
-ms.date: 08/21/202322
+ms.date: 10/25/2022
 ms.author: anaharris
 author: anaharris
 ms.reviewer: asinghal
@@ -46,10 +46,20 @@ Some organizations require high availability of availability zones and protectio
 
 To see which services support availability zones, see [Azure regions with availability zone support](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
+
 ## Next steps
 
-- To assess the availability zone readiness of your application, see [Azure availability zone migration baseline](./availability-zones-baseline.md).
- 
-- For complete service specific guidance for availability zones, disaster recovery, or high reliability by service, see [Reliability guidance overview](./reliability-guidance-overview.md).
+> [!div class="nextstepaction"]
+> [Azure services and regions with availability zones](availability-zones-service-support.md)
 
-- For availability zone migration guidance by service, see [Availability zones migration overview](./availability-zones-overview.md).
+> [!div class="nextstepaction"]
+> [Availability zone migration guidance](availability-zones-migration-overview.md)
+
+> [!div class="nextstepaction"]
+> [Availability of service by category](availability-service-by-category.md)
+
+> [!div class="nextstepaction"]
+> [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
+
+> [!div class="nextstepaction"]
+> [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)

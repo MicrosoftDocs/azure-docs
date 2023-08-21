@@ -2,6 +2,145 @@
   href: index.yml
 - name: Overview
   href: overview.md
+- name: Availability zone support
+  items:
+  - name: What are Azure availability zones and regions?
+    href: availability-zones-overview.md
+  - name: Services and regions with availability zone support
+    href: availability-zones-service-support.md
+  - name: Migrate to availability zone support
+    items:
+    - name: Overview
+      href: availability-zones-migration-overview.md
+    - name: Azure availability zone migration baseline
+      href: availability-zones-baseline.md
+    - name: Migration guides by service
+      items:
+      - name: Azure API Management
+        href: migrate-api-mgt.md
+      - name: Azure App Configuration
+        href: migrate-app-configuration.md
+      - name: Azure Application Gateway
+        href: migrate-app-gateway-v2.md
+      - name: Azure Functions
+        href: migrate-functions.md
+      - name: Azure Cache for Redis
+        href: migrate-cache-redis.md
+      - name: Azure Cognitive Search
+        href: migrate-search-service.md
+      - name: Azure Container instances
+        href: migrate-container-instances.md
+      - name: Azure Database for MySQL - Flexible Server
+        href: migrate-database-mysql-flex.md
+      - name: Azure Load Balancer 
+        href: migrate-load-balancer.md
+      - name: Azure Log Analytics workspaces
+        href: migrate-monitor-log-analytics.md
+      - name: Azure Recovery Services vault
+        href: migrate-recovery-services-vault.md
+      - name: Azure Service Fabric
+        href: migrate-service-fabric.md
+      - name: Azure SQL Database
+        href: migrate-sql-database.md
+      - name: Azure Storage accounts
+        href: migrate-storage.md
+      - name: Azure SQL managed instance
+        href: migrate-sql-managed-instance.md
+      - name: Azure Virtual Machines and virtual machine scale sets
+        href: migrate-vm.md
+      - name: Workload - Azure Kubernetes and MySQL
+        href: migrate-workload-aks-mysql.md
+  - name: Availability zone quickstarts by service
+    items:
+    - name: Virtual machines
+      items:
+      - name: Create a Linux VM in an Availability Zone with CLI
+        href: ../virtual-machines/linux/create-cli-availability-zone.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Create a Windows VM in an Availability Zone with PowerShell
+        href: ../virtual-machines/windows/create-powershell-availability-zone.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Create a Windows VM in an Availability Zone with Azure portal
+        href: ../virtual-machines/windows/create-portal-availability-zone.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Managed disks
+      items:
+      - name: Add a managed disk in Availability Zones with CLI
+        href: ../virtual-machines/linux/add-disk.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#attach-a-new-disk-to-a-vm
+      - name: Add a managed disk in Availability Zones with PowerShell
+        href: ../virtual-machines/windows/attach-disk-ps.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#add-an-empty-data-disk-to-a-virtual-machine
+    - name: Virtual machine scale sets
+      items:
+      - name: Create a scale set in an Availability Zone
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Load Balancer
+      items:
+      - name: What is Load Balancer?
+        href: ../load-balancer/load-balancer-overview.md
+      - name: Load Balancer Standard and Availability Zones
+        href: ../load-balancer/load-balancer-standard-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Create a zone redundant public Standard Load Balancer
+        href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        items:
+        - name: Create a zone redundant public Standard Load Balancer (PowerShell)
+          href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        - name: Create a zone redundant public Standard Load Balancer (CLI)
+          href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Create a zonal public Standard Load Balancer
+        href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        items:
+        - name: Create a zonal public Standard Load Balancer (PowerShell)
+          href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        - name: Create a zonal redundant public Standard Load Balancer (CLI)
+          href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Load balance VMs across availability zones
+        href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        items:
+        - name: Load balance VMs across availability zones with Azure (CLI)
+          href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Public IP address
+      href: ../virtual-network/ip-services/virtual-network-public-ip-address.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#create-a-public-ip-address
+    - name: SQL Database
+      items:
+      - name: Availability zones with SQL Database general purpose tier
+        href: /azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#general-purpose-service-tier-zone-redundant-availability
+      - name: Availability zones with SQL Database premium & business critical tiers
+        href: /azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#premium-and-business-critical-service-tier-zone-redundant-availability
+    - name: Storage
+      items:
+      - name: Zone-redundant storage
+        href: ../storage/common/storage-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Event Hubs
+      items:
+      - name: Event Hubs geo-disaster recovery
+        href: ../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
+    - name: Service Bus
+      items:
+      - name: Service Bus geo-disaster recovery
+        href: ../service-bus-messaging/service-bus-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
+    - name: VPN Gateway
+      items:
+      - name: Create a zone-redundant virtual network gateway
+        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: ExpressRoute
+      items:
+      - name: Create a zone-redundant virtual network gateway
+        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Application Gateway v2
+      items:
+      - name: Autoscaling and Zone-redundant Application Gateway v2
+        href: ../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Identity
+      items:
+      - name: Create an Azure Active Directory Domain Services instance
+        href: ../active-directory-domain-services/tutorial-create-instance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+- name: Disaster recovery
+  items:
+  - name: Business continuity management program
+    href: business-continuity-management-program.md
+  - name: Cross-region replication
+    href: cross-region-replication-azure.md
+  - name: Use Azure Site Recovery
+    href: ../site-recovery/index.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+  - name: Use Azure Backup
+    href: ../backup/index.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
 - name: Reliability Guidance
   items:
     - name: Overview
@@ -154,60 +293,6 @@
           href: /azure/expressroute/expressroute-migration-classic-resource-manager?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Classic VPN gateway 
           href: /azure/vpn-gateway/vpn-gateway-classic-resource-manager-migration?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-- name: Availability zone support
-  items:
-  - name: What are Azure availability zones and regions?
-    href: availability-zones-overview.md
-  - name: Services and regions with availability zone support
-    href: availability-zones-service-support.md
-  - name: Migrate to availability zone support
-    items:
-    - name: Overview
-      href: availability-zones-migration-overview.md
-    - name: Azure availability zone migration baseline
-      href: availability-zones-baseline.md
-    - name: Migration guides by service
-      items:
-      - name: Azure API Management
-        href: migrate-api-mgt.md
-      - name: Azure App Configuration
-        href: migrate-app-configuration.md
-      - name: Azure Application Gateway
-        href: migrate-app-gateway-v2.md
-      - name: Azure Functions
-        href: migrate-functions.md
-      - name: Azure Cache for Redis
-        href: migrate-cache-redis.md
-      - name: Azure Cognitive Search
-        href: migrate-search-service.md
-      - name: Azure Container instances
-        href: migrate-container-instances.md
-      - name: Azure Database for MySQL - Flexible Server
-        href: migrate-database-mysql-flex.md
-      - name: Azure Load Balancer 
-        href: migrate-load-balancer.md
-      - name: Azure Log Analytics workspaces
-        href: migrate-monitor-log-analytics.md
-      - name: Azure Recovery Services vault
-        href: migrate-recovery-services-vault.md
-      - name: Azure Service Fabric
-        href: migrate-service-fabric.md
-      - name: Azure SQL Database
-        href: migrate-sql-database.md
-      - name: Azure Storage accounts
-        href: migrate-storage.md
-      - name: Azure SQL managed instance
-        href: migrate-sql-managed-instance.md
-      - name: Azure Virtual Machines and virtual machine scale sets
-        href: migrate-vm.md
-      - name: Workload - Azure Kubernetes and MySQL
-        href: migrate-workload-aks-mysql.md
-- name: Disaster recovery
-  items:
-  - name: Business continuity management program
-    href: business-continuity-management-program.md
-  - name: Cross-region replication
-    href: cross-region-replication-azure.md
 - name: Service availability
   items:
   - name: Service availability by category
