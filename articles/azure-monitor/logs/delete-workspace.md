@@ -149,6 +149,7 @@ The soft-delete method might not fit in some scenarios, such as development and 
 To permanently delete a workspace by using the Azure portal: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+1. If the workspace you want to delete permanently is in a soft-delete state, [Recover the workspace](#recover-a-workspace-in-a-soft-delete-state).
 1. In the Azure portal, select **All services**. In the list of resources, enter **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
 1. In the list of Log Analytics workspaces, select a workspace. Select **Delete**.
 1. A confirmation page appears that shows the data ingestion to the workspace over the past week.
