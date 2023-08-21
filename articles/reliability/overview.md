@@ -3,7 +3,7 @@ title: Azure reliability documentation
 description: Azure reliability documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
 author: anaharris-ms
 ms.topic: overview
-ms.date: 07/20/2022
+ms.date: 08/21/2023
 ms.author: anaharris
 ms.service: reliability
 ms.subservice: availability-zones
@@ -18,7 +18,9 @@ Azure includes built-in reliability services that you can use and manage based o
 
 The Azure reliability documentation offers reliability guidance for Azure services. This guidance includes information on availability zone support, disaster recovery guidance, and availability of services.
 
-For more detailed information on reliability and reliability principles in Microsoft Azure services, see [Microsoft Azure Well-Architected Framework: Reliability](/azure/architecture/framework/#reliability).
+For detailed service-specific reliability guidance, including availability zones, disaster recovery, or high availability, see [Azure service-specific reliability guidance overview](./reliability-guidance-overview.md).
+
+For more detailed information on reliability and reliability principles and architecture in Microsoft Azure services, see [Microsoft Azure Well-Architected Framework: Reliability](/azure/architecture/framework/#reliability).
 
 
 ## Reliability requirements
