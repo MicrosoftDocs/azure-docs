@@ -59,7 +59,7 @@ Each issuer has a single key set used for signing, updating, and recovery. This 
 
 ### Microsoft Entra Verified ID service
 
-![Diagram of Microsoft Microsoft Entra Verified ID service](media/plan-issuance-solution/plan-for-issuance-solution-azure-active-directory-verifiable-credentials-vc-services.png)
+![Diagram of Microsoft Microsoft Entra Verified ID service](media/plan-issuance-solution/plan-for-issuance-solution-verifiable-credentials-vc-services.png)
 
 The Microsoft Entra Verified ID service enables you to issue and revoke VCs based on your configuration. The service:
 
@@ -99,7 +99,7 @@ These services provide supporting roles that don't necessarily need to integrate
 
 * **Additional middle-tier services** that contain business rules for lookups, validating, billing, and any other runtime checks and workflows needed to issue credentials.
 
-For more information on setting up your web front end, see the tutorial [Configure your Azure AD to issue verifiable credentials](../verifiable-credentials/enable-your-tenant-verifiable-credentials.md). 
+For more information on setting up your web front end, see the tutorial [Configure your Azure AD to issue verifiable credentials](./verifiable-credentials-configure-tenant.md). 
 
 ## Credential Design Considerations
 
@@ -298,4 +298,4 @@ For more information on Key Vault implementation and operation, refer to [Best p
 
 [Plan your verification solution](plan-verification-solution.md)
 
-[Get started with verifiable credentials](get-started-verifiable-credentials.md)
+[Get started with verifiable credentials](./verifiable-credentials-configure-tenant.md)

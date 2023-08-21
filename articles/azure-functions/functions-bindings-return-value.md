@@ -3,7 +3,7 @@ title: Using return value from an Azure Function
 description: Learn to manage return values for Azure Functions
 ms.topic: reference
 ms.devlang: csharp, fsharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 07/25/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---

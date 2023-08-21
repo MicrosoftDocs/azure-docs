@@ -10,7 +10,7 @@ ms.subservice: roles
 ms.topic: how-to
 ms.date: 02/04/2022
 ms.author: rolyon
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 
 ms.collection: M365-identity-device-management
 ---

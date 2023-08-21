@@ -118,6 +118,8 @@ In this preview, you have the ability to infinitely scroll, reorder columns, and
 - Join type (Azure AD joined, Hybrid Azure AD joined, Azure AD registered)
 - Activity timestamp
 - OS Type and Version
+   - Windows is displayed for Windows 11 and Windows 10 devices (with KB5006738).
+   - Windows Server is displayed for [supported versions managed with Microsoft Defender for Endpoint](/mem/intune/protect/mde-security-integration#supported-platforms).
 - Device type (printer, secure VM, shared device, registered device)
 - MDM
 - Autopilot
@@ -187,7 +189,7 @@ This option is a premium edition capability available through products like Azur
 
 - **Restrict non-admin users from recovering the BitLocker key(s) for their owned devices**: Admins can block self-service BitLocker key access to the registered owner of the device. Default users without the BitLocker read permission will be unable to view or copy their BitLocker key(s) for their owned devices. You must be a Global Administrator or Privileged Role Administrator to update this setting. 
 
-- **Enterprise State Roaming**: For information about this setting, see [the overview article](enterprise-state-roaming-overview.md).
+- **Enterprise State Roaming**: For information about this setting, see [the overview article](./enterprise-state-roaming-enable.md).
 
 ## Audit logs
 

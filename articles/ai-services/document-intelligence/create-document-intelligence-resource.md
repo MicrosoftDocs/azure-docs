@@ -1,5 +1,5 @@
 ---
-title: How to create a Document Intelligence resource
+title: Create a Document Intelligence (formerly Form Recognizer) resource
 titleSuffix: Azure AI services
 description: Create a Document Intelligence resource in the Azure portal
 author: laujan

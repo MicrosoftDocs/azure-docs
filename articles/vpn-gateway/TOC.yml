@@ -43,7 +43,7 @@
     href: vpn-gateway-about-point-to-site-routing.md
   - name: About NAT and VPN Gateway
     href: nat-overview.md
-  - name: About site-to-site forced and split tunneling
+  - name: About site-to-site forced tunneling
     href: about-site-to-site-tunneling.md
   - name: About zone-redundant gateways for Availability Zones
     href: about-zone-redundant-vnet-gateways.md
@@ -225,7 +225,7 @@
         href: bgp-how-to-cli.md
     - name: BGP diagnostics
       href: bgp-diagnostics.md
-    - name: Configure site-to-site forced and split tunneling
+    - name: Configure site-to-site forced tunneling
       href: site-to-site-tunneling.md
     - name: Configure gateway transit for VNet peering
       href: vpn-gateway-peering-gateway-transit.md

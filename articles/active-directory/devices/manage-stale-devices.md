@@ -5,6 +5,7 @@ description: Learn how to remove stale devices from your database of registered 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 09/27/2022
 
@@ -13,9 +14,8 @@ author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: spunukol
 
-#Customer intent: As an IT admin, I want to understand how I can get rid of stale devices, so that I can I can cleanup my device registration data.
-
 ms.collection: M365-identity-device-management
+#Customer intent: As an IT admin, I want to understand how I can get rid of stale devices, so that I can I can cleanup my device registration data.
 ---
 # How To: Manage stale devices in Azure AD
 
@@ -41,7 +41,7 @@ Because a stale device is defined as a registered device that hasn't been used t
 
 The evaluation of the activity timestamp is triggered by an authentication attempt of a device. Azure AD evaluates the activity timestamp when:
 
-- A Conditional Access policies requiring [managed devices](../conditional-access/require-managed-devices.md) or [approved client apps](../conditional-access/app-based-conditional-access.md) has been triggered.
+- A Conditional Access policies requiring [managed devices](../conditional-access/concept-conditional-access-grant.md) or [approved client apps](../conditional-access/howto-policy-approved-app-or-app-protection.md) has been triggered.
 - Windows 10 or newer devices that are either Azure AD joined or hybrid Azure AD joined are active on the network. 
 - Intune managed devices have checked in to the service.
 
