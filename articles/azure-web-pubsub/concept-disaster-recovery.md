@@ -9,9 +9,7 @@ ms.author: lianwei
 ---
 # Resiliency and disaster recovery in Azure Web PubSub Service
 
-Resiliency and disaster recovery is a common need for online systems. Azure Web PubSub Service already guarantees 99.9% availability, but it's still a regional service.
-
-Your service instance is a regional service and the instance is running in one region. When there is a region-wide outage, it is critical for the service to continue processing real-time messages in a different region. This article will explain some of the strategies you can use to deploy the service to allow for disaster recovery.
+Resiliency and disaster recovery is a common need for online systems. Azure Web PubSub Service already guarantees 99.9% availability, but it's still a regional service. When there is a region-wide outage, it is critical for the service to continue processing real-time messages in a different region.
 
 For regional disaster recovery, we recommend the following two approaches:
 
@@ -102,7 +100,7 @@ You'll need to handle such cases at client side to make it transparent to your e
 
 ###  High available architecture for client-client pattern
 
-For client-client pattern, currently it is not yet possible to support a zero-down-time disaster recovery. If you have high availability requirements, please consider using [geo-replication](howto-enable-geo-replication.md).
+For client-client pattern, currently it is not yet possible to support a zero-down-time disaster recovery using multiple instances. If you have high availability requirements, please consider using [geo-replication](howto-enable-geo-replication.md).
 
 ## How to test a failover
 
