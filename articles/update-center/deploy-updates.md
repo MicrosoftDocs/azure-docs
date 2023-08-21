@@ -1,7 +1,7 @@
 ---
-title: Deploy updates and track results in update management center (preview).
-description: The article details how to use update management center (preview) in the Azure portal to deploy updates and view results for supported machines.
-ms.service: update-management-center
+title: Deploy updates and track results in Azure Update Manager (preview).
+description: The article details how to use Azure Update Manager (preview) in the Azure portal to deploy updates and view results for supported machines.
+ms.service: update-manager
 ms.date: 08/08/2023
 ms.topic: conceptual
 author: SnehaSudhirG
@@ -9,11 +9,11 @@ ms.author: sudhirsneha
 ms.custom: references_regions
 ---
 
-# Deploy updates now and track results with update management center (preview)
+# Deploy updates now and track results with Azure Update Manager (preview)
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-The article describes how to perform an on-demand update on a single VM or multiple VMs using update management center (preview).
+The article describes how to perform an on-demand update on a single VM or multiple VMs using Update Manager (preview).
 
 See the following sections for detailed information:
 - [Install updates on a single VM](#install-updates-on-single-vm)
@@ -21,7 +21,7 @@ See the following sections for detailed information:
 
 ## Supported regions
 
-Update management center (preview) is available in all [Azure public regions](support-matrix.md#supported-regions). 
+Update Manager (preview) is available in all [Azure public regions](support-matrix.md#supported-regions). 
 
 ## Configure reboot settings
 
@@ -31,7 +31,7 @@ The registry keys listed in [Configuring Automatic Updates by editing the regist
 ## Install updates on single VM
 
 >[!NOTE]
-> You can install the updates from the Overview or Machines blade in update management center (preview) page or from the selected VM.
+> You can install the updates from the Overview or Machines blade in Update Manager (preview) page or from the selected VM.
 
 # [From Overview blade](#tab/install-single-overview) 
 
@@ -39,7 +39,7 @@ To install one time updates on a single VM, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In **Update management center (preview)**, **Overview**, choose your **Subscription** and select **One-time update** to install updates.
+1. In **Update Manager (preview)**, **Overview**, choose your **Subscription** and select **One-time update** to install updates.
 
    :::image type="content" source="./media/deploy-updates/install-updates-now-inline.png" alt-text="Example of installing one-time updates." lightbox="./media/deploy-updates/install-updates-now-expanded.png":::
 
@@ -53,7 +53,7 @@ To install one time updates on a single VM, follow these steps:
 
    > [!NOTE]
    > - Selected Updates shows a preview of OS updates which may be installed based on the last OS update assessment information available. If the OS update assessment information in update center management (preview) is obsolete, the actual updates installed would vary. Especially if you have chosen to install a specific update category, where the OS updates applicable may vary as new packages or KB Ids may be available for the category.
-   > - Update management center (preview) doesn't support driver updates. 
+   > - Update Manager (preview) doesn't support driver updates. 
 
 
    - Select **+Include update classification**, in the **Include update classification** select the appropriate classification(s) that must be installed on your machines.
@@ -87,7 +87,7 @@ To install one time updates on a single VM, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In **Update management center (Preview)**, **Machine**, choose your **Subscription**, choose your machine and select **One-time update** to install updates.
+1. In **Update Manager (Preview)**, **Machine**, choose your **Subscription**, choose your machine and select **One-time update** to install updates.
 
 1. Select to **Install now** to proceed with installing updates.
 
@@ -119,7 +119,7 @@ You can schedule updates
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In **Update management center (Preview)**, **Overview**, choose your **Subscription**, select **One-time update**, and **Install now** to install updates.
+1. In **Update Manager (Preview)**, **Overview**, choose your **Subscription**, select **One-time update**, and **Install now** to install updates.
 
    :::image type="content" source="./media/deploy-updates/install-updates-now-inline.png" alt-text="Example of installing one-time updates." lightbox="./media/deploy-updates/install-updates-now-expanded.png":::
    
@@ -174,5 +174,5 @@ Select any one of the update deployments from the list to open the **Update depl
 
 ## Next steps
 
-* To view update assessment and deployment logs generated by update management center (preview), see [query logs](query-logs.md).
-* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) update management center (preview).
+* To view update assessment and deployment logs generated by Update Manager (preview), see [query logs](query-logs.md).
+* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) Update Manager (preview).

@@ -10,7 +10,7 @@ ms.author: lianwei
 
 # Managed identities for Azure SignalR Service
 
-In Azure SignalR Service, you can use a managed identity from Azure Active Directory to:
+In Azure SignalR Service, you can use a managed identity from Microsoft Entra ID to:
 
 - Obtain access tokens
 - Access secrets in Azure Key Vault
@@ -92,9 +92,9 @@ The token in the `Authorization` header is a [Microsoft identity platform access
 
 To validate access tokens, your app should also validate the audience and the signing tokens. These tokens need to be validated against the values in the OpenID discovery document. For example, see the [tenant-independent version of the document](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-The Azure Active Directory (Azure AD) middleware has built-in capabilities for validating access tokens. You can browse through our [samples](../active-directory/develop/sample-v2-code.md) to find one in the language of your choice.
+The Microsoft Entra ID middleware has built-in capabilities for validating access tokens. You can browse through our [samples](../active-directory/develop/sample-v2-code.md) to find one in the language of your choice.
 
-Libraries and code samples that show how to handle token validation are available. There are also several open-source partner libraries available for JSON Web Token (JWT) validation. There's at least one option for almost every platform and language. For more information about Azure AD authentication libraries and code samples, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
+Libraries and code samples that show how to handle token validation are available. There are also several open-source partner libraries available for JSON Web Token (JWT) validation. There's at least one option for almost every platform and language. For more information about Microsoft Entra authentication libraries and code samples, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
 #### Authentication in Function App
 
@@ -104,9 +104,9 @@ You can easily set access validation for a Function App without code changes usi
 1. Select **Authentication** from the menu.
 1. Select **Add identity provider**.
 1. In the **Basics** tab, select **Microsoft** from the **Identity provider** dropdown.
-1. Select **Log in with Azure Active Directory** in **Action to take when request is not authenticated**.
-1. Select **Microsoft** in the identity provider dropdown. The option to create a new registration is selected by default. You can change the name of the registration. For more information on enabling Azure AD provider, see [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md)
-   :::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="Screenshot showing Function Add.":::
+1. Select **Log in with Microsoft Entra ID** in **Action to take when request is not authenticated**.
+1. Select **Microsoft** in the identity provider dropdown. The option to create a new registration is selected by default. You can change the name of the registration. For more information on enabling Microsoft Entra ID provider, see [Configure your App Service or Azure Functions app to login with Microsoft Entra ID](../app-service/configure-authentication-provider-aad.md)
+   :::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="Function Microsoft Entra ID":::
 1. Navigate to SignalR Service and follow the [steps](howto-use-managed-identity.md#add-a-system-assigned-identity) to add a system-assigned identity or user-assigned identity.
 1. go to **Upstream settings** in SignalR Service and choose **Use Managed Identity** and **Select from existing Applications**. Select the application you created previously.
 

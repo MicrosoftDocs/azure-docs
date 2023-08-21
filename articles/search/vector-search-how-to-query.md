@@ -29,7 +29,7 @@ Code samples in the [cognitive-search-vector-pr](https://github.com/Azure/cognit
 
 + Azure Cognitive Search, in any region and on any tier. Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
 
-+ A search index containing vector fields. See [Add vector fields to a search index](vector-search-how-to-query.md).
++ A search index containing vector fields. See [Add vector fields to a search index](vector-search-how-to-create-index.md).
 
 + Use REST API version **2023-07-01-Preview**, the [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr/tree/main), or Search Explorer in the Azure portal.
 

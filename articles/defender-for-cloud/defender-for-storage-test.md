@@ -9,7 +9,7 @@ ms.topic: how-to
 
 # Testing the Defender for Storage data security features
 
-After you [enable Microsoft Defender for Storage](../storage/common/azure-defender-storage-configure.md), you can test the service and run a proof of concept to familiarize yourself with its features and validate the advanced security capabilities effectively protect your storage accounts by generating real security alerts. This guide will walk you through testing various aspects of the security coverage offered by Defender for Storage.
+After you [enable Microsoft Defender for Storage](tutorial-enable-storage-plan.md), you can test the service and run a proof of concept to familiarize yourself with its features and validate the advanced security capabilities effectively protect your storage accounts by generating real security alerts. This guide will walk you through testing various aspects of the security coverage offered by Defender for Storage.
 
 There are three main components to test:
 

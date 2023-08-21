@@ -162,6 +162,100 @@ Disable ingress for your container app by omitting the `ingress` configuration p
 
 ::: zone-end
 
+## <a name="use-additional-tcp-ports"></a>Use additional TCP ports (preview)
+
+You can expose additional TCP ports from your application. To learn more, see the [ingress concept article](ingress-overview.md#additional-tcp-ports).
+
+
+::: zone pivot="azure-cli"
+
+# [Azure CLI](#tab/azure-cli)
+
+Adding additional TCP ports can be done through the CLI by referencing a YAML file with your TCP port configurations.
+
+```azurecli
+az containerapp update 
+    --name <app-name> \
+    --resource-group <resource-group> \
+    --yaml <your-yaml-file>
+```
+
+The following is an example YAML file you can reference in the above CLI command. The configuration for the additional TCP ports is under `additionalPortMappings`.
+
+```yml
+location: northcentralus
+name: multiport-example
+properties:
+  configuration:
+    activeRevisionsMode: Single
+    ingress:
+      additionalPortMappings:
+      - exposedPort: 21025
+        external: true
+        targetPort: 1025
+      allowInsecure: false
+      external: true
+      targetPort: 1080
+      traffic:
+      - latestRevision: true
+        weight: 100
+      transport: http
+  managedEnvironmentId: <env id>
+  template:
+    containers:
+    - image: maildev/maildev
+      name: maildev
+      resources:
+        cpu: 0.25
+        memory: 0.5Gi
+    scale:
+      maxReplicas: 1
+      minReplicas: 1
+  workloadProfileName: Consumption
+type: Microsoft.App/containerApps
+```
+
+::: zone-end
+
+::: zone pivot="azure-portal"
+
+# [Portal](#tab/portal)
+
+This feature is not supported in the Azure portal.
+
+::: zone-end
+
+::: zone pivot="azure-resource-manager"
+
+# [ARM template](#tab/arm-template)
+
+The following ARM template provides an example of how you can add additional ports to your container apps. Each additional port should be added under `additionalPortMappings` within the `ingress` section for `configuration` within `properties` for the container app. The following is an example:
+
+```json
+{
+  ...
+  "properties": {
+    ...
+    "configuration": {
+      "ingress": {
+        ...
+        "additionalPortMappings": [
+          {
+            "external": false
+            "targetPort": 80
+            "exposedPort": 12000
+          }
+        ]
+      }
+    }
+  ...
+}
+```
+
+---
+
+::: zone-end
+
 ## Next steps
 
 > [!div class="nextstepaction"]

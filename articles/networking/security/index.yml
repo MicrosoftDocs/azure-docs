@@ -87,6 +87,8 @@ additionalContent:
               url: ../../virtual-network/network-security-groups-overview.md
             - text: Secure access to Azure services
               url: ../../virtual-network/virtual-network-service-endpoints-overview.md
+            - text: Inspect traffic to a private endpoint
+              url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/deploy-azure-firewall-to-inspect-traffic-to-a-private-endpoint/ba-p/3714575
             - text: Learn more about Azure Virtual Network
               url: ../../virtual-network/index.yml
         - title: Training
