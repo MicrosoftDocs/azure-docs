@@ -33,20 +33,20 @@ If you're using the base models, you should configure your client code to monito
 
 Follow these steps to configure your client to monitor errors:
 
-- Use the [models](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability) page to choose the datacenters and regions that are right for you.
+1. Use the [models](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability) page to choose the datacenters and regions that are right for you.
 
-- Select a primary and one (or more) secondary/backup regions from the list.
+2. Select a primary and one (or more) secondary/backup regions from the list.
 
-- Create Azure OpenAI resources for each region(s) selected.
+3. Create Azure OpenAI resources for each region(s) selected.
 
-- For the primary region and any backup regions your code will need to know:
+4. For the primary region and any backup regions your code will need to know:
 
-  - Base URI for the resource
-  - Regional access key or Azure Active Directory access
+    - Base URI for the resource
+    - Regional access key or Azure Active Directory access
 
-- Configure your code so that you monitor connectivity errors (typically connection timeouts and service unavailability errors).
+5. Configure your code so that you monitor connectivity errors (typically connection timeouts and service unavailability errors).
 
-  - Given that networks yield transient errors, for single connectivity issue occurrences, the suggestion is to retry.
-  - For persistent connectivity issues, redirect traffic to the backup resource in the region(s) you've created.
+    - Given that networks yield transient errors, for single connectivity issue occurrences, the suggestion is to retry.
+    - For persistent connectivity issues, redirect traffic to the backup resource in the region(s) you've created.
 
 If you have fine-tuned a model in your primary region, you will need to retrain the base model in the secondary region(s) using the same training data. And then follow the above steps.
