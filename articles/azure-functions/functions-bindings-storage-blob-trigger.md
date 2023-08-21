@@ -29,7 +29,7 @@ The Python v1 programming model requires you to define bindings in a separate *f
 ---
 
 This article supports both programming models. 
-  
+
 ::: zone-end   
 
 ## Example
