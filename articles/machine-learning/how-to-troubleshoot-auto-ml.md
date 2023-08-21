@@ -41,4 +41,4 @@ If your Automates ML runs uses pipeline runs for trials, you can follow the foll
 ## Next steps
 
 + [Train computer vision models with automated machine learning](how-to-auto-train-image-models.md).
-+ [Train natural language processing models with automated machine learning](how-to-auto-train-nlp-models).
++ [Train natural language processing models with automated machine learning](how-to-auto-train-nlp-models.md).
