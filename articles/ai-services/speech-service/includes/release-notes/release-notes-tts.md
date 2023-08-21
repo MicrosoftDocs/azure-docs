@@ -6,6 +6,12 @@ ms.date: 02/28/2023
 ms.author: eur
 ---
 
+### August 2023 release
+
+#### Custom neural voice
+
+- The latest CNV Lite training recipe version has been released now. This release brings several enhancements on the quality of your language models. Try out [Speech Studio](https://aka.ms/speechstudio/customvoice).
+
 ### July 2023 release
 
 #### Custom neural voice
