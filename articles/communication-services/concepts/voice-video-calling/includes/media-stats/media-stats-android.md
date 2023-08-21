@@ -14,8 +14,6 @@ ms.subservice: calling
 
 ## Media quality statistics for an ongoing call
 
-[!INCLUDE [public-preview-notes](../../../../includes/public-preview-include.md)]
-
 Media quality statistics is an extended feature of the core `Call` API. You first need to obtain the `MediaStatsCallFeature` API object:
 
 ```java

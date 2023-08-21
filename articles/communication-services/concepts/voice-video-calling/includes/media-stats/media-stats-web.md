@@ -14,10 +14,8 @@ ms.subservice: calling
 
 ## Media quality statistics for an ongoing call
 
-[!INCLUDE [public-preview-notes](../../../../includes/public-preview-include.md)]
-
 > [!IMPORTANT]
-> There's an API breaking change on `MediaStats` in the SDK, beginning with version 1.8.0-beta.1.
+> There's an API breaking change on media quality statistics in the SDK, beginning with version 1.8.0-beta.1.
 
 Media quality statistics is an extended feature of the core `Call` API. You first need to obtain the `mediaStatsFeature` API object:
 
@@ -83,7 +81,7 @@ We removed the `disposeAllCollectors` method. The collectors will be reclaimed w
 
 If you want to collect the data for offline inspection, we recommend that you collect the data and send it to your pipeline ingestion after your call ends. If you transmit the data during a call, it could use internet bandwidth that's needed to continue an Azure Communication Services call (especially when available bandwidth is low).
 
-## MediaStats metrics for SDK version 1.8.0 or later
+## Media quality statistics metrics for SDK version 1.8.0 or later
 
 The bandwidth metrics have changes to `availableBitrate` in audio send and video send metrics.
 

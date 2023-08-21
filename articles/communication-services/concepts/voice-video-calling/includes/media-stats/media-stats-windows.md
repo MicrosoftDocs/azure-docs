@@ -1,6 +1,6 @@
 ---
 title: Azure Communication Services media quality statistics (Windows)
-titleSuffix: An Azure Communication Services concept document
+titleSuffix: An Azure Communication Services concept article
 description: Get usage samples of the media quality statistics feature for Windows native.
 author: jsaurezle-msft
 ms.author: jsaurezlee
@@ -13,8 +13,6 @@ ms.subservice: calling
 ---
 
 ## Media quality statistics for an ongoing call
-
-[!INCLUDE [public-preview-notes](../../../../includes/public-preview-include.md)]
 
 Media quality statistics is an extended feature of the core `CommunicationCall` API. You first need to obtain the `MediaStatsCallFeature` API object:
 
