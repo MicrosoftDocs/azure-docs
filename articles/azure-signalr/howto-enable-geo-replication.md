@@ -93,7 +93,7 @@ The diagram below provides a brief illustration of the SignalR Replicas' functio
 
 ## Resiliency and Disaster Recovery
 
-Azure SignalR Service uses a traffic manager to oversee health check heartbeats across all replica instances. Under normal circumstances, when all replicas are functioning properly, clients will be directed  to the closest replica. For instance:
+Azure SignalR Service uses a traffic manager to conduct health checks and handle dns resolution for all replica instances. Under normal circumstances, when all replicas are functioning properly, clients will be directed  to the closest replica. For instance:
 
 - Clients close to `eastus` will be directed to the replica located in `eastus`.
 - Similarly, clients close to `westus` will be directed to the replica in `westus`.
