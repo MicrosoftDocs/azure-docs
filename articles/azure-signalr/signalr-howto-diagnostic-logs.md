@@ -42,7 +42,9 @@ Platform metrics and the Activity log are collected and stored automatically, bu
 
 Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect.
+Resource Logs are grouped into Category groups. Category groups are a collection of different logs to help you achieve different monitoring goals. These groups are defined dynamically and may change over time as new resource logs become available and are added to the category group. Note that this may incur additionally charges. The audit resource log category group allows you to select the resource logs that are necessary for auditing your resource. For more information, see [Diagnostic settings in Azure Monitor: Resource logs](../azure-monitor/essentials/diagnostic-settings.md?tabs=portal#resource-logs).
+
+For the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md).
 
 The metrics and logs you can collect are discussed in the following sections.
 

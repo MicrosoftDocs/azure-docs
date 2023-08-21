@@ -34,7 +34,7 @@ For more information on Azure AD multifactor authentication, see [What is Azure 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Security Administrator](../roles/permissions-reference.md#security-administrator)
 1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **MFA registration policy**.
    1. Under **Assignments** > **Users**
       1. Under **Include**, select **All users** or **Select individuals and groups** if limiting your rollout.

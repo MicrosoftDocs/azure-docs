@@ -83,6 +83,7 @@ Arc resource bridge consists of an appliance VM that is deployed to the on-premi
 To fix this, the credentials in the appliance VM need to be updated. For more information, see [Update credentials in the appliance VM](maintenance.md#update-credentials-in-the-appliance-vm).
 
 
+
 ## Networking issues
 
 ### Back-off pulling image error
@@ -100,6 +101,7 @@ When trying to set the configuration for Arc resource bridge, you may receive an
 `"message": "Post \"https://esx.lab.local/52b-bcbc707ce02c/disk-0.vmdk\": dial tcp: lookup esx.lab.local: no such host"`
 
 This occurs when a `.local` path is provided for a configuration setting, such as proxy, dns, datastore or management endpoint (such as vCenter). Arc resource bridge appliance VM uses Azure Linux OS, which doesn't support `.local` by default. A workaround could be to provide the IP address where applicable.
+
 
 
 ### Azure Arc resource bridge is unreachable
@@ -218,7 +220,8 @@ When deploying the resource bridge on VMware vCenter, you specify the folder in 
 
 When deploying the resource bridge on VMware Vcenter, you may get an error saying that you have insufficient permission. To resolve this issue, make sure that your user account has all of the following privileges in VMware vCenter and then try again.
 
-```
+
+```python
 "Datastore.AllocateSpace"
 "Datastore.Browse"
 "Datastore.DeleteFile"
@@ -234,6 +237,7 @@ When deploying the resource bridge on VMware Vcenter, you may get an error sayin
 "Resource.AssignVMToPool"
 "Resource.HotMigrate"
 "Resource.ColdMigrate"
+"Sessions.ValidateSession"
 "StorageViews.View"
 "System.Anonymous"
 "System.Read"
@@ -342,3 +346,4 @@ If you don't see your problem here or you can't resolve your issue, try one of t
 - Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 
 - [Open an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+
