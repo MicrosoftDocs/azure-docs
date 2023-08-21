@@ -1,6 +1,6 @@
 ---
-title: Quickstart - deploy updates in using update management center in the Azure portal
-description: This quickstart helps you to deploy updates immediately and view results for supported machines in update management center (preview) using the Azure portal.
+title: Quickstart - deploy updates in using update manager in the Azure portal
+description: This quickstart helps you to deploy updates immediately and view results for supported machines in Azure Update Manager (preview) using the Azure portal.
 ms.service: update-management-center
 ms.date: 04/21/2022
 author: SnehaSudhirG
@@ -10,7 +10,7 @@ ms.topic: quickstart
 
 # Quickstart: Check and install on-demand updates
 
-Using the Update management center (preview) you can update automatically at scale with the help of built-in policies and schedule updates on a recurring basis or you can also take control by checking and installing updates manually. 
+Using the Update Manager (preview) you can update automatically at scale with the help of built-in policies and schedule updates on a recurring basis or you can also take control by checking and installing updates manually. 
 
 This quickstart details you how to perform manual assessment and apply updates on a selected Azure virtual machine(s) or Arc-enabled server on-premises or in cloud environments.
 
@@ -23,7 +23,7 @@ This quickstart details you how to perform manual assessment and apply updates o
 
 ## Check updates
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update management center (preview).
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to Update Manager (preview).
 
 1. Select **Getting started**, **On-demand assessment and updates**, select **Check for updates**.
 

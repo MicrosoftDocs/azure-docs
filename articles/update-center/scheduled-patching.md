@@ -1,7 +1,7 @@
 ---
-title: Scheduling recurring updates in Update management center (preview)
-description: The article details how to use update management center (preview) in Azure to set update schedules that install recurring updates on your machines.
-ms.service: update-management-center
+title: Scheduling recurring updates in Azure Update Manager (preview)
+description: The article details how to use Azure Update Manager (preview) in Azure to set update schedules that install recurring updates on your machines.
+ms.service: update-manager
 ms.date: 05/30/2023
 ms.topic: conceptual
 author: SnehaSudhirG
@@ -16,13 +16,13 @@ ms.author: sudhirsneha
 > - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch orchestration to **Customer Managed Schedules (Preview)** by **30th June 2023**. If you fail to update the patch orchestration by **30th June 2023**, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.[Learn more](prerequsite-for-schedule-patching.md).
 
 
-You can use update management center (preview) in Azure to create and save recurring deployment schedules. You can create a schedule on a daily, weekly or hourly cadence, specify the machines that must be updated as part of the schedule, and the updates to be installed. This schedule will then automatically install the updates as per the created schedule for single VM and at scale.
+You can use Update Manager (preview) in Azure to create and save recurring deployment schedules. You can create a schedule on a daily, weekly or hourly cadence, specify the machines that must be updated as part of the schedule, and the updates to be installed. This schedule will then automatically install the updates as per the created schedule for single VM and at scale.
 
-Update management center (preview) uses maintenance control schedule instead of creating its own schedules. Maintenance control enables customers to manage platform updates. For more information, see [Maintenance control documentation](/azure/virtual-machines/maintenance-control).
+Update Manager (preview) uses maintenance control schedule instead of creating its own schedules. Maintenance control enables customers to manage platform updates. For more information, see [Maintenance control documentation](/azure/virtual-machines/maintenance-control).
 
 ## Prerequisites for scheduled patching
 
-1. See [Prerequisites for Update management center (preview)](./overview.md#prerequisites)
+1. See [Prerequisites for Update Manager (preview)](./overview.md#prerequisites)
 1. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules (Preview)**. For more information, see [how to enable schedule patching on existing VMs](prerequsite-for-schedule-patching.md#enable-schedule-patching-on-azure-vms). For Azure Arc-enabled machines, it isn't a requirement.
 
 	> [!Note]
@@ -52,7 +52,7 @@ The following are the recommended limits for the mentioned indicators:
 ## Schedule recurring updates on single VM
 
 >[!NOTE]
-> You can schedule updates from the Overview or Machines blade in update management center (preview) page or from the selected VM.
+> You can schedule updates from the Overview or Machines blade in Update Manager (preview) page or from the selected VM.
 
 # [From Overview blade](#tab/schedule-updates-single-overview)
 
@@ -60,7 +60,7 @@ To schedule recurring updates on a single VM, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In **Update management center (preview)**, **Overview**, select your **Subscription**, and select **Schedule updates**.
+1. In **Update Manager (preview)**, **Overview**, select your **Subscription**, and select **Schedule updates**.
 
 1. In **Create new maintenance configuration**, you can create a schedule for a single VM.
 
@@ -95,7 +95,7 @@ To schedule recurring updates on a single VM, follow these steps:
 1. In the **Updates** page, specify the updates to include in the deployment such as update classification(s) or KB ID/ packages that must be installed when you trigger your schedule.
 
     > [!Note] 
-	> Update management center (preview) doesn't support driver updates.
+	> Update Manager (preview) doesn't support driver updates.
 
 1. In the **Tags** page, assign tags to maintenance configurations.
 
@@ -158,7 +158,7 @@ To schedule recurring updates at scale, follow these steps:
 1. In the **Updates** page, specify the updates to include in the deployment such as update classification(s) or KB ID/ packages that must be installed when you trigger your schedule.
 
     > [!Note] 
-	> Update management center (preview) doesn't support driver updates.
+	> Update Manager (preview) doesn't support driver updates.
 
 
 1. In the **Tags** page, assign tags to maintenance configurations.
@@ -234,7 +234,7 @@ You can create a new Guest OS update maintenance configuration or modify an exis
 
 ## Onboarding to Schedule using Policy
 
-The update management center (preview) allows you to target a group of Azure or non-Azure VMs for update deployment via Azure Policy. The grouping using policy, keeps you from having to edit your deployment to update machines. You can use subscription, resource group, tags or regions to define the scope and use this feature for the built-in policies which you can customize as per your use-case.
+The update Manager (preview) allows you to target a group of Azure or non-Azure VMs for update deployment via Azure Policy. The grouping using policy, keeps you from having to edit your deployment to update machines. You can use subscription, resource group, tags or regions to define the scope and use this feature for the built-in policies which you can customize as per your use-case.
 
 > [!NOTE]
 > This policy also ensures that the patch orchestration property for Azure machines is set to **Customer Managed Schedules (Preview)** as it is a prerequisite for scheduled patching. 
@@ -290,5 +290,5 @@ You can check the deployment status and history of your maintenance configuratio
 
 ## Next steps
 
-* To view update assessment and deployment logs generated by update management center (preview), see [query logs](query-logs.md).
-* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) update management center (preview).
+* To view update assessment and deployment logs generated by Update Manager (preview), see [query logs](query-logs.md).
+* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) Update Manager (preview).
