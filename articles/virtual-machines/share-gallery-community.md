@@ -39,11 +39,11 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 ## Limitations for images shared to the community
 
 There are some limitations for sharing your gallery to the community:
-
+- You can't convert an existing private gallery to Community gallery.
+- You can't use a third party image from Marketplace and publish it to the community. For a list of approved operating system base images, please see: [approved base images](https://go.microsoft.com/fwlink/?linkid=2245050).
+- Encrypted images are not supported
 - Image resources need to be created in the same region as the gallery. For example, if you create a gallery in West US, the image definitions and image versions should be created in West US if you want to make them available.
-- You can't share [VM Applications](vm-applications.md) to the community.
-- The image version region in the gallery should be same as the region home region, creating of cross-region version where the home region is different than the gallery isn't supported, however once the image is in the home region it can be replicated to other regions
-
+- You can't share [VM Applications](vm-applications.md) to the community yet.
 
 
 ## How sharing with the community works
