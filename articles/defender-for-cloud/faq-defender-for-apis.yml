@@ -26,9 +26,6 @@ sections:
 
   - name: Questions related to region/geo 
     questions:
-      - question: Does Defender for APIs move API traffic data out of my region/geo?
-        answer: Defender for APIs doesn't move API traffic out of customer’s region or geo. All the data processed will always remain within the customer onboarded geo. In terms of data retention, Defender for APIs doesn't store API payloads for more than 48 hours.
-
       - question: I just moved my APIs within my Azure API Management service to a new region. Why are these not updated?
         answer: APIs that are moved from one region to another region require [offboarding](defender-for-apis-manage.md#offboard-an-api) and [onboarding](defender-for-apis-deploy.md) of the APIs.
 
