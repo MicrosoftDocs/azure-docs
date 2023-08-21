@@ -47,11 +47,11 @@ To update an existing agent to use the Group Managed Service Account created dur
 
 
 
-## Enable password writeback in Azure AD Connect cloud sync 
+## Enable password writeback in cloud sync 
 
-You can enable password writeback in SSPR directly in Azure portal or through PowerShell. 
+You can enable password writeback in SSPR directly in the portal or through PowerShell. 
 
-### Enable password writeback in Azure portal
+### Enable password writeback in the portal
 To use *password writeback* and enable the self-service password reset (SSPR) service to detect the cloud sync agent, using the portal, complete the following steps: 
 
  1. Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account.
