@@ -92,7 +92,11 @@
     - name: Backup and recover cluster
       href: ../backup/azure-kubernetes-service-backup-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Observability
-      href: monitor-aks.md
+      items:
+        - name: Monitor AKS
+          href: monitor-aks.md
+        - name: Network Observability
+          href: network-observability-overview.md
     - name: Security
       items:
         - name: Access and identity
@@ -198,8 +202,6 @@
           href: ../migrate/tutorial-app-containerization-aspnet-kubernetes.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Clusters
       items:
-        - name: Create a cluster
-          href: create-cluster.md
         - name: Deploy a cluster in an Edge Zone
           href: edge-zones.md
         - name: Cluster configuration options
@@ -627,22 +629,28 @@
           href: kubelet-logs.md
         - name: View container data real-time
           href: ../azure-monitor/containers/container-insights-livedata-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Network Observability
+          items:
+            - name: BYO Prometheus and Grafana
+              href: network-observability-byo-cli.md
+            - name: Azure managed Prometheus and Grafana
+              href: network-observability-managed-cli.md
     - name: Upgrade
       items:
-        - name: Planned Maintenance for AKS weekly releases
-          href: aks-planned-maintenance-weekly-releases.md
-        - name: Use planned maintenance to schedule and control upgrades
-          href: planned-maintenance.md
         - name: Upgrade an AKS cluster
           href: upgrade-cluster.md
-        - name: Automatically upgrade an AKS cluster
-          href: auto-upgrade-cluster.md
-        - name: Automatically upgrade AKS cluster node operating system images
-          href: auto-upgrade-node-image.md
         - name: Upgrade the node image
           href: node-image-upgrade.md
-        - name: Upgrade the node image automatically with GitHub Actions
-          href: node-upgrade-github-actions.md
+        - name: Automate and schedule upgrade events
+          items:
+            - name: Automatically upgrade an AKS cluster
+              href: auto-upgrade-cluster.md
+            - name: Automatically upgrade AKS cluster node operating system images
+              href: auto-upgrade-node-image.md
+            - name: Upgrade the node image automatically with GitHub Actions
+              href: node-upgrade-github-actions.md
+            - name: Use planned maintenance to schedule and control upgrades
+              href: planned-maintenance.md
         - name: Process node OS updates
           href: node-updates-kured.md
     - name: Azure Linux container host for AKS

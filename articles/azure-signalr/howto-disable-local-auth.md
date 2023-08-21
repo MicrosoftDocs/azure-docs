@@ -16,8 +16,9 @@ There are two ways to authenticate to Azure SignalR Service resources: Azure Act
 
 > [!IMPORTANT]
 > Disabling local authentication can have following influences.
-> - The current set of access keys will be permanently deleted. 
-> - Tokens signed with current set of access keys will become unavailable. 
+>
+> - The current set of access keys will be permanently deleted.
+> - Tokens signed with current set of access keys will become unavailable.
 
 ## Use Azure portal
 
@@ -39,71 +40,69 @@ You can disable local authentication by setting `disableLocalAuth` property to t
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "resource_name": {
-            "defaultValue": "test-for-disable-aad",
-            "type": "String"
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.SignalRService/SignalR",
-            "apiVersion": "2022-08-01-preview",
-            "name": "[parameters('resource_name')]",
-            "location": "eastus",
-            "sku": {
-                "name": "Premium_P1",
-                "tier": "Premium",
-                "size": "P1",
-                "capacity": 1
-            },
-            "kind": "SignalR",
-            "properties": {
-                "tls": {
-                    "clientCertEnabled": false
-                },
-                "features": [
-                    {
-                        "flag": "ServiceMode",
-                        "value": "Default",
-                        "properties": {}
-                    },
-                    {
-                        "flag": "EnableConnectivityLogs",
-                        "value": "True",
-                        "properties": {}
-                    }
-                ],
-                "cors": {
-                    "allowedOrigins": [
-                        "*"
-                    ]
-                },
-                "serverless": {
-                    "connectionTimeoutInSeconds": 30
-                },
-                "upstream": {},
-                "networkACLs": {
-                    "defaultAction": "Deny",
-                    "publicNetwork": {
-                        "allow": [
-                            "ServerConnection",
-                            "ClientConnection",
-                            "RESTAPI",
-                            "Trace"
-                        ]
-                    },
-                    "privateEndpoints": []
-                },
-                "publicNetworkAccess": "Enabled",
-                "disableLocalAuth": true,
-                "disableAadAuth": false
-            }
-        }
-    ]
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "resource_name": {
+      "defaultValue": "test-for-disable-aad",
+      "type": "String"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.SignalRService/SignalR",
+      "apiVersion": "2022-08-01-preview",
+      "name": "[parameters('resource_name')]",
+      "location": "eastus",
+      "sku": {
+        "name": "Premium_P1",
+        "tier": "Premium",
+        "size": "P1",
+        "capacity": 1
+      },
+      "kind": "SignalR",
+      "properties": {
+        "tls": {
+          "clientCertEnabled": false
+        },
+        "features": [
+          {
+            "flag": "ServiceMode",
+            "value": "Default",
+            "properties": {}
+          },
+          {
+            "flag": "EnableConnectivityLogs",
+            "value": "True",
+            "properties": {}
+          }
+        ],
+        "cors": {
+          "allowedOrigins": ["*"]
+        },
+        "serverless": {
+          "connectionTimeoutInSeconds": 30
+        },
+        "upstream": {},
+        "networkACLs": {
+          "defaultAction": "Deny",
+          "publicNetwork": {
+            "allow": [
+              "ServerConnection",
+              "ClientConnection",
+              "RESTAPI",
+              "Trace"
+            ]
+          },
+          "privateEndpoints": []
+        },
+        "publicNetworkAccess": "Enabled",
+        "disableLocalAuth": true,
+        "disableAadAuth": false
+      }
+    }
+  ]
 }
 ```
 

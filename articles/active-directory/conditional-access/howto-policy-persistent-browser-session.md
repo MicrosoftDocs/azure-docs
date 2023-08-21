@@ -26,7 +26,7 @@ Protect user access on unmanaged devices by preventing browser sessions from rem
 
 ## Create a Conditional Access policy
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
