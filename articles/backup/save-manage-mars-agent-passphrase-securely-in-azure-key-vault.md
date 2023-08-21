@@ -16,13 +16,13 @@ Azure Backup using the Recovery Services agent (MARS) allows you back up files/f
 
 
 >[!Important]
->If this passphrase is lost, Microsoft will not be able retrieve backup data stored in the Recovery Services vault. We recommend you to store this passphrase in a secure external location, such as Azure Key Vault.
+>If this passphrase is lost, Microsoft will not be able retrieve backup data stored in the Recovery Services vault. We recommend that you store this passphrase in a secure external location, such as Azure Key Vault.
 
 Now, you can save your encryption passphrase securely in Azure Key Vault as a Secret from the MARS console during installation for new machines and by changing the passphrase for existing machines. To allow saving the passphrase to Azure Key Vault, you must grant Recovery Services vault the permissions to create a Secret in the Azure Key Vault. 
 
 ## Before you start
 
--	If you don't have a Recovery Services vault, [create one](backup-create-recovery-services-vault.md).
+-	[Create a Recovery Services vault](backup-create-recovery-services-vault.md) in case you don't gave one.
 -	You should use a single Azure Key Vault to store all your passphrases. If you don't have it, [create one](../key-vault/general/quick-create-portal.md).
   - Azure Key Vault pricing is applicable when you create a new Azure Key Vault to store your passphrase.
   - After you create the Key Vault, to protect against accidental or malicious deletion of passphrase, [ensure that soft-delete and purge protection is turned on](../key-vault/general/soft-delete-overview.md).
