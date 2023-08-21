@@ -15,7 +15,6 @@ ms.reviewer: etbasser
 
 ms.collection: M365-identity-device-management
 ---
-
 # Securing workload identities
 
 Azure AD Identity Protection has historically protected users in detecting, investigating, and remediating identity-based risks. We're now extending these capabilities to workload identities to protect applications and service principals.
@@ -40,10 +39,10 @@ To make use of workload identity risk, including the new **Risky workload identi
 
 - Workload Identities Premium licensing: You can view and acquire licenses on the [Workload Identities blade](https://portal.azure.com/#view/Microsoft_Azure_ManagedServiceIdentity/WorkloadIdentitiesBlade) in the Azure portal.
 - One of the following administrator roles assigned
-   - Global Administrator
    - Security Administrator
    - Security Operator
    - Security Reader Users assigned the Conditional Access administrator role can create policies that use risk as a condition.
+   - Global Administrator
 
 ## Workload identity risk detections
 
@@ -63,7 +62,7 @@ We detect risk on workload identities across sign-in behavior and offline indica
 
 Organizations can find workload identities that have been flagged for risk in one of two locations:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Security Reader](../roles/permissions-reference.md#security-reader).
 1. Browse to **Azure Active Directory** > **Security** > **Risky workload identities**.
 1. Or browse to **Azure Active Directory** > **Security** > **Risk detections**.
    1. Select the **Workload identity detections** tab.'
@@ -89,7 +88,7 @@ For improved security and resilience of your workload identities, Continuous Acc
 
 ## Investigate risky workload identities
 
-Identity Protection provides organizations with two reports they can use to investigate workload identity risk. These reports are the risky workload identities, and risk detections for workload identities. All reports allow for downloading of events in .CSV format for further analysis outside of the Azure portal. 
+Identity Protection provides organizations with two reports they can use to investigate workload identity risk. These reports are the risky workload identities, and risk detections for workload identities. All reports allow for downloading of events in .CSV format for further analysis. 
 
 Some of the key questions to answer during your investigation include:
 
@@ -102,7 +101,7 @@ The [Azure Active Directory security operations guide for Applications](../archi
 
 Once you determine if the workload identity was compromised, dismiss the account’s risk, or confirm the account as compromised in the Risky workload identities report. You can also select “Disable service principal” if you want to block the account from further sign-ins.
 
-:::image type="content" source="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png" alt-text="Confirm workload identity compromise or dismiss the risk in the Azure portal." lightbox="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png":::
+:::image type="content" source="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png" alt-text="Confirm workload identity compromise or dismiss the risk." lightbox="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png":::
 
 ## Remediate risky workload identities
 

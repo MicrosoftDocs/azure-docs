@@ -93,7 +93,7 @@ The sections below identify the steps for complete monitoring of your Kubernetes
 #### Enable scraping of Prometheus metrics
 
 > [!IMPORTANT]
-> Azure Monitor managed service for Prometheus requires an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) to support Azure Monitor managed service for Prometheus.   For information on design considerations for a workspace configuration, see [Azure Monitor workspace architecture](../essentials/azure-monitor-workspace-overview.md#azure-monitor-workspace-architecture).
+>  To use Azure Monitor managed service for Prometheus, you need to have an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md). For information on design considerations for a workspace configuration, see [Azure Monitor workspace architecture](../essentials/azure-monitor-workspace-overview.md#azure-monitor-workspace-architecture).
 
 Enable scraping of Prometheus metrics by Azure Monitor managed service for Prometheus from your cluster using one of the following methods:
 
