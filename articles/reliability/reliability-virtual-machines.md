@@ -405,10 +405,16 @@ Because availability zones are physically separate and provide distinct power so
 
 #### Create a resource with availability zone enabled
 
-Get started by creating a virtual machine (VM) with availability zone enabled from the following deployment options below:
+Create a VM with availability zones enabled from the following deployment options:
+
 - [Azure CLI](../virtual-machines/linux/create-cli-availability-zone.md)
 - [PowerShell](../virtual-machines/windows/create-powershell-availability-zone.md)
 - [Azure portal](../virtual-machines/create-portal-availability-zone.md)
+
+To add a new managed disk in an availability zone:
+
+- [Add a managed disk in Availability Zones with CLI](../virtual-machines/linux/add-disk.md#attach-a-new-disk-to-a-vm)
+- [Add a managed disk in Availability Zones with PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 
 ### Zonal failover support
 

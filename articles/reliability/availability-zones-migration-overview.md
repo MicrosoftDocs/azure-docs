@@ -59,17 +59,7 @@ The table below lists each product that offers migration guidance and/or informa
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Azure availability zone migration baseline](availability-zones-baseline.md)
+- To assess the availability zone readiness of your application, see [Azure availability zone migration baseline](./availability-zones-baseline.md).
 
-> [!div class="nextstepaction"]
-> [Azure services and regions with availability zones](availability-zones-service-support.md)
+- For complete service specific guidance for availability zones, disaster recovery, or high reliability by service, see [Reliability guidance overview](./reliability-guidance-overview.md).
 
-> [!div class="nextstepaction"]
-> [Availability of service by category](availability-service-by-category.md)
-
-> [!div class="nextstepaction"]
-> [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
-
-> [!div class="nextstepaction"]
-> [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)

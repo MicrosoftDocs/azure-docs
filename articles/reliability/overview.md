@@ -1,22 +1,28 @@
 ---
-title: Azure reliability documentation
+title: Reliability in Microsoft Azure 
 description: Azure reliability documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
 author: anaharris-ms
 ms.topic: overview
-ms.date: 07/20/2022
+ms.date: 08/21/2023
 ms.author: anaharris
 ms.service: reliability
 ms.subservice: availability-zones
 ms.custom: subject-reliability
 ---
 
-# Azure reliability documentation
+# Reliability in Microsoft Azure 
 
 Reliability consists of two principles: resiliency and availability. The goal of resiliency is to return your application to a fully functioning state after a failure occurs. The goal of availability is to provide consistent access to your application or workload be users as they need to.
 
 Azure includes built-in reliability services that you can use and manage based on your business needs. Whether it’s a single hardware node failure, a rack level failure, a datacenter outage, or a large-scale regional outage, Azure provides solutions that improve reliability. For example, availability sets ensure that the virtual machines deployed on Azure are distributed across multiple isolated hardware nodes in a cluster. Availability zones protect customers’ applications and data from datacenter failures across multiple physical locations within a region. **Regions** and **availability zones** are central to your application design and resiliency strategy and are discussed in greater detail later in this article.
 
 The Azure reliability documentation offers reliability guidance for Azure services. This guidance includes information on availability zone support, disaster recovery guidance, and availability of services.
+
+For complete service specific guidance for availability zones, disaster recovery, or high reliability by service, see [Reliability guidance overview](./reliability-guidance-overview.md).
+
+To assess the availability zone readiness of your application, see [Azure availability zone migration baseline](./availability-zones-baseline.md).
+ 
+For availability zone migration guidance by service, see [Availability zones migration overview](./availability-zones-overview.md).
 
 For more detailed information on reliability and reliability principles in Microsoft Azure services, see [Microsoft Azure Well-Architected Framework: Reliability](/azure/architecture/framework/#reliability).
 
