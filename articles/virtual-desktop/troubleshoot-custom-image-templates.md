@@ -44,6 +44,6 @@ The generation for the source image is shown when you select the image you want 
 
 If you receive the error message starting **PrivateLinkService Network Policy is not disabled for the given subnet**, you need to disable the *private service policy* on the subnet. For more information, see [Disable private service policy on the subnet](../virtual-machines/windows/image-builder-vnet.md#disable-private-service-policy-on-the-subnet).
 
-## Unable to remove the Microsoft Store app 
+## Removing the Microsoft Store app 
 
 Removing or uninstalling the Microsoft Store app is not supported. Learn how to [Configure access to the Microsoft Store](/windows/configuration/stop-employees-from-using-microsoft-store).
