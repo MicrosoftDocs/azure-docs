@@ -1,6 +1,6 @@
 ---
 title: Migrate from HTTPS application routing to the application routing add-on
-description: Learn how to migrate from the deprecated HTTP application routing feature to the application routing add-on.
+description: Learn how to migrate from the retired HTTP application routing feature to the application routing add-on.
 ms.topic: how-to
 ms.author: nickoman
 author: nickomang
@@ -27,7 +27,7 @@ Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions
     az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons web_application_routing
     ```
 
-2. Update your ingresses, setting `ingressClassName` to `nginx`. Removing the `kubernetes.io/ingress.class` annotation, and add `approuting.kubernetes.azure.com/resources` with a value of `nginx`. You'll also need to update the host to one that you own, as the application routing add-on doesn't have a managed cluster DNS zone. If you don't have a DNS zone, follow instructions to [create][app-routing-dns-create] and [configure][app-routing-dns-configure] one.
+2. Update your ingresses, setting `ingressClassName` to `webapprouting.kubernetes.azure.com`. Remove the `kubernetes.io/ingress.class` annotation. You'll also need to update the host to one that you own, as the application routing add-on doesn't have a managed cluster DNS zone. If you don't have a DNS zone, follow instructions to [create][app-routing-dns-create] and [configure][app-routing-dns-configure] one.
 
     Initially, your ingress configuration will look something like this:
 
@@ -59,10 +59,8 @@ Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions
     kind: Ingress
     metadata:
     name: aks-helloworld
-    annotations:
-        approuting.kubernetes.azure.com/resources: nginx
     spec:
-    ingressClassName: nginx
+    ingressClassName: webapprouting.kubernetes.azure.com
     rules:
     - host: aks-helloworld.<CLUSTER_SPECIFIC_DNS_ZONE> # Replace with your own value
         http:
@@ -76,7 +74,11 @@ Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions
                 number: 80
     ```
 
-3. Update any downstream usage of the ingress controller's IP (mainly, DNS records) with the new nginx ingress controller IP.
+3. Update the ingress controller's IP (such as in DNS records) with the new IP address. You can find the new IP by using `kubectl get`. For example:
+
+    ```bash
+    kubectl get svc nginx --namespace app-routing-system -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+    ```
 
 4. Disable the HTTP application routing add-on.
 
