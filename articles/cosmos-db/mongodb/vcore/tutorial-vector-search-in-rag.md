@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: sandnair
 ms.author: sandnair
 ms.reviewer: sandnair
-ms.date: 08/21/2023
+ms.date: 08/22/2023
 ---
 
 # AI Apps with Azure Cosmos DB vCore Vector Search
@@ -45,3 +45,4 @@ Code Samples and Tutorials:
 
 > [!div class="nextstepaction"]
 > [Introduction to Azure Cosmos DB for MongoDB vCore](introduction.md)
+

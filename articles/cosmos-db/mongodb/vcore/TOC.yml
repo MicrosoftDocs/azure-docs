@@ -17,7 +17,7 @@
         - name: Node.js
           href: tutorial-nodejs-web-app.md
     - name: Build AI Apps with Azure Cosmos DB vCore Vector Search
-        href: tutorial-vector-search-in-rag.md
+      href: tutorial-vector-search-in-rag.md
 - name: Concepts
   items:
     - name: Vector search
