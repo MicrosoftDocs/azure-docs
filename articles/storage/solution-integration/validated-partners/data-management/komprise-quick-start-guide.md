@@ -48,7 +48,7 @@ With a quick install of a local Komprise data Observer, in 30 minutes or less yo
 - Komprise includes a cost comparison tool with the ability to edit cost models of current on-premises storage and Azure Storage Solutions costs to determine the best savings and return on investment
 - Usage graphs provide quick summary/comparisons of file types, file sizes, file counts, top owners, groups, shares and directories. Use this information to determine the order of the migration and assess the business impact of migrating data.
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/sample-analysis-charts.png" alt-text="Analysis by file type and storage consumed" lightbox="./media/komprise-quick-start-guide-v2/sample-analysis-charts.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/sample-analysis-charts.png" alt-text="Analysis by file type and storage consumed" lightbox="./media/komprise-quick-start-guide-v2/sample-analysis-charts.png":::
 
 - Look for opportunities to clean up expired data, which reduces the migration effort and the cost of the destination storage.
 - Identify cold data, not accessed in six months or more, that could be cost-effectively tiered or moved to Azure Blob storage.
@@ -60,6 +60,7 @@ With a quick install of a local Komprise data Observer, in 30 minutes or less yo
     - Lack of destination support for sparce files or symbolic links
 
 Komprise knows it can be challenging to find just the right data across billions of files. Komprise Deep Analytics builds a Global File Index of all your file’s metadata, giving a unified way to search, tag and create select data sets across storage silos. You can identify orphan data, data by name, location, owner, date, application type or extension. Administrators can use these queries and tagged data sets to move, copy, confine, or feed your data pipelines. They can also set data workflow policies.  This allows business to use other Azure cloud data services like personal data identification, running cloud data analytics, and culling and feeding edge data to cloud data lakes.  
+
 Learn more  at [Komprise Deep Analytics](https://www.komprise.com/use-cases/deep-analytics/)
 
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-data-analysis.png" alt-text="Screenshot of Data Analysis Graphs" lightbox="./media/komprise-quick-start-guide-v2/screenshot-data-analysis.png":::
@@ -189,13 +190,13 @@ You can also click on the default Storage accounts icon
 
 7. Navigate to the Properties of the Azure File share. Write down the URL address, which is required to add the Azure connection into the Komprise target file share
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-azure-file-share-properties.png" alt-text="Screenshot of Azure File Share Properties dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-azure-file-share-properties.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-azure-file-share-properties.png" alt-text="Screenshot of Azure File Share Properties dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-azure-file-share-properties.png":::
 
 8.	(Optional) You can add extra layers of security to your deployment
     a. Configure role-based access to limit who can make changes to your storage account. For more information, see [Built-in roles for management operations](/azure/storage/common/authorization-resource-provider#built-in-roles-for-management-operations)
     b. Restrict access to the account to specific network segments with [storage firewall settings](/azure/storage/common/storage-network-security). Configure firewall settings to prevent access from outside of your corporate network
 
-:::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-network-security.png" alt-text="Screenshot of Azure Network Security dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-network-security.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-network-security.png" alt-text="Screenshot of Azure Network Security dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-network-security.png":::
 
 c. Set a [delete lock](/azure/azure-resource-manager/management/lock-resources) on the account to prevent accidental deletion of the storage account.
     
@@ -241,11 +242,9 @@ Object migration provides options to choose the destination Azure storage tier (
 
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-migration-management-dialog.png" alt-text="Screenshot of Komprise Migration Management Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-migration-management-dialog.png":::
 
-5. Once all changes have been migrated, run one final migration by clicking on Actions and selecting Start final iteration. Before final migration, we recommend stopping access to source file shares or moving them to read-only
+5. Once all changes have been migrated, run one final migration by clicking on Actions and selecting Start final iteration. Before final migration, we recommend stopping access to source file shares or moving them to read-only mode (for users and applications). This step makes sure no changes happen on the source.
 
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-migration-overview.png" alt-text="Screenshot of Komprise Migration Management Overview" lightbox="./media/komprise-quick-start-guide-v2/screenshot-migration-overview.png":::
-
-mode (for users and applications). This step makes sure no changes happen on the source.
 
 Once the final migration finishes, transition all users and applications to the destination share. Switching over to the new file service usually requires changing the configuration of DNS servers and DFS servers or changing the mount points to the new destination.
 
@@ -270,17 +269,17 @@ To get started, sign-in to the director and do the following:
 :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-add-object-destination.png" alt-text="Screenshot of Komprise Add Object Destination Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-add-object-destination.png":::
 
 a. With Add Account, discover all the containers by entering:
-- Storage account name
-- Primary access key
-- Display Name
+    - Storage account name
+    - Primary access key
+    - Display Name
 
 Required information can be found in [Azure portal](https://portal.azure.com/) by navigating to the Access keys item under Settings for the storage account. If the keys aren't showing, select on the Show keys.
 
 b. Or, specify a container by entering:
-- Container Name
-- Storage Account Name
-- Primary Access Key
-- Display Name
+    - Container Name
+    - Storage Account Name
+    - Primary Access Key
+    - Display Name
 
 The container name represents the destination container for the migration and needs to be created before migration. Other required information can be found in [Azure portal](https://portal.azure.com/) by navigating to the Access keys item under Settings for the storage account. If the keys aren't showing, select on the Show keys.
 
